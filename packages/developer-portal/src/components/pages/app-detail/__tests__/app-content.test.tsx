@@ -16,13 +16,6 @@ import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
   ...appState,
-  auth: {
-    loginSession: {
-      loginIdentity: {
-        developerId: '1',
-      },
-    },
-  },
   installations: {
     installationsAppData: installationsStub,
   },

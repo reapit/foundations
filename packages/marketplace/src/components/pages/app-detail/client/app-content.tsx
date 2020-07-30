@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Section } from '@reapit/elements'
-import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { SummarySection, AdditionalImagesSection, PermissionsSection, DescriptionSection } from '../common/ui-sections'
+import { AppDetailModel } from '@/types/marketplace-api-schema'
 
 export type AppContentProps = {
-  appDetailData: AppDetailDataNotNull
+  appDetailData: AppDetailModel
 }
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {

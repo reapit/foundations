@@ -3,15 +3,13 @@
 exports[`ReapitPropertyDetailWidget should match a snapshot 1`] = `
 Property_detail_widget {
   "$$": Object {
-    "after_update": Array [
-      [Function],
-    ],
+    "after_update": Array [],
     "before_update": Array [],
     "bound": Object {},
     "callbacks": Object {},
     "context": Map {},
     "ctx": Array [
-      Object {},
+      undefined,
       Array [],
       "",
       "",

@@ -30,14 +30,14 @@ export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrows
 
   const connectIsDesktop = reapitConnectBrowserSession.connectIsDesktop
 
+  const connectHasSession = reapitConnectBrowserSession.connectHasSession
+
   return {
     connectSession,
     connectAuthorizeRedirect,
     connectLoginRedirect,
     connectLogoutRedirect,
     connectIsDesktop,
+    connectHasSession,
   }
 }
-
-export const ReapitConnectContext = React.createContext<ReapitConnectHook>({} as ReapitConnectHook)
-ReapitConnectContext.displayName = 'ReapitConnectContext'

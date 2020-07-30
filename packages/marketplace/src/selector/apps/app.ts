@@ -1,66 +1,21 @@
 import { ReduxState } from '@/types/core'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { MyAppsState } from '@/reducers/my-apps'
-import { AppDetailState } from '@/reducers/app-detail'
-import { InstalledAppsState } from '@/reducers/installed-apps'
-import { ClientAppSummaryState } from '@/reducers/client/app-summary'
+import { FeatureListState } from '@/reducers/apps/feature-list'
+import { AppsListState } from '@/reducers/apps/list'
 
-export const selectAppDetailState = (state: ReduxState) => {
-  return state?.appDetail
+// App Detail
+export const selectAppDetailData = (state: ReduxState): AppDetailModel => {
+  return state.apps.detail.data || {}
 }
 
-export const selectAppDetailId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.id
+export const selectAppDetailLoading = (state: ReduxState): boolean => {
+  return state.apps.detail.isLoading
 }
 
-export const selectAppDetailInstallationId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.installationId
+export const selectFeatureAppsListState = (state: ReduxState): FeatureListState => {
+  return state.apps.featureList
 }
 
-export const selectApp = (state: ReduxState): AppDetailModel => {
-  return state?.appDetail?.appDetailData?.data || {}
-}
-
-export const selectAppAuthenticationLoading = (state: ReduxState): boolean => {
-  return state.appDetail?.authentication.loading
-}
-export const selectAppAuthenticationCode = (state: ReduxState): string => {
-  return state.appDetail?.authentication.code
-}
-
-export const selectAppSummary = (state: ReduxState): ClientAppSummaryState => {
-  return state?.client.appSummary
-}
-
-export const selectFeaturedApps = (state: ReduxState): AppSummaryModel[] => {
-  return state?.client.appSummary.data?.featuredApps || []
-}
-
-export const selectInstalledApps = (state: ReduxState): InstalledAppsState => {
-  return state?.installedApps
-}
-
-export const selectAppDetail = (state: ReduxState): AppDetailState => {
-  return state.appDetail
-}
-
-export const selectMyApps = (state: ReduxState): MyAppsState => {
-  return state.myApps || {}
-}
-
-export const selectAppDetailData = (state: ReduxState) => {
-  return state.client.appDetail.data || {}
-}
-
-export const selectAppDetailAuthentication = (state: ReduxState) => {
-  return state.appDetail.authentication
-}
-
-export const selectAppDetailLoading = (state: ReduxState) => {
-  return state.client.appDetail.isAppDetailLoading
-}
-
-export const selectAppDetailError = (state: ReduxState): string | null => {
-  return state?.client?.appDetail?.error || null
+export const selectAppsListState = (state: ReduxState): AppsListState => {
+  return state.apps.list
 }

@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
-import auth from '@/reducers/auth'
 import appsReducer from '@/reducers/apps'
 import scopesReducer from '@/reducers/scopes'
 import categoriesReducer from '@/reducers/categories'
@@ -25,7 +24,6 @@ import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
-import authSagas from '@/sagas/auth'
 import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
@@ -68,7 +66,6 @@ export class Store {
     categories: categoriesReducer,
     desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
-    auth,
     error,
     submitRevision,
     developerSetStatus,
@@ -89,7 +86,6 @@ export class Store {
 
   static sagas = function*() {
     yield all([
-      fork(authSagas),
       fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),

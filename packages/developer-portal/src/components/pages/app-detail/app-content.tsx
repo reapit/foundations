@@ -18,8 +18,10 @@ import {
   InstallationsTableSection,
   PermissionsSection,
 } from './app-sections'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { AppDetailState } from '@/reducers/apps/app-detail'
-import { selectDeveloperId } from '@/selector/auth'
 
 export type AppContentProps = {
   appDetailState: AppDetailState
@@ -102,7 +104,8 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const { data = [] } = installationsData
   const dispatch = useDispatch()
-  const developerId = useSelector(selectDeveloperId) || ''
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
 
   const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
   const installationTableColumns = generateInstallationTableColumns(

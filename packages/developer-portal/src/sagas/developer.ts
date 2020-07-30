@@ -1,4 +1,4 @@
-import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import {
@@ -22,7 +22,7 @@ import {
   FetchBillingsParams,
   FetchBillingsByMonthParams,
 } from '@/services/traffic-events'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId } from '@/utils/session'
 
 export const developerCreate = function*({ data }: Action<CreateDeveloperModel>) {
   yield put(developerSetFormState('SUBMITTING'))
@@ -45,7 +45,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
 
 export const fetchMyIdentitySagas = function*() {
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }

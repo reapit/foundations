@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Fa from 'svelte-fa'
   import {
     faChevronLeft,
@@ -9,18 +9,23 @@
   } from '@fortawesome/free-solid-svg-icons'
   import EnlargeImageModal from './enlarge-image-modal.svelte'
 
-  export let currentDisplayImage
-  export let maxCarouselPage
-  export let displayItemQuantity
-  export let currentCarouselPage
-  export let setDisplayImageIndex
-  export let currentDisplayImageIndex
-  export let imageQuantity
+  export let currentDisplayImage: string
+  export let maxCarouselPage: number
+  export let displayItemQuantity: number
+  export let currentCarouselPage: number
+  export let setDisplayImageIndex: ({ detail: number }) => void
+  export let currentDisplayImageIndex: number
+  export let imageQuantity: number
   export let autoPlayInterval = 2000
+  export let onCarouselSlideNext: () => void
+  export let onCarouselSlidePrev: () => void
 
-  let intervalId
+  let intervalId: NodeJS.Timeout
   let autoPlay = false
   let isOpenEnlargeImageModal = false
+  let minImageIndexCarouselPage: number
+  let maxImageIndexCarouselPage: number
+  let indexOfLastImageInTheCarousel: number
 
   const toggleEnlargeImageModal = () => {
     isOpenEnlargeImageModal = !isOpenEnlargeImageModal
@@ -38,29 +43,24 @@
     }
   }
 
-  let maxCurrentDisplayImageIndexOfCurrentCarousePage
-
-  $: minCurrentDisplayImageIndexOfCurrentCarousePage = displayItemQuantity * currentCarouselPage
+  $: minImageIndexCarouselPage = displayItemQuantity * currentCarouselPage
   $: indexOfLastImageInTheCarousel = imageQuantity - 1
 
   $: {
-    maxCurrentDisplayImageIndexOfCurrentCarousePage =
+    maxImageIndexCarouselPage =
       /*
       -1 because zero based number
     */
-      minCurrentDisplayImageIndexOfCurrentCarousePage + displayItemQuantity - 1
+      minImageIndexCarouselPage + displayItemQuantity - 1
 
-    if (maxCurrentDisplayImageIndexOfCurrentCarousePage > imageQuantity - 1) {
-      maxCurrentDisplayImageIndexOfCurrentCarousePage = imageQuantity - 1
+    if (maxImageIndexCarouselPage > imageQuantity - 1) {
+      maxImageIndexCarouselPage = imageQuantity - 1
     }
   }
 
-  export let onCarouselSlideNext
-  export let onCarouselSlidePrev
-
   const widgetPrevButton = () => {
     const currentDisplayImageIndexAfterMovePrev = currentDisplayImageIndex - 1
-    if (currentDisplayImageIndexAfterMovePrev >= minCurrentDisplayImageIndexOfCurrentCarousePage) {
+    if (currentDisplayImageIndexAfterMovePrev >= minImageIndexCarouselPage) {
       setDisplayImageIndex({
         detail: currentDisplayImageIndexAfterMovePrev,
       })
@@ -68,7 +68,7 @@
     }
 
     // If move to the prev image and
-    // Smaller than minCurrentDisplayImageIndexOfCurrentCarousePage (touch the left edge)
+    // Smaller than minImageIndexCarouselPage (touch the left edge)
     // -> proceed to slide the carousel backward
     // And set currentDisplayImageIndex to the first display item (image) on the carousel
     // For page 0, when move to the prev image -> move to the last page
@@ -87,7 +87,7 @@
 
   const widgetNextButton = () => {
     const currentDisplayImageIndexAfterMoveNext = currentDisplayImageIndex + 1
-    if (currentDisplayImageIndexAfterMoveNext <= maxCurrentDisplayImageIndexOfCurrentCarousePage) {
+    if (currentDisplayImageIndexAfterMoveNext <= maxImageIndexCarouselPage) {
       setDisplayImageIndex({
         detail: currentDisplayImageIndexAfterMoveNext,
       })

@@ -4,25 +4,25 @@ exports[`Loader it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="loader-spinner-container svelte-26x9wx"
+      class="loader-spinner-container svelte-14p0tdd"
     >
       <div
-        class="loader-spinner svelte-26x9wx"
+        class="loader-spinner svelte-14p0tdd"
       >
         <div
-          class="svelte-26x9wx"
+          class="svelte-14p0tdd"
         />
          
         <div
-          class="svelte-26x9wx"
+          class="svelte-14p0tdd"
         />
          
         <div
-          class="svelte-26x9wx"
+          class="svelte-14p0tdd"
         />
          
         <div
-          class="svelte-26x9wx"
+          class="svelte-14p0tdd"
         />
       </div>
     </div>

@@ -1,4 +1,8 @@
-import { PropertyData } from '../core'
+export interface PropertyData {
+  image: string
+  address: string
+  price: string
+}
 
 export const getProperty = async (): Promise<PropertyData> => {
   return Promise.resolve({

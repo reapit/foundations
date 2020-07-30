@@ -15,6 +15,7 @@ const formFields: Record<Field, FormFieldInfo> = {
     heading: 'Accounts Email',
     subHeading: 'This email will be used by our Accounts Department to send any account related correspondence',
     placeHolder: 'Please enter email address',
+    errorMessage: 'Email is not valid',
   },
   billingTelephoneField: {
     name: 'billingTelephone',

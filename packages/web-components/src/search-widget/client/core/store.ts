@@ -1,11 +1,11 @@
 import { writable, Writable } from 'svelte/store'
 import { SearchWidgeInitializers } from './index'
 import { PickedPropertyModel, PickedPropertyImageModel } from '../../types'
-import { ThemeClasses } from '../../../common/styles'
+import { ThemeBaseClasses } from '../../../common/styles/types'
 
 export interface SearchWidgetStore {
   initializers: SearchWidgeInitializers
-  themeClasses: ThemeClasses
+  themeClasses: ThemeBaseClasses
   properties: PickedPropertyModel[]
   propertyImagesByPropertyId: Record<string, PickedPropertyImageModel[]> | null
   selectedProperty: PickedPropertyModel | null

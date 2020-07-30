@@ -1,6 +1,6 @@
 import { StringMap } from '@/types/core'
 import { API_VERSION } from './constants'
-import { getAccessToken } from '@/utils/session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateHeader = (marketplaceApiKey): StringMap => ({
   'Content-Type': 'application/json',
@@ -12,8 +12,13 @@ export const generateHeaderWithApiV2 = (marketplaceApiKey): StringMap => ({
   'api-version': '2',
 })
 
-export const initAuthorizedRequestHeaders = async () => ({
-  Authorization: `Bearer ${await getAccessToken()}`,
-  'api-version': API_VERSION,
-  'Content-Type': 'application/json',
-})
+export const initAuthorizedRequestHeaders = async () => {
+  const session = await reapitConnectBrowserSession.connectSession()
+  const bearerToken = session ? session.accessToken : ''
+
+  return {
+    Authorization: `Bearer ${bearerToken}`,
+    'api-version': API_VERSION,
+    'Content-Type': 'application/json',
+  }
+}

@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
-import { redirectToLogin } from '@reapit/cognito-auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
-import Routes from '@/constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
@@ -13,21 +9,9 @@ const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 
 export type LoginProps = {}
 
-export const onLoginButtonClick = () => {
-  const redirectRoute = `${window.location.origin}${Routes.APPROVALS}`
-  redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, 'ADMIN')
-}
+export const onLoginButtonClick = () => reapitConnectBrowserSession.connectLoginRedirect()
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
-  const loginSession = useSelector(selectLoginSession)
-  const refreshSession = useSelector(selectRefreshSession)
-
-  const hasSession = !!loginSession || !!refreshSession
-
-  if (hasSession) {
-    return <Redirect to={Routes.APPROVALS} />
-  }
-
   return (
     <div className={container}>
       <div className={wrapper}>

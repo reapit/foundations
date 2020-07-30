@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { RegisterConfirm, handleUseEffect } from '../register-confirm'
 import Routes from '@/constants/routes'
-import { confirmRegistration } from '@reapit/cognito-auth'
+import { confirmRegistration } from '@/services/cognito-identity'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => ({ replace: jest.fn() }),
 }))
 
-jest.mock('@reapit/cognito-auth', () => ({
+jest.mock('@/services/cognito-identity', () => ({
   confirmRegistration: jest.fn().mockResolvedValue('success'),
 }))
 

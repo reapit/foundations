@@ -2,9 +2,8 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
 import { DeveloperEditionModal, handleAfterClose, handleFormSubmit, handleOnCreated } from '../developer-edition-modal'
-import { Provider, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
-import { selectLoginIdentity } from '@/selector/auth'
 import { developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
 import { developerStub } from '@/sagas/__stubs__/developer'
 
@@ -40,18 +39,6 @@ describe('DeveloperEditionModal', () => {
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  it('should call hooks with correct params', () => {
-    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.loginSession?.loginIdentity)
-
-    mount(
-      <Provider store={store}>
-        <DeveloperEditionModal visible={true} afterClose={jest.fn()} />
-      </Provider>,
-    )
-
-    expect(useSelector).toHaveBeenCalledWith(selectLoginIdentity)
   })
 
   describe('handleFormSubmit', () => {

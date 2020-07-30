@@ -1,7 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
-import { AuthState } from '../reducers/auth'
 import { ErrorState } from '../reducers/error'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { RevisionDetailState } from '@/reducers/revision-detail'
@@ -63,7 +62,6 @@ export interface ReduxState {
   scopes: ScopesRootState
   categories: CategoriesRootState
   developer: DeveloperState
-  auth: AuthState
   error: ErrorState
   submitRevision: SubmitRevisionState
   developerSetStatus: RequestState

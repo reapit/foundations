@@ -1,4 +1,4 @@
-import { all, call, fork, put, select, takeLatest } from 'redux-saga/effects'
+import { all, call, fork, put, takeLatest } from 'redux-saga/effects'
 import {
   fetchOrganisationMembers,
   FetchOrganisationMembersParams,
@@ -23,8 +23,8 @@ import {
 } from '@/actions/developers'
 import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
-import { selectDeveloperId } from '@/selector/auth'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
+import { getDeveloperId } from '@/utils/session'
 
 const params: Action<InviteDeveloperAsOrgMemberParams & { callback: () => void }> = {
   data: {
@@ -92,7 +92,7 @@ describe('members', () => {
     it('api call success', () => {
       const clone = gen.clone()
       expect(clone.next(true).value).toEqual(put(inviteDeveloperAsOrgMemberSuccess()))
-      expect(clone.next().value).toEqual(select(selectDeveloperId))
+      expect(clone.next().value).toEqual(call(getDeveloperId))
       expect(clone.next('mockID').value).toEqual(put(fetchOrganisationMembersAction({ id: 'mockID' })))
       expect(clone.next().done).toEqual(true)
     })

@@ -4,123 +4,123 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="date-time-picker-container svelte-vy6ksi"
+      class="date-time-picker-container svelte-114k6yq"
     >
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Mon Oct 07
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Tue Oct 08
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Wed Oct 09
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Thu Oct 10
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Fri Oct 11
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Sat Oct 12
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          
       </div>
       <div>
         <div
-          class="date-cell-container svelte-hlfy7d"
+          class="date-cell-container svelte-1kjjxt5"
           title="Click on the cell for more detail"
         >
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           >
             Sun Oct 13
           </div>
            
           <div
-            class=" svelte-hlfy7d"
+            class=" svelte-1kjjxt5"
           />
         </div>
          

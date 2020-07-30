@@ -1,7 +1,23 @@
 import { writable } from 'svelte/store'
-import { BookValuationWidgetThemeClasses } from '../theme'
+import { ThemeBookingClasses } from '../../../../common/styles/types'
 
-export const themeStore = writable<BookValuationWidgetThemeClasses | null>({
+export const themeStore = writable<ThemeBookingClasses | null>({
+  globalStyles: '',
+  primaryHeading: '',
+  secondaryHeading: '',
+  primaryStrapline: '',
+  secondaryStrapline: '',
+  selectedItem: '',
+  bodyText: '',
+  featureButton: '',
+  button: '',
+  input: '',
+  resultItem: '',
+  searchBox: '',
+  offerBanner: '',
+  pagination: '',
+  paginationActive: '',
+  formError: '',
   timeCell: '',
   svgNavigation: '',
   timeCellsContainer: '',
@@ -13,4 +29,5 @@ export const themeStore = writable<BookValuationWidgetThemeClasses | null>({
   formSeparator: '',
   formButtonPrimary: '',
   formButtonSecondary: '',
+  featureLabel: '',
 })

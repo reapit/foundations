@@ -1,7 +1,6 @@
-import { put, call, select } from 'redux-saga/effects'
+import { put, call } from 'redux-saga/effects'
 import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
-import { selectDeveloperId } from '@/selector/auth'
 import errorMessages from '@/constants/error-messages'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
@@ -24,6 +23,7 @@ import {
   developerCreateSubscriptionFalure,
   CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
+import { getDeveloperId } from '@/utils/session'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/developer-subscriptions')
@@ -102,7 +102,7 @@ describe('developerSubscriptionsSagas', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next({}).value).toEqual(select(selectDeveloperId))
+      expect(clone.next().value).toEqual(call(getDeveloperId))
       expect(clone.next('ID').value).toEqual(put(developerFetchSubscriptions({ developerId: 'ID' })))
       expect(clone.next().done).toBe(true)
     })

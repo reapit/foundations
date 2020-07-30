@@ -1,8 +1,8 @@
 import BookValuationWidget from '../components/book-valuation-widget.svelte'
-import { BookValuationWidgetInitializerTheme } from './theme'
+import { ThemeBookingInitializer } from '../../../common/styles/types'
 
 export interface BookValuationWidgetInitializers {
-  theme: BookValuationWidgetInitializerTheme
+  theme: ThemeBookingInitializer
   apiKey: string
   // customerId: string
   parentSelector: string

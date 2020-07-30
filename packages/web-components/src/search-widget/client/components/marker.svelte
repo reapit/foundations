@@ -1,12 +1,13 @@
-<script>
+<script lang="ts"> 
   import { onMount, createEventDispatcher } from 'svelte'
   import { getMarker } from '../utils/map-helpers'
+  import * as PropertyTypes from '../../types'
 
   const dispatch = createEventDispatcher()
 
-  export let property
-  export let map
-  let marker
+  export let property: PropertyTypes.PickedPropertyModel
+  export let map: google.maps.Map
+  let marker: google.maps.Marker
 
   onMount(() => {
     marker = getMarker(property, map)

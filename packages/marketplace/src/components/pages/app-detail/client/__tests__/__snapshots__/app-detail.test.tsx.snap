@@ -83,8 +83,10 @@ exports[`AppDetail should match a snapshot 1`] = `
             >
               <Component
                 afterClose={[Function]}
-                footerItems={
-                  <React.Fragment>
+                footer={
+                  <div
+                    className="flex"
+                  >
                     <Unknown
                       dataTest="agree-btn"
                       loading={false}
@@ -103,16 +105,80 @@ exports[`AppDetail should match a snapshot 1`] = `
                     >
                       Cancel
                     </Unknown>
-                  </React.Fragment>
+                  </div>
                 }
+                isCentered={true}
                 title="Confirm undefined uninstallation"
                 visible={false}
-              />
+              >
+                <Component
+                  afterClose={[Function]}
+                  className=""
+                  destroyOnClose={true}
+                  footer={
+                    <div
+                      className="flex"
+                    >
+                      <Unknown
+                        dataTest="agree-btn"
+                        loading={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="primary"
+                      >
+                        Confirm
+                      </Unknown>
+                      <Unknown
+                        dataTest="disagree-btn"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="danger"
+                      >
+                        Cancel
+                      </Unknown>
+                    </div>
+                  }
+                  title={
+                    <Unknown>
+                      Confirm undefined uninstallation
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
               <Component
-                HeaderComponent={[Function]}
                 afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
                 visible={false}
-              />
+              >
+                <Component
+                  hasHeader={false}
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    title={<Unknown />}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppUninstallConfirmation>
             <AppInstallConfirmation
               appDetailData={Object {}}
@@ -177,7 +243,11 @@ exports[`AppDetail should match a snapshot 1`] = `
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -193,6 +263,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -202,6 +273,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -218,6 +290,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -227,6 +300,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -328,8 +402,10 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
             >
               <Component
                 afterClose={[Function]}
-                footerItems={
-                  <React.Fragment>
+                footer={
+                  <div
+                    className="flex"
+                  >
                     <Unknown
                       dataTest="agree-btn"
                       loading={false}
@@ -348,16 +424,80 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     >
                       Cancel
                     </Unknown>
-                  </React.Fragment>
+                  </div>
                 }
+                isCentered={true}
                 title="Confirm undefined uninstallation"
                 visible={false}
-              />
+              >
+                <Component
+                  afterClose={[Function]}
+                  className=""
+                  destroyOnClose={true}
+                  footer={
+                    <div
+                      className="flex"
+                    >
+                      <Unknown
+                        dataTest="agree-btn"
+                        loading={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="primary"
+                      >
+                        Confirm
+                      </Unknown>
+                      <Unknown
+                        dataTest="disagree-btn"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="danger"
+                      >
+                        Cancel
+                      </Unknown>
+                    </div>
+                  }
+                  title={
+                    <Unknown>
+                      Confirm undefined uninstallation
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
               <Component
-                HeaderComponent={[Function]}
                 afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
                 visible={false}
-              />
+              >
+                <Component
+                  hasHeader={false}
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    title={<Unknown />}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppUninstallConfirmation>
             <AppInstallConfirmation
               appDetailData={Object {}}
@@ -422,7 +562,11 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -438,6 +582,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -447,6 +592,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -463,6 +609,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -472,6 +619,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -573,8 +721,10 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
             >
               <Component
                 afterClose={[Function]}
-                footerItems={
-                  <React.Fragment>
+                footer={
+                  <div
+                    className="flex"
+                  >
                     <Unknown
                       dataTest="agree-btn"
                       loading={false}
@@ -593,16 +743,80 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     >
                       Cancel
                     </Unknown>
-                  </React.Fragment>
+                  </div>
                 }
+                isCentered={true}
                 title="Confirm undefined uninstallation"
                 visible={false}
-              />
+              >
+                <Component
+                  afterClose={[Function]}
+                  className=""
+                  destroyOnClose={true}
+                  footer={
+                    <div
+                      className="flex"
+                    >
+                      <Unknown
+                        dataTest="agree-btn"
+                        loading={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="primary"
+                      >
+                        Confirm
+                      </Unknown>
+                      <Unknown
+                        dataTest="disagree-btn"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                        variant="danger"
+                      >
+                        Cancel
+                      </Unknown>
+                    </div>
+                  }
+                  title={
+                    <Unknown>
+                      Confirm undefined uninstallation
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
               <Component
-                HeaderComponent={[Function]}
                 afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
                 visible={false}
-              />
+              >
+                <Component
+                  hasHeader={false}
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    title={<Unknown />}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppUninstallConfirmation>
             <AppInstallConfirmation
               appDetailData={Object {}}
@@ -667,7 +881,11 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -683,6 +901,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -692,6 +911,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -708,6 +928,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 visible={false}
               >
                 <Component
+                  hasHeader={false}
                   isCentered={true}
                   isPadding={false}
                   onClose={[Function]}
@@ -717,6 +938,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >

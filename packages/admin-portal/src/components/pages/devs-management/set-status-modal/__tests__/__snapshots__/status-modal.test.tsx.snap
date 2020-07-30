@@ -228,6 +228,7 @@ exports[`StatusModal should match snapshot 1`] = `
               </Unknown>,
             ]
           }
+          title={<Unknown />}
           visible={true}
           wrapClassName=""
         >
@@ -247,6 +248,7 @@ exports[`StatusModal should match snapshot 1`] = `
                         class="rc-dialog-mask"
                       />
                       <div
+                        aria-labelledby="rcDialogTitle0"
                         class="rc-dialog-wrap "
                         role="dialog"
                         tabindex="-1"
@@ -272,6 +274,18 @@ exports[`StatusModal should match snapshot 1`] = `
                                 class="rc-dialog-close-x"
                               />
                             </button>
+                            <div
+                              class="rc-dialog-header"
+                            >
+                              <div
+                                class="rc-dialog-title"
+                                id="rcDialogTitle0"
+                              >
+                                <h4
+                                  class="modal-card-title is-4 pt-2 pb-2"
+                                />
+                              </div>
+                            </div>
                             <div
                               class="rc-dialog-body"
                             >
@@ -468,6 +482,7 @@ exports[`StatusModal should match snapshot 1`] = `
                   maskClosable={true}
                   prefixCls="rc-dialog"
                   switchScrollingEffect={[Function]}
+                  title={<Unknown />}
                   visible={true}
                   wrapClassName=""
                 >
@@ -487,7 +502,7 @@ exports[`StatusModal should match snapshot 1`] = `
                       />
                     </LazyRenderBox>
                     <div
-                      aria-labelledby={null}
+                      aria-labelledby="rcDialogTitle0"
                       className="rc-dialog-wrap "
                       onClick={[Function]}
                       onKeyDown={[Function]}
@@ -560,6 +575,20 @@ exports[`StatusModal should match snapshot 1`] = `
                                     className="rc-dialog-close-x"
                                   />
                                 </button>
+                                <div
+                                  className="rc-dialog-header"
+                                >
+                                  <div
+                                    className="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <Component>
+                                      <h4
+                                        className="modal-card-title is-4 pt-2 pb-2"
+                                      />
+                                    </Component>
+                                  </div>
+                                </div>
                                 <div
                                   className="rc-dialog-body"
                                 >

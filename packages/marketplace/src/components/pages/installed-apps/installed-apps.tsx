@@ -9,7 +9,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { selectInstalledApps } from '@/selector/apps'
+import { selectAppsListState } from '@/selector/apps'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -21,16 +21,16 @@ export const handleOnCardClick = (connectIsDesktop: Boolean) => (app: AppSummary
 export const InstalledApps: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
-  const installedAppsState = useSelector(selectInstalledApps)
+  const installedAppsState = useSelector(selectAppsListState)
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
 
-  const unfetched = !installedAppsState.installedAppsData
-  const loading = installedAppsState.loading
-  const list = installedAppsState?.installedAppsData?.data?.data || []
-  const { totalCount, pageSize } = installedAppsState?.installedAppsData?.data || {}
+  const unfetched = !installedAppsState.data
+  const loading = installedAppsState.isLoading
+  const list = installedAppsState?.data || []
+  const { totalCount, pageSize } = installedAppsState || {}
   const { code, state } = getParamsFromPath(history.location.search)
 
   if (unfetched || loading) {

@@ -33,7 +33,6 @@ exports[`Router should match a snapshot 1`] = `
           render={[Function]}
         />
         <Route
-          allow="DEVELOPER"
           path="/register"
           render={[Function]}
         />
@@ -59,7 +58,6 @@ exports[`Router should match a snapshot 1`] = `
           showMenu={false}
         >
           <Component
-            allow="DEVELOPER"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -76,11 +74,6 @@ exports[`Router should match a snapshot 1`] = `
         >
           <Switch>
             <Component
-              allow={
-                Array [
-                  "DEVELOPER",
-                ]
-              }
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -92,7 +85,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/authentication/:loginType"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -106,7 +98,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -120,7 +111,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps/:appid"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -134,7 +124,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps/:appid/edit"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -146,7 +135,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/api-docs"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -159,7 +147,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/webhooks"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -172,7 +159,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/swagger"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -185,7 +171,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/desktop"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -199,7 +184,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/analytics/:activeTab?"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -213,7 +197,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/settings/"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -226,7 +209,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/settings/billing"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -239,7 +221,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/settings/organisation"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -252,7 +233,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/welcome"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -266,7 +246,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/help"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -278,7 +257,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/edition-download"
             />
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),

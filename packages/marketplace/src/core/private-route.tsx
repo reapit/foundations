@@ -3,7 +3,6 @@ import { History } from 'history'
 import { Route, RouteProps, useHistory } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { LoginIdentity } from '@reapit/connect-session'
-import { selectLoginIdentity } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -37,7 +36,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
-  const loginIdentity = selectLoginIdentity(connectSession)
+  const loginIdentity = connectSession?.loginIdentity
 
   React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity, isDeveloperEdition), [
     loginIdentity,

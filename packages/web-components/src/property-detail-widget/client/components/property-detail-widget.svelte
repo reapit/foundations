@@ -1,6 +1,6 @@
-<script>
-  import { generateThemeClasses } from '../../../common/styles'
-  import { onMount, afterUpdate } from 'svelte'
+<script lang="ts">
+  import { generateBaseThemeClasses } from '../../../common/styles'
+  import { onMount } from 'svelte'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import { getProperty } from '../../../search-widget/client/api/property'
@@ -14,16 +14,18 @@
   } from '../../../search-widget/client/utils/results-helpers'
   import LightBox from '../../../search-widget/client/components/light-box/light-box.svelte'
   import { parseQueryString } from '../../../common/utils/parse-query-string'
+  import * as PropertyTypes from '../../../search-widget/types'
+  import * as Theme from '../../../common/styles/types'
 
-  export let theme
-  export let apiKey
-  export let customerId
-  export let parentSelector
+  export let theme: Theme.ThemeBaseInitializer
+  export let apiKey: string
+  export let customerId: string
+  export let parentSelector: string
 
   const params = parseQueryString(window.location.search)
   let propertyId = params['id']
-  let searchType = params['searchType']
-  let property = {}
+  let searchType = params['searchType'] as 'Sale' | 'Rent'
+  let property: PropertyTypes.PickedPropertyModel
   let propertyImageUrls = params['propertyImageUrls'] || ''
   let transformedPropertyImages = []
   let sellingStatus = ''
@@ -31,10 +33,10 @@
   let loading = false
   let error = false
 
-  const themeClasses = generateThemeClasses(theme, parentSelector)
+  const themeClasses = generateBaseThemeClasses(theme, parentSelector)
   const { primaryHeading, secondaryHeading, secondaryStrapline, bodyText, offerBanner } = themeClasses
 
-  const loadProperty = async propertyId => {
+  const loadProperty = async (propertyId: string) => {
     try {
       loading = true
       property = await getProperty({ apiKey, customerId, propertyId })
@@ -58,25 +60,6 @@
     loadProperty(propertyId)
   })
 
-  let bookViewingComponentSelector = '#book-viewing-widget'
-
-  /*Render the view-booking component*/
-  afterUpdate(() => {
-    /*
-      If something strange happen and document.querySelector(bookViewingComponentSelector) is undefined
-      The view booking componen will render in the body element, and stay there forever!?
-    */
-    if (!loading && !error && document.querySelector(bookViewingComponentSelector)) {
-      new window.ReapitBookViewingWidget({
-        theme,
-        apiKey,
-        customerId,
-        parentSelector: bookViewingComponentSelector,
-        variant: 'VIEWING',
-        propertyId,
-      })
-    }
-  })
 </script>
 
 <style>
@@ -206,17 +189,17 @@
     </div>
     <div class="{primaryHeading} property-detail-widget-item-pricing-text">{getPrice(property, searchType)}</div>
     <div class="{secondaryStrapline} property-detail-widget-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-    <div class="{bodyText} property-detail-widget-item-description-text">{property.description}</div>
+    <div class="{bodyText} property-detail-widget-item-description-text">{property && property.description || ''}</div>
     <div class="{secondaryHeading} property-detail-widget-item-icon-container">
       <div>
         <span class="property-detail-widget-item-icon">
           <Fa icon={faBed} />
         </span>
-        {property.bedrooms || 0}
+        {property && property.bedrooms || 0}
         <span class="property-detail-widget-item-icon">
           <Fa icon={faToilet} />
         </span>
-        {property.bathrooms || 0}
+        {property && property.bathrooms || 0}
       </div>
     </div>
     <div id="appointment-bookings-viewing" />

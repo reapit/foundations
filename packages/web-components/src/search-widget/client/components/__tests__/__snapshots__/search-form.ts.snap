@@ -5,10 +5,10 @@ exports[`search-form it matches a snapshot 1`] = `
   <div>
     <form>
       <div
-        class="search-form  svelte-fvqnzk"
+        class="search-form  svelte-1iepkj4"
       >
         <input
-          class=" search-form-input svelte-fvqnzk"
+          class=" search-form-input svelte-1iepkj4"
           data-testid="search-form-input"
           id="search"
           type="text"
@@ -16,7 +16,7 @@ exports[`search-form it matches a snapshot 1`] = `
          
          
         <button
-          class=" search-form-button svelte-fvqnzk"
+          class=" search-form-button svelte-1iepkj4"
           data-testid="btnSearch"
           type="submit"
         >
@@ -24,13 +24,13 @@ exports[`search-form it matches a snapshot 1`] = `
         </button>
          
         <div
-          class="search-form-control svelte-fvqnzk"
+          class="search-form-control svelte-1iepkj4"
         >
           <label
-            class=" search-form-control-radio svelte-fvqnzk"
+            class=" search-form-control-radio svelte-1iepkj4"
           >
             <input
-              class="svelte-fvqnzk"
+              class="svelte-1iepkj4"
               data-testid="sales"
               name="searchType"
               type="radio"
@@ -41,10 +41,10 @@ exports[`search-form it matches a snapshot 1`] = `
           </label>
            
           <label
-            class=" search-form-control-radio svelte-fvqnzk"
+            class=" search-form-control-radio svelte-1iepkj4"
           >
             <input
-              class="svelte-fvqnzk"
+              class="svelte-1iepkj4"
               data-testid="lettings"
               name="searchType"
               type="radio"
@@ -56,7 +56,7 @@ exports[`search-form it matches a snapshot 1`] = `
            
           <button
             class="
-         search-form-advanced-search svelte-fvqnzk"
+         search-form-advanced-search svelte-1iepkj4"
             data-testid="btnAdvancedSearch"
             type="button"
           >

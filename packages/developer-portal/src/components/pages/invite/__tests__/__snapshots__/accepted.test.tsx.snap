@@ -3,14 +3,17 @@
 exports[`AcceptedModal should match snapshot 1`] = `
 <Component
   closable={false}
-  isCentered={true}
-  title={
+  footer={
     <Unknown
-      className="pt-2 pb-2"
+      className="mr-2"
+      onClick={[Function]}
+      type="button"
     >
-      Success
+      Login
     </Unknown>
   }
+  isCentered={true}
+  title="Success"
   visible={true}
 >
   <Component>

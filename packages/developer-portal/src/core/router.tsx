@@ -46,51 +46,33 @@ const Router = () => {
         <PortalProvider>
           <Switch>
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
-            <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
+            <Route path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
             <PrivateRouteWrapper path={Routes.INVITE} showMenu={false}>
-              <PrivateRoute allow="DEVELOPER" path="/" component={Invite} />
+              <PrivateRoute path="/" component={Invite} />
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">
               <Switch>
-                <PrivateRoute
-                  allow={['DEVELOPER']}
-                  path={Routes.AUTHENTICATION_LOGIN_TYPE}
-                  component={Authentication}
-                />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APPS} component={Apps} exact fetcher />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
-                <PrivateRoute allow="DEVELOPER" path={Routes.API_DOCS} component={ApiDocsPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.SWAGGER} exact component={SwaggerPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DESKTOP} exact component={DesktopPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
+                <PrivateRoute path={Routes.AUTHENTICATION_LOGIN_TYPE} component={Authentication} />
+                <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
+                <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
+                <PrivateRoute path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
+                <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
+                <PrivateRoute path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
+                <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
+                <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} />
+                <PrivateRoute path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
-                <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.SETTINGS_BILLING_TAB}
-                  fetcher
-                  component={SettingsBillingTabPage}
-                />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.SETTINGS_ORGANISATION_TAB}
-                  fetcher
-                  component={SettingsOrganisationTabPage}
-                />
-                <PrivateRoute allow="DEVELOPER" path={Routes.WELCOME} exact component={WelcomePage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.HELP} exact fetcher component={HelpPage} />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_EDITION_DOWNLOAD}
-                  component={EditionDownloadPage}
-                />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APP_PREVIEW} exact component={AppDetailPreview} />
+                <PrivateRoute path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
+                <PrivateRoute path={Routes.SETTINGS_BILLING_TAB} fetcher component={SettingsBillingTabPage} />
+                <PrivateRoute path={Routes.SETTINGS_ORGANISATION_TAB} fetcher component={SettingsOrganisationTabPage} />
+                <PrivateRoute path={Routes.WELCOME} exact component={WelcomePage} />
+                <PrivateRoute path={Routes.HELP} exact fetcher component={HelpPage} />
+                <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
+                <PrivateRoute path={Routes.APP_PREVIEW} exact component={AppDetailPreview} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

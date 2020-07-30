@@ -2,12 +2,21 @@ import React from 'react'
 import Dialog from 'rc-dialog'
 import { cx } from 'linaria'
 import IDialogPropTypes from 'rc-dialog/lib/IDialogPropTypes'
-import { modalContainer, modalCentered, modalNoPadding, modalResponsiveContainer } from './__styles__'
+import { modalContainer, modalCentered, modalNoPadding, modalResponsiveContainer, modalNoHeader } from './__styles__'
+
+export interface ModalHeaderV2Props {
+  children: React.ReactNode
+}
+
+export const ModalHeaderV2: React.FC<ModalHeaderV2Props> = ({ children }) => {
+  return <h4 className="modal-card-title is-4 pt-2 pb-2">{children}</h4>
+}
 
 export interface ModalPropsV2 extends IDialogPropTypes {
   isCentered?: boolean
   isPadding?: boolean
   isResponsive?: boolean
+  hasHeader?: boolean
 }
 
 export const ModalV2: React.FC<ModalPropsV2> = ({
@@ -18,13 +27,16 @@ export const ModalV2: React.FC<ModalPropsV2> = ({
   isCentered = false,
   isResponsive = false,
   isPadding = true,
+  title,
+  hasHeader = true,
   ...restProps
 }) => {
   return (
     <Dialog
       {...restProps}
+      title={<ModalHeaderV2>{title}</ModalHeaderV2>}
       destroyOnClose={destroyOnClose}
-      className={cx(modalContainer, isResponsive && modalResponsiveContainer, className)}
+      className={cx(modalContainer, isResponsive && modalResponsiveContainer, !hasHeader && modalNoHeader, className)}
       wrapClassName={cx(isCentered && modalCentered, !isPadding && modalNoPadding, wrapClassName)}
     >
       {children}

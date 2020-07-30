@@ -1,14 +1,11 @@
-import Routes from '../constants/routes'
-import ActionTypes from '../constants/action-types'
-import { InstalledAppsState } from '../reducers/installed-apps'
-import { MyAppsState } from '../reducers/my-apps'
-import { AppDetailState } from '../reducers/app-detail'
-import { ErrorState } from '../reducers/error'
-import { AppCategoriesState } from '@/reducers/app-categories'
-import { AppInstallationsState } from '@/reducers/app-installations'
-import { NotificationMessageState } from '@/reducers/notification-message'
-import { IntegrationTypeState } from '@/reducers/app-integration-types'
-import { ClientRootState } from '@/reducers/client'
+import Routes from '@/constants/routes'
+import ActionTypes from '@/constants/action-types'
+import { CategoriesRootState } from '@/reducers/categories'
+import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
+import { AppsRootState } from '@/reducers/apps'
+import { NegotiatorsRootState } from '@/reducers/negotiators'
+import { WebComponentRootState } from '@/reducers/web-component'
+import { InstallationsRootState } from '@/reducers/installations'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -47,14 +44,11 @@ export interface FetcherParams<T> {
   body?: T
 }
 
-export interface ReduxState {
-  client: ClientRootState
-  installedApps: InstalledAppsState
-  myApps: MyAppsState
-  appDetail: AppDetailState
-  error: ErrorState
-  appCategories: AppCategoriesState
-  installations: AppInstallationsState
-  noticationMessage: NotificationMessageState
-  desktopIntegrationTypes: IntegrationTypeState
+export type ReduxState = {
+  apps: AppsRootState
+  negotiators: NegotiatorsRootState
+  webComponent: WebComponentRootState
+  categories: CategoriesRootState
+  installations: InstallationsRootState
+  desktopIntegrationTypes: DesktopIntegrationTypeRootState
 }

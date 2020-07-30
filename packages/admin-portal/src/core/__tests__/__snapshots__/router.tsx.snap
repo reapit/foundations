@@ -37,9 +37,7 @@ exports[`Router should match a snapshot 1`] = `
           path="/404"
           render={[Function]}
         />
-        <Component
-          path="/"
-        >
+        <lazy>
           <Switch>
             <Component
               component={
@@ -108,7 +106,7 @@ exports[`Router should match a snapshot 1`] = `
               render={[Function]}
             />
           </Switch>
-        </Component>
+        </lazy>
         <Redirect
           to="/login"
         />

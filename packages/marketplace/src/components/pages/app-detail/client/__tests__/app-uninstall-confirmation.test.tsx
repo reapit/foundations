@@ -4,8 +4,8 @@ import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appInstallationsRequestUninstall } from '@/actions/installations'
-import { clientFetchAppDetail } from '@/actions/apps'
+import { uninstallApp } from '@/actions/installations'
+import { fetchAppDetail } from '@/actions/apps'
 import ClientAppUninstallConfirmation, {
   AppUninstallConfirmationProps,
   onUninstallButtonClick,
@@ -13,6 +13,8 @@ import ClientAppUninstallConfirmation, {
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
   renderUninstallConfirmationModalFooter,
+  UninstallationsSuccessModal,
+  UninstallationsSuccessModalParams,
 } from '../app-uninstall-confirmation'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -21,6 +23,12 @@ const mockProps: AppUninstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
   visible: true,
   closeUninstallConfirmationModal: jest.fn(),
+}
+
+const mockUninstallationsSuccessModalProps: UninstallationsSuccessModalParams = {
+  appDetailData: appDetailDataStub.data,
+  visible: true,
+  onSuccessAlertButtonClick: jest.fn(),
 }
 
 const clientId = '123'
@@ -64,7 +72,7 @@ describe('ClientAppUninstallConfirmation', () => {
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestUninstall({
+        uninstallApp({
           appId,
           installationId,
           terminatedReason: 'User uninstall',
@@ -99,7 +107,7 @@ describe('ClientAppUninstallConfirmation', () => {
       const fn = handleSuccessAlertMessageAfterClose(appId, clientId, mockFunction, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        clientFetchAppDetail({
+        fetchAppDetail({
           id: appId,
           clientId,
         }),
@@ -125,6 +133,12 @@ describe('ClientAppUninstallConfirmation', () => {
         </div>,
       )
       expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('UninstallationsSuccessModal', () => {
+    it('should match a snapshot', () => {
+      expect(mount(<UninstallationsSuccessModal {...mockUninstallationsSuccessModalProps} />)).toMatchSnapshot()
     })
   })
 })

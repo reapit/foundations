@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher, onMount, onDestroy } from 'svelte'
 
-  let containerElement
+  let containerElement: HTMLDivElement
 
   const dispatch = createEventDispatcher()
 
-  const onClick = event => {
-    if (containerElement && !containerElement.contains(event.target)) {
+  const onClick = (event: MouseEvent) => {
+    if (containerElement && !containerElement.contains(event.target as Node)) {
       event.stopPropagation()
       dispatch('click-out-side')
     }

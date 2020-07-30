@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { Button, LevelRight, Section } from '@reapit/elements'
+import { Button, LevelRight, Section, Info } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
-import { selectIsAdmin } from '@/selector/auth'
-import { useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import { Members } from './members'
 import OrganisationForm from './organisation-form'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectIsAdmin } from '@/selector/auth'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)
 
 const DevelperSettingsOrganisationTabPage: React.FC = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = React.useState<boolean>(false)
-  const isAdmin = useSelector(selectIsAdmin)
-
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = selectIsAdmin(connectSession)
   if (!isAdmin) {
     /**
      * This page is only for admin (which is also a developer)
@@ -26,7 +26,7 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
      * Requirement is this page should be used on developer portal and developer navbar.
      * TODO: refactor the the private router or this after the release?
      */
-    return <Redirect to="/404" />
+    return <Info infoType="404" />
   }
 
   return (

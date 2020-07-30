@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '../app-sidebar'
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
-import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
+import { categoriesStub } from '@/sagas/__stubs__/categories'
 import { selectCategories } from '@/selector/categories'
 import { FormikProps } from '@reapit/elements'
 import { useHistory, useLocation } from 'react-router'
@@ -13,7 +13,7 @@ import { CategoryModel } from '@reapit/foundations-ts-definitions'
 const { search, searchBy } = formFields
 
 jest.mock('@/selector/categories', () => ({
-  selectCategories: jest.fn(() => appCategorieStub.data),
+  selectCategories: jest.fn(() => categoriesStub.data),
 }))
 jest.mock('@/utils/client-url-params')
 jest.mock('react-router', () => ({
@@ -42,7 +42,7 @@ describe('AppSidebar', () => {
   afterAll(() => {
     ;(useSelector as jest.Mocked<any>).mockReset()
   })
-  ;(useSelector as jest.Mocked<any>).mockImplementation(() => appCategorieStub.data as CategoryModel[])
+  ;(useSelector as jest.Mocked<any>).mockImplementation(() => categoriesStub.data as CategoryModel[])
   it('should match a snapshot', () => {
     expect(shallow(<AppSidebar />)).toMatchSnapshot()
   })

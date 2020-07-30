@@ -2,7 +2,6 @@
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
 <Component
-  className="bt pt-4 mt-4"
   isMultiLine={true}
 >
   <Component

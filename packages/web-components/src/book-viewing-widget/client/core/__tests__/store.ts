@@ -30,6 +30,17 @@ describe('store', () => {
         pagination: '',
         paginationActive: '',
         formError: '',
+        timeCell: '',
+        svgNavigation: '',
+        dateCellHeader: '',
+        timeCellsContainer: '',
+        formBlock: '',
+        formInput: '',
+        formHeader: '',
+        formLabel: '',
+        formSeparator: '',
+        formButtonPrimary: '',
+        formButtonSecondary: '',
       },
     }
     const unsubscribe = bookViewingWidgetStore.subscribe(store => {

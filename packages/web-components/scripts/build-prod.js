@@ -56,8 +56,8 @@ return (async () => {
       exportName: 'ReapitPropertyDetailWidget',
     },
     {
-      rollUpPackageName: 'login-reapit-component',
-      exportName: 'LoginReapitComponent',
+      rollUpPackageName: 'reapit-connect-component',
+      exportName: 'ReapitConnectComponent',
     },
   ]
   const opts = {

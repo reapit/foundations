@@ -1,10 +1,8 @@
-<script>
-  import { derrivedDayOfWeek } from '../core/store/week-store'
+<script lang="ts">
+  import { derrivedDayOfWeek } from '../core/week-store'
   import DateCell from './date-cell.svelte'
 
-  export let handleNextStep
-  export let themeClasses
-  export let handleOnClickCell
+  export let handleOnClickCell: ({ appointmentDate: Dayjs, appointmentTime: number }) => void
 </script>
 
 <style>
@@ -16,7 +14,7 @@
 <div class="date-time-picker-container">
   {#each $derrivedDayOfWeek as date}
     <div>
-      <DateCell {themeClasses} {date} {handleNextStep} {handleOnClickCell} />
+      <DateCell {date} {handleOnClickCell} />
     </div>
   {/each}
 </div>

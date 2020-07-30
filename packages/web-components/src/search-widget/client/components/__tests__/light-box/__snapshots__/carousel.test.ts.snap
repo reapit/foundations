@@ -5,52 +5,52 @@ exports[`Carousel should match snapshot 1`] = `
   <div>
      
     <div
-      class="light-box-carousel-container svelte-11fmifw"
+      class="light-box-carousel-container svelte-1c8rsik"
     >
       <div
-        class="light-box-carousel-slider svelte-11fmifw"
+        class="light-box-carousel-slider svelte-1c8rsik"
         style="transform: translateX(0px);"
       >
         <div
-          class="light-box-carousel-image-container svelte-11fmifw"
+          class="light-box-carousel-image-container svelte-1c8rsik"
           style="width: 0px; height: 0px;"
         >
           <img
             alt="property 0"
-            class="light-box-carousel-image light-box-carousel-current-display-image svelte-11fmifw"
+            class="light-box-carousel-image light-box-carousel-current-display-image svelte-1c8rsik"
             src="image-url1"
           />
            
         </div>
         <div
-          class="light-box-carousel-image-container svelte-11fmifw"
+          class="light-box-carousel-image-container svelte-1c8rsik"
           style="width: 0px; height: 0px;"
         >
           <img
             alt="property 1"
-            class="light-box-carousel-image false svelte-11fmifw"
+            class="light-box-carousel-image false svelte-1c8rsik"
             src="image-url2"
           />
            
         </div>
         <div
-          class="light-box-carousel-image-container svelte-11fmifw"
+          class="light-box-carousel-image-container svelte-1c8rsik"
           style="width: 0px; height: 0px;"
         >
           <img
             alt="property 2"
-            class="light-box-carousel-image false svelte-11fmifw"
+            class="light-box-carousel-image false svelte-1c8rsik"
             src="image-url3"
           />
            
         </div>
         <div
-          class="light-box-carousel-image-container svelte-11fmifw"
+          class="light-box-carousel-image-container svelte-1c8rsik"
           style="width: 0px; height: 0px;"
         >
           <img
             alt="property 3"
-            class="light-box-carousel-image false svelte-11fmifw"
+            class="light-box-carousel-image false svelte-1c8rsik"
             src="image-url4"
           />
            
@@ -58,7 +58,7 @@ exports[`Carousel should match snapshot 1`] = `
       </div>
        
       <button
-        class="light-box-carousel-prev-button svelte-11fmifw"
+        class="light-box-carousel-prev-button svelte-1c8rsik"
       >
         <svg
           aria-hidden="true"
@@ -87,7 +87,7 @@ exports[`Carousel should match snapshot 1`] = `
       </button>
        
       <button
-        class="light-box-carousel-next-button svelte-11fmifw"
+        class="light-box-carousel-next-button svelte-1c8rsik"
       >
         <svg
           aria-hidden="true"

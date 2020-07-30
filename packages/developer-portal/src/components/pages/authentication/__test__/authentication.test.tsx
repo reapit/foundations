@@ -1,30 +1,21 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import Authentication, {
-  renderDeveloperModal,
-  renderClientModal,
-  onLogoutButtonClick,
-  onMarketplaceButtonClick,
-  onRegisterButtonClick,
-  onDevelopersButtonClick,
-} from '../authentication'
-import { authLogout } from '@/actions/auth'
+import Authentication, { onLogoutButtonClick, onMarketplaceButtonClick, onRegisterButtonClick } from '../authentication'
 import { getMockRouterProps } from '@/utils/mock-helper'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 describe('Authentication', () => {
   const { history } = getMockRouterProps({})
   let store
-  let spyDispatch
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
     store = mockStore(appState)
-    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
     expect(
@@ -37,23 +28,12 @@ describe('Authentication', () => {
       ),
     ).toMatchSnapshot()
   })
-  describe('renderDeveloperModal', () => {
-    it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderDeveloperModal(history, spyDispatch)}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-  describe('renderClientModal', () => {
-    it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderClientModal(history, spyDispatch)}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
+
   describe('onLogoutButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onLogoutButtonClick(spyDispatch)
-      fn()
-      expect(spyDispatch).toBeCalledWith(authLogout())
+      const fnSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLogoutRedirect')
+      onLogoutButtonClick()
+      expect(fnSpy).toBeCalledWith()
     })
   })
   describe('onMarketplaceButtonClick', () => {
@@ -69,13 +49,6 @@ describe('Authentication', () => {
       const fn = onRegisterButtonClick(history)
       fn()
       expect(history.replace).toBeCalledWith(Routes.REGISTER)
-    })
-  })
-  describe('onDevelopersButtonClick', () => {
-    it('should run correctly', () => {
-      const fn = onDevelopersButtonClick(history)
-      fn()
-      expect(history.replace).toBeCalledWith(Routes.DESKTOP)
     })
   })
 })

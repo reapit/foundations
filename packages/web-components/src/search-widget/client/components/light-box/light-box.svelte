@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import Carousel from './carousel.svelte'
   import Widget from './widget.svelte'
 
   export let displayItemQuantity = 5
-  export let images
+  export let images: string[]
 
   let currentDisplayImageIndex = 0
 
-  const setDisplayImageIndex = e => {
+  const setDisplayImageIndex = (e: UIEvent) => {
     currentDisplayImageIndex = e.detail
   }
 </script>

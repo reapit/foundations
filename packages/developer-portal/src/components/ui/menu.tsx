@@ -6,9 +6,6 @@ import { Location } from 'history'
 import { FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase } from 'react-icons/go'
-import { ActionCreator } from '@/types/core'
-import { LoginType } from '@reapit/cognito-auth'
-import { Dispatch } from 'redux'
 
 export const generateMenuConfig = (location: Location<any>): MenuConfig => {
   return {
@@ -80,19 +77,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
   }
 }
 
-export interface MenuMappedProps {
-  loginType: LoginType
-  isAdmin: boolean
-}
-
-export interface MenuMappedActions {
-  logout: () => void
-}
-
 export type MenuProps = {}
-
-export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
-  dispatch(authLogout())
 
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()

@@ -17,7 +17,10 @@ export type FetchInstallationsListParams = FetchListCommonParams & {
   isInstalled?: boolean
 }
 
-export type CreateInstallationParams = CreateInstallationModel
+export type CreateInstallationParams = CreateInstallationModel & {
+  // Callback run after update success
+  callback?: () => void
+}
 
 export type FetchApiKeyInstallationByIdParams = {
   installationId: string
@@ -25,6 +28,8 @@ export type FetchApiKeyInstallationByIdParams = {
 
 export type RemoveAccessToAppByIdParams = TerminateInstallationModel & {
   installationId: string
+  // Callback run after update success
+  callback?: () => void
 }
 
 export const createInstallation = async (params: CreateInstallationParams) => {
@@ -39,7 +44,7 @@ export const createInstallation = async (params: CreateInstallationParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -55,7 +60,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -72,6 +77,6 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

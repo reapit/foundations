@@ -72,35 +72,36 @@ reapitConnectBrowserSession.connectLoginRedirect(redirectUri: string)
 
 // A convenience getter to check if my app has been loaded inside RPS / Desktop / Agency Cloud
 reapitConnectBrowserSession.connectIsDesktop
+
+// A convenience getter to check if my app has a valid session
+reapitConnectBrowserSession.connectHasSession
 ```
 
 ## React Usage
 
-In addition to the basic browser API, we export a React Context Provider and Hook to use in your React Components.
+In addition to the basic browser API, we export a React Hook to use in your React Components.
 
-To leverage the Hook, first instantiate the class as per above. Then, inject the provider into your Router, wrapped around the Routes you wish to protect with Reapit Connect authentication as below:
+To leverage the Hook, first instantiate the class as per above. Then, around the Routes you wish to protect with Reapit Connect authentication, simply return when the session is not present as below:
 
 ```ts
 // import the instantiated class, the hook and the provider
-import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 
 export const PrivateRouteWrapper: React.FC = ({ children }) => {
   // Call the hook to retun a session object
-  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   // The session object implements the same interface as the browser class with the exception that the connectSession promise is handled wrapped in a useEffect hook and so is just an objecy or null. Here I return null from the component while I am fetching a session
-  if (!session.connectSession) {
+  if (!connectSession) {
     return null
   }
 
-  // I now have a session so I can pass to my context provider
+  // I now have a session I can render my App
   return (
-    <ReapitConnectContext.Provider value={{ ...session }}>
-      <AppNavContainer>
-        <Menu />
-      </AppNavContainer>
-    </ReapitConnectContext.Provider>
+    <AppNavContainer>
+      <Menu />
+    </AppNavContainer>
   )
 }
 ```

@@ -5,9 +5,9 @@ import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 
-export type FetchCategoriesListParams = FetchListCommonParams
+export type FetchCategoriesParams = FetchListCommonParams
 
-export const fetchCategoriesList = async (params: FetchCategoriesListParams): Promise<PagedResultCategoryModel_> => {
+export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise<PagedResultCategoryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.categories}?${setQueryParams(params)}`,
@@ -18,6 +18,6 @@ export const fetchCategoriesList = async (params: FetchCategoriesListParams): Pr
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

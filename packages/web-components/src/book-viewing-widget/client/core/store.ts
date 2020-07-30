@@ -1,14 +1,20 @@
 import { writable, Writable } from 'svelte/store'
-import { BookViewingWidgetInitializers, PropertyData } from './index'
-import { ThemeClasses } from '../../../common/styles'
+import { BookViewingWidgetInitializers } from './index'
+import { ThemeBookingClasses } from '../../../common/styles/types'
 
 export interface BookViewingWidgetStore {
   initializers: Omit<BookViewingWidgetInitializers, 'submitAction'>
-  themeClasses: ThemeClasses
+  themeClasses: ThemeBookingClasses
 
   email: string
   propertyData: PropertyData
   isLoading: boolean
+}
+
+export interface PropertyData {
+  image: string
+  address: string
+  price: string
 }
 
 const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
@@ -36,6 +42,17 @@ const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
     featureButton: '',
     paginationActive: '',
     formError: '',
+    timeCell: '',
+    svgNavigation: '',
+    dateCellHeader: '',
+    timeCellsContainer: '',
+    formBlock: '',
+    formInput: '',
+    formHeader: '',
+    formLabel: '',
+    formSeparator: '',
+    formButtonPrimary: '',
+    formButtonSecondary: '',
   },
   email: '',
   isLoading: false,

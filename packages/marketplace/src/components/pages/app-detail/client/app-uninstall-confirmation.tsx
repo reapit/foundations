@@ -5,11 +5,11 @@ import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, Modal } from '@reapit/elements'
-import { clientFetchAppDetail } from '@/actions/apps'
-import { appInstallationsRequestUninstall } from '@/actions/installations'
+import { fetchAppDetail } from '@/actions/apps'
+import { Button, ModalV2, ModalPropsV2 } from '@reapit/elements'
+import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
-import { selectInstallationFormState } from '@/selector/installations'
+import { selectUninstallAppState } from '@/selector/installations'
 import routes from '@/constants/routes'
 import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
@@ -48,7 +48,7 @@ export const onUninstallButtonClick = (
 ) => {
   return () => {
     dispatch(
-      appInstallationsRequestUninstall({
+      uninstallApp({
         appId,
         installationId,
         terminatedReason: 'User uninstall',
@@ -79,7 +79,7 @@ export const handleSuccessAlertMessageAfterClose = (
 ) => {
   return () => {
     dispatch(
-      clientFetchAppDetail({
+      fetchAppDetail({
         id: appId,
         clientId,
       }),
@@ -100,7 +100,7 @@ export const renderUninstallConfirmationModalFooter = (
   isDesktopMode: boolean,
 ) => {
   return (
-    <>
+    <div className="flex">
       <Button
         dataTest="agree-btn"
         loading={isSubmitting}
@@ -129,7 +129,35 @@ export const renderUninstallConfirmationModalFooter = (
       >
         Cancel
       </Button>
-    </>
+    </div>
+  )
+}
+
+export type UninstallationsSuccessModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> & {
+  appDetailData?: AppDetailModel
+  onSuccessAlertButtonClick: () => void
+}
+
+export const UninstallationsSuccessModal = ({
+  afterClose,
+  appDetailData,
+  onSuccessAlertButtonClick,
+  visible,
+}: UninstallationsSuccessModalParams) => {
+  const { name: appName } = appDetailData || {}
+  return (
+    <ModalV2 isCentered hasHeader={false} isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="uinstallations-success-message"
+        buttonDataTest="uinstallations-success-button"
+        onButtonClick={onSuccessAlertButtonClick}
+        isCenter
+      >
+        {appName} has been successfully uninstalled
+      </CallToAction>
+    </ModalV2>
   )
 }
 
@@ -142,19 +170,20 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const history = useHistory()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
-  const installationFormState = useSelector(selectInstallationFormState)
-  const isSubmitting = installationFormState === 'SUBMITTING'
+  const installationFormState = useSelector(selectUninstallAppState)
+  const isSubmitting = installationFormState?.isLoading
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
 
   return (
     <>
-      <Modal
+      <ModalV2
         visible={visible}
+        isCentered
         title={`Confirm ${name} uninstallation`}
         afterClose={closeUninstallConfirmationModal}
-        footerItems={renderUninstallConfirmationModalFooter(
+        footer={renderUninstallConfirmationModalFooter(
           isSubmitting,
           id,
           clientId,
@@ -165,23 +194,17 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           connectIsDesktop,
         )}
       >
-        <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>
-      </Modal>
-      <Modal
+        <>
+          Are you sure you wish to uninstall {name}? This action will uninstall the app for <b>all</b> members of your
+          organisation.
+        </>
+      </ModalV2>
+
+      <UninstallationsSuccessModal
         visible={isSuccessAlertVisible}
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
-        HeaderComponent={() => (
-          <CallToAction
-            title="Success"
-            buttonText="Back to List"
-            dataTest="uinstallations-success-message"
-            buttonDataTest="uinstallations-success-button"
-            onButtonClick={onSuccessAlertButtonClick}
-            isCenter
-          >
-            {name} has been successfully uninstalled
-          </CallToAction>
-        )}
+        onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+        appDetailData={appDetailData}
       />
     </>
   )

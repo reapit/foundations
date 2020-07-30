@@ -1,11 +1,7 @@
 import * as React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import Menu from '@/components/ui/menu'
+import { useLocation, Redirect } from 'react-router'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
-import { Redirect, useLocation } from 'react-router'
-import { authSetRefreshSession } from '@/actions/auth'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import Routes from '@/constants/routes'
 
 const { Suspense } = React
@@ -20,32 +16,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-  const dispatch = useDispatch()
-  const loginSession = useSelector(selectLoginSession)
-  const refreshSession = useSelector(selectRefreshSession)
-  const loginType = useSelector(selectLoginType)
-
-  const hasSession = !!loginSession || !!refreshSession
-
   const location = useLocation()
 
-  const route = `${window.location.origin}${Routes.APPROVALS}`
-
-  const cognitoClientId = window.reapit.config.cognitoClientId
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'ADMIN', route)
-
-  if (refreshParams && !hasSession) {
-    dispatch(authSetRefreshSession(refreshParams))
-    return null
-  }
-
-  if (loginType && location.pathname === '/') {
-    return <Redirect to={Routes.LOGIN} />
-  }
-
-  if (!hasSession) {
-    redirectToOAuth(cognitoClientId, route, 'ADMIN')
-    return null
+  if (location.pathname === '/') {
+    return <Redirect to={Routes.APPROVALS} />
   }
 
   return (

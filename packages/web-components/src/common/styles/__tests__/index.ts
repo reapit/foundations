@@ -1,5 +1,5 @@
 import * as Styles from '../index'
-import { stubTheme } from '../../../search-widget/client/utils/__stubs__/theme'
+import { stubTheme, stubThemeBooking } from '../../../search-widget/client/utils/__stubs__/theme'
 
 describe('styles', () => {
   it('should generate a reset css class', () => {
@@ -7,7 +7,11 @@ describe('styles', () => {
   })
 
   it('should generate an object of CSS classes', () => {
-    expect(Styles.generateThemeClasses(stubTheme, '#search-widget')).toMatchSnapshot()
+    expect(Styles.generateBaseThemeClasses(stubTheme, '#search-widget')).toMatchSnapshot()
+  })
+
+  it('should generate an object of CSS classes', () => {
+    expect(Styles.generateBookingThemeClasses(stubThemeBooking, '#search-widget')).toMatchSnapshot()
   })
 
   it('should generate a map theme', () => {

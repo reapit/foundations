@@ -4,14 +4,14 @@ exports[`LightBox should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="light-box-container svelte-1774wwa"
+      class="light-box-container svelte-1rmlu8a"
     >
       <div
-        class="light-box-current-display-image-container svelte-1774wwa"
+        class="light-box-current-display-image-container svelte-1rmlu8a"
       >
         <img
           alt="Light box current"
-          class="light-box-current-display-image svelte-1774wwa"
+          class="light-box-current-display-image svelte-1rmlu8a"
         />
       </div>
        
@@ -125,7 +125,7 @@ exports[`LightBox should match snapshot 1`] = `
           class="light-box-widget-right-section"
         >
           <button
-            class="light-box-enlarge-image-button svelte-1yk9pya"
+            class="light-box-enlarge-image-button svelte-4i25e"
           >
             <svg
               aria-hidden="true"
@@ -163,15 +163,15 @@ exports[`LightBox should match snapshot 1`] = `
       </div>
        
       <div
-        class="light-box-carousel-container svelte-11fmifw"
+        class="light-box-carousel-container svelte-1c8rsik"
       >
         <div
-          class="light-box-carousel-slider svelte-11fmifw"
+          class="light-box-carousel-slider svelte-1c8rsik"
           style="transform: translateX(0px);"
         />
          
         <button
-          class="light-box-carousel-prev-button svelte-11fmifw"
+          class="light-box-carousel-prev-button svelte-1c8rsik"
         >
           <svg
             aria-hidden="true"
@@ -200,7 +200,7 @@ exports[`LightBox should match snapshot 1`] = `
         </button>
          
         <button
-          class="light-box-carousel-next-button svelte-11fmifw"
+          class="light-box-carousel-next-button svelte-1c8rsik"
         >
           <svg
             aria-hidden="true"

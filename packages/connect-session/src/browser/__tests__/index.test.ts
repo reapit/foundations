@@ -28,6 +28,7 @@ describe('ReapitConnectBrowserSession', () => {
     expect(session.connectLoginRedirect).toBeDefined()
     expect(session.connectLogoutRedirect).toBeDefined()
     expect(session.connectIsDesktop).toBeDefined()
+    expect(session.connectHasSession).toBeDefined()
   })
 
   it('should retrieve a session from localStorage and return as a session', async () => {
@@ -37,6 +38,39 @@ describe('ReapitConnectBrowserSession', () => {
     const connectSession = await session.connectSession()
 
     expect(connectSession).toEqual(mockBrowserSession)
+  })
+
+  it('should return true from connectHasSession if session valid', () => {
+    setMockBrowserSessionToLocalStorage()
+    const session = getSession()
+
+    expect(session.connectHasSession).toBe(true)
+  })
+
+  it('should return false from connectHasSession if session has expired', () => {
+    const expiredSession = {
+      ...mockBrowserSession,
+      accessToken: JSON.stringify({ exp: Math.round(new Date().getTime() / 1000) }),
+    }
+    setMockBrowserSessionToLocalStorage(expiredSession)
+    const session = getSession()
+
+    expect(session.connectHasSession).toBe(false)
+  })
+
+  it('should return false from connectIsDesktop if desktop global is not present', () => {
+    const session = getSession()
+
+    expect(session.connectIsDesktop).toBe(false)
+  })
+
+  it('should return true from connectIsDesktop if desktop global is present', () => {
+    Object.defineProperty(window, ReapitConnectBrowserSession.GLOBAL_KEY, {
+      value: {},
+    })
+    const session = getSession()
+
+    expect(session.connectIsDesktop).toBe(true)
   })
 
   it('should refresh a session from a refresh token if session has expired', async () => {

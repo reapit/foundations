@@ -1,5 +1,4 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -9,16 +8,17 @@ import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { authLogout } from '@/actions/auth'
 import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId } from '@/utils/session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { changePasswordService } from '@/services/cognito-identity'
 import { selectDeveloperEmail } from '@/selector'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }
@@ -47,7 +47,7 @@ export type UpdateDeveloperInfoParams = {
 export const developerInfomationChange = function*({ data }: Action<UpdateDeveloperModel>) {
   yield put(settingShowLoading(true))
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }
@@ -97,7 +97,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
     const cognitoClientId = window.reapit.config.cognitoClientId
-    const response = yield call(changePassword, {
+    const response = yield call(changePasswordService, {
       userName: email,
       password,
       newPassword,
@@ -108,8 +108,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
       throw new Error('Server error')
     }
     localStorage.setItem('isPasswordChanged', 'true')
-    yield call(removeSession)
-    yield put(authLogout())
+    reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
     logger(error)
     yield put(

@@ -9,19 +9,19 @@ import { Info } from '@reapit/elements'
 import { PortalProvider } from '@reapit/elements'
 
 export const history = createBrowserHistory()
-const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
-const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
-const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
-const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
+const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
+const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
 const HandleLegacyDeveloperRoutesModal = React.lazy(() =>
   catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-developer-routes-modal')),
 )
 const HandleLegacyAdminRoutesModal = React.lazy(() =>
   catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-admin-routes-modal')),
 )
+const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
+const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
+const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 
 const Router = () => {
   return (

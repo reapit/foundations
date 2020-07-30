@@ -1,22 +1,21 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
-import { ReduxState } from '../types/core'
-import client from '@/reducers/client'
-import installedApps from '@/reducers/installed-apps'
-import myApps from '@/reducers/my-apps'
-import appDetail from '@/reducers/app-detail'
-import error from '@/reducers/error'
-import appCategories from '@/reducers/app-categories'
-import appInstallationsReducer from '@/reducers/app-installations'
-import integrationTypes from '@/reducers/app-integration-types'
-
-import appsSaga from '@/sagas/apps/apps'
-import { clientSagas, appDetailSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
-import { appInstallationsSagas } from '@/sagas/installations'
-import noticationMessage from '@/reducers/notification-message'
 import { injectSwitchModeToWindow } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
+import apps from '@/reducers/apps'
+import negotiators from '@/reducers/negotiators'
+import webComponent from '@/reducers/web-component'
+import categories from '@/reducers/categories'
+import installations from '@/reducers/installations'
+import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
+
+import { installationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
+import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
+import { categoriesSagas } from '@/sagas/categories'
+import { appsSagas } from '@/sagas/apps'
+import { negotiatorsSagas } from '@/sagas/negotiators'
 
 export class Store {
   static _instance: Store
@@ -34,26 +33,22 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    client,
-    installedApps,
-    myApps,
-    appDetail,
-    error,
-    appCategories,
-    installations: appInstallationsReducer,
-    noticationMessage,
-    desktopIntegrationTypes: integrationTypes,
+    apps,
+    installations,
+    webComponent,
+    negotiators,
+    categories,
+    desktopIntegrationTypes,
   })
 
   static sagas = function*() {
     yield all([
-      fork(appsSaga),
-      fork(clientSagas),
-      fork(installedAppsSagas),
-      fork(myAppsSagas),
-      fork(appDetailSagas),
-      fork(appInstallationsSagas),
+      fork(appsSagas),
+      fork(installationsSagas),
       fork(webComponentSagas),
+      fork(negotiatorsSagas),
+      fork(categoriesSagas),
+      fork(desktopIntegrationTypesSagas),
     ])
   }
 

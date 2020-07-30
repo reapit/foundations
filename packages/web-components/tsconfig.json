@@ -1,31 +1,28 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "include": [
     "src/**/*"
   ],
   "exclude": [
-    "node_modules/*"
+    "node_modules/*", "public/*"
   ],
   "compilerOptions": {
-    "target": "ES2019",
-    "module": "ESNEXT",
-    "strict": true,
-    "moduleResolution": "node",
     "types": [
       "svelte",
       "jest",
       "node",
       "googlemaps"
     ],
-    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src/types"],
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "declaration": true,
-    "noImplicitAny": false,
-    "declarationDir": "./public/dist-npm/types",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@reapit/node-utils": [
         "../utils/src/node/index.ts"
+      ],
+      "@reapit/connect-session": [
+        "../connect-session/src"
       ]
     }
   }

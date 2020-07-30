@@ -1,12 +1,20 @@
-<script>
-  import { weekStore } from '../core/store/week-store'
+<script lang="ts">
+  import { onMount } from 'svelte'
+  import { weekStore } from '../core/week-store'
+  import { themeStore } from '../core/theme-store'
   import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import DateTimePicker from './date-time-picker.svelte'
+  import * as Theme from '../../../common/styles/types'
+  export let themeClasses: Theme.ThemeBookingClasses
+  export let handleOnClickCell: ({ appointmentDate: Dayjs, appointmentTime: number }) => void
 
-  export let themeClasses
-  export let handleNextStep
-  export let handleOnClickCell
+  onMount(() => {
+    themeStore.update(values => ({
+      ...values,
+      ...themeClasses,
+    }))
+  })
 </script>
 
 <style>
@@ -33,12 +41,12 @@
   data-testid="appointment-planner-component-modal-header-container"
   class="appointment-planner-component-modal-header-container">
   <button data-testid="prev-week" on:click={weekStore.decrement}>
-    <Fa class=" {themeClasses.svgNavigation}" icon={faChevronLeft} />
+    <Fa class="{$themeStore.svgNavigation}" icon={faChevronLeft} />
   </button>
-  <h1 class={themeClasses.primaryHeading}>Choose an Appointment</h1>
+  <h1 class={$themeStore.primaryHeading}>Choose an Appointment</h1>
   <button data-testid="next-week" on:click={weekStore.increment}>
-    <Fa class=" {themeClasses.svgNavigation}" icon={faChevronRight} />
+    <Fa class="{$themeStore.svgNavigation}" icon={faChevronRight} />
   </button>
   <div />
 </div>
-<DateTimePicker {handleNextStep} {themeClasses} {handleOnClickCell} />
+<DateTimePicker {handleOnClickCell} />

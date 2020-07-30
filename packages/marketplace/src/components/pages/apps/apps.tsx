@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { TransitionGroup } from 'react-transition-group'
 import { Dispatch } from 'redux'
+import qs from 'query-string'
 import { History } from 'history'
 import { useSelector, useDispatch } from 'react-redux'
 import { Loader, Section, H3, Grid } from '@reapit/elements'
@@ -10,16 +11,15 @@ import AppList from '@/components/ui/app-list'
 import FeaturedApp from '@/components/ui/featured-app'
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
-import { selectAppSummary } from '@/selector/apps'
+import { selectAppsListState, selectFeatureAppsListState } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroller'
-import { clientFetchAppSummary } from '@/actions/apps'
-import styles from '@/styles/pages/apps.scss?mod'
-import qs from 'query-string'
+import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
+import styles from '@/styles/pages/apps.scss?mod'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -39,7 +39,7 @@ export const handleLoadMore = ({
   preview: boolean
   loading: boolean
 }) => (page: number) => {
-  !loading && dispatch(clientFetchAppSummary({ page, preview }))
+  !loading && dispatch(fetchApps({ pageNumber: page, preview }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -47,17 +47,20 @@ export const Apps: React.FunctionComponent = () => {
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const appSummaryState = useSelector(selectAppSummary)
+  const appsListState = useSelector(selectAppsListState)
   const hasParams = hasFilterParams(location.search)
-  const loading = appSummaryState.isAppSummaryLoading
-  const apps = appSummaryState?.data?.apps?.data || []
-  const featuredApps = appSummaryState?.data?.featuredApps || []
-  const { totalCount = 0, pageNumber = 1 } = appSummaryState?.data?.apps || {}
+  const apps = appsListState?.data || []
+  const { totalCount = 0, pageNumber = 1 } = appsListState || {}
+
+  const featureAppsListState = useSelector(selectFeatureAppsListState)
+  const featuredApps = featureAppsListState?.data || []
   const { preview: previewString } = qs.parse(location.search)
   const preview = !!previewString
 
   const numOfItemsPerPage = getNumberOfItems()
   const totalPage = totalCount / numOfItemsPerPage
+
+  const loading = appsListState.isLoading || featureAppsListState.isLoading
   /**
    * When apps is empty or when loading app set hasMore = false to prevent trigger load more
    * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage
@@ -106,6 +109,7 @@ export const Apps: React.FunctionComponent = () => {
             </>
           </TransitionGroup>
         </InfiniteScroll>
+        <div className="bb mb-4" />
         <ComingSoonApps />
       </Section>
     </ErrorBoundary>

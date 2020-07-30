@@ -6,14 +6,12 @@ import configureStore from 'redux-mock-store'
 import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'
 import { showNotificationMessage } from '@/actions/notification-message'
-import * as cognito from '@reapit/cognito-auth'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
-
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-}))
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import * as ConnectSession from '@reapit/connect-session'
+import { ReapitConnectHook } from '@reapit/connect-session'
 
 const mockState = {
   ...appState,
@@ -33,12 +31,16 @@ describe('Login', () => {
   })
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
+    jest
+      .spyOn(ConnectSession, 'useReapitConnect')
+      .mockImplementation(() => ({ connectSession: null } as ReapitConnectHook))
     expect(
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.LOGIN, key: 'loginRoute' }]}>
-            <Login />
+            <Login />,
           </MemoryRouter>
+          ,
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
@@ -56,11 +58,11 @@ describe('Login', () => {
   })
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
-      const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
+      const spyFn = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
       const mockIsFirstTimeLogin = true
       const fn = onLoginButtonClick(mockIsFirstTimeLogin)
       fn()
-      expect(spyRedirectToLogin).toBeCalled()
+      expect(spyFn).toBeCalled()
     })
   })
 })
