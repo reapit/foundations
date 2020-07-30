@@ -1,16 +1,16 @@
 import React from 'react'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
-import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
 import { WizardStepComponent } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 
 const { nameField, externalIdField, authFlowField, appIdField } = formFields
 
 export const StepSubmitAppSuccess: WizardStepComponent = ({ afterClose }) => {
-  const { values } = useFormikContext<CustomCreateAppModel>()
+  const { values } = useFormikContext<CreateAppModel>()
   const authFlow = values[authFlowField.name]
   const id = values[appIdField.name]
 

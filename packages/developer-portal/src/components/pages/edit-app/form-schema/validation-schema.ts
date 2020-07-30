@@ -77,7 +77,6 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
       name: 'isValidLaunchUri',
       message: launchUri.errorMessage,
       test: (value: string) => {
-        console.log({ value })
         if (!value) return true
         return whiteListLocalhostAndIsValidUrl(value)
       },

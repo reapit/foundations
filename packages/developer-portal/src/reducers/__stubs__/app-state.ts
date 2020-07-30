@@ -84,11 +84,6 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  submitApp: {
-    loading: false,
-    formState: 'PENDING',
-    submitAppData: null,
-  },
   submitRevision: {
     formState: 'PENDING',
   },

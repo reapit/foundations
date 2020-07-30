@@ -27,7 +27,8 @@ export const submitApp = function*({ data }: Action<CreateAppParams>) {
     if (!developerId) {
       return
     }
-    const headers: Headers = yield call(createAppAPI, { ...data, developerId })
+    const { callback, ...appProps } = data
+    const headers: Headers = yield call(createAppAPI, { ...appProps, developerId })
 
     // ^ got Illegal invocation when: const locationHeader = yield call(headers.get, 'location')
     const locationHeader = headers.get('location')
@@ -42,6 +43,10 @@ export const submitApp = function*({ data }: Action<CreateAppParams>) {
     }
 
     yield put(createAppSuccess())
+
+    if (callback) {
+      callback(appDetail)
+    }
     // yield call(setFieldValue, externalIdField.name, appDetail.externalId)
     // yield call(setFieldValue, appIdField.name, appDetail.id)
     // yield call(setWizardStep, wizzardSteps.SUBMIT_APP_SUCCESS)
@@ -69,7 +74,7 @@ export const submitApp = function*({ data }: Action<CreateAppParams>) {
 }
 
 export const createAppListen = function*() {
-  yield takeLatest<Action<CreateAppParams>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitApp)
+  yield takeLatest<Action<CreateAppParams>>(ActionTypes.CREATE_APP, submitApp)
 }
 
 export const createAppSagas = function*() {

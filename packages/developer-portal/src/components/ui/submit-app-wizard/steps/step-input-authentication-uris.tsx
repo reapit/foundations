@@ -3,9 +3,9 @@ import { ModalBody, Button, Input, ModalFooter, FlexContainerBasic, Content } fr
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
-import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ValidateFormikOnMount } from '../utils'
 import { wizzardSteps } from '../constant'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 
 const { redirectUrisField, signoutUrisField, directApiField } = formFields
 
@@ -24,7 +24,7 @@ export const onPrev = (setWizardStep: SetWizardStep, isDirectApi: boolean) => ()
 }
 
 export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep }) => {
-  const { isValid, values } = useFormikContext<CustomCreateAppModel>()
+  const { isValid, values } = useFormikContext<CreateAppModel>()
   const isDirectApi = Boolean(values[directApiField.name])
 
   return (

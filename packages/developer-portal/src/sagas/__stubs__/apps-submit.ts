@@ -1,5 +1,5 @@
 import { CreateAppModel } from '@reapit/foundations-ts-definitions'
-import { SubmitAppArgs } from '@/actions/submit-app'
+import { CreateAppParams } from '@/services/apps'
 
 export const appSubmitStub: { data: CreateAppModel } = {
   data: {
@@ -20,13 +20,11 @@ export const appSubmitStub: { data: CreateAppModel } = {
   },
 }
 
-export const appSubmitStubWithActions: { data: SubmitAppArgs } = {
+export const appSubmitStubWithActions: { data: CreateAppParams } = {
   data: ({
     ...appSubmitStub.data,
-    setErrors: errors => errors,
-    setWizardStep: jest.fn(),
-    setFieldValue: jest.fn(),
-  } as unknown) as SubmitAppArgs,
+    callback: jest.fn(),
+  } as unknown) as CreateAppParams,
 }
 
 export const appSubmitStubFailed: { data: CreateAppModel } = {
@@ -47,13 +45,9 @@ export const appSubmitStubFailed: { data: CreateAppModel } = {
   },
 }
 
-export const appSubmitStubFailedWithActions: { data: SubmitAppArgs } = {
+export const appSubmitStubFailedWithActions: { data: CreateAppParams } = {
   data: {
     ...appSubmitStubFailed.data,
-    // @ts-ignore
-    actions: {
-      setStatus: status => status,
-      setErrors: errors => errors,
-    },
+    callback: jest.fn(),
   },
 }

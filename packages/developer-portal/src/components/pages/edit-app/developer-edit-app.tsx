@@ -7,11 +7,9 @@ import { Input, Button, Loader, Alert, H3, LevelRight, Formik, Form, H6, FormikV
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevision } from '@/actions/submit-revision'
-import { selectSubmitAppState } from '@/selector/submit-app'
 import { selectDeveloperId } from '@/selector/auth'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
@@ -28,6 +26,7 @@ import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import authFlows from '@/constants/app-auth-flow'
 import { Section } from '@reapit/elements'
+import { selectScopeList } from '@/selector/scopes/scope-list'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -259,12 +258,6 @@ export const handleGoBackToApps = (history: History) => {
   }
 }
 
-export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
-  return () => {
-    dispatch(submitAppSetFormState('PENDING'))
-  }
-}
-
 export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
   categories: CategoryModel[]
@@ -306,8 +299,8 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const { appid } = useParams<{ appid: string }>()
   const developerId = useSelector(selectDeveloperId)
   const appDetailState = useSelector(selectAppDetailState)
-  const submitAppState = useSelector(selectSubmitAppState)
   const appCategories = useSelector(selectCategories)
+  const scopes = useSelector(selectScopeList)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -338,7 +331,6 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const appId = data.id ?? ''
   const initialValues = generateInitialValues(data, developerId)
 
-  const scopes = (submitAppState.submitAppData && submitAppState.submitAppData.scopes) || []
   return (
     <>
       <H3 isHeadingSection>Edit App</H3>

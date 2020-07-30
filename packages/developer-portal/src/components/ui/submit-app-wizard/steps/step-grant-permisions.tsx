@@ -4,12 +4,13 @@ import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, FlexC
 import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
-import { selectSubmitAppScopes, selectSubmitAppFormState } from '@/selector/submit-app'
 import { ScopeModel } from '@/types/marketplace-api-schema'
-import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ValidateFormikOnMount } from '../utils'
 import authFlows from '@/constants/app-auth-flow'
 import { wizzardSteps } from '../constant'
+import { selectScopeList } from '@/selector/scopes/scope-list'
+import { selectCreateAppLoading } from '@/selector/apps/create-app'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 
 const { scopesField, authFlowField } = formFields
 
@@ -36,16 +37,15 @@ export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = sc
   })
 
 export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => {
-  const { values } = useFormikContext<CustomCreateAppModel>()
+  const { values } = useFormikContext<CreateAppModel>()
 
-  const formState = useSelector(selectSubmitAppFormState)
   const authFlow = values[authFlowField.name] as AuthFlow
 
-  const scopes = useSelector(selectSubmitAppScopes)
+  const scopes = useSelector(selectScopeList)
 
   const scopeOptions = preprareScopeOptions(scopes)
 
-  const isSubmitting = formState === 'SUBMITTING'
+  const isSubmitting = useSelector(selectCreateAppLoading)
 
   return (
     <>
@@ -63,7 +63,7 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
               options={scopeOptions}
               name={scopesField.name}
               id={scopesField.name}
-              fixedPosition={false}
+              fixedPosition
             />
           </div>
         }

@@ -5,10 +5,9 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
-import { fetchAppById, fetchDesktopIntegrationTypes, FetchAppByIdParams } from '@/services/apps'
+import { fetchAppById, FetchAppByIdParams } from '@/services/apps'
 import { fetchAppDetailSuccess } from '@/actions/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
-import { fetchDesktopIntegrationTypeListSuccess } from '@/actions/desktop-integration-types'
 
 export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
@@ -19,8 +18,6 @@ export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>
       })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
-    const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypes)
-    yield put(fetchDesktopIntegrationTypeListSuccess(desktopIntegrationTypes))
     yield put(fetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)

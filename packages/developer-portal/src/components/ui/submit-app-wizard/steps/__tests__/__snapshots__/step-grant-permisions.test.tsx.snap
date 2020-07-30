@@ -13,7 +13,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
           Please select specific the entities you need access to on a read or write basis. You can select multiple options below:
         </p>
         <Unknown
-          fixedPosition={false}
+          fixedPosition={true}
           id="scopes"
           mode="multiple"
           name="scopes"
@@ -27,7 +27,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
       <Unknown>
         <Unknown
           className="ml-0"
-          disabled={false}
+          disabled={Array []}
           onClick={[Function]}
           variant="secondary"
         >
@@ -35,8 +35,8 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
         </Unknown>
         <Unknown
           className="ml-auto"
-          disabled={false}
-          loading={false}
+          disabled={Array []}
+          loading={Array []}
           type="submit"
         >
           Next

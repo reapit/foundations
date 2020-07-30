@@ -40,10 +40,6 @@ export const Apps: React.FC = () => {
 
   const unfetched = !data
 
-  if (unfetched || isLoading) {
-    return <Loader />
-  }
-
   return (
     <ErrorBoundary>
       <Section className="justify-between items-center" isFlex>
@@ -53,21 +49,28 @@ export const Apps: React.FC = () => {
         </Button>
         <SubmitAppWizardModal
           visible={submitAppModalVisible}
-          afterClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
+          onClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
         />
       </Section>
-      <AppList
-        list={data}
-        loading={isLoading}
-        onCardClick={handleOnCardClick(history)}
-        infoType="DEVELOPER_APPS_EMPTY"
-      />
-      <Pagination
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
-        onChange={handleOnChange(history)}
-      ></Pagination>
+      {unfetched || isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <AppList
+            list={data}
+            loading={isLoading}
+            onCardClick={handleOnCardClick(history)}
+            infoType="DEVELOPER_APPS_EMPTY"
+          />
+          <Pagination
+            totalCount={totalCount}
+            pageSize={pageSize}
+            pageNumber={pageNumber}
+            onChange={handleOnChange(history)}
+          />
+        </>
+      )}
+
       <SandboxPopUp loading={isLoading} />
     </ErrorBoundary>
   )

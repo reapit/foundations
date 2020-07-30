@@ -35,7 +35,9 @@ export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
 
-export type CreateAppParams = CreateAppModel
+export type CreateAppParams = CreateAppModel & {
+  callback?: (appDetail: AppDetailModel) => void
+}
 
 export type DeleteAppByIdParams = FetchByIdCommonParams
 
