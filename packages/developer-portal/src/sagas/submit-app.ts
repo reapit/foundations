@@ -20,7 +20,7 @@ import { logger } from '@reapit/utils'
 import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoryListAPI } from '@/services/categories'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
@@ -85,7 +85,7 @@ export const submitAppsDataFetch = function*() {
     const [scopes, categories, integrationTypes] = yield all([
       call(fetchScopeListAPI),
       call(fetchCategoryListAPI, {}),
-      call(fetchDesktopIntegrationTypesList, {}),
+      call(fetchDesktopIntegrationTypeListAPI, {}),
     ])
     yield put(submitAppLoading(false))
     yield put(submitAppReceiveData(scopes))

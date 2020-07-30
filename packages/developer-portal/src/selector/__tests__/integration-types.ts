@@ -5,7 +5,11 @@ import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 describe('selectIntegrationTypes', () => {
   it('should run correctly', () => {
     const input = {
-      desktopIntegrationTypes: integrationTypesStub,
+      desktopIntegrationTypes: {
+        list: {
+          data: integrationTypesStub.data,
+        },
+      },
     } as ReduxState
     const result = selectIntegrationTypes(input)
     expect(result).toEqual(integrationTypesStub.data)

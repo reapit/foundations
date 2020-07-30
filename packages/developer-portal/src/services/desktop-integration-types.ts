@@ -32,7 +32,7 @@ export type PagedResultDesktopIntegrationTypeModel_ = {
   totalCount?: number
 }
 
-export type FetchDesktopIntegrationTypesListParams = FetchListCommonParams
+export type fetchDesktopIntegrationTypeListAPIParams = FetchListCommonParams
 
 export type CreateDesktopIntegrationTypes = CreateDesktopIntegrationTypeModel
 
@@ -40,8 +40,8 @@ export type FetchDesktopIntegrationTypesByIdParams = FetchByIdCommonParams
 
 export type UpdateDesktopIntegrationTypesByIdParams = FetchByIdCommonParams & UpdateDesktopIntegrationTypeModel
 
-export const fetchDesktopIntegrationTypesList = async (
-  params: FetchDesktopIntegrationTypesListParams,
+export const fetchDesktopIntegrationTypeListAPI = async (
+  params: fetchDesktopIntegrationTypeListAPIParams,
 ): Promise<PagedResultDesktopIntegrationTypeModel_> => {
   try {
     const response = await fetcher({
@@ -53,7 +53,7 @@ export const fetchDesktopIntegrationTypesList = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

@@ -12,6 +12,7 @@ import reduxStore from '@/core/store'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { fetchScopeList } from '@/actions/scopes'
 import { fetchCategoryList } from '@/actions/categories'
+import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 
 export type OnCloseSubmitAppModalParams = {
   getReduxState: () => ReduxState
@@ -42,6 +43,7 @@ export const customAfterClose = ({
 export const handleUseEffect = (dispatch: Dispatch) => () => {
   dispatch(fetchScopeList())
   dispatch(fetchCategoryList())
+  dispatch(fetchDesktopIntegrationTypeList())
   dispatch(submitAppSetFormState('PENDING'))
 }
 

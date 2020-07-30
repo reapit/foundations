@@ -19,7 +19,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopeListAPI } from '@/services/scopes'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { fork } from 'redux-saga/effects'
 
 jest.mock('@/services/apps')
@@ -42,7 +42,7 @@ describe('revision-detail fetch data', () => {
     all([
       call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
       call(fetchScopeListAPI),
-      call(fetchDesktopIntegrationTypesList, {}),
+      call(fetchDesktopIntegrationTypeListAPI, {}),
     ]),
   )
 

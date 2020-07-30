@@ -23,7 +23,7 @@ import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-de
 import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoryListAPI } from '@/services/categories'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
 import { Saga } from 'redux-saga'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
@@ -150,7 +150,7 @@ describe('submit-app fetch data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppLoading(true)))
   expect(gen.next().value).toEqual(
-    all([call(fetchScopeListAPI), call(fetchCategoryListAPI, {}), call(fetchDesktopIntegrationTypesList, {})]),
+    all([call(fetchScopeListAPI), call(fetchCategoryListAPI, {}), call(fetchDesktopIntegrationTypeListAPI, {})]),
   )
 
   test('api fetch success', () => {

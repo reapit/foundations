@@ -6,6 +6,7 @@ import auth from '@/reducers/auth'
 import appsReducer from '@/reducers/apps'
 import scopesReducer from '@/reducers/scopes'
 import categoriesReducer from '@/reducers/categories'
+import desktopIntegrationTypesReducer from '@/reducers/desktop-integration-types'
 
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
@@ -21,7 +22,6 @@ import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import revisionsReducer from '@/reducers/revisions'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
-import integrationTypes from '@/reducers/app-integration-types'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
@@ -31,6 +31,7 @@ import authSagas from '@/sagas/auth'
 import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
+import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -68,6 +69,7 @@ export class Store {
     apps: appsReducer,
     scopes: scopesReducer,
     categories: categoriesReducer,
+    desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
     auth,
     error,
@@ -84,7 +86,6 @@ export class Store {
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
-    desktopIntegrationTypes: integrationTypes,
     webhookEdit: webhookEditReducer,
     webhooks: webhookSubscriptions,
     developerSubscriptions,
@@ -100,6 +101,7 @@ export class Store {
       fork(appListSagas),
       fork(scopeListSagas),
       fork(categoryListSagas),
+      fork(desktopIntegrationTypeListSagas),
       fork(appAuthenticationSagas),
       fork(createAppSagas),
       fork(submitAppSagas),

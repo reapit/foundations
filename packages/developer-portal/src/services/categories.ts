@@ -24,7 +24,7 @@ export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): P
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

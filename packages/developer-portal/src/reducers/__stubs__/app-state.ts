@@ -173,11 +173,10 @@ const appState: ReduxState = {
     trafficEvents: null,
   },
   desktopIntegrationTypes: {
-    data: [],
-    pageNumber: 0,
-    pageSize: 0,
-    pageCount: 0,
-    totalCount: 0,
+    list: {
+      data: [],
+      isLoading: false,
+    },
   },
   webhookEdit: {
     loading: false,

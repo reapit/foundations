@@ -14,7 +14,7 @@ import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopeListAPI } from '@/services/scopes'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { fork } from 'redux-saga/effects'
 
 export const revisionDetailDataFetch = function*({
@@ -25,7 +25,7 @@ export const revisionDetailDataFetch = function*({
     const [response, scopes, desktopIntegrationTypes] = yield all([
       call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
       call(fetchScopeListAPI),
-      call(fetchDesktopIntegrationTypesList, {}),
+      call(fetchDesktopIntegrationTypeListAPI, {}),
     ])
 
     if (response && scopes && desktopIntegrationTypes) {
