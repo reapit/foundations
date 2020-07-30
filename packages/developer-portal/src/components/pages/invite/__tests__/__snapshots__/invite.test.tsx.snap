@@ -569,6 +569,15 @@ exports[`AcceptedModal should match snapshot 1`] = `
         >
           <Component
             closable={false}
+            footer={
+              <Unknown
+                className="mr-2"
+                onClick={[Function]}
+                type="button"
+              >
+                Login
+              </Unknown>
+            }
             isCentered={true}
             title="Success"
             visible={false}
@@ -577,6 +586,15 @@ exports[`AcceptedModal should match snapshot 1`] = `
               className=""
               closable={false}
               destroyOnClose={true}
+              footer={
+                <Unknown
+                  className="mr-2"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Login
+                </Unknown>
+              }
               title={
                 <Unknown>
                   Success

@@ -30,7 +30,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   if (location.pathname === '/') {
-    return <Redirect to={Routes.LOGIN} />
+    return <Redirect to={Routes.APPS} />
   }
 
   if (!connectSession) return null
