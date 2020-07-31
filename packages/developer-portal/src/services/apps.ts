@@ -39,7 +39,9 @@ export type CreateAppParams = CreateAppModel & {
   successCallback?: (appDetail: AppDetailModel) => void
 }
 
-export type DeleteAppByIdParams = FetchByIdCommonParams
+export type DeleteAppByIdParams = FetchByIdCommonParams & {
+  successCallback?: () => void
+}
 
 export type FeatureAppByIdParams = FetchByIdCommonParams
 
@@ -135,7 +137,7 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { useDispatch, useSelector } from 'react-redux'
-import { appDeleteRequest } from '@/actions/app-delete'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import CallToAction from '../../ui/call-to-action'
-import { selectAppDeleteFormState } from '@/selector/app-delete'
 import { Dispatch } from 'redux'
+import { deleteApp } from '@/actions/apps'
+import { selectDeleteAppLoading } from '@/selector/apps/delete-app'
 
 export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   appId: string
@@ -23,23 +22,31 @@ export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afte
   }
 }
 
-export const onDeleteButtonClick = (appId: string, dispatch: Dispatch) => {
+export const handleDeleteAppSuccessCallback = (setIsSuccedded: React.Dispatch<React.SetStateAction<boolean>>) => {
   return () => {
-    dispatch(appDeleteRequest(appId))
+    setIsSuccedded(true)
   }
 }
 
-export const handleUseEffect = (dispatch: Dispatch) => () => {
-  dispatch(appDeleteSetInitFormState())
+export const onDeleteButtonClick = (
+  appId: string,
+  dispatch: Dispatch,
+  setIsSuccedded: React.Dispatch<React.SetStateAction<boolean>>,
+) => {
+  return () => {
+    dispatch(
+      deleteApp({
+        id: appId,
+        successCallback: handleDeleteAppSuccessCallback(setIsSuccedded),
+      }),
+    )
+  }
 }
 
 export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, afterClose, visible, onDeleteSuccess }) => {
   const dispatch = useDispatch()
-  React.useEffect(handleUseEffect(dispatch), [])
-  const formState = useSelector(selectAppDeleteFormState)
-
-  const isLoading = formState === 'SUBMITTING'
-  const isSuccedded = formState === 'SUCCESS'
+  const [isSuccedded, setIsSuccedded] = React.useState(false)
+  const isLoading = useSelector(selectDeleteAppLoading)
 
   return (
     <Modal
@@ -84,7 +91,7 @@ export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, after
                     className={appPermissionContentStyles.installButton}
                     type="button"
                     variant="danger"
-                    onClick={onDeleteButtonClick(appId, dispatch)}
+                    onClick={onDeleteButtonClick(appId, dispatch, setIsSuccedded)}
                   >
                     Delete
                   </Button>

@@ -17,6 +17,9 @@ const appState: ReduxState = {
     createApp: {
       isLoading: false,
     },
+    deleteApp: {
+      isLoading: false,
+    },
   },
   scopes: {
     list: {
@@ -63,9 +66,6 @@ const appState: ReduxState = {
     revisions: null,
   },
   appDetailModal: 'VIEW_DETAIL_BROWSE',
-  appDelete: {
-    formState: 'PENDING',
-  },
   settings: {
     loading: true,
     developerInfomation: {
