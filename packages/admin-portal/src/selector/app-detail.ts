@@ -1,18 +1,10 @@
 import { ReduxState } from '@/types/core'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailState, AppDetailItem } from '@/reducers/apps/detail'
 
-export const selectAppDetailState = (state: ReduxState) => {
-  return state?.appDetail
+export const selectAppDetailState = (state: ReduxState): AppDetailState => {
+  return state?.apps?.detail || {}
 }
 
-export const selectAppDetailId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.id
-}
-
-export const selectAppDetailInstallationId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.installationId
-}
-
-export const selectApp = (state: ReduxState): AppDetailModel => {
-  return state?.appDetail?.appDetailData?.data || {}
+export const selectAppDetailData = (state: ReduxState): AppDetailItem => {
+  return state?.apps?.detail?.data || {}
 }

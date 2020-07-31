@@ -9,10 +9,10 @@ import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { selectApp } from '@/selector/app-detail'
-import { selectAppRevision } from '@/selector/app-revisions'
+import { selectAppDetailData } from '@/selector/app-detail'
+import { selectAppRevisionDetailData } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
-import { selectApprovalsState, selectWaitingApprovalData } from '@/selector/admin'
+import { selectApprovals } from '@/selector/admin'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -161,15 +161,16 @@ export const generateTableColumn = ({
 export const AdminApprovals: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const appDetail = useSelector(selectApp)
+  const appDetail = useSelector(selectAppDetailData)
   const location = useLocation()
   const history = useHistory()
-  const revisionDetail = useSelector(selectAppRevision)
-  const approvalsState = useSelector(selectApprovalsState)
-  const waitingApprovalListData = useSelector(selectWaitingApprovalData)
+  const revisionDetail = useSelector(selectAppRevisionDetailData)
+  const approvalListState = useSelector(selectApprovals)
+
+  const waitingApprovalListData = useSelector(selectApprovals)
   const urlParams = new URLSearchParams(location.search)
   const page = urlParams.get('page') || 1
-  const isLoading = approvalsState.loading
+  const isLoading = approvalListState.isLoading
 
   return (
     <>
@@ -189,12 +190,14 @@ export const AdminApprovals: React.FC = () => {
           })}
         />
       </Section>
-      <Pagination
-        onChange={handleOnPageChange(history)}
-        totalCount={waitingApprovalListData.totalCount}
-        pageSize={waitingApprovalListData.pageSize}
-        pageNumber={Number(page)}
-      />
+      {!isLoading && (
+        <Pagination
+          onChange={handleOnPageChange(history)}
+          totalCount={waitingApprovalListData.totalCount}
+          pageSize={waitingApprovalListData.pageSize}
+          pageNumber={Number(page)}
+        />
+      )}
       <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
     </>
   )

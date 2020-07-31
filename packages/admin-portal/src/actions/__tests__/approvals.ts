@@ -10,7 +10,7 @@ describe('adminApprovals actions', () => {
 
   it('should create a approvalsReceiveData action', () => {
     expect(approvalsReceiveData.type).toEqual(ActionTypes.APPROVALS_RECEIVE_DATA)
-    expect(approvalsReceiveData(approvalsStub).data).toEqual(approvalsStub)
+    expect(approvalsReceiveData(approvalsStub.data).data).toEqual(approvalsStub.data)
   })
 
   it('should create a approvalsRequestData action', () => {
