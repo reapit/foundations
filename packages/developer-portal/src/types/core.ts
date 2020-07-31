@@ -68,7 +68,6 @@ export interface ReduxState {
   revisionDetail: RevisionDetailState
   revisions: RevisionsState
   appDetailModal: AppDetailModalState
-  appDelete: RequestState
   settings: SettingsState
   installations: AppInstallationsState
   appUsageStats: AppUsageStatsState

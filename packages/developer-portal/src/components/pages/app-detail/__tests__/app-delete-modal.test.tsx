@@ -8,10 +8,9 @@ import {
   AppDeleteProps,
   handleAfterClose,
   onDeleteButtonClick,
-  handleUseEffect,
+  handleDeleteAppSuccessCallback,
 } from '../app-delete-modal'
-import { appDeleteRequest } from '@/actions/app-delete'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { deleteApp } from '@/actions/apps'
 
 const mockProps: AppDeleteProps = {
   appId: 'test',
@@ -30,12 +29,6 @@ describe('app-delete', () => {
     const mockStore = configureStore()
     store = mockStore(appState)
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
-  })
-
-  test('handleUseEffect should run correctly', () => {
-    const dispatch = jest.fn()
-    handleUseEffect(dispatch)()
-    expect(dispatch).toHaveBeenCalledWith(appDeleteSetInitFormState())
   })
 
   it('should match snapshot', () => {
@@ -75,9 +68,23 @@ describe('app-delete', () => {
 
   describe('onDeleteButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onDeleteButtonClick(mockProps.appId, spyDispatch)
+      const fn = onDeleteButtonClick(mockProps.appId, spyDispatch, jest.fn())
       fn()
-      expect(spyDispatch).toBeCalledWith(appDeleteRequest(mockProps.appId))
+      expect(spyDispatch).toBeCalledWith(
+        deleteApp({
+          id: mockProps.appId,
+          successCallback: expect.any(Function),
+        }),
+      )
+    })
+  })
+
+  describe('handleDeleteAppSuccessCallback', () => {
+    it('should run correctly', () => {
+      const mockSetIsSuccedded = jest.fn()
+      const fn = handleDeleteAppSuccessCallback(mockSetIsSuccedded)
+      fn()
+      expect(mockSetIsSuccedded).toBeCalledWith(true)
     })
   })
 })

@@ -13,7 +13,6 @@ import submitRevision from '@/reducers/submit-revision'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDetailModal from '@/reducers/app-detail-modal'
-import appDeleteReducer from '@/reducers/app-delete'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
@@ -24,7 +23,7 @@ import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
-import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
+import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas, deleteAppSagas } from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
@@ -35,7 +34,6 @@ import submitRevisionSagas from '@/sagas/submit-revision'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
 import revisionsSagas from '@/sagas/revisions'
-import appDeleteSagas from '@/sagas/app-delete'
 import settingSagas from '@/sagas/settings'
 import appInstallationsSagas from '@/sagas/app-installations'
 import noticationMessage from '@/reducers/notification-message'
@@ -72,7 +70,6 @@ export class Store {
     revisionDetail,
     revisions: revisionsReducer,
     appDetailModal,
-    appDelete: appDeleteReducer,
     settings: settingsReducer,
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
@@ -95,11 +92,11 @@ export class Store {
       fork(desktopIntegrationTypeListSagas),
       fork(appAuthenticationSagas),
       fork(createAppSagas),
+      fork(deleteAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
       fork(revisionsSagas),
-      fork(appDeleteSagas),
       fork(settingSagas),
       fork(appInstallationsSagas),
       fork(appHttpTrafficEventSagas),
