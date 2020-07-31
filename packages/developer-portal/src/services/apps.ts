@@ -119,7 +119,7 @@ export const createAppAPI = async (params: CreateAppParams) => {
     return headers
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }
 

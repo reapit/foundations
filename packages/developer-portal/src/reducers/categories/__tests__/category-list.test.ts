@@ -20,13 +20,9 @@ describe('category-list reducer', () => {
       type: ActionTypes.FETCH_CATEGORY_LIST_SUCCESS as ActionType,
       data: categoriesStub,
     })
-    const { data, pageNumber, pageSize, totalCount } = categoriesStub
     const expected: CategoryListState = {
       ...defaultState,
-      data,
-      totalCount,
-      pageSize,
-      page: pageNumber,
+      ...categoriesStub,
       isLoading: false,
     }
     expect(newState).toEqual(expected)

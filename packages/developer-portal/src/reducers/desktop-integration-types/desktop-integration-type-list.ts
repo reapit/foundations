@@ -5,25 +5,21 @@ import {
   fetchDesktopIntegrationTypeListSuccess,
   fetchDesktopIntegrationTypeListFailed,
 } from '@/actions/desktop-integration-types'
-import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface FetchDesktopIntegrationTypeListParams {
   page: number
   desktopIntegrationTypesPerPage?: number
 }
 
-export interface DesktopIntegrationTypeListState {
-  data?: DesktopIntegrationTypeModel[]
-  page?: number
-  pageSize?: number
-  totalCount?: number
+export type DesktopIntegrationTypeListState = PagedResultDesktopIntegrationTypeModel_ & {
   isLoading: boolean
   errorMessage?: string | null
 }
 
 export const defaultState: DesktopIntegrationTypeListState = {
   data: [],
-  page: 0,
+  pageNumber: 0,
   pageSize: 0,
   totalCount: 0,
   isLoading: false,
@@ -42,13 +38,9 @@ const desktopIntegrationTypeListReducer = (
   }
 
   if (isType(action, fetchDesktopIntegrationTypeListSuccess)) {
-    const { data, pageNumber, pageSize, totalCount } = action.data
     return {
       ...state,
-      data,
-      totalCount,
-      pageSize,
-      page: pageNumber,
+      ...action.data,
       isLoading: false,
     }
   }

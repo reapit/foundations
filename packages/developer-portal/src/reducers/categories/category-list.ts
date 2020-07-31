@@ -1,25 +1,21 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchCategoryList, fetchCategoryListSuccess, fetchCategoryListFailed } from '@/actions/categories'
-import { CategoryModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface FetchCategoryListParams {
   page: number
   categoriesPerPage?: number
 }
 
-export interface CategoryListState {
-  data?: CategoryModel[]
-  page?: number
-  pageSize?: number
-  totalCount?: number
+export type CategoryListState = PagedResultCategoryModel_ & {
   isLoading: boolean
   errorMessage?: string | null
 }
 
 export const defaultState: CategoryListState = {
   data: [],
-  page: 0,
+  pageNumber: 0,
   pageSize: 0,
   totalCount: 0,
   isLoading: false,
@@ -35,13 +31,9 @@ const categoryListReducer = (state: CategoryListState = defaultState, action: Ac
   }
 
   if (isType(action, fetchCategoryListSuccess)) {
-    const { data, pageNumber, pageSize, totalCount } = action.data
     return {
       ...state,
-      data,
-      totalCount,
-      pageSize,
-      page: pageNumber,
+      ...action.data,
       isLoading: false,
     }
   }

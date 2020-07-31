@@ -5,10 +5,10 @@ import {
   fetchDesktopIntegrationTypeListFailed,
 } from '@/actions/desktop-integration-types'
 import { logger } from '@reapit/utils'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
+import { notification } from '@reapit/elements'
 
 export const fetchDesktopIntegrationTypeListSaga = function*() {
   try {
@@ -17,12 +17,10 @@ export const fetchDesktopIntegrationTypeListSaga = function*() {
   } catch (err) {
     yield put(fetchDesktopIntegrationTypeListFailed(err))
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

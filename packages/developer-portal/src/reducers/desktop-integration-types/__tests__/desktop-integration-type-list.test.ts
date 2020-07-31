@@ -23,13 +23,9 @@ describe('desktopIntegrationType-list reducer', () => {
       type: ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPE_LIST_SUCCESS as ActionType,
       data: integrationTypesStub,
     })
-    const { data, pageNumber, pageSize, totalCount } = integrationTypesStub
     const expected: DesktopIntegrationTypeListState = {
       ...defaultState,
-      data,
-      totalCount,
-      pageSize,
-      page: pageNumber,
+      ...integrationTypesStub,
       isLoading: false,
     }
     expect(newState).toEqual(expected)

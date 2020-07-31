@@ -27,13 +27,11 @@ export const submitApp = function*({ data: { successCallback, ...appProps } }: A
     }
     yield put(createAppSuccess())
   } catch (err) {
-    console.log('err', err)
     logger(err)
     yield put(createAppFailed(err?.description))
-    yield call(notification.error, {
-      message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',
-      duration: 0,
     })
   }
 }

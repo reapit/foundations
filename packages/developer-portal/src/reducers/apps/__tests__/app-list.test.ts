@@ -20,13 +20,9 @@ describe('app-list reducer', () => {
       type: ActionTypes.FETCH_APP_LIST_SUCCESS as ActionType,
       data: appsDataStub.data,
     })
-    const { data, pageNumber, pageSize, totalCount } = appsDataStub.data
     const expected: AppListState = {
       ...defaultState,
-      data,
-      totalCount,
-      pageSize,
-      page: pageNumber,
+      ...appsDataStub.data,
       isLoading: false,
     }
     expect(newState).toEqual(expected)

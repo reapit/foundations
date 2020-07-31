@@ -36,10 +36,9 @@ describe('submit-app post data', () => {
     expect(internalGen.next().value).toEqual(call(getDeveloperId))
     expect(internalGen.next().value).toEqual(put(createAppFailed()))
     expect(internalGen.next().value).toEqual(
-      call(notification.error, {
+      notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
         placement: 'bottomRight',
-        duration: 0,
       }),
     )
     expect(internalGen.next().done).toBe(true)
@@ -59,10 +58,9 @@ describe('submit-app post data', () => {
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.next().value).toEqual(put(createAppFailed()))
     expect(clone.next().value).toEqual(
-      call(notification.error, {
+      notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
         placement: 'bottomRight',
-        duration: 0,
       }),
     )
     expect(clone.next().done).toBe(true)
@@ -72,10 +70,9 @@ describe('submit-app post data', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(createAppFailed()))
     expect(clone.next().value).toEqual(
-      call(notification.error, {
+      notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
         placement: 'bottomRight',
-        duration: 0,
       }),
     )
   })
