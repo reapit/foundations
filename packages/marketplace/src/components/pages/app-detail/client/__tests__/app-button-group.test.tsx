@@ -9,7 +9,6 @@ describe('ClientAppDetailButtonGroup', () => {
         installedOn="some-date"
         onInstallConfirmationModal={jest.fn()}
         onUninstallConfirmationModal={jest.fn()}
-        isInstallBtnHidden={false}
       />,
     )
     expect(wrapper).toMatchSnapshot()
@@ -21,7 +20,6 @@ describe('ClientAppDetailButtonGroup', () => {
         installedOn=""
         onInstallConfirmationModal={jest.fn()}
         onUninstallConfirmationModal={jest.fn()}
-        isInstallBtnHidden={true}
       />,
     )
     expect(wrapper).toMatchSnapshot()

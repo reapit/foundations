@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NonAdminModal INSTALL MODAL 1`] = `
+<Component
+  closable={false}
+  footer={
+    <Unknown
+      onClick={[MockFunction]}
+    >
+      Close
+    </Unknown>
+  }
+  isCentered={true}
+  onClose={[MockFunction]}
+  title="Installing App Name"
+  visible={true}
+>
+  <Component>
+    <p>
+      Your organisation settings prevent you from installing this app, please contact an Administrator.
+    </p>
+  </Component>
+</Component>
+`;
+
+exports[`NonAdminModal UNINSTALL MODAL 1`] = `
+<Component
+  closable={false}
+  footer={
+    <Unknown
+      onClick={[MockFunction]}
+    >
+      Close
+    </Unknown>
+  }
+  isCentered={true}
+  onClose={[MockFunction]}
+  title="Uninstalling App Name"
+  visible={true}
+>
+  <Component>
+    <p>
+      Your organisation settings prevent you from uninstalling this app, please contact an Administrator.
+    </p>
+  </Component>
+</Component>
+`;

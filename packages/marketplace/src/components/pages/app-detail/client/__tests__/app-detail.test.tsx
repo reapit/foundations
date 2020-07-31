@@ -10,6 +10,7 @@ import AppDetail, {
   handleCloseUnInstallConfirmationModal,
   handleUnInstallAppButtonClick,
   onBackToAppsButtonClick,
+  handleCloseNonAdminModal,
 } from '../app-detail'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -105,9 +106,19 @@ describe('AppDetail', () => {
   describe('handleInstallAppButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
-      const fn = handleInstallAppButtonClick(mockFunction)
+      const setNonAdminModalType = jest.fn()
+      const isAdmin = true
+      const fn = handleInstallAppButtonClick(mockFunction, setNonAdminModalType, isAdmin)
       fn()
       expect(mockFunction).toBeCalledWith(true)
+    })
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const setNonAdminModalType = jest.fn()
+      const isAdmin = false
+      const fn = handleInstallAppButtonClick(mockFunction, setNonAdminModalType, isAdmin)
+      fn()
+      expect(setNonAdminModalType).toBeCalledWith('INSTALL')
     })
   })
 
@@ -123,7 +134,17 @@ describe('AppDetail', () => {
   describe('handleUnInstallAppButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
-      const fn = handleUnInstallAppButtonClick(mockFunction)
+      const setNonAdminModalType = jest.fn()
+      const isAdmin = false
+      const fn = handleUnInstallAppButtonClick(mockFunction, setNonAdminModalType, isAdmin)
+      fn()
+      expect(setNonAdminModalType).toBeCalledWith('UNINSTALL')
+    })
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const setNonAdminModalType = jest.fn()
+      const isAdmin = true
+      const fn = handleUnInstallAppButtonClick(mockFunction, setNonAdminModalType, isAdmin)
       fn()
       expect(mockFunction).toBeCalledWith(true)
     })
@@ -135,5 +156,11 @@ describe('AppDetail', () => {
       fn()
       expect(history.push).toBeCalledWith(Routes.APPS)
     })
+  })
+  describe('handleCloseNonAdminModal', () => {
+    const setNonAdminModalType = jest.fn()
+    const fn = handleCloseNonAdminModal(setNonAdminModalType)
+    fn()
+    expect(setNonAdminModalType).toBeCalledWith(null)
   })
 })

@@ -311,6 +311,11 @@ exports[`AppDetail should match a snapshot 1`] = `
                 </Component>
               </Component>
             </AppInstallConfirmation>
+            <Component
+              appName=""
+              onClose={[Function]}
+              type={null}
+            />
           </div>
         </Component>
       </AppDetail>
@@ -630,6 +635,11 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 </Component>
               </Component>
             </AppInstallConfirmation>
+            <Component
+              appName=""
+              onClose={[Function]}
+              type={null}
+            />
           </div>
         </Component>
       </AppDetail>
@@ -949,6 +959,11 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 </Component>
               </Component>
             </AppInstallConfirmation>
+            <Component
+              appName=""
+              onClose={[Function]}
+              type={null}
+            />
           </div>
         </Component>
       </AppDetail>

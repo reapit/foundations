@@ -8,7 +8,7 @@ import AppUninstallConfirmation from '@/components/pages/app-detail/client/app-u
 import { selectDesktopIntegrationTypes } from '@/selector/desktop-integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
-import { selectClientId, selectIsAdmin } from '@/selector/auth'
+import { selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -24,6 +24,7 @@ import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectDeveloperEditionId } from '@/selector/auth'
+import NonAdminModal, { NonAdminModalType } from './non-admin-modal'
 
 export type ClientAppDetailProps = {}
 
@@ -32,20 +33,33 @@ export const handleCloseInstallConfirmationModal = (
 ) => () => {
   setIsVisibleInstallConfirmation(false)
 }
-
-export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => () => {
-  setIsVisibleInstallConfirmation(true)
-}
-
 export const handleCloseUnInstallConfirmationModal = (
   setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void,
 ) => () => {
   setIsVisibleUnInstallConfirmation(false)
 }
 
+export const handleInstallAppButtonClick = (
+  setIsVisibleInstallConfirmation: (isVisible: boolean) => void,
+  setNonAdminModalType: React.Dispatch<NonAdminModalType>,
+  isAdmin: boolean,
+) => () => {
+  if (!isAdmin) {
+    setNonAdminModalType('INSTALL')
+    return
+  }
+  setIsVisibleInstallConfirmation(true)
+}
+
 export const handleUnInstallAppButtonClick = (
   setIsVisibleUnInstallConfirmation: (isVisible: boolean) => void,
+  setNonAdminModalType: React.Dispatch<NonAdminModalType>,
+  isAdmin: boolean,
 ) => () => {
+  if (!isAdmin) {
+    setNonAdminModalType('UNINSTALL')
+    return
+  }
   setIsVisibleUnInstallConfirmation(true)
 }
 
@@ -56,25 +70,40 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(Routes.APPS)
 }
 
+export const handleCloseNonAdminModal = (setNonAdminModalType: React.Dispatch<NonAdminModalType>) => () => {
+  setNonAdminModalType(null)
+}
+
 const AppDetail: React.FC = () => {
   const history = useHistory()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const isDesktopAdmin = selectIsAdmin(connectSession)
+  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
+  const [nonAdminModalType, setNonAdminModalType] = React.useState<NonAdminModalType>(null)
+
   const closeInstallConfirmationModal = React.useCallback(
     handleCloseInstallConfirmationModal(setIsVisibleInstallConfirmation),
-    [],
-  )
-
-  const onInstallConfirmationModal = React.useCallback(handleInstallAppButtonClick(setIsVisibleInstallConfirmation), [])
-  const onUninstsallConfirmationModal = React.useCallback(
-    handleUnInstallAppButtonClick(setIsVisibleUninstallConfirmation),
     [],
   )
   const closeUninstallConfirmationModal = React.useCallback(
     handleCloseInstallConfirmationModal(setIsVisibleUninstallConfirmation),
     [],
   )
+
+  const onInstallConfirmationModal = React.useCallback(
+    handleInstallAppButtonClick(setIsVisibleInstallConfirmation, setNonAdminModalType, isAdmin),
+    [isAdmin],
+  )
+  const onUninstsallConfirmationModal = React.useCallback(
+    handleUnInstallAppButtonClick(setIsVisibleUninstallConfirmation, setNonAdminModalType, isAdmin),
+    [isAdmin],
+  )
+  const onCloseNonAdminModal = React.useCallback(handleCloseNonAdminModal(setNonAdminModalType), [])
 
   const desktopIntegrationTypes = useSelector(selectDesktopIntegrationTypes) as DesktopIntegrationTypeModel[]
   const appDetailData = useSelector(selectAppDetailData)
@@ -86,19 +115,10 @@ const AppDetail: React.FC = () => {
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
 
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-
-  const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isClient = Boolean(selectClientId(connectSession))
-  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
-
-  const isAdmin = isDesktopAdmin || isDeveloperEdition
-  const isInstallBtnHidden = isClient && !isAdmin
-
   // selector selectAppDetailData return {} if not data
 
   const unfetched = Object.keys(appDetailData).length === 0
-  const { installedOn = '' } = appDetailData
+  const { installedOn = '', name = '' } = appDetailData
 
   return (
     <Grid className={styles.container} dataTest="client-app-detail-container">
@@ -118,7 +138,6 @@ const AppDetail: React.FC = () => {
                     installedOn={installedOn}
                     onInstallConfirmationModal={onInstallConfirmationModal}
                     onUninstallConfirmationModal={onUninstsallConfirmationModal}
-                    isInstallBtnHidden={isInstallBtnHidden}
                   />
                 }
               />
@@ -139,6 +158,7 @@ const AppDetail: React.FC = () => {
         appDetailData={appDetailData}
         closeInstallConfirmationModal={closeInstallConfirmationModal}
       />
+      <NonAdminModal appName={name} type={nonAdminModalType} onClose={onCloseNonAdminModal} />
     </Grid>
   )
 }
