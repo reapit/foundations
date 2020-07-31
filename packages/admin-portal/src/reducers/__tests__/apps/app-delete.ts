@@ -1,9 +1,9 @@
 import appDeleteReducer, { defaultState } from '@/reducers/apps'
 import {
-  appDeleteSetInitFormState,
-  appDeleteRequestSuccess,
-  appDeleteRequestLoading,
-  appDeleteRequestFailure,
+  setDeleteAppInitFormState,
+  requestDeleteAppSuccess,
+  requestDeleteAppLoading,
+  requestDeleteAppFailed,
 } from '@/actions/app-delete'
 import { ActionType } from '@/types/core'
 import { AppsState } from '@/reducers/apps'
@@ -21,23 +21,23 @@ describe('appDeleteReducer - deleteFormState', () => {
     expect(newState).toEqual({ ...defaultState, ...testData.pending })
   })
 
-  it('should return formState = "SUBMITTING" when appDeleteRequestLoading action is dispatched', () => {
-    const newState = appDeleteReducer(defaultState, appDeleteRequestLoading())
+  it('should return formState = "SUBMITTING" when requestDeleteAppLoading action is dispatched', () => {
+    const newState = appDeleteReducer(defaultState, requestDeleteAppLoading())
     expect(newState).toEqual({ ...defaultState, ...testData.loading })
   })
 
-  it('should set formState = "SUCCESS" data when APP_DELETE_REQUEST_SUCCESS action is dispatched', () => {
-    const newState = appDeleteReducer({ ...defaultState, ...testData.loading }, appDeleteRequestSuccess())
+  it('should set formState = "SUCCESS" data when DELETE_REQUEST_APP_SUCCESS action is dispatched', () => {
+    const newState = appDeleteReducer({ ...defaultState, ...testData.loading }, requestDeleteAppSuccess())
     expect(newState).toEqual({ ...defaultState, ...testData.success })
   })
 
-  it('should set formState="ERROR" when APP_DELETE_REQUEST_FAILURE action is dispatched ', () => {
-    const newState = appDeleteReducer({ ...defaultState, ...testData.success }, appDeleteRequestFailure())
+  it('should set formState="ERROR" when DELETE_REQUEST_APP_FAILED action is dispatched ', () => {
+    const newState = appDeleteReducer({ ...defaultState, ...testData.success }, requestDeleteAppFailed())
     expect(newState).toEqual({ ...defaultState, ...testData.error })
   })
 
-  it('should return fomState = "PENDING" when appDeleteSetInitFormState is dispatched', () => {
-    const newState = appDeleteReducer({ ...defaultState, ...testData.error }, appDeleteSetInitFormState())
+  it('should return fomState = "PENDING" when setDeleteAppInitFormState is dispatched', () => {
+    const newState = appDeleteReducer({ ...defaultState, ...testData.error }, setDeleteAppInitFormState())
     expect(newState).toEqual({ ...defaultState, ...testData.pending })
   })
 })

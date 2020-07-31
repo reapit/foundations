@@ -1,4 +1,4 @@
-import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
+import { requestDeleteAppSuccess, requestDeleteAppLoading, requestDeleteAppFailed } from '@/actions/app-delete'
 import { put, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -9,19 +9,19 @@ import { getParamsFromPath } from '@/utils/client-url-params'
 import { logger } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
 
-export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
+export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   try {
-    yield put(appDeleteRequestLoading())
+    yield put(requestDeleteAppLoading())
     const response = yield call(deleteAppById, { id: appId })
     if (response) {
       const params = getParamsFromPath(window.location.search)
       const adminAppsResponse = yield call(fetchAppsList, { ...params })
       yield put(appsReceiveData(adminAppsResponse))
     }
-    yield put(appDeleteRequestSuccess())
+    yield put(requestDeleteAppSuccess())
   } catch (err) {
     logger(err)
-    yield put(appDeleteRequestFailure())
+    yield put(requestDeleteAppFailed())
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -31,8 +31,8 @@ export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
   }
 }
 
-export const appDeleteRequestListen = function*() {
-  yield takeLatest<Action<string>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga)
+export const requestDeleteAppListen = function*() {
+  yield takeLatest<Action<string>>(ActionTypes.DELETE_REQUEST_APP, requestDeleteAppSaga)
 }
 
-export default appDeleteRequestListen
+export default requestDeleteAppListen

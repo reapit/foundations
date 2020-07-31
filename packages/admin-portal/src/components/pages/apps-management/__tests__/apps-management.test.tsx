@@ -21,7 +21,7 @@ import {
 } from '../apps-management'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { setDeleteAppInitFormState } from '@/actions/app-delete'
 
 describe('admin-apps', () => {
   describe('renderIsFeature', () => {
@@ -128,7 +128,7 @@ describe('admin-apps', () => {
       }
       handleCloseAppDeleteModal(mockProps)()
       expect(mockProps.setDataDeleteModal).toBeCalled()
-      expect(mockProps.dispatch).toBeCalledWith(appDeleteSetInitFormState())
+      expect(mockProps.dispatch).toBeCalledWith(setDeleteAppInitFormState())
     })
   })
 

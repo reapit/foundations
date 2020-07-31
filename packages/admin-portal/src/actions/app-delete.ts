@@ -1,15 +1,8 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 
-/*
- * TODOME(appDeleteAction)
- * action + entity
- * failure -> faile
- * name -> swagger entity
- */
-
-export const appDeleteRequest = actionCreator<string>(ActionTypes.APP_DELETE_REQUEST)
-export const appDeleteRequestLoading = actionCreator<void>(ActionTypes.APP_DELETE_REQUEST_LOADING)
-export const appDeleteRequestFailure = actionCreator<void>(ActionTypes.APP_DELETE_REQUEST_FAILURE)
-export const appDeleteRequestSuccess = actionCreator<void>(ActionTypes.APP_DELETE_REQUEST_SUCCESS)
-export const appDeleteSetInitFormState = actionCreator<void>(ActionTypes.APP_DELETE_SET_INIT_FORM_STATE)
+export const requestDeleteApp = actionCreator<string>(ActionTypes.DELETE_REQUEST_APP)
+export const requestDeleteAppLoading = actionCreator<void>(ActionTypes.DELETE_REQUEST_APP_LOADING)
+export const requestDeleteAppFailed = actionCreator<void>(ActionTypes.DELETE_REQUEST_APP_FAILED)
+export const requestDeleteAppSuccess = actionCreator<void>(ActionTypes.DELETE_REQUEST_APP_SUCCESS)
+export const setDeleteAppInitFormState = actionCreator<void>(ActionTypes.SET_APP_DELETE_INIT_FORM_STATE)
