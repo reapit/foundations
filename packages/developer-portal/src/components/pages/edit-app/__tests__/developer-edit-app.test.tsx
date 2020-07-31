@@ -10,7 +10,6 @@ import DeveloperSubmitApp, {
   renderErrors,
   handleSubmitApp,
   handleGoBackToApps,
-  handleOnSubmitAnotherApp,
   generateInitialValues,
   handleOpenAppPreview,
   handleSubmitAppSuccess,
@@ -19,7 +18,6 @@ import DeveloperSubmitApp, {
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { submitRevision } from '@/actions/submit-revision'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -149,13 +147,7 @@ describe('DeveloperSubmitApp', () => {
       expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
-  describe('handleOnSubmitAnotherApp', () => {
-    it('should run correctly', () => {
-      const fn = handleOnSubmitAnotherApp(spyDispatch)
-      fn()
-      expect(spyDispatch).toBeCalledWith(submitAppSetFormState('PENDING'))
-    })
-  })
+
   describe('generateInitialValues', () => {
     it('should run correctly in case appDetail is null', () => {
       const result = generateInitialValues(null, 'testid')

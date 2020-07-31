@@ -1,8 +1,7 @@
 import React from 'react'
-import { SubmitAppWizard, handleSubmit } from '../submit-app-wizard'
+import { SubmitAppWizard, handleSubmit, CustomCreateAppModel } from '../submit-app-wizard'
 import { shallow } from 'enzyme'
 import { FormikHelpers } from '@reapit/elements'
-import { CustomCreateAppModel } from '@/actions/submit-app'
 import AuthFlow from '@/constants/app-auth-flow'
 
 jest.mock('react-redux', () => ({
@@ -19,6 +18,7 @@ describe('SubmitAppWizard', () => {
       redirectUris: 'link1 , link2 ,',
       signoutUris: 'link1 , link2 ,',
       authFlow: AuthFlow.CLIENT_SECRET,
+      successCallback: expect.any(Function),
     }
     const actions = {
       setErrors: jest.fn(),
@@ -30,12 +30,10 @@ describe('SubmitAppWizard', () => {
     })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
     expect(dispatch).toHaveBeenCalledWith({
       data: {
-        setErrors: actions.setErrors,
-        setWizardStep,
         authFlow: values.authFlow,
-        setFieldValue: actions.setFieldValue,
+        successCallback: expect.any(Function),
       },
-      type: 'DEVELOPER_SUBMIT_APP',
+      type: 'CREATE_APP',
     })
   })
   test('handleSubmit should run correctly when authFlow = authorisationCode', () => {
@@ -46,6 +44,7 @@ describe('SubmitAppWizard', () => {
       redirectUris: 'link1 , link2 ,',
       signoutUris: 'link1 , link2 ,',
       authFlow: AuthFlow.USER_SESSION,
+      successCallback: expect.any(Function),
     }
     const actions = {
       setFieldValue: jest.fn(),
@@ -60,11 +59,9 @@ describe('SubmitAppWizard', () => {
         redirectUris: ['link1', 'link2'],
         signoutUris: ['link1', 'link2'],
         authFlow: AuthFlow.USER_SESSION,
-        setErrors: actions.setErrors,
-        setFieldValue: actions.setFieldValue,
-        setWizardStep,
+        successCallback: expect.any(Function),
       },
-      type: 'DEVELOPER_SUBMIT_APP',
+      type: 'CREATE_APP',
     })
   })
   it('should match snapshot when visible = true', () => {

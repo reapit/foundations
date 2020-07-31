@@ -8,14 +8,13 @@ import {
   Checkbox,
   FormikErrors,
 } from '@reapit/elements'
-import { ScopeModel } from '@reapit/foundations-ts-definitions'
+import { ScopeModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import { CustomCreateAppModel } from '@/actions/submit-app'
 import { formFields } from './form-schema/form-fields'
 
 export type PermissionSectionProps = {
   scopes: ScopeModel[]
-  errors: FormikErrors<CustomCreateAppModel>
+  errors: FormikErrors<CreateAppModel>
 }
 
 export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: string) => (

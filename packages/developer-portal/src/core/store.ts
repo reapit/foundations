@@ -3,30 +3,34 @@ import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import appsReducer from '@/reducers/apps'
+import scopesReducer from '@/reducers/scopes'
+import categoriesReducer from '@/reducers/categories'
+import desktopIntegrationTypesReducer from '@/reducers/desktop-integration-types'
+
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
-import submitApp from '@/reducers/submit-app'
 import submitRevision from '@/reducers/submit-revision'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDetailModal from '@/reducers/app-detail-modal'
 import appDeleteReducer from '@/reducers/app-delete'
-import appCategories from '@/reducers/app-categories'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import revisionsReducer from '@/reducers/revisions'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
-import integrationTypes from '@/reducers/app-integration-types'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
-import { appDetailSagas, appListSagas, appAuthenticationSagas } from '@/sagas/apps'
+
+import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
+import { scopeListSagas } from '@/sagas/scopes'
+import { categoryListSagas } from '@/sagas/categories'
+import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
-import submitAppSagas from '@/sagas/submit-app'
 import submitRevisionSagas from '@/sagas/submit-revision'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
@@ -58,22 +62,22 @@ export class Store {
 
   static reducers = combineReducers<ReduxState>({
     apps: appsReducer,
+    scopes: scopesReducer,
+    categories: categoriesReducer,
+    desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
     error,
-    submitApp,
     submitRevision,
     developerSetStatus,
     revisionDetail,
     revisions: revisionsReducer,
     appDetailModal,
     appDelete: appDeleteReducer,
-    appCategories,
     settings: settingsReducer,
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
-    desktopIntegrationTypes: integrationTypes,
     webhookEdit: webhookEditReducer,
     webhooks: webhookSubscriptions,
     developerSubscriptions,
@@ -86,8 +90,11 @@ export class Store {
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),
+      fork(scopeListSagas),
+      fork(categoryListSagas),
+      fork(desktopIntegrationTypeListSagas),
       fork(appAuthenticationSagas),
-      fork(submitAppSagas),
+      fork(createAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),

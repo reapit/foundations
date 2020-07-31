@@ -11,7 +11,7 @@ import {
 import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
+import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 
 export type AgencyCloudIntegrationSectionProps = {}
 

@@ -95,15 +95,27 @@ exports[`Login should match a snapshot 1`] = `
                   </button>
                 </Component>
                 <Component
-                  afterClose={[Function]}
+                  onClose={[Function]}
                   visible={false}
                 >
                   <Component
-                    afterClose={[Function]}
-                    deps={Array []}
-                    renderChildren={true}
+                    isPadding={false}
+                    onClose={[Function]}
                     visible={false}
-                  />
+                  >
+                    <Component
+                      className=""
+                      destroyOnClose={true}
+                      onClose={[Function]}
+                      title={<Unknown />}
+                      visible={false}
+                      wrapClassName=""
+                    >
+                      <PortalWrapper
+                        visible={false}
+                      />
+                    </Component>
+                  </Component>
                 </Component>
               </section>
             </Component>

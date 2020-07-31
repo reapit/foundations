@@ -4,7 +4,7 @@ import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 
-export const fetchScopesList = async (): Promise<ScopeModel[]> => {
+export const fetchScopeListAPI = async (): Promise<ScopeModel[]> => {
   try {
     const response = await fetcher({
       url: `${URLS.scopes}`,
@@ -15,6 +15,6 @@ export const fetchScopesList = async (): Promise<ScopeModel[]> => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

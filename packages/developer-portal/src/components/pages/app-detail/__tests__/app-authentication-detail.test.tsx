@@ -47,10 +47,12 @@ describe('AppAuthenticationDetail', () => {
   describe('handleShowAuthCode', () => {
     it('should run correctly', () => {
       const mockedEvent = { preventDefault: jest.fn() }
-      const fn = handleShowAuthCode(props.appId, spyDispatch)
+      const mockSetShowSecret = jest.fn()
+      const fn = handleShowAuthCode(props.appId, spyDispatch, mockSetShowSecret)
       fn(mockedEvent)
       expect(mockedEvent.preventDefault).toBeCalled()
       expect(spyDispatch).toBeCalledWith(fetchtAppAuthentication(props.appId))
+      expect(mockSetShowSecret).toBeCalledWith(true)
     })
   })
   describe('handleMouseLeave', () => {

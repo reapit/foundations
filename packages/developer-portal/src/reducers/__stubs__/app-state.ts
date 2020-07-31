@@ -14,6 +14,21 @@ const appState: ReduxState = {
       code: '',
       isLoading: false,
     },
+    createApp: {
+      isLoading: false,
+    },
+  },
+  scopes: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
+  },
+  categories: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
   },
   developer: {
     loading: false,
@@ -30,11 +45,6 @@ const appState: ReduxState = {
   error: {
     componentError: null,
     serverError: null,
-  },
-  submitApp: {
-    loading: false,
-    formState: 'PENDING',
-    submitAppData: null,
   },
   submitRevision: {
     formState: 'PENDING',
@@ -55,13 +65,6 @@ const appState: ReduxState = {
   appDetailModal: 'VIEW_DETAIL_BROWSE',
   appDelete: {
     formState: 'PENDING',
-  },
-  appCategories: {
-    data: [],
-    pageNumber: 1,
-    pageSize: 12,
-    pageCount: 1,
-    totalCount: 0,
   },
   settings: {
     loading: true,
@@ -120,11 +123,10 @@ const appState: ReduxState = {
     trafficEvents: null,
   },
   desktopIntegrationTypes: {
-    data: [],
-    pageNumber: 0,
-    pageSize: 0,
-    pageCount: 0,
-    totalCount: 0,
+    list: {
+      data: [],
+      isLoading: false,
+    },
   },
   webhookEdit: {
     loading: false,

@@ -18,8 +18,8 @@ import {
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
-import { fetchScopesList } from '@/services/scopes'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fetchScopeListAPI } from '@/services/scopes'
+import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { fork } from 'redux-saga/effects'
 
 jest.mock('@/services/apps')
@@ -41,8 +41,8 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(
     all([
       call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
-      call(fetchScopesList),
-      call(fetchDesktopIntegrationTypesList, {}),
+      call(fetchScopeListAPI),
+      call(fetchDesktopIntegrationTypeListAPI, {}),
     ]),
   )
 

@@ -6,11 +6,12 @@ import store from '../core/store'
 import { fetchAppList } from '@/actions/apps'
 import { fetchMyIdentity } from '@/actions/developer'
 import { appInstallationsRequestData } from '../actions/app-installations'
-import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { getDeveloperId, getClientId } from './session'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
+import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
+import { fetchCategoryList } from '@/actions/categories'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -20,7 +21,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
 
   switch (route) {
     case Routes.APPS:
-      store.dispatch(submitAppRequestData())
       store.dispatch(fetchAppList({ page }))
       break
     case Routes.ANALYTICS_TAB: {
@@ -51,11 +51,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.APPS_EDIT:
-      store.dispatch(submitAppRequestData())
       store.dispatch(fetchAppDetail({ id }))
-      break
-    case Routes.SUBMIT_APP:
-      store.dispatch(submitAppRequestData())
+      store.dispatch(fetchCategoryList())
+      store.dispatch(fetchDesktopIntegrationTypeList())
       break
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())

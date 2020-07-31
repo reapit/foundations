@@ -1,6 +1,10 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppRevisionModel, ScopeModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppRevisionModel,
+  ScopeModel,
+  PagedResultDesktopIntegrationTypeModel_,
+} from '@reapit/foundations-ts-definitions'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
@@ -8,7 +12,6 @@ import {
   revisionDetailFailure,
   declineRevisionSetFormState,
 } from '../actions/revision-detail'
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel

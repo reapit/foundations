@@ -5,7 +5,7 @@ import { Formik, Form } from '@reapit/elements'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import GeneralInformationSection, { prepareCategoryOptions } from '../general-information-section'
-import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
+import { categoriesStub } from '@/sagas/__stubs__/app-categories'
 
 describe('GeneralInformationSection', () => {
   let store
@@ -45,7 +45,7 @@ describe('GeneralInformationSection', () => {
 
   describe('prepareCategoryOptions', () => {
     it('should run correctly', () => {
-      const result = prepareCategoryOptions(appCategorieStub.data || [])
+      const result = prepareCategoryOptions(categoriesStub.data || [])
       expect(result).toEqual([
         { label: 'Game', value: '3' },
         { label: 'entertainment', value: '2' },

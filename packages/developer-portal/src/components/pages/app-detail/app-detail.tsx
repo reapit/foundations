@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { selectInstallationAppData } from '@/selector/installations'
-import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultInstallationModel_, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
@@ -18,7 +17,7 @@ import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 
-export type DeveloperAppDetailProps = {}
+export type AppDetailProps = {}
 
 export const handleOnDeleteAppSuccess = (history: History) => () => {
   history.replace(routes.APPS)
@@ -42,7 +41,7 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(routes.APPS)
 }
 
-const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
+const AppDetail: React.FC<AppDetailProps> = () => {
   const history = useHistory()
   const { isMobile } = useReactResponsive()
 
@@ -78,4 +77,4 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   )
 }
 
-export default DeveloperAppDetail
+export default AppDetail

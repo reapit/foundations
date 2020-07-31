@@ -1,10 +1,8 @@
-import { SubmitAppWizardModal, handleUseEffect, customAfterClose } from '../submit-app-wizard-modal'
+import { SubmitAppWizardModal, handleUseEffect } from '../submit-app-wizard-modal'
 import React from 'react'
 import { shallow } from 'enzyme'
-import { submitAppSetFormState } from '@/actions/submit-app'
 import { Dispatch } from 'redux'
-import { ReduxState } from '@/types/core'
-import { fetchAppList } from '@/actions/apps'
+import { fetchScopeList } from '@/actions/scopes'
 jest.mock('../steps/step-submit-app-success', () => ({
   onFinish: jest.fn().mockImplementation(fn => fn),
 }))
@@ -15,47 +13,18 @@ jest.mock('react-redux', () => ({
 }))
 
 describe('SubmitAppWizardModal', () => {
-  describe('customAfterClose should run correctly', () => {
-    test('when formState = "SUCCESS"', () => {
-      const dispatch = jest.fn()
-      const afterClose = jest.fn()
-      const reduxState = 'state'
-      const getReduxState = () => reduxState
-      customAfterClose({
-        dispatch,
-        afterClose,
-        getReduxState: (getReduxState as unknown) as () => ReduxState,
-        selectSubmitAppFormState: () => 'SUCCESS',
-      })()
-      expect(dispatch).toHaveBeenCalledWith(fetchAppList({ page: 1 }))
-      expect(afterClose).toHaveBeenCalled()
-    })
-    test('when formState != "SUCCESS"', () => {
-      const dispatch = jest.fn()
-      const afterClose = jest.fn()
-      const reduxState = 'state'
-      const getReduxState = () => reduxState
-      customAfterClose({
-        dispatch,
-        afterClose,
-        getReduxState: (getReduxState as unknown) as () => ReduxState,
-        selectSubmitAppFormState: () => 'PENDING',
-      })()
-      expect(afterClose).toHaveBeenCalled()
-    })
-  })
   test('handleUseEffect should run correctly', () => {
     const dispatch = jest.fn()
     handleUseEffect((dispatch as unknown) as Dispatch)()
-    expect(dispatch).toHaveBeenCalledWith(submitAppSetFormState('PENDING'))
+    expect(dispatch).toHaveBeenCalledWith(fetchScopeList())
   })
 
   it('should match snapshot when visible = true', () => {
-    const wrapper = shallow(<SubmitAppWizardModal visible={true} afterClose={jest.fn()} />)
+    const wrapper = shallow(<SubmitAppWizardModal visible={true} onClose={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   it('should match snapshot when visible = true', () => {
-    const wrapper = shallow(<SubmitAppWizardModal visible={false} afterClose={jest.fn()} />)
+    const wrapper = shallow(<SubmitAppWizardModal visible={false} onClose={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

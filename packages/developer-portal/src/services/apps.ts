@@ -35,7 +35,9 @@ export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
 
-export type CreateAppParams = CreateAppModel
+export type CreateAppParams = CreateAppModel & {
+  successCallback?: (appDetail: AppDetailModel) => void
+}
 
 export type DeleteAppByIdParams = FetchByIdCommonParams
 
@@ -105,7 +107,7 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
   }
 }
 
-export const createApp = async (params: CreateAppParams) => {
+export const createAppAPI = async (params: CreateAppParams) => {
   try {
     const headers = await fetcherWithReturnHeader({
       url: URLS.apps,
@@ -117,7 +119,7 @@ export const createApp = async (params: CreateAppParams) => {
     return headers
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }
 

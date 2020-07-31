@@ -19,10 +19,15 @@ export const handleCopyCode = (setTooltipMessage: React.Dispatch<React.SetStateA
   }
 }
 
-export const handleShowAuthCode = (appId: string, dispatch: Dispatch) => {
+export const handleShowAuthCode = (
+  appId: string,
+  dispatch: Dispatch,
+  setIsShowedSecret: React.Dispatch<React.SetStateAction<boolean>>,
+) => {
   return e => {
     e.preventDefault()
     dispatch(fetchtAppAuthentication(appId))
+    setIsShowedSecret(true)
   }
 }
 
@@ -38,6 +43,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
 }) => {
   const dispatch = useDispatch()
   const [tooltipMessage, setTooltipMessage] = React.useState('Copy')
+  const [isShowedSecret, setIsShowedSecret] = React.useState(false)
   const loading = useSelector(selectAppAuthenticationLoading)
   const code = useSelector(selectAppAuthenticationCode)
 
@@ -45,12 +51,16 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
     <>
       <Content data-test="app-authentication-detail">
         {!withCustomHeader && <H5>Authentication:</H5>}
-        <a href="#" onClick={handleShowAuthCode(appId, dispatch)} className={styles.btnShowAuthentication}>
+        <a
+          href="#"
+          onClick={handleShowAuthCode(appId, dispatch, setIsShowedSecret)}
+          className={styles.btnShowAuthentication}
+        >
           Show Secret
         </a>
       </Content>
       {loading && <Loader body={false} />}
-      {!loading && code && (
+      {isShowedSecret && !loading && code && (
         <div className={styles.authenticationCodeWrap}>
           <p className={styles.authenticationCode}>{code}</p>
           <CopyToClipboard text={code} onCopy={handleCopyCode(setTooltipMessage)}>
