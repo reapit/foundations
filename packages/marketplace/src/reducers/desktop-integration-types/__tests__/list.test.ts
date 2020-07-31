@@ -37,9 +37,9 @@ describe('desktop-integration-types', () => {
       expect(newState).toEqual(expected)
     })
 
-    it('should set state to test when FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE action is called with test', () => {
+    it('should set state to test when FETCH_DESKTOP_INTEGRATION_TYPES_FAILED action is called with test', () => {
       const newState = desktopIntegrationTypesReducer(undefined, {
-        type: ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE as ActionType,
+        type: ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILED as ActionType,
         data: 'mockError',
       })
       const expected = {

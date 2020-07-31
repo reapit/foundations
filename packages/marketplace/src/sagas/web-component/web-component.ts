@@ -44,13 +44,11 @@ export const updateWebComponentConfigSaga = function*({ data }: Action<UpdateWeb
   }
 }
 
-export const fetchWebComponentConfigListen = function*() {
+export const webComponentSagasListen = function*() {
   yield takeLatest<Action<FetchWebComponentConfigParams>>(
     ActionTypes.FETCH_WEB_COMPONENT_CONFIG,
     fetchWebComponentConfigSaga,
   )
-}
-export const updateWebComponentConfigListen = function*() {
   yield takeLatest<Action<UpdateWebComponentConfigParams>>(
     ActionTypes.UPDATE_WEB_COMPONENT_CONFIG,
     updateWebComponentConfigSaga,
@@ -58,7 +56,7 @@ export const updateWebComponentConfigListen = function*() {
 }
 
 export const webComponentSagas = function*() {
-  yield all([fork(fetchWebComponentConfigListen), fork(updateWebComponentConfigListen)])
+  yield all([fork(webComponentSagasListen)])
 }
 
 export default webComponentSagas

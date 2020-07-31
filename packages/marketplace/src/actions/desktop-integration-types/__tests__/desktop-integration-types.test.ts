@@ -20,7 +20,7 @@ describe('desktop-integration-types', () => {
 
   describe('fetchDesktopIntegrationTypesFailed', () => {
     it('should create a fetchDesktopIntegrationTypesFailed action', () => {
-      expect(fetchDesktopIntegrationTypesFailed.type).toEqual(ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE)
+      expect(fetchDesktopIntegrationTypesFailed.type).toEqual(ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILED)
     })
   })
 })
