@@ -7,6 +7,7 @@ import {
   fetchFeatureAppsFailed,
   fetchAppDetailSuccess,
   fetchAppDetailFailed,
+  fetchAppsInfiniteSuccess,
 } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -19,6 +20,7 @@ import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const fetchApps = function*({ data }) {
   try {
+    const { isInfinite } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
@@ -34,6 +36,12 @@ export const fetchApps = function*({ data }) {
       developerId: developerId ? [developerId] : [],
       ...data,
     })
+
+    if (isInfinite) {
+      yield put(fetchAppsInfiniteSuccess(response))
+      return
+    }
+
     yield put(fetchAppsSuccess(response))
   } catch (err) {
     yield put(fetchAppsFailed(err.description))
