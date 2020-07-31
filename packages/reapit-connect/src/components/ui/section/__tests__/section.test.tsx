@@ -14,4 +14,29 @@ describe('Section', () => {
 
     expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
   })
+
+  it('should match snapshot when image in right', () => {
+    const mockProps: SectionProps = {
+      heading: 'Test heading',
+      subheading: 'Test sub heading',
+      description: 'Test description',
+      image: developerPortalImage,
+      imageLeft: false,
+    }
+
+    expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot when has button', () => {
+    const mockProps: SectionProps = {
+      heading: 'Test heading',
+      subheading: 'Test sub heading',
+      description: 'Test description',
+      image: developerPortalImage,
+      imageLeft: false,
+      button: <a href="/test">My button</a>,
+    }
+
+    expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
+  })
 })

@@ -16,7 +16,6 @@ export const Welcome: React.FC<WelcomeProps> = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
   const developerId = session?.connectSession?.loginIdentity?.developerId
   const clientId = session?.connectSession?.loginIdentity?.clientId
-  console.log('info', session?.connectSession?.loginIdentity)
 
   return (
     <Section>

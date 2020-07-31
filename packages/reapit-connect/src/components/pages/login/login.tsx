@@ -5,7 +5,7 @@ import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-const handleLogin = () => reapitConnectBrowserSession.connectLoginRedirect()
+export const handleLogin = () => reapitConnectBrowserSession.connectLoginRedirect()
 
 export const Login: React.FC = () => {
   return (
