@@ -17,7 +17,6 @@ export const handleLoadStats = (dispatch: Dispatch) => (params: StatisticsReques
 export const Statistics: React.FC = () => {
   const dispatch = useDispatch()
   const adminStats = useSelector(selectStatistics)
-  console.log({ adminStats })
 
   const { isLoading, data = [], totalCount } = adminStats
 
