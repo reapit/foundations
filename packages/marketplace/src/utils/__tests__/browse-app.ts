@@ -1,4 +1,4 @@
-import { getNumberOfItems, mergeAppsWithoutDuplicateId } from '../browse-app'
+import { getNumberOfItems, mergeAppsWithoutDuplicateId, generateParamsForPreviewApps } from '../browse-app'
 
 describe('Browse apps', () => {
   test('getNumberOfItems', () => {
@@ -313,5 +313,47 @@ describe('Browse apps', () => {
       ]
       expect(mergeAppsWithoutDuplicateId(oldApps, newApps)).toEqual(result)
     })
+  })
+})
+
+describe('generateParamsForPreviewApps', () => {
+  it('should return defaultParams if !preview', () => {
+    const defaultParams = {
+      clientId: 'SBOX',
+      isFeatured: true,
+      pageNumber: 1,
+      pageSize: 3,
+      preview: false,
+    }
+    const result = generateParamsForPreviewApps(defaultParams, false)
+    const expected = { fetchAppsParams: defaultParams, fetchFeatureAppsParams: defaultParams }
+    expect(result).toEqual(expected)
+  })
+
+  it('should return correctly if preview', () => {
+    const defaultParams = {
+      clientId: 'SBOX',
+      isFeatured: true,
+      pageNumber: 1,
+      pageSize: 3,
+      preview: false,
+    }
+    ;(global as any).window.reapit.config.previewExternalAppIds = ['app1']
+    ;(global as any).window.reapit.config.previewFeaturedExternalAppIds = ['app2']
+
+    const result = generateParamsForPreviewApps(defaultParams, true)
+    const expected = {
+      fetchAppsParams: {
+        pageNumber: 1,
+        pageSize: 3,
+        externalAppId: ['app1'],
+      },
+      fetchFeatureAppsParams: {
+        pageNumber: 1,
+        pageSize: 3,
+        externalAppId: ['app2'],
+      },
+    }
+    expect(result).toEqual(expected)
   })
 })
