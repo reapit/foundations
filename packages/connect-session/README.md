@@ -2,9 +2,13 @@
 
 ![lines](/packages/connect-session/src/tests/badges/badge-lines.svg) ![functions](/packages/connect-session/src/tests/badges/badge-functions.svg) ![branches](/packages/connect-session/src/tests/badges/badge-branches.svg) ![statements](/packages/connect-session/src/tests/badges/badge-statements.svg)
 
-A thin wrapper around the Reapit Connect (AWS Congnito) OAuth API. Takes the pain away from managing refreshing sessions and re-directing to the OAuth endpoints. [here](https://foundations-documentation.reapit.cloud/api/web#connect-session) and [here](https://foundations-documentation.reapit.cloud/open-source/packages#connect-session).
+A thin wrapper around the Reapit Connect OAuth API.
 
-- **Production**: https://www.npmjs.com/package/@reapit/connect-session
+Managing OAuth flows can be tricky, especially redirecting, keeping sessions refreshed and cached. To make this process easier, we have built the Connect Session module for any JavaScript app.
+
+To get started run `yarn add @reapit/connect-session`
+
+Then follow the steps for either browsers, React or NodeJS below. For full documentaion [here](https://foundations-documentation.reapit.cloud/app-development/connect-session).
 
 ## Basic Browser Usage
 
@@ -24,7 +28,7 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
   connectOAuthUrl: 'https://dev.connect.reapit.cloud',
   // The relative path you want to re-direct in your application after a successful login. You will have supplied this when you registered your app.
-  // Defaults to '' or the route of your project if not supplied
+  // Defaults to '' or the root of your project if not supplied
   connectLoginRedirectPath: '/some-redirect-path',
   // The relative path you want to re-direct in your application after a successful logout. You will have supplied this when you registered your app.
   // Defaults to '/login' if not supplied
@@ -126,7 +130,7 @@ export const SomeComponent: React.FC = () => {
 
 ## Sign In With Reapit Button
 
-Perhaps the simplest way to authenticate on the client side is to embed the "Sign In With Reapit Button" on your page. This is a single script served from our CDN, you instantiate with a target div, your client credentials as per the browser API and pass in a callback to receive your session object. As per the NPM module, all caching, redirection and refreshing is taken care of by the package. When you have a session, the button will change function to be a logout which will clear your cache and end yourr session in Reapit Connect.
+Perhaps the simplest way to authenticate on the client side is to embed the "Sign In With Reapit Button" on your page. This is a single script served from our CDN, you instantiate with a target div, your client credentials as per the browser API and pass in a callback to receive your session object. As per the NPM module, all caching, redirection and refreshing is taken care of by the package. When you have a session, the button will change function to be a logout which will clear your cache and end your session in Reapit Connect.
 
 The below example shows how to embed on any static or dynamic page with a single script. In the connectHasSessionCallback function we fetch a list of appointments from the Platform API to demonstrate the full flow.
 

@@ -6,4 +6,4 @@ A UI toolkit for building web applications in the Reapit Marketplace. Exports a 
 
 For the React Component Storybook visit [here](https://elements.reapit.cloud).
 
-For detailed documentation [visit here](https://foundations-documentation.reapit.cloud/web/elements).
+For detailed documentation and usage [visit here](https://foundations-documentation.reapit.cloud/app-development/elements).
