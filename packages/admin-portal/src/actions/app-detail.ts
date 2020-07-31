@@ -10,8 +10,9 @@ export interface AppDetailParams {
 
 export const fetchAppDetailData = actionCreator<AppDetailParams>(ActionTypes.FETCH_APP_DETAIL_DATA)
 export const fetchAppDetailLoading = actionCreator<boolean>(ActionTypes.FETCH_APP_DETAIL_LOADING)
-export const receiveAppDetailData = actionCreator<{ data: AppDetailItem } | undefined>(
-  ActionTypes.RECEIVE_FETCH_APP_DETAIL_DATA,
+
+export const fetchAppDetailDataSuccess = actionCreator<{ data: AppDetailItem } | undefined>(
+  ActionTypes.FETCH_APP_DETAIL_DATA_SUCCESS,
 )
 export const fetchAppDetailFailed = actionCreator<string | void>(ActionTypes.FETCH_APP_DETAIL_DATA_FAILURE)
 export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_IS_STALE)

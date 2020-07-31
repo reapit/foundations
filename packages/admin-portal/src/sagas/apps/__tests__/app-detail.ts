@@ -4,7 +4,7 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {
   fetchAppDetailLoading,
-  receiveAppDetailData,
+  fetchAppDetailDataSuccess,
   fetchAppDetailFailed,
   AppDetailParams,
   setAppDetailStale,
@@ -40,7 +40,7 @@ describe('app-detail fetch data with clientId', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
-        receiveAppDetailData({
+        fetchAppDetailDataSuccess({
           data: appDetailDataStub.data,
         }),
       ),
@@ -78,7 +78,7 @@ describe('app-detail fetch data without clientId', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
-        receiveAppDetailData({
+        fetchAppDetailDataSuccess({
           data: appDetailDataStub.data,
         }),
       ),
@@ -113,7 +113,7 @@ describe('app-detail fetch data and fetch apiKey', () => {
     ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
     expect(clone.next({ apiKey }).value).toEqual(
       put(
-        receiveAppDetailData({
+        fetchAppDetailDataSuccess({
           data: { ...appDetailDataStub.data, isWebComponent, installationId, apiKey },
         }),
       ),

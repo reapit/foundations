@@ -1,7 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
-import { FormState } from '@/types/core'
 
 export type AppsFeaturedParams = {
   id: string
@@ -15,13 +14,7 @@ export type AppsParams = {
   companyName?: string
 }
 
-/* TODOME(appsManagement)
- * failure -> failed
- * action + entity
- * name -> swagger entity
- */
-export const appsRequestData = actionCreator<AppsParams>(ActionTypes.APPS_REQUEST_DATA)
-export const appsReceiveData = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.APPS_RECEIVE_DATA)
-export const appsRequestFailure = actionCreator<void>(ActionTypes.APPS_REQUEST_FAILURE)
-export const appsRequestFeatured = actionCreator<AppsFeaturedParams>(ActionTypes.APPS_REQUEST_FEATURED)
-export const appsSetFormState = actionCreator<FormState>(ActionTypes.APPS_SET_FORM_STATE)
+export const fetchAppListData = actionCreator<AppsParams>(ActionTypes.FETCH_APP_LIST_DATA)
+export const fetchAppListSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APP_LIST_SUCCESS)
+export const fetchAppListFailed = actionCreator<void>(ActionTypes.FETCH_APP_LIST_FAILED)
+export const requestMarkAppAsFeatured = actionCreator<AppsFeaturedParams>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED)

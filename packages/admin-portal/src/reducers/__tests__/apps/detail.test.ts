@@ -29,9 +29,9 @@ describe('appsReducer - detail', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set app-detail item data when RECEIVE_FETCH_APP_DETAIL_DATA action is called', () => {
+  it('should set app-detail item data when FETCH_APP_DETAIL_DATA_SUCCESS action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.RECEIVE_FETCH_APP_DETAIL_DATA as ActionType,
+      type: ActionTypes.FETCH_APP_DETAIL_DATA_SUCCESS as ActionType,
       data: appDetailDataStub,
     })
     const expected = {

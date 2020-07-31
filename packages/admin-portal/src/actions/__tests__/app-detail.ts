@@ -1,4 +1,9 @@
-import { fetchAppDetailLoading, receiveAppDetailData, fetchAppDetailData, fetchAppDetailFailed } from '../app-detail'
+import {
+  fetchAppDetailLoading,
+  fetchAppDetailDataSuccess,
+  fetchAppDetailData,
+  fetchAppDetailFailed,
+} from '../app-detail'
 import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
 
@@ -8,9 +13,9 @@ describe('appDetail actions', () => {
     expect(fetchAppDetailLoading(true).data).toEqual(true)
   })
 
-  it('should create a receiveAppDetailData action', () => {
-    expect(receiveAppDetailData.type).toEqual(ActionTypes.RECEIVE_FETCH_APP_DETAIL_DATA)
-    expect(receiveAppDetailData(appDetailDataStub).data).toEqual(appDetailDataStub)
+  it('should create a fetchAppDetailDataSuccess action', () => {
+    expect(fetchAppDetailDataSuccess.type).toEqual(ActionTypes.FETCH_APP_DETAIL_DATA_SUCCESS)
+    expect(fetchAppDetailDataSuccess(appDetailDataStub).data).toEqual(appDetailDataStub)
   })
 
   it('should create a fetchAppDetailData action', () => {

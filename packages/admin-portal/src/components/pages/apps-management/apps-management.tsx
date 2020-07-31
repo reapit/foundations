@@ -24,7 +24,7 @@ import {
   LevelRight,
 } from '@reapit/elements'
 import { selectAppsData, selectAppsLoading } from '@/selector/admin'
-import { appsRequestFeatured } from '@/actions/apps-management'
+import { requestMarkAppAsFeatured } from '@/actions/apps-management'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
@@ -50,7 +50,7 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
         id={id}
         name={id}
         checked={value}
-        onChange={evt => dispatch(appsRequestFeatured({ id, isFeatured: evt.target.checked }))}
+        onChange={evt => dispatch(requestMarkAppAsFeatured({ id, isFeatured: evt.target.checked }))}
       />
       <label className="label" htmlFor={id}></label>
     </div>

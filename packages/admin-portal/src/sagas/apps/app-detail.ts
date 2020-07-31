@@ -1,6 +1,6 @@
 import {
   fetchAppDetailLoading,
-  receiveAppDetailData,
+  fetchAppDetailDataSuccess,
   fetchAppDetailFailed,
   AppDetailParams,
   setAppDetailStale,
@@ -29,7 +29,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     if (appDetailResponse) {
-      yield put(receiveAppDetailData({ data: appDetailResponse }))
+      yield put(fetchAppDetailDataSuccess({ data: appDetailResponse }))
       yield put(setAppDetailStale(false))
     } else {
       yield put(fetchAppDetailFailed())
