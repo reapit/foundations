@@ -1,4 +1,4 @@
-import { approvalsLoading, approvalsReceiveData, approvalsRequestDataFailure } from '@/actions/approvals'
+import { approvalsReceiveData, fetchApprovalsDataFailed } from '@/actions/approvals'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -8,14 +8,12 @@ import { logger } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
 
 export const approvalsDataFetch = function*({ data: page }) {
-  yield put(approvalsLoading(true))
-
   try {
     const response = yield call(fetchApprovalsList, { pageNumber: page })
     if (response) {
       yield put(approvalsReceiveData(response))
     } else {
-      yield put(approvalsRequestDataFailure())
+      yield put(fetchApprovalsDataFailed())
     }
   } catch (err) {
     logger(err)
@@ -29,7 +27,7 @@ export const approvalsDataFetch = function*({ data: page }) {
 }
 
 export const approvalsDataListen = function*() {
-  yield takeLatest<Action<number>>(ActionTypes.APPROVALS_REQUEST_DATA, approvalsDataFetch)
+  yield takeLatest<Action<number>>(ActionTypes.FETCH_APPROVALS_DATA, approvalsDataFetch)
 }
 
 const approvalsSagas = function*() {

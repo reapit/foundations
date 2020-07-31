@@ -7,11 +7,6 @@ export interface AppDetailParams {
   id: string
   clientId?: string
 }
-/*
- * TODOME(appDetail)
- * action + entity
- * name -> swagger entity
- */
 
 export const fetchAppDetailData = actionCreator<AppDetailParams>(ActionTypes.FETCH_APP_DETAIL_DATA)
 export const fetchAppDetailLoading = actionCreator<boolean>(ActionTypes.FETCH_APP_DETAIL_LOADING)
