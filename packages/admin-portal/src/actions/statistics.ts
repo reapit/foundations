@@ -15,6 +15,13 @@ export type StatisticsReceiveParams = {
   totalCount: number
 }
 
+/*
+ * TODOME(statistics)
+ * swaagger
+ * action + entity
+ * failure -> failed
+ */
+
 export const statisticsRequestData = actionCreator<StatisticsRequestParams>(ActionTypes.STATISTICS_REQUEST_DATA)
 export const statisticsReceiveData = actionCreator<StatisticsReceiveParams>(ActionTypes.STATISTICS_RECEIVE_DATA)
 export const statisticsRequestFailure = actionCreator<void>(ActionTypes.STATISTICS_REQUEST_DATA_FAILURE)

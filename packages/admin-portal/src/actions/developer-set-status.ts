@@ -6,6 +6,13 @@ export type UpdateDeveloperModelRequest = {
   callback?: (success: boolean) => void
 } & UpdateDeveloperModel
 
+/*
+ * TODOME(developerStatusActions)
+ * aciont + entity
+  name -> swagger entity
+* failure - failed
+ */
+
 export const developerSetStatusRequest = actionCreator<UpdateDeveloperModelRequest>(
   ActionTypes.DEVELOPER_SET_STATUS_REQUEST,
 )

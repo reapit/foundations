@@ -7,6 +7,12 @@ export interface AppDetailParams {
   id: string
   clientId?: string
 }
+/*
+ * TODOME(appDetail)
+ * failure -> failed
+ * action + entity
+ * name -> swagger entity
+ */
 
 export const appDetailRequestData = actionCreator<AppDetailParams>(ActionTypes.APP_DETAIL_REQUEST_DATA)
 export const appDetailLoading = actionCreator<boolean>(ActionTypes.APP_DETAIL_LOADING)

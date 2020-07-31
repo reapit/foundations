@@ -1,6 +1,13 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 
+/*
+ * TODOME(appDeleteAction)
+ * action + entity
+ * failure -> faile
+ * name -> swagger entity
+ */
+
 export const appDeleteRequest = actionCreator<string>(ActionTypes.APP_DELETE_REQUEST)
 export const appDeleteRequestLoading = actionCreator<void>(ActionTypes.APP_DELETE_REQUEST_LOADING)
 export const appDeleteRequestFailure = actionCreator<void>(ActionTypes.APP_DELETE_REQUEST_FAILURE)

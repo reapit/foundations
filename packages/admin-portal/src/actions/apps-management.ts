@@ -15,6 +15,11 @@ export type AppsParams = {
   companyName?: string
 }
 
+/* TODOME(appsManagement)
+ * failure -> failed
+ * action + entity
+ * name -> swagger entity
+ */
 export const appsRequestData = actionCreator<AppsParams>(ActionTypes.APPS_REQUEST_DATA)
 export const appsReceiveData = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.APPS_RECEIVE_DATA)
 export const appsRequestFailure = actionCreator<void>(ActionTypes.APPS_REQUEST_FAILURE)

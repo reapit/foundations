@@ -17,6 +17,13 @@ export interface RevisionReceiveDataParams extends RevisionDetailItem {
 export type RevisionApproveRequestParams = RevisionDetailRequestParams & ApproveModel
 export type RevisionDeclineRequestParams = RevisionDetailRequestParams & RejectRevisionModel
 
+/*
+ * TODOME(revisionDetail)
+ * convention
+ * failure -> failed
+ * swaggerName
+ */
+
 export const revisionDetailRequestData = actionCreator<RevisionDetailRequestParams>(
   ActionTypes.REVISION_DETAIL_REQUEST_DATA,
 )

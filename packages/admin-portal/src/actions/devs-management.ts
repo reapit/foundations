@@ -7,6 +7,11 @@ export interface DevsManagementRequestDataValues {
   queryString: string
 }
 
+/*
+ * TODOME(devManagements)
+ * aciont + entity
+ * failure - failed
+ */
 export const devsManagementRequestData = actionCreator<DevsManagementRequestDataValues>(
   ActionTypes.DEVS_MANAGEMENT_REQUEST_DATA,
 )
