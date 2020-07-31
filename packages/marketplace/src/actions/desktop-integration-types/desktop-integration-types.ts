@@ -12,5 +12,5 @@ export const fetchDesktopIntegrationTypesSuccess = actionCreator<PagedResultDesk
 )
 
 export const fetchDesktopIntegrationTypesFailed = actionCreator<string>(
-  ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE,
+  ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILED,
 )

@@ -28,5 +28,7 @@ export const appDetailDataStub = {
       },
     ],
     scopes: appPermissionStub,
+    isWebComponent: true,
+    installationId: '123',
   },
 }

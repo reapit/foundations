@@ -1,4 +1,4 @@
-import { selectAppDetailId, selectAppDetailInstallationId, selectApp } from '../app-detail'
+import { selectAppDetailState, selectAppDetailData } from '../app-detail'
 import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
 import { ReduxState } from '@/types/core'
 import appState from '@/reducers/__stubs__/app-state'
@@ -6,44 +6,30 @@ import appState from '@/reducers/__stubs__/app-state'
 describe('app-detail', () => {
   const mockState = {
     ...appState,
-    appDetail: {
-      appDetailData: appDetailDataStub,
+    apps: {
+      detail: {
+        data: appDetailDataStub.data,
+        isLoading: false,
+        errorMessage: '',
+      },
     },
   } as ReduxState
-  describe('selectAppDetailId', () => {
-    it('should run correctly', () => {
-      const result = selectAppDetailId(mockState)
-      expect(result).toEqual(appDetailDataStub.data.id)
-    })
 
-    it('should run correctly and return undefined', () => {
-      const input = {} as ReduxState
-      const result = selectAppDetailId(input)
-      expect(result).toEqual(undefined)
+  describe('selectAppDetailState', () => {
+    it('should run correctly', () => {
+      const result = selectAppDetailState(mockState)
+      expect(result).toEqual(mockState.apps.detail)
     })
   })
 
-  describe('selectAppDetailInstallationId', () => {
+  describe('selectAppDetailData', () => {
     it('should run correctly', () => {
-      const result = selectAppDetailInstallationId(mockState)
-      expect(result).toEqual(appDetailDataStub.data.installationId)
-    })
-
-    it('should run correctly and return undefined', () => {
-      const input = {} as ReduxState
-      const result = selectAppDetailInstallationId(input)
-      expect(result).toEqual(undefined)
-    })
-  })
-
-  describe('selectApp', () => {
-    it('should run correctly', () => {
-      const result = selectApp(mockState)
-      expect(result).toEqual(mockState.appDetail.appDetailData?.data)
+      const result = selectAppDetailData(mockState)
+      expect(result).toEqual(mockState.apps.detail.data)
     })
     it('should return {}', () => {
       const input = {} as ReduxState
-      const result = selectApp(input)
+      const result = selectAppDetailState(input)
       expect(result).toEqual(input)
     })
   })

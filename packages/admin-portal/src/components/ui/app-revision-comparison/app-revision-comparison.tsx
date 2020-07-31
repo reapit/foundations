@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { AppDetailState, DeveloperAppDetailState } from '@/reducers/app-detail'
-import { RevisionDetailState } from '@/reducers/revision-detail'
+import { RevisionDetailState } from '@/reducers/apps/revisions'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '@/components/ui/diff-media'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
@@ -8,10 +7,11 @@ import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
 import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
+import { AppDetailState } from '@/reducers/apps/detail'
 
 export type AppRevisionComparisonProps = {
   revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState | DeveloperAppDetailState
+  appDetailState: AppDetailState
 }
 
 export type DiffMediaModel = {
@@ -161,12 +161,11 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
   revisionDetailState,
   appDetailState,
 }) => {
-  const app =
-    (appDetailState as AppDetailState)?.appDetailData?.data || (appDetailState as DeveloperAppDetailState)?.data
-  if (!revisionDetailState.revisionDetailData || !app) {
+  const app = appDetailState.data
+  if (!revisionDetailState.data || !app) {
     return null
   }
-  const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
+  const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.data
 
   return (
     <div>

@@ -8,7 +8,7 @@ export const auth: ReapitConnectSession = {
     clientId: '1',
     developerId: '1',
     email: '123',
-    groups: [],
+    groups: ['AgencyCloudDeveloperEdition'],
     userCode: '123',
     name: '1312',
   },

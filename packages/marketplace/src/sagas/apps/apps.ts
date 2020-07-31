@@ -7,6 +7,7 @@ import {
   fetchFeatureAppsFailed,
   fetchAppDetailSuccess,
   fetchAppDetailFailed,
+  fetchAppsInfiniteSuccess,
 } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -19,6 +20,7 @@ import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const fetchApps = function*({ data }) {
   try {
+    const { isInfinite } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
@@ -34,6 +36,12 @@ export const fetchApps = function*({ data }) {
       developerId: developerId ? [developerId] : [],
       ...data,
     })
+
+    if (isInfinite) {
+      yield put(fetchAppsInfiniteSuccess(response))
+      return
+    }
+
     yield put(fetchAppsSuccess(response))
   } catch (err) {
     yield put(fetchAppsFailed(err.description))
@@ -42,10 +50,6 @@ export const fetchApps = function*({ data }) {
       placement: 'bottomRight',
     })
   }
-}
-
-export const fetchAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps)
 }
 
 export const fetchFeatureApps = function*({ data }) {
@@ -76,10 +80,6 @@ export const fetchFeatureApps = function*({ data }) {
   }
 }
 
-export const fetchFeatureAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
-}
-
 export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams>) {
   try {
     const appDetailResponse = yield call(fetchAppByIdApi, { ...data })
@@ -99,10 +99,12 @@ export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams
   }
 }
 
-export const fetchAppDetailSagasListen = function*() {
+export const appSagasListen = function*() {
   yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.FETCH_APP_DETAIL, fetchAppDetailSagas)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps)
 }
 
 export const appsSagas = function*() {
-  yield all([fork(fetchAppsListen), fork(fetchFeatureAppsListen), fork(fetchAppDetailSagasListen)])
+  yield all([fork(appSagasListen)])
 }

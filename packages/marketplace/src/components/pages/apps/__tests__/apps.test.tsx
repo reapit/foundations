@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Apps, handleAfterClose, handleOnChange, handleOnCardClick } from '../apps'
+import { Apps, handleAfterClose, handleOnChange, handleOnCardClick, handleLoadMore } from '../apps'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
@@ -13,6 +13,7 @@ import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import { getMockRouterProps } from '@/utils/mock-helper'
+import { fetchApps } from '@/actions/apps'
 
 const createState = appSummaryState => {
   return {
@@ -106,6 +107,15 @@ describe('Client', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+
+  describe('handleLoadMore', () => {
+    it('should call dispatch', () => {
+      const dispatch = jest.fn()
+      const fn = handleLoadMore({ dispatch, preview: false, loading: false })
+      fn(1)
+      expect(dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, preview: false, isInfinite: true }))
+    })
   })
 
   describe('handleOnChange', () => {

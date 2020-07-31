@@ -12,12 +12,13 @@ import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effec
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { Action, ReduxState } from '@/types/core'
+import { Action } from '@/types/core'
 import { approvalsDataFetch } from '../approvals/approvals'
 import { logger } from '@reapit/utils'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { selectApprovalListPageNumber } from '@/selector/approvals'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -53,12 +54,9 @@ export const revisionDetailDataListen = function*() {
   )
 }
 // TODO move to selector
-export const getApprovalPageNumber = (state: ReduxState) => ({
-  pageNumber: state?.approvals?.approvalsData?.data?.pageNumber || 1,
-})
 
 export const approveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
-  const { pageNumber } = yield select(getApprovalPageNumber)
+  const { pageNumber } = yield select(selectApprovalListPageNumber)
   yield put(approveRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, ...body } = params
   try {
@@ -86,7 +84,7 @@ export const approveRevisionListen = function*() {
 }
 
 export const declineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
-  const { pageNumber } = yield select(getApprovalPageNumber)
+  const { pageNumber } = yield select(selectApprovalListPageNumber)
   yield put(declineRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, callback, ...body } = params
   try {

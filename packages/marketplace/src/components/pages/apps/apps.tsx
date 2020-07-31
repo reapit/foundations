@@ -39,7 +39,7 @@ export const handleLoadMore = ({
   preview: boolean
   loading: boolean
 }) => (page: number) => {
-  !loading && dispatch(fetchApps({ pageNumber: page, preview }))
+  !loading && dispatch(fetchApps({ pageNumber: page, preview, isInfinite: true }))
 }
 
 export const Apps: React.FunctionComponent = () => {

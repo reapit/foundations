@@ -21,7 +21,7 @@ describe('approvals fetch data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(approvalsReceiveData(appsDataStub)))
+    expect(clone.next(appsDataStub.data).value).toEqual(put(approvalsReceiveData(appsDataStub.data)))
     expect(clone.next().done).toBe(true)
   })
 

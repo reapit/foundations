@@ -1,53 +1,19 @@
 import { ReduxState } from '@/types/core'
+import { defaultState as defaultAppsState } from '@/reducers/apps'
+import { defaultState as defaultDevelopersState } from '@/reducers/developers'
 
 const appState: ReduxState = {
-  appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    isStale: true,
-  },
   error: {
     componentError: null,
     serverError: null,
   },
-  appsManagement: {
-    loading: false,
-    formState: 'PENDING',
-    appsData: null,
-  },
-  approvals: {
-    loading: false,
-    approvalsData: null,
-  },
-  devsManagement: {
-    loading: false,
-  },
-  developerSetStatus: {
-    formState: 'PENDING',
-  },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
-  },
-  appDelete: {
-    formState: 'PENDING',
-  },
+  developers: defaultDevelopersState,
   noticationMessage: {
     visible: false,
     variant: '',
     message: '',
   },
-  statistics: {
-    loading: false,
-    result: {
-      data: [],
-      totalCount: 0,
-    },
-  },
+  apps: defaultAppsState,
 }
 
 export default appState

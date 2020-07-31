@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
+import { RejectRevisionModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Formik } from '@reapit/elements'
 import { declineRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
-import { selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectAppRevisionDetail, selectAppRevisionFormState } from '@/selector/app-revisions'
 import { validationSchemaDeclineModal as validationSchema } from './validation-schema'
 import { formFieldsDeclineModal as formFields } from './form-fields'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -53,13 +53,15 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   const session = useReapitConnect(reapitConnectBrowserSession)
   const { email, name } = session?.connectSession?.loginIdentity || {}
 
-  const { declineFormState } = revisionDetail
+  // form state
+  const formState = useSelector(selectAppRevisionFormState)
 
-  const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
+  // extract
+  const { appId, id: appRevisionId } = (revisionDetail?.data?.data || {}) as AppRevisionModel
   const [rejectionReason, setRejectionReason] = React.useState('')
 
-  const isLoading = declineFormState === 'SUBMITTING'
-  const isSuccessed = declineFormState === 'SUCCESS'
+  const isLoading = formState === 'SUBMITTING'
+  const isSuccessed = formState === 'SUCCESS'
 
   return (
     <Modal

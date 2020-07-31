@@ -1,4 +1,4 @@
-import { RevisionDetailItem } from '@/reducers/revision-detail'
+import { RevisionDetailItem } from '@/reducers/apps/revisions'
 import { appPermissionStub } from './app-permission'
 import { integrationTypesStub } from './integration-types'
 
