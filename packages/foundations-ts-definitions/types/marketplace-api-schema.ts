@@ -12,6 +12,43 @@ export interface AcceptInviteModel {
   jobTitle?: string
 }
 /**
+ * Representation of an address
+ */
+export interface AddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
  * App secret representation
  */
 export interface AppClientSecretModel {
@@ -942,6 +979,18 @@ export interface InstallationModel {
    * Gets the date that access to the associated app was terminated, or is due to terminate on
    */
   terminatesOn?: string // date-time
+  /**
+   * Gets the id of the customer that has granted access to the app (or revoked it)
+   */
+  customerId?: string
+  /**
+   * Gets the name of the customer that has granted access to the app (or revoked it)
+   */
+  customerName?: string
+  /**
+   * Gets the address of the customer
+   */
+  customerAddress?: AddressModel
   /**
    * Gets the links associated to this model
    */
