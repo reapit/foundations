@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section should match snapshot 1`] = `
+<div
+  className="columns pt-4 pb-4"
+  style={
+    Object {
+      "background": "white",
+    }
+  }
+>
+  <Component
+    className=""
+  >
+    <img
+      alt="Test heading"
+      src=""
+    />
+  </Component>
+  <Component
+    className=""
+  >
+    <Component>
+      Test heading
+    </Component>
+    <Component>
+      Test sub heading
+    </Component>
+    <Component
+      className="mb-4"
+    >
+      Test description
+    </Component>
+  </Component>
+</div>
+`;

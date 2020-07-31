@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Router from './router'
 import { css } from 'linaria'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 
 export const globals = css`
   :global() {
@@ -15,6 +17,11 @@ export const globals = css`
 `
 
 export const App = () => {
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  if (!session.connectSession) {
+    return null
+  }
+
   return <Router />
 }
 
