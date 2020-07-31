@@ -9,3 +9,12 @@ jest.mock('linaria', () => {
     cx: jest.fn(() => ''),
   }
 })
+
+Object.defineProperty(window, 'reapit', {
+  value: {
+    config: {
+      connectClientId: 'SOME_CLIENT_ID',
+      connectOAuthUrl: 'SOME_OAUTH_URL',
+    },
+  },
+})

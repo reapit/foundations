@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.63",
+  "version": "1.0.0",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -40,11 +40,8 @@
     "not ie <= 11"
   ],
   "dependencies": {
-    "@storybook/theming": "^5.2.8",
-    "@types/rc-select": "^5.9.34",
     "bulma": "^0.9.0",
     "formik": "^2.0.4",
-    "gh-pages": "^2.2.0",
     "hardtack": "^4.1.0",
     "himalaya": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
@@ -87,6 +84,7 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/react-datepicker": "^3.0.3",
     "@types/react-transition-group": "^4.4.0",
+    "@types/rc-select": "^5.9.34",
     "@types/papaparse": "^5.0.3",
     "@whitespace/storybook-addon-html": "^1.2.1",
     "dashify": "2.0.0",

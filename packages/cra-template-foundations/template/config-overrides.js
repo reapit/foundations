@@ -10,7 +10,7 @@ const path = require('path')
  * https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/issues/211
  * https://github.com/facebook/create-react-app/issues/8707#issuecomment-624284347
  * disable useTypescriptIncrementalApi of react-scripts ForkTsCheckerWebpackPlugin
- * Fix Hanging at 'Files successfully emitted, waiting for typecheck results...' when yarnn start on the first time
+ * Fix Hanging at 'Files successfully emitted, waiting for typecheck results...' when yarn start on the first time
  */
 const removeOriginalForkTsCheckerWebpackPlugin = config => {
   config.plugins = config.plugins.filter(plugin => {
