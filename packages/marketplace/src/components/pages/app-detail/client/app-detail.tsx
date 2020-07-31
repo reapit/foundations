@@ -24,7 +24,7 @@ import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectDeveloperEditionId } from '@/selector/auth'
-import NonAdminModal, { NonAdminModalType } from './non-admin-modal'
+import { NonAdminInstallModal, NonAdminUninstallModal } from './non-admin-modal'
 
 export type ClientAppDetailProps = {}
 
@@ -73,6 +73,7 @@ export const onBackToAppsButtonClick = (history: History) => () => {
 export const handleCloseNonAdminModal = (setNonAdminModalType: React.Dispatch<NonAdminModalType>) => () => {
   setNonAdminModalType(null)
 }
+export type NonAdminModalType = 'INSTALL' | 'UNINSTALL' | null
 
 const AppDetail: React.FC = () => {
   const history = useHistory()
@@ -158,7 +159,8 @@ const AppDetail: React.FC = () => {
         appDetailData={appDetailData}
         closeInstallConfirmationModal={closeInstallConfirmationModal}
       />
-      <NonAdminModal appName={name} type={nonAdminModalType} onClose={onCloseNonAdminModal} />
+      <NonAdminInstallModal title={name} visible={nonAdminModalType === 'INSTALL'} onClose={onCloseNonAdminModal} />
+      <NonAdminUninstallModal title={name} visible={nonAdminModalType === 'UNINSTALL'} onClose={onCloseNonAdminModal} />
     </Grid>
   )
 }

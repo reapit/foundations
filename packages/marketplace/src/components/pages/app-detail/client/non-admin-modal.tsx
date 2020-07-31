@@ -1,49 +1,49 @@
 import React from 'react'
 import { ModalV2, Content, Button } from '@reapit/elements'
 
-export type NonAdminModalType = 'INSTALL' | 'UNINSTALL' | null
-
-export type ModalDetails = {
+export type NonAdminInstallModalProps = {
+  visible: boolean
   title: string
-  content: string
-}
-
-export const getModalDetails = (type: NonAdminModalType, appTitle: string): ModalDetails => {
-  if (type === 'INSTALL')
-    return {
-      title: `Installing ${appTitle}`,
-      content: 'Your organisation settings prevent you from installing this app, please contact an Administrator.',
-    }
-  return {
-    title: `Uninstalling ${appTitle}`,
-    content: 'Your organisation settings prevent you from uninstalling this app, please contact an Administrator.',
-  }
-}
-
-export type NonAdminModalProps = {
-  type: NonAdminModalType
-  appName: string
   onClose?: () => void
 }
 
-export const NonAdminModal = ({ type, appName, onClose }: NonAdminModalProps) => {
-  if (!type) return null
-
-  const details = getModalDetails(type, appName)
-  const { title, content } = details
+export const NonAdminInstallModal = ({ title, visible, onClose }: NonAdminInstallModalProps) => {
   return (
     <ModalV2
-      title={title}
-      visible
+      title={`Installing ${title}`}
+      visible={visible}
       isCentered
       closable={false}
       onClose={onClose}
       footer={<Button onClick={onClose}>Close</Button>}
     >
       <Content>
-        <p>{content}</p>
+        <p>Your organisation settings prevent you from installing this app, please contact an Administrator.</p>
       </Content>
     </ModalV2>
   )
 }
-export default NonAdminModal
+
+export type NonAdminUninstallModalProps = {
+  title: string
+  visible: boolean
+  onClose?: () => void
+}
+
+export const NonAdminUninstallModal = ({ title, visible, onClose }: NonAdminUninstallModalProps) => {
+  return (
+    <ModalV2
+      title={`Uninstalling ${title}`}
+      visible={visible}
+      isCentered
+      closable={false}
+      onClose={onClose}
+      footer={<Button onClick={onClose}>Close</Button>}
+    >
+      <Content>
+        <p>Your organisation settings prevent you from uninstalling this app, please contact an Administrator.</p>
+      </Content>
+    </ModalV2>
+  )
+}
+export default { NonAdminInstallModal, NonAdminUninstallModal }

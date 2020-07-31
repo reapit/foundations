@@ -312,10 +312,95 @@ exports[`AppDetail should match a snapshot 1`] = `
               </Component>
             </AppInstallConfirmation>
             <Component
-              appName=""
               onClose={[Function]}
-              type={null}
-            />
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Installing "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Installing 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              onClose={[Function]}
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Uninstalling "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Uninstalling 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
           </div>
         </Component>
       </AppDetail>
@@ -636,10 +721,95 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
               </Component>
             </AppInstallConfirmation>
             <Component
-              appName=""
               onClose={[Function]}
-              type={null}
-            />
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Installing "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Installing 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              onClose={[Function]}
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Uninstalling "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Uninstalling 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
           </div>
         </Component>
       </AppDetail>
@@ -960,10 +1130,95 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
               </Component>
             </AppInstallConfirmation>
             <Component
-              appName=""
               onClose={[Function]}
-              type={null}
-            />
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Installing "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Installing 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              onClose={[Function]}
+              title=""
+              visible={false}
+            >
+              <Component
+                closable={false}
+                footer={
+                  <Unknown
+                    onClick={[Function]}
+                  >
+                    Close
+                  </Unknown>
+                }
+                isCentered={true}
+                onClose={[Function]}
+                title="Uninstalling "
+                visible={false}
+              >
+                <Component
+                  className=""
+                  closable={false}
+                  destroyOnClose={true}
+                  footer={
+                    <Unknown
+                      onClick={[Function]}
+                    >
+                      Close
+                    </Unknown>
+                  }
+                  onClose={[Function]}
+                  title={
+                    <Unknown>
+                      Uninstalling 
+                    </Unknown>
+                  }
+                  visible={false}
+                  wrapClassName=""
+                >
+                  <PortalWrapper
+                    visible={false}
+                  />
+                </Component>
+              </Component>
+            </Component>
           </div>
         </Component>
       </AppDetail>
