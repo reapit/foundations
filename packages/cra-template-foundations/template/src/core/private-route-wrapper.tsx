@@ -9,9 +9,8 @@ const { Suspense } = React
 export type PrivateRouteWrapperProps = {}
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-  const session = useReapitConnect(reapitConnectBrowserSession)
-
-  if (!session.connectSession) {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  if (!connectSession) {
     return null
   }
   return (

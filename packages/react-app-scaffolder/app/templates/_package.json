@@ -1,9 +1,4 @@
 {
   "name": "<%= name %>",
-  "description": "<%= description %>",
-  "repository": {
-    "type": "git",
-    "url": "git+<%= repo %>"
-  },
-  "author": "<%= author %>"
+  "description": "<%= description %>"
 }

@@ -124,6 +124,44 @@ export const SomeComponent: React.FC = () => {
 }
 ```
 
+## Sign In With Reapit Button
+
+Perhaps the simplest way to authenticate on the client side is to embed the "Sign In With Reapit Button" on your page. This is a single script served from our CDN, you instantiate with a target div, your client credentials as per the browser API and pass in a callback to receive your session object. As per the NPM module, all caching, redirection and refreshing is taken care of by the package. When you have a session, the button will change function to be a logout which will clear your cache and end yourr session in Reapit Connect.
+
+The below example shows how to embed on any static or dynamic page with a single script. In the connectHasSessionCallback function we fetch a list of appointments from the Platform API to demonstrate the full flow.
+
+```html
+<div id="reapit-connect-component"></div>
+<script src="https://web-components.reapit.cloud/reapit-connect-component.js"></script>
+<script>
+
+  const connectHasSessionCallback = (reapitConnectBrowserSession) => {
+    reapitConnectBrowserSession.connectSession().then(session => {
+      console.log('Session is', session)
+      fetch('https://dev.platform.reapit.cloud/appointments', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.accessToken}`,
+          'api-version': '2020-01-31'
+        }
+      })
+      .then(res => res.json())
+      .then(appointments => console.log('Appointmemts are', appointments))
+    })
+  }
+
+  ReapitConnectComponent && new ReapitConnectComponent({
+    connectClientId: '<<clientId here>>>',
+    connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+    connectLoginRedirectPath: '',
+    connectLogoutRedirectPath: '/login',
+    connectContainerId: '#reapit-connect-component',
+    connectHasSessionCallback
+  })
+</script>
+
+```
+
 ## Node Usage
 
 For server side usage, we also export a Node module with a stripped down API that simply returns a promise from a connectAccessToken method. For a basic and slightly contrived example, see the simple Express app below:

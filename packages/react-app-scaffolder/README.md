@@ -1,23 +1,13 @@
 # Reapit React App Scaffolder
 
-A CLI for generating React Apps, optimised for the marketplace, including Reapit Connect authentication and Elements. For usage visit [here](https://foundations-documentation.reapit.cloud/api/web#react-app-scaffolder).
-
-- **Tech Stack**: Yeoman, React, Redux, Jest, React, Router, Linaria
-- **Cloud Services**: NPM
-- **Production**: https://www.npmjs.com/package/@reapit/generator-react-redux-app
+A CLI for generating React Apps, optimised for the marketplace, including Reapit Connect authentication and Elements.
 
 For detailed documentation [visit here](https://foundations-documentation.reapit.cloud/open-source/packages#react-app-scaffolder).
 
 For internal scaffolds, navigate to project folder and execute `yarn scaffold` to load the CLI.
 
-For external users first;
+## DEPRECATED
 
-`npm install -g yo @reapit/generator-react-app-scaffolder`
+We will continue to offer patches and bugfixes for this package for internal Reapit Users however, for Reapit Partner Developers we strongly suggest that you migrate to `@reapit/cra-template-foundations` for a better developer experience and the LTS benefits of Facebook's React Scripts package.
 
-Then
 
-`yo @reapit/react-app-scaffolder` to load the CLI.
-
-For internal maintainers, to build an app locally, navigate to one of the external options within the templates folder, `yarn` and `yarn start:dev` to develop the scaffold.
-
-For internal apps, scaffold a local app and copy your changes back to the main directory.

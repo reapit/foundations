@@ -10,19 +10,12 @@ const yosay = require('yosay')
 module.exports = class extends Generator {
   _installAndExport() {
     return new Promise(async (resolve, reject) => {
-      const { isFoundations } = this.answers
 
       this.log(yosay('Installing dependencies... this may take a minute!'))
-
-      if (!isFoundations) {
-        await exec(`yarn`)
-      }
 
       await exec(`yarn prettier --write ./package.json`)
 
       this.log(yosay('App installed successfully!'))
-
-      this._pushToGithub()
 
       this.log(
         yosay(`
@@ -39,23 +32,8 @@ module.exports = class extends Generator {
     })
   }
 
-  async _pushToGithub() {
-    const { repo, githubPush, name } = this.answers
-    if (repo && githubPush) {
-      this.log(yosay('Pushing your app to Github...'))
-
-      await exec(`git init`)
-      await exec(`git remote add origin ${repo}`)
-
-      await exec(`git add . && git commit -m "Project . - Initial commit" && git push origin master`)
-
-      this.log(yosay('Successfully pushed app to Github!'))
-    }
-    return true
-  }
-
   _addPackageJson() {
-    const { isFoundations, name, author, repo, description } = this.answers
+    const { name, author, repo, description } = this.answers
 
     const local = require(this.templatePath('./_package.json'))
     const base = require(this.destinationPath('./package.json'))
@@ -88,10 +66,9 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, isFoundations, clientId } = this.answers
-      const configPath = isFoundations ? './_config.internal.json' : './_config.external.json'
+      const { name, clientId } = this.answers
 
-      this.fs.copyTpl(this.templatePath(configPath), this.destinationPath('./config.json'), {
+      this.fs.copyTpl(this.templatePath('./_config.json'), this.destinationPath('./config.json'), {
         clientId,
       })
 
@@ -102,21 +79,12 @@ module.exports = class extends Generator {
       this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'))
 
       this.fs.commit([], () => {
-
-        if (!isFoundations) {
-          this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'))
-          this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
-          this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'))
-        }
+        this._addPackageJson()
 
         this.fs.commit([], () => {
-          this._addPackageJson()
-
-          this.fs.commit([], () => {
-            this._installAndExport()
-              .then(resolve)
-              .catch(reject)
-          })
+          this._installAndExport()
+            .then(resolve)
+            .catch(reject)
         })
       })
     })
@@ -132,21 +100,9 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'repo',
-        message: 'Enter the GitHub repo for your project',
-        default: 'git@github.com:reapit/app-name.git',
-      },
-      {
-        type: 'input',
         name: 'description',
         message: 'Enter a description for the project',
         default: 'Description',
-      },
-      {
-        type: 'input',
-        name: 'author',
-        message: 'Enter the author of the project',
-        default: 'Author',
       },
       {
         type: 'input',
@@ -155,59 +111,38 @@ module.exports = class extends Generator {
         default: '',
       },
       {
-        type: 'confirm',
-        name: 'isFoundations',
-        message: 'Is this a Reapit internal project?',
-        default: false,
-      },
-      {
         type: 'list',
         name: 'stateManagementStyle',
         message: 'How do you want to manage state?',
         choices: ['Redux', 'React Hooks & Context'],
       },
-      {
-        type: 'confirm',
-        name: 'githubPush',
-        message: 'Would you like your app immediately pushed to Github remote?',
-        default: false,
-      },
     ])
 
-    const { stateManagementStyle, isFoundations } = this.answers
-    if (stateManagementStyle === 'Redux' && isFoundations) {
-      this.projectPath = './redux-internal'
+    const { stateManagementStyle } = this.answers
+    if (stateManagementStyle === 'Redux') {
+      this.projectPath = './redux'
     }
 
-    if (stateManagementStyle === 'Redux' && !isFoundations) {
-      this.projectPath = './redux-external'
-    }
-
-    if (stateManagementStyle === 'React Hooks & Context' && isFoundations) {
-      this.projectPath = './hooks-internal'
-    }
-
-    if (stateManagementStyle === 'React Hooks & Context' && !isFoundations) {
-      this.projectPath = './hooks-external'
+    if (stateManagementStyle === 'React Hooks & Context') {
+      this.projectPath = './hooks'
     }
     /**
      * Destination path
      * isFoundations ->./package/{appName}
      * else current path/{appName}
      */
-    if (isFoundations) {
-      this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
-      /**
-       * create directory if not
-       */
-      if (!fs.existsSync(this.packagePath)) {
-        fs.mkdirSync(this.packagePath)
-      }
-      /**
-       * change destination path, cwd to package path
-       */
-      process.chdir(this.packagePath)
-      this.destinationRoot(this.packagePath)
+
+    this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
+    /**
+     * create directory if not
+     */
+    if (!fs.existsSync(this.packagePath)) {
+      fs.mkdirSync(this.packagePath)
     }
+    /**
+     * change destination path, cwd to package path
+     */
+    process.chdir(this.packagePath)
+    this.destinationRoot(this.packagePath)
   }
 }
