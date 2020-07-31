@@ -7,9 +7,9 @@ export const fetchApps = actionCreator<FetchAppsParams & { preview?: boolean; is
   ActionTypes.FETCH_APPS,
 )
 export const fetchAppsInfiniteSuccess = actionCreator<PagedResultAppSummaryModel_>(
-  ActionTypes.FETCH_APPS_INFINITE_SUCESS,
+  ActionTypes.FETCH_APPS_INFINITE_SUCCESS,
 )
-export const fetchAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APPS_SUCESS)
+export const fetchAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APPS_SUCCESS)
 export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILED)
 
 export const fetchFeatureApps = actionCreator<FetchAppsParams>(ActionTypes.FETCH_FEATURE_APPS)

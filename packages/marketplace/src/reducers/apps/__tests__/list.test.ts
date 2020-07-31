@@ -11,7 +11,7 @@ describe('appList reducer', () => {
 
   it('should set state correctly when fetchAppsSuccess', () => {
     const newState = appsListReducer(undefined, {
-      type: ActionTypes.FETCH_APPS_SUCESS as ActionType,
+      type: ActionTypes.FETCH_APPS_SUCCESS as ActionType,
       data: appsDataStub,
     })
     const expected = {
@@ -39,7 +39,7 @@ describe('appList reducer', () => {
 
   it('should set state correctly when fetchAppsInfiniteSuccess', () => {
     const newState = appsListReducer(undefined, {
-      type: ActionTypes.FETCH_APPS_INFINITE_SUCESS as ActionType,
+      type: ActionTypes.FETCH_APPS_INFINITE_SUCCESS as ActionType,
       data: appsDataStub,
     })
 
