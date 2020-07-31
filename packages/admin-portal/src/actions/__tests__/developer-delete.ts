@@ -8,7 +8,7 @@ import {
 import ActionTypes from '../../constants/action-types'
 
 describe('developer delete actions', () => {
-  it('should create a appDetailLoading action', () => {
+  it('should create a fetchAppDetailLoading action', () => {
     expect(developerSetStatusRequestLoading.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_LOADING)
   })
 

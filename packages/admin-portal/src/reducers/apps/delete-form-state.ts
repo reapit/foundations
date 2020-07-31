@@ -1,14 +1,14 @@
 import { Action, FormState } from '@/types/core'
 import { isType } from '@/utils/actions'
 import {
-  requestDeleteAppLoading,
+  requestDeleteApp,
   requestDeleteAppSuccess,
   requestDeleteAppFailed,
   setDeleteAppInitFormState,
 } from '@/actions/app-delete'
 
 const appDeleteReducer = (state: FormState = 'PENDING', action: Action<any>): FormState => {
-  if (isType(action, requestDeleteAppLoading)) {
+  if (isType(action, requestDeleteApp)) {
     return 'SUBMITTING'
   }
 

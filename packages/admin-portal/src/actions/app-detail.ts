@@ -9,16 +9,14 @@ export interface AppDetailParams {
 }
 /*
  * TODOME(appDetail)
- * failure -> failed
  * action + entity
  * name -> swagger entity
  */
 
-export const appDetailRequestData = actionCreator<AppDetailParams>(ActionTypes.APP_DETAIL_REQUEST_DATA)
-export const appDetailLoading = actionCreator<boolean>(ActionTypes.APP_DETAIL_LOADING)
-export const appDetailReceiveData = actionCreator<{ data: AppDetailItem } | undefined>(
-  ActionTypes.APP_DETAIL_RECEIVE_DATA,
+export const fetchAppDetailData = actionCreator<AppDetailParams>(ActionTypes.FETCH_APP_DETAIL_DATA)
+export const fetchAppDetailLoading = actionCreator<boolean>(ActionTypes.FETCH_APP_DETAIL_LOADING)
+export const receiveAppDetailData = actionCreator<{ data: AppDetailItem } | undefined>(
+  ActionTypes.RECEIVE_FETCH_APP_DETAIL_DATA,
 )
-export const appDetailFailure = actionCreator<string | void>(ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE)
-export const appDetailClearData = actionCreator<null>(ActionTypes.APP_DETAIL_CLEAR_DATA)
+export const fetchAppDetailFailed = actionCreator<string | void>(ActionTypes.FETCH_APP_DETAIL_DATA_FAILURE)
 export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_IS_STALE)

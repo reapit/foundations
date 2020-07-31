@@ -6,7 +6,7 @@ import { Loader, Pagination, Table, Button, Helper, infoText, Section, H3 } from
 import { revisionDetailRequestData } from '@/actions/revision-detail'
 import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { fetchAppDetailData } from '@/actions/app-detail'
 import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { selectAppDetailData } from '@/selector/app-detail'
@@ -83,7 +83,7 @@ export const handleViewDetailOnClick = ({
     dispatch(revisionDetailRequestData({ appId, appRevisionId }))
   }
   if (appRevisionId && appId && isNeedFetchAppDetail) {
-    dispatch(appDetailRequestData({ id: appId }))
+    dispatch(fetchAppDetailData({ id: appId }))
   }
   setIsModalOpen(true)
 }

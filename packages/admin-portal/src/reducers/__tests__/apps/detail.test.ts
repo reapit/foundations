@@ -4,8 +4,8 @@ import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
 
 describe('appsReducer - detail', () => {
-  it('should set loading to true when APP_DETAIL_LOADING action is called', () => {
-    const newState = appsReducer(undefined, { type: ActionTypes.APP_DETAIL_LOADING as ActionType, data: true })
+  it('should set loading to true when FETCH_APP_DETAIL_LOADING action is called', () => {
+    const newState = appsReducer(undefined, { type: ActionTypes.FETCH_APP_DETAIL_LOADING as ActionType, data: true })
     const expected = {
       ...defaultState,
       detail: { ...defaultState.detail, isLoading: true },
@@ -13,9 +13,9 @@ describe('appsReducer - detail', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set error to false when APP_DETAIL_REQUEST_DATA_FAILURE action is called', () => {
+  it('should set error to false when FETCH_APP_DETAIL_DATA_FAILURE action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE as ActionType,
+      type: ActionTypes.FETCH_APP_DETAIL_DATA_FAILURE as ActionType,
       data: true,
     })
     const expected = {
@@ -29,9 +29,9 @@ describe('appsReducer - detail', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set app-detail item data when APP_DETAIL_RECEIVE_DATA action is called', () => {
+  it('should set app-detail item data when RECEIVE_FETCH_APP_DETAIL_DATA action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.APP_DETAIL_RECEIVE_DATA as ActionType,
+      type: ActionTypes.RECEIVE_FETCH_APP_DETAIL_DATA as ActionType,
       data: appDetailDataStub,
     })
     const expected = {

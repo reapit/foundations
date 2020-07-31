@@ -1,7 +1,7 @@
 import {
-  appDetailLoading,
-  appDetailReceiveData,
-  appDetailFailure,
+  fetchAppDetailLoading,
+  receiveAppDetailData,
+  fetchAppDetailFailed,
   AppDetailParams,
   setAppDetailStale,
 } from '@/actions/app-detail'
@@ -15,7 +15,7 @@ import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
-  yield put(appDetailLoading(true))
+  yield put(fetchAppDetailLoading(true))
   try {
     const { id, clientId } = data
     const appDetailResponse = yield call(fetchAppById, {
@@ -29,10 +29,10 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     if (appDetailResponse) {
-      yield put(appDetailReceiveData({ data: appDetailResponse }))
+      yield put(receiveAppDetailData({ data: appDetailResponse }))
       yield put(setAppDetailStale(false))
     } else {
-      yield put(appDetailFailure())
+      yield put(fetchAppDetailFailed())
     }
   } catch (err) {
     logger(err)
@@ -46,7 +46,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
 }
 
 export const appDetailDataListen = function*() {
-  yield takeLatest<Action<AppDetailParams>>(ActionTypes.APP_DETAIL_REQUEST_DATA, appDetailDataFetch)
+  yield takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL_DATA, appDetailDataFetch)
 }
 
 const appDetailSagas = function*() {

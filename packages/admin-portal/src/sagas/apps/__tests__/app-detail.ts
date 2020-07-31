@@ -3,9 +3,9 @@ import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {
-  appDetailLoading,
-  appDetailReceiveData,
-  appDetailFailure,
+  fetchAppDetailLoading,
+  receiveAppDetailData,
+  fetchAppDetailFailed,
   AppDetailParams,
   setAppDetailStale,
 } from '@/actions/app-detail'
@@ -22,17 +22,17 @@ jest.mock('@/services/installations')
 
 const paramsClientId: Action<AppDetailParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
-  type: 'APP_DETAIL_REQUEST_DATA',
+  type: 'FETCH_APP_DETAIL_DATA',
 }
 
 const params: Action<AppDetailParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
-  type: 'APP_DETAIL_REQUEST_DATA',
+  type: 'FETCH_APP_DETAIL_DATA',
 }
 
 describe('app-detail fetch data with clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(paramsClientId)
-  expect(gen.next().value).toEqual(put(appDetailLoading(true)))
+  expect(gen.next().value).toEqual(put(fetchAppDetailLoading(true)))
 
   expect(gen.next().value).toEqual(call(fetchAppById, { ...paramsClientId.data }))
 
@@ -40,7 +40,7 @@ describe('app-detail fetch data with clientId', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
-        appDetailReceiveData({
+        receiveAppDetailData({
           data: appDetailDataStub.data,
         }),
       ),
@@ -51,7 +51,7 @@ describe('app-detail fetch data with clientId', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(appDetailFailure()))
+    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
     expect(clone.next().done).toBe(true)
   })
 
@@ -71,14 +71,14 @@ describe('app-detail fetch data with clientId', () => {
 
 describe('app-detail fetch data without clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
-  expect(gen.next().value).toEqual(put(appDetailLoading(true)))
+  expect(gen.next().value).toEqual(put(fetchAppDetailLoading(true)))
   expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
-        appDetailReceiveData({
+        receiveAppDetailData({
           data: appDetailDataStub.data,
         }),
       ),
@@ -89,14 +89,14 @@ describe('app-detail fetch data without clientId', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(appDetailFailure()))
+    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
     expect(clone.next().done).toBe(true)
   })
 })
 
 describe('app-detail fetch data and fetch apiKey', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
-  expect(gen.next().value).toEqual(put(appDetailLoading(true)))
+  expect(gen.next().value).toEqual(put(fetchAppDetailLoading(true)))
   expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
@@ -113,7 +113,7 @@ describe('app-detail fetch data and fetch apiKey', () => {
     ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
     expect(clone.next({ apiKey }).value).toEqual(
       put(
-        appDetailReceiveData({
+        receiveAppDetailData({
           data: { ...appDetailDataStub.data, isWebComponent, installationId, apiKey },
         }),
       ),
@@ -124,7 +124,7 @@ describe('app-detail fetch data and fetch apiKey', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(appDetailFailure()))
+    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
     expect(clone.next().done).toBe(true)
   })
 })
@@ -134,7 +134,7 @@ describe('app-detail thunks', () => {
     it('should trigger request data when called', () => {
       const gen = appDetailDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AppDetailParams>>(ActionTypes.APP_DETAIL_REQUEST_DATA, appDetailDataFetch),
+        takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL_DATA, appDetailDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

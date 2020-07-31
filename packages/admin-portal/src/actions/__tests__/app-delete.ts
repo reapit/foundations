@@ -3,7 +3,6 @@ import {
   requestDeleteAppSuccess,
   requestDeleteAppFailed,
   requestDeleteApp,
-  requestDeleteAppLoading,
 } from '../app-delete'
 
 import ActionTypes from '../../constants/action-types'
@@ -20,8 +19,5 @@ describe('app delete actions', () => {
   })
   it('should create a requestDeleteApp action', () => {
     expect(requestDeleteApp.type).toEqual(ActionTypes.DELETE_REQUEST_APP)
-  })
-  it('should create a requestDeleteAppLoading action', () => {
-    expect(requestDeleteAppLoading.type).toEqual(ActionTypes.DELETE_REQUEST_APP_LOADING)
   })
 })

@@ -2,7 +2,7 @@ import appDeleteReducer, { defaultState } from '@/reducers/apps'
 import {
   setDeleteAppInitFormState,
   requestDeleteAppSuccess,
-  requestDeleteAppLoading,
+  requestDeleteApp,
   requestDeleteAppFailed,
 } from '@/actions/app-delete'
 import { ActionType } from '@/types/core'
@@ -22,7 +22,7 @@ describe('appDeleteReducer - deleteFormState', () => {
   })
 
   it('should return formState = "SUBMITTING" when requestDeleteAppLoading action is dispatched', () => {
-    const newState = appDeleteReducer(defaultState, requestDeleteAppLoading())
+    const newState = appDeleteReducer(defaultState, requestDeleteApp('1'))
     expect(newState).toEqual({ ...defaultState, ...testData.loading })
   })
 

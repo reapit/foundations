@@ -3,7 +3,7 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, call } from '@redux-saga/core/effects'
-import { requestDeleteAppSuccess, requestDeleteAppLoading, requestDeleteAppFailed } from '@/actions/app-delete'
+import { requestDeleteAppSuccess, requestDeleteAppFailed } from '@/actions/app-delete'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { appsReceiveData } from '@/actions/apps-management'
@@ -21,7 +21,6 @@ describe('app-delete sagas', () => {
   describe('app-delete request', () => {
     const gen = cloneableGenerator(requestDeleteAppSaga)(params)
 
-    expect(gen.next().value).toEqual(put(requestDeleteAppLoading()))
     expect(gen.next().value).toEqual(call(deleteAppById, { id: '1' }))
 
     test('api call success', () => {

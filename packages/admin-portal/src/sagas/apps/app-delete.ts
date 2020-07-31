@@ -1,4 +1,4 @@
-import { requestDeleteAppSuccess, requestDeleteAppLoading, requestDeleteAppFailed } from '@/actions/app-delete'
+import { requestDeleteAppSuccess, requestDeleteAppFailed } from '@/actions/app-delete'
 import { put, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -11,7 +11,6 @@ import { deleteAppById, fetchAppsList } from '@/services/apps'
 
 export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   try {
-    yield put(requestDeleteAppLoading())
     const response = yield call(deleteAppById, { id: appId })
     if (response) {
       const params = getParamsFromPath(window.location.search)
