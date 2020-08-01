@@ -1,7 +1,7 @@
 import approvalsSagas, { approvalsDataFetch, approvalsDataListen } from '../approvals'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { approvalsReceiveData, fetchApprovalsDataFailed } from '@/actions/approvals'
+import { fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/approvals'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -20,7 +20,7 @@ describe('approvals fetch data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(approvalsReceiveData(appsDataStub.data)))
+    expect(clone.next(appsDataStub.data).value).toEqual(put(fetchApprovalsDataSuccess(appsDataStub.data)))
     expect(clone.next().done).toBe(true)
   })
 

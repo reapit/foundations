@@ -1,6 +1,6 @@
 import { actionCreator, isType } from '../actions'
 import ActionTypes from '../../constants/action-types'
-import { fetchApprovalsData, approvalsReceiveData } from '@/actions/approvals'
+import { fetchApprovalsData, fetchApprovalsDataSuccess } from '@/actions/approvals'
 import { Action } from '../../types/core'
 
 describe('actions utils', () => {
@@ -22,7 +22,7 @@ describe('actions utils', () => {
 
     it('should return false if actions are not equal', () => {
       const anotherAction: Action<any> = { data: 1, type: 'FETCH_APPROVALS_DATA' }
-      expect(isType(anotherAction, approvalsReceiveData)).toBe(false)
+      expect(isType(anotherAction, fetchApprovalsDataSuccess)).toBe(false)
     })
   })
 })

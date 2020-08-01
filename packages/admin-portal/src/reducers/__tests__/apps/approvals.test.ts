@@ -19,9 +19,9 @@ describe('appReduce - approvals', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set approvals list data when APPROVALS_RECEIVE_DATA action is called', () => {
+  it('should set approvals list data when FETCH_APPROVALS_DATA_SUCCESS action is called', () => {
     const newState = appReducer(undefined, {
-      type: ActionTypes.APPROVALS_RECEIVE_DATA as ActionType,
+      type: ActionTypes.FETCH_APPROVALS_DATA_SUCCESS as ActionType,
       data: approvalsStub.data,
     })
     const expected = {
