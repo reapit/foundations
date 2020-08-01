@@ -1,30 +1,30 @@
 import {
-  developerSetStatusRequest,
-  developerSetStatusRequestLoading,
-  developerSetStatusRequestFailure,
-  developerSetStatusRequestSuccess,
-  developerSetStatusSetInitFormState,
+  setRequestDeveloperStatusFormState,
+  setRequestDeveloperStatusFormStateLoading,
+  setRequestDeveloperStatusFormStateFailed,
+  setRequestDeveloperStatusFormStateSuccess,
+  initRequestDeveloperStatusFormState,
 } from '../developer-set-status'
 import ActionTypes from '../../constants/action-types'
 
 describe('developer delete actions', () => {
   it('should create a fetchAppDetailLoading action', () => {
-    expect(developerSetStatusRequestLoading.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_LOADING)
+    expect(setRequestDeveloperStatusFormStateLoading.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_LOADING)
   })
 
   it('should create a developerDeleteRequest action', () => {
-    expect(developerSetStatusRequest.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST)
+    expect(setRequestDeveloperStatusFormState.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE)
   })
 
   it('should create a developerDeleteRequestFailure action', () => {
-    expect(developerSetStatusRequestFailure.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_FAILURE)
+    expect(setRequestDeveloperStatusFormStateFailed.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_FAILED)
   })
 
   it('should create a developerDeleteRequestSuccess action', () => {
-    expect(developerSetStatusRequestSuccess.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_SUCCESS)
+    expect(setRequestDeveloperStatusFormStateSuccess.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_SUCCESS)
   })
 
   it('should create a developerDeleteSetInitFormState action', () => {
-    expect(developerSetStatusSetInitFormState.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE)
+    expect(initRequestDeveloperStatusFormState.type).toEqual(ActionTypes.INIT_REQUEST_DEVELOPER_STATUS_FORM_STATE)
   })
 })

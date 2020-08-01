@@ -6,19 +6,19 @@ export type UpdateDeveloperModelRequest = {
   callback?: (success: boolean) => void
 } & UpdateDeveloperModel
 
-/*
- * TODOME(developerStatusActions)
- * aciont + entity
-  name -> swagger entity
-* failure - failed
- */
-
-export const developerSetStatusRequest = actionCreator<UpdateDeveloperModelRequest>(
-  ActionTypes.DEVELOPER_SET_STATUS_REQUEST,
+export const setRequestDeveloperStatusFormState = actionCreator<UpdateDeveloperModelRequest>(
+  ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE,
 )
-export const developerSetStatusRequestLoading = actionCreator<void>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_LOADING)
-export const developerSetStatusRequestFailure = actionCreator<void>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_FAILURE)
-export const developerSetStatusRequestSuccess = actionCreator<void>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_SUCCESS)
-export const developerSetStatusSetInitFormState = actionCreator<void>(
-  ActionTypes.DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE,
+export const setRequestDeveloperStatusFormStateLoading = actionCreator<void>(
+  ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_LOADING,
+)
+export const setRequestDeveloperStatusFormStateFailed = actionCreator<void>(
+  ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_FAILED,
+)
+export const setRequestDeveloperStatusFormStateSuccess = actionCreator<void>(
+  ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_SUCCESS,
+)
+1
+export const initRequestDeveloperStatusFormState = actionCreator<void>(
+  ActionTypes.INIT_REQUEST_DEVELOPER_STATUS_FORM_STATE,
 )
