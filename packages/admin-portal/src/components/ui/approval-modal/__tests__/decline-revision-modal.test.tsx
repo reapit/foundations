@@ -11,7 +11,7 @@ import {
   onCancelButtonClick,
 } from '../decline-revision-modal'
 import appState from '@/reducers/__stubs__/app-state'
-import { declineRevision } from '@/actions/revision-detail'
+import { requestDeclineRevision } from '@/actions/revision-detail'
 
 const props: DeclineRevisionModalProps = {
   onDeclineSuccess: jest.fn(),
@@ -79,7 +79,7 @@ describe('DeclineRevisionModal', () => {
       fn(mockFormValues)
       expect(mockSetRejectionReason).toBeCalled()
       expect(spyDispatch).toBeCalledWith(
-        declineRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
+        requestDeclineRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
       )
     })
   })

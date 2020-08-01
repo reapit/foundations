@@ -17,25 +17,21 @@ export interface RevisionReceiveDataParams extends RevisionDetailItem {
 export type RevisionApproveRequestParams = RevisionDetailRequestParams & ApproveModel
 export type RevisionDeclineRequestParams = RevisionDetailRequestParams & RejectRevisionModel
 
-/*
- * TODOME(revisionDetail)
- * convention
- * failure -> failed
- * swaggerName
- */
+export const fetchRevisionData = actionCreator<RevisionDetailRequestParams>(ActionTypes.FETCH_REVISION_DATA)
 
-export const revisionDetailRequestData = actionCreator<RevisionDetailRequestParams>(
-  ActionTypes.REVISION_DETAIL_REQUEST_DATA,
+export const fetchRevisionDataSuccess = actionCreator<RevisionReceiveDataParams>(
+  ActionTypes.FETCH_REVISION_DATA_SUCCESS,
 )
-export const revisionDetailLoading = actionCreator<boolean>(ActionTypes.REVISION_DETAIL_LOADING)
-export const revisionDetailReceiveData = actionCreator<RevisionReceiveDataParams>(
-  ActionTypes.REVISION_DETAIL_RECEIVE_DATA,
+export const fetchRevisionDataFailed = actionCreator<void>(ActionTypes.FETCH_REVISION_DATA__FAILURE)
+
+export const requestApproveRevision = actionCreator<RevisionApproveRequestParams>(ActionTypes.REQUEST_APPROVE_REVISION)
+
+export const setRequestApproveRevisionFormState = actionCreator<FormState>(
+  ActionTypes.SET_REQUEST_APPROVE_REVISION_FORM_STATE,
 )
-export const revisionDetailFailure = actionCreator<void>(ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE)
-export const revisionDetailClearData = actionCreator<null>(ActionTypes.REVISION_DETAIL_CLEAR_DATA)
 
-export const approveRevision = actionCreator<RevisionApproveRequestParams>(ActionTypes.REVISION_SUBMIT_APPROVE)
-export const approveRevisionSetFormState = actionCreator<FormState>(ActionTypes.REVISION_APPROVE_SET_FORM_STATE)
+export const requestDeclineRevision = actionCreator<RevisionDeclineRequestParams>(ActionTypes.REQUEST_DECLINE_REVISION)
 
-export const declineRevision = actionCreator<RevisionDeclineRequestParams>(ActionTypes.REVISION_SUBMIT_DECLINE)
-export const declineRevisionSetFormState = actionCreator<FormState>(ActionTypes.REVISION_DECLINE_SET_FORM_STATE)
+export const setRequestDeclineRevisionFormState = actionCreator<FormState>(
+  ActionTypes.SET_REQUEST_DECLINE_REVISION_FORM_STATE,
+)

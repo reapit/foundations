@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { useHistory, useLocation } from 'react-router'
 import { Loader, Pagination, Table, Button, Helper, infoText, Section, H3 } from '@reapit/elements'
-import { revisionDetailRequestData } from '@/actions/revision-detail'
+import { fetchRevisionData } from '@/actions/revision-detail'
 import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { fetchAppDetailData } from '@/actions/app-detail'
@@ -80,7 +80,7 @@ export const handleViewDetailOnClick = ({
   const isNeedFetchRevision = currentRevisionId !== appRevisionId
   const isNeedFetchAppDetail = currentAppId !== appId
   if (appRevisionId && appId && isNeedFetchRevision) {
-    dispatch(revisionDetailRequestData({ appId, appRevisionId }))
+    dispatch(fetchRevisionData({ appId, appRevisionId }))
   }
   if (appRevisionId && appId && isNeedFetchAppDetail) {
     dispatch(fetchAppDetailData({ id: appId }))

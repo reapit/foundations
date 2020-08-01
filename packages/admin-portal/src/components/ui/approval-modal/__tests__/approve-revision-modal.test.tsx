@@ -10,7 +10,7 @@ import {
   onCancelButtonClick,
 } from '../approve-revision-modal'
 import appState from '@/reducers/__stubs__/app-state'
-import { approveRevision } from '@/actions/revision-detail'
+import { requestApproveRevision } from '@/actions/revision-detail'
 
 const props: ApproveRevisionModalProps = {
   onApproveSuccess: jest.fn(),
@@ -73,7 +73,7 @@ describe('ApproveRevisionModal', () => {
       const fn = handleOnSubmit(spyDispatch, mockAppId, mockAppRevisionId)
       fn(mockFormValues)
       expect(spyDispatch).toBeCalledWith(
-        approveRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
+        requestApproveRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
       )
     })
   })
