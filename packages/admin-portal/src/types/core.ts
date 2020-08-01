@@ -1,7 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
-import { NotificationMessageState } from '@/reducers/notification-message'
 import { AppsState } from '@/reducers/apps'
 import { DevelopersState } from '@/reducers/developers'
 
@@ -45,6 +44,7 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   error: ErrorState
   developers: DevelopersState
-  noticationMessage: NotificationMessageState
+  // TODOME(notiActions)
+  // Delete
   apps: AppsState
 }

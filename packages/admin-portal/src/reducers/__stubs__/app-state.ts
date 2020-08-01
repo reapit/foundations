@@ -8,11 +8,6 @@ const appState: ReduxState = {
     serverError: null,
   },
   developers: defaultDevelopersState,
-  noticationMessage: {
-    visible: false,
-    variant: '',
-    message: '',
-  },
   apps: defaultAppsState,
 }
 

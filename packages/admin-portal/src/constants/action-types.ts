@@ -35,8 +35,6 @@ const ActionTypes = {
    */
 
   // notificarion message actions
-  SHOW_NOTIFICATION_MESSAGE: 'SHOW_NOTIFICATION_MESSAGE',
-  HIDE_NOTIFICATION_MESSAGE: 'HIDE_NOTIFICATION_MESSAGE',
 
   // App Detail actions
   FETCH_APP_DETAIL_DATA: 'FETCH_APP_DETAIL_DATA',
