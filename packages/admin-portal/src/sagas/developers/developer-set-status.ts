@@ -6,8 +6,6 @@ import {
 } from '@/actions/developer-set-status'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
@@ -29,12 +27,6 @@ export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
     logger(err)
     callback && callback(false)
     yield put(setRequestDeveloperStatusFormStateFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

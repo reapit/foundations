@@ -8,7 +8,7 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
+
 import errorMessages from '@/constants/error-messages'
 import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/actions/apps-management'
 import { selectAppsData } from '@/selector/admin'
@@ -39,14 +39,6 @@ describe('appsManagementFetch', () => {
     const clone = gen.clone()
     if (clone.throw) {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(fetchAppListFailed()))
-      expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
-      )
       expect(clone.next().done).toBe(true)
     }
   })
@@ -80,14 +72,6 @@ describe('appsManagementFeatured', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
-      )
       // expect store to be reverted back
       expect(clone.next().value).toEqual(put(fetchAppListSuccess(featuredAppsDataStub.data)))
       expect(clone.next().done).toBe(true)

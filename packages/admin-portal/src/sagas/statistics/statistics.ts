@@ -2,8 +2,6 @@ import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParam
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import dayjs from 'dayjs'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { getDateRange } from '@/utils/statistics'
@@ -47,12 +45,6 @@ export const statisticsDataFetch = function*({ data }) {
   } catch (err) {
     logger(err)
     yield put(statisticsRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

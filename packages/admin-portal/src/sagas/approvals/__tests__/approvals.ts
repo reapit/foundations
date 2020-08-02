@@ -5,8 +5,7 @@ import { fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/a
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
+
 import { fetchApprovalsList } from '@/services/approvals'
 
 jest.mock('@/services/approvals')
@@ -28,19 +27,6 @@ describe('approvals fetch data', () => {
     const clone = gen.clone()
     expect(clone.next(undefined).value).toEqual(put(fetchApprovalsDataFailed()))
     expect(clone.next().done).toBe(true)
-  })
-
-  test('api call error', () => {
-    const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
   })
 })
 

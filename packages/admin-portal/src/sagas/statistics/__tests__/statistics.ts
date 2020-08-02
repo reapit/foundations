@@ -4,9 +4,8 @@ import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
-import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '@/actions/statistics'
+
+import { statisticsReceiveData, StatisticsRequestParams } from '@/actions/statistics'
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
 
@@ -30,22 +29,6 @@ describe('statisticsDataFetch', () => {
     const response = { data: [], totalCount: 0 }
     expect(clone.next(response).value).toEqual(put(statisticsReceiveData(response)))
     expect(clone.next().done).toBe(true)
-  })
-
-  test('api call fail', () => {
-    const clone = gen.clone()
-    if (clone.throw) {
-      expect(clone.throw('SOME ERROR').value).toEqual(put(statisticsRequestFailure()))
-      expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
-      )
-      expect(clone.next().done).toBe(true)
-    }
   })
 })
 

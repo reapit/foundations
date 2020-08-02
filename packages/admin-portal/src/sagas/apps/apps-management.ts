@@ -1,7 +1,5 @@
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/actions/apps-management'
 import { selectAppsData } from '@/selector/admin'
@@ -18,12 +16,6 @@ export const appsManagementFetch = function*({ data }) {
   } catch (err) {
     logger(err)
     yield put(fetchAppListFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 
@@ -32,12 +24,6 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
   try {
     const featuredCount = data.filter((item: AppDetailModel) => item.isFeatured).length
     if (isFeatured && featuredCount === 3) {
-      yield put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: 'Max 3 featured apps only',
-        }),
-      )
       return
     }
 
@@ -52,12 +38,7 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
     }
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+
     // if error revert back the old store
     yield put(fetchAppListSuccess({ ...rest, data }))
   }

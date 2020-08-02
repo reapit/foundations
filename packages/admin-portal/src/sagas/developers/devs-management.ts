@@ -5,11 +5,10 @@ import {
   devsManagementRequestDataFailure,
   DevsManagementRequestDataValues,
 } from '@/actions/devs-management'
-import { errorThrownServer } from '@/actions/error'
+
 import { DATE_TIME_FORMAT } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import errorMessages from '@/constants/error-messages'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { logger } from '@reapit/utils'
 import dayjs from 'dayjs'
@@ -44,12 +43,6 @@ export const devsManagementRequestDataHandler = function*({ data: { page, queryS
   } catch (err) {
     logger(err)
     yield put(devsManagementRequestDataFailure(err.message))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

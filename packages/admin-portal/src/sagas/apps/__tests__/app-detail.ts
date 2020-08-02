@@ -11,8 +11,6 @@ import {
 } from '@/actions/app-detail'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
@@ -53,19 +51,6 @@ describe('app-detail fetch data with clientId', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
     expect(clone.next().done).toBe(true)
-  })
-
-  test('api call error', () => {
-    const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
   })
 })
 

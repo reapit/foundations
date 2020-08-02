@@ -9,8 +9,6 @@ import {
 } from '@/actions/revision-detail'
 import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { approvalsDataFetch } from '../approvals/approvals'
 import { logger } from '@reapit/utils'
@@ -36,12 +34,6 @@ export const revisionDetailDataFetch = function*({
     }
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 
@@ -65,12 +57,6 @@ export const requestApproveRevision = function*({ data: params }: Action<Revisio
   } catch (err) {
     logger(err)
     yield put(setRequestApproveRevisionFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 
@@ -96,12 +82,6 @@ export const requestDeclineRevision = function*({ data: params }: Action<Revisio
   } catch (err) {
     logger(err)
     yield put(setRequestDeclineRevisionFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

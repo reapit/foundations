@@ -2,8 +2,6 @@ import { requestDeleteAppSuccess, requestDeleteAppFailed } from '@/actions/app-d
 import { put, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { logger } from '@reapit/utils'
@@ -21,12 +19,6 @@ export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   } catch (err) {
     logger(err)
     yield put(requestDeleteAppFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

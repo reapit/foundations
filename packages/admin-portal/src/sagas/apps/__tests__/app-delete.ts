@@ -1,6 +1,6 @@
 import { requestDeleteAppSaga, requestDeleteAppListen } from '../app-delete'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, call } from '@redux-saga/core/effects'
 import { requestDeleteAppSuccess, requestDeleteAppFailed } from '@/actions/app-delete'
@@ -35,14 +35,6 @@ describe('app-delete sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
         expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(requestDeleteAppFailed()))
-        expect(clone.next().value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
-        )
         expect(clone.next().done).toBe(true)
       }
     })

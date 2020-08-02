@@ -1,9 +1,9 @@
 import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
+import errorMessages from '@/constants/error-messages'
 import { isType } from '@/utils/actions'
 import { fetchAppDetailLoading, fetchAppDetailDataSuccess, fetchAppDetailFailed } from '@/actions/app-detail'
-import errorMessages from '@/constants/error-messages'
 
 export type AppDetailItem = AppDetailModel & { apiKey?: string }
 

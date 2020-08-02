@@ -7,8 +7,6 @@ import {
 } from '@/actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
@@ -36,12 +34,6 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
     }
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 

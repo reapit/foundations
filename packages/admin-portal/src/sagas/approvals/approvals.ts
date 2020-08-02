@@ -1,8 +1,6 @@
 import { fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/approvals'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
@@ -17,12 +15,6 @@ export const approvalsDataFetch = function*({ data: page }) {
     }
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
   }
 }
 
