@@ -8,9 +8,9 @@ describe('appsReducer - statistics', () => {
     expect(newState).toEqual(defaultState)
   })
 
-  it('should set isLoading to true when FETCH_STATISTICS_DATA action is called', () => {
+  it('should set isLoading to true when FETCH_STATISTICS action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.FETCH_STATISTICS_DATA as ActionType,
+      type: ActionTypes.FETCH_STATISTICS as ActionType,
       data: {},
     })
     const expected = {
@@ -23,9 +23,9 @@ describe('appsReducer - statistics', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set data when FETCH_STATISTICS_DATA_SUCCES action is called', () => {
+  it('should set data when FETCH_STATISTICS_SUCCES action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.FETCH_STATISTICS_DATA_SUCCES as ActionType,
+      type: ActionTypes.FETCH_STATISTICS_SUCCES as ActionType,
       data: { data: [], totalCount: 0 },
     })
     const expected = {

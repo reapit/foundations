@@ -14,7 +14,7 @@ import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
-import { devsManagementRequestData } from '@/actions/devs-management'
+import { fetchDeveloperList } from '@/actions/devs-management'
 import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 
 const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
@@ -114,7 +114,7 @@ describe('handleFetchData', () => {
     }
     const fn = handleFetchData(dispatch)
     fn(params)
-    expect(dispatch).toBeCalledWith(devsManagementRequestData(params))
+    expect(dispatch).toBeCalledWith(fetchDeveloperList(params))
   })
 })
 

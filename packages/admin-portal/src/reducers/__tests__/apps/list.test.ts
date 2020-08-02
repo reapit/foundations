@@ -4,9 +4,9 @@ import ActionTypes from '@/constants/action-types'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 
 describe('appsReducer - list', () => {
-  it('should set loading to true when FETCH_APP_LIST_DATA action is called', () => {
+  it('should set loading to true when FETCH_APP_LIST action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.FETCH_APP_LIST_DATA as ActionType,
+      type: ActionTypes.FETCH_APP_LIST as ActionType,
       data: { pageNumber: 1, appName: '1', companyName: '1', developerName: '1' },
     })
     const expected = {

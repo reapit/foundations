@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchApprovalsData, fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/approvals'
+import { fetchApprovalList, fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 import { getDefaultFetchListValue, FetchListResult } from '@reapit/utils'
 
@@ -12,7 +12,7 @@ export const defaultState: ApprovalsState = getDefaultFetchListValue()
 
 // migrate to approvalListReducer
 const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<any>): ApprovalsState => {
-  if (isType(action, fetchApprovalsData)) {
+  if (isType(action, fetchApprovalList)) {
     return {
       ...state,
       isLoading: true,
@@ -20,7 +20,7 @@ const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<a
     }
   }
 
-  if (isType(action, fetchApprovalsDataSuccess)) {
+  if (isType(action, fetchApprovalListSuccess)) {
     return {
       ...state,
       isLoading: false,
@@ -28,7 +28,7 @@ const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<a
     }
   }
 
-  if (isType(action, fetchApprovalsDataFailed)) {
+  if (isType(action, fetchApprovalListFailed)) {
     return {
       ...state,
       isLoading: false,

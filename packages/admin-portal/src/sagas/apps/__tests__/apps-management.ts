@@ -84,7 +84,7 @@ describe('appsManagementSagas thunks', () => {
     it('should request data when called', () => {
       const gen = appsManagementListen()
 
-      expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.FETCH_APP_LIST_DATA, appsManagementFetch))
+      expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.FETCH_APP_LIST, appsManagementFetch))
       expect(gen.next().value).toEqual(
         takeLatest<Action<AppsFeaturedParams>>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED, appsManagementFeatured),
       )

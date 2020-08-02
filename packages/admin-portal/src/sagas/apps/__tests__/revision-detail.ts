@@ -11,8 +11,8 @@ import { revisionDetailDataStub } from '../__stubs__/revision-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
-  fetchRevisionDataSuccess,
-  fetchRevisionDataFailed,
+  fetchRevisionSuccess,
+  fetchRevisionFailed,
   RevisionDetailRequestParams,
   setRequestApproveRevisionFormState,
   RevisionApproveRequestParams,
@@ -33,7 +33,7 @@ jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
 const params: Action<RevisionDetailRequestParams> = {
-  type: 'FETCH_REVISION_DATA_SUCCESS',
+  type: 'FETCH_REVISION_SUCCESS',
   data: { appId: '9b6fd5f7-2c15-483d-b925-01b650538e52', appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
 }
 
@@ -54,14 +54,14 @@ describe('revision-detail fetch data', () => {
     const clone = gen.clone()
     const { data, scopes, desktopIntegrationTypes } = revisionDetailDataStub
     expect(clone.next([data, scopes, desktopIntegrationTypes]).value).toEqual(
-      put(fetchRevisionDataSuccess(revisionDetailDataStub)),
+      put(fetchRevisionSuccess(revisionDetailDataStub)),
     )
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next([undefined, undefined, undefined]).value).toEqual(put(fetchRevisionDataFailed()))
+    expect(clone.next([undefined, undefined, undefined]).value).toEqual(put(fetchRevisionFailed()))
     expect(clone.next().done).toBe(true)
   })
 })
@@ -136,7 +136,7 @@ describe('revision-detail thunks', () => {
     it('should trigger request data when called', () => {
       const gen = revisionDetailDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION_DATA, revisionDetailDataFetch),
+        takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION, revisionDetailDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

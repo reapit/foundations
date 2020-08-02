@@ -15,10 +15,8 @@ export type StatisticsReceiveParams = {
   totalCount: number
 }
 
-export const fetchStatisticsData = actionCreator<StatisticsRequestParams>(ActionTypes.FETCH_STATISTICS_DATA)
+export const fetchStatistics = actionCreator<StatisticsRequestParams>(ActionTypes.FETCH_STATISTICS)
 
-export const fetchStatisticsDataSucces = actionCreator<StatisticsReceiveParams>(
-  ActionTypes.FETCH_STATISTICS_DATA_SUCCES,
-)
+export const fetchStatisticsSucces = actionCreator<StatisticsReceiveParams>(ActionTypes.FETCH_STATISTICS_SUCCES)
 
 export const fetchStatisticsFailed = actionCreator<void>(ActionTypes.FETCH_STATISTICS_FAILED)

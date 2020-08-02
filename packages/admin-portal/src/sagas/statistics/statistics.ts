@@ -1,4 +1,4 @@
-import { fetchStatisticsDataSucces, fetchStatisticsFailed, StatisticsRequestParams } from '@/actions/statistics'
+import { fetchStatisticsSucces, fetchStatisticsFailed, StatisticsRequestParams } from '@/actions/statistics'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import dayjs from 'dayjs'
 import ActionTypes from '@/constants/action-types'
@@ -38,7 +38,7 @@ export const statisticsDataFetch = function*({ data }) {
     const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
     if (response) {
-      yield put(fetchStatisticsDataSucces({ data: response.data, totalCount: response.totalCount }))
+      yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
     } else {
       yield put(fetchStatisticsFailed())
     }
@@ -49,7 +49,7 @@ export const statisticsDataFetch = function*({ data }) {
 }
 
 export const statisticsDataListen = function*() {
-  yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS_DATA, statisticsDataFetch)
+  yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS, statisticsDataFetch)
 }
 
 const statisticsSagas = function*() {

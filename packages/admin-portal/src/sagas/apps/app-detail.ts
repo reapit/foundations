@@ -1,10 +1,4 @@
-import {
-  fetchAppDetailLoading,
-  fetchAppDetailDataSuccess,
-  fetchAppDetailFailed,
-  AppDetailParams,
-  setAppDetailStale,
-} from '@/actions/app-detail'
+import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams, setAppDetailStale } from '@/actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -13,7 +7,6 @@ import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
-  yield put(fetchAppDetailLoading(true))
   try {
     const { id, clientId } = data
     const appDetailResponse = yield call(fetchAppById, {
@@ -27,7 +20,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     if (appDetailResponse) {
-      yield put(fetchAppDetailDataSuccess({ data: appDetailResponse }))
+      yield put(fetchAppDetailSuccess({ data: appDetailResponse }))
       yield put(setAppDetailStale(false))
     } else {
       yield put(fetchAppDetailFailed())
@@ -38,7 +31,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
 }
 
 export const appDetailDataListen = function*() {
-  yield takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL_DATA, appDetailDataFetch)
+  yield takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL, appDetailDataFetch)
 }
 
 const appDetailSagas = function*() {

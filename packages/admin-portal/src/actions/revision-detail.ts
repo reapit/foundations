@@ -17,12 +17,10 @@ export interface RevisionReceiveDataParams extends RevisionDetailItem {
 export type RevisionApproveRequestParams = RevisionDetailRequestParams & ApproveModel
 export type RevisionDeclineRequestParams = RevisionDetailRequestParams & RejectRevisionModel
 
-export const fetchRevisionData = actionCreator<RevisionDetailRequestParams>(ActionTypes.FETCH_REVISION_DATA)
+export const fetchRevision = actionCreator<RevisionDetailRequestParams>(ActionTypes.FETCH_REVISION)
 
-export const fetchRevisionDataSuccess = actionCreator<RevisionReceiveDataParams>(
-  ActionTypes.FETCH_REVISION_DATA_SUCCESS,
-)
-export const fetchRevisionDataFailed = actionCreator<void>(ActionTypes.FETCH_REVISION_DATA__FAILURE)
+export const fetchRevisionSuccess = actionCreator<RevisionReceiveDataParams>(ActionTypes.FETCH_REVISION_SUCCESS)
+export const fetchRevisionFailed = actionCreator<void>(ActionTypes.FETCH_REVISION_FAILED)
 
 export const requestApproveRevision = actionCreator<RevisionApproveRequestParams>(ActionTypes.REQUEST_APPROVE_REVISION)
 

@@ -1,4 +1,4 @@
-import { fetchAppListSuccess, fetchAppListData, fetchAppListFailed } from '../apps-management'
+import { fetchAppListSuccess, fetchAppList, fetchAppListFailed } from '../apps-management'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 
@@ -8,9 +8,9 @@ describe('adminApps actions', () => {
     expect(fetchAppListSuccess(appsDataStub.data).data).toEqual(appsDataStub.data)
   })
 
-  it('should create a fetchAppListData action', () => {
-    expect(fetchAppListData.type).toEqual(ActionTypes.FETCH_APP_LIST_DATA)
-    expect(fetchAppListData({ pageNumber: 1 }).data).toEqual({ pageNumber: 1 })
+  it('should create a fetchAppList action', () => {
+    expect(fetchAppList.type).toEqual(ActionTypes.FETCH_APP_LIST)
+    expect(fetchAppList({ pageNumber: 1 }).data).toEqual({ pageNumber: 1 })
   })
 
   it('should create a fetchAppListFailed action', () => {

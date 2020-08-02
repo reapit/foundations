@@ -2,11 +2,11 @@ import { Action, FormState } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { AppRevisionModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import {
-  fetchRevisionDataSuccess,
-  fetchRevisionDataFailed,
+  fetchRevisionSuccess,
+  fetchRevisionFailed,
   setRequestApproveRevisionFormState,
   setRequestDeclineRevisionFormState,
-  fetchRevisionData,
+  fetchRevision,
 } from '@/actions/revision-detail'
 import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
 import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils'
@@ -38,7 +38,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     }
   }
 
-  if (isType(action, fetchRevisionData)) {
+  if (isType(action, fetchRevision)) {
     return {
       ...state,
       errorMessage: '',
@@ -47,7 +47,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     }
   }
 
-  if (isType(action, fetchRevisionDataSuccess)) {
+  if (isType(action, fetchRevisionSuccess)) {
     return {
       ...state,
       isLoading: false,
@@ -56,7 +56,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     }
   }
 
-  if (isType(action, fetchRevisionDataFailed)) {
+  if (isType(action, fetchRevisionFailed)) {
     return {
       ...state,
       isLoading: false,

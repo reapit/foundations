@@ -1,6 +1,6 @@
 import {
-  fetchRevisionDataSuccess,
-  fetchRevisionDataFailed,
+  fetchRevisionSuccess,
+  fetchRevisionFailed,
   RevisionDetailRequestParams,
   RevisionApproveRequestParams,
   setRequestApproveRevisionFormState,
@@ -28,9 +28,9 @@ export const revisionDetailDataFetch = function*({
     ])
 
     if (response && scopes && desktopIntegrationTypes) {
-      yield put(fetchRevisionDataSuccess({ data: response, scopes, desktopIntegrationTypes }))
+      yield put(fetchRevisionSuccess({ data: response, scopes, desktopIntegrationTypes }))
     } else {
-      yield put(fetchRevisionDataFailed())
+      yield put(fetchRevisionFailed())
     }
   } catch (err) {
     logger(err)
@@ -38,7 +38,7 @@ export const revisionDetailDataFetch = function*({
 }
 
 export const revisionDetailDataListen = function*() {
-  yield takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION_DATA, revisionDetailDataFetch)
+  yield takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION, revisionDetailDataFetch)
 }
 // TODO move to selector
 

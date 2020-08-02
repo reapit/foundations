@@ -1,9 +1,8 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import {
-  devsManagementLoading,
-  devsManagementReceiveData,
-  devsManagementRequestDataFailure,
-  DevsManagementRequestDataValues,
+  fetchDeveloperListSuccess,
+  fetchDeveloperListFailed,
+  fetchDeveloperListValues,
 } from '@/actions/devs-management'
 
 import { DATE_TIME_FORMAT } from '@reapit/elements'
@@ -14,9 +13,7 @@ import { logger } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
 
-export const devsManagementRequestDataHandler = function*({ data: { page, queryString } }) {
-  yield put(devsManagementLoading(true))
-
+export const fetchDeveloperListHandler = function*({ data: { page, queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
     const name = queryParams.get('name') || ''
@@ -36,25 +33,22 @@ export const devsManagementRequestDataHandler = function*({ data: { page, queryS
     })
 
     if (response) {
-      yield put(devsManagementReceiveData(response))
+      yield put(fetchDeveloperListSuccess(response))
     } else {
-      yield put(devsManagementRequestDataFailure())
+      yield put(fetchDeveloperListFailed())
     }
   } catch (err) {
     logger(err)
-    yield put(devsManagementRequestDataFailure(err.message))
+    yield put(fetchDeveloperListFailed(err.message))
   }
 }
 
-export const devsManagementRequestDataListen = function*() {
-  yield takeLatest<Action<DevsManagementRequestDataValues>>(
-    ActionTypes.DEVS_MANAGEMENT_REQUEST_DATA,
-    devsManagementRequestDataHandler,
-  )
+export const fetchDeveloperListListen = function*() {
+  yield takeLatest<Action<fetchDeveloperListValues>>(ActionTypes.FETCH_DEVELOPER_LIST, fetchDeveloperListHandler)
 }
 
 const devsManagementSagas = function*() {
-  yield all([fork(devsManagementRequestDataListen)])
+  yield all([fork(fetchDeveloperListListen)])
 }
 
 export default devsManagementSagas

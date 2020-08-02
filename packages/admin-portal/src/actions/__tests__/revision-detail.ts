@@ -1,6 +1,6 @@
 import {
-  fetchRevisionDataSuccess,
-  fetchRevisionData,
+  fetchRevisionSuccess,
+  fetchRevision,
   requestApproveRevision,
   requestDeclineRevision,
   setRequestApproveRevisionFormState,
@@ -16,14 +16,14 @@ const params: RevisionDetailRequestParams = {
 }
 
 describe('revisionDetail actions', () => {
-  it('should create a fetchRevisionDataSuccess action', () => {
-    expect(fetchRevisionDataSuccess.type).toEqual(ActionTypes.FETCH_REVISION_DATA_SUCCESS)
-    expect(fetchRevisionDataSuccess(revisionDetailDataStub).data).toEqual(revisionDetailDataStub)
+  it('should create a fetchRevisionSuccess action', () => {
+    expect(fetchRevisionSuccess.type).toEqual(ActionTypes.FETCH_REVISION_SUCCESS)
+    expect(fetchRevisionSuccess(revisionDetailDataStub).data).toEqual(revisionDetailDataStub)
   })
 
-  it('should create a fetchRevisionData action', () => {
-    expect(fetchRevisionData.type).toEqual(ActionTypes.FETCH_REVISION_DATA)
-    expect(fetchRevisionData(params).data).toEqual(params)
+  it('should create a fetchRevision action', () => {
+    expect(fetchRevision.type).toEqual(ActionTypes.FETCH_REVISION)
+    expect(fetchRevision(params).data).toEqual(params)
   })
 
   it('should create a requestApproveRevision action', () => {

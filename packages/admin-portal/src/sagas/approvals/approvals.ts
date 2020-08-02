@@ -1,4 +1,4 @@
-import { fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/approvals'
+import { fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/approvals'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -9,9 +9,9 @@ export const approvalsDataFetch = function*({ data: page }) {
   try {
     const response = yield call(fetchApprovalsList, { pageNumber: page })
     if (response) {
-      yield put(fetchApprovalsDataSuccess(response))
+      yield put(fetchApprovalListSuccess(response))
     } else {
-      yield put(fetchApprovalsDataFailed())
+      yield put(fetchApprovalListFailed())
     }
   } catch (err) {
     logger(err)
@@ -19,7 +19,7 @@ export const approvalsDataFetch = function*({ data: page }) {
 }
 
 export const approvalsDataListen = function*() {
-  yield takeLatest<Action<number>>(ActionTypes.FETCH_APPROVALS_DATA, approvalsDataFetch)
+  yield takeLatest<Action<number>>(ActionTypes.FETCH_APPROVAL_LIST, approvalsDataFetch)
 }
 
 const approvalsSagas = function*() {

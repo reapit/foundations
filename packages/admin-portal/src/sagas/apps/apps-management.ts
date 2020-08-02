@@ -45,7 +45,7 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
 }
 
 export const appsManagementListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.FETCH_APP_LIST_DATA, appsManagementFetch)
+  yield takeLatest<Action<void>>(ActionTypes.FETCH_APP_LIST, appsManagementFetch)
   yield takeLatest<Action<AppsFeaturedParams>>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED, appsManagementFeatured)
 }
 

@@ -3,7 +3,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { isType } from '@/utils/actions'
-import { fetchAppDetailLoading, fetchAppDetailDataSuccess, fetchAppDetailFailed } from '@/actions/app-detail'
+import { fetchAppDetailSuccess, fetchAppDetailFailed, fetchAppDetail } from '@/actions/app-detail'
 
 export type AppDetailItem = AppDetailModel & { apiKey?: string }
 
@@ -12,15 +12,15 @@ export type AppDetailState = FetchDetailResult<AppDetailItem>
 export const defaultState: AppDetailState = getDefaultFetchDetailValue()
 
 const appDetailReducer = (state: AppDetailState = defaultState, action: Action<any>): AppDetailState => {
-  if (isType(action, fetchAppDetailLoading)) {
+  if (isType(action, fetchAppDetail)) {
     return {
       ...state,
       errorMessage: '',
-      isLoading: action.data,
+      isLoading: true,
     }
   }
 
-  if (isType(action, fetchAppDetailDataSuccess)) {
+  if (isType(action, fetchAppDetailSuccess)) {
     return {
       ...state,
       isLoading: false,

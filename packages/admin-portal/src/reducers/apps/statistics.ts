@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchStatisticsData, fetchStatisticsDataSucces, fetchStatisticsFailed } from '@/actions/statistics'
+import { fetchStatistics, fetchStatisticsSucces, fetchStatisticsFailed } from '@/actions/statistics'
 import {
   PagedResultAppSummaryModel_,
   PagedResultDeveloperModel_,
@@ -16,14 +16,14 @@ export type StatisticsState = FetchListResult<
 export const defaultState = getDefaultFetchListValue() as StatisticsState
 
 const statisticsReducer = (state: StatisticsState = defaultState, action: Action<any>): StatisticsState => {
-  if (isType(action, fetchStatisticsData)) {
+  if (isType(action, fetchStatistics)) {
     return {
       ...state,
       isLoading: true,
     }
   }
 
-  if (isType(action, fetchStatisticsDataSucces)) {
+  if (isType(action, fetchStatisticsSucces)) {
     return {
       ...state,
       isLoading: false,

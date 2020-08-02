@@ -1,7 +1,7 @@
 import approvalsSagas, { approvalsDataFetch, approvalsDataListen } from '../approvals'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { fetchApprovalsDataSuccess, fetchApprovalsDataFailed } from '@/actions/approvals'
+import { fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/approvals'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -19,13 +19,13 @@ describe('approvals fetch data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(fetchApprovalsDataSuccess(appsDataStub.data)))
+    expect(clone.next(appsDataStub.data).value).toEqual(put(fetchApprovalListSuccess(appsDataStub.data)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(fetchApprovalsDataFailed()))
+    expect(clone.next(undefined).value).toEqual(put(fetchApprovalListFailed()))
     expect(clone.next().done).toBe(true)
   })
 })
@@ -35,7 +35,7 @@ describe('approvals thunks', () => {
     it('should request data when called', () => {
       const gen = approvalsDataListen()
 
-      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.FETCH_APPROVALS_DATA, approvalsDataFetch))
+      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.FETCH_APPROVAL_LIST, approvalsDataFetch))
       expect(gen.next().done).toBe(true)
     })
   })

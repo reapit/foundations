@@ -1,6 +1,6 @@
 import {
-  fetchStatisticsData,
-  fetchStatisticsDataSucces,
+  fetchStatistics,
+  fetchStatisticsSucces,
   fetchStatisticsFailed,
   StatisticsRequestParams,
   StatisticsReceiveParams,
@@ -8,16 +8,16 @@ import {
 import ActionTypes from '../../constants/action-types'
 
 describe('adminStats actions', () => {
-  it('should create a fetchStatisticsData action', () => {
-    expect(fetchStatisticsData.type).toEqual(ActionTypes.FETCH_STATISTICS_DATA)
+  it('should create a fetchStatistics action', () => {
+    expect(fetchStatistics.type).toEqual(ActionTypes.FETCH_STATISTICS)
     const params: StatisticsRequestParams = { area: 'APPS', range: 'WEEK' }
-    expect(fetchStatisticsData(params).data).toEqual(params)
+    expect(fetchStatistics(params).data).toEqual(params)
   })
 
-  it('should create a fetchStatisticsDataSucces action', () => {
-    expect(fetchStatisticsDataSucces.type).toEqual(ActionTypes.FETCH_STATISTICS_DATA_SUCCES)
+  it('should create a fetchStatisticsSucces action', () => {
+    expect(fetchStatisticsSucces.type).toEqual(ActionTypes.FETCH_STATISTICS_SUCCES)
     const params: StatisticsReceiveParams = { data: [], totalCount: 1 }
-    expect(fetchStatisticsDataSucces(params).data).toEqual(params)
+    expect(fetchStatisticsSucces(params).data).toEqual(params)
   })
 
   it('should create a fetchStatisticsFailed action', () => {
