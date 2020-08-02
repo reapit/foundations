@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { statisticsRequestData, statisticsReceiveData, statisticsRequestFailure } from '@/actions/statistics'
+import { fetchStatisticsData, fetchStatisticsDataSucces, fetchStatisticsFailed } from '@/actions/statistics'
 import {
   PagedResultAppSummaryModel_,
   PagedResultDeveloperModel_,
@@ -16,14 +16,14 @@ export type StatisticsState = FetchListResult<
 export const defaultState = getDefaultFetchListValue() as StatisticsState
 
 const statisticsReducer = (state: StatisticsState = defaultState, action: Action<any>): StatisticsState => {
-  if (isType(action, statisticsRequestData)) {
+  if (isType(action, fetchStatisticsData)) {
     return {
       ...state,
       isLoading: true,
     }
   }
 
-  if (isType(action, statisticsReceiveData)) {
+  if (isType(action, fetchStatisticsDataSucces)) {
     return {
       ...state,
       isLoading: false,
@@ -31,7 +31,7 @@ const statisticsReducer = (state: StatisticsState = defaultState, action: Action
     }
   }
 
-  if (isType(action, statisticsRequestFailure)) {
+  if (isType(action, fetchStatisticsFailed)) {
     return {
       ...state,
       isLoading: false,

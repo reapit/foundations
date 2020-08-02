@@ -5,7 +5,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 
-import { statisticsReceiveData, StatisticsRequestParams } from '@/actions/statistics'
+import { fetchStatisticsDataSucces, StatisticsRequestParams } from '@/actions/statistics'
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
 
@@ -27,7 +27,7 @@ describe('statisticsDataFetch', () => {
   test('api call success', () => {
     const clone = gen.clone()
     const response = { data: [], totalCount: 0 }
-    expect(clone.next(response).value).toEqual(put(statisticsReceiveData(response)))
+    expect(clone.next(response).value).toEqual(put(fetchStatisticsDataSucces(response)))
     expect(clone.next().done).toBe(true)
   })
 })
@@ -37,7 +37,7 @@ describe('statisticsSagas thunks', () => {
     it('should request data when called', () => {
       const gen = statisticsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<StatisticsRequestParams>>(ActionTypes.STATISTICS_REQUEST_DATA, statisticsDataFetch),
+        takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS_DATA, statisticsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

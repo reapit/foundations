@@ -73,7 +73,7 @@ describe('appsManagementFeatured', () => {
     const clone = gen.clone()
     if (clone.throw) {
       // expect store to be reverted back
-      expect(clone.next().value).toEqual(put(fetchAppListSuccess(featuredAppsDataStub.data)))
+      expect(clone.throw().value).toEqual(put(fetchAppListSuccess(featuredAppsDataStub.data)))
       expect(clone.next().done).toBe(true)
     }
   })
