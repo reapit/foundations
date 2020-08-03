@@ -16,6 +16,11 @@ import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } 
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
+/*
+ * TODOME(revisionDetailDataFetch)
+ **- failure with correct error
+ *- notificaion
+ */
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -41,6 +46,12 @@ export const revisionDetailDataListen = function*() {
   yield takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION, revisionDetailDataFetch)
 }
 // TODO move to selector
+/*
+ * TODOME(requestApproveRevision)
+ * *- failure with correct error
+*- notificaion
+
+ */
 
 export const requestApproveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)
@@ -63,6 +74,11 @@ export const requestApproveRevision = function*({ data: params }: Action<Revisio
 export const requestApproveRevisionListen = function*() {
   yield takeLatest<Action<RevisionApproveRequestParams>>(ActionTypes.REQUEST_APPROVE_REVISION, requestApproveRevision)
 }
+/*
+ * TODOME(requestDeclineRevision)
+ *- failure with correct error
+ *- notificaion
+ */
 
 export const requestDeclineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)

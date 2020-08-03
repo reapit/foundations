@@ -9,6 +9,11 @@ import { Action } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
+/*
+ * TODOME(setRequestDeveloperStatusFormStateSaga)
+ * *- failure with correct error
+ *- notificaion
+ */
 
 export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
   const { callback } = dev

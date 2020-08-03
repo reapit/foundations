@@ -11,6 +11,11 @@ import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
+/*
+ * TODOME(statisticsDataFetch)
+ * *- failure with correct error
+ *- notificaion
+ */
 
 export const statisticsDataFetch = function*({ data }) {
   try {

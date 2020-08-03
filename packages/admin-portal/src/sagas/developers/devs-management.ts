@@ -12,6 +12,11 @@ import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { logger } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
+/*
+ * TODOME(fetchDeveloperListHandler)
+ **- failure with correct error
+ *- notificaion
+ */
 
 export const fetchDeveloperListHandler = function*({ data: { page, queryString } }) {
   try {

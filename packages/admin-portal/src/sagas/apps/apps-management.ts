@@ -7,6 +7,11 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+/*
+ * TODOME(appsManagementFetch)
+ * - failure with correct error
+ * -notificaion
+ */
 
 export const appsManagementFetch = function*({ data }) {
   try {
@@ -18,6 +23,12 @@ export const appsManagementFetch = function*({ data }) {
     yield put(fetchAppListFailed())
   }
 }
+/*
+ * TODOME(appsManagementFeatured)
+ * *- failure with correct error
+*- notificaion
+
+ */
 
 export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
   const { data, ...rest } = yield select(selectAppsData)

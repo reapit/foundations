@@ -6,6 +6,12 @@ import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { logger } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
+/*
+ * TODOME(requestDeleteAppSaga)
+ * send notification contain correct error string
+ * throw error
+ *
+ */
 
 export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   try {

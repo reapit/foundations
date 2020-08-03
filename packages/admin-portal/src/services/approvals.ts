@@ -6,6 +6,10 @@ import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 
 export type FetchApprovalsListParams = FetchListCommonParams
+/*
+ * TODOME(approvalsDataFetch)
+ * throw error
+ */
 
 export const fetchApprovalsList = async (params: FetchApprovalsListParams): Promise<PagedResultApprovalModel_> => {
   try {

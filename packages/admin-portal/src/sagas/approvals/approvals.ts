@@ -4,6 +4,12 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
+/*
+ * TODOME(approvalsDataFetch)
+ * *- failure with correct error
+*- notificaion
+
+ */
 
 export const approvalsDataFetch = function*({ data: page }) {
   try {

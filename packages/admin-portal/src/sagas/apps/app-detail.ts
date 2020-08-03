@@ -5,6 +5,12 @@ import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+/*
+ * TODOME(appDetailDataFetch)
+ *
+ * - failure with correct error
+ * - notificaion
+ */
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   try {

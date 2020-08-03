@@ -44,6 +44,10 @@ export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
 export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & ApproveModel
 
 export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
+/*
+ * TODOME(appsManagementFetch)
+ * throw error
+ */
 
 export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
@@ -59,6 +63,10 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     throw new Error(error)
   }
 }
+/*
+ * TODOME(appDetailDataFetch)
+ * throw correct error
+ */
 
 export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
@@ -75,6 +83,10 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
     throw new Error(error)
   }
 }
+/*
+ * TODOME(requestDeleteAppSaga)
+ * throw error response
+ */
 
 export const deleteAppById = async (params: DeleteAppByIdParams) => {
   try {
@@ -91,6 +103,10 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
     throw new Error(error)
   }
 }
+/*
+ * TODOME(appsManagementFeatured)
+ * throw correct error
+ */
 
 export const featureAppById = async (params: FeatureAppByIdParams) => {
   try {
@@ -108,6 +124,10 @@ export const featureAppById = async (params: FeatureAppByIdParams) => {
   }
 }
 
+/*
+ * TODOME(appsManagementFeatured)
+ * throw correct error
+ */
 export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
   try {
     const { id } = params
@@ -123,6 +143,10 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
     throw new Error(error)
   }
 }
+/*
+ * TODOME(revisionDetailDataFetch)
+ * throw correct error
+ */
 
 export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams): Promise<AppRevisionModel> => {
   try {
@@ -139,6 +163,10 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
     throw new Error(error)
   }
 }
+/*
+ * TODOME(requestApproveRevision)
+ * throw error
+ */
 
 export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParams) => {
   try {
