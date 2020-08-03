@@ -169,13 +169,12 @@ const appState: ReduxState = {
         _embedded: [],
       },
     },
-    topics: {
-      applicationId: '',
-      loading: false,
-      error: false,
-      topics: {
-        _embedded: [],
-      },
+  },
+  webhooksTopics: {
+    list: {
+      isLoading: false,
+      errorMessage: '',
+      _embedded: [],
     },
   },
   developerSubscriptions: {

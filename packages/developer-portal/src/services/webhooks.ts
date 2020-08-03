@@ -229,7 +229,7 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
 }
 
 // Topic
-export const fetchWebhooksTopicsList = async (
+export const fetchWebhooksTopicsListApi = async (
   params: FetchWebhooksTopicsListParams,
 ): Promise<PagedResultTopicModel_> => {
   try {

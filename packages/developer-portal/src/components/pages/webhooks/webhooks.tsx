@@ -1,20 +1,17 @@
 import React, { ReactElement } from 'react'
+import qs from 'query-string'
+import { History } from 'history'
 import { Loader, SelectBoxOptions } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
 import { SelectBox, H3, FormSection, FormSubHeading, LevelRight, Button, Table, Section } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
-import { webhookSubscriptionsRequestData, webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
+import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
 import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
-import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
-import {
-  selectSubscriptionsData,
-  selectSubscriptionsLoading,
-  selectTopicsData,
-  selectApplicationId,
-  selectWebhookEditModalType,
-} from '@/selector/wehooks'
+import { WebhookModel } from '@/reducers/webhook-subscriptions'
+import { selectSubscriptionsData, selectSubscriptionsLoading, selectWebhookEditModalType } from '@/selector/wehooks'
+import { selectTopicsData } from '@/selector/webhooks-topics'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from './webhook-edit-modal'
 import { selectDeveloper } from '@/selector/developer'
@@ -23,15 +20,15 @@ import styles from '@/styles/elements/link.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import Routes from '@/constants/routes'
 import { selectAppListState } from '@/selector/apps/app-list'
+import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
+import { useHistory } from 'react-router-dom'
+import { TopicModel } from '@/services/webhooks'
+import { URLS } from '@/services/constants'
 
 export type DeveloperWebhooksProps = {}
 
 export type WebhooksFormValues = {
   applicationId: string
-}
-
-export const webhooksFormInitialValues: WebhooksFormValues = {
-  applicationId: '',
 }
 
 export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
@@ -69,10 +66,13 @@ export const MODAL_TYPE = {
   TEST: 'TEST',
 }
 
-export const handleSubscriptionChange = (dispatch: Dispatch) => (values: WebhooksFormValues): void => {
+export const handleSubscriptionChange = (dispatch: Dispatch, history: History) => (
+  values: WebhooksFormValues,
+): void => {
   const { applicationId } = values
   dispatch(webhookSubscriptionsRequestData(applicationId))
-  dispatch(webhookTopicsRequestData(applicationId))
+  dispatch(fetchWebhooksTopics({ applicationId }))
+  history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
 }
 
 export const openCreateModal = (dispatch: Dispatch) => (): void => {
@@ -106,7 +106,7 @@ export const handleAfterClose = (dispatch: Dispatch, setWebhookId: React.Dispatc
 }
 
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
-  const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id))
+  const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id as string))
   const subscriptionTopicsName = subscriptionTopics.map(topic => topic.name)
   return subscriptionTopicsName
 }
@@ -165,12 +165,14 @@ export const mapDeveloperAppsToAppSelectBoxOptions: (
 
 export const DeveloperWebhooks = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
+  const queryParams = qs.parse(history.location.search)
+  const applicationId = queryParams.applicationId
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
 
   const subscriptions = useSelector(selectSubscriptionsData)
   const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
   const topics = useSelector(selectTopicsData)
-  const applicationId = useSelector(selectApplicationId)
   const developerState = useSelector(selectDeveloper)
   const { data: apps } = useSelector(selectAppListState)
   const modalType = useSelector(selectWebhookEditModalType)
@@ -207,11 +209,16 @@ export const DeveloperWebhooks = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {' '}
             webhooks documentation
           </a>
         </FormSubHeading>
-        <Formik initialValues={webhooksFormInitialValues} enableReinitialize={true} onSubmit={() => {}}>
+        <Formik
+          initialValues={{
+            applicationId: applicationId || '',
+          }}
+          enableReinitialize={true}
+          onSubmit={() => {}}
+        >
           {() => (
             <Form>
               <SelectBox
@@ -222,7 +229,7 @@ export const DeveloperWebhooks = () => {
                 labelText="App"
                 id="subscription"
               />
-              <FormikAutoSave onSave={handleSubscriptionChange(dispatch)} />
+              <FormikAutoSave onSave={handleSubscriptionChange(dispatch, history)} />
             </Form>
           )}
         </Formik>
