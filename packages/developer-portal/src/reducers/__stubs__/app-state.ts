@@ -68,16 +68,6 @@ const appState: ReduxState = {
   developerSetStatus: {
     formState: 'PENDING',
   },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    declineFormState: 'PENDING',
-  },
-  revisions: {
-    loading: false,
-    revisions: null,
-  },
   appDetailModal: 'VIEW_DETAIL_BROWSE',
   settings: {
     loading: true,
