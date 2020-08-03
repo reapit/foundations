@@ -1,5 +1,4 @@
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -16,7 +15,7 @@ jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
 const params: Action<FetchAppRevisionsByIdParams> = {
-  type: 'REVISION_DETAIL_RECEIVE_DATA',
+  type: 'FETCH_APP_REVISION_DETAIL',
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', revisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
 }
 
