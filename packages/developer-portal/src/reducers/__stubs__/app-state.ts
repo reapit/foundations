@@ -20,6 +20,12 @@ const appState: ReduxState = {
     deleteApp: {
       isLoading: false,
     },
+    revisions: {
+      detail: {
+        data: {},
+        isLoading: false,
+      },
+    },
   },
   scopes: {
     list: {

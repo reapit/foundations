@@ -5,13 +5,7 @@ import {
   ScopeModel,
   PagedResultDesktopIntegrationTypeModel_,
 } from '@reapit/foundations-ts-definitions'
-import {
-  revisionDetailLoading,
-  revisionDetailReceiveData,
-  revisionDetailClearData,
-  revisionDetailFailure,
-  declineRevisionSetFormState,
-} from '../actions/revision-detail'
+import { declineRevisionSetFormState } from '../actions/revision-detail'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
@@ -34,42 +28,6 @@ export const defaultState: RevisionDetailState = {
 }
 
 const revisionDetailReducer = (state: RevisionDetailState = defaultState, action: Action<any>): RevisionDetailState => {
-  if (isType(action, revisionDetailLoading)) {
-    return {
-      ...state,
-      error: false,
-      declineFormState: 'PENDING',
-      loading: action.data,
-    }
-  }
-
-  if (isType(action, revisionDetailReceiveData)) {
-    return {
-      ...state,
-      loading: false,
-      error: false,
-      revisionDetailData: action.data || null,
-    }
-  }
-
-  if (isType(action, revisionDetailClearData)) {
-    return {
-      ...state,
-      loading: false,
-      error: false,
-      revisionDetailData: action.data,
-      declineFormState: 'PENDING',
-    }
-  }
-
-  if (isType(action, revisionDetailFailure)) {
-    return {
-      ...state,
-      loading: false,
-      error: true,
-    }
-  }
-
   if (isType(action, declineRevisionSetFormState)) {
     return {
       ...state,

@@ -15,10 +15,10 @@ import {
   backToAppDetailsModal,
 } from '../app-revision-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { revisionDetailRequestData, revisionDetailClearData, declineRevision } from '@/actions/revision-detail'
+import { declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { LoginIdentity } from '@reapit/connect-session'
-import { fetchAppDetail } from '@/actions/apps'
+import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail } from '@/actions/apps'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
@@ -58,9 +58,9 @@ describe('DeveloperAppRevisionModal', () => {
       const fn = handleUseEffectToFetchAppRevisionDetail(appId, spyDispatch, visible, appRevisionId)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        revisionDetailRequestData({
-          appId,
-          appRevisionId,
+        fetchAppRevisionDetail({
+          id: appId,
+          revisionId: appRevisionId,
         }),
       )
     })
@@ -80,7 +80,7 @@ describe('DeveloperAppRevisionModal', () => {
       fn()
       expect(afterClose).toBeCalled()
       expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
-      expect(spyDispatch).toBeCalledWith(revisionDetailClearData(null))
+      expect(spyDispatch).toBeCalledWith(clearAppRevisionDetail())
     })
   })
   describe('handleCancelPendingRevisionsButtonClick', () => {
@@ -118,7 +118,7 @@ describe('DeveloperAppRevisionModal', () => {
       const fn = backToAppDetailsModal(appId, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
-      expect(spyDispatch).toBeCalledWith(revisionDetailClearData(null))
+      expect(spyDispatch).toBeCalledWith(clearAppRevisionDetail())
       expect(spyDispatch).toBeCalledWith(fetchAppDetail({ id: appId }))
     })
   })

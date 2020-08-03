@@ -1,21 +1,23 @@
 import * as React from 'react'
 import { AppDetailState } from '@/reducers/apps/app-detail'
-import { RevisionDetailState } from '@/reducers/revision-detail'
 import {
   AppRevisionModel,
   MediaModel,
   ScopeModel,
   DesktopIntegrationTypeModel,
-  PagedResultDesktopIntegrationTypeModel_,
 } from '@reapit/foundations-ts-definitions'
 import DiffMedia from './diff-media'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import DiffCheckbox from './diff-checkbox'
 import DiffViewer from './diff-viewer'
 import DiffRenderHTML from './diff-render-html'
+import { AppRevisionDetailState } from '@/reducers/apps/app-revision-detail'
+import { selectScopeList } from '@/selector/scopes/scope-list'
+import { useSelector } from 'react-redux'
+import { selectIntegrationTypes } from '@/selector/integration-types'
 
 export type AppRevisionComparisonProps = {
-  revisionDetailState: RevisionDetailState
+  revisionDetailState: AppRevisionDetailState
   appDetailState: AppDetailState
 }
 
@@ -123,7 +125,7 @@ export type RenderDiffContentParams = {
   key: string
   revision: AppRevisionModel
   app: AppDetailModel & { desktopIntegrationTypeIds?: string[] }
-  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel_
+  desktopIntegrationTypes: DesktopIntegrationTypeModel[]
 }
 
 export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes }: RenderDiffContentParams) => {
@@ -138,11 +140,11 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
   if (key === 'desktopIntegrationTypeIds') {
     const oldIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
       app.desktopIntegrationTypeIds,
-      desktopIntegrationTypes.data,
+      desktopIntegrationTypes,
     )
     const newIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
       revision.desktopIntegrationTypeIds,
-      desktopIntegrationTypes.data,
+      desktopIntegrationTypes,
     )
     const sortedOldArray = [...oldIntegrationTypeArray].sort()
     const sortedNewArray = [...newIntegrationTypeArray].sort()
@@ -163,14 +165,16 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
 }
 
 export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
-  revisionDetailState,
+  revisionDetailState: { data: revisionDetail },
   appDetailState,
 }) => {
+  const scopes = useSelector(selectScopeList)
+  const desktopIntegrationTypes = useSelector(selectIntegrationTypes)
   const app = appDetailState.data
-  if (!revisionDetailState.revisionDetailData || !app) {
+  if (!revisionDetail || !app) {
     return null
   }
-  const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
+  const { scopes: revisionScopes } = revisionDetail
 
   return (
     <div>
@@ -178,18 +182,18 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
         return (
           <div className="mb-3" key={key}>
             <h4 className="mb-2">{diffStringList[key]}</h4>
-            {renderDiffContent({ key, app, desktopIntegrationTypes, revision })}
+            {renderDiffContent({ key, app, desktopIntegrationTypes, revision: revisionDetail })}
           </div>
         )
       })}
-      {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
+      {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes })}
       <div className="mb-3">
         <h4 data-test="chkIsListed" className="mb-2">
           Is listed
         </h4>
         <DiffCheckbox
           currentChecked={Boolean(app.isListed)}
-          changedChecked={Boolean(revision.isListed)}
+          changedChecked={Boolean(revisionDetail.isListed)}
           dataTest="revision-diff-isListed"
         />
       </div>
@@ -199,11 +203,11 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
         </h4>
         <DiffCheckbox
           currentChecked={Boolean(app.isDirectApi)}
-          changedChecked={Boolean(revision.isDirectApi)}
+          changedChecked={Boolean(revisionDetail.isDirectApi)}
           dataTest="revision-diff-isDirectApi"
         />
       </div>
-      {getChangedMediaList({ app, revision }).map(media => (
+      {getChangedMediaList({ app, revision: revisionDetail }).map(media => (
         <div className="mb-3" key={media.order}>
           <h4 className="mb-2 capitalize">
             {media.type} {media.order > 0 && <span>{media.order}</span>}

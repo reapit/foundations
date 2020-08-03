@@ -1,124 +1,510 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminRevisionModalInner should match a snapshot 1`] = `
-<div>
-  <div
-    className="mb-3"
-    key="name"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "developerAppDetailRoute",
+          "pathname": "/apps/:appid",
+        },
+      ]
+    }
   >
-    <h4
-      className="mb-2"
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "developerAppDetailRoute",
+              "pathname": "/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "developerAppDetailRoute",
+            "pathname": "/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
     >
-      Name
-    </h4>
-    <DiffViewer
-      changedString="Amazon Shopping 2"
-      currentString="Peter's Properties"
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="category"
-  >
-    <h4
-      className="mb-2"
-    >
-      Category
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="homePage"
-  >
-    <h4
-      className="mb-2"
-    >
-      Home page
-    </h4>
-    <DiffViewer
-      changedString="https://www.amazon.com/"
-      currentString="http://myawesomeproptechproduct.io"
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="launchUri"
-  >
-    <h4
-      className="mb-2"
-    >
-      Launch URI
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="supportEmail"
-  >
-    <h4
-      className="mb-2"
-    >
-      Support Email
-    </h4>
-    <DiffViewer
-      changedString="VBNApplication@test.com"
-      currentString="support@reapit.com"
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="telephone"
-  >
-    <h4
-      className="mb-2"
-    >
-      Telephone
-    </h4>
-    <DiffViewer
-      changedString="0800 279 7234"
-      currentString="0113 288 2900"
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="summary"
-  >
-    <h4
-      className="mb-2"
-    >
-      Summary
-    </h4>
-    <DiffViewer
-      changedString="Shop millions of products, never miss amazing deals, compare prices and reviews
+      <Component
+        appDetailState={
+          Object {
+            "data": Object {
+              "description": "enim facilisis",
+              "developer": "Pete's Proptech World Ltd",
+              "homePage": "http://myawesomeproptechproduct.io",
+              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "media": Array [
+                Object {
+                  "description": "Application Icon",
+                  "type": "icon",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                },
+              ],
+              "name": "Peter's Properties",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "vitae elementum curabitur vitae",
+              "supportEmail": "support@reapit.com",
+              "telephone": "0113 288 2900",
+            },
+            "errorMessage": "",
+            "isLoading": false,
+          }
+        }
+        revisionDetailState={
+          Object {
+            "data": Object {
+              "appId": "029b80f2-dc1c-4f80-adca-86dd6d4ff89b",
+              "description": "Download the app now and start shopping our selection of fashion, books, toys, home
+      appliances, sport accessories and much more.
+
+-Easy
+Compare prices and check
+      availability instantly by using your voice, scanning a 
+Once you complete your order,
+      track it easily and get notifications about your shipment.
+
+- Convenient
+Never
+      miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
+Get
+      notifications when a new deal is available.",
+              "developerId": "abbc4353-8ef7-44fc-8181-0e2e68217b62",
+              "homePage": "https://www.amazon.com/",
+              "id": "1265b090-1113-4f25-ace2-adb19656d3bc",
+              "links": Array [
+                Object {
+                  "action": "GET",
+                  "href": "http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b/revisions/1265b090-1113-4f25-ace2-adb19656d3bc",
+                  "rel": "self",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b",
+                  "rel": "app",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://reapit.cloud.tyk.io/marketplace/developers/abbc4353-8ef7-44fc-8181-0e2e68217b62",
+                  "rel": "developer",
+                },
+              ],
+              "name": "Amazon Shopping 2",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "Shop millions of products, never miss amazing deals, compare prices and reviews
+      and track your orders easily with the Amazon Shopping App!",
+              "supportEmail": "VBNApplication@test.com",
+              "telephone": "0800 279 7234",
+            },
+            "isLoading": true,
+          }
+        }
+      >
+        <div>
+          <div
+            className="mb-3"
+            key="name"
+          >
+            <h4
+              className="mb-2"
+            >
+              Name
+            </h4>
+            <DiffViewer
+              changedString="Amazon Shopping 2"
+              currentString="Peter's Properties"
+              type="words"
+            >
+              <div>
+                <span
+                  key="0"
+                >
+                  Peter's
+                </span>
+                <span
+                  key="1"
+                >
+                  Amazon
+                </span>
+                <span
+                  className=""
+                  key="2"
+                >
+                   
+                </span>
+                <span
+                  key="3"
+                >
+                  Properties
+                </span>
+                <span
+                  key="4"
+                >
+                  Shopping 2
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="category"
+          >
+            <h4
+              className="mb-2"
+            >
+              Category
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="words"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="homePage"
+          >
+            <h4
+              className="mb-2"
+            >
+              Home page
+            </h4>
+            <DiffViewer
+              changedString="https://www.amazon.com/"
+              currentString="http://myawesomeproptechproduct.io"
+              type="words"
+            >
+              <div>
+                <span
+                  key="0"
+                >
+                  http
+                </span>
+                <span
+                  key="1"
+                >
+                  https
+                </span>
+                <span
+                  className=""
+                  key="2"
+                >
+                  ://
+                </span>
+                <span
+                  key="3"
+                >
+                  myawesomeproptechproduct
+                </span>
+                <span
+                  key="4"
+                >
+                  www
+                </span>
+                <span
+                  className=""
+                  key="5"
+                >
+                  .
+                </span>
+                <span
+                  key="6"
+                >
+                  io
+                </span>
+                <span
+                  key="7"
+                >
+                  amazon.com/
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="launchUri"
+          >
+            <h4
+              className="mb-2"
+            >
+              Launch URI
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="words"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="supportEmail"
+          >
+            <h4
+              className="mb-2"
+            >
+              Support Email
+            </h4>
+            <DiffViewer
+              changedString="VBNApplication@test.com"
+              currentString="support@reapit.com"
+              type="words"
+            >
+              <div>
+                <span
+                  key="0"
+                >
+                  support
+                </span>
+                <span
+                  key="1"
+                >
+                  VBNApplication
+                </span>
+                <span
+                  className=""
+                  key="2"
+                >
+                  @
+                </span>
+                <span
+                  key="3"
+                >
+                  reapit
+                </span>
+                <span
+                  key="4"
+                >
+                  test
+                </span>
+                <span
+                  className=""
+                  key="5"
+                >
+                  .com
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="telephone"
+          >
+            <h4
+              className="mb-2"
+            >
+              Telephone
+            </h4>
+            <DiffViewer
+              changedString="0800 279 7234"
+              currentString="0113 288 2900"
+              type="words"
+            >
+              <div>
+                <span
+                  key="0"
+                >
+                  0113
+                </span>
+                <span
+                  key="1"
+                >
+                  0800
+                </span>
+                <span
+                  className=""
+                  key="2"
+                >
+                   
+                </span>
+                <span
+                  key="3"
+                >
+                  288
+                </span>
+                <span
+                  key="4"
+                >
+                  279
+                </span>
+                <span
+                  className=""
+                  key="5"
+                >
+                   
+                </span>
+                <span
+                  key="6"
+                >
+                  2900
+                </span>
+                <span
+                  key="7"
+                >
+                  7234
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="summary"
+          >
+            <h4
+              className="mb-2"
+            >
+              Summary
+            </h4>
+            <DiffViewer
+              changedString="Shop millions of products, never miss amazing deals, compare prices and reviews
       and track your orders easily with the Amazon Shopping App!"
-      currentString="vitae elementum curabitur vitae"
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="description"
-  >
-    <h4
-      className="mb-2"
-    >
-      Description
-    </h4>
-    <DiffRenderHTML
-      changedString="Download the app now and start shopping our selection of fashion, books, toys, home
+              currentString="vitae elementum curabitur vitae"
+              type="words"
+            >
+              <div>
+                <span
+                  key="0"
+                >
+                  vitae
+                </span>
+                <span
+                  key="1"
+                >
+                  Shop
+                </span>
+                <span
+                  className=""
+                  key="2"
+                >
+                   
+                </span>
+                <span
+                  key="3"
+                >
+                  elementum
+                </span>
+                <span
+                  key="4"
+                >
+                  millions
+                </span>
+                <span
+                  className=""
+                  key="5"
+                >
+                   
+                </span>
+                <span
+                  key="6"
+                >
+                  curabitur
+                </span>
+                <span
+                  key="7"
+                >
+                  of
+                </span>
+                <span
+                  className=""
+                  key="8"
+                >
+                   
+                </span>
+                <span
+                  key="9"
+                >
+                  vitae
+                </span>
+                <span
+                  key="10"
+                >
+                  products, never miss amazing deals, compare prices and reviews
+      and track your orders easily with the Amazon Shopping App!
+                </span>
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="description"
+          >
+            <h4
+              className="mb-2"
+            >
+              Description
+            </h4>
+            <DiffRenderHTML
+              changedString="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
 -Easy
@@ -132,140 +518,266 @@ Never
       miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
 Get
       notifications when a new deal is available."
-      currentString="enim facilisis"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="redirectUris"
-  >
-    <h4
-      className="mb-2"
-    >
-      Redirect URIs
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="signoutUris"
-  >
-    <h4
-      className="mb-2"
-    >
-      Signout URIs
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="limitToClientIds"
-  >
-    <h4
-      className="mb-2"
-    >
-      Private Apps
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="words"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="desktopIntegrationTypeIds"
-  >
-    <h4
-      className="mb-2"
-    >
-      Integration Type
-    </h4>
-    <DiffViewer
-      changedString=""
-      currentString=""
-      type="wordsWithSpace"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="Marketplace/developers.read"
-  >
-    <h4
-      className="mb-2"
-    >
-      Read data about developers
-    </h4>
-    <DiffCheckbox
-      changedChecked={true}
-      currentChecked={true}
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="Marketplace/developers.write"
-  >
-    <h4
-      className="mb-2"
-    >
-      Write data about developers
-    </h4>
-    <DiffCheckbox
-      changedChecked={true}
-      currentChecked={true}
-    />
-  </div>
-  <div
-    className="mb-3"
-  >
-    <h4
-      className="mb-2"
-      data-test="chkIsListed"
-    >
-      Is listed
-    </h4>
-    <DiffCheckbox
-      changedChecked={false}
-      currentChecked={false}
-      dataTest="revision-diff-isListed"
-    />
-  </div>
-  <div
-    className="mb-3"
-  >
-    <h4
-      className="mb-2"
-      data-test="chkIsDirectApi"
-    >
-      Is Direct API
-    </h4>
-    <DiffCheckbox
-      changedChecked={false}
-      currentChecked={false}
-      dataTest="revision-diff-isDirectApi"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="0"
-  >
-    <h4
-      className="mb-2 capitalize"
-    >
-      media
-       
-    </h4>
-    <DiffMedia
-      type="media"
-    />
-  </div>
-</div>
+              currentString="enim facilisis"
+            >
+              <div>
+                <Component
+                  className="undefined undefined"
+                  html="enim facilisis"
+                >
+                  <Component
+                    className="undefined undefined"
+                  >
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      enim facilisis
+                    </div>
+                  </Component>
+                </Component>
+                <span>
+                  →
+                </span>
+                <Component
+                  className="undefined undefined"
+                  html="Download the app now and start shopping our selection of fashion, books, toys, home
+      appliances, sport accessories and much more.
+
+-Easy
+Compare prices and check
+      availability instantly by using your voice, scanning a 
+Once you complete your order,
+      track it easily and get notifications about your shipment.
+
+- Convenient
+Never
+      miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
+Get
+      notifications when a new deal is available."
+                >
+                  <Component
+                    className="undefined undefined"
+                  >
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      Download the app now and start shopping our selection of fashion, books, toys, home
+      appliances, sport accessories and much more.
+
+-Easy
+Compare prices and check
+      availability instantly by using your voice, scanning a 
+Once you complete your order,
+      track it easily and get notifications about your shipment.
+
+- Convenient
+Never
+      miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
+Get
+      notifications when a new deal is available.
+                    </div>
+                  </Component>
+                </Component>
+              </div>
+            </DiffRenderHTML>
+          </div>
+          <div
+            className="mb-3"
+            key="redirectUris"
+          >
+            <h4
+              className="mb-2"
+            >
+              Redirect URIs
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="words"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="signoutUris"
+          >
+            <h4
+              className="mb-2"
+            >
+              Signout URIs
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="words"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="limitToClientIds"
+          >
+            <h4
+              className="mb-2"
+            >
+              Private Apps
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="words"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+            key="desktopIntegrationTypeIds"
+          >
+            <h4
+              className="mb-2"
+            >
+              Integration Type
+            </h4>
+            <DiffViewer
+              changedString=""
+              currentString=""
+              type="wordsWithSpace"
+            >
+              <div>
+                <span
+                  className=""
+                  key="0"
+                />
+              </div>
+            </DiffViewer>
+          </div>
+          <div
+            className="mb-3"
+          >
+            <h4
+              className="mb-2"
+              data-test="chkIsListed"
+            >
+              Is listed
+            </h4>
+            <DiffCheckbox
+              changedChecked={false}
+              currentChecked={false}
+              dataTest="revision-diff-isListed"
+            >
+              <div
+                data-test="revision-diff-isListed"
+              >
+                <span
+                  className="undefined "
+                >
+                  <input
+                    checked={false}
+                    data-test="current"
+                    readOnly={true}
+                    type="checkbox"
+                  />
+                </span>
+              </div>
+            </DiffCheckbox>
+          </div>
+          <div
+            className="mb-3"
+          >
+            <h4
+              className="mb-2"
+              data-test="chkIsDirectApi"
+            >
+              Is Direct API
+            </h4>
+            <DiffCheckbox
+              changedChecked={false}
+              currentChecked={false}
+              dataTest="revision-diff-isDirectApi"
+            >
+              <div
+                data-test="revision-diff-isDirectApi"
+              >
+                <span
+                  className="undefined "
+                >
+                  <input
+                    checked={false}
+                    data-test="current"
+                    readOnly={true}
+                    type="checkbox"
+                  />
+                </span>
+              </div>
+            </DiffCheckbox>
+          </div>
+          <div
+            className="mb-3"
+            key="0"
+          >
+            <h4
+              className="mb-2 capitalize"
+            >
+              media
+               
+            </h4>
+            <DiffMedia
+              type="media"
+            >
+              <div>
+                <div
+                  className="undefined undefined "
+                >
+                  <div
+                    className="undefined undefined"
+                    style={
+                      Object {
+                        "backgroundImage": "url(\\"undefined\\")",
+                      }
+                    }
+                  />
+                </div>
+                <span>
+                  →
+                </span>
+                <div
+                  className="undefined undefined "
+                >
+                  <div
+                    className="undefined undefined"
+                    style={
+                      Object {
+                        "backgroundImage": "url(\\"undefined\\")",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </DiffMedia>
+          </div>
+        </div>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;

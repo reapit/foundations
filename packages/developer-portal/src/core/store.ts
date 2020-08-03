@@ -23,7 +23,14 @@ import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
-import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas, deleteAppSagas } from '@/sagas/apps'
+import {
+  appDetailSagas,
+  appListSagas,
+  appAuthenticationSagas,
+  createAppSagas,
+  deleteAppSagas,
+  appRevisionDetailSagas,
+} from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
@@ -93,6 +100,7 @@ export class Store {
       fork(appAuthenticationSagas),
       fork(createAppSagas),
       fork(deleteAppSagas),
+      fork(appRevisionDetailSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
