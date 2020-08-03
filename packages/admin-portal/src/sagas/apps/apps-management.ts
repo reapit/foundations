@@ -24,12 +24,6 @@ export const appsManagementFetch = function*({ data }) {
     yield put(fetchAppListFailed(networkErrorString))
   }
 }
-/*
- * TODOME(appsManagementFeatured)
- * *- failure with correct error
-*- notificaion
-
- */
 
 export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
   const { data, ...rest } = yield select(selectAppsData)
@@ -50,6 +44,11 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
     }
   } catch (err) {
     logger(err)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
 
     // if error revert back the old store
     yield put(fetchAppListSuccess({ ...rest, data }))

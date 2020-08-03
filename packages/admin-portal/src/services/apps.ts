@@ -91,10 +91,6 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
     throw error
   }
 }
-/*
- * TODOME(appsManagementFeatured)
- * throw correct error
- */
 
 export const featureAppById = async (params: FeatureAppByIdParams) => {
   try {
@@ -108,14 +104,10 @@ export const featureAppById = async (params: FeatureAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
-/*
- * TODOME(appsManagementFeatured)
- * throw correct error
- */
 export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
   try {
     const { id } = params
@@ -128,7 +120,7 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

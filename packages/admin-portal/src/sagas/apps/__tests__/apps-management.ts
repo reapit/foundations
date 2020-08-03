@@ -79,8 +79,14 @@ describe('appsManagementFeatured', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
       // expect store to be reverted back
-      expect(clone.throw().value).toEqual(put(fetchAppListSuccess(featuredAppsDataStub.data)))
+      expect(clone.next().value).toEqual(put(fetchAppListSuccess(featuredAppsDataStub.data)))
       expect(clone.next().done).toBe(true)
     }
   })

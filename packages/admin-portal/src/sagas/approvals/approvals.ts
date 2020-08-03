@@ -5,12 +5,6 @@ import { Action } from '@/types/core'
 import { logger, extractNetworkErrString } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
 import { notification } from '@reapit/elements'
-/*
- * TODOME(approvalsDataFetch)
- * *- failure with correct error
-*- notificaion
-
- */
 
 export const approvalsDataFetch = function*({ data: page }) {
   try {
