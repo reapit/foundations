@@ -57,11 +57,6 @@ export const fetchApps = function*({ data }) {
     })
   }
 }
-/*
- * TODOME(fetchFeatureApps)
- * *- failure with correct error
- *- notificaion
- */
 
 export const fetchFeatureApps = function*({ data }) {
   try {
@@ -97,11 +92,6 @@ export const fetchFeatureApps = function*({ data }) {
     })
   }
 }
-/*
- * TODOME(fetchAppDetailSagas)
- * *- failure with correct error
- *- notificaion
- */
 
 export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams>) {
   try {

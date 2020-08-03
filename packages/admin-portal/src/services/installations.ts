@@ -20,10 +20,6 @@ export type FetchInstallationsListParams = FetchListCommonParams & {
 export type FetchApiKeyInstallationByIdParams = {
   installationId: string
 }
-/*
- * TODOME(src/services/developers.ts)
- * throw error
- */
 
 export const fetchInstallationsList = async (
   params: FetchInstallationsListParams,

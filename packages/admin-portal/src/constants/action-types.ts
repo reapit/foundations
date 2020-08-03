@@ -3,14 +3,6 @@
  * by <<PORTAL_NAME>>_<<ACTION NAME>>
  * Please follow the <<STATE>>_<<ACTION_TYPE>> pattern and group actions by STATE
  */
-/*
- * TODOME(general)
- *
- * clear all clear data
- * clear all loadig
- * clear all error
- * clear all notification
- */
 
 const ActionTypes = {
   // Delete app

@@ -42,7 +42,5 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   developers: DevelopersState
-  // TODOME(notiActions)
-  // Delete
   apps: AppsState
 }
