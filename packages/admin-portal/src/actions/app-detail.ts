@@ -13,5 +13,4 @@ export const fetchAppDetail = actionCreator<AppDetailParams>(ActionTypes.FETCH_A
 export const fetchAppDetailSuccess = actionCreator<{ data: AppDetailItem } | undefined>(
   ActionTypes.FETCH_APP_DETAIL_SUCCESS,
 )
-export const fetchAppDetailFailed = actionCreator<string | void>(ActionTypes.FETCH_APP_DETAIL_FAILURE)
-export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_IS_STALE)
+export const fetchAppDetailFailed = actionCreator<string | void>(ActionTypes.FETCH_APP_DETAIL_FAILED)

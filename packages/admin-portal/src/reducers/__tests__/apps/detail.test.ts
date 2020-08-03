@@ -13,9 +13,9 @@ describe('appsReducer - detail', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set error to false when FETCH_APP_DETAIL_FAILURE action is called', () => {
+  it('should set error to false when FETCH_APP_DETAIL_FAILED action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.FETCH_APP_DETAIL_FAILURE as ActionType,
+      type: ActionTypes.FETCH_APP_DETAIL_FAILED as ActionType,
       data: true,
     })
     const expected = {

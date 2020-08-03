@@ -4,9 +4,10 @@ import { Action } from '@/types/core'
 import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/actions/apps-management'
 import { selectAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+import { notification } from '@reapit/elements'
 /*
  * TODOME(appsManagementFetch)
  * - failure with correct error
@@ -20,7 +21,12 @@ export const appsManagementFetch = function*({ data }) {
     yield put(fetchAppListSuccess(response))
   } catch (err) {
     logger(err)
-    yield put(fetchAppListFailed())
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(fetchAppListFailed(networkErrorString))
   }
 }
 /*

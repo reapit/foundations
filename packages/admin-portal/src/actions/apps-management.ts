@@ -16,5 +16,5 @@ export type AppsParams = {
 
 export const fetchAppList = actionCreator<AppsParams>(ActionTypes.FETCH_APP_LIST)
 export const fetchAppListSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APP_LIST_SUCCESS)
-export const fetchAppListFailed = actionCreator<void>(ActionTypes.FETCH_APP_LIST_FAILED)
+export const fetchAppListFailed = actionCreator<string>(ActionTypes.FETCH_APP_LIST_FAILED)
 export const requestMarkAppAsFeatured = actionCreator<AppsFeaturedParams>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED)

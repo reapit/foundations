@@ -29,6 +29,7 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     return {
       ...state,
       isLoading: false,
+      errorMessage: action.data,
     }
   }
 

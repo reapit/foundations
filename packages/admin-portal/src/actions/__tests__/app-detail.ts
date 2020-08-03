@@ -14,6 +14,6 @@ describe('appDetail actions', () => {
   })
 
   it('should create a fetchAppDetailFailed action', () => {
-    expect(fetchAppDetailFailed.type).toEqual(ActionTypes.FETCH_APP_DETAIL_FAILURE)
+    expect(fetchAppDetailFailed.type).toEqual(ActionTypes.FETCH_APP_DETAIL_FAILED)
   })
 })

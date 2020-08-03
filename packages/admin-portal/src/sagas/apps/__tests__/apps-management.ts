@@ -14,6 +14,7 @@ import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/a
 import { selectAppsData } from '@/selector/admin'
 import { featureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+import { notification } from '@reapit/elements'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
@@ -38,7 +39,13 @@ describe('appsManagementFetch', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(fetchAppListFailed()))
+      expect(clone.throw('error').value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(fetchAppListFailed(errorMessages.DEFAULT_SERVER_ERROR)))
       expect(clone.next().done).toBe(true)
     }
   })

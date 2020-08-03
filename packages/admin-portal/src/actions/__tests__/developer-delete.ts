@@ -16,7 +16,7 @@ describe('developer delete actions', () => {
     expect(setRequestDeveloperStatusFormState.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE)
   })
 
-  it('should create a developerDeleteRequestFailure action', () => {
+  it('should create a developerDeleteRequestFailed action', () => {
     expect(setRequestDeveloperStatusFormStateFailed.type).toEqual(ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_FAILED)
   })
 
