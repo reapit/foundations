@@ -1,4 +1,5 @@
-import { PagedResultWebhookModel_, PagedResultTopicModel_ } from '@/reducers/webhook-subscriptions'
+import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
+import { PagedResultTopicModel_ } from '@/services/webhooks'
 
 export const subscriptions: PagedResultWebhookModel_ = {
   _embedded: [

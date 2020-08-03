@@ -31,7 +31,7 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { subscriptions } from '../__stubs__/webhooks'
 import {
-  fetchWebhooksTopicsList,
+  fetchWebhooksTopicsListApi,
   createWebhooksSubscription,
   updateWebhooksSubscriptionById,
   deleteWebhooksSubscriptionById,
@@ -51,7 +51,10 @@ describe('developer fetch subscription data', () => {
   expect(gen.next().value).toEqual(put(setApplicationId(applicationId)))
 
   expect(gen.next().value).toEqual(
-    all([call(fetchWebhooksTopicsList, { applicationId }), call(fetchInstallationsList, { appId: [applicationId] })]),
+    all([
+      call(fetchWebhooksTopicsListApi, { applicationId }),
+      call(fetchInstallationsList, { appId: [applicationId] }),
+    ]),
   )
 
   it('api call success', () => {

@@ -19,7 +19,7 @@ import { errorThrownServer } from '../actions/error'
 import { webhookSubscriptionsReceiveData, setApplicationId } from '@/actions/webhook-subscriptions'
 import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
 import {
-  fetchWebhooksTopicsList,
+  fetchWebhooksTopicsListApi,
   createWebhooksSubscription,
   updateWebhooksSubscriptionById,
   deleteWebhooksSubscriptionById,
@@ -32,7 +32,7 @@ export const requestSupcriptionData = function*({ data: applicationId }: Action<
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
-      call(fetchWebhooksTopicsList, { applicationId }),
+      call(fetchWebhooksTopicsListApi, { applicationId }),
       call(fetchInstallationsList, { appId: [applicationId] }),
     ])
     if (subcriptionCustomers && subcriptionTopics) {

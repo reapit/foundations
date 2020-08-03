@@ -51,7 +51,6 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
               rel="noopener noreferrer"
               target="_blank"
             >
-               
               webhooks documentation
             </a>
           </div>
