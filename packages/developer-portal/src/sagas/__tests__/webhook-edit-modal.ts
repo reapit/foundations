@@ -26,7 +26,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { webhookDataStub, webhookItemDataStub } from '../__stubs__/webhook-edit'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '../../../../elements/src/utils/validators/error-messages'
-import { setApplicationId, webhookSubscriptionsReceiveData } from '@/actions/webhook-subscriptions'
+import { setApplicationId, fetchWebhooksSubscriptionsSuccess } from '@/actions/webhooks-subscriptions'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { subscriptions } from '../__stubs__/webhooks'
@@ -35,7 +35,7 @@ import {
   createWebhooksSubscription,
   updateWebhooksSubscriptionById,
   deleteWebhooksSubscriptionById,
-  fetchWebhooksSubscriptionsList,
+  fetchWebhooksSubscriptionsListApi,
   fetchWebhooksSubscriptionById,
 } from '@/services/webhooks'
 import { fetchInstallationsList } from '@/services/installations'
@@ -181,8 +181,8 @@ describe('deleteWebhook', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
-    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsList, { applicationId: [applicationId] }))
-    expect(clone.next(subscriptions).value).toEqual(put(webhookSubscriptionsReceiveData(subscriptions)))
+    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {
@@ -215,8 +215,8 @@ describe('editWebhook', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
-    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsList, { applicationId: [data.applicationId] }))
-    expect(clone.next(subscriptions).value).toEqual(put(webhookSubscriptionsReceiveData(subscriptions)))
+    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [data.applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {
@@ -249,8 +249,8 @@ describe('createNewWebhook', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(true).value).toEqual(put(webhookSetOpenModal('')))
-    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsList, { applicationId: [data.applicationId] }))
-    expect(clone.next(subscriptions).value).toEqual(put(webhookSubscriptionsReceiveData(subscriptions)))
+    expect(clone.next().value).toEqual(call(fetchWebhooksSubscriptionsListApi, { applicationId: [data.applicationId] }))
+    expect(clone.next(subscriptions).value).toEqual(put(fetchWebhooksSubscriptionsSuccess(subscriptions)))
     expect(clone.next().done).toBe(true)
   })
   it('api call error', () => {

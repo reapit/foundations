@@ -17,10 +17,8 @@ import { mount } from 'enzyme'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { SelectBoxOptions } from '@reapit/elements'
 import appState from '@/reducers/__stubs__/app-state'
-import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
 import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
 import { TopicModel } from '@/services/webhooks'
-import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
 import { getMockRouterProps } from '@/utils/mock-helper'
 
 jest.mock('react-router-dom', () => {
@@ -75,9 +73,8 @@ describe('DeveloperWebHooks', () => {
     it('should run correctly', () => {
       const values = { applicationId: '123' }
       const mockHistory = getMockRouterProps({ applicationId: '123' }).history
-      handleSubscriptionChange(spyDispatch, mockHistory)(values)
-      expect(spyDispatch).toHaveBeenCalledWith(webhookSubscriptionsRequestData(values.applicationId))
-      expect(spyDispatch).toHaveBeenCalledWith(fetchWebhooksTopics(values))
+      handleSubscriptionChange(mockHistory)(values)
+      expect(mockHistory.push).toHaveBeenCalled()
     })
   })
   describe('renderTopicName', () => {

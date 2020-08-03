@@ -1,13 +1,13 @@
 import { ReduxState } from '@/types/core'
-import { selectSubscriptionsData, selectSubscriptionsLoading } from '../wehooks'
+import { selectSubscriptionsData, selectSubscriptionsLoading } from '../webhooks-subscriptions'
 import { subscriptions } from '@/sagas/__stubs__/webhooks'
 
 const input = {
-  webhooks: {
-    subscriptions: {
-      loading: false,
-      error: false,
-      subscriptions,
+  webhooksSubscriptions: {
+    list: {
+      isLoading: false,
+      errorMessage: '',
+      ...subscriptions,
     },
   },
 } as ReduxState

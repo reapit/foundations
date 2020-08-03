@@ -12,7 +12,6 @@ import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
-import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { AppsRootState } from '@/reducers/apps'
@@ -20,6 +19,7 @@ import { ScopesRootState } from '@/reducers/scopes'
 import { CategoriesRootState } from '@/reducers/categories'
 import { DesktopIntegrationTypesRootState } from '@/reducers/desktop-integration-types'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
+import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -76,8 +76,8 @@ export interface ReduxState {
   appHttpTraffic: AppHttpTrafficEventState
   desktopIntegrationTypes: DesktopIntegrationTypesRootState
   webhookEdit: WebhookEditState
-  webhooks: WebhookState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   webhooksTopics: WebhooksTopicsRootState
+  webhooksSubscriptions: WebhooksSubscriptionsRootState
 }
