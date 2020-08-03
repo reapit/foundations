@@ -55,6 +55,23 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
   ]
 }
 
+export const createCSVRow = ({ name: Services, amount: Amount, itemCount: Endpoints, cost: Cost, subRows }) => {
+  if (Array.isArray(subRows) && subRows.length < 0) {
+    return [Services, Endpoints, Amount, Cost]
+  }
+  if (Array.isArray(subRows) && subRows.length > 0) {
+    const result = subRows.map(subRow => createCSVRow(subRow))
+    return result
+  }
+  return []
+}
+
+export const convertTableDataToCSV = (tableData, columns) => {
+  const titleRows = columns.map(({ Header }) => Header)
+  console.log(titleRows)
+  console.log(tableData)
+}
+
 const CostExplorerTable: React.FC = () => {
   const monthlyBilling = useSelector(selectMonthlyBilling)
   const isLoading = useSelector(selectMonthlyBillingLoading)
@@ -65,6 +82,7 @@ const CostExplorerTable: React.FC = () => {
 
   const columns = prepareTableColumns(monthlyBilling)
   const tableData = prepareTableData(services)
+  const CSVData = convertTableDataToCSV(tableData, columns)
 
   return (
     <>
