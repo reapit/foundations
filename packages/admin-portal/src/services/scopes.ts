@@ -3,10 +3,6 @@ import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
-/*
- * TODOME(revisionDetailDataFetch)
- * throw correct error
- */
 
 export const fetchScopesList = async (): Promise<ScopeModel[]> => {
   try {
@@ -19,6 +15,6 @@ export const fetchScopesList = async (): Promise<ScopeModel[]> => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }

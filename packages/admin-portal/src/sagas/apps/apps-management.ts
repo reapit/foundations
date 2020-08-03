@@ -8,11 +8,6 @@ import { logger, extractNetworkErrString } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { notification } from '@reapit/elements'
-/*
- * TODOME(appsManagementFetch)
- * - failure with correct error
- * -notificaion
- */
 
 export const appsManagementFetch = function*({ data }) {
   try {

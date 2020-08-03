@@ -39,10 +39,6 @@ export type CreateDesktopIntegrationTypes = CreateDesktopIntegrationTypeModel
 export type FetchDesktopIntegrationTypesByIdParams = FetchByIdCommonParams
 
 export type UpdateDesktopIntegrationTypesByIdParams = FetchByIdCommonParams & UpdateDesktopIntegrationTypeModel
-/*
- * TODOME(revisionDetailDataFetch)
- * throw correct error
- */
 
 export const fetchDesktopIntegrationTypesList = async (
   params: FetchDesktopIntegrationTypesListParams,
@@ -57,7 +53,7 @@ export const fetchDesktopIntegrationTypesList = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

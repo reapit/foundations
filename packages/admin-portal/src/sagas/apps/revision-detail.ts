@@ -11,16 +11,12 @@ import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effec
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { approvalsDataFetch } from '../approvals/approvals'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString, errorMessages } from '@reapit/utils'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
-/*
- * TODOME(revisionDetailDataFetch)
- **- failure with correct error
- *- notificaion
- */
+import { notification } from '@reapit/elements'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -35,10 +31,17 @@ export const revisionDetailDataFetch = function*({
     if (response && scopes && desktopIntegrationTypes) {
       yield put(fetchRevisionSuccess({ data: response, scopes, desktopIntegrationTypes }))
     } else {
-      yield put(fetchRevisionFailed())
+      yield put(fetchRevisionFailed(errorMessages.DEFAULT_SERVER_ERROR))
     }
   } catch (err) {
     logger(err)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+
+    yield put(fetchRevisionFailed(networkErrorString))
   }
 }
 

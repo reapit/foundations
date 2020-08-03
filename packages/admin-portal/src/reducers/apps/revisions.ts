@@ -60,7 +60,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     return {
       ...state,
       isLoading: false,
-      errorMessage: '',
+      errorMessage: action.data,
     }
   }
 

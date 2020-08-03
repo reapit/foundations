@@ -44,15 +44,11 @@ export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
 export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & ApproveModel
 
 export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
-/*
- * TODOME(appsManagementFetch)
- * throw error
- */
 
 export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.apps}a?${setQueryParams(params)}`,
+      url: `${URLS.apps}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -68,7 +64,7 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
   try {
     const { id, clientId } = params
     const response = await fetcher({
-      url: `${URLS.apps}/a${id}?${setQueryParams({ clientId })}`,
+      url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -135,10 +131,6 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
     throw new Error(error)
   }
 }
-/*
- * TODOME(revisionDetailDataFetch)
- * throw correct error
- */
 
 export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams): Promise<AppRevisionModel> => {
   try {
@@ -152,7 +144,7 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 /*

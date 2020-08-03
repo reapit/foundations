@@ -20,7 +20,7 @@ export type RevisionDeclineRequestParams = RevisionDetailRequestParams & RejectR
 export const fetchRevision = actionCreator<RevisionDetailRequestParams>(ActionTypes.FETCH_REVISION)
 
 export const fetchRevisionSuccess = actionCreator<RevisionReceiveDataParams>(ActionTypes.FETCH_REVISION_SUCCESS)
-export const fetchRevisionFailed = actionCreator<void>(ActionTypes.FETCH_REVISION_FAILED)
+export const fetchRevisionFailed = actionCreator<string>(ActionTypes.FETCH_REVISION_FAILED)
 
 export const requestApproveRevision = actionCreator<RevisionApproveRequestParams>(ActionTypes.REQUEST_APPROVE_REVISION)
 

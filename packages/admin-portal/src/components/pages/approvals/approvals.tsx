@@ -82,6 +82,7 @@ export const handleViewDetailOnClick = ({
   if (appRevisionId && appId && isNeedFetchRevision) {
     dispatch(fetchRevision({ appId, appRevisionId }))
   }
+
   if (appRevisionId && appId && isNeedFetchAppDetail) {
     dispatch(fetchAppDetail({ id: appId }))
   }

@@ -26,6 +26,8 @@ import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } 
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectApprovalListPageNumber } from '@/selector/approvals'
+import { notification } from '@reapit/elements'
+import { errorMessages } from '@reapit/utils'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
@@ -61,8 +63,16 @@ describe('revision-detail fetch data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next([undefined, undefined, undefined]).value).toEqual(put(fetchRevisionFailed()))
-    expect(clone.next().done).toBe(true)
+    if (clone.throw) {
+      expect(clone.throw('error').value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(fetchRevisionFailed(errorMessages.DEFAULT_SERVER_ERROR)))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 
