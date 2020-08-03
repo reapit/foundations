@@ -63,16 +63,12 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     throw new Error(error)
   }
 }
-/*
- * TODOME(appDetailDataFetch)
- * throw correct error
- */
 
 export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
     const { id, clientId } = params
     const response = await fetcher({
-      url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
+      url: `${URLS.apps}/a${id}?${setQueryParams({ clientId })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -80,13 +76,9 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
-/*
- * TODOME(requestDeleteAppSaga)
- * throw error response
- */
 
 export const deleteAppById = async (params: DeleteAppByIdParams) => {
   try {
@@ -100,7 +92,7 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 /*

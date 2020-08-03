@@ -1,4 +1,4 @@
-import errorMessages from './constants/error-messages'
+import { errorMessages } from './constants/error-messages'
 
 /**
  * return standard description error string

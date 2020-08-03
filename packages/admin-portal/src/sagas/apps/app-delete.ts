@@ -4,14 +4,9 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
-/*
- * TODOME(requestDeleteAppSaga)
- * send notification contain correct error string
- * throw error
- *
- */
+import { notification } from '@reapit/elements'
 
 export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   try {
@@ -23,7 +18,12 @@ export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
     }
     yield put(requestDeleteAppSuccess())
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
     logger(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
     yield put(requestDeleteAppFailed())
   }
 }

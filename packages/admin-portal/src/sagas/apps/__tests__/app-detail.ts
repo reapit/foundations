@@ -2,11 +2,13 @@ import appDetailSagas, { appDetailDataFetch, appDetailDataListen } from '../app-
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams, setAppDetailStale } from '@/actions/app-detail'
+import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams } from '@/actions/app-detail'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+import { notification } from '@reapit/elements'
+import { errorMessages } from '@reapit/utils'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')
@@ -22,7 +24,7 @@ const params: Action<AppDetailParams> = {
   type: 'FETCH_APP_DETAIL',
 }
 
-describe('app-detail fetch data with clientId', () => {
+describe('app-detail fetch data without fetch api key', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(paramsClientId)
 
   expect(gen.next().value).toEqual(call(fetchAppById, { ...paramsClientId.data }))
@@ -36,38 +38,21 @@ describe('app-detail fetch data with clientId', () => {
         }),
       ),
     )
-    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
-    expect(clone.next().done).toBe(true)
-  })
-})
-
-describe('app-detail fetch data without clientId', () => {
-  const gen = cloneableGenerator(appDetailDataFetch)(params)
-  expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
-
-  test('api call success', () => {
-    const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(
-      put(
-        fetchAppDetailSuccess({
-          data: appDetailDataStub.data,
+    if (clone.throw) {
+      expect(clone.throw('error').value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
         }),
-      ),
-    )
-    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
-    expect(clone.next().done).toBe(true)
+      )
+      expect(clone.next().value).toEqual(put(fetchAppDetailFailed(errorMessages.DEFAULT_SERVER_ERROR)))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 
@@ -94,14 +79,21 @@ describe('app-detail fetch data and fetch apiKey', () => {
         }),
       ),
     )
-    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(fetchAppDetailFailed()))
-    expect(clone.next().done).toBe(true)
+    if (clone.throw) {
+      expect(clone.throw('error').value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(fetchAppDetailFailed(errorMessages.DEFAULT_SERVER_ERROR)))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 

@@ -1,5 +1,5 @@
 import { requestDeleteAppSaga, requestDeleteAppListen } from '../app-delete'
-import errorMessages from '@/constants/error-messages'
+import { errorMessages } from '@reapit/utils'
 
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, call } from '@redux-saga/core/effects'
@@ -8,6 +8,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
+import { notification } from '@reapit/elements'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
@@ -34,7 +35,13 @@ describe('app-delete sagas', () => {
     test('api call fail', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(requestDeleteAppFailed()))
+        expect(clone.throw('error').value).toEqual(
+          call(notification.error, {
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+            placement: 'bottomRight',
+          }),
+        )
+        expect(clone.next().value).toEqual(put(requestDeleteAppFailed()))
         expect(clone.next().done).toBe(true)
       }
     })

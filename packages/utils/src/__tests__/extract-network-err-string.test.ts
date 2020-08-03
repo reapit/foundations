@@ -1,5 +1,5 @@
 import { extractNetworkErrString } from '@/extract-network-err-string'
-import errorMessages from '@/constants/error-messages'
+import { errorMessages } from '@/constants/error-messages'
 
 describe('extractNetworkErrString', () => {
   it('should run correctly with non standard network error object', () => {

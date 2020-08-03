@@ -1,16 +1,11 @@
-import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams, setAppDetailStale } from '@/actions/app-detail'
+import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams } from '@/actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
-/*
- * TODOME(appDetailDataFetch)
- *
- * - failure with correct error
- * - notificaion
- */
+import { notification } from '@reapit/elements'
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   try {
@@ -25,14 +20,15 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
-    if (appDetailResponse) {
-      yield put(fetchAppDetailSuccess({ data: appDetailResponse }))
-      yield put(setAppDetailStale(false))
-    } else {
-      yield put(fetchAppDetailFailed())
-    }
+    yield put(fetchAppDetailSuccess({ data: appDetailResponse }))
   } catch (err) {
     logger(err)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(fetchAppDetailFailed(networkErrorString))
   }
 }
 
