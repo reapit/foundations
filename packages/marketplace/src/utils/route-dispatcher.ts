@@ -14,7 +14,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const queryParams = new URLSearchParams(search)
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
   const preview = queryParams.get('preview')?.toLowerCase() === 'true'
-  const featuredAppsExternalAppIds = preview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
 
   const connectSession = await reapitConnectBrowserSession.connectSession()
   const clientId = connectSession ? selectClientId(connectSession) : ''
@@ -23,13 +22,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.APPS:
       store.dispatch(fetchDesktopIntegrationTypes({}))
       store.dispatch(fetchCategories({}))
-      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS }))
+      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS, preview }))
       store.dispatch(
         fetchApps({
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
           isFeatured: false,
-          externalAppId: featuredAppsExternalAppIds,
+          preview,
         }),
       )
       break

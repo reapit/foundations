@@ -11,7 +11,7 @@ export const Router = () => (
       <Switch>
         <Route exact path={ROUTES.WELCOME} component={WelcomePage} />
         <Route path={ROUTES.LOGIN} component={LoginPage} />
-        <Redirect to={ROUTES.WELCOME} />
+        <Redirect to={ROUTES.LOGIN} />
       </Switch>
     </BrowserRouter>
   </ErrorBoundary>

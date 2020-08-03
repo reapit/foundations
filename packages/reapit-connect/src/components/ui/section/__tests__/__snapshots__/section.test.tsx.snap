@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section should match snapshot 1`] = `
+<div
+  className="columns pt-4 pb-4"
+  style={
+    Object {
+      "background": "white",
+    }
+  }
+>
+  <Component
+    className=""
+  >
+    <img
+      alt="Test heading"
+      src=""
+    />
+  </Component>
+  <Component
+    className=""
+  >
+    <Component>
+      Test heading
+    </Component>
+    <Component>
+      Test sub heading
+    </Component>
+    <Component
+      className="mb-4"
+    >
+      Test description
+    </Component>
+  </Component>
+</div>
+`;
+
+exports[`Section should match snapshot when has button 1`] = `
+<div
+  className="columns pt-4 pb-4"
+  style={
+    Object {
+      "background": "white",
+    }
+  }
+>
+  <Component
+    className=""
+  >
+    <Component>
+      Test heading
+    </Component>
+    <Component>
+      Test sub heading
+    </Component>
+    <Component
+      className="mb-4"
+    >
+      Test description
+    </Component>
+    <a
+      href="/test"
+    >
+      My button
+    </a>
+  </Component>
+  <Component
+    className=""
+  >
+    <img
+      alt="Test heading"
+      src=""
+    />
+  </Component>
+</div>
+`;
+
+exports[`Section should match snapshot when image in right 1`] = `
+<div
+  className="columns pt-4 pb-4"
+  style={
+    Object {
+      "background": "white",
+    }
+  }
+>
+  <Component
+    className=""
+  >
+    <Component>
+      Test heading
+    </Component>
+    <Component>
+      Test sub heading
+    </Component>
+    <Component
+      className="mb-4"
+    >
+      Test description
+    </Component>
+  </Component>
+  <Component
+    className=""
+  >
+    <img
+      alt="Test heading"
+      src=""
+    />
+  </Component>
+</div>
+`;

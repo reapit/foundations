@@ -17,10 +17,11 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+import { generateParamsForPreviewApps } from '@/utils/browse-app'
 
 export const fetchApps = function*({ data }) {
   try {
-    const { isInfinite } = data
+    const { isInfinite, preview } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
@@ -31,11 +32,16 @@ export const fetchApps = function*({ data }) {
       })
       return
     }
-    const response = yield call(fetchAppsApi, {
+
+    const defaultParams = {
       clientId,
       developerId: developerId ? [developerId] : [],
       ...data,
-    })
+    }
+
+    const { fetchAppsParams } = generateParamsForPreviewApps(defaultParams, preview)
+
+    const response = yield call(fetchAppsApi, fetchAppsParams)
 
     if (isInfinite) {
       yield put(fetchAppsInfiniteSuccess(response))
@@ -54,6 +60,7 @@ export const fetchApps = function*({ data }) {
 
 export const fetchFeatureApps = function*({ data }) {
   try {
+    const { preview } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
@@ -64,12 +71,18 @@ export const fetchFeatureApps = function*({ data }) {
       })
       return
     }
-    const response = yield call(fetchAppsApi, {
+
+    const defaultParams = {
       clientId,
       developerId: developerId ? [developerId] : [],
       isFeatured: true,
       ...data,
-    })
+    }
+
+    const { fetchFeatureAppsParams } = generateParamsForPreviewApps(defaultParams, preview)
+
+    const response = yield call(fetchAppsApi, fetchFeatureAppsParams)
+
     yield put(fetchFeatureAppsSuccess(response))
   } catch (err) {
     yield put(fetchFeatureAppsFailed(err.description))
