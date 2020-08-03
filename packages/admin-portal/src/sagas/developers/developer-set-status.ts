@@ -7,19 +7,16 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
-/*
- * TODOME(setRequestDeveloperStatusFormStateSaga)
- * *- failure with correct error
- *- notificaion
- */
+import { notification } from '@reapit/elements'
 
+export const DEVELOPER_ID_NOT_EXIST = 'developerId is not exist'
 export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
   const { callback } = dev
   try {
     if (!dev.id) {
-      throw new Error('developerId is not exist')
+      throw DEVELOPER_ID_NOT_EXIST
     }
 
     yield put(setRequestDeveloperStatusFormStateLoading())
@@ -31,6 +28,11 @@ export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
   } catch (err) {
     logger(err)
     callback && callback(false)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
     yield put(setRequestDeveloperStatusFormStateFailed())
   }
 }

@@ -41,13 +41,13 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       url: `${URLS.developers}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
-      body: { ...rest, billingEmail: '123' },
+      body: rest,
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
     logger(error)
-    throw error?.response
+    throw error
   }
 }
 
