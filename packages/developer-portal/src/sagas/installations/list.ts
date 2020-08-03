@@ -1,0 +1,39 @@
+import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
+import ActionTypes from '@/constants/action-types'
+import { fetchInstallationsListSuccess, fetchInstallationsListFailed } from '@/actions/installations'
+import { logger } from '@reapit/utils'
+import { fetchInstallationsList, FetchInstallationsListParams } from '@/services/installations'
+import { getDeveloperId } from '@/utils/session'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
+import { Action } from '@/types/core'
+
+export const fetchInstallationsListSaga = function*({ data }) {
+  try {
+    const developerId = yield getDeveloperId()
+    const response = yield call(fetchInstallationsList, { ...data, developerId })
+    yield put(fetchInstallationsListSuccess(response))
+  } catch (err) {
+    logger(err)
+    yield put(fetchInstallationsListFailed())
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
+export const fetchInstallationsListListen = function*() {
+  yield takeLatest<Action<FetchInstallationsListParams>>(
+    ActionTypes.FETCH_INSTALLATIONS_LIST,
+    fetchInstallationsListSaga,
+  )
+}
+
+export const fetchInstallationsListSagas = function*() {
+  yield all([fork(fetchInstallationsListListen)])
+}
+
+export default fetchInstallationsListSagas

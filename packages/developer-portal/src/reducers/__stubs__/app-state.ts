@@ -204,6 +204,19 @@ const appState: ReduxState = {
       inviteStatus: 'PENDING',
     },
   },
+  installations2: {
+    installationsList: {
+      pagedResult: {},
+      loading: false,
+    },
+    installationsFilterList: {
+      pagedResult: {},
+      loading: false,
+    },
+    formState: {
+      state: 'PENDING',
+    },
+  },
 }
 
 export default appState

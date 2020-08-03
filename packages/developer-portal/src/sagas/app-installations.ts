@@ -6,7 +6,6 @@ import errorMessages from '../constants/error-messages'
 import {
   appInstallationsReceiveData,
   InstallationParams,
-  appInstallationsSetFormState,
   UninstallParams,
   InstallParams,
   appInstallationsRequestDataFailure,
@@ -16,6 +15,7 @@ import {
 import { logger } from '@reapit/utils'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
 import { getDeveloperId, getClientId, getLoggedUserEmail } from '@/utils/session'
+import { setInstallationsFormState } from '@/actions/installations'
 
 export const installationsSaga = function*({ data }) {
   try {
@@ -54,7 +54,7 @@ export const installationsFilterSaga = function*({ data }) {
 export const appInstallSaga = function*(options) {
   const data: InstallParams = options.data
   try {
-    yield put(appInstallationsSetFormState('SUBMITTING'))
+    yield put(setInstallationsFormState('SUBMITTING'))
 
     const email = yield getLoggedUserEmail()
     const clientId = yield getClientId()
@@ -67,10 +67,10 @@ export const appInstallSaga = function*(options) {
     if (data.callback) {
       data.callback()
     }
-    yield put(appInstallationsSetFormState('SUCCESS'))
+    yield put(setInstallationsFormState('SUCCESS'))
   } catch (err) {
     logger(err)
-    yield put(appInstallationsSetFormState('ERROR'))
+    yield put(setInstallationsFormState('ERROR'))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -83,17 +83,17 @@ export const appInstallSaga = function*(options) {
 export const appUninstallSaga = function*(options) {
   const data: UninstallParams = options.data
   try {
-    yield put(appInstallationsSetFormState('SUBMITTING'))
+    yield put(setInstallationsFormState('SUBMITTING'))
     const email = yield getLoggedUserEmail()
 
     yield call(removeAccessToAppById, { ...data, terminatedBy: email })
     if (data.callback) {
       data.callback()
     }
-    yield put(appInstallationsSetFormState('SUCCESS'))
+    yield put(setInstallationsFormState('SUCCESS'))
   } catch (err) {
     logger(err)
-    yield put(appInstallationsSetFormState('ERROR'))
+    yield put(setInstallationsFormState('ERROR'))
     yield put(
       errorThrownServer({
         type: 'SERVER',

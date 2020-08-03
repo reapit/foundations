@@ -19,6 +19,7 @@ import { AppsRootState } from '@/reducers/apps'
 import { ScopesRootState } from '@/reducers/scopes'
 import { CategoriesRootState } from '@/reducers/categories'
 import { DesktopIntegrationTypesRootState } from '@/reducers/desktop-integration-types'
+import { InstallationsRootState } from '@/reducers/installations'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -78,4 +79,5 @@ export interface ReduxState {
   webhooks: WebhookState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
+  installations2: InstallationsRootState
 }
