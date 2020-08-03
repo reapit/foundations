@@ -220,7 +220,7 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

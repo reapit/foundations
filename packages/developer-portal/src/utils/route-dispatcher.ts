@@ -12,6 +12,7 @@ import { getDeveloperId, getClientId } from './session'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
+import { fetchScopeList } from '@/actions/scopes'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -47,6 +48,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
             developerId: [developerId],
           }),
         )
+        store.dispatch(fetchDesktopIntegrationTypeList())
+        store.dispatch(fetchScopeList())
       }
       break
     }
