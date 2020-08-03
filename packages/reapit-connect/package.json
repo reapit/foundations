@@ -25,6 +25,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
+    "@reapit/connect-session": "^1.0.0-alpha.3",
     "@reapit/elements": "^0.5.60",
     "snyk": "^1.341.1"
   },

@@ -14,7 +14,7 @@ exports[`Router should match snapshot 1`] = `
         path="/welcome/login"
       />
       <Redirect
-        to="/welcome"
+        to="/welcome/login"
       />
     </Switch>
   </BrowserRouter>

@@ -2,7 +2,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
-import App from './app'
+import { logger } from '@reapit/utils'
 
 // Init global config
 window.reapit = {
@@ -23,15 +23,19 @@ export const renderApp = (Component: React.ComponentType) => {
 }
 
 const run = async () => {
-  await fetch('config.json')
-    .then(response => response.json())
-    .then((config: Config) => {
-      window.reapit.config = config
-      renderApp(App)
-    })
-    .catch(error => {
-      console.error('Cannot fetch config', error)
-    })
+  try {
+    const configRes = await fetch('config.json')
+    const config = (await configRes.json()) as Config
+
+    window.reapit.config = config
+
+    // I import the app dynamically so that the config is set on window and I avoid any
+    // runtime issues where config is undefined
+    const { default: App } = await import('./app')
+    renderApp(App)
+  } catch (error) {
+    logger(error)
+  }
 }
 
 if (module['hot']) {

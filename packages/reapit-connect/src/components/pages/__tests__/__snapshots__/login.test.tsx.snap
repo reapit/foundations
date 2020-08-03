@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Login should match snapshot 1`] = `
-<Component>
-  Login Page
-</Component>
-`;
