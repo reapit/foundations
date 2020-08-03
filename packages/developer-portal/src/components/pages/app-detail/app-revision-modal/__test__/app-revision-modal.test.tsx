@@ -7,20 +7,20 @@ import appState from '@/reducers/__stubs__/app-state'
 
 import {
   DeveloperAppRevisionModal,
-  DeveloperAppRevisionModalProps,
+  AppRevisionModalProps,
   handleUseEffectToFetchAppRevisionDetail,
   handleUseEffectToFetchAppRevisions,
   handelePendingRevisionsModalAfterClose,
   handleCancelPendingRevisionsButtonClick,
   backToAppDetailsModal,
+  onCancelRevisionSuccess,
 } from '../app-revision-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { LoginIdentity } from '@reapit/connect-session'
-import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail } from '@/actions/apps'
+import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail, declineAppRevision } from '@/actions/apps'
 
-const props: DeveloperAppRevisionModalProps = {
+const props: AppRevisionModalProps = {
   appId: '1',
   visible: true,
   appDetailState: {
@@ -102,9 +102,9 @@ describe('DeveloperAppRevisionModal', () => {
         expect(handleCancelPendingRevisionsButtonClick).toReturn()
       }
       expect(spyDispatch).toBeCalledWith(
-        declineRevision({
-          appId,
-          appRevisionId,
+        declineAppRevision({
+          id: appId,
+          revisionId: appRevisionId,
           name: loginIdentity?.name,
           email: loginIdentity?.email,
           rejectionReason: 'Developer Cancelled',
@@ -120,6 +120,14 @@ describe('DeveloperAppRevisionModal', () => {
       expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
       expect(spyDispatch).toBeCalledWith(clearAppRevisionDetail())
       expect(spyDispatch).toBeCalledWith(fetchAppDetail({ id: appId }))
+    })
+  })
+  describe('onCancelRevisionSuccess', () => {
+    it('should run correctly', () => {
+      const mockSetIsDeclinedSuccessfully = jest.fn()
+      const fn = onCancelRevisionSuccess(mockSetIsDeclinedSuccessfully)
+      fn()
+      expect(mockSetIsDeclinedSuccessfully).toBeCalledWith(true)
     })
   })
 })

@@ -59,7 +59,10 @@ export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
 
 export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & ApproveModel
 
-export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
+export type RejectAppRevisionByIdParams = FetchByIdCommonParams & {
+  revisionId: string
+  successCallback?: () => void
+} & RejectRevisionModel
 
 export type FetchAppSecretByIdParams = FetchByIdCommonParams
 
@@ -254,7 +257,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

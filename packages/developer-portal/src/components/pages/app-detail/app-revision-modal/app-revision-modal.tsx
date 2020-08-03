@@ -1,32 +1,22 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail } from '@/actions/apps'
-import { declineRevision } from '@/actions/revision-detail'
+import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail, declineAppRevision } from '@/actions/apps'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/apps/app-detail'
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
-import { selectAppRevisions, selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectAppRevisions, selectAppRevisionDetail, selectDeclineAppRevisionLoading } from '@/selector/app-revisions'
 import { selectLoginIdentity } from '@/selector/auth'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-export interface OwnProps {
+export type AppRevisionModalProps = {
   visible: boolean
   appId: string
   appDetailState: AppDetailState
   afterClose: () => void
-  onCancelSuccess?: () => void
-}
-
-export type DeveloperAppRevisionModalProps = {
-  visible: boolean
-  appId: string
-  appDetailState: AppDetailState
-  afterClose: () => void
-  onCancelSuccess?: () => void
 }
 
 export const handleCancelPendingRevisionsButtonClick = (
@@ -42,13 +32,13 @@ export const handleCancelPendingRevisionsButtonClick = (
     }
     const { name, email } = loginIdentity
     dispatch(
-      declineRevision({
-        appId,
-        appRevisionId,
+      declineAppRevision({
+        id: appId,
+        revisionId: appRevisionId,
         name,
         email,
         rejectionReason: 'Developer Cancelled',
-        callback: onCancelSuccess,
+        successCallback: onCancelSuccess,
       }),
     )
   }
@@ -96,13 +86,19 @@ export const handleUseEffectToFetchAppRevisionDetail = (
   }
 }
 
-export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps> = ({
+export const onCancelRevisionSuccess = (setIsDeclinedSuccessfully: React.Dispatch<React.SetStateAction<boolean>>) => {
+  return () => {
+    setIsDeclinedSuccessfully(true)
+  }
+}
+
+export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
   visible,
   appId,
   appDetailState,
   afterClose,
-  onCancelSuccess,
 }) => {
+  const [isDeclinedSuccessfully, setIsDeclinedSuccessfully] = React.useState(false)
   const dispatch = useDispatch()
   const revisions = useSelector(selectAppRevisions)
   const revisionDetailState = useSelector(selectAppRevisionDetail)
@@ -114,10 +110,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   const latestAppRevisionId = revisionsData && revisionsData[0].id
   const { isLoading, data } = revisionDetailState
 
-  // const isDeclining = declineFormState === 'SUBMITTING'
-  // const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
-  const isDeclining = false
-  const isDeclinedSuccessfully = false
+  const isDeclining = useSelector(selectDeclineAppRevisionLoading)
 
   let hasRevisionDetailData = false
   if (data) {
@@ -173,7 +166,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
                   appId,
                   latestAppRevisionId,
                   loginIdentity,
-                  onCancelSuccess,
+                  onCancelRevisionSuccess(setIsDeclinedSuccessfully),
                 )}
               >
                 YES, PROCEED

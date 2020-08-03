@@ -12,3 +12,7 @@ export const selectAppRevisionDetail = (state: ReduxState) => {
 export const selectAppRevision = (state: ReduxState): AppRevisionModel => {
   return state?.revisionDetail?.revisionDetailData?.data || {}
 }
+
+export const selectDeclineAppRevisionLoading = (state: ReduxState) => {
+  return state?.apps?.revisions?.declineRevision?.isLoading
+}

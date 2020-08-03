@@ -30,6 +30,7 @@ import {
   createAppSagas,
   deleteAppSagas,
   appRevisionDetailSagas,
+  declineAppRevisionSagas,
 } from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
@@ -101,6 +102,7 @@ export class Store {
       fork(createAppSagas),
       fork(deleteAppSagas),
       fork(appRevisionDetailSagas),
+      fork(declineAppRevisionSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),

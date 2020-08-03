@@ -25,6 +25,9 @@ const appState: ReduxState = {
         data: {},
         isLoading: false,
       },
+      declineRevision: {
+        isLoading: false,
+      },
     },
   },
   scopes: {
