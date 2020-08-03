@@ -49,27 +49,21 @@ export const revisionDetailDataListen = function*() {
   yield takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION, revisionDetailDataFetch)
 }
 // TODO move to selector
-/*
- * TODOME(requestApproveRevision)
- * *- failure with correct error
-*- notificaion
-
- */
-
 export const requestApproveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)
   yield put(setRequestApproveRevisionFormState('SUBMITTING'))
   const { appId, appRevisionId, ...body } = params
   try {
-    const response = yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
-
-    const status = response ? 'SUCCESS' : 'ERROR'
-    if (status === 'SUCCESS') {
-      yield call(approvalsDataFetch, { data: pageNumber })
-    }
-    yield put(setRequestApproveRevisionFormState(status))
+    yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
+    yield call(approvalsDataFetch, { data: pageNumber })
+    yield put(setRequestApproveRevisionFormState('SUCCESS'))
   } catch (err) {
     logger(err)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
     yield put(setRequestApproveRevisionFormState('ERROR'))
   }
 }

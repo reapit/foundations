@@ -104,8 +104,16 @@ describe('revision approve submmit', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(setRequestApproveRevisionFormState('ERROR')))
-    expect(clone.next().done).toBe(true)
+    if (clone.throw) {
+      expect(clone.throw('error').value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next(undefined).value).toEqual(put(setRequestApproveRevisionFormState('ERROR')))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 

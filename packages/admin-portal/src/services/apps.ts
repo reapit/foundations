@@ -165,7 +165,7 @@ export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParam
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
