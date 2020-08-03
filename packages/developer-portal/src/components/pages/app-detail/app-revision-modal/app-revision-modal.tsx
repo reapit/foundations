@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail, declineAppRevision } from '@/actions/apps'
-import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
+import {
+  fetchAppDetail,
+  fetchAppRevisionDetail,
+  clearAppRevisionDetail,
+  declineAppRevision,
+  fetchAppRevisionList,
+  clearAppRevisionList,
+} from '@/actions/apps'
 import { AppDetailState } from '@/reducers/apps/app-detail'
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
@@ -47,14 +53,14 @@ export const handleCancelPendingRevisionsButtonClick = (
 export const handelePendingRevisionsModalAfterClose = (afterClose: () => void, dispatch: Dispatch) => {
   return () => {
     afterClose()
-    dispatch(revisionsClearData(null))
+    dispatch(clearAppRevisionList())
     dispatch(clearAppRevisionDetail())
   }
 }
 
 export const backToAppDetailsModal = (appId: string, dispatch: Dispatch) => {
   return () => {
-    dispatch(revisionsClearData(null))
+    dispatch(clearAppRevisionList())
     dispatch(clearAppRevisionDetail())
     dispatch(fetchAppDetail({ id: appId }))
   }
@@ -63,7 +69,7 @@ export const backToAppDetailsModal = (appId: string, dispatch: Dispatch) => {
 export const handleUseEffectToFetchAppRevisions = (appId: string, dispatch: Dispatch, visible: boolean) => {
   return () => {
     if (appId && visible) {
-      dispatch(revisionsRequestData({ appId }))
+      dispatch(fetchAppRevisionList({ id: appId }))
     }
   }
 }
@@ -106,8 +112,7 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
 
-  const revisionsData = revisions?.data
-  const latestAppRevisionId = revisionsData && revisionsData[0].id
+  const latestAppRevisionId = revisions[0] && revisions[0].id
   const { isLoading, data } = revisionDetailState
 
   const isDeclining = useSelector(selectDeclineAppRevisionLoading)

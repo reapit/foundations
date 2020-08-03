@@ -4,6 +4,7 @@ import appAuthenticationSagas from './app-authentication'
 import createAppSagas from './create-app'
 import deleteAppSagas from './delete-app'
 import appRevisionDetailSagas from './app-revision-detail'
+import appRevisionListlSagas from './app-revision-list'
 import declineAppRevisionSagas from './decline-app-revision'
 export {
   appDetailSagas,
@@ -13,4 +14,5 @@ export {
   deleteAppSagas,
   appRevisionDetailSagas,
   declineAppRevisionSagas,
+  appRevisionListlSagas,
 }

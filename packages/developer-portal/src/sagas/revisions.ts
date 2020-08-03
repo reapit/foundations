@@ -10,6 +10,7 @@ import { fetchAppRevisionsList } from '@/services/apps'
 export const appRevisionsSaga = function*({ data }) {
   try {
     const { appId: id, ...rest } = data
+    console.log('data', data)
     const response = yield call(fetchAppRevisionsList, { ...rest, id })
     yield put(revisionsReceiveData(response))
   } catch (err) {

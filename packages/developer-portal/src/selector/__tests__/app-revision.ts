@@ -12,20 +12,20 @@ describe('app-revision', () => {
         detail: {
           data: revisionDetailDataStub,
         },
+        list: {
+          data: revisionsDataStub.data,
+        },
       },
-    },
-    revisions: {
-      revisions: revisionsDataStub,
     },
   } as ReduxState
   describe('selectAppRevisions', () => {
     it('should run correctly', () => {
       const output = selectAppRevisions(mockState)
-      expect(output).toEqual(mockState.revisions.revisions)
+      expect(output).toEqual(mockState.apps.revisions.list.data)
     })
-    it('should return {}', () => {
+    it('should return []', () => {
       const output = selectAppRevisions({} as ReduxState)
-      expect(output).toEqual({})
+      expect(output).toEqual([])
     })
   })
 

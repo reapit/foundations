@@ -3,6 +3,7 @@ import appListReducer, { AppListState } from './app-list'
 import appDetailReducer, { AppDetailState } from './app-detail'
 import appAuthenticationReducer, { AppAuthenticationState } from './app-authentication'
 import appRevisionDetailReducer, { AppRevisionDetailState } from './app-revision-detail'
+import appRevisionListReducer, { AppRevisionListState } from './app-revision-list'
 import createAppReducer, { CreateAppState } from './create-app'
 import deleteAppReducer, { DeleteAppState } from './delete-app'
 import declineAppRevisionReducer, { DeclineAppRevisionState } from './decline-app-revision'
@@ -13,14 +14,12 @@ export type AppsRootState = {
   authentication: AppAuthenticationState
   createApp: CreateAppState
   deleteApp: DeleteAppState
-  revisions: {
-    detail: AppRevisionDetailState
-    declineRevision: DeclineAppRevisionState
-  }
+  revisions: AppsRevisionsRootState
 }
 
 export type AppsRevisionsRootState = {
   detail: AppRevisionDetailState
+  list: AppRevisionListState
   declineRevision: DeclineAppRevisionState
 }
 
@@ -32,6 +31,7 @@ export default combineReducers<AppsRootState>({
   deleteApp: deleteAppReducer,
   revisions: combineReducers<AppsRevisionsRootState>({
     detail: appRevisionDetailReducer,
+    list: appRevisionListReducer,
     declineRevision: declineAppRevisionReducer,
   }),
 })

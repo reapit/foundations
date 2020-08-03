@@ -2,7 +2,7 @@ import { ReduxState } from '@/types/core'
 import { AppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 export const selectAppRevisions = (state: ReduxState) => {
-  return state?.revisions?.revisions || {}
+  return state?.apps?.revisions?.list?.data || []
 }
 
 export const selectAppRevisionDetail = (state: ReduxState) => {

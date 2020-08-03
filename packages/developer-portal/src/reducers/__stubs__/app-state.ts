@@ -25,6 +25,10 @@ const appState: ReduxState = {
         data: {},
         isLoading: false,
       },
+      list: {
+        data: [],
+        isLoading: false,
+      },
       declineRevision: {
         isLoading: false,
       },
