@@ -1,34 +1,26 @@
 import { ReduxState } from '@/types/core'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 
-export const getInstallations = (state: ReduxState) => {
-  return state.installations
-}
-
 export const selectInstallationsListLoading = (state: ReduxState) => {
-  return state.installations2.installationsList.loading
+  return state.installations.installationsList.loading
 }
 
 export const selectInstallationFormState = (state: ReduxState) => {
-  return state.installations2.formState.state
-}
-
-export const selectInstallationAppData = (state: ReduxState) => {
-  return state.installations.installationsAppData
+  return state.installations.formState.state
 }
 
 export const selectInstallationsListData = (state: ReduxState): InstallationModel[] => {
-  return state.installations2.installationsList?.pagedResult?.data || []
+  return state.installations.installationsList?.pagedResult?.data || []
 }
 
 export const selectInstallationsFilterListData = (state: ReduxState): InstallationModel[] => {
-  return state.installations2.installationsFilterList?.pagedResult?.data || []
+  return state.installations.installationsFilterList?.pagedResult?.data || []
 }
 
 export const selectInstallationsFilterList = (state: ReduxState) => {
-  return state.installations2.installationsFilterList?.pagedResult
+  return state.installations.installationsFilterList?.pagedResult
 }
 
 export const selectInstallationsLoading = (state: ReduxState) => {
-  return state.installations2.installationsList?.loading
+  return state.installations.installationsList?.loading
 }

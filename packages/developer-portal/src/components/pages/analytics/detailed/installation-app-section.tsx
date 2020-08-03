@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
@@ -107,7 +106,6 @@ export const currentInstallationTableColumn = [
 export const InstallationAppSection: React.FC<{
   installedApps: InstallationModelWithAppName[]
   filteredInstalledApps: InstallationModelWithAppName[]
-  installations?: AppInstallationsState
   apps?: AppSummaryModel[]
 }> = ({ installedApps, filteredInstalledApps, apps = [] }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)

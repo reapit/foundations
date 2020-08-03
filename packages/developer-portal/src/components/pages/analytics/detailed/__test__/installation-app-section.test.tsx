@@ -11,7 +11,7 @@ import {
 } from '../installation-app-section'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { AppInstallationsState } from '@/reducers/app-installations'
+import { InstallationsRootState } from '@/reducers/installations'
 import { handleMapAppNameToInstallation } from '../detailed-tab'
 
 jest.mock('@reapit/elements', () => ({
@@ -21,54 +21,33 @@ jest.mock('@reapit/elements', () => ({
 jest.mock('../../../../../core/store')
 
 const installations = {
-  loading: false,
-  installationsAppData: {
-    ...installationsStub,
+  installationsList: {
+    loading: false,
+    pagedResult: installationsStub,
   },
-} as AppInstallationsState
+} as InstallationsRootState
 
 describe('InstallationTable', () => {
   const installedApps = handleMapAppNameToInstallation(
-    installations.installationsAppData?.data || [],
+    installations.installationsList?.pagedResult?.data || [],
     appsDataStub.data.data || [],
   )()
 
   it('should match snapshot', () => {
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installations}
-          apps={[]}
-        />,
-      ),
+      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />),
     ).toMatchSnapshot()
   })
 
   it('should match with null installationsAppData', () => {
-    const installationsWithoutData = { ...installations, installationsAppData: null }
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installationsWithoutData}
-          apps={[]}
-        />,
-      ),
+      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installations}
-        />,
-      ),
+      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} />),
     ).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import { UninstallParams, InstallParams } from '@/actions/app-installations'
+import { UninstallParams, InstallParams } from '@/actions/installations'
 import { logger } from '@reapit/utils'
 import { createInstallation, removeAccessToAppById } from '@/services/installations'
 import { getClientId, getLoggedUserEmail } from '@/utils/session'

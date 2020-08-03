@@ -7,7 +7,6 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { SettingsState } from '@/reducers/settings'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
@@ -70,7 +69,6 @@ export interface ReduxState {
   revisions: RevisionsState
   appDetailModal: AppDetailModalState
   settings: SettingsState
-  installations: AppInstallationsState
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
   appHttpTraffic: AppHttpTrafficEventState
@@ -79,5 +77,5 @@ export interface ReduxState {
   webhooks: WebhookState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
-  installations2: InstallationsRootState
+  installations: InstallationsRootState
 }

@@ -17,6 +17,8 @@ export type UninstallParams = {
   callback?: () => void
 } & TerminateInstallationModel
 
+export type InstallParams = CreateInstallationModel & { callback?: () => void }
+
 // Installations List
 export const fetchInstallationsList = actionCreator<FetchInstallationsListParams>(ActionTypes.FETCH_INSTALLATIONS_LIST)
 export const fetchInstallationsListSuccess = actionCreator<PagedResultInstallationModel_>(
@@ -51,7 +53,7 @@ export const deleteInstallationsApiKeySuccess = actionCreator<void>(ActionTypes.
 export const deleteInstallationsApiKeyFailed = actionCreator<void>(ActionTypes.DELETE_INSTALLATIONS_APIKEY_FAILED)
 
 // CREATE INSTALLATIONS
-export const createInstallations = actionCreator<CreateInstallationModel>(ActionTypes.CREATE_INSTALLATIONS)
+export const createInstallations = actionCreator<InstallParams>(ActionTypes.CREATE_INSTALLATIONS)
 
 // Terminate INSTALLATIONS
 export const requestInstallationsTerminate = actionCreator<UninstallParams>(ActionTypes.REQUEST_INSTALLATIONS_TERMINATE)
