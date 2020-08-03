@@ -182,7 +182,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

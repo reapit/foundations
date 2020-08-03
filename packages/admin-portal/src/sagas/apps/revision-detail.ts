@@ -71,11 +71,6 @@ export const requestApproveRevision = function*({ data: params }: Action<Revisio
 export const requestApproveRevisionListen = function*() {
   yield takeLatest<Action<RevisionApproveRequestParams>>(ActionTypes.REQUEST_APPROVE_REVISION, requestApproveRevision)
 }
-/*
- * TODOME(requestDeclineRevision)
- *- failure with correct error
- *- notificaion
- */
 
 export const requestDeclineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)
@@ -94,6 +89,11 @@ export const requestDeclineRevision = function*({ data: params }: Action<Revisio
     yield put(setRequestDeclineRevisionFormState(status))
   } catch (err) {
     logger(err)
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
     yield put(setRequestDeclineRevisionFormState('ERROR'))
   }
 }
