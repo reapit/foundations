@@ -4,6 +4,7 @@ import { defaultState as developerListState } from '../../developers/list'
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
+import { errorMessages } from '@reapit/utils'
 
 describe('developersReducer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -69,12 +70,12 @@ describe('developersReducer reducer', () => {
       },
       {
         type: ActionTypes.FETCH_DEVELOPER_LIST_FAILED as ActionType,
-        data: null,
+        data: errorMessages.DEFAULT_SERVER_ERROR,
       },
     )
     const expected = {
       ...developerReducerDefaultState,
-      list: { ...developerListState, isLoading: false },
+      list: { ...developerListState, isLoading: false, errorMessage: errorMessages.DEFAULT_SERVER_ERROR },
     }
     expect(newState).toEqual(expected)
   })

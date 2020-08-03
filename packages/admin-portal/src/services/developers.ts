@@ -30,7 +30,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

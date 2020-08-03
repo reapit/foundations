@@ -5,18 +5,13 @@ import {
   fetchDeveloperListValues,
 } from '@/actions/devs-management'
 
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT, notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
-/*
- * TODOME(fetchDeveloperListHandler)
- **- failure with correct error
- *- notificaion
- */
 
 export const fetchDeveloperListHandler = function*({ data: { page, queryString } }) {
   try {
@@ -37,14 +32,15 @@ export const fetchDeveloperListHandler = function*({ data: { page, queryString }
       registeredTo: formattedRegisteredTo,
     })
 
-    if (response) {
-      yield put(fetchDeveloperListSuccess(response))
-    } else {
-      yield put(fetchDeveloperListFailed())
-    }
+    yield put(fetchDeveloperListSuccess(response))
   } catch (err) {
     logger(err)
-    yield put(fetchDeveloperListFailed(err.message))
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(fetchDeveloperListFailed(networkErrorString))
   }
 }
 

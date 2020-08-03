@@ -22,7 +22,7 @@ const developerListReducer = (state: DeveloperListState = defaultState, action: 
   }
 
   if (isType(action, fetchDeveloperListFailed)) {
-    return { ...state, isLoading: false }
+    return { ...state, isLoading: false, errorMessage: action.data }
   }
 
   return state

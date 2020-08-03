@@ -8,7 +8,7 @@ export interface fetchDeveloperListValues {
 }
 
 export const fetchDeveloperList = actionCreator<fetchDeveloperListValues>(ActionTypes.FETCH_DEVELOPER_LIST)
-export const fetchDeveloperListFailed = actionCreator<void>(ActionTypes.FETCH_DEVELOPER_LIST_FAILED)
+export const fetchDeveloperListFailed = actionCreator<string>(ActionTypes.FETCH_DEVELOPER_LIST_FAILED)
 
 export const fetchDeveloperListSuccess = actionCreator<PagedResultDeveloperModel_ | undefined>(
   ActionTypes.FETCH_DEVELOPER_LIST_SUCCESS,
