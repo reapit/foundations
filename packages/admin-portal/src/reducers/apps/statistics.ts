@@ -35,6 +35,7 @@ const statisticsReducer = (state: StatisticsState = defaultState, action: Action
     return {
       ...state,
       isLoading: false,
+      errorMessage: action.data,
     }
   }
 

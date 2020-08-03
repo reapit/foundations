@@ -5,17 +5,13 @@ import ActionTypes from '@/constants/action-types'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { getDateRange } from '@/utils/statistics'
-import { logger } from '@reapit/utils'
+import { logger, extractNetworkErrString } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
+import { notification } from '@reapit/elements'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
-/*
- * TODOME(statisticsDataFetch)
- * *- failure with correct error
- *- notificaion
- */
 
 export const statisticsDataFetch = function*({ data }) {
   try {
@@ -36,20 +32,17 @@ export const statisticsDataFetch = function*({ data }) {
       APPS: fetchAppsList,
     }
 
-    if (!servicesToCall) {
-      throw new Error('No service matched')
-    }
-
     const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
-    if (response) {
-      yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
-    } else {
-      yield put(fetchStatisticsFailed())
-    }
+    yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
   } catch (err) {
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
     logger(err)
-    yield put(fetchStatisticsFailed())
+    yield put(fetchStatisticsFailed(networkErrorString))
   }
 }
 

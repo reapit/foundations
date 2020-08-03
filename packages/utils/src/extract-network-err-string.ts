@@ -18,5 +18,9 @@ export const extractNetworkErrString = err => {
     return standardErrDescriptionData
   }
 
+  if (typeof err === 'string') {
+    return err
+  }
+
   return errorMessages.DEFAULT_SERVER_ERROR
 }

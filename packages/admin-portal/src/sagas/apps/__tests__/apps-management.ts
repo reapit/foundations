@@ -39,7 +39,7 @@ describe('appsManagementFetch', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw('error').value).toEqual(
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
           placement: 'bottomRight',

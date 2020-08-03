@@ -44,7 +44,7 @@ describe('app-detail fetch data without fetch api key', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw('error').value).toEqual(
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
           placement: 'bottomRight',
@@ -85,7 +85,7 @@ describe('app-detail fetch data and fetch apiKey', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw('error').value).toEqual(
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
           placement: 'bottomRight',

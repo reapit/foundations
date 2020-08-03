@@ -2,6 +2,10 @@ import { extractNetworkErrString } from '@/extract-network-err-string'
 import { errorMessages } from '@/constants/error-messages'
 
 describe('extractNetworkErrString', () => {
+  it('should run correctly with error type string', () => {
+    const mockError = 'err'
+    expect(extractNetworkErrString(mockError)).toBe(mockError)
+  })
   it('should run correctly with non standard network error object', () => {
     const mockError = 'err'
     expect(

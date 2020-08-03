@@ -5,9 +5,11 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 
-import { fetchStatisticsSucces, StatisticsRequestParams } from '@/actions/statistics'
+import { fetchStatisticsSucces, StatisticsRequestParams, fetchStatisticsFailed } from '@/actions/statistics'
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
+import { notification } from '@reapit/elements'
+import { errorMessages } from '@reapit/utils'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')
@@ -29,6 +31,20 @@ describe('statisticsDataFetch', () => {
     const response = { data: [], totalCount: 0 }
     expect(clone.next(response).value).toEqual(put(fetchStatisticsSucces(response)))
     expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail caused by error', () => {
+    const clone = gen.clone()
+    if (clone.throw) {
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(fetchStatisticsFailed(errorMessages.DEFAULT_SERVER_ERROR)))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 

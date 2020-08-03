@@ -41,13 +41,14 @@ describe('appsReducer - statistics', () => {
   it('should clear approvals list data when FETCH_STATISTICS_FAILED action is called', () => {
     const newState = appsReducer(undefined, {
       type: ActionTypes.FETCH_STATISTICS_FAILED as ActionType,
-      data: null,
+      data: 'error',
     })
     const expected = {
       ...defaultState,
       statistics: {
         ...defaultState.statistics,
         isLoading: false,
+        errorMessage: 'error',
       },
     }
     expect(newState).toEqual(expected)

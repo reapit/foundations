@@ -18,15 +18,11 @@ export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperM
 export type FetchDeveloperBillingPeriod = {
   period: string
 }
-/*
- * TODOME(statisticsDataFetch)
- * throw error
- */
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.developers}?${setQueryParams(params)}`,
+      url: `${URLS.developers}/?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

@@ -19,4 +19,4 @@ export const fetchStatistics = actionCreator<StatisticsRequestParams>(ActionType
 
 export const fetchStatisticsSucces = actionCreator<StatisticsReceiveParams>(ActionTypes.FETCH_STATISTICS_SUCCES)
 
-export const fetchStatisticsFailed = actionCreator<void>(ActionTypes.FETCH_STATISTICS_FAILED)
+export const fetchStatisticsFailed = actionCreator<string>(ActionTypes.FETCH_STATISTICS_FAILED)

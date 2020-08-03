@@ -7,14 +7,6 @@ export interface fetchDeveloperListValues {
   queryString: string
 }
 
-/*
- * TODOME(devManagements)
- * aciont + entity
- * failure - failed
- * remove loading
- * update swagger
- */
-
 export const fetchDeveloperList = actionCreator<fetchDeveloperListValues>(ActionTypes.FETCH_DEVELOPER_LIST)
 export const fetchDeveloperListFailed = actionCreator<void>(ActionTypes.FETCH_DEVELOPER_LIST_FAILED)
 

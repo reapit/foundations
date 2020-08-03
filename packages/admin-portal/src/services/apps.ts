@@ -147,10 +147,6 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
     throw error
   }
 }
-/*
- * TODOME(requestApproveRevision)
- * throw error
- */
 
 export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParams) => {
   try {
