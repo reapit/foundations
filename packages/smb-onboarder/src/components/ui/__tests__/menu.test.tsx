@@ -2,8 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 import { Menu, MenuProps, generateMenuConfig, callbackAppClick, handleLogout } from '@/components/ui/menu'
-import { AuthContext } from '@/context'
-import { mockContext } from '@/context/__mocks__/mock-context'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 jest.mock('react-router', () => ({
@@ -18,11 +16,7 @@ describe('Menu', () => {
     const props = {
       ...getMockRouterProps({ params: {}, search: '' }),
     } as MenuProps
-    const wrapper = shallow(
-      <AuthContext.Provider value={mockContext}>
-        <Menu {...props} />
-      </AuthContext.Provider>,
-    )
+    const wrapper = shallow(<Menu {...props} />)
     expect(wrapper).toMatchSnapshot()
   })
 
