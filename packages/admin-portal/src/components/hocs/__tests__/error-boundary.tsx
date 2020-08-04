@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { ErrorBoundary, ErrorState } from '../error-boundary'
 
 jest.mock('../../../utils/route-dispatcher')
+jest.mock('rc-animate')
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
@@ -19,15 +20,15 @@ describe('ErrorBoundary', () => {
 
   it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
     ;(console.error as any) = jest.fn()
-    const DangerousChild = (props: { someProp?: false }) => {
-      if (!props.someProp) {
-        throw new Error('Catch me if you can')
-      }
-      return <div />
+    const DangerousChild = () => {
+      throw new Error('Catch me if you can')
     }
-    const newPops = { children: <DangerousChild /> }
 
-    const component = mount(<ErrorBoundary {...newPops} />)
+    const component = mount(
+      <ErrorBoundary>
+        <DangerousChild />
+      </ErrorBoundary>,
+    )
     expect(DangerousChild).toThrow()
     expect((component.state() as ErrorState).hasFailed).toBe(true)
   })

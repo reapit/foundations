@@ -2,7 +2,7 @@ import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams } from '@/
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { notification } from '@reapit/elements'
@@ -22,7 +22,6 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
     }
     yield put(fetchAppDetailSuccess({ data: appDetailResponse }))
   } catch (err) {
-    logger(err)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,

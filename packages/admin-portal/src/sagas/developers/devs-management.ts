@@ -9,7 +9,7 @@ import { DATE_TIME_FORMAT, notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
 
@@ -34,7 +34,6 @@ export const fetchDeveloperListHandler = function*({ data: { page, queryString }
 
     yield put(fetchDeveloperListSuccess(response))
   } catch (err) {
-    logger(err)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,

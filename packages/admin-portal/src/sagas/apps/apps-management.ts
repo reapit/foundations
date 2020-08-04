@@ -4,7 +4,7 @@ import { Action } from '@/types/core'
 import { fetchAppListSuccess, fetchAppListFailed, AppsFeaturedParams } from '@/actions/apps-management'
 import { selectAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { notification } from '@reapit/elements'
@@ -15,7 +15,6 @@ export const appsManagementFetch = function*({ data }) {
 
     yield put(fetchAppListSuccess(response))
   } catch (err) {
-    logger(err)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
@@ -43,7 +42,6 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
       yield call(unfeatureAppById, { id })
     }
   } catch (err) {
-    logger(err)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,

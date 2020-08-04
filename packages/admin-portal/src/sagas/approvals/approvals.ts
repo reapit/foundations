@@ -2,7 +2,7 @@ import { fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/app
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
 import { notification } from '@reapit/elements'
 
@@ -15,7 +15,6 @@ export const approvalsDataFetch = function*({ data: page }) {
       yield put(fetchApprovalListFailed())
     }
   } catch (err) {
-    logger(err)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,

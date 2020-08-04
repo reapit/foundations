@@ -4,7 +4,7 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
 import { notification } from '@reapit/elements'
 
@@ -19,7 +19,7 @@ export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
     yield put(requestDeleteAppSuccess())
   } catch (err) {
     const networkErrorString = extractNetworkErrString(err)
-    logger(err)
+
     yield call(notification.error, {
       message: networkErrorString,
       placement: 'bottomRight',

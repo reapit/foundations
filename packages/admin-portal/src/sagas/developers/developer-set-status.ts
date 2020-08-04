@@ -7,7 +7,7 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
 import { notification } from '@reapit/elements'
 
@@ -26,7 +26,6 @@ export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
     yield put(setRequestDeveloperStatusFormStateSuccess())
     callback && callback(true)
   } catch (err) {
-    logger(err)
     callback && callback(false)
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {

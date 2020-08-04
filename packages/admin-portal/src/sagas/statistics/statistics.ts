@@ -5,7 +5,7 @@ import ActionTypes from '@/constants/action-types'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { getDateRange } from '@/utils/statistics'
-import { logger, extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
@@ -41,7 +41,7 @@ export const statisticsDataFetch = function*({ data }) {
       message: networkErrorString,
       placement: 'bottomRight',
     })
-    logger(err)
+
     yield put(fetchStatisticsFailed(networkErrorString))
   }
 }
