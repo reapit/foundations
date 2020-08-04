@@ -11,7 +11,7 @@ import { StepInputAuthenticationUris } from './steps/step-input-authentication-u
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
 import { StepChoseAuthType } from './steps/step-chose-auth-type'
-import { ModalHeader, Formik, FormikHelpers, ModalProps, Form } from '@reapit/elements'
+import { Formik, FormikHelpers, Form, ModalV2, ModalPropsV2 } from '@reapit/elements'
 import { WizardStep, WizardStepComponent, SetWizardStep } from './types'
 import { formFields } from './form-fields'
 import { validationSchemas } from './validation-schema'
@@ -108,7 +108,7 @@ const initialFormValues = {
   [scopesField.name]: [],
 }
 
-export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afterClose }) => {
+export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'afterClose' | 'visible'>> = ({ afterClose, visible }) => {
   const [currentWizardStep, setWizardStep] = useState<WizardStep>(wizzardSteps.BEFORE_YOU_START)
   const dispatch = useDispatch()
 
@@ -118,7 +118,7 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
   }
 
   return (
-    <div>
+    <ModalV2 title={titleMap[currentWizardStep]} onClose={afterClose} visible={visible} isPadding={false}>
       <Formik
         initialValues={initialFormValues}
         onSubmit={handleSubmit({ setWizardStep, dispatch })}
@@ -135,10 +135,9 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
             }
           }}
         >
-          <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
           <CurrentStepComponent afterClose={afterClose} setWizardStep={setWizardStep} />
         </Form>
       </Formik>
-    </div>
+    </ModalV2>
   )
 }

@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
-<div>
+<Component
+  isPadding={false}
+  onClose={[Function]}
+  title="Before you start"
+>
   <Formik
     initialValues={
       Object {
@@ -18,13 +22,9 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
     >
       <Component
         afterClose={[Function]}
-        title="Before you start"
-      />
-      <Component
-        afterClose={[Function]}
         setWizardStep={[Function]}
       />
     </Form>
   </Formik>
-</div>
+</Component>
 `;
