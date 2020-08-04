@@ -111,10 +111,6 @@ const appState: ReduxState = {
     installationsAppData: null,
     installationsFilteredAppData: null,
   },
-  appUsageStats: {
-    loading: false,
-    appUsageStatsData: null,
-  },
   noticationMessage: {
     visible: false,
     variant: '',

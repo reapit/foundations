@@ -12,7 +12,6 @@ import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
-import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
@@ -35,7 +34,6 @@ import {
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
-import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
@@ -73,7 +71,6 @@ export class Store {
     developerSetStatus,
     settings: settingsReducer,
     installations: appInstallationsReducer,
-    appUsageStats: appUsageStatsReducer,
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
     webhookEdit: webhookEditReducer,
@@ -85,7 +82,6 @@ export class Store {
 
   static sagas = function*() {
     yield all([
-      fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),

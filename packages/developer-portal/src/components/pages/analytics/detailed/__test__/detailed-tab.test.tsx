@@ -28,10 +28,6 @@ jest.mock('@reapit/elements', () => ({
 jest.mock('../../../../../core/store')
 
 const mockState = {
-  appUsageStats: {
-    appUsageStatsData: usageStatsDataStub,
-    loading: false,
-  },
   installations: {
     installationsAppData: installationsStub,
     formState: 'PENDING',
