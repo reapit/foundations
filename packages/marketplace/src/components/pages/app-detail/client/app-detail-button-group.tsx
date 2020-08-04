@@ -5,14 +5,12 @@ interface AppDetailButtonGroupProps {
   installedOn: string
   onInstallConfirmationModal: () => void
   onUninstallConfirmationModal: () => void
-  isInstallBtnHidden: boolean
 }
 
 export const AppDetailButtonGroup: React.FC<AppDetailButtonGroupProps> = ({
   installedOn,
   onInstallConfirmationModal,
   onUninstallConfirmationModal,
-  isInstallBtnHidden,
 }) => {
   if (installedOn) {
     return (
@@ -26,10 +24,6 @@ export const AppDetailButtonGroup: React.FC<AppDetailButtonGroupProps> = ({
         Uninstall App
       </Button>
     )
-  }
-
-  if (isInstallBtnHidden) {
-    return null
   }
 
   return (

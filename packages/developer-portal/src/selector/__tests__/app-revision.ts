@@ -1,14 +1,17 @@
 import { ReduxState } from '@/types/core'
 import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
-import { selectAppRevision, selectAppRevisions, selectAppRevisionDetail } from '../app-revisions'
+import { selectAppRevisions, selectAppRevisionDetail } from '../app-revisions'
 import appState from '@/reducers/__stubs__/app-state'
+import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 
 describe('app-revision', () => {
   const mockState = {
     ...appState,
-    revisionDetail: {
-      revisionDetailData: {
-        data: revisionsDataStub,
+    apps: {
+      revisions: {
+        detail: {
+          data: revisionDetailDataStub,
+        },
       },
     },
     revisions: {
@@ -29,21 +32,10 @@ describe('app-revision', () => {
   describe('selectAppRevisionDetail', () => {
     it('should run correctly', () => {
       const output = selectAppRevisionDetail(mockState)
-      expect(output).toEqual(mockState.revisionDetail)
+      expect(output).toEqual(mockState.apps.revisions.detail)
     })
     it('should return {}', () => {
       const output = selectAppRevisionDetail({} as ReduxState)
-      expect(output).toEqual({})
-    })
-  })
-
-  describe('selectAppRevision', () => {
-    it('should run correctly', () => {
-      const output = selectAppRevision(mockState)
-      expect(output).toEqual(mockState.revisionDetail.revisionDetailData?.data)
-    })
-    it('should return {}', () => {
-      const output = selectAppRevision({} as ReduxState)
       expect(output).toEqual({})
     })
   })

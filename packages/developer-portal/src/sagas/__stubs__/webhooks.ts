@@ -1,4 +1,4 @@
-import { PagedResultWebhookModel_, PagedResultTopicModel_ } from '@/reducers/webhook-subscriptions'
+import { PagedResultTopicModel_, PagedResultWebhookModel_ } from '@/services/webhooks'
 
 export const subscriptions: PagedResultWebhookModel_ = {
   _embedded: [
@@ -11,7 +11,6 @@ export const subscriptions: PagedResultWebhookModel_ = {
       topicIds: ['contacts.created', 'contacts.modified'],
       customerIds: ['KNS'],
       active: true,
-      deleted: true,
     },
   ],
   pageNumber: 1,

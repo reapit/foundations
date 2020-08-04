@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAppDetail } from '@/actions/apps'
-import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
+import { fetchAppDetail, fetchAppRevisionDetail, clearAppRevisionDetail } from '@/actions/apps'
+import { declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/apps/app-detail'
 import { Modal, Loader, Button } from '@reapit/elements'
@@ -58,14 +58,14 @@ export const handelePendingRevisionsModalAfterClose = (afterClose: () => void, d
   return () => {
     afterClose()
     dispatch(revisionsClearData(null))
-    dispatch(revisionDetailClearData(null))
+    dispatch(clearAppRevisionDetail())
   }
 }
 
 export const backToAppDetailsModal = (appId: string, dispatch: Dispatch) => {
   return () => {
     dispatch(revisionsClearData(null))
-    dispatch(revisionDetailClearData(null))
+    dispatch(clearAppRevisionDetail())
     dispatch(fetchAppDetail({ id: appId }))
   }
 }
@@ -86,7 +86,12 @@ export const handleUseEffectToFetchAppRevisionDetail = (
 ) => {
   return () => {
     if (appId && appRevisionId && visible) {
-      dispatch(revisionDetailRequestData({ appId, appRevisionId }))
+      dispatch(
+        fetchAppRevisionDetail({
+          id: appId,
+          revisionId: appRevisionId,
+        }),
+      )
     }
   }
 }
@@ -107,12 +112,15 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
 
   const revisionsData = revisions?.data
   const latestAppRevisionId = revisionsData && revisionsData[0].id
-  const { declineFormState, revisionDetailData } = revisionDetailState
+  const { isLoading, data } = revisionDetailState
 
-  const isDeclining = declineFormState === 'SUBMITTING'
-  const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
+  // const isDeclining = declineFormState === 'SUBMITTING'
+  // const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
+  const isDeclining = false
+  const isDeclinedSuccessfully = false
+
   let hasRevisionDetailData = false
-  if (revisionDetailData) {
+  if (data) {
     hasRevisionDetailData = true
   }
 
@@ -145,7 +153,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
       }
     >
       <>
-        {!hasRevisionDetailData ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <AppRevisionComparison appDetailState={appDetailState} revisionDetailState={revisionDetailState} />

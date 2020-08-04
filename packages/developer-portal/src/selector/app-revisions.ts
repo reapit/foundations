@@ -6,7 +6,7 @@ export const selectAppRevisions = (state: ReduxState) => {
 }
 
 export const selectAppRevisionDetail = (state: ReduxState) => {
-  return state?.revisionDetail || {}
+  return state?.apps?.revisions?.detail || {}
 }
 
 export const selectAppRevision = (state: ReduxState): AppRevisionModel => {

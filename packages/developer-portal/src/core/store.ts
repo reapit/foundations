@@ -18,12 +18,21 @@ import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import revisionsReducer from '@/reducers/revisions'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
-import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import installationsReducer from '@/reducers/installations'
+import webhooksTopicsReducer from '@/reducers/webhooks-topics'
+import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
+import noticationMessage from '@/reducers/notification-message'
 
-import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas, deleteAppSagas } from '@/sagas/apps'
+import {
+  appDetailSagas,
+  appListSagas,
+  appAuthenticationSagas,
+  createAppSagas,
+  deleteAppSagas,
+  appRevisionDetailSagas,
+} from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
@@ -35,13 +44,13 @@ import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
 import revisionsSagas from '@/sagas/revisions'
 import settingSagas from '@/sagas/settings'
-import noticationMessage from '@/reducers/notification-message'
-import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
+import { webhooksSubscriptionsSagas } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import webhookEditSagas from '../sagas/webhook-edit-modal'
-import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
+import webhookEditSagas from '@/sagas/webhook-edit-modal'
+import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
 import installationsSagas from '@/sagas/installations'
+import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 
 export class Store {
   static _instance: Store
@@ -75,10 +84,11 @@ export class Store {
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
     webhookEdit: webhookEditReducer,
-    webhooks: webhookSubscriptions,
     developerSubscriptions,
     developers: developersReducer,
     installations: installationsReducer,
+    webhooksTopics: webhooksTopicsReducer,
+    webhooksSubscriptions: webhooksSubscriptionsReducer,
   })
 
   static sagas = function*() {
@@ -93,6 +103,7 @@ export class Store {
       fork(appAuthenticationSagas),
       fork(createAppSagas),
       fork(deleteAppSagas),
+      fork(appRevisionDetailSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
@@ -100,10 +111,11 @@ export class Store {
       fork(settingSagas),
       fork(appHttpTrafficEventSagas),
       fork(webhookEditSagas),
-      fork(webhookSubscriptionsSagas),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
       fork(installationsSagas),
+      fork(webhooksTopicsSagas),
+      fork(webhooksSubscriptionsSagas),
     ])
   }
 

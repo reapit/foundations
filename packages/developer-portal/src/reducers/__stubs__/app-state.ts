@@ -20,6 +20,12 @@ const appState: ReduxState = {
     deleteApp: {
       isLoading: false,
     },
+    revisions: {
+      detail: {
+        data: {},
+        isLoading: false,
+      },
+    },
   },
   scopes: {
     list: {
@@ -148,21 +154,22 @@ const appState: ReduxState = {
       active: false,
     },
   },
-  webhooks: {
-    subscriptions: {
-      loading: false,
-      error: false,
-      subscriptions: {
-        _embedded: [],
-      },
+  webhooksSubscriptions: {
+    list: {
+      isLoading: false,
+      errorMessage: '',
+      _embedded: [],
+      pageNumber: 0,
+      pageSize: 0,
+      pageCount: 0,
+      totalCount: 0,
     },
-    topics: {
-      applicationId: '',
-      loading: false,
-      error: false,
-      topics: {
-        _embedded: [],
-      },
+  },
+  webhooksTopics: {
+    list: {
+      isLoading: false,
+      errorMessage: '',
+      _embedded: [],
     },
   },
   developerSubscriptions: {

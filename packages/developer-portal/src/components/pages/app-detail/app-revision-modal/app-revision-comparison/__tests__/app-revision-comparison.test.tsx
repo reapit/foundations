@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
 
 import {
   AppRevisionComparison,
@@ -13,28 +15,38 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import Routes from '@/constants/routes'
+import { MemoryRouter } from 'react-router'
+import appState from '@/reducers/__stubs__/app-state'
 
-const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
+const props = (loading: boolean): AppRevisionComparisonProps => ({
   appDetailState: {
     isLoading: false,
     data: appDetailDataStub.data,
     errorMessage: '',
   },
   revisionDetailState: {
-    loading,
-    error,
-    revisionDetailData: {
-      data: revisionDetailDataStub.data,
-      scopes: appPermissionStub,
-      desktopIntegrationTypes: integrationTypesStub,
-    },
-    declineFormState: 'PENDING',
+    data: revisionDetailDataStub,
+    isLoading: loading,
   },
 })
 
 describe('AdminRevisionModalInner', () => {
+  let store
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+  })
   it('should match a snapshot', () => {
-    expect(shallow(<AppRevisionComparison {...props(true, false)} />)).toMatchSnapshot()
+    const wrapper = mount(
+      <ReactRedux.Provider store={store}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'developerAppDetailRoute' }]}>
+          <AppRevisionComparison {...props(true)} />
+        </MemoryRouter>
+      </ReactRedux.Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })
 
@@ -87,18 +99,6 @@ describe('renderCheckboxesDiff', () => {
       revisionScopes: scopes,
     })
     expect(checkboxes).toHaveLength(3)
-  })
-})
-
-describe('renderAdditionalCheckboxes', () => {
-  it('should render Is Listed checkbox', () => {
-    const wrapper = shallow(<AppRevisionComparison {...props(false, false)}></AppRevisionComparison>)
-    expect(wrapper.find('h4[data-test="chkIsListed"]')).toHaveLength(1)
-  })
-
-  it('should render Is Direct API checkbox', () => {
-    const wrapper = shallow(<AppRevisionComparison {...props(false, false)}></AppRevisionComparison>)
-    expect(wrapper.find('h4[data-test="chkIsDirectApi"]')).toHaveLength(1)
   })
 })
 

@@ -1,25 +1,9 @@
-import revisionDetailSagas, {
-  revisionDetailDataFetch,
-  revisionDetailDataListen,
-  declineRevision,
-  declineRevisionListen,
-} from '../revision-detail'
-import { revisionDetailDataStub } from '../__stubs__/revision-detail'
-import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, call } from '@redux-saga/core/effects'
-import {
-  revisionDetailLoading,
-  revisionDetailReceiveData,
-  revisionDetailFailure,
-  RevisionDetailRequestParams,
-  RevisionDeclineRequestParams,
-  declineRevisionSetFormState,
-} from '@/actions/revision-detail'
+import revisionDetailSagas, { declineRevision, declineRevisionListen } from '../revision-detail'
+import { put, all, call } from '@redux-saga/core/effects'
+import { RevisionDeclineRequestParams, declineRevisionSetFormState } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
-import { fetchScopeListAPI } from '@/services/scopes'
-import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
+import { rejectAppRevisionById } from '@/services/apps'
 import { fork } from 'redux-saga/effects'
 
 jest.mock('@/services/apps')
@@ -27,59 +11,11 @@ jest.mock('@/services/scopes')
 jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
-const params: Action<RevisionDetailRequestParams> = {
-  type: 'REVISION_DETAIL_RECEIVE_DATA',
-  data: { appId: '9b6fd5f7-2c15-483d-b925-01b650538e52', appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
-}
-
-describe('revision-detail fetch data', () => {
-  const gen = cloneableGenerator(revisionDetailDataFetch as any)(params)
-  const {
-    data: { appId, appRevisionId },
-  } = params
-  expect(gen.next().value).toEqual(put(revisionDetailLoading(true)))
-  expect(gen.next().value).toEqual(
-    all([
-      call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
-      call(fetchScopeListAPI),
-      call(fetchDesktopIntegrationTypeListAPI, {}),
-    ]),
-  )
-
-  test('api call success', () => {
-    const clone = gen.clone()
-    const { data, scopes, desktopIntegrationTypes } = revisionDetailDataStub
-    expect(clone.next([data, scopes, desktopIntegrationTypes]).value).toEqual(
-      put(revisionDetailReceiveData(revisionDetailDataStub)),
-    )
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next([undefined, undefined, undefined]).value).toEqual(put(revisionDetailFailure()))
-    expect(clone.next().done).toBe(true)
-  })
-})
-
 describe('revision-detail thunks', () => {
-  describe('revisionDetailDataListen', () => {
-    it('should trigger request data when called', () => {
-      const gen = revisionDetailDataListen()
-      expect(gen.next().value).toEqual(
-        takeLatest<Action<RevisionDetailRequestParams>>(
-          ActionTypes.REVISION_DETAIL_REQUEST_DATA,
-          revisionDetailDataFetch,
-        ),
-      )
-      expect(gen.next().done).toBe(true)
-    })
-  })
-
   describe('revisionDetailSagas', () => {
     it('should listen data request', () => {
       const gen = cloneableGenerator(revisionDetailSagas)()
-      expect(gen.next().value).toEqual(all([fork(revisionDetailDataListen), fork(declineRevisionListen)]))
+      expect(gen.next().value).toEqual(all([fork(declineRevisionListen)]))
       expect(gen.next().done).toBe(true)
     })
   })

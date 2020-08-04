@@ -66,7 +66,7 @@ exports[`DeveloperAppRevisionModal should match a snapshot 1`] = `
       footerItems={
         <Unknown
           dataTest="revision-approve-button"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           type="button"
           variant="primary"
