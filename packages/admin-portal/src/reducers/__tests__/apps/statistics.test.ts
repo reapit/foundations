@@ -8,9 +8,9 @@ describe('appsReducer - statistics', () => {
     expect(newState).toEqual(defaultState)
   })
 
-  it('should set isLoading to true when STATISTICS_REQUEST_DATA action is called', () => {
+  it('should set isLoading to true when FETCH_STATISTICS action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.STATISTICS_REQUEST_DATA as ActionType,
+      type: ActionTypes.FETCH_STATISTICS as ActionType,
       data: {},
     })
     const expected = {
@@ -23,9 +23,9 @@ describe('appsReducer - statistics', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set data when STATISTICS_RECEIVE_DATA action is called', () => {
+  it('should set data when FETCH_STATISTICS_SUCCES action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.STATISTICS_RECEIVE_DATA as ActionType,
+      type: ActionTypes.FETCH_STATISTICS_SUCCES as ActionType,
       data: { data: [], totalCount: 0 },
     })
     const expected = {
@@ -38,16 +38,17 @@ describe('appsReducer - statistics', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should clear approvals list data when STATISTICS_REQUEST_DATA_FAILURE action is called', () => {
+  it('should clear approvals list data when FETCH_STATISTICS_FAILED action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.STATISTICS_REQUEST_DATA_FAILURE as ActionType,
-      data: null,
+      type: ActionTypes.FETCH_STATISTICS_FAILED as ActionType,
+      data: 'error',
     })
     const expected = {
       ...defaultState,
       statistics: {
         ...defaultState.statistics,
         isLoading: false,
+        errorMessage: 'error',
       },
     }
     expect(newState).toEqual(expected)

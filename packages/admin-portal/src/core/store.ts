@@ -3,9 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import apps from '@/reducers/apps'
-import error from '@/reducers/error'
 import developers from '@/reducers/developers'
-import noticationMessage from '@/reducers/notification-message'
 
 import { appDetailSagas, revisionDetailSagas, appDeleteSagas, appsManagementSagas } from '@/sagas/apps'
 import { statisticsSagas } from '@/sagas/statistics'
@@ -30,9 +28,7 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    error,
     developers,
-    noticationMessage,
     apps,
   })
 

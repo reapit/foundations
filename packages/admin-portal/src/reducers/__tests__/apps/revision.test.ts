@@ -2,41 +2,27 @@ import appsReducer, { defaultState } from '../../apps'
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
+import { errorMessages } from '@reapit/utils'
 
 describe('appReducer - revision', () => {
-  it('should set loading to true when REVISION_DETAIL_LOADING action is called', () => {
+  it('should set error to false when FETCH_REVISION_FAILED action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.REVISION_DETAIL_LOADING as ActionType,
-      data: true,
+      type: ActionTypes.FETCH_REVISION_FAILED as ActionType,
+      data: errorMessages.DEFAULT_SERVER_ERROR,
     })
     const expected = {
       ...defaultState,
       revision: {
         ...defaultState.revision,
-        isLoading: true,
+        errorMessage: errorMessages.DEFAULT_SERVER_ERROR,
       },
     }
     expect(newState).toEqual(expected)
   })
 
-  it('should set error to false when REVISION_DETAIL_REQUEST_DATA__FAILURE action is called', () => {
+  it('should set revision-detail item data when FETCH_REVISION_SUCCESS action is called', () => {
     const newState = appsReducer(undefined, {
-      type: ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE as ActionType,
-      data: true,
-    })
-    const expected = {
-      ...defaultState,
-      revision: {
-        ...defaultState.revision,
-        errorMessage: '',
-      },
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should set revision-detail item data when REVISION_DETAIL_RECEIVE_DATA action is called', () => {
-    const newState = appsReducer(undefined, {
-      type: ActionTypes.REVISION_DETAIL_RECEIVE_DATA as ActionType,
+      type: ActionTypes.FETCH_REVISION_SUCCESS as ActionType,
       data: revisionDetailDataStub,
     })
     const expected = {

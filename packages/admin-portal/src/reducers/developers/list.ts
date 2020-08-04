@@ -1,10 +1,6 @@
 import { Action } from '../../types/core'
 import { isType } from '../../utils/actions'
-import {
-  devsManagementLoading,
-  devsManagementReceiveData,
-  devsManagementRequestDataFailure,
-} from '../../actions/devs-management'
+import { fetchDeveloperListSuccess, fetchDeveloperListFailed, fetchDeveloperList } from '../../actions/devs-management'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
@@ -13,11 +9,11 @@ export type DeveloperListState = PagedResultDeveloperModel_ & Pick<FetchDetailRe
 export const defaultState: DeveloperListState = getDefaultFetchListValue()
 
 const developerListReducer = (state: DeveloperListState = defaultState, action: Action<any>): DeveloperListState => {
-  if (isType(action, devsManagementLoading)) {
-    return { ...state, isLoading: action.data }
+  if (isType(action, fetchDeveloperList)) {
+    return { ...state, isLoading: true }
   }
 
-  if (isType(action, devsManagementReceiveData)) {
+  if (isType(action, fetchDeveloperListSuccess)) {
     return {
       ...state,
       isLoading: false,
@@ -25,8 +21,8 @@ const developerListReducer = (state: DeveloperListState = defaultState, action: 
     }
   }
 
-  if (isType(action, devsManagementRequestDataFailure)) {
-    return { ...state, isLoading: false }
+  if (isType(action, fetchDeveloperListFailed)) {
+    return { ...state, isLoading: false, errorMessage: action.data }
   }
 
   return state

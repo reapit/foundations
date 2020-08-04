@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { setDeleteAppInitFormState } from '@/actions/app-delete'
 import { useDispatch, useSelector } from 'react-redux'
-import { appDeleteRequest } from '@/actions/app-delete'
+import { requestDeleteApp } from '@/actions/app-delete'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import CallToAction from './call-to-action'
@@ -25,12 +25,12 @@ export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afte
 
 export const onDeleteButtonClick = (appId: string, dispatch: Dispatch) => {
   return () => {
-    dispatch(appDeleteRequest(appId))
+    dispatch(requestDeleteApp(appId))
   }
 }
 
 export const handleUseEffect = (dispatch: Dispatch) => () => {
-  dispatch(appDeleteSetInitFormState())
+  dispatch(setDeleteAppInitFormState())
 }
 
 export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, afterClose, visible, onDeleteSuccess }) => {

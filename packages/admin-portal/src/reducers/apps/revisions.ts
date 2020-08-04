@@ -2,11 +2,11 @@ import { Action, FormState } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { AppRevisionModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import {
-  revisionDetailLoading,
-  revisionDetailReceiveData,
-  revisionDetailFailure,
-  approveRevisionSetFormState,
-  declineRevisionSetFormState,
+  fetchRevisionSuccess,
+  fetchRevisionFailed,
+  setRequestApproveRevisionFormState,
+  setRequestDeclineRevisionFormState,
+  fetchRevision,
 } from '@/actions/revision-detail'
 import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
 import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils'
@@ -24,30 +24,30 @@ export type RevisionDetailState = FetchDetailResult<RevisionDetailItem> & {
 export const defaultState: RevisionDetailState = { ...getDefaultFetchDetailValue(), formState: 'PENDING' }
 
 const revisionDetailReducer = (state: RevisionDetailState = defaultState, action: Action<any>): RevisionDetailState => {
-  if (isType(action, approveRevisionSetFormState)) {
+  if (isType(action, setRequestApproveRevisionFormState)) {
     return {
       ...state,
       formState: action.data,
     }
   }
 
-  if (isType(action, declineRevisionSetFormState)) {
+  if (isType(action, setRequestDeclineRevisionFormState)) {
     return {
       ...state,
       formState: action.data,
     }
   }
 
-  if (isType(action, revisionDetailLoading)) {
+  if (isType(action, fetchRevision)) {
     return {
       ...state,
       errorMessage: '',
-      isLoading: action.data,
+      isLoading: true,
       formState: 'PENDING',
     }
   }
 
-  if (isType(action, revisionDetailReceiveData)) {
+  if (isType(action, fetchRevisionSuccess)) {
     return {
       ...state,
       isLoading: false,
@@ -56,11 +56,11 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     }
   }
 
-  if (isType(action, revisionDetailFailure)) {
+  if (isType(action, fetchRevisionFailed)) {
     return {
       ...state,
       isLoading: false,
-      errorMessage: '',
+      errorMessage: action.data,
     }
   }
 

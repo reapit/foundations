@@ -1,10 +1,12 @@
-import { devsManagementRequestDataHandler } from '../devs-management'
+import { fetchDeveloperListHandler } from '../devs-management'
 import { put, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { devsManagementLoading, devsManagementReceiveData } from '@/actions/devs-management'
+import { fetchDeveloperListSuccess, fetchDeveloperListFailed } from '@/actions/devs-management'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 import { fetchDevelopersList } from '@/services/developers'
+import { notification } from '@reapit/elements'
+import { errorMessages } from '@reapit/utils'
 
 jest.mock('@/services/developers')
 
@@ -16,10 +18,9 @@ const params = {
   },
 }
 
-describe('devsManagementRequestDataHandler', () => {
-  const gen = cloneableGenerator(devsManagementRequestDataHandler)(params)
+describe('fetchDeveloperListHandler', () => {
+  const gen = cloneableGenerator(fetchDeveloperListHandler)(params)
 
-  expect(gen.next().value).toEqual(put(devsManagementLoading(true)))
   expect(gen.next().value).toEqual(
     call(fetchDevelopersList, {
       pageSize: REVISIONS_PER_PAGE,
@@ -34,7 +35,21 @@ describe('devsManagementRequestDataHandler', () => {
   test('api call success', () => {
     const clone = gen.clone()
 
-    expect(clone.next(fakeResponse).value).toEqual(put(devsManagementReceiveData(fakeResponse)))
+    expect(clone.next(fakeResponse).value).toEqual(put(fetchDeveloperListSuccess(fakeResponse)))
     expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+    if (clone.throw) {
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(fetchDeveloperListFailed(errorMessages.DEFAULT_SERVER_ERROR)))
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
