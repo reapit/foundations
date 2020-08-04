@@ -2,8 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
-import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { SettingsState } from '@/reducers/settings'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
@@ -61,9 +59,7 @@ export interface ReduxState {
   categories: CategoriesRootState
   developer: DeveloperState
   error: ErrorState
-  submitRevision: SubmitRevisionState
   developerSetStatus: RequestState
-  appDetailModal: AppDetailModalState
   settings: SettingsState
   installations: AppInstallationsState
   appUsageStats: AppUsageStatsState

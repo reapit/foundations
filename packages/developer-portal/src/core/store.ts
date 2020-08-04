@@ -9,9 +9,7 @@ import desktopIntegrationTypesReducer from '@/reducers/desktop-integration-types
 
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
-import submitRevision from '@/reducers/submit-revision'
 import developerSetStatus from '@/reducers/developer-set-status'
-import appDetailModal from '@/reducers/app-detail-modal'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
@@ -38,7 +36,6 @@ import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-typ
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
-import submitRevisionSagas from '@/sagas/submit-revision'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
 import appInstallationsSagas from '@/sagas/app-installations'
@@ -71,9 +68,7 @@ export class Store {
     desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
     error,
-    submitRevision,
     developerSetStatus,
-    appDetailModal,
     settings: settingsReducer,
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
@@ -101,7 +96,6 @@ export class Store {
       fork(appRevisionListlSagas),
       fork(declineAppRevisionSagas),
       fork(createAppRevisionSagas),
-      fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
       fork(settingSagas),
       fork(appInstallationsSagas),
