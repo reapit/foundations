@@ -17,8 +17,8 @@ import { ReduxState } from '@/types/core'
 import * as ReactRedux from 'react-redux'
 import { developerState } from '@/sagas/__stubs__/developer'
 import configureStore from 'redux-mock-store'
-import { TopicItem } from '@/reducers/webhook-edit-modal'
-import { requestWebhookData } from '@/actions/webhook-edit-modal'
+import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { requestWebhookData } from '@/actions/webhooks-subscriptions'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 
 const mockState = {

@@ -11,7 +11,6 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
-import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { AppsRootState } from '@/reducers/apps'
@@ -75,7 +74,6 @@ export interface ReduxState {
   noticationMessage: NotificationMessageState
   appHttpTraffic: AppHttpTrafficEventState
   desktopIntegrationTypes: DesktopIntegrationTypesRootState
-  webhookEdit: WebhookEditState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   webhooksTopics: WebhooksTopicsRootState

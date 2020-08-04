@@ -8,7 +8,11 @@ import {
   selectWebhookTopicsSubcription,
 } from '../webhook-edit'
 
-const input = { webhookEdit: webhookEditDataStub } as ReduxState
+const input = {
+  webhooksSubscriptions: {
+    edit: webhookEditDataStub,
+  },
+} as ReduxState
 
 describe('selectWebhookEdit', () => {
   it('should run correctly selectTopics', () => {

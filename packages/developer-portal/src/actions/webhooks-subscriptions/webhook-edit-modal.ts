@@ -1,6 +1,6 @@
-import { actionCreator } from '../utils/actions'
-import ActionTypes from '../constants/action-types'
-import { WebhookModal, WebhookSubscription } from '@/reducers/webhook-edit-modal'
+import { actionCreator } from '@/utils/actions'
+import ActionTypes from '@/constants/action-types'
+import { WebhookModal, WebhookSubscription } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 
 export interface SubscriptionCustomersRequestParams {
   AppId: string
