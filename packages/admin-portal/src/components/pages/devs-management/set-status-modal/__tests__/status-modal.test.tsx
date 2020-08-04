@@ -1,5 +1,5 @@
 import { onSubmitStatus, reapitRefInput, StatusModal, onAfterSubmit } from '../status-modal'
-import { developerSetStatusRequest } from '@/actions/developer-set-status'
+import { setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { FormikProps } from '@reapit/elements'
@@ -29,7 +29,7 @@ describe('onSubmitStatus', () => {
     fn(params)
     expect(setSubmitting).toBeCalledWith(true)
     expect(dispatch).toBeCalledWith(
-      developerSetStatusRequest({
+      setRequestDeveloperStatusFormState({
         ...developer,
         status: params.status,
         reapitReference: params.reapitReference,

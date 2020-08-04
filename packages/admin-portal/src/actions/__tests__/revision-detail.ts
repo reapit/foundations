@@ -1,12 +1,10 @@
 import {
-  revisionDetailLoading,
-  revisionDetailReceiveData,
-  revisionDetailRequestData,
-  revisionDetailClearData,
-  approveRevision,
-  declineRevision,
-  approveRevisionSetFormState,
-  declineRevisionSetFormState,
+  fetchRevisionSuccess,
+  fetchRevision,
+  requestApproveRevision,
+  requestDeclineRevision,
+  setRequestApproveRevisionFormState,
+  setRequestDeclineRevisionFormState,
   RevisionDetailRequestParams,
 } from '../revision-detail'
 import ActionTypes from '../../constants/action-types'
@@ -18,39 +16,29 @@ const params: RevisionDetailRequestParams = {
 }
 
 describe('revisionDetail actions', () => {
-  it('should create a revisionDetailLoading action', () => {
-    expect(revisionDetailLoading.type).toEqual(ActionTypes.REVISION_DETAIL_LOADING)
-    expect(revisionDetailLoading(true).data).toEqual(true)
+  it('should create a fetchRevisionSuccess action', () => {
+    expect(fetchRevisionSuccess.type).toEqual(ActionTypes.FETCH_REVISION_SUCCESS)
+    expect(fetchRevisionSuccess(revisionDetailDataStub).data).toEqual(revisionDetailDataStub)
   })
 
-  it('should create a revisionDetailReceiveData action', () => {
-    expect(revisionDetailReceiveData.type).toEqual(ActionTypes.REVISION_DETAIL_RECEIVE_DATA)
-    expect(revisionDetailReceiveData(revisionDetailDataStub).data).toEqual(revisionDetailDataStub)
+  it('should create a fetchRevision action', () => {
+    expect(fetchRevision.type).toEqual(ActionTypes.FETCH_REVISION)
+    expect(fetchRevision(params).data).toEqual(params)
   })
 
-  it('should create a revisionDetailRequestData action', () => {
-    expect(revisionDetailRequestData.type).toEqual(ActionTypes.REVISION_DETAIL_REQUEST_DATA)
-    expect(revisionDetailRequestData(params).data).toEqual(params)
+  it('should create a requestApproveRevision action', () => {
+    expect(requestApproveRevision.type).toEqual(ActionTypes.REQUEST_APPROVE_REVISION)
   })
 
-  it('should create a revisionDetailClearData action', () => {
-    expect(revisionDetailClearData.type).toEqual(ActionTypes.REVISION_DETAIL_CLEAR_DATA)
-    expect(revisionDetailClearData(null).data).toEqual(null)
+  it('should create a setRequestApproveRevisionFormState action', () => {
+    expect(setRequestApproveRevisionFormState.type).toEqual(ActionTypes.SET_REQUEST_APPROVE_REVISION_FORM_STATE)
   })
 
-  it('should create a approveRevision action', () => {
-    expect(approveRevision.type).toEqual(ActionTypes.REVISION_SUBMIT_APPROVE)
+  it('should create a requestDeclineRevision action', () => {
+    expect(requestDeclineRevision.type).toEqual(ActionTypes.REQUEST_DECLINE_REVISION)
   })
 
-  it('should create a approveRevisionSetFormState action', () => {
-    expect(approveRevisionSetFormState.type).toEqual(ActionTypes.REVISION_APPROVE_SET_FORM_STATE)
-  })
-
-  it('should create a declineRevision action', () => {
-    expect(declineRevision.type).toEqual(ActionTypes.REVISION_SUBMIT_DECLINE)
-  })
-
-  it('should create a declineRevisionSetFormState action', () => {
-    expect(declineRevisionSetFormState.type).toEqual(ActionTypes.REVISION_DECLINE_SET_FORM_STATE)
+  it('should create a setRequestDeclineRevisionFormState action', () => {
+    expect(setRequestDeclineRevisionFormState.type).toEqual(ActionTypes.SET_REQUEST_DECLINE_REVISION_FORM_STATE)
   })
 })

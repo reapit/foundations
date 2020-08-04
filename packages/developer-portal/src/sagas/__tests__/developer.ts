@@ -35,13 +35,13 @@ import {
   FetchBillingsParams,
   FetchBillingsByMonthParams,
   fetchBillingsByMonth,
-} from '@/services/traffic-events'
+} from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
 jest.mock('@/services/developers')
-jest.mock('@/services/traffic-events')
+jest.mock('@/services/billing')
 
 jest.mock('@reapit/elements')
 

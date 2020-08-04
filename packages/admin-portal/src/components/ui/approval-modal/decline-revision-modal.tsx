@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { RejectRevisionModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Formik } from '@reapit/elements'
-import { declineRevision } from '@/actions/revision-detail'
+import { requestDeclineRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
 import { selectAppRevisionDetail, selectAppRevisionFormState } from '@/selector/app-revisions'
 import { validationSchemaDeclineModal as validationSchema } from './validation-schema'
@@ -33,7 +33,7 @@ export const handleOnSubmit = (
 ) => (formValues: RejectRevisionModel) => {
   if (appId && appRevisionId) {
     setRejectionReason(formValues.rejectionReason || '')
-    dispatch(declineRevision({ appId, appRevisionId, ...formValues }))
+    dispatch(requestDeclineRevision({ appId, appRevisionId, ...formValues }))
   }
 }
 

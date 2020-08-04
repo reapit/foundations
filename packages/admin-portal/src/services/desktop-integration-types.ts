@@ -53,7 +53,7 @@ export const fetchDesktopIntegrationTypesList = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

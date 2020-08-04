@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ModalV2, Formik, Form, Button, RadioSelect, RadioSelectOption, Input, FormikProps } from '@reapit/elements'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { developerSetStatusRequest } from '@/actions/developer-set-status'
+import { setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { validationSchema } from './form-schema'
@@ -16,7 +16,7 @@ export const onSubmitStatus = (developer: UpdateDeveloperModel, dispatch: Dispat
   return ({ status, reapitReference }) => {
     setSubmitting(true)
     dispatch(
-      developerSetStatusRequest({
+      setRequestDeveloperStatusFormState({
         ...developer,
         status,
         reapitReference,

@@ -4,6 +4,7 @@ import { defaultState as developerListState } from '../../developers/list'
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
+import { errorMessages } from '@reapit/utils'
 
 describe('developersReducer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -11,9 +12,9 @@ describe('developersReducer reducer', () => {
     expect(newState).toEqual(developerReducerDefaultState)
   })
 
-  it('should set loading to true when DEVS_MANAGEMENT_LOADING action is called', () => {
+  it('should set loading to true when FETCH_DEVELOPER_LIST action is called', () => {
     const newState = developersReducer(undefined, {
-      type: ActionTypes.DEVS_MANAGEMENT_LOADING as ActionType,
+      type: ActionTypes.FETCH_DEVELOPER_LIST as ActionType,
       data: true,
     })
     const expected = {
@@ -23,7 +24,7 @@ describe('developersReducer reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set developer list data and loading to false when DEVS_MANAGEMENT_RECEIVE_DATA action is called', () => {
+  it('should set developer list data and loading to false when FETCH_DEVELOPER_LIST_SUCCESS action is called', () => {
     const newState = developersReducer(
       {
         ...developerReducerDefaultState,
@@ -33,7 +34,7 @@ describe('developersReducer reducer', () => {
         },
       },
       {
-        type: ActionTypes.DEVS_MANAGEMENT_RECEIVE_DATA as ActionType,
+        type: ActionTypes.FETCH_DEVELOPER_LIST_SUCCESS as ActionType,
         data: {
           ...developerStub,
           pageNumber: 1,
@@ -58,7 +59,7 @@ describe('developersReducer reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set loading to false when DEVS_MANAGEMENT_REQUEST_FAILURE action is called', () => {
+  it('should set loading to false when FETCH_DEVELOPER_LIST_FAILED action is called', () => {
     const newState = developersReducer(
       {
         ...developerReducerDefaultState,
@@ -68,13 +69,13 @@ describe('developersReducer reducer', () => {
         },
       },
       {
-        type: ActionTypes.DEVS_MANAGEMENT_REQUEST_FAILURE as ActionType,
-        data: null,
+        type: ActionTypes.FETCH_DEVELOPER_LIST_FAILED as ActionType,
+        data: errorMessages.DEFAULT_SERVER_ERROR,
       },
     )
     const expected = {
       ...developerReducerDefaultState,
-      list: { ...developerListState, isLoading: false },
+      list: { ...developerListState, isLoading: false, errorMessage: errorMessages.DEFAULT_SERVER_ERROR },
     }
     expect(newState).toEqual(expected)
   })

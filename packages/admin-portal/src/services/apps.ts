@@ -56,7 +56,7 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -72,7 +72,7 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -88,7 +88,7 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -104,7 +104,7 @@ export const featureAppById = async (params: FeatureAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -120,7 +120,7 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -136,7 +136,7 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -153,7 +153,7 @@ export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParam
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -170,7 +170,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

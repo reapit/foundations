@@ -1,38 +1,35 @@
-import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
+import { requestDeleteAppSuccess, requestDeleteAppFailed } from '@/actions/app-delete'
 import { put, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
-import { appsReceiveData } from '@/actions/apps-management'
+import { fetchAppListSuccess } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { logger } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
+import { notification } from '@reapit/elements'
 
-export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
+export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   try {
-    yield put(appDeleteRequestLoading())
     const response = yield call(deleteAppById, { id: appId })
     if (response) {
       const params = getParamsFromPath(window.location.search)
       const adminAppsResponse = yield call(fetchAppsList, { ...params })
-      yield put(appsReceiveData(adminAppsResponse))
+      yield put(fetchAppListSuccess(adminAppsResponse))
     }
-    yield put(appDeleteRequestSuccess())
+    yield put(requestDeleteAppSuccess())
   } catch (err) {
-    logger(err)
-    yield put(appDeleteRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    const networkErrorString = extractNetworkErrString(err)
+
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(requestDeleteAppFailed())
   }
 }
 
-export const appDeleteRequestListen = function*() {
-  yield takeLatest<Action<string>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga)
+export const requestDeleteAppListen = function*() {
+  yield takeLatest<Action<string>>(ActionTypes.DELETE_REQUEST_APP, requestDeleteAppSaga)
 }
 
-export default appDeleteRequestListen
+export default requestDeleteAppListen

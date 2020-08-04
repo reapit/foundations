@@ -21,7 +21,7 @@ import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 // import SetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { devsManagementRequestData, DevsManagementRequestDataValues } from '@/actions/devs-management'
+import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
 import qs from 'querystring'
 import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
@@ -29,7 +29,7 @@ import { cleanObject } from '@reapit/utils'
 import StatusModal from './set-status-modal/status-modal'
 
 // export interface DevsManagementMappedActions {
-//   fetchData: (requestdata: DevsManagementRequestDataValues) => void
+//   fetchData: (requestdata: fetchDeveloperListValues) => void
 // }
 
 // export interface DevsManagementMappedProps {
@@ -49,8 +49,8 @@ export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementF
   return { name, company, registeredFrom, registeredTo } as DevsManagementFilterFormValues
 }
 
-export const handleFetchData = (dispatch: Dispatch) => (requestData: DevsManagementRequestDataValues) => {
-  dispatch(devsManagementRequestData(requestData))
+export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDeveloperListValues) => {
+  dispatch(fetchDeveloperList(requestData))
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: DevsManagementFilterFormValues) => (

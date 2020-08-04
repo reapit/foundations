@@ -1,21 +1,13 @@
-import {
-  appDetailLoading,
-  appDetailReceiveData,
-  appDetailFailure,
-  AppDetailParams,
-  setAppDetailStale,
-} from '@/actions/app-detail'
+import { fetchAppDetailSuccess, fetchAppDetailFailed, AppDetailParams } from '@/actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { logger } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+import { notification } from '@reapit/elements'
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
-  yield put(appDetailLoading(true))
   try {
     const { id, clientId } = data
     const appDetailResponse = yield call(fetchAppById, {
@@ -28,25 +20,19 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
-    if (appDetailResponse) {
-      yield put(appDetailReceiveData({ data: appDetailResponse }))
-      yield put(setAppDetailStale(false))
-    } else {
-      yield put(appDetailFailure())
-    }
+    yield put(fetchAppDetailSuccess({ data: appDetailResponse }))
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(fetchAppDetailFailed(networkErrorString))
   }
 }
 
 export const appDetailDataListen = function*() {
-  yield takeLatest<Action<AppDetailParams>>(ActionTypes.APP_DETAIL_REQUEST_DATA, appDetailDataFetch)
+  yield takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL, appDetailDataFetch)
 }
 
 const appDetailSagas = function*() {

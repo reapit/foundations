@@ -4,8 +4,8 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { DeleteAppModal, AppDeleteProps, handleAfterClose, onDeleteButtonClick, handleUseEffect } from '../app-delete'
-import { appDeleteRequest } from '@/actions/app-delete'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { requestDeleteApp } from '@/actions/app-delete'
+import { setDeleteAppInitFormState } from '@/actions/app-delete'
 
 const mockProps: AppDeleteProps = {
   appId: 'test',
@@ -29,7 +29,7 @@ describe('app-delete', () => {
   test('handleUseEffect should run correctly', () => {
     const dispatch = jest.fn()
     handleUseEffect(dispatch)()
-    expect(dispatch).toHaveBeenCalledWith(appDeleteSetInitFormState())
+    expect(dispatch).toHaveBeenCalledWith(setDeleteAppInitFormState())
   })
 
   it('should match snapshot', () => {
@@ -71,7 +71,7 @@ describe('app-delete', () => {
     it('should run correctly', () => {
       const fn = onDeleteButtonClick(mockProps.appId, spyDispatch)
       fn()
-      expect(spyDispatch).toBeCalledWith(appDeleteRequest(mockProps.appId))
+      expect(spyDispatch).toBeCalledWith(requestDeleteApp(mockProps.appId))
     })
   })
 })

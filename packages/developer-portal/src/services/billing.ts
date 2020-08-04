@@ -2,7 +2,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { generateHeaderWithApiV2 } from './utils'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 
@@ -48,32 +47,6 @@ export type EndpointBillingDetailsModel = {
   cost?: number
 }
 
-export type TrafficEventsStatisticsSummaryModel = {
-  from?: string
-  to?: string
-  totalRequestCount?: number
-  totalEndpointCount?: number
-  requestsByEndpoint?: EndpointStatisticsModel[]
-  requestsByDate?: DateStatisticsModel[]
-  requestsByCustomer?: CustomerStatisticsModel[]
-}
-
-export type EndpointStatisticsModel = {
-  endpoint?: string
-  requestCount?: number
-}
-
-export type DateStatisticsModel = {
-  date?: string
-  requestCount?: number
-}
-
-export type CustomerStatisticsModel = {
-  customerId?: string
-  requestCount?: number
-}
-// end manual defined Model
-
 export type FetchBillingsParams = {
   developerId?: string
   dateFrom?: string
@@ -83,18 +56,6 @@ export type FetchBillingsParams = {
 export type FetchBillingsByMonthParams = {
   developerId?: string
   month: string
-}
-
-export type DownloadTrafficEventsByMonthParams = {
-  applicationId?: string[]
-  month: string
-}
-
-export type FetchTrafficStatisticsParams = {
-  applicationId?: string[]
-  customerId?: string[]
-  dateFrom?: string
-  dateTo?: string
 }
 
 export const fetchBillings = async (params: FetchBillingsParams): Promise<BillingSummaryModel> => {
@@ -122,39 +83,6 @@ export const fetchBillingsByMonth = async (
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
-export const downloadTrafficEventsByMonth = async (params: DownloadTrafficEventsByMonthParams) => {
-  try {
-    const { month, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.trafficEventBilling}/${month}/download?${setQueryParams(rest)}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
-export const fetchTrafficStatistics = async (
-  params: FetchTrafficStatisticsParams,
-): Promise<TrafficEventsStatisticsSummaryModel> => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.trafficEventStatistics}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

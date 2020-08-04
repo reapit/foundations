@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Table, H5, Section } from '@reapit/elements'
-import { TrafficEventsModel } from '@/reducers/app-http-traffic-event'
+import { TrafficEventsModel } from '@/reducers/traffic-statistics/list'
 
 export type TrafficEventTableProps = {
   trafficEvents: TrafficEventsModel | null

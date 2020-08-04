@@ -4,9 +4,9 @@ import ActionTypes from '../../../constants/action-types'
 import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 
 describe('appReduce - approvals', () => {
-  it('should set loading to true when APPROVALS_LOADING action is called', () => {
+  it('should set loading to true when FETCH_APPROVAL_LIST action is called', () => {
     const newState = appReducer(undefined, {
-      type: ActionTypes.APPROVALS_LOADING as ActionType,
+      type: ActionTypes.FETCH_APPROVAL_LIST as ActionType,
       data: true,
     })
     const expected = {
@@ -19,9 +19,9 @@ describe('appReduce - approvals', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set approvals list data when APPROVALS_RECEIVE_DATA action is called', () => {
+  it('should set approvals list data when FETCH_APPROVAL_LIST_SUCCESS action is called', () => {
     const newState = appReducer(undefined, {
-      type: ActionTypes.APPROVALS_RECEIVE_DATA as ActionType,
+      type: ActionTypes.FETCH_APPROVAL_LIST_SUCCESS as ActionType,
       data: approvalsStub.data,
     })
     const expected = {

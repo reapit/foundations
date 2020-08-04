@@ -9,7 +9,7 @@ import {
   BillingOverviewForPeriodV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
-import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
+import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/billing'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 export const developerCreate = actionCreator<CreateDeveloperModel>(ActionTypes.DEVELOPER_CREATE)
 export const developerSetFormState = actionCreator<FormState>(ActionTypes.DEVELOPER_SET_FORM_STATE)

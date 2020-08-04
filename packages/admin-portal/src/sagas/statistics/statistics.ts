@@ -1,16 +1,15 @@
-import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '@/actions/statistics'
+import { fetchStatisticsSucces, fetchStatisticsFailed, StatisticsRequestParams } from '@/actions/statistics'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import dayjs from 'dayjs'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { getDateRange } from '@/utils/statistics'
-import { logger } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
+import { notification } from '@reapit/elements'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 
@@ -33,31 +32,22 @@ export const statisticsDataFetch = function*({ data }) {
       APPS: fetchAppsList,
     }
 
-    if (!servicesToCall) {
-      throw new Error('No service matched')
-    }
-
     const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
-    if (response) {
-      yield put(statisticsReceiveData({ data: response.data, totalCount: response.totalCount }))
-    } else {
-      yield put(statisticsRequestFailure())
-    }
+    yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
   } catch (err) {
-    logger(err)
-    yield put(statisticsRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+
+    yield put(fetchStatisticsFailed(networkErrorString))
   }
 }
 
 export const statisticsDataListen = function*() {
-  yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.STATISTICS_REQUEST_DATA, statisticsDataFetch)
+  yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS, statisticsDataFetch)
 }
 
 const statisticsSagas = function*() {

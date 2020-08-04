@@ -8,11 +8,9 @@ export interface AppDetailParams {
   clientId?: string
 }
 
-export const appDetailRequestData = actionCreator<AppDetailParams>(ActionTypes.APP_DETAIL_REQUEST_DATA)
-export const appDetailLoading = actionCreator<boolean>(ActionTypes.APP_DETAIL_LOADING)
-export const appDetailReceiveData = actionCreator<{ data: AppDetailItem } | undefined>(
-  ActionTypes.APP_DETAIL_RECEIVE_DATA,
+export const fetchAppDetail = actionCreator<AppDetailParams>(ActionTypes.FETCH_APP_DETAIL)
+
+export const fetchAppDetailSuccess = actionCreator<{ data: AppDetailItem } | undefined>(
+  ActionTypes.FETCH_APP_DETAIL_SUCCESS,
 )
-export const appDetailFailure = actionCreator<string | void>(ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE)
-export const appDetailClearData = actionCreator<null>(ActionTypes.APP_DETAIL_CLEAR_DATA)
-export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_IS_STALE)
+export const fetchAppDetailFailed = actionCreator<string | void>(ActionTypes.FETCH_APP_DETAIL_FAILED)
