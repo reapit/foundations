@@ -1,5 +1,4 @@
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects'
-import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
@@ -18,6 +17,7 @@ import {
   deleteSubscription,
 } from '@/services/developer-subscriptions'
 import { getDeveloperId } from '@/utils/session'
+import { notification } from '@reapit/elements'
 
 export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
   try {
@@ -29,12 +29,10 @@ export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSu
     yield put(developerFetchSubscriptionsSuccess(response))
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -60,12 +58,10 @@ export const developerDeleteSubcription = function*({ data: id }: Action<string>
     yield put(developerFetchSubscriptions({ developerId }))
   } catch (err) {
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

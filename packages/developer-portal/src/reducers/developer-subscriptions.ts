@@ -16,22 +16,22 @@ export type DeveloperSubscriptionsState = {
 }
 
 export type CreateDeveloperSubscriptionsState = {
-  loading: boolean
+  isLoading: boolean
   error: boolean
 }
 
 export type ListDeveloperSubscriptionsState = {
   data: PagedResultSubscriptionModel_ | null
-  loading: boolean
+  isLoading: boolean
 }
 
 export const defaultState: DeveloperSubscriptionsState = {
   create: {
-    loading: false,
+    isLoading: false,
     error: false,
   },
   list: {
-    loading: false,
+    isLoading: false,
     data: null,
   },
 }
@@ -44,7 +44,7 @@ const developerSubscriptionsReducer = (
     return {
       ...state,
       create: {
-        loading: true,
+        isLoading: true,
         error: false,
       },
     }
@@ -54,7 +54,7 @@ const developerSubscriptionsReducer = (
     return {
       ...state,
       create: {
-        loading: false,
+        isLoading: false,
         error: false,
       },
     }
@@ -64,7 +64,7 @@ const developerSubscriptionsReducer = (
     return {
       ...state,
       create: {
-        loading: false,
+        isLoading: false,
         error: true,
       },
     }
@@ -85,7 +85,7 @@ const developerSubscriptionsReducer = (
       ...state,
       list: {
         ...state.list,
-        loading: true,
+        isLoading: true,
       },
     }
   }
@@ -95,7 +95,7 @@ const developerSubscriptionsReducer = (
     return {
       ...state,
       list: {
-        loading: false,
+        isLoading: false,
         data,
       },
     }

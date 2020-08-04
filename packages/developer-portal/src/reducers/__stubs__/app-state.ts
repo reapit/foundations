@@ -177,11 +177,11 @@ const appState: ReduxState = {
   },
   developerSubscriptions: {
     create: {
-      loading: false,
+      isLoading: false,
       error: false,
     },
     list: {
-      loading: false,
+      isLoading: false,
       data: {
         data: [],
       },
