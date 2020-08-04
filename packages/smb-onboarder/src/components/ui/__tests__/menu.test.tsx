@@ -1,9 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
-import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '@/components/ui/menu'
+import { Menu, MenuProps, generateMenuConfig, callbackAppClick, handleLogout } from '@/components/ui/menu'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
@@ -46,5 +47,11 @@ describe('Menu', () => {
       const fn = callbackAppClick()
       expect(fn).toEqual('https://marketplace.reapit.cloud/client/installed')
     })
+  })
+
+  it('should call handleLogout a snapshot', () => {
+    const spy = jest.spyOn(reapitConnectBrowserSession, 'connectLogoutRedirect')
+    handleLogout()
+    expect(spy).toBeCalled()
   })
 })

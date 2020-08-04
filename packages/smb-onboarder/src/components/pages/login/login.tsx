@@ -10,8 +10,6 @@ export const redirectToLoginPage = () => {
 }
 
 export const Login: React.FC = () => {
-  const loginHandler = React.useCallback(redirectToLoginPage, [])
-
   return (
     <div className={loginPageContainer}>
       <div className={loginFormContainer}>
@@ -21,7 +19,7 @@ export const Login: React.FC = () => {
         <p className="pb-8">Welcome to SMB</p>
 
         <Level>
-          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
+          <Button fullWidth type="submit" variant="primary" onClick={redirectToLoginPage}>
             Login
           </Button>
         </Level>

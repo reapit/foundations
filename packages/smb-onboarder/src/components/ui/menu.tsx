@@ -6,7 +6,7 @@ import { Location } from 'history'
 import { IoIosPeople } from 'react-icons/io'
 import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
 import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
-import { AuthContext } from '@/context'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateMenuConfig = (logout: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -100,16 +100,14 @@ export const callbackAppClick = () =>
 
 export type MenuProps = {}
 
-export const Menu: React.FC<MenuProps> = () => {
-  /*
-   * TODOME(Menu)
-   *use logout from REAPIT
-   */
+export const handleLogout = () => {
+  reapitConnectBrowserSession.connectLogoutRedirect()
+}
 
-  const { logout } = React.useContext(AuthContext)
+export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
 
-  const menuConfigs = generateMenuConfig(logout, location)
+  const menuConfigs = generateMenuConfig(handleLogout, location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
