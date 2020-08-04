@@ -10,9 +10,6 @@
       "@reapit/elements": [
         "../elements/src"
       ],
-      "@reapit/cognito-auth": [
-        "../cognito-auth/src"
-      ],
       "@reapit/utils": [
         "../utils/index.ts"
       ],
