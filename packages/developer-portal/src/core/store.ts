@@ -13,7 +13,7 @@ import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
-import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
+import trafficStatistics from '@/reducers/traffic-statistics'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
@@ -35,7 +35,7 @@ import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
-import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
+import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
@@ -73,7 +73,7 @@ export class Store {
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
-    appHttpTraffic: appHttpTrafficEventReducer,
+    trafficStatistics,
     developerSubscriptions,
     developers: developersReducer,
     webhooksTopics: webhooksTopicsReducer,
@@ -99,7 +99,7 @@ export class Store {
       fork(developerSetStatusSagas),
       fork(settingSagas),
       fork(appInstallationsSagas),
-      fork(appHttpTrafficEventSagas),
+      fork(trafficStatisticsSagas),
       fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
