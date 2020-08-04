@@ -21,7 +21,7 @@ import {
   fetchBillingsByMonth,
   FetchBillingsParams,
   FetchBillingsByMonthParams,
-} from '@/services/traffic-events'
+} from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
 
 export const developerCreate = function*({ data }: Action<CreateDeveloperModel>) {

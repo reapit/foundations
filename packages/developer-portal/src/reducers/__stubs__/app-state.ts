@@ -120,9 +120,11 @@ const appState: ReduxState = {
     variant: '',
     message: '',
   },
-  appHttpTraffic: {
-    perDayLoading: false,
-    trafficEvents: null,
+  trafficStatistics: {
+    list: {
+      isLoading: false,
+      data: null,
+    },
   },
   desktopIntegrationTypes: {
     list: {

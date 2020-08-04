@@ -1,4 +1,4 @@
-import { TrafficEventsModel } from '@/reducers/app-http-traffic-event'
+import { TrafficEventsModel } from '@/reducers/traffic-statistics/list'
 
 export const httpTrafficPerDayStub: TrafficEventsModel = {
   from: '2020-02-17',

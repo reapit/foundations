@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
 import { appInstallationsFilterRequestData } from '@/actions/app-installations'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
+import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GridFourCol, GridFourColItem, DatePicker, SelectBox, DATE_TIME_FORMAT, H6 } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
@@ -72,7 +72,7 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
     )
 
     dispatch(
-      httpTrafficPerDayRequestData({
+      fetchTrafficStatistics({
         applicationId: appId || appIds,
         customerId: clientId || clientIds,
         dateFrom: formattedDateForm,

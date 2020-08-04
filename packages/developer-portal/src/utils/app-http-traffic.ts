@@ -1,4 +1,4 @@
-import { RequestByDateModel } from '@/reducers/app-http-traffic-event'
+import { RequestByDateModel } from '@/reducers/traffic-statistics/list'
 
 export interface ChartDataModel {
   date: string

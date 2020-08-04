@@ -5,5 +5,5 @@ export const getAppUsageStats = (state: ReduxState) => {
 }
 
 export const getAppHttpTraffic = (state: ReduxState) => {
-  return state.appHttpTraffic
+  return state.trafficStatistics
 }
