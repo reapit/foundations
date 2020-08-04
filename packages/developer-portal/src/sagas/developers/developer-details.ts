@@ -2,10 +2,10 @@ import { all, fork, call, put, takeLatest } from 'redux-saga/effects'
 import { Action } from '@/types/core'
 import { FetchDeveloperByIdParams, fetchDeveloperById } from '@/services/developers'
 import { logger } from '@reapit/utils'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { fetchDeveloperDetailsSuccess, fetchDeveloperDetailsFailed } from '@/actions/developers'
+import { notification } from '@reapit/elements'
 
 export const fetchDeveloperDetails = function*({ data }: Action<FetchDeveloperByIdParams>) {
   try {
@@ -16,12 +16,10 @@ export const fetchDeveloperDetails = function*({ data }: Action<FetchDeveloperBy
   } catch (err) {
     logger(err)
     yield put(fetchDeveloperDetailsFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

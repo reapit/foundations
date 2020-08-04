@@ -9,10 +9,10 @@ import {
   RejectInviteMemberParams,
 } from '@/services/developers'
 import { logger } from '@reapit/utils'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { fetchMemberDetailsSuccess, fetchMemberDetailsFailed, setInviteMemberStatus } from '@/actions/developers'
+import { notification } from '@reapit/elements'
 
 export const fetchMemberDetailsSaga = function*({ data }: Action<FetchMemberDetailsParams>) {
   try {
@@ -23,12 +23,10 @@ export const fetchMemberDetailsSaga = function*({ data }: Action<FetchMemberDeta
   } catch (err) {
     yield put(fetchMemberDetailsFailed())
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -40,12 +38,10 @@ export const acceptInviteMemberSaga = function*({ data }: Action<AcceptInviteMem
   } catch (err) {
     yield put(setInviteMemberStatus('ERROR'))
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -57,12 +53,10 @@ export const rejectInviteMemberSaga = function*({ data }: Action<RejectInviteMem
   } catch (err) {
     yield put(setInviteMemberStatus('ERROR'))
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
