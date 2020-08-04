@@ -15,9 +15,11 @@ import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
-import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
+import webhooksTopicsReducer from '@/reducers/webhooks-topics'
+import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
+import noticationMessage from '@/reducers/notification-message'
 
 import {
   appDetailSagas,
@@ -39,12 +41,12 @@ import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
 import appInstallationsSagas from '@/sagas/app-installations'
-import noticationMessage from '@/reducers/notification-message'
-import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
+import { webhooksSubscriptionsSagas } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import webhookEditSagas from '../sagas/webhook-edit-modal'
-import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
+import webhookEditSagas from '@/sagas/webhook-edit-modal'
+import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
+import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 
 export class Store {
   static _instance: Store
@@ -75,9 +77,10 @@ export class Store {
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
     webhookEdit: webhookEditReducer,
-    webhooks: webhookSubscriptions,
     developerSubscriptions,
     developers: developersReducer,
+    webhooksTopics: webhooksTopicsReducer,
+    webhooksSubscriptions: webhooksSubscriptionsReducer,
   })
 
   static sagas = function*() {
@@ -101,9 +104,10 @@ export class Store {
       fork(appInstallationsSagas),
       fork(appHttpTrafficEventSagas),
       fork(webhookEditSagas),
-      fork(webhookSubscriptionsSagas),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
+      fork(webhooksTopicsSagas),
+      fork(webhooksSubscriptionsSagas),
     ])
   }
 

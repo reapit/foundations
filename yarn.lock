@@ -5236,6 +5236,18 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reapit/cognito-auth@^2.1.7":
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/@reapit/cognito-auth/-/cognito-auth-2.1.10.tgz#bf21664e2ad5f24f1b22529ffa9d9a3a4d11d0e8"
+  integrity sha512-6ul/Qv973P6yS/oHIoimE7FkNI0nt1I7d4hFZieaDSbE5wxDjAaRSu4GJEaY/fa0LXYSccQM5ypuiR7yN8HX0A==
+  dependencies:
+    "@reapit/elements" "^0.5.60"
+    amazon-cognito-identity-js "~3.0.13"
+    cors "^2.8.5"
+    hardtack "^4.1.2"
+    jsonwebtoken "^8.5.1"
+    snyk "^1.335.0"
+
 "@reapit/connect-session@1.0.0-alpha.1":
   version "1.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.0-alpha.1.tgz#4c06af14318a8dd355d6a5a233f3f1db0bc26402"
@@ -5244,6 +5256,37 @@
     isomorphic-fetch "^2.2.1"
     jsonwebtoken "^8.5.1"
     snyk "^1.335.0"
+
+"@reapit/elements@^0.5.60":
+  version "0.5.63"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.63.tgz#b660597b28eb79e9e603c866b801d2408bbf4fc7"
+  integrity sha512-m8PS9pSryibAfhzaWRVgoVzbUZ+mGqNNQxWAme/4bEdE3PqDKJClvc3LKUAHJoPnXGcOp91JkDFD6/4k39VSug==
+  dependencies:
+    "@storybook/theming" "^5.2.8"
+    "@types/rc-select" "^5.9.34"
+    bulma "^0.9.0"
+    formik "^2.0.4"
+    gh-pages "^2.2.0"
+    hardtack "^4.1.0"
+    himalaya "^1.1.0"
+    jsonwebtoken "^8.5.1"
+    linaria "^1.4.0-beta.10"
+    papaparse "^5.1.1"
+    pell "^1.0.6"
+    prop-types "^15.7.2"
+    rc-dialog "^8.0.1"
+    rc-notification "^4.0.0"
+    rc-select "^10.1.8"
+    rc-tooltip "^4.0.3"
+    react-datasheet "^1.4.0"
+    react-datepicker "^2.9.6"
+    react-google-map "^3.1.1"
+    react-google-maps-loader "4.2.5"
+    react-icons "^3.7.0"
+    react-image-crop "8.6.4"
+    react-table "7.2.2"
+    react-transition-group "^4.4.0"
+    snyk "^1.338.0"
 
 "@reapit/foundations-ts-definitions@0.0.85":
   version "0.0.85"
@@ -7364,6 +7407,13 @@
   version "6.9.3"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.3.tgz#b755a0934564a200d3efdf88546ec93c369abd03"
   integrity sha512-7s9EQWupR1fTc2pSMtXRQ9w9gLOcrJn+h7HOXw4evxyvVqMi4f+q7d2tnFe3ng3SNHjtK+0EzGMGFUQX4/AQRA==
+
+"@types/query-string@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@types/query-string/-/query-string-6.3.0.tgz#b6fa172a01405abcaedac681118e78429d62ea39"
+  integrity sha512-yuIv/WRffRzL7cBW+sla4HwBZrEXRNf1MKQ5SklPEadth+BKbDxiVG8A3iISN5B3yC4EeSCzMZP8llHTcUhOzQ==
+  dependencies:
+    query-string "*"
 
 "@types/range-parser@*":
   version "1.2.3"
@@ -27564,6 +27614,15 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+query-string@*, query-string@^6.13.0, query-string@^6.13.1:
+  version "6.13.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.1.tgz#d913ccfce3b4b3a713989fe6d39466d92e71ccad"
+  integrity sha512-RfoButmcK+yCta1+FuU8REvisx1oEzhMKwhLUNcepQTPGcNMp1sIqjnfCtfnvGSQZQEhaBHvccujtWoUV3TTbA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 query-string@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-5.0.0.tgz#fbdf7004b4d2aff792f9871981b7a2794f555947"
@@ -27589,15 +27648,6 @@ query-string@^5.0.1:
     decode-uri-component "^0.2.0"
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
-
-query-string@^6.13.0, query-string@^6.13.1:
-  version "6.13.1"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.1.tgz#d913ccfce3b4b3a713989fe6d39466d92e71ccad"
-  integrity sha512-RfoButmcK+yCta1+FuU8REvisx1oEzhMKwhLUNcepQTPGcNMp1sIqjnfCtfnvGSQZQEhaBHvccujtWoUV3TTbA==
-  dependencies:
-    decode-uri-component "^0.2.0"
-    split-on-first "^1.0.0"
-    strict-uri-encode "^2.0.0"
 
 querystring-browser@^1.0.4:
   version "1.0.4"

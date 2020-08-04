@@ -16,15 +16,15 @@ import {
 import { logger } from '@reapit/utils'
 import errorMessages from '../constants/error-messages'
 import { errorThrownServer } from '../actions/error'
-import { webhookSubscriptionsReceiveData, setApplicationId } from '@/actions/webhook-subscriptions'
-import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
+import { fetchWebhooksSubscriptionsSuccess, setApplicationId } from '@/actions/webhooks-subscriptions'
 import {
-  fetchWebhooksTopicsList,
+  fetchWebhooksTopicsListApi,
   createWebhooksSubscription,
   updateWebhooksSubscriptionById,
   deleteWebhooksSubscriptionById,
-  fetchWebhooksSubscriptionsList,
+  fetchWebhooksSubscriptionsListApi,
   fetchWebhooksSubscriptionById,
+  PagedResultWebhookModel_,
 } from '@/services/webhooks'
 import { fetchInstallationsList } from '@/services/installations'
 
@@ -32,7 +32,7 @@ export const requestSupcriptionData = function*({ data: applicationId }: Action<
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
-      call(fetchWebhooksTopicsList, { applicationId }),
+      call(fetchWebhooksTopicsListApi, { applicationId }),
       call(fetchInstallationsList, { appId: [applicationId] }),
     ])
     if (subcriptionCustomers && subcriptionTopics) {
@@ -63,10 +63,10 @@ export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>)
     if (createResponse) {
       yield put(webhookSetOpenModal(''))
       const { applicationId } = data
-      newListResponse = yield call(fetchWebhooksSubscriptionsList, { applicationId: [applicationId] })
+      newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
     }
     if (newListResponse) {
-      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+      yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
     logger(err)
@@ -86,10 +86,10 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
     if (editResponse) {
       yield put(webhookSetOpenModal(''))
       const { applicationId } = data
-      newListResponse = yield call(fetchWebhooksSubscriptionsList, { applicationId: [applicationId] })
+      newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
     }
     if (newListResponse) {
-      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+      yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
     logger(err)
@@ -109,10 +109,10 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
     let newListResponse = false
     if (deleteResponse) {
       yield put(webhookSetOpenModal(''))
-      newListResponse = yield call(fetchWebhooksSubscriptionsList, { applicationId: [applicationId] })
+      newListResponse = yield call(fetchWebhooksSubscriptionsListApi, { applicationId: [applicationId] })
     }
     if (newListResponse) {
-      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+      yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
     logger(err)

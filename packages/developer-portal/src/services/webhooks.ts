@@ -121,7 +121,7 @@ export type FetchWebhooksTopicByIdParams = FetchByIdCommonParams
 export type UpdateWebhooksTopicByIdParams = FetchByIdCommonParams & UpdateTopicModel
 
 // Subscription
-export const fetchWebhooksSubscriptionsList = async (
+export const fetchWebhooksSubscriptionsListApi = async (
   params: FetchWebhooksSubscriptionsListParams,
 ): Promise<PagedResultWebhookModel_> => {
   try {
@@ -229,7 +229,7 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
 }
 
 // Topic
-export const fetchWebhooksTopicsList = async (
+export const fetchWebhooksTopicsListApi = async (
   params: FetchWebhooksTopicsListParams,
 ): Promise<PagedResultTopicModel_> => {
   try {
