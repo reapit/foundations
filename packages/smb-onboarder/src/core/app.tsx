@@ -7,6 +7,8 @@ import { AuthContext } from '@/context'
 import getClient from '@/graphql/client'
 import Router from './router'
 import UploadProvider from '@/components/providers/upload-provider'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 
 export const globals = css`
   :global() {
@@ -20,12 +22,27 @@ export const globals = css`
 `
 
 const App = () => {
+  /*
+   * TODOME(App)
+   * access token get from useReapitConnect
+   * temp return null
+   * just try to print token
+   * amc comment bakc
+   */
+
   const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
-  if (!loginSession && refreshParams) {
-    getLoginSession(refreshParams)
-  }
+  // if (!loginSession && refreshParams) {
+  //   getLoginSession(refreshParams)
+  // }
   const accessToken = loginSession?.accessToken || ''
   window.reapit.config.accessToken = accessToken
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  console.log({ connectSession })
+
+  /*
+   * TODOME(App)
+   * remove context
+   */
 
   return (
     <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, ...rest }}>

@@ -6,6 +6,11 @@ export const token = {
   refreshToken: 'mockRefreshToken',
 }
 
+/*
+ * TODOME(cognito)
+ * remove
+ */
+
 export const loginParams = {
   userName: 'mockUsername',
   password: 'mockPassword',

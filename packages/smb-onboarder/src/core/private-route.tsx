@@ -16,11 +16,19 @@ export interface PrivateRouteProps extends PrivateRouteConnectProps {
 
 export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }: PrivateRouteProps & RouteProps) => {
   const allowTypes = Array.isArray(allow) ? allow : [allow]
+  /*
+   * TODOME(PrivateRoute)
+   *remove types, router only accept CLIET
+   */
   allowTypes.includes(loginType)
   return (
     <Route
       {...rest}
       render={props => {
+        /*
+         * TODOME(PrivateRoute)
+         *remove types, router only accept CLIET
+         */
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
         }

@@ -33,7 +33,8 @@
     "@reapit/utils": "^0.0.1",
     "apollo-boost": "^0.4.7",
     "async": "^3.2.0",
-    "snyk": "^1.341.1"
+    "snyk": "^1.341.1",
+    "@reapit/connect-session": "1.0.0-alpha.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",

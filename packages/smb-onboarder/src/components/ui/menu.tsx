@@ -101,6 +101,11 @@ export const callbackAppClick = () =>
 export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
+  /*
+   * TODOME(Menu)
+   *use logout from REAPIT
+   */
+
   const { logout } = React.useContext(AuthContext)
   const location = useLocation()
 

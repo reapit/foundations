@@ -7,6 +7,10 @@ import connectImage from '@/assets/images/reapit-connect.png'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { AuthContext } from '@/context'
 import { loginFormContainer, imageContainer, loginPageContainer } from './__styles__'
+/*
+ * TODOME(Login)
+ * use login handler from @reapit
+ */
 
 export const redirectToLoginPage = () => {
   const cognitoClientId = window.reapit.config.cognitoClientId
@@ -15,6 +19,11 @@ export const redirectToLoginPage = () => {
 
 export const Login: React.FC = () => {
   const loginHandler = React.useCallback(redirectToLoginPage, [])
+  /*
+   * TODOME(Login)
+   * remove this login
+   */
+
   const { loginSession } = React.useContext(AuthContext)
 
   if (loginSession) {

@@ -1,4 +1,9 @@
 import { StringMap } from '@/types/core'
+/*
+ * TODOME(cognito)
+ * remove
+ */
+
 import { COOKIE_SESSION_KEY as COGNITIO_COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 
 export const CONTACTS_HEADERS = {
