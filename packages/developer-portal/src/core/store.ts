@@ -13,7 +13,6 @@ import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
-import webhookEditReducer from '../reducers/webhook-edit-modal'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
@@ -39,9 +38,8 @@ import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
 import appInstallationsSagas from '@/sagas/app-installations'
-import { webhooksSubscriptionsSagas } from '@/sagas/webhooks-subscriptions'
+import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import webhookEditSagas from '@/sagas/webhook-edit-modal'
 import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
@@ -73,7 +71,6 @@ export class Store {
     installations: appInstallationsReducer,
     noticationMessage,
     appHttpTraffic: appHttpTrafficEventReducer,
-    webhookEdit: webhookEditReducer,
     developerSubscriptions,
     developers: developersReducer,
     webhooksTopics: webhooksTopicsReducer,
@@ -99,7 +96,7 @@ export class Store {
       fork(settingSagas),
       fork(appInstallationsSagas),
       fork(appHttpTrafficEventSagas),
-      fork(webhookEditSagas),
+      fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
       fork(webhooksTopicsSagas),

@@ -84,9 +84,17 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
 
   const { hasReapitAccountsRef, reapitReference } = values
 
-  // after submit debit, hide this section
-  // when status is pending and hasReapitAccountRef is no -> mean that user already set up debit -> hide this section
-  const shouldHideDebitSection = (initialStatus === 'pending' && hasReapitAccountsRef === 'no') || isSubmittedDebit
+  const isInitialStatusPending = initialStatus === 'pending'
+  const isInitialStatusIncomplete = initialStatus === 'incomplete'
+  const isInnitialStatusInvalid = !(isInitialStatusPending || isInitialStatusIncomplete)
+  const shouldHideDebitSection =
+    // after submit debit, hide this section
+    // when status is pending and hasReapitAccountRef is no -> mean that user already set up debit -> hide this section
+    (isInitialStatusPending && hasReapitAccountsRef === 'no') ||
+    isSubmittedDebit ||
+    // https://github.com/reapit/foundations/issues/1987
+    // hide the direct debit section when status is not pending and incomplete
+    isInnitialStatusInvalid
 
   const isShowDirectDebitWithRef =
     hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH

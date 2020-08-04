@@ -11,6 +11,10 @@ type AccountStatusSectionProps = {
   hasReapitAccountsRef: string
 }
 
+export const capitalizeFirstLetter: (str: string) => string = str => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
   initialStatus,
   isSubmittedDebit,
@@ -47,7 +51,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
         {initialStatus === 'pending' && (
           <p className="mb-1">We are currently verifying your information with our Accounts Department</p>
         )}
-        <b>ACCOUNT STATUS:</b> <i>{initialStatus}</i>
+        <b>ACCOUNT STATUS:</b> <i>{capitalizeFirstLetter(initialStatus || '')}</i>
       </Content>
     </GridItem>
   )

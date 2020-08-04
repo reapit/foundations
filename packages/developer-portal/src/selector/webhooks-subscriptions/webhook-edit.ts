@@ -1,24 +1,24 @@
 import { ReduxState } from '@/types/core'
 
 export const selectTopics = (state: ReduxState) => {
-  return state.webhookEdit?.subcriptionTopics?._embedded || []
+  return state.webhooksSubscriptions?.edit?.subcriptionTopics?._embedded || []
 }
 export const selectCustomers = (state: ReduxState) => {
-  return state.webhookEdit?.subcriptionCustomers?.data || []
+  return state.webhooksSubscriptions?.edit?.subcriptionCustomers?.data || []
 }
 
 export const selectLoading = (state: ReduxState) => {
-  return state.webhookEdit?.loading
+  return state.webhooksSubscriptions?.edit?.loading
 }
 
 export const selectWebhookData = (state: ReduxState) => {
-  return state.webhookEdit?.webhookData
+  return state.webhooksSubscriptions?.edit?.webhookData
 }
 
 export const selectWebhookTopicsSubcription = (state: ReduxState) => {
-  return state.webhookEdit?.webhookData?.topicIds
+  return state.webhooksSubscriptions?.edit?.webhookData?.topicIds
 }
 
 export const selectWebhookEditModalType = (state: ReduxState): string => {
-  return state.webhookEdit.modalType
+  return state.webhooksSubscriptions?.edit.modalType
 }

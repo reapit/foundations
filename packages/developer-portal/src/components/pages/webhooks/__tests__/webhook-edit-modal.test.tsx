@@ -11,8 +11,8 @@ import WebhookCreateModal, {
   generateTopicOptions,
   FormValuesType,
 } from '../webhook-edit-modal'
-import { TopicItem, CustomerItem } from '@/reducers/webhook-edit-modal'
-import { editWebhook, createWebhook } from '@/actions/webhook-edit-modal'
+import { TopicItem, CustomerItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { editWebhook, createWebhook } from '@/actions/webhooks-subscriptions'
 
 const mockProps: WebhookEditProps = {
   appId: '',

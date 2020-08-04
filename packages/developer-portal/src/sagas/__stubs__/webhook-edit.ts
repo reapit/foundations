@@ -1,5 +1,9 @@
-import { WebhookSubscription, WebhookModal, WebhookEditState } from '@/reducers/webhook-edit-modal'
-import { CreateWebhookParams } from '@/actions/webhook-edit-modal'
+import {
+  WebhookSubscription,
+  WebhookModal,
+  WebhookEditState,
+} from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { CreateWebhookParams } from '@/actions/webhooks-subscriptions'
 
 export const webhookDataStub: WebhookSubscription = {
   subcriptionCustomers: {
