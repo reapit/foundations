@@ -7,10 +7,10 @@ import { SelectBox, H3, FormSection, FormSubHeading, LevelRight, Button, Table, 
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
-import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
+import { fetchWebhooksSubscriptions } from '@/actions/webhooks-subscriptions'
 import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
-import { WebhookModel } from '@/reducers/webhook-subscriptions'
-import { selectSubscriptionsData, selectSubscriptionsLoading, selectWebhookEditModalType } from '@/selector/wehooks'
+import { selectSubscriptionsData, selectSubscriptionsLoading } from '@/selector/webhooks-subscriptions'
+import { selectWebhookEditModalType } from '@/selector/webhook-edit'
 import { selectTopicsData } from '@/selector/webhooks-topics'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from './webhook-edit-modal'
@@ -22,7 +22,7 @@ import Routes from '@/constants/routes'
 import { selectAppListState } from '@/selector/apps/app-list'
 import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
 import { useHistory } from 'react-router-dom'
-import { TopicModel } from '@/services/webhooks'
+import { TopicModel, WebhookModel } from '@/services/webhooks'
 import { URLS } from '@/services/constants'
 
 export type DeveloperWebhooksProps = {}
@@ -66,12 +66,8 @@ export const MODAL_TYPE = {
   TEST: 'TEST',
 }
 
-export const handleSubscriptionChange = (dispatch: Dispatch, history: History) => (
-  values: WebhooksFormValues,
-): void => {
+export const handleSubscriptionChange = (history: History) => (values: WebhooksFormValues): void => {
   const { applicationId } = values
-  dispatch(webhookSubscriptionsRequestData(applicationId))
-  dispatch(fetchWebhooksTopics({ applicationId }))
   history.push(`${URLS.webhooks}?applicationId=${applicationId}`)
 }
 
@@ -133,10 +129,10 @@ export const getTableTopicsData = ({
 }: GetTableTopicsDataParams) => {
   return subscriptions?.map((subscription: WebhookModel) => ({
     url: subscription.url,
-    topics: renderTopicName(topics, subscription.topicIds),
-    customer: renderCustomerName(subscription.customerIds),
+    topics: renderTopicName(topics, subscription.topicIds as string[]),
+    customer: renderCustomerName(subscription.customerIds as string[]),
     test: (
-      <a className={styles.hyperlinked} onClick={() => handleOpenTestModal(subscription.id)}>
+      <a className={styles.hyperlinked} onClick={() => handleOpenTestModal(subscription.id as string)}>
         Ping
       </a>
     ),
@@ -146,7 +142,7 @@ export const getTableTopicsData = ({
         variant="primary"
         type="button"
         onClick={() => {
-          handleOpenEditModal(subscription.id)
+          handleOpenEditModal(subscription.id as string)
         }}
       >
         Edit
@@ -169,6 +165,10 @@ export const DeveloperWebhooks = () => {
   const queryParams = qs.parse(history.location.search)
   const applicationId = queryParams.applicationId
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
+  React.useEffect(() => {
+    dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[] }))
+    dispatch(fetchWebhooksTopics({ applicationId }))
+  }, [dispatch, applicationId])
 
   const subscriptions = useSelector(selectSubscriptionsData)
   const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
@@ -229,7 +229,7 @@ export const DeveloperWebhooks = () => {
                 labelText="App"
                 id="subscription"
               />
-              <FormikAutoSave onSave={handleSubscriptionChange(dispatch, history)} />
+              <FormikAutoSave onSave={handleSubscriptionChange(history)} />
             </Form>
           )}
         </Formik>

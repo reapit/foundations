@@ -121,7 +121,7 @@ export type FetchWebhooksTopicByIdParams = FetchByIdCommonParams
 export type UpdateWebhooksTopicByIdParams = FetchByIdCommonParams & UpdateTopicModel
 
 // Subscription
-export const fetchWebhooksSubscriptionsList = async (
+export const fetchWebhooksSubscriptionsListApi = async (
   params: FetchWebhooksSubscriptionsListParams,
 ): Promise<PagedResultWebhookModel_> => {
   try {
