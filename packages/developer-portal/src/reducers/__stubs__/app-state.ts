@@ -25,6 +25,16 @@ const appState: ReduxState = {
         data: {},
         isLoading: false,
       },
+      list: {
+        data: [],
+        isLoading: false,
+      },
+      declineRevision: {
+        isLoading: false,
+      },
+      createRevision: {
+        isLoading: false,
+      },
     },
   },
   scopes: {
@@ -55,23 +65,9 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  submitRevision: {
-    formState: 'PENDING',
-  },
   developerSetStatus: {
     formState: 'PENDING',
   },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    declineFormState: 'PENDING',
-  },
-  revisions: {
-    loading: false,
-    revisions: null,
-  },
-  appDetailModal: 'VIEW_DETAIL_BROWSE',
   settings: {
     loading: true,
     developerInfomation: {

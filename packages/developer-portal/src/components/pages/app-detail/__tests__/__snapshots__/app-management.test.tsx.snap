@@ -1,150 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ManageApp should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "developerAppDetailRoute",
-          "pathname": "/apps/:appid",
-        },
-      ]
-    }
+<Component>
+  <Component
+    className="mb-2"
+    dataTest="detail-modal-edit-button"
+    fullWidth={true}
+    onClick={[Function]}
+    type="button"
+    variant="primary"
   >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "developerAppDetailRoute",
-              "pathname": "/apps/:appid",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "developerAppDetailRoute",
-            "pathname": "/apps/:appid",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Component
-        appDetailState={
-          Object {
-            "data": Object {
-              "description": "enim facilisis",
-              "developer": "Pete's Proptech World Ltd",
-              "homePage": "http://myawesomeproptechproduct.io",
-              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
-              "media": Array [
-                Object {
-                  "description": "Application Icon",
-                  "type": "icon",
-                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-                },
-                Object {
-                  "description": "Application Image",
-                  "type": "image",
-                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-                },
-                Object {
-                  "description": "Application Image",
-                  "type": "image",
-                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-                },
-              ],
-              "name": "Peter's Properties",
-              "scopes": Array [
-                Object {
-                  "description": "Read data about developers",
-                  "name": "Marketplace/developers.read",
-                },
-                Object {
-                  "description": "Write data about developers",
-                  "name": "Marketplace/developers.write",
-                },
-              ],
-              "summary": "vitae elementum curabitur vitae",
-              "supportEmail": "support@reapit.com",
-              "telephone": "0113 288 2900",
-            },
-            "errorMessage": "",
-            "isLoading": false,
-          }
-        }
-        id="test"
-        pendingRevisions={false}
-      >
-        <Component>
-          <div
-            className=""
-            data-test=""
-          >
-            <Component
-              className="mb-2"
-              dataTest="detail-modal-edit-button"
-              fullWidth={true}
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button mb-2 is-primary is-fullwidth "
-                data-test="detail-modal-edit-button"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                EDIT DETAILS
-              </button>
-            </Component>
-            <Component
-              className="mb-2"
-              fullWidth={true}
-              onClick={[Function]}
-              variant="danger"
-            >
-              <button
-                className="button mb-2 is-danger is-fullwidth "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                DELETE APP
-              </button>
-            </Component>
-          </div>
-        </Component>
-      </Component>
-    </Router>
-  </MemoryRouter>
-</Provider>
+    EDIT DETAILS
+  </Component>
+  <Component
+    className="mb-2"
+    fullWidth={true}
+    onClick={[Function]}
+    variant="danger"
+  >
+    DELETE APP
+  </Component>
+</Component>
 `;
