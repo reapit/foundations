@@ -4,15 +4,9 @@ import { createBrowserHistory } from 'history'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
 import { AuthHook } from '@/hooks/use-auth'
-import * as cognito from '@reapit/cognito-auth'
 import { redirectToLoginPage, Login } from '@/components/pages/login/login'
 import { Router, Route } from 'react-router-dom'
-
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-  getTokenFromQueryString: jest.fn(),
-  getSessionCookie: jest.fn(),
-}))
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 describe('Login', () => {
   it('should match a snapshot', () => {
@@ -39,7 +33,7 @@ describe('Login', () => {
   })
 
   it('should call redirectToLogin a snapshot', () => {
-    const spy = jest.spyOn(cognito, 'redirectToLogin')
+    const spy = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
     redirectToLoginPage()
     expect(spy).toBeCalled()
   })

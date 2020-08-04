@@ -27,10 +27,6 @@ export const renderApp = (Component: React.ComponentType) => {
     render(<Component />, rootElement)
   }
 }
-/*
- * TODOME(installConnectSession)
- * update to lazyload app
- */
 
 const run = async () => {
   try {

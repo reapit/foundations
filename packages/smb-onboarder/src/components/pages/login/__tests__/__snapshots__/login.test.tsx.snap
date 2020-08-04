@@ -4,9 +4,101 @@ exports[`Login should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div>
+      <div
+        class=""
+      >
+        <div
+          class=""
+        >
+          <div
+            class=""
+            data-test=""
+          >
+            <img
+              alt="Reapit Connect Graphic"
+              src=""
+            />
+          </div>
+          <p
+            class="pb-8"
+          >
+            Welcome to SMB
+          </p>
+          <div
+            class=""
+            data-test=""
+          >
+            <button
+              class="button  is-primary is-fullwidth "
+              data-test=""
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+          <div
+            class=""
+          />
+        </div>
+        <div
+          class=""
+        >
+          <img
+            alt="Reapit Graphic"
+            src=""
+          />
+        </div>
+      </div>
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        <div
+          class=""
+          data-test=""
+        >
+          <img
+            alt="Reapit Connect Graphic"
+            src=""
+          />
+        </div>
+        <p
+          class="pb-8"
+        >
+          Welcome to SMB
+        </p>
+        <div
+          class=""
+          data-test=""
+        >
+          <button
+            class="button  is-primary is-fullwidth "
+            data-test=""
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <div
+          class=""
+        />
+      </div>
+      <div
+        class=""
+      >
+        <img
+          alt="Reapit Graphic"
+          src=""
+        />
+      </div>
+    </div>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
