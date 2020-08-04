@@ -8,9 +8,9 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
 import { fetchWebhooksSubscriptions } from '@/actions/webhooks-subscriptions'
-import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
+import { webhookSetOpenModal } from '@/actions/webhooks-subscriptions'
 import { selectSubscriptionsData, selectSubscriptionsLoading } from '@/selector/webhooks-subscriptions'
-import { selectWebhookEditModalType } from '@/selector/webhook-edit'
+import { selectWebhookEditModalType } from '@/selector/webhooks-subscriptions'
 import { selectTopicsData } from '@/selector/webhooks-topics'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from './webhook-edit-modal'
@@ -166,8 +166,10 @@ export const DeveloperWebhooks = () => {
   const applicationId = queryParams.applicationId
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
   React.useEffect(() => {
-    dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[] }))
-    dispatch(fetchWebhooksTopics({ applicationId }))
+    if (applicationId) {
+      dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[] }))
+      dispatch(fetchWebhooksTopics({ applicationId }))
+    }
   }, [dispatch, applicationId])
 
   const subscriptions = useSelector(selectSubscriptionsData)

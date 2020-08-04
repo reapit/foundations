@@ -29,9 +29,9 @@ import {
   requestWebhookData,
   webhookDataClear,
   deleteWebhook,
-} from '@/actions/webhook-edit-modal'
-import { CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
-import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
+} from '@/actions/webhooks-subscriptions'
+import { CustomerItem, TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhooks-subscriptions'
 import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 

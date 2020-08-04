@@ -135,7 +135,7 @@ export const fetchWebhooksSubscriptionsListApi = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -152,7 +152,7 @@ export const createWebhooksSubscription = async (params: CreateWebhooksSubscript
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -171,7 +171,7 @@ export const fetchWebhooksSubscriptionById = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -189,7 +189,7 @@ export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubsc
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -206,7 +206,7 @@ export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubsc
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -224,7 +224,7 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -243,7 +243,7 @@ export const fetchWebhooksTopicsListApi = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -260,7 +260,7 @@ export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => 
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -277,7 +277,7 @@ export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParam
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdParams) => {
@@ -294,6 +294,6 @@ export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdPar
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

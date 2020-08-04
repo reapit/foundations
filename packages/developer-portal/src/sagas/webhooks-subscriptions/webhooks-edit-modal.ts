@@ -1,7 +1,7 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
-import { Action } from '../types/core'
-import ActionTypes from '../constants/action-types'
-import { WebhookModal } from '@/reducers/webhook-edit-modal'
+import { Action } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
+import { WebhookModal } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import {
   requestWebhookSubcriptionReceiveFailure,
   requestWebhookSubcriptionReceiveData,
@@ -12,10 +12,8 @@ import {
   requestWebhookSubcriptionData,
   DeleteWebhookParams,
   webhookSetOpenModal,
-} from '@/actions/webhook-edit-modal'
-import { logger } from '@reapit/utils'
-import errorMessages from '../constants/error-messages'
-import { errorThrownServer } from '../actions/error'
+} from '@/actions/webhooks-subscriptions'
+import errorMessages from '@/constants/error-messages'
 import { fetchWebhooksSubscriptionsSuccess, setApplicationId } from '@/actions/webhooks-subscriptions'
 import {
   fetchWebhooksTopicsListApi,
@@ -27,8 +25,9 @@ import {
   PagedResultWebhookModel_,
 } from '@/services/webhooks'
 import { fetchInstallationsList } from '@/services/installations'
+import { notification } from '@reapit/elements'
 
-export const requestSupcriptionData = function*({ data: applicationId }: Action<string>) {
+export const requestSubcriptionData = function*({ data: applicationId }: Action<string>) {
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
@@ -46,13 +45,10 @@ export const requestSupcriptionData = function*({ data: applicationId }: Action<
       yield put(requestWebhookSubcriptionReceiveFailure())
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -69,13 +65,10 @@ export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>)
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -92,13 +85,10 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -115,13 +105,10 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
       yield put(fetchWebhooksSubscriptionsSuccess(newListResponse as PagedResultWebhookModel_))
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -132,19 +119,16 @@ export const requestWebhookData = function*({ data: webhookId }: Action<string>)
     yield put(requestWebhookReceiveData(data))
     yield put(requestWebhookSubcriptionData(applicationId))
   } catch (err) {
-    logger(err)
     yield put(requestWebhookReceiveDataFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
 export const requestWebhookSupcriptionDataListen = function*() {
-  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA, requestSupcriptionData)
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA, requestSubcriptionData)
 }
 
 export const createWebhookListen = function*() {
@@ -163,7 +147,7 @@ export const deleteWebhookListen = function*() {
   yield takeLatest<Action<DeleteWebhookParams>>(ActionTypes.WEBHOOK_DELETE, deleteWebhook)
 }
 
-const developerWebhookSagas = function*() {
+export const webhooksEditSubscription = function*() {
   yield all([
     fork(requestWebhookSupcriptionDataListen),
     fork(createWebhookListen),
@@ -172,5 +156,3 @@ const developerWebhookSagas = function*() {
     fork(deleteWebhookListen),
   ])
 }
-
-export default developerWebhookSagas

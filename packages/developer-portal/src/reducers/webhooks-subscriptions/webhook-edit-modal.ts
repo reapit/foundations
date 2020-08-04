@@ -1,5 +1,5 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
+import { Action } from '@/types/core'
+import { isType } from '@/utils/actions'
 import {
   requestWebhookSubcriptionReceiveData,
   requestWebhookSubcriptionReceiveFailure,
@@ -8,7 +8,7 @@ import {
   webhookSetOpenModal,
   requestWebhookSubcriptionData,
   requestWebhookData,
-} from '../actions/webhook-edit-modal'
+} from '@/actions/webhooks-subscriptions'
 
 export interface WebhookModal {
   id: string
@@ -97,7 +97,7 @@ export const defaultState: WebhookEditState = {
   },
 }
 
-const WebhookEditReducer = (state: WebhookEditState = defaultState, action: Action<any>): WebhookEditState => {
+export const webhookEditReducer = (state: WebhookEditState = defaultState, action: Action<any>): WebhookEditState => {
   if (isType(action, requestWebhookSubcriptionData) || isType(action, requestWebhookData)) {
     return {
       ...state,
@@ -120,7 +120,7 @@ const WebhookEditReducer = (state: WebhookEditState = defaultState, action: Acti
   if (isType(action, requestWebhookReceiveData)) {
     return {
       ...state,
-      webhookData: action.data,
+      webhookData: action.data as any,
     }
   }
   if (isType(action, webhookDataClear)) {
@@ -129,10 +129,8 @@ const WebhookEditReducer = (state: WebhookEditState = defaultState, action: Acti
   if (isType(action, webhookSetOpenModal)) {
     return {
       ...state,
-      modalType: action.data,
+      modalType: action.data as any,
     }
   }
   return state
 }
-
-export default WebhookEditReducer

@@ -130,33 +130,6 @@ const appState: ReduxState = {
       isLoading: false,
     },
   },
-  webhookEdit: {
-    loading: false,
-    modalType: '',
-    subcriptionCustomers: {
-      data: [],
-      pageNumber: 0,
-      pageSize: 0,
-      pageCount: 0,
-      totalCount: 0,
-    },
-    subcriptionTopics: {
-      _embedded: [],
-      pageNumber: 0,
-      pageSize: 0,
-      pageCount: 0,
-      totalCount: 0,
-    },
-    webhookData: {
-      id: '',
-      applicationId: '',
-      url: '',
-      description: '',
-      topicIds: [],
-      customerIds: [],
-      active: false,
-    },
-  },
   webhooksSubscriptions: {
     list: {
       isLoading: false,
@@ -166,6 +139,33 @@ const appState: ReduxState = {
       pageSize: 0,
       pageCount: 0,
       totalCount: 0,
+    },
+    edit: {
+      loading: false,
+      modalType: '',
+      subcriptionCustomers: {
+        data: [],
+        pageNumber: 0,
+        pageSize: 0,
+        pageCount: 0,
+        totalCount: 0,
+      },
+      subcriptionTopics: {
+        _embedded: [],
+        pageNumber: 0,
+        pageSize: 0,
+        pageCount: 0,
+        totalCount: 0,
+      },
+      webhookData: {
+        id: '',
+        applicationId: '',
+        url: '',
+        description: '',
+        topicIds: [],
+        customerIds: [],
+        active: false,
+      },
     },
   },
   webhooksTopics: {
