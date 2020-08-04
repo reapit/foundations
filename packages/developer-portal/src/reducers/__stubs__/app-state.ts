@@ -189,20 +189,18 @@ const appState: ReduxState = {
   },
   developers: {
     members: {
-      loading: false,
-      pagedResult: {
-        data: [],
-      },
+      isLoading: false,
+      data: [],
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     },
     developerDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
     },
     memberDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
       inviteStatus: 'PENDING',
     },

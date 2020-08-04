@@ -21,10 +21,10 @@ import {
   inviteDeveloperAsOrgMemberSuccess,
   fetchOrganisationMembers as fetchOrganisationMembersAction,
 } from '@/actions/developers'
-import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 import { getDeveloperId } from '@/utils/session'
+import { notification } from '@reapit/elements'
 
 const params: Action<InviteDeveloperAsOrgMemberParams & { callback: () => void }> = {
   data: {
@@ -58,15 +58,13 @@ describe('members', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw({ description: errorMessages.DEFAULT_SERVER_ERROR }).value).toEqual(
-        put(fetchOrganisationMembersFailed()),
+        put(fetchOrganisationMembersFailed(errorMessages.DEFAULT_SERVER_ERROR)),
       )
       expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+        notification.error({
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
     })
   })
@@ -104,12 +102,10 @@ describe('members', () => {
           put(inviteDeveloperAsOrgMemberFailed()),
         )
         expect(clone.next().value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+          notification.error({
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().done).toBe(true)
       }

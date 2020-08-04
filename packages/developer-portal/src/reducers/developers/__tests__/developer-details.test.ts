@@ -15,7 +15,7 @@ describe('developerDetailsReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: true,
+      isLoading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -27,7 +27,7 @@ describe('developerDetailsReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: false,
+      isLoading: false,
       data: {},
     }
     expect(newState).toEqual(expected)
@@ -40,7 +40,7 @@ describe('developerDetailsReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: false,
+      isLoading: false,
     }
     expect(newState).toEqual(expected)
   })
