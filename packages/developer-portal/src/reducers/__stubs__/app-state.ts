@@ -32,6 +32,9 @@ const appState: ReduxState = {
       declineRevision: {
         isLoading: false,
       },
+      createRevision: {
+        isLoading: false,
+      },
     },
   },
   scopes: {

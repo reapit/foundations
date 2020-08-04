@@ -19,9 +19,9 @@ import DeveloperSubmitApp, {
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
-import { submitRevision } from '@/actions/submit-revision'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { ReduxState } from '@/types/core'
+import { createAppRevision } from '@/actions/apps'
 
 jest.mock('@/utils/cookie', () => ({
   getCookieString: jest.fn(),
@@ -127,14 +127,12 @@ describe('DeveloperSubmitApp', () => {
       })
       fn(appModel)
       expect(spyDispatch).toBeCalledWith(
-        submitRevision({
-          params: {
-            redirectUris: [],
-            signoutUris: [],
-            id: 'testAppId',
-          },
-          onSuccess: onSuccess,
-          onError: onError,
+        createAppRevision({
+          redirectUris: [],
+          signoutUris: [],
+          id: 'testAppId',
+          successCallback: onSuccess,
+          errorCallback: onError,
         }),
       )
     })

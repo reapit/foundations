@@ -1,19 +1,19 @@
-import { submitRevision as submitRevisionSaga, submitRevisionDataListen, submitRevisionSagas } from '../submit-revision'
-import ActionTypes from '@/constants/action-types'
-import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import { SubmitRevisionParams } from '@/actions/submit-revision'
+import createAppRevisionSagas, { createAppRevisionSaga, createAppRevisionSagaListen } from '../create-app-revision'
+import { fork, all, call, takeLatest, put } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { revisionSubmitStub } from '../__stubs__/revision-submit'
-import { fetchAppDetail } from '@/actions/apps'
-import { createAppRevisionAPI } from '@/services/apps'
+import { revisionSubmitStub } from '@/sagas/__stubs__/revision-submit'
+import { createAppRevisionAPI, CreateAppRevisionParams } from '@/services/apps'
+import errorMessages from '@/constants/error-messages'
+import { createAppRevisionFailed, createAppRevisionSuccess, createAppRevision } from '@/actions/apps'
+import { notification } from '@reapit/elements'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
-const params: Action<SubmitRevisionParams> = {
-  data: { params: { ...revisionSubmitStub.data, id: '1' }, onSuccess: jest.fn(), onError: jest.fn() },
-  type: 'DEVELOPER_SUBMIT_REVISION',
+const params: Action<CreateAppRevisionParams> = {
+  data: { ...revisionSubmitStub.data, id: '1', successCallback: jest.fn(), errorCallback: jest.fn() },
+  type: 'CREATE_APP_REVISION',
 }
 
 const generateDumpPromise = () => new Promise(() => null)
@@ -45,8 +45,8 @@ describe('submit-revision post data', () => {
     screen5ImageUrl: 'base64 string...',
   }
 
-  const gen = cloneableGenerator(submitRevisionSaga)(params)
-  const { id } = params.data.params
+  const gen = cloneableGenerator(createAppRevisionSaga)(params)
+  const { id } = params.data
 
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
   expect(gen.next(imageUploaderResults).value).toEqual(
@@ -55,32 +55,41 @@ describe('submit-revision post data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next({}).value).toEqual(put(fetchAppDetail({ id })))
+    expect(clone.next().value).toEqual(put(createAppRevisionSuccess()))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next().done).toBe(true)
+    if (clone.throw) {
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(createAppRevisionFailed()))
+      expect(clone.next().value).toEqual(
+        notification.error({
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().done).toBe(true)
+    }
   })
 })
 
 describe('submit-revision thunks', () => {
-  describe('submitRevisionDataListen', () => {
+  describe('createAppRevisionSagaListen', () => {
     it('should submit data when called', () => {
-      const gen = submitRevisionDataListen()
+      const gen = createAppRevisionSagaListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<SubmitRevisionParams>>(ActionTypes.DEVELOPER_SUBMIT_REVISION, submitRevisionSaga),
+        takeLatest<Action<CreateAppRevisionParams>>(createAppRevision.type, createAppRevisionSaga),
       )
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('submitRevisionSagas', () => {
+  describe('createAppRevisionSagas', () => {
     it('should listen saga', () => {
-      const gen = submitRevisionSagas()
+      const gen = createAppRevisionSagas()
 
-      expect(gen.next().value).toEqual(all([fork(submitRevisionDataListen)]))
+      expect(gen.next().value).toEqual(all([fork(createAppRevisionSagaListen)]))
       expect(gen.next().done).toBe(true)
     })
   })

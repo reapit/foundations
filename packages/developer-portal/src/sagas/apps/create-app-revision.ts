@@ -1,32 +1,29 @@
-import { imageUploaderHelper } from '@/services/upload'
-import { SubmitRevisionParams } from '../actions/submit-revision'
-import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import ActionTypes from '../constants/action-types'
-import { Action } from '../types/core'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
-import { fetchAppDetail } from '@/actions/apps'
+import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
+import { Action } from '@/types/core'
+import errorMessages from '@/constants/error-messages'
 import { logger } from '@reapit/utils'
-import { createAppRevisionAPI } from '@/services/apps'
+import { createAppRevisionAPI, CreateAppRevisionParams } from '@/services/apps'
+import { createAppRevisionSuccess, createAppRevisionFailed, createAppRevision } from '@/actions/apps'
+import { notification } from '@reapit/elements'
+import { imageUploaderHelper } from '@/services/upload'
 
-export const submitRevision = function*({ data }: Action<SubmitRevisionParams>) {
-  // TODO: for this situation we need check the value of imageData
-  // upload and also update into imageUrl as new property from backend
-  const { params, onSuccess, onError } = data
+export const createAppRevisionSaga = function*({
+  data: {
+    id,
+    name,
+    iconImageUrl,
+    screen1ImageUrl,
+    screen2ImageUrl,
+    screen3ImageUrl,
+    screen4ImageUrl,
+    screen5ImageUrl,
+    categoryId,
+    successCallback,
+    errorCallback,
+    ...body
+  },
+}: Action<CreateAppRevisionParams>) {
   try {
-    const {
-      id,
-      name,
-      iconImageUrl,
-      screen1ImageUrl,
-      screen2ImageUrl,
-      screen3ImageUrl,
-      screen4ImageUrl,
-      screen5ImageUrl,
-      categoryId,
-      ...body
-    } = params
-
     const formatedName = name ? name.replace(/\s+/g, '-') : ''
     const imageUploaderReqs = [
       imageUploaderHelper({ name: `${formatedName}-icon`, imageData: iconImageUrl }),
@@ -54,36 +51,33 @@ export const submitRevision = function*({ data }: Action<SubmitRevisionParams>) 
       categoryId: categoryId === '' ? undefined : categoryId,
     }
 
-    const regResponse: true | undefined = yield call(createAppRevisionAPI, {
+    yield call(createAppRevisionAPI, {
       id,
       ...updatedValuesAfterValidatingCategoryId,
     })
-
-    const status = regResponse ? 'SUCCESS' : 'ERROR'
-    if (status === 'SUCCESS') {
-      yield put(fetchAppDetail({ id }))
-      onSuccess()
-    } else {
-      onError()
+    yield put(createAppRevisionSuccess())
+    if (successCallback) {
+      successCallback()
     }
   } catch (err) {
+    if (errorCallback) {
+      errorCallback()
+    }
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
-    onError()
+    yield put(createAppRevisionFailed())
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
-export const submitRevisionDataListen = function*() {
-  yield takeLatest<Action<SubmitRevisionParams>>(ActionTypes.DEVELOPER_SUBMIT_REVISION, submitRevision)
+export const createAppRevisionSagaListen = function*() {
+  yield takeLatest<Action<CreateAppRevisionParams>>(createAppRevision.type, createAppRevisionSaga)
 }
 
-export const submitRevisionSagas = function*() {
-  yield all([fork(submitRevisionDataListen)])
+export const createAppRevisionSagas = function*() {
+  yield all([fork(createAppRevisionSagaListen)])
 }
 
-export default submitRevisionSagas
+export default createAppRevisionSagas

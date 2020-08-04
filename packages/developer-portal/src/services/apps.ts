@@ -51,7 +51,10 @@ export type FetchAppRevisionsListParams = FetchListCommonParams & {
   id: string
 }
 
-export type CreateAppRevisionParams = FetchByIdCommonParams & CreateAppRevisionModel
+export type CreateAppRevisionParams = FetchByIdCommonParams & {
+  successCallback?: () => void
+  errorCallback?: () => void
+} & CreateAppRevisionModel
 
 export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
   revisionId: string
@@ -194,7 +197,7 @@ export const fetchAppRevisionsList = async (
   }
 }
 
-export const createAppRevision = async (params: CreateAppRevisionParams) => {
+export const createAppRevisionAPI = async (params: CreateAppRevisionParams) => {
   try {
     const { id, ...rest } = params
     const response = await fetcher({
