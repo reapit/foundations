@@ -2,14 +2,9 @@ import * as React from 'react'
 import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section, FlexContainerBasic } from '@reapit/elements'
-/*
- * TODOME(cognito)
- * remove
- */
-
-import { redirectToOAuth } from '@reapit/cognito-auth'
-import { AuthContext } from '@/context'
 import Routes from '@/constants/routes'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 
 const { Suspense } = React
 
@@ -18,27 +13,9 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
 }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-  const { loginSession, refreshParams, getLoginSession } = React.useContext(AuthContext)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  /*
-   * TODOME(PrivateRouteWrapper)
-   *
-   */
-
-  if (!loginSession && !refreshParams) {
-    redirectToOAuth(window.reapit.config.cognitoClientId)
-    return null
-  }
-  /*
-   * TODOME(PrivateRouteWrapper)
-   * remove
-   */
-
-  if (!loginSession && refreshParams) {
-    getLoginSession(refreshParams)
-  }
-
-  if (!loginSession) {
+  if (!connectSession) {
     return null
   }
 
