@@ -53,7 +53,7 @@ export const fetchInstallationsList = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -69,7 +69,7 @@ export const createInstallation = async (params: CreateInstallationParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -85,7 +85,7 @@ export const fetchInstallationById = async (params: FetchInstallationByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -101,7 +101,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -117,7 +117,7 @@ export const deleteApiKeyInstallationById = async (params: DeleteApiKeyInstallat
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -134,6 +134,6 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

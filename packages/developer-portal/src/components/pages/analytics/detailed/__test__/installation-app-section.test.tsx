@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import {
   InstallationAppSection,
   handleSetPageNumber,
@@ -13,6 +13,9 @@ import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { InstallationsRootState } from '@/reducers/installations'
 import { handleMapAppNameToInstallation } from '../detailed-tab'
+import configureStore from 'redux-mock-store'
+import * as ReactRedux from 'react-redux'
+import appState from '@/reducers/__stubs__/app-state'
 
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
@@ -32,22 +35,42 @@ describe('InstallationTable', () => {
     installations.installationsList?.pagedResult?.data || [],
     appsDataStub.data.data || [],
   )()
+  let store
+
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
 
   it('should match snapshot', () => {
     expect(
-      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />),
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />
+        </ReactRedux.Provider>,
+      ),
     ).toMatchSnapshot()
   })
 
   it('should match with null installationsAppData', () => {
     expect(
-      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />),
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />
+        </ReactRedux.Provider>,
+      ),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
     expect(
-      shallow(<InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} />),
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} />
+        </ReactRedux.Provider>,
+      ),
     ).toMatchSnapshot()
   })
 })

@@ -5,11 +5,7 @@ import {
   PagedResultInstallationModel_,
   CreateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
-import {
-  FetchInstallationsListParams,
-  FetchApiKeyInstallationByIdParams,
-  DeleteApiKeyInstallationById,
-} from '@/services/installations'
+import { FetchInstallationsListParams } from '@/services/installations'
 import { FormState } from '@/types/core'
 
 export type UninstallParams = {
@@ -37,20 +33,6 @@ export const fetchInstallationsFilterListFailed = actionCreator<void>(
   ActionTypes.FETCH_INSTALLATIONS_FILTER_LIST_FAILED,
 )
 export const setInstallationsFormState = actionCreator<FormState>(ActionTypes.SET_INSTALLATIONS_FORM_STATE)
-
-// Installations APIKEY
-export const fetchInstallationsApiKey = actionCreator<FetchApiKeyInstallationByIdParams>(
-  ActionTypes.FETCH_INSTALLATIONS_APIKEY,
-)
-export const fetchInstallationsApiKeySuccess = actionCreator<void>(ActionTypes.FETCH_INSTALLATIONS_APIKEY_SUCCESS)
-export const fetchInstallationsApiKeyFailed = actionCreator<void>(ActionTypes.FETCH_INSTALLATIONS_APIKEY_FAILED)
-
-// delete APIKEY
-export const deleteInstallationsApiKey = actionCreator<DeleteApiKeyInstallationById>(
-  ActionTypes.DELETE_INSTALLATIONS_APIKEY,
-)
-export const deleteInstallationsApiKeySuccess = actionCreator<void>(ActionTypes.DELETE_INSTALLATIONS_APIKEY_SUCCESS)
-export const deleteInstallationsApiKeyFailed = actionCreator<void>(ActionTypes.DELETE_INSTALLATIONS_APIKEY_FAILED)
 
 // CREATE INSTALLATIONS
 export const createInstallations = actionCreator<InstallParams>(ActionTypes.CREATE_INSTALLATIONS)
