@@ -27,7 +27,7 @@ export const fetchApps = function*({ data }) {
     const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
       notification.error({
-        message: CLIENT_ID_NOT_FOUND_ERROR,
+        message: CLIENT_ID_NOT_FOUND_ERROR.message,
         placement: 'bottomRight',
       })
       return
@@ -66,7 +66,7 @@ export const fetchFeatureApps = function*({ data }) {
     const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
       notification.error({
-        message: CLIENT_ID_NOT_FOUND_ERROR,
+        message: CLIENT_ID_NOT_FOUND_ERROR.message,
         placement: 'bottomRight',
       })
       return
