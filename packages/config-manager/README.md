@@ -1,9 +1,8 @@
 # Config Manager
 
-A thin wrapper around AWS Secrets Manager for keeping remote config secure. For usage visit [here](https://foundations-documentation.reapit.cloud/api/web#config-manager).
+A thin wrapper around AWS Systems Mananger, Parameter Store for keeping remote config secure. For usage visit [here](https://foundations-documentation.reapit.cloud/app-development#config-manager).
 
-- **Tech Stack**: AWS SDK
-- **Cloud Services**: NPM, AWS Secrets Manager
-- **Production**: https://www.npmjs.com/package/@reapit/config-manager
-
-For detailed documentation [visit here](https://foundations-documentation.reapit.cloud/open-source/packages#config-manager).
+`--namespace` The path to a valid parameter
+`--name` The path to a valid parameter
+`--env` 
+`--fetch-ci` Requires 

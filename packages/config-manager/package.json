@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "wmcvay@reapit.com",
   "main": "src/index.js",
   "bin": {
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.582.0",
+    "change-case": "^4.1.1",
     "json-ts": "^1.6.4",
     "prompt": "^1.0.0"
   }
