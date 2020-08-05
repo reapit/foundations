@@ -2,15 +2,9 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
-import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { RevisionDetailState } from '@/reducers/revision-detail'
-import { RevisionsState } from '@/reducers/revisions'
-import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { SettingsState } from '@/reducers/settings'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
-import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { AppsRootState } from '@/reducers/apps'
@@ -20,6 +14,7 @@ import { DesktopIntegrationTypesRootState } from '@/reducers/desktop-integration
 import { InstallationsRootState } from '@/reducers/installations'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
+import { TrafficStatisticsRootState } from '@/reducers/traffic-statistics'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -64,17 +59,12 @@ export interface ReduxState {
   categories: CategoriesRootState
   developer: DeveloperState
   error: ErrorState
-  submitRevision: SubmitRevisionState
   developerSetStatus: RequestState
-  revisionDetail: RevisionDetailState
-  revisions: RevisionsState
-  appDetailModal: AppDetailModalState
   settings: SettingsState
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
-  appHttpTraffic: AppHttpTrafficEventState
+  trafficStatistics: TrafficStatisticsRootState
   desktopIntegrationTypes: DesktopIntegrationTypesRootState
-  webhookEdit: WebhookEditState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   installations: InstallationsRootState

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import orderBy from 'lodash.orderby'
 import { useDispatch, useSelector } from 'react-redux'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
+import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getAppHttpTraffic } from '@/selector/analytics'
 import { selectInstallationsListData, selectInstallationsFilterListData } from '@/selector/installations'
@@ -77,7 +77,7 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
 
   if (appIds.length) {
     dispatch(
-      httpTrafficPerDayRequestData({
+      fetchTrafficStatistics({
         applicationId: appIds,
         dateFrom: defaultParams.dateFrom,
         dateTo: defaultParams.dateTo,
@@ -119,9 +119,9 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
 
-  const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
-  const appHttpTrafficPerDayData = appHttpTraffic?.trafficEvents?.requestsByDate || []
-  const trafficEvents = appHttpTraffic?.trafficEvents
+  const trafficEvents = appHttpTraffic?.list?.data
+  const appHttpTrafficPerDayLoading = appHttpTraffic?.list.isLoading
+  const appHttpTrafficPerDayData = appHttpTraffic?.list.data?.requestsByDate || []
 
   return (
     <ErrorBoundary>

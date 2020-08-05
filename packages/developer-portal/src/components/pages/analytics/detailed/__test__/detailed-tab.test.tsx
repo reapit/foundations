@@ -17,7 +17,7 @@ import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/installations'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
+import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { developerState } from '@/sagas/__stubs__/developer'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
 
@@ -37,9 +37,11 @@ const mockState = {
     formState: { state: 'PENDING' },
   },
   developer: developerState,
-  appHttpTraffic: {
-    perDayLoading: false,
-    trafficEvents: httpTrafficPerDayStub,
+  trafficStatistics: {
+    list: {
+      isLoading: false,
+      data: httpTrafficPerDayStub,
+    },
   },
 } as ReduxState
 
@@ -101,7 +103,7 @@ describe('OverviewPage', () => {
       const fn = handleFetchHttpTrafficPerDayDataUseCallback(developerAppData, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        httpTrafficPerDayRequestData({
+        fetchTrafficStatistics({
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           // default is last 7 days
           dateFrom: '2020-06-30',

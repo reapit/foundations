@@ -9,7 +9,7 @@ describe('developersReducer - setStatussetStatusFormState', () => {
 
   it('should set form state to submitting', () => {
     const newState = developersReducer(undefined, {
-      type: 'DEVELOPER_SET_STATUS_REQUEST_LOADING' as ActionType,
+      type: 'SET_DEVELOPER_STATUS_FORM_STATE_LOADING' as ActionType,
       data: undefined,
     })
     const expected = {
@@ -21,7 +21,7 @@ describe('developersReducer - setStatussetStatusFormState', () => {
 
   it('should set form state to success', () => {
     const newState = developersReducer(undefined, {
-      type: 'DEVELOPER_SET_STATUS_REQUEST_SUCCESS' as ActionType,
+      type: 'SET_DEVELOPER_STATUS_FORM_STATE_SUCCESS' as ActionType,
       data: undefined,
     })
     const expected = {
@@ -33,7 +33,7 @@ describe('developersReducer - setStatussetStatusFormState', () => {
 
   it('should set form state to error', () => {
     const newState = developersReducer(undefined, {
-      type: 'DEVELOPER_SET_STATUS_REQUEST_FAILURE' as ActionType,
+      type: 'SET_DEVELOPER_STATUS_FORM_STATE_FAILED' as ActionType,
       data: undefined,
     })
     const expected = {
@@ -45,7 +45,7 @@ describe('developersReducer - setStatussetStatusFormState', () => {
 
   it('should set form state to pending', () => {
     const newState = developersReducer(undefined, {
-      type: 'DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE' as ActionType,
+      type: 'INIT_REQUEST_DEVELOPER_STATUS_FORM_STATE' as ActionType,
       data: undefined,
     })
     const expected = {

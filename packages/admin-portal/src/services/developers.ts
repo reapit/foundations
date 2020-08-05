@@ -22,7 +22,7 @@ export type FetchDeveloperBillingPeriod = {
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.developers}?${setQueryParams(params)}`,
+      url: `${URLS.developers}/?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -30,7 +30,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -47,7 +47,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 

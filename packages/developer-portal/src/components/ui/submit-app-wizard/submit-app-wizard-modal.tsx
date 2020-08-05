@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { ModalV2 } from '@reapit/elements'
 import { SubmitAppWizard } from './submit-app-wizard'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
@@ -18,9 +17,5 @@ export const SubmitAppWizardModal: React.FC<SubmitAppWizardModalProps> = ({ visi
   const dispatch = useDispatch()
   useEffect(handleUseEffect(dispatch), [])
 
-  return (
-    <ModalV2 onClose={onClose} visible={visible} isPadding={false}>
-      <SubmitAppWizard afterClose={onClose} />
-    </ModalV2>
-  )
+  return <SubmitAppWizard afterClose={onClose} visible={visible} />
 }

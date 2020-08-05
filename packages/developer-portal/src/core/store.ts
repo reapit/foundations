@@ -9,15 +9,10 @@ import desktopIntegrationTypesReducer from '@/reducers/desktop-integration-types
 
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
-import submitRevision from '@/reducers/submit-revision'
 import developerSetStatus from '@/reducers/developer-set-status'
-import revisionDetail from '@/reducers/revision-detail'
-import appDetailModal from '@/reducers/app-detail-modal'
 import settingsReducer from '@/reducers/settings'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
-import revisionsReducer from '@/reducers/revisions'
-import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
-import webhookEditReducer from '../reducers/webhook-edit-modal'
+import trafficStatistics from '@/reducers/traffic-statistics'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import installationsReducer from '@/reducers/installations'
@@ -32,21 +27,20 @@ import {
   createAppSagas,
   deleteAppSagas,
   appRevisionDetailSagas,
+  appRevisionListlSagas,
+  declineAppRevisionSagas,
+  createAppRevisionSagas,
 } from '@/sagas/apps'
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
-import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
+import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
-import submitRevisionSagas from '@/sagas/submit-revision'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
-import revisionDetailSagas from '@/sagas/revision-detail'
-import revisionsSagas from '@/sagas/revisions'
 import settingSagas from '@/sagas/settings'
-import { webhooksSubscriptionsSagas } from '@/sagas/webhooks-subscriptions'
+import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import webhookEditSagas from '@/sagas/webhook-edit-modal'
 import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
 import installationsSagas from '@/sagas/installations'
@@ -74,16 +68,11 @@ export class Store {
     desktopIntegrationTypes: desktopIntegrationTypesReducer,
     developer,
     error,
-    submitRevision,
     developerSetStatus,
-    revisionDetail,
-    revisions: revisionsReducer,
-    appDetailModal,
     settings: settingsReducer,
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
-    appHttpTraffic: appHttpTrafficEventReducer,
-    webhookEdit: webhookEditReducer,
+    trafficStatistics,
     developerSubscriptions,
     developers: developersReducer,
     installations: installationsReducer,
@@ -104,13 +93,13 @@ export class Store {
       fork(createAppSagas),
       fork(deleteAppSagas),
       fork(appRevisionDetailSagas),
-      fork(submitRevisionSagas),
+      fork(appRevisionListlSagas),
+      fork(declineAppRevisionSagas),
+      fork(createAppRevisionSagas),
       fork(developerSetStatusSagas),
-      fork(revisionDetailSagas),
-      fork(revisionsSagas),
       fork(settingSagas),
-      fork(appHttpTrafficEventSagas),
-      fork(webhookEditSagas),
+      fork(trafficStatisticsSagas),
+      fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
       fork(installationsSagas),

@@ -17,7 +17,7 @@ import { mount } from 'enzyme'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { SelectBoxOptions } from '@reapit/elements'
 import appState from '@/reducers/__stubs__/app-state'
-import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
+import { webhookSetOpenModal } from '@/actions/webhooks-subscriptions'
 import { TopicModel } from '@/services/webhooks'
 import { getMockRouterProps } from '@/utils/mock-helper'
 

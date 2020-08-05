@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { ApproveModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
-import { approveRevision } from '@/actions/revision-detail'
+import { requestApproveRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
 import { Dispatch } from 'redux'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -24,7 +24,7 @@ export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, aft
 
 export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => formValues => {
   if (appId && appRevisionId) {
-    dispatch(approveRevision({ appId, appRevisionId, ...formValues }))
+    dispatch(requestApproveRevision({ appId, appRevisionId, ...formValues }))
   }
 }
 

@@ -10,7 +10,7 @@ import {
   onSuccessHandler,
   onConfirmButtonClick,
 } from '../developer-set-status'
-import { developerSetStatusSetInitFormState, developerSetStatusRequest } from '@/actions/developer-set-status'
+import { initRequestDeveloperStatusFormState, setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
 
 const props: SetDeveloperStatusProps = {
@@ -58,7 +58,7 @@ describe('SetDeveloperStatusModal', () => {
 
       onSuccessHandlerFn()
       expect(mockOnSuccess).toBeCalled()
-      expect(spyDispatch).toBeCalledWith(developerSetStatusSetInitFormState())
+      expect(spyDispatch).toBeCalledWith(initRequestDeveloperStatusFormState())
     })
   })
 
@@ -67,7 +67,9 @@ describe('SetDeveloperStatusModal', () => {
       const mockIsInactive = false
       const fn = onConfirmButtonClick(developerStub, spyDispatch, mockIsInactive)
       fn()
-      expect(spyDispatch).toBeCalledWith(developerSetStatusRequest({ ...developerStub, isInactive: !mockIsInactive }))
+      expect(spyDispatch).toBeCalledWith(
+        setRequestDeveloperStatusFormState({ ...developerStub, isInactive: !mockIsInactive }),
+      )
     })
   })
 })

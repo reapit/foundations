@@ -4,11 +4,12 @@ import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
-import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '@/actions/statistics'
+
+import { fetchStatisticsSucces, StatisticsRequestParams, fetchStatisticsFailed } from '@/actions/statistics'
 import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
+import { notification } from '@reapit/elements'
+import { errorMessages } from '@reapit/utils'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')
@@ -28,22 +29,20 @@ describe('statisticsDataFetch', () => {
   test('api call success', () => {
     const clone = gen.clone()
     const response = { data: [], totalCount: 0 }
-    expect(clone.next(response).value).toEqual(put(statisticsReceiveData(response)))
+    expect(clone.next(response).value).toEqual(put(fetchStatisticsSucces(response)))
     expect(clone.next().done).toBe(true)
   })
 
-  test('api call fail', () => {
+  test('api call fail caused by error', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw('SOME ERROR').value).toEqual(put(statisticsRequestFailure()))
-      expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
+      expect(clone.next().value).toEqual(put(fetchStatisticsFailed(errorMessages.DEFAULT_SERVER_ERROR)))
       expect(clone.next().done).toBe(true)
     }
   })
@@ -54,7 +53,7 @@ describe('statisticsSagas thunks', () => {
     it('should request data when called', () => {
       const gen = statisticsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<StatisticsRequestParams>>(ActionTypes.STATISTICS_REQUEST_DATA, statisticsDataFetch),
+        takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS, statisticsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { appsReceiveData, appsRequestData, appsRequestFailure } from '@/actions/apps-management'
+import { fetchAppListSuccess, fetchAppList, fetchAppListFailed } from '@/actions/apps-management'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
@@ -9,7 +9,7 @@ export type AppListState = PagedResultAppSummaryModel_ & Pick<FetchDetailResult<
 export const defaultState: AppListState = getDefaultFetchListValue()
 
 const appListReducer = (state: AppListState = defaultState, action: Action<any>): AppListState => {
-  if (isType(action, appsRequestData)) {
+  if (isType(action, fetchAppList)) {
     return {
       ...state,
       isLoading: true,
@@ -17,7 +17,7 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     }
   }
 
-  if (isType(action, appsReceiveData)) {
+  if (isType(action, fetchAppListSuccess)) {
     return {
       ...state,
       ...(action.data || {}),
@@ -25,10 +25,11 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     }
   }
 
-  if (isType(action, appsRequestFailure)) {
+  if (isType(action, fetchAppListFailed)) {
     return {
       ...state,
       isLoading: false,
+      errorMessage: action.data,
     }
   }
 

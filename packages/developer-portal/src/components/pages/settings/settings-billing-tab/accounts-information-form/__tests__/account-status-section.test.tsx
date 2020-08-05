@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AccountStatusSection from '../account-status-section'
+import AccountStatusSection, { capitalizeFirstLetter } from '../account-status-section'
 
 const defaultProps = {
   initialStatus: 'pending',
@@ -8,6 +8,10 @@ const defaultProps = {
   hasReapitAccountsRef: 'yes',
 }
 describe('AccountStatusSection', () => {
+  test('capitalizeFirstLetter', () => {
+    expect(capitalizeFirstLetter('ab')).toBe('Ab')
+    expect(capitalizeFirstLetter('aaB')).toBe('AaB')
+  })
   it('should match snapshot', () => {
     const wrapper = shallow(<AccountStatusSection {...defaultProps} />)
     expect(wrapper).toMatchSnapshot()

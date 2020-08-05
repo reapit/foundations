@@ -9,7 +9,6 @@ import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { useDispatch, useSelector } from 'react-redux'
 import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
-import { submitRevision } from '@/actions/submit-revision'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
 import GeneralInformationSection from './general-information-section'
@@ -29,6 +28,7 @@ import { selectScopeList } from '@/selector/scopes/scope-list'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
+import { createAppRevision } from '@/actions/apps'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -239,7 +239,14 @@ export const handleSubmitApp = ({
   if (appModel.isPrivateApp === 'no') {
     appToSubmit.limitToClientIds = []
   }
-  dispatch(submitRevision({ params: { ...sanitizeAppData(appToSubmit), id: appId }, onSuccess, onError }))
+  dispatch(
+    createAppRevision({
+      ...sanitizeAppData(appToSubmit),
+      id: appId,
+      successCallback: onSuccess,
+      errorCallback: onError,
+    }),
+  )
 }
 
 export const handleSubmitAppSuccess = (

@@ -1,17 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import AppRevisionModal from './app-revision-modal'
 import AppDeleteModal from '@/components/pages/app-detail/app-delete-modal'
 import { Content, Button } from '@reapit/elements'
 import { useHistory } from 'react-router'
 import routes from '@/constants/routes'
 import { History } from 'history'
-import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getClientIdFromConnectSession } from '@/utils/session'
-import { fetchAppDetail } from '@/actions/apps'
 import { AppDetailState } from '@/reducers/apps/app-detail'
 
 interface AppManagementProps {
@@ -26,18 +20,6 @@ export const onAppDeleteModalAfterClose = (setVisible: (value: boolean) => void)
 
 export const onDeleteSuccess = (history: History) => () => {
   history.push(routes.APPS)
-}
-
-export const onCancelSuccess = ({
-  id,
-  clientId,
-  dispatch,
-}: {
-  clientId: string
-  id: string
-  dispatch: Dispatch
-}) => () => {
-  dispatch(fetchAppDetail({ id, clientId }))
 }
 
 export const onAppRevisionModalAfterClose = (setVisible: (value: boolean) => void) => () => {
@@ -60,11 +42,6 @@ export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
   const { buttonGroup } = styles
-
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const clientId = getClientIdFromConnectSession(connectSession)
-
-  const dispatch = useDispatch()
   const history = useHistory()
 
   return (
@@ -81,11 +58,6 @@ export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, 
 
       {isAppRevisionComparisonModalOpen && (
         <AppRevisionModal
-          onCancelSuccess={onCancelSuccess({
-            dispatch,
-            clientId,
-            id,
-          })}
           appDetailState={appDetailState}
           visible={isAppRevisionComparisonModalOpen}
           appId={id || ''}

@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
 import CallToAction from '@/components/ui/call-to-action'
-import { developerSetStatusRequest, developerSetStatusSetInitFormState } from '@/actions/developer-set-status'
+import { setRequestDeveloperStatusFormState, initRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperSetStatusFormState } from '@/selector/developer-set-status'
 
@@ -22,14 +22,14 @@ export const onAfterCloseHandler = (isLoading: boolean, afterClose?: () => void)
 
 export const onSuccessHandler = (onSuccess: () => void, dispatch: Dispatch) => {
   return () => {
-    dispatch(developerSetStatusSetInitFormState())
+    dispatch(initRequestDeveloperStatusFormState())
     onSuccess()
   }
 }
 
 export const onConfirmButtonClick = (developer: DeveloperModel, dispatch: Dispatch, isInactive?: boolean) => {
   return () => {
-    dispatch(developerSetStatusRequest({ ...developer, isInactive: !isInactive }))
+    dispatch(setRequestDeveloperStatusFormState({ ...developer, isInactive: !isInactive }))
   }
 }
 

@@ -25,6 +25,16 @@ const appState: ReduxState = {
         data: {},
         isLoading: false,
       },
+      list: {
+        data: [],
+        isLoading: false,
+      },
+      declineRevision: {
+        isLoading: false,
+      },
+      createRevision: {
+        isLoading: false,
+      },
     },
   },
   scopes: {
@@ -55,23 +65,9 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  submitRevision: {
-    formState: 'PENDING',
-  },
   developerSetStatus: {
     formState: 'PENDING',
   },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    declineFormState: 'PENDING',
-  },
-  revisions: {
-    loading: false,
-    revisions: null,
-  },
-  appDetailModal: 'VIEW_DETAIL_BROWSE',
   settings: {
     loading: true,
     developerInfomation: {
@@ -117,41 +113,16 @@ const appState: ReduxState = {
     variant: '',
     message: '',
   },
-  appHttpTraffic: {
-    perDayLoading: false,
-    trafficEvents: null,
+  trafficStatistics: {
+    list: {
+      isLoading: false,
+      data: null,
+    },
   },
   desktopIntegrationTypes: {
     list: {
       data: [],
       isLoading: false,
-    },
-  },
-  webhookEdit: {
-    loading: false,
-    modalType: '',
-    subcriptionCustomers: {
-      data: [],
-      pageNumber: 0,
-      pageSize: 0,
-      pageCount: 0,
-      totalCount: 0,
-    },
-    subcriptionTopics: {
-      _embedded: [],
-      pageNumber: 0,
-      pageSize: 0,
-      pageCount: 0,
-      totalCount: 0,
-    },
-    webhookData: {
-      id: '',
-      applicationId: '',
-      url: '',
-      description: '',
-      topicIds: [],
-      customerIds: [],
-      active: false,
     },
   },
   webhooksSubscriptions: {
@@ -163,6 +134,33 @@ const appState: ReduxState = {
       pageSize: 0,
       pageCount: 0,
       totalCount: 0,
+    },
+    edit: {
+      loading: false,
+      modalType: '',
+      subcriptionCustomers: {
+        data: [],
+        pageNumber: 0,
+        pageSize: 0,
+        pageCount: 0,
+        totalCount: 0,
+      },
+      subcriptionTopics: {
+        _embedded: [],
+        pageNumber: 0,
+        pageSize: 0,
+        pageCount: 0,
+        totalCount: 0,
+      },
+      webhookData: {
+        id: '',
+        applicationId: '',
+        url: '',
+        description: '',
+        topicIds: [],
+        customerIds: [],
+        active: false,
+      },
     },
   },
   webhooksTopics: {

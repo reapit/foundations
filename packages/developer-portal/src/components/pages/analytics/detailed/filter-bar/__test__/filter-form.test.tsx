@@ -11,7 +11,7 @@ import {
   handleAutoSave,
 } from '../filter-form'
 import { fetchInstallationsFilterList } from '@/actions/installations'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
+import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
@@ -70,7 +70,7 @@ describe('FilterForm', () => {
       )
 
       expect(spyDispatch).toBeCalledWith(
-        httpTrafficPerDayRequestData({
+        fetchTrafficStatistics({
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           customerId: ['DXX'],
           dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
@@ -101,7 +101,7 @@ describe('FilterForm', () => {
       )
 
       expect(spyDispatch).toBeCalledWith(
-        httpTrafficPerDayRequestData({
+        fetchTrafficStatistics({
           applicationId: mockFormValues.appId,
           customerId: mockFormValues.clientId,
           dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),

@@ -1,45 +1,46 @@
 import { put, takeLatest, call } from '@redux-saga/core/effects'
 import {
-  developerSetStatusRequestSuccess,
-  developerSetStatusRequestLoading,
-  developerSetStatusRequestFailure,
+  setRequestDeveloperStatusFormStateSuccess,
+  setRequestDeveloperStatusFormStateLoading,
+  setRequestDeveloperStatusFormStateFailed,
 } from '@/actions/developer-set-status'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
+import { extractNetworkErrString } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
+import { notification } from '@reapit/elements'
 
-export const developerSetStatusRequestSaga = function*({ data: dev }) {
+export const DEVELOPER_ID_NOT_EXIST = 'developerId is not exist'
+export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
   const { callback } = dev
   try {
     if (!dev.id) {
-      throw new Error('developerId is not exist')
+      throw DEVELOPER_ID_NOT_EXIST
     }
 
-    yield put(developerSetStatusRequestLoading())
+    yield put(setRequestDeveloperStatusFormStateLoading())
 
     yield call(updateDeveloperById, { ...dev, companyName: dev.company })
 
-    yield put(developerSetStatusRequestSuccess())
+    yield put(setRequestDeveloperStatusFormStateSuccess())
     callback && callback(true)
   } catch (err) {
-    logger(err)
     callback && callback(false)
-    yield put(developerSetStatusRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    const networkErrorString = extractNetworkErrString(err)
+    yield call(notification.error, {
+      message: networkErrorString,
+      placement: 'bottomRight',
+    })
+    yield put(setRequestDeveloperStatusFormStateFailed())
   }
 }
 
-export const developerSetStatusRequestListen = function*() {
-  yield takeLatest<Action<DeveloperModel>>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST, developerSetStatusRequestSaga)
+export const setRequestDeveloperStatusFormStateListen = function*() {
+  yield takeLatest<Action<DeveloperModel>>(
+    ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE,
+    setRequestDeveloperStatusFormStateSaga,
+  )
 }
 
-export default developerSetStatusRequestListen
+export default setRequestDeveloperStatusFormStateListen

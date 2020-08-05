@@ -99,21 +99,31 @@ exports[`Login should match a snapshot 1`] = `
                   visible={false}
                 >
                   <Component
-                    isPadding={false}
-                    onClose={[Function]}
+                    afterClose={[Function]}
                     visible={false}
                   >
                     <Component
-                      className=""
-                      destroyOnClose={true}
+                      isPadding={false}
                       onClose={[Function]}
-                      title={<Unknown />}
+                      title="Before you start"
                       visible={false}
-                      wrapClassName=""
                     >
-                      <PortalWrapper
+                      <Component
+                        className=""
+                        destroyOnClose={true}
+                        onClose={[Function]}
+                        title={
+                          <Unknown>
+                            Before you start
+                          </Unknown>
+                        }
                         visible={false}
-                      />
+                        wrapClassName=""
+                      >
+                        <PortalWrapper
+                          visible={false}
+                        />
+                      </Component>
                     </Component>
                   </Component>
                 </Component>
