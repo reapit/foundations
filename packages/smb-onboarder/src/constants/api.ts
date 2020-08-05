@@ -1,5 +1,6 @@
 import { StringMap } from '@/types/core'
 
+/* istanbul ignore next */
 export const CONTACTS_HEADERS = {
   'Content-Type': 'application/json',
 } as StringMap

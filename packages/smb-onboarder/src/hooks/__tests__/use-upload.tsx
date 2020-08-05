@@ -6,6 +6,11 @@ import UploadProvider from '@/components/providers/upload-provider'
 
 describe('use-upload', () => {
   describe('useUploadState', () => {
+    it('should not return UploadStateContext if not use together with UploadProvider', () => {
+      const wrapper = ({ children }) => <div>{children}</div>
+      const { result } = renderHook<{}, State>(() => useUploadState(), { wrapper: wrapper as React.ComponentType })
+      expect(result.current).toEqual({})
+    })
     it('should return UploadStateContext', () => {
       const wrapper = ({ children }) => <UploadProvider>{children}</UploadProvider>
       const { result } = renderHook<{}, State>(() => useUploadState(), { wrapper: wrapper as React.ComponentType })

@@ -3,7 +3,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
-import App from './app'
 import { injectSwitchModeToWindow, getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 injectSwitchModeToWindow()

@@ -75,20 +75,6 @@ exports[`Router should match a snapshot 1`] = `
             }
             path="/users"
           />
-<<<<<<< HEAD
-          <Component
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            path="/get-started"
-          />
-=======
->>>>>>> chore: #2253 smb ui tidy up
         </Switch>
       </withRouter()>
       <Redirect
