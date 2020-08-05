@@ -1,0 +1,33 @@
+{
+  "name": "connect-session-verify-lambda",
+  "version": "0.0.1",
+  "homepage": "https://github.com/reapit/foundations",
+  "license": "MIT",
+  "author": "reapit global",
+  "main": "dist/index.js",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.12.1",
+    "serverless-webpack": "^5.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.4",
+    "serverless-http": "^2.3.2",
+    "serverless-webpack": "^5.3.1",
+    "snyk": "^1.335.0",
+    "typescript": "~3.9.3"
+  },
+  "scripts": {
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "start:dev": "NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
+    "release": " serverless deploy"
+  }
+}

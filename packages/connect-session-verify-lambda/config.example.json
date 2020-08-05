@@ -1,0 +1,5 @@
+{
+  "appEnv": "local",
+  "awsRegion": "eu-west-2",
+  "connectUserPoolId": ""
+}

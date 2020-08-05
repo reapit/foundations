@@ -175,6 +175,27 @@ export class ReapitConnectBrowserSession {
     }
   }
 
+  private async verifyIdToken(idToken: string): Promise<any> {
+    try {
+      const response = await fetch('http://localhost:3000', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: idToken }),
+      } as RequestInit)
+
+      const idTokenValidation = await response.json()
+      console.log(idTokenValidation)
+      if (idTokenValidation) {
+        return idTokenValidation
+      }
+      throw new Error('No JWKs were returned - these are needed to validate your session')
+    } catch (err) {
+      console.error('Reapit Connect JWK fetching error: ', err.message)
+    }
+  }
+
   // Calls the token endpoint in Cognito with either a refresh token or a code, depending on what
   // I have available in local storage or in the URL.
   // See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
@@ -187,10 +208,14 @@ export class ReapitConnectBrowserSession {
         },
       } as RequestInit)
       const session = await response.json()
-      if (session.error) {
-        throw new Error(session.error)
-      }
-      if (session) {
+
+      if (session.error) throw new Error(session.error)
+
+      const idTokenValidation = await this.verifyIdToken(session.id_token)
+
+      if (idTokenValidation.error) throw new Error(idTokenValidation.error)
+
+      if (session && idTokenValidation.isValid) {
         const { access_token, refresh_token, id_token } = session
 
         return {
@@ -270,7 +295,6 @@ export class ReapitConnectBrowserSession {
       }
       // I don't want to make more requests while I am refreshing my session
       this.fetching = true
-
       // Get a new session from the code or refresh token
       const session = await this.connectGetSession(endpoint)
 
