@@ -2,6 +2,7 @@ import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
 import { Cell, SetData } from '@reapit/elements/src/components/Spreadsheet/types'
 import { prepareUpdateNegeotiatorParams } from './negotiators-list'
+import { spreadSheetCheckbox } from './__styles__/negotiator-status-checkbox'
 
 export type NegotiatorStatusCheckboxProps = {
   cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
@@ -89,7 +90,7 @@ export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> =
   const checkBoxId = `${row}-${col}`
 
   return (
-    <div className="field field-checkbox">
+    <div className={`field field-checkbox ${spreadSheetCheckbox}`}>
       <input id={checkBoxId} className="checkbox" type="checkbox" checked={checked} onChange={onChange} />
       <label className="label" htmlFor={checkBoxId}>
         IS ACTIVE

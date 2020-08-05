@@ -9,10 +9,9 @@ import PrivateRouteWrapper from './private-route-wrapper'
 export const history = createBrowserHistory()
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const Home = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
+const Help = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
 const OfficesPage = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
 const NegotiatorsPage = React.lazy(() => catchChunkError(() => import('../components/pages/negotiators')))
-const GetStartedPage = React.lazy(() => catchChunkError(() => import('../components/pages/get-started')))
 
 const Router = () => {
   return (
@@ -22,10 +21,9 @@ const Router = () => {
           <Route path={Routes.LOGIN} exact component={LoginPage} />
           <PrivateRouteWrapper path="/">
             <Switch>
-              <PrivateRoute path={Routes.HOME} component={Home} />
+              <PrivateRoute path={Routes.HELP} component={Help} />
               <PrivateRoute path={Routes.OFFICES} component={OfficesPage} />
               <PrivateRoute path={Routes.USERS} component={NegotiatorsPage} />
-              <PrivateRoute path={Routes.GET_STARTED} component={GetStartedPage} />
             </Switch>
           </PrivateRouteWrapper>
           <Redirect to={Routes.LOGIN} />

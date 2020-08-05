@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Section, FlexContainerBasic } from '@reapit/elements'
+import { Loader, AppNavContainer, Section, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -20,23 +20,25 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (location.pathname === '/') {
-    return <Redirect to={Routes.HOME} />
+    return <Redirect to={Routes.HELP} />
   }
 
   return (
     <AppNavContainer>
       <Menu />
-      <FlexContainerBasic isScrollable flexColumn>
-        <Suspense
-          fallback={
-            <Section>
-              <Loader />
-            </Section>
-          }
-        >
-          {children}
-        </Suspense>
-      </FlexContainerBasic>
+      <FlexContainerResponsive hasPadding flexColumn>
+        <FlexContainerBasic isScrollable flexColumn>
+          <Suspense
+            fallback={
+              <Section>
+                <Loader />
+              </Section>
+            }
+          >
+            {children}
+          </Suspense>
+        </FlexContainerBasic>
+      </FlexContainerResponsive>
     </AppNavContainer>
   )
 }

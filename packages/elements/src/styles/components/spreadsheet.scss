@@ -153,12 +153,12 @@ span.data-grid-container:focus {
 
     &.read-only {
       color: $black;
-      font-weight: bold;
       background-color: inherit;
     }
 
+
     &.error-cell {
-      background: $reapit-red !important;
+      background: $red-lighter !important;
       color: $white !important;
     }
 
@@ -171,8 +171,11 @@ span.data-grid-container:focus {
     background-color: $white;
   }
 
+
+
+
   tr:nth-child(even) {
-    background-color: $grey-light;
+    background-color: $grey-lightest;
   }
   /* context menu style */
 
