@@ -1,4 +1,5 @@
 {
+
   "name": "@reapit/cognito-auth",
   "version": "3.0.0",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
