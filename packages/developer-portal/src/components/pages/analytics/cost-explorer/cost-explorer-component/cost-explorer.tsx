@@ -13,6 +13,7 @@ import { selectMonthlyBilling } from '@/selector/developer'
 import { formatNumber, formatCurrency } from '@/utils/number-formatter'
 import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 import { unparse } from 'papaparse'
+import { saveAs } from 'file-saver'
 
 export type CostExplorerProps = {}
 
@@ -103,18 +104,9 @@ export const handleFetchMonthlyBilling = ({ dispatch, month, developerId }: Hand
   developerId && month && dispatch(fetchMonthlyBilling({ month, developerId }))
 }
 
-/* istanbul ignore next */
 export const handleDownloadCSV = (csvData: string) => () => {
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
-
-  const file = window.URL.createObjectURL(dataBlob)
-  const link = document.createElement('a')
-  link.download = 'billing.csv'
-  link.href = file
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-  return true
+  saveAs(dataBlob, 'billing.csv')
 }
 
 // recursive flatten data because data in table is nested in multiple level
