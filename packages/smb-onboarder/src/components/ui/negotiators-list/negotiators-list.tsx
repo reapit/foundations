@@ -170,19 +170,24 @@ export const validate = (data: Cell[][]) =>
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
       if (cellIndex === 0) {
-        return !fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)) ||
+          'Minimum length is 5 charactors'
+        )
       }
       // cell email is required
       if (cellIndex === 2) {
-        return !fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)
+        return (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) || 'Invalid email format'
       }
       // cell telephone is required
       if (cellIndex === 3) {
-        return !fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)) || 'Invalid phone number format'
+        )
       }
       // Office is required
       if (cellIndex === 4) {
-        return !fieldValidateRequire(cell.value as string)
+        return !fieldValidateRequire(cell.value as string) || 'Required'
       }
       return true
     }),
