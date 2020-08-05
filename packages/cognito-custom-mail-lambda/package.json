@@ -1,5 +1,4 @@
 {
-
   "name": "@reapit/cognito-custom-mail-lambda",
   "version": "1.0.0",
   "description": "Lambda Mailer Function",
