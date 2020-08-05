@@ -2,7 +2,7 @@
 
 exports[`NegotiatorStatusCheckbox should match a snapshot 1`] = `
 <div
-  className="field field-checkbox "
+  className=""
 >
   <input
     checked={false}

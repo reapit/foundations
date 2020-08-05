@@ -414,25 +414,26 @@ export const renderNegotiatorList = ({
 
   return (
     <React.Fragment>
-      <Spreadsheet
-        CustomDownButton={
-          <CustomDownButton
-            updateNegotiatorLoading={updateNegotiatorLoading}
-            updateNegotiator={updateNegotiator}
-            createNegotiator={createNegotiator}
-            officeData={officeData}
-            setErrorServer={setErrorServer}
-            totalCount={totalCount}
-          />
-        }
-        allowOnlyOneValidationErrorPerRow={true}
-        data={dataTable as Cell[][]}
-        afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
-        validate={validate}
-      />
       <Section>
-        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+        <Spreadsheet
+          CustomDownButton={
+            <CustomDownButton
+              updateNegotiatorLoading={updateNegotiatorLoading}
+              updateNegotiator={updateNegotiator}
+              createNegotiator={createNegotiator}
+              officeData={officeData}
+              setErrorServer={setErrorServer}
+              totalCount={totalCount}
+            />
+          }
+          allowOnlyOneValidationErrorPerRow={true}
+          data={dataTable as Cell[][]}
+          afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
+          validate={validate}
+        />
       </Section>
+
+      <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
     </React.Fragment>
   )
 }

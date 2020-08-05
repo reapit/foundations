@@ -10,9 +10,8 @@ export const Negotiators: React.FC<NegotiatorsProps> = () => {
       <Section>
         <H3>Users</H3>
       </Section>
-      <Section>
-        <NegotiatorList />
-      </Section>
+
+      <NegotiatorList />
     </>
   )
 }

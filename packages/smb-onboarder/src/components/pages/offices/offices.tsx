@@ -10,9 +10,8 @@ export const Offices: React.FC<OfficesProps> = () => {
       <Section>
         <H3>Offices</H3>
       </Section>
-      <Section>
-        <OfficesTab />
-      </Section>
+
+      <OfficesTab />
     </>
   )
 }
