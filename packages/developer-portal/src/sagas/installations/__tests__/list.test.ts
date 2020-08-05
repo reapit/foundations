@@ -6,7 +6,6 @@ import { call, put, all, fork, takeLatest } from 'redux-saga/effects'
 import { installationsStub } from '../__stubs__/installations'
 import { fetchInstallationsListSuccess, fetchInstallationsListFailed } from '@/actions/installations'
 import errorMessages from '@/constants/error-messages'
-import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 
@@ -31,14 +30,6 @@ describe('fetchInstallationsListSaga sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
         expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(fetchInstallationsListFailed()))
-        expect(clone.next().value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
-        )
       }
       expect(clone.next().done).toBe(true)
     })

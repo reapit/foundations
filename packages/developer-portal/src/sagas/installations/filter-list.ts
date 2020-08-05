@@ -4,9 +4,9 @@ import { fetchInstallationsFilterListSuccess, fetchInstallationsFilterListFailed
 import { logger } from '@reapit/utils'
 import { fetchInstallationsList, FetchInstallationsListParams } from '@/services/installations'
 import { getDeveloperId } from '@/utils/session'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
+import { notification } from '@reapit/elements'
 
 export const fetchInstallationsFilterListSaga = function*({ data }) {
   try {
@@ -16,12 +16,10 @@ export const fetchInstallationsFilterListSaga = function*({ data }) {
   } catch (err) {
     logger(err)
     yield put(fetchInstallationsFilterListFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

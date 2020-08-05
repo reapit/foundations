@@ -206,12 +206,12 @@ const appState: ReduxState = {
   },
   installations: {
     installationsList: {
-      pagedResult: {},
-      loading: false,
+      list: {},
+      isLoading: false,
     },
     installationsFilterList: {
-      pagedResult: {},
-      loading: false,
+      list: {},
+      isLoading: false,
     },
     formState: {
       state: 'PENDING',

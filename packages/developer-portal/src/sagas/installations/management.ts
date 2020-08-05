@@ -1,13 +1,12 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { UninstallParams, InstallParams } from '@/actions/installations'
-import { logger } from '@reapit/utils'
 import { createInstallation, removeAccessToAppById } from '@/services/installations'
 import { getClientId, getLoggedUserEmail } from '@/utils/session'
 import { setInstallationsFormState } from '@/actions/installations'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 
 export const createInstallationSaga = function*(options) {
   const data: InstallParams = options.data
@@ -18,7 +17,10 @@ export const createInstallationSaga = function*(options) {
     const clientId = yield getClientId()
 
     if (!clientId) {
-      throw new Error('ClientId not exist')
+      const error = {
+        description: 'ClientId not exist',
+      }
+      throw error
     }
 
     yield call(createInstallation, { ...data, clientId, approvedBy: email })
@@ -27,14 +29,11 @@ export const createInstallationSaga = function*(options) {
     }
     yield put(setInstallationsFormState('SUCCESS'))
   } catch (err) {
-    logger(err)
     yield put(setInstallationsFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -45,19 +44,15 @@ export const requestInstallationTerminateSaga = function*(options) {
     const email = yield getLoggedUserEmail()
 
     yield call(removeAccessToAppById, { ...data, terminatedBy: email })
-    if (data.callback) {
-      data.callback()
-    }
     yield put(setInstallationsFormState('SUCCESS'))
+
+    data.callback && data.callback()
   } catch (err) {
-    logger(err)
     yield put(setInstallationsFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

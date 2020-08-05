@@ -8,13 +8,13 @@ import {
 } from '@/actions/installations'
 
 export interface InstallationsFilterListState {
-  loading: boolean
-  pagedResult: PagedResultInstallationModel_ | null
+  isLoading: boolean
+  list: PagedResultInstallationModel_ | null
 }
 
 export const defaultState: InstallationsFilterListState = {
-  loading: false,
-  pagedResult: null,
+  isLoading: false,
+  list: null,
 }
 
 const installationsFilterListReducer = (
@@ -24,20 +24,20 @@ const installationsFilterListReducer = (
   if (isType(action, fetchInstallationsFilterList)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
   if (isType(action, fetchInstallationsFilterListSuccess)) {
     return {
       ...state,
-      pagedResult: action.data,
-      loading: false,
+      list: action.data,
+      isLoading: false,
     }
   }
   if (isType(action, fetchInstallationsFilterListFailed)) {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
     }
   }
 

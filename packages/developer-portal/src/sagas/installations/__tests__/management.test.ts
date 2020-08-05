@@ -35,14 +35,6 @@ describe('createInstallationSaga', () => {
   test('clientId not exist', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(setInstallationsFormState('ERROR')))
-    expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
   })
 
   test('api call success', () => {
@@ -71,14 +63,6 @@ describe('appUninstallSaga', () => {
     const clone = gen.clone()
     if (clone.throw) {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(setInstallationsFormState('ERROR')))
-      expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
-      )
     }
     expect(clone.next().done).toBe(true)
   })

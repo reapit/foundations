@@ -14,7 +14,7 @@ describe('installationsListReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: true,
+      isLoading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -25,8 +25,8 @@ describe('installationsListReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: false,
-      pagedResult: {},
+      isLoading: false,
+      list: {},
     }
     expect(newState).toEqual(expected)
   })
@@ -37,7 +37,7 @@ describe('installationsListReducer', () => {
     })
     const expected = {
       ...defaultState,
-      loading: false,
+      isLoading: false,
     }
     expect(newState).toEqual(expected)
   })

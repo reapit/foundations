@@ -25,14 +25,14 @@ jest.mock('../../../../../core/store')
 
 const installations = {
   installationsList: {
-    loading: false,
-    pagedResult: installationsStub,
+    isLoading: false,
+    list: installationsStub,
   },
 } as InstallationsRootState
 
 describe('InstallationTable', () => {
   const installedApps = handleMapAppNameToInstallation(
-    installations.installationsList?.pagedResult?.data || [],
+    installations.installationsList?.list?.data || [],
     appsDataStub.data.data || [],
   )()
   let store

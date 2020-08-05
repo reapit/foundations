@@ -8,13 +8,13 @@ import {
 } from '@/actions/installations'
 
 export interface InstallationsListState {
-  loading: boolean
-  pagedResult: PagedResultInstallationModel_ | null
+  isLoading: boolean
+  list: PagedResultInstallationModel_ | null
 }
 
 export const defaultState: InstallationsListState = {
-  loading: false,
-  pagedResult: null,
+  isLoading: false,
+  list: null,
 }
 
 const installationsListReducer = (
@@ -24,20 +24,20 @@ const installationsListReducer = (
   if (isType(action, fetchInstallationsList)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
   if (isType(action, fetchInstallationsListSuccess)) {
     return {
       ...state,
-      pagedResult: action.data,
-      loading: false,
+      list: action.data,
+      isLoading: false,
     }
   }
   if (isType(action, fetchInstallationsListFailed)) {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
     }
   }
 
