@@ -1,3 +1,5 @@
 import * as React from 'react'
 
-export default () => <div>I am a router</div>
+export const MockRouter: React.FC = () => <div>I am a router</div>
+
+export default MockRouter
