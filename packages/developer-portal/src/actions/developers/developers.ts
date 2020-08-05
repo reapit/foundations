@@ -17,7 +17,7 @@ export const fetchOrganisationMembers = actionCreator<FetchOrganisationMembersPa
 export const fetchOrganisationMembersSuccess = actionCreator<PagedResultMemberModel_>(
   ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS,
 )
-export const fetchOrganisationMembersFailed = actionCreator<void>(ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED)
+export const fetchOrganisationMembersFailed = actionCreator<string>(ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED)
 export const inviteDeveloperAsOrgMember = actionCreator<InviteDeveloperAsOrgMemberParams>(
   ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER,
 )

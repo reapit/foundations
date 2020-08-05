@@ -10,47 +10,52 @@ import {
 } from '@/actions/developers'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
-export type MembersState = {
-  loading: boolean
-  pagedResult: PagedResultMemberModel_ | null
+export type MembersState = PagedResultMemberModel_ & {
+  isLoading: boolean
+  errorMessage?: string | null
   inviteMember: {
-    loading: boolean
+    isLoading: boolean
   }
 }
 
 export const defaultState: MembersState = {
-  loading: false,
-  pagedResult: null,
+  data: [],
+  pageNumber: 0,
+  pageSize: 0,
+  totalCount: 0,
+  isLoading: false,
   inviteMember: {
-    loading: false,
+    isLoading: false,
   },
+  errorMessage: null,
 }
 
 export const membersReducer = (state: MembersState = defaultState, action: Action<any>): MembersState => {
   if (isType(action, fetchOrganisationMembers)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
   if (isType(action, fetchOrganisationMembersSuccess)) {
     return {
       ...state,
-      pagedResult: action?.data,
-      loading: false,
+      ...action.data,
+      isLoading: false,
     }
   }
   if (isType(action, fetchOrganisationMembersFailed)) {
     return {
       ...state,
-      loading: false,
+      errorMessage: action.data,
+      isLoading: false,
     }
   }
   if (isType(action, inviteDeveloperAsOrgMember)) {
     return {
       ...state,
       inviteMember: {
-        loading: true,
+        isLoading: true,
       },
     }
   }
@@ -59,7 +64,7 @@ export const membersReducer = (state: MembersState = defaultState, action: Actio
     return {
       ...state,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
   }
@@ -68,7 +73,7 @@ export const membersReducer = (state: MembersState = defaultState, action: Actio
     return {
       ...state,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
   }

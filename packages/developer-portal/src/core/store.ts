@@ -11,7 +11,6 @@ import developer from '@/reducers/developer'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
-import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import trafficStatistics from '@/reducers/traffic-statistics'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
@@ -34,7 +33,6 @@ import {
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
-import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
@@ -70,7 +68,6 @@ export class Store {
     error,
     developerSetStatus,
     settings: settingsReducer,
-    appUsageStats: appUsageStatsReducer,
     noticationMessage,
     trafficStatistics,
     developerSubscriptions,
@@ -82,7 +79,6 @@ export class Store {
 
   static sagas = function*() {
     yield all([
-      fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),

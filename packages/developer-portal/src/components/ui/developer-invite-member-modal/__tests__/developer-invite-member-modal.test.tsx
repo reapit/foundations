@@ -12,7 +12,7 @@ const createStore = (loading: boolean) => {
     developers: {
       members: {
         inviteMember: {
-          loading: loading,
+          isLoading: loading,
         },
       },
     },

@@ -3,15 +3,15 @@ import { MemberModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
 
 export const selectOrganisationMembers = (state: ReduxState): MemberModel[] => {
-  return state.developers?.members?.pagedResult?.data || []
+  return state.developers?.members?.data || []
 }
 
 export const selectOrganisationMembersLoading = (state: ReduxState): boolean => {
-  return state.developers?.members?.loading
+  return state.developers?.members?.isLoading
 }
 
 export const selectInviteDeveloperAsOrgMemberLoading = (state: ReduxState): boolean => {
-  return state.developers?.members?.inviteMember?.loading
+  return state.developers?.members?.inviteMember?.isLoading
 }
 
 export const selectDeveloperDetails = (state: ReduxState): DeveloperModel | null => {
@@ -19,7 +19,7 @@ export const selectDeveloperDetails = (state: ReduxState): DeveloperModel | null
 }
 
 export const selectDeveloperDetailsLoading = (state: ReduxState): boolean => {
-  return state.developers?.developerDetails?.loading
+  return state.developers?.developerDetails?.isLoading
 }
 
 export const selectMemberDetails = (state: ReduxState): MemberModel | null => {
@@ -27,7 +27,7 @@ export const selectMemberDetails = (state: ReduxState): MemberModel | null => {
 }
 
 export const selectMemberDetailsLoading = (state: ReduxState): boolean => {
-  return state.developers?.memberDetails?.loading
+  return state.developers?.memberDetails?.isLoading
 }
 
 export const selectInviteMemberStatus = (state: ReduxState): InviteMemberStatus => {

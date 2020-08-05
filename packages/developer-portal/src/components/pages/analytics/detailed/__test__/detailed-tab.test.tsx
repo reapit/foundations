@@ -12,7 +12,6 @@ import {
   handleFetchHttpTrafficPerDayDataUseEffect,
   handleDefaultFilter,
 } from '../detailed-tab'
-import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
@@ -28,10 +27,6 @@ jest.mock('@reapit/elements', () => ({
 jest.mock('../../../../../core/store')
 
 const mockState = {
-  appUsageStats: {
-    appUsageStatsData: usageStatsDataStub,
-    loading: false,
-  },
   installations: {
     installationsList: installationsStub,
     formState: { state: 'PENDING' },

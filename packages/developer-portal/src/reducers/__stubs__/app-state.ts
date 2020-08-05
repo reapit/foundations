@@ -104,10 +104,6 @@ const appState: ReduxState = {
       },
     },
   },
-  appUsageStats: {
-    loading: false,
-    appUsageStatsData: null,
-  },
   noticationMessage: {
     visible: false,
     variant: '',
@@ -172,11 +168,11 @@ const appState: ReduxState = {
   },
   developerSubscriptions: {
     create: {
-      loading: false,
+      isLoading: false,
       error: false,
     },
     list: {
-      loading: false,
+      isLoading: false,
       data: {
         data: [],
       },
@@ -184,20 +180,18 @@ const appState: ReduxState = {
   },
   developers: {
     members: {
-      loading: false,
-      pagedResult: {
-        data: [],
-      },
+      isLoading: false,
+      data: [],
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     },
     developerDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
     },
     memberDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
       inviteStatus: 'PENDING',
     },

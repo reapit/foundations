@@ -21,8 +21,8 @@ import { call, put, takeLatest, fork, all } from 'redux-saga/effects'
 import { fetchMemberDetailsSuccess, fetchMemberDetailsFailed, setInviteMemberStatus } from '@/actions/developers'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import errorMessages from '@/constants/error-messages'
-import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
+import { notification } from '@reapit/elements'
 
 describe('fetchMemberDetailsSaga', () => {
   const params: Action<FetchMemberDetailsParams> = {
@@ -45,12 +45,10 @@ describe('fetchMemberDetailsSaga', () => {
       put(fetchMemberDetailsFailed()),
     )
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      notification.error({
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
@@ -77,12 +75,10 @@ describe('acceptInviteMemberSaga', () => {
       put(setInviteMemberStatus('ERROR')),
     )
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      notification.error({
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
@@ -110,12 +106,10 @@ describe('rejectInviteMemberSaga', () => {
       put(setInviteMemberStatus('ERROR')),
     )
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      notification.error({
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })

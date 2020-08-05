@@ -24,7 +24,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: true,
+        isLoading: true,
       },
     }
     expect(newState).toEqual(expected)
@@ -38,7 +38,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
     expect(newState).toEqual(expected)
@@ -52,7 +52,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
     expect(newState).toEqual(expected)
@@ -64,25 +64,28 @@ describe('members reducer', () => {
     const newState = membersReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
     expect(newState).toEqual(defaultState)
   })
-  it('should return state with loading is true', () => {
+  it('should return state with isLoading is true', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS as ActionType,
       data: undefined,
     })
-    expect(newState).toEqual({ ...defaultState, loading: true })
+    expect(newState).toEqual({ ...defaultState, isLoading: true })
   })
-  it('should return state with loading is false, data is {}', () => {
+  it('should return state with isLoading is false, data is {}', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS as ActionType,
       data: {},
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: {} })
+    expect(newState).toEqual({
+      ...defaultState,
+      isLoading: false,
+    })
   })
-  it('should return state with loading is false, data is {}', () => {
+  it('should return state with isLoading is false, data is {}', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED as ActionType,
-      data: {},
+      data: 'test',
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: null })
+    expect(newState).toEqual({ ...defaultState, isLoading: false, errorMessage: 'test' })
   })
 })
