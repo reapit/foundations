@@ -462,23 +462,26 @@ export const validate = (data: Cell[][]) =>
 
       if (cellIndex === 2) {
         const a1 = !fieldValidateRequire(cell.value as string)
-        return a1
+        return a1 || 'Required'
       }
       // cell addess1 is required
       if (cellIndex === 5) {
-        return !fieldValidateRequire(cell.value as string)
+        return !fieldValidateRequire(cell.value as string) || 'Required'
       }
       // cell postalcode is required
       if (cellIndex === 9) {
-        return !fieldValidateRequire(cell.value as string)
+        return !fieldValidateRequire(cell.value as string) || 'Required'
       }
       // cell telephone is required
       if (cellIndex === 10) {
-        return !fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)) ||
+          'Invalid phone number format'
+        )
       }
       // cell email is required
       if (cellIndex === 11) {
-        return !fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)
+        return (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) || 'Invalid email format'
       }
       return true
     }),

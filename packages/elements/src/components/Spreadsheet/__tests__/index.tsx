@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Spreadsheet, UploadButton, DownloadButton, AddRowButton } from '../index'
+import { Spreadsheet, UploadButton, DownloadButton, AddRowButton, genarateErrorElements } from '../index'
 import { data } from '../__stubs__'
+import { Cell } from '../types'
 
 describe('Spreadsheet', () => {
   it('should match snapshot with default props', () => {
@@ -39,5 +40,12 @@ describe('AddRowButton', () => {
   it('should match snapshot', () => {
     const addNewRow = jest.fn()
     expect(shallow(<AddRowButton addNewRow={addNewRow} />)).toMatchSnapshot()
+  })
+})
+
+describe('genarateErrorElements', () => {
+  it('should match snapshot', () => {
+    const data = [[{ error: 'error' }]] as Cell[][]
+    expect(shallow(<div>{genarateErrorElements(data)}</div>)).toMatchSnapshot()
   })
 })

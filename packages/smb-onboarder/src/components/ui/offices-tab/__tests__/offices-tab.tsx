@@ -283,8 +283,8 @@ describe('OfficesTab', () => {
       const result = [
         [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, true, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
+        [true, true, true, true, true, true, true, true, true, true, 'Invalid phone number format', true],
+        [true, true, true, true, true, true, true, true, true, true, 'Invalid phone number format', true],
       ]
       const dataTable = getDataTable(offices)
       expect(validate(dataTable)).toEqual(result)

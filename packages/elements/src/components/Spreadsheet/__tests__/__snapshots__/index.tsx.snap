@@ -191,3 +191,22 @@ exports[`UploadButton should match snapshot 1`] = `
   />
 </div>
 `;
+
+exports[`genarateErrorElements should match snapshot 1`] = `
+<div>
+  <div
+    className="has-text-danger pt-4"
+  >
+    <h6
+      className="title is-6 has-text-danger mb-1"
+    >
+      The following validation errors have occurred:
+    </h6>
+    <div
+      className="has-text-danger"
+    >
+      [1][1]: error
+    </div>
+  </div>
+</div>
+`;
