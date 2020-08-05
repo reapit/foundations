@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { selectInstallationAppData } from '@/selector/installations'
-import { PagedResultInstallationModel_, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { selectInstallationsListData } from '@/selector/installations'
+import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { selectInstallAppLoading } from '@/selector/installations'
+import { selectInstallationsListLoading } from '@/selector/installations'
 import { Loader, Grid, GridItem, Section } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/app-header'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
@@ -48,10 +48,10 @@ const AppDetail: React.FC<AppDetailProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-  const isLoadingInstallations = useSelector(selectInstallAppLoading)
+  const isLoadingInstallations = useSelector(selectInstallationsListLoading)
   const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
-  const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
-  const unfetch = !appDetailState?.data || !installationsData?.data
+  const installationsData = useSelector(selectInstallationsListData)
+  const unfetch = !appDetailState?.data || !installationsData
   const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
     appDetailData.desktopIntegrationTypeIds || [],
     desktopIntegrationTypes,

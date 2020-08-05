@@ -16,7 +16,7 @@ import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
-import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
+import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/installations'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { developerState } from '@/sagas/__stubs__/developer'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
@@ -33,9 +33,8 @@ const mockState = {
     loading: false,
   },
   installations: {
-    installationsAppData: installationsStub,
-    formState: 'PENDING',
-    loading: false,
+    installationsList: installationsStub,
+    formState: { state: 'PENDING' },
   },
   developer: developerState,
   trafficStatistics: {
@@ -83,7 +82,7 @@ describe('OverviewPage', () => {
       const fn = handleFetchAppUsageStatsDataUseCallback(spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsFilterRequestData({
+        fetchInstallationsFilterList({
           // default is last 7 days
           installedDateFrom: '2020-06-30',
           installedDateTo: '2020-07-06',
@@ -91,7 +90,7 @@ describe('OverviewPage', () => {
         }),
       )
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestData({
+        fetchInstallationsList({
           pageSize: 9999,
         }),
       )

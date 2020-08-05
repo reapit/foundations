@@ -3,7 +3,6 @@ import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
 import { SettingsState } from '@/reducers/settings'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
@@ -12,6 +11,7 @@ import { AppsRootState } from '@/reducers/apps'
 import { ScopesRootState } from '@/reducers/scopes'
 import { CategoriesRootState } from '@/reducers/categories'
 import { DesktopIntegrationTypesRootState } from '@/reducers/desktop-integration-types'
+import { InstallationsRootState } from '@/reducers/installations'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
 import { TrafficStatisticsRootState } from '@/reducers/traffic-statistics'
@@ -61,13 +61,13 @@ export interface ReduxState {
   error: ErrorState
   developerSetStatus: RequestState
   settings: SettingsState
-  installations: AppInstallationsState
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
   trafficStatistics: TrafficStatisticsRootState
   desktopIntegrationTypes: DesktopIntegrationTypesRootState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
+  installations: InstallationsRootState
   webhooksTopics: WebhooksTopicsRootState
   webhooksSubscriptions: WebhooksSubscriptionsRootState
 }
