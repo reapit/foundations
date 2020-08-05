@@ -152,10 +152,9 @@ span.data-grid-container:focus {
     text-align: left;
 
     &.read-only {
-      color: $black;
+      color: $grey;
       background-color: inherit;
     }
-
 
     &.error-cell {
       background: $red-lighter !important;
@@ -170,9 +169,6 @@ span.data-grid-container:focus {
   tr:nth-child(odd) {
     background-color: $white;
   }
-
-
-
 
   tr:nth-child(even) {
     background-color: $grey-lightest;
