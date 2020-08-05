@@ -3,13 +3,12 @@ import routes from '@/constants/routes'
 import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { appInstallationsRequestData } from '@/actions/app-installations'
 import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
-import { PagedResultInstallationModel_, InstallationModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { InstallationModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectInstallationAppData } from '@/selector/installations'
+import { selectInstallationsListData } from '@/selector/installations'
 import { Modal } from '@reapit/elements'
 import {
   ListingPreviewSection,
@@ -22,6 +21,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { AppDetailState } from '@/reducers/apps/app-detail'
+import { fetchInstallationsList } from '@/actions/installations'
 
 export type AppContentProps = {
   appDetailState: AppDetailState
@@ -46,7 +46,7 @@ export const handleUninstallSuccess = ({
 }: HandleUninstallSuccessParams) => () => {
   handleAfterClose({ setUninstallApp })
   dispatch(
-    appInstallationsRequestData({
+    fetchInstallationsList({
       appId: [appId],
       pageNumber: 1,
       pageSize: GET_ALL_PAGE_SIZE,
@@ -101,8 +101,7 @@ export const generateInstallationTableColumns = (
 const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const appDetailData = appDetailState.data || {}
   const { summary = '', authFlow = '', externalId = '', id = '', name = '', scopes = [] } = appDetailData
-  const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
-  const { data = [] } = installationsData
+  const installationsData = useSelector(selectInstallationsListData)
   const dispatch = useDispatch()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
@@ -137,7 +136,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
       <ListingPreviewSection onClick={handleOpenAppPreview(id, appDetailData)} />
       <AuthenticationSection id={id} authFlow={authFlow} externalId={externalId} />
       <PermissionsSection permissions={scopes} />
-      <InstallationsTableSection columns={installationTableColumns} data={data} />
+      <InstallationsTableSection columns={installationTableColumns} data={installationsData} />
     </Section>
   )
 }

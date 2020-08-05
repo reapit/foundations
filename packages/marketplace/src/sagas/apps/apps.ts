@@ -15,7 +15,6 @@ import { selectDeveloperEditionId } from '@/selector/auth'
 import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsParams } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
-import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { generateParamsForPreviewApps } from '@/utils/browse-app'
 
@@ -26,10 +25,6 @@ export const fetchApps = function*({ data }) {
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
-      notification.error({
-        message: CLIENT_ID_NOT_FOUND_ERROR.message,
-        placement: 'bottomRight',
-      })
       return
     }
 
@@ -65,10 +60,6 @@ export const fetchFeatureApps = function*({ data }) {
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
-      notification.error({
-        message: CLIENT_ID_NOT_FOUND_ERROR.message,
-        placement: 'bottomRight',
-      })
       return
     }
 

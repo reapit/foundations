@@ -5,7 +5,7 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { fetchAppList } from '@/actions/apps'
 import { fetchMyIdentity } from '@/actions/developer'
-import { appInstallationsRequestData } from '../actions/app-installations'
+import { fetchInstallationsList } from '../actions/installations'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { getDeveloperId, getClientId } from './session'
@@ -40,7 +40,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
         const developerId = await getDeveloperId()
         store.dispatch(fetchAppDetail({ id, clientId }))
         store.dispatch(
-          appInstallationsRequestData({
+          fetchInstallationsList({
             appId: [id],
             pageNumber: 1,
             pageSize: GET_ALL_PAGE_SIZE,

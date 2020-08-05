@@ -104,13 +104,6 @@ const appState: ReduxState = {
       },
     },
   },
-  installations: {
-    formState: 'PENDING',
-    loading: false,
-    loadingFilter: false,
-    installationsAppData: null,
-    installationsFilteredAppData: null,
-  },
   noticationMessage: {
     visible: false,
     variant: '',
@@ -201,6 +194,19 @@ const appState: ReduxState = {
       isLoading: false,
       data: {},
       inviteStatus: 'PENDING',
+    },
+  },
+  installations: {
+    installationsList: {
+      list: {},
+      isLoading: false,
+    },
+    installationsFilterList: {
+      list: {},
+      isLoading: false,
+    },
+    formState: {
+      state: 'PENDING',
     },
   },
 }

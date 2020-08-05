@@ -11,7 +11,6 @@ import {
 } from '@/services/installations'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
-import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 import { notification } from '@reapit/elements'
 
 export const installSagas = function*({ data }) {
@@ -22,7 +21,6 @@ export const installSagas = function*({ data }) {
     const clientId = yield call(selectClientId, connectSession)
 
     if (!clientId) {
-      notification.error({ message: CLIENT_ID_NOT_FOUND_ERROR.message, placement: 'bottomRight' })
       return
     }
     yield call(createInstallation, { ...restParams, clientId, approvedBy: email })

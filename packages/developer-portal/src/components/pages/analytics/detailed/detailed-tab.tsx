@@ -2,10 +2,9 @@ import * as React from 'react'
 import orderBy from 'lodash.orderby'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
-import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getAppHttpTraffic } from '@/selector/analytics'
-import { getInstallations } from '@/selector/installations'
+import { selectInstallationsListData, selectInstallationsFilterListData } from '@/selector/installations'
 
 import { Grid, GridItem, Section } from '@reapit/elements'
 import DeveloperHitsPerDayChart from './hits-per-day-chart'
@@ -16,6 +15,7 @@ import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import TrafficEventTable from './traffic-event-table'
 import { prepareDefaultFilterDateParams } from './filter-bar/default-filter-group'
 import { selectAppListState } from '@/selector/apps/app-list'
+import { fetchInstallationsList, fetchInstallationsFilterList } from '@/actions/installations'
 
 export type DetailedTabProps = {}
 
@@ -48,14 +48,14 @@ export const handleFetchAppUsageStatsDataUseCallback = dispatch => {
     const { defaultParams } = prepareDefaultFilterDateParams()
 
     dispatch(
-      appInstallationsFilterRequestData({
+      fetchInstallationsFilterList({
         installedDateFrom: defaultParams.dateFrom,
         installedDateTo: defaultParams.dateTo,
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
     dispatch(
-      appInstallationsRequestData({
+      fetchInstallationsList({
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
@@ -95,12 +95,10 @@ export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDay
 export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
 
-  const installations = useSelector(getInstallations)
   const appHttpTraffic = useSelector(getAppHttpTraffic)
-
   const { data: apps = [] } = useSelector(selectAppListState)
-  const installationAppDataArray = installations?.installationsAppData?.data
-  const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
+  const installationAppDataArray = useSelector(selectInstallationsListData)
+  const installationFilterAppDataArray = useSelector(selectInstallationsFilterListData)
 
   const installationAppDataArrayWithName = React.useMemo(
     handleMapAppNameToInstallation(installationAppDataArray, apps),
@@ -120,8 +118,6 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
 
   React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
-
-  const installationsAppLoading = installations?.loading
 
   const trafficEvents = appHttpTraffic?.list?.data
   const appHttpTrafficPerDayLoading = appHttpTraffic?.list.isLoading
@@ -143,9 +139,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
       <InstallationAppSection
         installedApps={installationAppDataArrayWithName}
         filteredInstalledApps={installationFilterAppDataArrayWithName}
-        installations={installations}
         apps={apps}
-        loading={installationsAppLoading}
       />
     </ErrorBoundary>
   )

@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
+import { selectInstallationsFilterList, selectInstallationsLoading } from '@/selector/installations'
+import { useSelector } from 'react-redux'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
@@ -105,12 +106,11 @@ export const currentInstallationTableColumn = [
 export const InstallationAppSection: React.FC<{
   installedApps: InstallationModelWithAppName[]
   filteredInstalledApps: InstallationModelWithAppName[]
-  installations?: AppInstallationsState
   apps?: AppSummaryModel[]
-  loading?: boolean
-}> = ({ installedApps, filteredInstalledApps, installations, apps = [], loading }) => {
+}> = ({ installedApps, filteredInstalledApps, apps = [] }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
-  const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
+  const installationFilterAppData = useSelector(selectInstallationsFilterList)
+  const loading = useSelector(selectInstallationsLoading)
 
   const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
     filteredInstalledApps,
@@ -123,8 +123,8 @@ export const InstallationAppSection: React.FC<{
   ])
 
   const installationFilterAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationFilterAppDataArray, apps),
-    [installationFilterAppDataArray, apps],
+    handleMapAppNameToInstallation(installationFilterAppData?.data, apps),
+    [installationFilterAppData, apps],
   )
 
   return (
@@ -163,7 +163,7 @@ export const InstallationAppSection: React.FC<{
             pageNumber={pageNumber}
             onChange={handleSetPageNumber(setPageNumber)}
             pageSize={INSTALLATIONS_PER_PAGE}
-            totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
+            totalCount={installationFilterAppData?.totalCount ?? 0}
           />
         </>
       )}
