@@ -1,7 +1,3 @@
-/*
- * TODOME(fetchResult)
- * import
- */
 import { FetchDetailResult } from './types/fetch-result'
 
 export const getDefaultFetchListValue = () => ({

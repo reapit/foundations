@@ -1,7 +1,15 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import * as Elements from '@reapit/elements'
-import { AddingSourcesAndReferrals, AddingUsers, Branding, GetStated, LetGetStated, Setting } from '../get-started'
+import {
+  AddingSourcesAndReferrals,
+  AddingUsers,
+  Branding,
+  GetStated,
+  LetGetStated,
+  Setting,
+  handleChangeSteps,
+} from '../get-started'
 
 const values = {
   current: 'step-1',
@@ -27,6 +35,18 @@ const values = {
 }
 
 describe('GetStated', () => {
+  test('handleChangeSteps', () => {
+    const scrollIntoView = jest.fn()
+    const spy = jest.spyOn(document, 'getElementById').mockReturnValue(({
+      scrollIntoView,
+    } as unknown) as HTMLElement)
+    const goTo = jest.fn()
+    handleChangeSteps(goTo)()
+    expect(goTo).toHaveBeenCalled()
+    expect(spy).toHaveBeenCalledWith('get-started')
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
+  })
+
   it('should match a snapshot', () => {
     expect(shallow(<GetStated />)).toMatchSnapshot()
   })

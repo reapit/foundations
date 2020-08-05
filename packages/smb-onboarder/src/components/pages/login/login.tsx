@@ -1,26 +1,15 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
 import { Button, Level, FlexContainerBasic } from '@reapit/elements'
-import { redirectToLogin } from '@reapit/cognito-auth'
-import Routes from '@/constants/routes'
 import connectImage from '@/assets/images/reapit-connect.png'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { AuthContext } from '@/context'
 import { loginFormContainer, imageContainer, loginPageContainer } from './__styles__'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const redirectToLoginPage = () => {
-  const cognitoClientId = window.reapit.config.cognitoClientId
-  redirectToLogin(cognitoClientId, `${window.location.origin}`)
+  reapitConnectBrowserSession.connectLoginRedirect()
 }
 
 export const Login: React.FC = () => {
-  const loginHandler = React.useCallback(redirectToLoginPage, [])
-  const { loginSession } = React.useContext(AuthContext)
-
-  if (loginSession) {
-    return <Redirect to={Routes.HOME} />
-  }
-
   return (
     <div className={loginPageContainer}>
       <div className={loginFormContainer}>
@@ -30,7 +19,7 @@ export const Login: React.FC = () => {
         <p className="pb-8">Welcome to SMB</p>
 
         <Level>
-          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
+          <Button fullWidth type="submit" variant="primary" onClick={redirectToLoginPage}>
             Login
           </Button>
         </Level>

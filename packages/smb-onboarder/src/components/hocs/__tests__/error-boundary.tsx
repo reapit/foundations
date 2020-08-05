@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ErrorBoundary } from '../error-boundary'
 
@@ -16,10 +16,14 @@ describe('ErrorBoundary', () => {
   })
 
   it('should match a snapshot when has an error', () => {
-    const component = shallow(<ErrorBoundary {...props} />)
-    component.setState({
-      hasFailed: true,
-    })
+    const Children = () => {
+      throw new Error('123')
+    }
+    const component = mount(
+      <ErrorBoundary>
+        <Children />
+      </ErrorBoundary>,
+    )
     expect(toJson(component)).toMatchSnapshot()
   })
 

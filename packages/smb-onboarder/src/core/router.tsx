@@ -22,10 +22,10 @@ const Router = () => {
           <Route path={Routes.LOGIN} exact component={LoginPage} />
           <PrivateRouteWrapper path="/">
             <Switch>
-              <PrivateRoute allow="CLIENT" path={Routes.HOME} component={Home} />
-              <PrivateRoute allow="CLIENT" path={Routes.OFFICES} component={OfficesPage} />
-              <PrivateRoute allow="CLIENT" path={Routes.USERS} component={NegotiatorsPage} />
-              <PrivateRoute allow="CLIENT" path={Routes.GET_STARTED} component={GetStartedPage} />
+              <PrivateRoute path={Routes.HOME} component={Home} />
+              <PrivateRoute path={Routes.OFFICES} component={OfficesPage} />
+              <PrivateRoute path={Routes.USERS} component={NegotiatorsPage} />
+              <PrivateRoute path={Routes.GET_STARTED} component={GetStartedPage} />
             </Switch>
           </PrivateRouteWrapper>
           <Redirect to={Routes.LOGIN} />
