@@ -23,12 +23,6 @@ exports[`Tabs should match a snapshot 1`] = `
             "onTabClick": [Function],
             "tabIdentifier": "/settings/",
           },
-          Object {
-            "active": false,
-            "displayText": "Billing",
-            "onTabClick": [Function],
-            "tabIdentifier": "/settings/billing",
-          },
         ]
       }
     >
@@ -49,20 +43,6 @@ exports[`Tabs should match a snapshot 1`] = `
               role="tab"
             >
               Profile
-            </a>
-          </li>
-          <li
-            className=""
-            key="/settings/billing"
-          >
-            <a
-              aria-controls="/settings/billing"
-              aria-selected={false}
-              id="/settings/billing"
-              onClick={[Function]}
-              role="tab"
-            >
-              Billing
             </a>
           </li>
         </ul>
