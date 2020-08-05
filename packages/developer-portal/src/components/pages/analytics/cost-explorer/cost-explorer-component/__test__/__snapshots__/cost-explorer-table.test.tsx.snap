@@ -32,6 +32,27 @@ exports[`CostExplorerTable should match a snapshot 1`] = `
     }
   }
 >
-  <CostExplorerTable />
+  <CostExplorerTable
+    columns={Array []}
+    tableData={
+      Array [
+        Object {
+          "amount": 638,
+          "cost": 7.975,
+          "itemCount": 7,
+          "name": "API Requests",
+          "subRows": Array [
+            Object {
+              "amount": 157,
+              "cost": 1.9625,
+              "itemCount": 2,
+              "name": "contacts",
+              "subRows": Array [],
+            },
+          ],
+        },
+      ]
+    }
+  />
 </ContextProvider>
 `;
