@@ -3,6 +3,13 @@
 exports[`modal Modal should match snapshot 1`] = `
 <Component
   className=""
+  closeIcon={
+    <button
+      aria-label="close"
+      className="delete"
+      type="button"
+    />
+  }
   destroyOnClose={true}
   title={<Unknown />}
   visible={true}
