@@ -3,7 +3,27 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/admin-portal",
+      "packages/aml-checklist",
+      "packages/cloud-alert",
+      "packages/config-manager",
+      "packages/connect-session",
+      "packages/cra-template-foundations",
+      "packages/deploy-slack-bot",
+      "packages/developer-portal",
+      "packages/elements-next",
+      "packages/elements",
+      "packages/foundations-ts-definitions",
+      "packages/geo-diary-v2",
+      "packages/geo-diary",
+      "packages/graphql-server",
+      "packages/marketplace",
+      "packages/react-app-scaffolder",
+      "packages/reapit-connect",
+      "packages/smb-onboarder",
+      "packages/utils",
+      "packages/web-components-config-server",
+      "packages/web-components"
     ],
     "nohoist": [
       "**/cognito-custom-mail-lambda",

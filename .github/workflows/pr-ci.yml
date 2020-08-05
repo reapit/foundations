@@ -44,38 +44,19 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      # Currently, actions/caches does not support multiple paths https://github.com/actions/cache/issues/16
-      # Looks like they're working on it, let's keep an eye on it
-      - name: Get marketplace build cache
+        # Only web apps built with webpack have .webpack-cache
+      - name: Get Web Apps build cache
         uses: actions/cache@v2
         with:
-          path: packages/marketplace/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
-
-      - name: Get aml-checklist build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/aml-checklist/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
-
-      - name: Get geo-diary build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/geo-diary/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
-
-      - name: Get lifetime-legal build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/lifetime-legal/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
-
-      - name: Get smb build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/smb/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
-      # End cache
+          path: |
+            packages/admin-portal/.webpack-cache
+            packages/marketplace/.webpack-cache
+            packages/developer-portal/.webpack-cache
+            packages/aml-checklist/.webpack-cache
+            packages/smb-onboarder/.webpack-cache
+            packages/geo-diary/.webpack-cache
+            packages/geo-diary-v2/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}
 
       - name: Fetch config
         run: |
