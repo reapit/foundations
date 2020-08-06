@@ -19,6 +19,7 @@ import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
 import { usePrevious } from './utils'
 import { ModalUpload } from './modal-upload'
+import { H6 } from '../Typography'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -70,7 +71,7 @@ export const genarateErrorElements = (data: Cell[][] = []) => {
   if (errors.length) {
     return (
       <div className="has-text-danger pt-4">
-        <h6 className="title is-6 has-text-danger mb-1">The following validation errors have occurred:</h6>
+        <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
         {errors}
       </div>
     )
