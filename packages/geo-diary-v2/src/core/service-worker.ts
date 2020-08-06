@@ -74,7 +74,6 @@ function registerValidSW(swUrl: string, config?: Config) {
               if (isDesktop()) {
                 notification.success({
                   message: 'New version available, please press CTRL-SHIFT-R to update',
-                  duration: 0,
                   placement: 'bottomRight',
                 })
               }
