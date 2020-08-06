@@ -63,7 +63,7 @@ describe('NegotiatorStatusCheckbox', () => {
   describe('handleCheckBoxChange', () => {
     it('should return if checkbox is disabled', () => {
       if (mockProps.disabled) {
-        expect(handleCheckBoxChange).toReturn
+        expect(handleCheckBoxChange({ ...mockHandleCheckboxChangeParamsForCreateCase, disabled: true })).toBeUndefined()
       }
     })
     it('should execute updateNegotiator in case of existing row', () => {

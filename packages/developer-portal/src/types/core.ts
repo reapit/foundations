@@ -3,7 +3,6 @@ import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
 import { SettingsState } from '@/reducers/settings'
-import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
@@ -61,7 +60,6 @@ export interface ReduxState {
   error: ErrorState
   developerSetStatus: RequestState
   settings: SettingsState
-  appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
   trafficStatistics: TrafficStatisticsRootState
   desktopIntegrationTypes: DesktopIntegrationTypesRootState

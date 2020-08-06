@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Router from './router'
 import { css } from 'linaria'
-import { useReapitConnect } from '@reapit/connect-session'
+import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
+import { DEVELOPER_PORTAL_APPS } from '../constants/routes'
 
 export const globals = css`
   :global() {
@@ -16,10 +17,19 @@ export const globals = css`
   }
 `
 
+export const isUserWithDevIdOnly = (loginIdentity: LoginIdentity) => {
+  return loginIdentity.developerId && !loginIdentity.clientId && !loginIdentity.adminId
+}
+
 export const App = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-  if (!session.connectSession) {
+
+  if (!session.connectSession?.loginIdentity) {
     return null
+  }
+
+  if (isUserWithDevIdOnly(session.connectSession?.loginIdentity)) {
+    window.location.href = DEVELOPER_PORTAL_APPS
   }
 
   return <Router />

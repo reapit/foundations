@@ -12,6 +12,13 @@ export const modalContainer = css`
     background-color: #f5f5f5;
     border-radius: 0px;
   }
+  .rc-dialog-close {
+    opacity: 1;
+    top: 30px;
+  }
+  .rc-dialog-close:focus {
+    outline: none;
+  }
 `
 export const modalCentered = css`
   display: flex;

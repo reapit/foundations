@@ -4,9 +4,8 @@ import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { IoIosPeople } from 'react-icons/io'
-import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
-import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
-import { AuthContext } from '@/context'
+import { FaSignOutAlt, FaCloud, FaQuestion, FaBuilding } from 'react-icons/fa'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateMenuConfig = (logout: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -17,13 +16,6 @@ export const generateMenuConfig = (logout: () => void, location: Location<any>):
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
         type: 'LOGO',
-      },
-      {
-        title: 'Home',
-        key: 'HOME',
-        icon: <FaHome className="nav-item-icon" />,
-        url: Routes.HOME,
-        type: 'PRIMARY',
       },
       {
         title: 'Offices',
@@ -40,47 +32,20 @@ export const generateMenuConfig = (logout: () => void, location: Location<any>):
         type: 'PRIMARY',
       },
       {
-        title: 'Sources',
-        key: 'SOURCES',
-        icon: <FaClipboardList className="nav-item-icon" />,
-        url: Routes.SOURCES,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Marketing',
-        key: 'MARKETING',
-        icon: <MdWeb className="nav-item-icon" />,
-        url: Routes.MARKETING,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Lettings',
-        key: 'LETTINGS',
-        icon: <MdLibraryBooks className="nav-item-icon" />,
-        url: Routes.LETTINGS,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Support',
-        key: 'SUPPORT',
-        icon: <MdLiveHelp className="nav-item-icon" />,
-        url: Routes.SUPPORT,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Install',
-        key: 'INSTALL',
-        icon: <FaDownload className="nav-item-icon" />,
-        url: Routes.INSTALL,
-        type: 'PRIMARY',
-      },
-      {
         title: 'Apps',
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
         callback: callbackAppClick,
         type: 'PRIMARY',
       },
+      {
+        title: 'Help',
+        key: 'HELP',
+        icon: <FaQuestion className="nav-item-icon" />,
+        url: Routes.HELP,
+        type: 'PRIMARY',
+      },
+
       {
         title: 'Logout',
         key: 'LOGOUT',
@@ -100,11 +65,14 @@ export const callbackAppClick = () =>
 
 export type MenuProps = {}
 
+export const handleLogout = () => {
+  reapitConnectBrowserSession.connectLogoutRedirect()
+}
+
 export const Menu: React.FC<MenuProps> = () => {
-  const { logout } = React.useContext(AuthContext)
   const location = useLocation()
 
-  const menuConfigs = generateMenuConfig(logout, location)
+  const menuConfigs = generateMenuConfig(handleLogout, location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

@@ -43,7 +43,6 @@ exports[`Router should match a snapshot 1`] = `
       >
         <Switch>
           <Component
-            allow="CLIENT"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -52,10 +51,9 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            path="/home"
+            path="/help"
           />
           <Component
-            allow="CLIENT"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -67,7 +65,6 @@ exports[`Router should match a snapshot 1`] = `
             path="/offices"
           />
           <Component
-            allow="CLIENT"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -77,18 +74,6 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             path="/users"
-          />
-          <Component
-            allow="CLIENT"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            path="/get-started"
           />
         </Switch>
       </withRouter()>

@@ -69,7 +69,7 @@ export const renderTabContent = currentTab => {
 export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () => {
   const [currentTab, setCurrentTab] = React.useState<AnalyticsTab>(AnalyticsTab.DETAILED)
   const history = useHistory()
-  const { activeTab } = useParams()
+  const { activeTab } = useParams<{ activeTab: string }>()
 
   React.useEffect(handleUseEffectToSetCurrentTab(activeTab, setCurrentTab), [activeTab])
 

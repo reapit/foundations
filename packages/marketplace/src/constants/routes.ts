@@ -9,6 +9,7 @@ const Routes = {
   SETTINGS: '/settings',
   HELP: '/help',
   LOGIN: '/login',
+  REGISTER: '/register',
   FOUR_O_FOUR: '/404',
 }
 

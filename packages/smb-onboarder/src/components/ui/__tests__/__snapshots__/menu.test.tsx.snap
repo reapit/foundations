@@ -1,45 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Component
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [MockFunction],
-      "goBack": [MockFunction],
-      "goForward": [MockFunction],
-      "length": 2,
-      "listen": [Function],
-      "location": Object {
-        "hash": "mockHash",
-        "key": "mockKey",
-        "pathname": "mockPathname",
-        "search": "",
-        "state": Object {},
-      },
-      "push": [MockFunction],
-      "replace": [MockFunction],
-    }
-  }
+<Memo(MenuComponent)
+  defaultActiveKey="LOGO"
   location={
     Object {
-      "hash": "mockHash",
-      "key": "mockKey",
-      "pathname": "mockPathname",
-      "search": "",
-      "state": Object {},
+      "location": "location",
     }
   }
-  match={
-    Object {
-      "isExact": true,
-      "params": Object {},
-      "path": "/mockPathname",
-      "url": "/mockPathname",
-    }
+  menu={
+    Array [
+      Object {
+        "icon": <Unknown
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "icon": <FaBuilding
+          className="nav-item-icon"
+        />,
+        "key": "OFFICES",
+        "title": "Offices",
+        "type": "PRIMARY",
+        "url": "/offices",
+      },
+      Object {
+        "icon": <IoIosPeople
+          className="nav-item-icon"
+        />,
+        "key": "USERS",
+        "title": "Users",
+        "type": "PRIMARY",
+        "url": "/users",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
+        "icon": <FaQuestion
+          className="nav-item-icon"
+        />,
+        "key": "HELP",
+        "title": "Help",
+        "type": "PRIMARY",
+        "url": "/help",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
+      },
+    ]
   }
-  staticContext={Object {}}
 />
 `;

@@ -1,4 +1,5 @@
 import * as React from 'react'
 
-// eslint-disable-next-line react/display-name
-export default () => <div>I am a router</div>
+export const MockRouter: React.FC = () => <div>I am a router</div>
+
+export default MockRouter

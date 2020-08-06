@@ -35,6 +35,7 @@ export const ModalV2: React.FC<ModalPropsV2> = ({
     <Dialog
       {...restProps}
       title={<ModalHeaderV2>{title}</ModalHeaderV2>}
+      closeIcon={<button className="delete" aria-label="close" type="button" />}
       destroyOnClose={destroyOnClose}
       className={cx(modalContainer, isResponsive && modalResponsiveContainer, !hasHeader && modalNoHeader, className)}
       wrapClassName={cx(isCentered && modalCentered, !isPadding && modalNoPadding, wrapClassName)}

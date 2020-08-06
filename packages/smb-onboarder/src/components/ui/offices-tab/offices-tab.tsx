@@ -192,19 +192,20 @@ export const renderContent = ({
   }
   return (
     <React.Fragment>
-      <Spreadsheet
-        allowOnlyOneValidationErrorPerRow={true}
-        data={dataTable as Cell[][]}
-        validate={validate}
-        afterCellsChanged={afterCellsChanged}
-        hasUploadButton
-        hasDownloadButton
-        afterUploadDataValidated={handleAfterUpload}
-        CustomDownButton={<CustomDownButton setErrorServer={setErrorServer} totalCount={totalCount} />}
-      />
       <Section>
-        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+        <Spreadsheet
+          allowOnlyOneValidationErrorPerRow={true}
+          data={dataTable as Cell[][]}
+          validate={validate}
+          afterCellsChanged={afterCellsChanged}
+          hasUploadButton
+          hasDownloadButton
+          afterUploadDataValidated={handleAfterUpload}
+          CustomDownButton={<CustomDownButton setErrorServer={setErrorServer} totalCount={totalCount} />}
+        />
       </Section>
+
+      <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
     </React.Fragment>
   )
 }

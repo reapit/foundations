@@ -11,13 +11,13 @@ import { MemberModel } from '@reapit/foundations-ts-definitions'
 export type InviteMemberStatus = 'PENDING' | 'ACCEPTED' | 'REJECTED' | 'ACCEPTING' | 'REJECTING' | 'ERROR'
 
 export interface MemberDetailsState {
-  loading: boolean
+  isLoading: boolean
   data: MemberModel | null
   inviteStatus: InviteMemberStatus
 }
 
 export const defaultState: MemberDetailsState = {
-  loading: false,
+  isLoading: false,
   data: null,
   inviteStatus: 'PENDING',
 }
@@ -26,21 +26,21 @@ const memberDetailsReducer = (state: MemberDetailsState = defaultState, action: 
   if (isType(action, fetchMemberDetails)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
   if (isType(action, fetchMemberDetailsSuccess)) {
     return {
       ...state,
       data: action.data,
-      loading: false,
+      isLoading: false,
     }
   }
 
   if (isType(action, fetchMemberDetailsFailed)) {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
     }
   }
 

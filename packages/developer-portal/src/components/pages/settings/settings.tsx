@@ -2,27 +2,31 @@ import * as React from 'react'
 import { Loader, Section } from '@reapit/elements'
 import { Forms } from './forms/forms'
 import { Tabs } from './tabs'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { MemberModel } from '@reapit/foundations-ts-definitions'
+import { useSelector } from 'react-redux'
+import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
+import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 
-/**
- * render one of:
- * developer version and admin version - profile tab
- * ^ they both sit on "/developer/settings" route which is so confusing atm
- */
+export const getCurrentUserRole = (invitedMember: MemberModel[], email?: string | null) => {
+  const currentUser = invitedMember?.find((item: MemberModel) => {
+    return item?.email === email
+  })
+  return currentUser?.role
+}
+
 const SettingsPage: React.FC = () => {
-  // it take a while to 'AUTH_LOGIN_SUCCESS' to fire. If you user is admin, they may exerience a flash
-  // this make sure settings page don't render until 'loginIdentity' is availabe
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-
-  if (!connectSession || !connectSession.loginIdentity) {
+  const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
+  const invitedMember = useSelector(selectOrganisationMembers)
+  const role = getCurrentUserRole(invitedMember, developerInfo.email)
+  const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
+  if (!developerInfo.id || invitedMemberLoading) {
     return <Loader />
   }
 
   return (
     <>
       <Section>
-        <Tabs />
+        <Tabs role={role} />
       </Section>
       <Forms />
     </>

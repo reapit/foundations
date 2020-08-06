@@ -81,32 +81,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-jest-cache-
 
-      - name: Write marketplace build cache
+        # Only web apps built with webpack have .webpack-cache.
+        # Put in the last, so that this pipeline will not use cache, but still save cache for other PR's branches to use
+      - name: Get Web Apps build cache
         uses: actions/cache@v2
         with:
-          path: packages/marketplace/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
-
-      - name: Write aml-checklist build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/aml-checklist/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
-
-      - name: Write geo-diary build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/geo-diary/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
-
-      - name: Write lifetime-legal build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/lifetime-legal/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
-
-      - name: Write smb build cache
-        uses: actions/cache@v2
-        with:
-          path: packages/smb/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
+          path: |
+            packages/admin-portal/.webpack-cache
+            packages/marketplace/.webpack-cache
+            packages/developer-portal/.webpack-cache
+            packages/aml-checklist/.webpack-cache
+            packages/smb-onboarder/.webpack-cache
+            packages/geo-diary/.webpack-cache
+            packages/geo-diary-v2/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}

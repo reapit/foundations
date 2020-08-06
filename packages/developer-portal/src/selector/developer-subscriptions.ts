@@ -2,7 +2,7 @@ import { ReduxState } from '@/types/core'
 import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 
 export const selectCreateDeveloperSubscriptionLoading = (state: ReduxState): boolean => {
-  return state.developerSubscriptions.create.loading
+  return state.developerSubscriptions.create.isLoading
 }
 
 export const selectCreateDeveloperSubscriptionError = (state: ReduxState): boolean => {
@@ -14,5 +14,5 @@ export const selectSubscriptions = (state: ReduxState): PagedResultSubscriptionM
 }
 
 export const selectSubscriptionsLoading = (state: ReduxState): boolean => {
-  return state.developerSubscriptions?.list?.loading
+  return state.developerSubscriptions?.list?.isLoading
 }

@@ -4,12 +4,12 @@ import { fetchDeveloperDetails, fetchDeveloperDetailsSuccess, fetchDeveloperDeta
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export interface DeveloperDetailsState {
-  loading: boolean
+  isLoading: boolean
   data: DeveloperModel | null
 }
 
 export const defaultState: DeveloperDetailsState = {
-  loading: false,
+  isLoading: false,
   data: null,
 }
 
@@ -20,20 +20,20 @@ const developerDetailsReducer = (
   if (isType(action, fetchDeveloperDetails)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
   if (isType(action, fetchDeveloperDetailsSuccess)) {
     return {
       ...state,
       data: action.data,
-      loading: false,
+      isLoading: false,
     }
   }
   if (isType(action, fetchDeveloperDetailsFailed)) {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
     }
   }
 

@@ -54,6 +54,13 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
   >
     <Component
       className=""
+      closeIcon={
+        <button
+          aria-label="close"
+          className="delete"
+          type="button"
+        />
+      }
       destroyOnClose={true}
       title={<Unknown />}
       visible={true}
@@ -97,8 +104,10 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           class="rc-dialog-close"
                           type="button"
                         >
-                          <span
-                            class="rc-dialog-close-x"
+                          <button
+                            aria-label="close"
+                            class="delete"
+                            type="button"
                           />
                         </button>
                         <div
@@ -163,6 +172,13 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
             <Dialog
               className=""
               closable={true}
+              closeIcon={
+                <button
+                  aria-label="close"
+                  className="delete"
+                  type="button"
+                />
+              }
               destroyOnClose={true}
               focusTriggerAfterClose={true}
               getContainer={[Function]}
@@ -261,8 +277,10 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                               onClick={[Function]}
                               type="button"
                             >
-                              <span
-                                className="rc-dialog-close-x"
+                              <button
+                                aria-label="close"
+                                className="delete"
+                                type="button"
                               />
                             </button>
                             <div
@@ -532,6 +550,13 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           <Component
             afterClose={[MockFunction]}
             className=""
+            closeIcon={
+              <button
+                aria-label="close"
+                className="delete"
+                type="button"
+              />
+            }
             destroyOnClose={true}
             footer={
               <div
@@ -603,8 +628,10 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-close"
                                 type="button"
                               >
-                                <span
-                                  class="rc-dialog-close-x"
+                                <button
+                                  aria-label="close"
+                                  class="delete"
+                                  type="button"
                                 />
                               </button>
                               <div
@@ -670,6 +697,13 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                     afterClose={[MockFunction]}
                     className=""
                     closable={true}
+                    closeIcon={
+                      <button
+                        aria-label="close"
+                        className="delete"
+                        type="button"
+                      />
+                    }
                     destroyOnClose={true}
                     focusTriggerAfterClose={true}
                     footer={
@@ -796,8 +830,10 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                     onClick={[Function]}
                                     type="button"
                                   >
-                                    <span
-                                      className="rc-dialog-close-x"
+                                    <button
+                                      aria-label="close"
+                                      className="delete"
+                                      type="button"
                                     />
                                   </button>
                                   <div
@@ -949,6 +985,13 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           >
             <Component
               className=""
+              closeIcon={
+                <button
+                  aria-label="close"
+                  className="delete"
+                  type="button"
+                />
+              }
               destroyOnClose={true}
               onClose={[Function]}
               title={<Unknown />}

@@ -208,6 +208,13 @@ exports[`StatusModal should match snapshot 1`] = `
       >
         <Component
           className=""
+          closeIcon={
+            <button
+              aria-label="close"
+              className="delete"
+              type="button"
+            />
+          }
           destroyOnClose={true}
           footer={
             Array [
@@ -270,8 +277,10 @@ exports[`StatusModal should match snapshot 1`] = `
                               class="rc-dialog-close"
                               type="button"
                             >
-                              <span
-                                class="rc-dialog-close-x"
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                type="button"
                               />
                             </button>
                             <div
@@ -454,6 +463,13 @@ exports[`StatusModal should match snapshot 1`] = `
                 <Dialog
                   className=""
                   closable={true}
+                  closeIcon={
+                    <button
+                      aria-label="close"
+                      className="delete"
+                      type="button"
+                    />
+                  }
                   destroyOnClose={true}
                   focusTriggerAfterClose={true}
                   footer={
@@ -571,8 +587,10 @@ exports[`StatusModal should match snapshot 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <span
-                                    className="rc-dialog-close-x"
+                                  <button
+                                    aria-label="close"
+                                    className="delete"
+                                    type="button"
                                   />
                                 </button>
                                 <div

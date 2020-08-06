@@ -1,23 +1,35 @@
 import * as React from 'react'
-import { Section } from '@reapit/elements'
-import { Tabs } from '../tabs'
-import AccountsInformationForm from './accounts-information-form'
+import { useSelector } from 'react-redux'
+import { Info, Loader, Section } from '@reapit/elements'
 import Subcriptions from '@/components/pages/settings/billing/subscriptions'
+import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
+import { getCurrentUserRole } from '../settings'
+import AccountsInformationForm from './accounts-information-form'
+import { Tabs } from '../tabs'
+import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 
 const SettingsBillingTabPage: React.FC<{}> = () => {
-  // FEATURE FLAG
   const isProd = window.reapit.config.appEnv === 'production'
-
-  return (
-    <>
-      <Section>
-        <Tabs />
-      </Section>
-      {// Feature flag
-      !isProd && <AccountsInformationForm />}
-      <Subcriptions />
-    </>
-  )
+  const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
+  const invitedMember = useSelector(selectOrganisationMembers)
+  const role = getCurrentUserRole(invitedMember, developerInfo.email)
+  const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
+  if (!developerInfo?.id || invitedMemberLoading) {
+    return <Loader />
+  }
+  if (role === 'admin') {
+    return (
+      <>
+        <Section>
+          <Tabs role={role} />
+        </Section>
+        {// Feature flag
+        !isProd && <AccountsInformationForm />}
+        <Subcriptions />
+      </>
+    )
+  }
+  return <Info infoType="404" />
 }
 
 export default SettingsBillingTabPage
