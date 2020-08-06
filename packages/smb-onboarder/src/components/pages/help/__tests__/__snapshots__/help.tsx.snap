@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GetStated AddingSourcesAndReferrals step should match a snapshot 1`] = `
+exports[`Help AddingSourcesAndReferrals step should match a snapshot 1`] = `
 <div
   className=""
 >
@@ -26,7 +26,7 @@ exports[`GetStated AddingSourcesAndReferrals step should match a snapshot 1`] = 
 </div>
 `;
 
-exports[`GetStated AddingUsers step should match a snapshot 1`] = `
+exports[`Help AddingUsers step should match a snapshot 1`] = `
 <div
   className=""
 >
@@ -52,7 +52,7 @@ exports[`GetStated AddingUsers step should match a snapshot 1`] = `
 </div>
 `;
 
-exports[`GetStated Branding step should match a snapshot 1`] = `
+exports[`Help Branding step should match a snapshot 1`] = `
 <div
   className=""
 >
@@ -78,7 +78,7 @@ exports[`GetStated Branding step should match a snapshot 1`] = `
 </div>
 `;
 
-exports[`GetStated LetGetStated step should match a snapshot 1`] = `
+exports[`Help LetGetStated step should match a snapshot 1`] = `
 <div
   className=""
 >
@@ -104,7 +104,7 @@ exports[`GetStated LetGetStated step should match a snapshot 1`] = `
 </div>
 `;
 
-exports[`GetStated Setting step should match a snapshot 1`] = `
+exports[`Help Setting step should match a snapshot 1`] = `
 <div
   className=""
 >
@@ -123,43 +123,34 @@ exports[`GetStated Setting step should match a snapshot 1`] = `
 </div>
 `;
 
-exports[`GetStated should match a snapshot 1`] = `
-<div
-  className=""
-  id="get-started"
->
-  <Component
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <Component>
-      <HelpGuideStep
-        component={[Function]}
-        heading="Setting up your Office(s)."
-        id="step-1"
-      />
-      <HelpGuideStep
-        component={[Function]}
-        heading="Adding Users."
-        id="step-2"
-      />
-      <HelpGuideStep
-        component={[Function]}
-        heading="Adding Sources and Referrals."
-        id="step-3"
-      />
-      <HelpGuideStep
-        component={[Function]}
-        heading="Branding your Templates and selecting your Portals."
-        id="step-4"
-      />
-      <HelpGuideStep
-        component={[Function]}
-        heading="That’s it! Let’s get started."
-        id="step-5"
-      />
-    </Component>
+exports[`Help should match a snapshot 1`] = `
+<Component>
+  <Component>
+    <HelpGuideStep
+      component={[Function]}
+      heading="Setting up your Office(s)."
+      id="step-1"
+    />
+    <HelpGuideStep
+      component={[Function]}
+      heading="Adding Users."
+      id="step-2"
+    />
+    <HelpGuideStep
+      component={[Function]}
+      heading="Adding Sources and Referrals."
+      id="step-3"
+    />
+    <HelpGuideStep
+      component={[Function]}
+      heading="Branding your Templates and selecting your Portals."
+      id="step-4"
+    />
+    <HelpGuideStep
+      component={[Function]}
+      heading="That’s it! Let’s get started."
+      id="step-5"
+    />
   </Component>
-</div>
+</Component>
 `;

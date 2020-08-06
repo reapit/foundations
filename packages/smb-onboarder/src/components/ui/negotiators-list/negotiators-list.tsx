@@ -414,32 +414,26 @@ export const renderNegotiatorList = ({
 
   return (
     <React.Fragment>
-      <Spreadsheet
-        CustomDownButton={
-          <CustomDownButton
-            updateNegotiatorLoading={updateNegotiatorLoading}
-            updateNegotiator={updateNegotiator}
-            createNegotiator={createNegotiator}
-            officeData={officeData}
-            setErrorServer={setErrorServer}
-            totalCount={totalCount}
-          />
-        }
-        allowOnlyOneValidationErrorPerRow={true}
-        data={dataTable as Cell[][]}
-        afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
-        validate={validate}
-        description={
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
-          </p>
-        }
-      />
       <Section>
-        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+        <Spreadsheet
+          CustomDownButton={
+            <CustomDownButton
+              updateNegotiatorLoading={updateNegotiatorLoading}
+              updateNegotiator={updateNegotiator}
+              createNegotiator={createNegotiator}
+              officeData={officeData}
+              setErrorServer={setErrorServer}
+              totalCount={totalCount}
+            />
+          }
+          allowOnlyOneValidationErrorPerRow={true}
+          data={dataTable as Cell[][]}
+          afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
+          validate={validate}
+        />
       </Section>
+
+      <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
     </React.Fragment>
   )
 }

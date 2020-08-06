@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
-import { getStartedContainer, stepContainer } from './__styles__'
+import { useHelpGuideContext, HelpGuide, Button, Section } from '@reapit/elements'
+import { stepContainer } from './__styles__'
 
 export const Setting = () => {
   const { goNext } = useHelpGuideContext()
@@ -98,24 +98,22 @@ export const handleChangeSteps = (goTo: () => void) => () => {
   document.getElementById('get-started')?.scrollIntoView({ behavior: 'smooth' })
 }
 
-export const GetStated: React.FC = () => {
+export const Help: React.FC = () => {
   return (
-    <div className={getStartedContainer} id="get-started">
-      <FlexContainerResponsive flexColumn hasBackground hasPadding>
-        <HelpGuide>
-          <HelpGuide.Step id="step-1" component={Setting} heading="Setting up your Office(s)." />
-          <HelpGuide.Step id="step-2" component={AddingUsers} heading="Adding Users." />
-          <HelpGuide.Step id="step-3" component={AddingSourcesAndReferrals} heading="Adding Sources and Referrals." />
-          <HelpGuide.Step
-            id="step-4"
-            component={Branding}
-            heading="Branding your Templates and selecting your Portals."
-          />
-          <HelpGuide.Step id="step-5" component={LetGetStated} heading="That’s it! Let’s get started." />
-        </HelpGuide>
-      </FlexContainerResponsive>
-    </div>
+    <Section>
+      <HelpGuide>
+        <HelpGuide.Step id="step-1" component={Setting} heading="Setting up your Office(s)." />
+        <HelpGuide.Step id="step-2" component={AddingUsers} heading="Adding Users." />
+        <HelpGuide.Step id="step-3" component={AddingSourcesAndReferrals} heading="Adding Sources and Referrals." />
+        <HelpGuide.Step
+          id="step-4"
+          component={Branding}
+          heading="Branding your Templates and selecting your Portals."
+        />
+        <HelpGuide.Step id="step-5" component={LetGetStated} heading="That’s it! Let’s get started." />
+      </HelpGuide>
+    </Section>
   )
 }
 
-export default GetStated
+export default Help
