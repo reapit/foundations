@@ -113,6 +113,8 @@ export const handleRequestDirectionServiceResponse = ({
   onLoadedDirection,
   directionsRenderer,
   destinationAddress,
+  markersRef,
+  directionsRendererRef,
 }) => (response, status) => {
   if (status === 'OK') {
     onLoadedDirection && onLoadedDirection(response)
@@ -126,6 +128,7 @@ export const handleRequestDirectionServiceResponse = ({
     directionsRenderer?.setDirections && directionsRenderer.setDirections(response)
   }
   if (status !== 'OK') {
+    clearMap({ directionsRendererRef, markersRef })()
     window.alert('Directions request failed due to ' + status)
   }
 }
@@ -140,6 +143,8 @@ export const renderDirection = ({
   travelMode,
   onLoadedDirection,
   destinationAddress,
+  markersRef,
+  directionsRendererRef,
 }) => {
   directionsRenderer.setMap(map)
   const origin = new googleMaps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -154,6 +159,8 @@ export const renderDirection = ({
       onLoadedDirection,
       directionsRenderer,
       destinationAddress,
+      markersRef,
+      directionsRendererRef,
     }),
   )
 }
@@ -229,6 +236,8 @@ export const renderDirectionAndMarkers = ({
             travelMode,
             onLoadedDirection,
             destinationAddress,
+            markersRef,
+            directionsRendererRef,
           })
         }
         markers = renderMarkers({ coordinates, googleMaps, map, markerCallBack })

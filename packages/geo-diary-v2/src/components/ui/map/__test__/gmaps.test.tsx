@@ -92,6 +92,12 @@ describe('Map', () => {
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
         destinationAddress: 'testAddress',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       const mockResponse = {}
       const mockStatus = 'OK'
@@ -105,6 +111,12 @@ describe('Map', () => {
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
         destinationAddress: '',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       const mockResponse = {}
       const mockStatus = 'ERROR'
@@ -125,6 +137,12 @@ describe('Map', () => {
         travelMode,
         onLoadedDirection: mockOnLoadedDirection,
         destinationAddress: '',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       expect(mockDirectionsRenderer.setMap).toBeCalled()
       expect(mockDirectionsService.route).toBeCalled()
