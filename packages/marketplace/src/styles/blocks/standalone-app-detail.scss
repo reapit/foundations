@@ -37,9 +37,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  @include for-mobile-only {
-    flex-direction: column;
-  }
 }
 
 .appIconContainer {
