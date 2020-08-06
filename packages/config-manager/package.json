@@ -12,9 +12,9 @@
   },
   "license": "MIT",
   "author": "wmcvay@reapit.com",
-  "main": "src/index.js",
+  "main": "index.js",
   "bin": {
-    "config-manager": "./src/cli.js"
+    "config-manager": "./index.js"
   },
   "scripts": {
     "lint": "eslint --cache --ext=js src",
@@ -23,7 +23,7 @@
   "dependencies": {
     "aws-sdk": "^2.582.0",
     "change-case": "^4.1.1",
-    "json-ts": "^1.6.4",
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "yargs": "^15.4.1"
   }
 }
