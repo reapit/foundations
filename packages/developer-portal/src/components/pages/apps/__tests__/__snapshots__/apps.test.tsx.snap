@@ -110,6 +110,13 @@ exports[`Login should match a snapshot 1`] = `
                     >
                       <Component
                         className=""
+                        closeIcon={
+                          <button
+                            aria-label="close"
+                            className="delete"
+                            type="button"
+                          />
+                        }
                         destroyOnClose={true}
                         onClose={[Function]}
                         title={
