@@ -65,6 +65,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
     >
       <Component
         className=""
+        closeIcon={
+          <button
+            aria-label="close"
+            className="delete"
+            type="button"
+          />
+        }
         destroyOnClose={true}
         onClose={[MockFunction]}
         title={
@@ -113,8 +120,10 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                             class="rc-dialog-close"
                             type="button"
                           >
-                            <span
-                              class="rc-dialog-close-x"
+                            <button
+                              aria-label="close"
+                              class="delete"
+                              type="button"
                             />
                           </button>
                           <div
@@ -274,6 +283,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
               <Dialog
                 className=""
                 closable={true}
+                closeIcon={
+                  <button
+                    aria-label="close"
+                    className="delete"
+                    type="button"
+                  />
+                }
                 destroyOnClose={true}
                 focusTriggerAfterClose={true}
                 getContainer={[Function]}
@@ -377,8 +393,10 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                 onClick={[Function]}
                                 type="button"
                               >
-                                <span
-                                  className="rc-dialog-close-x"
+                                <button
+                                  aria-label="close"
+                                  className="delete"
+                                  type="button"
                                 />
                               </button>
                               <div

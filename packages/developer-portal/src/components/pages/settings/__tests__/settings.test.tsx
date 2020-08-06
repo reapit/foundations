@@ -47,8 +47,8 @@ describe('SettingsPage', () => {
           agencyCloudAccess: false,
         },
       ]
-      const developerId = '909dcdc1-6657-4a37-a5cc-05acd79d6a47'
-      const role = getCurrentUserRole(mockInvitedMember, developerId)
+      const developerEmail = 'cbryan@reapit.com'
+      const role = getCurrentUserRole(mockInvitedMember, developerEmail)
       expect(role).toEqual('admin')
     })
 
@@ -66,8 +66,8 @@ describe('SettingsPage', () => {
           agencyCloudAccess: false,
         },
       ]
-      const developerId = '909dcdc1-6657-4a37-a5cc-05acd79d6a47'
-      const role = getCurrentUserRole(mockInvitedMember, developerId)
+      const developerEmail = 'cbryan@reapit.com'
+      const role = getCurrentUserRole(mockInvitedMember, developerEmail)
       expect(role).toEqual('user')
     })
 
@@ -85,8 +85,8 @@ describe('SettingsPage', () => {
           agencyCloudAccess: false,
         },
       ]
-      const developerId = '909dcdc1-6657-4a37-a5cc-05acd79d6a41'
-      const role = getCurrentUserRole(mockInvitedMember, developerId)
+      const developerEmail = 'cbryan1@reapit.com'
+      const role = getCurrentUserRole(mockInvitedMember, developerEmail)
       expect(role).toEqual(undefined)
     })
   })
