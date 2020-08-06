@@ -82,26 +82,43 @@ export const getDestinationPoint = (queryParams: qs.ParsedQuery<string>) => () =
 
 export const handleMarkerOnClick = (
   appointments: ExtendedAppointmentModel[],
-  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+  setAppointment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+  setAppointmentDetailModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 ) => (id: string) => () => {
-  const appoinment = appointments.find(item => item.id === id)
-  if (appoinment) {
-    setAppoinment(appoinment)
+  const appointment = appointments.find(item => item.id === id)
+  if (appointment) {
+    setAppointment(appointment)
+    setAppointmentDetailModalVisible(true)
   }
 }
 
 export const handleModalClose = (
-  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+  setAppointmentDetailModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 ) => () => {
-  setAppoinment(null)
+  setAppointmentDetailModalVisible(false)
+}
+
+export const handleSetAppointment = (
+  appointmentId: string,
+  appointments: ExtendedAppointmentModel[],
+  setAppointment: (value: React.SetStateAction<ExtendedAppointmentModel | null>) => void,
+) => {
+  return () => {
+    const appointment = appointments.find(item => item.id === appointmentId)
+    if (appointment) {
+      setAppointment(appointment)
+    }
+  }
 }
 
 export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) => {
-  const [appointment, setAppoinment] = React.useState<ExtendedAppointmentModel | null>(null)
+  const [appointment, setAppointment] = React.useState<ExtendedAppointmentModel | null>(null)
+  const [appointmentDetailModalVisible, setAppointmentDetailModalVisible] = React.useState(false)
   const location = useLocation()
   const queryParams = qs.parse(location.search)
   const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
   const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [appointments])
+  const { appointmentId = '' } = queryParams
 
   const onLoadedDirection = React.useCallback(
     res => {
@@ -117,10 +134,13 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
     queryParams.travelMode,
   ])
 
+  React.useEffect(handleSetAppointment(appointmentId, appointments, setAppointment), [appointmentId, appointments])
+
   const line1 = appointment?.property?.address?.line1 ?? ''
   const buildingName = appointment?.property?.address?.buildingName ?? ''
   const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
   const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
+  const destinationAddress = combineAddress(appointment?.property?.address)
 
   return (
     <>
@@ -128,10 +148,10 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
         autoFitBounds={true}
         apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
-        markerCallBack={handleMarkerOnClick(appointments, setAppoinment)}
+        markerCallBack={handleMarkerOnClick(appointments, setAppointment, setAppointmentDetailModalVisible)}
         onLoadedDirection={onLoadedDirection}
         destinationPoint={destinationPoint}
-        destinationAddress={combineAddress(appointment?.property?.address)}
+        destinationAddress={destinationAddress}
         travelMode={queryParams.travelMode}
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
@@ -140,9 +160,9 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment || ({} as ExtendedAppointmentModel)}
-        visible={!!appointment}
+        visible={appointmentDetailModalVisible}
         destroyOnClose={true}
-        onClose={handleModalClose(setAppoinment)}
+        onClose={handleModalClose(setAppointmentDetailModalVisible)}
       />
     </>
   )

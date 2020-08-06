@@ -33,27 +33,34 @@ export type MapProps<T> = T &
     drawingOptions?: any
   }
 
+export const renderInfoWindowContent = ({ latlng, address }) => {
+  return `
+    <div style="max-width: 200px;padding: 0 1rem 1rem 0; cursor: pointer" id="coordinate-${latlng.lat}-${latlng.lng}">
+      <div>${address}</div>
+    </div>
+  `
+}
+
 export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) =>
   coordinates?.map((coordinate: CoordinateProps<any>, index: number) => {
+    const latlng = {
+      lat: coordinate.position.lat,
+      lng: coordinate.position.lng,
+    }
+    const address = combineAddress(coordinate.address) || ''
+
     const label = {
       text: String(index + 1),
       fontSize: '1.5rem',
       fontWeight: '500',
     }
     const marker = new googleMaps.Marker({
-      position: {
-        lat: coordinate.position.lat,
-        lng: coordinate.position.lng,
-      },
+      position: latlng,
       label,
       map,
     })
     const infoWindow = new googleMaps.InfoWindow({
-      content: `<div style="max-width: 200px;padding: 0 1rem 1rem 0;" id="coordinate-${coordinate.position.lat}-${
-        coordinate.position.lng
-      }">
-                  <div>${combineAddress(coordinate.address)}</div>
-                </div>`,
+      content: renderInfoWindowContent({ latlng, address }),
     })
     googleMaps.event.addListener(marker, 'click', () => {
       infoWindow.open(map, marker)
@@ -70,25 +77,44 @@ export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) 
   })
 
 export const getCurrentLocation = ({ googleMaps, position, map }) => {
+  const latlng = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+  }
+
   const currentLocation = new googleMaps.Marker({
-    position: {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    },
+    position: latlng,
     content: 'Your location',
     map,
   })
+
+  const geocoder = new googleMaps.Geocoder()
+  if (geocoder.geocode) {
+    geocoder.geocode({ location: latlng }, (results, status) => {
+      if (status === 'OK') {
+        const streetAddress = results[0]
+        const address = streetAddress.formatted_address
+        const infoWindow = new googleMaps.InfoWindow({
+          content: renderInfoWindowContent({ latlng, address }),
+        })
+        googleMaps.event.addListener(currentLocation, 'click', () => {
+          infoWindow.open(map, currentLocation)
+        })
+      } else {
+        window.alert('Current address request failed due to: ' + status)
+      }
+    })
+  }
+
   return currentLocation
 }
 
 export const handleRequestDirectionServiceResponse = ({
-  currentLocation,
   onLoadedDirection,
   directionsRenderer,
   destinationAddress,
 }) => (response, status) => {
   if (status === 'OK') {
-    currentLocation.setMap(null)
     onLoadedDirection && onLoadedDirection(response)
   }
   if (destinationAddress && status === 'OK') {
@@ -97,8 +123,8 @@ export const handleRequestDirectionServiceResponse = ({
         leg.end_address = destinationAddress
       })
     })
+    directionsRenderer?.setDirections && directionsRenderer.setDirections(response)
   }
-  directionsRenderer?.setDirections && directionsRenderer.setDirections(response)
   if (status !== 'OK') {
     window.alert('Directions request failed due to ' + status)
   }
@@ -113,7 +139,6 @@ export const renderDirection = ({
   directionsRenderer,
   travelMode,
   onLoadedDirection,
-  currentLocation,
   destinationAddress,
 }) => {
   directionsRenderer.setMap(map)
@@ -126,7 +151,6 @@ export const renderDirection = ({
       travelMode,
     },
     handleRequestDirectionServiceResponse({
-      currentLocation,
       onLoadedDirection,
       directionsRenderer,
       destinationAddress,
@@ -188,8 +212,9 @@ export const renderDirectionAndMarkers = ({
   const directionsService = directionsServiceRef.current
   const bounds = boundsRef.current
   let markers = []
+
   if (googleMaps && map) {
-    return navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.getCurrentPosition(
       (position: Position) => {
         const currentLocation = getCurrentLocation({ googleMaps, position, map })
         const isDrawDirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
@@ -203,12 +228,9 @@ export const renderDirectionAndMarkers = ({
             directionsRenderer,
             travelMode,
             onLoadedDirection,
-            currentLocation,
             destinationAddress,
           })
-          return
         }
-        clearMap({ directionsRendererRef, markersRef })()
         markers = renderMarkers({ coordinates, googleMaps, map, markerCallBack })
         setZoomAndCenter({ googleMaps, bounds, center, zoom, map, markers: [...markers, currentLocation] })
         markersRef.current = markers
@@ -267,7 +289,9 @@ export const handleOnLoaded = ({
   mapRef.current = map
   const bounds = new googleMaps.LatLngBounds()
   const directionsService = new googleMaps.DirectionsService()
-  const directionsRenderer = new googleMaps.DirectionsRenderer()
+  const directionsRenderer = new googleMaps.DirectionsRenderer({
+    suppressMarkers: true,
+  })
 
   boundsRef.current = bounds
   directionsServiceRef.current = directionsService
@@ -356,7 +380,7 @@ export const Map: React.FC<MapProps<any>> = ({
       markerCallBack,
       destinationAddress,
     }),
-    [coordinates, destinationPoint, googleMapsRef?.current, mapRef?.current],
+    [coordinates, destinationPoint, googleMapsRef?.current, mapRef?.current, destinationAddress],
   )
   return (
     <div style={{ height: '90vh', ...mapContainerStyles }}>
