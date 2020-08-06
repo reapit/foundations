@@ -4,6 +4,8 @@ import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 
+import { PortalProvider } from '@reapit/elements'
+
 export const history = createBrowserHistory()
 
 export const catchChunkError = (
@@ -34,15 +36,17 @@ const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../comp
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
-      <Switch>
-        <Route path={Routes.LOGIN} component={LoginPage} />
-        <PrivateRouteWrapper>
-          <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
-          </Switch>
-        </PrivateRouteWrapper>
-        <Redirect to={Routes.LOGIN} />
-      </Switch>
+      <PortalProvider>
+        <Switch>
+          <Route path={Routes.LOGIN} component={LoginPage} />
+          <PrivateRouteWrapper>
+            <Switch>
+              <Route path={Routes.HOME} component={AuthenticatedPage} />
+            </Switch>
+          </PrivateRouteWrapper>
+          <Redirect to={Routes.LOGIN} />
+        </Switch>
+      </PortalProvider>
     </React.Suspense>
   </BrowserRouter>
 )

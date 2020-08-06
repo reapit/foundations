@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getPropertyProjectorConfig } from '../../util/property-projector-config'
+import { getPropertyProjectorConfig } from '../../../util/property-projector-config'
+import DepartmentCheckboxes from './department-checkboxes'
+import OfficeCheckboxes from './office-checkboxes'
+import Projector from '../projector'
 import {
   H5,
   Section,
@@ -18,101 +21,49 @@ import {
   SelectBox,
   SelectBoxOptions,
   Button,
+  usePortal,
 } from '@reapit/elements'
-
-type DepartmentCheckboxesProps = {
-  departments: any[]
-}
-
-const DepartmentCheckboxes: React.FC<DepartmentCheckboxesProps> = props => {
-  const { departments } = props
-
-  const departmentCheckboxes = departments.map(dep => {
-    return (
-      <React.Fragment key={dep.id}>
-        <Checkbox name={`checkboxDepartment${dep.id}`} id={`checkboxDepartment${dep.id}`} labelText={dep.name} />
-        <div className="department-property-types">
-          {dep.propertyTypes.map((type, idx: number) => {
-            return (
-              <Checkbox
-                name={`checkboxDepartmentType${dep.id}${type.name}`}
-                id={`checkboxDepartmentType${dep.id}${type.name}`}
-                labelText={type.name}
-                key={idx}
-              />
-            )
-          })}
-        </div>
-      </React.Fragment>
-    )
-  })
-
-  return (
-    <FormSection>
-      <FormHeading>Departments</FormHeading>
-      <FormSubHeading>
-        Only properties from the selected departments and types will be shown in your Property Projector.
-      </FormSubHeading>
-      {departmentCheckboxes}
-    </FormSection>
-  )
-}
-
-type OfficeCheckboxesProps = {
-  offices: any[]
-}
-
-const OfficeCheckboxes: React.FC<OfficeCheckboxesProps> = props => {
-  const { offices } = props
-
-  const officeCheckboxes = offices.map(office => {
-    return (
-      <Checkbox
-        name={`checkboxDepartment${office.id}`}
-        id={`checkboxDepartment${office.id}`}
-        labelText={office.name}
-        key={office.id}
-      />
-    )
-  })
-
-  return (
-    <FormSection>
-      <FormHeading>Offices</FormHeading>
-      <FormSubHeading>
-        Only properties from the selected offices will be shown in your Property Projector.
-      </FormSubHeading>
-      {officeCheckboxes}
-    </FormSection>
-  )
-}
 
 type ConfigFormProps = {}
 
 const ConfigForm: React.FC<ConfigFormProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-
   const [config, setConfig]: any = useState(null)
-  const [loading, setLoading]: any = useState(true)
+  const [showProjector] = usePortal(() => <Projector config={config} />)
 
   console.info('Reapit Property Projector Config: ', config)
 
   useEffect(() => {
     const fetchPropertyProjectorConfig = async () => {
       setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession))
-      setLoading(false)
     }
     if (connectSession) {
+      console.log('Session Data:', connectSession)
       fetchPropertyProjectorConfig()
     }
   }, [connectSession])
+
+  const getInitialFormValues = () => {
+    const { departments, offices, ...initalFormValues } = config
+
+    // update all department and property type checkboxes with config value
+    departments.forEach(dep => {
+      initalFormValues[`department-${dep.id}`] = dep.checked
+      dep.propertyTypes.forEach(type => (initalFormValues[type.id] = type.checked))
+    })
+
+    // update all office checkboxes with config value
+    offices.forEach(office => (initalFormValues[`office-${office.id}`] = office.checked))
+
+    return initalFormValues
+  }
 
   const sortByOptions: SelectBoxOptions[] = [
     { label: 'Price', value: 'price' },
     { label: 'Created Date', value: 'created' },
   ]
 
-  if (loading) {
+  if (config === null) {
     return <div>loading...</div>
   }
 
@@ -120,12 +71,12 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     <Section>
       <H5>Property Projector Configuration</H5>
       <Formik
-        initialValues={{
-          logoInput: '',
-          primaryColour: '',
-          secondaryColour: '',
+        initialValues={getInitialFormValues()}
+        onSubmit={values => {
+          // save configuration values
+          console.info('Form Values: ', values)
+          showProjector()
         }}
-        onSubmit={values => alert('FORM SUBMITTED!')}
       >
         <Form>
           <Grid>
@@ -133,7 +84,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
               <FormSection>
                 <FormHeading>Branding</FormHeading>
                 <FormSubHeading>These settings change the design of your Property Projector.</FormSubHeading>
-                <ImageInput id="logoInput" allowClear name="logoInput" labelText="Choose Your Logo" />
+                <ImageInput id="logo" allowClear name="logo" labelText="Choose Your Logo" />
                 <Input
                   type="text"
                   id="primaryColour"
@@ -177,7 +128,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                 <Checkbox name="showStrapline" id="showStrapline" labelText="Show Strapline" />
               </FormSection>
               <FormSection>
-                <Button>Open Property Projector</Button>
+                <Button type="submit">Launch Property Projector</Button>
               </FormSection>
             </GridItem>
           </Grid>

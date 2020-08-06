@@ -3,6 +3,9 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 import { getDepartments } from '../platform-api/departments-api'
 import { getOffices } from '../platform-api/offices-api'
 
+/**
+ * @todo adjust so the departments/offices aren't limited by pagination
+ */
 export const getPropertyProjectorConfig = async (session: ReapitConnectSession) => {
   const propertyProjectorConfig: any = {
     logo: '',
@@ -26,6 +29,7 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession) 
       const { id, name, typeOptions } = department
       const propertyTypes = typeOptions?.map(type => {
         return {
+          id: `${id}-${type}`,
           name: type,
           checked: false,
         }
