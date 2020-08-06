@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 
-export const getCurrentUserRole = (invitedMember: MemberModel[], developerId?: string | null) => {
+export const getCurrentUserRole = (invitedMember: MemberModel[], email?: string | null) => {
   const currentUser = invitedMember?.find((item: MemberModel) => {
-    return item?.developerId === developerId
+    return item?.email === email
   })
   return currentUser?.role
 }
@@ -17,7 +17,7 @@ export const getCurrentUserRole = (invitedMember: MemberModel[], developerId?: s
 const SettingsPage: React.FC = () => {
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const invitedMember = useSelector(selectOrganisationMembers)
-  const role = getCurrentUserRole(invitedMember, developerInfo.id)
+  const role = getCurrentUserRole(invitedMember, developerInfo.email)
   const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
   if (!developerInfo.id || invitedMemberLoading) {
     return <Loader />

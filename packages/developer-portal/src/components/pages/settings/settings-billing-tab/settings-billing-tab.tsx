@@ -12,7 +12,7 @@ const SettingsBillingTabPage: React.FC<{}> = () => {
   const isProd = window.reapit.config.appEnv === 'production'
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const invitedMember = useSelector(selectOrganisationMembers)
-  const role = getCurrentUserRole(invitedMember, developerInfo.id)
+  const role = getCurrentUserRole(invitedMember, developerInfo.email)
   const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
   if (!developerInfo?.id || invitedMemberLoading) {
     return <Loader />
