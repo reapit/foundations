@@ -21,6 +21,10 @@ export const selectInstallationsFilterList = (state: ReduxState): PagedResultIns
   return state.installations.installationsFilterList?.list
 }
 
+export const selectInstallationsFilterLoading = (state: ReduxState): boolean => {
+  return state.installations.installationsFilterList?.isLoading
+}
+
 export const selectInstallationsLoading = (state: ReduxState): boolean => {
   return state.installations.installationsList?.isLoading
 }

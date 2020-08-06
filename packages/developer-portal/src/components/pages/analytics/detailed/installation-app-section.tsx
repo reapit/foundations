@@ -4,7 +4,11 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
-import { selectInstallationsFilterList, selectInstallationsLoading } from '@/selector/installations'
+import {
+  selectInstallationsFilterList,
+  selectInstallationsLoading,
+  selectInstallationsFilterLoading,
+} from '@/selector/installations'
 import { useSelector } from 'react-redux'
 
 export interface InstallationModelWithAppName extends InstallationModel {
@@ -110,7 +114,9 @@ export const InstallationAppSection: React.FC<{
 }> = ({ installedApps, filteredInstalledApps, apps = [] }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
   const installationFilterAppData = useSelector(selectInstallationsFilterList)
-  const loading = useSelector(selectInstallationsLoading)
+
+  const installationListLoading = useSelector(selectInstallationsLoading)
+  const installationsFilterLoading = useSelector(selectInstallationsFilterLoading)
 
   const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
     filteredInstalledApps,
@@ -129,13 +135,16 @@ export const InstallationAppSection: React.FC<{
 
   return (
     <>
-      {loading ? (
+      {installationListLoading ? (
         <Loader />
       ) : (
         <>
           <Grid isMultiLine>
             <GridItem className="is-half">
-              <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
+              <DeveloperInstallationsChart
+                loading={installationsFilterLoading}
+                data={installationFilterAppDataArrayWithName}
+              />
             </GridItem>
             <GridItem className="is-half">
               <Section hasMargin={false}>

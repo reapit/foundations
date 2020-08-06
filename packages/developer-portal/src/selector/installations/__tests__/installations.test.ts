@@ -5,10 +5,15 @@ import {
   selectInstallationsFilterListData,
   selectInstallationsFilterList,
   selectInstallationsLoading,
+  selectInstallationsFilterLoading,
 } from '../installations'
 import appState from '@/reducers/__stubs__/app-state'
 
 describe('installations', () => {
+  test('selectInstallationsFilterLoading', () => {
+    const data = selectInstallationsFilterLoading(appState)
+    expect(data).toEqual(false)
+  })
   describe('selectInstallationsListLoading', () => {
     it('should return correct data', () => {
       const data = selectInstallationsListLoading(appState)

@@ -6,6 +6,7 @@ import { groupInstalledAppsByDate } from '@/utils/developer-analytics'
 
 const props: DeveloperInstallationsChartProps = {
   data: installedAppsStub,
+  loading: false,
 }
 
 describe('DeveloperInstallationsChart', () => {
