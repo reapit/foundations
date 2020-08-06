@@ -58,7 +58,11 @@ export const genarateErrorElements = (data: Cell[][] = []) => {
     row.forEach((cell, colIndex) => {
       if (cell.error) {
         const error = `[${rowIndex + 1}][${colIndex + 1}]: ${cell.error}`
-        const errorElement = <div className="has-text-danger">{error}</div>
+        const errorElement = (
+          <div key={`${rowIndex}_${colIndex}`} className="has-text-danger">
+            {error}
+          </div>
+        )
         errors.push(errorElement)
       }
     })

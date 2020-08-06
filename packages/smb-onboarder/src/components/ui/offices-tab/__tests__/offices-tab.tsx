@@ -32,6 +32,7 @@ import {
 } from '../__mocks__/offices'
 import { error } from '@/graphql/__mocks__/error'
 import { Cell } from '@reapit/elements'
+import errorMessages from '@/constants/error-messages'
 
 const mockQueries = {
   request: {
@@ -283,8 +284,8 @@ describe('OfficesTab', () => {
       const result = [
         [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, true, true],
-        [true, true, true, true, true, true, true, true, true, true, 'Invalid phone number format', true],
-        [true, true, true, true, true, true, true, true, true, true, 'Invalid phone number format', true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
       ]
       const dataTable = getDataTable(offices)
       expect(validate(dataTable)).toEqual(result)

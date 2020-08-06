@@ -33,6 +33,7 @@ import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/cons
 
 import GET_OFFICES from '../offices-tab/gql/get-offices.graphql'
 import { OfficesQueryResponse, OfficesQueryParams } from '../offices-tab/offices-tab'
+import errorMessages from '@/constants/error-messages'
 
 export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Username' },
@@ -172,22 +173,26 @@ export const validate = (data: Cell[][]) =>
       if (cellIndex === 0) {
         return (
           (!fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)) ||
-          'Minimum length is 5 charactors'
+          errorMessages.MINIMUM_CHARACTER_LENGTH(5)
         )
       }
       // cell email is required
       if (cellIndex === 2) {
-        return (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) || 'Invalid email format'
+        return (
+          (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) ||
+          errorMessages.FIELD_WRONG_EMAIL_FORMAT
+        )
       }
       // cell telephone is required
       if (cellIndex === 3) {
         return (
-          (!fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)) || 'Invalid phone number format'
+          (!fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)) ||
+          errorMessages.FIELD_WRONG_PHONE_FORMAT
         )
       }
       // Office is required
       if (cellIndex === 4) {
-        return !fieldValidateRequire(cell.value as string) || 'Required'
+        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
       }
       return true
     }),

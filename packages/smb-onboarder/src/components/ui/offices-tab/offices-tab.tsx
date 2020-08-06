@@ -42,6 +42,7 @@ import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-uploa
 import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
+import errorMessages from '@/constants/error-messages'
 
 export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'id', className: 'hidden-cell' },
@@ -463,26 +464,29 @@ export const validate = (data: Cell[][]) =>
 
       if (cellIndex === 2) {
         const a1 = !fieldValidateRequire(cell.value as string)
-        return a1 || 'Required'
+        return a1 || errorMessages.FIELD_REQUIRED
       }
       // cell addess1 is required
       if (cellIndex === 5) {
-        return !fieldValidateRequire(cell.value as string) || 'Required'
+        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
       }
       // cell postalcode is required
       if (cellIndex === 9) {
-        return !fieldValidateRequire(cell.value as string) || 'Required'
+        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
       }
       // cell telephone is required
       if (cellIndex === 10) {
         return (
           (!fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)) ||
-          'Invalid phone number format'
+          errorMessages.FIELD_WRONG_PHONE_FORMAT
         )
       }
       // cell email is required
       if (cellIndex === 11) {
-        return (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) || 'Invalid email format'
+        return (
+          (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) ||
+          errorMessages.FIELD_WRONG_EMAIL_FORMAT
+        )
       }
       return true
     }),
