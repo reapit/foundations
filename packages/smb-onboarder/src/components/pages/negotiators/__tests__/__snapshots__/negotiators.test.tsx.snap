@@ -63907,68 +63907,56 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
         }
       >
         <Component>
-          <Component
-            hasBackground={true}
-            hasPadding={true}
-          >
-            <div
+          <Component>
+            <section
               className=""
+              data-test=""
             >
+              <Component>
+                <h3
+                  className=""
+                  id=""
+                >
+                  Users
+                </h3>
+              </Component>
+            </section>
+          </Component>
+          <Component>
+            <div>
+              <Component>
+                <div
+                  className="loader-spinner body"
+                  data-test=""
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+              </Component>
               <Component
-                flexColumn={true}
-                hasBackground={true}
-                hasPadding={true}
+                componentError={null}
+                errorClearedComponent={[Function]}
+                errorClearedServer={[Function]}
+                serverError={null}
               >
                 <div
-                  className=""
+                  className="toast "
+                  data-test="toast-wrapper"
+                  onClick={[Function]}
                 >
-                  <Component>
-                    <h3
-                      className=""
-                      id=""
-                    >
-                      Users
-                    </h3>
-                  </Component>
-                  <Component>
-                    <div>
-                      <Component>
-                        <div
-                          className="loader-spinner body"
-                          data-test=""
-                        >
-                          <div />
-                          <div />
-                          <div />
-                          <div />
-                        </div>
-                      </Component>
-                      <Component
-                        componentError={null}
-                        errorClearedComponent={[Function]}
-                        errorClearedServer={[Function]}
-                        serverError={null}
-                      >
-                        <div
-                          className="toast "
-                          data-test="toast-wrapper"
-                          onClick={[Function]}
-                        >
-                          <Component
-                            fullWidth={true}
-                            type="reset"
-                            variant="danger"
-                          >
-                            <button
-                              className="button  is-danger is-fullwidth "
-                              data-test=""
-                              disabled={false}
-                              type="reset"
-                            />
-                          </Component>
-                        </div>
-                      </Component>
-                    </div>
+                  <Component
+                    fullWidth={true}
+                    type="reset"
+                    variant="danger"
+                  >
+                    <button
+                      className="button  is-danger is-fullwidth "
+                      data-test=""
+                      disabled={false}
+                      type="reset"
+                    />
                   </Component>
                 </div>
               </Component>

@@ -29,6 +29,14 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <PortalProvider>
           <Switch>
+            <Route
+              path={Routes.REGISTER}
+              exact
+              render={() => {
+                window.location.href = `${window.reapit.config.developerPortalUrl}register`
+                return null
+              }}
+            />
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 

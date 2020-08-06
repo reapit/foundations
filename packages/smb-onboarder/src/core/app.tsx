@@ -10,9 +10,6 @@ import { reapitConnectBrowserSession } from './connect-session'
 
 export const globals = css`
   :global() {
-    body {
-      background-color: unset;
-    }
     td.hidden-cell {
       display: none;
     }

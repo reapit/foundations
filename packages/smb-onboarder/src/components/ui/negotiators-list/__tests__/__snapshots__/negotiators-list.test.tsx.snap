@@ -34812,164 +34812,159 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 2`] = `
 
 exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
 <div>
-  <Component
-    CustomDownButton={
-      <Unknown
-        createNegotiator={[MockFunction]}
-        setErrorServer={[MockFunction]}
-        totalCount={0}
-        updateNegotiator={[MockFunction]}
-        updateNegotiatorLoading={false}
-      />
-    }
-    afterCellsChanged={[Function]}
-    allowOnlyOneValidationErrorPerRow={true}
-    data={
-      Array [
-        Array [
-          Object {
-            "readOnly": true,
-            "value": "Username",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Job Title",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Email Address",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Telephone",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Office",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Status",
-          },
-        ],
-        Array [
-          Object {
-            "value": "Abel Robertson",
-          },
-          Object {
-            "value": undefined,
-          },
-          Object {
-            "value": "abel.robertson@reapitestates.net",
-          },
-          Object {
-            "value": "9481221233",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": "River Town",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": true,
-          },
-          Object {
-            "className": "hidden",
-            "value": "MGL",
-          },
-          Object {
-            "className": "hidden",
-            "value": "\\"10109C0209C684789B72FFC53730E31C\\"",
-          },
-        ],
-        Array [
-          Object {
-            "value": "Accounts User",
-          },
-          Object {
-            "value": undefined,
-          },
-          Object {
-            "value": "abel.21f@reapitestates.net",
-          },
-          Object {
-            "value": "9481221233",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": "River Town",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": true,
-          },
-          Object {
-            "className": "hidden",
-            "value": "RPA",
-          },
-          Object {
-            "className": "hidden",
-            "value": "\\"85A9DB571DB893A5FB734105AFF6B464\\"",
-          },
-        ],
-        Array [
-          Object {
-            "value": "Adele Small",
-          },
-          Object {
-            "value": undefined,
-          },
-          Object {
-            "value": "adele.small@reapitestates.net",
-          },
-          Object {
-            "value": "9481221233",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": "River Town",
-          },
-          Object {
-            "CustomComponent": [Function],
-            "fixedReadOnly": true,
-            "readOnly": true,
-            "value": true,
-          },
-          Object {
-            "className": "hidden",
-            "value": "KLB",
-          },
-          Object {
-            "className": "hidden",
-            "value": "\\"B28EE5CFF654DB22BF3247CA028C10C3\\"",
-          },
-        ],
-      ]
-    }
-    description={
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      </p>
-    }
-    validate={[Function]}
-  />
   <Component>
     <Component
-      onChange={[MockFunction]}
-      pageNumber={0}
-      pageSize={0}
-      totalCount={0}
+      CustomDownButton={
+        <Unknown
+          createNegotiator={[MockFunction]}
+          setErrorServer={[MockFunction]}
+          totalCount={0}
+          updateNegotiator={[MockFunction]}
+          updateNegotiatorLoading={false}
+        />
+      }
+      afterCellsChanged={[Function]}
+      allowOnlyOneValidationErrorPerRow={true}
+      data={
+        Array [
+          Array [
+            Object {
+              "readOnly": true,
+              "value": "Username",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Job Title",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Email Address",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Telephone",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Office",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Status",
+            },
+          ],
+          Array [
+            Object {
+              "value": "Abel Robertson",
+            },
+            Object {
+              "value": undefined,
+            },
+            Object {
+              "value": "abel.robertson@reapitestates.net",
+            },
+            Object {
+              "value": "9481221233",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": "River Town",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": true,
+            },
+            Object {
+              "className": "hidden",
+              "value": "MGL",
+            },
+            Object {
+              "className": "hidden",
+              "value": "\\"10109C0209C684789B72FFC53730E31C\\"",
+            },
+          ],
+          Array [
+            Object {
+              "value": "Accounts User",
+            },
+            Object {
+              "value": undefined,
+            },
+            Object {
+              "value": "abel.21f@reapitestates.net",
+            },
+            Object {
+              "value": "9481221233",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": "River Town",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": true,
+            },
+            Object {
+              "className": "hidden",
+              "value": "RPA",
+            },
+            Object {
+              "className": "hidden",
+              "value": "\\"85A9DB571DB893A5FB734105AFF6B464\\"",
+            },
+          ],
+          Array [
+            Object {
+              "value": "Adele Small",
+            },
+            Object {
+              "value": undefined,
+            },
+            Object {
+              "value": "adele.small@reapitestates.net",
+            },
+            Object {
+              "value": "9481221233",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": "River Town",
+            },
+            Object {
+              "CustomComponent": [Function],
+              "fixedReadOnly": true,
+              "readOnly": true,
+              "value": true,
+            },
+            Object {
+              "className": "hidden",
+              "value": "KLB",
+            },
+            Object {
+              "className": "hidden",
+              "value": "\\"B28EE5CFF654DB22BF3247CA028C10C3\\"",
+            },
+          ],
+        ]
+      }
+      validate={[Function]}
     />
   </Component>
+  <Component
+    onChange={[MockFunction]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
 </div>
 `;

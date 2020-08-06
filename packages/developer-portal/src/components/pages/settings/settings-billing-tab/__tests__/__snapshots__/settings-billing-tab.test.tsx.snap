@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage should match snapshot 1`] = `
+exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -13,7 +13,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
     }
   }
 >
-  <DeveloperSettingsOrganisationTabPage>
+  <SettingsBillingTabPage>
     <Component
       infoType="404"
     >
@@ -30,6 +30,6 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
         </div>
       </Component>
     </Component>
-  </DeveloperSettingsOrganisationTabPage>
+  </SettingsBillingTabPage>
 </Provider>
 `;

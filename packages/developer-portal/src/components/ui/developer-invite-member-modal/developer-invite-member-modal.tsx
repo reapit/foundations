@@ -17,13 +17,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { inviteDeveloperAsOrgMember } from '@/actions/developers'
 import { selectInviteDeveloperAsOrgMemberLoading } from '@/selector/developers'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 const { inviteNameField, inviteEmailField, inviteMessageField, inviteJobTitleField } = formFields
 
 export type InviteMemberModalProps = ModalPropsV2 & {
+  developerId: string
   visible?: boolean
 }
 
@@ -83,11 +81,8 @@ export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: (
   dispatch(inviteDeveloperAsOrgMember(params))
 }
 
-export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose }) => {
+export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose, developerId }) => {
   const dispatch = useDispatch()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const developerId = getDeveloperIdFromConnectSession(connectSession)
-
   const loading = useSelector(selectInviteDeveloperAsOrgMemberLoading)
   if (!visible) {
     return null

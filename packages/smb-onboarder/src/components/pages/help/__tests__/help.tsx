@@ -5,11 +5,11 @@ import {
   AddingSourcesAndReferrals,
   AddingUsers,
   Branding,
-  GetStated,
+  Help,
   LetGetStated,
   Setting,
   handleChangeSteps,
-} from '../get-started'
+} from '../help'
 
 const values = {
   current: 'step-1',
@@ -34,7 +34,7 @@ const values = {
   isLoading: false,
 }
 
-describe('GetStated', () => {
+describe('Help', () => {
   test('handleChangeSteps', () => {
     const scrollIntoView = jest.fn()
     const spy = jest.spyOn(document, 'getElementById').mockReturnValue(({
@@ -48,7 +48,7 @@ describe('GetStated', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(shallow(<GetStated />)).toMatchSnapshot()
+    expect(shallow(<Help />)).toMatchSnapshot()
   })
 
   it('Setting step should match a snapshot', () => {

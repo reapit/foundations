@@ -35,15 +35,16 @@ export const renderAppSelectOptions = developerApps => {
 }
 
 export const renderClientSelectOptions = clientIds => {
+  const clientIdsUniqued = [...new Set(clientIds)]
   return [
     {
       label: 'All',
       value: '',
     },
-    ...clientIds.map(client => {
+    ...clientIdsUniqued.map(client => {
       return {
-        label: client,
-        value: client,
+        label: client as string,
+        value: client as string,
       }
     }),
   ]
