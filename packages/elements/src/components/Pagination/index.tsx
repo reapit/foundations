@@ -31,7 +31,7 @@ export const generatePagination = (currentPage: number, pageCount: number) => {
 
 export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount = 1 }: PaginationProps) => {
   const maxPage = Math.ceil(totalCount / pageSize)
-  if (maxPage < 2) {
+  if (!maxPage || maxPage < 2) {
     return null
   }
 

@@ -30,7 +30,6 @@ import {
   mockChangeCellsForCreateCase,
   mockChangeCellsForUpdateCase,
 } from '../__mocks__/offices'
-import { error } from '@/graphql/__mocks__/error'
 import { Cell } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 
@@ -66,7 +65,7 @@ describe('OfficesTab', () => {
       const wrapper = mount(
         <Router>
           <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
-            <CustomDownButton setErrorServer={jest.fn} totalCount={0} />
+            <CustomDownButton totalCount={0} />
           </MockedProvider>
         </Router>,
       )
@@ -125,7 +124,6 @@ describe('OfficesTab', () => {
       const fn = createDownLoadButtonOnClickFn(mockedParams)
       fn()
       setTimeout(() => {
-        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
         done()
       }, 1)
     })
@@ -188,12 +186,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: true,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -202,12 +198,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -216,12 +210,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: getDataTable(offices),
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()

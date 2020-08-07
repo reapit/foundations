@@ -2,14 +2,13 @@ import * as React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import { ApolloClient } from 'apollo-boost'
 import queryString from 'query-string'
-import { ApolloError, ApolloQueryResult } from 'apollo-boost'
+import { ApolloQueryResult } from 'apollo-boost'
 import { useQuery, useApolloClient, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import {
   Loader,
   Cell,
   AfterCellsChanged,
-  Alert,
   Section,
   Pagination,
   Spreadsheet,
@@ -19,8 +18,6 @@ import {
   ChangedCells,
   isEmail,
   fieldValidateRequire,
-  Toast,
-  ErrorData,
   Button,
   handleDownloadCsv,
 } from '@reapit/elements'
@@ -88,7 +85,6 @@ export type UpdateOfficeResponse = {
 
 export type RenderContentParams = {
   loading: boolean
-  error?: ApolloError
   pageNumber?: number
   pageSize?: number
   totalCount?: number
@@ -96,21 +92,18 @@ export type RenderContentParams = {
   handleChangePage: (page: number) => void
   afterCellsChanged: AfterCellsChanged
   handleAfterUpload: AfterUploadDataValidated
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
 }
 
 export interface CreateDownLoadButtonOnClickFnParams {
   totalCount: number
   client: ApolloClient<any>
   setIsDownloading: React.Dispatch<React.SetStateAction<boolean>>
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
 }
 
 export const createDownLoadButtonOnClickFn = ({
   totalCount = 0,
   client,
   setIsDownloading,
-  setErrorServer,
 }: CreateDownLoadButtonOnClickFnParams) => () => {
   const fetchPages = Math.ceil(totalCount / MAX_ENTITIES_FETCHABLE_AT_ONE_TIME)
 
@@ -142,27 +135,15 @@ export const createDownLoadButtonOnClickFn = ({
       const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } })
       handleDownloadCsv(dataTable, window, document)()
     })
-    .catch(err => {
-      setErrorServer({
-        type: 'SERVER',
-        message: err.message,
-      })
-    })
     .finally(() => {
       setIsDownloading(false)
     })
 }
 
-export const CustomDownButton = ({
-  totalCount,
-  setErrorServer,
-}: {
-  totalCount: number
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
-}) => {
+export const CustomDownButton = ({ totalCount }: { totalCount: number }) => {
   const [isDownloading, setIsDownloading] = React.useState<boolean>(false)
   const client = useApolloClient()
-  const downloadButtonOnClick = createDownLoadButtonOnClickFn({ totalCount, setIsDownloading, client, setErrorServer })
+  const downloadButtonOnClick = createDownLoadButtonOnClickFn({ totalCount, setIsDownloading, client })
 
   return (
     <div className="download-button">
@@ -175,7 +156,6 @@ export const CustomDownButton = ({
 
 export const renderContent = ({
   loading,
-  error,
   dataTable,
   pageNumber = 0,
   pageSize = 0,
@@ -183,14 +163,11 @@ export const renderContent = ({
   handleChangePage,
   afterCellsChanged,
   handleAfterUpload,
-  setErrorServer,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
   }
-  if (error) {
-    return <Alert message={error.message} type="danger" />
-  }
+  console.log(pageNumber, pageSize, totalCount)
   return (
     <React.Fragment>
       <Section>
@@ -202,7 +179,7 @@ export const renderContent = ({
           hasUploadButton
           hasDownloadButton
           afterUploadDataValidated={handleAfterUpload}
-          CustomDownButton={<CustomDownButton setErrorServer={setErrorServer} totalCount={totalCount} />}
+          CustomDownButton={<CustomDownButton totalCount={totalCount} />}
         />
       </Section>
 
@@ -343,80 +320,41 @@ export const prepareCreateOfficeParams = (changedCells: ChangedCells, data: Cell
   }
 }
 
-export const handleErrorMessageUseEffect = (createOfficeError, updateOfficeError, setErrorServer) => {
-  return () => {
-    if (createOfficeError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: createOfficeError.message,
-      })
-    }
-    if (updateOfficeError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: updateOfficeError.message,
-      })
-    }
-  }
-}
-
 export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const params = queryString.parse(location?.search)
   const page = Number(params?.page) || 1
-  const [serverError, setErrorServer] = React.useState<ErrorData | null>(null)
-  const [componentError, setErrorComponent] = React.useState<ErrorData | null>(null)
-  const { loading, error, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
+  const { loading, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
     variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
-  const [createOffice, { error: createOfficeError }] = useMutation<CreateOfficeResponse, CreateOfficeParams>(
-    CREATE_OFFICE,
-    {
-      update: (proxy, fetchResult) => {
-        const cacheData = proxy.readQuery<OfficesQueryResponse, OfficesQueryParams>({
-          query: GET_OFFICES,
-          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
-        })
-        proxy.writeQuery({
-          query: GET_OFFICES,
-          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
-          data: {
-            GetOffices: {
-              ...cacheData?.GetOffices,
-              _embedded: [...(cacheData?.GetOffices?._embedded || []), fetchResult.data?.CreateOffice],
-            },
+  const [createOffice] = useMutation<CreateOfficeResponse, CreateOfficeParams>(CREATE_OFFICE, {
+    update: (proxy, fetchResult) => {
+      const cacheData = proxy.readQuery<OfficesQueryResponse, OfficesQueryParams>({
+        query: GET_OFFICES,
+        variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+      })
+      proxy.writeQuery({
+        query: GET_OFFICES,
+        variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+        data: {
+          GetOffices: {
+            ...cacheData?.GetOffices,
+            _embedded: [...(cacheData?.GetOffices?._embedded || []), fetchResult.data?.CreateOffice],
           },
-        })
-      },
+        },
+      })
     },
-  )
-  const [updateOffice, { error: updateOfficeError }] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(
-    UPDATE_OFFICE,
-  )
+  })
+  const [updateOffice] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(UPDATE_OFFICE)
   const dispatch = useUploadDispatch()
 
   const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
 
-  React.useEffect(handleErrorMessageUseEffect(createOfficeError, updateOfficeError, setErrorServer), [
-    createOfficeError,
-    updateOfficeError,
-  ])
-
-  const errorClearedComponent = () => {
-    setErrorComponent(null)
-  }
-
-  const errorClearedServer = () => {
-    setErrorServer(null)
-  }
-
   return (
     <div>
       {renderContent({
-        setErrorServer,
         loading,
-        error,
         dataTable,
         pageNumber: data?.GetOffices?.pageNumber,
         pageSize: data?.GetOffices?.pageSize,
@@ -425,12 +363,6 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
         handleAfterUpload: handleAfterUpload(dispatch),
       })}
-      <Toast
-        componentError={componentError}
-        serverError={serverError}
-        errorClearedComponent={errorClearedComponent}
-        errorClearedServer={errorClearedServer}
-      />
     </div>
   )
 }
