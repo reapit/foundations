@@ -19,6 +19,8 @@ export const globals = css`
 const App = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
+  if (!connectSession) return null
+
   return (
     <ApolloProvider client={getClient(connectSession?.accessToken || '', window.reapit.config.graphqlUri)}>
       <PortalProvider>
