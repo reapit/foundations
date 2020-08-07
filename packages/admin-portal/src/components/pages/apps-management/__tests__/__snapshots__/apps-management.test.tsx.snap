@@ -807,62 +807,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
           pageNumber={1}
           pageSize={0}
           totalCount={0}
-        >
-          <Component
-            isCentered={true}
-            isFlex={true}
-          >
-            <section
-              className=""
-              data-test=""
-            >
-              <nav
-                aria-label="pagination"
-                className="pagination is-centered"
-                role="navigation"
-              >
-                <a
-                  className="pagination-previous pagination-disabled"
-                  onClick={[Function]}
-                >
-                  Previous
-                </a>
-                <a
-                  className="pagination-next  "
-                  onClick={[Function]}
-                >
-                  Next page
-                </a>
-                <ul
-                  className="pagination-list"
-                >
-                  <li
-                    key="0"
-                  >
-                    <a
-                      aria-label="Goto page 1"
-                      className="pagination-link is-current"
-                      onClick={[Function]}
-                    >
-                      1
-                    </a>
-                  </li>
-                  <li
-                    key="1"
-                  >
-                    <a
-                      aria-label="Goto page NaN"
-                      className="pagination-link"
-                      onClick={[Function]}
-                    >
-                      NaN
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </section>
-          </Component>
-        </Component>
+        />
         <Component
           afterClose={[Function]}
           appId=""
