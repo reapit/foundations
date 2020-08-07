@@ -10,6 +10,7 @@ import {
   handleFilterInvalidMarker,
   handleMarkerOnClick,
   handleModalClose,
+  handleSetAppointment,
 } from '../map'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
@@ -86,25 +87,46 @@ describe('map', () => {
   describe('handleMarkerOnClick', () => {
     it('should run correctly', () => {
       const setAppoinment = jest.fn()
-      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      const setAppointmentDetailModalVisible = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment, setAppointmentDetailModalVisible)
       fn('NEP1600290')()
       expect(setAppoinment).toBeCalledWith(appointment)
+      expect(setAppointmentDetailModalVisible).toBeCalledWith(true)
     })
 
     it('should run correctly and not call setAppoinment', () => {
       const setAppoinment = jest.fn()
-      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      const setAppointmentDetailModalVisible = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment, setAppointmentDetailModalVisible)
       fn('1')()
       expect(setAppoinment).not.toBeCalledWith(appointment)
+      expect(setAppointmentDetailModalVisible).not.toBeCalled()
     })
   })
 
   describe('handleModalClose', () => {
     it('should run correctly', () => {
-      const setAppoinment = jest.fn()
-      const fn = handleModalClose(setAppoinment)
+      const setAppointmentDetailModalVisible = jest.fn()
+      const fn = handleModalClose(setAppointmentDetailModalVisible)
       fn()
-      expect(setAppoinment).toBeCalledWith(null)
+      expect(setAppointmentDetailModalVisible).toBeCalledWith(false)
+    })
+  })
+
+  describe('handleSetAppointment', () => {
+    it('should run correctly', () => {
+      const setAppointment = jest.fn()
+      const appointments = [appointment]
+      const fn = handleSetAppointment(appointment.id, appointments, setAppointment)
+      fn()
+      expect(setAppointment).toBeCalledWith(appointment)
+    })
+    it('should run correctly', () => {
+      const setAppointment = jest.fn()
+      const appointments = [appointment]
+      const fn = handleSetAppointment('', appointments, setAppointment)
+      fn()
+      expect(setAppointment).not.toBeCalled()
     })
   })
 })

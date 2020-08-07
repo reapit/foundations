@@ -46,14 +46,6 @@ exports[`map AppointmentMap should match snapshot 1`] = `
     styles={Object {}}
   />
   <Component
-    routeInformation={
-      Object {
-        "distance": null,
-        "duration": null,
-      }
-    }
-  />
-  <Component
     appointment={Object {}}
     destroyOnClose={true}
     onClose={[Function]}
