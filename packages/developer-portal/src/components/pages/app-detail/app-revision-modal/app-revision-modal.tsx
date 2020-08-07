@@ -151,10 +151,10 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
       }
     >
       <>
-        {isLoading ? (
-          <Loader />
-        ) : (
+        {!isLoading && hasRevisionDetailData ? (
           <AppRevisionComparison appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
+        ) : (
+          <Loader />
         )}
         <Modal
           visible={isConfirmationModalVisible}
