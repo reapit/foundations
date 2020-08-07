@@ -9,9 +9,9 @@ const parseArgv = cliArgs => {
     namespace: namespace && pascalCase(Array.isArray(namespace) ? namespace[namespace.length - 1] : namespace),
     entity: entity && pascalCase(Array.isArray(entity) ? entity[entity.length - 1] : entity),
     name: name && pascalCase(Array.isArray(name) ? name[name.length - 1] : name),
-    mode: mode && Array.isArray(mode) ? mode[mode.length - 1] : mode,
-    filePath: filePath && Array.isArray(filePath) ? filePath[filePath.length - 1] : filePath,
-    format: format && Array.isArray(format) ? format[format.length - 1] : format,
+    mode: mode && (Array.isArray(mode) ? mode[mode.length - 1] : mode).toLowerCase(),
+    filePath: filePath && (Array.isArray(filePath) ? filePath[filePath.length - 1] : filePath).toLowerCase(),
+    format: format && (Array.isArray(format) ? format[format.length - 1] : format).toLowerCase(),
   }
 }
 

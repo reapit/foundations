@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const AWS = require('aws-sdk')
+const chalk = require('chalk')
 const { getParamAndFileName } = require('./utils')
 
 AWS.config.update({ region: 'eu-west-2' })
@@ -13,9 +14,9 @@ const createParam = async cliArgs => {
     const source = require(fileName)
     if (!source) throw new Error('File not found for: ', source)
 
-    const value = format === 'json' ? JSON.stringify(source) : String(source)
+    const value = format && format === 'string' ? String(source) : JSON.stringify(source)
 
-    console.log('Creating param: ', paramName)
+    console.log(chalk.bold.blue('Creating param: ', paramName))
 
     return new Promise(resolve => {
       const options = {
@@ -29,12 +30,12 @@ const createParam = async cliArgs => {
           throw new Error(`Something went wrong when creating your param: ${paramName} ${err.code}`)
         }
 
-        console.log(`Successfully created ${paramName} value: ${value}`)
+        console.log(chalk.bold.green(`Successfully created ${paramName}`))
         resolve()
       })
     })
   } catch (err) {
-    console.error('Repit Config Manager Error: ', err.message)
+    console.log(chalk.red.bold('Error:', err.message))
   }
 }
 

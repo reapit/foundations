@@ -48,7 +48,7 @@ const loadCli = async () => {
       message: 'Format for source file',
       choices: [
         { title: 'JSON', value: 'json' },
-        { title: 'Plain Text', value: 'text' },
+        { title: 'String', value: 'string' },
       ],
     },
     {
@@ -58,12 +58,15 @@ const loadCli = async () => {
       name: 'filePath',
       message: 'Source file path for your parameter',
       initial: './config.json',
+      validate: value => {
+        return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
+      },
     },
   ]
   try {
     return await prompts(questions)
   } catch (err) {
-    console.log(chalk.blue.bold('Repit Config Manager Error:'), chalk.red.bold(err.message))
+    console.log(chalk.red.bold('Error:', err.message))
   }
 }
 

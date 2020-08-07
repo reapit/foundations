@@ -9,7 +9,7 @@ const updateParam = require('./update-param')
 const deleteParam = require('./delete-param')
 
 return (async () => {
-  console.log(chalk.blue.bold('Loading Reapit Config Manager'))
+  console.log(chalk.blue.bold('Welcome to Reapit Config Manager'))
   try {
     const cliArgs = parseArgv(argv)
     const cliParams = !cliArgs.mode ? parseArgv(await loadCli()) : cliArgs
@@ -21,6 +21,6 @@ return (async () => {
 
     throw new Error('The value of your --mode flag is invalid - options are fetch, create, update and delete')
   } catch (err) {
-    console.log(chalk.blue.bold('Repit Config Manager Error:'), chalk.red.bold(err.message))
+    console.log(chalk.red.bold('Error:', err.message))
   }
 })()

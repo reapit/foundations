@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const AWS = require('aws-sdk')
+const chalk = require('chalk')
 const fs = require('fs')
 const { getParamAndFileName } = require('./utils')
 
@@ -9,25 +10,22 @@ const ssm = new AWS.SSM()
 
 const fetchParam = cliArgs => {
   try {
-    const { fileName, paramName, format } = getParamAndFileName(cliArgs)
-    console.log('Fetching param: ', paramName)
+    const { fileName, paramName } = getParamAndFileName(cliArgs)
+    console.log(chalk.bold.blue('Fetching param: ', paramName))
     return new Promise(resolve => {
-      const options = { Name: paramName, WithDecryption: false }
+      const options = { Name: paramName, WithDecryption: true }
       ssm.getParameter(options, (err, data) => {
         if (err) {
           throw new Error(`Something went wrong when fetching your param: ${paramName} ${err.code}`)
         }
         const config = (data && data.Parameter && data.Parameter.Value) || {}
-        console.log(
-          `Successfully fetched ${paramName} values are: `,
-          format === 'json' ? JSON.stringify(config) : config,
-        )
+        console.log(chalk.bold.green(`Successfully fetched ${paramName}`))
         fs.writeFileSync(fileName, config)
         resolve()
       })
     })
   } catch (err) {
-    console.error('Repit Config Manager Error: ', err.message)
+    console.log(chalk.red.bold('Error:', err.message))
   }
 }
 

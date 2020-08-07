@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const AWS = require('aws-sdk')
+const chalk = require('chalk')
 const { getParamAndFileName } = require('./utils')
 
 AWS.config.update({ region: 'eu-west-2' })
@@ -13,8 +14,8 @@ const getBase = paramName => {
       if (err) {
         return reject(new Error(`Something went wrong when fetching param to update ${paramName} ${err.code}`))
       }
-      const config = (data && data.Parameter && data.Parameter.Value) || {}
-      console.log(`Successfully fetched base param for ${paramName}`)
+      const config = (data && data.Parameter && data.Parameter.Value && JSON.parse(data.Parameter.Value)) || {}
+      console.log(chalk.bold.green(`Successfully fetched base param for ${paramName}`))
 
       return resolve(config)
     })
@@ -30,13 +31,14 @@ const updateParam = async cliArgs => {
 
     const base = await getBase(paramName, format)
     const value =
-      format === 'json'
-        ? JSON.stringify({
+      format && format === 'string'
+        ? String(source)
+        : JSON.stringify({
             ...base,
             ...source,
           })
-        : String(source)
-    console.log('Updating param: ', paramName)
+
+    console.log(chalk.bold.blue('Updating param: ', paramName))
 
     return new Promise((resolve, reject) => {
       const options = {
@@ -50,14 +52,13 @@ const updateParam = async cliArgs => {
           return reject(new Error(`Something went wrong when updating your param ${paramName} ${err.code}`))
         }
 
-        console.log(`Successfully updated ${paramName} new value ${value}`)
+        console.log(chalk.bold.green(`Successfully updated ${paramName}`))
 
         return resolve(true)
       })
     })
   } catch (err) {
-    console.log('here', err)
-    console.error('Repit Config Manager Error: ', err.message)
+    console.log(chalk.red.bold('Error:', err.message))
   }
 }
 
