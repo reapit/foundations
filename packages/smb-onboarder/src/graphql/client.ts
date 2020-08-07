@@ -19,7 +19,8 @@ export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResp
     graphQLErrors.map(({ message, locations, path }) => {
       {
         console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
-        readableMessage = message.split('|')[1] || message
+        const messageNotIncludeTraceID = message?.split('-')?.pop()
+        readableMessage = messageNotIncludeTraceID
       }
     })
   }
