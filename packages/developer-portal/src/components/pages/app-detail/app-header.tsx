@@ -29,7 +29,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
             <img className="image is-96x96" src={appIcon?.uri || ImagePlaceHolder} alt={appDetailData.name} />
           </div>
           <div className={headerContent}>
-            <H3 className="text-ellipsis-9">{appDetailData.name || ''}</H3>
+            <H3>{appDetailData.name || ''}</H3>
             <SubTitleH6>
               Verified by Reapit <FaCheck className={check} />
             </SubTitleH6>

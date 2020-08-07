@@ -12,6 +12,10 @@ export function isMacLike() {
   return navigator.userAgent.indexOf('Mac OS X') > -1
 }
 
+export function isDesktop() {
+  return !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)
+}
+
 export function isMobile() {
   const [windowWidth, setWindowWidth] = useState(() => window.innerWidth)
   useEffect(() => {

@@ -102,6 +102,10 @@ export interface AppDetailModel {
    */
   developer?: string
   /**
+   * Gets a brief description of the developers organisation
+   */
+  developerAbout?: string
+  /**
    * Gets the email address of the developer's helpdesk responsible for providing support of the application
    */
   supportEmail?: string

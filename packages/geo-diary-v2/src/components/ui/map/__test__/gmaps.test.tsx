@@ -25,15 +25,10 @@ describe('Map', () => {
   let travelMode = 'DRIVING'
   let mockOnLoadedDirection = jest.fn()
   let markerCallBack = jest.fn()
-  let mockCurrentLocation: any = null
   let mockBounds: any = null
   let mockMarker: any = null
   let mockMarker1: any = null
   let mockMarkers: any[] = []
-  const currentLocationLatLng = {
-    lat: 0,
-    lng: 0,
-  }
   beforeEach(() => {
     mockCoordinates = [
       {
@@ -53,7 +48,6 @@ describe('Map', () => {
     mockDestinationPoint = {
       position: { lat: 0, lng: 0 },
     }
-    mockCurrentLocation = new mockGoogleMaps.LatLng(currentLocationLatLng.lat, currentLocationLatLng.lng)
     mockBounds = new mockGoogleMaps.LatLngBounds()
     mockMarker = new mockGoogleMaps.Marker({
       position: {
@@ -95,25 +89,34 @@ describe('Map', () => {
   describe('handleRequestDirectionServiceResponse', () => {
     it('should run correctly', () => {
       const fn = handleRequestDirectionServiceResponse({
-        currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
-        destinationAddress: '',
+        destinationAddress: 'testAddress',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       const mockResponse = {}
       const mockStatus = 'OK'
       fn(mockResponse, mockStatus)
-      expect(mockCurrentLocation.setMap).toBeCalledWith(null)
       expect(mockOnLoadedDirection).toBeCalledWith(mockResponse)
       expect(mockDirectionsRenderer.setDirections).toBeCalled()
     })
 
     it('should run correctly', () => {
       const fn = handleRequestDirectionServiceResponse({
-        currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
         destinationAddress: '',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       const mockResponse = {}
       const mockStatus = 'ERROR'
@@ -133,8 +136,13 @@ describe('Map', () => {
         directionsRenderer: mockDirectionsRenderer,
         travelMode,
         onLoadedDirection: mockOnLoadedDirection,
-        currentLocation: mockCurrentLocation,
         destinationAddress: '',
+        directionsRendererRef: {
+          current: mockDirectionsRenderer,
+        },
+        markersRef: {
+          current: mockMarkers,
+        },
       })
       expect(mockDirectionsRenderer.setMap).toBeCalled()
       expect(mockDirectionsService.route).toBeCalled()
