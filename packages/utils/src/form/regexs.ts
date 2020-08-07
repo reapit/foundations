@@ -8,3 +8,4 @@ export const emailRegex = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\u
 export const numberOnlyRegex = /^\d+$/
 export const reapitRefRegex = /^[a-zA-Z]{3}[\d]{3}$/
 export const websiteRegex = /^(?:https?:\/\/)(?:www\.)?[a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/
+export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/

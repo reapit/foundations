@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StepInputAuthenticationUris should match snapshot 1`] = `
+exports[`step-submit-app-success SubmitAppWizardModal should match snapshot 1`] = `
 <Fragment>
   <Component
     body={
@@ -46,7 +46,9 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <Unknown>
+      <Unknown
+        onClick={[Function]}
+      >
         Finish
       </Unknown>
     }

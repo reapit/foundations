@@ -82,6 +82,9 @@ export const customCellRenderer = (
     className = '',
     readOnly,
     style: customStyle,
+    // dont need to pass this prop to td tag
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+    fixedReadOnly,
     ...restCell
   } = cell
   const { maxRow: maxRowIndex, maxCol: maxColIndex } = getMaxRowAndCol(data)
@@ -348,6 +351,10 @@ export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => 
    * https://github.com/facebook/react/issues/4335
    */
   window.addEventListener('click', setContextMenuProp as any)
+
+  return () => {
+    window.removeEventListener('click', setContextMenuProp as any)
+  }
 }
 
 export const handleAfterDataChanged = (

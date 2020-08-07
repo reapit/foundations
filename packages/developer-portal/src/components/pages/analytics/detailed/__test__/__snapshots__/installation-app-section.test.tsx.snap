@@ -80,6 +80,7 @@ exports[`InstallationTable should match snapshot 1`] = `
           >
             <DeveloperInstallationsChart
               data={Array []}
+              loading={false}
             >
               <Component
                 hasMargin={false}
@@ -13792,6 +13793,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
           >
             <DeveloperInstallationsChart
               data={Array []}
+              loading={false}
             >
               <Component
                 hasMargin={false}
@@ -27505,6 +27507,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
           >
             <DeveloperInstallationsChart
               data={Array []}
+              loading={false}
             >
               <Component
                 hasMargin={false}
