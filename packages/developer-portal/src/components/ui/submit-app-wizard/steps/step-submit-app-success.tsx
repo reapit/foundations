@@ -2,14 +2,20 @@ import React from 'react'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
 import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
-import { WizardStepComponent } from '../types'
+import { WizardStep, WizardStepComponent } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
 import { CreateAppModel } from '@reapit/foundations-ts-definitions'
+import { wizzardSteps } from '../constant'
 
 const { nameField, externalIdField, authFlowField, appIdField } = formFields
 
-export const StepSubmitAppSuccess: WizardStepComponent = ({ afterClose }) => {
+export const onHandleFinish = (setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>, onClose: any) => () => {
+  onClose()
+  setWizardStep(wizzardSteps.BEFORE_YOU_START)
+}
+
+export const StepSubmitAppSuccess: WizardStepComponent = ({ onClose, setWizardStep }) => {
   const { values } = useFormikContext<CreateAppModel>()
   const authFlow = values[authFlowField.name]
   const id = values[appIdField.name]
@@ -40,7 +46,7 @@ export const StepSubmitAppSuccess: WizardStepComponent = ({ afterClose }) => {
           </div>
         }
       />
-      <ModalFooter footerItems={<Button onClick={afterClose}>Finish</Button>} />
+      <ModalFooter footerItems={<Button onClick={onHandleFinish(setWizardStep, onClose)}>Finish</Button>} />
     </>
   )
 }

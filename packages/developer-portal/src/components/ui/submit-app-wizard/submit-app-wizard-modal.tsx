@@ -17,5 +17,5 @@ export const SubmitAppWizardModal: React.FC<SubmitAppWizardModalProps> = ({ visi
   const dispatch = useDispatch()
   useEffect(handleUseEffect(dispatch), [])
 
-  return <SubmitAppWizard afterClose={onClose} visible={visible} />
+  return <SubmitAppWizard onClose={onClose} visible={visible} />
 }

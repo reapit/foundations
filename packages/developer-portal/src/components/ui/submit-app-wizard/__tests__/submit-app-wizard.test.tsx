@@ -65,7 +65,8 @@ describe('SubmitAppWizard', () => {
     })
   })
   it('should match snapshot when visible = true', () => {
-    const wrapper = shallow(<SubmitAppWizard afterClose={jest.fn} />)
+    const mockOnClose = jest.fn()
+    const wrapper = shallow(<SubmitAppWizard onClose={mockOnClose} />)
     expect(wrapper).toMatchSnapshot()
   })
 })
