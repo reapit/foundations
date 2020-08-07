@@ -1,4 +1,5 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -14,6 +15,7 @@ import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
 import { selectDeveloperEmail } from '@/selector'
+import { notification } from '@reapit/elements'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
@@ -110,13 +112,10 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
-    logger(error)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({
+      message: error.message,
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(settingShowLoading(false))
   }

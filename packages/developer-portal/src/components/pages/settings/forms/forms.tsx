@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { selectDeveloperEmail } from '@/selector/developer'
 import { H3, Button, Loader, Section } from '@reapit/elements'
 import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
-import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
+import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
@@ -33,7 +32,6 @@ export type SelectorReturn = {
 export const Forms: React.FC = () => {
   const dispatch = useDispatch()
 
-  const email = useSelector(selectDeveloperEmail) || ''
   const loading = useSelector(selectSettingsPageIsLoading)
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
 
@@ -56,7 +54,7 @@ export const Forms: React.FC = () => {
           developerInformation={developerInfo}
           updateDeveloperInformation={updateDeveloperInformation}
         />
-        <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
+        <ChangePasswordForm changePassword={changePassword} />
       </Section>
     </>
   )
