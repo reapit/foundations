@@ -336,9 +336,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                   />
                                 </div>
                                 <div>
-                                  <Component
-                                    className="text-ellipsis-9"
-                                  >
+                                  <Component>
                                     <h3
                                       className=""
                                       id=""
