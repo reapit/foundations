@@ -11,7 +11,7 @@ import { StepInputAuthenticationUris } from './steps/step-input-authentication-u
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
 import { StepChoseAuthType } from './steps/step-chose-auth-type'
-import { Formik, FormikHelpers, Form, ModalV2, ModalPropsV2 } from '@reapit/elements'
+import { Formik, FormikHelpers, Form, ModalV2 } from '@reapit/elements'
 import { WizardStep, WizardStepComponent, SetWizardStep } from './types'
 import { formFields } from './form-fields'
 import { validationSchemas } from './validation-schema'
@@ -41,6 +41,18 @@ const titleMap: Record<WizardStep, string> = {
 }
 
 const { nameField, redirectUrisField, signoutUrisField, scopesField, externalIdField, appIdField } = formFields
+
+const initialFormValues = {
+  [nameField.name]: '',
+  [redirectUrisField.name]: '',
+  [signoutUrisField.name]: '',
+  [scopesField.name]: [],
+}
+
+export type SubmitAppWizardProps = {
+  onClose: () => void
+  visible: boolean
+}
 
 export type HandleSubmitParams = {
   dispatch: Dispatch
@@ -101,14 +113,14 @@ export const handleSubmit = ({ dispatch, setWizardStep }: HandleSubmitParams) =>
   dispatch(createApp(appToSubmit))
 }
 
-const initialFormValues = {
-  [nameField.name]: '',
-  [redirectUrisField.name]: '',
-  [signoutUrisField.name]: '',
-  [scopesField.name]: [],
+export const onModalClose = (onClose: () => void, setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>) => {
+  return () => {
+    onClose()
+    setWizardStep(wizzardSteps.BEFORE_YOU_START)
+  }
 }
 
-export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'onClose' | 'visible'>> = ({ onClose, visible }) => {
+export const SubmitAppWizard: React.FC<SubmitAppWizardProps> = ({ onClose, visible }) => {
   const [currentWizardStep, setWizardStep] = useState<WizardStep>(wizzardSteps.BEFORE_YOU_START)
   const dispatch = useDispatch()
 
@@ -118,7 +130,12 @@ export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'onClose' | 'visible'>
   }
 
   return (
-    <ModalV2 title={titleMap[currentWizardStep]} onClose={onClose} visible={visible} isPadding={false}>
+    <ModalV2
+      title={titleMap[currentWizardStep]}
+      onClose={onModalClose(onClose, setWizardStep)}
+      visible={visible}
+      isPadding={false}
+    >
       <Formik
         initialValues={initialFormValues}
         onSubmit={handleSubmit({ setWizardStep, dispatch })}

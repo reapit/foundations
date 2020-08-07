@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
+exports[`submit-app-wizard should match snapshot when visible = true 1`] = `
 <Component
   isPadding={false}
-  onClose={[MockFunction]}
+  onClose={[Function]}
   title="Before you start"
+  visible={true}
 >
   <Formik
     initialValues={
