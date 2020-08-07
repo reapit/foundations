@@ -1,6 +1,7 @@
 import React from 'react'
-import { StepSubmitAppSuccess } from '../step-submit-app-success'
+import { onHandleFinish, StepSubmitAppSuccess } from '../step-submit-app-success'
 import { shallow } from 'enzyme'
+import { wizzardSteps } from '../../constant'
 
 const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
@@ -14,9 +15,21 @@ jest.mock('formik', () => ({
   }),
 }))
 
-describe('StepInputAuthenticationUris', () => {
-  it('should match snapshot', () => {
-    const wrapper = shallow(<StepSubmitAppSuccess setWizardStep={jest.fn()} />)
-    expect(wrapper).toMatchSnapshot()
+describe('step-submit-app-success', () => {
+  describe('SubmitAppWizardModal', () => {
+    it('should match snapshot', () => {
+      const wrapper = shallow(<StepSubmitAppSuccess setWizardStep={jest.fn()} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+  describe('onHandleFinish', () => {
+    it('should run correctly', () => {
+      const mockSetWizardStep = jest.fn()
+      const mockOnClose = jest.fn()
+      const fn = onHandleFinish(mockSetWizardStep, mockOnClose)
+      fn()
+      expect(mockSetWizardStep).toBeCalledWith(wizzardSteps.BEFORE_YOU_START)
+      expect(mockOnClose).toBeCalled()
+    })
   })
 })

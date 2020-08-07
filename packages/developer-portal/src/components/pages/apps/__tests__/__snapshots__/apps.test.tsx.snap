@@ -99,7 +99,7 @@ exports[`Login should match a snapshot 1`] = `
                   visible={false}
                 >
                   <Component
-                    afterClose={[Function]}
+                    onClose={[Function]}
                     visible={false}
                   >
                     <Component

@@ -108,7 +108,7 @@ const initialFormValues = {
   [scopesField.name]: [],
 }
 
-export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'afterClose' | 'visible'>> = ({ afterClose, visible }) => {
+export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'onClose' | 'visible'>> = ({ onClose, visible }) => {
   const [currentWizardStep, setWizardStep] = useState<WizardStep>(wizzardSteps.BEFORE_YOU_START)
   const dispatch = useDispatch()
 
@@ -118,7 +118,7 @@ export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'afterClose' | 'visibl
   }
 
   return (
-    <ModalV2 title={titleMap[currentWizardStep]} onClose={afterClose} visible={visible} isPadding={false}>
+    <ModalV2 title={titleMap[currentWizardStep]} onClose={onClose} visible={visible} isPadding={false}>
       <Formik
         initialValues={initialFormValues}
         onSubmit={handleSubmit({ setWizardStep, dispatch })}
@@ -135,7 +135,7 @@ export const SubmitAppWizard: React.FC<Pick<ModalPropsV2, 'afterClose' | 'visibl
             }
           }}
         >
-          <CurrentStepComponent afterClose={afterClose} setWizardStep={setWizardStep} />
+          <CurrentStepComponent onClose={onClose} setWizardStep={setWizardStep} />
         </Form>
       </Formik>
     </ModalV2>
