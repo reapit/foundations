@@ -1,5 +1,7 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
+import { isEmail } from '@reapit/elements'
+import { isValidTelephone } from '@/utils/validators'
 import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
 import { OfficesQueryResponse } from '../offices-tab/offices-tab'
 import { prepareCreateNegeotiatorParams } from './negotiators-list'
@@ -19,6 +21,14 @@ export const handleOnChange = (officeData, setValue, spreadsheetData, row, creat
     const createNegotiatorVariables = {
       ...prepareCreateNegeotiatorParams(spreadsheetData, row),
       officeId: selectedOfficeId,
+    }
+    if (
+      !createNegotiatorVariables.name ||
+      !createNegotiatorVariables.officeId ||
+      !isEmail(createNegotiatorVariables.email) ||
+      !isValidTelephone(createNegotiatorVariables.mobilePhone || '')
+    ) {
+      return
     }
     createNegotiator({
       variables: createNegotiatorVariables,

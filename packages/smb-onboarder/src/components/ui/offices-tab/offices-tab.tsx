@@ -23,6 +23,7 @@ import {
   ErrorData,
   Button,
   handleDownloadCsv,
+  minLengthValidator,
 } from '@reapit/elements'
 import {
   PagedResultOfficeModel_,
@@ -42,6 +43,8 @@ import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-uploa
 import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
+
+export const MINIMUM_OFFICE_NAME_LENGTH = 3
 
 export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'id', className: 'hidden-cell' },
@@ -459,11 +462,10 @@ export const validate = (data: Cell[][]) =>
   data.map((row, rowIndex) =>
     row.map((cell, cellIndex) => {
       if (rowIndex === 0) return true // dont need to validate header row
-      // cell name is required
-
+      // cell name is required and has length >= 3
       if (cellIndex === 2) {
-        const a1 = !fieldValidateRequire(cell.value as string)
-        return a1
+        const name = cell.value as string
+        return !fieldValidateRequire(name) && minLengthValidator(MINIMUM_OFFICE_NAME_LENGTH)(name)
       }
       // cell addess1 is required
       if (cellIndex === 5) {
