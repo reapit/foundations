@@ -14,9 +14,9 @@ export const generateRequest = (accessToken: string) => async (operation: Operat
 
 export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResponse) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, locations, path }) =>
-      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`),
-    )
+    graphQLErrors.map(({ message, locations, path, extensions: { traceId } = {} }) => {
+      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}, TraceId: ${traceId}`)
+    })
   }
   if (networkError) console.log(`[Network error]: ${networkError}`)
 }
