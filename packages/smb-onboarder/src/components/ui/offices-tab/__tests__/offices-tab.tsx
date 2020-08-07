@@ -87,33 +87,15 @@ describe('OfficesTab', () => {
   })
 
   describe('createDownLoadButtonOnClickFn', () => {
+    window.URL.createObjectURL = jest.fn(() => 'test')
+
     it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
       const mockedParams = ({
         client: {
           query: jest.fn(
             () =>
-              new Promise((_, reject) => {
-                reject('error')
-              }),
-          ),
-        },
-        setErrorServer: jest.fn(),
-        totalCount: 200,
-        setIsDownloading: jest.fn(),
-      } as unknown) as CreateDownLoadButtonOnClickFnParams
-      const fn = createDownLoadButtonOnClickFn(mockedParams)
-      fn()
-      setTimeout(() => {
-        done()
-      }, 1)
-    })
-    it('should call setErrorServer when error is received during fetching', done => {
-      const mockedParams = ({
-        client: {
-          query: jest.fn(
-            () =>
-              new Promise((_, reject) => {
-                reject(new Error('error'))
+              new Promise(reslove => {
+                reslove('error')
               }),
           ),
         },
