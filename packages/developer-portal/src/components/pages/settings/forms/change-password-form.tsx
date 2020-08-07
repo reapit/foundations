@@ -1,79 +1,21 @@
 import React from 'react'
-import { compose } from 'redux'
 import {
   FormSection,
   FormSubHeading,
   Input,
   Button,
   Form,
-  withFormik,
-  FormikProps,
-  FormikBag,
+  Formik,
   FormHeading,
   LevelRight,
   Grid,
   GridItem,
+  FormikHelpers,
 } from '@reapit/elements'
-import { validate } from '@/utils/form/change-password'
+import { validationSchemaChangePassword as validationSchema } from './form-schema/validation-schema'
+import { formFieldsChangePassword } from './form-schema/form-fields'
 
-export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>
-
-export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
-  isSubmitting,
-  isValidating,
-  isValid,
-  touched,
-}) => {
-  const isEnable =
-    isValid && Boolean(touched) && (touched.confirmPassword || touched.currentPassword || touched.password)
-  return (
-    <FormSection>
-      <Form>
-        <FormHeading>Change password</FormHeading>
-        <FormSubHeading>
-          Please complete the following fields to change your password. You will be automatically logged out for the
-          changes to be applied
-        </FormSubHeading>
-        <Grid>
-          <GridItem>
-            <Input
-              dataTest="current-password"
-              type="password"
-              labelText="Current Password"
-              id="currentPassword"
-              name="currentPassword"
-            />
-          </GridItem>
-          <GridItem>
-            <Input dataTest="password" type="password" labelText="Password" id="password" name="password" />
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem className="is-half">
-            <Input
-              dataTest="confirmPassword"
-              type="password"
-              labelText="Confirm Password"
-              id="confirmPassword"
-              name="confirmPassword"
-            />
-          </GridItem>
-        </Grid>
-        <LevelRight>
-          <Button
-            dataTest="button-change-password"
-            disabled={!isEnable}
-            loading={isSubmitting || isValidating}
-            variant="primary"
-            type="submit"
-          >
-            Change Password
-          </Button>
-        </LevelRight>
-      </Form>
-    </FormSection>
-  )
-}
+const { currentPasswordField, passwordField, confirmPasswordField } = formFieldsChangePassword
 
 export type ChangePasswordValues = {
   currentPassword: string
@@ -81,40 +23,89 @@ export type ChangePasswordValues = {
   confirmPassword: string
 }
 
-export const mapPropsChangePassword = (): ChangePasswordValues => ({
-  currentPassword: '',
-  password: '',
-  confirmPassword: '',
-})
-
-export type ChangePasswordParams = {
-  values: ChangePasswordValues
-  email: string
-}
-
-export type EnhanceChangePasswordFormProps = {
+export type ChangePasswordFormProps = {
   changePassword: (values: ChangePasswordValues) => void
-  email: string
 }
 
-export const handleSubmitChangePassword = async (
+export const handleSubmitChangePassword = (changePassword: (values: ChangePasswordValues) => void) => (
   values: ChangePasswordValues,
-  { setSubmitting, props }: FormikBag<EnhanceChangePasswordFormProps, ChangePasswordValues>,
+  { setSubmitting }: FormikHelpers<ChangePasswordValues>,
 ) => {
   setSubmitting(true)
-  props.changePassword(values)
+  changePassword(values)
 }
 
-export const withChangePasswordForm = withFormik({
-  displayName: 'WithChangePasswordForm',
-  validate,
-  mapPropsToValues: mapPropsChangePassword,
-  handleSubmit: handleSubmitChangePassword,
-})
+export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ changePassword }) => {
+  return (
+    <FormSection>
+      <Formik
+        initialValues={{
+          currentPassword: '',
+          password: '',
+          confirmPassword: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmitChangePassword(changePassword)}
+      >
+        {({ isSubmitting, isValidating, isValid, touched }) => {
+          const isEnable =
+            isValid && Boolean(touched) && (touched.confirmPassword || touched.currentPassword || touched.password)
 
-const EnhanceChangePasswordForm = compose<React.FC<EnhanceChangePasswordFormProps>>(withChangePasswordForm)(
-  ChangePasswordForm,
-)
-EnhanceChangePasswordForm.displayName = 'EnhanceChangePasswordForm'
+          return (
+            <Form>
+              <FormHeading>Change password</FormHeading>
+              <FormSubHeading>
+                Please complete the following fields to change your password. You will be automatically logged out for
+                the changes to be applied
+              </FormSubHeading>
+              <Grid>
+                <GridItem>
+                  <Input
+                    dataTest="current-password"
+                    type="password"
+                    labelText={currentPasswordField.label}
+                    id={currentPasswordField.name}
+                    name={currentPasswordField.name}
+                  />
+                </GridItem>
+                <GridItem>
+                  <Input
+                    dataTest="password"
+                    type="password"
+                    labelText={passwordField.label}
+                    id={passwordField.name}
+                    name={passwordField.name}
+                  />
+                </GridItem>
+              </Grid>
+              <Grid>
+                <GridItem className="is-half">
+                  <Input
+                    dataTest="confirmPassword"
+                    type="password"
+                    labelText={confirmPasswordField.label}
+                    id={confirmPasswordField.name}
+                    name={confirmPasswordField.name}
+                  />
+                </GridItem>
+              </Grid>
+              <LevelRight>
+                <Button
+                  dataTest="button-change-password"
+                  disabled={!isEnable}
+                  loading={isSubmitting || isValidating}
+                  variant="primary"
+                  type="submit"
+                >
+                  Change Password
+                </Button>
+              </LevelRight>
+            </Form>
+          )
+        }}
+      </Formik>
+    </FormSection>
+  )
+}
 
-export default EnhanceChangePasswordForm
+export default ChangePasswordForm

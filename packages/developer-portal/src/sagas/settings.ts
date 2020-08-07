@@ -1,4 +1,5 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -110,11 +111,10 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
-    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: error.message,
       }),
     )
   } finally {

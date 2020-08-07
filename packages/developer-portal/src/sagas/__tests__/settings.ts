@@ -153,11 +153,11 @@ describe('settings', () => {
         }),
       )
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw('FAIL').value).toEqual(
+      expect(clone.throw({ message: 'error message' }).value).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
+            message: 'error message',
           }),
         ),
       )
@@ -168,11 +168,11 @@ describe('settings', () => {
     it('should call API fail', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw('error').value).toEqual(
+      expect(clone.throw({ message: 'error message' }).value).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
+            message: 'error message',
           }),
         ),
       )

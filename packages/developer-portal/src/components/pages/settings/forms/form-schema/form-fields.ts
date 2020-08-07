@@ -24,3 +24,20 @@ export const formFieldsContactInfomation: Record<FieldContactInformation, FormFi
     errorMessage: 'Telephone is not valid',
   },
 }
+
+type FieldChangePassword = 'currentPasswordField' | 'passwordField' | 'confirmPasswordField'
+
+export const formFieldsChangePassword: Record<FieldChangePassword, FormFieldInfo> = {
+  currentPasswordField: {
+    name: 'currentPassword',
+    label: 'Current Password',
+  },
+  passwordField: {
+    name: 'password',
+    label: 'Password',
+  },
+  confirmPasswordField: {
+    name: 'confirmPassword',
+    label: 'Confirm Password',
+  },
+}

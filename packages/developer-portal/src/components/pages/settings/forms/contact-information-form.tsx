@@ -13,7 +13,7 @@ import {
   FormikHelpers,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { validationSchema } from './form-schema/validation-schema'
+import { validationSchemaContactInfomation as validationSchema } from './form-schema/validation-schema'
 import { formFieldsContactInfomation } from './form-schema/form-fields'
 
 const { nameField, jobTitleField, telephoneField, companyNameField } = formFieldsContactInfomation
