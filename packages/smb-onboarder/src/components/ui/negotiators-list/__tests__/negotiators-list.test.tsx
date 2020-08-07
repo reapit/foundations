@@ -3,7 +3,6 @@ import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 import { mount, shallow } from 'enzyme'
 import { MockedProvider } from '@apollo/react-testing'
 import { Cell } from '@reapit/elements'
-import { ApolloError } from 'apollo-boost'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {
   NegotiatorList,
@@ -17,7 +16,6 @@ import {
   prepareUpdateNegeotiatorParams,
   prepareCreateNegeotiatorParams,
   handleAfterCellsChanged,
-  handleErrorMessageUseEffect,
   CreateDownLoadButtonOnClickFnParams,
   createDownLoadButtonOnClickFn,
   CustomDownButton,
@@ -74,7 +72,6 @@ describe('NegotiatorList', () => {
               updateNegotiatorLoading={false}
               updateNegotiator={jest.fn}
               createNegotiator={jest.fn}
-              setErrorServer={jest.fn}
               totalCount={0}
             />
           </MockedProvider>
@@ -84,13 +81,14 @@ describe('NegotiatorList', () => {
     })
   })
   describe('createDownLoadButtonOnClickFn', () => {
+    window.URL.createObjectURL = jest.fn(() => 'test')
     it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
       const mockedParams = ({
         client: {
           query: jest.fn(
             () =>
-              new Promise((_, reject) => {
-                reject('error')
+              new Promise(reslove => {
+                reslove('reslove')
               }),
           ),
         },
@@ -101,27 +99,6 @@ describe('NegotiatorList', () => {
       const fn = createDownLoadButtonOnClickFn(mockedParams)
       fn()
       setTimeout(() => {
-        done()
-      }, 1)
-    })
-    it('should call setErrorServer when error is received during fetching', done => {
-      const mockedParams = ({
-        client: {
-          query: jest.fn(
-            () =>
-              new Promise((_, reject) => {
-                reject(new Error('error'))
-              }),
-          ),
-        },
-        setErrorServer: jest.fn(),
-        totalCount: 200,
-        setIsDownloading: jest.fn(),
-      } as unknown) as CreateDownLoadButtonOnClickFnParams
-      const fn = createDownLoadButtonOnClickFn(mockedParams)
-      fn()
-      setTimeout(() => {
-        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
         done()
       }, 1)
     })
@@ -196,35 +173,9 @@ describe('NegotiatorList', () => {
     })
   })
 
-  describe('handleErrorMessageUseEffect', () => {
-    it('should run correctly', () => {
-      const mockFunction = jest.fn()
-      const mockCreateNegotiatorError: ApolloError = {
-        message: 'Create Negotiator Error',
-        graphQLErrors: [],
-        extraInfo: null,
-        name: '',
-        networkError: null,
-      }
-      const mockUpdateNegotiatorError: ApolloError = {
-        message: 'Update Negotiator Error',
-        graphQLErrors: [],
-        extraInfo: null,
-        name: '',
-        networkError: null,
-      }
-      const fn = handleErrorMessageUseEffect(mockCreateNegotiatorError, mockUpdateNegotiatorError, mockFunction)
-      fn()
-      if (mockCreateNegotiatorError || mockUpdateNegotiatorError) {
-        expect(mockFunction).toBeCalled()
-      }
-    })
-  })
-
   describe('renderNegotiatorList', () => {
     it('should match snapshot', () => {
       const mockParams: RenderNegotiatorListParams = {
-        setErrorServer: jest.fn(),
         updateNegotiatorLoading: false,
         loading: true,
         error: undefined,
@@ -240,7 +191,6 @@ describe('NegotiatorList', () => {
     it('should match snapshot', () => {
       const mockParams: RenderNegotiatorListParams = {
         updateNegotiatorLoading: false,
-        setErrorServer: jest.fn(),
         loading: false,
         error,
         handleChangePage: jest.fn(),
@@ -258,7 +208,6 @@ describe('NegotiatorList', () => {
       const mockUpdateNegotiatorLoading = false
       const mockParams: RenderNegotiatorListParams = {
         updateNegotiatorLoading: false,
-        setErrorServer: jest.fn(),
         loading: false,
         error: undefined,
         handleChangePage: jest.fn(),

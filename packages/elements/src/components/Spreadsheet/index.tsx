@@ -19,6 +19,7 @@ import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
 import { usePrevious } from './utils'
 import { ModalUpload } from './modal-upload'
+import { H6 } from '../Typography'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -48,6 +49,36 @@ export const AddRowButton = ({ addNewRow }) => {
       <Button type="submit" variant="info" onClick={addNewRow}>
         Add new
       </Button>
+    </div>
+  )
+}
+
+export const getErrorsFromData = (data: Cell[][]): string[] => {
+  const errors: string[] = []
+  data.forEach((row = [], rowIndex) => {
+    row.forEach((cell, colIndex) => {
+      if (cell.error) {
+        const error = `[${rowIndex + 1}][${colIndex + 1}]: ${cell.error}`
+        errors.push(error)
+      }
+    })
+  })
+  return errors
+}
+
+export const renderErrorElements = (data: Cell[][] = []) => {
+  const errors = getErrorsFromData(data)
+  if (!errors.length) return null
+  return (
+    <div className="has-text-danger pt-4">
+      <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
+      {errors.map((error: string, index: number) => {
+        return (
+          <div key={index} className="has-text-danger">
+            {error}
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -158,6 +189,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         cellRenderer={cellRenderer}
         {...rest}
       />
+      {renderErrorElements(data)}
       <div className="wrap-bottom">
         {hasAddButton && (
           <AddRowButton addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, validate)} />

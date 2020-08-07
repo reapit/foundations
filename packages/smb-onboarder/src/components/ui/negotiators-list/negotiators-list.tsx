@@ -5,10 +5,8 @@ import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
 import {
-  Toast,
   Loader,
   Cell,
-  Alert,
   Section,
   Pagination,
   Spreadsheet,
@@ -16,7 +14,6 @@ import {
   fieldValidateRequire,
   isEmail,
   isNumberOnly,
-  ErrorData,
   minLengthValidator,
   Button,
   handleDownloadCsv,
@@ -33,6 +30,7 @@ import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/cons
 
 import GET_OFFICES from '../offices-tab/gql/get-offices.graphql'
 import { OfficesQueryResponse, OfficesQueryParams } from '../offices-tab/offices-tab'
+import errorMessages from '@/constants/error-messages'
 
 export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Username' },
@@ -89,7 +87,6 @@ export type CreateNegotiatorMutationResponse = {
 
 export type RenderNegotiatorListParams = {
   updateNegotiatorLoading: boolean
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
   loading: boolean
   error?: ApolloError
   pageNumber?: number
@@ -170,19 +167,28 @@ export const validate = (data: Cell[][]) =>
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
       if (cellIndex === 0) {
-        return !fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)) ||
+          errorMessages.MINIMUM_CHARACTER_LENGTH(5)
+        )
       }
       // cell email is required
       if (cellIndex === 2) {
-        return !fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) ||
+          errorMessages.FIELD_WRONG_EMAIL_FORMAT
+        )
       }
       // cell telephone is required
       if (cellIndex === 3) {
-        return !fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)) ||
+          errorMessages.FIELD_WRONG_PHONE_FORMAT
+        )
       }
       // Office is required
       if (cellIndex === 4) {
-        return !fieldValidateRequire(cell.value as string)
+        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
       }
       return true
     }),
@@ -292,7 +298,6 @@ export interface CreateDownLoadButtonOnClickFnParams {
   totalCount: number
   client: ApolloClient<any>
   setIsDownloading: React.Dispatch<React.SetStateAction<boolean>>
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
   updateNegotiator: (params) => void
   updateNegotiatorLoading: boolean
   createNegotiator: (params) => void
@@ -303,7 +308,6 @@ export const createDownLoadButtonOnClickFn = ({
   totalCount = 0,
   client,
   setIsDownloading,
-  setErrorServer,
   updateNegotiator,
   updateNegotiatorLoading,
   createNegotiator,
@@ -343,12 +347,6 @@ export const createDownLoadButtonOnClickFn = ({
       )
       handleDownloadCsv(dataTable as Cell[][], window, document)()
     })
-    .catch(err => {
-      setErrorServer({
-        type: 'SERVER',
-        message: err.message,
-      })
-    })
     .finally(() => {
       setIsDownloading(false)
     })
@@ -356,14 +354,12 @@ export const createDownLoadButtonOnClickFn = ({
 
 export const CustomDownButton = ({
   totalCount,
-  setErrorServer,
   officeData,
   updateNegotiatorLoading,
   updateNegotiator,
   createNegotiator,
 }: {
   totalCount: number
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
   updateNegotiator: (params) => void
   updateNegotiatorLoading: boolean
   createNegotiator: (params) => void
@@ -375,7 +371,6 @@ export const CustomDownButton = ({
     totalCount,
     setIsDownloading,
     client,
-    setErrorServer,
     officeData,
     updateNegotiatorLoading,
     updateNegotiator,
@@ -393,7 +388,6 @@ export const CustomDownButton = ({
 
 export const renderNegotiatorList = ({
   loading,
-  error,
   dataTable,
   pageNumber = 0,
   pageSize = 0,
@@ -401,15 +395,11 @@ export const renderNegotiatorList = ({
   handleChangePage,
   updateNegotiator,
   createNegotiator,
-  setErrorServer,
   officeData,
   updateNegotiatorLoading,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
-  }
-  if (error) {
-    return <Alert message={error.message} type="danger" />
   }
 
   return (
@@ -422,7 +412,6 @@ export const renderNegotiatorList = ({
               updateNegotiator={updateNegotiator}
               createNegotiator={createNegotiator}
               officeData={officeData}
-              setErrorServer={setErrorServer}
               totalCount={totalCount}
             />
           }
@@ -438,42 +427,21 @@ export const renderNegotiatorList = ({
   )
 }
 
-export const handleErrorMessageUseEffect = (createNegotiatorError, updateNegotiatorError, setErrorServer) => {
-  return () => {
-    if (createNegotiatorError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: createNegotiatorError.message,
-      })
-    }
-    if (updateNegotiatorError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: updateNegotiatorError.message,
-      })
-    }
-  }
-}
-
 export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
-  const [serverError, setErrorServer] = React.useState<ErrorData | null>(null)
-  const [componentError, setErrorComponent] = React.useState<ErrorData | null>(null)
   const location = useLocation()
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
-  const [updateNegotiator, { error: updateNegotiatorError, loading: updateNegotiatorLoading }] = useMutation(
-    UPDATE_NEGOTIATOR,
-  )
+  const [updateNegotiator, { loading: updateNegotiatorLoading }] = useMutation(UPDATE_NEGOTIATOR)
 
-  const { loading, error: getNegotiatorsError, data: negotiatorData } = useQuery<
-    NegotiatorsQueryResponse,
-    NegotiatorsQueryParams
-  >(GET_NEGOTIATORS, {
-    variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page, embed: ['office'] },
-  }) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
+  const { loading, data: negotiatorData } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(
+    GET_NEGOTIATORS,
+    {
+      variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page, embed: ['office'] },
+    },
+  ) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
 
-  const [createNegotiator, { error: createNegotiatorError }] = useMutation(CREATE_NEGOTIATOR, {
+  const [createNegotiator] = useMutation(CREATE_NEGOTIATOR, {
     update(cache, response) {
       const createNegotiatorResponse: CreateNegotiatorMutationResponse = response.data
       const data: NegotiatorsQueryResponse = cache.readQuery({
@@ -519,19 +487,6 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
     variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
-  React.useEffect(handleErrorMessageUseEffect(createNegotiatorError, updateNegotiatorError, setErrorServer), [
-    createNegotiatorError,
-    updateNegotiatorError,
-  ])
-
-  const errorClearedComponent = () => {
-    setErrorComponent(null)
-  }
-
-  const errorClearedServer = () => {
-    setErrorServer(null)
-  }
-
   const dataTable = getDataTable(
     negotiatorData || { GetNegotiators: { _embedded: [] } },
     updateNegotiator,
@@ -544,9 +499,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
     <div>
       {renderNegotiatorList({
         updateNegotiatorLoading,
-        setErrorServer,
         loading,
-        error: getNegotiatorsError,
         dataTable,
         pageNumber: negotiatorData?.GetNegotiators?.pageNumber,
         pageSize: negotiatorData?.GetNegotiators?.pageSize,
@@ -556,12 +509,6 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
         createNegotiator: createNegotiator,
         officeData,
       })}
-      <Toast
-        componentError={componentError}
-        serverError={serverError}
-        errorClearedComponent={errorClearedComponent}
-        errorClearedServer={errorClearedServer}
-      />
     </div>
   )
 }

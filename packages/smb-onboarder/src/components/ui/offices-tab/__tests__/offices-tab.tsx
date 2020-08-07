@@ -30,8 +30,8 @@ import {
   mockChangeCellsForCreateCase,
   mockChangeCellsForUpdateCase,
 } from '../__mocks__/offices'
-import { error } from '@/graphql/__mocks__/error'
 import { Cell } from '@reapit/elements'
+import errorMessages from '@/constants/error-messages'
 
 const mockQueries = {
   request: {
@@ -65,7 +65,7 @@ describe('OfficesTab', () => {
       const wrapper = mount(
         <Router>
           <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
-            <CustomDownButton setErrorServer={jest.fn} totalCount={0} />
+            <CustomDownButton totalCount={0} />
           </MockedProvider>
         </Router>,
       )
@@ -87,13 +87,15 @@ describe('OfficesTab', () => {
   })
 
   describe('createDownLoadButtonOnClickFn', () => {
+    window.URL.createObjectURL = jest.fn(() => 'test')
+
     it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
       const mockedParams = ({
         client: {
           query: jest.fn(
             () =>
-              new Promise((_, reject) => {
-                reject('error')
+              new Promise(reslove => {
+                reslove('error')
               }),
           ),
         },
@@ -104,27 +106,6 @@ describe('OfficesTab', () => {
       const fn = createDownLoadButtonOnClickFn(mockedParams)
       fn()
       setTimeout(() => {
-        done()
-      }, 1)
-    })
-    it('should call setErrorServer when error is received during fetching', done => {
-      const mockedParams = ({
-        client: {
-          query: jest.fn(
-            () =>
-              new Promise((_, reject) => {
-                reject(new Error('error'))
-              }),
-          ),
-        },
-        setErrorServer: jest.fn(),
-        totalCount: 200,
-        setIsDownloading: jest.fn(),
-      } as unknown) as CreateDownLoadButtonOnClickFnParams
-      const fn = createDownLoadButtonOnClickFn(mockedParams)
-      fn()
-      setTimeout(() => {
-        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
         done()
       }, 1)
     })
@@ -187,12 +168,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: true,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -201,12 +180,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -215,12 +192,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: getDataTable(offices),
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -283,8 +258,8 @@ describe('OfficesTab', () => {
       const result = [
         [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, true, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
       ]
       const dataTable = getDataTable(offices)
       expect(validate(dataTable)).toEqual(result)

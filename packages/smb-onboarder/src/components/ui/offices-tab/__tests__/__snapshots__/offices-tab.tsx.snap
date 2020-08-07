@@ -10742,7 +10742,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
         }
       >
         <Component
-          setErrorServer={[Function]}
           totalCount={0}
         >
           <div
@@ -31837,31 +31836,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                 <div />
               </div>
             </Component>
-            <Component
-              componentError={null}
-              errorClearedComponent={[Function]}
-              errorClearedServer={[Function]}
-              serverError={null}
-            >
-              <div
-                className="toast "
-                data-test="toast-wrapper"
-                onClick={[Function]}
-              >
-                <Component
-                  fullWidth={true}
-                  type="reset"
-                  variant="danger"
-                >
-                  <button
-                    className="button  is-danger is-fullwidth "
-                    data-test=""
-                    disabled={false}
-                    type="reset"
-                  />
-                </Component>
-              </div>
-            </Component>
           </div>
         </Component>
       </ApolloProvider>
@@ -31878,9 +31852,27 @@ exports[`OfficesTab renderContent should match snapshot 1`] = `
 
 exports[`OfficesTab renderContent should match snapshot 2`] = `
 <div>
+  <Component>
+    <Component
+      CustomDownButton={
+        <Unknown
+          totalCount={0}
+        />
+      }
+      afterCellsChanged={[MockFunction]}
+      afterUploadDataValidated={[MockFunction]}
+      allowOnlyOneValidationErrorPerRow={true}
+      data={Array []}
+      hasDownloadButton={true}
+      hasUploadButton={true}
+      validate={[Function]}
+    />
+  </Component>
   <Component
-    message="mockError"
-    type="danger"
+    onChange={[MockFunction]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
   />
 </div>
 `;
@@ -31891,7 +31883,6 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
     <Component
       CustomDownButton={
         <Unknown
-          setErrorServer={[MockFunction]}
           totalCount={0}
         />
       }
