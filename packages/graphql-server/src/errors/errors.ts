@@ -33,7 +33,6 @@ export const generateValidationError = (traceId?: string) => {
 
 export const generateForbiddenError = (traceId?: string) => {
   const error = new ForbiddenError(`${traceId || ''} | ${errorMessages.forbidden}`)
-  error.extensions.traceId = traceId
   logger.info('generateForbiddenError', { traceId, error: JSON.stringify(error) })
   handleGraphQlError({ error: JSON.stringify(error), traceId, caller: 'generateForbiddenError' })
   return error
