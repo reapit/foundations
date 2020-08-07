@@ -1,4 +1,5 @@
 const prompts = require('prompts')
+const chalk = require('chalk')
 
 const loadCli = async () => {
   const questions = [
@@ -7,17 +8,26 @@ const loadCli = async () => {
       name: 'namespace',
       message: 'Top level namespace for this parameter eg Owner',
       initial: 'cloud',
+      validate: value => {
+        return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
+      },
     },
     {
       type: 'text',
       name: 'entity',
       message: 'Entity of this parameter eg App, Package or Service name',
+      validate: value => {
+        return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
+      },
     },
     {
       type: 'text',
       name: 'name',
-      message: 'Name this variable eg Environment, Function, DB Connection (optional)',
+      message: 'Name of this parameter eg Environment, Function, DB Connection (optional)',
       initial: 'local',
+      validate: value => {
+        return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
+      },
     },
     {
       type: 'select',
@@ -31,7 +41,9 @@ const loadCli = async () => {
       ],
     },
     {
-      type: 'select',
+      type: prev => {
+        return prev !== 'delete' && prev !== 'fetch' ? 'select' : null
+      },
       name: 'format',
       message: 'Format for source file',
       choices: [
@@ -40,14 +52,19 @@ const loadCli = async () => {
       ],
     },
     {
-      type: 'text',
+      type: prev => {
+        return prev !== 'delete' && prev !== 'fetch' ? 'text' : null
+      },
       name: 'filePath',
       message: 'Source file path for your parameter',
-      initial: './config.source.json',
+      initial: './config.json',
     },
   ]
-
-  return await prompts(questions)
+  try {
+    return await prompts(questions)
+  } catch (err) {
+    console.log(chalk.blue.bold('Repit Config Manager Error:'), chalk.red.bold(err.message))
+  }
 }
 
 module.exports = loadCli
