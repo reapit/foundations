@@ -1,15 +1,16 @@
 import React from 'react'
-import { SubmitAppWizard, handleSubmit, CustomCreateAppModel } from '../submit-app-wizard'
+import { SubmitAppWizard, handleSubmit, CustomCreateAppModel, onModalClose } from '../submit-app-wizard'
 import { shallow } from 'enzyme'
 import { FormikHelpers } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
+import { wizzardSteps } from '../constant'
 
 jest.mock('react-redux', () => ({
   useSelector: () => false,
   useDispatch: jest.fn(),
 }))
 
-describe('SubmitAppWizard', () => {
+describe('submit-app-wizard', () => {
   test('handleSubmit should run correctly when authFlow = clientCredentials', () => {
     const dispatch = jest.fn()
     const setWizardStep = jest.fn()
@@ -66,7 +67,18 @@ describe('SubmitAppWizard', () => {
   })
   it('should match snapshot when visible = true', () => {
     const mockOnClose = jest.fn()
-    const wrapper = shallow(<SubmitAppWizard onClose={mockOnClose} />)
+    const wrapper = shallow(<SubmitAppWizard onClose={mockOnClose} visible={true} />)
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('onModalClose', () => {
+    it('should run correctly', () => {
+      const onClose = jest.fn()
+      const setWizardStep = jest.fn()
+      const fn = onModalClose(onClose, setWizardStep)
+      fn()
+      expect(onClose).toBeCalled()
+      expect(setWizardStep).toBeCalledWith(wizzardSteps.BEFORE_YOU_START)
+    })
   })
 })
