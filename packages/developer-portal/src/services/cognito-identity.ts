@@ -44,14 +44,14 @@ export const changePasswordService = async ({
       onSuccess: () => {
         cognitoUser.changePassword(password, newPassword, (err, result) => {
           if (err) {
-            logger(err)
+            logger(new Error(err.message))
             reject(err)
           }
           resolve(result)
         })
       },
       onFailure: err => {
-        logger(err)
+        logger(new Error(err.message))
         reject(err)
       },
     })
@@ -68,7 +68,7 @@ export const confirmRegistrationService = async ({
 
     cognitoUser.confirmRegistration(verificationCode, true, err => {
       if (err) {
-        logger(err)
+        logger(new Error(err.message))
         reject(`Bad request, confirm registration service failed ${JSON.stringify(err)}`)
       }
       resolve('SUCCESS')
@@ -86,7 +86,7 @@ export const confirmRegistration = async (params: ConfirmRegistrationParams): Pr
     }
     return await confirmRegistrationService(params)
   } catch (err) {
-    logger(err)
+    logger(new Error(err.message))
     console.error(`Bad request, failed to confirm registration, ${err}`)
   }
 }
