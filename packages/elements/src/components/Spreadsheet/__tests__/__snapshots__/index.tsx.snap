@@ -192,7 +192,7 @@ exports[`UploadButton should match snapshot 1`] = `
 </div>
 `;
 
-exports[`genarateErrorElements should match snapshot 1`] = `
+exports[`renderErrorElements should match snapshot 1`] = `
 <div>
   <div
     className="has-text-danger pt-4"
@@ -204,7 +204,7 @@ exports[`genarateErrorElements should match snapshot 1`] = `
     </Component>
     <div
       className="has-text-danger"
-      key="0_0"
+      key="0"
     >
       [1][1]: error
     </div>

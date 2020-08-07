@@ -53,30 +53,34 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
-export const genarateErrorElements = (data: Cell[][] = []) => {
-  const errors: JSX.Element[] = []
+export const getErrorsFromData = (data: Cell[][]): string[] => {
+  const errors: string[] = []
   data.forEach((row = [], rowIndex) => {
     row.forEach((cell, colIndex) => {
       if (cell.error) {
         const error = `[${rowIndex + 1}][${colIndex + 1}]: ${cell.error}`
-        const errorElement = (
-          <div key={`${rowIndex}_${colIndex}`} className="has-text-danger">
-            {error}
-          </div>
-        )
-        errors.push(errorElement)
+        errors.push(error)
       }
     })
   })
-  if (errors.length) {
-    return (
-      <div className="has-text-danger pt-4">
-        <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
-        {errors}
-      </div>
-    )
-  }
-  return null
+  return errors
+}
+
+export const renderErrorElements = (data: Cell[][] = []) => {
+  const errors = getErrorsFromData(data)
+  if (!errors.length) return null
+  return (
+    <div className="has-text-danger pt-4">
+      <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
+      {errors.map((error: string, index: number) => {
+        return (
+          <div key={index} className="has-text-danger">
+            {error}
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
 const initialUploadData: UploadData = {
@@ -185,7 +189,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         cellRenderer={cellRenderer}
         {...rest}
       />
-      {genarateErrorElements(data)}
+      {renderErrorElements(data)}
       <div className="wrap-bottom">
         {hasAddButton && (
           <AddRowButton addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, validate)} />
