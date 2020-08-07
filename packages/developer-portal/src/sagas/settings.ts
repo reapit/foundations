@@ -15,6 +15,7 @@ import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
 import { selectDeveloperEmail } from '@/selector'
+import { notification } from '@reapit/elements'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
@@ -111,12 +112,10 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: error.message,
-      }),
-    )
+    notification.error({
+      message: error.message,
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(settingShowLoading(false))
   }

@@ -25,7 +25,6 @@ import { getDeveloperId } from '@/utils/session'
 import { changePasswordService } from '@/services/cognito-identity'
 
 jest.mock('@/services/developers')
-jest.mock('@reapit/elements')
 jest.mock('../../core/router', () => ({
   history: {
     push: jest.fn(),
@@ -153,30 +152,14 @@ describe('settings', () => {
         }),
       )
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw({ message: 'error message' }).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: 'error message',
-          }),
-        ),
-      )
-      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
+      expect(clone.throw({ message: 'error message' }).value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
 
     it('should call API fail', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw({ message: 'error message' }).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: 'error message',
-          }),
-        ),
-      )
-      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
+      expect(clone.throw({ message: 'error message' }).value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
   })
