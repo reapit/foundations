@@ -35,6 +35,8 @@ export const formFieldsChangePassword: Record<FieldChangePassword, FormFieldInfo
   passwordField: {
     name: 'password',
     label: 'Password',
+    errorMessage:
+      'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number.',
   },
   confirmPasswordField: {
     name: 'confirmPassword',

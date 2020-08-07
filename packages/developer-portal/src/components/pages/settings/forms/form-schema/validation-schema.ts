@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { telephoneRegex, personNameRegex, letterNumberSpaceRegex } from '@reapit/utils'
+import { telephoneRegex, personNameRegex, letterNumberSpaceRegex, passwordRegex } from '@reapit/utils'
 import errorMessages from '@/constants/error-messages'
 import { formFieldsContactInfomation, formFieldsChangePassword } from './form-fields'
 
@@ -42,7 +42,8 @@ export const validationSchemaChangePassword = Yup.object().shape({
 
   [passwordField.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED),
+    .required(FIELD_REQUIRED)
+    .matches(passwordRegex, passwordField.errorMessage),
 
   [confirmPasswordField.name]: Yup.string()
     .trim()
