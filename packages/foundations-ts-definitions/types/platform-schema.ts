@@ -2831,7 +2831,7 @@ export interface CreateEnquiryModel {
     countryId?: string
   }
   /**
-   * A list of unique property identifiers that the enquiry relates to
+   * A list of unique property identifiers that the enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
   propertyIds?: string[]
 }
@@ -4066,11 +4066,11 @@ export interface CreateWorksOrderItemModel {
   /**
    * The notes attached to the works order item
    */
-  notes?: string
+  notes: string
   /**
    * The party to be charged for the work being carried out (landlord/tenant)
    */
-  chargeTo?: string
+  chargeTo: string
   /**
    * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
    */
@@ -4101,7 +4101,7 @@ export interface CreateWorksOrderModel {
   /**
    * The unique identifier of the property where the work is to be carried out
    */
-  propertyId?: string
+  propertyId: string
   /**
    * The unique identifier of the tenancy that the works order originated from
    */
@@ -4109,23 +4109,23 @@ export interface CreateWorksOrderModel {
   /**
    * The unique identifier of the negotiator that booked the works order
    */
-  negotiatorId?: string
+  negotiatorId: string
   /**
    * The unique id of the type of work that needs to be carried out
    */
-  typeId?: string
+  typeId: string
   /**
    * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
    */
-  status?: string
+  status: string
   /**
    * A free text description of the work required
    */
-  description?: string
+  description: string
   /**
    * The party requesting the work to be carried out (landlord/tenant/other)
    */
-  reporter?: string
+  reporter: string
   /**
    * The date when the works order was booked
    * example:
@@ -4147,15 +4147,15 @@ export interface CreateWorksOrderModel {
   /**
    * Individual work items to attach to the works order
    */
-  items?: {
+  items: {
     /**
      * The notes attached to the works order item
      */
-    notes?: string
+    notes: string
     /**
      * The party to be charged for the work being carried out (landlord/tenant)
      */
-    chargeTo?: string
+    chargeTo: string
     /**
      * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
      */
@@ -4485,7 +4485,7 @@ export interface EnquiryModel {
     countryId?: string
   }
   /**
-   * A list of unique property identifiers that this enquiry relates to
+   * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
   propertyIds?: string[]
   readonly _links?: {
@@ -7218,7 +7218,7 @@ export interface PagedResultEnquiryModel_ {
       countryId?: string
     }
     /**
-     * A list of unique property identifiers that this enquiry relates to
+     * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
      */
     propertyIds?: string[]
     readonly _links?: {
