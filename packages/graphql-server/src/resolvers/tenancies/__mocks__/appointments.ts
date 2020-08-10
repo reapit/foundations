@@ -1,0 +1,237 @@
+import { PagedResultAppointmentModel_ } from '../../../types'
+
+export const appointmentsMock: PagedResultAppointmentModel_ = {
+  _embedded: [
+    {
+      id: 'BCK1600026',
+      created: '2016-11-15T10:54:35.0000000Z',
+      modified: '2020-03-06T05:54:14.0000000Z',
+      start: '2020-02-08T07:00:00.0000000Z',
+      end: '2020-02-08T07:30:00.0000000Z',
+      typeId: 'MI',
+      description: '',
+      recurring: true,
+      cancelled: false,
+      followUp: {
+        due: null,
+        responseId: '',
+        notes: '',
+      },
+      propertyId: 'RPT200002',
+      organiserId: 'PAE',
+      negotiatorIds: ['PAE'],
+      officeIds: [],
+      attendee: null,
+      accompanied: true,
+      negotiatorConfirmed: false,
+      attendeeConfirmed: false,
+      propertyConfirmed: false,
+      metadata: {},
+      _eTag: '"1ECC96DDBB42001F7220E84DF435A89D"',
+      _links: {
+        self: {
+          href: '/appointments/BCK1600026',
+        },
+        type: {
+          href: '/configuration/appointmentTypes/MI',
+        },
+        organiser: {
+          href: '/negotiators/PAE',
+        },
+        property: {
+          href: '/properties/RPT200002',
+        },
+        negotiators: {
+          href: '/negotiators/?id=PAE',
+        },
+      },
+      _embedded: null,
+    },
+    {
+      id: 'NGL1501558',
+      created: '2016-03-23T12:33:00.0000000Z',
+      modified: '2016-03-23T12:36:56.0000000Z',
+      start: '2020-02-08T08:00:00.0000000Z',
+      end: '2020-02-08T08:30:00.0000000Z',
+      typeId: 'AP',
+      description: '',
+      recurring: true,
+      cancelled: false,
+      followUp: {
+        due: null,
+        responseId: '',
+        notes: '',
+      },
+      propertyId: '',
+      organiserId: 'MKP',
+      negotiatorIds: ['MKP'],
+      officeIds: [],
+      attendee: null,
+      accompanied: true,
+      negotiatorConfirmed: false,
+      attendeeConfirmed: false,
+      propertyConfirmed: false,
+      metadata: {},
+      _eTag: '"454B72262CCE274A9F54D44186AD4B7B"',
+      _links: {
+        self: {
+          href: '/appointments/NGL1501558',
+        },
+        type: {
+          href: '/configuration/appointmentTypes/AP',
+        },
+        organiser: {
+          href: '/negotiators/MKP',
+        },
+        negotiators: {
+          href: '/negotiators/?id=MKP',
+        },
+      },
+      _embedded: null,
+    },
+    {
+      id: 'ONE1200686',
+      created: '2013-01-16T17:48:17.0000000Z',
+      modified: '2015-05-07T13:06:19.0000000Z',
+      start: '2020-02-08T08:00:00.0000000Z',
+      end: '2020-02-08T08:30:00.0000000Z',
+      typeId: 'MI',
+      description: '',
+      recurring: true,
+      cancelled: true,
+      followUp: {
+        due: null,
+        responseId: '',
+        notes: '',
+      },
+      propertyId: '',
+      organiserId: 'JPB',
+      negotiatorIds: ['JPB'],
+      officeIds: [],
+      attendee: null,
+      accompanied: true,
+      negotiatorConfirmed: false,
+      attendeeConfirmed: false,
+      propertyConfirmed: false,
+      metadata: {},
+      _eTag: '"2E8861433ACCB6489232755E5FBC7F05"',
+      _links: {
+        self: {
+          href: '/appointments/ONE1200686',
+        },
+        type: {
+          href: '/configuration/appointmentTypes/MI',
+        },
+        organiser: {
+          href: '/negotiators/JPB',
+        },
+        negotiators: {
+          href: '/negotiators/?id=JPB',
+        },
+      },
+      _embedded: null,
+    },
+    {
+      id: 'MLK1402677',
+      created: '2015-06-26T07:50:10.0000000Z',
+      modified: '2016-08-20T13:59:15.0000000Z',
+      start: '2020-02-08T08:30:00.0000000Z',
+      end: '2020-02-08T09:00:00.0000000Z',
+      typeId: 'MI',
+      description: '',
+      recurring: true,
+      cancelled: false,
+      followUp: {
+        due: null,
+        responseId: '',
+        notes: '',
+      },
+      propertyId: '',
+      organiserId: 'JPB',
+      negotiatorIds: ['JPB'],
+      officeIds: [],
+      attendee: null,
+      accompanied: true,
+      negotiatorConfirmed: false,
+      attendeeConfirmed: false,
+      propertyConfirmed: false,
+      metadata: {},
+      _eTag: '"4B7EF160050E5D6B126814F496865B31"',
+      _links: {
+        self: {
+          href: '/appointments/MLK1402677',
+        },
+        type: {
+          href: '/configuration/appointmentTypes/MI',
+        },
+        organiser: {
+          href: '/negotiators/JPB',
+        },
+        negotiators: {
+          href: '/negotiators/?id=JPB',
+        },
+      },
+      _embedded: null,
+    },
+    {
+      id: 'NGL1203843',
+      created: '2013-09-15T10:19:00.0000000Z',
+      modified: '2020-03-04T12:50:16.0000000Z',
+      start: '2020-02-12T07:30:00.0000000Z',
+      end: '2020-02-12T08:00:00.0000000Z',
+      typeId: 'TK',
+      description: '',
+      recurring: true,
+      cancelled: true,
+      followUp: {
+        due: null,
+        responseId: '',
+        notes: '',
+      },
+      propertyId: '',
+      organiserId: 'KLB',
+      negotiatorIds: ['KLB'],
+      officeIds: [],
+      attendee: null,
+      accompanied: true,
+      negotiatorConfirmed: false,
+      attendeeConfirmed: false,
+      propertyConfirmed: false,
+      metadata: {},
+      _eTag: '"EFA74948EC403BDD545286AF23D52AA5"',
+      _links: {
+        self: {
+          href: '/appointments/NGL1203843',
+        },
+        type: {
+          href: '/configuration/appointmentTypes/TK',
+        },
+        organiser: {
+          href: '/negotiators/KLB',
+        },
+        negotiators: {
+          href: '/negotiators/?id=KLB',
+        },
+      },
+      _embedded: null,
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 5,
+  pageCount: 5,
+  totalCount: 32,
+  _links: {
+    self: {
+      href: '/appointments/?PageNumber=1&PageSize=5&End=2020-03-06&Start=2020-02-08',
+    },
+    first: {
+      href: '/appointments/?PageNumber=1&PageSize=5&End=2020-03-06&Start=2020-02-08',
+    },
+    next: {
+      href: '/appointments/?PageNumber=2&PageSize=5&End=2020-03-06&Start=2020-02-08',
+    },
+    last: {
+      href: '/appointments/?PageNumber=7&PageSize=5&End=2020-03-06&Start=2020-02-08',
+    },
+  },
+}
