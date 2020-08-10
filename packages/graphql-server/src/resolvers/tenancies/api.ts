@@ -31,7 +31,7 @@ export const callGetTenancyByIdAPI = async (args: GetTenancyByIdArgs, context: S
   const traceId = context.traceId
   logger.info('callGetTenancyByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetTenancyByIdReturn>(`${URLS.tenancys}/${args.id}`, {
+    const response = await createPlatformAxiosInstance().get<GetTenancyByIdReturn>(`${URLS.tenancies}/${args.id}`, {
       headers: {
         Authorization: context.authorization,
       },
@@ -95,7 +95,7 @@ export const callGetTenancyChecksAPI = async (
     const { id, ...paramsObj } = args
     const params = qs.stringify(paramsObj)
     const response = await createPlatformAxiosInstance().get<GetTenancyChecksReturn>(
-      `${URLS.tenancies}/${id}?${params}`,
+      `${URLS.tenancies}/${id}/checks?${params}`,
       {
         headers: {
           Authorization: context.authorization,

@@ -2,14 +2,15 @@ import appointmentServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import {
-  queryGetAppointmentById,
-  queryGetAppointments,
-  mutationCreateAppointment,
-  mutationUpdateAppointment,
-  queryConfiguration,
-  queryProperty,
-  queryNegotiators,
-  queryOffices,
+  queryGetTenancies,
+  queryGetTenancyById,
+  queryGetTenancyChecks,
+  queryGetTenancyCheckById,
+  queryGetTenancyRelationships,
+  mutationCreateTenancy,
+  mutationCreateTenancyCheck,
+  mutationDeleteTenancyCheck,
+  mutationUpdateTenancyCheck,
 } from '../resolvers'
 import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
 import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'

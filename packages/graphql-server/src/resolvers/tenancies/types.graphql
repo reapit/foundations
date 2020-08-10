@@ -24,8 +24,8 @@ type Query {
 type Mutation {
   CreateTenancy(request: CreateTenancyRequestModel): TenancyModel!
   CreateTenancyCheck(id: String!, model: CreateTenancyCheckModel): TenancyCheckModel!
-  DeleteTenancyCheck(id: String!, checkId: String!): JSON!
-  UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): boolean!
+  DeleteTenancyCheck(id: String!, checkId: String!): Boolean!
+  UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): TenancyCheckModel!
 }
 
 type PagedResultTenancies {

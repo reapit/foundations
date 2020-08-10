@@ -148,11 +148,11 @@ export const mutationUpdateTenancyCheck = (
 
 export default {
   Query: {
-    GetTenancies: getTenancies,
-    GetTenancyById: getTenancyById,
-    GetTenancyRelationships: getTenancyRelationships,
-    GetTenancyChecks: getTenancyChecks,
-    GetTenancyCheckById: getTenancyCheckById,
+    GetTenancies: queryGetTenancies,
+    GetTenancyById: queryGetTenancyById,
+    GetTenancyRelationships: queryGetTenancyRelationships,
+    GetTenancyChecks: queryGetTenancyChecks,
+    GetTenancyCheckById: queryGetTenancyCheckById,
   },
   Mutation: {
     CreateTenancy: mutationCreateTenancy,
