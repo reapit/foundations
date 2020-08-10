@@ -29,24 +29,24 @@ export const onBackToAppsButtonClick = (history: History) => {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  /*
-   * TODOME(renderDeveloperAbout)
-   * get developer abouts
-   */
+  const {
+    category,
+    developer,
+    telephone,
+    supportEmail,
+    homePage,
+    isDirectApi,
+    isWebComponent,
+    developerAbout,
+  } = appDetailData
 
-  console.log({ appDetailData })
-
-  const { category, developer, telephone, supportEmail, homePage, isDirectApi, isWebComponent } = appDetailData
   const { isMobile } = useReactResponsive()
   const history = useHistory()
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
       {developer && <DeveloperSection developer={developer} isSidebar />}
-      {/*
-       * TODOME(renderDeveloperAbout)
-       *render inside children
-       */}
-      <DeveloperAboutSection isSidebar />
+
+      <DeveloperAboutSection isSidebar>{developerAbout}</DeveloperAboutSection>
       <CategorySection category={category} isSidebar />
       <DesktopIntegrationSection desktopIntegrationTypes={desktopIntegrationTypes} isSidebar />
       <DirectApiSection isDirectApi={isDirectApi} isSidebar />
