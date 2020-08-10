@@ -20,6 +20,14 @@ type Query {
   GetTenancyChecks(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyChecks!
   GetTenancyCheckById(id: String!, checkId: String!): TenancyCheckModel!
 }
+
+type Mutation {
+  CreateTenancy(request: CreateTenancyRequestModel): JSON!
+  CreateTenancyCheck(id: String!, model: CreateTenancyCheckModel): JSON!
+  DeleteTenancyCheck(id: String!, checkId: String!): JSON!
+  UpdateTenancyCheck(If_Match: String!, id: String!, checkId: String!, model: UpdateTenancyCheckModel): JSON!
+}
+
 type PagedResultTenancies {
   _embedded: [PagedResultTenanciesEmbedded!]
   pageNumber: Int
@@ -29,6 +37,7 @@ type PagedResultTenancies {
   totalCount: Int
   _links: JSON
 }
+
 type PagedResultTenanciesEmbedded {
   id: String
   created: String
@@ -51,6 +60,7 @@ type PagedResultTenanciesEmbedded {
   _links: JSON
   _embedded: JSON
 }
+
 type TenancyModel {
   id: String
   created: String
@@ -73,12 +83,14 @@ type TenancyModel {
   _links: JSON
   _embedded: JSON
 }
+
 type TenancySourceModel {
   id: String
   type: String
 }
+
 type PagedResultTenancyRelationships {
-  _embedded: [GetTenancyRelationships_response__embedded_items!]
+  _embedded: [PagedResultTenancyRelationshipsEmbedded!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -86,6 +98,7 @@ type PagedResultTenancyRelationships {
   totalCount: Int
   _links: JSON
 }
+
 type TenancyRelatedModel {
   id: String
   name: String
@@ -99,6 +112,7 @@ type TenancyRelatedModel {
   email: String
   primaryAddress: TenancyPrimaryAddressModel
 }
+
 type TenancyPrimaryAddressModel {
   buildingName: String
   buildingNumber: String
@@ -109,7 +123,8 @@ type TenancyPrimaryAddressModel {
   postcode: String
   countryId: String
 }
-type GetTenancyRelationships_response__embedded_items {
+
+type PagedResultTenancyRelationshipsEmbedded {
   id: String
   created: String
   modified: String
@@ -120,8 +135,9 @@ type GetTenancyRelationships_response__embedded_items {
   _links: JSON
   _embedded: JSON
 }
+
 type PagedResultTenancyChecks {
-  _embedded: [GetTenancyChecks_response__embedded_items!]
+  _embedded: [PagedResultTenancyChecksEmbedded!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -129,7 +145,8 @@ type PagedResultTenancyChecks {
   totalCount: Int
   _links: JSON
 }
-type GetTenancyChecks_response__embedded_items {
+
+type PagedResultTenancyChecksEmbedded {
   id: String
   created: String
   modified: String
@@ -141,9 +158,39 @@ type GetTenancyChecks_response__embedded_items {
   _links: JSON
   _embedded: JSON
 }
+
 type TenancyCheckModel {
   tenancyId: String
   _eTag: String
   _links: JSON
   _embedded: JSON
+}
+
+input CreateTenancyRequestModel {
+  startDate: String
+  endDate: String
+  agentRole: String
+  rent: Int
+  rentFrequency: String
+  isPeriodic: Boolean
+  typeId: String
+  negotiatorId: String
+  propertyId: String
+  applicantId: String
+  source: CreateTenancyRequestModelSource
+}
+
+input CreateTenancyRequestModelSource {
+  id: String
+  type: String
+}
+
+input CreateTenancyCheckModel {
+  description: String
+  type: String
+  status: String
+}
+
+input UpdateTenancyCheckModel {
+  status: String
 }
