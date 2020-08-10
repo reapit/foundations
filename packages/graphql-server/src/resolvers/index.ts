@@ -11,11 +11,13 @@ import Configurations from './configurations/resolver'
 import IdentityChecks from './identity-checks/resolvers'
 import Ping from './ping/resolvers'
 import Tenancies from './tenancies/resolvers'
+import Applicants from './applicants/resolvers'
 
 export const resolvers = merge(
   {
     JSON: GraphQLJSON,
   },
+  Applicants,
   Appointments,
   Areas,
   Configurations,
