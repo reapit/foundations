@@ -15,6 +15,7 @@ import {
   clearMap,
   Map,
 } from '../index'
+jest.mock('../../Notification')
 
 describe('Map', () => {
   let mockCoordinates: any[] = []
