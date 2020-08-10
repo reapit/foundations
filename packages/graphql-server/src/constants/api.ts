@@ -10,6 +10,7 @@ export const URLS = {
   properties: '/properties',
   configurations: '/configuration',
   propertyImages: '/propertyImages',
+  tenancies: '/tenancies',
 }
 
 export const HEADERS = {

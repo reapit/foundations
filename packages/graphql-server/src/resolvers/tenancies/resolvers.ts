@@ -1,105 +1,163 @@
-import appointmentServices from './services'
+import tenancyServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
 import { ServerContext } from '../../index'
 import {
-  GetAppointmentByIdArgs,
-  CreateAppointmentArgs,
-  GetAppointmentsArgs,
-  UpdateAppointmentArgs,
-  QueryGetAppointmentByIdReturn,
-  QueryGetAppointmentsReturn,
-  MutationCreateAppointmentReturn,
-  MutationUpdateAppointmentReturn,
-} from './appointments'
-import { AppointmentModel } from '@/types'
+  GetTenancyByIdArgs,
+  QueryGetTenancyByIdReturn,
+  GetTenanciesArgs,
+  QueryGetTenanciesReturn,
+  GetTenancyRelationshipsArgs,
+  QueryGetTenancyRelationshipsReturn,
+  GetTenancyChecksArgs,
+  QueryGetTenancyChecksReturn,
+  GetTenancyCheckByIdArgs,
+  QueryGetTenancyCheckByIdReturn,
+  CreateTenancyArgs,
+  MutationCreateTenancyReturn,
+  CreateTenancyCheckArgs,
+  MutationCreateTenancyCheckReturn,
+  DeleteTenancyCheckArgs,
+  MutationDeleteTenancyCheckReturn,
+  UpdateTenancyCheckArgs,
+  MutationUpdateTenancyCheckReturn,
+} from './tenancies'
 
-export const queryGetAppointmentById = (
+export const queryGetTenancyById = (
   _: any,
-  args: GetAppointmentByIdArgs,
+  args: GetTenancyByIdArgs,
   context: ServerContext,
-): QueryGetAppointmentByIdReturn => {
+): QueryGetTenancyByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryGetAppointmentById', { traceId, args })
+  logger.info('queryGetTenancyById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return appointmentServices.getAppointmentById(args, context)
+  return tenancyServices.getTenancyById(args, context)
 }
 
-export const queryGetAppointments = (
-  _: any,
-  args: GetAppointmentsArgs,
-  context: ServerContext,
-): QueryGetAppointmentsReturn => {
+export const queryGetTenancies = (_: any, args: GetTenanciesArgs, context: ServerContext): QueryGetTenanciesReturn => {
   const traceId = context.traceId
-  logger.info('queryGetAppointments', { traceId, args })
+  logger.info('queryGetTenancies', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return appointmentServices.getAppointments(args, context)
+  return tenancyServices.getTenancies(args, context)
 }
 
-export const mutationCreateAppointment = (
+export const queryGetTenancyCheckById = (
   _: any,
-  args: CreateAppointmentArgs,
+  args: GetTenancyCheckByIdArgs,
   context: ServerContext,
-): MutationCreateAppointmentReturn => {
+): QueryGetTenancyCheckByIdReturn => {
   const traceId = context.traceId
-  logger.info('mutationCreateAppointment', { traceId, args })
+  logger.info('queryGetTenancyCheckById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return appointmentServices.createAppointment(args, context)
+  return tenancyServices.getTenancyCheckById(args, context)
 }
 
-export const mutationUpdateAppointment = (
+export const queryGetTenancyChecks = (
   _: any,
-  args: UpdateAppointmentArgs,
+  args: GetTenancyChecksArgs,
   context: ServerContext,
-): MutationUpdateAppointmentReturn => {
+): QueryGetTenancyChecksReturn => {
   const traceId = context.traceId
-  logger.info('mutationUpdateAppointment', { traceId, args })
+  logger.info('queryGetTenancyChecks', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return appointmentServices.updateAppointment(args, context)
+  return tenancyServices.getTenancyChecks(args, context)
 }
 
-export const queryConfiguration = (appointment: AppointmentModel, _, context: ServerContext) => {
-  return context.dataLoader.configurationLoader.load(appointment.typeId)
+export const queryGetTenancyRelationships = (
+  _: any,
+  args: GetTenancyRelationshipsArgs,
+  context: ServerContext,
+): QueryGetTenancyRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetTenancyRelationships', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return tenancyServices.getTenancyRelationships(args, context)
 }
 
-export const queryProperty = (appointment: AppointmentModel, _, context: ServerContext) => {
-  return context.dataLoader.propertyLoader.load(appointment.propertyId)
+export const mutationCreateTenancy = (
+  _: any,
+  args: CreateTenancyArgs,
+  context: ServerContext,
+): MutationCreateTenancyReturn => {
+  const traceId = context.traceId
+  logger.info('mutationCreateTenancy', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return tenancyServices.createTenancy(args, context)
 }
 
-export const queryNegotiators = (appointment: AppointmentModel, _, context: ServerContext) => {
-  return context.dataLoader.negotiatorLoader.loadMany(appointment.negotiatorIds)
+export const mutationCreateTenancyCheck = (
+  _: any,
+  args: CreateTenancyCheckArgs,
+  context: ServerContext,
+): MutationCreateTenancyCheckReturn => {
+  const traceId = context.traceId
+  logger.info('mutationCreateTenancyCheck', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return tenancyServices.createTenancyCheck(args, context)
 }
 
-export const queryOffices = (appointment: AppointmentModel, _, context: ServerContext) => {
-  return context.dataLoader.officeLoader.loadMany(appointment.officeIds)
+export const mutationDeleteTenancyCheck = (
+  _: any,
+  args: DeleteTenancyCheckArgs,
+  context: ServerContext,
+): MutationDeleteTenancyCheckReturn => {
+  const traceId = context.traceId
+  logger.info('mutationDeleteTenancyCheck', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return tenancyServices.deleteTenancyCheck(args, context)
+}
+
+export const mutationUpdateTenancyCheck = (
+  _: any,
+  args: UpdateTenancyCheckArgs,
+  context: ServerContext,
+): MutationUpdateTenancyCheckReturn => {
+  const traceId = context.traceId
+  logger.info('mutationUpdateTenancyCheck', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return tenancyServices.updateTenancyCheck(args, context)
 }
 
 export default {
   Query: {
-    GetAppointmentById: queryGetAppointmentById,
-    GetAppointments: queryGetAppointments,
+    GetTenancies: getTenancies,
+    GetTenancyById: getTenancyById,
+    GetTenancyRelationships: getTenancyRelationships,
+    GetTenancyChecks: getTenancyChecks,
+    GetTenancyCheckById: getTenancyCheckById,
   },
   Mutation: {
-    CreateAppointment: mutationCreateAppointment,
-    UpdateAppointment: mutationUpdateAppointment,
-  },
-  AppointmentModel: {
-    property: queryProperty,
-    appointmentType: queryConfiguration,
-    offices: queryOffices,
-    negotiators: queryNegotiators,
+    CreateTenancy: mutationCreateTenancy,
+    CreateTenancyCheck: mutationCreateTenancyCheck,
+    DeleteTenancyCheck: mutationDeleteTenancyCheck,
+    UpdateTenancyCheck: mutationUpdateTenancyCheck,
   },
 }

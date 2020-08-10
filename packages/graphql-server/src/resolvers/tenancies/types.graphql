@@ -22,10 +22,10 @@ type Query {
 }
 
 type Mutation {
-  CreateTenancy(request: CreateTenancyRequestModel): JSON!
-  CreateTenancyCheck(id: String!, model: CreateTenancyCheckModel): JSON!
+  CreateTenancy(request: CreateTenancyRequestModel): TenancyModel!
+  CreateTenancyCheck(id: String!, model: CreateTenancyCheckModel): TenancyCheckModel!
   DeleteTenancyCheck(id: String!, checkId: String!): JSON!
-  UpdateTenancyCheck(If_Match: String!, id: String!, checkId: String!, model: UpdateTenancyCheckModel): JSON!
+  UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): boolean!
 }
 
 type PagedResultTenancies {
