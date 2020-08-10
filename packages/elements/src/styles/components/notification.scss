@@ -1,3 +1,4 @@
+@import '../base/media.scss';
 $notification-width: 400px;
 $notification-padding-vertical: 16px;
 $notification-padding-horizontal: 24px;
@@ -13,6 +14,12 @@ $notification-margin-bottom: 16px;
   width: $notification-width;
   margin-right: 24px;
   margin-left: 24px;
+
+  @include for-mobile-only {
+    width: 90%;
+    margin-left: unset;
+    margin-right: 10px;
+  }
 
   &-topLeft,
   &-bottomLeft {

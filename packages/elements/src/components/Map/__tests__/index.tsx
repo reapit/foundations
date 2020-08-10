@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import notification from '../../Notification'
 import createGoogleMapsMock from '../../../helpers/mock-google-maps'
 import {
   renderMarkers,
@@ -14,6 +15,7 @@ import {
   clearMap,
   Map,
 } from '../index'
+jest.mock('../../Notification')
 
 describe('Map', () => {
   let mockCoordinates: any[] = []
@@ -128,7 +130,7 @@ describe('Map', () => {
       const mockResponse = {}
       const mockStatus = 'ERROR'
       fn(mockResponse, mockStatus)
-      expect(window.alert).toBeCalled()
+      expect(notification.error).toBeCalled()
     })
   })
 
