@@ -37,6 +37,9 @@ describe('isUserWithDevIdOnly', () => {
   test('user with developer id, client id, admin id', () => {
     expect(isUserWithDevIdOnly(session.loginIdentity as LoginIdentity)).toBeFalsy()
   })
+  test('user with clientId = SBOX', () => {
+    expect(isUserWithDevIdOnly(session.loginIdentity as LoginIdentity)).toBeFalsy()
+  })
 })
 
 describe('App', () => {
