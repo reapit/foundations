@@ -18,3 +18,7 @@ For CI usage, you will need to pass flags and values to the Yarn or NPM task as 
 - `--name` Optional next level key of your parameter - e.g. enviroment name or a specific variable name.
 - `--file-path` A relative or absolute path to your source file if you are updating or creating a parameter. If you are fetching a parameter, this is desired target file for the returned resource. Defaults to `./config.json` however, it can be any filetype that can be parsed by Node / CommonJS eg `.txt, .js, .ts`
 - `--format` Either `string` or `json`, defaults to `json`. Parameter store considers any value to be a string but if you provide an object or JSON as your source file, we will `JSON.stringify` it before saving. If fetching, we will `JSON.parse` the returned value before writing to target file.
+
+A sample query to fetch a parameter in the format of `/CloudTeam/DeveloperPortal/Production` writing to a custom JSON file would look like `yarn config-manger --mode fetch --namespace cloudTeam --entity developerPortal --name production --file-path ./custom.json --format json`
+
+You can also override values by adding additional flags, useful if you want to pass in a different filename or variable name based on a CI enviroment. To do this, just add an additional named flag and the library will apply the last value specified eg `yarn config-manger --mode fetch --namespace cloud --entity marketplace --name production --name local` will return a parameter in the format `/Cloud/Marketplace/Local`

@@ -2,6 +2,7 @@
 const AWS = require('aws-sdk')
 const chalk = require('chalk')
 const fs = require('fs')
+const { execSync } = require('child_process')
 const { getParamAndFileName } = require('./utils')
 
 AWS.config.update({ region: 'eu-west-2' })
@@ -21,6 +22,7 @@ const fetchParam = cliArgs => {
         const config = (data && data.Parameter && data.Parameter.Value) || {}
         console.log(chalk.bold.green(`Successfully fetched ${paramName}`))
         fs.writeFileSync(fileName, config)
+        execSync(`npx prettier --write ${fileName}`)
         resolve()
       })
     })
