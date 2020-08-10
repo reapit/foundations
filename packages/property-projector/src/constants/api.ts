@@ -7,4 +7,6 @@ export const URLS = {
   CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
   DEPARTMENTS: '/departments',
   OFFICES: '/offices',
+  PROPERTIES: '/properties',
+  PROPERTY_IMAGES: '/propertyImages',
 }

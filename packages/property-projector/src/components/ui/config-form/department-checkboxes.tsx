@@ -11,10 +11,18 @@ const DepartmentCheckboxes: React.FC<DepartmentCheckboxesProps> = props => {
   const departmentCheckboxes = departments.map(dep => {
     return (
       <React.Fragment key={dep.id}>
-        <Checkbox name={`department-${dep.id}`} id={`department-${dep.id}`} labelText={dep.name} />
+        <Checkbox name="departments" id={`department-${dep.id}`} value={dep.id} labelText={dep.name} />
         <div className="department-property-types">
           {dep.propertyTypes.map((type, idx: number) => {
-            return <Checkbox name={type.id} id={type.id} labelText={type.name} key={idx} />
+            return (
+              <Checkbox
+                name={`${dep.id}PropertyTypes`}
+                id={`${dep.id}-${type}`}
+                value={type}
+                labelText={type}
+                key={idx}
+              />
+            )
           })}
         </div>
       </React.Fragment>

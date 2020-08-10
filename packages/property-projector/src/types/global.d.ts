@@ -27,14 +27,12 @@ export type PropertyProjectorConfig = {
 type PropertyProjectorDepartments = {
   id: string
   name: string
-  checked: boolean
-  propertyTypes: any[]
+  propertyTypes: string[]
 }
 
 type PropertyProjectorOffices = {
   id: string
   name: string
-  checked: boolean
 }
 
 declare global {

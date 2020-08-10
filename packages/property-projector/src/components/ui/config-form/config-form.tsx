@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getPropertyProjectorConfig } from '../../../util/property-projector-config'
+import { getDepartments } from '../../../platform-api/departments-api'
+import { getOffices } from '../../../platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'
 import OfficeCheckboxes from './office-checkboxes'
 import Projector from '../projector'
@@ -28,34 +30,93 @@ type ConfigFormProps = {}
 
 const ConfigForm: React.FC<ConfigFormProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const [loading, setLoading] = useState(true)
   const [config, setConfig]: any = useState(null)
-  const [showProjector] = usePortal(() => <Projector config={config} />)
+  const [allDepartments, setAllDepartments]: any[] = useState([])
+  const [allOffices, setAllOffices]: any[] = useState([])
+
+  const [showProjector] = usePortal(() => <Projector config={config} />, [config])
 
   console.info('Reapit Property Projector Config: ', config)
 
+  /**
+   * @todo adjust so the departments/offices aren't limited by pagination
+   */
   useEffect(() => {
+    const fetchDepartments = async () => {
+      const departments = (await getDepartments(connectSession as ReapitConnectSession))?._embedded?.map(department => {
+        const { id, name, typeOptions: propertyTypes } = department
+
+        return {
+          id,
+          name,
+          propertyTypes,
+        }
+      })
+
+      setAllDepartments(departments)
+    }
+
+    const fetchOffices = async () => {
+      const offices = (await getOffices(connectSession as ReapitConnectSession))?._embedded?.map(department => {
+        const { id, name } = department
+
+        return {
+          id,
+          name,
+        }
+      })
+
+      setAllOffices(offices)
+    }
+
     const fetchPropertyProjectorConfig = async () => {
       setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession))
     }
+
     if (connectSession) {
       console.log('Session Data:', connectSession)
-      fetchPropertyProjectorConfig()
+      Promise.all([fetchPropertyProjectorConfig(), fetchDepartments(), fetchOffices()]).then(() => setLoading(false))
     }
   }, [connectSession])
 
   const getInitialFormValues = () => {
-    const { departments, offices, ...initalFormValues } = config
+    const { departments, ...initalFormValues } = config
+    const departmentPropertyTypes = {}
 
-    // update all department and property type checkboxes with config value
-    departments.forEach(dep => {
-      initalFormValues[`department-${dep.id}`] = dep.checked
-      dep.propertyTypes.forEach(type => (initalFormValues[type.id] = type.checked))
+    // create an array of set departments and property types from property projector configuration
+    const configDepartments = departments.map(department => {
+      const [id, propertyTypes] = Object.entries(department)[0]
+      if (Array.isArray(propertyTypes)) {
+        departmentPropertyTypes[`${id}PropertyTypes`] = propertyTypes
+      }
+      return id
     })
 
-    // update all office checkboxes with config value
-    offices.forEach(office => (initalFormValues[`office-${office.id}`] = office.checked))
+    return { ...initalFormValues, departments: configDepartments, ...departmentPropertyTypes }
+  }
 
-    return initalFormValues
+  /**
+   * @todo make picking a department a requirement
+   */
+  const submitForm = values => {
+    console.info('Inital Form Submission Values: ', values)
+    const newConfig = { ...values }
+
+    // convert property types back into config departments object array
+    newConfig.departments = values.departments.map(department => {
+      const propertyTypes = values[`${department}PropertyTypes`]
+      if (newConfig[`${department}PropertyTypes`] !== undefined) {
+        delete newConfig[`${department}PropertyTypes`]
+        return { [department]: propertyTypes }
+      }
+      return { [department]: [] }
+    })
+
+    console.info('Converted Form Submission Values: ', newConfig)
+    setConfig(newConfig)
+    showProjector()
   }
 
   const sortByOptions: SelectBoxOptions[] = [
@@ -63,21 +124,14 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     { label: 'Created Date', value: 'created' },
   ]
 
-  if (config === null) {
+  if (loading === true) {
     return <div>loading...</div>
   }
 
   return (
     <Section>
       <H5>Property Projector Configuration</H5>
-      <Formik
-        initialValues={getInitialFormValues()}
-        onSubmit={values => {
-          // save configuration values
-          console.info('Form Values: ', values)
-          showProjector()
-        }}
-      >
+      <Formik initialValues={getInitialFormValues()} onSubmit={values => submitForm(values)}>
         <Form>
           <Grid>
             <GridItem>
@@ -100,8 +154,8 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                   labelText="Secondary Colour"
                 />
               </FormSection>
-              <DepartmentCheckboxes departments={config.departments} />
-              <OfficeCheckboxes offices={config.offices} />
+              <DepartmentCheckboxes departments={allDepartments} />
+              <OfficeCheckboxes offices={allOffices} />
               <FormSection>
                 <FormHeading>General Settings</FormHeading>
                 <FormSubHeading>Various other Property Projector settings.</FormSubHeading>

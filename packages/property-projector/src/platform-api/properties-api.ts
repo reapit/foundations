@@ -1,15 +1,22 @@
 import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { PagedResultDepartmentModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
 import { URLS, BASE_HEADERS } from '../constants/api'
 
-export const getDepartments = async (
+export const getProperties = async (
   session: ReapitConnectSession,
-): Promise<PagedResultDepartmentModel_ | undefined> => {
+  criteria?: string,
+): Promise<PagedResultPropertyModel_ | undefined> => {
+  let url = URLS.PROPERTIES
+
+  if (criteria !== null || criteria !== '') {
+    url = `${url}?${criteria}`
+  }
+
   try {
-    const response: PagedResultDepartmentModel_ | undefined = await fetcher({
+    const response: PagedResultPropertyModel_ | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: URLS.DEPARTMENTS,
+      url,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -23,6 +30,6 @@ export const getDepartments = async (
 
     throw new Error('No response returned by API')
   } catch (err) {
-    console.error('Error fetching Departments', err.message)
+    console.error('Error fetching Properties', err.message)
   }
 }
