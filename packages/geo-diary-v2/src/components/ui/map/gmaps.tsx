@@ -1,6 +1,6 @@
 import React from 'react'
 import GoogleMap from 'react-google-map'
-import { combineAddress } from '@reapit/elements'
+import { combineAddress, notification } from '@reapit/elements'
 
 export type Coords = {
   lat: number
@@ -101,7 +101,10 @@ export const getCurrentLocation = ({ googleMaps, position, map }) => {
           infoWindow.open(map, currentLocation)
         })
       } else {
-        window.alert('Current address request failed due to: ' + status)
+        notification.error({
+          message: 'Current address request failed due to: ' + status,
+          placement: 'bottomRight',
+        })
       }
     })
   }
@@ -129,7 +132,10 @@ export const handleRequestDirectionServiceResponse = ({
   }
   if (status !== 'OK') {
     clearMap({ directionsRendererRef, markersRef })()
-    window.alert('Directions request failed due to ' + status)
+    notification.error({
+      message: 'Directions request failed due to ' + status,
+      placement: 'bottomRight',
+    })
   }
 }
 

@@ -13,6 +13,8 @@ import {
   Map,
 } from '../gmaps'
 import createGoogleMapsMock from './__mocks__/create-google-map'
+import { notification } from '@reapit/elements/src'
+jest.mock('@reapit/elements')
 
 describe('Map', () => {
   let mockCoordinates: any[] = []
@@ -121,7 +123,7 @@ describe('Map', () => {
       const mockResponse = {}
       const mockStatus = 'ERROR'
       fn(mockResponse, mockStatus)
-      expect(window.alert).toBeCalled()
+      expect(notification.error).toBeCalled()
     })
   })
 
