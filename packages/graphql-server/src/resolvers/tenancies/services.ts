@@ -67,7 +67,7 @@ export const getTenancyRelationships = (
   args: GetTenancyRelationshipsArgs,
   context: ServerContext,
 ): GetTenancyRelationshipsReturn => {
-  const traceId = context.trjceId
+  const traceId = context.traceId
   logger.info('getTenancyRelationships', { traceId, args })
   const tenancyRelationships = callGetTenancyRelationshipsAPI(args, context)
   return tenancyRelationships

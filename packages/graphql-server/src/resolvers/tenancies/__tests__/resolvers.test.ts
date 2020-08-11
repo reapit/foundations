@@ -1,4 +1,4 @@
-import appointmentServices from '../services'
+import tenancyServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import {
@@ -12,17 +12,31 @@ import {
   mutationDeleteTenancyCheck,
   mutationUpdateTenancyCheck,
 } from '../resolvers'
-import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
-import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'
-import { appointmentMock } from '../__mocks__/appointment'
-import { appointmentsMock } from '../__mocks__/appointments'
+import {
+  tenancyMock,
+  tenanciesListMock,
+  tenancyChecksListMock,
+  tenancyCheckMock,
+  tenancyRelationshipsListMock,
+} from '../__mocks__/tenancy-query'
+import {
+  createTenancyCheckArgsMock,
+  createTenancyArgsMock,
+  deleteTenancyCheckArgsMock,
+  updateTenancyCheckArgsMock,
+} from '../__mocks__/tenancy-mutation'
 import { mockContext } from '../../../__mocks__/context'
 
 jest.mock('../services', () => ({
-  getAppointmentById: jest.fn(() => appointmentMock),
-  getAppointments: jest.fn(() => appointmentsMock),
-  createAppointment: jest.fn(() => true),
-  updateAppointment: jest.fn(() => true),
+  getTenancies: jest.fn(() => tenanciesListMock),
+  getTenancyById: jest.fn(() => tenancyMock),
+  getTenancyChecks: jest.fn(() => tenancyChecksListMock),
+  getTenancyCheckById: jest.fn(() => tenancyCheckMock),
+  getTenancyRelationships: jest.fn(() => tenancyRelationshipsListMock),
+  createTenancy: jest.fn(() => tenancyMock),
+  createTenancyCheck: jest.fn(() => tenancyCheckMock),
+  deleteTenancyCheck: jest.fn(() => true),
+  updateTenancyCheck: jest.fn(() => tenancyCheckMock),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -32,90 +46,138 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('queryGetAppointmentById', () => {
+describe('queryGetTenancies', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const args = { id: 'id' }
-    const result = queryGetAppointmentById(null, args, mockContext)
-    expect(result).toEqual(appointmentServices.getAppointmentById(args, mockContext))
+    const args = { pageSize: 1 }
+    const result = queryGetTenancies(null, args, mockContext)
+    expect(result).toEqual(tenancyServices.getTenancies(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const args = { id: 'id' }
-    const result = queryGetAppointmentById(null, args, mockContext)
+    const args = { pageSize: 1 }
+    const result = queryGetTenancies(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryGetAppointments', () => {
+describe('queryGetTenancyById', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetAppointments(null, args, mockContext)
-    expect(result).toEqual(appointmentServices.getAppointments(args, mockContext))
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyById(null, args, mockContext)
+    expect(result).toEqual(tenancyServices.getTenancyById(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetAppointments(null, args, mockContext)
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyById(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationCreateAppointment', () => {
+describe('queryGetTenancyRelationships', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
-    expect(result).toEqual(appointmentServices.createAppointment(createAppointmentArgsMock, mockContext))
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyRelationships(null, args, mockContext)
+    expect(result).toEqual(tenancyServices.getTenancyRelationships(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyRelationships(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationUpdateAppointment', () => {
+describe('queryGetTenancyChecks', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
-    expect(result).toEqual(appointmentServices.updateAppointment(updateAppointmentArgsMock, mockContext))
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyChecks(null, args, mockContext)
+    expect(result).toEqual(tenancyServices.getTenancyChecks(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
+    const args = { id: 'RPT200113' }
+    const result = queryGetTenancyChecks(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryConfiguration', () => {
-  it('should run correctly', () => {
-    const result = queryConfiguration(appointmentMock, undefined, mockContext)
-    expect(result).toEqual(expect.any(Object))
+describe('queryGetTenancyCheckById', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const args = { id: 'RPT200113', checkId: 'RPT20000517' }
+    const result = queryGetTenancyCheckById(null, args, mockContext)
+    expect(result).toEqual(tenancyServices.getTenancyCheckById(args, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const args = { id: 'RPT200113', checkId: 'RPT20000517' }
+    const result = queryGetTenancyCheckById(null, args, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryProperty', () => {
-  it('should run correctly', () => {
-    const result = queryProperty(appointmentMock, undefined, mockContext)
-    expect(result).toEqual(expect.any(Object))
+describe('mutationCreateTenancy', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationCreateTenancy(null, createTenancyArgsMock, mockContext)
+    expect(result).toEqual(tenancyServices.createTenancy(createTenancyArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationCreateTenancy(null, createTenancyArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryNegotiators', () => {
-  it('should run correctly', () => {
-    const result = queryNegotiators(appointmentMock, undefined, mockContext)
-    expect(result).toEqual(expect.any(Object))
+describe('mutationCreateTenancyCheck', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationCreateTenancyCheck(null, createTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(tenancyServices.createTenancyCheck(createTenancyCheckArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationCreateTenancyCheck(null, createTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryOffices', () => {
-  it('should run correctly', () => {
-    const result = queryOffices(appointmentMock, undefined, mockContext)
-    expect(result).toEqual(expect.any(Object))
+describe('mutationDeleteTenancyCheck', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationDeleteTenancyCheck(null, deleteTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(tenancyServices.deleteTenancyCheck(deleteTenancyCheckArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationDeleteTenancyCheck(null, deleteTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('mutationUpdateTenancyCheck', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationUpdateTenancyCheck(null, updateTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(tenancyServices.updateTenancyCheck(updateTenancyCheckArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationUpdateTenancyCheck(null, updateTenancyCheckArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
