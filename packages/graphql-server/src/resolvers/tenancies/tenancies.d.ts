@@ -17,8 +17,8 @@ export type GetTenancyRelationshipsArgs = { id: string; pageSize?: number; pageN
 export type GetTenancyChecksArgs = { id: string; pageSize?: number; pageNumber?: number }
 export type GetTenancyCheckByIdArgs = { id: string; checkId: string }
 
-export type CreateTenancyArgs = { request: CreateTenancyModel }
-export type CreateTenancyCheckArgs = { id: string; model: CreateTenancyCheckModel }
+export type CreateTenancyArgs = CreateTenancyModel
+export type CreateTenancyCheckArgs = { id: string } & CreateTenancyCheckModel
 export type DeleteTenancyCheckArgs = { id: string; checkId: string }
 export type UpdateTenancyCheckArgs = { id: string; checkId: string; _eTag: string } & UpdateTenancyCheckModel
 

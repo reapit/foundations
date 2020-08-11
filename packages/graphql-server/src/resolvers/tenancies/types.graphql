@@ -22,8 +22,20 @@ type Query {
 }
 
 type Mutation {
-  CreateTenancy(request: CreateTenancyRequestModel): TenancyModel!
-  CreateTenancyCheck(id: String!, model: CreateTenancyCheckModel): TenancyCheckModel!
+  CreateTenancy(
+    startDate: String
+    endDate: String
+    agentRole: String
+    rent: Int
+    rentFrequency: String
+    isPeriodic: Boolean
+    typeId: String
+    negotiatorId: String
+    propertyId: String
+    applicantId: String
+    source: CreateTenancyRequestModelSource
+  ): TenancyModel!
+  CreateTenancyCheck(id: String!, description: String, type: String, status: String): TenancyCheckModel!
   DeleteTenancyCheck(id: String!, checkId: String!): Boolean!
   UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): TenancyCheckModel!
 }
@@ -166,29 +178,9 @@ type TenancyCheckModel {
   _embedded: JSON
 }
 
-input CreateTenancyRequestModel {
-  startDate: String
-  endDate: String
-  agentRole: String
-  rent: Int
-  rentFrequency: String
-  isPeriodic: Boolean
-  typeId: String
-  negotiatorId: String
-  propertyId: String
-  applicantId: String
-  source: CreateTenancyRequestModelSource
-}
-
 input CreateTenancyRequestModelSource {
   id: String
   type: String
-}
-
-input CreateTenancyCheckModel {
-  description: String
-  type: String
-  status: String
 }
 
 input UpdateTenancyCheckModel {
