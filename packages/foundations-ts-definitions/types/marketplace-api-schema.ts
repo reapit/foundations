@@ -1078,7 +1078,7 @@ export interface MemberModel {
   /**
    * The id of this member
    */
-  id?: string
+  id?: string // uuid
   /**
    * The timestamp of entity creation
    */
