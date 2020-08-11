@@ -1,12 +1,106 @@
 {
-  "__export_date": "2020-08-11T09:04:05.536Z",
-  "__export_format": 4,
-  "__export_source": "insomnia.desktop.app:v2020.3.3",
   "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2020-08-11T09:54:39.850Z",
+  "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
+      "_id": "req_411ab21daf5346ec840b162e1b94bacf",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetOffers($pageSize: Int) {\\n  GetOffers(pageSize: $pageSize) {\\n    _embedded {\\n      id\\n      created\\n      modified\\n      applicantId\\n      propertyId\\n      status\\n    }\\n  }\\n}\\n\",\"variables\":{\"pageSize\":10},\"operationName\":\"GetOffers\"}"
+      },
+      "created": 1597139296863,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130670001,
+      "method": "POST",
+      "modified": 1597139598286,
+      "name": "GetOffers",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "created": 1590994744285,
+      "description": "",
+      "environment": {
+        "graphqlServer": {
+          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5Iiwib3JpZ2luX2p0aSI6IjNkM2Q2MmQzLTZlNTctNGYyNC05YjIxLThmNzc2YzEyOGJjMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTY2MTEzNzQsImV4cCI6MTU5NzE0MzA0MiwiaWF0IjoxNTk3MTM5NDQyLCJqdGkiOiIwMDFlNjQwYS0xNzBjLTRiODYtYTRjOS1lNGU0YzAxYTYxYjMiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.aFCu7Se7ib6XbExi7iX5O6WIm41Z48DZBw3O_BBAzxQJ7LHYWwomhdf3lHhnUTN9ceyBfP0N7uhVYNofniVtrQ5TJaE8xPiCllJFSoA2Pj7Dth3d6o2JZ1LmIrKjbXDHsA2xUQ6A4kv-F0OuDAugCrPOtuRWsKCMlDnzyuQRQ8OsO5lsC7MdhkB1UtZXlJwVX0nI1nSPslK15mY4ctGcDLpe3lEp5NlYBouQehROhgtt3mdZVNosc7hKMvXZtnz-AXYjP2nN4CeWMc5zjhZ77tSwk_3dUz1hy4d2KCxRAzdAHQFBME9TSEsQbxEHJAfu-SfTvedlQWtAURBXza305Q",
+          "path": "http://localhost:3000/local/graphql"
+        }
+      },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["path", "authorization"] },
+      "metaSortKey": -1591008340991,
+      "modified": 1597139501017,
+      "name": "GraphQL Queries",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "created": 1590743470730,
+      "description": "",
+      "modified": 1590743470730,
+      "name": "Reapit APIs Documentation",
+      "parentId": null,
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_5633018b9ba64014885e8aa7e7ae8d47",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetOffers($id: String!) {\\n  GetOfferById(id: $id) {\\n    id\\n    created\\n    modified\\n    applicantId\\n    propertyId\\n    status\\n  }\\n}\\n\",\"variables\":{\"id\":\"MKT200004\"},\"operationName\":\"GetOffers\"}"
+      },
+      "created": 1597139323953,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130669976,
+      "method": "POST",
+      "modified": 1597139596307,
+      "name": "GetOfferById",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
       "_id": "req_d778fbfca7174047bd9b9a249aab0b20",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -15,11 +109,7 @@
       "created": 1597130669951,
       "description": "",
       "headers": [
-        {
-          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -30,7 +120,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130669951,
       "method": "POST",
-      "modified": 1597131733604,
+      "modified": 1597138775743,
       "name": "GetApplicantRelationships",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -40,33 +130,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
-    },
-    {
-      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
-      "_type": "request_group",
-      "created": 1590994744285,
-      "description": "",
-      "environment": {},
-      "environmentPropertyOrder": null,
-      "metaSortKey": -1591008340991,
-      "modified": 1591008344373,
-      "name": "GraphQL Queries",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
-    },
-    {
-      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "workspace",
-      "created": 1590743470730,
-      "description": "",
-      "modified": 1590743470730,
-      "name": "Reapit APIs Documentation",
-      "parentId": null,
-      "scope": null
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_61a0856e266d403ea1cdfdb2ca94270c",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -75,11 +143,7 @@
       "created": 1597130460815,
       "description": "",
       "headers": [
-        {
-          "id": "pair_38dba9c56d8648babd180878111fd475",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_38dba9c56d8648babd180878111fd475", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_55bc4be18b6d4fc681d42c2d16403381",
@@ -100,11 +164,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_86d04d2de23941fb9200b744da4e4633",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -113,11 +177,7 @@
       "created": 1597052331418,
       "description": "",
       "headers": [
-        {
-          "id": "pair_04dd8756bbf744e9a861ea52a7acf09c",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_04dd8756bbf744e9a861ea52a7acf09c", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_377175af4cf842368c4bd29e2bbb309f",
@@ -138,11 +198,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_dbae0963de01491898c39bf5a340ac0f",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -151,11 +211,7 @@
       "created": 1597051797401,
       "description": "",
       "headers": [
-        {
-          "id": "pair_385e078ded7a46938aaea0e4552a786c",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_385e078ded7a46938aaea0e4552a786c", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f9b5a544a1b04ffbb0a055d8cff25ebc",
@@ -176,24 +232,20 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_5048d6def9814aceb1cf3066f9ba9ef5",
-      "_type": "request",
       "authentication": {},
       "body": {
-        "mimeType": "application/json",
+        "mimeType": "application/graphql",
         "text": "{\n\t\"operationName\":\"PING\",\n\t\"query\":\"query {Ping}\"\n}"
       },
       "created": 1591261880087,
       "description": "",
       "headers": [
-        {
-          "id": "pair_b0653f5f760e439f8391d1b3723fb5c1",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_b0653f5f760e439f8391d1b3723fb5c1", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1591261880087,
@@ -208,11 +260,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_e6e03b84bb414454b2acaf0f8e116376",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -221,11 +273,7 @@
       "created": 1597129522860,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -238,14 +286,7 @@
       "method": "POST",
       "modified": 1597136033472,
       "name": "GetTenancies",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -253,11 +294,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql"
+      "url": "{{ graphqlServer.path }}/local/graphql",
+      "_type": "request"
     },
     {
       "_id": "req_58a4a42e0b3d44c6b3057377f64ed68c",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -266,11 +307,7 @@
       "created": 1597130981365,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -283,14 +320,7 @@
       "method": "POST",
       "modified": 1597136079232,
       "name": "GetTenancyById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -298,11 +328,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql"
+      "url": "{{ graphqlServer.path }}/local/graphql",
+      "_type": "request"
     },
     {
       "_id": "req_e90c93a62cd04c6c90fb2bbeef7fdf98",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -311,11 +341,7 @@
       "created": 1597131069789,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -328,14 +354,7 @@
       "method": "POST",
       "modified": 1597136034465,
       "name": "GetTenancyRelationships",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -343,11 +362,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql"
+      "url": "{{ graphqlServer.path }}/local/graphql",
+      "_type": "request"
     },
     {
       "_id": "req_fff70c5a84f94f76902ec4daca5f1715",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -356,11 +375,7 @@
       "created": 1597131111206,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -371,16 +386,9 @@
       "isPrivate": false,
       "metaSortKey": -1591006316441,
       "method": "POST",
-      "modified": 1597136480687,
+      "modified": 1597139258020,
       "name": "GetTenancyChecks",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -388,11 +396,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_b6e303bd91084ef289fe0888508b25fe",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -401,11 +409,7 @@
       "created": 1597131154862,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -418,14 +422,7 @@
       "method": "POST",
       "modified": 1597131217180,
       "name": "GetTenancyCheckById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -433,11 +430,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql"
+      "url": "{{ graphqlServer.path }}/local/graphql",
+      "_type": "request"
     },
     {
       "_id": "req_d451e139e9454c789160103fefbd7ec1",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -446,11 +443,7 @@
       "created": 1590994998103,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -463,14 +456,7 @@
       "method": "POST",
       "modified": 1597052198518,
       "name": "GetAppointments",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -478,11 +464,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_62a3d09ac1c44c33b782f982d8ecdc3b",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -491,14 +477,9 @@
       "created": 1590996909016,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
-          "disabled": true,
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
           "name": "Authorization",
           "value": "{{ graphqlServer.authorization  }}"
@@ -507,16 +488,9 @@
       "isPrivate": false,
       "metaSortKey": -1590994713110.9375,
       "method": "POST",
-      "modified": 1597051810677,
+      "modified": 1597136088137,
       "name": "GetAppointmentById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -524,11 +498,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_66f8b42597f74d0a9d0cde8fdf75d7b8",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -537,11 +511,7 @@
       "created": 1591001130307,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -552,16 +522,9 @@
       "isPrivate": false,
       "metaSortKey": -1590994428118.875,
       "method": "POST",
-      "modified": 1591031091802,
+      "modified": 1597131889286,
       "name": "GetIdentityChecks",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -569,11 +532,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_d8c771f6d82949148ba0654ad278d1c7",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -582,11 +545,7 @@
       "created": 1591007458300,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -599,14 +558,7 @@
       "method": "POST",
       "modified": 1591028153383,
       "name": "GetIdentityCheckById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -614,11 +566,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_f4100771b4614e2180c96a8457b06b6b",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -627,11 +579,7 @@
       "created": 1591007542305,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -642,16 +590,9 @@
       "isPrivate": false,
       "metaSortKey": -1590994285622.8438,
       "method": "POST",
-      "modified": 1591072989286,
+      "modified": 1597131889812,
       "name": "GetNegotiators",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -659,11 +600,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_bf1ef28f12284b3c845cf35f508680a0",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -672,11 +613,7 @@
       "created": 1591007577052,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -687,16 +624,9 @@
       "isPrivate": false,
       "metaSortKey": -1590994249998.836,
       "method": "POST",
-      "modified": 1591028583359,
+      "modified": 1597131815718,
       "name": "GetNegotiatorById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -704,11 +634,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_8359e716caef4088a732b72c793c1167",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -717,11 +647,7 @@
       "created": 1591007637603,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -734,14 +660,7 @@
       "method": "POST",
       "modified": 1591029056021,
       "name": "GetOffices",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -749,11 +668,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_406078f9fe0e4df39761acb332ae255d",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -762,11 +681,7 @@
       "created": 1591007659290,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -779,14 +694,7 @@
       "method": "POST",
       "modified": 1591029006169,
       "name": "GetOfficeById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -794,11 +702,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_2bd98db0bebd480ca568d597337fcf64",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -807,11 +715,7 @@
       "created": 1591007688120,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -824,14 +728,7 @@
       "method": "POST",
       "modified": 1591029006746,
       "name": "GetProperties",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -839,11 +736,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_dec8e67d4f0b4e9881f1ca233f10987a",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -852,11 +749,7 @@
       "created": 1597059030426,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -869,14 +762,7 @@
       "method": "POST",
       "modified": 1597119432990,
       "name": "GetPropertyImages",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -884,11 +770,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_9f399431a797483a8e6af587dedf4922",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -897,11 +783,7 @@
       "created": 1591007726752,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -914,14 +796,7 @@
       "method": "POST",
       "modified": 1591029992297,
       "name": "GetPropertyById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -929,11 +804,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_72d5c90fa0084543aa02a8ff16fc7f4b",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -942,11 +817,7 @@
       "created": 1597059275275,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -959,14 +830,7 @@
       "method": "POST",
       "modified": 1597119367042,
       "name": "GetPropertyImageById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -974,11 +838,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_39a19a73f7ef4c49a98d5e59aec63489",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -987,11 +851,7 @@
       "created": 1590997218409,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1002,16 +862,9 @@
       "isPrivate": false,
       "metaSortKey": -1590993858134.75,
       "method": "POST",
-      "modified": 1591261079538,
+      "modified": 1591029008857,
       "name": "GetAreas",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1019,11 +872,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_66db2070854e4dd89f46eab52287a5ad",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1032,11 +885,7 @@
       "created": 1590997695106,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1049,14 +898,7 @@
       "method": "POST",
       "modified": 1591029009450,
       "name": "GetAreaById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1064,11 +906,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_b0d36aab2dc9416f8dcd7f1dfb1bbfba",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1077,37 +919,21 @@
       "created": 1591000544091,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
           "name": "Authorization",
           "value": "{{ graphqlServer.authorization  }}"
         },
-        {
-          "description": "",
-          "id": "pair_269998edcc46453590f7b60820fc1547",
-          "name": "",
-          "value": ""
-        }
+        { "description": "", "id": "pair_269998edcc46453590f7b60820fc1547", "name": "", "value": "" }
       ],
       "isPrivate": false,
       "metaSortKey": -1590993715638.7188,
       "method": "POST",
-      "modified": 1597132058528,
+      "modified": 1591069782056,
       "name": "GetContacts",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1115,11 +941,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_b4155ffcb59a4d9cac22bec81ce9a640",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1128,11 +954,7 @@
       "created": 1591007824228,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1145,14 +967,7 @@
       "method": "POST",
       "modified": 1591029010414,
       "name": "GetContactById",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1160,11 +975,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_36b1e19c21a4414db918be9bece05f45",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1173,11 +988,7 @@
       "created": 1590998403936,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1190,14 +1001,7 @@
       "method": "POST",
       "modified": 1591029011927,
       "name": "GetConfigurationsByType",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1205,11 +1009,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_dc3f8bf11e324a238229560230bebe44",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1218,11 +1022,7 @@
       "created": 1590998998162,
       "description": "",
       "headers": [
-        {
-          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1235,14 +1035,7 @@
       "method": "POST",
       "modified": 1591029012506,
       "name": "GetConfigurationByTypeAndId",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1250,11 +1043,96 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_56cb789a0a1a4c6495b6cff363897a93",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateOffer($applicantId: String, $propertyId: String, $negotiatorId: String, $date: String, $amount: String, $status: String, $inclusions: String, $exclusions: String, $conditions: String, $metadata: JSON) {\\n  CreateOffer(applicantId: $applicantId, propertyId: $propertyId, negotiatorId: $negotiatorId, date: $date, amount: $amount, status: $status, inclusions: $inclusions, exclusions: $exclusions, conditions: $conditions, metadata: $metadata) {\\n    id\\n    applicantId\\n    _eTag\\n  }\\n}\\n\",\"variables\":{\"applicantId\":\"BCK150141\",\"propertyId\":\"HEO155576\",\"status\":\"pending\",\"negotiatorId\":\"JAS\",\"date\":\"2018-11-05\",\"amount\":\"245000\",\"inclusions\":\"White goods must be left\",\"exclusions\":\"Curtains must be removed\",\"conditions\":\"Must move in within 3 months.\"},\"operationName\":\"CreateOffer\"}"
+      },
+      "created": 1597139349176,
+      "description": "",
+      "headers": [
+        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597131499286,
+      "method": "POST",
+      "modified": 1597139636389,
+      "name": "CreateOffer",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
+      "created": 1591008340941,
+      "description": "",
+      "environment": {
+        "graphqlServer": {
+          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5Iiwib3JpZ2luX2p0aSI6IjNkM2Q2MmQzLTZlNTctNGYyNC05YjIxLThmNzc2YzEyOGJjMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTY2MTEzNzQsImV4cCI6MTU5NzE0MzA0MiwiaWF0IjoxNTk3MTM5NDQyLCJqdGkiOiIwMDFlNjQwYS0xNzBjLTRiODYtYTRjOS1lNGU0YzAxYTYxYjMiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.aFCu7Se7ib6XbExi7iX5O6WIm41Z48DZBw3O_BBAzxQJ7LHYWwomhdf3lHhnUTN9ceyBfP0N7uhVYNofniVtrQ5TJaE8xPiCllJFSoA2Pj7Dth3d6o2JZ1LmIrKjbXDHsA2xUQ6A4kv-F0OuDAugCrPOtuRWsKCMlDnzyuQRQ8OsO5lsC7MdhkB1UtZXlJwVX0nI1nSPslK15mY4ctGcDLpe3lEp5NlYBouQehROhgtt3mdZVNosc7hKMvXZtnz-AXYjP2nN4CeWMc5zjhZ77tSwk_3dUz1hy4d2KCxRAzdAHQFBME9TSEsQbxEHJAfu-SfTvedlQWtAURBXza305Q",
+          "path": "http://localhost:3000/local/graphql"
+        }
+      },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["path", "authorization"] },
+      "metaSortKey": -1591008340941,
+      "modified": 1597139532007,
+      "name": "GraphQL Mutations",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_8a0ae8a44ad94a7990940d296cdfa0fb",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateOffer($id: String!, $_eTag: String!, $negotiatorId: String, $date: String, $amount: String, $status: String, $inclusions: String, $exclusions: String, $conditions: String, $metadata: JSON) {\\n  UpdateOffer(id: $id, _eTag: $_eTag, negotiatorId: $negotiatorId, date: $date, amount: $amount, status: $status, inclusions: $inclusions, exclusions: $exclusions, conditions: $conditions, metadata: $metadata) {\\n    id\\n    applicantId\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200029\",\"_eTag\":\"\\\"D7152DD666651AC854A13F2E157E0AD3\\\"\",\"status\":\"pending\",\"negotiatorId\":\"JAS\",\"date\":\"2018-11-05\",\"amount\":\"245000\",\"inclusions\":\"White goods must be left\",\"exclusions\":\"Curtains must be removed\",\"conditions\":\"Must move in within 3 months.\"},\"operationName\":\"UpdateOffer\"}"
+      },
+      "created": 1597139373579,
+      "description": "",
+      "headers": [
+        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597131499261,
+      "method": "POST",
+      "modified": 1597139637244,
+      "name": "UpdateOffer",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_1fde3f0b12ce4939933162163f94fa9e",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1263,11 +1141,7 @@
       "created": 1597131499236,
       "description": "",
       "headers": [
-        {
-          "id": "pair_727dae29a22a46418d97032d0443b784",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
@@ -1288,23 +1162,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
-    },
-    {
-      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
-      "_type": "request_group",
-      "created": 1591008340941,
-      "description": "",
-      "environment": {},
-      "environmentPropertyOrder": null,
-      "metaSortKey": -1591008340941,
-      "modified": 1591008340941,
-      "name": "GraphQL Mutations",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_ceab9c975a0d408e9931ad8f0d89ed6e",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1313,11 +1175,7 @@
       "created": 1597131236844,
       "description": "",
       "headers": [
-        {
-          "id": "pair_657c80fba18b476fafd24406e27938e5",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_657c80fba18b476fafd24406e27938e5", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_9195c12b91f24f9eb5536c61bd9523a5",
@@ -1338,24 +1196,17 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_8dee09e6e0b847d2836d563a68c1875e",
-      "_type": "request",
       "authentication": {},
-      "body": {
-        "mimeType": "application/graphql",
-        "text": "{\"query\":\"\"}"
-      },
+      "body": { "mimeType": "application/graphql", "text": "{\"query\":\"\"}" },
       "created": 1597131053224,
       "description": "",
       "headers": [
-        {
-          "id": "pair_b2499c9f09e5433d903b71369d715eb4",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_b2499c9f09e5433d903b71369d715eb4", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1597131053224,
@@ -1370,11 +1221,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": ""
+      "url": "",
+      "_type": "request"
     },
     {
       "_id": "req_504e409bb65941c088db8e0958da4c17",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1383,11 +1234,7 @@
       "created": 1597057318790,
       "description": "",
       "headers": [
-        {
-          "id": "pair_b15c7ef0316f46b981db97ce24d871b7",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_b15c7ef0316f46b981db97ce24d871b7", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_40f6b8d95fa94216b2cf8608565cd5e7",
@@ -1408,11 +1255,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_d37846b117824b0ab4317874b9aebbad",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1421,11 +1268,7 @@
       "created": 1597052820895,
       "description": "",
       "headers": [
-        {
-          "id": "pair_90193b03d1ce450982c36fead85fc22b",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_90193b03d1ce450982c36fead85fc22b", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_05b36cd938c44022a9fff19d4a88e177",
@@ -1446,24 +1289,20 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}"
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
     },
     {
       "_id": "req_60c7808ea6574e2aac0c820c53f5fd6a",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2020-08-07T12:30:02.0000000Z\",\"end\":\"2020-08-07T13:30:02.0000000Z\",\"followUpOn\":\"2020-07-18\",\"typeId\":\"VW\",\"description\":\"Meet landlord at the property to get the key.\",\"organiserId\":\"LJW\",\"negotiatorIds\":[\"LJW\"],\"propertyId\":\"RPT200073\",\"officeIds\":[\"OXF\",\"SOL\"]},\"operationName\":\"CreateAppointment\"}"
+        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2018-08-14T12:30:02.0000000Z\",\"end\":\"2018-08-14T13:30:02.0000000Z\",\"followUpOn\":\"2018-10-05\",\"typeId\":\"VW\",\"description\":\"Meet landlord at the property to get the key.\",\"organiserId\":\"JAS\",\"negotiatorIds\":[\"JAS\"],\"officeIds\":[\"OXF\",\"SOL\"]},\"operationName\":\"CreateAppointment\"}"
       },
       "created": 1591008374845,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1474,7 +1313,7 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1597051587898,
+      "modified": 1597135525682,
       "name": "CreateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1484,11 +1323,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_88b5a42bf11d42ed803661c524770fc8",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1497,11 +1336,7 @@
       "created": 1591009096398,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1512,7 +1347,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007345639.875,
       "method": "POST",
-      "modified": 1594104380542,
+      "modified": 1597135353370,
       "name": "UpdateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1522,11 +1357,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_96f690a185794b64b104cc0666733e36",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1535,11 +1370,7 @@
       "created": 1591010431600,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1550,7 +1381,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007345589.875,
       "method": "POST",
-      "modified": 1596707432777,
+      "modified": 1597135534049,
       "name": "CreateArea",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1560,11 +1391,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_051433254e98401aa6fa40018ca97eee",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1573,11 +1404,7 @@
       "created": 1591010699857,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1588,7 +1415,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006831012.3125,
       "method": "POST",
-      "modified": 1591024694123,
+      "modified": 1597135367920,
       "name": "UpdateArea",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1598,11 +1425,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_3f9f7a49f9704505aa26f22703f868cc",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1611,11 +1438,7 @@
       "created": 1591010976304,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1636,11 +1459,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_0a84d13c607a462b9f7005d5372068ed",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1649,11 +1472,7 @@
       "created": 1591024701810,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1674,11 +1493,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_160d4bbe09e044b5aa6e844c1a142918",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1687,11 +1506,7 @@
       "created": 1591024950090,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1712,11 +1527,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_7a3a61f1ab8b4f76936351d0d0f2f677",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1725,11 +1540,7 @@
       "created": 1591025405226,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1750,11 +1561,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_58857ad78c9947fbb521127174eeddf1",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1763,11 +1574,7 @@
       "created": 1591028294599,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1788,11 +1595,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_6a816f9177c841b8bee222af10d336db",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1801,11 +1608,7 @@
       "created": 1591028468842,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1826,11 +1629,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_a3cb002706724a70a18c086f4e876c75",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1839,11 +1642,7 @@
       "created": 1591028632654,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1864,11 +1663,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_d7158385fa594222838971b9c9fc8933",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1877,11 +1676,7 @@
       "created": 1591028912633,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1902,11 +1697,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_61496454b0124b08bdda8feee7a0f882",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1915,11 +1710,7 @@
       "created": 1591029402045,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1940,11 +1731,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_2a9ca145731b482ea4def69624ff5a3c",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1953,11 +1744,7 @@
       "created": 1597117606726,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1978,11 +1765,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_7a5a7c90df2d436dbf6ee45b39ec4d30",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -1991,11 +1778,7 @@
       "created": 1591029841748,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2016,11 +1799,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_dd76ffe8ead7435795fbf98ce226915a",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
@@ -2029,11 +1812,7 @@
       "created": 1597117960728,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2044,7 +1823,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006573473.5312,
       "method": "POST",
-      "modified": 1597136490740,
+      "modified": 1597139249491,
       "name": "UpdatePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2054,24 +1833,20 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_271de6959e954a3a8d00389024f2849f",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation DeletePropertyImage (\\n  $id: String!,\\n) \\n  {\\n  DeletePropertyImage(\\n    id: $id,\\n  ) {\\n    \\n  }\\n}\",\"variables\":{\"id\":\"OXF100008_12.png\"}}"
+        "text": "{\"query\":\"mutation DeletePropertyImage (\\n  $id: String!,\\n) \\n  {\\n  DeletePropertyImage(\\n    id: $id,\\n  )\\n}\",\"variables\":{\"id\":\"OXF100008_12.png\"},\"operationName\":\"DeletePropertyImage\"}"
       },
       "created": 1597118410112,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
-          "name": "Content-Type",
-          "value": "application/json"
-        },
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2082,7 +1857,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006444954.1406,
       "method": "POST",
-      "modified": 1597119009945,
+      "modified": 1597119010782,
       "name": "DeletePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2092,11 +1867,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}"
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
     },
     {
       "_id": "req_35ddef926d584aa7bb20593bccc9ab33",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590990438230,
@@ -2112,7 +1887,7 @@
       "isPrivate": false,
       "metaSortKey": -1590990438230,
       "method": "GET",
-      "modified": 1591260585631,
+      "modified": 1591068677765,
       "name": "AppointmentSlots",
       "parameters": [],
       "parentId": "fld_5c9518fdcf3644a28045bd40b913bae0",
@@ -2122,11 +1897,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.appointmentsPath  }}/appointment-slots"
+      "url": "{{ webComponent.appointmentsPath  }}/appointment-slots",
+      "_type": "request"
     },
     {
       "_id": "fld_5c9518fdcf3644a28045bd40b913bae0",
-      "_type": "request_group",
       "created": 1590985909078,
       "description": "",
       "environment": {},
@@ -2134,11 +1909,11 @@
       "metaSortKey": -1590985909078,
       "modified": 1590985909078,
       "name": "Web Component Appointments",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
     },
     {
       "_id": "req_c9db3809c915484aa67e496cf01be113",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590985921703,
@@ -2164,11 +1939,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.appointmentsPath  }}/ping"
+      "url": "{{ webComponent.appointmentsPath  }}/ping",
+      "_type": "request"
     },
     {
       "_id": "req_534cebce5bc64cb19cbfb2f66fbfdccc",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590750217571,
@@ -2184,7 +1959,7 @@
       "isPrivate": false,
       "metaSortKey": -1590750217571,
       "method": "GET",
-      "modified": 1591245062436,
+      "modified": 1591079881080,
       "name": "GetProperty",
       "parameters": [],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
@@ -2194,11 +1969,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.searchWidgetPath  }}/properties/BED150319"
+      "url": "{{ webComponent.searchWidgetPath  }}/properties/BED150319",
+      "_type": "request"
     },
     {
       "_id": "fld_87df969d916c4128b56686f8fec7c05b",
-      "_type": "request_group",
       "created": 1590745950783,
       "description": "",
       "environment": {},
@@ -2206,11 +1981,11 @@
       "metaSortKey": -1590745950783,
       "modified": 1590745950783,
       "name": "Web Component Search Widget",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
     },
     {
       "_id": "req_649aaf9a56d04245b29aa570a10f078a",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590750185077,
@@ -2226,81 +2001,21 @@
       "isPrivate": false,
       "metaSortKey": -1590750185077,
       "method": "GET",
-      "modified": 1591245211051,
+      "modified": 1591030172737,
       "name": "GetProperties",
       "parameters": [
-        {
-          "description": "",
-          "id": "pair_ddebd236a7364c3c91ee8ae3246e2113",
-          "name": "keywords",
-          "value": "london"
-        },
-        {
-          "description": "",
-          "id": "pair_591b72ba2c6f4fb0a200a39fb6cfdc98",
-          "name": "isRental",
-          "value": "true"
-        },
-        {
-          "description": "",
-          "id": "pair_f0036d0c09c745238825c94934ea5178",
-          "name": "apiKey",
-          "value": ""
-        },
-        {
-          "description": "",
-          "id": "pair_8990c66a240d4f7c9ddfb1eafb8633e7",
-          "name": "customerId",
-          "value": "DXX"
-        },
-        {
-          "description": "",
-          "id": "pair_a35793ef766a44d08b2b0a04154bc2a3",
-          "name": "pageNumber",
-          "value": "1"
-        },
-        {
-          "description": "",
-          "id": "pair_0b14c8479f374091a739bec9db656b38",
-          "name": "bedroomsFrom",
-          "value": "1"
-        },
-        {
-          "description": "",
-          "id": "pair_09a4455c004b40369c1f2161ad806646",
-          "name": "bedroomsTo",
-          "value": "2"
-        },
-        {
-          "description": "",
-          "id": "pair_ec53556cdd984494b78c59743845eb23",
-          "name": "priceFrom",
-          "value": "300000"
-        },
-        {
-          "description": "",
-          "id": "pair_75ff979729ba4a43838c6de32365cb51",
-          "name": "priceTo",
-          "value": "500000"
-        },
-        {
-          "description": "",
-          "id": "pair_a0c0e0b8fe864aaf98538e9d4de21add",
-          "name": "sortBy",
-          "value": "price"
-        },
-        {
-          "description": "",
-          "id": "pair_49696fa30a644bbf85e149727a4c8c8a",
-          "name": "propertyType",
-          "value": "house"
-        },
-        {
-          "description": "",
-          "id": "pair_dca8d2692bd240ca82f319501a0b6b3f",
-          "name": "addedIn",
-          "value": ""
-        }
+        { "description": "", "id": "pair_ddebd236a7364c3c91ee8ae3246e2113", "name": "keywords", "value": "london" },
+        { "description": "", "id": "pair_591b72ba2c6f4fb0a200a39fb6cfdc98", "name": "isRental", "value": "" },
+        { "description": "", "id": "pair_f0036d0c09c745238825c94934ea5178", "name": "apiKey", "value": "" },
+        { "description": "", "id": "pair_8990c66a240d4f7c9ddfb1eafb8633e7", "name": "customerId", "value": "" },
+        { "description": "", "id": "pair_a35793ef766a44d08b2b0a04154bc2a3", "name": "pageNumber", "value": "10" },
+        { "description": "", "id": "pair_0b14c8479f374091a739bec9db656b38", "name": "bedroomsFrom", "value": "" },
+        { "description": "", "id": "pair_09a4455c004b40369c1f2161ad806646", "name": "bedroomsTo", "value": "" },
+        { "description": "", "id": "pair_ec53556cdd984494b78c59743845eb23", "name": "priceFrom", "value": "" },
+        { "description": "", "id": "pair_75ff979729ba4a43838c6de32365cb51", "name": "priceTo", "value": "" },
+        { "description": "", "id": "pair_a0c0e0b8fe864aaf98538e9d4de21add", "name": "sortBy", "value": "" },
+        { "description": "", "id": "pair_49696fa30a644bbf85e149727a4c8c8a", "name": "propertyType", "value": "" },
+        { "description": "", "id": "pair_dca8d2692bd240ca82f319501a0b6b3f", "name": "addedIn", "value": "" }
       ],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
       "settingDisableRenderRequestBody": false,
@@ -2309,11 +2024,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.searchWidgetPath  }}/properties"
+      "url": "{{ webComponent.searchWidgetPath  }}/properties",
+      "_type": "request"
     },
     {
       "_id": "req_29e2391d1951477685ec3becfff588b5",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590745976349,
@@ -2329,16 +2044,9 @@
       "isPrivate": false,
       "metaSortKey": -1590745976349,
       "method": "GET",
-      "modified": 1591245558227,
+      "modified": 1591030174946,
       "name": "GetPropertyImages",
-      "parameters": [
-        {
-          "description": "",
-          "id": "pair_959a5e3f147b409d92d321304f56d821",
-          "name": "",
-          "value": ""
-        }
-      ],
+      "parameters": [],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -2346,11 +2054,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.searchWidgetPath  }}/propertyImages"
+      "url": "{{ webComponent.searchWidgetPath  }}/propertyImages",
+      "_type": "request"
     },
     {
       "_id": "req_406fe912766d462a904859c35581de00",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/json",
@@ -2359,11 +2067,7 @@
       "created": 1592456300840,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cf5e5a26af2f41d590246bf4299e667e",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_cf5e5a26af2f41d590246bf4299e667e", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1592456300840,
@@ -2378,11 +2082,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1"
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
     },
     {
       "_id": "fld_59e5158f7d614a7a95029986b1442fe6",
-      "_type": "request_group",
       "created": 1590744305320,
       "description": "",
       "environment": {},
@@ -2390,29 +2094,22 @@
       "metaSortKey": -1590744305320,
       "modified": 1590744305320,
       "name": "Web Component Config Server",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
     },
     {
       "_id": "req_1b062d6eb2484d72b6b57deb707f6b56",
-      "_type": "request",
       "authentication": {},
-      "body": {
-        "mimeType": "application/json",
-        "text": ""
-      },
+      "body": { "mimeType": "application/json", "text": "" },
       "created": 1590748042223,
       "description": "",
       "headers": [
-        {
-          "id": "pair_a66d5f4969ed493caf6072fa7f10e5e2",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_a66d5f4969ed493caf6072fa7f10e5e2", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1590748042223,
       "method": "DELETE",
-      "modified": 1590983703717,
+      "modified": 1592456569497,
       "name": "DeleteConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -2422,11 +2119,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/ZZA"
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
     },
     {
       "_id": "req_40bb38fadb214e128e8b932cb4fc0b6a",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/json",
@@ -2435,17 +2132,13 @@
       "created": 1590747806399,
       "description": "",
       "headers": [
-        {
-          "id": "pair_02d6f8413be24486aea6d2cec424a72d",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_02d6f8413be24486aea6d2cec424a72d", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1590747806399,
       "method": "PATCH",
-      "modified": 1590993672730,
-      "name": "UpdateConfig",
+      "modified": 1592456580072,
+      "name": "PatchConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -2454,29 +2147,25 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/ZZA"
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
     },
     {
       "_id": "req_fec8227c8b2b499e8920cc579e81dcf2",
-      "_type": "request",
       "authentication": {},
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"customerId\": \"ZZA\",\n\t\"appointmentLength\": 20,\n\t\"appointmentTimeGap\": 20,\n\t\"appointmentTypes\": [\n\t\t{\n\t\t\t\"id\": \"testId\",\n\t\t\t\"value\": \"test\"\n\t\t}\n\t],\n\t\"negotiatorIds\": [\"test\"],\n\t\"daysOfWeek\": [2]\n}\n"
+        "text": "{\n    \"customerId\": \"DXX\",\n    \"appId\": \"1\",\n    \"appointmentLength\": 12,\n    \"daysOfWeek\": [1],\n    \"appointmentTimeGap\": 5,\n    \"appointmentTypes\": [\n        {\n            \"M\": {\n                \"value\": {\n                    \"S\": \"value1\"\n                },\n                \"id\": {\n                    \"S\": \"id123\"\n                }\n            }\n        }\n    ],\n    \"negotiatorIds\": [\n        {\n            \"S\": \"AAAN\"\n        },\n        {\n            \"S\": \"AANW\"\n        },\n        {\n            \"S\": \"AAAW\"\n        },\n        {\n            \"S\": \"AAPW\"\n        },\n        {\n            \"S\": \"LXJ\"\n        },\n        {\n            \"S\": \"GXR\"\n        },\n        {\n            \"S\": \"FRED\"\n        },\n        {\n            \"S\": \"IEOQ\"\n        },\n        {\n            \"S\": \"MBW\"\n        }\n    ]\n}"
       },
       "created": 1590746626195,
       "description": "",
       "headers": [
-        {
-          "id": "pair_cd819d6e32c3409aae10574c7401d984",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
+        { "id": "pair_cd819d6e32c3409aae10574c7401d984", "name": "Content-Type", "value": "application/json" }
       ],
       "isPrivate": false,
       "metaSortKey": -1590746626195,
       "method": "PUT",
-      "modified": 1591260837081,
+      "modified": 1592456782289,
       "name": "CreateConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -2486,11 +2175,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}"
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
     },
     {
       "_id": "req_451851afcd3849f595b77e76af51064c",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590746570426,
@@ -2509,11 +2198,11 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerHealthPath  }}"
+      "url": "{{ webComponent.configServerHealthPath  }}",
+      "_type": "request"
     },
     {
       "_id": "req_4a5587db373a4b3fa49f278920c89539",
-      "_type": "request",
       "authentication": {},
       "body": {},
       "created": 1590745147616,
@@ -2522,8 +2211,8 @@
       "isPrivate": false,
       "metaSortKey": -1590745147616,
       "method": "GET",
-      "modified": 1592540333334,
-      "name": "GetConfigByClientId",
+      "modified": 1592456712704,
+      "name": "GetConfigByCustomerAppId",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -2532,24 +2221,21 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1"
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
     },
     {
       "_id": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
-      "_type": "environment",
       "color": null,
       "created": 1590743470787,
       "data": {
-        "graphqlServer": {
-          "authorization": "",
-          "path": "{{ protocol  }}://{{ graphQLServerDomain  }}"
-        },
+        "graphqlServer": { "authorization": "", "path": "{{ protocol  }}://{{ graphQLServerDomain  }}" },
         "webComponent": {
           "appointmentsPath": "{{ protocol  }}://{{ webComponentServerDomain  }}",
           "configServerHealthPath": "{{ protocol  }}://{{ webComponentConfigServerDomain  }}/dev/v1/health",
           "configServerPath": "{{ protocol }}://{{ webComponentConfigServerDomain  }}/dev/v1/web-components-config",
           "searchWidgetPath": "{{ protocol  }}://{{ webComponentServerDomain  }}",
-          "token": "9c116b08-ee80-4ddf-bd5c-337f2ccac361"
+          "token": ""
         }
       },
       "dataPropertyOrder": {
@@ -2565,32 +2251,32 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1597135971412,
+      "modified": 1591079961063,
       "name": "Base Environment",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "environment"
     },
     {
       "_id": "jar_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
-      "_type": "cookie_jar",
       "cookies": [],
       "created": 1590743470796,
       "modified": 1590743470796,
       "name": "Default Jar",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "cookie_jar"
     },
     {
       "_id": "spc_5068094654374bdcaeab3a9dd30ffe2f",
-      "_type": "api_spec",
       "contentType": "yaml",
       "contents": "",
       "created": 1591178451254,
       "fileName": "Reapit APIs Documentation",
       "modified": 1591178451254,
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75"
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "api_spec"
     },
     {
       "_id": "env_91c1ac7e91254caaa5fd4d89f33a6bef",
-      "_type": "environment",
       "color": "#ecec00",
       "created": 1590743508931,
       "data": {
@@ -2604,17 +2290,17 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1591348906538,
+      "modified": 1591079896583,
       "name": "development",
-      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a"
+      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
+      "_type": "environment"
     },
     {
       "_id": "env_26e0603a03b04ea0b9193141c364e50a",
-      "_type": "environment",
       "color": "#00c400",
       "created": 1590743650077,
       "data": {
-        "graphQLServerDomain": "localhost:3000/local/graphql",
+        "graphQLServerDomain": "localhost:4000",
         "protocol": "http",
         "webComponentConfigServerDomain": "localhost:3000",
         "webComponentServerDomain": "localhost:3000"
@@ -2624,17 +2310,17 @@
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1597051706753,
+      "modified": 1597131609948,
       "name": "local",
-      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a"
+      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
+      "_type": "environment"
     },
     {
       "_id": "env_d301a83fdd3340ebb667ae00304ba8b6",
-      "_type": "environment",
       "color": "#d00000",
       "created": 1590748587252,
       "data": {
-        "graphQLServerDomain": "8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
+        "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
         "protocol": "https",
         "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
@@ -2646,7 +2332,8 @@
       "metaSortKey": 2,
       "modified": 1591080062972,
       "name": "production",
-      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a"
+      "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
+      "_type": "environment"
     }
   ]
 }
