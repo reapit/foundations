@@ -1,7 +1,7 @@
 import dynamoDBMapper from '@/dynamodb-mapper'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import logger from '@/logger'
-import { CreateParams, DeleteParams, UpdateParams, GetByOfficeIdParams } from '@/schemas/property-projector-config/projector-api-types'
+import { CreateParams, DeleteParams, UpdateParams, GetByOfficeIdParams } from '@/schemas/property-projector-config/api-types'
 import { PropertyProjectorConfig } from '@/schemas/property-projector-config/schema'
 import { generateSchemaItem } from '@/schemas/property-projector-config/utils'
 import { stringifyError } from '@reapit/node-utils'

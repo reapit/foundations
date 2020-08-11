@@ -13,9 +13,9 @@ export const propertyProjectorConfigGetByIdHandler = async (req: AppRequest, res
       data: { customerId: req.params.customerId, officeId: req.params.officeId },
       traceId: req.traceId,
     }
-    const { data } = params
+    //const { data } = params
 
-    validateGetById(data)
+    //validateGetById(data)
     const result = await getConfigByOfficeId(params)
     return res.send(result)
   } catch (err) {
@@ -28,8 +28,26 @@ export const propertyProjectorConfigGetByIdHandler = async (req: AppRequest, res
   }
 }
 
-export const propertyProjectorConfigPutHandler = async (res: AppResponse) => {
-    return res.send({ message: 'no errors', code: '200', traceId: 'nothing to trace' })
+export const propertyProjectorConfigPutHandler = async (req: AppRequest, res: AppResponse) => {
+  try {
+    const params = {
+      data: { ...req.body, customerId: req.params.customerId, officeId: req.params.officeId },
+      traceId: req.traceId,
+    }
+    //const { data } = params
+    //validateCreate(data)
+    const result = await putConfig(params)
+
+    return res.send(result)
+  } catch (err) {
+    await logger.error('propertyProjectorConfig.put', {
+      traceId: req.traceId,
+      error: stringifyError(err),
+      headers: JSON.stringify(req.headers),
+    })
+
+    return res.send({ message: err.message, code: err.code, traceId: req.traceId })
+  }
 }
 
 propertyProjectorConfig.get('/:customerId/:officeId', propertyProjectorConfigGetByIdHandler)
