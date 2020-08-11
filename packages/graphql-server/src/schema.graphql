@@ -697,7 +697,7 @@ type Mutation {
   ): TenancyModel!
   CreateTenancyCheck(id: String!, description: String, type: String, status: String): TenancyCheckModel!
   DeleteTenancyCheck(id: String!, checkId: String!): Boolean!
-  UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): TenancyCheckModel!
+  UpdateTenancyCheck(id: String!, checkId: String!, status: String, _eTag: String!): TenancyCheckModel!
 }
 
 type AppointmentAttendeeModel {
@@ -1419,10 +1419,6 @@ type TenancyCheckModel {
 input CreateTenancyRequestModelSource {
   id: String
   type: String
-}
-
-input UpdateTenancyCheckModel {
-  status: String
 }
 
 schema {

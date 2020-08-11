@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-08-11T09:54:39.850Z",
+  "__export_date": "2020-08-11T10:49:59.677Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
@@ -25,7 +25,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670001,
       "method": "POST",
-      "modified": 1597139598286,
+      "modified": 1597140913311,
       "name": "GetOffers",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -86,7 +86,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130669976,
       "method": "POST",
-      "modified": 1597139596307,
+      "modified": 1597142036062,
       "name": "GetOfferById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -154,7 +154,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130460815,
       "method": "POST",
-      "modified": 1597131606702,
+      "modified": 1597140677856,
       "name": "GetApplicantRelationshipById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -222,7 +222,7 @@
       "isPrivate": false,
       "metaSortKey": -1597051797401,
       "method": "POST",
-      "modified": 1597131887903,
+      "modified": 1597140927635,
       "name": "GetApplicants",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -284,7 +284,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316484.75,
       "method": "POST",
-      "modified": 1597136033472,
+      "modified": 1597141219016,
       "name": "GetTenancies",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -294,7 +294,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -318,7 +318,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316459.75,
       "method": "POST",
-      "modified": 1597136079232,
+      "modified": 1597141226688,
       "name": "GetTenancyById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -328,7 +328,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -352,7 +352,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316447.25,
       "method": "POST",
-      "modified": 1597136034465,
+      "modified": 1597141224138,
       "name": "GetTenancyRelationships",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -362,7 +362,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -386,7 +386,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316441,
       "method": "POST",
-      "modified": 1597139258020,
+      "modified": 1597141228897,
       "name": "GetTenancyChecks",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -420,7 +420,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316437.875,
       "method": "POST",
-      "modified": 1597131217180,
+      "modified": 1597141231135,
       "name": "GetTenancyCheckById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -430,7 +430,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -454,7 +454,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316434.75,
       "method": "POST",
-      "modified": 1597052198518,
+      "modified": 1597141215757,
       "name": "GetAppointments",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -590,7 +590,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994285622.8438,
       "method": "POST",
-      "modified": 1597131889812,
+      "modified": 1597140908617,
       "name": "GetNegotiators",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -658,7 +658,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994214374.8281,
       "method": "POST",
-      "modified": 1591029056021,
+      "modified": 1597140908089,
       "name": "GetOffices",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -965,7 +965,7 @@
       "isPrivate": false,
       "metaSortKey": -1590993644390.7031,
       "method": "POST",
-      "modified": 1591029010414,
+      "modified": 1597140906817,
       "name": "GetContactById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -1067,7 +1067,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499286,
       "method": "POST",
-      "modified": 1597139636389,
+      "modified": 1597141676627,
       "name": "CreateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1118,7 +1118,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499261,
       "method": "POST",
-      "modified": 1597139637244,
+      "modified": 1597141619772,
       "name": "UpdateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1313,8 +1313,144 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1597135525682,
+      "modified": 1597141242031,
       "name": "CreateAppointment",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_87c668d51f8246ba895b105fc7e2bd2f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateTenancy($startDate: String, $endDate: String, $agentRole: String, $rent: Int, $rentFrequency: String, $isPeriodic: Boolean, $typeId: String, $negotiatorId: String, $propertyId: String, $applicantId: String, $source: CreateTenancyRequestModelSource) {\\n  CreateTenancy(startDate: $startDate, endDate: $endDate, agentRole: $agentRole, rent: $rent, rentFrequency: $rentFrequency, isPeriodic: $isPeriodic, typeId: $typeId, negotiatorId: $negotiatorId, propertyId: $propertyId, applicantId: $applicantId, source: $source) {\\n    id\\n    created\\n    modified\\n    startDate\\n    endDate\\n    status\\n    agentRole\\n    rent\\n    rentFrequency\\n    endDateConfirmed\\n    isPeriodic\\n    typeId\\n    negotiatorId\\n    propertyId\\n    applicantId\\n  }\\n}\\n\",\"variables\":{\"startDate\":\"2020-01-01\",\"endDate\":\"2021-01-01\",\"agentRole\":\"managed\",\"rent\":600,\"rentFrequency\":\"monthly\",\"isPeriodic\":true,\"typeId\":\"SL\",\"negotiatorId\":\"JAS\",\"propertyId\":\"OXF200497\",\"applicantId\":\"OXF200012\",\"source\":{\"id\":\"OXF\",\"type\":\"office\"}},\"operationName\":\"CreateTenancy\"}"
+      },
+      "created": 1597141280305,
+      "description": "",
+      "headers": [
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007860242.4375,
+      "method": "POST",
+      "modified": 1597141885953,
+      "name": "CreateTenancy",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5055588f8b1b4094978057fabba5de65",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateTenancyCheck($id: String!, $description: String, $type: String, $status: String) {\\n  CreateTenancyCheck(id: $id, description: $description, type: $type, status: $status) {\\n    tenancyId\\n    _eTag\\n    _links\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"description\":\"Tenant welcome pack\",\"type\":\"preTenancy\",\"status\":\"needed\"},\"operationName\":\"CreateTenancyCheck\"}"
+      },
+      "created": 1597141492508,
+      "description": "",
+      "headers": [
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007602941.1562,
+      "method": "POST",
+      "modified": 1597142925810,
+      "name": "CreateTenancyCheck",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_19491b10e995486287335ef98dd660d9",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateTenancyCheck($id: String!, $checkId: String!, $status: String, $_eTag: String!) {\\n  UpdateTenancyCheck(id: $id, checkId: $checkId, status: $status, _eTag: $_eTag) {\\n    tenancyId\\n    _eTag\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"_eTag\":\"4B68CE30C8C02A1C2259C0D81CB012D0\",\"checkId\":\"RPT20000703\",\"status\":\"needed\"},\"operationName\":\"UpdateTenancyCheck\"}"
+      },
+      "created": 1597142248332,
+      "description": "",
+      "headers": [
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007538615.836,
+      "method": "POST",
+      "modified": 1597142813622,
+      "name": "UpdateTenancyCheck",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7a6eb04c19ec4807abbbffa935aa2d48",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation DeleteTenancyCheck($id: String!, $checkId: String!) {\\n  DeleteTenancyCheck(id: $id, checkId: $checkId)\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"checkId\":\"RPT20000704\"},\"operationName\":\"DeleteTenancyCheck\"}"
+      },
+      "created": 1597141862504,
+      "description": "",
+      "headers": [
+        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007474290.5156,
+      "method": "POST",
+      "modified": 1597142949699,
+      "name": "DeleteTenancyCheck",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -1347,7 +1483,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007345639.875,
       "method": "POST",
-      "modified": 1597135353370,
+      "modified": 1597142949343,
       "name": "UpdateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1823,7 +1959,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006573473.5312,
       "method": "POST",
-      "modified": 1597139249491,
+      "modified": 1597141587241,
       "name": "UpdatePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2251,7 +2387,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1591079961063,
+      "modified": 1597141899467,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -2266,12 +2402,12 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_5068094654374bdcaeab3a9dd30ffe2f",
+      "_id": "spc_aab19c533bf44649bb9a673c466635db",
       "contentType": "yaml",
       "contents": "",
-      "created": 1591178451254,
+      "created": 1592456076991,
       "fileName": "Reapit APIs Documentation",
-      "modified": 1591178451254,
+      "modified": 1592456076991,
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "api_spec"
     },
@@ -2290,7 +2426,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1591079896583,
+      "modified": 1597142035694,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -2337,3 +2473,4 @@
     }
   ]
 }
+

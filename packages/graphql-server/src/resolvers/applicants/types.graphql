@@ -160,9 +160,8 @@ type Query {
 
   GetApplicantById(id: String!, embed: [String]): ApplicantModel!
   GetApplicantRelationshipById(id: String!, relationshipId: String!): ApplicantContactRelationshipModel!
-  GetApplicantRelationships(id: String!, pageSize: Int,pageNumber: Int): PagedResultApplicantContactRelationshipModel!
+  GetApplicantRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultApplicantContactRelationshipModel!
 }
-
 
 input ApplicantAddressInput {
   buildingName: String
@@ -234,7 +233,7 @@ type Mutation {
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
-    renting:ApplicantRentingInput
+    renting: ApplicantRentingInput
     externalArea: ApplicantExternalAreaInput
     internalArea: ApplicantInternalAreaInput
     source: ApplicantSourceInput
@@ -284,8 +283,5 @@ type Mutation {
     associatedType: String!
     isMain: Boolean!
   ): ApplicantContactRelationshipModel
-  DeleteApplicantRelationship(
-    id: String!
-    relationshipId: String!
-  ): String!
+  DeleteApplicantRelationship(id: String!, relationshipId: String!): String!
 }

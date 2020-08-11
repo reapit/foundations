@@ -26,36 +26,23 @@ type PropertyImageModel {
 
 type Query {
   GetPropertyImages(
-    pageSize: Int,
-    pageNumber: Int,
-    sortBy: String,
-    id: [String!],
-    embed: [String!],
-    propertyId: [String!],
-    type: [String!],
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    embed: [String!]
+    propertyId: [String!]
+    type: [String!]
     metadata: [String!]
   ): PagedResultPropertyImageModel!
 
-  GetPropertyImageById(
-    id: String!,
-    embed: [String!]
-  ): PropertyImageModel!
+  GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
 }
 
 type Mutation {
-  CreatePropertyImage(
-    data: String
-    propertyId: String
-    caption: String
-    type: String
-  ): PropertyImageModel!
+  CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
 
-  UpdatePropertyImage(
-    _eTag: String!,
-    id: String!,
-    caption: String
-    type: String  
-  ): PropertyImageModel!
+  UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
 
   DeletePropertyImage(id: String!): Boolean!
 }
