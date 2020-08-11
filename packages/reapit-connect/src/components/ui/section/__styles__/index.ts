@@ -10,8 +10,8 @@ export const gridItem = css`
   padding-right: 1em;
 
   @media screen and (min-width: 768px) {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
   }
 `
 

@@ -32,7 +32,6 @@ export const Welcome: React.FC<WelcomeProps> = () => {
       {developerId && (
         <RowSection
           background="#209bd4"
-          imageLeft={false}
           heading="Developer Portal"
           subheading="A self-service platform"
           description="The Foundations Developer Portal provides a fully scalable, high-performance platform that developers can
@@ -54,6 +53,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
       {clientId && (
         <RowSection
           background="#1e2554"
+          imageLeft={false}
           heading="Marketplace"
           subheading="Enhancing the power of Agency Cloud"
           description="The Foundations App Marketplace provides agencies with a variety of app and software integrations that have been tested and approved for immediate integration, allowing agencies to customise their Reapit CRM software to suit their business needs."
