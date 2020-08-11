@@ -10109,3 +10109,812 @@ export interface Vendors {
   NextCallFrom?: string
   NextCallTo?: string
 }
+
+export interface Tenancies {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  id?: string[]
+  negotiatorId?: string[]
+  applicantId?: string[]
+  propertyId?: string[]
+  status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+  metadata?: string[]
+}
+/**
+ * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
+ */
+export interface TenancyCheckModel {
+  /**
+   * The unique identifier of the tenancy check
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy check was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy check was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Textual description of what the tenancy check relates to
+   */
+  description?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The unique identifier of the tenancy that this check relates to
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the teanncy check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of the physical address of a building or premise
+ */
+export interface TenancyContactAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * A summarised view of the details of a contact or company associated to a tenancy
+ */
+export interface TenancyContactModel {
+  /**
+   * The unique identifier of the contact or company
+   */
+  id?: string
+  /**
+   * The complete name of the contact or company
+   */
+  name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
+  /**
+   * The type of the contact (company/contact)
+   */
+  type?: string
+  /**
+   * The home phone number of the contact or company
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the contact or company
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact or company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact or company
+   */
+  email?: string
+  /**
+   * The primary address of the contact or company
+   */
+  primaryAddress?: {
+    /**
+     * The building name
+     */
+    buildingName?: string
+    /**
+     * The building number
+     */
+    buildingNumber?: string
+    /**
+     * The first line of the address
+     */
+    line1?: string
+    /**
+     * The second line of the address
+     */
+    line2?: string
+    /**
+     * The third line of the address
+     */
+    line3?: string
+    /**
+     * The fourth line of the address
+     */
+    line4?: string
+    /**
+     * The postcode
+     */
+    postcode?: string
+    /**
+     * The ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+}
+/**
+ * Representation of a relationship between a tenancy and a contact or company
+ */
+export interface TenancyContactRelationshipModel {
+  /**
+   * The unique identifier of the tenancy relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the tenancy
+   */
+  tenancyId?: string
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not this contact or company should be regarded as the main tenant
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a tenancy
+ */
+export interface TenancyModel {
+  /**
+   * The unique identifier of the tenancy
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+   */
+  status?: string
+  /**
+   * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not the tenancy is confirmed to finish at the end date
+   */
+  endDateConfirmed?: boolean
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property that relates to the tenancy
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for this tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company
+     */
+    id?: string
+    /**
+     * The complete name of the contact or company
+     */
+    name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
+    /**
+     * The type of the contact (company/contact)
+     */
+    type?: string
+    /**
+     * The home phone number of the contact or company
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact or company
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact or company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact or company
+     */
+    email?: string
+    /**
+     * The primary address of the contact or company
+     */
+    primaryAddress?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+  }[]
+  /**
+   * The ETag for the current version of the tenancy. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * A tenancy source of enquiry
+ */
+export interface TenancySourceModel {
+  /**
+   * The unique identifier of the source for this tenancy
+   */
+  id?: string
+  /**
+   * The source type (office/source)
+   */
+  type?: string
+}
+/**
+ * The details specific to applicants with a marketingMode of buying
+ */
+export interface UpdateApplicantBuyingModel {
+  /**
+   * The lower bound of the applicant's budget
+   */
+  priceFrom?: number // int32
+  /**
+   * The upper bound of the applicant's budget
+   */
+  priceTo?: number // int32
+}
+
+export interface UpdateTenancyCheckModel {
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+}
+export interface CreateTenancyModel {
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property that relates to the tenancy
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of enquiry for the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for the tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+}
+export interface CreateTenancyCheckModel {
+  /**
+   * Short, descriptive text describing the purpose of the check
+   */
+  description?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+}
+
+export interface PagedResultTenancyModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * example:
+     * 2019-08-14
+     */
+    startDate?: string // date
+    /**
+     * example:
+     * 2019-08-14
+     */
+    endDate?: string // date
+    /**
+     * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+     */
+    status?: string
+    /**
+     * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
+    /**
+     * The amount of rent required, returned in relation to the collection frequency
+     */
+    rent?: number // int32
+    /**
+     * The rent collection frequency (weekly/monthly/annually)
+     */
+    rentFrequency?: string
+    /**
+     * A flag determining whether or not the tenancy is confirmed to finish at the end date
+     */
+    endDateConfirmed?: boolean
+    /**
+     * A flag determining whether or not the tenancy has been extended indefinitely
+     */
+    isPeriodic?: boolean
+    /**
+     * The unique identifier of the type of tenancy
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator who is managing the tenancy
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the property that relates to the tenancy
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the applicant who has applied to be a tenant
+     */
+    applicantId?: string
+    /**
+     * The source of the tenancy
+     */
+    source?: {
+      /**
+       * The unique identifier of the source for this tenancy
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact or company
+       */
+      id?: string
+      /**
+       * The complete name of the contact or company
+       */
+      name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
+      /**
+       * The type of the contact (company/contact)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact or company
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact or company
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact or company
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact or company
+       */
+      email?: string
+      /**
+       * The primary address of the contact or company
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * The ETag for the current version of the tenancy. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultTenancyContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the tenancy
+     */
+    tenancyId?: string
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not this contact or company should be regarded as the main tenant
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultTenancyCheckModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy check
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy check was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy check was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Textual description of what the tenancy check relates to
+     */
+    description?: string
+    /**
+     * The status of the tenancy check (needed/notNeeded/arranging/completed)
+     */
+    status?: string
+    /**
+     * The type of the tenancy check (preTenancy/postTenancy)
+     */
+    type?: string
+    /**
+     * The unique identifier of the tenancy that this check relates to
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the teanncy check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
