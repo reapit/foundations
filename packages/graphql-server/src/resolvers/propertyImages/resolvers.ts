@@ -12,6 +12,8 @@ import {
   QueryGetPropertyImagesReturn,
   MutationCreatePropertyImageReturn,
   MutationUpdatePropertyImageReturn,
+  DeletePropertyImageArgs,
+  MutationDeletePropertyImageReturn,
 } from './propertyImages'
 
 export const queryGetPropertyImageById = (
@@ -70,6 +72,20 @@ export const mutationUpdatePropertyImage = (
   return propertyServices.updatePropertyImage(args, context)
 }
 
+export const mutationDeletePropertyImage = (
+  _: any,
+  args: DeletePropertyImageArgs,
+  context: ServerContext,
+): MutationDeletePropertyImageReturn => {
+  const traceId = context.traceId
+  logger.info('mutationDeletePropertyImage', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return propertyServices.deletePropertyImage(args, context)
+}
+
 export default {
   Query: {
     GetPropertyImageById: queryGetPropertyImageById,
@@ -78,5 +94,6 @@ export default {
   Mutation: {
     CreatePropertyImage: mutationCreatePropertyImage,
     UpdatePropertyImage: mutationUpdatePropertyImage,
+    DeletePropertyImage: mutationDeletePropertyImage,
   },
 }

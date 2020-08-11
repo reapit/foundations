@@ -1,7 +1,6 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   PropertyImageModel,
-  PropertyImages,
   PagedResultPropertyImageModel_,
   CreatePropertyImageModel,
   UpdatePropertyImageModel,
@@ -10,6 +9,8 @@ import {
 export type CreatePropertyImageArgs = CreatePropertyImageModel
 
 export type UpdatePropertyImageArgs = { id: string; _eTag: string } & UpdatePropertyImageModel
+
+export type DeletePropertyImageArgs = { id: string }
 
 export type GetPropertyImageByIdArgs = {
   id: string
@@ -30,9 +31,11 @@ export type GetPropertyImageByIdReturn = Promise<PropertyImageModel | UserInputE
 export type GetPropertyImagesReturn = Promise<PagedResultPropertyImageModel_ | UserInputError>
 export type CreatePropertyImageReturn = Promise<PropertyImageModel | UserInputError>
 export type UpdatePropertyImageReturn = Promise<PropertyImageModel | UserInputError>
+export type DeletePropertyImageReturn = Promise<boolean | UserInputError>
 
 // resolver type
 export type QueryGetPropertyImageByIdReturn = AuthenticationError | GetPropertyImageByIdReturn
 export type QueryGetPropertyImagesReturn = AuthenticationError | GetPropertyImagesReturn
 export type MutationCreatePropertyImageReturn = AuthenticationError | CreatePropertyImageReturn
 export type MutationUpdatePropertyImageReturn = AuthenticationError | UpdatePropertyImageReturn
+export type MutationDeletePropertyImageReturn = AuthenticationError | DeletePropertyImageReturn

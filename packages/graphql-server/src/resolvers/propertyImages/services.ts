@@ -9,12 +9,15 @@ import {
   GetPropertyImagesReturn,
   CreatePropertyImageReturn,
   UpdatePropertyImageReturn,
+  DeletePropertyImageArgs,
+  DeletePropertyImageReturn,
 } from './propertyImages'
 import {
   callGetPropertyImageByIdAPI,
   callGetPropertyImagesAPI,
   callCreatePropertyImageAPI,
   callUpdatePropertyImageAPI,
+  callDeletePropertyImageAPI,
 } from './api'
 
 export const getPropertyImageById = (
@@ -54,11 +57,22 @@ export const updatePropertyImage = (
   return updateResult
 }
 
+export const deletePropertyImage = (
+  args: DeletePropertyImageArgs,
+  context: ServerContext,
+): DeletePropertyImageReturn => {
+  const traceId = context.traceId
+  logger.info('deletePropertyImage', { traceId, args })
+  const deleteResult = callDeletePropertyImageAPI({ ...args }, context)
+  return deleteResult
+}
+
 const propertyServices = {
   getPropertyImageById,
   getPropertyImages,
   createPropertyImage,
   updatePropertyImage,
+  deletePropertyImage,
 }
 
 export default propertyServices

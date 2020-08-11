@@ -423,8 +423,8 @@ type Mutation {
     metadata: JSON
   ): PropertyModel!
   CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
-  UpdatePropertyImage(If_Match: String!, id: String!, caption: String, type: String): PropertyImageModel!
-  DeletePropertyImage(id: String!): JSON!
+  UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
+  DeletePropertyImage(id: String!): Boolean!
 }
 
 type AreaModel {

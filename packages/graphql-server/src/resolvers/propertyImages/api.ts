@@ -10,6 +10,8 @@ import {
   GetPropertyImagesReturn,
   CreatePropertyImageReturn,
   UpdatePropertyImageReturn,
+  DeletePropertyImageArgs,
+  DeletePropertyImageReturn,
 } from './propertyImages'
 import errors from '../../errors'
 import { URLS } from '../../constants/api'
@@ -109,6 +111,31 @@ export const callUpdatePropertyImageAPI = async (
     return errors.generateUserInputError(traceId)
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdatePropertyImageAPI' })
+    return handleErrorResult
+  }
+}
+
+export const callDeletePropertyImageAPI = async (
+  args: DeletePropertyImageArgs,
+  context: ServerContext,
+): DeletePropertyImageReturn => {
+  const traceId = context.traceId
+  logger.info('callDeletePropertyImageAPI', { traceId, args })
+  try {
+    const deleteResponse = await createPlatformAxiosInstance().delete<DeletePropertyImageReturn>(
+      `${URLS.propertyImages}/${args.id}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
+      },
+    )
+    if (deleteResponse.status === 204) {
+      return true
+    }
+    return errors.generateUserInputError(traceId)
+  } catch (error) {
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callDeletePropertyImageAPI' })
     return handleErrorResult
   }
 }

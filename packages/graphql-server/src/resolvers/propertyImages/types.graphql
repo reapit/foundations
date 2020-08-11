@@ -51,12 +51,11 @@ type Mutation {
   ): PropertyImageModel!
 
   UpdatePropertyImage(
-    If_Match: String!,
+    _eTag: String!,
     id: String!,
     caption: String
     type: String  
   ): PropertyImageModel!
 
-  DeletePropertyImage(id: String!): JSON!
+  DeletePropertyImage(id: String!): Boolean!
 }
-
