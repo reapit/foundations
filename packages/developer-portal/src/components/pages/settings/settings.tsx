@@ -5,7 +5,8 @@ import { Tabs } from './tabs'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
-import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const getCurrentUserRole = (invitedMember: MemberModel[], email?: string | null) => {
   const currentUser = invitedMember?.find((item: MemberModel) => {
@@ -15,11 +16,11 @@ export const getCurrentUserRole = (invitedMember: MemberModel[], email?: string 
 }
 
 const SettingsPage: React.FC = () => {
-  const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const invitedMember = useSelector(selectOrganisationMembers)
-  const role = getCurrentUserRole(invitedMember, developerInfo.email)
+  const role = getCurrentUserRole(invitedMember, connectSession?.loginIdentity?.email)
   const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
-  if (!developerInfo.id || invitedMemberLoading) {
+  if (!connectSession?.loginIdentity?.email || invitedMemberLoading) {
     return <Loader />
   }
 
