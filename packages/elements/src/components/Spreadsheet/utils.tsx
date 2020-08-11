@@ -65,7 +65,12 @@ export const convertToCompatibleData = (parsedResult): Cell[][] =>
  * Convert back from Cell[][] to string[][]
  */
 export const convertDataToCsv = (data: Cell[][]): string[][] =>
-  data.map(rowArray => rowArray.map(({ value }) => value)) as string[][]
+  data.map(rowArray =>
+    rowArray.map(({ value, key }) => {
+      if (key && (key === 'id' || key === '_eTag')) return ''
+      return value
+    }),
+  ) as string[][]
 
 // Diffing algorithm to find differences between data array
 export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): ChangedCells => {
