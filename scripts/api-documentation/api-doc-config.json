@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-06-18T05:08:07.219Z",
-  "__export_source": "insomnia.desktop.app:v2020.2.2",
+  "__export_date": "2020-08-11T07:06:36.630Z",
+  "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
       "_id": "req_d451e139e9454c789160103fefbd7ec1",
@@ -29,7 +29,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316434.75,
       "method": "POST",
-      "modified": 1591069774143,
+      "modified": 1593621697550,
       "name": "GetAppointments",
       "parameters": [
         {
@@ -96,7 +96,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994713110.9375,
       "method": "POST",
-      "modified": 1591031091333,
+      "modified": 1593621700578,
       "name": "GetAppointmentById",
       "parameters": [
         {
@@ -186,7 +186,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994356870.8594,
       "method": "POST",
-      "modified": 1591028153383,
+      "modified": 1593621701933,
       "name": "GetIdentityCheckById",
       "parameters": [
         {
@@ -231,7 +231,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994285622.8438,
       "method": "POST",
-      "modified": 1591072989286,
+      "modified": 1593621733640,
       "name": "GetNegotiators",
       "parameters": [
         {
@@ -411,8 +411,53 @@
       "isPrivate": false,
       "metaSortKey": -1590994178750.8203,
       "method": "POST",
-      "modified": 1591029006746,
+      "modified": 1597059195863,
       "name": "GetProperties",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_dec8e67d4f0b4e9881f1ca233f10987a",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"# Write your query or mutation here\\nquery GetPropertyImages($pageSize: Int){\\n  GetPropertyImages(pageSize: $pageSize) {\\n    _embedded {\\n      id\\n      url\\n      caption\\n      type\\n      _eTag\\n    }\\n  }\\n}\",\"variables\":{\"pageSize\":10},\"operationName\":\"GetPropertyImages\"}"
+      },
+      "created": 1597059030426,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1590994160938.8164,
+      "method": "POST",
+      "modified": 1597119432990,
+      "name": "GetPropertyImages",
       "parameters": [
         {
           "description": "",
@@ -456,8 +501,53 @@
       "isPrivate": false,
       "metaSortKey": -1590993893758.7578,
       "method": "POST",
-      "modified": 1591029992297,
+      "modified": 1597117573018,
       "name": "GetPropertyById",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_72d5c90fa0084543aa02a8ff16fc7f4b",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"# Write your query or mutation here\\nquery GetPropertyImageById($id: String!){\\n  GetPropertyImageById(id: $id) {\\n    id\\n    created\\n    modified\\n    caption\\n    _eTag\\n  }\\n}\",\"variables\":{\"id\":\"OXF100008_10.png\"},\"operationName\":\"GetPropertyImageById\"}"
+      },
+      "created": 1597059275275,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1590993875946.754,
+      "method": "POST",
+      "modified": 1597119367042,
+      "name": "GetPropertyImageById",
       "parameters": [
         {
           "description": "",
@@ -597,7 +687,7 @@
       "isPrivate": false,
       "metaSortKey": -1590993715638.7188,
       "method": "POST",
-      "modified": 1591069782056,
+      "modified": 1591155860253,
       "name": "GetContacts",
       "parameters": [
         {
@@ -642,7 +732,7 @@
       "isPrivate": false,
       "metaSortKey": -1590993644390.7031,
       "method": "POST",
-      "modified": 1591029010414,
+      "modified": 1597118496038,
       "name": "GetContactById",
       "parameters": [
         {
@@ -757,7 +847,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2018-08-14T12:30:02.0000000Z\",\"end\":\"2018-08-14T13:30:02.0000000Z\",\"followUpOn\":\"2018-10-05\",\"typeId\":\"VW\",\"description\":\"Meet landlord at the property to get the key.\",\"organiserId\":\"JAS\",\"negotiatorIds\":[\"JAS\"],\"officeIds\":[\"OXF\",\"SOL\"]},\"operationName\":\"CreateAppointment\"}"
+        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2020-08-11T12:30:02.0000000Z\",\"end\":\"2020-08-11T13:30:02.0000000Z\",\"followUpOn\":\"2020-08-12\",\"typeId\":\"VW\",\"description\":\"Test 123123\",\"organiserId\":\"JAS\",\"propertyId\":\"RPT200075\",\"negotiatorIds\":[\"LJW\"],\"officeIds\":[\"OXF\",\"SOL\"],\"accompanied\":true,\"negotiatorConfirmed\":true},\"operationName\":\"CreateAppointment\"}"
       },
       "created": 1591008374845,
       "description": "",
@@ -777,7 +867,7 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1591010967447,
+      "modified": 1597058996317,
       "name": "CreateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1245,8 +1335,46 @@
       "isPrivate": false,
       "metaSortKey": -1591006830562.3125,
       "method": "POST",
-      "modified": 1591029868648,
+      "modified": 1597119282586,
       "name": "CreateProperty",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2a9ca145731b482ea4def69624ff5a3c",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreatePropertyImage (\\n  $data: String\\n  $propertyId: String\\n  $caption: String\\n  $type: String\\n) {\\n  CreatePropertyImage(\\n    data: $data\\n    propertyId: $propertyId\\n    caption: $caption\\n    type: $type\\n  ) {\\n    id\\n    url\\n    caption\\n    _eTag\\n  }\\n}\",\"variables\":{\"data\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"propertyId\":\"OXF100008\",\"caption\":\"Living room zzz\",\"type\":\"photograph\"},\"operationName\":\"CreatePropertyImage\"}"
+      },
+      "created": 1597117606726,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591006830537.3125,
+      "method": "POST",
+      "modified": 1597119284547,
+      "name": "CreatePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -1283,8 +1411,84 @@
       "isPrivate": false,
       "metaSortKey": -1591006830512.3125,
       "method": "POST",
-      "modified": 1591029893078,
+      "modified": 1597119504594,
       "name": "UpdateProperty",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_dd76ffe8ead7435795fbf98ce226915a",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdatePropertyImage (\\n  $id: String!,\\n  $_etag: String!,\\n  $caption: String) \\n  {\\n  UpdatePropertyImage(\\n    id: $id,\\n    _eTag: $_etag,\\n    caption: $caption\\n  ) {\\n    id\\n    _eTag\\n    caption\\n  }\\n}\",\"variables\":{\"id\":\"OXF100008_10.png\",\"_etag\":\"\\\"782C2F49E66DA97852E5EFBB20143434\\\"\",\"caption\":\"Lorem Lorem Loremmmm\"},\"operationName\":\"UpdatePropertyImage\"}"
+      },
+      "created": 1597117960728,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591006573473.5312,
+      "method": "POST",
+      "modified": 1597129542253,
+      "name": "UpdatePropertyImage",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_271de6959e954a3a8d00389024f2849f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation DeletePropertyImage (\\n  $id: String!,\\n) \\n  {\\n  DeletePropertyImage(\\n    id: $id,\\n  )\\n}\",\"variables\":{\"id\":\"OXF100008_12.png\"},\"operationName\":\"DeletePropertyImage\"}"
+      },
+      "created": 1597118410112,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591006444954.1406,
+      "method": "POST",
+      "modified": 1597119010782,
+      "name": "DeletePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -1544,50 +1748,6 @@
       "_type": "request"
     },
     {
-      "_id": "req_406fe912766d462a904859c35581de00",
-      "authentication": {},
-      "body": {
-        "mimeType": "application/json",
-        "text": "{\n    \"customerId\": \"DXX\",\n    \"appId\": \"1\",\n    \"appointmentLength\": 1,\n    \"daysOfWeek\": [1],\n    \"appointmentTimeGap\": 5,\n    \"appointmentTypes\": [\n        {\n            \"M\": {\n                \"value\": {\n                    \"S\": \"value1\"\n                },\n                \"id\": {\n                    \"S\": \"id1\"\n                }\n            }\n        }\n    ],\n    \"negotiatorIds\": [\n        {\n            \"S\": \"AAAN\"\n        },\n        {\n            \"S\": \"AANW\"\n        },\n        {\n            \"S\": \"AAAW\"\n        },\n        {\n            \"S\": \"AAPW\"\n        },\n        {\n            \"S\": \"LXJ\"\n        },\n        {\n            \"S\": \"GXR\"\n        },\n        {\n            \"S\": \"FRED\"\n        },\n        {\n            \"S\": \"IEOQ\"\n        },\n        {\n            \"S\": \"MBW\"\n        }\n    ]\n}"
-      },
-      "created": 1592456300840,
-      "description": "",
-      "headers": [
-        {
-          "id": "pair_cf5e5a26af2f41d590246bf4299e667e",
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
-      "isPrivate": false,
-      "metaSortKey": -1592456300840,
-      "method": "POST",
-      "modified": 1592456554248,
-      "name": "CreateConfig",
-      "parameters": [],
-      "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingFollowRedirects": "global",
-      "settingRebuildPath": true,
-      "settingSendCookies": true,
-      "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1",
-      "_type": "request"
-    },
-    {
-      "_id": "fld_59e5158f7d614a7a95029986b1442fe6",
-      "created": 1590744305320,
-      "description": "",
-      "environment": {},
-      "environmentPropertyOrder": null,
-      "metaSortKey": -1590744305320,
-      "modified": 1590744305320,
-      "name": "Web Component Config Server",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
-    },
-    {
       "_id": "req_1b062d6eb2484d72b6b57deb707f6b56",
       "authentication": {},
       "body": {
@@ -1606,7 +1766,7 @@
       "isPrivate": false,
       "metaSortKey": -1590748042223,
       "method": "DELETE",
-      "modified": 1592456569497,
+      "modified": 1590983703717,
       "name": "DeleteConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -1616,8 +1776,20 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "url": "{{ webComponent.configServerPath  }}/ZZA",
       "_type": "request"
+    },
+    {
+      "_id": "fld_59e5158f7d614a7a95029986b1442fe6",
+      "created": 1590744305320,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1590744305320,
+      "modified": 1590744305320,
+      "name": "Web Component Config Server",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
     },
     {
       "_id": "req_40bb38fadb214e128e8b932cb4fc0b6a",
@@ -1638,8 +1810,8 @@
       "isPrivate": false,
       "metaSortKey": -1590747806399,
       "method": "PATCH",
-      "modified": 1592456580072,
-      "name": "PatchConfig",
+      "modified": 1590993672730,
+      "name": "UpdateConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -1648,7 +1820,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "url": "{{ webComponent.configServerPath  }}/ZZA",
       "_type": "request"
     },
     {
@@ -1656,7 +1828,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/json",
-        "text": "{\n    \"customerId\": \"DXX\",\n    \"appId\": \"1\",\n    \"appointmentLength\": 12,\n    \"daysOfWeek\": [1],\n    \"appointmentTimeGap\": 5,\n    \"appointmentTypes\": [\n        {\n            \"M\": {\n                \"value\": {\n                    \"S\": \"value1\"\n                },\n                \"id\": {\n                    \"S\": \"id123\"\n                }\n            }\n        }\n    ],\n    \"negotiatorIds\": [\n        {\n            \"S\": \"AAAN\"\n        },\n        {\n            \"S\": \"AANW\"\n        },\n        {\n            \"S\": \"AAAW\"\n        },\n        {\n            \"S\": \"AAPW\"\n        },\n        {\n            \"S\": \"LXJ\"\n        },\n        {\n            \"S\": \"GXR\"\n        },\n        {\n            \"S\": \"FRED\"\n        },\n        {\n            \"S\": \"IEOQ\"\n        },\n        {\n            \"S\": \"MBW\"\n        }\n    ]\n}"
+        "text": "{\n\t\"customerId\": \"ZZA\",\n\t\"appointmentLength\": 20,\n\t\"appointmentTimeGap\": 20,\n\t\"appointmentTypes\": [\n\t\t{\n\t\t\t\"id\": \"testId\",\n\t\t\t\"value\": \"test\"\n\t\t}\n\t],\n\t\"negotiatorIds\": [\"test\"],\n\t\"daysOfWeek\": [2]\n}"
       },
       "created": 1590746626195,
       "description": "",
@@ -1670,7 +1842,7 @@
       "isPrivate": false,
       "metaSortKey": -1590746626195,
       "method": "PUT",
-      "modified": 1592456782289,
+      "modified": 1590983721894,
       "name": "CreateConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -1680,7 +1852,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "url": "{{ webComponent.configServerPath  }}",
       "_type": "request"
     },
     {
@@ -1716,8 +1888,8 @@
       "isPrivate": false,
       "metaSortKey": -1590745147616,
       "method": "GET",
-      "modified": 1592456712704,
-      "name": "GetConfigByCustomerAppId",
+      "modified": 1590983729631,
+      "name": "GetConfigByClientId",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -1726,7 +1898,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "url": "{{ webComponent.configServerPath  }}/ZZA",
       "_type": "request"
     },
     {
@@ -1765,7 +1937,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1591079961063,
+      "modified": 1597129541882,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -1780,12 +1952,12 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_aab19c533bf44649bb9a673c466635db",
+      "_id": "spc_2cfedfd6a86348cbaaecc95eba079a6c",
       "contentType": "yaml",
       "contents": "",
-      "created": 1592456076991,
+      "created": 1591155837420,
       "fileName": "Reapit APIs Documentation",
-      "modified": 1592456076991,
+      "modified": 1591155837420,
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "api_spec"
     },
@@ -1809,7 +1981,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1591079896583,
+      "modified": 1591863500633,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -1819,7 +1991,7 @@
       "color": "#00c400",
       "created": 1590743650077,
       "data": {
-        "graphQLServerDomain": "localhost:4000",
+        "graphQLServerDomain": "localhost:3000/local/graphql",
         "protocol": "http",
         "webComponentConfigServerDomain": "localhost:3000",
         "webComponentServerDomain": "localhost:3000"
@@ -1834,7 +2006,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1591030760062,
+      "modified": 1597117569308,
       "name": "local",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -1844,7 +2016,7 @@
       "color": "#d00000",
       "created": 1590748587252,
       "data": {
-        "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
+        "graphQLServerDomain": "8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
         "protocol": "https",
         "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"

@@ -9,6 +9,7 @@ export const URLS = {
   negotiators: '/negotiators',
   properties: '/properties',
   configurations: '/configuration',
+  propertyImages: '/propertyImages',
 }
 
 export const HEADERS = {

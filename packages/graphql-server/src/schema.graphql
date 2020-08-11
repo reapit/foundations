@@ -191,6 +191,17 @@ type Query {
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
   GetPropertyById(id: String!, embed: [String!]): PropertyModel!
+  GetPropertyImages(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    embed: [String!]
+    propertyId: [String!]
+    type: [String!]
+    metadata: [String!]
+  ): PagedResultPropertyImageModel!
+  GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
 }
 
 type Mutation {
@@ -411,6 +422,9 @@ type Mutation {
     areaId: String
     metadata: JSON
   ): PropertyModel!
+  CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
+  UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
+  DeletePropertyImage(id: String!): Boolean!
 }
 
 type AreaModel {
@@ -828,6 +842,30 @@ type PropertyRoomModel {
   name: String
   dimensions: String
   description: String
+}
+
+type PagedResultPropertyImageModel {
+  _embedded: [PropertyImageModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PropertyImageModel {
+  id: String
+  created: String
+  modified: String
+  propertyId: String
+  url: String
+  caption: String
+  type: String
+  order: Int
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
 }
 
 schema {
