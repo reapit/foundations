@@ -2,7 +2,6 @@ import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   ApplicantContactRelationshipModel,
   ApplicantModel,
-  CreateApplicantContactRelationshipModel,
   CreateApplicantModel,
   PagedResultApplicantContactRelationshipModel_,
   PagedResultApplicantModel_,
