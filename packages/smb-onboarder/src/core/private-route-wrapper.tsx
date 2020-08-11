@@ -5,6 +5,8 @@ import { Loader, AppNavContainer, Section, FlexContainerBasic, FlexContainerResp
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
+import { ApolloProvider } from '@apollo/react-hooks'
+import getClient from '@/graphql/client'
 
 const { Suspense } = React
 
@@ -24,22 +26,24 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
-      <Menu />
-      <FlexContainerResponsive hasPadding flexColumn>
-        <FlexContainerBasic isScrollable flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerBasic>
-      </FlexContainerResponsive>
-    </AppNavContainer>
+    <ApolloProvider client={getClient(connectSession?.accessToken || '', window.reapit.config.graphqlUri)}>
+      <AppNavContainer>
+        <Menu />
+        <FlexContainerResponsive hasPadding flexColumn>
+          <FlexContainerBasic isScrollable flexColumn>
+            <Suspense
+              fallback={
+                <Section>
+                  <Loader />
+                </Section>
+              }
+            >
+              {children}
+            </Suspense>
+          </FlexContainerBasic>
+        </FlexContainerResponsive>
+      </AppNavContainer>
+    </ApolloProvider>
   )
 }
 

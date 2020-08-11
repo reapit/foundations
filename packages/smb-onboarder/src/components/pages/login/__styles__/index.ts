@@ -7,7 +7,7 @@ export const loginPageContainer = css`
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: $white;
+  background-color: white;
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
