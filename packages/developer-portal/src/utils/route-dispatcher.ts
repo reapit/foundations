@@ -8,7 +8,7 @@ import { fetchMyIdentity } from '@/actions/developer'
 import { fetchInstallationsList } from '../actions/installations'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
-import { getDeveloperId, getClientId } from './session'
+import { getDeveloperId, getClientId, getLoggedUserEmail } from './session'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
@@ -60,7 +60,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.SETTINGS: {
       const developerId = await getDeveloperId()
-      store.dispatch(fetchOrganisationMembers({ id: developerId }))
+      const orgMemberEmail = await getLoggedUserEmail()
+      store.dispatch(fetchOrganisationMembers({ id: developerId, email: orgMemberEmail }))
       store.dispatch(requestDeveloperData())
       break
     }

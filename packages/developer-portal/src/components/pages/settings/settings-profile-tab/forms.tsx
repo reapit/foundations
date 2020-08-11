@@ -6,7 +6,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperData, changePassword } from '@/actions/settings'
+import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 import { selectSettingsPageIsLoading, selectSettingsPageDeveloperInformation } from '@/selector/settings'
+
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type CreateDispatchersReturn = {
@@ -23,17 +25,22 @@ export const createDispatchers = (dispatch: Dispatch): CreateDispatchersReturn =
   }
 }
 
-export type SelectorReturn = {
-  developerInfo: DeveloperModel | null
-  email: string
-  loading: boolean
-}
-
 export const Forms: React.FC = () => {
   const dispatch = useDispatch()
 
-  const loading = useSelector(selectSettingsPageIsLoading)
+  // need to fetch both /developers/:id & /developer/:id/member to get full info
+  // to render form
+  const loadingDeveloperInfo = useSelector(selectSettingsPageIsLoading)
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
+
+  const loadingOrgMembers = useSelector(selectOrganisationMembersLoading)
+  const orgMembersList = useSelector(selectOrganisationMembers)
+  // query by email -> select the first member
+  const [currentDeveloperMemberInfo] = orgMembersList
+
+  const loading = loadingDeveloperInfo || loadingOrgMembers
+
+  const developerFullInfo = { ...developerInfo, ...currentDeveloperMemberInfo }
 
   const { changePassword, logout, updateDeveloperInformation } = createDispatchers(dispatch)
 
@@ -51,7 +58,7 @@ export const Forms: React.FC = () => {
       </Section>
       <Section hasPadding={false} hasBackground={false}>
         <EnhanceContactInformation
-          developerInformation={developerInfo}
+          developerInformation={developerFullInfo}
           updateDeveloperInformation={updateDeveloperInformation}
         />
         <ChangePasswordForm changePassword={changePassword} />
