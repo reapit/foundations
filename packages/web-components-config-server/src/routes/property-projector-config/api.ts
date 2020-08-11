@@ -1,25 +1,25 @@
 import dynamoDBMapper from '@/dynamodb-mapper'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import logger from '@/logger'
-import { CreateParams, DeleteParams, UpdateParams, GetByClientIdParams } from '@/schemas/web-components-config/api-types'
-import { WebComponentConfig } from '@/schemas/web-components-config/schema'
-import { generateSchemaItem } from '@/schemas/web-components-config/utils'
+import { CreateParams, DeleteParams, UpdateParams, GetByOfficeIdParams } from '@/schemas/property-projector-config/projector-api-types'
+import { PropertyProjectorConfig } from '@/schemas/property-projector-config/schema'
+import { generateSchemaItem } from '@/schemas/property-projector-config/utils'
 import { stringifyError } from '@reapit/node-utils'
 
-export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams): Promise<WebComponentConfig> => {
+export const getConfigByOfficeId = async ({ traceId, data }: GetByOfficeIdParams): Promise<PropertyProjectorConfig> => {
   try {
-    logger.info('Getting config by customerId...', { traceId, data })
+    logger.info('Getting config by officeId...', { traceId, data })
     const itemToGet = generateSchemaItem(data)
     const result = await dynamoDBMapper.get(itemToGet)
-    logger.info('Get config by customerId successfully', { traceId, result })
+    logger.info('Get config by officeId successfully', { traceId, result })
     return result
   } catch (error) {
-    await logger.error('Get config by customerId failed', { traceId, error: stringifyError(error) })
+    await logger.error('Get config by officeId failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
 
-export const createConfig = async ({ traceId, data }: CreateParams): Promise<WebComponentConfig> => {
+export const createConfig = async ({ traceId, data }: CreateParams): Promise<PropertyProjectorConfig> => {
   try {
     const itemToCreate = generateSchemaItem(data)
     const result = await dynamoDBMapper.put(itemToCreate, {
@@ -27,7 +27,7 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Web
         type: 'And',
         conditions: [
           new FunctionExpression('attribute_not_exists', new AttributePath('customerId')),
-          new FunctionExpression('attribute_not_exists', new AttributePath('appId')),
+          new FunctionExpression('attribute_not_exists', new AttributePath('officeId')),
         ],
       },
     })
@@ -39,11 +39,11 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Web
   }
 }
 
-export const patchConfig = async ({ traceId, data }: UpdateParams): Promise<WebComponentConfig> => {
+export const patchConfig = async ({ traceId, data }: UpdateParams): Promise<PropertyProjectorConfig> => {
   try {
     logger.info('Patching config...', { traceId, data })
-    const { customerId, appId, ...rest } = data
-    const oldItem = await getConfigByClientId({ traceId, data: { customerId, appId } })
+    const { customerId, officeId, ...rest } = data
+    const oldItem = await getConfigByOfficeId({ traceId, data: { customerId, officeId } })
     const itemToUpdate = generateSchemaItem({ ...oldItem, ...rest })
     const result = await dynamoDBMapper.update(itemToUpdate)
     logger.info('Patch config successfully', { traceId, result })
@@ -54,7 +54,7 @@ export const patchConfig = async ({ traceId, data }: UpdateParams): Promise<WebC
   }
 }
 
-export const putConfig = async ({ traceId, data }): Promise<WebComponentConfig> => {
+export const putConfig = async ({ traceId, data }): Promise<PropertyProjectorConfig> => {
   try {
     logger.info('Updating config...', { traceId, data })
     const itemToUpdate = generateSchemaItem(data)
@@ -67,7 +67,7 @@ export const putConfig = async ({ traceId, data }): Promise<WebComponentConfig> 
   }
 }
 
-export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<WebComponentConfig> => {
+export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<PropertyProjectorConfig> => {
   try {
     logger.info('Deleting config...', { traceId, data })
     const itemToDelete = generateSchemaItem(data)
