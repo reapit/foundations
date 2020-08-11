@@ -232,20 +232,20 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    id: [String!]
-    applicantId: [String!]
-    propertyId: [String!]
-    status: [String!]
+    id: [String]
+    applicantId: [String]
+    propertyId: [String]
+    status: [String]
     address: String
     amountFrom: String
     amountTo: String
     dateFrom: String
     dateTo: String
-    metadata: [String!]
+    metadata: [String]
     name: String
-    embed: [String!]
+    embed: [String]
   ): PagedResultOfferModel!
-  GetOfferById(id: String!, embed: [String!]): OfferModel!
+  GetOfferById(id: String!, embed: [String]): OfferModel!
   GetOffices(
     pageSize: Int
     pageNumber: Int
@@ -585,7 +585,7 @@ type Mutation {
     exclusions: String
     conditions: String
     metadata: JSON
-  ): JSON!
+  ): OfferModel!
   UpdateOffer(
     id: String!
     _eTag: String!
@@ -962,6 +962,31 @@ type PagedResultNegotiatorModel {
   _links: JSON
 }
 
+type OfferAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type OfferRelate {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: OfferAddress
+}
+
 type OfferModel {
   id: String
   created: String
@@ -976,7 +1001,7 @@ type OfferModel {
   inclusions: String
   exclusions: String
   conditions: String
-  related: JSON
+  related: [OfferRelate]
   metadata: JSON
   _eTag: String
   _links: JSON

@@ -89,7 +89,7 @@ type Mutation {
     exclusions: String
     conditions: String
     metadata: JSON
-  ): JSON!
+  ): OfferModel!
 
   UpdateOffer(
     id: String!
