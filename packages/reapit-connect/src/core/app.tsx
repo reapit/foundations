@@ -18,7 +18,8 @@ export const globals = css`
 `
 
 export const isUserWithDevIdOnly = (loginIdentity: LoginIdentity) => {
-  return loginIdentity.developerId && !loginIdentity.clientId && !loginIdentity.adminId
+  const developerOnlyClientId = loginIdentity.clientId === 'SBOX'
+  return loginIdentity.developerId && (!loginIdentity.clientId || developerOnlyClientId) && !loginIdentity.adminId
 }
 
 export const App = () => {
