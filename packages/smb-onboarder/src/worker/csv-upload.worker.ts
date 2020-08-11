@@ -29,7 +29,7 @@ ctx.addEventListener('message', event => {
         new Promise(resolve => {
           mutation<CreateOfficeModel>({
             graphqlUri,
-            accessToken,
+            accessToken: `Bearer ${accessToken}`,
             operationName: 'CREATE_OFFICE',
             query: print(CREATE_OFFICE),
             variables: model,

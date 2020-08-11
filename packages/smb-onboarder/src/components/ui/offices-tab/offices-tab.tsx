@@ -38,6 +38,8 @@ import { startUpload, completeUpload, setUploadProgress } from '@/actions/update
 import { Dispatch } from '@/reducers/update-provider'
 import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
 import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
 import errorMessages from '@/constants/error-messages'
@@ -170,7 +172,6 @@ export const renderContent = ({
   if (loading) {
     return <Loader />
   }
-  console.log(pageNumber, pageSize, totalCount)
   return (
     <React.Fragment>
       <Section>
@@ -228,18 +229,24 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
   }
 }
 /* istanbul ignore next */
-export const handleAfterUpload = (dispatch: Dispatch) => (params: {
+export const handleAfterUpload = (dispatch: Dispatch, accessToken: string) => (params: {
   uploadData: UploadData
   currentData: Cell[][]
   setData: SetData
 }) => {
   const { uploadData, setData } = params
+  const [firstRow, ...rest] = uploadData.validatedData
+  let data = uploadData.validatedData
+  // if first row is header row, ignore it
+  if (firstRow[0].value === 'id' && firstRow[1].value === '_eTag') {
+    data = rest
+  }
   const message: UploadCsvMessage = {
     from: 'FROM_MAIN',
     type: 'OFFICE',
-    data: uploadData.validatedData,
+    data,
     graphqlUri: window.reapit.config.graphqlUri,
-    accessToken: window.reapit.config.accessToken,
+    accessToken,
   }
   const uploadWorker = new Worker()
   uploadWorker.postMessage(message)
@@ -324,6 +331,7 @@ export const prepareCreateOfficeParams = (changedCells: ChangedCells, data: Cell
 }
 
 export const OfficesTab: React.FC<OfficesTabProps> = () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const history = useHistory()
   const params = queryString.parse(location?.search)
@@ -364,7 +372,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
         afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
-        handleAfterUpload: handleAfterUpload(dispatch),
+        handleAfterUpload: handleAfterUpload(dispatch, connectSession?.accessToken || ''),
       })}
     </div>
   )
