@@ -1,58 +1,99 @@
 scalar JSON
 
-type AppointmentAttendeeModel {
-  id: String
-  type: String
-  contacts: [AppointmentContactModel!]
+type ApplicantAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
 }
 
-type AppointmentContactModel {
+type ApplicantRelate {
   id: String
   name: String
+  type: String
   homePhone: String
   workPhone: String
   mobilePhone: String
   email: String
+  primaryAddress: ApplicantAddress
 }
 
-type AppointmentModel {
+type ApplicantBuying {
+  priceFrom: Int
+  priceTo: Int
+}
+
+type ApplicantRenting {
+  moveDate: String
+  term: String
+  rentFrom: Int
+  rentTo: Int
+  rentFrequency: String
+  furnishing: [String]
+}
+
+type ApplicantExternalArea {
+  type: String
+  amountFrom: Int
+  amountTo: Int
+}
+
+type ApplicantInternalArea {
+  type: String
+  amount: Int
+}
+
+type ApplicantSource {
+  id: String
+  type: String
+}
+
+type ApplicantModel {
   id: String
   created: String
   modified: String
-  start: String
-  end: String
-  typeId: String
-  appointmentType: ListItemModel
-  description: String
-  recurring: Boolean
-  cancelled: Boolean
-  followUp: AppointmentModelFollowUp
-  propertyId: String
-  property: PropertyModel
-  organiserId: String
-  negotiatorIds: [String!]
-  negotiators: [NegotiatorModel]
-  officeIds: [String!]
-  offices: [OfficeModel]
-  attendee: AppointmentAttendeeModel
-  accompanied: Boolean
-  negotiatorConfirmed: Boolean
-  attendeeConfirmed: Boolean
-  propertyConfirmed: Boolean
+  marketingMode: String
+  currency: String
+  active: Boolean
+  notes: String
+  lastCall: String
+  nextCall: String
+  departmentId: String
+  solicitorId: String
+  type: [String]
+  style: [String]
+  situation: [String]
+  parking: [String]
+  age: [String]
+  locality: [String]
+  bedroomsMin: Int
+  bedroomsMax: Int
+  receptionsMin: Int
+  receptionsMax: Int
+  bathroomsMin: Int
+  bathroomsMax: Int
+  locationType: String
+  locationOptions: [String]
+  buying: ApplicantBuying
+  renting: ApplicantRenting
+  externalArea: ApplicantExternalArea
+  internalArea: ApplicantInternalArea
+  source: ApplicantSource
+  officeIds: [String]
+  negotiatorIds: [String]
+  related: [ApplicantRelate]
   metadata: JSON
   _eTag: String
   _links: JSON
   _embedded: JSON
 }
 
-type AppointmentModelFollowUp {
-  due: String
-  responseId: String
-  notes: String
-}
-
-type PagedResultAppointmentModel {
-  _embedded: [AppointmentModel!]
+type PagedResultApplicantModel {
+  _embedded: [ApplicantModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -60,29 +101,65 @@ type PagedResultAppointmentModel {
   _links: JSON
 }
 
-input AppointmentModelRecurrenceInput {
-  interval: Int
-  type: String
-  until: String
-}
-
-input CreateAppointmentModelAttendeeInput {
+type ApplicantContactRelationshipModel {
   id: String
-  type: String
+  created: String
+  modified: String
+  applicantId: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
 }
 
-input UpdateAppointmentModelAttendeeInput {
-  id: String
-  type: String
-  confirmed: Boolean
-}
-
-input UpdateAppointmentModelFollowUpInput {
-  responseId: String
-  notes: String
+type PagedResultApplicantContactRelationshipModel {
+  _embedded: [ApplicantContactRelationshipModel]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
 }
 
 type Query {
+  GetApplicants(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String]
+    id: [String]
+    age: [String]
+    furnishing: [String]
+    locality: [String]
+    negotiatorId: [String]
+    officeId: [String]
+    parking: [String]
+    situation: [String]
+    style: [String]
+    type: [String]
+    address: String
+    departmentId: String
+    marketingMode: [String]
+    name: String
+    priceFrom: String
+    priceTo: String
+    rentFrom: String
+    rentTo: String
+    rentFrequency: [String]
+    bedroomsFrom: Int
+    bedroomsTo: Int
+    createdFrom: String
+    createdTo: String
+    lastCallFrom: String
+    lastCallTo: String
+    nextCallFrom: String
+    nextCallTo: String
+    metadata: [String]
+  ): PagedResultApplicantModel!
+  GetApplicantById(id: String!, embed: [String]): ApplicantModel!
+  GetApplicantRelationshipById(id: String!, relationshipId: String!): ApplicantContactRelationshipModel!
+  GetApplicantRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultApplicantContactRelationshipModel!
   GetAppointments(
     pageSize: Int
     pageNumber: Int
@@ -218,9 +295,147 @@ type Query {
     metadata: [String!]
   ): PagedResultPropertyImageModel!
   GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetTenancies(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    negotiatorId: [String!]
+    applicantId: [String!]
+    propertyId: [String!]
+    status: [String!]
+    createdFrom: String
+    createdTo: String
+    modifiedFrom: String
+    modifiedTo: String
+    metadata: [String!]
+  ): PagedResultTenancies!
+  GetTenancyById(id: String!, embed: [String!]): TenancyModel!
+  GetTenancyRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyRelationships!
+  GetTenancyChecks(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyChecks!
+  GetTenancyCheckById(id: String!, checkId: String!): TenancyCheckModel!
+}
+
+input ApplicantAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+input ApplicantBuyingInput {
+  priceFrom: Int
+  priceTo: Int
+}
+
+input ApplicantRentingInput {
+  moveDate: String
+  term: String
+  rentFrom: Int
+  rentTo: Int
+  rentFrequency: String
+  furnishing: [String]
+}
+
+input ApplicantExternalAreaInput {
+  type: String
+  amountFrom: Int
+  amountTo: Int
+}
+
+input ApplicantInternalAreaInput {
+  type: String
+  amount: Int
+}
+
+input ApplicantSourceInput {
+  id: String
+  type: String
+}
+
+input ApplicantRelateInput {
+  associatedId: String
+  associatedType: String
 }
 
 type Mutation {
+  CreateApplicant(
+    marketingMode: String
+    active: Boolean
+    notes: String
+    lastCall: String
+    nextCall: String
+    departmentId: String
+    solicitorId: String
+    type: [String]
+    style: [String]
+    situation: [String]
+    parking: [String]
+    age: [String]
+    locality: [String]
+    bedroomsMin: Int
+    bedroomsMax: Int
+    receptionsMin: Int
+    receptionsMax: Int
+    bathroomsMin: Int
+    bathroomsMax: Int
+    locationType: String
+    locationOptions: [String]
+    buying: ApplicantBuyingInput
+    renting: ApplicantRentingInput
+    externalArea: ApplicantExternalAreaInput
+    internalArea: ApplicantInternalAreaInput
+    source: ApplicantSourceInput
+    officeIds: [String]
+    negotiatorIds: [String]
+    related: [ApplicantRelateInput]
+    metadata: JSON
+  ): ApplicantModel!
+  UpdateApplicant(
+    marketingMode: String
+    active: Boolean
+    notes: String
+    lastCall: String
+    nextCall: String
+    departmentId: String
+    solicitorId: String
+    type: [String]
+    style: [String]
+    situation: [String]
+    parking: [String]
+    age: [String]
+    locality: [String]
+    bedroomsMin: Int
+    bedroomsMax: Int
+    receptionsMin: Int
+    receptionsMax: Int
+    bathroomsMin: Int
+    bathroomsMax: Int
+    locationType: String
+    locationOptions: [String]
+    buying: ApplicantBuyingInput
+    renting: ApplicantRentingInput
+    externalArea: ApplicantExternalAreaInput
+    internalArea: ApplicantInternalAreaInput
+    source: ApplicantSourceInput
+    officeIds: [String]
+    negotiatorIds: [String]
+    metadata: JSON
+    id: String!
+    _eTag: String!
+  ): ApplicantModel!
+  CreateApplicantRelationship(
+    id: String!
+    associatedId: String!
+    associatedType: String!
+    isMain: Boolean!
+  ): ApplicantContactRelationshipModel
+  DeleteApplicantRelationship(id: String!, relationshipId: String!): String!
   CreateAppointment(
     start: String
     end: String
@@ -471,6 +686,104 @@ type Mutation {
   CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
   UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
   DeletePropertyImage(id: String!): Boolean!
+  CreateTenancy(
+    startDate: String
+    endDate: String
+    agentRole: String
+    rent: Int
+    rentFrequency: String
+    isPeriodic: Boolean
+    typeId: String
+    negotiatorId: String
+    propertyId: String
+    applicantId: String
+    source: CreateTenancyRequestModelSource
+  ): TenancyModel!
+  CreateTenancyCheck(id: String!, description: String, type: String, status: String): TenancyCheckModel!
+  DeleteTenancyCheck(id: String!, checkId: String!): Boolean!
+  UpdateTenancyCheck(id: String!, checkId: String!, model: UpdateTenancyCheckModel): TenancyCheckModel!
+}
+
+type AppointmentAttendeeModel {
+  id: String
+  type: String
+  contacts: [AppointmentContactModel!]
+}
+
+type AppointmentContactModel {
+  id: String
+  name: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+}
+
+type AppointmentModel {
+  id: String
+  created: String
+  modified: String
+  start: String
+  end: String
+  typeId: String
+  appointmentType: ListItemModel
+  description: String
+  recurring: Boolean
+  cancelled: Boolean
+  followUp: AppointmentModelFollowUp
+  propertyId: String
+  property: PropertyModel
+  organiserId: String
+  negotiatorIds: [String!]
+  negotiators: [NegotiatorModel]
+  officeIds: [String!]
+  offices: [OfficeModel]
+  attendee: AppointmentAttendeeModel
+  accompanied: Boolean
+  negotiatorConfirmed: Boolean
+  attendeeConfirmed: Boolean
+  propertyConfirmed: Boolean
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type AppointmentModelFollowUp {
+  due: String
+  responseId: String
+  notes: String
+}
+
+type PagedResultAppointmentModel {
+  _embedded: [AppointmentModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+input AppointmentModelRecurrenceInput {
+  interval: Int
+  type: String
+  until: String
+}
+
+input CreateAppointmentModelAttendeeInput {
+  id: String
+  type: String
+}
+
+input UpdateAppointmentModelAttendeeInput {
+  id: String
+  type: String
+  confirmed: Boolean
+}
+
+input UpdateAppointmentModelFollowUpInput {
+  responseId: String
+  notes: String
 }
 
 type AreaModel {
@@ -991,6 +1304,153 @@ type PropertyImageModel {
   _eTag: String
   _links: JSON
   _embedded: JSON
+}
+
+type PagedResultTenancies {
+  _embedded: [PagedResultTenanciesEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultTenanciesEmbedded {
+  id: String
+  created: String
+  modified: String
+  startDate: String
+  endDate: String
+  status: String
+  agentRole: String
+  rent: Int
+  rentFrequency: String
+  endDateConfirmed: Boolean
+  isPeriodic: Boolean
+  typeId: String
+  negotiatorId: String
+  propertyId: String
+  applicantId: String
+  source: TenancySourceModel
+  related: [TenancyRelatedModel!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancyModel {
+  id: String
+  created: String
+  modified: String
+  startDate: String
+  endDate: String
+  status: String
+  agentRole: String
+  rent: Int
+  rentFrequency: String
+  endDateConfirmed: Boolean
+  isPeriodic: Boolean
+  typeId: String
+  negotiatorId: String
+  propertyId: String
+  applicantId: String
+  source: TenancySourceModel
+  related: [TenancyRelatedModel!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancySourceModel {
+  id: String
+  type: String
+}
+
+type PagedResultTenancyRelationships {
+  _embedded: [PagedResultTenancyRelationshipsEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type TenancyRelatedModel {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: TenancyPrimaryAddressModel
+}
+
+type TenancyPrimaryAddressModel {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type PagedResultTenancyRelationshipsEmbedded {
+  id: String
+  created: String
+  modified: String
+  tenancyId: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultTenancyChecks {
+  _embedded: [PagedResultTenancyChecksEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultTenancyChecksEmbedded {
+  id: String
+  created: String
+  modified: String
+  description: String
+  status: String
+  type: String
+  tenancyId: String
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancyCheckModel {
+  tenancyId: String
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+input CreateTenancyRequestModelSource {
+  id: String
+  type: String
+}
+
+input UpdateTenancyCheckModel {
+  status: String
 }
 
 schema {

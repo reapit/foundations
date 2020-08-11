@@ -12,9 +12,9 @@ export const generateCompanyBatchLoaderFn = (context: ServerContext) => async (k
   const traceId = context.traceId
   logger.info('generateCompanyBatchLoaderFn', { traceId })
   try {
-    const propertyImagesResult = (await getCompanies({ id: keys }, context)) as PagedResultCompanyModel_
+    const companiesResult = (await getCompanies({ id: keys }, context)) as PagedResultCompanyModel_
     const result = keys.map((key: string) => {
-      return propertyImagesResult?._embedded?.find((property: CompanyModel) => property.id === key)
+      return companiesResult?._embedded?.find((company: CompanyModel) => company.id === key)
     })
     return result
   } catch (err) {

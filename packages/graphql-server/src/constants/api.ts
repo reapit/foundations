@@ -1,6 +1,7 @@
 export const API_VERSION = '2020-01-31'
 
 export const URLS = {
+  applicants: '/applicants',
   areas: '/areas',
   contacts: '/contacts',
   offices: '/offices',
@@ -11,6 +12,7 @@ export const URLS = {
   configurations: '/configuration',
   propertyImages: '/propertyImages',
   companies: '/companies',
+  tenancies: '/tenancies',
 }
 
 export const HEADERS = {

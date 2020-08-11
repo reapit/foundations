@@ -10,11 +10,14 @@ import PropertyImages from './propertyImages/resolvers'
 import Configurations from './configurations/resolver'
 import IdentityChecks from './identity-checks/resolvers'
 import Ping from './ping/resolvers'
+import Tenancies from './tenancies/resolvers'
+import Applicants from './applicants/resolvers'
 
 export const resolvers = merge(
   {
     JSON: GraphQLJSON,
   },
+  Applicants,
   Appointments,
   Areas,
   Configurations,
@@ -25,5 +28,6 @@ export const resolvers = merge(
   Ping,
   Properties,
   PropertyImages,
+  Tenancies,
 )
 export default resolvers
