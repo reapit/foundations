@@ -109,6 +109,22 @@ type Query {
     active: Boolean
   ): PagedResultAreaModel!
   GetAreaById(id: String!): AreaModel!
+  GetCompanyById(id: String!, embed: [String!]): CompanyModel!
+  GetCompanies(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    address: String
+    branch: String
+    name: String
+    typeId: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String!]
+  ): PagedResultCompanyModel_!
+  GetRolesByCompanyId(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
   GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
   GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
   GetContacts(
@@ -261,6 +277,36 @@ type Mutation {
     id: String!
     _eTag: String!
   ): AreaModel!
+  UpdateCompany(
+    _eTag: String!
+    id: String!
+    name: String
+    branch: String
+    notes: String
+    active: Boolean
+    vatRegistered: Boolean
+    typeIds: [String!]
+    supplierTypeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: CompanyModelAddressInput
+    metadata: JSON
+  ): CompanyModel!
+  CreateCompany(
+    name: String
+    branch: String
+    notes: String
+    active: Boolean
+    vatRegistered: Boolean
+    typeIds: [String!]
+    supplierTypeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: CompanyModelAddressInput
+    metadata: JSON
+  ): JSON!
   CreateContact(
     title: String
     forename: String
@@ -449,6 +495,85 @@ type PagedResultAreaModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+# Representation of a company
+"""
+Representation of a company
+"""
+type CompanyModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  branch: String
+  notes: String
+  active: Boolean
+  vatRegistered: Boolean
+  typeIds: [String!]
+  supplierTypeId: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  address: CompanyModel_address
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type CompanyModel_address {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  country: String
+}
+
+type PagedResultCompanyModel_ {
+  _embedded: [CompanyModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultCompanyRoleModel_ {
+  _embedded: [CompanyRoleModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type CompanyRoleModel {
+  id: String
+  created: String
+  modified: String
+  companyId: String
+  associatedType: String
+  associatedId: String
+  _links: JSON
+  _embedded: JSON
+}
+
+input CompanyModelAddressInput {
+  type: String
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
 }
 
 type ListItemModel {
