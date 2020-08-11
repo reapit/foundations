@@ -1,0 +1,121 @@
+type Query {
+  GetVendors(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    embed: [String]
+    negotiatorId: [String]
+    officeId: [String]
+    address: String
+    name: String
+    createdFrom: String
+    createdTo: String
+    lastCallFrom: String
+    lastCallTo: String
+    nextCallFrom: String
+    nextCallTo: String
+    metadata: [String]
+  ): PagedResultVendorModel!
+  GetVendorById(id: String!, embed: [String]): VendorModel!
+  GetVendorRelationship(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
+  GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
+}
+
+type Mutation {
+  UpdateVendor(
+    id: String!
+    _eTag: String!
+    nextCall: String
+    lastCall: String
+    typeId: String
+    sellingReasonId: String
+    solicitorId: String
+    source: VendorSourceInput
+    metadata: JSON
+  ): VendorModel!
+  UpdateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): String!
+  DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+}
+
+scalar JSON
+
+type VendorAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type VendorRelate {
+  id: String
+  name: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: VendorAddress
+}
+
+input VendorSourceInput {
+  id: String
+  type: String
+}
+type VendorSourceModel {
+  id: String
+  type: String
+}
+
+type VendorModel {
+  id: String
+  created: String
+  modified: String
+  lastCall: String
+  nextCall: String
+  typeId: String
+  sellingReasonId: String
+  solicitorId: String
+  source: VendorSourceModel
+  related: [VendorRelate]
+  negotiatorId: String
+  officeIds: [String]
+  metadata: JSON
+  _eTag: JSON
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultVendorModel {
+  _embedded: [VendorModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type VendorRelationship {
+  id: String
+  vendorId: String
+  created: String
+  modified: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultVendorRelationshipModel {
+  _embedded: [VendorRelationship!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}

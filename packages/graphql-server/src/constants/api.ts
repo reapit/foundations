@@ -13,6 +13,7 @@ export const URLS = {
   propertyImages: '/propertyImages',
   tenancies: '/tenancies',
   offers: '/offers',
+  vendors: '/vendors',
 }
 
 export const HEADERS = {
