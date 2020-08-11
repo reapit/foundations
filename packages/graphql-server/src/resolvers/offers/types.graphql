@@ -1,0 +1,106 @@
+scalar JSON
+
+type OfferAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type OfferRelate {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: OfferAddress
+}
+
+type OfferModel {
+  id: String
+  created: String
+  modified: String
+  currency: String
+  applicantId: String
+  propertyId: String
+  OfferId: String
+  date: String
+  amount: String
+  status: String
+  inclusions: String
+  exclusions: String
+  conditions: String
+  related: [OfferRelate]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultOfferModel {
+  _embedded: [OfferModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetOffers(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String]
+    applicantId: [String]
+    propertyId: [String]
+    status: [String]
+    address: String
+    amountFrom: String
+    amountTo: String
+    dateFrom: String
+    dateTo: String
+    metadata: [String]
+    name: String
+    embed: [String]
+  ): PagedResultOfferModel!
+
+  GetOfferById(id: String!, embed: [String]): OfferModel!
+}
+
+type Mutation {
+  CreateOffer(
+    applicantId: String
+    propertyId: String
+    negotiatorId: String
+    date: String
+    amount: String
+    status: String
+    inclusions: String
+    exclusions: String
+    conditions: String
+    metadata: JSON
+  ): JSON!
+
+  UpdateOffer(
+    id: String!
+    _eTag: String!
+    negotiatorId: String
+    date: String
+    amount: String
+    status: String
+    inclusions: String
+    exclusions: String
+    conditions: String
+    metadata: JSON
+  ): OfferModel!
+}
