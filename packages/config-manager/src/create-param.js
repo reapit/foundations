@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const AWS = require('aws-sdk')
 const chalk = require('chalk')
+const fs = require('fs')
 const { getParamAndFileName } = require('./utils')
 
 AWS.config.update({ region: 'eu-west-2' })
@@ -11,7 +12,7 @@ const createParam = async cliArgs => {
   try {
     const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
-    const source = require(fileName)
+    const source = format === 'string' ? fs.readFileSync(fileName, 'utf8') : require(fileName)
     if (!source) throw new Error('File not found for: ', source)
 
     const value = format && format === 'string' ? String(source) : JSON.stringify(source)

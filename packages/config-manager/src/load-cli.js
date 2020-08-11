@@ -42,10 +42,10 @@ const loadCli = async () => {
     },
     {
       type: prev => {
-        return prev !== 'delete' && prev !== 'fetch' ? 'select' : null
+        return prev !== 'delete' ? 'select' : null
       },
       name: 'format',
-      message: 'Format for source file',
+      message: 'Format for source or target file',
       choices: [
         { title: 'JSON', value: 'json' },
         { title: 'String', value: 'string' },
@@ -53,11 +53,13 @@ const loadCli = async () => {
     },
     {
       type: prev => {
-        return prev !== 'delete' && prev !== 'fetch' ? 'text' : null
+        return prev !== 'delete' ? 'text' : null
       },
       name: 'filePath',
-      message: 'Source file path for your parameter',
-      initial: './config.json',
+      message: 'Source or target file path for your parameter',
+      initial: prev => {
+        return prev === 'json' ? './config.json' : './config.txt'
+      },
       validate: value => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
       },

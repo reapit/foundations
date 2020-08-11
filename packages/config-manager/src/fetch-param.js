@@ -11,6 +11,7 @@ const ssm = new AWS.SSM()
 
 const fetchParam = cliArgs => {
   try {
+    const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
     console.log(chalk.bold.blue('Fetching param: ', paramName))
     return new Promise(resolve => {
@@ -22,7 +23,7 @@ const fetchParam = cliArgs => {
         const config = (data && data.Parameter && data.Parameter.Value) || {}
         console.log(chalk.bold.green(`Successfully fetched ${paramName}`))
         fs.writeFileSync(fileName, config)
-        execSync(`npx prettier --write ${fileName}`)
+        format !== 'string' && execSync(`npx prettier --write ${fileName}`)
         resolve()
       })
     })

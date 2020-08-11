@@ -1,23 +1,29 @@
 #!/usr/bin/env node
 const AWS = require('aws-sdk')
 const chalk = require('chalk')
+const fs = require('fs')
 const { getParamAndFileName } = require('./utils')
 
 AWS.config.update({ region: 'eu-west-2' })
 
 const ssm = new AWS.SSM()
 
-const getBase = paramName => {
+const getBase = (paramName, format) => {
   return new Promise((resolve, reject) => {
     const options = { Name: paramName, WithDecryption: true }
     ssm.getParameter(options, (err, data) => {
       if (err) {
         return reject(new Error(`Something went wrong when fetching param to update ${paramName} ${err.code}`))
       }
-      const config = (data && data.Parameter && data.Parameter.Value && JSON.parse(data.Parameter.Value)) || {}
+      const value = data && data.Parameter && data.Parameter.Value
       console.log(chalk.bold.green(`Successfully fetched base param for ${paramName}`))
+      if (value) {
+        const formatted = format === 'string' ? value : JSON.parse(data.Parameter.Value)
+        return resolve(formatted)
+      }
 
-      return resolve(config)
+      const defaultValue = format === 'string' ? '' : {}
+      return resolve(defaultValue)
     })
   })
 }
@@ -26,7 +32,7 @@ const updateParam = async cliArgs => {
   try {
     const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
-    const source = require(fileName)
+    const source = format === 'string' ? fs.readFileSync(fileName, 'utf8') : require(fileName)
     if (!source) throw new Error('File not found for: ', source)
 
     const base = await getBase(paramName, format)
