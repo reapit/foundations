@@ -58,7 +58,7 @@ const loadCli = async () => {
       name: 'filePath',
       message: 'Source or target file path for your parameter',
       initial: prev => {
-        return prev === 'json' ? './config.json' : './config.txt'
+        return prev === 'json' ? `${process.cwd()}/config.json` : `${process.cwd()}/config.txt`
       },
       validate: value => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
