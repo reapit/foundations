@@ -350,7 +350,7 @@ exports[`InstallationTable should match snapshot 1`] = `
                     key="cell_0_appName"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -3778,7 +3778,7 @@ exports[`InstallationTable should match snapshot 1`] = `
                     key="cell_0_client"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -7203,13 +7203,13 @@ exports[`InstallationTable should match snapshot 1`] = `
                       }
                     >
                       DXX
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of installation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -10634,13 +10634,13 @@ exports[`InstallationTable should match snapshot 1`] = `
                       }
                     >
                       localtime
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of Uninstallation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -14431,7 +14431,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
                     key="cell_0_appName"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -17859,7 +17859,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
                     key="cell_0_client"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -21284,13 +21284,13 @@ exports[`InstallationTable should match with null developerData 1`] = `
                       }
                     >
                       DXX
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of installation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -24715,13 +24715,13 @@ exports[`InstallationTable should match with null developerData 1`] = `
                       }
                     >
                       localtime
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of Uninstallation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -28513,7 +28513,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
                     key="cell_0_appName"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -31941,7 +31941,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
                     key="cell_0_client"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -35366,13 +35366,13 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
                       }
                     >
                       DXX
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of installation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {
@@ -38797,13 +38797,13 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
                       }
                     >
                       localtime
-                    </Cell>
+                    </defaultRenderer>
                   </td>
                   <td
                     key="cell_0_Date of Uninstallation"
                     role="cell"
                   >
-                    <Cell
+                    <defaultRenderer
                       allColumns={
                         Array [
                           Object {

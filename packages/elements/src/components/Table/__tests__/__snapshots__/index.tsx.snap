@@ -43,7 +43,7 @@ exports[`Table should match a snapshot when LOADING false 1`] = `
         key="cell_0_firstName"
         role="cell"
       >
-        <Cell
+        <defaultRenderer
           allColumns={
             Array [
               Object {
@@ -2589,7 +2589,7 @@ exports[`Table should match a snapshot when LOADING false 1`] = `
         key="cell_0_middleName"
         role="cell"
       >
-        <Cell
+        <defaultRenderer
           allColumns={
             Array [
               Object {
@@ -5135,7 +5135,7 @@ exports[`Table should match a snapshot when LOADING false 1`] = `
         key="cell_0_lastName"
         role="cell"
       >
-        <Cell
+        <defaultRenderer
           allColumns={
             Array [
               Object {
@@ -7780,7 +7780,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
           key="cell_0_firstName"
           role="cell"
         >
-          <Cell
+          <defaultRenderer
             allColumns={
               Array [
                 Object {
@@ -10326,7 +10326,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
           key="cell_0_middleName"
           role="cell"
         >
-          <Cell
+          <defaultRenderer
             allColumns={
               Array [
                 Object {
@@ -12872,7 +12872,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
           key="cell_0_lastName"
           role="cell"
         >
-          <Cell
+          <defaultRenderer
             allColumns={
               Array [
                 Object {

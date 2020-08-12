@@ -142,7 +142,7 @@ exports[`Subcriptions should match snapshot 1`] = `
                     key="header_cancel"
                     role="columnheader"
                   >
-                    <Header
+                    <emptyRenderer
                       allColumns={
                         Array [
                           Object {
@@ -1675,7 +1675,7 @@ exports[`Subcriptions should match snapshot 1`] = `
                       }
                     >
                        
-                    </Header>
+                    </emptyRenderer>
                   </th>
                 </tr>
               </thead>
