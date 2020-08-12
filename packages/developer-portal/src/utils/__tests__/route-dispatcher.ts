@@ -6,6 +6,7 @@ import { RouteValue } from '@/types/core'
 import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchAppList } from '@/actions/apps'
+import { fetchCurrentMember } from '@/actions/current-member'
 
 jest.mock('@reapit/elements')
 jest.mock('../../core/store')
@@ -24,11 +25,11 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(fetchAppList({ page: 1 }))
   })
 
-  it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
-    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
+  it('should dispatch correctly for the setting profile route', async () => {
+    await routeDispatcher(Routes.SETTINGS as RouteValue)
+    expect(store.dispatch).toHaveBeenCalledWith(fetchCurrentMember())
   })
-  it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
+  it('should dispatch correctly for th setting billing route', async () => {
     await routeDispatcher(Routes.SETTINGS_BILLING_TAB as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
   })

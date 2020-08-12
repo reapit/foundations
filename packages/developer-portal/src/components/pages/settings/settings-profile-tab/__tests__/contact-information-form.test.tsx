@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import {
   defaultInitialValues,
   generateInitialValues,
@@ -8,28 +8,33 @@ import {
   handleSubmitContactInformation,
 } from '../contact-information-form'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { MemberModel } from '@reapit/foundations-ts-definitions'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
 
-const developerInfo: DeveloperModel | null = appState.settings.developerInfomation
+const dispatch = jest.fn()
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: jest.fn(() => dispatch),
+  useSelector: jest.fn(() => jest.fn()),
+}))
+
+const currentMemberInfo: MemberModel | null = appState.currentMember.data
 
 const valuesMock: ContactInformationValues = {
   name: 'name',
   jobTitle: 'jobTitle',
-  telephone: '12341234',
-  companyName: 'companyName',
 }
 
 describe('ContactInformationForm', () => {
-  it('should match snapshot', () => {
-    const wrapper = shallow(
-      <ContactInformationForm developerInformation={developerInfo} updateDeveloperInformation={jest.fn()} />,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+  const mockStore = configureStore()
+  const store = mockStore(appState)
 
-  it('should match snapshot with developerInfomation = null', () => {
-    const wrapper = shallow(
-      <ContactInformationForm developerInformation={null} updateDeveloperInformation={jest.fn()} />,
+  it('should match snapshot', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <ContactInformationForm />
+      </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -37,34 +42,32 @@ describe('ContactInformationForm', () => {
 
 describe('handleSubmitContactInformation', () => {
   it('should run correctly', () => {
-    const updateDeveloperInformation = jest.fn()
+    const updateCurrentMemberInformation = jest.fn()
     const setSubmitting = jest.fn()
-    const fn = handleSubmitContactInformation(updateDeveloperInformation)
+    const fn = handleSubmitContactInformation(updateCurrentMemberInformation)
     fn(valuesMock, { setSubmitting } as any)
     expect(setSubmitting).toHaveBeenCalledWith(true)
-    expect(updateDeveloperInformation).toHaveBeenCalledWith(valuesMock)
+    expect(updateCurrentMemberInformation).toHaveBeenCalledWith(valuesMock)
   })
 })
 
 describe('generateInitialValues', () => {
   it('should return correctly', () => {
     const result = generateInitialValues({
-      developerInfo,
+      currentMemberInfo,
       defaultInitialValues,
     })
-    const { name, company: companyName, telephone, jobTitle } = developerInfo as DeveloperModel
+    const { name, jobTitle } = currentMemberInfo as MemberModel
     const expectedResult = {
       name,
-      companyName,
-      telephone,
       jobTitle,
     }
     expect(result).toEqual(expectedResult)
   })
 
-  it('should return correctly with developerInfo null', () => {
+  it('should return correctly with currentMemberInfo null', () => {
     const result = generateInitialValues({
-      developerInfo: null,
+      currentMemberInfo: null,
       defaultInitialValues,
     })
     expect(result).toEqual(defaultInitialValues)

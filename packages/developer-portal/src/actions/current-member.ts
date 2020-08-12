@@ -1,0 +1,9 @@
+import { actionCreator } from '@/utils/actions'
+import ActionTypes from '@/constants/action-types'
+import { MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+
+export const fetchCurrentMember = actionCreator<void>(ActionTypes.CURRENT_MEMBER_FETCH)
+
+export const fetchCurrentMemberSuccess = actionCreator<MemberModel>(ActionTypes.CURRENT_MEMBER_FETCH_SUCCESS)
+
+export const updateCurrentMember = actionCreator<UpdateMemberModel>(ActionTypes.CURRENT_MEMBER_UPDATE)

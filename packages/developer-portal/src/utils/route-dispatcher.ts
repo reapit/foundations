@@ -8,11 +8,12 @@ import { fetchMyIdentity } from '@/actions/developer'
 import { fetchInstallationsList } from '../actions/installations'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
-import { getDeveloperId, getClientId, getLoggedUserEmail } from './session'
+import { getDeveloperId, getClientId } from './session'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
 import { fetchScopeList } from '@/actions/scopes'
+import { fetchCurrentMember } from '@/actions/current-member'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -59,10 +60,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchDesktopIntegrationTypeList())
       break
     case Routes.SETTINGS: {
-      const developerId = await getDeveloperId()
-      const orgMemberEmail = await getLoggedUserEmail()
-      store.dispatch(fetchOrganisationMembers({ id: developerId, email: orgMemberEmail }))
-      store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       break
     }
     case Routes.SETTINGS_ORGANISATION_TAB: {
