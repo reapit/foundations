@@ -35,8 +35,7 @@
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
     "react-responsive": "8.1.0",
-    "snyk": "^1.341.1",
-    "swagger-ui-react": "3.26.0"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.86",
