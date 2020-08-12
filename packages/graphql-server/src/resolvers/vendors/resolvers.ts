@@ -1,4 +1,4 @@
-import VendorServices from './services'
+import vendorServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
@@ -10,6 +10,14 @@ import {
   QueryGetVendorByIdReturn,
   QueryGetVendorsReturn,
   MutationUpdateVendorReturn,
+  GetVendorRelationshipsArgs,
+  QueryGetVendorRelationshipsReturn,
+  QueryGetVendorRelationshipByIdReturn,
+  GetVendorRelationshipByIdArgs,
+  CreateVendorRelationshipArgs,
+  MutationCreateVendorRelationshipReturn,
+  DeleteVendorRelationshipArgs,
+  MutationDeleteVendorRelationshipReturn,
 } from './Vendors'
 
 export const queryGetVendorById = (
@@ -23,7 +31,7 @@ export const queryGetVendorById = (
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return VendorServices.getVendorById(args, context)
+  return vendorServices.getVendorById(args, context)
 }
 
 export const queryGetVendors = (_: any, args: GetVendorsArgs, context: ServerContext): QueryGetVendorsReturn => {
@@ -33,7 +41,7 @@ export const queryGetVendors = (_: any, args: GetVendorsArgs, context: ServerCon
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return VendorServices.getVendors(args, context)
+  return vendorServices.getVendors(args, context)
 }
 
 export const mutationUpdateVendor = (
@@ -47,15 +55,75 @@ export const mutationUpdateVendor = (
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return VendorServices.updateVendor(args, context)
+  return vendorServices.updateVendor(args, context)
+}
+
+export const queryGetVendorRelationships = (
+  _: any,
+  args: GetVendorRelationshipsArgs,
+  context: ServerContext,
+): QueryGetVendorRelationshipsReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetVendorRelationships', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return vendorServices.getVendorRelationships(args, context)
+}
+
+export const queryGetVendorRelationshipById = (
+  _: any,
+  args: GetVendorRelationshipByIdArgs,
+  context: ServerContext,
+): QueryGetVendorRelationshipByIdReturn => {
+  const traceId = context.traceId
+  logger.info('queryGetVendorRelationshipById', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return vendorServices.getVendorRelationshipById(args, context)
+}
+
+export const mutationCreateVendorRelationship = (
+  _: any,
+  args: CreateVendorRelationshipArgs,
+  context: ServerContext,
+): MutationCreateVendorRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationCreateVendorRelationship', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return vendorServices.createVendorRelationship(args, context)
+}
+
+export const mutationDeleteVendorRelationship = (
+  _: any,
+  args: DeleteVendorRelationshipArgs,
+  context: ServerContext,
+): MutationDeleteVendorRelationshipReturn => {
+  const traceId = context.traceId
+  logger.info('mutationDeleteVendorRelationship', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return vendorServices.deleteVendorRelationship(args, context)
 }
 
 export default {
   Query: {
     GetVendorById: queryGetVendorById,
     GetVendors: queryGetVendors,
+    GetVendorRelationships: queryGetVendorRelationships,
+    GetVendorRelationshipById: queryGetVendorRelationshipById,
   },
   Mutation: {
     UpdateVendor: mutationUpdateVendor,
+    CreateVendorRelationship: mutationCreateVendorRelationship,
+    DeleteVendorRelationship: mutationDeleteVendorRelationship,
   },
 }

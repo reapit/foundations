@@ -18,7 +18,7 @@ type Query {
     metadata: [String]
   ): PagedResultVendorModel!
   GetVendorById(id: String!, embed: [String]): VendorModel!
-  GetVendorRelationship(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
+  GetVendorRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
   GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
 }
 
@@ -34,7 +34,7 @@ type Mutation {
     source: VendorSourceInput
     metadata: JSON
   ): VendorModel!
-  UpdateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): String!
+  CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
 }
 
