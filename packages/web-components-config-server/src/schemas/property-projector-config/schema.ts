@@ -1,10 +1,10 @@
 import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { tableName } from '@/constants/db'
+import { projectorTableName } from '@/constants/db'
 import { booleanObjectType } from 'aws-sdk/clients/iam'
 import { bool } from 'aws-sdk/clients/signer'
 
-@table(tableName)
+@table(projectorTableName)
 export class PropertyProjectorConfig {
   @hashKey()
   customerId: string

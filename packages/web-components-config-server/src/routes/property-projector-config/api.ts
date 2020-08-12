@@ -1,7 +1,7 @@
 import dynamoDBMapper from '@/dynamodb-mapper'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import logger from '@/logger'
-import { CreateParams, DeleteParams, UpdateParams, GetByOfficeIdParams } from '@/schemas/property-projector-config/api-types'
+import { CreateParams, GetByOfficeIdParams } from '@/schemas/property-projector-config/api-types'
 import { PropertyProjectorConfig } from '@/schemas/property-projector-config/schema'
 import { generateSchemaItem } from '@/schemas/property-projector-config/utils'
 import { stringifyError } from '@reapit/node-utils'
@@ -39,21 +39,6 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Pro
   }
 }
 
-export const patchConfig = async ({ traceId, data }: UpdateParams): Promise<PropertyProjectorConfig> => {
-  try {
-    logger.info('Patching config...', { traceId, data })
-    const { customerId, officeId, ...rest } = data
-    const oldItem = await getConfigByOfficeId({ traceId, data: { customerId, officeId } })
-    const itemToUpdate = generateSchemaItem({ ...oldItem, ...rest })
-    const result = await dynamoDBMapper.update(itemToUpdate)
-    logger.info('Patch config successfully', { traceId, result })
-    return result
-  } catch (error) {
-    await logger.error('Patch config failed', { traceId, error: stringifyError(error) })
-    throw error
-  }
-}
-
 export const putConfig = async ({ traceId, data }): Promise<PropertyProjectorConfig> => {
   try {
     logger.info('Updating config...', { traceId, data })
@@ -63,19 +48,6 @@ export const putConfig = async ({ traceId, data }): Promise<PropertyProjectorCon
     return result
   } catch (error) {
     await logger.error('Update config failed', { traceId, error: stringifyError(error) })
-    throw error
-  }
-}
-
-export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<PropertyProjectorConfig> => {
-  try {
-    logger.info('Deleting config...', { traceId, data })
-    const itemToDelete = generateSchemaItem(data)
-    const result = await dynamoDBMapper.delete(itemToDelete)
-    logger.info('Delete config successfully', { traceId, result })
-    return result
-  } catch (error) {
-    await logger.error('Delete config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }

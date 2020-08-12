@@ -1,36 +1,143 @@
 export const ALL_PARAMS = [
   'customerId',
-  'appId',
-  'appointmentLength',
-  'appointmentTimeGap',
-  'appointmentTypes',
-  'negotiatorIds',
-  'daysOfWeek',
+  'officeId',
+  'customerLogo',
+  'primaryColour',
+  'secondaryColour',
+  'rotationDuration',
+  'refreshHour',
+  'propertyLimit',
+  'minPrice',
+  'maxPrice',
+  'randomize',
+  'showAddress',
+  'showStrapline',
+  'sortBy',
+  'departments',
+  'offices',
 ]
-export const GET_BY_ID_REQUIRED_PARAMS = ['customerId', 'appId']
+export const GET_BY_ID_REQUIRED_PARAMS = ['customerId', 'officeId',]
 export const CREATE_REQUIRED_PARAMS = [
   'customerId',
-  'appId',
-  'appointmentLength',
-  'appointmentTimeGap',
-  'appointmentTypes',
-  'negotiatorIds',
-  'daysOfWeek',
+  'officeId',
+  'customerLogo',
+  'primaryColour',
+  'secondaryColour',
+  'rotationDuration',
+  'refreshHour',
+  'propertyLimit',
+  'minPrice',
+  'maxPrice',
+  'randomize',
+  'showAddress',
+  'showStrapline',
+  'sortBy',
+  'departments',
+  'offices',
 ]
-export const PATCH_REQUIRED_PARAMS = ['customerId', 'appId']
-export const DELETE_REQUIRED_PARAMS = ['customerId', 'appId']
 
+export const validateFollowSchema = (data: { [key: string]: any }): false | string => {
+  let invalidMessage = ''
+  Object.keys(data).forEach(key => {
+    switch (key) {
+      case 'offices': {
+        const isValid = Array.isArray(data[key]) && data[key].every(offices => offices.length === 3)
+        if (!isValid) {
+          invalidMessage += 'Invalid offices.'
+        }
+        break
+      }
+      case 'departments': {
+        const isValid = Array.isArray(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid departments.'
+        }
+        break
+      }
+      case 'rotationDuration': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid rotationDuration.'
+        }
+        break
+      }
+      case 'refreshHour': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid refreshHour.'
+        }
+        break
+      }
+      case 'minPrice': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid minPrice.'
+        }
+        break
+      }
+      case 'maxPrice': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid maxPrice.'
+        }
+        break
+      }
+      case 'propertyLimit': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid propertyLimit.'
+        }
+        break
+      }
+      case 'randomize': {
+        const isValid = typeof data[key] === 'boolean'
+        if (!isValid) {
+          invalidMessage += 'Invalid randomize value.'
+        }
+        break
+      }
+      case 'showStrapline': {
+        const isValid = typeof data[key] === 'boolean'
+        if (!isValid) {
+          invalidMessage += 'Invalid showStrapline.'
+        }
+        break
+      }
+      case 'showAddress': {
+        const isValid = typeof data[key] === 'boolean'
+        if (!isValid) {
+          invalidMessage += 'Invalid showAddress.'
+        }
+        break
+      }
+
+      // TODO validate other fields here
+      default:
+        break
+    }
+  })
+  // if invalidMessage is empty string, then it's valid
+  return invalidMessage === '' ? false : invalidMessage
+}
 
 export const validateGetById = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
 
   // check if param keys are valid
-  const isParamsValid =
-    dataKeys.some(key => GET_BY_ID_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
+  const isParamsValid = dataKeys.some(key => GET_BY_ID_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
+  const errorMessage = validateFollowSchema(data)
+
 
   if (!isParamsValid) {
     const error: NodeJS.ErrnoException = new Error()
     error.message = 'Invalid params'
+    error.code = '400'
+    throw error
+  }
+
+  if (errorMessage) {
+    const error: NodeJS.ErrnoException = new Error()
+    error.message = errorMessage
     error.code = '400'
     throw error
   }
@@ -40,12 +147,11 @@ export const validateGetById = (data: { [key: string]: any }) => {
 
 export const validateCreate = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
-  console.log(dataKeys)
 
   // check if param keys are valid
-  const isParamsValid =
-    dataKeys.every(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.length === CREATE_REQUIRED_PARAMS.length
+  const isParamsValid = dataKeys.every(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.length === CREATE_REQUIRED_PARAMS.length
   // check if param is a valid schema item
+  const errorMessage = validateFollowSchema(data)
 
   if (!isParamsValid) {
     const error: NodeJS.ErrnoException = new Error()
@@ -53,38 +159,9 @@ export const validateCreate = (data: { [key: string]: any }) => {
     error.code = '400'
     throw error
   }
-
-  return true
-}
-
-export const validatePatch = (data: { [key: string]: any }) => {
-  const dataKeys = Object.keys(data)
-
-  // check if param keys are valid
-  const isParamsValid =
-    dataKeys.some(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
-  // check if param is a valid schema item
-
-  if (!isParamsValid) {
+  if (errorMessage) {
     const error: NodeJS.ErrnoException = new Error()
-    error.message = 'Invalid params'
-    error.code = '400'
-    throw error
-  }
-
-  return true
-}
-
-export const validateDelete = (data: { [key: string]: any }) => {
-  const dataKeys = Object.keys(data)
-
-  // check if param keys are valid
-  const isParamsValid =
-    dataKeys.some(key => GET_BY_ID_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
-
-  if (!isParamsValid) {
-    const error: NodeJS.ErrnoException = new Error()
-    error.message = 'Invalid params'
+    error.message = errorMessage
     error.code = '400'
     throw error
   }

@@ -72,7 +72,6 @@ export const validateGetById = (data: { [key: string]: any }) => {
 
 export const validateCreate = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
-  console.log(dataKeys)
 
   // check if param keys are valid
   const isParamsValid =
