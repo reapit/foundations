@@ -97,7 +97,7 @@ type Query {
     metadata: [String!]
   ): PagedResultCompanyModel_!
 
-  GetRolesByCompanyId(
+  GetCompanyRoles(
     id: String!,
     pageSize: Int,
     pageNumber: Int

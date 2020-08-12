@@ -201,7 +201,7 @@ type Query {
     createdTo: String
     metadata: [String!]
   ): PagedResultCompanyModel_!
-  GetRolesByCompanyId(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
+  GetCompanyRoles(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
   GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
   GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
   GetContacts(
