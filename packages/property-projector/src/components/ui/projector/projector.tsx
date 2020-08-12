@@ -17,15 +17,32 @@ const Projector: React.FC<ProjectorProps> = props => {
 
   const [loading, setLoading] = useState(true)
   const [properties, setProperties]: any = useState([])
+  const [userError, setUserError]: any = useState(false)
 
   useEffect(() => {
     const fetchProjectorProperties = async () => {
-      setProperties(await getProjectorProperties(connectSession as ReapitConnectSession, config))
+      try {
+        setProperties(await getProjectorProperties(connectSession as ReapitConnectSession, config))
+        setLoading(false)
+      } catch (error) {
+        console.error(error)
+        if (error.message === 'NO_PROPERTIES_FOUND') {
+          setUserError('No properties found with given criteria.')
+        }
+      }
     }
     if (connectSession) {
       fetchProjectorProperties()
     }
   }, [connectSession])
+
+  if (loading) {
+    return (
+      <div className="projector-loading" style={{ backgroundColor: config.primaryColour }}>
+        {userError === false ? 'loading...' : `${userError} Press 'ESC' to close.`}
+      </div>
+    )
+  }
 
   return (
     <div className="projector-modal">
@@ -37,9 +54,11 @@ const Projector: React.FC<ProjectorProps> = props => {
         autoPlay={true}
         infiniteLoop={true}
         interval={5000}
+        stopOnHover={false}
       >
-        <ProjectorProperty />
-        <ProjectorProperty />
+        {properties.map(property => (
+          <ProjectorProperty config={config} property={property} />
+        ))}
       </Carousel>
     </div>
   )

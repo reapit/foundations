@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13",
+    "react-color": "^2.18.1",
     "react-responsive-carousel": "^3.2.9"
   },
   "devDependencies": {}

@@ -18,7 +18,7 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
 
   // no properties found with criteria
   if (properties.length === 0) {
-    throw new Error('No properties found with given criteria')
+    throw new Error('NO_PROPERTIES_FOUND')
   }
 
   const propertyImagesParams = new URLSearchParams()

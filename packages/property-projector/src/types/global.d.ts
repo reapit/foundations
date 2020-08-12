@@ -11,14 +11,12 @@ export type PropertyProjectorConfig = {
   logo: string
   primaryColour: string
   secondaryColour: string
-  rotationDuration: number
-  refreshHour: number
+  interval: number
   propertyLimit: number
   minPrice: number
   maxPrice: number
   randomize: boolean
   showAddress: boolean
-  showStrapline: boolean
   sortBy: 'created' | 'price'
   departments: PropertyProjectorDepartments[]
   offices: PropertyProjectorOffices[]

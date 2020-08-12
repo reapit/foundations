@@ -13,7 +13,104 @@
     z-index: 99999999;
 }
 
-.projector-property{
+.carousel .slide header{
+    text-align: left;
+    padding: 30px;
+    border-bottom: 5px solid #FFFFFF;
+    background-color: #006580;
+}
+
+.carousel .slide .property-projector{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 800px;
+}
+
+.carousel .slide header img{
+    width: auto;
+    max-height: 80px;
+}
+
+.carousel .slide .property-projector-images{
+    display: flex;
+    height: 100%;
+}
+
+.carousel .slide .property-projector-images div{
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel .slide .property-projector-side-images {
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid #FFFFFF;
+}
+
+.carousel .slide .property-projector-side-images div:nth-of-type(2){
+    border-top: 5px solid #FFFFFF;
+}
+
+.carousel .slide .property-projector-information{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 10px 20px;
+    text-align: left;
+    min-width: 600px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.carousel .slide .property-projector-information p{
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+
+.carousel .slide .property-projector-information p svg{
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.carousel .slide .property-projector-information .sale-status{
+    font-size: 40px;
+    background-color: #006580;
+}
+
+.carousel .slide .property-projector-information .rooms span{
+    margin-left: 30px;
+}
+
+.carousel .slide .property-projector-information .rooms span:first-of-type{
+    margin-left: 0px;
+}
+
+.projector-loading{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
+    background-color: #006580;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    z-index: 99999999;
+}
+
+.colour-picker-container{
+    position: relative;
+}
+
+.sketch-picker{
+    position: absolute;
+    top: 89px;
+    right: 8px;
+    z-index: 999999;
 }
