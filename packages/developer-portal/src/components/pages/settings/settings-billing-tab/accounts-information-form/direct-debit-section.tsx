@@ -13,6 +13,7 @@ import {
 } from '@reapit/elements'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
+import HelperText from './helper-text'
 
 const { statusField, hasDirectDebitField } = formFields
 
@@ -111,9 +112,9 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
         <FormHeading>Direct Debit</FormHeading>
         <FormSubHeading>
           As you are providing a Reapit Reference, we will need to validate your account with our Accounts Department.
-          Once confirmed, any subscriptions will be added to your existing monthly Direct Debit. Please now click ‘Save’
-          to submit your account information
+          Once confirmed, any subscriptions will be added to your existing monthly Direct Debit.
         </FormSubHeading>
+        <HelperText text="Please now click ‘Submit to Accounts’ to continue" />
       </GridItem>
     )
 
