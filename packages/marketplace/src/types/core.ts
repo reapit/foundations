@@ -6,6 +6,7 @@ import { AppsRootState } from '@/reducers/apps'
 import { NegotiatorsRootState } from '@/reducers/negotiators'
 import { WebComponentRootState } from '@/reducers/web-component'
 import { InstallationsRootState } from '@/reducers/installations'
+import { SettingsState } from '@/reducers/settings'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -51,4 +52,5 @@ export type ReduxState = {
   categories: CategoriesRootState
   installations: InstallationsRootState
   desktopIntegrationTypes: DesktopIntegrationTypeRootState
+  settings: SettingsState
 }

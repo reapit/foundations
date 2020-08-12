@@ -9,6 +9,7 @@ import webComponent from '@/reducers/web-component'
 import categories from '@/reducers/categories'
 import installations from '@/reducers/installations'
 import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
+import { settingReducer } from '@/reducers/settings'
 
 import { installationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
@@ -16,6 +17,7 @@ import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
 import { categoriesSagas } from '@/sagas/categories'
 import { appsSagas } from '@/sagas/apps'
 import { negotiatorsSagas } from '@/sagas/negotiators'
+import { settingsSagas } from '@/sagas/settings'
 
 export class Store {
   static _instance: Store
@@ -39,6 +41,7 @@ export class Store {
     negotiators,
     categories,
     desktopIntegrationTypes,
+    settings: settingReducer,
   })
 
   static sagas = function*() {
@@ -49,6 +52,7 @@ export class Store {
       fork(negotiatorsSagas),
       fork(categoriesSagas),
       fork(desktopIntegrationTypesSagas),
+      fork(settingsSagas),
     ])
   }
 

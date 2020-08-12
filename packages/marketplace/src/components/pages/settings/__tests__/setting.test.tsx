@@ -1,12 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { Settings, handleLogout } from '../setting'
+import { Dispatch } from 'redux'
+import { Settings, createDispatchers } from '../setting'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
+import { changePassword as changePasswordAction } from '@/actions/settings'
 
 jest.mock('@/core/connect-session', () => ({
   reapitConnectBrowserSession: {
@@ -30,20 +32,24 @@ describe('Settings', () => {
     ).toMatchSnapshot()
   })
 
-  it('should match snapshot in desktop mode', () => {
-    expect(
-      mount(
-        <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
-          <Settings />
-        </MemoryRouter>,
-      ),
-    ).toMatchSnapshot()
-  })
+  describe('createDispatchers', () => {
+    test('should return correctly', () => {
+      const mockDispatch = jest.fn()
+      const connectSession = {
+        loginIdentity: {
+          email: 'tester@reapit',
+        },
+      }
+      const { changePassword } = createDispatchers(mockDispatch as Dispatch, connectSession as ReapitConnectSession)
 
-  describe('handleLogout', () => {
-    it('should run correctly', () => {
-      handleLogout()
-      expect(reapitConnectBrowserSession.connectLogoutRedirect).toHaveBeenCalled()
+      const mockChangePasswordParam = {
+        currentPassword: 'a',
+        password: 'a',
+        confirmPassword: 'a',
+        email: 'tester@reapit',
+      }
+      changePassword(mockChangePasswordParam)
+      expect(mockDispatch).toHaveBeenCalledWith(changePasswordAction(mockChangePasswordParam))
     })
   })
 })

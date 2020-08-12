@@ -89,6 +89,10 @@ const appState: ReduxState = {
       errorMessage: '',
     },
   },
+
+  settings: {
+    loading: false,
+  },
 }
 
 export default appState
