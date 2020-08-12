@@ -4,6 +4,7 @@ import uuid from 'uuid/v4'
 import morgan from 'morgan'
 import health from './routes/health'
 import webComponentsConfig from './routes/web-components-config'
+import propertyProjectorConfig from './routes/property-projector-config'
 import logger from './logger'
 import * as Sentry from '@sentry/node'
 
@@ -62,5 +63,6 @@ app.use(morganLogging)
 app.use(cors({ origin: true }))
 app.use('/v1/health', health)
 app.use('/v1/web-components-config', webComponentsConfig)
+app.use('/v1/property-projector-config', propertyProjectorConfig)
 
 export default app
