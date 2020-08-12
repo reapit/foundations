@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { GridItem, Input, Content } from '@reapit/elements'
+import { GridItem, Input, Content, Helper } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
 import { statusText } from './__styles__/account-status-section'
-import HelperText from './helper-text'
 
 const { statusField } = formFields
 
@@ -39,7 +38,9 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
         </Content>
       )}
       {shouldThankSettingDebit && (
-        <HelperText text="Thank you for setting up a Direct Debit, please now click on ‘Submit to Accounts’ to continue" />
+        <Helper variant="info" closeButton={false}>
+          Thank you for setting up a Direct Debit, please now click on ‘Submit to Accounts’ to continue
+        </Helper>
       )}
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
