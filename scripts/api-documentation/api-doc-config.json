@@ -1,9 +1,167 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-08-11T10:49:59.677Z",
+  "__export_date": "2020-08-12T07:38:42.494Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
+    {
+      "_id": "req_521c7911117f4483b70715a0804a521f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetVendors($pageSize: Int, $pageNumber: Int) {\\n  GetVendors(pageSize: $pageSize, pageNumber: $pageNumber) {\\n    _embedded {\\n      id\\n      created\\n      modified\\n    }\\n    pageNumber\\n    pageSize\\n    pageCount\\n    totalCount\\n    _links\\n  }\\n}\",\"variables\":{\"pageSize\":5,\"pageNumber\":1},\"operationName\":\"GetVendors\"}"
+      },
+      "created": 1597216821068,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130670051,
+      "method": "POST",
+      "modified": 1597216857183,
+      "name": "GetVendors",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "created": 1590994744285,
+      "description": "",
+      "environment": { "graphqlServer": { "authorization": "" } },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "metaSortKey": -1591008340991,
+      "modified": 1597217875594,
+      "name": "GraphQL Queries",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "created": 1590743470730,
+      "description": "",
+      "modified": 1590743470730,
+      "name": "Reapit APIs Documentation",
+      "parentId": null,
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_899b33b56ff345cb8a55181b634a89ac",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetVendorById($id: String!) {\\n  GetVendorById(id: $id) {\\n    id\\n    created\\n    modified\\n  }\\n}\",\"variables\":{\"id\":\"RPT200075\"},\"operationName\":\"GetVendorById\"}"
+      },
+      "created": 1597216872542,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130670026,
+      "method": "POST",
+      "modified": 1597216892531,
+      "name": "GetVendorById",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1394e0280814479abd346bb2f1853d8c",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetVendorRelationships($pageSize: Int, $pageNumber: Int, $id: String!) {\\n  GetVendorRelationships(pageSize: $pageSize, pageNumber: $pageNumber, id: $id) {\\n    _embedded {\\n      id\\n      created\\n      modified\\n    }\\n    pageNumber\\n    pageSize\\n    pageCount\\n    totalCount\\n    _links\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200074\",\"pageSize\":5,\"pageNumber\":1},\"operationName\":\"GetVendorRelationships\"}"
+      },
+      "created": 1597217153054,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130670019.75,
+      "method": "POST",
+      "modified": 1597217617917,
+      "name": "GetVendorRelationships",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_76da9866812c4b9e82faf485dbafe9f3",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetVendorRelationshipById($id: String!, $relationshipId: String!) {\\n  GetVendorRelationshipById(id: $id, relationshipId: $relationshipId) {\\n    id\\n    created\\n    modified\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200074\",\"relationshipId\":\"RPT20000451\"},\"operationName\":\"GetVendorRelationshipById\"}"
+      },
+      "created": 1597217187797,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597130670016.625,
+      "method": "POST",
+      "modified": 1597217568501,
+      "name": "GetVendorRelationshipById",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
     {
       "_id": "req_411ab21daf5346ec840b162e1b94bacf",
       "authentication": {},
@@ -25,7 +183,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670001,
       "method": "POST",
-      "modified": 1597140913311,
+      "modified": 1597216716697,
       "name": "GetOffers",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -37,33 +195,6 @@
       "settingStoreCookies": true,
       "url": "{{ graphqlServer.path }}",
       "_type": "request"
-    },
-    {
-      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
-      "created": 1590994744285,
-      "description": "",
-      "environment": {
-        "graphqlServer": {
-          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5Iiwib3JpZ2luX2p0aSI6IjNkM2Q2MmQzLTZlNTctNGYyNC05YjIxLThmNzc2YzEyOGJjMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTY2MTEzNzQsImV4cCI6MTU5NzE0MzA0MiwiaWF0IjoxNTk3MTM5NDQyLCJqdGkiOiIwMDFlNjQwYS0xNzBjLTRiODYtYTRjOS1lNGU0YzAxYTYxYjMiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.aFCu7Se7ib6XbExi7iX5O6WIm41Z48DZBw3O_BBAzxQJ7LHYWwomhdf3lHhnUTN9ceyBfP0N7uhVYNofniVtrQ5TJaE8xPiCllJFSoA2Pj7Dth3d6o2JZ1LmIrKjbXDHsA2xUQ6A4kv-F0OuDAugCrPOtuRWsKCMlDnzyuQRQ8OsO5lsC7MdhkB1UtZXlJwVX0nI1nSPslK15mY4ctGcDLpe3lEp5NlYBouQehROhgtt3mdZVNosc7hKMvXZtnz-AXYjP2nN4CeWMc5zjhZ77tSwk_3dUz1hy4d2KCxRAzdAHQFBME9TSEsQbxEHJAfu-SfTvedlQWtAURBXza305Q",
-          "path": "http://localhost:3000/local/graphql"
-        }
-      },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["path", "authorization"] },
-      "metaSortKey": -1591008340991,
-      "modified": 1597139501017,
-      "name": "GraphQL Queries",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
-    },
-    {
-      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "created": 1590743470730,
-      "description": "",
-      "modified": 1590743470730,
-      "name": "Reapit APIs Documentation",
-      "parentId": null,
-      "scope": null,
-      "_type": "workspace"
     },
     {
       "_id": "req_5633018b9ba64014885e8aa7e7ae8d47",
@@ -86,7 +217,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130669976,
       "method": "POST",
-      "modified": 1597142036062,
+      "modified": 1597217096665,
       "name": "GetOfferById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -120,7 +251,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130669951,
       "method": "POST",
-      "modified": 1597138775743,
+      "modified": 1597217099035,
       "name": "GetApplicantRelationships",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -154,7 +285,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130460815,
       "method": "POST",
-      "modified": 1597140677856,
+      "modified": 1597131606702,
       "name": "GetApplicantRelationshipById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -188,7 +319,7 @@
       "isPrivate": false,
       "metaSortKey": -1597052331418,
       "method": "POST",
-      "modified": 1597131835891,
+      "modified": 1597217100007,
       "name": "GetApplicant",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -222,7 +353,7 @@
       "isPrivate": false,
       "metaSortKey": -1597051797401,
       "method": "POST",
-      "modified": 1597140927635,
+      "modified": 1597131887903,
       "name": "GetApplicants",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -284,7 +415,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316484.75,
       "method": "POST",
-      "modified": 1597141219016,
+      "modified": 1597136033472,
       "name": "GetTenancies",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -294,7 +425,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}",
+      "url": "{{ graphqlServer.path }}/local/graphql",
       "_type": "request"
     },
     {
@@ -318,7 +449,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316459.75,
       "method": "POST",
-      "modified": 1597141226688,
+      "modified": 1597136079232,
       "name": "GetTenancyById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -328,7 +459,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}",
+      "url": "{{ graphqlServer.path }}/local/graphql",
       "_type": "request"
     },
     {
@@ -352,7 +483,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316447.25,
       "method": "POST",
-      "modified": 1597141224138,
+      "modified": 1597136034465,
       "name": "GetTenancyRelationships",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -362,7 +493,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}",
+      "url": "{{ graphqlServer.path }}/local/graphql",
       "_type": "request"
     },
     {
@@ -386,7 +517,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316441,
       "method": "POST",
-      "modified": 1597141228897,
+      "modified": 1597139258020,
       "name": "GetTenancyChecks",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -420,7 +551,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316437.875,
       "method": "POST",
-      "modified": 1597141231135,
+      "modified": 1597131217180,
       "name": "GetTenancyCheckById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -430,7 +561,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}",
+      "url": "{{ graphqlServer.path }}/local/graphql",
       "_type": "request"
     },
     {
@@ -454,7 +585,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316434.75,
       "method": "POST",
-      "modified": 1597141215757,
+      "modified": 1597052198518,
       "name": "GetAppointments",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -590,7 +721,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994285622.8438,
       "method": "POST",
-      "modified": 1597140908617,
+      "modified": 1597131889812,
       "name": "GetNegotiators",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -658,7 +789,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994214374.8281,
       "method": "POST",
-      "modified": 1597140908089,
+      "modified": 1591029056021,
       "name": "GetOffices",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -965,7 +1096,7 @@
       "isPrivate": false,
       "metaSortKey": -1590993644390.7031,
       "method": "POST",
-      "modified": 1597140906817,
+      "modified": 1591029010414,
       "name": "GetContactById",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -1047,6 +1178,120 @@
       "_type": "request"
     },
     {
+      "_id": "req_de96b99a1e7f4e6dbc87f2416073e36b",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateVendor($id: String!, $_eTag: String!, $nextCall: String, $lastCall: String, $typeId: String, $sellingReasonId: String, $solicitorId: String, $source: VendorSourceInput, $metadata: JSON) {\\n  UpdateVendor(id: $id, _eTag: $_eTag, nextCall: $nextCall, lastCall: $lastCall, typeId: $typeId, sellingReasonId: $sellingReasonId, solicitorId: $solicitorId, source: $source, metadata: $metadata) {\\n    id\\n    created\\n    modified\\n    _eTag\\n    metadata\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200075\",\"_eTag\":\"\\\"D8BC2B4221741300220542AC21E7F004\\\"\"},\"operationName\":\"UpdateVendor\"}"
+      },
+      "created": 1597216909380,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597131499336,
+      "method": "POST",
+      "modified": 1597217130677,
+      "name": "UpdateVendor",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
+      "created": 1591008340941,
+      "description": "",
+      "environment": { "graphqlServer": { "authorization": "" } },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "metaSortKey": -1591008340941,
+      "modified": 1597217885501,
+      "name": "GraphQL Mutations",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_500c15853d224a3fb36f3dccea6a5b01",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateVendorRelationship(\\n  $id: String!\\n  $associatedId: String\\n  $associatedType: String\\n  $isMain: Boolean\\n) {\\n  CreateVendorRelationship(\\n    id: $id\\n    associatedId: $associatedId\\n    associatedType: $associatedType\\n    isMain: $isMain\\n  )\\n}\",\"variables\":{\"id\":\"RPT200074\",\"associatedId\":\"MKT20000053\",\"associatedType\":\"contact\",\"isMain\":true},\"operationName\":\"CreateVendorRelationship\"}"
+      },
+      "created": 1597217264119,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597131499311,
+      "method": "POST",
+      "modified": 1597217602994,
+      "name": "CreateVendorRelationship",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5a1655c49cd246fc9387f7f8fe8ca994",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation DeleteVendorRelationship($id: String!, $relationshipId: String!) {\\n  DeleteVendorRelationship(id: $id, relationshipId: $relationshipId)\\n}\",\"variables\":{\"id\":\"RPT200074\",\"relationshipId\":\"RPT20000451\"},\"operationName\":\"DeleteVendorRelationship\"}"
+      },
+      "created": 1597217466765,
+      "description": "",
+      "headers": [
+        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_0b381a1b94774774b522a9b81268c996",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597131499298.5,
+      "method": "POST",
+      "modified": 1597217832351,
+      "name": "DeleteVendorRelationship",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
       "_id": "req_56cb789a0a1a4c6495b6cff363897a93",
       "authentication": {},
       "body": {
@@ -1067,7 +1312,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499286,
       "method": "POST",
-      "modified": 1597141676627,
+      "modified": 1597139636389,
       "name": "CreateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1079,23 +1324,6 @@
       "settingStoreCookies": true,
       "url": "{{ graphqlServer.path }}",
       "_type": "request"
-    },
-    {
-      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
-      "created": 1591008340941,
-      "description": "",
-      "environment": {
-        "graphqlServer": {
-          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5Iiwib3JpZ2luX2p0aSI6IjNkM2Q2MmQzLTZlNTctNGYyNC05YjIxLThmNzc2YzEyOGJjMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTY2MTEzNzQsImV4cCI6MTU5NzE0MzA0MiwiaWF0IjoxNTk3MTM5NDQyLCJqdGkiOiIwMDFlNjQwYS0xNzBjLTRiODYtYTRjOS1lNGU0YzAxYTYxYjMiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.aFCu7Se7ib6XbExi7iX5O6WIm41Z48DZBw3O_BBAzxQJ7LHYWwomhdf3lHhnUTN9ceyBfP0N7uhVYNofniVtrQ5TJaE8xPiCllJFSoA2Pj7Dth3d6o2JZ1LmIrKjbXDHsA2xUQ6A4kv-F0OuDAugCrPOtuRWsKCMlDnzyuQRQ8OsO5lsC7MdhkB1UtZXlJwVX0nI1nSPslK15mY4ctGcDLpe3lEp5NlYBouQehROhgtt3mdZVNosc7hKMvXZtnz-AXYjP2nN4CeWMc5zjhZ77tSwk_3dUz1hy4d2KCxRAzdAHQFBME9TSEsQbxEHJAfu-SfTvedlQWtAURBXza305Q",
-          "path": "http://localhost:3000/local/graphql"
-        }
-      },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["path", "authorization"] },
-      "metaSortKey": -1591008340941,
-      "modified": 1597139532007,
-      "name": "GraphQL Mutations",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
     },
     {
       "_id": "req_8a0ae8a44ad94a7990940d296cdfa0fb",
@@ -1118,7 +1346,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499261,
       "method": "POST",
-      "modified": 1597141619772,
+      "modified": 1597139637244,
       "name": "UpdateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1152,7 +1380,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499236,
       "method": "POST",
-      "modified": 1597132755292,
+      "modified": 1597217823163,
       "name": "DeleteApplicantRelationship",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1313,144 +1541,8 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1597141242031,
+      "modified": 1597135525682,
       "name": "CreateAppointment",
-      "parameters": [],
-      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingFollowRedirects": "global",
-      "settingRebuildPath": true,
-      "settingSendCookies": true,
-      "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}",
-      "_type": "request"
-    },
-    {
-      "_id": "req_87c668d51f8246ba895b105fc7e2bd2f",
-      "authentication": {},
-      "body": {
-        "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation CreateTenancy($startDate: String, $endDate: String, $agentRole: String, $rent: Int, $rentFrequency: String, $isPeriodic: Boolean, $typeId: String, $negotiatorId: String, $propertyId: String, $applicantId: String, $source: CreateTenancyRequestModelSource) {\\n  CreateTenancy(startDate: $startDate, endDate: $endDate, agentRole: $agentRole, rent: $rent, rentFrequency: $rentFrequency, isPeriodic: $isPeriodic, typeId: $typeId, negotiatorId: $negotiatorId, propertyId: $propertyId, applicantId: $applicantId, source: $source) {\\n    id\\n    created\\n    modified\\n    startDate\\n    endDate\\n    status\\n    agentRole\\n    rent\\n    rentFrequency\\n    endDateConfirmed\\n    isPeriodic\\n    typeId\\n    negotiatorId\\n    propertyId\\n    applicantId\\n  }\\n}\\n\",\"variables\":{\"startDate\":\"2020-01-01\",\"endDate\":\"2021-01-01\",\"agentRole\":\"managed\",\"rent\":600,\"rentFrequency\":\"monthly\",\"isPeriodic\":true,\"typeId\":\"SL\",\"negotiatorId\":\"JAS\",\"propertyId\":\"OXF200497\",\"applicantId\":\"OXF200012\",\"source\":{\"id\":\"OXF\",\"type\":\"office\"}},\"operationName\":\"CreateTenancy\"}"
-      },
-      "created": 1597141280305,
-      "description": "",
-      "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
-        {
-          "description": "",
-          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
-          "name": "Authorization",
-          "value": "{{ graphqlServer.authorization  }}"
-        }
-      ],
-      "isPrivate": false,
-      "metaSortKey": -1591007860242.4375,
-      "method": "POST",
-      "modified": 1597141885953,
-      "name": "CreateTenancy",
-      "parameters": [],
-      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingFollowRedirects": "global",
-      "settingRebuildPath": true,
-      "settingSendCookies": true,
-      "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}",
-      "_type": "request"
-    },
-    {
-      "_id": "req_5055588f8b1b4094978057fabba5de65",
-      "authentication": {},
-      "body": {
-        "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation CreateTenancyCheck($id: String!, $description: String, $type: String, $status: String) {\\n  CreateTenancyCheck(id: $id, description: $description, type: $type, status: $status) {\\n    tenancyId\\n    _eTag\\n    _links\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"description\":\"Tenant welcome pack\",\"type\":\"preTenancy\",\"status\":\"needed\"},\"operationName\":\"CreateTenancyCheck\"}"
-      },
-      "created": 1597141492508,
-      "description": "",
-      "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
-        {
-          "description": "",
-          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
-          "name": "Authorization",
-          "value": "{{ graphqlServer.authorization  }}"
-        }
-      ],
-      "isPrivate": false,
-      "metaSortKey": -1591007602941.1562,
-      "method": "POST",
-      "modified": 1597142925810,
-      "name": "CreateTenancyCheck",
-      "parameters": [],
-      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingFollowRedirects": "global",
-      "settingRebuildPath": true,
-      "settingSendCookies": true,
-      "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}",
-      "_type": "request"
-    },
-    {
-      "_id": "req_19491b10e995486287335ef98dd660d9",
-      "authentication": {},
-      "body": {
-        "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation UpdateTenancyCheck($id: String!, $checkId: String!, $status: String, $_eTag: String!) {\\n  UpdateTenancyCheck(id: $id, checkId: $checkId, status: $status, _eTag: $_eTag) {\\n    tenancyId\\n    _eTag\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"_eTag\":\"4B68CE30C8C02A1C2259C0D81CB012D0\",\"checkId\":\"RPT20000703\",\"status\":\"needed\"},\"operationName\":\"UpdateTenancyCheck\"}"
-      },
-      "created": 1597142248332,
-      "description": "",
-      "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
-        {
-          "description": "",
-          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
-          "name": "Authorization",
-          "value": "{{ graphqlServer.authorization  }}"
-        }
-      ],
-      "isPrivate": false,
-      "metaSortKey": -1591007538615.836,
-      "method": "POST",
-      "modified": 1597142813622,
-      "name": "UpdateTenancyCheck",
-      "parameters": [],
-      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingFollowRedirects": "global",
-      "settingRebuildPath": true,
-      "settingSendCookies": true,
-      "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path  }}",
-      "_type": "request"
-    },
-    {
-      "_id": "req_7a6eb04c19ec4807abbbffa935aa2d48",
-      "authentication": {},
-      "body": {
-        "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation DeleteTenancyCheck($id: String!, $checkId: String!) {\\n  DeleteTenancyCheck(id: $id, checkId: $checkId)\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"checkId\":\"RPT20000704\"},\"operationName\":\"DeleteTenancyCheck\"}"
-      },
-      "created": 1597141862504,
-      "description": "",
-      "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
-        {
-          "description": "",
-          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
-          "name": "Authorization",
-          "value": "{{ graphqlServer.authorization  }}"
-        }
-      ],
-      "isPrivate": false,
-      "metaSortKey": -1591007474290.5156,
-      "method": "POST",
-      "modified": 1597142949699,
-      "name": "DeleteTenancyCheck",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -1483,7 +1575,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007345639.875,
       "method": "POST",
-      "modified": 1597142949343,
+      "modified": 1597135353370,
       "name": "UpdateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1959,7 +2051,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006573473.5312,
       "method": "POST",
-      "modified": 1597141587241,
+      "modified": 1597139249491,
       "name": "UpdatePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2387,7 +2479,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1597141899467,
+      "modified": 1591079961063,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -2402,12 +2494,12 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_aab19c533bf44649bb9a673c466635db",
+      "_id": "spc_5068094654374bdcaeab3a9dd30ffe2f",
       "contentType": "yaml",
       "contents": "",
-      "created": 1592456076991,
+      "created": 1591178451254,
       "fileName": "Reapit APIs Documentation",
-      "modified": 1592456076991,
+      "modified": 1591178451254,
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "api_spec"
     },
@@ -2426,7 +2518,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1597142035694,
+      "modified": 1591079896583,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -2436,7 +2528,7 @@
       "color": "#00c400",
       "created": 1590743650077,
       "data": {
-        "graphQLServerDomain": "localhost:4000",
+        "graphQLServerDomain": "localhost:3000/local/graphql",
         "protocol": "http",
         "webComponentConfigServerDomain": "localhost:3000",
         "webComponentServerDomain": "localhost:3000"
@@ -2446,7 +2538,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1597131609948,
+      "modified": 1597216716280,
       "name": "local",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -2473,4 +2565,3 @@
     }
   ]
 }
-
