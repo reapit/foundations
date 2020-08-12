@@ -55,10 +55,9 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
     <Component
       className=""
       closeIcon={
-        <button
+        <span
           aria-label="close"
           className="delete"
-          type="button"
         />
       }
       destroyOnClose={true}
@@ -104,10 +103,9 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           class="rc-dialog-close"
                           type="button"
                         >
-                          <button
+                          <span
                             aria-label="close"
                             class="delete"
-                            type="button"
                           />
                         </button>
                         <div
@@ -173,10 +171,9 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
               className=""
               closable={true}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -277,10 +274,9 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                               onClick={[Function]}
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 className="delete"
-                                type="button"
                               />
                             </button>
                             <div
@@ -551,10 +547,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             afterClose={[MockFunction]}
             className=""
             closeIcon={
-              <button
+              <span
                 aria-label="close"
                 className="delete"
-                type="button"
               />
             }
             destroyOnClose={true}
@@ -628,10 +623,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-close"
                                 type="button"
                               >
-                                <button
+                                <span
                                   aria-label="close"
                                   class="delete"
-                                  type="button"
                                 />
                               </button>
                               <div
@@ -698,10 +692,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                     className=""
                     closable={true}
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -830,10 +823,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                     onClick={[Function]}
                                     type="button"
                                   >
-                                    <button
+                                    <span
                                       aria-label="close"
                                       className="delete"
-                                      type="button"
                                     />
                                   </button>
                                   <div
@@ -986,10 +978,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             <Component
               className=""
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
