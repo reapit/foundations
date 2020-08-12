@@ -1,4 +1,5 @@
 import React from 'react'
+import { css } from 'linaria'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Formik, Form, LevelRight, H3, FormSection, Loader } from '@reapit/elements'
 import { companyInformationFormSchema } from './form-schema/validation-schema'
@@ -8,6 +9,11 @@ import CompanyAddressSection from './company-address-section'
 import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
 import { updateDeveloperData } from '@/actions/settings'
+
+const headingCss = css`
+  display: flex;
+  justify-content: space-between;
+`
 
 export const defaultInitialValues: OrganisationFormValues = {
   about: '',
@@ -80,14 +86,16 @@ export const generateInitialValues = ({
     email,
     postcode,
     registrationNumber,
-    noRegistrationNumber: !registrationNumber,
+    noRegistrationNumber: false,
     telephone,
     website,
     nationalInsurance,
   }
 }
 
-export type OrganisationFormProps = {}
+export type OrganisationFormProps = {
+  onInviteNewMemberClick: () => void
+}
 
 export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
   const {
@@ -129,6 +137,7 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
 
   // TBC, exclude for now
   delete otherData.iconImageUrl
+
   const dataToSubmit: UpdateDeveloperModel = {
     ...otherData,
     companyAddress,
@@ -136,7 +145,7 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
   updateDeveloperDataDispatch(dataToSubmit)
 }
 
-const OrganisationForm: React.FC<OrganisationFormProps> = () => {
+const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberClick }) => {
   const dispatch = useDispatch()
   const updateDeveloperDataDispatch = values => dispatch(updateDeveloperData(values))
   const isLoading: boolean = useSelector(selectSettingsPageIsLoading)
@@ -155,7 +164,14 @@ const OrganisationForm: React.FC<OrganisationFormProps> = () => {
       {({ values }) => {
         return (
           <Form>
-            <H3 isHeadingSection>Company Information</H3>
+            <H3 className={headingCss} isHeadingSection>
+              <span>Company Information</span>
+              <span>
+                <Button type="button" variant="primary" onClick={onInviteNewMemberClick}>
+                  Invite New Member
+                </Button>
+              </span>
+            </H3>
             <FormSection>
               <CompanyInformationSection formValues={values} />
               <CompanyAddressSection />

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid, Input, GridItem, TextArea, ImageInput, Checkbox } from '@reapit/elements'
+import { Grid, Input, GridItem, TextArea, Checkbox } from '@reapit/elements'
 import { formFields, OrganisationFormValues } from './form-schema/form-fields'
 
 export type CompanyInformationSectionProps = {
@@ -9,7 +9,7 @@ export type CompanyInformationSectionProps = {
 const {
   aboutField,
   companyNameField,
-  iconImageUrlField,
+  // iconImageUrlField,
   taxNumberField,
   noTaxRegistrationField,
   emailField,
@@ -95,7 +95,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
         <GridItem>
           <TextArea labelText={aboutField.label} name={aboutField.name} id={aboutField.name} />
         </GridItem>
-        <GridItem>
+        {/* <GridItem>
           <div className="control">
             <label className="label">Logo</label>
             <ImageInput
@@ -105,7 +105,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
               allowClear
             />
           </div>
-        </GridItem>
+        </GridItem> */}
       </Grid>
     </>
   )

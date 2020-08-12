@@ -73,7 +73,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   countryIdField: {
     name: 'countryId',
-    label: 'Country',
+    label: 'Country*',
   },
   iconImageUrlField: {
     name: 'iconImageUrl',
@@ -101,11 +101,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   line4Field: {
     name: 'line4',
-    label: 'Address Line 4',
+    label: 'Address Line 4*',
   },
   postcodeField: {
     name: 'postcode',
-    label: 'Postcode',
+    label: 'Postcode*',
   },
   registrationNumberField: {
     name: 'registrationNumber',
