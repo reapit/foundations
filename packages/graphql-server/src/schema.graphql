@@ -539,7 +539,7 @@ type Mutation {
     email: String
     address: CompanyModelAddressInput
     metadata: JSON
-  ): JSON!
+  ): CompanyModel!
   CreateContact(
     title: String
     forename: String
