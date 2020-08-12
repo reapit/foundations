@@ -16,6 +16,10 @@ import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './account
 import formFields from './form-schema/form-fields'
 
 const { statusField, hasDirectDebitField } = formFields
+/*
+ * TODOME(disablFields)
+ * add prop to required fll
+ */
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
@@ -80,6 +84,10 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
   setIsSubmittedDebit,
   isSubmittedDebit,
   initialStatus,
+  /*
+   * TODOME(disablFields)
+   * add prop to diable field
+   */
 }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
@@ -98,6 +106,11 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
     hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH
 
   const isShowDirectDebitWithoutRef = hasReapitAccountsRef === 'no'
+
+  /*
+   * TODOME(disablFields)
+   * get selectIsRequiredDataOfBillingPageFilled
+   */
 
   if (shouldHideDebitSection) {
     return null
@@ -127,6 +140,10 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
             this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
             account will be verified by our Account Department.
           </FormSubHeading>
+          {/*
+           * TODOME(disablFields)
+           * disbble when shie
+           */}
           <Button onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>Setup Direct Debit</Button>
           <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         </GridItem>

@@ -22,6 +22,10 @@ import ContactInformationSection from './contact-information-section'
 import AccountStatusSection from './account-status-section'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validationSchema } from './form-schema/validation-schema'
+/*
+ * TODOME(billingPage)
+ * import noti
+ */
 
 export type AccountsInformationFormProps = {}
 
@@ -111,6 +115,11 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
+  /*
+   * TODOME(billingPage)
+   * get selectIsRequiredDataOfBillingPageFilled
+   */
+
   const dispatch = useDispatch()
 
   const isShowLoader = isLoading && !isProd
@@ -133,6 +142,10 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
           <Form>
             <H3 isHeadingSection>Billing</H3>
             <FormSection>
+              {/*
+               * TODOME(billingPage)
+               * show noti here
+               */}
               <FormHeading>Accounts Information</FormHeading>
               <FormSubHeading>
                 Information required by our accounts team to verify your billing information
@@ -160,6 +173,10 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
               <LevelRight>
                 <div>
                   <LevelRight>
+                    {/*
+                     * TODOME(disablFields)
+                     * disable when data not filled
+                     */}
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
                       SUBMIT TO ACCOUNTS
                     </Button>

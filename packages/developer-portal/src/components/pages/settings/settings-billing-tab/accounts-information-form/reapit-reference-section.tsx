@@ -2,6 +2,10 @@ import * as React from 'react'
 import { FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements'
 import { AccountsInformationFormValues } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
+/*
+ * TODOME(disablFields)
+ * add prop
+ */
 
 export type ReapitReferenceSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
@@ -15,7 +19,14 @@ const hasReapitAccountsRefRadioOptions = [
   { label: 'No', value: 'no' },
 ]
 
-const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFieldValue, values }) => {
+const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({
+  setFieldValue,
+  values,
+  /*
+   * TODOME(disablFields)
+   * add rpops
+   */
+}) => {
   const { hasReapitAccountsRef } = values
 
   const isStatusNotInComplete = values?.status !== 'incomplete'
@@ -25,6 +36,10 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
     <>
       <FormHeading>{hasReapitAccountsRefField.heading}</FormHeading>
       <FormSubHeading>{hasReapitAccountsRefField.subHeading}</FormSubHeading>
+      {/*
+       * TODOME(disablFields)
+       * disable fields
+       */}
       <RadioSelect
         isHorizontal
         labelText={hasReapitAccountsRefField.label}
