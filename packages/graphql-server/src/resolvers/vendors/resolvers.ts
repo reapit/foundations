@@ -18,7 +18,7 @@ import {
   MutationCreateVendorRelationshipReturn,
   DeleteVendorRelationshipArgs,
   MutationDeleteVendorRelationshipReturn,
-} from './Vendors'
+} from './vendors'
 
 export const queryGetVendorById = (
   _: any,
