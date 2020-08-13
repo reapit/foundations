@@ -4,30 +4,24 @@ import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { Members } from './members'
 import OrganisationForm from './organisation-form'
-import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 import { useSelector } from 'react-redux'
-import { getCurrentUserRole } from '../settings'
-import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
+import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)
 
 const DeveloperSettingsOrganisationTabPage: React.FC = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = React.useState<boolean>(false)
-  const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
-
-  const invitedMember = useSelector(selectOrganisationMembers)
-  const role = getCurrentUserRole(invitedMember, developerInfo.email)
-  const invitedMemberLoading = useSelector(selectOrganisationMembersLoading)
-  if (!developerInfo?.id || invitedMemberLoading) {
+  const currentUser = useSelector(selectCurrentMemberData)
+  const loading = useSelector(selectCurrentMemberIsLoading)
+  if (loading) {
     return <Loader />
   }
-
-  if (role === 'admin') {
+  if (currentUser?.role === 'admin') {
     return (
       <>
         <Section>
-          <Tabs role={role} />
+          <Tabs role={currentUser.role} />
         </Section>
         <OrganisationForm onInviteNewMemberClick={handleToggleVisibleModal(setIsInviteModalOpen, true)} />
         <Members />
@@ -42,7 +36,7 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
         <DeveloperInviteModal
           visible={isInviteModalOpen}
           onClose={handleToggleVisibleModal(setIsInviteModalOpen, false)}
-          developerId={developerInfo.id}
+          developerId={currentUser?.developerId as string}
         />
       </>
     )

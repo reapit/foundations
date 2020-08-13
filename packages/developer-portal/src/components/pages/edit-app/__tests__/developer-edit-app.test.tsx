@@ -15,6 +15,7 @@ import DeveloperSubmitApp, {
   handleSubmitAppSuccess,
   handleSubmitAppError,
   sanitizeAppData,
+  handleCloseModal,
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -218,12 +219,48 @@ describe('DeveloperSubmitApp', () => {
   })
 
   describe('handleSubmitAppSuccess', () => {
-    const setSubmitting = jest.fn()
-    const { history } = getMockRouterProps({})
-    const fn = handleSubmitAppSuccess(setSubmitting, history)
-    fn()
-    expect(setSubmitting).toBeCalled()
-    expect(history.push).toBeCalledWith(Routes.APPS)
+    it('should call history push', () => {
+      const setSubmitting = jest.fn()
+      const { history } = getMockRouterProps({})
+      const setIsShowBillingNotification = jest.fn()
+      const mockCurrentMember = {
+        id: '05f5a331-9122-4353-9e67-c6112654bffd',
+        created: '2020-08-11T13:02:36',
+        email: 'hollyjoyphillips+craig@gmail.com',
+        name: 'Craig Test',
+        jobTitle: 'CB',
+        status: 'confirm',
+        role: 'user',
+        developerId: '3b358a06-65f6-46a6-a9fc-84bf1dce18c8',
+        agencyCloudAccess: false,
+      }
+      const fn = handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, mockCurrentMember)
+      fn()
+      expect(setSubmitting).toBeCalled()
+      expect(history.push).toBeCalledWith(Routes.APPS)
+      expect(setIsShowBillingNotification).not.toBeCalled()
+    })
+
+    it('should call setIsShowBillingNotification', () => {
+      const setSubmitting = jest.fn()
+      const { history } = getMockRouterProps({})
+      const setIsShowBillingNotification = jest.fn()
+      const mockCurrentMember = {
+        id: '05f5a331-9122-4353-9e67-c6112654bffd',
+        created: '2020-08-11T13:02:36',
+        email: 'hollyjoyphillips+craig@gmail.com',
+        name: 'Craig Test',
+        jobTitle: 'CB',
+        status: 'pending',
+        role: 'user',
+        developerId: '3b358a06-65f6-46a6-a9fc-84bf1dce18c8',
+        agencyCloudAccess: false,
+      }
+      const fn = handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, mockCurrentMember)
+      fn()
+      expect(setIsShowBillingNotification).toBeCalledWith(true)
+      expect(history.push).not.toBeCalledWith(Routes.APPS)
+    })
   })
 
   describe('handleSubmitAppError', () => {
@@ -270,6 +307,15 @@ describe('DeveloperSubmitApp', () => {
       }
       const result = sanitizeAppData(input)
       expect(result).toEqual(output)
+    })
+  })
+
+  describe('handleCloseModal', () => {
+    it('should run correctly', () => {
+      const mockSetIsShowBillingNotification = jest.fn()
+      const fn = handleCloseModal(mockSetIsShowBillingNotification)
+      fn()
+      expect(mockSetIsShowBillingNotification).toBeCalledWith(false)
     })
   })
 })

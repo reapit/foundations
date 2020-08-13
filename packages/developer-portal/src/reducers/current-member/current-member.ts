@@ -1,5 +1,5 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
+import { Action } from '@/types/core'
+import { isType } from '@/utils/actions'
 import {
   fetchCurrentMember,
   fetchCurrentMemberSuccess,
@@ -11,7 +11,7 @@ import {
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 
 export type CurrentMemberRootState = {
-  data: MemberModel | null
+  data: MemberModel
   isLoading: boolean
   update: {
     isLoading: boolean
@@ -20,13 +20,13 @@ export type CurrentMemberRootState = {
 
 export const defaultState: CurrentMemberRootState = {
   isLoading: false,
-  data: null,
+  data: {},
   update: {
     isLoading: false,
   },
 }
 
-const currentMemberReducer = (
+export const currentMemberReducer = (
   state: CurrentMemberRootState = defaultState,
   action: Action<any>,
 ): CurrentMemberRootState => {

@@ -51,6 +51,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
         )
         store.dispatch(fetchDesktopIntegrationTypeList())
         store.dispatch(fetchScopeList())
+        store.dispatch(requestDeveloperData())
+        store.dispatch(fetchCurrentMember())
       }
       break
     }
@@ -73,9 +75,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.SETTINGS_BILLING_TAB: {
-      const developerId = await getDeveloperId()
       store.dispatch(requestDeveloperData())
-      store.dispatch(fetchOrganisationMembers({ id: developerId }))
       break
     }
     case Routes.WEBHOOKS:

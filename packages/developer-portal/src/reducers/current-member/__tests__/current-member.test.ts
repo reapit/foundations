@@ -1,6 +1,6 @@
 import currentMemberReducer, { defaultState } from '../current-member'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 import appState from '@/reducers/__stubs__/app-state'
 
 const mockData = appState.currentMember
