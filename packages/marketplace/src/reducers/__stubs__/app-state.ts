@@ -89,6 +89,13 @@ const appState: ReduxState = {
       errorMessage: '',
     },
   },
+
+  cognitoIdentity: {
+    updatePassword: {
+      loading: false,
+      errorMessage: '',
+    },
+  },
 }
 
 export default appState
