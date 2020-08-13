@@ -23,10 +23,6 @@ import AccountStatusSection from './account-status-section'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validationSchema } from './form-schema/validation-schema'
 import { selectIsRequiredDataOfBillingPageFilled } from '@/selector/billing'
-/*
- * TODOME(billingPage)
- * import noti
- */
 
 export type AccountsInformationFormProps = {}
 
@@ -116,11 +112,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
-  /*
-   * TODOME(billingPage)
-   * get selectIsRequiredDataOfBillingPageFilled
-   */
-
   const isRequiredDataOfBillingPageFilled = useSelector(selectIsRequiredDataOfBillingPageFilled)
   console.log({ isRequiredDataOfBillingPageFilled })
 
@@ -146,10 +137,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
           <Form>
             <H3 isHeadingSection>Billing</H3>
             <FormSection>
-              {/*
-               * TODOME(billingPage)
-               * show noti here
-               */}
+              {}
               {!isRequiredDataOfBillingPageFilled && (
                 <Helper variant="info">
                   You will need to first complete your Organisation information before submitting your Account details

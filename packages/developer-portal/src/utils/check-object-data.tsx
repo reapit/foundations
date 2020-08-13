@@ -3,7 +3,7 @@ export type CheckObjectFieldsParams<T> = {
   keys: (keyof T)[]
 }
 
-export const checkAtLeastOneKeysOfObjectIsNotEmpty = <T,>({ object, keys }: CheckObjectFieldsParams<T>) => {
+export const checkAtLeastOneKeyHasValueIsNotEmpty = <T,>({ object, keys }: CheckObjectFieldsParams<T>) => {
   if (!object) {
     return false
   }
@@ -17,11 +17,7 @@ export const checkAtLeastOneKeysOfObjectIsNotEmpty = <T,>({ object, keys }: Chec
   })
 }
 
-/**
- * return false if object fields's value contain falsy value
- * warning: this consider 0 as truthy value
- */
-export const checkObjectKeysValueIsNotEmpty = <T,>({ object, keys }: CheckObjectFieldsParams<T>) => {
+export const checkAllKeysHasValueNotEmpty = <T,>({ object, keys }: CheckObjectFieldsParams<T>) => {
   if (!object) {
     return false
   }

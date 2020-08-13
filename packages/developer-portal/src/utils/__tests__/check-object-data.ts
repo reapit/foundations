@@ -1,6 +1,6 @@
-import { checkObjectKeysValueIsNotEmpty, checkAtLeastOneKeysOfObjectIsNotEmpty } from '../check-object-fields'
+import { checkAllKeysHasValueNotEmpty, checkAtLeastOneKeyHasValueIsNotEmpty } from '../check-object-data'
 
-describe('checkAtLeastOneKeysOfObjectIsNotEmpty', () => {
+describe('checkAtLeastOneKeyHasValueIsNotEmpty', () => {
   const testCases = [
     [0, true],
     [undefined, true],
@@ -17,7 +17,7 @@ describe('checkAtLeastOneKeysOfObjectIsNotEmpty', () => {
 
     test(JSON.stringify(input), () => {
       expect(
-        checkAtLeastOneKeysOfObjectIsNotEmpty<Input>({
+        checkAtLeastOneKeyHasValueIsNotEmpty<Input>({
           object: input,
           keys: ['key', 'key2'],
         }),
@@ -31,7 +31,7 @@ describe('checkAtLeastOneKeysOfObjectIsNotEmpty', () => {
 
     test(JSON.stringify(input), () => {
       expect(
-        checkAtLeastOneKeysOfObjectIsNotEmpty<Input>({
+        checkAtLeastOneKeyHasValueIsNotEmpty<Input>({
           object: input,
           keys: ['key', 'key2'],
         }),
@@ -41,12 +41,12 @@ describe('checkAtLeastOneKeysOfObjectIsNotEmpty', () => {
 
   test('object is null', () => {
     expect(
-      checkAtLeastOneKeysOfObjectIsNotEmpty<null>({ object: null, keys: [] }),
+      checkAtLeastOneKeyHasValueIsNotEmpty<null>({ object: null, keys: [] }),
     ).toBe(false)
   })
 })
 
-describe('checkObjectKeysValueIsNotEmpty', () => {
+describe('checkAllKeysHasValueNotEmpty', () => {
   const testCases = [
     ['something', true],
     [0, true],
@@ -65,7 +65,7 @@ describe('checkObjectKeysValueIsNotEmpty', () => {
 
     test(JSON.stringify(input), () => {
       expect(
-        checkObjectKeysValueIsNotEmpty<Input>({
+        checkAllKeysHasValueNotEmpty<Input>({
           object: input,
           keys: ['key', 'key2'],
         }),
@@ -75,7 +75,7 @@ describe('checkObjectKeysValueIsNotEmpty', () => {
 
   test('object is null', () => {
     expect(
-      checkObjectKeysValueIsNotEmpty<null>({ object: null, keys: [] }),
+      checkAllKeysHasValueNotEmpty<null>({ object: null, keys: [] }),
     ).toBe(false)
   })
 })
