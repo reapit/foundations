@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Loader, Section } from '@reapit/elements'
-import { Forms } from './forms/forms'
+import { Forms } from './settings-profile-tab/forms'
 import { Tabs } from './tabs'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { useSelector } from 'react-redux'

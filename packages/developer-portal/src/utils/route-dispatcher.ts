@@ -13,6 +13,7 @@ import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
 import { fetchScopeList } from '@/actions/scopes'
+import { fetchCurrentMember } from '@/actions/current-member'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -62,6 +63,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       const developerId = await getDeveloperId()
       store.dispatch(fetchOrganisationMembers({ id: developerId }))
       store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       break
     }
     case Routes.SETTINGS_ORGANISATION_TAB: {
