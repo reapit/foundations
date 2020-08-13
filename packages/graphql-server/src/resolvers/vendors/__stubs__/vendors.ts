@@ -1,6 +1,6 @@
 import { PagedResultVendorModel_ } from '../../../types'
 
-export const vendorsMock: PagedResultVendorModel_ = {
+export const vendorsStub: PagedResultVendorModel_ = {
   _embedded: [
     {
       id: 'OXF200001',

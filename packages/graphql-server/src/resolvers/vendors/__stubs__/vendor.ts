@@ -1,6 +1,6 @@
 import { VendorModel } from '../../../types'
 
-export const vendorMock: VendorModel = {
+export const vendorStub: VendorModel = {
   id: 'OXF200001',
   created: '2018-12-26T12:30:22.0000000Z',
   modified: '2019-02-15T12:30:23.0000000Z',
