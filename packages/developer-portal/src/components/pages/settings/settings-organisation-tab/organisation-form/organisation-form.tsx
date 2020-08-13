@@ -80,14 +80,16 @@ export const generateInitialValues = ({
     email,
     postcode,
     registrationNumber,
-    noRegistrationNumber: !registrationNumber,
+    noRegistrationNumber: false,
     telephone,
     website,
     nationalInsurance,
   }
 }
 
-export type OrganisationFormProps = {}
+export type OrganisationFormProps = {
+  onInviteNewMemberClick: () => void
+}
 
 export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
   const {
@@ -129,6 +131,7 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
 
   // TBC, exclude for now
   delete otherData.iconImageUrl
+
   const dataToSubmit: UpdateDeveloperModel = {
     ...otherData,
     companyAddress,
@@ -136,7 +139,7 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
   updateDeveloperDataDispatch(dataToSubmit)
 }
 
-const OrganisationForm: React.FC<OrganisationFormProps> = () => {
+const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberClick }) => {
   const dispatch = useDispatch()
   const updateDeveloperDataDispatch = values => dispatch(updateDeveloperData(values))
   const isLoading: boolean = useSelector(selectSettingsPageIsLoading)
@@ -155,7 +158,14 @@ const OrganisationForm: React.FC<OrganisationFormProps> = () => {
       {({ values }) => {
         return (
           <Form>
-            <H3 isHeadingSection>Company Information</H3>
+            <H3 className="flex justify-between" isHeadingSection>
+              <span>Company Information</span>
+              <span>
+                <Button type="button" variant="primary" onClick={onInviteNewMemberClick}>
+                  Invite New Member
+                </Button>
+              </span>
+            </H3>
             <FormSection>
               <CompanyInformationSection formValues={values} />
               <CompanyAddressSection />

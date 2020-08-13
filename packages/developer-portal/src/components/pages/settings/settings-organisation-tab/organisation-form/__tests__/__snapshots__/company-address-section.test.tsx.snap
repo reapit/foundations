@@ -50,7 +50,7 @@ exports[`CompanyAddressSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="line4"
-        labelText="Address Line 4"
+        labelText="Address Line 4*"
         name="line4"
         type="text"
       />
@@ -60,7 +60,7 @@ exports[`CompanyAddressSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="postcode"
-        labelText="Postcode"
+        labelText="Postcode*"
         name="postcode"
         type="text"
       />
@@ -68,7 +68,7 @@ exports[`CompanyAddressSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="countryId"
-        labelText="Country"
+        labelText="Country*"
         name="countryId"
         options={
           Array [

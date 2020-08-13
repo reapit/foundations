@@ -14,11 +14,11 @@ jest.mock('react-redux', () => ({
 
 describe('OrganisationForm', () => {
   it('should match a snapshot when no error', () => {
-    expect(shallow(<OrganisationForm />)).toMatchSnapshot()
+    expect(shallow(<OrganisationForm onInviteNewMemberClick={jest.fn()} />)).toMatchSnapshot()
   })
   it('should match a snapshot when have developerInfo', () => {
     ;(useSelector as jest.Mocked<any>).mockReturnValueOnce(() => null)
-    expect(shallow(<OrganisationForm />)).toMatchSnapshot()
+    expect(shallow(<OrganisationForm onInviteNewMemberClick={jest.fn()} />)).toMatchSnapshot()
   })
 })
 

@@ -4,12 +4,12 @@ import {
   callCreateAppointmentAPI,
   callUpdateAppointmentAPI,
 } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
-import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'
+import { mockContext } from '../../../__stubs__/context'
+import { createAppointmentArgsMock } from '../__stubs__/create-appointment'
+import { updateAppointmentArgsMock } from '../__stubs__/update-appointment'
 import { getAppointmentById, getAppointments, createAppointment, updateAppointment } from '../services'
-import { appointmentMock } from '../__mocks__/appointment'
-import { appointmentsMock } from '../__mocks__/appointments'
+import { appointmentMock } from '../__stubs__/appointment'
+import { appointmentsMock } from '../__stubs__/appointments'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

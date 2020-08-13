@@ -82,10 +82,9 @@ exports[`AcceptedModal should match snapshot 1`] = `
               className=""
               closable={false}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -263,10 +262,9 @@ exports[`AcceptedModal should match snapshot 1`] = `
                       className=""
                       closable={false}
                       closeIcon={
-                        <button
+                        <span
                           aria-label="close"
                           className="delete"
-                          type="button"
                         />
                       }
                       destroyOnClose={true}
@@ -600,10 +598,9 @@ exports[`AcceptedModal should match snapshot 1`] = `
               className=""
               closable={false}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -643,10 +640,9 @@ exports[`AcceptedModal should match snapshot 1`] = `
               className=""
               closable={false}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}

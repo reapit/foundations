@@ -15,7 +15,7 @@ export const generatePreviousTransactionDate = ({
   const dates: Dayjs[] = []
   let tempDate = currentDate
 
-  while (developerCreateDate.isBefore(tempDate)) {
+  while (developerCreateDate.isBefore(tempDate) && developerCreateDate.month() !== currentDate.month()) {
     tempDate = tempDate.add(-1, 'M')
 
     dates.push(tempDate)

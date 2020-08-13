@@ -8,9 +8,9 @@ import {
   callGetApplicantRelationshipByIdAPI,
   callDeleteApplicantRelationshipAPI,
 } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createApplicantArgsMock } from '../__mocks__/create-applicant'
-import { updateApplicantArgsMock } from '../__mocks__/update-applicant'
+import { mockContext } from '../../../__stubs__/context'
+import { createApplicantArgsMock } from '../__stubs__/create-applicant'
+import { updateApplicantArgsMock } from '../__stubs__/update-applicant'
 import {
   getApplicantById,
   getApplicants,
@@ -21,12 +21,12 @@ import {
   createApplicantRelationship,
   deleteApplicantRelationship,
 } from '../services'
-import { applicantMock } from '../__mocks__/applicant'
-import { applicantsMock } from '../__mocks__/applicants'
-import { relationshipsMock } from '../__mocks__/relationships'
-import { relationshipMock } from '../__mocks__/relationship'
-import { createRelationshipsArgs } from '../__mocks__/create-relationships'
-import { deleteRelationshipMockArgs } from '../__mocks__/delete-relatationships'
+import { applicantMock } from '../__stubs__/applicant'
+import { applicantsMock } from '../__stubs__/applicants'
+import { relationshipsMock } from '../__stubs__/relationships'
+import { relationshipMock } from '../__stubs__/relationship'
+import { createRelationshipsArgs } from '../__stubs__/create-relationships'
+import { deleteRelationshipMockArgs } from '../__stubs__/delete-relatationships'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

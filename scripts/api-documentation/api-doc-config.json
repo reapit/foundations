@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-08-12T07:38:42.494Z",
+  "__export_date": "2020-08-13T03:42:22.229Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
@@ -14,7 +14,11 @@
       "created": 1597216821068,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -42,8 +46,15 @@
       "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "created": 1590994744285,
       "description": "",
-      "environment": { "graphqlServer": { "authorization": "" } },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "environment": {
+        "graphqlServer": {
+          "authorization": ""
+        }
+      },
+      "environmentPropertyOrder": {
+        "&": ["graphqlServer"],
+        "&~|graphqlServer": ["authorization"]
+      },
       "metaSortKey": -1591008340991,
       "modified": 1597217875594,
       "name": "GraphQL Queries",
@@ -70,7 +81,11 @@
       "created": 1597216872542,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -81,7 +96,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670026,
       "method": "POST",
-      "modified": 1597216892531,
+      "modified": 1597227209519,
       "name": "GetVendorById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -104,7 +119,11 @@
       "created": 1597217153054,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -115,7 +134,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670019.75,
       "method": "POST",
-      "modified": 1597217617917,
+      "modified": 1597220640660,
       "name": "GetVendorRelationships",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -138,7 +157,11 @@
       "created": 1597217187797,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -149,7 +172,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670016.625,
       "method": "POST",
-      "modified": 1597217568501,
+      "modified": 1597227215088,
       "name": "GetVendorRelationshipById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -172,7 +195,11 @@
       "created": 1597139296863,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -183,7 +210,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130670001,
       "method": "POST",
-      "modified": 1597216716697,
+      "modified": 1597289674946,
       "name": "GetOffers",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -206,7 +233,11 @@
       "created": 1597139323953,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -217,7 +248,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130669976,
       "method": "POST",
-      "modified": 1597217096665,
+      "modified": 1597227215617,
       "name": "GetOfferById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -240,7 +271,11 @@
       "created": 1597130669951,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -274,7 +309,11 @@
       "created": 1597130460815,
       "description": "",
       "headers": [
-        { "id": "pair_38dba9c56d8648babd180878111fd475", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_38dba9c56d8648babd180878111fd475",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_55bc4be18b6d4fc681d42c2d16403381",
@@ -285,7 +324,7 @@
       "isPrivate": false,
       "metaSortKey": -1597130460815,
       "method": "POST",
-      "modified": 1597131606702,
+      "modified": 1597196970927,
       "name": "GetApplicantRelationshipById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -308,7 +347,11 @@
       "created": 1597052331418,
       "description": "",
       "headers": [
-        { "id": "pair_04dd8756bbf744e9a861ea52a7acf09c", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_04dd8756bbf744e9a861ea52a7acf09c",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_377175af4cf842368c4bd29e2bbb309f",
@@ -319,7 +362,7 @@
       "isPrivate": false,
       "metaSortKey": -1597052331418,
       "method": "POST",
-      "modified": 1597217100007,
+      "modified": 1597197250097,
       "name": "GetApplicant",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -342,7 +385,11 @@
       "created": 1597051797401,
       "description": "",
       "headers": [
-        { "id": "pair_385e078ded7a46938aaea0e4552a786c", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_385e078ded7a46938aaea0e4552a786c",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f9b5a544a1b04ffbb0a055d8cff25ebc",
@@ -353,7 +400,7 @@
       "isPrivate": false,
       "metaSortKey": -1597051797401,
       "method": "POST",
-      "modified": 1597131887903,
+      "modified": 1597197261128,
       "name": "GetApplicants",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -371,17 +418,21 @@
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\n\t\"operationName\":\"PING\",\n\t\"query\":\"query {Ping}\"\n}"
+        "text": "{\"query\":\"query {Ping}\",\"operationName\":\"PING\"}"
       },
       "created": 1591261880087,
       "description": "",
       "headers": [
-        { "id": "pair_b0653f5f760e439f8391d1b3723fb5c1", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_b0653f5f760e439f8391d1b3723fb5c1",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1591261880087,
       "method": "POST",
-      "modified": 1597051688798,
+      "modified": 1597197268310,
       "name": "Ping",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -404,7 +455,11 @@
       "created": 1597129522860,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -415,9 +470,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316484.75,
       "method": "POST",
-      "modified": 1597136033472,
+      "modified": 1597197231836,
       "name": "GetTenancies",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -425,7 +487,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -438,7 +500,11 @@
       "created": 1597130981365,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -449,9 +515,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316459.75,
       "method": "POST",
-      "modified": 1597136079232,
+      "modified": 1597196979152,
       "name": "GetTenancyById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -459,7 +532,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -472,7 +545,11 @@
       "created": 1597131069789,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -483,9 +560,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316447.25,
       "method": "POST",
-      "modified": 1597136034465,
+      "modified": 1597141224138,
       "name": "GetTenancyRelationships",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -493,7 +577,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -506,7 +590,11 @@
       "created": 1597131111206,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -517,9 +605,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316441,
       "method": "POST",
-      "modified": 1597139258020,
+      "modified": 1597141228897,
       "name": "GetTenancyChecks",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -540,7 +635,11 @@
       "created": 1597131154862,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -551,9 +650,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316437.875,
       "method": "POST",
-      "modified": 1597131217180,
+      "modified": 1597141231135,
       "name": "GetTenancyCheckById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -561,7 +667,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ graphqlServer.path }}/local/graphql",
+      "url": "{{ graphqlServer.path }}",
       "_type": "request"
     },
     {
@@ -574,7 +680,11 @@
       "created": 1590994998103,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -585,9 +695,16 @@
       "isPrivate": false,
       "metaSortKey": -1591006316434.75,
       "method": "POST",
-      "modified": 1597052198518,
+      "modified": 1597141215757,
       "name": "GetAppointments",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -608,7 +725,11 @@
       "created": 1590996909016,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -621,7 +742,14 @@
       "method": "POST",
       "modified": 1597136088137,
       "name": "GetAppointmentById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -642,7 +770,11 @@
       "created": 1591001130307,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -655,7 +787,14 @@
       "method": "POST",
       "modified": 1597131889286,
       "name": "GetIdentityChecks",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -676,7 +815,11 @@
       "created": 1591007458300,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -689,7 +832,14 @@
       "method": "POST",
       "modified": 1591028153383,
       "name": "GetIdentityCheckById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -710,7 +860,11 @@
       "created": 1591007542305,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -721,9 +875,16 @@
       "isPrivate": false,
       "metaSortKey": -1590994285622.8438,
       "method": "POST",
-      "modified": 1597131889812,
+      "modified": 1597140908617,
       "name": "GetNegotiators",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -744,7 +905,11 @@
       "created": 1591007577052,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -757,7 +922,14 @@
       "method": "POST",
       "modified": 1597131815718,
       "name": "GetNegotiatorById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -778,7 +950,11 @@
       "created": 1591007637603,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -789,9 +965,151 @@
       "isPrivate": false,
       "metaSortKey": -1590994214374.8281,
       "method": "POST",
-      "modified": 1591029056021,
+      "modified": 1597199525888,
       "name": "GetOffices",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e7b834203e774a8d9584177b647e9d0f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"# Write your query or mutation here\\nquery GetCompanies($pageSize: Int){\\n  GetCompanies(pageSize: $pageSize) {\\n    _embedded {\\n      id\\n      created\\n      modified\\n      name\\n      _eTag\\n    }\\n  }\\n}\",\"variables\":{\"pageSize\":10},\"operationName\":\"GetCompanies\"}"
+      },
+      "created": 1597199545704,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1590994205468.8262,
+      "method": "POST",
+      "modified": 1597222660889,
+      "name": "GetCompanies",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_aaf9a920befe441daa052a985f077865",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"# Write your query or mutation here\\nquery GetCompanyById($id: String!){\\n  GetCompanyById(id: $id) {\\n    id\\n    created\\n    modified\\n    name\\n  }\\n}\",\"variables\":{\"id\":\"RPT20000148\"},\"operationName\":\"GetCompanyById\"}"
+      },
+      "created": 1597199822368,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1590994201015.8252,
+      "method": "POST",
+      "modified": 1597222668608,
+      "name": "GetCompanyById",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4c30bd5184d0486c8380f4e2adf7a9d9",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"# Write your query or mutation here\\nquery GetCompanyRoles($id: String!){\\n  GetCompanyRoles(id: $id) {\\n     _embedded {\\n      id\\n      created\\n      companyId\\n      modified\\n    }\\n  }\\n}\",\"variables\":{\"id\":\"RPT20000141\"},\"operationName\":\"GetCompanyRoles\"}"
+      },
+      "created": 1597200172478,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
+          "name": "Authorization",
+          "value": "eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTcxOTc1OTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsImV4cCI6MTU5NzIwMTE5MiwiaWF0IjoxNTk3MTk3NTkyLCJ2ZXJzaW9uIjoyLCJqdGkiOiJlZmU0ZGJmYS0wN2QwLTQ4ZjctOGNmNC1lNTdkNjAyYzdiYzEiLCJjbGllbnRfaWQiOiI2NzJncnN2aTMycjNmc2QyZmlxaTltcGdxOSIsInVzZXJuYW1lIjoiMjU5YjIzYmQtZmM0NC00NDkzLWFkNTctZjAxOWJiNTdhMzE1In0.JQlHY2JTQqsOi7jTP-0kDoCjmglVlEIvRedd13xAd3gZ_Xt72DgkYzEZ8le3MkZXV2PQ2w1DKmrVwaswsPc6MULB0x256rZy_H_w-kjf5FhawU3MESPLqdlZI81RolJBOErB_TcnyRaHq9hnOzlANyESPUcH9vQj0thcxdF0go5lMwjBt4s6TLVhXosafx-mkhiZDLN3-ptS9cGXaj-iGsP5ZiLwa3LnO5lD91eMhkWR-1nyB-mQTJin0I5zLuMuHrJb2F89AZZ_b22VIGPfuSPShtzNPmHbi-N__plAjcSMraYD9NG85xK1jImm2YKb8vMdvKQZ6jqHK5FkLaFJlA"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1590994198789.3247,
+      "method": "POST",
+      "modified": 1597218357642,
+      "name": "GetCompanyRoles",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -812,7 +1130,11 @@
       "created": 1591007659290,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -823,9 +1145,16 @@
       "isPrivate": false,
       "metaSortKey": -1590994196562.8242,
       "method": "POST",
-      "modified": 1591029006169,
+      "modified": 1597199893982,
       "name": "GetOfficeById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -846,20 +1175,31 @@
       "created": 1591007688120,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
           "name": "Authorization",
-          "value": "{{ graphqlServer.authorization  }}"
+          "value": "{{ graphqlServer.authorization }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590994178750.8203,
       "method": "POST",
-      "modified": 1591029006746,
+      "modified": 1597199376683,
       "name": "GetProperties",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -880,7 +1220,11 @@
       "created": 1597059030426,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -891,9 +1235,16 @@
       "isPrivate": false,
       "metaSortKey": -1590994160938.8164,
       "method": "POST",
-      "modified": 1597119432990,
+      "modified": 1597197343979,
       "name": "GetPropertyImages",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -914,7 +1265,11 @@
       "created": 1591007726752,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -927,7 +1282,14 @@
       "method": "POST",
       "modified": 1591029992297,
       "name": "GetPropertyById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -948,7 +1310,11 @@
       "created": 1597059275275,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -961,7 +1327,14 @@
       "method": "POST",
       "modified": 1597119367042,
       "name": "GetPropertyImageById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -982,7 +1355,11 @@
       "created": 1590997218409,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -995,7 +1372,14 @@
       "method": "POST",
       "modified": 1591029008857,
       "name": "GetAreas",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1016,7 +1400,11 @@
       "created": 1590997695106,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1027,9 +1415,16 @@
       "isPrivate": false,
       "metaSortKey": -1590993786886.7344,
       "method": "POST",
-      "modified": 1591029009450,
+      "modified": 1597221055461,
       "name": "GetAreaById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1050,21 +1445,37 @@
       "created": 1591000544091,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
           "name": "Authorization",
           "value": "{{ graphqlServer.authorization  }}"
         },
-        { "description": "", "id": "pair_269998edcc46453590f7b60820fc1547", "name": "", "value": "" }
+        {
+          "description": "",
+          "id": "pair_269998edcc46453590f7b60820fc1547",
+          "name": "",
+          "value": ""
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1590993715638.7188,
       "method": "POST",
       "modified": 1591069782056,
       "name": "GetContacts",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1085,7 +1496,11 @@
       "created": 1591007824228,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1096,9 +1511,16 @@
       "isPrivate": false,
       "metaSortKey": -1590993644390.7031,
       "method": "POST",
-      "modified": 1591029010414,
+      "modified": 1597140906817,
       "name": "GetContactById",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1119,7 +1541,11 @@
       "created": 1590998403936,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1132,7 +1558,14 @@
       "method": "POST",
       "modified": 1591029011927,
       "name": "GetConfigurationsByType",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1153,7 +1586,11 @@
       "created": 1590998998162,
       "description": "",
       "headers": [
-        { "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_77dcd8dd2cdc4134b8e824634d3ab734",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_cc3a8b5f0dbd4762a85c78f207096648",
@@ -1166,7 +1603,14 @@
       "method": "POST",
       "modified": 1591029012506,
       "name": "GetConfigurationByTypeAndId",
-      "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_59021eb47c884ca0807b88625ca6fc4c",
+          "name": "",
+          "value": ""
+        }
+      ],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
       "settingDisableRenderRequestBody": false,
       "settingEncodeUrl": true,
@@ -1187,7 +1631,11 @@
       "created": 1597216909380,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -1215,8 +1663,15 @@
       "_id": "fld_409546e4ec164297bafe59f22746cdb9",
       "created": 1591008340941,
       "description": "",
-      "environment": { "graphqlServer": { "authorization": "" } },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "environment": {
+        "graphqlServer": {
+          "authorization": ""
+        }
+      },
+      "environmentPropertyOrder": {
+        "&": ["graphqlServer"],
+        "&~|graphqlServer": ["authorization"]
+      },
       "metaSortKey": -1591008340941,
       "modified": 1597217885501,
       "name": "GraphQL Mutations",
@@ -1233,7 +1688,11 @@
       "created": 1597217264119,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -1267,7 +1726,11 @@
       "created": 1597217466765,
       "description": "",
       "headers": [
-        { "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_4c29feda48d64e0d95f8a81ccf3402ec",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_0b381a1b94774774b522a9b81268c996",
@@ -1301,7 +1764,11 @@
       "created": 1597139349176,
       "description": "",
       "headers": [
-        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_727dae29a22a46418d97032d0443b784",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
@@ -1312,7 +1779,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499286,
       "method": "POST",
-      "modified": 1597139636389,
+      "modified": 1597141676627,
       "name": "CreateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1335,7 +1802,11 @@
       "created": 1597139373579,
       "description": "",
       "headers": [
-        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_727dae29a22a46418d97032d0443b784",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
@@ -1346,7 +1817,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499261,
       "method": "POST",
-      "modified": 1597139637244,
+      "modified": 1597141619772,
       "name": "UpdateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1369,7 +1840,11 @@
       "created": 1597131499236,
       "description": "",
       "headers": [
-        { "id": "pair_727dae29a22a46418d97032d0443b784", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_727dae29a22a46418d97032d0443b784",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_ecc9fdae07fe473191b00bcbeaa85efb",
@@ -1403,7 +1878,11 @@
       "created": 1597131236844,
       "description": "",
       "headers": [
-        { "id": "pair_657c80fba18b476fafd24406e27938e5", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_657c80fba18b476fafd24406e27938e5",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_9195c12b91f24f9eb5536c61bd9523a5",
@@ -1430,11 +1909,18 @@
     {
       "_id": "req_8dee09e6e0b847d2836d563a68c1875e",
       "authentication": {},
-      "body": { "mimeType": "application/graphql", "text": "{\"query\":\"\"}" },
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"\"}"
+      },
       "created": 1597131053224,
       "description": "",
       "headers": [
-        { "id": "pair_b2499c9f09e5433d903b71369d715eb4", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_b2499c9f09e5433d903b71369d715eb4",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1597131053224,
@@ -1462,7 +1948,11 @@
       "created": 1597057318790,
       "description": "",
       "headers": [
-        { "id": "pair_b15c7ef0316f46b981db97ce24d871b7", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_b15c7ef0316f46b981db97ce24d871b7",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_40f6b8d95fa94216b2cf8608565cd5e7",
@@ -1496,7 +1986,11 @@
       "created": 1597052820895,
       "description": "",
       "headers": [
-        { "id": "pair_90193b03d1ce450982c36fead85fc22b", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_90193b03d1ce450982c36fead85fc22b",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_05b36cd938c44022a9fff19d4a88e177",
@@ -1530,7 +2024,11 @@
       "created": 1591008374845,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1541,8 +2039,160 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1597135525682,
+      "modified": 1597141242031,
       "name": "CreateAppointment",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_87c668d51f8246ba895b105fc7e2bd2f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateTenancy($startDate: String, $endDate: String, $agentRole: String, $rent: Int, $rentFrequency: String, $isPeriodic: Boolean, $typeId: String, $negotiatorId: String, $propertyId: String, $applicantId: String, $source: CreateTenancyRequestModelSource) {\\n  CreateTenancy(startDate: $startDate, endDate: $endDate, agentRole: $agentRole, rent: $rent, rentFrequency: $rentFrequency, isPeriodic: $isPeriodic, typeId: $typeId, negotiatorId: $negotiatorId, propertyId: $propertyId, applicantId: $applicantId, source: $source) {\\n    id\\n    created\\n    modified\\n    startDate\\n    endDate\\n    status\\n    agentRole\\n    rent\\n    rentFrequency\\n    endDateConfirmed\\n    isPeriodic\\n    typeId\\n    negotiatorId\\n    propertyId\\n    applicantId\\n  }\\n}\\n\",\"variables\":{\"startDate\":\"2020-01-01\",\"endDate\":\"2021-01-01\",\"agentRole\":\"managed\",\"rent\":600,\"rentFrequency\":\"monthly\",\"isPeriodic\":true,\"typeId\":\"SL\",\"negotiatorId\":\"JAS\",\"propertyId\":\"OXF200497\",\"applicantId\":\"OXF200012\",\"source\":{\"id\":\"OXF\",\"type\":\"office\"}},\"operationName\":\"CreateTenancy\"}"
+      },
+      "created": 1597141280305,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007860242.4375,
+      "method": "POST",
+      "modified": 1597141885953,
+      "name": "CreateTenancy",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5055588f8b1b4094978057fabba5de65",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateTenancyCheck($id: String!, $description: String, $type: String, $status: String) {\\n  CreateTenancyCheck(id: $id, description: $description, type: $type, status: $status) {\\n    tenancyId\\n    _eTag\\n    _links\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"description\":\"Tenant welcome pack\",\"type\":\"preTenancy\",\"status\":\"needed\"},\"operationName\":\"CreateTenancyCheck\"}"
+      },
+      "created": 1597141492508,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007602941.1562,
+      "method": "POST",
+      "modified": 1597142925810,
+      "name": "CreateTenancyCheck",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_19491b10e995486287335ef98dd660d9",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateTenancyCheck($id: String!, $checkId: String!, $status: String, $_eTag: String!) {\\n  UpdateTenancyCheck(id: $id, checkId: $checkId, status: $status, _eTag: $_eTag) {\\n    tenancyId\\n    _eTag\\n    _embedded\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"_eTag\":\"4B68CE30C8C02A1C2259C0D81CB012D0\",\"checkId\":\"RPT20000703\",\"status\":\"needed\"},\"operationName\":\"UpdateTenancyCheck\"}"
+      },
+      "created": 1597142248332,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007538615.836,
+      "method": "POST",
+      "modified": 1597142813622,
+      "name": "UpdateTenancyCheck",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7a6eb04c19ec4807abbbffa935aa2d48",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation DeleteTenancyCheck($id: String!, $checkId: String!) {\\n  DeleteTenancyCheck(id: $id, checkId: $checkId)\\n}\\n\",\"variables\":{\"id\":\"RPT200116\",\"checkId\":\"RPT20000704\"},\"operationName\":\"DeleteTenancyCheck\"}"
+      },
+      "created": 1597141862504,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization  }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591007474290.5156,
+      "method": "POST",
+      "modified": 1597142949699,
+      "name": "DeleteTenancyCheck",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -1564,7 +2214,11 @@
       "created": 1591009096398,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1575,7 +2229,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007345639.875,
       "method": "POST",
-      "modified": 1597135353370,
+      "modified": 1597142949343,
       "name": "UpdateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1598,7 +2252,11 @@
       "created": 1591010431600,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1632,7 +2290,11 @@
       "created": 1591010699857,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1666,7 +2328,11 @@
       "created": 1591010976304,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1700,7 +2366,11 @@
       "created": 1591024701810,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1734,7 +2404,11 @@
       "created": 1591024950090,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1768,7 +2442,11 @@
       "created": 1591025405226,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1802,7 +2480,11 @@
       "created": 1591028294599,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1836,7 +2518,11 @@
       "created": 1591028468842,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1870,7 +2556,11 @@
       "created": 1591028632654,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1881,7 +2571,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006830662.3125,
       "method": "POST",
-      "modified": 1591029040139,
+      "modified": 1597221737723,
       "name": "CreateOffice",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1904,7 +2594,11 @@
       "created": 1591028912633,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1938,7 +2632,11 @@
       "created": 1591029402045,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1972,7 +2670,11 @@
       "created": 1597117606726,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -1983,8 +2685,45 @@
       "isPrivate": false,
       "metaSortKey": -1591006830537.3125,
       "method": "POST",
-      "modified": 1597119284547,
+      "modified": 1597222035492,
       "name": "CreatePropertyImage",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1e71627c95764e21a97035b5491569e5",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateCompany (\\n  $name: String\\n  $branch: String\\n  $notes: String\\n  $active: Boolean\\n  $vatRegistered: Boolean\\n  $typeIds: [String!]\\n  $supplierTypeId: String\\n  $workPhone: String\\n  $mobilePhone: String\\n  $email: String\\n  $address: CompanyModelAddressInput\\n) {\\n  CreateCompany(\\n    name: $name\\n    branch: $branch\\n    notes: $notes\\n    active: $active\\n    vatRegistered: $vatRegistered\\n    typeIds: $typeIds\\n    supplierTypeId: $supplierTypeId\\n    workPhone: $workPhone\\n    mobilePhone: $mobilePhone\\n    email: $email\\n    address: $address\\n  ) {\\n    id\\n    name\\n    branch\\n    notes\\n    active\\n    vatRegistered\\n    typeIds\\n    _eTag\\n  }\\n}\",\"variables\":{\"name\":\"VNNzz\",\"branch\":\"VNNzz Branch\",\"notes\":\"Founded in 1997, The Reapit Group is a property software provider of CRM and property management solutions specialising in the residential real estate sector\",\"active\":true,\"vatRegistered\":true,\"typeIds\":[\"SP\"],\"supplierTypeId\":\"MG\",\"workPhone\":\"01234 567890\",\"mobilePhone\":\"07890 123456\",\"email\":\"example@email.com\",\"address\":{\"type\":null,\"buildingName\":\"\",\"buildingNumber\":\"15\",\"line1\":\"Example street\",\"line2\":\"Solihull\",\"line3\":\"West Midlands\",\"line4\":\"\",\"postcode\":\"B91 2XX\",\"countryId\":\"GB\"}},\"operationName\":\"CreateCompany\"}"
+      },
+      "created": 1597220527756,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_4f6e9f0e985742d5b91bd3fe5cc2d111",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "id": "pair_00fb6cec72dc4d8cb92ffac25dcfce73",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTcyMjEwMTksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsImV4cCI6MTU5NzIyNDYxOSwiaWF0IjoxNTk3MjIxMDE5LCJ2ZXJzaW9uIjoyLCJqdGkiOiI5MjY5YjNmMy0wMWFiLTQwNTEtYmNlYS1lN2MxZjNhMTE0ZjQiLCJjbGllbnRfaWQiOiI2NzJncnN2aTMycjNmc2QyZmlxaTltcGdxOSIsInVzZXJuYW1lIjoiMjU5YjIzYmQtZmM0NC00NDkzLWFkNTctZjAxOWJiNTdhMzE1In0.bK7WRqJUKEu0eVcmSzw6nPqZk85m3YGGezjSZg2XvQU9q2GqXJdbUf-Yk6pnHds9W0RgXLKbaDFpxvKlVZ0hsNOLT7XyNEV7axu7BLgpI9tJVRK3blSh0ZW25HUmD2gEtYPjwx934h2Nqzo3zvHsKCwskljUC2cTZg3-ie4nFHWS7QwN0Y2uBMhuwzjKSbyCqe5sX0V5NOyT70qFbVFPscc3c3wcTBqp_PJgUEmeVJbFQZ5pcREjBfj8TiLWBlprAu1dPDJPChvtF9Rwne1V7gg2iYDX7ftrXtuibZrfS3fFyi-TPk7JAT2uSxhU0FtakEVDdkuSUMItw4tlq_B_RA"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591006830524.8125,
+      "method": "POST",
+      "modified": 1597222710066,
+      "name": "CreateCompany",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -2006,7 +2745,11 @@
       "created": 1591029841748,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2017,8 +2760,46 @@
       "isPrivate": false,
       "metaSortKey": -1591006830512.3125,
       "method": "POST",
-      "modified": 1591029893078,
+      "modified": 1597227194132,
       "name": "UpdateProperty",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d9e67e56c33740b2a47124c46d1ebf44",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateCompany (\\n  $id: String!,\\n  $_eTag: String!,\\n  $name: String\\n) {\\n  UpdateCompany(id: $id, _eTag: $_eTag, name: $name){\\n    id\\n    name\\n    _eTag\\n  }\\n}\",\"variables\":{\"id\":\"RPT20000148\",\"_eTag\":\"\\\"2E98D740CCD6AD3D3492318AF601D3FE\\\"\",\"name\":\"Lorem Lorem Loremmmm\"},\"operationName\":\"UpdateCompany\"}"
+      },
+      "created": 1597222197235,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "description": "",
+          "id": "pair_f81571820b2f4b56b86dda0632c902dc",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591006701992.9219,
+      "method": "POST",
+      "modified": 1597222698714,
+      "name": "UpdateCompany",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
       "settingDisableRenderRequestBody": false,
@@ -2040,7 +2821,11 @@
       "created": 1597117960728,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2051,7 +2836,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006573473.5312,
       "method": "POST",
-      "modified": 1597139249491,
+      "modified": 1597141587241,
       "name": "UpdatePropertyImage",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2074,7 +2859,11 @@
       "created": 1597118410112,
       "description": "",
       "headers": [
-        { "id": "pair_cfe12abba69b4e8ab20f55259be5e744", "name": "Content-Type", "value": "application/json" },
+        {
+          "id": "pair_cfe12abba69b4e8ab20f55259be5e744",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
         {
           "description": "",
           "id": "pair_f81571820b2f4b56b86dda0632c902dc",
@@ -2232,18 +3021,78 @@
       "modified": 1591030172737,
       "name": "GetProperties",
       "parameters": [
-        { "description": "", "id": "pair_ddebd236a7364c3c91ee8ae3246e2113", "name": "keywords", "value": "london" },
-        { "description": "", "id": "pair_591b72ba2c6f4fb0a200a39fb6cfdc98", "name": "isRental", "value": "" },
-        { "description": "", "id": "pair_f0036d0c09c745238825c94934ea5178", "name": "apiKey", "value": "" },
-        { "description": "", "id": "pair_8990c66a240d4f7c9ddfb1eafb8633e7", "name": "customerId", "value": "" },
-        { "description": "", "id": "pair_a35793ef766a44d08b2b0a04154bc2a3", "name": "pageNumber", "value": "10" },
-        { "description": "", "id": "pair_0b14c8479f374091a739bec9db656b38", "name": "bedroomsFrom", "value": "" },
-        { "description": "", "id": "pair_09a4455c004b40369c1f2161ad806646", "name": "bedroomsTo", "value": "" },
-        { "description": "", "id": "pair_ec53556cdd984494b78c59743845eb23", "name": "priceFrom", "value": "" },
-        { "description": "", "id": "pair_75ff979729ba4a43838c6de32365cb51", "name": "priceTo", "value": "" },
-        { "description": "", "id": "pair_a0c0e0b8fe864aaf98538e9d4de21add", "name": "sortBy", "value": "" },
-        { "description": "", "id": "pair_49696fa30a644bbf85e149727a4c8c8a", "name": "propertyType", "value": "" },
-        { "description": "", "id": "pair_dca8d2692bd240ca82f319501a0b6b3f", "name": "addedIn", "value": "" }
+        {
+          "description": "",
+          "id": "pair_ddebd236a7364c3c91ee8ae3246e2113",
+          "name": "keywords",
+          "value": "london"
+        },
+        {
+          "description": "",
+          "id": "pair_591b72ba2c6f4fb0a200a39fb6cfdc98",
+          "name": "isRental",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_f0036d0c09c745238825c94934ea5178",
+          "name": "apiKey",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_8990c66a240d4f7c9ddfb1eafb8633e7",
+          "name": "customerId",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_a35793ef766a44d08b2b0a04154bc2a3",
+          "name": "pageNumber",
+          "value": "10"
+        },
+        {
+          "description": "",
+          "id": "pair_0b14c8479f374091a739bec9db656b38",
+          "name": "bedroomsFrom",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_09a4455c004b40369c1f2161ad806646",
+          "name": "bedroomsTo",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_ec53556cdd984494b78c59743845eb23",
+          "name": "priceFrom",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_75ff979729ba4a43838c6de32365cb51",
+          "name": "priceTo",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_a0c0e0b8fe864aaf98538e9d4de21add",
+          "name": "sortBy",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_49696fa30a644bbf85e149727a4c8c8a",
+          "name": "propertyType",
+          "value": ""
+        },
+        {
+          "description": "",
+          "id": "pair_dca8d2692bd240ca82f319501a0b6b3f",
+          "name": "addedIn",
+          "value": ""
+        }
       ],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
       "settingDisableRenderRequestBody": false,
@@ -2295,7 +3144,11 @@
       "created": 1592456300840,
       "description": "",
       "headers": [
-        { "id": "pair_cf5e5a26af2f41d590246bf4299e667e", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_cf5e5a26af2f41d590246bf4299e667e",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1592456300840,
@@ -2328,11 +3181,18 @@
     {
       "_id": "req_1b062d6eb2484d72b6b57deb707f6b56",
       "authentication": {},
-      "body": { "mimeType": "application/json", "text": "" },
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
       "created": 1590748042223,
       "description": "",
       "headers": [
-        { "id": "pair_a66d5f4969ed493caf6072fa7f10e5e2", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_a66d5f4969ed493caf6072fa7f10e5e2",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1590748042223,
@@ -2360,7 +3220,11 @@
       "created": 1590747806399,
       "description": "",
       "headers": [
-        { "id": "pair_02d6f8413be24486aea6d2cec424a72d", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_02d6f8413be24486aea6d2cec424a72d",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1590747806399,
@@ -2388,7 +3252,11 @@
       "created": 1590746626195,
       "description": "",
       "headers": [
-        { "id": "pair_cd819d6e32c3409aae10574c7401d984", "name": "Content-Type", "value": "application/json" }
+        {
+          "id": "pair_cd819d6e32c3409aae10574c7401d984",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
       ],
       "isPrivate": false,
       "metaSortKey": -1590746626195,
@@ -2457,7 +3325,10 @@
       "color": null,
       "created": 1590743470787,
       "data": {
-        "graphqlServer": { "authorization": "", "path": "{{ protocol  }}://{{ graphQLServerDomain  }}" },
+        "graphqlServer": {
+          "authorization": "",
+          "path": "{{ protocol  }}://{{ graphQLServerDomain  }}"
+        },
         "webComponent": {
           "appointmentsPath": "{{ protocol  }}://{{ webComponentServerDomain  }}",
           "configServerHealthPath": "{{ protocol  }}://{{ webComponentConfigServerDomain  }}/dev/v1/health",
@@ -2479,7 +3350,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1591079961063,
+      "modified": 1597222723200,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -2494,12 +3365,12 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_5068094654374bdcaeab3a9dd30ffe2f",
+      "_id": "spc_2cfedfd6a86348cbaaecc95eba079a6c",
       "contentType": "yaml",
       "contents": "",
-      "created": 1591178451254,
+      "created": 1591155837420,
       "fileName": "Reapit APIs Documentation",
-      "modified": 1591178451254,
+      "modified": 1591155837420,
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "api_spec"
     },
@@ -2518,7 +3389,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1591079896583,
+      "modified": 1597142035694,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -2538,7 +3409,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1597216716280,
+      "modified": 1597227193784,
       "name": "local",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"

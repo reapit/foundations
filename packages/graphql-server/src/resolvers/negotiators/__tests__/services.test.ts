@@ -4,12 +4,12 @@ import {
   callCreateNegotiatorAPI,
   callUpdateNegotiatorAPI,
 } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createNegotiatorArgsMock } from '../__mocks__/create-negotiator'
-import { updateNegotiatorArgsMock } from '../__mocks__/update-negotiator'
+import { mockContext } from '../../../__stubs__/context'
+import { createNegotiatorArgsMock } from '../__stubs__/create-negotiator'
+import { updateNegotiatorArgsMock } from '../__stubs__/update-negotiator'
 import { getNegotiatorById, getNegotiators, createNegotiator, updateNegotiator } from '../services'
-import { negotiatorMock } from '../__mocks__/negotiator'
-import { negotiatorsMock } from '../__mocks__/negotiators'
+import { negotiatorMock } from '../__stubs__/negotiator'
+import { negotiatorsMock } from '../__stubs__/negotiators'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

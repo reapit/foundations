@@ -1,10 +1,10 @@
 import { callGetContactByIdAPI, callGetContactsAPI, callCreateContactAPI, callUpdateContactAPI } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createContactArgsMock } from '../__mocks__/create-contact'
-import { updateContactArgsMock } from '../__mocks__/update-contact'
+import { mockContext } from '../../../__stubs__/context'
+import { createContactArgsMock } from '../__stubs__/create-contact'
+import { updateContactArgsMock } from '../__stubs__/update-contact'
 import { getContactById, getContacts, createContact, updateContact } from '../services'
-import { contactMock } from '../__mocks__/contact'
-import { contactsMock } from '../__mocks__/contacts'
+import { contactMock } from '../__stubs__/contact'
+import { contactsMock } from '../__stubs__/contacts'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

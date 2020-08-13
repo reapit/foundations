@@ -29,7 +29,7 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
         <Section>
           <Tabs role={role} />
         </Section>
-        <OrganisationForm />
+        <OrganisationForm onInviteNewMemberClick={handleToggleVisibleModal(setIsInviteModalOpen, true)} />
         <Members />
         <Section>
           <LevelRight>

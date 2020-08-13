@@ -209,10 +209,9 @@ exports[`StatusModal should match snapshot 1`] = `
         <Component
           className=""
           closeIcon={
-            <button
+            <span
               aria-label="close"
               className="delete"
-              type="button"
             />
           }
           destroyOnClose={true}
@@ -277,10 +276,9 @@ exports[`StatusModal should match snapshot 1`] = `
                               class="rc-dialog-close"
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 class="delete"
-                                type="button"
                               />
                             </button>
                             <div
@@ -464,10 +462,9 @@ exports[`StatusModal should match snapshot 1`] = `
                   className=""
                   closable={true}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -587,10 +584,9 @@ exports[`StatusModal should match snapshot 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <button
+                                  <span
                                     aria-label="close"
                                     className="delete"
-                                    type="button"
                                   />
                                 </button>
                                 <div

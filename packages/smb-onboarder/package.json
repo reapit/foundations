@@ -22,7 +22,7 @@
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e:ci-temp-disable": "yarn start:prod && cypress run --project './src/tests'",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "fetch-config": "yarn config-manager fetchConfig smb-onboarder",
+    "fetch-config": "yarn config-manager --namespace cloud --entity smb-onboarder --name local --mode fetch",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },

@@ -2,7 +2,7 @@
 name: Cloud (Internal)
 about: Issues raised by the Reapit Cloud Team for internal usage
 title: ''
-labels: cloud-team, feature, needs-triage
+labels: cloud-team, feature
 assignees: ''
 
 ---
