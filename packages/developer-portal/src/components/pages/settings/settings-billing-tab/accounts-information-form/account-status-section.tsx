@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { GridItem, Input, Content } from '@reapit/elements'
+import { GridItem, Input, Content, Helper } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
 import { statusText } from './__styles__/account-status-section'
 
@@ -37,19 +37,24 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
           you can procced with any subscriptions.
         </Content>
       )}
-
       {shouldThankSettingDebit && (
-        <Content className="is-italic">
-          Thank you for setting up a Direct Debit, to continue please click ‘Save’ below
-        </Content>
+        <Helper variant="info" closeButton={false}>
+          Thank you for setting up a Direct Debit, please now click on ‘Submit to Accounts’ to continue
+        </Helper>
       )}
-
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
 
       <Content className={statusText}>
         {initialStatus === 'pending' && (
-          <p className="mb-1">We are currently verifying your information with our Accounts Department</p>
+          /*
+           * TODOME(italicHelpText)
+           * use i tag
+           */
+
+          <div>
+            <i className="mb-1">We are currently verifying your information with our Accounts Department</i>
+          </div>
         )}
         <b>ACCOUNT STATUS:</b> <i>{capitalizeFirstLetter(initialStatus || '')}</i>
       </Content>

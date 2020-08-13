@@ -60,7 +60,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn fetch-config development
+          yarn fetch-config --name development
 
       - name: Lint
         run: |

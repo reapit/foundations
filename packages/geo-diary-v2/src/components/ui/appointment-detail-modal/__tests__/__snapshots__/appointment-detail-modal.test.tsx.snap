@@ -9337,10 +9337,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
         <Component
           className=""
           closeIcon={
-            <button
+            <span
               aria-label="close"
               className="delete"
-              type="button"
             />
           }
           destroyOnClose={true}
@@ -9387,10 +9386,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               class="rc-dialog-close"
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 class="delete"
-                                type="button"
                               />
                             </button>
                             <div
@@ -9450,10 +9448,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                   className=""
                   closable={true}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -9555,10 +9552,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <button
+                                  <span
                                     aria-label="close"
                                     className="delete"
-                                    type="button"
                                   />
                                 </button>
                                 <div
@@ -10076,10 +10072,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
         <Component
           className=""
           closeIcon={
-            <button
+            <span
               aria-label="close"
               className="delete"
-              type="button"
             />
           }
           destroyOnClose={true}
@@ -10126,10 +10121,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                               class="rc-dialog-close"
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 class="delete"
-                                type="button"
                               />
                             </button>
                             <div
@@ -10189,10 +10183,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                   className=""
                   closable={true}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -10294,10 +10287,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <button
+                                  <span
                                     aria-label="close"
                                     className="delete"
-                                    type="button"
                                   />
                                 </button>
                                 <div
@@ -18906,10 +18898,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
         <Component
           className=""
           closeIcon={
-            <button
+            <span
               aria-label="close"
               className="delete"
-              type="button"
             />
           }
           destroyOnClose={true}
@@ -19344,10 +19335,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
         <Component
           className=""
           closeIcon={
-            <button
+            <span
               aria-label="close"
               className="delete"
-              type="button"
             />
           }
           destroyOnClose={true}

@@ -5,7 +5,7 @@
   "homepage": "https://demo-site.reapit.cloud",
   "scripts": {
     "build:prod": "node ./scripts/build.js",
-    "fetch-config": "yarn config-manager fetchConfig demo-site",
+    "fetch-config": "yarn config-manager --namespace cloud --entity demo-site --name local --mode fetch",
     "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site",
     "start:prod": "sirv public/dist --dev -s --port 8080",
     "serve:web-components": "yarn workspace @reapit/web-components start:dev demo-site",

@@ -208,6 +208,7 @@ export const callUpdateTenancyCheckAPI = async (
   logger.info('callUpdateTenancyCheckAPI', { traceId, args })
   try {
     const { _eTag, id, checkId, ...payload } = args
+
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateTenancyCheckReturn>(
       `${URLS.tenancies}/${id}/checks/${checkId}`,
       payload,

@@ -55,7 +55,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn fetch-config development --since HEAD~1 --include-dependencies
+          yarn fetch-config --name development --since HEAD~1 --include-dependencies
 
       - name: Lint
         run: |

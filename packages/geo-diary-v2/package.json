@@ -12,7 +12,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.pwa.prod.js",
-    "fetch-config": "yarn config-manager fetchConfig geo-diary-v2",
+    "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary-v2 --name local --mode fetch",
     "release:dev": "node ../../scripts/release/release-dev.js geo-diary-v2 reapit-geo-diary-v2-dev",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
