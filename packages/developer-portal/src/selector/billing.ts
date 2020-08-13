@@ -1,42 +1,20 @@
-/*
- * TODOME(selectIsRequiredDataOfBillingPageFilled)
- * create selector
- */
-
 import { ReduxState } from '@/types/core'
-import { ErrorState } from '@/reducers/error'
-/*
- * TODOME(selectIsRequiredDataOfBillingPageFilled)
- * name
- * bool
- */
+import { checkObjectKeysValueIsNotEmpty, checkAtLeastOneKeysOfObjectIsNotEmpty } from '@/utils/check-object-fields'
+import { DeveloperModel, CompanyAddressModel } from '@reapit/foundations-ts-definitions'
 
-export const selectErrorState = (state: ReduxState): ErrorState => {
-  /*
-   * TODOME(selectIsRequiredDataOfBillingPageFilled)
-   *
-   * settings?.developerInfomation
- Name
-Telephone
-------------------------------
-   */
-
-  /*
-   * settings?.developerInfomation
-   * TODOME(selectIsRequiredDataOfBillingPageFilled)
-Website
-VAT Registration Number or - tax
-Company Number or
-National Insurance Number (one of the 3 should be present) - ok
-   */
-
-  /*
- * TODOME(selectIsRequiredDataOfBillingPageFilled)
- * address: state.settings.developerInfomation?.companyAddress?.
- *  Line 1
-Address Line 4
-Postcode
- */
-
-  return state.error
+export const selectIsRequiredDataOfBillingPageFilled = (state: ReduxState): boolean => {
+  return (
+    checkObjectKeysValueIsNotEmpty<DeveloperModel>({
+      object: state.settings.developerInfomation || {},
+      keys: ['website', 'telephone', 'name'],
+    }) &&
+    checkObjectKeysValueIsNotEmpty<CompanyAddressModel>({
+      object: state.settings.developerInfomation?.companyAddress || {},
+      keys: ['line1', 'line4', 'postcode'],
+    }) &&
+    checkAtLeastOneKeysOfObjectIsNotEmpty<DeveloperModel>({
+      object: state.settings.developerInfomation || {},
+      keys: ['registrationNumber', 'taxNumber', 'nationalInsurance'],
+    })
+  )
 }
