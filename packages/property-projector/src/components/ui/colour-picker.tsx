@@ -7,25 +7,19 @@ export type ColourPickerProps = {
   name: string
   placeholder: string
   labelText: string
-  defaultColour: string
+  colour: string
   onChange?: {
     (colour: string): void
   }
 }
 
 const ColourPicker: React.FC<ColourPickerProps> = props => {
-  const { id, name, placeholder, labelText, defaultColour, onChange } = props
+  const { id, name, placeholder, labelText, colour, onChange } = props
 
   const [showColourPicker, setShowColourPicker]: any = useState(false)
-  const [colour, setColour]: any = useState(defaultColour)
 
-  const toggleColourPicker = (event: Event) => {
+  const toggleColourPicker = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setShowColourPicker(!showColourPicker)
-  }
-
-  const changeColour = colour => {
-    setColour(colour.hex)
-    return colour.hex
   }
 
   return (
@@ -44,8 +38,7 @@ const ColourPicker: React.FC<ColourPickerProps> = props => {
         <SketchPicker
           color={colour}
           onChange={(colour, event) => {
-            const hex = changeColour(colour)
-            if (onChange !== undefined) onChange(hex)
+            if (onChange !== undefined) onChange(colour.hex)
           }}
         />
       ) : null}

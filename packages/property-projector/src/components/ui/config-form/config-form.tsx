@@ -185,7 +185,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                           name="primaryColour"
                           placeholder="#005EB8"
                           labelText="Primary Colour"
-                          defaultColour={values.primaryColour}
+                          colour={values.primaryColour}
                           onChange={colour => setFieldValue('primaryColour', colour)}
                         />
                       </GridItem>
@@ -195,7 +195,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                           name="secondaryColour"
                           placeholder="#FFFFFF"
                           labelText="Secondary Colour"
-                          defaultColour={values.secondaryColour}
+                          colour={values.secondaryColour}
                           onChange={colour => setFieldValue('secondaryColour', colour)}
                         />
                       </GridItem>
