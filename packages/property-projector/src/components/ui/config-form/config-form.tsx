@@ -7,7 +7,8 @@ import { getOffices } from '../../../platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'
 import OfficeCheckboxes from './office-checkboxes'
 import Projector from '../projector'
-import { SketchPicker } from 'react-color'
+import ColourPicker from '../colour-picker'
+import { ERROR_MESSAGES } from '../../../constants/errors'
 import {
   H5,
   Section,
@@ -25,6 +26,7 @@ import {
   SelectBoxOptions,
   Button,
   usePortal,
+  Alert,
 } from '@reapit/elements'
 
 type ConfigFormProps = {}
@@ -36,6 +38,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
   const [config, setConfig]: any = useState(null)
   const [allDepartments, setAllDepartments]: any[] = useState([])
   const [allOffices, setAllOffices]: any[] = useState([])
+  const [error, setError]: any = useState(null)
 
   const [showProjector, hideProjector] = usePortal(() => <Projector config={config} />, [config])
 
@@ -92,14 +95,6 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     hideProjector()
   }
 
-  const colourPickerHandler = (colour, event, inputName) => {
-    console.log(event.target)
-    setConfig({
-      ...config,
-      [inputName]: colour.hex,
-    })
-  }
-
   const getInitialFormValues = () => {
     const { departments, ...initalFormValues } = config
     const departmentPropertyTypes = {}
@@ -121,6 +116,25 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
    */
   const submitForm = values => {
     console.info('Inital Form Submission Values: ', values)
+
+    // validation
+
+    if (values.logo === '') {
+      return setError(ERROR_MESSAGES.MISSING_LOGO)
+    }
+
+    if (values.departments.length < 1) {
+      return setError(ERROR_MESSAGES.MISSING_DEPARTMENTS)
+    }
+
+    if (values.propertyLimit > 25) {
+      return setError(ERROR_MESSAGES.TOO_MANY_PROPERTIES)
+    }
+
+    if (values.interval > 60) {
+      return setError(ERROR_MESSAGES.INTERVAL_TOO_LONG)
+    }
+
     const newConfig = { ...values }
 
     // convert property types back into config departments object array
@@ -136,6 +150,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     console.info('Converted Form Submission Values: ', newConfig)
     setConfig(newConfig)
     showProjector()
+    setError(null)
   }
 
   const sortByOptions: SelectBoxOptions[] = [
@@ -150,75 +165,95 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
   return (
     <Section>
       <H5>Property Projector Configuration</H5>
-      <Formik enableReinitialize={true} initialValues={getInitialFormValues()} onSubmit={values => submitForm(values)}>
-        <Form>
-          <Grid>
-            <GridItem>
-              <FormSection>
-                <FormHeading>Branding</FormHeading>
-                <FormSubHeading>These settings change the design of your Property Projector.</FormSubHeading>
-                <ImageInput id="logo" allowClear name="logo" labelText="Choose Your Logo" />
-                <Grid>
-                  <GridItem className="colour-picker-container">
-                    <Input
-                      type="text"
-                      id="primaryColour"
-                      name="primaryColour"
-                      placeholder="#005EB8"
-                      labelText="Primary Colour"
-                    />
-                    {/* <SketchPicker
-                      color={config.primaryColour}
-                      onChange={(colour, event) => colourPickerHandler(colour, event, 'primaryColour')}
-                    /> */}
-                  </GridItem>
-                  <GridItem className="colour-picker-container">
-                    <Input
-                      type="text"
-                      id="secondaryColour"
-                      name="secondaryColour"
-                      placeholder="#FFFFFF"
-                      labelText="Secondary Colour"
-                    />
-                    {/* <SketchPicker
-                      color={config.secondaryColour}
-                      onChange={(colour, event) => colourPickerHandler(colour, event, 'secondaryColour')}
-                    /> */}
-                  </GridItem>
-                </Grid>
-              </FormSection>
-              <FormSection>
-                <FormHeading>General Settings</FormHeading>
-                <FormSubHeading>Various other Property Projector settings.</FormSubHeading>
-                <Grid>
-                  <GridItem>
-                    <Input type="text" id="minPrice" name="minPrice" placeholder="150000" labelText="Minimum Price" />
-                    <Input
-                      type="text"
-                      id="propertyLimit"
-                      name="propertyLimit"
-                      placeholder="20"
-                      labelText="Property Limit"
-                    />
-                    <Input type="text" id="interval" name="interval" placeholder="30" labelText="Rotation Interval" />
-                  </GridItem>
-                  <GridItem>
-                    <Input type="text" id="maxPrice" name="maxPrice" placeholder="1000000" labelText="Maximum Price" />
-                    <SelectBox name="sortBy" options={sortByOptions} labelText="Sort By" id="sortBy" />
-                    <Checkbox name="showAddress" id="showAddress" labelText="Show Address" />
-                    <Checkbox name="randomize" id="randomize" labelText="Randomize Properties" />
-                  </GridItem>
-                </Grid>
-              </FormSection>
-              <DepartmentCheckboxes departments={allDepartments} />
-              <OfficeCheckboxes offices={allOffices} />
-              <FormSection>
-                <Button type="submit">Launch Property Projector</Button>
-              </FormSection>
-            </GridItem>
-          </Grid>
-        </Form>
-      </Formik>
+      <Formik
+        enableReinitialize={true}
+        initialValues={getInitialFormValues()}
+        onSubmit={values => submitForm(values)}
+        component={({ setFieldValue, values }) => {
+          return (
+            <Form>
+              <Grid>
+                <GridItem>
+                  <FormSection>
+                    <FormHeading>Branding</FormHeading>
+                    <FormSubHeading>These settings change the design of your Property Projector.</FormSubHeading>
+                    <ImageInput id="logo" allowClear name="logo" labelText="Choose Your Logo" />
+                    <Grid>
+                      <GridItem className="colour-picker-container">
+                        <ColourPicker
+                          id="primaryColour"
+                          name="primaryColour"
+                          placeholder="#005EB8"
+                          labelText="Primary Colour"
+                          defaultColour={values.primaryColour}
+                          onChange={colour => setFieldValue('primaryColour', colour)}
+                        />
+                      </GridItem>
+                      <GridItem className="colour-picker-container">
+                        <ColourPicker
+                          id="secondaryColour"
+                          name="secondaryColour"
+                          placeholder="#FFFFFF"
+                          labelText="Secondary Colour"
+                          defaultColour={values.secondaryColour}
+                          onChange={colour => setFieldValue('secondaryColour', colour)}
+                        />
+                      </GridItem>
+                    </Grid>
+                  </FormSection>
+                  <FormSection>
+                    <FormHeading>General Settings</FormHeading>
+                    <FormSubHeading>Various other Property Projector settings.</FormSubHeading>
+                    <Grid>
+                      <GridItem>
+                        <Input
+                          type="text"
+                          id="minPrice"
+                          name="minPrice"
+                          placeholder="150000"
+                          labelText="Minimum Price"
+                        />
+                        <Input
+                          type="text"
+                          id="propertyLimit"
+                          name="propertyLimit"
+                          placeholder="20"
+                          labelText="Property Limit"
+                        />
+                        <Input
+                          type="text"
+                          id="interval"
+                          name="interval"
+                          placeholder="30"
+                          labelText="Rotation Interval (seconds)"
+                        />
+                      </GridItem>
+                      <GridItem>
+                        <Input
+                          type="text"
+                          id="maxPrice"
+                          name="maxPrice"
+                          placeholder="1000000"
+                          labelText="Maximum Price"
+                        />
+                        <SelectBox name="sortBy" options={sortByOptions} labelText="Sort By" id="sortBy" />
+                        <Checkbox name="showAddress" id="showAddress" labelText="Show Address" />
+                        <Checkbox name="randomize" id="randomize" labelText="Randomize Properties" />
+                      </GridItem>
+                    </Grid>
+                  </FormSection>
+                  <DepartmentCheckboxes departments={allDepartments} />
+                  <OfficeCheckboxes offices={allOffices} />
+                  <FormSection>
+                    <Button type="submit">Launch Property Projector</Button>
+                  </FormSection>
+                  {error !== null ? <Alert message={error} type="danger" /> : null}
+                </GridItem>
+              </Grid>
+            </Form>
+          )
+        }}
+      />
     </Section>
   )
 }

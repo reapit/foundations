@@ -18,19 +18,8 @@ export type PropertyProjectorConfig = {
   randomize: boolean
   showAddress: boolean
   sortBy: 'created' | 'price'
-  departments: PropertyProjectorDepartments[]
-  offices: PropertyProjectorOffices[]
-}
-
-type PropertyProjectorDepartments = {
-  id: string
-  name: string
-  propertyTypes: string[]
-}
-
-type PropertyProjectorOffices = {
-  id: string
-  name: string
+  departments: any[]
+  offices: string[]
 }
 
 declare global {

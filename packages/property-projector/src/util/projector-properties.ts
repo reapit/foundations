@@ -3,7 +3,7 @@ import { getProperties } from '../platform-api/properties-api'
 import { getAllPropertyImages } from '../platform-api/property-images-api'
 
 const getProjectorProperties = async (session: ReapitConnectSession, config: any) => {
-  const { departments } = config
+  const { propertyLimit, departments } = config
 
   // get all properties using a given criteria
   let properties: any[] = await Promise.all(
@@ -14,7 +14,7 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
   )
 
   // turn array of property arrays into a single array
-  properties = properties.reduce((arr, properties) => arr.concat(properties))
+  properties = properties.reduce((arr, properties) => arr.concat(properties)).slice(0, propertyLimit)
 
   // no properties found with criteria
   if (properties.length === 0) {
@@ -28,7 +28,13 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
   //get all property images for the properties in filtered array
   const propertyImages = await getAllPropertyImages(session as ReapitConnectSession, propertyImagesParams)
 
-  return mergePropertyImagesById(properties, propertyImages)
+  properties = mergePropertyImagesById(properties, propertyImages).filter(property => property.images !== undefined)
+
+  if (properties.length === 0) {
+    throw new Error('NO_PROPERTIES_WITH_IMAGES_FOUND')
+  }
+
+  return properties
 }
 
 const buildPropertyUrlSearchParams = ({ minPrice, maxPrice, sortBy, offices, minRent, maxRent }, department: any) => {

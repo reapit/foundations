@@ -108,6 +108,21 @@
     position: relative;
 }
 
+.colour-swatch{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #74818d;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#primaryColour, #secondaryColour{
+    padding-left: 50px;
+}
+
 .sketch-picker{
     position: absolute;
     top: 89px;

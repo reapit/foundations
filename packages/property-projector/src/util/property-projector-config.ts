@@ -11,12 +11,12 @@ import { ReapitConnectSession } from '@reapit/connect-session'
  * @todo add refreshHour - every 'x' hours the projector should refresh when it's open
  * @todo add strapline
  */
-export const getPropertyProjectorConfig = async (session: ReapitConnectSession) => {
+export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<PropertyProjectorConfig> => {
   const propertyProjectorConfig: any = {
     logo: '',
-    primaryColour: '',
-    secondaryColour: '',
-    interval: 0,
+    primaryColour: '#006580',
+    secondaryColour: '#FFFFFF',
+    interval: 5,
     propertyLimit: 25,
     minPrice: 0,
     maxPrice: 0,

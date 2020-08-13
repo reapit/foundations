@@ -18,7 +18,7 @@ const PropertyImages: React.FC<PropertyImagesProps> = props => {
   return (
     <div className="property-projector-images">
       {mainImage}
-      <div className="property-projector-side-images">{imageElements.length > 0 ? imageElements : null}</div>
+      {imageElements.length > 0 ? <div className="property-projector-side-images">{imageElements}</div> : null}
     </div>
   )
 }

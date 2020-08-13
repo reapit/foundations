@@ -26,8 +26,16 @@ const Projector: React.FC<ProjectorProps> = props => {
         setLoading(false)
       } catch (error) {
         console.error(error)
-        if (error.message === 'NO_PROPERTIES_FOUND') {
-          setUserError('No properties found with given criteria.')
+        switch (error.message) {
+          case 'NO_PROPERTIES_FOUND':
+            setUserError('No properties found with given criteria.')
+            break
+          case 'NO_PROPERTIES_WITH_IMAGES_FOUND':
+            setUserError('The properties returned do not have any images.')
+            break
+          default:
+            setUserError('Something went wrong, please try again.')
+            break
         }
       }
     }
@@ -35,6 +43,13 @@ const Projector: React.FC<ProjectorProps> = props => {
       fetchProjectorProperties()
     }
   }, [connectSession])
+
+  const getInterval = () => {
+    if (config.interval === 0) {
+      return 5000
+    }
+    return config.interval * 1000
+  }
 
   if (loading) {
     return (
@@ -53,11 +68,11 @@ const Projector: React.FC<ProjectorProps> = props => {
         showStatus={false}
         autoPlay={true}
         infiniteLoop={true}
-        interval={5000}
+        interval={getInterval()}
         stopOnHover={false}
       >
-        {properties.map(property => (
-          <ProjectorProperty config={config} property={property} />
+        {properties.map((property, idx) => (
+          <ProjectorProperty key={idx} config={config} property={property} />
         ))}
       </Carousel>
     </div>
