@@ -88,7 +88,7 @@ export const renderPreviousTransactionHistoryList = ({
   endIndex: number
 }) => {
   if (dates.length === 0) {
-    return <p>No previous transactions in the past</p>
+    return null
   }
   const subDates = dates.slice(startIndex, endIndex)
   return subDates.map(date =>
@@ -108,6 +108,13 @@ export const renderFirstPage = ({
 }) => {
   const today = dayjs()
 
+  const previousTransactions = renderPreviousTransactionHistoryList({
+    dates: previousTransactionDates,
+    developerAppIds,
+    startIndex: 0,
+    endIndex: MAX_NUMBER_TRANSACTION_FIRST_PAGE,
+  })
+
   return (
     <>
       <Content>
@@ -115,13 +122,8 @@ export const renderFirstPage = ({
         {renderTransactionHistoryItem({ date: today, developerAppIds })}
       </Content>
       <Content>
-        <H6>Previous Transactions</H6>
-        {renderPreviousTransactionHistoryList({
-          dates: previousTransactionDates,
-          developerAppIds,
-          startIndex: 0,
-          endIndex: MAX_NUMBER_TRANSACTION_FIRST_PAGE,
-        })}
+        {!!previousTransactions && <H6>Previous Transactions</H6>}
+        {previousTransactions}
       </Content>
     </>
   )
