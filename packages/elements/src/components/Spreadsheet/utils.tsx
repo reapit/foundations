@@ -189,7 +189,7 @@ export const validatedDataGenerate = (data: Cell[][], validateFunction?: Validat
       return row.map((cell, colIndex) => {
         return typeof validateMatrix[rowIndex][colIndex] === 'string'
           ? { ...cell, isValidated: false, error: validateMatrix[rowIndex][colIndex] }
-          : { ...cell, isValidated: validateMatrix[rowIndex][colIndex] }
+          : { ...cell, isValidated: validateMatrix[rowIndex][colIndex], error: '' }
       })
     }) as Cell[][]
   }

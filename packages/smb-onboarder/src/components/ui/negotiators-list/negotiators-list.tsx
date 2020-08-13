@@ -188,7 +188,7 @@ export const validate = (data: Cell[][]) =>
       }
       // Office is required
       if (cellIndex === 4) {
-        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
+        return !fieldValidateRequire(cell.value as string)
       }
       return true
     }),

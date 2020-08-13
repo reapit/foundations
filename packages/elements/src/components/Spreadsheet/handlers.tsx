@@ -172,6 +172,7 @@ export const handleAddNewRow = (
         return {
           ...lastRow[i],
           value: '',
+          touched: false,
         }
       }
       return e
@@ -209,7 +210,7 @@ export const handleCellsChanged = (
   if (changes.every(({ value, row }, index, changesArray) => value === null && row === changesArray[0].row)) {
     const rowIndexToRemove = changes[0].row
     newData.splice(rowIndexToRemove, 1)
-    newCell = { value: null }
+    newCell = { value: null, touched: true }
   }
   // remove column case
   else if (changes.every(({ value, col }, index, changesArray) => value === null && col === changesArray[0].col)) {
@@ -217,12 +218,12 @@ export const handleCellsChanged = (
     newData.forEach((row, rowIndex) => {
       newData[rowIndex].splice(colIndexToRemove, 1)
     })
-    newCell = { value: null }
+    newCell = { value: null, touched: true }
   }
   // all other cases
   else {
     changes.forEach(({ row, col, value }) => {
-      newData[row][col] = { ...newData[row][col], value }
+      newData[row][col] = { ...newData[row][col], value, touched: true }
     })
   }
 
@@ -244,7 +245,7 @@ export const handleCellsChanged = (
       col,
       /* Replace newCell with validated data, if cannot find, then it was deleted,
          replace with value = null */
-      newCell: newCell.value === null ? { value: null } : dataWithIsGeneratedAndReadOnly[row][col],
+      newCell: newCell.value === null ? { value: null } : { ...dataWithIsGeneratedAndReadOnly[row][col] },
     }))
     afterCellsChanged(changedCells, dataWithIsGeneratedAndReadOnly, setData)
   }

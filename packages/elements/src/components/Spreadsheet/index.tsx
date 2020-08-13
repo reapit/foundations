@@ -53,12 +53,18 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
-export const getErrorsFromData = (data: Cell[][]): string[] => {
-  const errors: string[] = []
+export const getErrorsFromData = (data: Cell[][]): JSX.Element[] => {
+  const errors: JSX.Element[] = []
+  const headers = data[0]
   data.forEach((row = [], rowIndex) => {
     row.forEach((cell, colIndex) => {
-      if (cell.error) {
-        const error = `[${rowIndex + 1}][${colIndex + 1}]: ${cell.error}`
+      if (cell.error && cell.touched) {
+        const fieldName = headers[colIndex].value
+        const error = (
+          <p className="has-text-danger">
+            Field <b>{fieldName}</b> row <b>{rowIndex}</b> has the following problem: {cell.error}
+          </p>
+        )
         errors.push(error)
       }
     })
@@ -72,13 +78,7 @@ export const renderErrorElements = (data: Cell[][] = []) => {
   return (
     <div className="has-text-danger pt-4">
       <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
-      {errors.map((error: string, index: number) => {
-        return (
-          <div key={index} className="has-text-danger">
-            {error}
-          </div>
-        )
-      })}
+      {errors}
     </div>
   )
 }

@@ -406,18 +406,15 @@ export const validate = (data: Cell[][]) =>
       // cell name is required and has length >= 3
       if (cellIndex === 2) {
         const name = cell.value as string
-        return (
-          (!fieldValidateRequire(name) && minLengthValidator(MINIMUM_OFFICE_NAME_LENGTH)(name)) ||
-          errorMessages.FIELD_REQUIRED
-        )
+        return !fieldValidateRequire(name) && minLengthValidator(MINIMUM_OFFICE_NAME_LENGTH)(name)
       }
       // cell addess1 is required
       if (cellIndex === 5) {
-        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
+        return !fieldValidateRequire(cell.value as string)
       }
       // cell postalcode is required
       if (cellIndex === 9) {
-        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
+        return !fieldValidateRequire(cell.value as string)
       }
       // cell telephone is required
       if (cellIndex === 10) {
