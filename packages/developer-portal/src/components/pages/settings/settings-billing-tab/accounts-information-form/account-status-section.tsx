@@ -47,7 +47,14 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
 
       <Content className={statusText}>
         {initialStatus === 'pending' && (
-          <p className="mb-1">We are currently verifying your information with our Accounts Department</p>
+          /*
+           * TODOME(italicHelpText)
+           * use i tag
+           */
+
+          <div>
+            <i className="mb-1">We are currently verifying your information with our Accounts Department</i>
+          </div>
         )}
         <b>ACCOUNT STATUS:</b> <i>{capitalizeFirstLetter(initialStatus || '')}</i>
       </Content>
