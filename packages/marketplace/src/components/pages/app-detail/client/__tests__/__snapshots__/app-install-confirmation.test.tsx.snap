@@ -133,10 +133,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           <Component
             className=""
             closeIcon={
-              <button
+              <span
                 aria-label="close"
                 className="delete"
-                type="button"
               />
             }
             destroyOnClose={true}
@@ -211,10 +210,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-close"
                                 type="button"
                               >
-                                <button
+                                <span
                                   aria-label="close"
                                   class="delete"
-                                  type="button"
                                 />
                               </button>
                               <div
@@ -315,10 +313,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                     className=""
                     closable={true}
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -448,10 +445,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     onClick={[Function]}
                                     type="button"
                                   >
-                                    <button
+                                    <span
                                       aria-label="close"
                                       className="delete"
-                                      type="button"
                                     />
                                   </button>
                                   <div
@@ -651,10 +647,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             <Component
               className=""
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -725,10 +720,9 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             <Component
               className=""
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -806,10 +800,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
     <Component
       className=""
       closeIcon={
-        <button
+        <span
           aria-label="close"
           className="delete"
-          type="button"
         />
       }
       destroyOnClose={true}
@@ -856,10 +849,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                           class="rc-dialog-close"
                           type="button"
                         >
-                          <button
+                          <span
                             aria-label="close"
                             class="delete"
-                            type="button"
                           />
                         </button>
                         <div
@@ -940,10 +932,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
               className=""
               closable={true}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -1045,10 +1036,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               onClick={[Function]}
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 className="delete"
-                                type="button"
                               />
                             </button>
                             <div
@@ -1230,10 +1220,9 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
     <Component
       className=""
       closeIcon={
-        <button
+        <span
           aria-label="close"
           className="delete"
-          type="button"
         />
       }
       destroyOnClose={true}
@@ -1280,10 +1269,9 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                           class="rc-dialog-close"
                           type="button"
                         >
-                          <button
+                          <span
                             aria-label="close"
                             class="delete"
-                            type="button"
                           />
                         </button>
                         <div
@@ -1349,10 +1337,9 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
               className=""
               closable={true}
               closeIcon={
-                <button
+                <span
                   aria-label="close"
                   className="delete"
-                  type="button"
                 />
               }
               destroyOnClose={true}
@@ -1454,10 +1441,9 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               onClick={[Function]}
                               type="button"
                             >
-                              <button
+                              <span
                                 aria-label="close"
                                 className="delete"
-                                type="button"
                               />
                             </button>
                             <div

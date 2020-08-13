@@ -115,10 +115,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   afterClose={[Function]}
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -175,10 +174,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -232,10 +230,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                 <Component
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -293,10 +290,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -327,10 +323,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -369,10 +364,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -421,10 +415,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -573,10 +566,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   afterClose={[Function]}
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -633,10 +625,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -690,10 +681,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 <Component
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -751,10 +741,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -785,10 +774,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -827,10 +815,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -879,10 +866,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -1031,10 +1017,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   afterClose={[Function]}
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -1091,10 +1076,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -1148,10 +1132,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 <Component
                   className=""
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -1209,10 +1192,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -1243,10 +1225,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   <Component
                     className=""
                     closeIcon={
-                      <button
+                      <span
                         aria-label="close"
                         className="delete"
-                        type="button"
                       />
                     }
                     destroyOnClose={true}
@@ -1285,10 +1266,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}
@@ -1337,10 +1317,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   className=""
                   closable={false}
                   closeIcon={
-                    <button
+                    <span
                       aria-label="close"
                       className="delete"
-                      type="button"
                     />
                   }
                   destroyOnClose={true}

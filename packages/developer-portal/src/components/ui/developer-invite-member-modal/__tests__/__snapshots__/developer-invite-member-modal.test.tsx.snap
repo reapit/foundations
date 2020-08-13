@@ -66,10 +66,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
       <Component
         className=""
         closeIcon={
-          <button
+          <span
             aria-label="close"
             className="delete"
-            type="button"
           />
         }
         destroyOnClose={true}
@@ -120,10 +119,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                             class="rc-dialog-close"
                             type="button"
                           >
-                            <button
+                            <span
                               aria-label="close"
                               class="delete"
-                              type="button"
                             />
                           </button>
                           <div
@@ -284,10 +282,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                 className=""
                 closable={true}
                 closeIcon={
-                  <button
+                  <span
                     aria-label="close"
                     className="delete"
-                    type="button"
                   />
                 }
                 destroyOnClose={true}
@@ -393,10 +390,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                 onClick={[Function]}
                                 type="button"
                               >
-                                <button
+                                <span
                                   aria-label="close"
                                   className="delete"
-                                  type="button"
                                 />
                               </button>
                               <div

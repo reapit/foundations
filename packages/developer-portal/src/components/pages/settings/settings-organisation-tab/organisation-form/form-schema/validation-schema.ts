@@ -22,6 +22,7 @@ const {
   registrationNumberField,
   noRegistrationNumberField,
   noTaxRegistrationField,
+  countryIdField,
 } = formFields
 
 export const companyInformationFormSchema = Yup.object().shape({
@@ -82,12 +83,10 @@ export const companyInformationFormSchema = Yup.object().shape({
 
   [buildingNameField.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
     .max(35, MAXIMUM_CHARACTER_LENGTH(35)),
 
   [buildingNumberField.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
     .max(8, MAXIMUM_CHARACTER_LENGTH(8)),
 
   [line1Field.name]: Yup.string()
@@ -97,12 +96,10 @@ export const companyInformationFormSchema = Yup.object().shape({
 
   [line2Field.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
     .max(30, MAXIMUM_CHARACTER_LENGTH(30)),
 
   [line3Field.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
     .max(30, MAXIMUM_CHARACTER_LENGTH(30)),
 
   [line4Field.name]: Yup.string()
@@ -114,4 +111,7 @@ export const companyInformationFormSchema = Yup.object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .max(9, MAXIMUM_CHARACTER_LENGTH(9)),
+  [countryIdField.name]: Yup.string()
+    .trim()
+    .required(FIELD_REQUIRED),
 })
