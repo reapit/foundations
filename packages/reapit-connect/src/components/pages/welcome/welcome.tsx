@@ -53,7 +53,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
       {clientId && (
         <RowSection
           background="#1e2554"
-          imageLeft={false}
+          imageLeft={!developerId}
           heading="Marketplace"
           subheading="Enhancing the power of Agency Cloud"
           description="The Foundations App Marketplace provides agencies with a variety of app and software integrations that have been tested and approved for immediate integration, allowing agencies to customise their Reapit CRM software to suit their business needs."

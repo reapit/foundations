@@ -4,16 +4,18 @@ export const logoWrapStyle = css`
   text-align: center;
   @media screen and (min-width: 768px) {
     text-align: left;
+    margin-left: 2em;
   }
 `
 
 export const logoStyle = css`
-  width: 16em;
+  width: 8em;
 `
 
 export const buttonStyle = css`
   border-color: transparent;
   color: white;
+  min-width: 200px;
 
   &:active {
     color: white;
