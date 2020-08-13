@@ -1,4 +1,6 @@
-export const vendorMock = {
+import { VendorModel } from '../../../types'
+
+export const vendorMock: VendorModel = {
   id: 'OXF200001',
   created: '2018-12-26T12:30:22.0000000Z',
   modified: '2019-02-15T12:30:23.0000000Z',
@@ -7,7 +9,6 @@ export const vendorMock = {
   typeId: 'S',
   sellingReasonId: 'RL',
   solicitorId: 'OXF12300001',
-  propertyId: null,
   source: {
     id: 'OXF',
     type: 'office',
@@ -16,9 +17,6 @@ export const vendorMock = {
     {
       id: 'OXF12300101',
       name: 'Mr John Smith',
-      title: 'Mr',
-      forename: 'John',
-      surname: 'Smith',
       type: 'contact',
       homePhone: '01234 567890',
       workPhone: null,

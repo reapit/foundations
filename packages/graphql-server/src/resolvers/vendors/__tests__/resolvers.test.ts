@@ -10,9 +10,9 @@ import {
   mutationCreateVendorRelationship,
   mutationDeleteVendorRelationship,
 } from '../resolvers'
-import { updateVendorArgsMock } from '../__mocks__/update-vendor'
-import { vendorMock } from '../__mocks__/vendor'
-import { vendorsMock } from '../__mocks__/vendors'
+import { updateVendorArgsMock } from '../__stubs__/update-vendor'
+import { vendorMock } from '../__stubs__/vendor'
+import { vendorsMock } from '../__stubs__/vendors'
 import { mockContext } from '../../../__mocks__/context'
 
 jest.mock('../services', () => ({

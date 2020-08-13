@@ -8,7 +8,7 @@ import {
   callDeleteVendorRelationshipAPI,
 } from '../api'
 import { mockContext } from '../../../__mocks__/context'
-import { updateVendorArgsMock } from '../__mocks__/update-vendor'
+import { updateVendorArgsMock } from '../__stubs__/update-vendor'
 import {
   getVendorById,
   getVendors,
@@ -18,8 +18,8 @@ import {
   createVendorRelationship,
   deleteVendorRelationship,
 } from '../services'
-import { vendorMock } from '../__mocks__/vendor'
-import { vendorsMock } from '../__mocks__/vendors'
+import { vendorMock } from '../__stubs__/vendor'
+import { vendorsMock } from '../__stubs__/vendors'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

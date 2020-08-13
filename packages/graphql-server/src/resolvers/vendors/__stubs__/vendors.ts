@@ -1,4 +1,6 @@
-export const vendorsMock = {
+import { PagedResultVendorModel_ } from '../../../types'
+
+export const vendorsMock: PagedResultVendorModel_ = {
   _embedded: [
     {
       id: 'OXF200001',
@@ -9,7 +11,6 @@ export const vendorsMock = {
       typeId: 'S',
       sellingReasonId: 'RL',
       solicitorId: 'OXF12300001',
-      propertyId: null,
       source: {
         id: 'OXF',
         type: 'office',
@@ -18,9 +19,6 @@ export const vendorsMock = {
         {
           id: 'OXF12300101',
           name: 'Mr John Smith',
-          title: 'Mr',
-          forename: 'John',
-          surname: 'Smith',
           type: 'contact',
           homePhone: '01234 567890',
           workPhone: null,
@@ -77,7 +75,6 @@ export const vendorsMock = {
   pageNumber: 1,
   pageSize: 1,
   pageCount: 1,
-  totalPageCount: 1,
   totalCount: 25,
   _links: {
     self: {
