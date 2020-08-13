@@ -17,7 +17,7 @@ describe('selectIsRequiredDataOfBillingPageFilled', () => {
     })
 
     expect(checkObjectKeysValueIsNotEmpty).toHaveBeenCalledWith({
-      keys: ['line1', 'line4', 'postcode'],
+      keys: ['line1', 'line4', 'postcode', 'countryId'],
       object: appState.settings.developerInfomation?.companyAddress || {},
     })
 
