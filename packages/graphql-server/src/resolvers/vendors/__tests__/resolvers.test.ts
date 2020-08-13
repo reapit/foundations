@@ -13,7 +13,7 @@ import {
 import { updateVendorArgsStub } from '../__stubs__/update-vendor'
 import { vendorStub } from '../__stubs__/vendor'
 import { vendorsStub } from '../__stubs__/vendors'
-import { mockContext } from '../../../__mocks__/context'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getVendorById: jest.fn(() => vendorStub),

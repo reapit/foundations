@@ -7,7 +7,7 @@ import {
   callCreateVendorRelationshipAPI,
   callDeleteVendorRelationshipAPI,
 } from '../api'
-import { mockContext } from '../../../__mocks__/context'
+import { mockContext } from '../../../__stubs__/context'
 import { updateVendorArgsStub } from '../__stubs__/update-vendor'
 import {
   getVendorById,
