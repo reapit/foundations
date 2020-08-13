@@ -11,11 +11,11 @@ import {
   queryNegotiators,
   queryOffices,
 } from '../resolvers'
-import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
-import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'
-import { appointmentMock } from '../__mocks__/appointment'
-import { appointmentsMock } from '../__mocks__/appointments'
-import { mockContext } from '../../../__mocks__/context'
+import { createAppointmentArgsMock } from '../__stubs__/create-appointment'
+import { updateAppointmentArgsMock } from '../__stubs__/update-appointment'
+import { appointmentMock } from '../__stubs__/appointment'
+import { appointmentsMock } from '../__stubs__/appointments'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getAppointmentById: jest.fn(() => appointmentMock),

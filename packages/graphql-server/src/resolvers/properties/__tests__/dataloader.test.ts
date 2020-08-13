@@ -1,7 +1,7 @@
 import { generatePropertyBatchLoaderFn, generatePropertyLoader } from '../dataloader'
-import { propertyMock } from '../__mocks__/property'
-import { propertiesMock } from '../__mocks__/properties'
-import { mockContext } from '../../../__mocks__/context'
+import { propertyMock } from '../__stubs__/property'
+import { propertiesMock } from '../__stubs__/properties'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getPropertyById: jest.fn(() => propertyMock),

@@ -1,5 +1,5 @@
 import { generateConfigurationBatchLoaderFn, generateConfigurationLoader } from '../dataloader'
-import { appointmentTypesMock, appointmentTypeMock } from '../__mocks__/appointmentTypes'
+import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/appointmentTypes'
 import { ServerContext } from '../../..'
 
 jest.mock('../../../logger')

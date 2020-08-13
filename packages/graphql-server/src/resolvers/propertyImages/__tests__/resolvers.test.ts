@@ -8,12 +8,12 @@ import {
   mutationUpdatePropertyImage,
   mutationDeletePropertyImage,
 } from '../resolvers'
-import { createPropertyImageArgsMock } from '../__mocks__/create-property-image'
-import { updatePropertyImageArgsMock } from '../__mocks__/update-property-image'
-import { propertyImageMock } from '../__mocks__/propertyImage'
-import { propertyImagesMock } from '../__mocks__/propertyImages'
-import { mockContext } from '../../../__mocks__/context'
-import { deletePropertyImageArgsMock } from '../__mocks__/delete-property-image'
+import { createPropertyImageArgsMock } from '../__stubs__/create-property-image'
+import { updatePropertyImageArgsMock } from '../__stubs__/update-property-image'
+import { propertyImageMock } from '../__stubs__/propertyImage'
+import { propertyImagesMock } from '../__stubs__/propertyImages'
+import { mockContext } from '../../../__stubs__/context'
+import { deletePropertyImageArgsMock } from '../__stubs__/delete-property-image'
 
 jest.mock('../services', () => ({
   getPropertyImageById: jest.fn(() => propertyImageMock),

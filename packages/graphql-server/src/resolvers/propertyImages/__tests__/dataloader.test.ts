@@ -1,7 +1,7 @@
 import { generatePropertyImageBatchLoaderFn, generatePropertyImageLoader } from '../dataloader'
-import { propertyImageMock } from '../__mocks__/propertyImage'
-import { propertyImagesMock } from '../__mocks__/propertyImages'
-import { mockContext } from '../../../__mocks__/context'
+import { propertyImageMock } from '../__stubs__/propertyImage'
+import { propertyImagesMock } from '../__stubs__/propertyImages'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getPropertyImageById: jest.fn(() => propertyImageMock),

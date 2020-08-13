@@ -1,10 +1,10 @@
 import { callGetAreaByIdAPI, callGetAreasAPI, callCreateAreaAPI, callUpdateAreaAPI } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createAreaArgsMock } from '../__mocks__/create-area'
-import { updateAreaArgsMock } from '../__mocks__/update-area'
+import { mockContext } from '../../../__stubs__/context'
+import { createAreaArgsMock } from '../__stubs__/create-area'
+import { updateAreaArgsMock } from '../__stubs__/update-area'
 import { getAreaById, getAreas, createArea, updateArea } from '../services'
-import { areaMock } from '../__mocks__/area'
-import { areasMock } from '../__mocks__/areas'
+import { areaMock } from '../__stubs__/area'
+import { areasMock } from '../__stubs__/areas'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

@@ -8,12 +8,12 @@ import {
   mutationUpdateCompany,
   queryGetCompanyRoles,
 } from '../resolvers'
-import { createCompanyArgsMock } from '../__mocks__/create-company'
-import { updateCompanyArgsMock } from '../__mocks__/update-company'
-import { companyMock } from '../__mocks__/company'
-import { companiesMock } from '../__mocks__/companies'
-import { mockContext } from '../../../__mocks__/context'
-import { companyRolesMock } from '../__mocks__/company-roles'
+import { createCompanyArgsMock } from '../__stubs__/create-company'
+import { updateCompanyArgsMock } from '../__stubs__/update-company'
+import { companyMock } from '../__stubs__/company'
+import { companiesMock } from '../__stubs__/companies'
+import { mockContext } from '../../../__stubs__/context'
+import { companyRolesMock } from '../__stubs__/company-roles'
 
 jest.mock('../services', () => ({
   getCompanyById: jest.fn(() => companyMock),

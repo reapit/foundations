@@ -1,7 +1,7 @@
 import { generateCompanyBatchLoaderFn, generateCompanyLoader } from '../dataloader'
-import { companyMock } from '../__mocks__/company'
-import { companiesMock } from '../__mocks__/companies'
-import { mockContext } from '../../../__mocks__/context'
+import { companyMock } from '../__stubs__/company'
+import { companiesMock } from '../__stubs__/companies'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getCompanyById: jest.fn(() => companyMock),

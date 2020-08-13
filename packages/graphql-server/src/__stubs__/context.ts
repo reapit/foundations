@@ -1,8 +1,8 @@
 import { ServerContext } from '../index'
-import { appointmentTypeMock } from '../resolvers/configurations/__mocks__/appointmentTypes'
-import { propertiesMock } from '../resolvers/properties/__mocks__/properties'
-import { officesMock } from '../resolvers/offices/__mocks__/offices'
-import { negotiatorsMock } from '../resolvers/negotiators/__mocks__/negotiators'
+import { appointmentTypeMock } from '../resolvers/configurations/__stubs__/appointmentTypes'
+import { propertiesMock } from '../resolvers/properties/__stubs__/properties'
+import { officesMock } from '../resolvers/offices/__stubs__/offices'
+import { negotiatorsMock } from '../resolvers/negotiators/__stubs__/negotiators'
 
 export const mockContext = {
   traceId: 'mockTraceId',
