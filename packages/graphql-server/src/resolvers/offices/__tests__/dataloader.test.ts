@@ -1,7 +1,7 @@
 import { generateOfficeBatchLoaderFn, generateOfficeLoader } from '../dataloader'
-import { officeMock } from '../__mocks__/office'
-import { officesMock } from '../__mocks__/offices'
-import { mockContext } from '../../../__mocks__/context'
+import { officeMock } from '../__stubs__/office'
+import { officesMock } from '../__stubs__/offices'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getOfficeById: jest.fn(() => officeMock),

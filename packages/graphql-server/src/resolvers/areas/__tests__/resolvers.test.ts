@@ -2,11 +2,11 @@ import areaServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetAreaById, queryGetAreas, mutationCreateArea, mutationUpdateArea } from '../resolvers'
-import { createAreaArgsMock } from '../__mocks__/create-area'
-import { updateAreaArgsMock } from '../__mocks__/update-area'
-import { areaMock } from '../__mocks__/area'
-import { areasMock } from '../__mocks__/areas'
-import { mockContext } from '../../../__mocks__/context'
+import { createAreaArgsMock } from '../__stubs__/create-area'
+import { updateAreaArgsMock } from '../__stubs__/update-area'
+import { areaMock } from '../__stubs__/area'
+import { areasMock } from '../__stubs__/areas'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
   getAreaById: jest.fn(() => areaMock),
