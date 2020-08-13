@@ -12,7 +12,12 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchOrganisationMembers, updateOrganisationMemberById } from '@/services/developers'
 import { getDeveloperId, getLoggedUserEmail } from '@/utils/session'
 import appState from '@/reducers/__stubs__/app-state'
-import { fetchCurrentMemberSuccess } from '@/actions/current-member'
+import {
+  fetchCurrentMemberSuccess,
+  updateCurrentMemberSuccess,
+  fetchCurrentMemberFailed,
+  updateCurrentMemberFailed,
+} from '@/actions/current-member'
 import { selectCurrentMemberData } from '@/selector/current-member'
 
 jest.mock('@/services/developers')
@@ -42,7 +47,8 @@ describe('currentMemberFetch', () => {
 
   it('should fail', () => {
     const clone = gen.clone()
-    expect(clone.next([null, null]).done).toEqual(true)
+    expect(clone.next([null, null]).value).toEqual(put(fetchCurrentMemberFailed()))
+    expect(clone.next().done).toEqual(true)
   })
 })
 
@@ -62,12 +68,13 @@ describe('currentMemberUpdate', () => {
         jobTitle: 'se',
       } as any),
     )
-    expect(clone.next({ data: [data] }).value).toEqual(call(currentMemberFetch))
+    expect(clone.next({ data: [data] }).value).toEqual(put(updateCurrentMemberSuccess()))
     expect(clone.next().done).toEqual(true)
   })
 
   it('should fail', () => {
     const clone = gen.clone()
+    expect(clone.next(null).value).toEqual(put(updateCurrentMemberFailed()))
     expect(clone.next(null).done).toEqual(true)
   })
 })

@@ -10,14 +10,13 @@ import {
   Grid,
   GridItem,
   Formik,
-  FormikHelpers,
 } from '@reapit/elements'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { validationSchemaContactInfomation as validationSchema } from './form-schema/validation-schema'
 import { formFieldsContactInfomation } from './form-schema/form-fields'
 import { updateCurrentMember } from '@/actions/current-member'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectCurrentMemberData } from '@/selector/current-member'
+import { selectCurrentMemberData, selectCurrentMemberIsUpdating } from '@/selector/current-member'
 
 const { nameField, jobTitleField } = formFieldsContactInfomation
 
@@ -54,6 +53,7 @@ export const generateInitialValues = ({
 
 export const ContactInformationForm: React.FC<ContactInformationFormProps> = () => {
   const currentMemberInfo = useSelector(selectCurrentMemberData)
+  const isUpdating = useSelector(selectCurrentMemberIsUpdating)
   const dispatch = useDispatch()
   const updateCurrentMemberInformation = values => dispatch(updateCurrentMember(values))
 
@@ -65,7 +65,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
       initialValues={initialValues}
       onSubmit={handleSubmitContactInformation(updateCurrentMemberInformation)}
     >
-      {({ isSubmitting, isValidating, isValid }) => {
+      {({ isValid }) => {
         return (
           <FormSection>
             <Form>
@@ -74,6 +74,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
               <Grid>
                 <GridItem>
                   <Input
+                    disabled={isUpdating}
                     dataTest="name"
                     type="text"
                     labelText={nameField.label as string}
@@ -83,6 +84,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
                 </GridItem>
                 <GridItem>
                   <Input
+                    disabled={isUpdating}
                     dataTest="job-title"
                     type="text"
                     labelText={jobTitleField.label as string}
@@ -95,7 +97,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
                 <Button
                   dataTest="save-changes"
                   disabled={!isValid}
-                  loading={isSubmitting || isValidating}
+                  loading={isUpdating}
                   variant="primary"
                   type="submit"
                 >
@@ -112,8 +114,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
 
 export const handleSubmitContactInformation = (
   updateCurrentMemberInformation: (values: ContactInformationValues) => void,
-) => (values: ContactInformationValues, { setSubmitting }: FormikHelpers<ContactInformationValues>) => {
-  setSubmitting(true)
+) => (values: ContactInformationValues) => {
   updateCurrentMemberInformation(values)
 }
 

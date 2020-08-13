@@ -3,7 +3,12 @@ import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effec
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import messages from '@/constants/messages'
-import { fetchCurrentMemberSuccess } from '@/actions/current-member'
+import {
+  fetchCurrentMemberSuccess,
+  updateCurrentMemberSuccess,
+  fetchCurrentMemberFailed,
+  updateCurrentMemberFailed,
+} from '@/actions/current-member'
 import { UpdateMemberModel } from '@reapit/foundations-ts-definitions'
 import { selectCurrentMemberData } from '@/selector/current-member'
 import { notification } from '@reapit/elements'
@@ -24,6 +29,7 @@ export const currentMemberFetch = function*() {
     }
     throw new Error('Cannot fetch current member')
   } catch (error) {
+    yield put(fetchCurrentMemberFailed())
     notification.error({
       message: error.message,
       placement: 'bottomRight',
@@ -46,13 +52,13 @@ export const currentMemberUpdate = function*({ data }) {
       ...oldData,
       ...data,
     })
-
+    yield put(updateCurrentMemberSuccess())
     notification.success({
       message: messages.CHANGE_SAVE_SUCCESSFULLY,
       placement: 'bottomRight',
     })
-    yield call(currentMemberFetch)
   } catch (error) {
+    yield put(updateCurrentMemberFailed())
     notification.error({
       message: error.message,
       placement: 'bottomRight',

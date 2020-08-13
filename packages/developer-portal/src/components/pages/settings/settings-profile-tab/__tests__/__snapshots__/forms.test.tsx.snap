@@ -211,6 +211,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                           >
                             <Component
                               dataTest="name"
+                              disabled={false}
                               id="name"
                               labelText="Full Name"
                               name="name"
@@ -257,6 +258,7 @@ exports[`ProfileTab should match snapshot 1`] = `
                           >
                             <Component
                               dataTest="job-title"
+                              disabled={false}
                               id="jobTitle"
                               labelText="Job Title"
                               name="jobTitle"

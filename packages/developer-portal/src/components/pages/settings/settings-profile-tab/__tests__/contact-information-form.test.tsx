@@ -43,10 +43,8 @@ describe('ContactInformationForm', () => {
 describe('handleSubmitContactInformation', () => {
   it('should run correctly', () => {
     const updateCurrentMemberInformation = jest.fn()
-    const setSubmitting = jest.fn()
     const fn = handleSubmitContactInformation(updateCurrentMemberInformation)
-    fn(valuesMock, { setSubmitting } as any)
-    expect(setSubmitting).toHaveBeenCalledWith(true)
+    fn(valuesMock)
     expect(updateCurrentMemberInformation).toHaveBeenCalledWith(valuesMock)
   })
 })

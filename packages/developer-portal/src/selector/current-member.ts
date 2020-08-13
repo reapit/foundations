@@ -7,3 +7,7 @@ export const selectCurrentMemberData = (state: ReduxState) => {
 export const selectCurrentMemberIsLoading = (state: ReduxState) => {
   return state.currentMember.isLoading
 }
+
+export const selectCurrentMemberIsUpdating = (state: ReduxState) => {
+  return state.currentMember.update.isLoading
+}

@@ -223,6 +223,9 @@ const appState: ReduxState = {
       developerId: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
       agencyCloudAccess: true,
     },
+    update: {
+      isLoading: false,
+    },
   },
 }
 

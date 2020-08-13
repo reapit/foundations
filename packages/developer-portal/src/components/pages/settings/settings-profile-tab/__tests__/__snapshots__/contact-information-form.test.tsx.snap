@@ -166,6 +166,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                     >
                       <Component
                         dataTest="name"
+                        disabled={[MockFunction]}
                         id="name"
                         labelText="Full Name"
                         name="name"
@@ -190,7 +191,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                               <input
                                 className=""
                                 data-test="name"
-                                disabled={false}
+                                disabled={[MockFunction]}
                                 id="name"
                                 name="name"
                                 onBlur={[Function]}
@@ -212,6 +213,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                     >
                       <Component
                         dataTest="job-title"
+                        disabled={[MockFunction]}
                         id="jobTitle"
                         labelText="Job Title"
                         name="jobTitle"
@@ -236,7 +238,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                               <input
                                 className=""
                                 data-test="job-title"
-                                disabled={false}
+                                disabled={[MockFunction]}
                                 id="jobTitle"
                                 name="jobTitle"
                                 onBlur={[Function]}
@@ -261,12 +263,12 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                   <Component
                     dataTest="save-changes"
                     disabled={false}
-                    loading={false}
+                    loading={[MockFunction]}
                     type="submit"
                     variant="primary"
                   >
                     <button
-                      className="button  is-primary  "
+                      className="button  is-primary  is-loading"
                       data-test="save-changes"
                       disabled={false}
                       type="submit"
