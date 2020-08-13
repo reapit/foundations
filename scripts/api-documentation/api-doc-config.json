@@ -52,12 +52,8 @@
         }
       },
       "environmentPropertyOrder": {
-        "&": [
-          "graphqlServer"
-        ],
-        "&~|graphqlServer": [
-          "authorization"
-        ]
+        "&": ["graphqlServer"],
+        "&~|graphqlServer": ["authorization"]
       },
       "metaSortKey": -1591008340991,
       "modified": 1597217875594,
@@ -1673,12 +1669,8 @@
         }
       },
       "environmentPropertyOrder": {
-        "&": [
-          "graphqlServer"
-        ],
-        "&~|graphqlServer": [
-          "authorization"
-        ]
+        "&": ["graphqlServer"],
+        "&~|graphqlServer": ["authorization"]
       },
       "metaSortKey": -1591008340941,
       "modified": 1597217885501,
@@ -3346,14 +3338,8 @@
         }
       },
       "dataPropertyOrder": {
-        "&": [
-          "webComponent",
-          "graphqlServer"
-        ],
-        "&~|graphqlServer": [
-          "path",
-          "authorization"
-        ],
+        "&": ["webComponent", "graphqlServer"],
+        "&~|graphqlServer": ["path", "authorization"],
         "&~|webComponent": [
           "configServerPath",
           "configServerHealthPath",
@@ -3399,12 +3385,7 @@
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
       },
       "dataPropertyOrder": {
-        "&": [
-          "protocol",
-          "webComponentConfigServerDomain",
-          "webComponentServerDomain",
-          "graphQLServerDomain"
-        ]
+        "&": ["protocol", "webComponentConfigServerDomain", "webComponentServerDomain", "graphQLServerDomain"]
       },
       "isPrivate": false,
       "metaSortKey": 1,
@@ -3424,12 +3405,7 @@
         "webComponentServerDomain": "localhost:3000"
       },
       "dataPropertyOrder": {
-        "&": [
-          "protocol",
-          "webComponentConfigServerDomain",
-          "webComponentServerDomain",
-          "graphQLServerDomain"
-        ]
+        "&": ["protocol", "webComponentConfigServerDomain", "webComponentServerDomain", "graphQLServerDomain"]
       },
       "isPrivate": false,
       "metaSortKey": 0,
@@ -3449,12 +3425,7 @@
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
       },
       "dataPropertyOrder": {
-        "&": [
-          "protocol",
-          "webComponentConfigServerDomain",
-          "webComponentServerDomain",
-          "graphQLServerDomain"
-        ]
+        "&": ["protocol", "webComponentConfigServerDomain", "webComponentServerDomain", "graphQLServerDomain"]
       },
       "isPrivate": false,
       "metaSortKey": 2,

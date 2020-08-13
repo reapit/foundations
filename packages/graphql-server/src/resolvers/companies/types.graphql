@@ -1,4 +1,6 @@
-"""Representation of a company"""
+"""
+Representation of a company
+"""
 type CompanyModel {
   id: String
   created: String
@@ -77,37 +79,30 @@ input CompanyModelAddressInput {
 }
 
 type Query {
-  GetCompanyById(
-    id: String!,
-    embed: [String!]
-  ): CompanyModel!
+  GetCompanyById(id: String!, embed: [String!]): CompanyModel!
 
   GetCompanies(
-    pageSize: Int,
-    pageNumber: Int,
-    sortBy: String,
-    embed: [String!],
-    id: [String!],
-    address: String,
-    branch: String,
-    name: String,
-    typeId: String,
-    createdFrom: String,
-    createdTo: String,
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    address: String
+    branch: String
+    name: String
+    typeId: String
+    createdFrom: String
+    createdTo: String
     metadata: [String!]
   ): PagedResultCompanyModel_!
 
-  GetCompanyRoles(
-    id: String!,
-    pageSize: Int,
-    pageNumber: Int
-  ): PagedResultCompanyRoleModel_!
+  GetCompanyRoles(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
 }
 
 type Mutation {
   UpdateCompany(
-    _eTag: String!,
-    id: String!,
+    _eTag: String!
+    id: String!
     name: String
     branch: String
     notes: String
