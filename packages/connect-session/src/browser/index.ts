@@ -3,10 +3,11 @@ import jwt from 'jsonwebtoken'
 import {
   ReapitConnectBrowserSessionInitializers,
   ReapitConnectSession,
-  LoginIdentity,
-  CoginitoIdentity,
   CoginitoAccess,
+  LoginIdentity,
+  CoginitoSession,
 } from '../types'
+import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
 
 export class ReapitConnectBrowserSession {
   // Static constants
@@ -17,7 +18,8 @@ export class ReapitConnectBrowserSession {
   // and cause bugs
   private connectOAuthUrl: string
   private connectClientId: string
-  private userName: string | null
+  private connectUserPoolId: string
+  // private userName: string | null
   private session: ReapitConnectSession | null
   private connectLoginRedirectPath: string
   private connectLogoutRedirectPath: string
@@ -26,29 +28,20 @@ export class ReapitConnectBrowserSession {
   constructor({
     connectClientId,
     connectOAuthUrl,
+    connectUserPoolId,
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
   }: ReapitConnectBrowserSessionInitializers) {
-    // Instantiate my private variables from either local storage or from the constructor params
+    // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
+    this.connectUserPoolId = connectUserPoolId
     this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
     this.connectLogoutRedirectPath = `${window.location.origin}${
       connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
     }`
-    this.userName = this.connectStoredLoginUser
     this.fetching = false
-    // In an ideal world, UI have a complete session in local storage I can reuse
-    this.session =
-      this.connectStoredAccessToken && this.connectStoredRefreshToken && this.connectStoredIdToken
-        ? {
-            accessToken: this.connectStoredAccessToken,
-            refreshToken: this.connectStoredRefreshToken,
-            idToken: this.connectStoredIdToken,
-            loginIdentity: this.deserializeIdToken(this.connectStoredIdToken),
-          }
-        : null
-    // Bind my public methods to the current closure
+    this.session = null
     this.connectBindPublicMethods()
   }
 
@@ -59,75 +52,6 @@ export class ReapitConnectBrowserSession {
     this.connectAuthorizeRedirect = this.connectAuthorizeRedirect.bind(this)
     this.connectLoginRedirect = this.connectLoginRedirect.bind(this)
     this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
-  }
-
-  // Getters for retrieving session from local storage in the format cognito stores it
-  private get connectStoredLoginUser(): string | null {
-    return window.localStorage.getItem(`CognitoIdentityServiceProvider.${this.connectClientId}.LastAuthUser`)
-  }
-
-  private get connectStoredAccessToken(): string | null {
-    return window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.accessToken`,
-    )
-  }
-
-  private get connectStoredIdToken(): string | null {
-    return window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.idToken`,
-    )
-  }
-
-  private get connectStoredRefreshToken(): string | null {
-    return window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
-    )
-  }
-
-  // Cognito only stores to local storage if the user has no existing session with any app.
-  // if we refresh or authorize via a code, we store the session in the same format as Cognito
-  // so we can use the same local storage getters above when we instantiate the session class
-  private setLocalStorageSession(): void {
-    if (this.session) {
-      const { idToken, accessToken, refreshToken, loginIdentity } = this.session
-
-      window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.accessToken`,
-        accessToken,
-      )
-
-      window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.idToken`,
-        idToken,
-      )
-
-      window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.refreshToken`,
-        refreshToken,
-      )
-
-      window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.LastAuthUser`,
-        loginIdentity.email,
-      )
-    }
-  }
-
-  // Clears out local storage for users before re-directing to logout
-  private clearLocalStorageSession(): void {
-    if (this.session) {
-      window.localStorage.removeItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.accessToken`,
-      )
-
-      window.localStorage.removeItem(`CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.idToken`)
-
-      window.localStorage.removeItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
-      )
-
-      window.localStorage.removeItem(`CognitoIdentityServiceProvider.${this.connectClientId}.LastAuthUser`)
-    }
   }
 
   // See below, used to refresh session if I have a refresh token in local storage
@@ -160,42 +84,6 @@ export class ReapitConnectBrowserSession {
     return authorizationCode || null
   }
 
-  // Decodes the id token JWT so I can get information about the current logged in user
-  private deserializeIdToken(idToken: string): LoginIdentity {
-    const decoded = jwt.decode(idToken) as CoginitoIdentity
-
-    return {
-      name: decoded['name'],
-      email: decoded['email'],
-      developerId: decoded['custom:reapit:developerId'] || null,
-      clientId: decoded['custom:reapit:clientCode'] || null,
-      adminId: decoded['custom:reapit:marketAdmin'] || null,
-      userCode: decoded['custom:reapit:userCode'] || null,
-      groups: decoded['cognito:groups'] || [],
-    }
-  }
-
-  private async verifyIdToken(idToken: string): Promise<any> {
-    try {
-      const response = await fetch('http://localhost:3000', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token: idToken }),
-      } as RequestInit)
-
-      const idTokenValidation = await response.json()
-      console.log(idTokenValidation)
-      if (idTokenValidation) {
-        return idTokenValidation
-      }
-      throw new Error('No JWKs were returned - these are needed to validate your session')
-    } catch (err) {
-      console.error('Reapit Connect JWK fetching error: ', err.message)
-    }
-  }
-
   // Calls the token endpoint in Cognito with either a refresh token or a code, depending on what
   // I have available in local storage or in the URL.
   // See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
@@ -207,30 +95,43 @@ export class ReapitConnectBrowserSession {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       } as RequestInit)
-      const session = await response.json()
+      const session: CoginitoSession | undefined = await response.json()
 
-      if (session.error) throw new Error(session.error)
+      if (!session || (session && session.error))
+        return this.handleError(
+          `Error fetching session from Reapit Connect ${
+            session ? session.error : 'No session returned from Reapit Connect'
+          }`,
+        )
 
-      const idTokenValidation = await this.verifyIdToken(session.id_token)
+      // I need to verify the identity claims I have just received from the server
+      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
+        session.id_token,
+        this.connectUserPoolId,
+      )
 
-      if (idTokenValidation.error) throw new Error(idTokenValidation.error)
+      // If the idToken is invalid, don't return the session
+      if (!loginIdentity) return this.handleError('Login identity was not verified')
 
-      if (session && idTokenValidation.isValid) {
-        const { access_token, refresh_token, id_token } = session
+      const { access_token, refresh_token, id_token } = session
 
-        return {
-          accessToken: access_token,
-          // I only get a new refresh token back when grant type is code. I only use grant type code
-          // when I don't have a session, so I can update the refresh token for code and when I have a
-          // session and am refereshing, I can recycle the old refresh token
-          refreshToken: refresh_token ? refresh_token : this.session?.refreshToken,
-          idToken: id_token,
-          loginIdentity: this.deserializeIdToken(id_token),
-        }
+      return {
+        accessToken: access_token,
+        // I only get a new refresh token back when grant type is code. I only use grant type code
+        // when I don't have a session, so I can update the refresh token for code and when I have a
+        // session and am refereshing, I can recycle the old refresh token
+        refreshToken: refresh_token ? refresh_token : this.session ? this.session?.refreshToken : '',
+        idToken: id_token,
+        loginIdentity,
       }
     } catch (err) {
-      console.error('Reapit Connect Token Error', err.message)
+      this.handleError(`Reapit Connect Token Error ${err.message}`)
     }
+  }
+
+  private handleError(error: string) {
+    console.error('Reapit Connect Error:', error)
+    window.location.href = this.connectLogoutRedirectPath
   }
 
   // A convenience getter to check if my app has been loaded inside RPS / Desktop / Agency Cloud
@@ -261,7 +162,7 @@ export class ReapitConnectBrowserSession {
   // Used as handler for logout menu button
   public connectLogoutRedirect(redirectUri?: string): void {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
-    this.clearLocalStorageSession()
+    // this.clearLocalStorageSession()
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
@@ -276,6 +177,9 @@ export class ReapitConnectBrowserSession {
     if (this.fetching) {
       return
     }
+
+    // I don't want to make more requests while I am in the OAuth Flow
+    this.fetching = true
 
     try {
       // See comment in connectGetSession method. If I have a refresh token, I want to use this in the
@@ -293,27 +197,22 @@ export class ReapitConnectBrowserSession {
       if (!endpoint) {
         return this.connectAuthorizeRedirect()
       }
-      // I don't want to make more requests while I am refreshing my session
-      this.fetching = true
+
       // Get a new session from the code or refresh token
       const session = await this.connectGetSession(endpoint)
 
       this.fetching = false
 
       if (session) {
-        // Cache the session in memory and save to local storage for future use then return it to the user
+        // Cache the session in memory for future use then return it to the user
         this.session = session
-        this.userName = session.loginIdentity.email
-        this.setLocalStorageSession()
         return this.session
       }
 
-      // The token endpoint failed to redirect to authorization which will get me a new code or
-      // send me to login to get a new session
+      // The token endpoint failed to get a session so send me to login to get a new session
       this.connectAuthorizeRedirect()
     } catch (err) {
-      console.log('Reapit Connect Session error', err.message)
-      this.connectAuthorizeRedirect()
+      this.handleError(`Reapit Connect Session error ${err.message}`)
     }
   }
 }

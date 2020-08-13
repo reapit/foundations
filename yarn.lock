@@ -7203,6 +7203,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/jwk-to-pem@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/jwk-to-pem/-/jwk-to-pem-2.0.0.tgz#770ad9cc70134d47283b3c815a064a06f802d065"
+  integrity sha512-m7ZnE+iJodvhu9XNkMc/1CNkIg7432d/YSB8Qo/4TbD86rZ1GgkB4MVTNqIZG5RCtL0H4iVxiMT2OGTQDZEfHg==
+
 "@types/keygrip@*":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/keygrip/-/keygrip-1.0.2.tgz#513abfd256d7ad0bf1ee1873606317b33b1b2a72"

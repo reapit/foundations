@@ -4,7 +4,7 @@
 
 A thin wrapper around the Reapit Connect OAuth API.
 
-Managing OAuth flows can be tricky, especially redirecting, keeping sessions refreshed and cached. To make this process easier, we have built the Connect Session module for any JavaScript app.
+Managing OAuth flows can be tricky, especially redirecting, keeping sessions refreshed and cached in memory. To make this process easier, we have built the Connect Session module for any JavaScript app.
 
 To get started run `yarn add @reapit/connect-session`
 
@@ -27,6 +27,8 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectClientId: 'SOME_CLIENT_ID',
   // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
   connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+  // OAuth UserPoolId - refer to the foundations documentation to obtain this for the correct environment
+  connectUserPoolId: 'SOME_USER_POOL_ID',
   // The relative path you want to re-direct in your application after a successful login. You will have supplied this when you registered your app.
   // Defaults to '' or the root of your project if not supplied
   connectLoginRedirectPath: '/some-redirect-path',
@@ -50,6 +52,7 @@ interface ReapitConnectSession {
   refreshToken: string
   // Id token is provided as a convenience - the parsed output is below in the loginIdentity object below
   idToken: string
+  // The identity token has been verified as valid before decoding so that you can trust it's claims
   loginIdentity: {
     email: string
     name: string
@@ -180,10 +183,11 @@ import config from './config.json'
 
 const router = Router()
 
-const { connectClientId, connectClientSecret, connectOAuthUrl } = config as ReapitConnectServerSessionInitializers
+const { connectClientId, connectClientSecret, connectOAuthUrl, connectUserPoolId } = config as ReapitConnectServerSessionInitializers
 
 const reapitConnectSession = new ReapitConnectServerSession({
   connectClientId,
+  connectUserPoolId,
   connectClientSecret,
   connectOAuthUrl,
 })
