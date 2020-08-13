@@ -5,8 +5,8 @@ import { H3, Button, LevelRight, FormHeading, FormSubHeading, Section } from '@r
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { selectClientId } from '@/selector/auth'
-import { selectSettingsPageIsLoading } from '@/selector/settings'
-import { changePassword } from '@/actions/settings'
+import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
+import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 
 export type CreateDispatchersReturn = {
@@ -35,7 +35,7 @@ export const Settings: React.FC = () => {
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const customerId = selectClientId(connectSession)
   const { changePassword, logout } = createDispatchers(dispatch, connectSession)
-  const loading = useSelector(selectSettingsPageIsLoading)
+  const loading = useSelector(selectUpdatePasswordLoading)
 
   return (
     <>

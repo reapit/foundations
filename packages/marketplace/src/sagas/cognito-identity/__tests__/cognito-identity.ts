@@ -1,8 +1,8 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import settingsSagas, { clientPasswordChange, clientPasswordChangeListen } from '../settings'
+import { cognitoIdentitySagas, clientPasswordChange, clientPasswordChangeListen } from '../cognito-identity'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { ChangePasswordParams, settingLoadingVisibility } from '@/actions/settings'
+import { ChangePasswordParams, changePasswordSuccess, changePasswordFailed } from '@/actions/cognito-identity'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { changePasswordService } from '@/services/cognito-identity'
 
@@ -16,40 +16,30 @@ jest.mock('@/services/cognito-identity', () => ({
   changePasswordService: jest.fn().mockResolvedValue('SUCCESS'),
 }))
 
-describe('settings', () => {
+describe('cognitoIdentitySagas', () => {
   describe('clientPasswordChange', () => {
     const data = { currentPassword: '123', password: '456', confirmPassword: '456', email: 'tester@reapit.com' }
     const gen = cloneableGenerator(clientPasswordChange)({
       type: 'CHANGE_PASSWORD',
       data,
     })
-    expect(gen.next().value).toEqual(put(settingLoadingVisibility(true)))
-    // expect(gen.next().value).toEqual(select(selectDeveloperEmail))
+    expect(gen.next().value).toEqual(
+      call(changePasswordService, {
+        password: '123',
+        newPassword: '456',
+        userName: 'tester@reapit.com',
+        cognitoClientId: window.reapit.config.cognitoClientId || '',
+      }),
+    )
 
     it('should call API success', () => {
       const clone = gen.clone()
-      expect(clone.next().value).toEqual(
-        call(changePasswordService, {
-          password: '123',
-          newPassword: '456',
-          userName: 'tester@reapit.com',
-          cognitoClientId: window.reapit.config.cognitoClientId || '',
-        }),
-      )
+      expect(clone.next('SUCCESS').value).toEqual(put(changePasswordSuccess()))
     })
 
     it('should fail if API response !== "SUCCESS" ', () => {
       const clone = gen.clone()
-      expect(clone.next().value).toEqual(
-        call(changePasswordService, {
-          password: '123',
-          newPassword: '456',
-          userName: 'tester@reapit.com',
-          cognitoClientId: window.reapit.config.cognitoClientId || '',
-        }),
-      )
-      if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw({ message: 'error message' }).value).toEqual(put(settingLoadingVisibility(false)))
+      expect(clone.next('').value).toEqual(put(changePasswordFailed('Server error')))
       expect(clone.next().done).toEqual(true)
     })
   })
@@ -66,9 +56,9 @@ describe('settings thunks', () => {
     })
   })
 
-  describe('settingsSagas', () => {
+  describe('cognitoIdentitySagas', () => {
     it('should listen saga', () => {
-      const gen = settingsSagas()
+      const gen = cognitoIdentitySagas()
 
       expect(gen.next().value).toEqual(all([fork(clientPasswordChangeListen)]))
       expect(gen.next().done).toBe(true)

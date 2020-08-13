@@ -8,7 +8,7 @@ import Routes from '@/constants/routes'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { changePassword as changePasswordAction } from '@/actions/settings'
+import { changePassword as changePasswordAction } from '@/actions/cognito-identity'
 
 jest.mock('@/core/connect-session', () => ({
   reapitConnectBrowserSession: {
