@@ -15,6 +15,7 @@ import Applicants from './applicants/resolvers'
 import Offers from './offers/resolvers'
 import Vendors from './vendors/resolvers'
 import Companies from './companies/resolvers'
+import Conveyancing from './conveyancing/resolvers'
 
 export const resolvers = merge(
   {
@@ -35,5 +36,6 @@ export const resolvers = merge(
   Offers,
   Vendors,
   Companies,
+  Conveyancing,
 )
 export default resolvers

@@ -11009,3 +11009,712 @@ export interface PagedResultTenancyCheckModel_ {
     }
   }
 }
+
+export interface Conveyancing {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  propertyId?: string[]
+  embed?: ('buyerSolicitor' | 'offer' | 'property' | 'vendor' | 'vendorSolicitor')[]
+  metadata?: string[]
+}
+/**
+ * Representation of an offers sales progression information
+ */
+export interface ConveyancingModel {
+  /**
+   * The unique identifier of the offer
+   */
+  id?: string
+  /**
+   * The date and time when the offer was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the offer was modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Flag set to true if this offer is external
+   */
+  isExternal?: boolean
+  /**
+   * The unique identifier of the property that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  propertyId?: string
+  /**
+   * The address of the property that this offer is associated to
+   */
+  propertyAddress?: string
+  /**
+   * The full name of the vendor of the property
+   */
+  vendor?: string
+  /**
+   * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  vendorId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  vendorSolicitorId?: string
+  /**
+   * The full name of the buyer who has submitted the offer
+   */
+  buyer?: string
+  /**
+   * The unique identifier of the contact that represents this buyer. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  buyerId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+   */
+  buyerSolicitorId?: string
+  /**
+   * The name of the agent who is marketing the property, where the offer is external and and relates to a property not instructed to the agent
+   */
+  externalAgent?: string
+  /**
+   * The unique identifier of the agent company that holds the property instruction
+   */
+  externalAgentId?: string
+  /**
+   * The unique identifier of the offer that sits above this one in the chain (where known)
+   */
+  upwardChainId?: string
+  /**
+   * The unique identifier of the offer that sits below this one in the chain (where known)
+   */
+  downwardChainId?: string
+  /**
+   * The date when the fixtures and fittings form has been completed
+   * example:
+   * 2019-08-14
+   */
+  fixturesAndFittingsCompleted?: string // date
+  /**
+   * The date when the title deeds were requested from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsRequested?: string // date
+  /**
+   * The date when the title deeds were received from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsReceived?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were sent
+   * example:
+   * 2019-08-14
+   */
+  enquiriesSent?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were answered
+   * example:
+   * 2019-08-14
+   */
+  enquiriesAnswered?: string // date
+  /**
+   * The date when the buyer paid for conveyancing searches
+   * example:
+   * 2019-08-14
+   */
+  searchesPaid?: string // date
+  /**
+   * The date when conveyancing searches were applied for
+   * example:
+   * 2019-08-14
+   */
+  searchesApplied?: string // date
+  /**
+   * The date when conveyancing searches were received for
+   * example:
+   * 2019-08-14
+   */
+  searchesReceived?: string // date
+  /**
+   * The date when the draft contract was sent
+   * example:
+   * 2019-08-14
+   */
+  contractSent?: string // date
+  /**
+   * The date when the draft contract was received
+   * example:
+   * 2019-08-14
+   */
+  contractReceived?: string // date
+  /**
+   * The date when the contract was approved
+   * example:
+   * 2019-08-14
+   */
+  contractApproved?: string // date
+  /**
+   * The date when the vendor signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractVendorSigned?: string // date
+  /**
+   * The date when the buyer signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractBuyerSigned?: string // date
+  /**
+   * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+   */
+  mortgageRequired?: string
+  /**
+   * The loan to value percentage of the mortgage required
+   */
+  mortgageLoanPercentage?: number // int32
+  /**
+   * The date when the mortgage application was submitted
+   * example:
+   * 2019-08-14
+   */
+  mortgageSubmitted?: string // date
+  /**
+   * The date when the mortgage offer was received
+   * example:
+   * 2019-08-14
+   */
+  mortgageOfferReceived?: string // date
+  /**
+   * The unique identifier of the company who will provide the mortgage
+   */
+  mortgageLenderId?: string
+  /**
+   * The unique identifier of the company who brokered the mortgage
+   */
+  mortgageBrokerId?: string
+  /**
+   * The date of the mortgage valuation/survey
+   * example:
+   * 2019-08-14
+   */
+  mortgageSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the mortgage valuation/survey
+   */
+  mortgageSurveyorId?: string
+  /**
+   * Indication of whether the buyer requires that an additional survey take place  (yes/no/unknown)
+   */
+  additionalSurveyRequired?: string
+  /**
+   * The date of the additional survey
+   * example:
+   * 2019-08-14
+   */
+  additionalSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the additional survey
+   */
+  additionalSurveyorId?: string
+  /**
+   * The date when the vendor conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedVendor?: string // date
+  /**
+   * The date when the buyer conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedBuyer?: string // date
+  /**
+   * The date when the sale completed
+   * example:
+   * 2019-08-14
+   */
+  completion?: string // date
+  /**
+   * The ETag for the current version of this conveyancing record. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  /**
+   * App specific metadata that has been set against this conveyancing record
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultConveyancingModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the offer
+     */
+    id?: string
+    /**
+     * The date and time when the offer was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the offer was modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Flag set to true if this offer is external
+     */
+    isExternal?: boolean
+    /**
+     * The unique identifier of the property that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    propertyId?: string
+    /**
+     * The address of the property that this offer is associated to
+     */
+    propertyAddress?: string
+    /**
+     * The full name of the vendor of the property
+     */
+    vendor?: string
+    /**
+     * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    vendorId?: string
+    /**
+     * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+     */
+    vendorSolicitorId?: string
+    /**
+     * The full name of the buyer who has submitted the offer
+     */
+    buyer?: string
+    /**
+     * The unique identifier of the contact that represents this buyer. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    buyerId?: string
+    /**
+     * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+     */
+    buyerSolicitorId?: string
+    /**
+     * The name of the agent who is marketing the property, where the offer is external and and relates to a property not instructed to the agent
+     */
+    externalAgent?: string
+    /**
+     * The unique identifier of the agent company that holds the property instruction
+     */
+    externalAgentId?: string
+    /**
+     * The unique identifier of the offer that sits above this one in the chain (where known)
+     */
+    upwardChainId?: string
+    /**
+     * The unique identifier of the offer that sits below this one in the chain (where known)
+     */
+    downwardChainId?: string
+    /**
+     * The date when the fixtures and fittings form has been completed
+     * example:
+     * 2019-08-14
+     */
+    fixturesAndFittingsCompleted?: string // date
+    /**
+     * The date when the title deeds were requested from land registry
+     * example:
+     * 2019-08-14
+     */
+    deedsRequested?: string // date
+    /**
+     * The date when the title deeds were received from land registry
+     * example:
+     * 2019-08-14
+     */
+    deedsReceived?: string // date
+    /**
+     * The date when the legal enquiries raised by the buyers solicitor were sent
+     * example:
+     * 2019-08-14
+     */
+    enquiriesSent?: string // date
+    /**
+     * The date when the legal enquiries raised by the buyers solicitor were answered
+     * example:
+     * 2019-08-14
+     */
+    enquiriesAnswered?: string // date
+    /**
+     * The date when the buyer paid for conveyancing searches
+     * example:
+     * 2019-08-14
+     */
+    searchesPaid?: string // date
+    /**
+     * The date when conveyancing searches were applied for
+     * example:
+     * 2019-08-14
+     */
+    searchesApplied?: string // date
+    /**
+     * The date when conveyancing searches were received for
+     * example:
+     * 2019-08-14
+     */
+    searchesReceived?: string // date
+    /**
+     * The date when the draft contract was sent
+     * example:
+     * 2019-08-14
+     */
+    contractSent?: string // date
+    /**
+     * The date when the draft contract was received
+     * example:
+     * 2019-08-14
+     */
+    contractReceived?: string // date
+    /**
+     * The date when the contract was approved
+     * example:
+     * 2019-08-14
+     */
+    contractApproved?: string // date
+    /**
+     * The date when the vendor signed the approved contract
+     * example:
+     * 2019-08-14
+     */
+    contractVendorSigned?: string // date
+    /**
+     * The date when the buyer signed the approved contract
+     * example:
+     * 2019-08-14
+     */
+    contractBuyerSigned?: string // date
+    /**
+     * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+     */
+    mortgageRequired?: string
+    /**
+     * The loan to value percentage of the mortgage required
+     */
+    mortgageLoanPercentage?: number // int32
+    /**
+     * The date when the mortgage application was submitted
+     * example:
+     * 2019-08-14
+     */
+    mortgageSubmitted?: string // date
+    /**
+     * The date when the mortgage offer was received
+     * example:
+     * 2019-08-14
+     */
+    mortgageOfferReceived?: string // date
+    /**
+     * The unique identifier of the company who will provide the mortgage
+     */
+    mortgageLenderId?: string
+    /**
+     * The unique identifier of the company who brokered the mortgage
+     */
+    mortgageBrokerId?: string
+    /**
+     * The date of the mortgage valuation/survey
+     * example:
+     * 2019-08-14
+     */
+    mortgageSurveyDate?: string // date
+    /**
+     * The unique identifier of the company who will perform the mortgage valuation/survey
+     */
+    mortgageSurveyorId?: string
+    /**
+     * Indication of whether the buyer requires that an additional survey take place  (yes/no/unknown)
+     */
+    additionalSurveyRequired?: string
+    /**
+     * The date of the additional survey
+     * example:
+     * 2019-08-14
+     */
+    additionalSurveyDate?: string // date
+    /**
+     * The unique identifier of the company who will perform the additional survey
+     */
+    additionalSurveyorId?: string
+    /**
+     * The date when the vendor conveyancer confirms the exchange
+     * example:
+     * 2019-08-14
+     */
+    exchangedVendor?: string // date
+    /**
+     * The date when the buyer conveyancer confirms the exchange
+     * example:
+     * 2019-08-14
+     */
+    exchangedBuyer?: string // date
+    /**
+     * The date when the sale completed
+     * example:
+     * 2019-08-14
+     */
+    completion?: string // date
+    /**
+     * The ETag for the current version of this conveyancing record. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    /**
+     * App specific metadata that has been set against this conveyancing record
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface UpdateConveyancingModel {
+  /**
+   * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  vendorSolicitorId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  buyerSolicitorId?: string
+  /**
+   * The date when the fixtures and fittings form has been completed
+   * example:
+   * 2019-08-14
+   */
+  fixturesAndFittingsCompleted?: string // date
+  /**
+   * The date when the title deeds were requested from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsRequested?: string // date
+  /**
+   * The date when the title deeds were received from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsReceived?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were sent
+   * example:
+   * 2019-08-14
+   */
+  enquiriesSent?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were answered
+   * example:
+   * 2019-08-14
+   */
+  enquiriesAnswered?: string // date
+  /**
+   * The date when the buyer paid for conveyancing searches
+   * example:
+   * 2019-08-14
+   */
+  searchesPaid?: string // date
+  /**
+   * The date when conveyancing searches were applied for
+   * example:
+   * 2019-08-14
+   */
+  searchesApplied?: string // date
+  /**
+   * The date when conveyancing searches were received
+   * example:
+   * 2019-08-14
+   */
+  searchesReceived?: string // date
+  /**
+   * The date when the draft contract was sent
+   * example:
+   * 2019-08-14
+   */
+  contractSent?: string // date
+  /**
+   * The date when the draft contract was received
+   * example:
+   * 2019-08-14
+   */
+  contractReceived?: string // date
+  /**
+   * The date when the contract was approved
+   * example:
+   * 2019-08-14
+   */
+  contractApproved?: string // date
+  /**
+   * The date when the vendor signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractVendorSigned?: string // date
+  /**
+   * The date when the buyer signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractBuyerSigned?: string // date
+  /**
+   * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+   */
+  mortgageRequired?: string
+  /**
+   * The loan to value percentage of the mortgage required
+   */
+  mortgageLoanPercentage?: number // int32
+  /**
+   * The date when the mortgage application was submitted
+   * example:
+   * 2019-08-14
+   */
+  mortgageSubmitted?: string // date
+  /**
+   * The date when the mortgage offer was received
+   * example:
+   * 2019-08-14
+   */
+  mortgageOfferReceived?: string // date
+  /**
+   * The unique identifier of the company who will provide the mortgage
+   */
+  mortgageLenderId?: string
+  /**
+   * The unique identifier of the company who brokered the mortgage
+   */
+  mortgageBrokerId?: string
+  /**
+   * The date of the mortgage valuation/survey
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  mortgageSurveyDate?: string // date-time
+  /**
+   * The unique identifier of the company who will perform the mortgage valuation/survey
+   */
+  mortgageSurveyorId?: string
+  /**
+   * Indication of whether the buyer requires that an additional survey take place (yes/no/unknown)
+   */
+  additionalSurveyRequired?: string
+  /**
+   * The date of the additional survey
+   * example:
+   * 2019-08-14
+   */
+  additionalSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the additional survey
+   */
+  additionalSurveyorId?: string
+  /**
+   * The date when the vendor conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedVendor?: string // date
+  /**
+   * The date when the buyer conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedBuyer?: string // date
+  /**
+   * The date when the sale completed
+   * example:
+   * 2019-08-14
+   */
+  completion?: string // date
+  /**
+   * App specific metadata to set against this conveyancing record
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+
+export interface CreateDownwardLinkModel {
+  /**
+   * The unique identifier of the offer below this one in the chain. Should be left empty if the upward property is external (instructed by another agent)
+   */
+  offerId?: string
+  /**
+   * The address of the property below this one in the chain
+   */
+  propertyAddress?: string
+  /**
+   * The name of the agent managing the sale of the property
+   */
+  agent?: string
+  /**
+   * The name of the buyer purchasing the property
+   */
+  buyer?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+   */
+  buyerSolicitorId?: string
+}
+
+export interface CreateUpwardLinkModel {
+  /**
+   * The unique identifier of the offer above this one in the chain. Should be left empty if the upward property is external (instructed by another agent)
+   */
+  offerId?: string
+  /**
+   * The address of the property above this one in the chain
+   */
+  propertyAddress?: string
+  /**
+   * The name of the agent managing the sale of the property
+   */
+  agent?: string
+  /**
+   * The name of the vendor selling the property
+   */
+  vendor?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  vendorSolicitorId?: string
+}

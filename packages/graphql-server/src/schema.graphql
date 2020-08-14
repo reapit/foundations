@@ -220,6 +220,17 @@ type Query {
     createdTo: String
   ): PagedResultContactModel!
   GetContactById(id: String!): ContactModel!
+  GetConveyancing(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    propertyId: [String!]
+    embed: [String!]
+    metadata: [String!]
+  ): PagedResultConveyancingModel_!
+  GetConveyancingById(id: String!, embed: [String!]): ConveyancingModel!
+  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
   GetIdentityChecks(
     id: [String!]
     pageSize: Int
@@ -601,6 +612,58 @@ type Mutation {
     workAddress: ContactModelAddressInput
     metadata: JSON
   ): ContactModel!
+  UpdateConveyancing(
+    _eTag: String!
+    id: String!
+    vendorSolicitorId: String
+    buyerSolicitorId: String
+    fixturesAndFittingsCompleted: String
+    deedsRequested: String
+    deedsReceived: String
+    enquiriesSent: String
+    enquiriesAnswered: String
+    searchesPaid: String
+    searchesApplied: String
+    searchesReceived: String
+    contractSent: String
+    contractReceived: String
+    contractApproved: String
+    contractVendorSigned: String
+    contractBuyerSigned: String
+    mortgageRequired: String
+    mortgageLoanPercentage: Int
+    mortgageSubmitted: String
+    mortgageOfferReceived: String
+    mortgageLenderId: String
+    mortgageBrokerId: String
+    mortgageSurveyDate: String
+    mortgageSurveyorId: String
+    additionalSurveyRequired: String
+    additionalSurveyDate: String
+    additionalSurveyorId: String
+    exchangedVendor: String
+    exchangedBuyer: String
+    completion: String
+    metadata: JSON
+  ): ConveyancingModel!
+  CreateDownwardLinkModel(
+    id: String!
+    offerId: String
+    propertyAddress: String
+    agent: String
+    buyer: String
+    buyerSolicitorId: String
+  ): ConveyancingModel!
+  DeleteDownwardLinkModel(id: String!): String!
+  CreateUpwardLinkModel(
+    id: String!
+    offerId: String
+    propertyAddress: String
+    agent: String
+    vendor: String
+    vendorSolicitorId: String
+  ): ConveyancingModel!
+  DeleteUpwardLinkModel(id: String!): String!
   CreateIdentityCheck(
     contactId: String
     checkDate: String
@@ -1051,6 +1114,70 @@ type PagedResultContactModel {
   pageNumber: Int
   pageSize: Int
   pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+# Representation of an offers sales progression information
+"""
+Representation of an offers sales progression information
+"""
+type ConveyancingModel {
+  id: String
+  created: String
+  modified: String
+  isExternal: Boolean
+  propertyId: String
+  propertyAddress: String
+  vendor: String
+  vendorId: String
+  vendorSolicitorId: String
+  buyer: String
+  buyerId: String
+  buyerSolicitorId: String
+  externalAgent: String
+  externalAgentId: String
+  upwardChainId: String
+  downwardChainId: String
+  fixturesAndFittingsCompleted: String
+  deedsRequested: String
+  deedsReceived: String
+  enquiriesSent: String
+  enquiriesAnswered: String
+  searchesPaid: String
+  searchesApplied: String
+  searchesReceived: String
+  contractSent: String
+  contractReceived: String
+  contractApproved: String
+  contractVendorSigned: String
+  contractBuyerSigned: String
+  mortgageRequired: String
+  mortgageLoanPercentage: Int
+  mortgageSubmitted: String
+  mortgageOfferReceived: String
+  mortgageLenderId: String
+  mortgageBrokerId: String
+  mortgageSurveyDate: String
+  mortgageSurveyorId: String
+  additionalSurveyRequired: String
+  additionalSurveyDate: String
+  additionalSurveyorId: String
+  exchangedVendor: String
+  exchangedBuyer: String
+  completion: String
+  _eTag: String
+  metadata: JSON
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultConveyancingModel_ {
+  _embedded: [ConveyancingModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
   totalCount: Int
   _links: JSON
 }
