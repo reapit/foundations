@@ -1,3 +1,5 @@
+import { SELLING_STATUS, LETTING_STATUS } from '../constants/statuses'
+
 export const getAddress = (property: any): string => {
   const address: string[] = []
 
@@ -22,12 +24,22 @@ export const getRentString = (property: any): string => {
 
 export const getSaleStatus = (property: any): string => {
   if (property.selling === null) return ''
-  return property.selling.status
+  return SELLING_STATUS[property.selling.status]
 }
 
 export const getLettingStatus = (property: any): string => {
   if (property.letting === null) return ''
-  return property.letting.status
+  return LETTING_STATUS[property.letting.status]
+}
+
+export const getStatus = (property: any) => {
+  if (property.letting === null) return getSaleStatus(property)
+  return getLettingStatus(property)
+}
+
+export const getPrice = (property: any) => {
+  if (property.letting === null) return getPriceString(property)
+  return getRentString(property)
 }
 
 const getRentFrequency = (frequency: string): string => {

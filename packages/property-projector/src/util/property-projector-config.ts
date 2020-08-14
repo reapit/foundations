@@ -5,11 +5,7 @@ import { ReapitConnectSession } from '@reapit/connect-session'
  *
  * @todo departments should be changed to a single object rather than an array of objects
  * @todo remove test data
- * @todo add marketingMode
- * @todo hook up the min/max rent
- * @todo add lettingStatus / saleStatus
  * @todo add refreshHour - every 'x' hours the projector should refresh when it's open
- * @todo add strapline
  */
 export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<PropertyProjectorConfig> => {
   const propertyProjectorConfig: any = {
@@ -18,11 +14,13 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     secondaryColour: '#FFFFFF',
     interval: 5,
     propertyLimit: 25,
+    marketingMode: ['selling', 'letting'],
+    sellingStatuses: ['forSale', 'underOffer'],
+    lettingStatuses: ['toLet', 'underOffer'],
     minPrice: 0,
     maxPrice: 0,
     minRent: 0,
     maxRent: 0,
-    randomize: false,
     showAddress: true,
     sortBy: 'created',
     departments: [{ G: ['house', 'bungalow', 'land'] }],

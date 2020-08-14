@@ -9,6 +9,7 @@ import OfficeCheckboxes from './office-checkboxes'
 import Projector from '../projector'
 import ColourPicker from '../colour-picker'
 import { ERROR_MESSAGES } from '../../../constants/errors'
+import { SELLING_STATUS, LETTING_STATUS } from '../../../constants/statuses'
 import {
   H5,
   Section,
@@ -27,6 +28,7 @@ import {
   Button,
   usePortal,
   Alert,
+  DropdownSelect,
 } from '@reapit/elements'
 
 type ConfigFormProps = {}
@@ -153,6 +155,23 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     setError(null)
   }
 
+  const marketingModeOptions: SelectBoxOptions[] = [
+    { label: 'Selling', value: 'selling' },
+    { label: 'Letting', value: 'letting' },
+  ]
+
+  const sellingStatusOptions = (): SelectBoxOptions[] => {
+    return Object.keys(SELLING_STATUS).map(status => {
+      return { label: status, value: status }
+    })
+  }
+
+  const lettingStatusOptions = (): SelectBoxOptions[] => {
+    return Object.keys(LETTING_STATUS).map(status => {
+      return { label: status, value: status }
+    })
+  }
+
   const sortByOptions: SelectBoxOptions[] = [
     { label: 'Price', value: 'price' },
     { label: 'Created Date', value: 'created' },
@@ -204,14 +223,40 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                   <FormSection>
                     <FormHeading>General Settings</FormHeading>
                     <FormSubHeading>Various other Property Projector settings.</FormSubHeading>
+                    <DropdownSelect
+                      id="marketingMode"
+                      name="marketingMode"
+                      labelText="Marketing Mode"
+                      options={marketingModeOptions}
+                      mode="multiple"
+                      subText="Choose to return only properties that up for sale, to let or both."
+                    />
                     <Grid>
                       <GridItem>
+                        <DropdownSelect
+                          id="sellingStatuses"
+                          name="sellingStatuses"
+                          labelText="Selling Statuses"
+                          options={sellingStatusOptions()}
+                          subText="Choose to return only properties with certain selling statuses."
+                          mode="multiple"
+                          disabled={!values.marketingMode.includes('selling')}
+                        />
                         <Input
                           type="text"
                           id="minPrice"
                           name="minPrice"
                           placeholder="150000"
                           labelText="Minimum Price"
+                          disabled={!values.marketingMode.includes('selling')}
+                        />
+                        <Input
+                          type="text"
+                          id="minRent"
+                          name="minRent"
+                          placeholder="150000"
+                          labelText="Minimum Rent"
+                          disabled={!values.marketingMode.includes('letting')}
                         />
                         <Input
                           type="text"
@@ -220,6 +265,34 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                           placeholder="20"
                           labelText="Property Limit"
                         />
+                        <SelectBox name="sortBy" options={sortByOptions} labelText="Sort By" id="sortBy" />
+                      </GridItem>
+                      <GridItem>
+                        <DropdownSelect
+                          id="lettingStatuses"
+                          name="lettingStatuses"
+                          labelText="Letting Statuses"
+                          options={lettingStatusOptions()}
+                          subText="Choose to return only properties with certain letting statuses."
+                          mode="multiple"
+                          disabled={!values.marketingMode.includes('letting')}
+                        />
+                        <Input
+                          type="text"
+                          id="maxPrice"
+                          name="maxPrice"
+                          placeholder="1000000"
+                          labelText="Maximum Price"
+                          disabled={!values.marketingMode.includes('selling')}
+                        />
+                        <Input
+                          type="text"
+                          id="maxRent"
+                          name="maxRent"
+                          placeholder="1000000"
+                          labelText="Maximum Rent"
+                          disabled={!values.marketingMode.includes('letting')}
+                        />
                         <Input
                           type="text"
                           id="interval"
@@ -227,18 +300,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                           placeholder="30"
                           labelText="Rotation Interval (seconds)"
                         />
-                      </GridItem>
-                      <GridItem>
-                        <Input
-                          type="text"
-                          id="maxPrice"
-                          name="maxPrice"
-                          placeholder="1000000"
-                          labelText="Maximum Price"
-                        />
-                        <SelectBox name="sortBy" options={sortByOptions} labelText="Sort By" id="sortBy" />
                         <Checkbox name="showAddress" id="showAddress" labelText="Show Address" />
-                        <Checkbox name="randomize" id="randomize" labelText="Randomize Properties" />
                       </GridItem>
                     </Grid>
                   </FormSection>

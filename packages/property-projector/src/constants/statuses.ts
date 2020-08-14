@@ -1,0 +1,33 @@
+export const SELLING_STATUS = {
+  preAppraisal: 'Pre-Appraisal',
+  valuation: 'Valuation',
+  paidValuation: 'Paid Valuation',
+  forSale: 'For Sale',
+  forSaleUnavailable: 'For Sale',
+  underOffer: 'Under Offer',
+  underOfferUnavailable: 'Under Offer',
+  reserved: 'Reserved',
+  exchanged: 'Exchanged',
+  completed: 'Completed',
+  soldExternally: 'Sold Externally',
+  withdrawn: 'Withdrawn',
+}
+
+export const LETTING_STATUS = {
+  valuation: 'Valuation',
+  toLet: 'To Let',
+  toLetUnavailable: 'To Let',
+  underOffer: 'Under Offer',
+  underOfferUnavailable: 'Under Offer',
+  arrangingTenancyUnavailable: 'Arranging Tenancy',
+  arrangingTenancy: 'Arranging Tenancy',
+  tenancyCurrentUnavailable: 'Tenancy Current',
+  tenancyCurrent: 'Tenancy Current',
+  tenancyFinished: 'Tenancy Finished',
+  tenancyCancelled: 'Tenancy Cancelled',
+  sold: 'Sold',
+  letByOtherAgent: 'Let By Other Agent',
+  letPrivately: 'Let Privately',
+  provisional: 'Provisional',
+  withdrawn: 'Withdrawn',
+}

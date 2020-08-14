@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAddress, getPriceString, getSaleStatus } from '../../../util/property-helpers'
+import { getAddress, getPrice, getStatus } from '../../../util/property-helpers'
 
 type PropertyImagesProps = {
   images: string[]
@@ -44,10 +44,10 @@ const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
       <PropertyImages images={property.images} />
       <div className="property-projector-information">
         <p style={projectorStyles} className="sale-status">
-          {getSaleStatus(property)}
+          {getStatus(property)}
         </p>
         {!showAddress || <p className="address">{getAddress(property)}</p>}
-        <p className="price">{getPriceString(property)}</p>
+        <p className="price">{getPrice(property)}</p>
         <p className="rooms">
           <span>
             <svg

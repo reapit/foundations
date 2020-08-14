@@ -15,7 +15,6 @@ export type PropertyProjectorConfig = {
   propertyLimit: number
   minPrice: number
   maxPrice: number
-  randomize: boolean
   showAddress: boolean
   sortBy: 'created' | 'price'
   departments: any[]

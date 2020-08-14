@@ -25,6 +25,12 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
 
   properties.forEach(({ id }) => propertyImagesParams.append('propertyId', id))
 
+  // only retrieve photographs
+  propertyImagesParams.append('type', 'photograph')
+
+  // only retrieve photographs
+  propertyImagesParams.append('sortBy', 'order')
+
   //get all property images for the properties in filtered array
   const propertyImages = await getAllPropertyImages(session as ReapitConnectSession, propertyImagesParams)
 
@@ -37,7 +43,10 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
   return properties
 }
 
-const buildPropertyUrlSearchParams = ({ minPrice, maxPrice, sortBy, offices, minRent, maxRent }, department: any) => {
+const buildPropertyUrlSearchParams = (
+  { minPrice, maxPrice, sortBy, offices, minRent, maxRent, marketingMode, sellingStatuses, lettingStatuses },
+  department: any,
+) => {
   const params = new URLSearchParams()
   const [departmentId, departmentPropertyTypes]: any = Object.entries(department)[0]
 
@@ -53,13 +62,19 @@ const buildPropertyUrlSearchParams = ({ minPrice, maxPrice, sortBy, offices, min
 
   params.append('sortBy', sortBy)
 
-  if (minPrice > 0) params.append('priceFrom', minPrice)
+  marketingMode.forEach(mode => params.append('marketingMode', mode))
 
-  if (maxPrice > 0) params.append('priceTo', maxPrice)
+  if (marketingMode.includes('selling')) {
+    if (minPrice > 0) params.append('priceFrom', minPrice)
+    if (maxPrice > 0) params.append('priceTo', maxPrice)
+    if (sellingStatuses.length > 0) sellingStatuses.forEach(status => params.append('sellingStatus', status))
+  }
 
-  if (minRent > 0) params.append('rentFrom', minRent)
-
-  if (maxRent > 0) params.append('rentTo', maxRent)
+  if (marketingMode.includes('letting')) {
+    if (minRent > 0) params.append('rentFrom', minRent)
+    if (maxRent > 0) params.append('rentTo', maxRent)
+    if (lettingStatuses.length > 0) lettingStatuses.forEach(status => params.append('lettingStatus', status))
+  }
 
   return params
 }
@@ -69,6 +84,8 @@ const mergePropertyImagesById = (properties: any[], propertyImages: any[]) => {
 
   propertyImages.forEach(image => {
     if (Array.isArray(propertyImagesFormatted[image.propertyId])) {
+      // there should only be a max of 3 images returned
+      if (propertyImagesFormatted[image.propertyId].length === 3) return
       return (propertyImagesFormatted[image.propertyId] = [...propertyImagesFormatted[image.propertyId], image.url])
     } else {
       return (propertyImagesFormatted[image.propertyId] = [image.url])
