@@ -71,10 +71,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.SETTINGS_ORGANISATION_TAB: {
       const developerId = await getDeveloperId()
       store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       store.dispatch(fetchOrganisationMembers({ id: developerId }))
       break
     }
     case Routes.SETTINGS_BILLING_TAB: {
+      store.dispatch(fetchCurrentMember())
       store.dispatch(requestDeveloperData())
       break
     }
