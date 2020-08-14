@@ -8,6 +8,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
   <Component>
     This email will be used by our Accounts Department to send any account related correspondence
   </Component>
+   
   <Component
     dataTest="email"
     id="billingEmail"

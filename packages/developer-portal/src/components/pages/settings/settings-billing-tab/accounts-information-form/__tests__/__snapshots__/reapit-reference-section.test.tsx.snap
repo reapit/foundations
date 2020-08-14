@@ -9,6 +9,7 @@ exports[`DirectDebitSection should match snapshot 1`] = `
     If you have an existing account with Reapit you will be able to find your
       Reapit reference on previous correspondence
   </Component>
+   
   <Component
     disabled={true}
     id="hasReapitAccountsRef"
