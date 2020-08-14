@@ -90,6 +90,7 @@ const initialUploadData: UploadData = {
   shouldProcess: false,
   isModalOpen: false,
   exceedMaxRow: false,
+  header: [],
 }
 
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
