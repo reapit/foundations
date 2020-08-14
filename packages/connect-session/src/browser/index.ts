@@ -97,12 +97,7 @@ export class ReapitConnectBrowserSession {
       } as RequestInit)
       const session: CoginitoSession | undefined = await response.json()
 
-      if (!session || (session && session.error))
-        return this.handleError(
-          `Error fetching session from Reapit Connect ${
-            session ? session.error : 'No session returned from Reapit Connect'
-          }`,
-        )
+      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
 
       // I need to verify the identity claims I have just received from the server
       const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
@@ -169,8 +164,8 @@ export class ReapitConnectBrowserSession {
   // The main method for fetching a session in an app.
   public async connectSession(): Promise<ReapitConnectSession | void> {
     // Ideally, if I have a valid session, just return it
-    if (this.session && !this.sessionExpired) {
-      return this.session
+    if (!this.sessionExpired) {
+      return this.session as ReapitConnectSession
     }
 
     // Stops me from making multiple calls to the token endpoint

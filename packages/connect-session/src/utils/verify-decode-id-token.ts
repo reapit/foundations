@@ -1,9 +1,14 @@
+/* istanbul ignore file */
+// Not possible to test this file without stubbing public keys. Obviously can't include these in the
+// project for security reasons and using random strings would be basically worthless as a test.
+// Given code comes from AWS, seems reasonable to trust the implementation.
+import 'isomorphic-fetch'
 import { promisify } from 'util'
 import jsonwebtoken from 'jsonwebtoken'
-import jwkToPem from 'jwk-to-pem'
+import jwkToPem, { RSA } from 'jwk-to-pem'
 import { LoginIdentity } from '../types'
 
-// Microservice to verify integrity of AWS tokens for client side applications. Allows Connect Session module to check a
+// Util to verify integrity of AWS tokens for client side applications. Allows Connect Session module to check a
 // ID Token for validity of claims. See Connect Session for usage, not intended for external users.
 // See AWS Docs https://github.com/awslabs/aws-support-tools/tree/master/Cognito/decode-verify-jwt), code adapted from here.
 
@@ -43,8 +48,6 @@ interface Claim {
   client_id: string
 }
 
-const verifyPromised = promisify(jsonwebtoken.verify.bind(jsonwebtoken))
-
 let cacheKeys: MapOfKidToPublicKey | undefined
 
 const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPublicKey | undefined> => {
@@ -56,13 +59,13 @@ const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPubli
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
-
-    const publicKeys = await res.json()
-
+    console.log(await res.json())
+    const publicKeys: PublicKeys = await res.json()
+    console.log(publicKeys)
     if (!publicKeys) throw new Error('Public keys not returned from Reapit Connect')
 
     cacheKeys = publicKeys.keys.reduce((agg, current) => {
-      const pem = jwkToPem(current)
+      const pem = jwkToPem(current as RSA)
 
       agg[current.kid] = { instance: current, pem }
 
@@ -81,6 +84,7 @@ export const connectSessionVerifyDecodeIdToken = async (
   try {
     const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
+    const verifyPromised = promisify(jsonwebtoken.verify.bind(jsonwebtoken))
 
     if (tokenSections.length < 2) throw new Error('Id token is invalid')
 

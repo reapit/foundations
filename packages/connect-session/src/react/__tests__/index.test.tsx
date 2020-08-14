@@ -18,6 +18,7 @@ jest.mock('../../browser/index', () => ({
 export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectClientId: 'SOME_CLIENT_ID',
   connectOAuthUrl: 'SOME_URL',
+  connectUserPoolId: 'SOME_USER_POOL_ID',
 })
 
 describe('useReapitConnect', () => {

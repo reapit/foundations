@@ -81,8 +81,8 @@ export class ReapitConnectServerSession {
   // The main method for fetching an accessToken in an app.
   public async connectAccessToken(): Promise<string | void> {
     // Ideally, if I have a valid accessToken, just return it
-    if (this.accessToken && !this.accessTokenExpired) {
-      return this.accessToken
+    if (!this.accessTokenExpired) {
+      return this.accessToken as string
     }
 
     try {
