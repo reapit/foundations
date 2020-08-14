@@ -2,8 +2,6 @@ import { PropertyProjectorConfig } from '@/types/global'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
 /**
- *
- * @todo departments should be changed to a single object rather than an array of objects
  * @todo remove test data
  * @todo add refreshHour - every 'x' hours the projector should refresh when it's open
  */
@@ -23,7 +21,7 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     maxRent: 0,
     showAddress: true,
     sortBy: 'created',
-    departments: [{ G: ['house', 'bungalow', 'land'] }],
+    departments: { G: ['house', 'bungalow', 'land'] },
     offices: [],
   }
 

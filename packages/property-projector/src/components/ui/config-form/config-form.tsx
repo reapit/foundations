@@ -101,21 +101,17 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     const { departments, ...initalFormValues } = config
     const departmentPropertyTypes = {}
 
-    // create an array of set departments and property types from property projector configuration
-    const configDepartments = departments.map(department => {
-      const [id, propertyTypes] = Object.entries(department)[0]
+    // created an array of department ids and department property types
+    const configDepartments = Object.entries(departments).map(([departmentId, propertyTypes]) => {
       if (Array.isArray(propertyTypes)) {
-        departmentPropertyTypes[`${id}PropertyTypes`] = propertyTypes
+        departmentPropertyTypes[`${departmentId}PropertyTypes`] = propertyTypes
       }
-      return id
+      return departmentId
     })
 
     return { ...initalFormValues, departments: configDepartments, ...departmentPropertyTypes }
   }
 
-  /**
-   * @todo make picking a department a requirement
-   */
   const submitForm = values => {
     console.info('Inital Form Submission Values: ', values)
 
