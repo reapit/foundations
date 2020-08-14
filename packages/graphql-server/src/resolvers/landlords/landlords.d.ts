@@ -2,9 +2,7 @@ import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   PagedResultLandlordModel_,
   PagedResultLandlordContactRelationshipModel_,
-  PagedResultLandlordModel_,
   LandlordModel,
-  CreateLandlordModel,
   CreateLandlordModel,
   UpdateLandlordModel,
   LandlordContactRelationshipModel,
