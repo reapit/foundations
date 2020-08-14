@@ -659,7 +659,7 @@ type Mutation {
     associatedType: String
     isMain: Boolean
   ): LandlordRelationshipModel!
-  DeleteLandlordRelationship(id: String!, relationshipId: String!): JSON!
+  DeleteLandlordRelationship(id: String!, relationshipId: String!): String
   CreateNegotiator(
     name: String
     jobTitle: String

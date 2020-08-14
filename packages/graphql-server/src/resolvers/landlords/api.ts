@@ -142,7 +142,7 @@ export const callCreateLandlordRelationshipAPI = async (
   logger.info('callCreateLandlordRelationshipAPI', { traceId, args })
   try {
     const { id, ...payload } = args
-    const response = await createPlatformAxiosInstance().post<CreateLandlordRelationshipReturn>(
+    await createPlatformAxiosInstance().post<CreateLandlordRelationshipReturn>(
       `${URLS.landlords}/${id}/relationships`,
       payload,
       {
@@ -151,11 +151,7 @@ export const callCreateLandlordRelationshipAPI = async (
         },
       },
     )
-    const relationshipId = getIdFromCreateHeaders({ headers: response.headers })
-    if (relationshipId) {
-      return callGetLandlordRelationshipByIdAPI({ id, relationshipId }, context)
-    }
-    return null
+    return callGetLandlordRelationshipsAPI({ id }, context)
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateLandlordRelationshipAPI' })
     return handleErrorResult

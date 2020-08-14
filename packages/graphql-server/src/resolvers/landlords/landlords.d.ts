@@ -29,7 +29,7 @@ export type GetLandlordRelationshipsArgs = { id: string; pageSize?: number; page
 export type GetLandlordRelationshipByIdArgs = { id: string; relationshipId: string }
 
 export type CreateLandlordArgs = CreateLandlordModel
-export type CreateLandlordRelationshipArgs = CreateLandlordContactRelationshipModel
+export type CreateLandlordRelationshipArgs = CreateLandlordContactRelationshipModel & { id: string; isMain?: boolean }
 export type UpdateLandlordArgs = { id: string; _eTag: string } & UpdateLandlordModel
 export type DeleteLandlordRelationshipArgs = { id: string; relationshipId: string }
 

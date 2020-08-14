@@ -102,7 +102,6 @@ const landlordServices = {
   getLandlords,
   getLandlordRelationships,
   getLandlordRelationshipById,
-  getLandlordRelationships,
   createLandlord,
   createLandlordRelationship,
   deleteLandlordRelationship,
