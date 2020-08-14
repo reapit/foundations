@@ -1,13 +1,13 @@
 import * as React from 'react'
 import routes from '@/constants/routes'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
-import { Input, Button, Loader, Alert, H3, LevelRight, Formik, Form, H6, FormikValues } from '@reapit/elements'
+import { Input, Button, Loader, Alert, H3, LevelRight, Formik, Form, H6, FormikValues, ModalV2 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { CreateAppRevisionModel, AppDetailModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
@@ -29,6 +29,8 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { createAppRevision } from '@/actions/apps'
+import { selectCurrentMemberData } from '@/selector/current-member'
+import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -209,12 +211,14 @@ export const handleSubmitApp = ({
   setSubmitting,
   onSuccess,
   onError,
+  currentOrganisation,
 }: {
   appId: string
   dispatch: Dispatch
   setSubmitting: React.Dispatch<React.SetStateAction<boolean>>
   onSuccess: () => void
   onError: () => void
+  currentOrganisation?: DeveloperModel
 }) => (appModel: CustomCreateRevisionModal) => {
   setSubmitting(true)
 
@@ -239,9 +243,15 @@ export const handleSubmitApp = ({
   if (appModel.isPrivateApp === 'no') {
     appToSubmit.limitToClientIds = []
   }
+  const sanitizeData = sanitizeAppData(appToSubmit)
+
+  if (currentOrganisation?.status === 'pending' || currentOrganisation?.status === 'incomplete') {
+    delete sanitizeData.isListed
+  }
+
   dispatch(
     createAppRevision({
-      ...sanitizeAppData(appToSubmit),
+      ...sanitizeData,
       id: appId,
       successCallback: onSuccess,
       errorCallback: onError,
@@ -252,8 +262,14 @@ export const handleSubmitApp = ({
 export const handleSubmitAppSuccess = (
   setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
   history: History,
+  setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>,
+  currentOrganisation?: DeveloperModel,
 ) => () => {
   setSubmitting(false)
+  if (currentOrganisation?.status === 'incomplete' || currentOrganisation?.status === 'pending') {
+    setIsShowBillingNotification(true)
+    return
+  }
   history.push(Routes.APPS)
 }
 
@@ -301,15 +317,65 @@ export const handleOpenAppPreview = ({
   window.open(url, '_blank')
 }
 
+export const modalContent = {
+  admin: {
+    incomplete: {
+      title: 'Account Information Required',
+      content: (
+        <div>
+          Before listing an app in the Marketplace, you will first need to submit your account information. Please visit
+          the <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
+        </div>
+      ),
+    },
+    pending: {
+      title: 'Account Information Pending',
+      content: (
+        <div>
+          We are currently verifying your account information, once completed you will be able to list your app. To
+          check the status of your account, please visit the <Link to="/settings/billing">&apos;Billing&apos;</Link>{' '}
+          page.
+        </div>
+      ),
+    },
+  },
+  user: {
+    incomplete: {
+      title: 'Account Information Required',
+      content: (
+        <div>
+          Unfortunately, your account information has not yet been completed, please ask the Admin of your organisation
+          to visit the &apos;Billing&apos; page under &apos;Settings&apos;.
+        </div>
+      ),
+    },
+    pending: {
+      title: 'Account Information Pending',
+      content: (
+        <div>
+          Your account information is currently being reviewed by our Accounts Department. Once this has been verified
+          your will be able to list your app.
+        </div>
+      ),
+    },
+  },
+}
+
+export const handleCloseModal = (setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setIsShowBillingNotification(false)
+}
+
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const [submitting, setSubmitting] = React.useState<boolean>(false)
+  const [isShowBillingNotification, setIsShowBillingNotification] = React.useState<boolean>(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams<{ appid: string }>()
   const appDetailState = useSelector(selectAppDetailState)
   const appCategories = useSelector(selectCategories)
   const scopes = useSelector(selectScopeList)
-
+  const currentUser = useSelector(selectCurrentMemberData)
+  const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
 
@@ -352,8 +418,9 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           appId,
           dispatch,
           setSubmitting,
-          onSuccess: handleSubmitAppSuccess(setSubmitting, history),
+          onSuccess: handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, currentOrganisation),
           onError: handleSubmitAppError(setSubmitting),
+          currentOrganisation,
         })}
       >
         {({ setFieldValue, values, errors }) => {
@@ -409,6 +476,21 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           )
         }}
       </Formik>
+      {currentUser?.role && currentOrganisation?.status && (
+        <ModalV2
+          isCentered={true}
+          visible={isShowBillingNotification}
+          onClose={handleCloseModal(setIsShowBillingNotification)}
+          title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
+          footer={[
+            <Button key="close" onClick={handleCloseModal(setIsShowBillingNotification)}>
+              Close
+            </Button>,
+          ]}
+        >
+          {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
+        </ModalV2>
+      )}
     </>
   )
 }
