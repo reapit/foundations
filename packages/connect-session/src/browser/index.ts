@@ -157,7 +157,6 @@ export class ReapitConnectBrowserSession {
   // Used as handler for logout menu button
   public connectLogoutRedirect(redirectUri?: string): void {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
-    // this.clearLocalStorageSession()
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
@@ -205,7 +204,7 @@ export class ReapitConnectBrowserSession {
       }
 
       // The token endpoint failed to get a session so send me to login to get a new session
-      this.connectAuthorizeRedirect()
+      this.handleError('Failed to fetch session, redirecting to login to re-start OAuth Flow')
     } catch (err) {
       this.handleError(`Reapit Connect Session error ${err.message}`)
     }

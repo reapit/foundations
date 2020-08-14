@@ -59,9 +59,9 @@ const getPublicKeys = async (connectUserPoolId: string): Promise<MapOfKidToPubli
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
-    console.log(await res.json())
+
     const publicKeys: PublicKeys = await res.json()
-    console.log(publicKeys)
+
     if (!publicKeys) throw new Error('Public keys not returned from Reapit Connect')
 
     cacheKeys = publicKeys.keys.reduce((agg, current) => {
