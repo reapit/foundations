@@ -2,6 +2,7 @@ import { ExecutionResult, GraphQLError } from 'graphql'
 import { CreateOfficeModel } from '@reapit/foundations-ts-definitions'
 import { Cell } from '@reapit/elements'
 import { UploadResultDetail } from '@/reducers/update-provider'
+import { UpdateOfficeParams } from '@/components/ui/offices-tab/offices-tab'
 
 export interface WorkerMessage {
   from: 'FROM_MAIN' | 'FROM_WORKER'
@@ -97,6 +98,25 @@ export const mutation = <T>({
 
 export const prepareCreateOfficeParams = (rowData: Cell[]): CreateOfficeModel => {
   return {
+    name: rowData[2].value as string, // name column
+    address: {
+      buildingName: rowData[3].value as string, // buildingName column
+      buildingNumber: rowData[4].value as string, // buildingNumber column
+      line1: rowData[5].value as string, // line1 column
+      line2: rowData[6].value as string, // line2 column
+      line3: rowData[7].value as string, // line3 column
+      line4: rowData[8].value as string, // line4 column
+      postcode: rowData[9].value as string, // postcode column
+    },
+    workPhone: rowData[10].value as string, // workPhone column
+    email: rowData[11].value as string, // email column
+  }
+}
+
+export const prepareUpdateOfficeParams = (rowData: Cell[]): UpdateOfficeParams => {
+  return {
+    id: rowData[0].value as string,
+    _eTag: rowData[1].value as string,
     name: rowData[2].value as string, // name column
     address: {
       buildingName: rowData[3].value as string, // buildingName column

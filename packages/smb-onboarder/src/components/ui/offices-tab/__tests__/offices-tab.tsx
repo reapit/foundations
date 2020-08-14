@@ -18,6 +18,7 @@ import {
   createDownLoadButtonOnClickFn,
   CreateDownLoadButtonOnClickFnParams,
   CustomDownButton,
+  mergeUploadedData,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -309,5 +310,85 @@ describe('OfficesTab', () => {
       { value: 'Building name' },
     ]
     expect(convertUploadedCellToTableCell(uploadedCell)).toEqual(expectCell)
+  })
+
+  describe('mergeUploadedData', () => {
+    const previousData: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 1', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+      [
+        { value: 'KA2', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 2', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987654321', key: 'workPhone', isValidated: true },
+        { value: 'tester2@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    const uploadedData: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 3', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    const result: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 3', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+      [
+        { value: 'KA2', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 2', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987654321', key: 'workPhone', isValidated: true },
+        { value: 'tester2@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    expect(mergeUploadedData(previousData, uploadedData)).toEqual(result)
   })
 })

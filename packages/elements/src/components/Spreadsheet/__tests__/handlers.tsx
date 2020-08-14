@@ -574,8 +574,8 @@ describe('handleOnChangeInput', () => {
     const result = await fn(eventMock)
     expect(parseCsvFile).toHaveBeenCalledWith('data')
     expect(convertToCompatibleData).toHaveBeenCalledWith(parseResult)
-    expect(validate).toHaveBeenCalledWith(data.slice(0, 3))
-    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(0, 3), validateMatrix)
+    expect(validate).toHaveBeenCalledWith(data.slice(1, 4))
+    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(1, 4), validateMatrix)
     expect(setUploadData).toHaveBeenCalled()
     expect(result).toBe('validated')
   })
@@ -770,6 +770,7 @@ describe('setUploadDataCallback', () => {
       shouldProcess: false,
       isModalOpen: false,
       exceedMaxRow: false,
+      header: [],
     }
     const partialData = {
       isModalOpen: true,
