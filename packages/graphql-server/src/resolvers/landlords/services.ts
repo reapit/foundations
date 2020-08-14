@@ -1,116 +1,112 @@
 import logger from '../../logger'
 import { ServerContext } from '../../index'
 import {
-  GetTenancyByIdArgs,
-  GetTenancyByIdReturn,
-  GetTenanciesArgs,
-  GetTenanciesReturn,
-  GetTenancyRelationshipsArgs,
-  GetTenancyRelationshipsReturn,
-  GetTenancyChecksArgs,
-  GetTenancyChecksReturn,
-  GetTenancyCheckByIdArgs,
-  GetTenancyCheckByIdReturn,
-  CreateTenancyArgs,
-  CreateTenancyReturn,
-  CreateTenancyCheckArgs,
-  CreateTenancyCheckReturn,
-  DeleteTenancyCheckArgs,
-  DeleteTenancyCheckReturn,
-  UpdateTenancyCheckArgs,
-  UpdateTenancyCheckReturn,
-} from './tenancies'
+  GetLandlordByIdArgs,
+  GetLandlordByIdReturn,
+  GetLandlordsArgs,
+  GetLandlordsReturn,
+  GetLandlordRelationshipsArgs,
+  GetLandlordRelationshipsReturn,
+  GetLandlordRelationshipByIdArgs,
+  GetLandlordRelationshipByIdReturn,
+  CreateLandlordArgs,
+  CreateLandlordReturn,
+  CreateLandlordRelationshipArgs,
+  CreateLandlordRelationshipReturn,
+  DeleteLandlordRelationshipArgs,
+  DeleteLandlordRelationshipReturn,
+  UpdateLandlordArgs,
+  UpdateLandlordReturn,
+} from './landlords'
 import {
-  callGetTenancyByIdAPI,
-  callGetTenanciesAPI,
-  callGetTenancyChecksAPI,
-  callGetTenancyCheckByIdAPI,
-  callGetTenancyRelationshipsAPI,
-  callCreateTenancyAPI,
-  callCreateTenancyCheckAPI,
-  callDeleteTenancyCheckAPI,
-  callUpdateTenancyCheckAPI,
+  callGetLandlordByIdAPI,
+  callGetLandlordsAPI,
+  callGetLandlordRelationshipByIdAPI,
+  callGetLandlordRelationshipsAPI,
+  callCreateLandlordAPI,
+  callCreateLandlordRelationshipAPI,
+  callDeleteLandlordRelationshipAPI,
+  callUpdateLandlordAPI,
 } from './api'
 
-export const getTenancyById = (args: GetTenancyByIdArgs, context: ServerContext): GetTenancyByIdReturn => {
+export const getLandlordById = (args: GetLandlordByIdArgs, context: ServerContext): GetLandlordByIdReturn => {
   const traceId = context.traceId
-  logger.info('getTenancyById', { traceId, args })
-  const tenancy = callGetTenancyByIdAPI(args, context)
-  return tenancy
+  logger.info('getLandlordById', { traceId, args })
+  const landlord = callGetLandlordByIdAPI(args, context)
+  return landlord
 }
 
-export const getTenancies = (args: GetTenanciesArgs, context: ServerContext): GetTenanciesReturn => {
+export const getLandlords = (args: GetLandlordsArgs, context: ServerContext): GetLandlordsReturn => {
   const traceId = context.traceId
-  logger.info('getTenancies', { traceId, args })
-  const tenancies = callGetTenanciesAPI(args, context)
-  return tenancies
+  logger.info('getLandlords', { traceId, args })
+  const landlords = callGetLandlordsAPI(args, context)
+  return landlords
 }
 
-export const getTenancyCheckById = (
-  args: GetTenancyCheckByIdArgs,
+export const getLandlordRelationshipById = (
+  args: GetLandlordRelationshipByIdArgs,
   context: ServerContext,
-): GetTenancyCheckByIdReturn => {
+): GetLandlordRelationshipByIdReturn => {
   const traceId = context.traceId
-  logger.info('getTenancyCheckById', { traceId, args })
-  const tenancyCheck = callGetTenancyCheckByIdAPI(args, context)
-  return tenancyCheck
+  logger.info('getLandlordRelationshipById', { traceId, args })
+  const landlordRelationship = callGetLandlordRelationshipByIdAPI(args, context)
+  return landlordRelationship
 }
 
-export const getTenancyChecks = (args: GetTenancyChecksArgs, context: ServerContext): GetTenancyChecksReturn => {
-  const traceId = context.traceId
-  logger.info('getTenancyChecks', { traceId, args })
-  const tenancyChecks = callGetTenancyChecksAPI(args, context)
-  return tenancyChecks
-}
-
-export const getTenancyRelationships = (
-  args: GetTenancyRelationshipsArgs,
+export const getLandlordRelationships = (
+  args: GetLandlordRelationshipsArgs,
   context: ServerContext,
-): GetTenancyRelationshipsReturn => {
+): GetLandlordRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('getTenancyRelationships', { traceId, args })
-  const tenancyRelationships = callGetTenancyRelationshipsAPI(args, context)
-  return tenancyRelationships
+  logger.info('getLandlordRelationships', { traceId, args })
+  const landlordRelationships = callGetLandlordRelationshipsAPI(args, context)
+  return landlordRelationships
 }
 
-export const createTenancy = (args: CreateTenancyArgs, context: ServerContext): CreateTenancyReturn => {
+export const createLandlord = (args: CreateLandlordArgs, context: ServerContext): CreateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('createTenancy', { traceId, args })
-  const createdTenancy = callCreateTenancyAPI(args, context)
-  return createdTenancy
+  logger.info('createLandlord', { traceId, args })
+  const createdLandlord = callCreateLandlordAPI(args, context)
+  return createdLandlord
 }
 
-export const createTenancyCheck = (args: CreateTenancyCheckArgs, context: ServerContext): CreateTenancyCheckReturn => {
+export const createLandlordRelationship = (
+  args: CreateLandlordRelationshipArgs,
+  context: ServerContext,
+): CreateLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('createTenancyCheck', { traceId, args })
-  const createdTenancyCheck = callCreateTenancyCheckAPI(args, context)
-  return createdTenancyCheck
+  logger.info('createLandlordRelationship', { traceId, args })
+  const createdLandlordRelationship = callCreateLandlordRelationshipAPI(args, context)
+  return createdLandlordRelationship
 }
 
-export const updateTenancyCheck = (args: UpdateTenancyCheckArgs, context: ServerContext): UpdateTenancyCheckReturn => {
+export const updateLandlord = (args: UpdateLandlordArgs, context: ServerContext): UpdateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('updateTenancyCheck', { traceId, args })
-  const updatedTenancyCheck = callUpdateTenancyCheckAPI(args, context)
-  return updatedTenancyCheck
+  logger.info('updateLandlord', { traceId, args })
+  const updatedLandlord = callUpdateLandlordAPI(args, context)
+  return updatedLandlord
 }
 
-export const deleteTenancyCheck = (args: DeleteTenancyCheckArgs, context: ServerContext): DeleteTenancyCheckReturn => {
+export const deleteLandlordRelationship = (
+  args: DeleteLandlordRelationshipArgs,
+  context: ServerContext,
+): DeleteLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('deleteTenancyCheck', { traceId, args })
-  const isDeleted = callDeleteTenancyCheckAPI(args, context)
+  logger.info('deleteLandlordRelationship', { traceId, args })
+  const isDeleted = callDeleteLandlordRelationshipAPI(args, context)
   return isDeleted
 }
 
-const tenancyServices = {
-  getTenancyById,
-  getTenancies,
-  getTenancyChecks,
-  getTenancyCheckById,
-  getTenancyRelationships,
-  createTenancy,
-  createTenancyCheck,
-  deleteTenancyCheck,
-  updateTenancyCheck,
+const landlordServices = {
+  getLandlordById,
+  getLandlords,
+  getLandlordRelationships,
+  getLandlordRelationshipById,
+  getLandlordRelationships,
+  createLandlord,
+  createLandlordRelationship,
+  deleteLandlordRelationship,
+  updateLandlord,
 }
 
-export default tenancyServices
+export default landlordServices

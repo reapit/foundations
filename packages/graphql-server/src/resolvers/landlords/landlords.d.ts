@@ -41,7 +41,7 @@ export type GetLandlordRelationshipByIdReturn = Promise<LandlordContactRelations
 
 export type CreateLandlordReturn = Promise<LandlordModel | UserInputError>
 export type CreateLandlordRelationshipReturn = Promise<PagedResultLandlordContactRelationshipModel_ | UserInputError>
-export type DeleteLandlordRelationshipReturn = Promise<boolean | UserInputError>
+export type DeleteLandlordRelationshipReturn = Promise<string | UserInputError>
 export type UpdateLandlordReturn = Promise<LandlordModel | UserInputError>
 
 // resolver type

@@ -62,7 +62,7 @@ export const callGetLandlordsAPI = async (args: GetLandlordsArgs, context: Serve
     })
     return response?.data
   } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetTenanciseAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetLanlordsAPI' })
     return handleErrorResult
   }
 }
@@ -178,7 +178,7 @@ export const callDeleteLandlordRelationshipAPI = async (
         },
       },
     )
-    return true
+    return relationshipId
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteLandlordRelationshipAPI' })
     return handleErrorResult

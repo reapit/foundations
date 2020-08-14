@@ -41,7 +41,7 @@ type Mutation {
     associatedType: String
     isMain: Boolean
   ): LandlordRelationshipModel!
-  DeleteLandlordRelationship(id: String!, relationshipId: String!): JSON!
+  DeleteLandlordRelationship(id: String!, relationshipId: String!): String
 }
 
 type LandlordModel {
@@ -130,4 +130,3 @@ input CreateLandlordRelatedModel {
   associatedId: String
   associatedType: String
 }
-

@@ -1,163 +1,146 @@
-import tenancyServices from './services'
+import landlordServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
 import { ServerContext } from '../../index'
 import {
-  GetTenancyByIdArgs,
-  QueryGetTenancyByIdReturn,
-  GetTenanciesArgs,
-  QueryGetTenanciesReturn,
-  GetTenancyRelationshipsArgs,
-  QueryGetTenancyRelationshipsReturn,
-  GetTenancyChecksArgs,
-  QueryGetTenancyChecksReturn,
-  GetTenancyCheckByIdArgs,
-  QueryGetTenancyCheckByIdReturn,
-  CreateTenancyArgs,
-  MutationCreateTenancyReturn,
-  CreateTenancyCheckArgs,
-  MutationCreateTenancyCheckReturn,
-  DeleteTenancyCheckArgs,
-  MutationDeleteTenancyCheckReturn,
-  UpdateTenancyCheckArgs,
-  MutationUpdateTenancyCheckReturn,
-} from './tenancies'
+  GetLandlordByIdArgs,
+  QueryGetLandlordByIdReturn,
+  GetLandlordsArgs,
+  QueryGetLandlordsReturn,
+  GetLandlordRelationshipsArgs,
+  QueryGetLandlordRelationshipsReturn,
+  GetLandlordRelationshipByIdArgs,
+  QueryGetLandlordRelationshipByIdReturn,
+  CreateLandlordArgs,
+  MutationCreateLandlordReturn,
+  CreateLandlordRelationshipArgs,
+  MutationCreateLandlordRelationshipReturn,
+  UpdateLandlordArgs,
+  MutationUpdateLandlordReturn,
+  DeleteLandlordRelationshipArgs,
+  MutationDeleteLandlordRelationshipReturn,
+} from './landlords'
 
-export const queryGetTenancyById = (
+export const queryGetLandlordById = (
   _: any,
-  args: GetTenancyByIdArgs,
+  args: GetLandlordByIdArgs,
   context: ServerContext,
-): QueryGetTenancyByIdReturn => {
+): QueryGetLandlordByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryGetTenancyById', { traceId, args })
+  logger.info('queryGetLandlordById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.getTenancyById(args, context)
+  return landlordServices.getLandlordById(args, context)
 }
 
-export const queryGetTenancies = (_: any, args: GetTenanciesArgs, context: ServerContext): QueryGetTenanciesReturn => {
+export const queryGetLandlords = (_: any, args: GetLandlordsArgs, context: ServerContext): QueryGetLandlordsReturn => {
   const traceId = context.traceId
-  logger.info('queryGetTenancies', { traceId, args })
+  logger.info('queryGetLandlords', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.getTenancies(args, context)
+  return landlordServices.getLandlords(args, context)
 }
 
-export const queryGetTenancyCheckById = (
+export const queryGetLandlordRelationshipById = (
   _: any,
-  args: GetTenancyCheckByIdArgs,
+  args: GetLandlordRelationshipByIdArgs,
   context: ServerContext,
-): QueryGetTenancyCheckByIdReturn => {
+): QueryGetLandlordRelationshipByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryGetTenancyCheckById', { traceId, args })
+  logger.info('queryGetLandlordRelationshipById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.getTenancyCheckById(args, context)
+  return landlordServices.getLandlordRelationshipById(args, context)
 }
 
-export const queryGetTenancyChecks = (
+export const queryGetLandlordRelationships = (
   _: any,
-  args: GetTenancyChecksArgs,
+  args: GetLandlordRelationshipsArgs,
   context: ServerContext,
-): QueryGetTenancyChecksReturn => {
+): QueryGetLandlordRelationshipsReturn => {
   const traceId = context.traceId
-  logger.info('queryGetTenancyChecks', { traceId, args })
+  logger.info('queryGetLandlordRelationships', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.getTenancyChecks(args, context)
+  return landlordServices.getLandlordRelationships(args, context)
 }
 
-export const queryGetTenancyRelationships = (
+export const mutationCreateLandlord = (
   _: any,
-  args: GetTenancyRelationshipsArgs,
+  args: CreateLandlordArgs,
   context: ServerContext,
-): QueryGetTenancyRelationshipsReturn => {
+): MutationCreateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('queryGetTenancyRelationships', { traceId, args })
+  logger.info('mutationCreateLandlord', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.getTenancyRelationships(args, context)
+  return landlordServices.createLandlord(args, context)
 }
 
-export const mutationCreateTenancy = (
+export const mutationCreateLandlordRelationship = (
   _: any,
-  args: CreateTenancyArgs,
+  args: CreateLandlordRelationshipArgs,
   context: ServerContext,
-): MutationCreateTenancyReturn => {
+): MutationCreateLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('mutationCreateTenancy', { traceId, args })
+  logger.info('mutationCreateLandlordRelationship', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.createTenancy(args, context)
+  return landlordServices.createLandlordRelationship(args, context)
 }
 
-export const mutationCreateTenancyCheck = (
+export const mutationDeleteLandlordRelationship = (
   _: any,
-  args: CreateTenancyCheckArgs,
+  args: DeleteLandlordRelationshipArgs,
   context: ServerContext,
-): MutationCreateTenancyCheckReturn => {
+): MutationDeleteLandlordRelationshipReturn => {
   const traceId = context.traceId
-  logger.info('mutationCreateTenancyCheck', { traceId, args })
+  logger.info('mutationDeleteLandlordRelationship', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.createTenancyCheck(args, context)
+  return landlordServices.deleteLandlordRelationship(args, context)
 }
 
-export const mutationDeleteTenancyCheck = (
+export const mutationUpdateLandlord = (
   _: any,
-  args: DeleteTenancyCheckArgs,
+  args: UpdateLandlordArgs,
   context: ServerContext,
-): MutationDeleteTenancyCheckReturn => {
+): MutationUpdateLandlordReturn => {
   const traceId = context.traceId
-  logger.info('mutationDeleteTenancyCheck', { traceId, args })
+  logger.info('mutationUpdateLandlord', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return tenancyServices.deleteTenancyCheck(args, context)
-}
-
-export const mutationUpdateTenancyCheck = (
-  _: any,
-  args: UpdateTenancyCheckArgs,
-  context: ServerContext,
-): MutationUpdateTenancyCheckReturn => {
-  const traceId = context.traceId
-  logger.info('mutationUpdateTenancyCheck', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return tenancyServices.updateTenancyCheck(args, context)
+  return landlordServices.updateLandlord(args, context)
 }
 
 export default {
   Query: {
-    GetTenancies: queryGetTenancies,
-    GetTenancyById: queryGetTenancyById,
-    GetTenancyRelationships: queryGetTenancyRelationships,
-    GetTenancyChecks: queryGetTenancyChecks,
-    GetTenancyCheckById: queryGetTenancyCheckById,
+    GetLandlords: queryGetLandlords,
+    GetLandlordById: queryGetLandlordById,
+    GetLandlordRelationships: queryGetLandlordRelationships,
+    GetLandlordRelationshipById: queryGetLandlordRelationshipById,
   },
   Mutation: {
-    CreateTenancy: mutationCreateTenancy,
-    CreateTenancyCheck: mutationCreateTenancyCheck,
-    DeleteTenancyCheck: mutationDeleteTenancyCheck,
-    UpdateTenancyCheck: mutationUpdateTenancyCheck,
+    CreateLandlord: mutationCreateLandlord,
+    CreateLandlordRelationship: mutationCreateLandlordRelationship,
+    DeleteLandlordRelationship: mutationDeleteLandlordRelationship,
+    UpdateLandlord: mutationUpdateLandlord,
   },
 }
