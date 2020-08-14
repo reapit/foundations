@@ -1,4 +1,4 @@
-/*
- * TODOME(installResolve)
- * exprt an object
- */
+export default {
+  Query: {},
+  Mutation: {},
+}
