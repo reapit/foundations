@@ -27,6 +27,7 @@ window.reapit = {
     developerEditionDownloadUrl: '',
     urlSchemeUrl: '',
     apiDocDesktop: '',
+    cognitoUserPoolId: '',
   },
 }
 

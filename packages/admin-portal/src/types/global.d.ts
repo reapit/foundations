@@ -16,6 +16,7 @@ export type Config = {
   developerEditionDownloadUrl: string
   urlSchemeUrl: string
   apiDocDesktop: string
+  cognitoUserPoolId: string
 }
 
 declare global {

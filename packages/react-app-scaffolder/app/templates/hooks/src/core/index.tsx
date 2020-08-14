@@ -14,6 +14,7 @@ window.reapit = {
     connectClientId: '',
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
+    connectUserPoolId: '',
     platformApiUrl: '',
   },
 }
