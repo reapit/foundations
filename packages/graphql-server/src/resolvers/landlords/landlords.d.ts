@@ -9,7 +9,7 @@ import {
   UpdateLandlordModel,
   LandlordContactRelationshipModel,
   CreateLandlordContactRelationshipModel,
-} from '@reapit/foundations-ts-definitions'
+} from '../../types'
 
 export type GetLandlordsArgs = {
   pageSize?: number
