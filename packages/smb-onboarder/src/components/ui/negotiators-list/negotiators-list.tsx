@@ -24,7 +24,6 @@ import UPDATE_NEGOTIATOR from './gql/update-negotiator.graphql'
 import CREATE_NEGOTIATOR from './gql/create-negotiator.graphql'
 import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
-
 import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
@@ -97,6 +96,8 @@ export type RenderNegotiatorListParams = {
   updateNegotiator: () => void
   createNegotiator: () => void
   officeData?: OfficesQueryResponse
+  client: any
+  page: number
 }
 
 export const getDataTable = (
@@ -235,10 +236,83 @@ export const prepareCreateNegeotiatorParams = (data: Cell[][], rowIndex) => {
   }
 }
 
-export const handleAfterCellsChanged = (updateNegotiator, createNegotiator) => {
+export const handleAfterCellsChanged = (updateNegotiator, createNegotiator, client, page) => {
   return (changes: ChangedCells, data: Cell[][]) => {
     const selectedRow = data[changes[0].row]
     const selectedCell = selectedRow[changes[0].col]
+    const negotiatorsData: NegotiatorsQueryResponse = client.readQuery({
+      query: GET_NEGOTIATORS,
+      variables: {
+        pageSize: NEGOTIATORS_PER_PAGE,
+        pageNumber: page,
+        embed: ['office'],
+      },
+    })
+    const negotiators = negotiatorsData.GetNegotiators?._embedded
+    const mapCellColToNegotiatorParam = col => {
+      switch (col) {
+        case 0:
+          return 'name'
+        case 1:
+          return 'jobTitle'
+        case 2:
+          return 'email'
+        case 3:
+          return 'mobilePhone'
+        case 5:
+          return 'active'
+        case 6:
+          return 'id'
+        case 7:
+          return '_eTag'
+        default:
+          return null
+      }
+    }
+
+    const newRow = {}
+    changes.forEach(({ row, col, newCell }) => {
+      const currentRow = data[row]
+      const currentId = currentRow[6].value
+      if (!negotiators) return
+      let currNegotiatorIndex = negotiators?.findIndex(negotiator => negotiator.id === currentId)
+      const param = mapCellColToNegotiatorParam(col)
+
+      if (currNegotiatorIndex < 0) {
+        newRow[`${param}`] = newCell.value
+      } else {
+        negotiators[currNegotiatorIndex] = {
+          ...negotiators[currNegotiatorIndex],
+          [`${param}`]: newCell.value,
+        }
+      }
+    })
+    if (Object.keys(newRow).length) {
+      const created = new Date().toISOString()
+      const modified = new Date().toISOString()
+      negotiators?.push({
+        ...newRow,
+        created,
+        modified,
+        officeId: '',
+        workPhone: '',
+        _eTag: '',
+        metadata: { name: '' },
+        _links: { name: { href: '' } },
+        _embedded: {},
+        __typename: 'NegotiatorModal',
+      })
+    }
+
+    client.writeQuery({
+      query: GET_NEGOTIATORS,
+      data: negotiatorsData,
+      variables: {
+        pageSize: NEGOTIATORS_PER_PAGE,
+        pageNumber: page,
+        embed: ['office'],
+      },
+    })
     if (!selectedCell.isValidated) {
       return
     }
@@ -397,11 +471,12 @@ export const renderNegotiatorList = ({
   createNegotiator,
   officeData,
   updateNegotiatorLoading,
+  client,
+  page,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
   }
-
   return (
     <React.Fragment>
       <Section>
@@ -417,7 +492,7 @@ export const renderNegotiatorList = ({
           }
           allowOnlyOneValidationErrorPerRow={true}
           data={dataTable as Cell[][]}
-          afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
+          afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator, client, page)}
           validate={validate}
         />
       </Section>
@@ -431,6 +506,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
+  const client = useApolloClient()
   const page = Number(params?.page) || 1
   const [updateNegotiator, { loading: updateNegotiatorLoading }] = useMutation(UPDATE_NEGOTIATOR)
 
@@ -508,6 +584,8 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
         updateNegotiator: updateNegotiator,
         createNegotiator: createNegotiator,
         officeData,
+        client,
+        page,
       })}
     </div>
   )

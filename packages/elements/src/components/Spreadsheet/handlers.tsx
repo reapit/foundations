@@ -14,6 +14,7 @@ import {
   ChangesArray,
   SetUploadData,
   UploadData,
+  OnCellsChanged,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -151,6 +152,7 @@ export const handleAddNewRow = (
   data: Cell[][],
   setData: SetData,
   allowOnlyOneValidationErrorPerRow: boolean,
+  onCellsChanged: OnCellsChanged,
   validate?: ValidateFunction,
 ) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
@@ -177,8 +179,14 @@ export const handleAddNewRow = (
       }
       return e
     })
-
   const newData = [...data, newEmptyRow]
+
+  const changedCells = newEmptyRow.map((newCell, colIndex) => ({
+    cell: newCell,
+    row: maxRow,
+    col: colIndex,
+    value: '',
+  }))
   /**
    * data with isValidated setted
    * and readOnly set to true if
@@ -191,6 +199,7 @@ export const handleAddNewRow = (
       allowOnlyOneValidationErrorPerRow,
     }),
   )
+  onCellsChanged(changedCells)
 }
 
 export const handleCellsChanged = (
@@ -220,6 +229,14 @@ export const handleCellsChanged = (
     })
     newCell = { value: null, touched: true }
   }
+  //new row case
+  else if (changes.every(({ row }) => !newData[row])) {
+    changes.forEach(change => {
+      const { row, col, cell, value } = change
+      if (!newData[row]) newData[row] = []
+      newData[row][col] = { ...cell, value }
+    })
+  }
   // all other cases
   else {
     changes.forEach(({ row, col, value }) => {
@@ -239,14 +256,17 @@ export const handleCellsChanged = (
   })
 
   if (typeof afterCellsChanged === 'function') {
-    const changedCells = changes.map(({ row, col }) => ({
-      oldCell: data[row][col],
-      row,
-      col,
-      /* Replace newCell with validated data, if cannot find, then it was deleted,
-         replace with value = null */
-      newCell: newCell.value === null ? { value: null } : { ...dataWithIsGeneratedAndReadOnly[row][col] },
-    }))
+    const changedCells = changes.map(({ row, col }) => {
+      const oldCell = data[row] ? data[row][col] : null
+      return {
+        oldCell,
+        row,
+        col,
+        /* Replace newCell with validated data, if cannot find, then it was deleted,
+           replace with value = null */
+        newCell: newCell.value === null ? { value: null } : { ...dataWithIsGeneratedAndReadOnly[row][col] },
+      }
+    })
     afterCellsChanged(changedCells, dataWithIsGeneratedAndReadOnly, setData)
   }
   // and set to spreadsheet
@@ -363,6 +383,15 @@ export const handleAfterDataChanged = (
   prevData?: Cell[][],
   afterDataChanged?: AfterDataChanged,
 ) => () => {
+  console.log(prevData)
+  //restore touched status, error message
+  prevData?.forEach((row, rowIndex) =>
+    row.forEach((cell, colIndex) => {
+      // console.log(cell)
+      data[rowIndex][colIndex] = { ...data[rowIndex][colIndex], touched: cell.touched, error: cell.error }
+    }),
+  )
+  console.log(data)
   if (typeof afterDataChanged === 'function') {
     const changedCells = changedCellsGenerate(data, prevData)
     afterDataChanged(changedCells, data)
