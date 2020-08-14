@@ -159,6 +159,7 @@ The below example shows how to embed on any static or dynamic page with a single
 
   ReapitConnectComponent && new ReapitConnectComponent({
     connectClientId: '<<clientId here>>>',
+    connectUserPoolId: '<<user pool id here>>>,
     connectOAuthUrl: 'https://dev.connect.reapit.cloud',
     connectLoginRedirectPath: '',
     connectLogoutRedirectPath: '/login',
