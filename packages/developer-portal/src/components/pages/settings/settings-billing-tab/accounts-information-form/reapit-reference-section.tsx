@@ -25,8 +25,7 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
   return (
     <>
       <FormHeading>{hasReapitAccountsRefField.heading}</FormHeading>
-      <FormSubHeading>{hasReapitAccountsRefField.subHeading}</FormSubHeading>
-      {}
+      <FormSubHeading>{hasReapitAccountsRefField.subHeading}</FormSubHeading>{' '}
       <RadioSelect
         isHorizontal
         labelText={hasReapitAccountsRefField.label}

@@ -128,8 +128,7 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
             You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal,
             this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
             account will be verified by our Account Department.
-          </FormSubHeading>
-          {}
+          </FormSubHeading>{' '}
           <Button disabled={Boolean(disabled)} onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>
             Setup Direct Debit
           </Button>

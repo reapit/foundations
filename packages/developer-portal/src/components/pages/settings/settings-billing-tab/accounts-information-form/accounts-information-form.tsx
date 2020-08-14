@@ -113,7 +113,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
   const isRequiredDataOfBillingPageFilled = useSelector(selectIsRequiredDataOfBillingPageFilled)
-  console.log({ isRequiredDataOfBillingPageFilled })
 
   const dispatch = useDispatch()
 
@@ -137,7 +136,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
           <Form>
             <H3 isHeadingSection>Billing</H3>
             <FormSection>
-              {}
               {!isRequiredDataOfBillingPageFilled && (
                 <Helper variant="info">
                   You will need to first complete your Organisation information before submitting your Account details
@@ -174,7 +172,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
               <LevelRight>
                 <div>
                   <LevelRight>
-                    {}
+                    {' '}
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
                       SUBMIT TO ACCOUNTS
                     </Button>
