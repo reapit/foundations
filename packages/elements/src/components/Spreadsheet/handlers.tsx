@@ -181,12 +181,6 @@ export const handleAddNewRow = (
     })
   const newData = [...data, newEmptyRow]
 
-  const changedCells = newEmptyRow.map((newCell, colIndex) => ({
-    cell: newCell,
-    row: maxRow,
-    col: colIndex,
-    value: '',
-  }))
   /**
    * data with isValidated setted
    * and readOnly set to true if
@@ -199,7 +193,6 @@ export const handleAddNewRow = (
       allowOnlyOneValidationErrorPerRow,
     }),
   )
-  onCellsChanged(changedCells)
 }
 
 export const handleCellsChanged = (
@@ -229,14 +222,6 @@ export const handleCellsChanged = (
     })
     newCell = { value: null, touched: true }
   }
-  //new row case
-  else if (changes.every(({ row }) => !newData[row])) {
-    changes.forEach(change => {
-      const { row, col, cell, value } = change
-      if (!newData[row]) newData[row] = []
-      newData[row][col] = { ...cell, value }
-    })
-  }
   // all other cases
   else {
     changes.forEach(({ row, col, value }) => {
@@ -257,7 +242,7 @@ export const handleCellsChanged = (
 
   if (typeof afterCellsChanged === 'function') {
     const changedCells = changes.map(({ row, col }) => {
-      const oldCell = data[row] ? data[row][col] : null
+      const oldCell = data[row][col]
       return {
         oldCell,
         row,
@@ -383,15 +368,6 @@ export const handleAfterDataChanged = (
   prevData?: Cell[][],
   afterDataChanged?: AfterDataChanged,
 ) => () => {
-  console.log(prevData)
-  //restore touched status, error message
-  prevData?.forEach((row, rowIndex) =>
-    row.forEach((cell, colIndex) => {
-      // console.log(cell)
-      data[rowIndex][colIndex] = { ...data[rowIndex][colIndex], touched: cell.touched, error: cell.error }
-    }),
-  )
-  console.log(data)
   if (typeof afterDataChanged === 'function') {
     const changedCells = changedCellsGenerate(data, prevData)
     afterDataChanged(changedCells, data)

@@ -115,7 +115,6 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
   const [data, setData] = React.useState<Cell[][]>([[]])
-
   // store data relevant to upload handler
   const [uploadData, setUploadData] = React.useState<UploadData>(initialUploadData)
 
