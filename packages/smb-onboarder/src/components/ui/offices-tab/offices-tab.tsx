@@ -360,13 +360,18 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const [updateOffice] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(UPDATE_OFFICE)
   const dispatch = useUploadDispatch()
 
-  const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
+  const [tableData, setTableData] = React.useState<Cell[][]>([[]])
+
+  React.useEffect(() => {
+    const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
+    setTableData(dataTable)
+  }, [loading, page])
 
   return (
     <div>
       {renderContent({
         loading,
-        dataTable,
+        dataTable: tableData,
         pageNumber: data?.GetOffices?.pageNumber,
         pageSize: data?.GetOffices?.pageSize,
         totalCount: data?.GetOffices?.totalCount,

@@ -14,7 +14,6 @@ import {
   ChangesArray,
   SetUploadData,
   UploadData,
-  OnCellsChanged,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -152,7 +151,6 @@ export const handleAddNewRow = (
   data: Cell[][],
   setData: SetData,
   allowOnlyOneValidationErrorPerRow: boolean,
-  onCellsChanged: OnCellsChanged,
   validate?: ValidateFunction,
 ) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
@@ -241,17 +239,14 @@ export const handleCellsChanged = (
   })
 
   if (typeof afterCellsChanged === 'function') {
-    const changedCells = changes.map(({ row, col }) => {
-      const oldCell = data[row][col]
-      return {
-        oldCell,
-        row,
-        col,
-        /* Replace newCell with validated data, if cannot find, then it was deleted,
-           replace with value = null */
-        newCell: newCell.value === null ? { value: null } : { ...dataWithIsGeneratedAndReadOnly[row][col] },
-      }
-    })
+    const changedCells = changes.map(({ row, col }) => ({
+      oldCell: data[row][col],
+      row,
+      col,
+      /* Replace newCell with validated data, if cannot find, then it was deleted,
+         replace with value = null */
+      newCell: newCell.value === null ? { value: null } : dataWithIsGeneratedAndReadOnly[row][col],
+    }))
     afterCellsChanged(changedCells, dataWithIsGeneratedAndReadOnly, setData)
   }
   // and set to spreadsheet

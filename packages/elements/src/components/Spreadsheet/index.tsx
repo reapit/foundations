@@ -127,7 +127,6 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   })
 
   const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected, afterCellsChanged), [data])
-  React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
 
   const onCellsChanged = handleCellsChanged(
     data,
@@ -143,6 +142,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
     initialData,
     validate,
   ])
+
+  React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
 
   React.useEffect(() => {
     if (uploadData.shouldProcess && typeof afterUploadDataValidated === 'function') {
@@ -190,9 +191,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
       {renderErrorElements(data)}
       <div className="wrap-bottom">
         {hasAddButton && (
-          <AddRowButton
-            addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, onCellsChanged, validate)}
-          />
+          <AddRowButton addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, validate)} />
         )}
       </div>
       <ContextMenu
