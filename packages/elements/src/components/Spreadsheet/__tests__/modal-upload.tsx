@@ -11,6 +11,7 @@ describe('ModalUpload', () => {
     shouldProcess: false,
     isModalOpen: true,
     exceedMaxRow: false,
+    header: [],
   }
   it('should match snapshot with default prop', () => {
     const wrapper = shallow(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
@@ -30,6 +31,14 @@ describe('ModalUpload', () => {
       shouldProcess: false,
       isModalOpen: true,
       exceedMaxRow: false,
+      header: [
+        { value: 'col 1' },
+        { value: 'col 2' },
+        { value: 'col 3' },
+        { value: 'col 4' },
+        { value: 'col 5' },
+        { value: 'col 6' },
+      ],
     }
     const wrapper = shallow(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()

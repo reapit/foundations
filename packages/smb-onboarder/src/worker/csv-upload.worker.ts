@@ -1,14 +1,17 @@
 import { CreateOfficeModel } from '@reapit/foundations-ts-definitions'
 import { print } from 'graphql/language/printer'
 import CREATE_OFFICE from '@/components/ui/offices-tab/gql/create-office.graphql'
+import UPDATE_OFFICE from '@/components/ui/offices-tab/gql/update-office.graphql'
 import {
   serial,
   mutation,
   UploadCsvMessage,
   UploadCsvResponseMessage,
   prepareCreateOfficeParams,
+  prepareUpdateOfficeParams,
 } from '@/utils/worker-upload-helper'
 import { Cell } from '@reapit/elements'
+import { UpdateOfficeParams } from '@/components/ui/offices-tab/offices-tab'
 
 const ctx: Worker = self as any
 
@@ -24,16 +27,32 @@ ctx.addEventListener('message', event => {
     let successItem = 0
     let failedItem = 0
     const tasks = data.map((rowData: Cell[]) => {
-      const model = prepareCreateOfficeParams(rowData)
+      let promise
+      if (rowData[0].value && rowData[1].value) {
+        // row has id and eTag, process update
+        const model = prepareUpdateOfficeParams(rowData)
+        promise = mutation<UpdateOfficeParams>({
+          graphqlUri,
+          accessToken: `Bearer ${accessToken}`,
+          operationName: 'UPDATE_OFFICE',
+          query: print(UPDATE_OFFICE),
+          variables: model,
+        })
+      } else {
+        // process create new office
+        const model = prepareCreateOfficeParams(rowData)
+        promise = mutation<CreateOfficeModel>({
+          graphqlUri,
+          accessToken: `Bearer ${accessToken}`,
+          operationName: 'CREATE_OFFICE',
+          query: print(CREATE_OFFICE),
+          variables: model,
+        })
+      }
+
       return () =>
         new Promise(resolve => {
-          mutation<CreateOfficeModel>({
-            graphqlUri,
-            accessToken: `Bearer ${accessToken}`,
-            operationName: 'CREATE_OFFICE',
-            query: print(CREATE_OFFICE),
-            variables: model,
-          }).then(result => {
+          promise.then(result => {
             if (result.success) {
               successItem++
             } else {

@@ -6,6 +6,7 @@ import {
   PagedResultMemberModel_,
   MemberModel,
   AcceptInviteModel,
+  UpdateMemberModel,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
@@ -28,7 +29,10 @@ export type FetchDeveloperByIdParams = FetchByIdCommonParams
 
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
-export type FetchOrganisationMembersParams = FetchByIdCommonParams & FetchListCommonParams
+export type FetchOrganisationMembersParams = FetchByIdCommonParams &
+  FetchListCommonParams & {
+    email?: string
+  }
 
 export type FetchMemberDetailsParams = {
   developerId: string
@@ -44,6 +48,10 @@ export type AcceptInviteMemberParams = AcceptInviteModel & {
   developerId: string
   memberId: string
 }
+
+export type UpdateOrganisationMemberByIdParams = FetchByIdCommonParams & {
+  memberId: string
+} & UpdateMemberModel
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -193,6 +201,23 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
       url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const updateOrganisationMemberById = async (params: UpdateOrganisationMemberByIdParams) => {
+  try {
+    const { id: developerId, memberId, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'PUT',
+      body: rest,
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

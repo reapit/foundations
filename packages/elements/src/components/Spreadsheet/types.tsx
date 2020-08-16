@@ -10,6 +10,7 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string | null> {}
 export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: Cell }[]
 export type InvalidIndies = { row: number; col: number; cell: Cell }[]
 export interface UploadData {
+  header: Cell[]
   totalRow: number
   validatedData: Cell[][]
   invalidIndies: InvalidIndies

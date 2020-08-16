@@ -278,9 +278,12 @@ export const handleOnChangeInput = ({
       const file = target.files[0]
       const result = await parseCsvFile(file)
       const compatibleData = convertToCompatibleData(result)
-      const totalRow = compatibleData.length
+      // separate header row and data rows
+      const [header, ...restCompatibleData] = compatibleData
+      if (!restCompatibleData || restCompatibleData.length === 0) return
+      const totalRow = restCompatibleData.length
       // only allow maxUploadRow row
-      const slicedData = compatibleData.slice(0, maxUploadRow)
+      const slicedData = restCompatibleData.slice(0, maxUploadRow)
       if (typeof validate !== 'function') {
         setUploadData(
           setUploadDataCallback({
@@ -289,6 +292,7 @@ export const handleOnChangeInput = ({
             totalRow,
             exceedMaxRow: totalRow > maxUploadRow,
             isModalOpen: true,
+            header: header,
           }),
         )
         return 'not validated'
@@ -305,6 +309,7 @@ export const handleOnChangeInput = ({
           isModalOpen: true,
           totalRow,
           exceedMaxRow: totalRow > maxUploadRow,
+          header: header,
         }),
       )
       return 'validated'
@@ -317,6 +322,7 @@ export const handleOnChangeInput = ({
         invalidIndies: [],
         isModalOpen: true,
         totalRow: 0,
+        header: [],
       }),
     )
     return 'error'

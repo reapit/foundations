@@ -137,7 +137,7 @@ export const createDownLoadButtonOnClickFn = ({
         mergedArr.push(...getOfficesEmbedded)
         return mergedArr
       }, [])
-      const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } })
+      const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } }, true)
       handleDownloadCsv(dataTable, window, document)()
     })
     .finally(() => {
@@ -251,12 +251,12 @@ export const handleAfterUpload = (dispatch: Dispatch, accessToken: string) => (p
   const uploadWorker = new Worker()
   uploadWorker.postMessage(message)
   uploadWorker.addEventListener('message', event => {
-    handleWorkerMessage(event.data, dispatch, setData, uploadData)
+    handleWorkerMessage(event.data, dispatch, setData)
   })
 }
 
 /* istanbul ignore next */
-export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch, setData, uploadData) => {
+export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch, setData) => {
   const { status, total = 0, success = 0, failed = 0, details = [] } = data
   if (status === 'STARTED') {
     dispatch(startUpload(total))
@@ -271,7 +271,9 @@ export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Di
         details,
       }),
     )
-    setData(prev => [...prev, ...uploadData.validatedData.map(row => convertUploadedCellToTableCell(row))])
+    const successRowsData = details.filter(item => item.success).map(item => item.rowData)
+    const uploadedDataTable = successRowsData.map(row => convertUploadedCellToTableCell(row))
+    setData(prev => mergeUploadedData(prev, uploadedDataTable))
   }
 }
 
@@ -383,7 +385,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
   )
 }
 
-export function getDataTable(data: OfficesQueryResponse): Cell[][] {
+export function getDataTable(data: OfficesQueryResponse, forDownload: boolean = false): Cell[][] {
   let dataTable: Cell[][] = [tableHeaders]
   const offices: OfficeModel[] = data.GetOffices?._embedded || []
   const dataRows = offices.map((office: OfficeModel) => [
@@ -400,7 +402,15 @@ export function getDataTable(data: OfficesQueryResponse): Cell[][] {
     { value: office.workPhone, key: 'workPhone', title: 'Telephone' },
     { value: office.email, key: 'email', title: 'Email' },
   ]) as Cell[][]
-  dataTable = [tableHeaders, ...dataRows]
+  let dataHeader = tableHeaders
+  if (forDownload) {
+    dataHeader = [
+      { readOnly: true, value: 'id (DO NOT EDIT)', className: 'hidden-cell' },
+      { readOnly: true, value: '_eTag (DO NOT EDIT)', className: 'hidden-cell' },
+      ...dataHeader.slice(2),
+    ]
+  }
+  dataTable = [dataHeader, ...dataRows]
   return dataTable
 }
 
@@ -443,6 +453,26 @@ export const convertUploadedCellToTableCell = (cell: Cell[]): Cell[] => {
   cell[0] = { ...cell[0], key: 'id', readOnly: true, className: 'hidden-cell' }
   cell[1] = { ...cell[1], key: '_eTag', readOnly: true, className: 'hidden-cell' }
   return cell
+}
+
+export const mergeUploadedData = (prev: Cell[][], uploadedData: Cell[][]): Cell[][] => {
+  const prevIds = prev.map(rowData => rowData[0].value)
+  const createdData: Cell[][] = []
+  const updatedData = {} as Map<string, Cell[]>
+  uploadedData.forEach(rowData => {
+    if (prevIds.includes(rowData[0].value) && rowData[1].value) {
+      updatedData[rowData[0]?.value || ''] = rowData
+    } else {
+      createdData.push(rowData)
+    }
+  })
+  const newPrevData = prev.map(rowData => {
+    const id = rowData[0].value || ''
+    if (updatedData[id]) return updatedData[id]
+    return rowData
+  }) as Cell[][]
+
+  return [...newPrevData, ...createdData]
 }
 
 export default OfficesTab

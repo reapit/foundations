@@ -65,12 +65,7 @@ export const convertToCompatibleData = (parsedResult): Cell[][] =>
  * Convert back from Cell[][] to string[][]
  */
 export const convertDataToCsv = (data: Cell[][]): string[][] =>
-  data.map(rowArray =>
-    rowArray.map(({ value, key }) => {
-      if (key && (key === 'id' || key === '_eTag')) return ''
-      return value
-    }),
-  ) as string[][]
+  data.map(rowArray => rowArray.map(({ value }) => value)) as string[][]
 
 // Diffing algorithm to find differences between data array
 export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): ChangedCells => {
@@ -229,7 +224,7 @@ export const createDataWithInvalidRowsRemoved = (
     const currentRow = [...row]
     currentRow.forEach((cell, colIndex) => {
       currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
-      if (!currentRow[colIndex].isValidated) {
+      if (typeof currentRow[colIndex].isValidated !== 'boolean' || !currentRow[colIndex].isValidated) {
         invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
         currentRowValid = false
         return
@@ -239,5 +234,6 @@ export const createDataWithInvalidRowsRemoved = (
       dataWithInvalidRowsRemoved.push(currentRow)
     }
   })
+  console.log('xxx format', dataWithInvalidRowsRemoved, invalidIndies)
   return { dataWithInvalidRowsRemoved, invalidIndies }
 }

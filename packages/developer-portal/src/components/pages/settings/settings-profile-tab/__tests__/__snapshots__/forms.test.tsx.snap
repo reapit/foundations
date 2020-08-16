@@ -1,0 +1,703 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileTab should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component>
+    <Component
+      className="justify-between items-center"
+      isFlex={true}
+    >
+      <section
+        className=""
+        data-test=""
+      >
+        <Component
+          className="mb-0"
+        >
+          <h3
+            className=""
+            id=""
+          >
+            Settings
+          </h3>
+        </Component>
+        <Component
+          dataTest="logout-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button  is-primary  "
+            data-test="logout-btn"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Logout
+          </button>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      hasBackground={false}
+      hasPadding={false}
+    >
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <Formik
+            initialValues={
+              Object {
+                "jobTitle": "Head of Platform",
+                "name": "Craig Lorem",
+              }
+            }
+            onSubmit={[Function]}
+            validationSchema={
+              ObjectSchema {
+                "_blacklist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "_conditions": Array [],
+                "_defaultDefault": [Function],
+                "_deps": Array [],
+                "_excludedEdges": Array [],
+                "_exclusive": Object {},
+                "_mutate": undefined,
+                "_nodes": Array [
+                  "jobTitle",
+                  "name",
+                ],
+                "_options": Object {
+                  "abortEarly": true,
+                  "recursive": true,
+                },
+                "_type": "object",
+                "_typeError": [Function],
+                "_whitelist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "fields": Object {
+                  "jobTitle": StringSchema {
+                    "_blacklist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "_conditions": Array [],
+                    "_deps": Array [],
+                    "_exclusive": Object {
+                      "matches": false,
+                      "max": true,
+                      "required": true,
+                      "trim": false,
+                    },
+                    "_mutate": undefined,
+                    "_options": Object {
+                      "abortEarly": true,
+                      "recursive": true,
+                    },
+                    "_type": "string",
+                    "_typeError": [Function],
+                    "_whitelist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "tests": Array [
+                      [Function],
+                      [Function],
+                      [Function],
+                      [Function],
+                    ],
+                    "transforms": Array [
+                      [Function],
+                      [Function],
+                    ],
+                    "type": "string",
+                  },
+                  "name": StringSchema {
+                    "_blacklist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "_conditions": Array [],
+                    "_deps": Array [],
+                    "_exclusive": Object {
+                      "matches": false,
+                      "max": true,
+                      "required": true,
+                      "trim": false,
+                    },
+                    "_mutate": undefined,
+                    "_options": Object {
+                      "abortEarly": true,
+                      "recursive": true,
+                    },
+                    "_type": "string",
+                    "_typeError": [Function],
+                    "_whitelist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "tests": Array [
+                      [Function],
+                      [Function],
+                      [Function],
+                      [Function],
+                    ],
+                    "transforms": Array [
+                      [Function],
+                      [Function],
+                    ],
+                    "type": "string",
+                  },
+                },
+                "tests": Array [],
+                "transforms": Array [
+                  [Function],
+                ],
+                "type": "object",
+              }
+            }
+          >
+            <Component>
+              <div
+                className=""
+              >
+                <Form>
+                  <form
+                    action="#"
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Contact Information
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Please use the fields below to edit your contact information
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="name"
+                              disabled={false}
+                              id="name"
+                              labelText="Full Name"
+                              name="name"
+                              type="text"
+                            >
+                              <Field
+                                name="name"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="name"
+                                    >
+                                      Full Name
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="name"
+                                      disabled={false}
+                                      id="name"
+                                      name="name"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="text"
+                                      value="Craig Lorem"
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="job-title"
+                              disabled={false}
+                              id="jobTitle"
+                              labelText="Job Title"
+                              name="jobTitle"
+                              type="text"
+                            >
+                              <Field
+                                name="jobTitle"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="jobTitle"
+                                    >
+                                      Job Title
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="job-title"
+                                      disabled={false}
+                                      id="jobTitle"
+                                      name="jobTitle"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="text"
+                                      value="Head of Platform"
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component
+                          dataTest="save-changes"
+                          disabled={false}
+                          loading={false}
+                          type="submit"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test="save-changes"
+                            disabled={false}
+                            type="submit"
+                          >
+                            Save Changes
+                          </button>
+                        </Component>
+                      </div>
+                    </Component>
+                  </form>
+                </Form>
+              </div>
+            </Component>
+          </Formik>
+        </Component>
+        <Component
+          changePassword={[Function]}
+        >
+          <Component>
+            <div
+              className=""
+            >
+              <Formik
+                initialValues={
+                  Object {
+                    "confirmPassword": "",
+                    "currentPassword": "",
+                    "password": "",
+                  }
+                }
+                onSubmit={[Function]}
+                validationSchema={
+                  ObjectSchema {
+                    "_blacklist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "_conditions": Array [],
+                    "_defaultDefault": [Function],
+                    "_deps": Array [],
+                    "_excludedEdges": Array [],
+                    "_exclusive": Object {},
+                    "_mutate": undefined,
+                    "_nodes": Array [
+                      "confirmPassword",
+                      "password",
+                      "currentPassword",
+                    ],
+                    "_options": Object {
+                      "abortEarly": true,
+                      "recursive": true,
+                    },
+                    "_type": "object",
+                    "_typeError": [Function],
+                    "_whitelist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "fields": Object {
+                      "confirmPassword": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {
+                            "",
+                          },
+                          "refs": Map {
+                            "password" => Reference {
+                              "getter": [Function],
+                              "isContext": false,
+                              "isSibling": true,
+                              "isValue": false,
+                              "key": "password",
+                              "map": undefined,
+                              "path": "password",
+                            },
+                          },
+                        },
+                        "_whitelistError": [Function],
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                      "currentPassword": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                      "password": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "matches": false,
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "tests": Array [],
+                    "transforms": Array [
+                      [Function],
+                    ],
+                    "type": "object",
+                  }
+                }
+              >
+                <Form>
+                  <form
+                    action="#"
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Change password
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="current-password"
+                              id="currentPassword"
+                              labelText="Current Password"
+                              name="currentPassword"
+                              type="password"
+                            >
+                              <Field
+                                name="currentPassword"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="currentPassword"
+                                    >
+                                      Current Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="current-password"
+                                      disabled={false}
+                                      id="currentPassword"
+                                      name="currentPassword"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="password"
+                              id="password"
+                              labelText="Password"
+                              name="password"
+                              type="password"
+                            >
+                              <Field
+                                name="password"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="password"
+                                    >
+                                      Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="password"
+                                      disabled={false}
+                                      id="password"
+                                      name="password"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component
+                          className="is-half"
+                        >
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="confirmPassword"
+                              id="confirmPassword"
+                              labelText="Confirm Password"
+                              name="confirmPassword"
+                              type="password"
+                            >
+                              <Field
+                                name="confirmPassword"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="confirmPassword"
+                                    >
+                                      Confirm Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="confirmPassword"
+                                      disabled={false}
+                                      id="confirmPassword"
+                                      name="confirmPassword"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component
+                          dataTest="button-change-password"
+                          disabled={true}
+                          loading={false}
+                          type="submit"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test="button-change-password"
+                            disabled={true}
+                            type="submit"
+                          >
+                            Change Password
+                          </button>
+                        </Component>
+                      </div>
+                    </Component>
+                  </form>
+                </Form>
+              </Formik>
+            </div>
+          </Component>
+        </Component>
+      </section>
+    </Component>
+  </Component>
+</Provider>
+`;

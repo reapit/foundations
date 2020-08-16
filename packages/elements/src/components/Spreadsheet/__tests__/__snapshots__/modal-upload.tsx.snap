@@ -82,15 +82,13 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
         <span
           className="has-text-danger"
         >
-          3
+          col 3
         </span>
-        , Value:
+        , Error:
          
         <span
           className="has-text-danger"
-        >
-          hi
-        </span>
+        />
       </li>
       <li
         key="1"
@@ -106,15 +104,13 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
         <span
           className="has-text-danger"
         >
-          3
+          col 3
         </span>
-        , Value:
+        , Error:
          
         <span
           className="has-text-danger"
-        >
-          hi
-        </span>
+        />
       </li>
       <li
         key="2"
@@ -130,15 +126,13 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
         <span
           className="has-text-danger"
         >
-          5
+          col 5
         </span>
-        , Value:
+        , Error:
          
         <span
           className="has-text-danger"
-        >
-          hi
-        </span>
+        />
       </li>
       <li
         key="3"
@@ -154,15 +148,13 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
         <span
           className="has-text-danger"
         >
-          6
+          col 6
         </span>
-        , Value:
+        , Error:
          
         <span
           className="has-text-danger"
-        >
-          hi
-        </span>
+        />
       </li>
     </ul>
   </div>
