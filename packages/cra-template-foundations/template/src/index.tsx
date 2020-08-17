@@ -10,6 +10,7 @@ window.reapit = {
     appEnv: 'local',
     connectClientId: '',
     connectOAuthUrl: '',
+    connectUserPoolId: '',
     platformApiUrl: '',
   },
 }

@@ -5,6 +5,7 @@ describe('ReapitConnectComponent', () => {
     expect(
       ReapitConnectComponent({
         connectClientId: 'clientId',
+        connectUserPoolId: 'userpoolId',
         connectOAuthUrl: 'https://some-url.com',
         connectLoginRedirectPath: '/some-path',
         connectLogoutRedirectPath: '/some-logout-path',

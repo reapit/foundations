@@ -1,5 +1,9 @@
 import { ReapitConnectSession } from '../index'
-import { ReapitConnectBrowserSessionInitializers, ReapitConnectServerSessionInitializers } from '../types'
+import {
+  ReapitConnectBrowserSessionInitializers,
+  ReapitConnectServerSessionInitializers,
+  CoginitoSession,
+} from '../types'
 
 export const mockLoginIdentity = {
   email: 'name@mail.com',
@@ -31,6 +35,7 @@ export const mockBrowserSession: ReapitConnectSession = {
 export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = {
   connectClientId: 'SOME_CLIENT_ID',
   connectOAuthUrl: 'SOME_URL',
+  connectUserPoolId: 'SOME_USER_POOL_ID',
   connectLoginRedirectPath: '/some-route',
   connectLogoutRedirectPath: '/some-other-route',
 }
@@ -38,49 +43,11 @@ export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = 
 export const mockServerInitializers: ReapitConnectServerSessionInitializers = {
   connectClientId: 'SOME_CLIENT_ID',
   connectOAuthUrl: 'SOME_URL',
+  connectUserPoolId: 'SOME_USER_POOL_ID',
   connectClientSecret: 'SOME_SECRET',
 }
 
-export const setMockBrowserSessionToLocalStorage = (session = mockBrowserSession) => {
-  window.localStorage.setItem(
-    `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.accessToken`,
-    session.accessToken,
-  )
-
-  window.localStorage.setItem(
-    `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.idToken`,
-    session.idToken,
-  )
-
-  window.localStorage.setItem(
-    `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.refreshToken`,
-    session.refreshToken,
-  )
-
-  window.localStorage.setItem(
-    `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.LastAuthUser`,
-    session.loginIdentity.email,
-  )
-}
-
-export const mockSessionFromLocalStorage = (session = mockBrowserSession) => {
-  return {
-    loginUser: window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.LastAuthUser`,
-    ),
-    accessToken: window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.accessToken`,
-    ),
-    idToken: window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.idToken`,
-    ),
-    refreshToken: window.localStorage.getItem(
-      `CognitoIdentityServiceProvider.${mockBrowserInitializers.connectClientId}.${session.loginIdentity.email}.refreshToken`,
-    ),
-  }
-}
-
-export const mockTokenResponse = {
+export const mockTokenResponse: CoginitoSession = {
   access_token: mockBrowserSession.accessToken,
   refresh_token: mockBrowserSession.refreshToken,
   id_token: mockBrowserSession.idToken,
