@@ -12,6 +12,7 @@ export const URLS = {
   configurations: '/configuration',
   propertyImages: '/propertyImages',
   companies: '/companies',
+  tasks: '/tasks',
   tenancies: '/tenancies',
   offers: '/offers',
   vendors: '/vendors',
