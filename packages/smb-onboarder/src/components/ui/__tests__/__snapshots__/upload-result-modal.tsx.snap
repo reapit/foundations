@@ -31,3 +31,77 @@ exports[`UploadResultModal UploadResultModal should match a snapshot 1`] = `
   />
 </Component>
 `;
+
+exports[`UploadResultModal UploadResultModal should match a snapshot 2`] = `
+<Component
+  onCloseClick={[MockFunction]}
+  results={
+    Object {
+      "details": Array [
+        Object {
+          "rowData": Array [],
+          "success": true,
+        },
+      ],
+      "failed": 0,
+      "success": 0,
+      "total": 0,
+    }
+  }
+  visible={true}
+>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Close
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    title="Upload Complete"
+    visible={true}
+  />
+</Component>
+`;
+
+exports[`UploadResultModal UploadResultModal should match a snapshot 3`] = `
+<Component
+  onCloseClick={[MockFunction]}
+  results={
+    Object {
+      "details": Array [
+        Object {
+          "rowData": Array [],
+          "success": false,
+        },
+      ],
+      "failed": 0,
+      "success": 0,
+      "total": 0,
+    }
+  }
+  visible={true}
+>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Close
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    title="Upload Complete"
+    visible={true}
+  />
+</Component>
+`;

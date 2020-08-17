@@ -16,7 +16,7 @@ export type NegotiatorOfficeSelectboxProps = {
 }
 
 export const handleOnChange = (officeData, setValue, spreadsheetData, row, createNegotiator, data, setData) => {
-  return e => {
+  return async e => {
     const selectedOfficeId = e.target.value
     const selectedOffice = officeData?.GetOffices?._embedded?.find(office => office.id === selectedOfficeId)
     setValue(selectedOfficeId)
@@ -32,7 +32,7 @@ export const handleOnChange = (officeData, setValue, spreadsheetData, row, creat
     ) {
       return
     }
-    createNegotiator({
+    const respone = await createNegotiator({
       variables: createNegotiatorVariables,
       optimisticResponse: {
         __typename: 'Mutation',
@@ -54,26 +54,25 @@ export const handleOnChange = (officeData, setValue, spreadsheetData, row, creat
           __typename: 'NegotiatorModel',
         },
       },
-    }).then(respone => {
-      const {
-        data: { CreateNegotiator },
-      } = respone
-      const newData = data.map(row => row.map(cell => ({ ...cell })))
-      const newRow = newData[row]
-
-      // update new row data
-      newRow[0].value = CreateNegotiator.name
-      newRow[1].value = CreateNegotiator.jobTitle
-      newRow[2].value = CreateNegotiator.email
-      newRow[3].value = CreateNegotiator.mobilePhone
-      newRow[4].value = CreateNegotiator._embedded?.office?.name
-      newRow[4].isValidated = true
-      newRow[5].value = CreateNegotiator.active
-      newRow[6].value = CreateNegotiator.id
-      newRow[7].value = CreateNegotiator._eTag
-
-      setData(newData)
     })
+    const {
+      data: { CreateNegotiator },
+    } = respone
+    const newData = data.map(row => row.map(cell => ({ ...cell })))
+    const newRow = newData[row]
+
+    // update new row data
+    newRow[0].value = CreateNegotiator.name
+    newRow[1].value = CreateNegotiator.jobTitle
+    newRow[2].value = CreateNegotiator.email
+    newRow[3].value = CreateNegotiator.mobilePhone
+    newRow[4].value = CreateNegotiator._embedded?.office?.name
+    newRow[4].isValidated = true
+    newRow[5].value = CreateNegotiator.active
+    newRow[6].value = CreateNegotiator.id
+    newRow[7].value = CreateNegotiator._eTag
+
+    setData(newData)
   }
 }
 
