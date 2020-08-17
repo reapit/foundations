@@ -1,26 +1,35 @@
-import companyServices from '../services'
+import conveyancingServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import {
-  queryGetCompanyById,
-  queryGetCompanies,
-  mutationCreateCompany,
-  mutationUpdateCompany,
-  queryGetCompanyRoles,
+  queryGetConveyancingById,
+  queryGetConveyancing,
+  mutationUpdateConveyancing,
+  queryGetConveyancingChain,
+  mutationCreateDownwardLinkModel,
+  mutationCreateUpwardLinkModel,
+  mutationDeleteDownwardLinkModel,
+  mutationDeleteUpwardLinkModel,
 } from '../resolvers'
-import { createCompanyArgsMock } from '../__stubs__/create-company'
-import { updateCompanyArgsMock } from '../__stubs__/update-company'
-import { companyMock } from '../__stubs__/company'
-import { companiesMock } from '../__stubs__/companies'
+import { updateConveyancingArgsMock } from '../__stubs__/update-conveyancing'
+import { conveyancingDetailMock } from '../__stubs__/conveyancing-detail'
+import { conveyancingMock } from '../__stubs__/conveyancing'
 import { mockContext } from '../../../__stubs__/context'
-import { companyRolesMock } from '../__stubs__/company-roles'
+import { conveyancingChainMock } from '../__stubs__/conveyancing-chain'
+import { createDownwardLinkModelArgsMock } from '../__stubs__/create-downward-link-model'
+import { createUpwardLinkModelArgsMock } from '../__stubs__/create-upward-link-model'
+import { deleteDownwardLinkModelArgsMock } from '../__stubs__/delete-downward-link-model'
+import { deleteUpwardLinkModelArgsMock } from '../__stubs__/delete-upward-link-model'
 
 jest.mock('../services', () => ({
-  getCompanyById: jest.fn(() => companyMock),
-  getCompanies: jest.fn(() => companiesMock),
-  getCompanyRoles: jest.fn(() => companyRolesMock),
-  createCompany: jest.fn(() => true),
-  updateCompany: jest.fn(() => true),
+  getConveyancingById: jest.fn(() => conveyancingDetailMock),
+  getConveyancing: jest.fn(() => conveyancingMock),
+  getConveyancingChain: jest.fn(() => conveyancingChainMock),
+  updateConveyancing: jest.fn(() => updateConveyancingArgsMock),
+  createDownwardLinkModel: jest.fn(() => createDownwardLinkModelArgsMock),
+  createUpwardLinkModel: jest.fn(() => createUpwardLinkModelArgsMock),
+  deleteDownwardLinkModel: jest.fn(() => deleteDownwardLinkModelArgsMock),
+  deleteUpwardLinkModel: jest.fn(() => deleteUpwardLinkModelArgsMock),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -30,78 +39,134 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('queryGetCompanyById', () => {
+describe('queryGetConveyancingById', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: 'id' }
-    const result = queryGetCompanyById(null, args, mockContext)
-    expect(result).toEqual(companyServices.getCompanyById(args, mockContext))
+    const result = queryGetConveyancingById(null, args, mockContext)
+    expect(result).toEqual(conveyancingServices.getConveyancingById(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: 'id' }
-    const result = queryGetCompanyById(null, args, mockContext)
+    const result = queryGetConveyancingById(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryGetCompanies', () => {
+describe('queryGetConveyancing', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetCompanies(null, args, mockContext)
-    expect(result).toEqual(companyServices.getCompanies(args, mockContext))
+    const result = queryGetConveyancing(null, args, mockContext)
+    expect(result).toEqual(conveyancingServices.getConveyancing(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetCompanies(null, args, mockContext)
+    const result = queryGetConveyancing(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryGetCompanyRoles', () => {
+describe('queryGetConveyancingChain', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetCompanyRoles(null, args, mockContext)
-    expect(result).toEqual(companyServices.getCompanyRoles(args, mockContext))
+    const result = queryGetConveyancingChain(null, args, mockContext)
+    expect(result).toEqual(conveyancingServices.getConveyancingChain(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetCompanyRoles(null, args, mockContext)
+    const result = queryGetConveyancingChain(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationCreateCompany', () => {
+describe('mutationUpdateConveyancing', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateCompany(null, createCompanyArgsMock, mockContext)
-    expect(result).toEqual(companyServices.createCompany(createCompanyArgsMock, mockContext))
+    const result = mutationUpdateConveyancing(null, updateConveyancingArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.updateConveyancing(updateConveyancingArgsMock, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateCompany(null, createCompanyArgsMock, mockContext)
+    const result = mutationUpdateConveyancing(null, updateConveyancingArgsMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationUpdateCompany', () => {
+describe('mutationCreateDownwardLinkModel', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateCompany(null, updateCompanyArgsMock, mockContext)
-    expect(result).toEqual(companyServices.updateCompany(updateCompanyArgsMock, mockContext))
+    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(createDownwardLinkModelArgsMock, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateCompany(null, updateCompanyArgsMock, mockContext)
+    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('mutationCreateUpwardLinkModel', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationCreateUpwardLinkModel(null, createUpwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.createUpwardLinkModel(createUpwardLinkModelArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationCreateUpwardLinkModel(null, createUpwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('mutationCreateDownwardLinkModel', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.createDownwardLinkModel(createDownwardLinkModelArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationCreateDownwardLinkModel(null, createDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('mutationDeleteDownwardLinkModel', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationDeleteDownwardLinkModel(null, deleteDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.deleteDownwardLinkModel(deleteDownwardLinkModelArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationDeleteDownwardLinkModel(null, deleteDownwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('mutationDeleteUpwardLinkModel', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationDeleteUpwardLinkModel(null, deleteUpwardLinkModelArgsMock, mockContext)
+    expect(result).toEqual(conveyancingServices.deleteUpwardLinkModel(deleteUpwardLinkModelArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationDeleteUpwardLinkModel(null, deleteUpwardLinkModelArgsMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

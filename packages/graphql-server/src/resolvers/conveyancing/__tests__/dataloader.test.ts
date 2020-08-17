@@ -1,35 +1,33 @@
-import { generateCompanyBatchLoaderFn, generateCompanyLoader } from '../dataloader'
-import { companyMock } from '../__stubs__/company'
-import { companiesMock } from '../__stubs__/companies'
+import { generateConveyancingBatchLoaderFn, generateConveyancingLoader } from '../dataloader'
+import { conveyancingDetailMock } from '../__stubs__/conveyancing-detail'
+import { conveyancingMock } from '../__stubs__/conveyancing'
 import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
-  getCompanyById: jest.fn(() => companyMock),
-  getcompanies: jest.fn(() => companiesMock),
-  createCompany: jest.fn(() => true),
-  updateCompany: jest.fn(() => true),
+  getConveyancingById: jest.fn(() => conveyancingDetailMock),
+  getConveyancing: jest.fn(() => conveyancingMock),
 }))
 
-describe('company-dataloader', () => {
-  describe('generateCompanyBatchLoaderFn', () => {
+describe('conveyancing-dataloader', () => {
+  describe('generateConveyancingBatchLoaderFn', () => {
     it('should run correctly', () => {
-      const fn = generateCompanyBatchLoaderFn(mockContext)
+      const fn = generateConveyancingBatchLoaderFn(mockContext)
       const mockKeys = ['AP']
       const result = fn(mockKeys)
       expect(result).toEqual(expect.any(Object))
     })
 
     it('should run correctly without keys', () => {
-      const fn = generateCompanyBatchLoaderFn(mockContext)
+      const fn = generateConveyancingBatchLoaderFn(mockContext)
       const mockKeys = []
       const result = fn(mockKeys)
       expect(result).toEqual(expect.any(Object))
     })
   })
 
-  describe('generateCompanyLoader', () => {
+  describe('generateConveyancingLoader', () => {
     it('should return correctly', () => {
-      const result = generateCompanyLoader(mockContext)
+      const result = generateConveyancingLoader(mockContext)
       expect(result).toEqual(expect.any(Object))
     })
   })

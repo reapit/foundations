@@ -23,7 +23,6 @@ import errors from '../../errors'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import { handleError } from '../../utils/handle-error'
-import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 
 export const callGetConveyancingByIdAPI = async (
   args: GetConveyancingByIdArgs,
@@ -157,7 +156,6 @@ export const callDeleteDownwardLinkModelAPI = async (
       },
     )
     return args.id
-    return errors.generateUserInputError(traceId)
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteDownwardLinkModelAPI' })
     return handleErrorResult
@@ -203,5 +201,6 @@ export const callDeleteUpwardLinkModelAPI = async (
     return args.id
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteUpwardLinkModelAPI' })
+    return handleErrorResult
   }
 }
