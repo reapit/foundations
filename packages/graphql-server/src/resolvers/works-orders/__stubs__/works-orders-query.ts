@@ -1,4 +1,89 @@
-import { PagedResultWorksOrderModel_ } from '../../../types'
+import { PagedResultWorksOrderModel_, WorksOrderModel } from '../../../types'
+import { GetWorksOrdersByIdArgs } from '../works-orders'
+
+export const getWorksOrderByIdArgs: GetWorksOrdersByIdArgs = {
+  id: 'RPT20000017',
+  embed: 'company',
+}
+
+export const worksOrder: WorksOrderModel = {
+  id: 'RPT20000017',
+  created: '2020-08-07T13:37:10Z',
+  modified: '2020-08-07T13:37:10Z',
+  companyId: 'OXF18000001',
+  propertyId: 'OXF190001',
+  tenancyId: 'OXF190022',
+  negotiatorId: 'JAS',
+  typeId: 'ES',
+  status: 'complete',
+  description: 'Light fitting in living room not working.',
+  reporter: 'landlord',
+  booked: '2019-05-10',
+  required: '2019-08-12',
+  completed: '2019-10-01',
+  totalNetAmount: 100.0,
+  totalVatAmount: 20.0,
+  totalGrossAmount: 120.0,
+  items: [
+    {
+      id: 'RPT20000033',
+      worksOrderId: 'RPT20000017',
+      created: '2020-08-07T13:37:10Z',
+      modified: '2020-08-07T13:37:10Z',
+      notes: 'Please book the electrical certificate for either Thursday or Friday.',
+      chargeTo: 'landlord',
+      estimate: 120.0,
+      estimateType: 'written',
+      netAmount: 100.0,
+      vatAmount: 20.0,
+      grossAmount: 120.0,
+      _eTag: null,
+      _links: {
+        self: {
+          href: '/worksOrders/RPT20000017/items/RPT20000033',
+        },
+        worksOrder: {
+          href: '/worksOrders/RPT20000017',
+        },
+      },
+      _embedded: null,
+    },
+  ],
+  _eTag: '"F1575398A580F5552224472D606EE144"',
+  _links: {
+    self: {
+      href: '/worksOrders/RPT20000017',
+    },
+    documents: {
+      href: '/documents/?associatedType=worksOrder&associatedId=RPT20000017',
+    },
+    items: {
+      href: '/worksOrders/RPT20000017/items',
+    },
+    company: {
+      href: '/companies/OXF18000001',
+    },
+    negotiator: {
+      href: '/negotiators/JAS',
+    },
+    property: {
+      href: '/properties/OXF190001',
+    },
+    tenancy: {
+      href: '/tenancies/OXF190022',
+    },
+    type: {
+      href: '/configurations/worksOrderTypes/ES',
+    },
+  },
+  metadata: {
+    CustomField1: 'CustomValue1',
+    CustomField2: true,
+  },
+  _embedded: {
+    documents: null,
+  },
+}
 
 export const worksOrderList: PagedResultWorksOrderModel_ = {
   _embedded: [

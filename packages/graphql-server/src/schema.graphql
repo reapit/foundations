@@ -459,6 +459,7 @@ type Query {
     requiredTo: String
     metadata: [String]
   ): PagedResultWorksOrders!
+  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): PagedResultWorksOrdersEmbedded
 }
 
 input ApplicantAddressInput {
