@@ -32,11 +32,14 @@ export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrows
 
   const connectHasSession = reapitConnectBrowserSession.connectHasSession
 
+  const connectInternalRedirect = reapitConnectBrowserSession.connectInternalRedirect
+
   return {
     connectSession,
     connectAuthorizeRedirect,
     connectLoginRedirect,
     connectLogoutRedirect,
+    connectInternalRedirect,
     connectIsDesktop,
     connectHasSession,
   }

@@ -19,7 +19,6 @@ export class ReapitConnectBrowserSession {
   private connectOAuthUrl: string
   private connectClientId: string
   private connectUserPoolId: string
-  // private userName: string | null
   private session: ReapitConnectSession | null
   private connectLoginRedirectPath: string
   private connectLogoutRedirectPath: string
@@ -42,6 +41,7 @@ export class ReapitConnectBrowserSession {
     }`
     this.fetching = false
     this.session = null
+    // this.connectInternalRedirect = null
     this.connectBindPublicMethods()
   }
 
@@ -129,6 +129,16 @@ export class ReapitConnectBrowserSession {
     window.location.href = this.connectLogoutRedirectPath
   }
 
+  // set a redirect URI to my page where I instantiated the flow, by decoding the state object
+  public get connectInternalRedirect() {
+    const params = new URLSearchParams(window.location.search)
+    const internalRedirectString = params.get('state')
+    if (internalRedirectString) {
+      return decodeURIComponent(internalRedirectString)
+    }
+    return null
+  }
+
   // A convenience getter to check if my app has been loaded inside RPS / Desktop / Agency Cloud
   public get connectIsDesktop() {
     return Boolean(window[ReapitConnectBrowserSession.GLOBAL_KEY])
@@ -143,7 +153,8 @@ export class ReapitConnectBrowserSession {
   // but made public if I want to override the redirect URI I specified in the constructor
   public connectAuthorizeRedirect(redirectUri?: string): void {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}`
+    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${window.location.search}`)
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.

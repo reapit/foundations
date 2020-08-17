@@ -71,6 +71,28 @@ describe('ReapitConnectBrowserSession', () => {
     expect(session.connectIsDesktop).toBe(true)
   })
 
+  it('should return a internalRedirectUri from connectInternalRedirect if a code is present in the uri', async () => {
+    const code = 'SOME_CODE'
+    const internalRedirectUri = '/some-path?someQuery=true'
+    window.location.search = `?code=${code}&state=${internalRedirectUri}`
+    const session = getSession()
+
+    await session.connectSession()
+
+    expect(session.connectInternalRedirect).toEqual(internalRedirectUri)
+  })
+
+  it('should return null from connectInternalRedirect if a code is not present in the uri', async () => {
+    const pathName = '/some-alternative-path'
+    window.location.search = ''
+    window.location.pathname = pathName
+    const session = getSession()
+
+    await session.connectSession()
+
+    expect(session.connectInternalRedirect).toBeNull()
+  })
+
   it('should refresh a session from a refresh token if session has expired', async () => {
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
     const expiredSession = {

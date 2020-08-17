@@ -9,6 +9,14 @@ jest.mock('react-router', () => ({
   useLocation: jest.fn(() => locationMock),
 }))
 
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: () => ({
+    connectSession: {},
+    connectInternalRedirect: '',
+  }),
+}))
+
 describe('PrivateRouteWrapper', () => {
   it('should match snapshot', () => {
     const wrapper = shallow(<PrivateRouteWrapper path="/" />)
