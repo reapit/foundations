@@ -21,8 +21,12 @@ export type GetCompaniesArgs = {
   pageNumber?: number
   sortBy?: string
   id?: string[]
-  propertyId?: string[]
-  type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
+  address?: string
+  branch?: string
+  name?: string
+  typeId?: string
+  createdFrom?: string
+  createdTo?: string
 }
 
 export type GetCompanyRolesArgs = {
