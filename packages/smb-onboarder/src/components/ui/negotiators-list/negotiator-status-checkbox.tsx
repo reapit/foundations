@@ -44,6 +44,12 @@ export const handleCheckBoxChange = ({ e, data, row, col, disabled, setChecked, 
         __typename: 'NegotiatorModel',
       },
     },
+  }).then(() => {
+    // Update current status
+    setChecked(selectedValue)
+    const newData = data.map(row => row.map(cell => ({ ...cell })))
+    newData[row][col].value = selectedValue
+    setData(newData)
   })
 }
 

@@ -29,7 +29,7 @@ const mockHandleCheckboxChangeParamsForUpdateCase = {
   disabled: false,
   setChecked: jest.fn(),
   setData: jest.fn(),
-  updateNegotiator: jest.fn(),
+  updateNegotiator: jest.fn().mockResolvedValue(true),
 }
 
 const mockHandleCheckboxChangeParamsForCreateCase = {
@@ -42,7 +42,7 @@ const mockHandleCheckboxChangeParamsForCreateCase = {
   disabled: false,
   setChecked: jest.fn(),
   setData: jest.fn(),
-  updateNegotiator: jest.fn(),
+  updateNegotiator: jest.fn().mockResolvedValue(true),
 }
 
 describe('NegotiatorStatusCheckbox', () => {
