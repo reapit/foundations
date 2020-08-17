@@ -17,6 +17,7 @@ export const URLS = {
   offers: '/offers',
   vendors: '/vendors',
   landlords: '/landlords',
+  sources: '/sources',
 }
 
 export const HEADERS = {
