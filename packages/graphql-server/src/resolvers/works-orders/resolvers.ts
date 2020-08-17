@@ -5,6 +5,7 @@ import {
   QueryGetWorksOrdersReturn,
   GetWorksOrdersByIdArgs,
   QueryGetWorksOrdersByIdReturn,
+  CreateWorksOrderArgs,
 } from './works-orders'
 import { ServerContext } from '@/index'
 import { checkPermission } from '@/utils/check-permission'
@@ -22,7 +23,7 @@ export const queryGetWorksOrder = (
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
-  return worksOrdersServices.getWorkOrders(args, context)
+  return worksOrdersServices.getWorksOrders(args, context)
 }
 
 export const queryGetWorksOrdersById = (
@@ -41,10 +42,28 @@ export const queryGetWorksOrdersById = (
   return worksOrdersServices.getWorkOrderById(args, context)
 }
 
+export const mutationCreateWorksOrder = (
+  _: any,
+  args: CreateWorksOrderArgs,
+  context: ServerContext,
+): QueryGetWorksOrdersByIdReturn => {
+  const traceId = context.traceId
+
+  logger.info('mutationCreateWorksOrder', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+
+  return worksOrdersServices.createWorksOrder(args, context)
+}
+
 export default {
   Query: {
     GetWorksOrders: queryGetWorksOrder,
     GetWorksOrdersById: queryGetWorksOrdersById,
   },
-  Mutation: {},
+  Mutation: {
+    CreateWorksOrder: mutationCreateWorksOrder,
+  },
 }

@@ -8,7 +8,6 @@ export { WorksOrders as GetWorksOrdersArgs }
 export { CreateWorksOrderModel as CreateWorksOrderArgs } from '../../types'
 
 // args
-
 export type GetWorksOrdersByIdArgs = {
   id: string
   embed?: 'company' | 'documents' | 'negotiator' | 'property' | 'tenancy' | 'type'
@@ -17,7 +16,9 @@ export type GetWorksOrdersByIdArgs = {
 // api return types
 export type GetWorksOrdersReturn = Promise<PagedResultWorksOrderModel_ | UserInputError>
 export type GetWorksOrderByIdReturn = Promise<WorksOrderModel | UserInputError>
+export type CreateWorksOrderReturn = GetWorksOrderByIdReturn
 
 // resolver return types
 export type QueryGetWorksOrdersReturn = AuthenticationError | GetWorksOrdersReturn
 export type QueryGetWorksOrdersByIdReturn = AuthenticationError | GetWorksOrderByIdReturn
+export type MutationCreateWorksOrder = QueryGetWorksOrdersByIdReturn

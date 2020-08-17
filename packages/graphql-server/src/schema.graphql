@@ -448,7 +448,7 @@ type Query {
     companyId: [String]
     negotiatorId: [String]
     propertyId: [String]
-    status: [WorkOrdersStatus]
+    status: [WorksOrdersStatus]
     tenancyId: [String]
     typeId: [String]
     completedFrom: String
@@ -457,9 +457,9 @@ type Query {
     createdTo: String
     requiredFrom: String
     requiredTo: String
-    metadata: [String]
+    metadata: JSON
   ): PagedResultWorksOrders!
-  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): PagedResultWorksOrdersEmbedded
+  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
 }
 
 input ApplicantAddressInput {
@@ -1020,6 +1020,23 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+  CreateWorksOrder(
+    # required
+    propertyId: String!
+    negotiatorId: String!
+    typeId: String!
+    status: String!
+    description: String!
+    reporter: String!
+    items: [InputWorksOrderItem!]
+    # optional
+    companyId: String
+    tenancyId: String
+    booked: String
+    required: String
+    completed: String
+    metadata: JSON
+  ): WorkOrder!
 }
 
 type AppointmentAttendeeModel {
@@ -2219,7 +2236,7 @@ enum WorksOrdersEmbed {
   type
 }
 
-enum WorkOrdersStatus {
+enum WorksOrdersStatus {
   pendingApproval
   pendingQuote
   raised
@@ -2229,7 +2246,16 @@ enum WorkOrdersStatus {
   cancelled
 }
 
-type PagedResultWorksOrdersEmbeddedItem {
+input InputWorksOrderItem {
+  notes: String!
+  chargeTo: String!
+  estimate: Int
+  estimateType: String
+  netAmount: Int
+  vatAmount: Int
+}
+
+type WorksOrderItem {
   id: String
   worksOrderId: String
   created: String
@@ -2246,7 +2272,7 @@ type PagedResultWorksOrdersEmbeddedItem {
   _embedded: JSON
 }
 
-type PagedResultWorksOrdersEmbedded {
+type WorkOrder {
   id: String
   created: String
   modified: String
@@ -2264,15 +2290,15 @@ type PagedResultWorksOrdersEmbedded {
   totalNetAmount: Int
   totalVatAmount: Int
   totalGrossAmount: Int
-  metadata: [String!]
+  metadata: JSON
+  items: [WorksOrderItem]
   _eTag: String
   _links: JSON
   _embedded: JSON
-  items: PagedResultWorksOrdersEmbeddedItem
 }
 
 type PagedResultWorksOrders {
-  _embedded: [PagedResultWorksOrdersEmbedded!]
+  _embedded: [WorkOrder!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
