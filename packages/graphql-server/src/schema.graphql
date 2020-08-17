@@ -361,7 +361,7 @@ type Query {
     createdTo: String
     metadata: [String]
   ): PagedResultTaskModel!
-  GetTaskById(id: String!, embed: [String!]): TaskModel!
+  GetTaskById(id: String!, embed: [String]): TaskModel!
   GetTenancies(
     pageSize: Int
     pageNumber: Int
