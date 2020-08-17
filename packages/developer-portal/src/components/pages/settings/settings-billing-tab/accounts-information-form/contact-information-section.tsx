@@ -10,7 +10,7 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ d
   return (
     <>
       <FormHeading>{billingEmailField.heading}</FormHeading>
-      <FormSubHeading>{billingEmailField.subHeading}</FormSubHeading>{' '}
+      <FormSubHeading>{billingEmailField.subHeading}</FormSubHeading>
       <Input
         dataTest="email"
         type="email"

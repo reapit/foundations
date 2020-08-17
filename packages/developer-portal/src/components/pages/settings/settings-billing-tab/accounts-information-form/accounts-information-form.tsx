@@ -172,7 +172,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
               <LevelRight>
                 <div>
                   <LevelRight>
-                    {' '}
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
                       SUBMIT TO ACCOUNTS
                     </Button>
