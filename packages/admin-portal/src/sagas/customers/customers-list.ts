@@ -1,0 +1,44 @@
+import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import { fetchCustomersListFailed, fetchCustomersListSuccess, FetchCustomersListQueryParams } from '@/actions/customers'
+import { fetchCustomersList as fetchCustomersListAPI } from '@/services/customers'
+
+import { notification } from '@reapit/elements'
+import { Action } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
+import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'
+
+const DEFAULT_PAGE = 1
+
+export const fetchCustomersListHandler = function*({ data: { queryString } }) {
+  try {
+    const queryParams = new URLSearchParams(queryString)
+    const page = queryParams.get('page') ?? DEFAULT_PAGE
+    const name = queryParams.get('name') ?? ''
+    const agencyCloudId = queryParams.get('agencyCloudId') ?? ''
+
+    const response = yield call(fetchCustomersListAPI, {
+      pageSize: CUSTOMERS_PER_PAGE,
+      pageNumber: page,
+      name,
+      agencyCloudId,
+    })
+
+    yield put(fetchCustomersListSuccess(response))
+  } catch (err) {
+    yield put(fetchCustomersListFailed(err.message))
+    yield call(notification.error, {
+      message: err.message,
+      placement: 'bottomRight',
+    })
+  }
+}
+
+export const fetchCustomersListListen = function*() {
+  yield takeLatest<Action<FetchCustomersListQueryParams>>(ActionTypes.FETCH_CUSTOMERS_LIST, fetchCustomersListHandler)
+}
+
+const customersListSagas = function*() {
+  yield all([fork(fetchCustomersListListen)])
+}
+
+export default customersListSagas
