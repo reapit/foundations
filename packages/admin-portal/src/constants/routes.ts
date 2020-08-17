@@ -5,6 +5,7 @@ const Routes = {
   APPS: '/apps',
   DEV_MANAGEMENT: '/dev-management',
   STATS: '/stats',
+  CUSTOMERS: '/customers',
   AUTHENTICATION: '/authentication',
   FOUR_O_FOUR: '/404',
 }
