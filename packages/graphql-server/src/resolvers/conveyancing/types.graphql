@@ -1,6 +1,8 @@
 scalar JSON
 
-"""Representation of an offers sales progression information"""
+"""
+Representation of an offers sales progression information
+"""
 type ConveyancingModel {
   id: String
   created: String
@@ -62,15 +64,23 @@ type PagedResultConveyancingModel_ {
 }
 
 type Query {
-  GetConveyancing(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], propertyId: [String!], embed: [String!], metadata: [String!]): PagedResultConveyancingModel_!
+  GetConveyancing(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    propertyId: [String!]
+    embed: [String!]
+    metadata: [String!]
+  ): PagedResultConveyancingModel_!
   GetConveyancingById(id: String!, embed: [String!]): ConveyancingModel!
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
 }
 
 type Mutation {
   UpdateConveyancing(
-    _eTag: String!,
-    id: String!,
+    _eTag: String!
+    id: String!
     vendorSolicitorId: String
     buyerSolicitorId: String
     fixturesAndFittingsCompleted: String
@@ -103,7 +113,7 @@ type Mutation {
     metadata: JSON
   ): ConveyancingModel!
   CreateDownwardLinkModel(
-    id: String!,
+    id: String!
     offerId: String
     propertyAddress: String
     agent: String
@@ -112,7 +122,7 @@ type Mutation {
   ): ConveyancingModel!
   DeleteDownwardLinkModel(id: String!): String!
   CreateUpwardLinkModel(
-    id: String!,
+    id: String!
     offerId: String
     propertyAddress: String
     agent: String
