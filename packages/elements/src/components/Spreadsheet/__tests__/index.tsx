@@ -52,14 +52,14 @@ describe('AddRowButton', () => {
 
 describe('getErrorsFromData', () => {
   it('should match snapshot', () => {
-    const errors = [[{ error: 'error' }]] as Cell[][]
+    const errors = [[{ error: 'error', touched: true }]] as Cell[][]
     expect(shallow(<div>{getErrorsFromData(errors)}</div>)).toMatchSnapshot()
   })
 })
 
 describe('renderErrorElements', () => {
   it('should match snapshot', () => {
-    const errors = [[{ error: 'error' }]] as Cell[][]
+    const errors = [[{ error: 'error', touched: true }]] as Cell[][]
     expect(shallow(<div>{renderErrorElements(errors)}</div>)).toMatchSnapshot()
   })
 })
