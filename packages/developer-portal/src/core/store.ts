@@ -18,7 +18,7 @@ import installationsReducer from '@/reducers/installations'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
-import currentMemberReducer from '@/reducers/current-member'
+import { currentMemberReducer } from '@/reducers/current-member'
 
 import {
   appDetailSagas,
@@ -44,7 +44,7 @@ import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
 import installationsSagas from '@/sagas/installations'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
-import currentMemberSagas from '@/sagas/current-member'
+import { currentMemberSagas } from '@/sagas/current-member'
 
 export class Store {
   static _instance: Store

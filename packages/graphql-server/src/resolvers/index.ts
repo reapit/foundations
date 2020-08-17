@@ -16,6 +16,8 @@ import Offers from './offers/resolvers'
 import Vendors from './vendors/resolvers'
 import Companies from './companies/resolvers'
 import Conveyancing from './conveyancing/resolvers'
+import Landlords from './landlords/resolvers'
+import Tasks from './tasks/resolvers'
 
 export const resolvers = merge(
   {
@@ -32,10 +34,12 @@ export const resolvers = merge(
   Ping,
   Properties,
   PropertyImages,
+  Tasks,
   Tenancies,
   Offers,
   Vendors,
   Companies,
   Conveyancing,
+  Landlords,
 )
 export default resolvers

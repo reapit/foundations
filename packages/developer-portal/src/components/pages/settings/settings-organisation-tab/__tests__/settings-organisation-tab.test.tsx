@@ -5,6 +5,17 @@ import { Provider } from 'react-redux'
 import appState from '@/reducers/__stubs__/app-state'
 import DeveloperOrganisationTabPage, { handleToggleVisibleModal } from '../settings-organisation-tab'
 
+jest.mock('react-router-dom', () => {
+  return {
+    useRouteMatch: jest.fn(() => {
+      return {
+        url: '123',
+      }
+    }),
+    useHistory: jest.fn(),
+  }
+})
+
 describe('DeveloperOrganisationTabPage', () => {
   let store
   beforeEach(() => {

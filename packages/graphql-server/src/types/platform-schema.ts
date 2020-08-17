@@ -11009,6 +11009,651 @@ export interface PagedResultTenancyCheckModel_ {
     }
   }
 }
+export interface PagedResultLandlordModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord
+     */
+    id?: string
+    /**
+     * The date and time when the landlord was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the landlord was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * A flag determining whether or not the landlord is currently active
+     */
+    active?: boolean
+    /**
+     * The unique identifier of the company acting as the landlord's solicitor
+     */
+    solicitorId?: string
+    /**
+     * The unique identifier of the office that is associated to the landlord
+     */
+    officeId?: string
+    /**
+     * The source of the landlord
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the landlord
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The type of the contact (contact/company)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * The primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the landlord
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the landlord. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord relationship
+     */
+    id?: string
+    /**
+     * The unique identifier of the landlord
+     */
+    landlordId?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord
+     */
+    id?: string
+    /**
+     * The date and time when the landlord was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the landlord was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * A flag determining whether or not the landlord is currently active
+     */
+    active?: boolean
+    /**
+     * The unique identifier of the company acting as the landlord's solicitor
+     */
+    solicitorId?: string
+    /**
+     * The unique identifier of the office that is associated to the landlord
+     */
+    officeId?: string
+    /**
+     * The source of the landlord
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the landlord
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The type of the contact (contact/company)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * The primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the landlord
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the landlord. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface LandlordModel {
+  /**
+   * The unique identifier of the landlord
+   */
+  id?: string
+  /**
+   * The date and time when the landlord was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the landlord was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact
+     */
+    id?: string
+    /**
+     * The name of the contact
+     */
+    name?: string
+    /**
+     * The type of the contact (contact/company)
+     */
+    type?: string
+    /**
+     * The home phone number of the contact
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+    /**
+     * The primary address of the contact
+     */
+    primaryAddress?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+  }[]
+  /**
+   * App specific metadata that has been set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the landlord. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company to create a relationship with
+     */
+    associatedId?: string
+    /**
+     * The type of relationship to create (contact/company)
+     */
+    associatedType?: string
+  }[]
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company to create a relationship with
+     */
+    associatedId?: string
+    /**
+     * The type of relationship to create (contact/company)
+     */
+    associatedType?: string
+  }[]
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface UpdateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface LandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the landlord relationship
+   */
+  id?: string
+  /**
+   * The unique identifier of the landlord
+   */
+  landlordId?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the contact or company to create a relationship with
+   */
+  associatedId?: string
+  /**
+   * The type of relationship to create (contact/company)
+   */
+  associatedType?: string
+}
 
 export interface Conveyancing {
   pageSize?: number

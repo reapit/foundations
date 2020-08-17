@@ -245,6 +245,22 @@ type Query {
     status: [String!]
   ): PagedResultIdentityCheckModel!
   GetIdentityCheckById(id: String!): IdentityCheckModel!
+  GetLandlordById(id: String!, embed: [String!]): LandlordModel!
+  GetLandlords(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    active: Boolean
+    address: String
+    name: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String!]
+  ): PagedResultLandlordModel!
+  GetLandlordRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultLandlordRelationshipModel!
+  GetLandlordRelationshipById(id: String!, relationshipId: String!): LandlordRelationshipModel!
   GetNegotiators(
     pageSize: Int
     pageNumber: Int
@@ -324,6 +340,28 @@ type Query {
     metadata: [String!]
   ): PagedResultPropertyImageModel!
   GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetTasks(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String]
+    id: [String]
+    applicantId: [String]
+    contactId: [String]
+    landlordId: [String]
+    officeId: [String]
+    propertyId: [String]
+    recipientId: [String]
+    senderId: [String]
+    typeId: [String]
+    tenancyId: [String]
+    activatesFrom: String
+    activatesTo: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String]
+  ): PagedResultTaskModel!
+  GetTaskById(id: String!, embed: [String!]): TaskModel!
   GetTenancies(
     pageSize: Int
     pageNumber: Int
@@ -683,6 +721,30 @@ type Mutation {
     identityDocument2: IdentityCheckModelIdentityDocumentInput
     metadata: JSON
   ): IdentityCheckModel!
+  UpdateLandlord(
+    id: String!
+    _eTag: String!
+    active: Boolean
+    solicitorId: String
+    officeId: String
+    source: LandLordSourceInput
+    metadata: JSON
+  ): LandlordModel!
+  CreateLandlord(
+    active: Boolean
+    solicitorId: String
+    officeId: String
+    source: LandLordSourceInput
+    related: [CreateLandlordRelatedModel!]
+    metadata: JSON
+  ): LandlordModel!
+  CreateLandlordRelationship(
+    id: String!
+    associatedId: String
+    associatedType: String
+    isMain: Boolean
+  ): LandlordRelationshipModel!
+  DeleteLandlordRelationship(id: String!, relationshipId: String!): String
   CreateNegotiator(
     name: String
     jobTitle: String
@@ -812,6 +874,38 @@ type Mutation {
   CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
   UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
   DeletePropertyImage(id: String!): Boolean!
+  CreateTask(
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
+  UpdateTask(
+    _eTag: String!
+    id: String!
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
   CreateTenancy(
     startDate: String
     endDate: String
@@ -1222,6 +1316,93 @@ type PagedResultIdentityCheckModel {
   _links: JSON
 }
 
+type LandlordModel {
+  id: String
+  created: String
+  modified: String
+  active: Boolean
+  solicitorId: String
+  officeId: String
+  source: LandlordSourceModel
+  related: [LandlordRelatedModel!]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type LandlordSourceModel {
+  id: String
+  type: String
+}
+
+type LandlordRelatedModel {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: LandlordRelatedPrimaryAddressModel
+}
+
+type LandlordRelatedPrimaryAddressModel {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type PagedResultLandlordModel {
+  _embedded: [LandlordModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultLandlordRelationshipModel {
+  _embedded: [LandlordRelationshipModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type LandlordRelationshipModel {
+  id: String
+  landlordId: String
+  created: String
+  modified: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+input LandLordSourceInput {
+  id: String
+  type: String
+}
+
+input CreateLandlordRelatedModel {
+  associatedId: String
+  associatedType: String
+}
+
 type NegotiatorModel {
   id: String
   created: String
@@ -1562,6 +1743,37 @@ type PropertyImageModel {
   _eTag: String
   _links: JSON
   _embedded: JSON
+}
+
+type TaskModel {
+  id: String
+  created: String
+  modified: String
+  activates: String
+  completed: String
+  typeId: String
+  senderId: String
+  text: String
+  landlordId: String
+  propertyId: String
+  applicantId: String
+  tenancyId: String
+  contactId: String
+  recipientId: String
+  recipientType: String
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultTaskModel {
+  _embedded: [TaskModel]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
 }
 
 type PagedResultTenancies {
