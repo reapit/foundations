@@ -36,14 +36,9 @@ jest.mock('../../../utils/axios-instances', () => ({
           data: conveyancingDetailMock,
         }
       }),
-      post: jest.fn().mockImplementation(values => {
-        switch (values) {
-          case `${URLS.conveyancing}/${conveyancingDetailMock.id}/upward`:
-            return {
-              data: conveyancingDetailMock,
-            }
-          default:
-            break
+      post: jest.fn(() => {
+        return {
+          data: conveyancingDetailMock,
         }
       }),
       delete: jest.fn(() => {
