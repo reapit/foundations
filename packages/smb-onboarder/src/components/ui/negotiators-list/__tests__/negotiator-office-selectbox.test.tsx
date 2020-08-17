@@ -12,6 +12,7 @@ const mockProps: NegotiatorOfficeSelectboxProps = {
   createNegotiator: jest.fn(),
   spreadsheetData: mockSpreadSheetDataForUpdateCase,
   officeData: offices,
+  data: [[]],
 }
 
 describe('NegotiatorOfficeSelectbox', () => {
@@ -22,8 +23,10 @@ describe('NegotiatorOfficeSelectbox', () => {
   describe('handleOnChange', () => {
     it('should run correctly', () => {
       const setValue = jest.fn()
-      const createNegotiator = jest.fn()
-      const fn = handleOnChange(offices, setValue, mockSpreadSheetDataForUpdateCase, 1, createNegotiator)
+      const createNegotiator = jest.fn().mockResolvedValue(true)
+      const setData = jest.fn()
+      const data = {}
+      const fn = handleOnChange(offices, setValue, mockSpreadSheetDataForUpdateCase, 1, createNegotiator, data, setData)
       expect(fn).toBeInstanceOf(Function)
       fn({ target: { value: 'REA' } })
       expect(setValue).toBeCalled()

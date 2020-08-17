@@ -1,16 +1,16 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
-import { Cell, SetData } from '@reapit/elements/src/components/Spreadsheet/types'
-import { prepareUpdateNegeotiatorParams } from './negotiators-list'
+import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
+import { prepareUpdateNegeotiatorParams, DataTableRow } from './negotiators-list'
 import { spreadSheetCheckbox } from './__styles__/negotiator-status-checkbox'
 import { cx } from 'linaria'
 
 export type NegotiatorStatusCheckboxProps = {
   cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
   data: Cell[][]
-  setData: SetData
   updateNegotiator: (params) => void
   disabled?: boolean
+  setData?: React.Dispatch<DataTableRow[][]>
 }
 
 export const handleCheckBoxChange = ({ e, data, row, col, disabled, setChecked, setData, updateNegotiator }) => {

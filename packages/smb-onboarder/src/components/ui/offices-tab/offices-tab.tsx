@@ -201,7 +201,10 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
-export const handleAfterCellChange = (createOffice, updateOffice) => (changedCells: ChangedCells, data: Cell[][]) => {
+export const handleAfterCellChange = (createOffice, updateOffice, setData) => (
+  changedCells: ChangedCells,
+  data: Cell[][],
+) => {
   const [changes] = changedCells
   const {
     newCell: { isValidated },
@@ -225,6 +228,14 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
     const createOfficeParams = prepareCreateOfficeParams(changedCells, data)
     createOffice({
       variables: createOfficeParams,
+    }).then(response => {
+      const {
+        data: { CreateOffice },
+      } = response
+
+      rowData[0].value = CreateOffice.id
+      rowData[1].value = CreateOffice._eTag
+      setData(data)
     })
   }
 }
@@ -332,6 +343,11 @@ export const prepareCreateOfficeParams = (changedCells: ChangedCells, data: Cell
   }
 }
 
+export const prepareTableData = (setTableData: React.Dispatch<Cell[][]>, data?: OfficesQueryResponse) => () => {
+  const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
+  setTableData(dataTable)
+}
+
 export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
@@ -363,11 +379,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const dispatch = useUploadDispatch()
 
   const [tableData, setTableData] = React.useState<Cell[][]>([[]])
-
-  React.useEffect(() => {
-    const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
-    setTableData(dataTable)
-  }, [loading, page])
+  React.useEffect(prepareTableData(setTableData, data), [loading, page])
 
   return (
     <div>
@@ -378,7 +390,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         pageSize: data?.GetOffices?.pageSize,
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
-        afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
+        afterCellsChanged: handleAfterCellChange(createOffice, updateOffice, setTableData),
         handleAfterUpload: handleAfterUpload(dispatch, connectSession?.accessToken || ''),
       })}
     </div>

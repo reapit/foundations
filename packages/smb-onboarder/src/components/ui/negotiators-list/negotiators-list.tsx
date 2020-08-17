@@ -104,12 +104,13 @@ export const getDataTable = (
   updateNegotiatorLoading: boolean,
   createNegotiator: (params) => void,
   officeData?: OfficesQueryResponse,
+  setData?: React.Dispatch<DataTableRow[][]>,
 ): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
 
   const StatusCheckbox = props => {
-    const { cellRenderProps, data, setData } = props
+    const { cellRenderProps, data } = props
     return (
       <NegotiatorStatusCheckbox
         cellRenderProps={cellRenderProps}
@@ -127,6 +128,8 @@ export const getDataTable = (
       <NegotiatorOfficeSelectbox
         cellRenderProps={cellRenderProps}
         officeData={officeData}
+        data={data}
+        setData={setData}
         spreadsheetData={data}
         createNegotiator={createNegotiator}
       />
@@ -425,6 +428,25 @@ export const renderNegotiatorList = ({
   )
 }
 
+export const prepareTableData = (
+  setData,
+  negotiatorData,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+) => () => {
+  const dataTable = getDataTable(
+    negotiatorData || { GetNegotiators: { _embedded: [] } },
+    updateNegotiator,
+    updateNegotiatorLoading,
+    createNegotiator,
+    officeData,
+    setData,
+  )
+  setData(dataTable)
+}
+
 export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const location = useLocation()
   const history = useHistory()
@@ -432,7 +454,6 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const page = Number(params?.page) || 1
 
   const [data, setData] = React.useState<DataTableRow[][]>([[]])
-
   const [updateNegotiator, { loading: updateNegotiatorLoading }] = useMutation(UPDATE_NEGOTIATOR)
 
   const { loading, data: negotiatorData } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(
@@ -488,16 +509,10 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
     variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
-  React.useEffect(() => {
-    const dataTable = getDataTable(
-      negotiatorData || { GetNegotiators: { _embedded: [] } },
-      updateNegotiator,
-      updateNegotiatorLoading,
-      createNegotiator,
-      officeData,
-    )
-    setData(dataTable)
-  }, [loading, page])
+  React.useEffect(
+    prepareTableData(setData, negotiatorData, updateNegotiator, updateNegotiatorLoading, createNegotiator, officeData),
+    [loading, page],
+  )
 
   return (
     <div>
