@@ -12,6 +12,7 @@ jest.mock('../../browser/index', () => ({
     connectAuthorizeRedirect: jest.fn(),
     connectLoginRedirect: jest.fn(),
     connectLogoutRedirect: jest.fn(),
+    connectInternalRedirect: '/some-path?someQuery=true',
   })),
 }))
 
@@ -32,6 +33,7 @@ describe('useReapitConnect', () => {
     expect(result.current.connectSession).toEqual(mockBrowserSession)
     expect(result.current.connectIsDesktop).toEqual(false)
     expect(result.current.connectHasSession).toEqual(true)
+    expect(result.current.connectInternalRedirect).toEqual('/some-path?someQuery=true')
 
     result.current.connectLoginRedirect('uri')
     result.current.connectLogoutRedirect('uri')

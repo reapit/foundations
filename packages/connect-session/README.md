@@ -77,11 +77,19 @@ reapitConnectBrowserSession.connectLogoutRedirect(redirectUri: string)
 // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
 reapitConnectBrowserSession.connectLoginRedirect(redirectUri: string)
 
+// String representation of the original path and query (eg '/some-path?someQuery=true'), of the page I was on before I
+// started the OAuth flow. We cache this in the state object before redirecting to the authorize endpoint as a convenience
+// so that I can preserve the state of my app on page refresh. Defaults to null if no state param exists in my current URI.
+// You may not find this behavior desireable so the module does not perform the redirect by default, however if you do
+// you will need to use this value in your code appropriate to your front end stack eg using a redirect component in React Router
+reapitConnectBrowserSession.connectInternalRedirect
+
 // A convenience getter to check if my app has been loaded inside RPS / Desktop / Agency Cloud
 reapitConnectBrowserSession.connectIsDesktop
 
 // A convenience getter to check if my app has a valid session
 reapitConnectBrowserSession.connectHasSession
+
 ```
 
 ## React Usage

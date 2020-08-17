@@ -78,6 +78,7 @@ export type ReapitConnectHook = {
   connectAuthorizeRedirect: (redirectUri?: string) => void
   connectLoginRedirect: (redirectUri?: string) => void
   connectLogoutRedirect: (redirectUri?: string) => void
+  connectInternalRedirect: string | null
   connectIsDesktop: boolean
   connectHasSession: boolean
 }
