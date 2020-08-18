@@ -12363,3 +12363,130 @@ export interface CreateUpwardLinkModel {
    */
   vendorSolicitorId?: string
 }
+
+export interface JournalEntries {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
+  associatedId?: string[]
+  negotiatorId?: string[]
+  typeId?: string[]
+  createdFrom?: string
+  createdTo?: string
+}
+/**
+ * Representation of a journal entry
+ */
+export interface JournalEntryModel {
+  /**
+   * The date and time when the journal entry was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The type of journal entry
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator that created the entry
+   */
+  negotiatorId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultJournalEntryModel_ {
+  _embedded?: {
+    /**
+     * The date and time when the journal entry was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+     */
+    propertyId?: string
+    /**
+     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+     */
+    associatedId?: string
+    /**
+     * The type of journal entry
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator that created the entry
+     */
+    negotiatorId?: string
+    /**
+     * The textual description of the journal entry event
+     */
+    description?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface CreateJournalEntryModel {
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
+}

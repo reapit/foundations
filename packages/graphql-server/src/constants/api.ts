@@ -20,6 +20,7 @@ export const URLS = {
   landlords: '/landlords',
   departments: '/departments',
   sources: '/sources',
+  journalEntries: 'journalEntries',
 }
 
 export const HEADERS = {
