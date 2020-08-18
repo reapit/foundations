@@ -5,6 +5,7 @@ import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 
 const { Suspense } = React
 
@@ -30,9 +31,14 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
   const isRoot = connectInternalRedirect === '/'
+  const hasReadWelcome = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
 
   if (!connectSession) {
     return null
+  }
+
+  if (!hasReadWelcome && location.pathname === Routes.APPS) {
+    return <Redirect to={Routes.WELCOME} />
   }
 
   if (
