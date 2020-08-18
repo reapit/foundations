@@ -23,7 +23,6 @@ const customersListReducer = (state: CustomersListState = defaultState, action: 
     return {
       ...state,
       isLoading: true,
-      errorMessage: '',
     }
   }
 

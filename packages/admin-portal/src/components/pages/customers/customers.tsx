@@ -1,6 +1,6 @@
 import React from 'react'
 import { History } from 'history'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -21,7 +21,6 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import qs from 'querystring'
-import { Dispatch } from 'redux'
 import { selectCustomersList } from '@/selector/customers'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { cleanObject } from '@reapit/utils'
@@ -131,7 +130,6 @@ const columns = [
 ]
 
 export const Customers: React.FC = () => {
-  const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
   const { isLoading, data, pageSize, pageNumber, totalCount } = useSelector(selectCustomersList)

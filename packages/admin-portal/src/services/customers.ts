@@ -20,6 +20,7 @@ export interface CustomerModel {
   name?: string
   address?: AddressModel
   links?: LinkModel[]
+  modified?: string
 }
 export type FetchCustomersListParams = FetchListCommonParams & {
   name?: string[]

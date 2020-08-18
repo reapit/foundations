@@ -1,131 +1,140 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import {
-  DevsManagement,
-  onPageChangeHandler,
+  Customers,
   onSearchHandler,
-  handleFetchData,
-  onClickStatusButton,
-} from '../devs-management'
-import { getMockRouterProps } from '@/utils/mock-helper'
+  onPageChangeHandler,
+  generateFilterValues,
+  CheckMarkCell,
+  LogoUploadButtonCell,
+  CustomersFilterForm,
+} from '../customers'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
-import { fetchDeveloperList } from '@/actions/devs-management'
-import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
+import { History } from 'history'
 
-const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
-  return {
-    ...appState,
-    adminDevManagement: {
-      loading,
-      ...(data ? { data } : {}),
-    },
-  }
-}
+const historyMock = ({
+  push: jest.fn(),
+} as unknown) as History<any>
 
-describe('AdminDevManagement', () => {
+describe('Customers', () => {
   let store, mockStore
   beforeEach(() => {
     mockStore = configureStore()
   })
   it('should match a snapshot when LOADING false', () => {
-    store = mockStore(createStore(false, {}))
+    store = mockStore(appState)
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <DevsManagement />
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
-
-  it('should show loader when LOADING true', () => {
-    store = mockStore(createStore(true, {}))
+  it('should match a snapshot when LOADING true', () => {
+    store = mockStore({
+      ...appState,
+      customers: {
+        list: {
+          ...appState.customers.list,
+          isLoading: true,
+        },
+      },
+    })
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <DevsManagement />
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
-
-  it('should render blank Info when data is empty', () => {
-    store = mockStore(createStore(true))
+  it('should match a snapshot when data is empty', () => {
+    store = mockStore({
+      ...appState,
+      customers: {
+        list: {
+          ...appState.customers.list,
+          data: [],
+        },
+      },
+    })
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <DevsManagement />
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-})
-
-const mockRouterProps = getMockRouterProps({ page: 2 })
-
-describe('onPageChangeHandler', () => {
-  it('should return a function when executing', () => {
-    const onPageChangeHandlerFn = onPageChangeHandler(mockRouterProps.history, {
-      name: '',
-      company: '',
-    } as DevsManagementFilterFormValues)
-    expect(onPageChangeHandlerFn).toBeDefined()
-
-    onPageChangeHandlerFn(2)
-    expect(mockRouterProps.history.push).toBeCalled()
   })
 })
 
 describe('onSearchHandler', () => {
-  it('should return a function when executing', () => {
-    const onSearchHandlerFn = onSearchHandler(mockRouterProps.history)
-    expect(onSearchHandlerFn).toBeDefined()
-
-    onSearchHandlerFn(
-      {
-        name: '',
-        company: '',
-      } as DevsManagementFilterFormValues,
-      {
-        setStatus: jest.fn(),
-      },
-    )
-    expect(mockRouterProps.history.push).toBeCalled()
+  const setStatusMock = jest.fn()
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+  it('should setStatus when !query', () => {
+    const fn = onSearchHandler(historyMock)
+    fn({ name: '' }, { setStatus: setStatusMock })
+    expect(setStatusMock).toHaveBeenCalledWith('Please enter at least one search criteria')
+  })
+  it('should push history when has query', () => {
+    const fn = onSearchHandler(historyMock)
+    const spy = jest.spyOn(historyMock, 'push')
+    fn({ name: 'test' }, { setStatus: setStatusMock })
+    expect(setStatusMock).toHaveBeenCalledWith('')
+    expect(spy).toHaveBeenCalledWith(`${Routes.CUSTOMERS}?name=test`)
   })
 })
 
-describe('handleFetchData', () => {
-  it('should run correctly', () => {
-    const dispatch = jest.fn()
-    const params = {
-      page: 1,
-      queryString: 'string',
-    }
-    const fn = handleFetchData(dispatch)
-    fn(params)
-    expect(dispatch).toBeCalledWith(fetchDeveloperList(params))
+describe('onPageChangeHandler', () => {
+  it('should work correctly', () => {
+    const fn = onPageChangeHandler(historyMock, new URLSearchParams())
+    fn(2)
+    const spy = jest.spyOn(historyMock, 'push')
+    expect(spy).toHaveBeenCalledWith(`${Routes.CUSTOMERS}?page=2`)
   })
 })
 
-describe('onClickStatusButton', () => {
-  it('should run correctly', () => {
-    const setDeveloper = jest.fn()
-    const setIsSetStatusModalOpen = jest.fn()
-    const developerData = {}
-    const fn = onClickStatusButton(setDeveloper, setIsSetStatusModalOpen, developerData)
-    fn()
-    expect(setDeveloper).toBeCalledWith({ ...developerData })
-    expect(setIsSetStatusModalOpen).toBeCalledWith(true)
+describe('generateFilterValues', () => {
+  it('should work correctly', () => {
+    const result = generateFilterValues(new URLSearchParams('?name=test'))
+    expect(result).toEqual({ name: 'test' })
+  })
+})
+
+describe('LogoUploadButtonCell', () => {
+  it('should match snapshot', () => {
+    const wrapper = shallow(<LogoUploadButtonCell />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('CheckMarkCell', () => {
+  it('should match snapshot with value', () => {
+    const wrapper = shallow(<CheckMarkCell cell={{ value: 'yes' }} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('should match snapshot without value', () => {
+    const wrapper = shallow(<CheckMarkCell cell={{ value: null }} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('CustomersFilterForm', () => {
+  it('should match snapshot', () => {
+    const wrapper = shallow(<CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} />)
+    expect(wrapper).toMatchSnapshot()
   })
 })

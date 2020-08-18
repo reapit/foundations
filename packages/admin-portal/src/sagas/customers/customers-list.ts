@@ -7,7 +7,7 @@ import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'
 
-const DEFAULT_PAGE = 1
+export const DEFAULT_PAGE = 1
 
 export const fetchCustomersListHandler = function*({ data: { queryString } }) {
   try {
@@ -23,8 +23,11 @@ export const fetchCustomersListHandler = function*({ data: { queryString } }) {
       name,
       agencyCloudId,
     })
-
-    yield put(fetchCustomersListSuccess(response))
+    if (response) {
+      yield put(fetchCustomersListSuccess(response))
+      return
+    }
+    throw new Error('Can not fetch customers list !')
   } catch (err) {
     yield put(fetchCustomersListFailed(err.message))
     yield call(notification.error, {
