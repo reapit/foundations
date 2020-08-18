@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
-import SetAsAdminModal from '@/components/pages/settings/set-as-admin-modal'
+import SetAsAdminModal from './set-as-admin'
 import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
@@ -30,35 +30,40 @@ export const columns = [
   {
     accessor: 'action',
     columnProps: {
-      style: { minWidth: '105px' },
+      style: { minWidth: '120px' },
     },
   },
 ]
 
 export const prepareData = (data, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible) => {
-  return data.map(user => ({
-    ...user,
-    action: (
-      <FlexContainerBasic centerContent flexColumn>
-        <a
-          className={styles.hyperlinked}
-          onClick={openSetMemberStatusModal(setSelectedUser, setEditStatusModalVisible, user)}
-        >
-          {user.isInactive ? 'Enable' : 'Disable'}
-        </a>
-        <a
-          data-test="button-cancel"
-          className={styles.hyperlinked}
-          onClick={() => {
-            setSelectedUser(user)
-            handleOpenSetAdminModal()
-          }}
-        >
-          Set as Admin
-        </a>
-      </FlexContainerBasic>
-    ),
-  }))
+  return data.map(user => {
+    const ableToSetAdmin = user.role === 'user' && user.status === 'active'
+    return {
+      ...user,
+      action: (
+        <FlexContainerBasic centerContent flexColumn>
+          <a
+            className={styles.hyperlinked}
+            onClick={openSetMemberStatusModal(setSelectedUser, setEditStatusModalVisible, user)}
+          >
+            {user.isInactive ? 'Enable' : 'Disable'}
+          </a>
+          {ableToSetAdmin && (
+            <a
+              data-test="button-cancel"
+              className={styles.hyperlinked}
+              onClick={() => {
+                setSelectedUser(user)
+                handleOpenSetAdminModal()
+              }}
+            >
+              Set as Admin
+            </a>
+          )}
+        </FlexContainerBasic>
+      ),
+    }
+  })
 }
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () => {
@@ -99,11 +104,7 @@ export const Members: React.FC = () => {
         onCancel={closeSetMemberStatusModal(setEditStatusModalVisible)}
         onSuccess={closeSetMemberStatusModal(setEditStatusModalVisible)}
       />
-      <SetAsAdminModal
-        visible={isSetAdminModalOpen}
-        afterClose={handleCloseSetAdminModal}
-        username={selectedUser?.name}
-      />
+      <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
     </Section>
   )
 }
