@@ -23,6 +23,7 @@ export type DirectDebitSectionProps = {
   setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
   initialStatus?: string
   isSubmittedDebit: boolean
+  disabled?: Boolean
 }
 
 type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
@@ -80,6 +81,7 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
   setIsSubmittedDebit,
   isSubmittedDebit,
   initialStatus,
+  disabled,
 }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
@@ -127,7 +129,9 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
             this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
             account will be verified by our Account Department.
           </FormSubHeading>
-          <Button onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>Setup Direct Debit</Button>
+          <Button disabled={Boolean(disabled)} onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>
+            Setup Direct Debit
+          </Button>
           <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         </GridItem>
         <DirectDebitModal
