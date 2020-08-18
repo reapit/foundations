@@ -8,6 +8,7 @@ import { selectClientId } from '@/selector/auth'
 import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 import { fetchCategories } from '@/actions/categories'
 import { APPS_PER_PAGE, FEATURED_APPS, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { getNumberOfItems } from './browse-app'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -19,19 +20,21 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const clientId = connectSession ? selectClientId(connectSession) : ''
 
   switch (route) {
-    case Routes.APPS:
+    case Routes.APPS: {
+      const numOfItemsPerPage = getNumberOfItems()
       store.dispatch(fetchDesktopIntegrationTypes({}))
       store.dispatch(fetchCategories({}))
       store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS, preview }))
       store.dispatch(
         fetchApps({
           pageNumber: page,
-          pageSize: APPS_PER_PAGE,
+          pageSize: numOfItemsPerPage,
           isFeatured: false,
           preview,
         }),
       )
       break
+    }
     case Routes.APP_DETAIL: {
       if (id) {
         store.dispatch(fetchAppDetail({ id, clientId }))

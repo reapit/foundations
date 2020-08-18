@@ -112,9 +112,11 @@ describe('Client', () => {
   describe('handleLoadMore', () => {
     it('should call dispatch', () => {
       const dispatch = jest.fn()
-      const fn = handleLoadMore({ dispatch, preview: false, loading: false })
+      const fn = handleLoadMore({ dispatch, preview: false, loading: false, numOfItemsPerPage: 12 })
       fn(1)
-      expect(dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, preview: false, isInfinite: true }))
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchApps({ pageNumber: 1, preview: false, isInfinite: true, pageSize: 12 }),
+      )
     })
   })
 
