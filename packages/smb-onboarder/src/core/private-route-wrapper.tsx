@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
+import { withRouter, RouteComponentProps, Redirect, useLocation } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
 import Routes from '@/constants/routes'
@@ -15,14 +15,17 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
 }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const location = useLocation()
+  const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
     return null
   }
 
-  if (location.pathname === '/') {
-    return <Redirect to={Routes.HELP} />
+  if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
+    const redirectUri = connectInternalRedirect === '/' ? Routes.HELP : connectInternalRedirect
+    return <Redirect to={redirectUri} />
   }
 
   return (

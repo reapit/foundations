@@ -4,7 +4,8 @@ import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
-import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons/fa'
+import { FaCloud, FaCloudDownloadAlt, FaClipboardList } from 'react-icons/fa'
+import { IoIosPeople } from 'react-icons/io'
 import { selectIsAdmin, selectDeveloperId } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -41,10 +42,9 @@ export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): M
         disabled: !isAdmin,
       },
       {
-        title: 'Settings',
         key: 'SETTINGS',
         url: Routes.SETTINGS,
-        icon: <FaCog className="nav-item-icon" />,
+        icon: <IoIosPeople className="nav-item-icon" />,
         type: 'SECONDARY',
       },
     ],

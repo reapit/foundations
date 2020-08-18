@@ -12,7 +12,9 @@ import {
   DirectApiSection,
   BackToAppsSection,
 } from '../common/ui-sections'
+
 import { useHistory } from 'react-router'
+import { DeveloperAboutSection } from '../../app-detail/app-sections'
 
 interface AsideProps {
   appDetailData: AppDetailModel
@@ -26,13 +28,15 @@ export const onBackToAppsButtonClick = (history: History) => {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  const { category, developer, telephone, supportEmail, homePage, isDirectApi } = appDetailData
+  const { category, developer, telephone, supportEmail, homePage, isDirectApi, developerAbout } = appDetailData
+
   const { isMobile } = useReactResponsive()
   const history = useHistory()
 
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
       {developer && <DeveloperSection developer={developer} isSidebar />}
+      {developerAbout && <DeveloperAboutSection isSidebar>{developerAbout}</DeveloperAboutSection>}
       <CategorySection category={category} isSidebar />
       <DesktopIntegrationSection desktopIntegrationTypes={desktopIntegrationTypes} isSidebar />
       <DirectApiSection isDirectApi={isDirectApi} isSidebar />

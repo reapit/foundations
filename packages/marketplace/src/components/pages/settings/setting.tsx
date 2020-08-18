@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { H3, Button, LevelRight, FormHeading, FormSubHeading, Section } from '@reapit/elements'
+import { H3, Button, Section, Grid, GridItem, H6 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { selectClientId } from '@/selector/auth'
@@ -39,23 +39,62 @@ export const Settings: React.FC = () => {
 
   return (
     <>
-      <Section>
-        <H3>Settings</H3>
+      <Section isFlex className="justify-between items-center">
+        <H3 className="mb-0">Settings</H3>
+        {!connectIsDesktop && (
+          <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+            Logout
+          </Button>
+        )}
       </Section>
       <Section>
-        <FormHeading>
-          Customer ID: <strong>{customerId}</strong>{' '}
-        </FormHeading>
-        <FormSubHeading>
-          This is your Customer ID which you will need for use with Private Apps and Web Components.
-        </FormSubHeading>
-        <LevelRight className="bt pt-4">
-          {!connectIsDesktop && (
-            <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-              Logout
-            </Button>
-          )}
-        </LevelRight>
+        <Grid>
+          <GridItem>
+            <Grid>
+              <GridItem>Name:</GridItem>
+              <GridItem>
+                <H6>John Smith</H6>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem>
+            <Grid>
+              <GridItem>Email Address:</GridItem>
+              <GridItem>
+                <H6>johnsmith@agent.com</H6>
+              </GridItem>
+            </Grid>
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem>
+            <Grid>
+              <GridItem>Company:</GridItem>
+              <GridItem>
+                <H6>Agent Ltd</H6>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem>
+            <Grid>
+              <GridItem>Customer ID:</GridItem>
+              <GridItem>
+                <H6>{customerId}</H6>
+              </GridItem>
+            </Grid>
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem>
+            <Grid>
+              <GridItem>Company Address:</GridItem>
+              <GridItem>
+                <H6>1 Street, Town, AB1 2CD</H6>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem />
+        </Grid>
       </Section>
       <ChangePasswordForm changePassword={changePassword} loading={loading} />
     </>
