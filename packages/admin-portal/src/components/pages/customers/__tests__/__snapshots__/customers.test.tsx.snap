@@ -1,0 +1,442 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckMarkCell should match snapshot with value 1`] = `
+<FaCheck
+  className="has-text-success"
+/>
+`;
+
+exports[`CheckMarkCell should match snapshot without value 1`] = `
+<FaTimes
+  className="has-text-danger"
+/>
+`;
+
+exports[`Customers should match a snapshot when LOADING false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "customersRoute",
+          "pathname": "/customers",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "customersRoute",
+              "pathname": "/customers",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "customersRoute",
+            "pathname": "/customers",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          variant="info"
+        >
+          <div
+            className="notification helper-wrap helper-info"
+          >
+            Unfortunately, there are no results that match your search criteria, please try again
+          </div>
+        </Component>
+        <Link
+          className="text-center"
+          to="/customers"
+        >
+          <LinkAnchor
+            className="text-center"
+            href="/customers"
+            navigate={[Function]}
+          >
+            <a
+              className="text-center"
+              href="/customers"
+              onClick={[Function]}
+            >
+              <Component
+                type="button"
+                variant="primary"
+              >
+                <button
+                  className="button  is-primary  "
+                  data-test=""
+                  disabled={false}
+                  type="button"
+                >
+                  New Search
+                </button>
+              </Component>
+            </a>
+          </LinkAnchor>
+        </Link>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Customers should match a snapshot when LOADING true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "customersRoute",
+          "pathname": "/customers",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "customersRoute",
+              "pathname": "/customers",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "customersRoute",
+            "pathname": "/customers",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <ErrorBoundary>
+          <Component
+            className="mb-0"
+          >
+            <section
+              className=""
+              data-test=""
+            >
+              <Component>
+                <h3
+                  className=""
+                  id=""
+                >
+                  Customers
+                </h3>
+              </Component>
+            </section>
+          </Component>
+          <Component
+            filterValues={
+              Object {
+                "name": "",
+              }
+            }
+            onSearch={[Function]}
+          >
+            <Formik
+              initialValues={
+                Object {
+                  "name": "",
+                }
+              }
+              onSubmit={[Function]}
+            >
+              <Form
+                noValidate={true}
+              >
+                <form
+                  action="#"
+                  noValidate={true}
+                  onReset={[Function]}
+                  onSubmit={[Function]}
+                >
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      <Component
+                        className="items-center"
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component>
+                            <div
+                              className=""
+                              data-test=""
+                            >
+                              <Component
+                                id="name"
+                                labelText="Company Name"
+                                maxLength={256}
+                                name="name"
+                                type="text"
+                              >
+                                <Field
+                                  name="name"
+                                  validate={null}
+                                >
+                                  <div
+                                    className=""
+                                  >
+                                    <div
+                                      className="control "
+                                    >
+                                      <label
+                                        className="label inline-block "
+                                        htmlFor="name"
+                                      >
+                                        Company Name
+                                      </label>
+                                      <input
+                                        className=""
+                                        data-test=""
+                                        disabled={false}
+                                        id="name"
+                                        maxLength={256}
+                                        name="name"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        placeholder=""
+                                        type="text"
+                                        value=""
+                                      />
+                                    </div>
+                                  </div>
+                                </Field>
+                              </Component>
+                            </div>
+                          </Component>
+                          <Component
+                            className="mt-4"
+                          >
+                            <div
+                              className=""
+                              data-test=""
+                            >
+                              <Component
+                                type="submit"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="submit"
+                                >
+                                  Search
+                                </button>
+                              </Component>
+                            </div>
+                          </Component>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </form>
+              </Form>
+            </Formik>
+          </Component>
+          <Component>
+            <div
+              className="loader-spinner body"
+              data-test=""
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+          </Component>
+        </ErrorBoundary>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Customers should match a snapshot when data is empty 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "customersRoute",
+          "pathname": "/customers",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "customersRoute",
+              "pathname": "/customers",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "customersRoute",
+            "pathname": "/customers",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          variant="info"
+        >
+          <div
+            className="notification helper-wrap helper-info"
+          >
+            Unfortunately, there are no results that match your search criteria, please try again
+          </div>
+        </Component>
+        <Link
+          className="text-center"
+          to="/customers"
+        >
+          <LinkAnchor
+            className="text-center"
+            href="/customers"
+            navigate={[Function]}
+          >
+            <a
+              className="text-center"
+              href="/customers"
+              onClick={[Function]}
+            >
+              <Component
+                type="button"
+                variant="primary"
+              >
+                <button
+                  className="button  is-primary  "
+                  data-test=""
+                  disabled={false}
+                  type="button"
+                >
+                  New Search
+                </button>
+              </Component>
+            </a>
+          </LinkAnchor>
+        </Link>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`CustomersFilterForm should match snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "name": "test",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Component />
+</Formik>
+`;
+
+exports[`LogoUploadButtonCell should match snapshot 1`] = `
+<Component
+  type="button"
+  variant="primary"
+>
+  LOGO UPLOAD
+</Component>
+`;
