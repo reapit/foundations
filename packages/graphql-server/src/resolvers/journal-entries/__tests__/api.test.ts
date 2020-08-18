@@ -13,7 +13,7 @@ jest.mock('../../../utils/axios-instances', () => ({
       }),
       post: jest.fn(() => {
         return {
-          data: true,
+          status: 204,
         }
       }),
     }
