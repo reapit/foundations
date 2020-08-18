@@ -8,6 +8,8 @@ import {
   UpdateWorksOrderReturn,
   GetWorksOrderItemsArgs,
   GetWorksOrderItemsReturn,
+  GetWorksOrderItembyIdArgs,
+  GetWorksOrderItemByIdReturn,
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/index'
@@ -17,6 +19,34 @@ import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
+
+export const callGetWorksOrderItemByIdAPI = async (
+  args: GetWorksOrderItembyIdArgs,
+  context: ServerContext,
+): GetWorksOrderItemByIdReturn => {
+  const traceId = context.traceId
+
+  logger.info('callGetWorksOrderByIdAPI', { traceId, args })
+
+  const { id, itemId } = args
+
+  try {
+    const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(
+      `${URLS.worksOrders}/${id}/items/${itemId}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
+      },
+    )
+
+    return response?.data
+  } catch (error) {
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetWorksOrderByIdAPI' })
+
+    return handleErrorResult
+  }
+}
 
 export const callGetWorksOrderItemsAPI = async (
   args: GetWorksOrderItemsArgs,

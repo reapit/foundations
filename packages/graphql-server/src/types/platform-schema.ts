@@ -1,3 +1,66 @@
+export interface WorksOrderItemModel {
+  /**
+   * The unique identifier of the works order item
+   */
+  id?: string
+  /**
+   * The unique identifier of the parent works order
+   */
+  worksOrderId?: string
+  /**
+   * The date and time when the works order item was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the works order item was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The notes attached to the works order item
+   */
+  notes?: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo?: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The additional vat cost for the work to be carried out
+   */
+  vatAmount?: number // double
+  /**
+   * The gross cost of the work to be carried out
+   */
+  grossAmount?: number // double
+  /**
+   * The ETag for the current version of the works order item. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
 export interface PagedResultWorksOrderItemModel_ {
   _embedded?: {
     /**

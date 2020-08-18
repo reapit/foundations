@@ -460,9 +460,8 @@ type Query {
     metadata: JSON
   ): PagedResultWorksOrders!
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
-
-  # getWorkerkerItems
   GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
+  GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem
 }
 
 input ApplicantAddressInput {
@@ -1023,8 +1022,6 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
-
-  # patchWorkerOrder
   UpdateWorksOrder(
     propertyId: String
     negotiatorId: String

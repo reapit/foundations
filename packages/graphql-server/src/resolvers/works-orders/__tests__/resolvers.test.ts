@@ -7,6 +7,7 @@ import {
   mutationCreateWorksOrder,
   mutationUpdateWorksOrder,
   queryGetWorksOrderItems,
+  queryGetWorksOrderById,
 } from '../resolvers'
 
 import {
@@ -14,7 +15,9 @@ import {
   worksOrderStub,
   getWorksOrderByIdArgsStub,
   worksOrderItemListStub,
-  getWorksOrderItemsArgStub,
+  getWorksOrderItemsArgsStub,
+  getWorksOrderItemByIdArgsStub,
+  worksOrderItemStub,
 } from '../__stubs__/works-orders-query'
 import { mockContext } from '../../../__stubs__/context'
 import { createWorksOrderArgsStub, updateWorkOrderArgsStub } from '../__stubs__/works-orders-mutation'
@@ -25,6 +28,7 @@ jest.mock('../services', () => ({
   createWorksOrder: jest.fn(() => worksOrderStub),
   updateWorksOrder: jest.fn(() => worksOrderStub),
   getWorksOrderItems: jest.fn(() => worksOrderItemListStub),
+  getWorksOrderItemById: jest.fn(() => worksOrderItemStub),
 }))
 
 jest.mock('../../../errors', () => ({
@@ -35,19 +39,36 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('queryGetWorksOrderItems', () => {
+describe('queryGetWorksOrderById', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
 
-    const result = queryGetWorksOrderItems(null, getWorksOrderItemsArgStub, mockContext)
+    const result = queryGetWorksOrderById(null, getWorksOrderItemByIdArgsStub, mockContext)
 
-    expect(result).toEqual(worksOrdersServices.getWorksOrderItems(getWorksOrderItemsArgStub, mockContext))
+    expect(result).toEqual(worksOrdersServices.getWorksOrderItemById(getWorksOrderItemByIdArgsStub, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
 
-    const result = queryGetWorksOrderItems(null, getWorksOrderItemsArgStub, mockContext)
+    const result = queryGetWorksOrderById(null, getWorksOrderItemByIdArgsStub, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('queryGetWorksOrderItems', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+
+    const result = queryGetWorksOrderItems(null, getWorksOrderItemsArgsStub, mockContext)
+
+    expect(result).toEqual(worksOrdersServices.getWorksOrderItems(getWorksOrderItemsArgsStub, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+
+    const result = queryGetWorksOrderItems(null, getWorksOrderItemsArgsStub, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

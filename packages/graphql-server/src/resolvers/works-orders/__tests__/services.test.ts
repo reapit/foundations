@@ -4,6 +4,7 @@ import {
   callCreateWorksOrderByIdAPI,
   callUpdateWorksOrderAPI,
   callGetWorksOrderItemsAPI,
+  callGetWorksOrderItemByIdAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/context'
 import {
@@ -11,9 +12,18 @@ import {
   worksOrderStub,
   getWorksOrderByIdArgsStub,
   worksOrderItemListStub,
-  getWorksOrderItemsArgStub,
+  getWorksOrderItemsArgsStub,
+  getWorksOrderItemByIdArgsStub,
+  worksOrderItemStub,
 } from '../__stubs__/works-orders-query'
-import { getWorksOrders, getWorkOrderById, createWorksOrder, updateWorksOrder, getWorksOrderItems } from '../services'
+import {
+  getWorksOrders,
+  getWorkOrderById,
+  createWorksOrder,
+  updateWorksOrder,
+  getWorksOrderItems,
+  getWorksOrderItemById,
+} from '../services'
 import { createWorksOrderArgsStub, updateWorkOrderArgsStub } from '../__stubs__/works-orders-mutation'
 
 jest.mock('../../../logger')
@@ -23,11 +33,21 @@ jest.mock('../api', () => ({
   callCreateWorksOrderByIdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callUpdateWorksOrderAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callGetWorksOrderItemsAPI: jest.fn(() => worksOrderItemListStub),
+  callGetWorksOrderItemByIdAPI: jest.fn(() => worksOrderItemStub),
 }))
+
+describe('getWorksOrderItemById', () => {
+  it('should return correctly', async () => {
+    const result = await getWorksOrderItemById(getWorksOrderItemByIdArgsStub, mockContext)
+
+    expect(callGetWorksOrderItemByIdAPI).toHaveBeenCalledWith(getWorksOrderItemByIdArgsStub, mockContext)
+    expect(result).toEqual(worksOrderItemStub)
+  })
+})
 
 describe('getWorksOrderItems', () => {
   it('should return correctly', async () => {
-    const args = getWorksOrderItemsArgStub
+    const args = getWorksOrderItemsArgsStub
     const result = await getWorksOrderItems(args, mockContext)
 
     expect(callGetWorksOrderItemsAPI).toHaveBeenCalledWith(args, mockContext)

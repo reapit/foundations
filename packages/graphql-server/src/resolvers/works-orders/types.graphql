@@ -130,12 +130,12 @@ type Query {
 
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
 
-  # getWorkerkerItems
   GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
+  GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem
+  # getWorkerkerItem
 }
 
 type Mutation {
-  # patchWorkerOrder
   UpdateWorksOrder(
     propertyId: String
     negotiatorId: String

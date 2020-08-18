@@ -1,7 +1,12 @@
 import { PagedResultWorksOrderModel_ } from '../../types'
 import { UserInputError, AuthenticationError } from 'apollo-server-lambda'
 
-import { WorksOrderModel, UpdateWorksOrderModel, PagedResultWorksOrderItemModel_ } from '../../types'
+import {
+  WorksOrderModel,
+  UpdateWorksOrderModel,
+  PagedResultWorksOrderItemModel_,
+  WorksOrderItemModel,
+} from '../../types'
 
 export { CreateWorksOrderModel as CreateWorksOrderArgs, WorksOrders as GetWorksOrdersArgs } from '../../types'
 
@@ -13,6 +18,11 @@ export type GetWorksOrdersByIdArgs = {
   embed?: 'company' | 'documents' | 'negotiator' | 'property' | 'tenancy' | 'type'
 }
 
+export type GetWorksOrderItembyIdArgs = {
+  id: string
+  itemId: string
+}
+
 export type GetWorksOrderItemsArgs = {
   pageNumber?: number
   pageSize?: number
@@ -20,8 +30,8 @@ export type GetWorksOrderItemsArgs = {
 }
 
 // api return types
-
 export type GetWorksOrderItemsReturn = Promise<PagedResultWorksOrderItemModel_ | UserInputError>
+export type GetWorksOrderItemByIdReturn = Promise<WorksOrderItemModel | UserInputError>
 
 export type GetWorksOrdersReturn = Promise<PagedResultWorksOrderModel_ | UserInputError>
 export type GetWorksOrderByIdReturn = Promise<WorksOrderModel | UserInputError>
@@ -30,7 +40,8 @@ export type UpdateWorksOrderReturn = GetWorksOrderByIdReturn
 
 // resolver return types
 
-export type QueryGetWorksOrderItemReturn = AuthenticationError | GetWorksOrderItemsReturn
+export type QueryGetWorksOrderItemsReturn = AuthenticationError | GetWorksOrderItemsReturn
+export type QueryGetWorksOrderItemByIdReturn = AuthenticationError | GetWorksOrderItemByIdReturn
 
 export type QueryGetWorksOrdersReturn = AuthenticationError | GetWorksOrdersReturn
 export type QueryGetWorksOrdersByIdReturn = AuthenticationError | GetWorksOrderByIdReturn

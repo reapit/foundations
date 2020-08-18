@@ -1,8 +1,42 @@
-import { PagedResultWorksOrderModel_, WorksOrderModel, PagedResultWorksOrderItemModel_ } from '../../../types'
-import { GetWorksOrdersByIdArgs, GetWorksOrderItemsArgs } from '../works-orders'
+import {
+  PagedResultWorksOrderModel_,
+  WorksOrderModel,
+  PagedResultWorksOrderItemModel_,
+  WorksOrderItemModel,
+} from '../../../types'
+import { GetWorksOrdersByIdArgs, GetWorksOrderItemsArgs, GetWorksOrderItembyIdArgs } from '../works-orders'
 
-export const getWorksOrderItemsArgStub: GetWorksOrderItemsArgs = {
+export const getWorksOrderItemsArgsStub: GetWorksOrderItemsArgs = {
   id: '1',
+}
+
+export const getWorksOrderItemByIdArgsStub: GetWorksOrderItembyIdArgs = {
+  id: '1',
+  itemId: '1',
+}
+
+export const worksOrderItemStub: WorksOrderItemModel = {
+  id: 'RPT20000038',
+  worksOrderId: 'RPT20000022',
+  created: '2020-08-18T03:44:38Z',
+  modified: '2020-08-18T03:44:38Z',
+  notes: 'Please book the electrical certificate for either Thursday or Friday.',
+  chargeTo: 'landlord',
+  estimate: 120.0,
+  estimateType: 'written',
+  netAmount: 100.0,
+  vatAmount: 20.0,
+  grossAmount: 120.0,
+  _eTag: '"B5EF59E141ED088D090B6C61495C4741"',
+  _links: {
+    self: {
+      href: '/worksOrders/RPT20000022/items/RPT20000038',
+    },
+    worksOrder: {
+      href: '/worksOrders/RPT20000022',
+    },
+  },
+  _embedded: null,
 }
 
 export const worksOrderItemListStub: PagedResultWorksOrderItemModel_ = {
