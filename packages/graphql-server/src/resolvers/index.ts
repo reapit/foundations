@@ -19,6 +19,7 @@ import Conveyancing from './conveyancing/resolvers'
 import Landlords from './landlords/resolvers'
 import Tasks from './tasks/resolvers'
 import Sources from './sources/resolvers'
+import Enquiries from './enquiries/resolvers'
 
 export const resolvers = merge(
   {
@@ -43,5 +44,6 @@ export const resolvers = merge(
   Conveyancing,
   Landlords,
   Sources,
+  Enquiries,
 )
 export default resolvers
