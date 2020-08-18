@@ -1,18 +1,17 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import {
-  fetchCustomersList,
-  fetchCustomersListSuccess,
-  fetchCustomersListFailed,
-  PagedResultCustomerModel_,
-} from '@/actions/customers'
+import { fetchCustomersList, fetchCustomersListSuccess, fetchCustomersListFailed } from '@/actions/customers'
+import { PagedResultCustomerModel_ } from '@/services/customers'
 
-export type CustomersListState = PagedResultCustomerModel_ & { isLoading: boolean; errorMessage: string }
+export type CustomersListState = PagedResultCustomerModel_ & {
+  isLoading: boolean
+  errorMessage: string
+}
 
 export const defaultState: CustomersListState = {
   isLoading: false,
   errorMessage: '',
-  data: null,
+  data: [],
   pageSize: 0,
   pageNumber: 0,
   pageCount: 0,

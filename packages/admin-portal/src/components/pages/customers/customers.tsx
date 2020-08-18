@@ -9,10 +9,8 @@ import {
   Table,
   Button,
   Loader,
-  setQueryParams,
   Helper,
   H3,
-  isEmptyObject,
   Section,
   Form,
   FormSection,
@@ -22,23 +20,24 @@ import {
   Formik,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
 import qs from 'querystring'
 import { Dispatch } from 'redux'
-import { cleanObject } from '@reapit/utils'
 import { selectCustomersList } from '@/selector/customers'
+import { FaCheck, FaTimes } from 'react-icons/fa'
+import { cleanObject } from '@reapit/utils'
 
 export type FilterValues = {
   name: string
 }
 
+export type OnSearch = (filterValues: FilterValues, { setStatus }: { setStatus: (string) => any }) => void
 export type CustomersFilterFormProps = {
   filterValues: FilterValues
-  onSearch: (history: History) => void
+  onSearch: OnSearch
 }
 
-export const generateFilterValues = (queryParams: URLSearchParams) => (): CustomersFilterFormProps => {
-  const name = queryParams.get('name') || ''
+export const generateFilterValues = (queryParams: URLSearchParams): FilterValues => {
+  const name = queryParams.get('name') ?? ''
   return { name }
 }
 
@@ -46,17 +45,18 @@ export const onPageChangeHandler = (history: History<any>, queryParams: URLSearc
   // remove old page params
   queryParams.delete('page')
   // and insert new page params
-  queryParams.append('page', page)
+  queryParams.append('page', page.toString())
   history.push(`${Routes.CUSTOMERS}?${queryParams.toString()}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (filterValues: FilterValues, { setStatus }) => {
-  const query = qs.stringify(filterValues)
+export const onSearchHandler = (history: History<any>): OnSearch => (filterValues, { setStatus }) => {
+  const query = qs.stringify(cleanObject(filterValues))
   if (!query) {
     setStatus('Please enter at least one search criteria')
     return
   }
-  const queryString = `page=1&${query}`
+  setStatus('')
+  const queryString = `${query}`
   history.push(`${Routes.CUSTOMERS}?${queryString}`)
 }
 
@@ -84,34 +84,58 @@ export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filter
   </Formik>
 )
 
+export const LogoUploadButtonCell = () => {
+  return (
+    <Button type="button" variant="primary">
+      LOGO UPLOAD
+    </Button>
+  )
+}
+
+export const CheckMarkCell = ({ cell: { value } }) => {
+  return value ? <FaCheck className="has-text-success" /> : <FaTimes className="has-text-danger" />
+}
+
+const columns = [
+  { Header: 'Customer ID', accessor: 'agencyCloudId' },
+  { Header: 'Company', accessor: 'name' },
+  {
+    Header: 'Address',
+    accessor: ({ address }) => {
+      const {
+        buildingName = '',
+        buildingNumber = '',
+        line1 = '',
+        line2 = '',
+        line3 = '',
+        line4 = '',
+        postcode = '',
+        countryId = '',
+      } = address
+
+      return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+    },
+  },
+  // TBC
+  {
+    Header: 'Logo',
+    accessor: 'logo',
+    Cell: CheckMarkCell,
+  },
+  // TBC
+  {
+    Header: '',
+    id: 'logoUpload',
+    Cell: LogoUploadButtonCell,
+  },
+]
+
 export const Customers: React.FC = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
   const { isLoading, data, pageSize, pageNumber, totalCount } = useSelector(selectCustomersList)
   const queryParams = new URLSearchParams(location.search)
-
-  const LogoUploadButtonCell = () => {
-    return (
-      <Button type="button" variant="primary">
-        LOGO UPLOAD
-      </Button>
-    )
-  }
-
-  const columns = [
-    { Header: 'Customer ID', accessor: 'agencyCloudId' },
-    { Header: 'Company', accessor: 'name' },
-    { Header: 'Address', accessor: 'jobTitle' },
-    // TBC
-    { Header: 'Logo', accessor: 'logo' },
-    // TBC
-    {
-      Header: '',
-      id: 'logoUpload',
-      Cell: LogoUploadButtonCell,
-    },
-  ]
 
   if (!isLoading && data?.length === 0) {
     return (

@@ -12,9 +12,10 @@ const DEFAULT_PAGE = 1
 export const fetchCustomersListHandler = function*({ data: { queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
-    const page = queryParams.get('page') ?? DEFAULT_PAGE
-    const name = queryParams.get('name') ?? ''
-    const agencyCloudId = queryParams.get('agencyCloudId') ?? ''
+    const pageNumber = parseInt(queryParams.get('page') as string)
+    const page = pageNumber < 1 || isNaN(pageNumber) ? DEFAULT_PAGE : pageNumber
+    const name = queryParams.getAll('name')
+    const agencyCloudId = queryParams.getAll('agencyCloudId')
 
     const response = yield call(fetchCustomersListAPI, {
       pageSize: CUSTOMERS_PER_PAGE,

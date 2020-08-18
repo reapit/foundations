@@ -6,15 +6,15 @@ import { FetchListCommonParams } from './types'
 import { AddressModel, LinkModel } from '@reapit/foundations-ts-definitions'
 
 export interface PagedResultCustomerModel_ {
-  pageNumber: number
-  pageSize: number
-  pageCount: number
-  totalCount: number
-  data: CustomerModel[] | null
+  pageNumber?: number
+  pageSize?: number
+  pageCount?: number
+  totalCount?: number
+  data?: CustomerModel[]
 }
 
 export interface CustomerModel {
-  id: string
+  id?: string
   created?: string
   agencyCloudId?: string
   name?: string

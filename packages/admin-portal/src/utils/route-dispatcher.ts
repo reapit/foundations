@@ -23,7 +23,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchAppList(getParamsFromPath(search || '')))
       break
     case Routes.CUSTOMERS:
-      store.dispatch(fetchCustomersList({ queryString: search }))
+      store.dispatch(fetchCustomersList({ queryString: search || '' }))
       break
     default:
       console.error('Route not found, nothing to fetch')
