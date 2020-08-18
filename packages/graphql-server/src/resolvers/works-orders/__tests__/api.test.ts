@@ -1,8 +1,13 @@
 import { mockContext } from '../../../__stubs__/context'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
 import { worksOrderList, getWorksOrderByIdArgs, worksOrder } from '../__stubs__/works-orders-query'
-import { callGetWorksOrderByIdAPI, callGetWorksOrders, callCreateWorksOrder } from '../api'
-import { createWorksOrderArgs } from '../__stubs__/works-orders-mutation'
+import {
+  callGetWorksOrderByIdAPI,
+  callGetWorksOrdersAPI,
+  callCreateWorksOrderAPI,
+  callUpdateWorksOrderAPI,
+} from '../api'
+import { createWorksOrderArgsStub, updateWorkOrderArgsStub } from '../__stubs__/works-orders-mutation'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
@@ -23,21 +28,37 @@ jest.mock('../../../utils/axios-instances', () => ({
   })),
 }))
 
-describe('callCreateWorksOrder', () => {
+describe('callUpdateWorksOrderAPI', () => {
+  it('should work correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      post: jest.fn(() => Promise.resolve({ headers: 'header' })),
+    })
+    await callUpdateWorksOrderAPI(updateWorkOrderArgsStub, mockContext)
+  })
+  it('should catch error correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      post: jest.fn(() => Promise.reject('error caught')),
+    })
+    const result = await callUpdateWorksOrderAPI(updateWorkOrderArgsStub, mockContext)
+    expect(result).toEqual('caught error')
+  })
+})
+
+describe('callCreateWorksOrderAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
       get: jest.fn(() => Promise.resolve({ data: worksOrder })),
     })
     ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(worksOrder.id)
-    await callCreateWorksOrder(createWorksOrderArgs, mockContext)
+    await callCreateWorksOrderAPI(createWorksOrderArgsStub, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateWorksOrder(createWorksOrderArgs, mockContext)
+    const result = await callCreateWorksOrderAPI(createWorksOrderArgsStub, mockContext)
     expect(result).toEqual('caught error')
   })
 })
@@ -62,13 +83,13 @@ describe('callGetWorksOrderByIdAPI', () => {
   })
 })
 
-describe('callGetWorksOrders', () => {
+describe('callGetWorksOrdersAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: worksOrderList })),
     })
     const args = { pageSize: 1 }
-    const result = await callGetWorksOrders(args, mockContext)
+    const result = await callGetWorksOrdersAPI(args, mockContext)
     expect(result).toEqual(worksOrderList)
   })
   it('should catch error correctly', async () => {
@@ -76,7 +97,7 @@ describe('callGetWorksOrders', () => {
       get: jest.fn(() => Promise.reject('error caught')),
     })
     const args = { pageSize: 1 }
-    const result = await callGetWorksOrders(args, mockContext)
+    const result = await callGetWorksOrdersAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })

@@ -1,3 +1,62 @@
+export interface UpdateWorksOrderModel {
+  /**
+   * The unique identifier of the company that has been selected to perform the work
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the property where the work is to be carried out
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy that the works order originated from
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the negotiator that booked the works order
+   */
+  negotiatorId?: string
+  /**
+   * The unique id of the type of work that needs to be carried out
+   */
+  typeId?: string
+  /**
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   */
+  status?: string
+  /**
+   * A free text description of the work required
+   */
+  description?: string
+  /**
+   * The party requesting the work to be carried out (landlord/tenant/other)
+   */
+  reporter?: string
+  /**
+   * The date when the works order was booked
+   * example:
+   * 2019-08-14
+   */
+  booked?: string // date
+  /**
+   * The date when the work is required to be completed by
+   * example:
+   * 2019-08-14
+   */
+  required?: string // date
+  /**
+   * The date when the work was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * App specific metadata to set against the works order
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+
 export interface CreateWorksOrderModel {
   /**
    * The unique identifier of the company that has been selected to perform the work

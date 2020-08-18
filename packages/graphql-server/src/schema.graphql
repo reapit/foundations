@@ -1020,6 +1020,24 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+
+  # patchWorkerOrder
+  UpdateWorksOrder(
+    propertyId: String
+    negotiatorId: String
+    typeId: String
+    status: String
+    description: String
+    reporter: String
+    companyId: String
+    tenancyId: String
+    booked: String
+    required: String
+    completed: String
+    metadata: JSON
+    _eTag: String!
+    id: String!
+  ): WorkOrder!
   CreateWorksOrder(
     # required
     propertyId: String!

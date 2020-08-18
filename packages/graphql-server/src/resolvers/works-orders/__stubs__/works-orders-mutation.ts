@@ -1,6 +1,26 @@
-import { CreateWorksOrderArgs } from '../works-orders'
+import { CreateWorksOrderArgs, UpdateWorksOrderArgs } from '../works-orders'
 
-export const createWorksOrderArgs: CreateWorksOrderArgs = {
+export const updateWorkOrderArgsStub: UpdateWorksOrderArgs = {
+  _eTag: '"B219B9AD4E8EE3088561590FA3A6898E"',
+  id: 'RPT20000022',
+  companyId: 'OXF18000001',
+  propertyId: 'OXF190001',
+  tenancyId: 'OXF190022',
+  negotiatorId: 'JAS',
+  typeId: 'ES',
+  status: 'complete',
+  description: 'Demo.2',
+  reporter: 'landlord',
+  booked: '2019-05-10',
+  required: '2019-08-12',
+  completed: '2019-10-01',
+  metadata: {
+    CustomField1: 'CustomVa2lue1',
+    CustomField2: true,
+  },
+}
+
+export const createWorksOrderArgsStub: CreateWorksOrderArgs = {
   companyId: 'OXF18000001',
   propertyId: 'OXF190001',
   tenancyId: 'OXF190022',
