@@ -9,5 +9,6 @@ export const URLS = {
   installations: '/installations',
   scopes: '/scopes',
   categories: '/categories',
+  customers: '/customers',
   desktopIntegrationTypes: '/DesktopIntegrationTypes',
 }

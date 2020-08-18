@@ -1,0 +1,140 @@
+import * as React from 'react'
+import { mount, shallow } from 'enzyme'
+import {
+  Customers,
+  onSearchHandler,
+  onPageChangeHandler,
+  generateFilterValues,
+  CheckMarkCell,
+  LogoUploadButtonCell,
+  CustomersFilterForm,
+} from '../customers'
+import { MemoryRouter } from 'react-router'
+import configureStore from 'redux-mock-store'
+import * as ReactRedux from 'react-redux'
+import Routes from '@/constants/routes'
+import appState from '@/reducers/__stubs__/app-state'
+import { History } from 'history'
+
+const historyMock = ({
+  push: jest.fn(),
+} as unknown) as History<any>
+
+describe('Customers', () => {
+  let store, mockStore
+  beforeEach(() => {
+    mockStore = configureStore()
+  })
+  it('should match a snapshot when LOADING false', () => {
+    store = mockStore(appState)
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
+          </MemoryRouter>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+  it('should match a snapshot when LOADING true', () => {
+    store = mockStore({
+      ...appState,
+      customers: {
+        list: {
+          ...appState.customers.list,
+          isLoading: true,
+        },
+      },
+    })
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
+          </MemoryRouter>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+  it('should match a snapshot when data is empty', () => {
+    store = mockStore({
+      ...appState,
+      customers: {
+        list: {
+          ...appState.customers.list,
+          data: [],
+        },
+      },
+    })
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
+            <Customers />
+          </MemoryRouter>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+})
+
+describe('onSearchHandler', () => {
+  const setStatusMock = jest.fn()
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+  it('should setStatus when !query', () => {
+    const fn = onSearchHandler(historyMock)
+    fn({ name: '' }, { setStatus: setStatusMock })
+    expect(setStatusMock).toHaveBeenCalledWith('Please enter at least one search criteria')
+  })
+  it('should push history when has query', () => {
+    const fn = onSearchHandler(historyMock)
+    const spy = jest.spyOn(historyMock, 'push')
+    fn({ name: 'test' }, { setStatus: setStatusMock })
+    expect(setStatusMock).toHaveBeenCalledWith('')
+    expect(spy).toHaveBeenCalledWith(`${Routes.CUSTOMERS}?name=test`)
+  })
+})
+
+describe('onPageChangeHandler', () => {
+  it('should work correctly', () => {
+    const fn = onPageChangeHandler(historyMock, new URLSearchParams())
+    fn(2)
+    const spy = jest.spyOn(historyMock, 'push')
+    expect(spy).toHaveBeenCalledWith(`${Routes.CUSTOMERS}?page=2`)
+  })
+})
+
+describe('generateFilterValues', () => {
+  it('should work correctly', () => {
+    const result = generateFilterValues(new URLSearchParams('?name=test'))
+    expect(result).toEqual({ name: 'test' })
+  })
+})
+
+describe('LogoUploadButtonCell', () => {
+  it('should match snapshot', () => {
+    const wrapper = shallow(<LogoUploadButtonCell />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('CheckMarkCell', () => {
+  it('should match snapshot with value', () => {
+    const wrapper = shallow(<CheckMarkCell cell={{ value: 'yes' }} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('should match snapshot without value', () => {
+    const wrapper = shallow(<CheckMarkCell cell={{ value: null }} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('CustomersFilterForm', () => {
+  it('should match snapshot', () => {
+    const wrapper = shallow(<CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})

@@ -2,10 +2,11 @@ import { fetchDeveloperListValues } from './../actions/devs-management'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
-import { fetchApprovalList } from '../actions/approvals'
-import { fetchDeveloperList } from '../actions/devs-management'
+import { fetchApprovalList } from '@/actions/approvals'
+import { fetchDeveloperList } from '@/actions/devs-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { fetchAppList } from '@/actions/apps-management'
+import { fetchCustomersList } from '@/actions/customers'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const queryParams = new URLSearchParams(search)
@@ -20,6 +21,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.APPS:
       store.dispatch(fetchAppList(getParamsFromPath(search || '')))
+      break
+    case Routes.CUSTOMERS:
+      store.dispatch(fetchCustomersList({ queryString: search || '' }))
       break
     default:
       console.error('Route not found, nothing to fetch')
