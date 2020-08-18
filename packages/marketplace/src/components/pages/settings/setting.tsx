@@ -1,13 +1,14 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { H3, Button, Section, Grid, GridItem, H6 } from '@reapit/elements'
+import { H3, Button, Section, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
+import styles from '@/styles/pages/settings.scss?mod'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -47,21 +48,25 @@ export const Settings: React.FC = () => {
           </Button>
         )}
       </Section>
-      <Section>
+      <Section className={styles['user-info-section']}>
         <Grid>
           <GridItem>
             <Grid>
-              <GridItem>Name:</GridItem>
               <GridItem>
-                <H6>John Smith</H6>
+                <SubTitleH6>NAME:</SubTitleH6>
+              </GridItem>
+              <GridItem>
+                <p>John Smith</p>
               </GridItem>
             </Grid>
           </GridItem>
           <GridItem>
             <Grid>
-              <GridItem>Email Address:</GridItem>
               <GridItem>
-                <H6>johnsmith@agent.com</H6>
+                <SubTitleH6>EMAIL ADDRESS:</SubTitleH6>
+              </GridItem>
+              <GridItem>
+                <p>johnsmith@agent.com</p>
               </GridItem>
             </Grid>
           </GridItem>
@@ -69,17 +74,21 @@ export const Settings: React.FC = () => {
         <Grid>
           <GridItem>
             <Grid>
-              <GridItem>Company:</GridItem>
               <GridItem>
-                <H6>Agent Ltd</H6>
+                <SubTitleH6>COMPANY:</SubTitleH6>
+              </GridItem>
+              <GridItem>
+                <p>Agent Ltd</p>
               </GridItem>
             </Grid>
           </GridItem>
           <GridItem>
             <Grid>
-              <GridItem>Customer ID:</GridItem>
               <GridItem>
-                <H6>{customerId}</H6>
+                <SubTitleH6>CUSTOMER ID:</SubTitleH6>
+              </GridItem>
+              <GridItem>
+                <p>{customerId}</p>
               </GridItem>
             </Grid>
           </GridItem>
@@ -87,9 +96,11 @@ export const Settings: React.FC = () => {
         <Grid>
           <GridItem>
             <Grid>
-              <GridItem>Company Address:</GridItem>
               <GridItem>
-                <H6>1 Street, Town, AB1 2CD</H6>
+                <SubTitleH6>COMPANY ADDRESS:</SubTitleH6>
+              </GridItem>
+              <GridItem>
+                <p>1 Street, Town, AB1 2CD</p>
               </GridItem>
             </Grid>
           </GridItem>
