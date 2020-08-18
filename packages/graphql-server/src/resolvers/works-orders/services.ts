@@ -8,15 +8,25 @@ import {
   CreateWorksOrderReturn,
   UpdateWorksOrderArgs,
   UpdateWorksOrderReturn,
+  GetWorksOrderItemsArgs,
+  GetWorksOrderItemsReturn,
 } from './works-orders'
 
 import logger from '@/logger'
 import {
   callGetWorksOrderByIdAPI,
   callGetWorksOrdersAPI,
-  callCreateWorksOrderAPI,
+  callCreateWorksOrderByIdAPI,
   callUpdateWorksOrderAPI,
+  callGetWorksOrderItemsAPI,
 } from './api'
+
+export const getWorksOrderItems = (args: GetWorksOrderItemsArgs, context: ServerContext): GetWorksOrderItemsReturn => {
+  const traceId = context.traceId
+  logger.info('getWorksOrderItems', { traceId, args })
+  const worksOrder = callGetWorksOrderItemsAPI(args, context)
+  return worksOrder
+}
 
 export const updateWorksOrder = (args: UpdateWorksOrderArgs, context: ServerContext): UpdateWorksOrderReturn => {
   const traceId = context.traceId
@@ -28,7 +38,7 @@ export const updateWorksOrder = (args: UpdateWorksOrderArgs, context: ServerCont
 export const createWorksOrder = (args: CreateWorksOrderArgs, context: ServerContext): CreateWorksOrderReturn => {
   const traceId = context.traceId
   logger.info('getWorksOrders', { traceId, args })
-  const worksOrder = callCreateWorksOrderAPI(args, context)
+  const worksOrder = callCreateWorksOrderByIdAPI(args, context)
   return worksOrder
 }
 

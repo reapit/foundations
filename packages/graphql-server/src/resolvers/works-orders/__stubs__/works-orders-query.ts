@@ -1,12 +1,57 @@
-import { PagedResultWorksOrderModel_, WorksOrderModel } from '../../../types'
-import { GetWorksOrdersByIdArgs } from '../works-orders'
+import { PagedResultWorksOrderModel_, WorksOrderModel, PagedResultWorksOrderItemModel_ } from '../../../types'
+import { GetWorksOrdersByIdArgs, GetWorksOrderItemsArgs } from '../works-orders'
 
-export const getWorksOrderByIdArgs: GetWorksOrdersByIdArgs = {
+export const getWorksOrderItemsArgStub: GetWorksOrderItemsArgs = {
+  id: '1',
+}
+
+export const worksOrderItemListStub: PagedResultWorksOrderItemModel_ = {
+  _embedded: [
+    {
+      id: 'RPT20000038',
+      worksOrderId: 'RPT20000022',
+      created: '2020-08-18T03:44:38Z',
+      modified: '2020-08-18T03:44:38Z',
+      notes: 'Please book the electrical certificate for either Thursday or Friday.',
+      chargeTo: 'landlord',
+      estimate: 120.0,
+      estimateType: 'written',
+      netAmount: 100.0,
+      vatAmount: 20.0,
+      grossAmount: 120.0,
+      _eTag: '"B5EF59E141ED088D090B6C61495C4741"',
+      _links: {
+        self: {
+          href: '/worksOrders/RPT20000022/items/RPT20000038',
+        },
+        worksOrder: {
+          href: '/worksOrders/RPT20000022',
+        },
+      },
+      _embedded: null,
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 50,
+  pageCount: 1,
+  totalPageCount: 1,
+  totalCount: 1,
+  _links: {
+    self: {
+      href: '/worksOrders/?PageNumber=1&PageSize=50',
+    },
+    first: {
+      href: '/worksOrders/?PageNumber=1&PageSize=50',
+    },
+  },
+}
+
+export const getWorksOrderByIdArgsStub: GetWorksOrdersByIdArgs = {
   id: 'RPT20000017',
   embed: 'company',
 }
 
-export const worksOrder: WorksOrderModel = {
+export const worksOrderStub: WorksOrderModel = {
   id: 'RPT20000017',
   created: '2020-08-07T13:37:10Z',
   modified: '2020-08-07T13:37:10Z',
@@ -85,7 +130,7 @@ export const worksOrder: WorksOrderModel = {
   },
 }
 
-export const worksOrderList: PagedResultWorksOrderModel_ = {
+export const worksOrderListStub: PagedResultWorksOrderModel_ = {
   _embedded: [
     {
       id: 'RPT20000017',

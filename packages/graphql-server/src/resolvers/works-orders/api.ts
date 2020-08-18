@@ -6,6 +6,8 @@ import {
   CreateWorksOrderReturn,
   UpdateWorksOrderArgs,
   UpdateWorksOrderReturn,
+  GetWorksOrderItemsArgs,
+  GetWorksOrderItemsReturn,
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/index'
@@ -15,6 +17,30 @@ import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
+
+export const callGetWorksOrderItemsAPI = async (
+  args: GetWorksOrderItemsArgs,
+  context: ServerContext,
+): GetWorksOrderItemsReturn => {
+  const traceId = context.traceId
+  logger.info('callGetWorksOrderItemsAPI', { traceId, args })
+
+  const { id } = args
+
+  try {
+    const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(`${URLS.worksOrders}/${id}/items`, {
+      headers: {
+        Authorization: context.authorization,
+      },
+    })
+
+    return response?.data
+  } catch (error) {
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetWorksOrderItemsAPI' })
+
+    return handleErrorResult
+  }
+}
 
 export const callUpdateWorksOrderAPI = async (
   args: UpdateWorksOrderArgs,
@@ -45,12 +71,12 @@ export const callUpdateWorksOrderAPI = async (
   }
 }
 
-export const callCreateWorksOrderAPI = async (
+export const callCreateWorksOrderByIdAPI = async (
   args: CreateWorksOrderArgs,
   context: ServerContext,
 ): CreateWorksOrderReturn => {
   const traceId = context.traceId
-  logger.info('callCreateWorksOrderAPI', { traceId, args })
+  logger.info('callCreateWorksOrderByIdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateWorksOrderReturn>(URLS.worksOrders, args, {
       headers: {
@@ -64,14 +90,14 @@ export const callCreateWorksOrderAPI = async (
     }
     return null
   } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateWorksOrderAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateWorksOrderByIdAPI' })
     return handleErrorResult
   }
 }
 
 export const callGetWorksOrdersAPI = async (args: GetWorksOrdersArgs, context: ServerContext): GetWorksOrdersReturn => {
   const traceId = context.traceId
-  logger.info('callGetWorksOrderByIdAPI', { traceId, args })
+  logger.info('callGetWorksOrdersAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(`${URLS.worksOrders}`, {
       headers: {

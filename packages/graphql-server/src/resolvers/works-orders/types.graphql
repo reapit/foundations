@@ -77,6 +77,34 @@ type PagedResultWorksOrders {
   totalCount: Int
   _links: JSON
 }
+# getWorkerkerItems: WorkOrdersItem
+type WorksOrderItem {
+  id: String
+  worksOrderId: String
+  created: String
+  modified: String
+  notes: String
+  chargeTo: String
+  estimate: Int
+  estimateType: String
+  netAmount: Int
+  vatAmount: Int
+  grossAmount: Int
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+# getWorkerkerItems; PagedWorkOrdersItem
+type PagedResultWorksOrderItem {
+  _embedded: [WorksOrderItem!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
 
 type Query {
   GetWorksOrders(
@@ -102,7 +130,8 @@ type Query {
 
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
 
-  # postWorkerOrder
+  # getWorkerkerItems
+  GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
 }
 
 type Mutation {
@@ -123,7 +152,6 @@ type Mutation {
     _eTag: String!
     id: String!
   ): WorkOrder!
-
   CreateWorksOrder(
     # required
     propertyId: String!
@@ -133,7 +161,6 @@ type Mutation {
     description: String!
     reporter: String!
     items: [InputWorksOrderItem!]
-
     # optional
     companyId: String
     tenancyId: String

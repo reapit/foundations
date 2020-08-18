@@ -460,6 +460,9 @@ type Query {
     metadata: JSON
   ): PagedResultWorksOrders!
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
+
+  # getWorkerkerItems
+  GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
 }
 
 input ApplicantAddressInput {
@@ -2273,6 +2276,7 @@ input InputWorksOrderItem {
   vatAmount: Int
 }
 
+# getWorkerkerItems: WorkOrdersItem
 type WorksOrderItem {
   id: String
   worksOrderId: String
@@ -2317,6 +2321,17 @@ type WorkOrder {
 
 type PagedResultWorksOrders {
   _embedded: [WorkOrder!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+# getWorkerkerItems; PagedWorkOrdersItem
+type PagedResultWorksOrderItem {
+  _embedded: [WorksOrderItem!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int

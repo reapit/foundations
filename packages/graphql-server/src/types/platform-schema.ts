@@ -1,3 +1,485 @@
+export interface PagedResultWorksOrderItemModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the works order item
+     */
+    id?: string
+    /**
+     * The unique identifier of the parent works order
+     */
+    worksOrderId?: string
+    /**
+     * The date and time when the works order item was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order item was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes attached to the works order item
+     */
+    notes?: string
+    /**
+     * The party to be charged for the work being carried out (landlord/tenant)
+     */
+    chargeTo?: string
+    /**
+     * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+     */
+    estimate?: number // double
+    /**
+     * The type of estimate supplied (agent/verbal/written)
+     */
+    estimateType?: string
+    /**
+     * The net cost of the work to be carried out
+     */
+    netAmount?: number // double
+    /**
+     * The additional vat cost for the work to be carried out
+     */
+    vatAmount?: number // double
+    /**
+     * The gross cost of the work to be carried out
+     */
+    grossAmount?: number // double
+    /**
+     * The ETag for the current version of the works order item. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    metadata?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultWorksOrderModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the works order
+     */
+    id?: string
+    /**
+     * The date and time when the works order was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the company that has been selected to perform the work
+     */
+    companyId?: string
+    /**
+     * The unique identifier of the property where the work is to be carried out
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the tenancy that the works order originated from
+     */
+    tenancyId?: string
+    /**
+     * The unique identifier of the negotiator that booked the works order
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the type of work that needs to be carried out
+     */
+    typeId?: string
+    /**
+     * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+     */
+    status?: string
+    /**
+     * A free text description of the work required
+     */
+    description?: string
+    /**
+     * The party requesting the work to be carried out (landlord/tenant/other)
+     */
+    reporter?: string
+    /**
+     * The date when the works order was booked
+     * example:
+     * 2019-08-14
+     */
+    booked?: string // date
+    /**
+     * The date when the work is required to be completed by
+     * example:
+     * 2019-08-14
+     */
+    required?: string // date
+    /**
+     * The date when the work was completed
+     * example:
+     * 2019-08-14
+     */
+    completed?: string // date
+    /**
+     * The total net cost for all of the items of work to be carried out
+     */
+    totalNetAmount?: number // double
+    /**
+     * The total additional vat cost for all of the items of work to be carried out
+     */
+    totalVatAmount?: number // double
+    /**
+     * The total gross cost for all of the items of work to be carried out
+     */
+    totalGrossAmount?: number // double
+    /**
+     * A collection of jobs/items of work that the works order should fulfill
+     */
+    items?: {
+      /**
+       * The unique identifier of the works order item
+       */
+      id?: string
+      /**
+       * The unique identifier of the parent works order
+       */
+      worksOrderId?: string
+      /**
+       * The date and time when the works order item was created
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      created?: string // date-time
+      /**
+       * The date and time when the works order item was last modified
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      modified?: string // date-time
+      /**
+       * The notes attached to the works order item
+       */
+      notes?: string
+      /**
+       * The party to be charged for the work being carried out (landlord/tenant)
+       */
+      chargeTo?: string
+      /**
+       * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+       */
+      estimate?: number // double
+      /**
+       * The type of estimate supplied (agent/verbal/written)
+       */
+      estimateType?: string
+      /**
+       * The net cost of the work to be carried out
+       */
+      netAmount?: number // double
+      /**
+       * The additional vat cost for the work to be carried out
+       */
+      vatAmount?: number // double
+      /**
+       * The gross cost of the work to be carried out
+       */
+      grossAmount?: number // double
+      /**
+       * The ETag for the current version of the works order item. Used for managing update concurrency
+       */
+      readonly _eTag?: string
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the works order
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the works order. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface WorksOrderItemModel {
+  /**
+   * The unique identifier of the works order item
+   */
+  id?: string
+  /**
+   * The unique identifier of the parent works order
+   */
+  worksOrderId?: string
+  /**
+   * The date and time when the works order item was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the works order item was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The notes attached to the works order item
+   */
+  notes?: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo?: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The additional vat cost for the work to be carried out
+   */
+  vatAmount?: number // double
+  /**
+   * The gross cost of the work to be carried out
+   */
+  grossAmount?: number // double
+  /**
+   * The ETag for the current version of the works order item. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a works order
+ */
+export interface WorksOrderModel {
+  /**
+   * The unique identifier of the works order
+   */
+  id?: string
+  /**
+   * The date and time when the works order was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the works order was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the company that has been selected to perform the work
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the property where the work is to be carried out
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy that the works order originated from
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the negotiator that booked the works order
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the type of work that needs to be carried out
+   */
+  typeId?: string
+  /**
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   */
+  status?: string
+  /**
+   * A free text description of the work required
+   */
+  description?: string
+  /**
+   * The party requesting the work to be carried out (landlord/tenant/other)
+   */
+  reporter?: string
+  /**
+   * The date when the works order was booked
+   * example:
+   * 2019-08-14
+   */
+  booked?: string // date
+  /**
+   * The date when the work is required to be completed by
+   * example:
+   * 2019-08-14
+   */
+  required?: string // date
+  /**
+   * The date when the work was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * The total net cost for all of the items of work to be carried out
+   */
+  totalNetAmount?: number // double
+  /**
+   * The total additional vat cost for all of the items of work to be carried out
+   */
+  totalVatAmount?: number // double
+  /**
+   * The total gross cost for all of the items of work to be carried out
+   */
+  totalGrossAmount?: number // double
+  /**
+   * A collection of jobs/items of work that the works order should fulfill
+   */
+  items?: {
+    /**
+     * The unique identifier of the works order item
+     */
+    id?: string
+    /**
+     * The unique identifier of the parent works order
+     */
+    worksOrderId?: string
+    /**
+     * The date and time when the works order item was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order item was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes attached to the works order item
+     */
+    notes?: string
+    /**
+     * The party to be charged for the work being carried out (landlord/tenant)
+     */
+    chargeTo?: string
+    /**
+     * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+     */
+    estimate?: number // double
+    /**
+     * The type of estimate supplied (agent/verbal/written)
+     */
+    estimateType?: string
+    /**
+     * The net cost of the work to be carried out
+     */
+    netAmount?: number // double
+    /**
+     * The additional vat cost for the work to be carried out
+     */
+    vatAmount?: number // double
+    /**
+     * The gross cost of the work to be carried out
+     */
+    grossAmount?: number // double
+    /**
+     * The ETag for the current version of the works order item. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  /**
+   * App specific metadata that has been set against the works order
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the works order. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
 export interface UpdateWorksOrderModel {
   /**
    * The unique identifier of the company that has been selected to perform the work
