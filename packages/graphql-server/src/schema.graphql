@@ -340,6 +340,20 @@ type Query {
     metadata: [String!]
   ): PagedResultPropertyImageModel!
   GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetSources(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    departmentId: [String]
+    officeId: [String]
+    name: String
+    active: Boolean
+    type: String
+    createdFrom: String
+    createdTo: String
+  ): PagedResultSourceModel!
+  GetSourceById(id: String!): SourceModel!
   GetTasks(
     pageSize: Int
     pageNumber: Int
@@ -874,6 +888,15 @@ type Mutation {
   CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
   UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
   DeletePropertyImage(id: String!): Boolean!
+  CreateSource(name: String, type: String, departmentIds: [String!], officeIds: [String!]): SourceModel!
+  UpdateSource(
+    name: String
+    type: String
+    departmentIds: [String!]
+    officeIds: [String!]
+    id: String!
+    _eTag: String!
+  ): SourceModel!
   CreateTask(
     activates: String
     completed: String
@@ -1743,6 +1766,28 @@ type PropertyImageModel {
   _eTag: String
   _links: JSON
   _embedded: JSON
+}
+
+type SourceModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  type: String
+  officeIds: [String]
+  departmentIds: [String]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultSourceModel {
+  _embedded: [SourceModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
 }
 
 type TaskModel {
