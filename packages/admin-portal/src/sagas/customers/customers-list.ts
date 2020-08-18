@@ -6,8 +6,10 @@ import { notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { CUSTOMERS_PER_PAGE } from '@/constants/paginator'
+import { extractNetworkErrString } from '@reapit/utils'
 
 export const DEFAULT_PAGE = 1
+export const FETCH_LIST_ERROR_MESSAGE = 'Can not fetch customers list !'
 
 export const fetchCustomersListHandler = function*({ data: { queryString } }) {
   try {
@@ -27,11 +29,12 @@ export const fetchCustomersListHandler = function*({ data: { queryString } }) {
       yield put(fetchCustomersListSuccess(response))
       return
     }
-    throw new Error('Can not fetch customers list !')
+    throw new Error(FETCH_LIST_ERROR_MESSAGE)
   } catch (err) {
-    yield put(fetchCustomersListFailed(err.message))
+    const networkErrorString = extractNetworkErrString(err)
+    yield put(fetchCustomersListFailed(networkErrorString))
     yield call(notification.error, {
-      message: err.message,
+      message: networkErrorString,
       placement: 'bottomRight',
     })
   }
