@@ -2,11 +2,11 @@ import * as React from 'react'
 import { FormHeading, FormSubHeading, Input } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
 
-export type ContactInformationSectionProps = {}
+export type ContactInformationSectionProps = { disabled?: boolean }
 
 const { billingEmailField, billingTelephoneField, billingKeyContactField } = formFields
 
-const ContactInformationSection: React.FC<ContactInformationSectionProps> = () => {
+const ContactInformationSection: React.FC<ContactInformationSectionProps> = ({ disabled }) => {
   return (
     <>
       <FormHeading>{billingEmailField.heading}</FormHeading>
@@ -17,6 +17,7 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = () =
         id={billingEmailField.name}
         name={billingEmailField.name}
         placeholder={billingEmailField.placeHolder}
+        disabled={disabled}
       />
       <FormHeading>{billingTelephoneField.heading}</FormHeading>
       <FormSubHeading>{billingTelephoneField.subHeading}</FormSubHeading>
@@ -26,6 +27,7 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = () =
         id={billingTelephoneField.name}
         name={billingTelephoneField.name}
         placeholder={billingTelephoneField.placeHolder}
+        disabled={disabled}
       />
       <FormHeading>{billingKeyContactField.heading}</FormHeading>
       <FormSubHeading>{billingKeyContactField.subHeading}</FormSubHeading>
@@ -35,6 +37,7 @@ const ContactInformationSection: React.FC<ContactInformationSectionProps> = () =
         id={billingKeyContactField.name}
         name={billingKeyContactField.name}
         placeholder={billingKeyContactField.placeHolder}
+        disabled={disabled}
       />
     </>
   )
