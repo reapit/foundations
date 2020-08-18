@@ -117,7 +117,14 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            Name:
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                NAME:
+                              </h6>
+                            </Component>
                           </div>
                         </Component>
                         <Component>
@@ -125,14 +132,9 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            <Component>
-                              <h6
-                                className=""
-                                id=""
-                              >
-                                John Smith
-                              </h6>
-                            </Component>
+                            <p>
+                              John Smith
+                            </p>
                           </div>
                         </Component>
                       </div>
@@ -154,101 +156,24 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            Email Address:
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
                             <Component>
                               <h6
                                 className=""
                                 id=""
                               >
-                                johnsmith@agent.com
+                                EMAIL ADDRESS:
                               </h6>
                             </Component>
                           </div>
                         </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </div>
-            </Component>
-            <Component>
-              <div
-                className=""
-                data-test=""
-              >
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
                         <Component>
                           <div
                             className=""
                             data-test=""
                           >
-                            Company:
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component>
-                              <h6
-                                className=""
-                                id=""
-                              >
-                                Agent Ltd
-                              </h6>
-                            </Component>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            Customer ID:
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component>
-                              <h6
-                                className=""
-                                id=""
-                              />
-                            </Component>
+                            <p>
+                              johnsmith@agent.com
+                            </p>
                           </div>
                         </Component>
                       </div>
@@ -277,9 +202,40 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            Company Address:
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                COMPANY:
+                              </h6>
+                            </Component>
                           </div>
                         </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              Agent Ltd
+                            </p>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
                         <Component>
                           <div
                             className=""
@@ -290,9 +246,63 @@ exports[`Settings should match snapshot 1`] = `
                                 className=""
                                 id=""
                               >
-                                1 Street, Town, AB1 2CD
+                                CUSTOMER ID:
                               </h6>
                             </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p />
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                COMPANY ADDRESS:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              1 Street, Town, AB1 2CD
+                            </p>
                           </div>
                         </Component>
                       </div>
