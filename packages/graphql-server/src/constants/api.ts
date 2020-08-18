@@ -16,6 +16,7 @@ export const URLS = {
   tenancies: '/tenancies',
   offers: '/offers',
   vendors: '/vendors',
+  conveyancing: '/conveyancing',
   landlords: '/landlords',
   departments: '/departments',
 }

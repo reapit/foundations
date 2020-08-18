@@ -34,12 +34,14 @@ export const handleLoadMore = ({
   dispatch,
   preview,
   loading,
+  numOfItemsPerPage,
 }: {
   dispatch: Dispatch
   preview: boolean
   loading: boolean
+  numOfItemsPerPage: number
 }) => (page: number) => {
-  !loading && dispatch(fetchApps({ pageNumber: page, preview, isInfinite: true }))
+  !loading && dispatch(fetchApps({ pageNumber: page, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -81,7 +83,7 @@ export const Apps: React.FunctionComponent = () => {
         <InfiniteScroll
           useWindow={false}
           pageStart={1}
-          loadMore={handleLoadMore({ dispatch, preview, loading })}
+          loadMore={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
           initialLoad={false}

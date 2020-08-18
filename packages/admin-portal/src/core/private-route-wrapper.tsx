@@ -3,6 +3,8 @@ import Menu from '@/components/ui/menu'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import Routes from '@/constants/routes'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 
 const { Suspense } = React
 
@@ -16,10 +18,21 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
+  const currentUri = `${location.pathname}${location.search}`
+  const isRoot = connectInternalRedirect === '/'
 
-  if (location.pathname === '/') {
-    return <Redirect to={Routes.APPROVALS} />
+  if (!connectSession) {
+    return null
+  }
+
+  if (
+    (connectInternalRedirect && currentUri !== connectInternalRedirect) ||
+    (currentUri === connectInternalRedirect && isRoot)
+  ) {
+    const redirectUri = isRoot ? Routes.APPROVALS : connectInternalRedirect
+    return <Redirect to={redirectUri} />
   }
 
   return (

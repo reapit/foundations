@@ -85,5 +85,6 @@ type Mutation {
     contactId: String
     recipientId: String
     recipientType: String
-    metadata: JSON): TaskModel!
+    metadata: JSON
+  ): TaskModel!
 }
