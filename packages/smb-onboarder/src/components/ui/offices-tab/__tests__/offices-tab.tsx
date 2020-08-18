@@ -19,6 +19,7 @@ import {
   CreateDownLoadButtonOnClickFnParams,
   CustomDownButton,
   mergeUploadedData,
+  prepareTableData,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -268,8 +269,9 @@ describe('OfficesTab', () => {
   })
 
   describe('handleAfterCellChange', () => {
-    const createFuntion = jest.fn()
-    const updateFuntion = jest.fn()
+    const createFuntion = jest.fn().mockResolvedValue(true)
+    const updateFuntion = jest.fn().mockResolvedValue(true)
+    const setData = jest.fn()
     const dataTable = getDataTable(offices)
 
     it('should run create function', () => {
@@ -288,15 +290,16 @@ describe('OfficesTab', () => {
         { value: 'tester@reapit.com', key: 'email', isValidated: true },
       ]
       dataTable.push(preparedRow)
-      handleAfterCellChange(createFuntion, updateFuntion)(
-        [{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }],
-        dataTable,
-      )
+      handleAfterCellChange(
+        createFuntion,
+        updateFuntion,
+        setData,
+      )([{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }], dataTable)
       expect(createFuntion).toHaveBeenCalled()
     })
 
     it('should run update function', () => {
-      handleAfterCellChange(createFuntion, updateFuntion)(mockChangeCellsForUpdateCase, dataTable)
+      handleAfterCellChange(createFuntion, updateFuntion, setData)(mockChangeCellsForUpdateCase, dataTable)
       expect(updateFuntion).toHaveBeenCalled()
     })
   })
@@ -390,5 +393,14 @@ describe('OfficesTab', () => {
       ],
     ]
     expect(mergeUploadedData(previousData, uploadedData)).toEqual(result)
+  })
+})
+
+describe('prepareTableData', () => {
+  it('should run correctly', () => {
+    const setTableData = jest.fn()
+    const fn = prepareTableData(setTableData)
+    fn()
+    expect(setTableData).toBeCalled()
   })
 })

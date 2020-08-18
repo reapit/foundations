@@ -38,6 +38,7 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
     afterCellsChanged?: AfterCellsChanged
   }>
   error?: ErrorString
+  touched?: boolean
 }
 
 export interface DoubleClickPayLoad {

@@ -2,19 +2,21 @@ import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
 import { isEmail } from '@reapit/elements'
 import { isValidTelephone } from '@/utils/validators'
-import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
 import { OfficesQueryResponse } from '../offices-tab/offices-tab'
-import { prepareCreateNegeotiatorParams } from './negotiators-list'
+import { prepareCreateNegeotiatorParams, DataTableRow } from './negotiators-list'
+import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
 
 export type NegotiatorOfficeSelectboxProps = {
   cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
   officeData?: OfficesQueryResponse
   spreadsheetData: Cell[][]
   createNegotiator: (params) => void
+  data: Cell[][]
+  setData?: React.Dispatch<DataTableRow[][]>
 }
 
-export const handleOnChange = (officeData, setValue, spreadsheetData, row, createNegotiator) => {
-  return e => {
+export const handleOnChange = (officeData, setValue, spreadsheetData, row, createNegotiator, data, setData) => {
+  return async e => {
     const selectedOfficeId = e.target.value
     const selectedOffice = officeData?.GetOffices?._embedded?.find(office => office.id === selectedOfficeId)
     setValue(selectedOfficeId)
@@ -30,7 +32,7 @@ export const handleOnChange = (officeData, setValue, spreadsheetData, row, creat
     ) {
       return
     }
-    createNegotiator({
+    const respone = await createNegotiator({
       variables: createNegotiatorVariables,
       optimisticResponse: {
         __typename: 'Mutation',
@@ -53,6 +55,24 @@ export const handleOnChange = (officeData, setValue, spreadsheetData, row, creat
         },
       },
     })
+    const {
+      data: { CreateNegotiator },
+    } = respone
+    const newData = data.map(row => row.map(cell => ({ ...cell })))
+    const newRow = newData[row]
+
+    // update new row data
+    newRow[0].value = CreateNegotiator.name
+    newRow[1].value = CreateNegotiator.jobTitle
+    newRow[2].value = CreateNegotiator.email
+    newRow[3].value = CreateNegotiator.mobilePhone
+    newRow[4].value = CreateNegotiator._embedded?.office?.name
+    newRow[4].isValidated = true
+    newRow[5].value = CreateNegotiator.active
+    newRow[6].value = CreateNegotiator.id
+    newRow[7].value = CreateNegotiator._eTag
+
+    setData(newData)
   }
 }
 
@@ -61,6 +81,8 @@ export const NegotiatorOfficeSelectbox: React.FC<NegotiatorOfficeSelectboxProps>
   officeData,
   spreadsheetData,
   createNegotiator,
+  data,
+  setData,
 }) => {
   const {
     row,
@@ -81,7 +103,7 @@ export const NegotiatorOfficeSelectbox: React.FC<NegotiatorOfficeSelectboxProps>
           <select
             className="input is-primary"
             value={value}
-            onChange={handleOnChange(officeData, setValue, spreadsheetData, row, createNegotiator)}
+            onChange={handleOnChange(officeData, setValue, spreadsheetData, row, createNegotiator, data, setData)}
           >
             {officeData?.GetOffices?._embedded?.map(({ id, name }) => (
               <option key={id} value={id}>

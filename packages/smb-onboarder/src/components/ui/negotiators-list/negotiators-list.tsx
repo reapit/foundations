@@ -24,7 +24,6 @@ import UPDATE_NEGOTIATOR from './gql/update-negotiator.graphql'
 import CREATE_NEGOTIATOR from './gql/create-negotiator.graphql'
 import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
-
 import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
@@ -105,12 +104,13 @@ export const getDataTable = (
   updateNegotiatorLoading: boolean,
   createNegotiator: (params) => void,
   officeData?: OfficesQueryResponse,
+  setData?: React.Dispatch<DataTableRow[][]>,
 ): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
 
   const StatusCheckbox = props => {
-    const { cellRenderProps, data, setData } = props
+    const { cellRenderProps, data } = props
     return (
       <NegotiatorStatusCheckbox
         cellRenderProps={cellRenderProps}
@@ -128,6 +128,8 @@ export const getDataTable = (
       <NegotiatorOfficeSelectbox
         cellRenderProps={cellRenderProps}
         officeData={officeData}
+        data={data}
+        setData={setData}
         spreadsheetData={data}
         createNegotiator={createNegotiator}
       />
@@ -188,7 +190,7 @@ export const validate = (data: Cell[][]) =>
       }
       // Office is required
       if (cellIndex === 4) {
-        return !fieldValidateRequire(cell.value as string) || errorMessages.FIELD_REQUIRED
+        return !fieldValidateRequire(cell.value as string)
       }
       return true
     }),
@@ -401,7 +403,6 @@ export const renderNegotiatorList = ({
   if (loading) {
     return <Loader />
   }
-
   return (
     <React.Fragment>
       <Section>
@@ -427,11 +428,32 @@ export const renderNegotiatorList = ({
   )
 }
 
+export const prepareTableData = (
+  setData,
+  negotiatorData,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+) => () => {
+  const dataTable = getDataTable(
+    negotiatorData || { GetNegotiators: { _embedded: [] } },
+    updateNegotiator,
+    updateNegotiatorLoading,
+    createNegotiator,
+    officeData,
+    setData,
+  )
+  setData(dataTable)
+}
+
 export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
+
+  const [data, setData] = React.useState<DataTableRow[][]>([[]])
   const [updateNegotiator, { loading: updateNegotiatorLoading }] = useMutation(UPDATE_NEGOTIATOR)
 
   const { loading, data: negotiatorData } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(
@@ -487,12 +509,9 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
     variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
-  const dataTable = getDataTable(
-    negotiatorData || { GetNegotiators: { _embedded: [] } },
-    updateNegotiator,
-    updateNegotiatorLoading,
-    createNegotiator,
-    officeData,
+  React.useEffect(
+    prepareTableData(setData, negotiatorData, updateNegotiator, updateNegotiatorLoading, createNegotiator, officeData),
+    [loading, page],
   )
 
   return (
@@ -500,7 +519,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
       {renderNegotiatorList({
         updateNegotiatorLoading,
         loading,
-        dataTable,
+        dataTable: data,
         pageNumber: negotiatorData?.GetNegotiators?.pageNumber,
         pageSize: negotiatorData?.GetNegotiators?.pageSize,
         totalCount: negotiatorData?.GetNegotiators?.totalCount,

@@ -49,18 +49,17 @@ describe('AddRowButton', () => {
     expect(shallow(<AddRowButton addNewRow={addNewRow} />)).toMatchSnapshot()
   })
 })
+
 describe('getErrorsFromData', () => {
-  it('should return correctly', () => {
-    const data = [[{ error: 'error' }]] as Cell[][]
-    const result = getErrorsFromData(data)
-    const expected = ['[1][1]: error']
-    expect(result).toEqual(expected)
+  it('should match snapshot', () => {
+    const errors = [[{ error: 'error', touched: true }]] as Cell[][]
+    expect(shallow(<div>{getErrorsFromData(errors)}</div>)).toMatchSnapshot()
   })
 })
 
 describe('renderErrorElements', () => {
   it('should match snapshot', () => {
-    const errors = [[{ error: 'error' }]] as Cell[][]
+    const errors = [[{ error: 'error', touched: true }]] as Cell[][]
     expect(shallow(<div>{renderErrorElements(errors)}</div>)).toMatchSnapshot()
   })
 })

@@ -194,6 +194,23 @@ exports[`UploadButton should match snapshot 1`] = `
 </div>
 `;
 
+exports[`getErrorsFromData should match snapshot 1`] = `
+<div>
+  <p
+    className="has-text-danger"
+  >
+    Field 
+    <b />
+     row 
+    <b>
+      0
+    </b>
+     has the following problem: 
+    error
+  </p>
+</div>
+`;
+
 exports[`renderErrorElements should match snapshot 1`] = `
 <div>
   <div
@@ -204,12 +221,18 @@ exports[`renderErrorElements should match snapshot 1`] = `
     >
       The following validation errors have occurred:
     </Component>
-    <div
+    <p
       className="has-text-danger"
-      key="0"
     >
-      [1][1]: error
-    </div>
+      Field 
+      <b />
+       row 
+      <b>
+        0
+      </b>
+       has the following problem: 
+      error
+    </p>
   </div>
 </div>
 `;
