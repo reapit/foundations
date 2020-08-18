@@ -204,8 +204,10 @@ export const DeveloperSection: React.FC<DeveloperSectionProps> = ({ isSidebar = 
   </AppDetailSection>
 )
 
-export const DeveloperAboutSection: React.FC<IsSidebar> = ({ isSidebar = false }) => (
-  <AppDetailSection headerText="About Developer" isSidebar={isSidebar} />
+export const DeveloperAboutSection: React.FC<IsSidebar> = ({ isSidebar = false, children }) => (
+  <AppDetailSection headerText="About Developer" isSidebar={isSidebar}>
+    {children}
+  </AppDetailSection>
 )
 
 export const AdditionalImagesSection: React.FC<AdditionalImagesSectionProps> = ({
