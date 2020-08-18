@@ -6,20 +6,20 @@ import { callGetDepartmentByIdAPI, callGetDepartmentsAPI } from './api'
 export const getDepartmentById = (args: GetDepartmentByIdArgs, context: ServerContext): GetDepartmentByIdReturn => {
   const traceId = context.traceId
   logger.info('getDepartmentById', { traceId, args })
-  const property = callGetDepartmentByIdAPI(args, context)
-  return property
+  const department = callGetDepartmentByIdAPI(args, context)
+  return department
 }
 
 export const getDepartments = (args: GetDepartmentsArgs, context: ServerContext): GetDepartmentsReturn => {
   const traceId = context.traceId
   logger.info('getDepartments', { traceId, args })
-  const properties = callGetDepartmentsAPI(args, context)
-  return properties
+  const departments = callGetDepartmentsAPI(args, context)
+  return departments
 }
 
-const propertyServices = {
+const departmentServices = {
   getDepartmentById,
   getDepartments,
 }
 
-export default propertyServices
+export default departmentServices
