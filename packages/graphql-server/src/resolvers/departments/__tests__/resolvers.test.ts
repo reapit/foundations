@@ -1,18 +1,14 @@
-import propertyServices from '../services'
+import departmentServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
-import { queryGetPropertyById, queryGetProperties, mutationCreateProperty, mutationUpdateProperty } from '../resolvers'
-import { createPropertyArgsMock } from '../__stubs__/create-property'
-import { updatePropertyArgsMock } from '../__stubs__/update-property'
-import { propertyMock } from '../__stubs__/property'
-import { propertiesMock } from '../__stubs__/properties'
+import { queryGetDepartmentById, queryGetDepartments } from '../resolvers'
+import { departmentMock } from '../__stubs__/department'
+import { departmentsMock } from '../__stubs__/departments'
 import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
-  getPropertyById: jest.fn(() => propertyMock),
-  getProperties: jest.fn(() => propertiesMock),
-  createProperty: jest.fn(() => true),
-  updateProperty: jest.fn(() => true),
+  getDepartmentById: jest.fn(() => departmentMock),
+  getDepartments: jest.fn(() => departmentsMock),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -22,62 +18,34 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('queryGetPropertyById', () => {
+describe('queryGetDepartmentById', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: 'id' }
-    const result = queryGetPropertyById(null, args, mockContext)
-    expect(result).toEqual(propertyServices.getPropertyById(args, mockContext))
+    const result = queryGetDepartmentById(null, args, mockContext)
+    expect(result).toEqual(departmentServices.getDepartmentById(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: 'id' }
-    const result = queryGetPropertyById(null, args, mockContext)
+    const result = queryGetDepartmentById(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryGetProperties', () => {
+describe('queryGetDepartments', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetProperties(null, args, mockContext)
-    expect(result).toEqual(propertyServices.getProperties(args, mockContext))
+    const result = queryGetDepartments(null, args, mockContext)
+    expect(result).toEqual(departmentServices.getDepartments(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetProperties(null, args, mockContext)
-    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
-  })
-})
-
-describe('mutationCreateProperty', () => {
-  it('should return correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateProperty(null, createPropertyArgsMock, mockContext)
-    expect(result).toEqual(propertyServices.createProperty(createPropertyArgsMock, mockContext))
-  })
-
-  it('should return auth error correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateProperty(null, createPropertyArgsMock, mockContext)
-    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
-  })
-})
-
-describe('mutationUpdateProperty', () => {
-  it('should return correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateProperty(null, updatePropertyArgsMock, mockContext)
-    expect(result).toEqual(propertyServices.updateProperty(updatePropertyArgsMock, mockContext))
-  })
-
-  it('should return auth error correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateProperty(null, updatePropertyArgsMock, mockContext)
+    const result = queryGetDepartments(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

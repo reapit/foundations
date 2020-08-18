@@ -1,35 +1,33 @@
-import { generatePropertyBatchLoaderFn, generatePropertyLoader } from '../dataloader'
-import { propertyMock } from '../__stubs__/property'
-import { propertiesMock } from '../__stubs__/properties'
+import { generateDepartmentBatchLoaderFn, generateDepartmentLoader } from '../dataloader'
+import { departmentMock } from '../__stubs__/department'
+import { departmentsMock } from '../__stubs__/departments'
 import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
-  getPropertyById: jest.fn(() => propertyMock),
-  getProperties: jest.fn(() => propertiesMock),
-  createProperty: jest.fn(() => true),
-  updateProperty: jest.fn(() => true),
+  getDepartmentById: jest.fn(() => departmentMock),
+  getDepartments: jest.fn(() => departmentsMock),
 }))
 
-describe('property-dataloader', () => {
-  describe('generatePropertyBatchLoaderFn', () => {
+describe('department-dataloader', () => {
+  describe('generateDepartmentBatchLoaderFn', () => {
     it('should run correctly', () => {
-      const fn = generatePropertyBatchLoaderFn(mockContext)
+      const fn = generateDepartmentBatchLoaderFn(mockContext)
       const mockKeys = ['AP']
       const result = fn(mockKeys)
       expect(result).toEqual(expect.any(Object))
     })
 
     it('should run correctly without keys', () => {
-      const fn = generatePropertyBatchLoaderFn(mockContext)
+      const fn = generateDepartmentBatchLoaderFn(mockContext)
       const mockKeys = []
       const result = fn(mockKeys)
       expect(result).toEqual(expect.any(Object))
     })
   })
 
-  describe('generatePropertyLoader', () => {
+  describe('generateDepartmentLoader', () => {
     it('should return correctly', () => {
-      const result = generatePropertyLoader(mockContext)
+      const result = generateDepartmentLoader(mockContext)
       expect(result).toEqual(expect.any(Object))
     })
   })
