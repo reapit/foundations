@@ -19,6 +19,7 @@ export const URLS = {
   conveyancing: '/conveyancing',
   landlords: '/landlords',
   departments: '/departments',
+  sources: '/sources',
 }
 
 export const HEADERS = {
