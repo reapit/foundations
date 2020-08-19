@@ -64,8 +64,9 @@ export type GenerateMessageParams = {
 const generateMessage = ({ packageName, environment, currentTag, previousTag }: GenerateMessageParams) => {
   return {
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
-    release: `Releasing ${environment} \`${packageName}\` environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
+    release: `Releasing \`${packageName}\` ${environment} \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
+    'delete-environment': `Teardown serverless environment for \`${packageName}\``
   }
 }
 
@@ -88,13 +89,14 @@ app.post('/release', async (req: Request, res: Response) => {
 \`@Reapit Cloud Releases release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will generate the release note\n
 \`@Reapit Cloud Releases release <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do the release and environment is development by default\n
 \`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will do update the release note in github and document\n
+\`@Reapit Cloud Releases delete-environment <package_name>\` <= The command will do update the release note in github and document\n
     `)
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
 
-  const isValidEnvironment = environment === 'development' || environment === 'production'
+  const isValidEnvironment = environment === 'development' || environment === 'production' || environment === 'staging'
   if (!isValidEnvironment) {
-    await sendMessageToSlack('Environment should be production or development')
+    await sendMessageToSlack('Environment should be development, staging or production')
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
 

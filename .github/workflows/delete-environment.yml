@@ -1,0 +1,36 @@
+name: Delete Environment
+
+on:
+  repository_dispatch:
+    types: [delete-environment]
+jobs:
+  delete-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node Environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
+      - name: Install dependencies
+        run: |
+          yarn global add serverless@1.59.3
+          yarn add isomorphic-fetch -W
+
+env:
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
