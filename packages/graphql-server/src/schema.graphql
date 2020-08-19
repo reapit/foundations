@@ -233,6 +233,15 @@ type Query {
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
   GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
   GetDepartmentById(id: String!): DepartmentModel!
+  GetEnquiries(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    enquiryType: String
+    createdFrom: String
+    createdTo: String
+  ): PagedResultEnquiryModel!
+  GetEnquiryById(id: Int!): EnquiryModel!
   GetIdentityChecks(
     id: [String!]
     pageSize: Int
@@ -718,6 +727,24 @@ type Mutation {
     vendorSolicitorId: String
   ): ConveyancingModel!
   DeleteUpwardLinkModel(id: String!): String!
+  CreateEnquiry(
+    title: String
+    forename: String
+    surname: String
+    enquiryType: String
+    message: String
+    status: String
+    marketingConsent: String
+    position: String
+    officeId: String
+    sourceName: String
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: EnquiryAddressInput
+    propertyIds: [String]
+  ): EnquiryModel!
   CreateIdentityCheck(
     contactId: String
     checkDate: String
@@ -1323,6 +1350,61 @@ type PagedResultDepartmentModel_ {
   pageSize: Int
   pageCount: Int
   totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type EnquiryAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+input EnquiryAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type EnquiryModel {
+  id: Int
+  created: String
+  modified: String
+  title: String
+  forename: String
+  surname: String
+  enquiryType: String
+  message: String
+  status: String
+  marketingConsent: String
+  position: String
+  officeId: String
+  sourceName: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  address: EnquiryAddress
+  propertyIds: [String]
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultEnquiryModel {
+  _embedded: [EnquiryModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
   totalCount: Int
   _links: JSON
 }

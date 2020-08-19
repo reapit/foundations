@@ -1,0 +1,88 @@
+scalar JSON
+
+type EnquiryAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+input EnquiryAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type EnquiryModel {
+  id: Int
+  created: String
+  modified: String
+  title: String
+  forename: String
+  surname: String
+  enquiryType: String
+  message: String
+  status: String
+  marketingConsent: String
+  position: String
+  officeId: String
+  sourceName: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  address: EnquiryAddress
+  propertyIds: [String]
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultEnquiryModel {
+  _embedded: [EnquiryModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetEnquiries(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    enquiryType: String
+    createdFrom: String
+    createdTo: String
+  ): PagedResultEnquiryModel!
+  GetEnquiryById(id: Int!): EnquiryModel!
+}
+
+type Mutation {
+  CreateEnquiry(
+    title: String
+    forename: String
+    surname: String
+    enquiryType: String
+    message: String
+    status: String
+    marketingConsent: String
+    position: String
+    officeId: String
+    sourceName: String
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: EnquiryAddressInput
+    propertyIds: [String]
+  ): EnquiryModel!
+}
