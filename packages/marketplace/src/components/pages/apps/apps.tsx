@@ -15,7 +15,7 @@ import { selectAppsListState, selectFeatureAppsListState } from '@/selector/apps
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import InfiniteScroll from 'react-infinite-scroller'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
@@ -35,13 +35,16 @@ export const handleLoadMore = ({
   preview,
   loading,
   numOfItemsPerPage,
+  pageNumber,
 }: {
   dispatch: Dispatch
   preview: boolean
   loading: boolean
   numOfItemsPerPage: number
-}) => (page: number) => {
-  !loading && dispatch(fetchApps({ pageNumber: page, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
+  pageNumber: number
+}) => () => {
+  !loading &&
+    dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -69,7 +72,6 @@ export const Apps: React.FunctionComponent = () => {
    *
    */
   const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
-
   return (
     <ErrorBoundary>
       <Section
@@ -81,12 +83,11 @@ export const Apps: React.FunctionComponent = () => {
         hasBackground={false}
       >
         <InfiniteScroll
-          useWindow={false}
-          pageStart={1}
-          loadMore={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage })}
+          dataLength={apps.length}
+          next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
-          initialLoad={false}
+          scrollableTarget="app-root-container" // we want scrollableTarget here is the app-root-container, not the default AppList section
         >
           <TransitionGroup>
             <>
@@ -111,6 +112,7 @@ export const Apps: React.FunctionComponent = () => {
             </>
           </TransitionGroup>
         </InfiniteScroll>
+
         <div className="bb mb-4" />
         <ComingSoonApps />
       </Section>
