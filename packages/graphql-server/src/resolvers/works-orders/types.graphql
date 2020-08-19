@@ -94,7 +94,6 @@ type WorksOrderItem {
   _embedded: JSON
 }
 
-# getWorkerkerItems; PagedWorkOrdersItem
 type PagedResultWorksOrderItem {
   _embedded: [WorksOrderItem!]
   pageNumber: Int
@@ -134,8 +133,7 @@ type Query {
 }
 
 type Mutation {
-  # deleteWorkerkerItem - params: id - item Id, boolean
-  DeleteWorsOrderItem(itemId: String!, id: String!): Boolean
+  DeleteWorksOrderItem(itemId: String!, id: String!): Boolean
 
   UpdateWorksOrderItem(
     notes: String
@@ -177,7 +175,6 @@ type Mutation {
   ): WorkOrder!
 
   CreateWorksOrder(
-    # required
     propertyId: String!
     negotiatorId: String!
     typeId: String!
@@ -185,7 +182,7 @@ type Mutation {
     description: String!
     reporter: String!
     items: [InputWorksOrderItem!]
-    # optional
+
     companyId: String
     tenancyId: String
     booked: String

@@ -29,7 +29,7 @@ import {
   callGetWorksOrderItemByIdAPI,
   callCreateWorksOrderItemAPI,
   callUpdateWorksOrderItemAPI,
-  callDeleteWorsOrderItem,
+  calldeleteWorksOrderItem,
 } from './api'
 
 export const updateWorksOrderItem = (
@@ -37,30 +37,22 @@ export const updateWorksOrderItem = (
   context: ServerContext,
 ): UpdateWorksOrderReturn => {
   const traceId = context.traceId
-  /*
-   * TODOME()
-   * rename
-   */
 
   logger.info('updateWorksOrderItem', { traceId, args })
-  /*
-   * TODOME()
-   * rename API
-   */
 
   const worksOrder = callUpdateWorksOrderItemAPI(args, context)
   return worksOrder
 }
 
-export const deleteWorsOrderItem = (
+export const deleteWorksOrderItem = (
   args: DeleteWorksOrderItemArgs,
   context: ServerContext,
 ): DeleteWorksOrderItemReturn => {
   const traceId = context.traceId
 
-  logger.info('deleteWorsOrderItem', { traceId, args })
+  logger.info('deleteWorksOrderItem', { traceId, args })
 
-  return callDeleteWorsOrderItem(args, context)
+  return calldeleteWorksOrderItem(args, context)
 }
 
 export const createWorksOrderItem = (

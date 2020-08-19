@@ -10,7 +10,7 @@ import {
   queryGetWorksOrderById,
   mutationCreateWorksOrderItem,
   mutationUpdateWorksOrderItem,
-  mutationDeleteWorsOrderItem,
+  mutationdeleteWorksOrderItem,
 } from '../resolvers'
 
 import {
@@ -28,7 +28,7 @@ import {
   updateWorkOrderArgsStub,
   createWorksOrderItemArgsStub,
   updateWorksOrderItemArgsStub,
-  deleteWorsOrderItemArgsStub,
+  deleteWorksOrderItemArgsStub,
 } from '../__stubs__/works-orders-mutation'
 
 jest.mock('../services', () => ({
@@ -42,7 +42,7 @@ jest.mock('../services', () => ({
   updateWorksOrderItem: jest.fn(() => worksOrderItemStub),
   getWorksOrderItemById: jest.fn(() => worksOrderItemStub),
   postWorkerkerItem: jest.fn(() => createWorksOrderItemArgsStub),
-  deleteWorsOrderItem: jest.fn(() => true),
+  deleteWorksOrderItem: jest.fn(() => true),
 }))
 
 jest.mock('../../../errors', () => ({
@@ -53,19 +53,19 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('mutationDeleteWorsOrderItem', () => {
+describe('mutationdeleteWorksOrderItem', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
 
-    const result = mutationDeleteWorsOrderItem(null, deleteWorsOrderItemArgsStub, mockContext)
+    const result = mutationdeleteWorksOrderItem(null, deleteWorksOrderItemArgsStub, mockContext)
 
-    expect(result).toEqual(worksOrdersServices.deleteWorsOrderItem(deleteWorsOrderItemArgsStub, mockContext))
+    expect(result).toEqual(worksOrdersServices.deleteWorksOrderItem(deleteWorksOrderItemArgsStub, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
 
-    const result = mutationDeleteWorsOrderItem(null, updateWorksOrderItemArgsStub, mockContext)
+    const result = mutationdeleteWorksOrderItem(null, updateWorksOrderItemArgsStub, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

@@ -6,7 +6,7 @@ import {
   DeleteWorksOrderItemArgs,
 } from '../works-orders'
 
-export const deleteWorsOrderItemArgsStub: DeleteWorksOrderItemArgs = {
+export const deleteWorksOrderItemArgsStub: DeleteWorksOrderItemArgs = {
   id: '1',
   itemId: '1',
 }

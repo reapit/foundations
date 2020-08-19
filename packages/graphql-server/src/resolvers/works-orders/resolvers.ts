@@ -22,7 +22,7 @@ import { checkPermission } from '@/utils/check-permission'
 import errors from '@/errors'
 import * as worksOrdersServices from './services'
 
-export const mutationDeleteWorsOrderItem = (
+export const mutationdeleteWorksOrderItem = (
   _: any,
 
   args: DeleteWorksOrderItemArgs,
@@ -30,13 +30,13 @@ export const mutationDeleteWorsOrderItem = (
 ): MutationDeleteWorksOrderItemReturn => {
   const traceId = context.traceId
 
-  logger.info('mutationDeleteWorsOrderItem', { traceId, args })
+  logger.info('mutationdeleteWorksOrderItem', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
 
-  return worksOrdersServices.deleteWorsOrderItem(args, context)
+  return worksOrdersServices.deleteWorksOrderItem(args, context)
 }
 
 export const mutationUpdateWorksOrderItem = (
@@ -175,6 +175,6 @@ export default {
     UpdateWorksOrder: mutationUpdateWorksOrder,
     CreateWorksOrderItem: mutationCreateWorksOrderItem,
     UpdateWorksOrderItem: mutationUpdateWorksOrderItem,
-    DeleteWorsOrderItem: mutationDeleteWorsOrderItem,
+    DeleteWorksOrderItem: mutationdeleteWorksOrderItem,
   },
 }

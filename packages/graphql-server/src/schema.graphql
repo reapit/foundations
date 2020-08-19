@@ -1022,9 +1022,7 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
-
-  # deleteWorkerkerItem - params: id - item Id, boolean
-  DeleteWorsOrderItem(itemId: String!, id: String!): Boolean
+  DeleteWorksOrderItem(itemId: String!, id: String!): Boolean
   UpdateWorksOrderItem(
     notes: String
     chargeTo: String
@@ -1062,7 +1060,6 @@ type Mutation {
     id: String!
   ): WorkOrder!
   CreateWorksOrder(
-    # required
     propertyId: String!
     negotiatorId: String!
     typeId: String!
@@ -1070,7 +1067,6 @@ type Mutation {
     description: String!
     reporter: String!
     items: [InputWorksOrderItem!]
-    # optional
     companyId: String
     tenancyId: String
     booked: String
@@ -2348,7 +2344,6 @@ type PagedResultWorksOrders {
   _links: JSON
 }
 
-# getWorkerkerItems; PagedWorkOrdersItem
 type PagedResultWorksOrderItem {
   _embedded: [WorksOrderItem!]
   pageNumber: Int

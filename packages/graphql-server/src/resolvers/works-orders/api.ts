@@ -26,12 +26,12 @@ import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
 
-export const callDeleteWorsOrderItem = async (
+export const calldeleteWorksOrderItem = async (
   args: DeleteWorksOrderItemArgs,
   context: ServerContext,
 ): DeleteWorksOrderItemReturn => {
   const traceId = context.traceId
-  logger.info('callDeleteWorsOrderItem', { traceId, args })
+  logger.info('calldeleteWorksOrderItem', { traceId, args })
   try {
     const { id, itemId } = args
 
@@ -45,7 +45,7 @@ export const callDeleteWorsOrderItem = async (
     )
     return true
   } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteWorsOrderItem' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'calldeleteWorksOrderItem' })
     return handleErrorResult
   }
 }
