@@ -15,6 +15,8 @@ import appState from '@/reducers/__stubs__/app-state'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { fetchApps } from '@/actions/apps'
 
+jest.mock('rc-animate')
+
 const createState = appSummaryState => {
   return {
     ...appState,

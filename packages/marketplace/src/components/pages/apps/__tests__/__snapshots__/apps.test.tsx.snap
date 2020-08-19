@@ -57,9 +57,301 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
     >
       <Component>
         <ErrorBoundary>
-          <p>
-            Something went wrong here, try refreshing your page.
-          </p>
+          <Component
+            hasBackground={false}
+            hasMargin={false}
+            hasPadding={false}
+            isFlex={true}
+            isFlexColumn={true}
+          >
+            <section
+              className=""
+              data-test=""
+            >
+              <Component
+                isHeadingSection={true}
+              >
+                <h3
+                  className=""
+                  id=""
+                >
+                  Browse Apps
+                </h3>
+              </Component>
+              <InfiniteScroll
+                dataLength={0}
+                hasMore={false}
+                loader={<Unknown />}
+                next={[Function]}
+                scrollThreshold="0px"
+                scrollableTarget="app-root-container"
+              >
+                <div
+                  className="infinite-scroll-component__outerdiv"
+                  style={Object {}}
+                >
+                  <div
+                    className="infinite-scroll-component "
+                    style={
+                      Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "height": "auto",
+                        "overflow": "auto",
+                      }
+                    }
+                  >
+                    <TransitionGroup
+                      childFactory={[Function]}
+                      component="div"
+                    >
+                      <div>
+                        <Component
+                          animated={true}
+                          in={true}
+                          infoType="CLIENT_APPS_EMPTY"
+                          key=".0"
+                          list={Array []}
+                          loading={false}
+                          onCardClick={[Function]}
+                          onExited={[Function]}
+                        >
+                          <div
+                            className="overflow-hidden mb-4"
+                          >
+                            <Component
+                              variant="info"
+                            >
+                              <div
+                                className="notification helper-wrap helper-info"
+                              >
+                                We are sorry, there are no apps listed compatible with your account
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </TransitionGroup>
+                  </div>
+                </div>
+              </InfiniteScroll>
+              <div
+                className="bb mb-4"
+              />
+              <ComingSoonApps
+                setCommingSoonAppSectionHeight={[Function]}
+              >
+                <div>
+                  <Component
+                    isMultiLine={true}
+                  >
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className="card"
+                          >
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </ComingSoonApps>
+            </section>
+          </Component>
         </ErrorBoundary>
       </Component>
     </Router>
@@ -167,42 +459,50 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                       }
                     }
                   >
-                    <mockConstructor>
-                      <Component
-                        animated={true}
-                        infoType="CLIENT_APPS_EMPTY"
-                        list={Array []}
-                        loading={true}
-                        onCardClick={[Function]}
-                      >
-                        <div
-                          className="overflow-hidden mb-4"
+                    <TransitionGroup
+                      childFactory={[Function]}
+                      component="div"
+                    >
+                      <div>
+                        <Component
+                          animated={true}
+                          in={true}
+                          infoType="CLIENT_APPS_EMPTY"
+                          key=".0"
+                          list={Array []}
+                          loading={true}
+                          onCardClick={[Function]}
+                          onExited={[Function]}
                         >
-                          <Component
-                            className=" undefined"
-                            data-test="app-list-container"
+                          <div
+                            className="overflow-hidden mb-4"
                           >
-                            <div
-                              className=""
-                              data-test=""
-                            />
-                          </Component>
-                          <Component
-                            body={true}
-                          >
-                            <div
-                              className="loader-spinner body"
-                              data-test=""
+                            <Component
+                              className=" undefined"
+                              data-test="app-list-container"
                             >
-                              <div />
-                              <div />
-                              <div />
-                              <div />
-                            </div>
-                          </Component>
-                        </div>
-                      </Component>
-                    </mockConstructor>
+                              <div
+                                className=""
+                                data-test=""
+                              />
+                            </Component>
+                            <Component
+                              body={true}
+                            >
+                              <div
+                                className="loader-spinner body"
+                                data-test=""
+                              >
+                                <div />
+                                <div />
+                                <div />
+                                <div />
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </TransitionGroup>
                   </div>
                 </div>
               </InfiniteScroll>
