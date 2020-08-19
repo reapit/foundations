@@ -15,28 +15,28 @@ export type GetVendorByIdArgs = {
 }
 
 export type GetVendorsArgs = {
-  pageSize: number
-  pageNumber: number
-  sortBy: string
-  id: string[]
-  embed: string[]
-  negotiatorId: string[]
-  officeId: string[]
-  address: string
-  name: string
-  createdFrom: string
-  createdTo: string
-  lastCallFrom: string
-  lastCallTo: string
-  nextCallFrom: string
-  nextCallTo: string
-  metadata: string[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  embed?: string[]
+  negotiatorId?: string[]
+  officeId?: string[]
+  address?: string
+  name?: string
+  createdFrom?: string
+  createdTo?: string
+  lastCallFrom?: string
+  lastCallTo?: string
+  nextCallFrom?: string
+  nextCallTo?: string
+  metadata?: string[]
 }
 
 export type GetVendorRelationshipsArgs = {
   id: string
-  pageSize: number
-  pageNumber: number
+  pageSize?: number
+  pageNumber?: number
 }
 
 export type GetVendorRelationshipByIdArgs = {

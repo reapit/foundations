@@ -1,27 +1,29 @@
 import { mockContext } from '../../../__stubs__/context'
 import {
-  callGetLandlordsAPI,
-  callCreateLandlordAPI,
-  callUpdateLandlordAPI,
-  callGetLandlordByIdAPI,
-  callGetLandlordRelationshipsAPI,
-  callCreateLandlordRelationshipAPI,
-  callDeleteLandlordRelationshipAPI,
-  callGetLandlordRelationshipByIdAPI,
+  callGetTenanciesAPI,
+  callGetTenancyByIdAPI,
+  callGetTenancyChecksAPI,
+  callGetTenancyCheckByIdAPI,
+  callGetTenancyRelationshipsAPI,
+  callCreateTenancyAPI,
+  callCreateTenancyCheckAPI,
+  callDeleteTenancyCheckAPI,
+  callUpdateTenancyCheckAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
 import {
-  landlordsListMock,
-  landlordMock,
-  landlordRelationshipMock,
-  landlordRelationshipsListMock,
-} from '../__stubs__/landlord-query'
+  tenancyMock,
+  tenancyCheckMock,
+  tenanciesListMock,
+  tenancyChecksListMock,
+  tenancyRelationshipsListMock,
+} from '../__stubs__/tenancy-query'
 import {
-  createLandlordArgsMock,
-  updateLandlordArgsMock,
-  createLandlordRelationshipArgsMock,
-  deleteLandlordRelationshipArgsMock,
-} from '../__stubs__/landlord-mutation'
+  createTenancyArgsMock,
+  createTenancyCheckArgsMock,
+  deleteTenancyCheckArgsMock,
+  updateTenancyCheckArgsMock,
+} from '../__stubs__/tenancy-mutation'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
@@ -42,53 +44,53 @@ jest.mock('../../../utils/axios-instances', () => ({
   })),
 }))
 
-describe('callGetLandlordsAPI', () => {
+describe('callGetTenanciesAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: landlordsListMock })),
+      get: jest.fn(() => Promise.resolve({ data: tenanciesListMock })),
     })
     const args = { pageSize: 1 }
-    const result = await callGetLandlordsAPI(args, mockContext)
-    expect(result).toEqual(landlordsListMock)
+    const result = await callGetTenanciesAPI(args, mockContext)
+    expect(result).toEqual(tenanciesListMock)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
     const args = { pageSize: 1 }
-    const result = await callGetLandlordsAPI(args, mockContext)
+    const result = await callGetTenanciesAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callGetLandlordByIdAPI', () => {
+describe('callGetTenancyByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: landlordMock })),
+      get: jest.fn(() => Promise.resolve({ data: tenancyMock })),
     })
-    const args = { id: landlordMock.id }
-    const result = await callGetLandlordByIdAPI(args, mockContext)
-    expect(result).toEqual(landlordMock)
+    const args = { id: tenancyMock.id }
+    const result = await callGetTenancyByIdAPI(args, mockContext)
+    expect(result).toEqual(tenancyMock)
   })
 
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: landlordMock.id }
-    const result = await callGetLandlordByIdAPI(args, mockContext)
+    const args = { id: tenancyMock.id }
+    const result = await callGetTenancyByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callGetLandlordRelationshipByIdAPI', () => {
+describe('callGetTenancyRelationshipsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: landlordRelationshipMock })),
+      get: jest.fn(() => Promise.resolve({ data: tenancyRelationshipsListMock })),
     })
     const args = { id: 'id', relationshipId: 'relationshipId' }
-    const result = await callGetLandlordRelationshipByIdAPI(args, mockContext)
-    expect(result).toEqual(landlordRelationshipMock)
+    const result = await callGetTenancyRelationshipsAPI(args, mockContext)
+    expect(result).toEqual(tenancyRelationshipsListMock)
   })
 
   it('should catch error correctly', async () => {
@@ -96,93 +98,113 @@ describe('callGetLandlordRelationshipByIdAPI', () => {
       get: jest.fn(() => Promise.reject('error caught')),
     })
     const args = { id: 'id', relationshipId: 'relationshipId' }
-    const result = await callGetLandlordRelationshipByIdAPI(args, mockContext)
+    const result = await callGetTenancyRelationshipsAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callGetLandlordRelationshipsAPI', () => {
+describe('callGetTenancyChecksAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: landlordRelationshipsListMock })),
+      get: jest.fn(() => Promise.resolve({ data: tenancyChecksListMock })),
     })
     const args = { pageSize: 1, id: 'id' }
-    const result = await callGetLandlordRelationshipsAPI(args, mockContext)
-    expect(result).toEqual(landlordRelationshipsListMock)
+    const result = await callGetTenancyChecksAPI(args, mockContext)
+    expect(result).toEqual(tenancyChecksListMock)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
     const args = { pageSize: 1, id: 'id' }
-    const result = await callGetLandlordRelationshipsAPI(args, mockContext)
+    const result = await callGetTenancyChecksAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callCreateLandlordAPI', () => {
+describe('callGetTenancyCheckByIdAPI', () => {
+  it('should work correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      get: jest.fn(() => Promise.resolve({ data: tenancyCheckMock })),
+    })
+    const args = { id: tenancyCheckMock.id, checkId: 'checkId' }
+    const result = await callGetTenancyCheckByIdAPI(args, mockContext)
+    expect(result).toEqual(tenancyCheckMock)
+  })
+
+  it('should catch error correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      get: jest.fn(() => Promise.reject('error caught')),
+    })
+    const args = { id: tenancyCheckMock.id, checkId: 'checkId' }
+    const result = await callGetTenancyCheckByIdAPI(args, mockContext)
+    expect(result).toEqual('caught error')
+  })
+})
+
+describe('callCreateTenancyAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
-      get: jest.fn(() => Promise.resolve({ data: landlordMock })),
+      get: jest.fn(() => Promise.resolve({ data: tenancyMock })),
     })
-    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(landlordMock.id)
-    await callCreateLandlordAPI(createLandlordArgsMock, mockContext)
+    ;(getIdFromCreateHeaders as jest.Mocked<any>).mockReturnValueOnce(tenancyMock.id)
+    await callCreateTenancyAPI(createTenancyArgsMock, mockContext)
     expect(getIdFromCreateHeaders).toHaveBeenCalledWith({ headers: 'header' })
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateLandlordAPI(createLandlordArgsMock, mockContext)
+    const result = await callCreateTenancyAPI(createTenancyArgsMock, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callCreateLandlordRelationshipAPI', () => {
+describe('callCreateTenancyCheckAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callCreateLandlordRelationshipAPI(createLandlordRelationshipArgsMock, mockContext)
+    await callCreateTenancyCheckAPI(createTenancyCheckArgsMock, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callCreateLandlordRelationshipAPI(createLandlordRelationshipArgsMock, mockContext)
+    const result = await callCreateTenancyCheckAPI(createTenancyCheckArgsMock, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callUpdateLandlordAPI', () => {
+describe('callUpdateTenancyCheckAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callUpdateLandlordAPI(updateLandlordArgsMock, mockContext)
+    await callUpdateTenancyCheckAPI(updateTenancyCheckArgsMock, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callUpdateLandlordAPI(updateLandlordArgsMock, mockContext)
+    const result = await callUpdateTenancyCheckAPI(updateTenancyCheckArgsMock, mockContext)
     expect(result).toEqual('caught error')
   })
 })
 
-describe('callDeleteLandlordRelationshipAPI', () => {
+describe('callDeleteTenancyCheckAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
-    await callDeleteLandlordRelationshipAPI(deleteLandlordRelationshipArgsMock, mockContext)
+    await callDeleteTenancyCheckAPI(deleteTenancyCheckArgsMock, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       delete: jest.fn(() => Promise.reject('error caught')),
     })
-    const result = await callDeleteLandlordRelationshipAPI(deleteLandlordRelationshipArgsMock, mockContext)
+    const result = await callDeleteTenancyCheckAPI(deleteTenancyCheckArgsMock, mockContext)
     expect(result).toEqual('caught error')
   })
 })

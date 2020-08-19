@@ -30,4 +30,3 @@ type Query {
   GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
   GetDepartmentById(id: String!): DepartmentModel!
 }
-
