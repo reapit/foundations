@@ -88,4 +88,28 @@ describe('members reducer', () => {
     })
     expect(newState).toEqual({ ...defaultState, isLoading: false, errorMessage: 'test' })
   })
+
+  it('should return state with setAsAdmin isLoading is true, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: true } })
+  })
+
+  it('should return state with setAsAdmin isLoading is false, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN_SUCCESS as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: false } })
+  })
+
+  it('should return state with setAsAdmin isLoading is false, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN_FAILED as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: false } })
+  })
 })

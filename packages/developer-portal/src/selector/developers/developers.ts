@@ -33,3 +33,7 @@ export const selectMemberDetailsLoading = (state: ReduxState): boolean => {
 export const selectInviteMemberStatus = (state: ReduxState): InviteMemberStatus => {
   return state.developers?.memberDetails?.inviteStatus
 }
+
+export const selectSetAsAdminLoading = (state: ReduxState): boolean => {
+  return state.developers?.members?.setAsAdmin?.isLoading
+}
