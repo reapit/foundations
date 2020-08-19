@@ -12,15 +12,52 @@ import {
   GetWorksOrderItemsArgs,
   QueryGetWorksOrderItemByIdReturn,
   GetWorksOrderItembyIdArgs,
+  CreateWorksOrderItemArgs,
 } from './works-orders'
 import { ServerContext } from '@/index'
 import { checkPermission } from '@/utils/check-permission'
 import errors from '@/errors'
 import * as worksOrdersServices from './services'
 
+/*
+ * TODOME(postWorkerkerItem)
+ * rename
+ */
+
+export const mutationCreateWorksOrderItem = (
+  _: any,
+  /*
+   * TODOME(postWorkerkerItem)
+   * args
+   */
+  args: CreateWorksOrderItemArgs,
+  context: ServerContext,
+  /*
+   * TODOME(postWorkerkerItem)
+   * renturn type
+   */
+): MutationUpdateWorksOrder => {
+  const traceId = context.traceId
+  /*
+   * TODOME(postWorkerkerItem)
+   * keyword
+   */
+
+  logger.info('mutationCreateWorksOrderItem', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  /*
+   * TODOME(postWorkerkerItem)
+   * call the service
+   */
+
+  return worksOrdersServices.createWorksOrderItem(args, context)
+}
+
 export const queryGetWorksOrderById = (
   _: any,
-
   args: GetWorksOrderItembyIdArgs,
   context: ServerContext,
 ): QueryGetWorksOrderItemByIdReturn => {
@@ -119,5 +156,6 @@ export default {
   Mutation: {
     CreateWorksOrder: mutationCreateWorksOrder,
     UpdateWorksOrder: mutationUpdateWorksOrder,
+    CreateWorksOrderItem: mutationCreateWorksOrderItem,
   },
 }

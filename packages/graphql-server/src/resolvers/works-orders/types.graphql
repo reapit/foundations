@@ -77,7 +77,6 @@ type PagedResultWorksOrders {
   totalCount: Int
   _links: JSON
 }
-# getWorkerkerItems: WorkOrdersItem
 type WorksOrderItem {
   id: String
   worksOrderId: String
@@ -127,15 +126,22 @@ type Query {
     requiredTo: String
     metadata: JSON
   ): PagedResultWorksOrders!
-
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
-
   GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
   GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem
-  # getWorkerkerItem
 }
 
 type Mutation {
+  CreateWorksOrderItem(
+    notes: String!
+    chargeTo: String!
+    id: String!
+    estimate: Int
+    estimateType: String
+    netAmount: Int
+    vatAmount: Int
+  ): WorksOrderItem
+
   UpdateWorksOrder(
     propertyId: String
     negotiatorId: String

@@ -10,6 +10,8 @@ import {
   GetWorksOrderItemsReturn,
   GetWorksOrderItembyIdArgs,
   GetWorksOrderItemByIdReturn,
+  CreateWorksOrderItemArgs,
+  CreateWorksOrderItemReturn,
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/index'
@@ -19,6 +21,75 @@ import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
+
+/*
+ * TODOME(postWorkerkerItem)
+ * renmae
+ */
+export const callCreateWorksOrderItemAPI = async (
+  /*
+   * TODOME(postWorkerkerItem)
+   * rename
+   */
+
+  args: CreateWorksOrderItemArgs,
+  context: ServerContext,
+  /*
+   * TODOME(postWorkerkerItem)
+   * rename
+   */
+): CreateWorksOrderItemReturn => {
+  const traceId = context.traceId
+
+  /*
+   * TODOME(postWorkerkerItem)
+   * rename
+   */
+
+  logger.info('callCreateWorksOrderItemAPI', { traceId, args })
+
+  /*
+   * TODOME(postWorkerkerItem)
+   * get id only
+   */
+
+  try {
+    /*
+     * TODOME(postWorkerkerItem)
+     * udate url
+     */
+    const { id } = args
+    const response = await createPlatformAxiosInstance().post<GetWorksOrdersReturn>(
+      `${URLS.worksOrders}/${id}/items`,
+      args,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
+      },
+    )
+
+    /*
+     * TODOME(postWorkerkerItem)
+     * get id and refetch
+     */
+
+    const createdWorksOrderItemId = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetWorksOrderItemByIdAPI({ id, itemId: createdWorksOrderItemId }, context)
+    }
+    return null
+  } catch (error) {
+    /*
+     * TODOME(postWorkerkerItem)
+     * rename
+     */
+
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateWorksOrderItemAPI' })
+
+    return handleErrorResult
+  }
+}
 
 export const callGetWorksOrderItemByIdAPI = async (
   args: GetWorksOrderItembyIdArgs,

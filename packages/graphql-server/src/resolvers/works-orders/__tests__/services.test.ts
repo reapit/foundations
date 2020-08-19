@@ -5,6 +5,7 @@ import {
   callUpdateWorksOrderAPI,
   callGetWorksOrderItemsAPI,
   callGetWorksOrderItemByIdAPI,
+  callCreateWorksOrderItemAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/context'
 import {
@@ -23,8 +24,13 @@ import {
   updateWorksOrder,
   getWorksOrderItems,
   getWorksOrderItemById,
+  createWorksOrderItem,
 } from '../services'
-import { createWorksOrderArgsStub, updateWorkOrderArgsStub } from '../__stubs__/works-orders-mutation'
+import {
+  createWorksOrderArgsStub,
+  updateWorkOrderArgsStub,
+  createWorksOrderItemArgsStub,
+} from '../__stubs__/works-orders-mutation'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({
@@ -33,8 +39,36 @@ jest.mock('../api', () => ({
   callCreateWorksOrderByIdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callUpdateWorksOrderAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callGetWorksOrderItemsAPI: jest.fn(() => worksOrderItemListStub),
+  /*
+   * TODOME(postWorkerkerItem)
+   * import api
+   */
+
   callGetWorksOrderItemByIdAPI: jest.fn(() => worksOrderItemStub),
+  callCreateWorksOrderItemAPI: jest.fn(() => worksOrderItemStub),
 }))
+/*
+ * TODOME(postWorkerkerItem)
+ * rename
+ */
+
+describe('createWorksOrderItem', () => {
+  it('should return correctly', async () => {
+    /*
+     * TODOME(postWorkerkerItem)
+     * chnge func
+     */
+
+    const result = await createWorksOrderItem(createWorksOrderItemArgsStub, mockContext)
+    /*
+     * TODOME(postWorkerkerItem)
+     * change api, change args here
+     */
+
+    expect(callCreateWorksOrderItemAPI).toHaveBeenCalledWith(createWorksOrderItemArgsStub, mockContext)
+    expect(result).toEqual(worksOrderItemStub)
+  })
+})
 
 describe('getWorksOrderItemById', () => {
   it('should return correctly', async () => {

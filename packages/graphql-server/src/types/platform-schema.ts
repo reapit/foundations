@@ -1,3 +1,34 @@
+/*
+ * TODOME(postWorkerkerItem)
+ * CreateWorksOrderItemMode
+ */
+export interface CreateWorksOrderItemModel {
+  /**
+   * The notes attached to the works order item
+   */
+  notes: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The cost of the vat associated with the work
+   */
+  vatAmount?: number // double
+}
+
 export interface WorksOrderItemModel {
   /**
    * The unique identifier of the works order item

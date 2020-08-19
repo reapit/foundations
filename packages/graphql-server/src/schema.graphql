@@ -1022,6 +1022,15 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+  CreateWorksOrderItem(
+    notes: String!
+    chargeTo: String!
+    id: String!
+    estimate: Int
+    estimateType: String
+    netAmount: Int
+    vatAmount: Int
+  ): WorksOrderItem
   UpdateWorksOrder(
     propertyId: String
     negotiatorId: String
@@ -2273,7 +2282,6 @@ input InputWorksOrderItem {
   vatAmount: Int
 }
 
-# getWorkerkerItems: WorkOrdersItem
 type WorksOrderItem {
   id: String
   worksOrderId: String

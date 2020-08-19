@@ -1,4 +1,19 @@
-import { CreateWorksOrderArgs, UpdateWorksOrderArgs } from '../works-orders'
+import { CreateWorksOrderArgs, UpdateWorksOrderArgs, CreateWorksOrderItemArgs } from '../works-orders'
+
+/*
+ * TODOME(postWorkerkerItem)
+ *
+ */
+
+export const createWorksOrderItemArgsStub: CreateWorksOrderItemArgs = {
+  id: 'RPT20000022',
+  notes: 'Please book the electrical certificate for either Thursday or Friday.',
+  chargeTo: 'landlord',
+  estimate: 120,
+  estimateType: 'written',
+  netAmount: 100,
+  vatAmount: 20,
+}
 
 export const updateWorkOrderArgsStub: UpdateWorksOrderArgs = {
   _eTag: '"B219B9AD4E8EE3088561590FA3A6898E"',

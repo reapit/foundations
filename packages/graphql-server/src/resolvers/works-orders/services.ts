@@ -12,6 +12,8 @@ import {
   GetWorksOrderItemsReturn,
   GetWorksOrderItemByIdReturn,
   GetWorksOrderItembyIdArgs,
+  CreateWorksOrderItemArgs,
+  MutationCreateWorksOrderItemReturn,
 } from './works-orders'
 
 import logger from '@/logger'
@@ -22,7 +24,36 @@ import {
   callUpdateWorksOrderAPI,
   callGetWorksOrderItemsAPI,
   callGetWorksOrderItemByIdAPI,
+  callCreateWorksOrderItemAPI,
 } from './api'
+/*
+ * TODOME(postWorkerkerItem)
+ * rename
+ */
+export const createWorksOrderItem = (
+  /*
+   * TODOME(postWorkerkerItem)
+   * rename args
+   * rename return
+   */
+  args: CreateWorksOrderItemArgs,
+  context: ServerContext,
+): MutationCreateWorksOrderItemReturn => {
+  const traceId = context.traceId
+  /*
+   * TODOME()
+   * rename
+   */
+
+  logger.info('createWorksOrderItem', { traceId, args })
+  /*
+   * TODOME()
+   * rename API
+   */
+
+  const worksOrder = callCreateWorksOrderItemAPI(args, context)
+  return worksOrder
+}
 
 export const getWorksOrderItemById = (
   args: GetWorksOrderItembyIdArgs,
