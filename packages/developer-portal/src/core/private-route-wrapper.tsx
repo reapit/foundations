@@ -31,14 +31,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
   const isRoot = connectInternalRedirect === '/'
-  const hasReadWelcome = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
 
   if (!connectSession) {
     return null
-  }
-
-  if (!hasReadWelcome && location.pathname === Routes.APPS) {
-    return <Redirect to={Routes.WELCOME} />
   }
 
   if (
@@ -47,6 +42,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   ) {
     const redirectUri = connectInternalRedirect === '/' ? Routes.APPS : connectInternalRedirect
     return <Redirect to={redirectUri} />
+  }
+
+  const hasReadWelcome = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
+  if (!hasReadWelcome && location.pathname === Routes.APPS) {
+    return <Redirect to={Routes.WELCOME} />
   }
 
   return (
