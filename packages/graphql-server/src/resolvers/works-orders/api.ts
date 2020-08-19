@@ -12,6 +12,8 @@ import {
   GetWorksOrderItemByIdReturn,
   CreateWorksOrderItemArgs,
   CreateWorksOrderItemReturn,
+  UpdateWorksOrderItemArgs,
+  UpdateWorksOrderItemReturn,
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/index'
@@ -21,6 +23,35 @@ import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
+
+export const callUpdateWorksOrderItemAPI = async (
+  args: UpdateWorksOrderItemArgs,
+  context: ServerContext,
+): UpdateWorksOrderItemReturn => {
+  const traceId = context.traceId
+  logger.info('callUpdateWorksOrderitem', { traceId, args })
+  try {
+    const { _eTag, id, itemId, ...payload } = args
+
+    const updateResponse = await createPlatformAxiosInstance().patch<UpdateWorksOrderReturn>(
+      `${URLS.worksOrders}/${id}/items/${itemId}`,
+      payload,
+      {
+        headers: {
+          Authorization: context.authorization,
+          'If-Match': _eTag,
+        },
+      },
+    )
+    if (updateResponse) {
+      return callGetWorksOrderItemByIdAPI({ id, itemId }, context)
+    }
+    return errors.generateUserInputError(traceId)
+  } catch (error) {
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateWorksOrderitem' })
+    return handleErrorResult
+  }
+}
 
 export const callCreateWorksOrderItemAPI = async (
   args: CreateWorksOrderItemArgs,

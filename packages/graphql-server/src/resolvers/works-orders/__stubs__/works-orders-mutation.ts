@@ -1,4 +1,21 @@
-import { CreateWorksOrderArgs, UpdateWorksOrderArgs, CreateWorksOrderItemArgs } from '../works-orders'
+import {
+  CreateWorksOrderArgs,
+  UpdateWorksOrderArgs,
+  CreateWorksOrderItemArgs,
+  UpdateWorksOrderItemArgs,
+} from '../works-orders'
+
+export const updateWorksOrderItemArgsStub: UpdateWorksOrderItemArgs = {
+  id: 'RPT20000022',
+  itemId: '1',
+  _eTag: '1',
+  notes: 'Please book the electrical certificate for either Thursday or Friday.',
+  chargeTo: 'landlord',
+  estimate: 120,
+  estimateType: 'written',
+  netAmount: 100,
+  vatAmount: 20,
+}
 
 export const createWorksOrderItemArgsStub: CreateWorksOrderItemArgs = {
   id: 'RPT20000022',

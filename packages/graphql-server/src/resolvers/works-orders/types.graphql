@@ -126,12 +126,25 @@ type Query {
     requiredTo: String
     metadata: JSON
   ): PagedResultWorksOrders!
-  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder
-  GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem
-  GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem
+  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder!
+  GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem!
+  GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem!
 }
 
 type Mutation {
+  # patchWorkerkerItem: Create UpdateWorksOrderItem
+  UpdateWorksOrderItem(
+    notes: String
+    chargeTo: String
+    id: String!
+    itemId: String!
+    _eTag: String!
+    estimate: Int
+    estimateType: String
+    netAmount: Int
+    vatAmount: Int
+  ): WorksOrderItem!
+
   CreateWorksOrderItem(
     notes: String!
     chargeTo: String!
@@ -140,7 +153,7 @@ type Mutation {
     estimateType: String
     netAmount: Int
     vatAmount: Int
-  ): WorksOrderItem
+  ): WorksOrderItem!
 
   UpdateWorksOrder(
     propertyId: String
