@@ -84,35 +84,35 @@ export const Apps: React.FunctionComponent = () => {
         hasMargin={false}
         hasBackground={false}
       >
+        {/* <AppSidebar /> */}
+        <H3 isHeadingSection>Browse Apps</H3>
+        {!hasParams && featuredApps.length > 0 && (
+          <div className="pb-4 bb mb-4">
+            <Grid isMultiLine>
+              {featuredApps.map(app => (
+                <FeaturedApp key={app.id} app={app} />
+              ))}
+            </Grid>
+          </div>
+        )}
         <InfiniteScroll
           dataLength={apps.length}
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
           scrollThreshold={`${commingSoonAppSectionHeight}px`}
-          scrollableTarget="app-root-container" // we want scrollableTarget here is the app-root-container, not the default AppList section
+          // We disable the scrolling in the app list  container and allow the app root container to scroll
+          // so the scrollableTarget must be set as app-root-container
+          scrollableTarget="app-root-container"
         >
           <TransitionGroup>
-            <>
-              {/* <AppSidebar /> */}
-              <H3 isHeadingSection>Browse Apps</H3>
-              {!hasParams && featuredApps.length > 0 && (
-                <div className="pb-4 bb mb-4">
-                  <Grid isMultiLine>
-                    {featuredApps.map(app => (
-                      <FeaturedApp key={app.id} app={app} />
-                    ))}
-                  </Grid>
-                </div>
-              )}
-              <AppList
-                list={apps}
-                loading={loading}
-                onCardClick={handleOnCardClick(history)}
-                infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-                animated
-              />
-            </>
+            <AppList
+              list={apps}
+              loading={loading}
+              onCardClick={handleOnCardClick(history)}
+              infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+              animated
+            />
           </TransitionGroup>
         </InfiniteScroll>
 

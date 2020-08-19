@@ -30,16 +30,24 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-const ComingSoonApps: React.FC<CommingSoonAppsProps> = ({ setCommingSoonAppSectionHeight }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null)
-  const containerHeight = containerRef.current?.clientHeight || 0
-  console.log('containerHeight', containerHeight)
-
-  React.useEffect(() => {
+export const handleSetCommingSoonAppSectionHeight = (
+  containerHeight: number,
+  setCommingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
+) => {
+  return () => {
     if (setCommingSoonAppSectionHeight) {
       setCommingSoonAppSectionHeight(containerHeight)
     }
-  }, [containerHeight])
+  }
+}
+
+const ComingSoonApps: React.FC<CommingSoonAppsProps> = ({ setCommingSoonAppSectionHeight }) => {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerHeight = containerRef.current?.clientHeight || 0
+
+  React.useEffect(handleSetCommingSoonAppSectionHeight(containerHeight, setCommingSoonAppSectionHeight), [
+    containerHeight,
+  ])
 
   return (
     <div ref={containerRef}>

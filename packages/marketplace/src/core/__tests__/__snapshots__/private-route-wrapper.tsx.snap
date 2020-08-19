@@ -5,6 +5,7 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
   <Component />
   <Component
     flexColumn={true}
+    id="app-root-container"
     isScrollable={true}
   >
     <Component

@@ -57,286 +57,9 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
     >
       <Component>
         <ErrorBoundary>
-          <Component
-            hasBackground={false}
-            hasMargin={false}
-            hasPadding={false}
-            isFlex={true}
-            isFlexColumn={true}
-          >
-            <section
-              className=""
-              data-test=""
-            >
-              <InfiniteScroll
-                element="div"
-                getScrollParent={null}
-                hasMore={false}
-                initialLoad={false}
-                isReverse={false}
-                loadMore={[Function]}
-                loader={<Unknown />}
-                pageStart={1}
-                ref={null}
-                threshold={250}
-                useCapture={false}
-                useWindow={false}
-              >
-                <div>
-                  <TransitionGroup
-                    childFactory={[Function]}
-                    component="div"
-                  >
-                    <div>
-                      <Component
-                        isHeadingSection={true}
-                      >
-                        <h3
-                          className=""
-                          id=""
-                        >
-                          Browse Apps
-                        </h3>
-                      </Component>
-                      <Component
-                        animated={true}
-                        infoType="CLIENT_APPS_EMPTY"
-                        list={Array []}
-                        loading={false}
-                        onCardClick={[Function]}
-                      >
-                        <div
-                          className="mb-4"
-                        >
-                          <Component
-                            variant="info"
-                          >
-                            <div
-                              className="notification helper-wrap helper-info"
-                            >
-                              We are sorry, there are no apps listed compatible with your account
-                            </div>
-                          </Component>
-                        </div>
-                      </Component>
-                    </div>
-                  </TransitionGroup>
-                </div>
-              </InfiniteScroll>
-              <div
-                className="bb mb-4"
-              />
-              <ComingSoonApps>
-                <Component
-                  isMultiLine={true}
-                >
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </ComingSoonApps>
-            </section>
-          </Component>
+          <p>
+            Something went wrong here, try refreshing your page.
+          </p>
         </ErrorBoundary>
       </Component>
     </Router>
@@ -412,36 +135,39 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
               className=""
               data-test=""
             >
-              <InfiniteScroll
-                element="div"
-                getScrollParent={null}
-                hasMore={false}
-                initialLoad={false}
-                isReverse={false}
-                loadMore={[Function]}
-                loader={<Unknown />}
-                pageStart={1}
-                ref={null}
-                threshold={250}
-                useCapture={false}
-                useWindow={false}
+              <Component
+                isHeadingSection={true}
               >
-                <div>
-                  <TransitionGroup
-                    childFactory={[Function]}
-                    component="div"
+                <h3
+                  className=""
+                  id=""
+                >
+                  Browse Apps
+                </h3>
+              </Component>
+              <InfiniteScroll
+                dataLength={0}
+                hasMore={false}
+                loader={<Unknown />}
+                next={[Function]}
+                scrollThreshold="0px"
+                scrollableTarget="app-root-container"
+              >
+                <div
+                  className="infinite-scroll-component__outerdiv"
+                  style={Object {}}
+                >
+                  <div
+                    className="infinite-scroll-component "
+                    style={
+                      Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "height": "auto",
+                        "overflow": "auto",
+                      }
+                    }
                   >
-                    <div>
-                      <Component
-                        isHeadingSection={true}
-                      >
-                        <h3
-                          className=""
-                          id=""
-                        >
-                          Browse Apps
-                        </h3>
-                      </Component>
+                    <mockConstructor>
                       <Component
                         animated={true}
                         infoType="CLIENT_APPS_EMPTY"
@@ -450,7 +176,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                         onCardClick={[Function]}
                       >
                         <div
-                          className="mb-4"
+                          className="overflow-hidden mb-4"
                         >
                           <Component
                             className=" undefined"
@@ -476,221 +202,225 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                           </Component>
                         </div>
                       </Component>
-                    </div>
-                  </TransitionGroup>
+                    </mockConstructor>
+                  </div>
                 </div>
               </InfiniteScroll>
               <div
                 className="bb mb-4"
               />
-              <ComingSoonApps>
-                <Component
-                  isMultiLine={true}
-                >
-                  <div
-                    className=""
-                    data-test=""
+              <ComingSoonApps
+                setCommingSoonAppSectionHeight={[Function]}
+              >
+                <div>
+                  <Component
+                    isMultiLine={true}
                   >
-                    <Component
-                      key=""
+                    <div
+                      className=""
+                      data-test=""
                     >
-                      <div
-                        className=""
-                        data-test=""
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
+                      </Component>
+                      <Component
+                        key=""
                       >
                         <div
-                          className="card"
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className="card-image"
+                            className="card"
                           >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
+                            <div
+                              className="card-image"
+                            >
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
               </ComingSoonApps>
             </section>
           </Component>
@@ -758,342 +488,9 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
     >
       <Component>
         <ErrorBoundary>
-          <Component
-            hasBackground={false}
-            hasMargin={false}
-            hasPadding={false}
-            isFlex={true}
-            isFlexColumn={true}
-          >
-            <section
-              className=""
-              data-test=""
-            >
-              <InfiniteScroll
-                element="div"
-                getScrollParent={null}
-                hasMore={false}
-                initialLoad={false}
-                isReverse={false}
-                loadMore={[Function]}
-                loader={<Unknown />}
-                pageStart={1}
-                ref={null}
-                threshold={250}
-                useCapture={false}
-                useWindow={false}
-              >
-                <div>
-                  <TransitionGroup
-                    childFactory={[Function]}
-                    component="div"
-                  >
-                    <div>
-                      <Component
-                        isHeadingSection={true}
-                      >
-                        <h3
-                          className=""
-                          id=""
-                        >
-                          Browse Apps
-                        </h3>
-                      </Component>
-                      <Component
-                        animated={true}
-                        infoType="CLIENT_APPS_EMPTY"
-                        list={
-                          Object {
-                            "featuredApps": Array [],
-                            "list": Object {
-                              "data": Array [
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://google.com/abc",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-                                  "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "test",
-                                  "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-                                },
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://www.contoso.com/path",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-                                  "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "asd",
-                                  "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-                                },
-                              ],
-                              "pageCount": 2,
-                              "pageNumber": 1,
-                              "pageSize": 2,
-                              "totalCount": 6,
-                            },
-                          }
-                        }
-                        loading={false}
-                        onCardClick={[Function]}
-                      >
-                        <div
-                          className="mb-4"
-                        >
-                          <Component
-                            variant="info"
-                          >
-                            <div
-                              className="notification helper-wrap helper-info"
-                            >
-                              We are sorry, there are no apps listed compatible with your account
-                            </div>
-                          </Component>
-                        </div>
-                      </Component>
-                    </div>
-                  </TransitionGroup>
-                </div>
-              </InfiniteScroll>
-              <div
-                className="bb mb-4"
-              />
-              <ComingSoonApps>
-                <Component
-                  isMultiLine={true}
-                >
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </ComingSoonApps>
-            </section>
-          </Component>
+          <p>
+            Something went wrong here, try refreshing your page.
+          </p>
         </ErrorBoundary>
       </Component>
     </Router>
@@ -1158,342 +555,9 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
     >
       <Component>
         <ErrorBoundary>
-          <Component
-            hasBackground={false}
-            hasMargin={false}
-            hasPadding={false}
-            isFlex={true}
-            isFlexColumn={true}
-          >
-            <section
-              className=""
-              data-test=""
-            >
-              <InfiniteScroll
-                element="div"
-                getScrollParent={null}
-                hasMore={false}
-                initialLoad={false}
-                isReverse={false}
-                loadMore={[Function]}
-                loader={<Unknown />}
-                pageStart={1}
-                ref={null}
-                threshold={250}
-                useCapture={false}
-                useWindow={false}
-              >
-                <div>
-                  <TransitionGroup
-                    childFactory={[Function]}
-                    component="div"
-                  >
-                    <div>
-                      <Component
-                        isHeadingSection={true}
-                      >
-                        <h3
-                          className=""
-                          id=""
-                        >
-                          Browse Apps
-                        </h3>
-                      </Component>
-                      <Component
-                        animated={true}
-                        infoType="CLIENT_APPS_EMPTY"
-                        list={
-                          Object {
-                            "featuredApps": Array [],
-                            "list": Object {
-                              "data": Array [
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://google.com/abc",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-                                  "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "test",
-                                  "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-                                },
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://www.contoso.com/path",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-                                  "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "asd",
-                                  "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-                                },
-                              ],
-                              "pageCount": 2,
-                              "pageNumber": 1,
-                              "pageSize": 2,
-                              "totalCount": 6,
-                            },
-                          }
-                        }
-                        loading={false}
-                        onCardClick={[Function]}
-                      >
-                        <div
-                          className="mb-4"
-                        >
-                          <Component
-                            variant="info"
-                          >
-                            <div
-                              className="notification helper-wrap helper-info"
-                            >
-                              We are sorry, there are no apps listed compatible with your account
-                            </div>
-                          </Component>
-                        </div>
-                      </Component>
-                    </div>
-                  </TransitionGroup>
-                </div>
-              </InfiniteScroll>
-              <div
-                className="bb mb-4"
-              />
-              <ComingSoonApps>
-                <Component
-                  isMultiLine={true}
-                >
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                    <Component
-                      key=""
-                    >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <div
-                          className="card"
-                        >
-                          <div
-                            className="card-image"
-                          >
-                            <img
-                              className="image"
-                              onError={[Function]}
-                              src=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </ComingSoonApps>
-            </section>
-          </Component>
+          <p>
+            Something went wrong here, try refreshing your page.
+          </p>
         </ErrorBoundary>
       </Component>
     </Router>

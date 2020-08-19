@@ -1,161 +1,163 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
-<Component
-  isMultiLine={true}
->
+<div>
   <Component
-    key="placeHolderImage"
+    isMultiLine={true}
   >
-    <div
-      className="card"
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
-  </Component>
-  <Component
-    key="placeHolderImage"
-  >
-    <div
-      className="card"
+    </Component>
+    <Component
+      key="placeHolderImage"
     >
       <div
-        className="card-image"
+        className="card"
       >
-        <img
-          className="image"
-          onError={[Function]}
-          src="placeHolderImage"
-        />
+        <div
+          className="card-image"
+        >
+          <img
+            className="image"
+            onError={[Function]}
+            src="placeHolderImage"
+          />
+        </div>
       </div>
-    </div>
+    </Component>
   </Component>
-</Component>
+</div>
 `;
