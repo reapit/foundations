@@ -14,7 +14,7 @@ export const handleSetAsAdmin = (dispatch: Dispatch, data: any, closeModal) => (
     memberId: id,
     name,
     jobTitle,
-    role: 'user',
+    role: 'admin',
     callback: closeModal,
   }
   dispatch(setAsAdmin(params))
