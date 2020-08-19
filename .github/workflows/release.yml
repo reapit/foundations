@@ -26,6 +26,14 @@ jobs:
           yarn global add serverless@1.59.3
           yarn add isomorphic-fetch -W
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.client_payload.environment == 'production' }}
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{secrets.AWS_REGION}}
+
       - name: Release Production
         run: |
           yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}

@@ -25,7 +25,6 @@ provider:
   runtime: nodejs10.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  deploymentPrefix: cloud
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
 
