@@ -1,7 +1,7 @@
 import {
   callGetWorksOrderByIdAPI,
   callGetWorksOrdersAPI,
-  callCreateWorksOrderByIdAPI,
+  callCreateWorksOrderdAPI,
   callUpdateWorksOrderAPI,
   callGetWorksOrderItemsAPI,
   callGetWorksOrderItemByIdAPI,
@@ -42,7 +42,7 @@ jest.mock('../../../logger')
 jest.mock('../api', () => ({
   callGetWorksOrderByIdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callGetWorksOrdersAPI: jest.fn(() => Promise.resolve(worksOrderListStub)),
-  callCreateWorksOrderByIdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
+  callCreateWorksOrderdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callUpdateWorksOrderAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callGetWorksOrderItemsAPI: jest.fn(() => worksOrderItemListStub),
 
@@ -112,7 +112,7 @@ describe('createWorksOrder', () => {
   it('should return correctly', async () => {
     const args = createWorksOrderArgsStub
     const result = await createWorksOrder(args, mockContext)
-    expect(callCreateWorksOrderByIdAPI).toHaveBeenCalledWith(args, mockContext)
+    expect(callCreateWorksOrderdAPI).toHaveBeenCalledWith(args, mockContext)
     expect(result).toEqual(worksOrderStub)
   })
 })
@@ -121,7 +121,7 @@ describe('createWorksOrder', () => {
   it('should return correctly', async () => {
     const args = createWorksOrderArgsStub
     const result = await createWorksOrder(args, mockContext)
-    expect(callCreateWorksOrderByIdAPI).toHaveBeenCalledWith(args, mockContext)
+    expect(callCreateWorksOrderdAPI).toHaveBeenCalledWith(args, mockContext)
     expect(result).toEqual(worksOrderStub)
   })
 })

@@ -55,7 +55,7 @@ export const callUpdateWorksOrderItemAPI = async (
   context: ServerContext,
 ): UpdateWorksOrderItemReturn => {
   const traceId = context.traceId
-  logger.info('callUpdateWorksOrderitem', { traceId, args })
+  logger.info('callUpdateWorksOrderItem', { traceId, args })
   try {
     const { _eTag, id, itemId, ...payload } = args
 
@@ -74,7 +74,7 @@ export const callUpdateWorksOrderItemAPI = async (
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateWorksOrderitem' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateWorksOrderItem' })
     return handleErrorResult
   }
 }
@@ -187,17 +187,19 @@ export const callUpdateWorksOrderAPI = async (
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
+    console.log({ error: error.response })
+
     const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateWorksOrderAPI' })
     return handleErrorResult
   }
 }
 
-export const callCreateWorksOrderByIdAPI = async (
+export const callCreateWorksOrderdAPI = async (
   args: CreateWorksOrderArgs,
   context: ServerContext,
 ): CreateWorksOrderReturn => {
   const traceId = context.traceId
-  logger.info('callCreateWorksOrderByIdAPI', { traceId, args })
+  logger.info('callCreateWorksOrderdAPI', { traceId, args })
   try {
     const response = await createPlatformAxiosInstance().post<CreateWorksOrderReturn>(URLS.worksOrders, args, {
       headers: {
@@ -211,7 +213,7 @@ export const callCreateWorksOrderByIdAPI = async (
     }
     return null
   } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateWorksOrderByIdAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateWorksOrderdAPI' })
     return handleErrorResult
   }
 }

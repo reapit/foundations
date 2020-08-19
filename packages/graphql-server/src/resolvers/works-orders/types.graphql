@@ -20,10 +20,10 @@ enum WorksOrdersStatus {
 input InputWorksOrderItem {
   notes: String!
   chargeTo: String!
-  estimate: Int
+  estimate: Float
   estimateType: String
-  netAmount: Int
-  vatAmount: Int
+  netAmount: Float
+  vatAmount: Float
 }
 
 type WorksOrderItem {
@@ -33,11 +33,11 @@ type WorksOrderItem {
   modified: String
   notes: String
   chargeTo: String
-  estimate: Int
+  estimate: Float
   estimateType: String
-  netAmount: Int
-  vatAmount: Int
-  grossAmount: Int
+  netAmount: Float
+  vatAmount: Float
+  grossAmount: Float
   _eTag: String
   _links: JSON
   _embedded: JSON
@@ -58,9 +58,9 @@ type WorkOrder {
   booked: String
   required: String
   completed: String
-  totalNetAmount: Int
-  totalVatAmount: Int
-  totalGrossAmount: Int
+  totalNetAmount: Float
+  totalVatAmount: Float
+  totalGrossAmount: Float
   metadata: JSON
   items: [WorksOrderItem]
   _eTag: String
@@ -84,11 +84,11 @@ type WorksOrderItem {
   modified: String
   notes: String
   chargeTo: String
-  estimate: Int
+  estimate: Float
   estimateType: String
-  netAmount: Int
-  vatAmount: Int
-  grossAmount: Int
+  netAmount: Float
+  vatAmount: Float
+  grossAmount: Float
   _eTag: String
   _links: JSON
   _embedded: JSON
@@ -127,7 +127,9 @@ type Query {
     metadata: JSON
   ): PagedResultWorksOrders!
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder!
+
   GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem!
+
   GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem!
 }
 
@@ -141,20 +143,20 @@ type Mutation {
     id: String!
     itemId: String!
     _eTag: String!
-    estimate: Int
+    estimate: Float
     estimateType: String
-    netAmount: Int
-    vatAmount: Int
+    netAmount: Float
+    vatAmount: Float
   ): WorksOrderItem!
 
   CreateWorksOrderItem(
     notes: String!
     chargeTo: String!
     id: String!
-    estimate: Int
+    estimate: Float
     estimateType: String
-    netAmount: Int
-    vatAmount: Int
+    netAmount: Float
+    vatAmount: Float
   ): WorksOrderItem!
 
   UpdateWorksOrder(
@@ -173,6 +175,7 @@ type Mutation {
     _eTag: String!
     id: String!
   ): WorkOrder!
+
   CreateWorksOrder(
     # required
     propertyId: String!

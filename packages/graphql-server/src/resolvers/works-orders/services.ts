@@ -23,7 +23,7 @@ import logger from '@/logger'
 import {
   callGetWorksOrderByIdAPI,
   callGetWorksOrdersAPI,
-  callCreateWorksOrderByIdAPI,
+  callCreateWorksOrderdAPI,
   callUpdateWorksOrderAPI,
   callGetWorksOrderItemsAPI,
   callGetWorksOrderItemByIdAPI,
@@ -112,7 +112,7 @@ export const updateWorksOrder = (args: UpdateWorksOrderArgs, context: ServerCont
 export const createWorksOrder = (args: CreateWorksOrderArgs, context: ServerContext): CreateWorksOrderReturn => {
   const traceId = context.traceId
   logger.info('getWorksOrders', { traceId, args })
-  const worksOrder = callCreateWorksOrderByIdAPI(args, context)
+  const worksOrder = callCreateWorksOrderdAPI(args, context)
   return worksOrder
 }
 
