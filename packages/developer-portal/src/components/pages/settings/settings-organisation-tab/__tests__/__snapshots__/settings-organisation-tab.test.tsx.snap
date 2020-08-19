@@ -1562,7 +1562,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
               </table>
             </div>
           </Component>
-          <SetMemberStatusModal
+          <DisableMemberModal
             developer={null}
             onCancel={[Function]}
             onSuccess={[Function]}

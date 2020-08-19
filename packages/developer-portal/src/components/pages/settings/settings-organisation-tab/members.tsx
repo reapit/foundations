@@ -1,10 +1,11 @@
 import React from 'react'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from './set-as-admin'
-import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
+import DisableMemberModal from '@/components/ui/disable-member-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
+import { selectCurrentMemberData } from '@/selector/current-member'
 
 export const columns = [
   {
@@ -35,33 +36,40 @@ export const columns = [
   },
 ]
 
-export const prepareData = (data, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible) => {
+export const prepareData = (
+  data,
+  currentUserId,
+  handleOpenSetAdminModal,
+  setSelectedUser,
+  setEditStatusModalVisible,
+) => {
   return data.map(user => {
     const ableToSetAdmin = user.role === 'user' && user.status === 'active'
     return {
       ...user,
-      action: (
-        <FlexContainerBasic centerContent flexColumn>
-          <a
-            className={styles.hyperlinked}
-            onClick={openSetMemberStatusModal(setSelectedUser, setEditStatusModalVisible, user)}
-          >
-            {user.isInactive ? 'Enable' : 'Disable'}
-          </a>
-          {ableToSetAdmin && (
+      action:
+        currentUserId !== user.id ? (
+          <FlexContainerBasic centerContent flexColumn>
             <a
-              data-test="button-cancel"
               className={styles.hyperlinked}
-              onClick={() => {
-                setSelectedUser(user)
-                handleOpenSetAdminModal()
-              }}
+              onClick={openDisableMemberModal(setSelectedUser, setEditStatusModalVisible, user)}
             >
-              Set as Admin
+              {user.status !== 'active' ? 'Disable' : 'Invite Again'}
             </a>
-          )}
-        </FlexContainerBasic>
-      ),
+            {ableToSetAdmin && (
+              <a
+                data-test="button-cancel"
+                className={styles.hyperlinked}
+                onClick={() => {
+                  setSelectedUser(user)
+                  handleOpenSetAdminModal()
+                }}
+              >
+                Set as Admin
+              </a>
+            )}
+          </FlexContainerBasic>
+        ) : null,
     }
   })
 }
@@ -70,39 +78,47 @@ export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, 
   setModalOpen(isVisible)
 }
 
-export const closeSetMemberStatusModal = (
-  setEditStatusModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+export const closeDisableMemberModal = (
+  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 ) => () => {
-  setEditStatusModalVisible(false)
+  setDisableMemberModalVisible(false)
 }
 
-export const openSetMemberStatusModal = (setSelectedUser, setEditStatusModalVisible, user) => () => {
+export const openDisableMemberModal = (setSelectedUser, setDisableMemberModalVisible, user) => () => {
   setSelectedUser(user)
-  setEditStatusModalVisible(true)
+  setDisableMemberModalVisible(true)
 }
 
 export const Members: React.FC = () => {
   const [isSetAdminModalOpen, setIsSetAdminModalOpen] = React.useState<boolean>(false)
   const [selectedUser, setSelectedUser] = React.useState<any>(null)
-  const [editStatusModalVisible, setEditStatusModalVisible] = React.useState<boolean>(false)
+  const [disableMemberModalVisible, setDisableMemberModalVisible] = React.useState<boolean>(false)
 
   const handleOpenSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, true)
   const handleCloseSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, false)
 
+  const currentUser = useSelector(selectCurrentMemberData)
+  const currentUserId = currentUser.id
+
   const loading = useSelector(selectOrganisationMembersLoading)
   const members = useSelector(selectOrganisationMembers)
 
-  const data = prepareData(members, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible)
-
+  const data = prepareData(
+    members,
+    currentUserId,
+    handleOpenSetAdminModal,
+    setSelectedUser,
+    setDisableMemberModalVisible,
+  )
   return (
     <Section>
       <H5>Members</H5>
       <Table scrollable loading={loading} data={data} columns={columns} />
-      <SetMemberStatusModal
-        visible={editStatusModalVisible}
+      <DisableMemberModal
+        visible={disableMemberModalVisible}
         developer={selectedUser}
-        onCancel={closeSetMemberStatusModal(setEditStatusModalVisible)}
-        onSuccess={closeSetMemberStatusModal(setEditStatusModalVisible)}
+        onCancel={closeDisableMemberModal(setDisableMemberModalVisible)}
+        onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
       />
       <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
     </Section>

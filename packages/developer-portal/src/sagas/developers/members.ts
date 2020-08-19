@@ -5,6 +5,7 @@ import {
   FetchOrganisationMembersParams,
   inviteDeveloperAsOrgMemberApi,
   InviteDeveloperAsOrgMemberParams,
+  disableMemberApi,
 } from '@/services/developers'
 import {
   fetchOrganisationMembersSuccess,
@@ -12,6 +13,9 @@ import {
   inviteDeveloperAsOrgMemberFailed,
   fetchOrganisationMembers as fetchOrganisationMembersAction,
   inviteDeveloperAsOrgMemberSuccess,
+  DisableMemberActionParams,
+  disableMemberSuccess,
+  disableMemberFailed,
 } from '@/actions/developers'
 import ActionTypes from '@/constants/action-types'
 import { getDeveloperId } from '@/utils/session'
@@ -50,6 +54,31 @@ export const inviteDeveloperAsOrgMemberSagas = function*({
     })
   }
 }
+export const disableMemberSagas = function*({ data }: Action<DisableMemberActionParams>) {
+  const { callback, ...restData } = data
+  try {
+    const response = yield call(disableMemberApi, { ...restData })
+    if (response) {
+      yield put(disableMemberSuccess())
+      yield put(fetchOrganisationMembersAction({ id: restData.developerId }))
+      callback(true)
+    } else {
+      callback(false)
+      yield put(disableMemberFailed())
+      notification.error({
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      })
+    }
+  } catch (err) {
+    callback(false)
+    yield put(disableMemberFailed())
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
+  }
+}
 
 export const organisationFetchMembersListen = function*() {
   yield takeLatest<Action<FetchOrganisationMembersParams>>(
@@ -62,8 +91,16 @@ export const inviteDeveloperAsOrgMemberSagasListen = function*() {
   yield takeLatest(ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER, inviteDeveloperAsOrgMemberSagas)
 }
 
+export const disableMemberSagasListen = function*() {
+  yield takeLatest(ActionTypes.DISABLE_MEMBER, disableMemberSagas)
+}
+
 export const membersSagas = function*() {
-  yield all([fork(inviteDeveloperAsOrgMemberSagasListen), fork(organisationFetchMembersListen)])
+  yield all([
+    fork(inviteDeveloperAsOrgMemberSagasListen),
+    fork(organisationFetchMembersListen),
+    fork(disableMemberSagasListen),
+  ])
 }
 
 export default membersSagas

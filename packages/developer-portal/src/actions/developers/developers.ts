@@ -8,6 +8,7 @@ import {
   FetchOrganisationMembersParams,
   InviteDeveloperAsOrgMemberParams,
   UpdateOrganisationMemberByIdParams,
+  DisableMemberParams,
 } from '@/services/developers'
 import { PagedResultMemberModel_, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
@@ -45,3 +46,8 @@ export const setInviteMemberStatus = actionCreator<InviteMemberStatus>(ActionTyp
 export const setAsAdmin = actionCreator<SetAsAdminParams>(ActionTypes.SET_AS_ADMIN)
 export const setAsAdminSuccess = actionCreator<void>(ActionTypes.SET_AS_ADMIN_SUCCESS)
 export const setAsAdminFailed = actionCreator<void>(ActionTypes.SET_AS_ADMIN_FAILED)
+
+export type DisableMemberActionParams = DisableMemberParams & { callback: (isSuccess: boolean) => void }
+export const disableMember = actionCreator<DisableMemberActionParams>(ActionTypes.DISABLE_MEMBER)
+export const disableMemberSuccess = actionCreator<void>(ActionTypes.DISABLE_MEMBER_SUCCESS)
+export const disableMemberFailed = actionCreator<void>(ActionTypes.DISABLE_MEMBER_FAILED)

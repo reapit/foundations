@@ -226,3 +226,24 @@ export const updateOrganisationMemberById = async (params: UpdateOrganisationMem
     throw error?.response
   }
 }
+
+export type DisableMemberParams = AcceptInviteModel & {
+  developerId: string
+  memberId: string
+}
+
+export const disableMemberApi = async (params: DisableMemberParams) => {
+  try {
+    const { developerId, memberId } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'DELETE',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
