@@ -34,7 +34,6 @@
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
     "react-infinite-scroll-component": "^5.0.5",
-    "react-infinite-scroller": "^1.2.4",
     "react-responsive": "8.1.0",
     "react-transition-group": "^4.4.1",
     "snyk": "^1.341.1"

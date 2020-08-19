@@ -2,7 +2,7 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
-import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
+import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText, Grid } from '@reapit/elements'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -22,7 +22,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   animated = false,
 }) => {
   return (
-    <div className="mb-4">
+    <Grid className="mb-4">
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType

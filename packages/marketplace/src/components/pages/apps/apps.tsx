@@ -48,6 +48,7 @@ export const handleLoadMore = ({
 }
 
 export const Apps: React.FunctionComponent = () => {
+  const [commingSoonAppSectionHeight, setCommingSoonAppSectionHeight] = React.useState(0)
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
@@ -72,6 +73,7 @@ export const Apps: React.FunctionComponent = () => {
    *
    */
   const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
+
   return (
     <ErrorBoundary>
       <Section
@@ -87,6 +89,7 @@ export const Apps: React.FunctionComponent = () => {
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
+          scrollThreshold={`${commingSoonAppSectionHeight}px`}
           scrollableTarget="app-root-container" // we want scrollableTarget here is the app-root-container, not the default AppList section
         >
           <TransitionGroup>
@@ -114,7 +117,7 @@ export const Apps: React.FunctionComponent = () => {
         </InfiniteScroll>
 
         <div className="bb mb-4" />
-        <ComingSoonApps />
+        <ComingSoonApps setCommingSoonAppSectionHeight={setCommingSoonAppSectionHeight} />
       </Section>
     </ErrorBoundary>
   )
