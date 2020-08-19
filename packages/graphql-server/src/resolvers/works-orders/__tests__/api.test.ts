@@ -15,12 +15,14 @@ import {
   callGetWorksOrderItemByIdAPI,
   callCreateWorksOrderItemAPI,
   callUpdateWorksOrderItemAPI,
+  callDeleteWorsOrderItem,
 } from '../api'
 import {
   createWorksOrderArgsStub,
   updateWorkOrderArgsStub,
   createWorksOrderItemArgsStub,
   updateWorksOrderItemArgsStub,
+  deleteWorsOrderItemArgsStub,
 } from '../__stubs__/works-orders-mutation'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
@@ -41,6 +43,24 @@ jest.mock('../../../utils/axios-instances', () => ({
     delete: jest.fn(),
   })),
 }))
+
+describe('callDeleteWorsOrderItem', () => {
+  it('should work correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      post: jest.fn(() => Promise.resolve({ headers: 'header' })),
+    })
+
+    await callDeleteWorsOrderItem(deleteWorsOrderItemArgsStub, mockContext)
+  })
+  it('should catch error correctly', async () => {
+    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
+      post: jest.fn(() => Promise.reject('error caught')),
+    })
+
+    const result = await callDeleteWorsOrderItem(deleteWorsOrderItemArgsStub, mockContext)
+    expect(result).toEqual('caught error')
+  })
+})
 
 describe('callUpdateWorksOrderItemAPI', () => {
   it('should work correctly', async () => {

@@ -6,6 +6,8 @@ import {
   callGetWorksOrderItemsAPI,
   callGetWorksOrderItemByIdAPI,
   callCreateWorksOrderItemAPI,
+  callDeleteWorsOrderItem,
+  callUpdateWorksOrderItemAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/context'
 import {
@@ -25,11 +27,15 @@ import {
   getWorksOrderItems,
   getWorksOrderItemById,
   createWorksOrderItem,
+  deleteWorsOrderItem,
+  updateWorksOrderItem,
 } from '../services'
 import {
   createWorksOrderArgsStub,
   updateWorkOrderArgsStub,
   createWorksOrderItemArgsStub,
+  deleteWorsOrderItemArgsStub,
+  updateWorksOrderItemArgsStub,
 } from '../__stubs__/works-orders-mutation'
 
 jest.mock('../../../logger')
@@ -41,8 +47,29 @@ jest.mock('../api', () => ({
   callGetWorksOrderItemsAPI: jest.fn(() => worksOrderItemListStub),
 
   callGetWorksOrderItemByIdAPI: jest.fn(() => worksOrderItemStub),
+  callUpdateWorksOrderItemAPI: jest.fn(() => worksOrderItemStub),
   callCreateWorksOrderItemAPI: jest.fn(() => worksOrderItemStub),
+  callDeleteWorsOrderItem: jest.fn(() => true),
 }))
+
+describe('updateWorksOrderItem', () => {
+  it('should return correctly', async () => {
+    const result = await updateWorksOrderItem(updateWorksOrderItemArgsStub, mockContext)
+
+    expect(callUpdateWorksOrderItemAPI).toHaveBeenCalledWith(updateWorksOrderItemArgsStub, mockContext)
+
+    expect(result).toEqual(worksOrderItemStub)
+  })
+})
+
+describe('deleteWorsOrderItem', () => {
+  it('should return correctly', async () => {
+    const result = await deleteWorsOrderItem(deleteWorsOrderItemArgsStub, mockContext)
+
+    expect(callDeleteWorsOrderItem).toHaveBeenCalledWith(deleteWorsOrderItemArgsStub, mockContext)
+    expect(result).toEqual(true)
+  })
+})
 
 describe('createWorksOrderItem', () => {
   it('should return correctly', async () => {

@@ -14,6 +14,8 @@ import {
   CreateWorksOrderItemReturn,
   UpdateWorksOrderItemArgs,
   UpdateWorksOrderItemReturn,
+  DeleteWorksOrderItemReturn,
+  DeleteWorksOrderItemArgs,
 } from './works-orders'
 import qs from 'query-string'
 import { ServerContext } from '@/index'
@@ -23,6 +25,30 @@ import { URLS } from '@/constants/api'
 import { handleError } from '@/utils/handle-error'
 import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
 import errors from '@/errors'
+
+export const callDeleteWorsOrderItem = async (
+  args: DeleteWorksOrderItemArgs,
+  context: ServerContext,
+): DeleteWorksOrderItemReturn => {
+  const traceId = context.traceId
+  logger.info('callDeleteWorsOrderItem', { traceId, args })
+  try {
+    const { id, itemId } = args
+
+    await createPlatformAxiosInstance().delete<DeleteWorksOrderItemReturn>(
+      `${URLS.worksOrders}/${id}/items/${itemId}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
+      },
+    )
+    return true
+  } catch (error) {
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteWorsOrderItem' })
+    return handleErrorResult
+  }
+}
 
 export const callUpdateWorksOrderItemAPI = async (
   args: UpdateWorksOrderItemArgs,

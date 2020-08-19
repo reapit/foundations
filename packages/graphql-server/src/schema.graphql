@@ -1023,7 +1023,8 @@ type Mutation {
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
 
-  # patchWorkerkerItem: Create UpdateWorksOrderItem
+  # deleteWorkerkerItem - params: id - item Id, boolean
+  DeleteWorsOrderItem(itemId: String!, id: String!): Boolean
   UpdateWorksOrderItem(
     notes: String
     chargeTo: String

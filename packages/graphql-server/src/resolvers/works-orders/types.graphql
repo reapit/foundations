@@ -132,7 +132,9 @@ type Query {
 }
 
 type Mutation {
-  # patchWorkerkerItem: Create UpdateWorksOrderItem
+  # deleteWorkerkerItem - params: id - item Id, boolean
+  DeleteWorsOrderItem(itemId: String!, id: String!): Boolean
+
   UpdateWorksOrderItem(
     notes: String
     chargeTo: String

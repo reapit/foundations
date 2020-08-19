@@ -32,6 +32,7 @@ export type GetWorksOrderItemsArgs = {
 
 export type CreateWorksOrderItemArgs = { id: string } & CreateWorksOrderItemModel
 export type UpdateWorksOrderItemArgs = CreateWorksOrderItemArgs & { itemId: string; _eTag: string }
+export type DeleteWorksOrderItemArgs = GetWorksOrderItembyIdArgs
 
 // api return types
 export type GetWorksOrderItemsReturn = Promise<PagedResultWorksOrderItemModel_ | UserInputError>
@@ -43,6 +44,7 @@ export type GetWorksOrdersReturn = Promise<PagedResultWorksOrderModel_ | UserInp
 export type GetWorksOrderByIdReturn = Promise<WorksOrderModel | UserInputError>
 export type CreateWorksOrderReturn = GetWorksOrderByIdReturn
 export type UpdateWorksOrderReturn = GetWorksOrderByIdReturn
+export type DeleteWorksOrderItemReturn = Promise<boolean | UserInputError>
 
 // resolver return types
 
@@ -50,6 +52,7 @@ export type QueryGetWorksOrderItemsReturn = AuthenticationError | GetWorksOrderI
 export type QueryGetWorksOrderItemByIdReturn = AuthenticationError | GetWorksOrderItemByIdReturn
 export type MutationCreateWorksOrderItemReturn = AuthenticationError | CreateWorksOrderItemReturn
 export type MutationUpdateWorksOrderItemReturn = AuthenticationError | UpdateWorksOrderItemArgs
+export type MutationDeleteWorksOrderItemReturn = AuthenticationError | DeleteWorksOrderItemReturn
 
 export type QueryGetWorksOrdersReturn = AuthenticationError | GetWorksOrdersReturn
 export type QueryGetWorksOrdersByIdReturn = AuthenticationError | GetWorksOrderByIdReturn

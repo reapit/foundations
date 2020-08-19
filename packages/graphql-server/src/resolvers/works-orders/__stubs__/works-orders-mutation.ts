@@ -3,7 +3,13 @@ import {
   UpdateWorksOrderArgs,
   CreateWorksOrderItemArgs,
   UpdateWorksOrderItemArgs,
+  DeleteWorksOrderItemArgs,
 } from '../works-orders'
+
+export const deleteWorsOrderItemArgsStub: DeleteWorksOrderItemArgs = {
+  id: '1',
+  itemId: '1',
+}
 
 export const updateWorksOrderItemArgsStub: UpdateWorksOrderItemArgs = {
   id: 'RPT20000022',

@@ -15,6 +15,8 @@ import {
   UpdateWorksOrderItemArgs,
   CreateWorksOrderItemArgs,
   MutationCreateWorksOrderItemReturn,
+  DeleteWorksOrderItemArgs,
+  DeleteWorksOrderItemReturn,
 } from './works-orders'
 
 import logger from '@/logger'
@@ -27,6 +29,7 @@ import {
   callGetWorksOrderItemByIdAPI,
   callCreateWorksOrderItemAPI,
   callUpdateWorksOrderItemAPI,
+  callDeleteWorsOrderItem,
 } from './api'
 
 export const updateWorksOrderItem = (
@@ -47,6 +50,17 @@ export const updateWorksOrderItem = (
 
   const worksOrder = callUpdateWorksOrderItemAPI(args, context)
   return worksOrder
+}
+
+export const deleteWorsOrderItem = (
+  args: DeleteWorksOrderItemArgs,
+  context: ServerContext,
+): DeleteWorksOrderItemReturn => {
+  const traceId = context.traceId
+
+  logger.info('deleteWorsOrderItem', { traceId, args })
+
+  return callDeleteWorsOrderItem(args, context)
 }
 
 export const createWorksOrderItem = (
