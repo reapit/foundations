@@ -39,10 +39,6 @@ jest.mock('../../../utils/axios-instances', () => ({
     delete: jest.fn(),
   })),
 }))
-/*
- * TODOME(postWorkerkerItem)
- * rename
- */
 
 describe('callCreateWorksOrderItemAPI', () => {
   it('should work correctly', async () => {
@@ -50,24 +46,12 @@ describe('callCreateWorksOrderItemAPI', () => {
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
     })
 
-    /*
-     * TODOME(postWorkerkerItem)
-     * api
-     * args
-     */
-
     await callCreateWorksOrderItemAPI(createWorksOrderItemArgsStub, mockContext)
   })
   it('should catch error correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.reject('error caught')),
     })
-
-    /*
-     * TODOME(postWorkerkerItem)
-     * service
-     * args
-     */
 
     const result = await callCreateWorksOrderItemAPI(createWorksOrderItemArgsStub, mockContext)
     expect(result).toEqual('caught error')

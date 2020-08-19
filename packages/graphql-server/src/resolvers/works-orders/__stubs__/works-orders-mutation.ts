@@ -1,10 +1,5 @@
 import { CreateWorksOrderArgs, UpdateWorksOrderArgs, CreateWorksOrderItemArgs } from '../works-orders'
 
-/*
- * TODOME(postWorkerkerItem)
- *
- */
-
 export const createWorksOrderItemArgsStub: CreateWorksOrderItemArgs = {
   id: 'RPT20000022',
   notes: 'Please book the electrical certificate for either Thursday or Friday.',

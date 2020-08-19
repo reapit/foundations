@@ -8,11 +8,6 @@ import {
   WorksOrderItemModel,
 } from '../../types'
 
-/*
- * TODOME(postWorkerkerItem)
- * export and alias CreateWorksOrderItemMode
- */
-
 export { CreateWorksOrderModel as CreateWorksOrderArgs, WorksOrders as GetWorksOrdersArgs } from '../../types'
 
 export type UpdateWorksOrderArgs = { id: string; _eTag: string } & UpdateWorksOrderModel
@@ -40,10 +35,6 @@ export type CreateWorksOrderItemArgs = { id: string } & CreateWorksOrderItemMode
 export type GetWorksOrderItemsReturn = Promise<PagedResultWorksOrderItemModel_ | UserInputError>
 export type GetWorksOrderItemByIdReturn = Promise<WorksOrderItemModel | UserInputError>
 export type CreateWorksOrderItemReturn = Promise<WorksOrderItemModel | UserInputError>
-/*
- * TODOME(postWorkerkerItem)
- * return type like ^
- */
 
 export type GetWorksOrdersReturn = Promise<PagedResultWorksOrderModel_ | UserInputError>
 export type GetWorksOrderByIdReturn = Promise<WorksOrderModel | UserInputError>
@@ -55,10 +46,6 @@ export type UpdateWorksOrderReturn = GetWorksOrderByIdReturn
 export type QueryGetWorksOrderItemsReturn = AuthenticationError | GetWorksOrderItemsReturn
 export type QueryGetWorksOrderItemByIdReturn = AuthenticationError | GetWorksOrderItemByIdReturn
 export type MutationCreateWorksOrderItemReturn = AuthenticationError | CreateWorksOrderItemReturn
-/*
- * TODOME(postWorkerkerItem)
- * return type like above
- */
 
 export type QueryGetWorksOrdersReturn = AuthenticationError | GetWorksOrdersReturn
 export type QueryGetWorksOrdersByIdReturn = AuthenticationError | GetWorksOrderByIdReturn

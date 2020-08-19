@@ -26,16 +26,8 @@ import {
   callGetWorksOrderItemByIdAPI,
   callCreateWorksOrderItemAPI,
 } from './api'
-/*
- * TODOME(postWorkerkerItem)
- * rename
- */
+
 export const createWorksOrderItem = (
-  /*
-   * TODOME(postWorkerkerItem)
-   * rename args
-   * rename return
-   */
   args: CreateWorksOrderItemArgs,
   context: ServerContext,
 ): MutationCreateWorksOrderItemReturn => {

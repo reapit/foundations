@@ -39,31 +39,14 @@ jest.mock('../api', () => ({
   callCreateWorksOrderByIdAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callUpdateWorksOrderAPI: jest.fn(() => Promise.resolve(worksOrderStub)),
   callGetWorksOrderItemsAPI: jest.fn(() => worksOrderItemListStub),
-  /*
-   * TODOME(postWorkerkerItem)
-   * import api
-   */
 
   callGetWorksOrderItemByIdAPI: jest.fn(() => worksOrderItemStub),
   callCreateWorksOrderItemAPI: jest.fn(() => worksOrderItemStub),
 }))
-/*
- * TODOME(postWorkerkerItem)
- * rename
- */
 
 describe('createWorksOrderItem', () => {
   it('should return correctly', async () => {
-    /*
-     * TODOME(postWorkerkerItem)
-     * chnge func
-     */
-
     const result = await createWorksOrderItem(createWorksOrderItemArgsStub, mockContext)
-    /*
-     * TODOME(postWorkerkerItem)
-     * change api, change args here
-     */
 
     expect(callCreateWorksOrderItemAPI).toHaveBeenCalledWith(createWorksOrderItemArgsStub, mockContext)
     expect(result).toEqual(worksOrderItemStub)

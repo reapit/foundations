@@ -1,7 +1,3 @@
-/*
- * TODOME(postWorkerkerItem)
- * CreateWorksOrderItemMode
- */
 export interface CreateWorksOrderItemModel {
   /**
    * The notes attached to the works order item
