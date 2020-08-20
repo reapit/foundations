@@ -48,6 +48,7 @@
     "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
+    "fetchArtifact": "node ./scripts/release/fetch-artifact.js",
     "test": "lerna run test:ci --parallel",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
     "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",

@@ -111,9 +111,6 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
 const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
   try {
     const fileName = `${tagName}.tar.gz`
-    await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`cloud-release-artifact\``)
-    const copyArtifactResult = execSync(`aws s3 cp s3://cloud-release-artifact/${fileName} .`).toString()
-    console.info(copyArtifactResult)
     await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
     const tarDistResult = execSync(`tar -xzvf ${fileName}`).toString()
     console.info(tarDistResult)
