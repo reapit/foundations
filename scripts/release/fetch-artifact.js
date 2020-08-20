@@ -12,7 +12,9 @@ const fetchCachedTarFile = async () => {
       await sendMessageToSlack(
         `Pulling the artifact \`${currentTag}\` from S3 bucket \`cloud-deployments-releases-cache\``,
       )
-      const copyArtifactResult = execSync(`aws s3 cp s3://cloud-deployments-releases-cache/${fileName} .`).toString()
+      const copyArtifactResult = execSync(
+        `aws s3 cp s3://cloud-deployments-releases-cache/${fileName} ./packages/${packageName}/public`,
+      ).toString()
       console.info(copyArtifactResult)
     } catch (err) {
       console.error('fetchArtifact', err)

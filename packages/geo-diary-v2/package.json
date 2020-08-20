@@ -14,15 +14,15 @@
     "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.pwa.prod.js",
     "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary-v2 --name local --mode fetch",
     "release:dev": "node ../../scripts/release/release-dev.js geo-diary-v2 reapit-geo-diary-v2-dev",
+    "release:development": "serverless deploy --stage dev",
+    "release:prod": "serverless deploy --stage prod",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies --"
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
     "@reapit/connect-session": "1.0.0-alpha.1",

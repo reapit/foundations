@@ -1,5 +1,6 @@
 const {
   releaseWebApp,
+  releaseNewWebApp,
   sendMessageToSlack,
   releaseNpm,
   releaseServerless,
@@ -40,7 +41,21 @@ const release = async () => {
     }
   }
 
-  if (WEB_APPS.includes(packageName)) {
+  if (WEB_APPS.includes(packageName) && env === 'production') {
+    try {
+      const isValidWebApp = isValidParams && !!env
+      if (!isValidWebApp) {
+        console.error('release params is not valid for packageName or currentTag or previousTag')
+        process.exit(1)
+      }
+      releaseNewWebApp({ tagName: currentTag, packageName, env })
+    } catch (err) {
+      await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
+      throw new Error(err)
+    }
+  }
+
+  if (WEB_APPS.includes(packageName) && env === 'staging') {
     try {
       const isValidWebApp = isValidParams && !!env && !!bucketName
       if (!isValidWebApp) {
@@ -48,6 +63,21 @@ const release = async () => {
         process.exit(1)
       }
       releaseWebApp({ tagName: currentTag, bucketName, packageName, env })
+    } catch (err) {
+      await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
+      throw new Error(err)
+    }
+  }
+
+  if (WEB_APPS.includes(packageName) && env === 'development') {
+    try {
+      const isValidWebApp = isValidParams && !!env && !!bucketName
+      if (!isValidWebApp) {
+        console.error('release params is not valid for packageName or currentTag or previousTag')
+        process.exit(1)
+      }
+      releaseWebApp({ tagName: currentTag, bucketName, packageName, env })
+      releaseNewWebApp({ tagName: currentTag, packageName, env })
     } catch (err) {
       await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
       throw new Error(err)
