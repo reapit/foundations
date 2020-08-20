@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetAsAdminModal should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    user={
+      Object {
+        "name": "Jill Hill",
+      }
+    }
+    visible={true}
+  >
+    <Component
+      renderChildren={true}
+      visible={true}
+    />
+  </Component>
+</Provider>
+`;

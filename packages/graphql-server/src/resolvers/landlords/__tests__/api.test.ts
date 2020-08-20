@@ -155,7 +155,7 @@ describe('callCreateLandlordRelationshipAPI', () => {
   })
 })
 
-describe('callUpdateLandlordRelationshipAPI', () => {
+describe('callUpdateLandlordAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetAsAdminModal should match snapshot 1`] = `
+<Component
+  closable={false}
+  footer={
+    <Unknown
+      className="mr-2"
+      type="button"
+    >
+      Close
+    </Unknown>
+  }
+  isCentered={true}
+  title="Success"
+  visible={true}
+>
+  <Component>
+    <p>
+      ‘
+      <strong>
+        Jill Hill
+      </strong>
+      ’ has been successfully set as an Admin of your organisation
+    </p>
+  </Component>
+</Component>
+`;

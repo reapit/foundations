@@ -155,7 +155,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                   "accessor": "action",
                   "columnProps": Object {
                     "style": Object {
-                      "minWidth": "105px",
+                      "minWidth": "120px",
                     },
                   },
                 },
@@ -373,7 +373,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                               "canResize": true,
                               "columnProps": Object {
                                 "style": Object {
-                                  "minWidth": "105px",
+                                  "minWidth": "120px",
                                 },
                               },
                               "depth": 0,
@@ -410,7 +410,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                             "canResize": true,
                             "columnProps": Object {
                               "style": Object {
-                                "minWidth": "105px",
+                                "minWidth": "120px",
                               },
                             },
                             "depth": 0,
@@ -586,7 +586,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                               "canResize": true,
                               "columnProps": Object {
                                 "style": Object {
-                                  "minWidth": "105px",
+                                  "minWidth": "120px",
                                 },
                               },
                               "depth": 0,
@@ -768,7 +768,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                               "canResize": true,
                               "columnProps": Object {
                                 "style": Object {
-                                  "minWidth": "105px",
+                                  "minWidth": "120px",
                                 },
                               },
                               "depth": 0,
@@ -950,7 +950,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                                   "canResize": true,
                                   "columnProps": Object {
                                     "style": Object {
-                                      "minWidth": "105px",
+                                      "minWidth": "120px",
                                     },
                                   },
                                   "depth": 0,
@@ -1140,7 +1140,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                                   "canResize": true,
                                   "columnProps": Object {
                                     "style": Object {
-                                      "minWidth": "105px",
+                                      "minWidth": "120px",
                                     },
                                   },
                                   "depth": 0,
@@ -1319,7 +1319,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                               "canResize": true,
                               "columnProps": Object {
                                 "style": Object {
-                                  "minWidth": "105px",
+                                  "minWidth": "120px",
                                 },
                               },
                               "depth": 0,
@@ -1525,7 +1525,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                               "canResize": true,
                               "columnProps": Object {
                                 "style": Object {
-                                  "minWidth": "105px",
+                                  "minWidth": "120px",
                                 },
                               },
                               "depth": 0,
@@ -1569,7 +1569,8 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
             visible={false}
           />
           <Component
-            afterClose={[Function]}
+            onClose={[Function]}
+            user={null}
             visible={false}
           />
         </section>
