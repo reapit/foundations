@@ -209,6 +209,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                 "accessor": "client",
               },
               Object {
+                "Header": "Customer Name",
+                "accessor": "customerName",
+              },
+              Object {
+                "Header": "Customer Address",
+                "accessor": [Function],
+              },
+              Object {
                 "Header": "Date Installed",
                 "accessor": [Function],
               },
