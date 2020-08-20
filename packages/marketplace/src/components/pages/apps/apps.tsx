@@ -45,14 +45,23 @@ export const handleLoadMore = ({
   numOfItemsPerPage: number
   pageNumber: number
 }) => () => {
-  console.log('handleLoadMore')
-  console.log('handleLoadMore -> loading', loading)
+  console.log('------handleLoadMore------ -> loading', loading)
   !loading &&
     dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
 
 export const Apps: React.FunctionComponent = () => {
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
+  const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
+
+  React.useLayoutEffect(() => {
+    const height = comingSoonAppSectionRef.current?.clientHeight
+    console.log('useLayoutEffect -> height', height)
+    if (height && height > 0) {
+      setComingSoonAppSectionHeight(height)
+    }
+  }, [comingSoonAppSectionRef.current, comingSoonAppSectionRef.current?.clientHeight])
+
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
@@ -78,7 +87,6 @@ export const Apps: React.FunctionComponent = () => {
    */
   const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
 
-  const comingSoonAppSectionHeight = comingSoonAppSectionRef.current?.clientHeight || 0
   const scrollThreshold = comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
 
   console.log('comingSoonAppSectionHeight', comingSoonAppSectionHeight)
