@@ -2,6 +2,7 @@ import * as React from 'react'
 import { cx } from 'linaria'
 
 export interface LayoutProps {
+  id?: string
   className?: string
   dataTest?: string
 }
@@ -76,8 +77,10 @@ export const FlexContainerBasic: React.FC<FlexContainerProps> = ({
   hasBackground = false,
   isFullHeight = false,
   className,
+  id,
 }) => (
   <div
+    id={id}
     className={cx(
       'container-flex',
       isFullHeight && 'is-full-height',

@@ -15,7 +15,7 @@ import { selectAppsListState, selectFeatureAppsListState } from '@/selector/apps
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import InfiniteScroll from 'react-infinite-scroller'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
@@ -35,16 +35,20 @@ export const handleLoadMore = ({
   preview,
   loading,
   numOfItemsPerPage,
+  pageNumber,
 }: {
   dispatch: Dispatch
   preview: boolean
   loading: boolean
   numOfItemsPerPage: number
-}) => (page: number) => {
-  !loading && dispatch(fetchApps({ pageNumber: page, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
+  pageNumber: number
+}) => () => {
+  !loading &&
+    dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
 
 export const Apps: React.FunctionComponent = () => {
+  const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
@@ -80,39 +84,40 @@ export const Apps: React.FunctionComponent = () => {
         hasMargin={false}
         hasBackground={false}
       >
+        {/* <AppSidebar /> */}
+        <H3 isHeadingSection>Browse Apps</H3>
+        {!hasParams && featuredApps.length > 0 && (
+          <div className="pb-4 bb mb-4">
+            <Grid isMultiLine>
+              {featuredApps.map(app => (
+                <FeaturedApp key={app.id} app={app} />
+              ))}
+            </Grid>
+          </div>
+        )}
         <InfiniteScroll
-          useWindow={false}
-          pageStart={1}
-          loadMore={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage })}
+          dataLength={apps.length}
+          next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
-          initialLoad={false}
+          scrollThreshold={`${comingSoonAppSectionHeight}px`}
+          // We disable the scrolling in the app list  container and allow the app root container to scroll
+          // so the scrollableTarget must be set as app-root-container
+          scrollableTarget="app-root-container"
         >
           <TransitionGroup>
-            <>
-              {/* <AppSidebar /> */}
-              <H3 isHeadingSection>Browse Apps</H3>
-              {!hasParams && featuredApps.length > 0 && (
-                <div className="pb-4 bb mb-4">
-                  <Grid isMultiLine>
-                    {featuredApps.map(app => (
-                      <FeaturedApp key={app.id} app={app} />
-                    ))}
-                  </Grid>
-                </div>
-              )}
-              <AppList
-                list={apps}
-                loading={loading}
-                onCardClick={handleOnCardClick(history)}
-                infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-                animated
-              />
-            </>
+            <AppList
+              list={apps}
+              loading={loading}
+              onCardClick={handleOnCardClick(history)}
+              infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+              animated
+            />
           </TransitionGroup>
         </InfiniteScroll>
+
         <div className="bb mb-4" />
-        <ComingSoonApps />
+        <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
       </Section>
     </ErrorBoundary>
   )

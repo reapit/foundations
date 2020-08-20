@@ -2,7 +2,7 @@
 
 exports[`AppList should match a snapshot 1`] = `
 <div
-  className="mb-4"
+  className="overflow-hidden mb-4"
 >
   <Component
     className=" "
@@ -80,7 +80,7 @@ exports[`AppList should match a snapshot 1`] = `
 
 exports[`AppList should match a snapshot when use empty infoType 1`] = `
 <div
-  className="mb-4"
+  className="overflow-hidden mb-4"
 >
   <Component
     className=" "

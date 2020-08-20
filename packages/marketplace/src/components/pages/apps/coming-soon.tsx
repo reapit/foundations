@@ -11,6 +11,10 @@ import comingSoonImage7 from '@/assets/images/coming-soon/7Twentyci.jpg'
 import comingSoonImage8 from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImage9 from '@/assets/images/coming-soon/9Yomdel.jpg'
 
+export type ComingSoonAppsProps = {
+  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
+}
+
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
 
@@ -26,19 +30,39 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-const ComingSoonApps: React.FC = () => {
+export const handleSetComingSoonAppSectionHeight = (
+  containerHeight: number,
+  setComingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
+) => {
+  return () => {
+    if (setComingSoonAppSectionHeight) {
+      setComingSoonAppSectionHeight(containerHeight)
+    }
+  }
+}
+
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerHeight = containerRef.current?.clientHeight || 0
+
+  React.useEffect(handleSetComingSoonAppSectionHeight(containerHeight, setComingSoonAppSectionHeight), [
+    containerHeight,
+  ])
+
   return (
-    <Grid isMultiLine>
-      {comingSoonImagesList.map(imgSrc => (
-        <GridThreeColItem key={imgSrc}>
-          <div className="card">
-            <div className="card-image">
-              <img className="image" src={imgSrc} onError={onImageError} />
+    <div ref={containerRef}>
+      <Grid isMultiLine>
+        {comingSoonImagesList.map(imgSrc => (
+          <GridThreeColItem key={imgSrc}>
+            <div className="card">
+              <div className="card-image">
+                <img className="image" src={imgSrc} onError={onImageError} />
+              </div>
             </div>
-          </div>
-        </GridThreeColItem>
-      ))}
-    </Grid>
+          </GridThreeColItem>
+        ))}
+      </Grid>
+    </div>
   )
 }
 
