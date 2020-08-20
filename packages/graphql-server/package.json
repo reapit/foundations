@@ -14,6 +14,8 @@
     "release:dev": "yarn build:schema && serverless deploy --stage dev",
     "release:development": "yarn build:schema && serverless deploy --stage dev",
     "release:production": "yarn build:schema && serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "start:dev": "yarn build:schema && serverless offline --stage local --printOutput",
     "start:prod": "node ./dist/app.js",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",

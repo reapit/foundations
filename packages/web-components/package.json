@@ -76,6 +76,8 @@
     "release:dev": "node ./scripts/release-serverless.js --stage dev && node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:development": "node ./scripts/release-serverless.js --stage dev",
     "release:production": "node ./scripts/release-serverless.js --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
