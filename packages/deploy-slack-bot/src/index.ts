@@ -89,7 +89,7 @@ app.post('/release', async (req: Request, res: Response) => {
 \`@Reapit Cloud Releases release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will generate the release note\n
 \`@Reapit Cloud Releases release <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do the release and environment is development by default\n
 \`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will do update the release note in github and document\n
-\`@Reapit Cloud Releases delete-environment <package_name>\` <= The command will do update the release note in github and document\n
+\`@Reapit Cloud Releases delete-environment <package_name>\` <= The command will remove the infrastructure\n
     `)
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
