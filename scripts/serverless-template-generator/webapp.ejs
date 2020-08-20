@@ -8,8 +8,8 @@ plugins:
   - serverless-s3-deploy
 
 custom:
-  s3Bucket: cloud-<%= appName %>-web-app
-  s3CloudFormBucket: cloud-deployment-cloudform-templates
+  s3Bucket: cloud-<%= appName %>-web-app-${opt:stage, 'dev'}
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   remover:
      buckets:
        - ${self:custom.s3WebAppBucket}
