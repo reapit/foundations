@@ -137,10 +137,8 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
               <div
                 className="bb mb-4"
               />
-              <ComingSoonApps
-                setComingSoonAppSectionHeight={[Function]}
-              >
-                <div>
+              <div>
+                <ComingSoonApps>
                   <Component
                     isMultiLine={true}
                   >
@@ -348,8 +346,8 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                       </Component>
                     </div>
                   </Component>
-                </div>
-              </ComingSoonApps>
+                </ComingSoonApps>
+              </div>
             </section>
           </Component>
         </ErrorBoundary>
@@ -509,10 +507,8 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
               <div
                 className="bb mb-4"
               />
-              <ComingSoonApps
-                setComingSoonAppSectionHeight={[Function]}
-              >
-                <div>
+              <div>
+                <ComingSoonApps>
                   <Component
                     isMultiLine={true}
                   >
@@ -720,8 +716,8 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                       </Component>
                     </div>
                   </Component>
-                </div>
-              </ComingSoonApps>
+                </ComingSoonApps>
+              </div>
             </section>
           </Component>
         </ErrorBoundary>
