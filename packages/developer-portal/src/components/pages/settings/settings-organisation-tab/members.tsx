@@ -54,7 +54,7 @@ export const prepareData = (
               className={styles.hyperlinked}
               onClick={openDisableMemberModal(setSelectedUser, setEditStatusModalVisible, user)}
             >
-              {user.status !== 'active' ? 'Disable' : 'Invite Again'}
+              {user.status === 'inactive' ? 'Invite Again' : 'Disable'}
             </a>
             {ableToSetAdmin && (
               <a
