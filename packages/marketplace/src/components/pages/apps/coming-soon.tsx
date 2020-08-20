@@ -11,7 +11,9 @@ import comingSoonImage7 from '@/assets/images/coming-soon/7Twentyci.jpg'
 import comingSoonImage8 from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImage9 from '@/assets/images/coming-soon/9Yomdel.jpg'
 
-export type ComingSoonAppsProps = {}
+export type ComingSoonAppsProps = {
+  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
+}
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
@@ -28,19 +30,31 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-const ComingSoonApps: React.FC<ComingSoonAppsProps> = () => {
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
+  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
+
+  React.useLayoutEffect(() => {
+    const height = comingSoonAppSectionRef.current?.clientHeight
+    console.log('useLayoutEffect - ComingSoonApps component -> height', height)
+    if (height && height > 0 && setComingSoonAppSectionHeight) {
+      setComingSoonAppSectionHeight(height)
+    }
+  }, [comingSoonAppSectionRef.current, comingSoonAppSectionRef.current?.clientHeight])
+
   return (
-    <Grid isMultiLine>
-      {comingSoonImagesList.map(imgSrc => (
-        <GridThreeColItem key={imgSrc}>
-          <div className="card">
-            <div className="card-image">
-              <img className="image" src={imgSrc} onError={onImageError} />
+    <div ref={comingSoonAppSectionRef}>
+      <Grid isMultiLine>
+        {comingSoonImagesList.map(imgSrc => (
+          <GridThreeColItem key={imgSrc}>
+            <div className="card">
+              <div className="card-image">
+                <img className="image" src={imgSrc} onError={onImageError} />
+              </div>
             </div>
-          </div>
-        </GridThreeColItem>
-      ))}
-    </Grid>
+          </GridThreeColItem>
+        ))}
+      </Grid>
+    </div>
   )
 }
 
