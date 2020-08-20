@@ -4,14 +4,12 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import SetMemberStatusModal, {
-  SetMemberStatusModalProps,
-  handleSetMemberStatus,
-  handleSetMemberStatusSuccess,
-} from '../organisation-set-member-status-modal'
-import { developerSetStatusSetInitFormState, developerSetStatusRequest } from '@/actions/developer-set-status'
-import { developerStub } from '@/sagas/__stubs__/developer'
+  DisableMemberModalProps,
+  handleDisableMember,
+  handleDisableMemberSuccess,
+} from '../disable-member-modal'
 
-const props: SetMemberStatusModalProps = {
+const props: DisableMemberModalProps = {
   developer: { id: '', isInactive: false },
   onSuccess: () => jest.fn(),
   onCancel: () => jest.fn(),
@@ -37,25 +35,27 @@ describe('SetMemberStatusModal', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('handleSetMemberStatusSuccess', () => {
+  describe('handleDisableMemberSuccess', () => {
     it('should return a function when executing', () => {
       const mockOnSuccess = jest.fn()
-      const onSuccessHandlerFn = handleSetMemberStatusSuccess(mockOnSuccess, spyDispatch)
+      const mocksetSuccess = jest.fn()
+      const onSuccessHandlerFn = handleDisableMemberSuccess(mockOnSuccess, mocksetSuccess)
       expect(onSuccessHandlerFn).toBeDefined()
 
       onSuccessHandlerFn()
       expect(mockOnSuccess).toBeCalled()
-      expect(spyDispatch).toBeCalledWith(developerSetStatusSetInitFormState())
+      expect(mocksetSuccess).toBeCalledWith(false)
     })
   })
 
-  describe('handleSetMemberStatus', () => {
+  describe('handleDisableMember', () => {
     it('should run correctly', () => {
-      const fn = handleSetMemberStatus(developerStub, spyDispatch)
+      const developerId = '123'
+      const memberId = '456'
+      const setSuccess = jest.fn()
+      const fn = handleDisableMember(developerId, memberId, spyDispatch, setSuccess)
       fn()
-      expect(spyDispatch).toBeCalledWith(
-        developerSetStatusRequest({ ...developerStub, isInactive: !developerStub.isInactive }),
-      )
+      expect(spyDispatch).toBeCalled()
     })
   })
 })

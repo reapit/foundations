@@ -7,6 +7,9 @@ import {
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
   inviteDeveloperAsOrgMemberSuccess,
+  disableMember,
+  disableMemberSuccess,
+  disableMemberFailed,
   setAsAdmin,
   setAsAdminSuccess,
   setAsAdminFailed,
@@ -17,6 +20,9 @@ export type MembersState = PagedResultMemberModel_ & {
   isLoading: boolean
   errorMessage?: string | null
   inviteMember: {
+    isLoading: boolean
+  }
+  disableMember: {
     isLoading: boolean
   }
   setAsAdmin: {
@@ -31,6 +37,9 @@ export const defaultState: MembersState = {
   totalCount: 0,
   isLoading: false,
   inviteMember: {
+    isLoading: false,
+  },
+  disableMember: {
     isLoading: false,
   },
   setAsAdmin: {
@@ -86,6 +95,34 @@ export const membersReducer = (state: MembersState = defaultState, action: Actio
       },
     }
   }
+
+  if (isType(action, disableMember)) {
+    return {
+      ...state,
+      disableMember: {
+        isLoading: true,
+      },
+    }
+  }
+
+  if (isType(action, disableMemberSuccess)) {
+    return {
+      ...state,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+  }
+
+  if (isType(action, disableMemberFailed)) {
+    return {
+      ...state,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+  }
+
   if (isType(action, setAsAdmin)) {
     return {
       ...state,
@@ -106,6 +143,7 @@ export const membersReducer = (state: MembersState = defaultState, action: Actio
       setAsAdmin: { isLoading: false },
     }
   }
+
   return state
 }
 

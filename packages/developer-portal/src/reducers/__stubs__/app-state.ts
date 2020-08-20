@@ -185,6 +185,9 @@ const appState: ReduxState = {
       inviteMember: {
         isLoading: false,
       },
+      disableMember: {
+        isLoading: false,
+      },
       setAsAdmin: {
         isLoading: false,
       },

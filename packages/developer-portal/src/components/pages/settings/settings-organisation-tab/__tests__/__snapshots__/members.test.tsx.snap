@@ -1461,7 +1461,7 @@ exports[`Members should match a snapshot when no error 1`] = `
             </table>
           </div>
         </Component>
-        <SetMemberStatusModal
+        <DisableMemberModal
           developer={null}
           onCancel={[Function]}
           onSuccess={[Function]}

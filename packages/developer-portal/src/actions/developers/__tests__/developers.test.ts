@@ -15,6 +15,9 @@ import {
   acceptInviteMember,
   rejectInviteMember,
   setInviteMemberStatus,
+  disableMember,
+  disableMemberSuccess,
+  disableMemberFailed,
 } from '../developers'
 import { FetchOrganisationMembersParams } from '@/services/developers'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
@@ -94,5 +97,15 @@ describe('member action', () => {
   })
   it('should create a fetchMemberDetails action', () => {
     expect(fetchMemberDetails.type).toEqual(ActionTypes.FETCH_MEMBER_DETAILS)
+  })
+
+  it('should create a disableMember action', () => {
+    expect(disableMember.type).toEqual(ActionTypes.DISABLE_MEMBER)
+  })
+  it('should create a disableMemberSuccess action', () => {
+    expect(disableMemberSuccess.type).toEqual(ActionTypes.DISABLE_MEMBER_SUCCESS)
+  })
+  it('should create a disableMemberFailed action', () => {
+    expect(disableMemberFailed.type).toEqual(ActionTypes.DISABLE_MEMBER_FAILED)
   })
 })

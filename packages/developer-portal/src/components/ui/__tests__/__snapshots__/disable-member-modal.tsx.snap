@@ -13,7 +13,7 @@ exports[`SetMemberStatusModal should match snapshot 1`] = `
     }
   }
 >
-  <SetMemberStatusModal
+  <DisableMemberModal
     developer={
       Object {
         "id": "",
@@ -49,6 +49,6 @@ exports[`SetMemberStatusModal should match snapshot 1`] = `
       tapOutsideToDissmiss={false}
       visible={true}
     />
-  </SetMemberStatusModal>
+  </DisableMemberModal>
 </Provider>
 `;
