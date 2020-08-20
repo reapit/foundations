@@ -164,6 +164,13 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
     <Section hasMargin={false}>
       <H5>Cost Explorer: Cost & Usage</H5>
       <Grid>
+        <GridItem>
+          <p className="is-italic">
+            The table below does not include Sandbox Services, as the testing environment is free of charge
+          </p>
+        </GridItem>
+      </Grid>
+      <Grid>
         <GridItem className="is-half-desktop">
           <Grid>
             <GridItem className="is-one-quarter">
