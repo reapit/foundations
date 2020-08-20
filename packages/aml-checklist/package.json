@@ -17,6 +17,10 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js aml-checklist reapit-aml-checklist-dev",
+    "release:development": "serverless deploy --stage dev",
+    "release:production": "serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
@@ -26,7 +30,6 @@
   },
   "dependencies": {
     "@reapit/elements": "^0.5.60",
-    "@reapit/connect-session": "1.0.0-alpha.1",
     "@reapit/utils": "^0.0.1",
     "react-to-print": "^2.4.0",
     "snyk": "^1.341.1"
