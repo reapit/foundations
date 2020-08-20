@@ -14,7 +14,7 @@ import {
 import errors from '../../errors'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
-import handleError from '../../utils/handle-error'
+import { handleError } from '../../utils/handle-error'
 import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetIdentityCheckByIdAPI = async (
