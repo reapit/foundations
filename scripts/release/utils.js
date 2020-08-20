@@ -1,8 +1,6 @@
 require('isomorphic-fetch')
 const spawn = require('child_process').spawnSync
 const execSync = require('child_process').execSync
-const AWS = require('aws-sdk')
-const fs = require('fs')
 const path = require('path')
 
 const RELEASE_ARTIFACT_FOLDER_NAME = 'dist'
@@ -68,26 +66,6 @@ const sendMessageToSlack = async message => {
   }
 }
 
-const fetchConfig = ({ packageName, env }) => {
-  const isValidParams = !!packageName && !!env
-  if (!isValidParams) {
-    console.error('fetchConfig params is not valid for packageName or env')
-    process.exit(1)
-  }
-  const ssm = new AWS.SSM()
-  return new Promise((resolve, reject) => {
-    ssm.getParameter({ Name: `${packageName}-${env}`, WithDecryption: false }, (err, data) => {
-      if (err) {
-        console.error('Something went wrong when fetch the config.json')
-        console.error(err, err.stack)
-        reject(err)
-      }
-      const config = (data && data.Parameter && data.Parameter.Value) || {}
-      resolve(config)
-    })
-  })
-}
-
 const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   try {
     const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
@@ -108,15 +86,24 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   }
 }
 
+const copyConfig = ({ packageName }) => {
+  const destinationFolder = `${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}`
+  const configFilePath = `${process.cwd()}/packages/${packageName}/config.json`
+  const copyConfigResult = execSync(`cp ${configFilePath} ${destinationFolder}`).toString()
+  console.info(copyConfigResult)
+}
+
 const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
+  // This is temporary fix for deployment to new prod and old prod env
+  if (env === 'staging') {
+    env = 'production'
+  }
   try {
     const fileName = `${tagName}.tar.gz`
     await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
     const tarDistResult = execSync(`tar -xzvf ${fileName}`).toString()
     console.info(tarDistResult)
-    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-    const config = await fetchConfig({ packageName, env })
-    fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
+    copyConfig({ packageName })
     await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
     syncFromLocalDistToS3Bucket({ bucketName })
     await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
@@ -133,6 +120,10 @@ const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
 }
 
 const releaseServerless = async ({ tagName, packageName, env }) => {
+  // This is temporary fix for deployment to new prod and old prod env
+  if (env === 'staging') {
+    env = 'production'
+  }
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
     const checkoutResult = execSync(`git checkout ${tagName}`).toString()
@@ -140,9 +131,7 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
     await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
-      await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-      const fetchConfigResult = execSync(`yarn workspace @reapit/web-components fetch-config ${env}`).toString()
-      console.info(fetchConfigResult)
+      copyConfig({ packageName: 'web-components' })
       const realeaseResult = execSync(
         `yarn workspace @reapit/web-components release:${env} --name ${packageName}`,
       ).toString()
@@ -156,11 +145,7 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
       await sendMessageToSlack(`Finish testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
       return
     }
-
-    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-    const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
-    console.info(fetchConfigResult)
-
+    copyConfig({ packageName })
     const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
     console.info(realeaseResult)
     await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
@@ -263,6 +248,15 @@ const getCommitLog = ({ currentTag, previousTag, packageName }) => {
 
 const BUCKET_NAMES = {
   production: {
+    'admin-portal': 'cloud-admin-portal-web-app',
+    'aml-checklist': 'cloud-aml-checklist-web-app',
+    'developer-portal': 'cloud-developer-portal',
+    'geo-diary-v2': 'cloud-geo-diary-web-app',
+    marketplace: 'cloud-marketplace-web-app',
+    'reapit-connect': 'cloud-reapit-connect-web-app',
+    'smb-onboarder': 'cloud-smb-onboarder-web-app',
+  },
+  staging: {
     'admin-portal': 'reapit-admin-portal-prod',
     'developer-portal': 'reapit-developer-portal-prod',
     'aml-checklist': 'reapit-aml-checklist-prod',
@@ -339,7 +333,6 @@ module.exports = {
   removeUnuseChar,
   getVersionTag,
   syncFromLocalDistToS3Bucket,
-  fetchConfig,
   releaseWebApp,
   releaseServerless,
   releaseNpm,

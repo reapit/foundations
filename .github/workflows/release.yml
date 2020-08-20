@@ -35,7 +35,7 @@ jobs:
 
       - name: Fetch artifact from prod
         run: |
-          yarn fetchArtifact ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
+          yarn fetch-artifact ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
 
       - name: Configure AWS credentials by environment
         uses: aws-actions/configure-aws-credentials@v1
@@ -55,9 +55,13 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
           aws-region: ${{secrets.AWS_REGION}}
 
+      - name: Fetch config
+        run: |
+          yarn fetch-config --name ${{ github.event.client_payload.environment }}
+
       - name: Release Production
         run: |
-          yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
+          yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
 
 env:
   RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
