@@ -72,7 +72,7 @@ describe('AppContent', () => {
   describe('generateInstallationTableColumns', () => {
     it('should run correctly', () => {
       const result = generateInstallationTableColumns(jest.fn())()
-      expect(result).toHaveLength(3)
+      expect(result).toHaveLength(5)
     })
   })
 })

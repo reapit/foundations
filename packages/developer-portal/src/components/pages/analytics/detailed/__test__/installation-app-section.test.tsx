@@ -96,6 +96,22 @@ describe('installationTableColumn', () => {
           expect(accessor({ created: 'date', terminatesOn: 'terminated date' })).toEqual('localtime')
           expect(accessor({})).toEqual('')
         }
+        if (Header === 'Customer Address') {
+          expect(
+            accessor({
+              customerAddress: {
+                buildingName: 'Third Floor',
+                buildingNumber: '67-74',
+                line1: 'Saffron Hill',
+                line2: 'London',
+                line3: '',
+                line4: '',
+                postcode: 'EC1N 8QX',
+                countryId: 'GB',
+              },
+            }),
+          ).toEqual('Third Floor 67-74 Saffron Hill London   EC1N 8QX GB')
+        }
       }
     })
   })
