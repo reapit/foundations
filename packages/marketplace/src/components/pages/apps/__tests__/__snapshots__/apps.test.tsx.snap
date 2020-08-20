@@ -138,7 +138,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 className="bb mb-4"
               />
               <ComingSoonApps
-                setCommingSoonAppSectionHeight={[Function]}
+                setComingSoonAppSectionHeight={[Function]}
               >
                 <div>
                   <Component
@@ -510,7 +510,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 className="bb mb-4"
               />
               <ComingSoonApps
-                setCommingSoonAppSectionHeight={[Function]}
+                setComingSoonAppSectionHeight={[Function]}
               >
                 <div>
                   <Component

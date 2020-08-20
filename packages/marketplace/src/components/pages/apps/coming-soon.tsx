@@ -11,8 +11,8 @@ import comingSoonImage7 from '@/assets/images/coming-soon/7Twentyci.jpg'
 import comingSoonImage8 from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImage9 from '@/assets/images/coming-soon/9Yomdel.jpg'
 
-export type CommingSoonAppsProps = {
-  setCommingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
+export type ComingSoonAppsProps = {
+  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
@@ -30,22 +30,22 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-export const handleSetCommingSoonAppSectionHeight = (
+export const handleSetComingSoonAppSectionHeight = (
   containerHeight: number,
-  setCommingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
+  setComingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
 ) => {
   return () => {
-    if (setCommingSoonAppSectionHeight) {
-      setCommingSoonAppSectionHeight(containerHeight)
+    if (setComingSoonAppSectionHeight) {
+      setComingSoonAppSectionHeight(containerHeight)
     }
   }
 }
 
-const ComingSoonApps: React.FC<CommingSoonAppsProps> = ({ setCommingSoonAppSectionHeight }) => {
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerHeight = containerRef.current?.clientHeight || 0
 
-  React.useEffect(handleSetCommingSoonAppSectionHeight(containerHeight, setCommingSoonAppSectionHeight), [
+  React.useEffect(handleSetComingSoonAppSectionHeight(containerHeight, setComingSoonAppSectionHeight), [
     containerHeight,
   ])
 
