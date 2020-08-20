@@ -101,18 +101,28 @@ export const Submitting = () => {
   return (
     <div className={styles.content}>
       <p className="mb-5">
-        Once you are ready to go, you will need to submit your App. Using the &lsquo;Submit App&rsquo; option on the
-        left, you will need to tell us about your Application, such as what permissions it requires, the type of
-        authentication, description & screenshots and support contact details.
+        To start building and interacting with the platform, you will need to first create an app. Using the ‘Create New
+        App’ option under ‘Apps’, you will be required to provide some basic information such as an app name, the type
+        of integration, authentication and what data you wish to interact with (permissions).
       </p>
       <p className="mb-5">
-        It is important to be as detailed as you can in order to make it clear to the users what type of application you
-        are marketing. Each section on the ‘Submit App’ form will explain what is required and what you need to provide.
+        When you are ready for it to be published on the Marketplace, you will need to change the status to ‘Listed’. At
+        that point, we will require some additional information, screenshots, description, contact details etc. It is
+        important to be as concise and as detailed as possible to make sure you are submitting a quality marketplace
+        listing. More information on submitting your content can be found{' '}
+        <a
+          className={linkStyles.link}
+          href="https://foundations-documentation.reapit.cloud/whats-new#summary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          here
+        </a>{' '}
+        .
       </p>
       <p className="mb-5">
-        Once you have submitted your App and you are ready for it to be published on the Marketplace, you will need to
-        change the status to &lsquo;Listed&rsquo;. This can be done by editing your App from the &lsquo;Apps&rsquo;
-        page. Any changes, including &lsquo;Listing&rsquo; your application will need to be approved by our Admin team.
+        To list your app in the Marketplace, simply select the ‘Is Listed’ option when editing your app listing. Admin
+        approval for revisions and subscription charges will only apply when your app is set to ‘Listed’
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
@@ -129,14 +139,13 @@ export const Managing = () => {
   return (
     <div className={styles.content}>
       <p className="mb-5">
-        If you need to make a change to your App, such as update a screenshot, edit text, or request additional
-        permissions, you can do so by clicking &lsquo;Edit App&rsquo; from the &lsquo;Apps&rsquo; page. Any change will
-        need to be approved by our Admin Team and whilst it is in the reviewal stage, it will be marked as
-        &lsquo;Pending Revision&rsquo;.
+        If you need to make a change to your App listing, such as an update to a screenshot, to edit text, or request
+        additional permissions, you can do so by clicking ‘Edit Details’ from the ‘Apps’ page. However, if your app is
+        ‘Listed’, our Admin Team will need to approve any revisions.
       </p>
       <p className="mb-5">
-        From the &lsquo;Apps&rsquo; page you will also be able to handle any client installations by opening your
-        &lsquo;App&rsquo; and clicking &lsquo;Installations&rsquo;.
+        Should you wish to cancel your revision, simply click the ‘Pending Revisions’ option. From your app page you
+        will also be able to handle any client installations by viewing the ‘Installations’ table.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
@@ -153,14 +162,11 @@ export const Support = () => {
   return (
     <div className={styles.content}>
       <p className="mb-5">
-        You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
+        You are currently logged into our Beta release of Reapit Foundations and we are continuing to update, add
         additional features and address any issues that may appear. In the meantime, if you would like to request a
-        feature or report a bug, this can be done from the{' '}
-        <a className={linkStyles.link} href={Routes.HELP}>
-          ‘Help’
-        </a>{' '}
-        section on the left.
+        feature or report a bug, this can be done from the ‘Help’ section on the left.
       </p>
+
       <p className="mb-5">
         We are excited to be working with you and hope to see your application in the Marketplace soon.
       </p>
