@@ -26,7 +26,7 @@ const releaseDev = () => {
     console.info(copyWithCache)
     // cp index.html and sw.js with no-cache control
     const copyWithNoCache = execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "*" --include "sw.js" --include "index.html" --include "config.json"`,
+      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "*" --include "sw.js" --include "index.html" --include "config.json" --cache-control "no-store"`,
     ).toString()
     console.info(copyWithNoCache)
   } catch (err) {
