@@ -1,11 +1,7 @@
 require('isomorphic-fetch')
 const spawn = require('child_process').spawnSync
 const execSync = require('child_process').execSync
-const AWS = require('aws-sdk')
-const fs = require('fs')
 const path = require('path')
-
-const RELEASE_ARTIFACT_FOLDER_NAME = 'dist'
 
 const removeUnuseChar = value => {
   if (!value) {
@@ -68,29 +64,49 @@ const sendMessageToSlack = async message => {
   }
 }
 
-const fetchConfig = ({ packageName, env }) => {
-  const isValidParams = !!packageName && !!env
-  if (!isValidParams) {
-    console.error('fetchConfig params is not valid for packageName or env')
-    process.exit(1)
+const extractTarFile = async ({ tagName, packageName }) => {
+  try {
+    const fileName = `${tagName}.tar.gz`
+    const tarDistResult = execSync(
+      `tar -C ./packages/${packageName}/public -xzvf ./packages/${packageName}/public/${fileName}`,
+    ).toString()
+    console.info(tarDistResult)
+  } catch (err) {
+    console.error('releaseWebApp', err)
+    throw new Error(err)
   }
-  const ssm = new AWS.SSM()
-  return new Promise((resolve, reject) => {
-    ssm.getParameter({ Name: `${packageName}-${env}`, WithDecryption: false }, (err, data) => {
-      if (err) {
-        console.error('Something went wrong when fetch the config.json')
-        console.error(err, err.stack)
-        reject(err)
-      }
-      const config = (data && data.Parameter && data.Parameter.Value) || {}
-      resolve(config)
-    })
-  })
 }
 
-const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
+const copyConfig = ({ packageName }) => {
+  const destinationFolder = `${process.cwd()}/packages/${packageName}/public/dist`
+  const configFilePath = `${process.cwd()}/packages/${packageName}/config.json`
+  const copyConfigResult = execSync(`cp ${configFilePath} ${destinationFolder}`).toString()
+  console.info(copyConfigResult)
+}
+
+const runReleaseCommand = async ({ packageName, tagName, env }) => {
+  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
+  const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
+  console.info(realeaseResult)
+  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+}
+
+const runTestCyPress = async ({ packageName, tagName, env }) => {
+  await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+  const cypressTest = execSync(
+    `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
+  ).toString()
+  console.log(cypressTest)
+  await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+}
+
+/**
+ * @deprecated
+ * This function will be remove after finish migration to new cloud
+ */
+const syncFromLocalDistToS3Bucket = ({ bucketName, packageName }) => {
   try {
-    const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
+    const distPath = `${process.cwd()}/packages/${packageName}/public/dist`
     // cp all assert with cache-control 365 days exclude sw.js and index.html
     const copyWithCache = execSync(
       `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "no-store"`,
@@ -108,71 +124,59 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   }
 }
 
+/**
+ * @deprecated
+ * This function will be remove after finish migration to new cloud
+ */
 const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
+  // This is temporary fix for deployment to new prod and old prod env
+  if (env === 'staging') {
+    env = 'production'
+  }
   try {
-    const fileName = `${tagName}.tar.gz`
-    await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`cloud-release-artifact\``)
-    const copyArtifactResult = execSync(`aws s3 cp s3://cloud-release-artifact/${fileName} .`).toString()
-    console.info(copyArtifactResult)
-    await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
-    const tarDistResult = execSync(`tar -xzvf ${fileName}`).toString()
-    console.info(tarDistResult)
-    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-    const config = await fetchConfig({ packageName, env })
-    fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
+    await extractTarFile({ tagName, packageName })
+    await copyConfig({ packageName })
     await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-    syncFromLocalDistToS3Bucket({ bucketName })
+    await syncFromLocalDistToS3Bucket({ bucketName, packageName })
     await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
-    await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
-    const cypressTest = execSync(
-      `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
-    ).toString()
-    console.log(cypressTest)
-    await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+    await runTestCyPress({ packageName, tagName, env })
   } catch (err) {
     console.error('releaseWebApp', err)
     throw new Error(err)
   }
 }
 
+const releaseNewWebApp = async ({ tagName, packageName, env }) => {
+  try {
+    await extractTarFile({ tagName, packageName })
+    await copyConfig({ packageName })
+    await runReleaseCommand({ packageName, tagName, env })
+    await runTestCyPress({ packageName, tagName, env })
+  } catch (err) {
+    console.error('releaseNewWebApp', err)
+    throw new Error(err)
+  }
+}
+
 const releaseServerless = async ({ tagName, packageName, env }) => {
+  // This is temporary fix for deployment to new prod and old prod env
+  if (env === 'staging') {
+    env = 'production'
+  }
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
     const checkoutResult = execSync(`git checkout ${tagName}`).toString()
     console.info(checkoutResult)
-    await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
-      await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-      const fetchConfigResult = execSync(`yarn workspace @reapit/web-components fetch-config ${env}`).toString()
-      console.info(fetchConfigResult)
-      const realeaseResult = execSync(
-        `yarn workspace @reapit/web-components release:${env} --name ${packageName}`,
-      ).toString()
-      console.info(realeaseResult)
-      await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
-      await sendMessageToSlack(`Testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
-      const cypressTest = execSync(
-        `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
-      ).toString()
-      console.log(cypressTest)
-      await sendMessageToSlack(`Finish testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
+      await copyConfig({ packageName: 'web-components' })
+      await runReleaseCommand({ packageName: '@reapit/web-components', tagName, env })
+      await runTestCyPress({ packageName, tagName, env })
       return
     }
-
-    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-    const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
-    console.info(fetchConfigResult)
-
-    const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
-    console.info(realeaseResult)
-    await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
-    await sendMessageToSlack(`Testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
-    const cypressTest = execSync(
-      `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
-    ).toString()
-    console.log(cypressTest)
-    await sendMessageToSlack(`Finish testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
+    await copyConfig({ packageName })
+    await runReleaseCommand({ packageName, tagName, env })
+    await runTestCyPress({ packageName, tagName, env })
     return
   } catch (err) {
     console.error('releaseServerless', err)
@@ -265,7 +269,7 @@ const getCommitLog = ({ currentTag, previousTag, packageName }) => {
 }
 
 const BUCKET_NAMES = {
-  production: {
+  staging: {
     'admin-portal': 'reapit-admin-portal-prod',
     'developer-portal': 'reapit-developer-portal-prod',
     'aml-checklist': 'reapit-aml-checklist-prod',
@@ -326,6 +330,28 @@ const SERVERLESS_APPS = [
   ...WEB_COMPONENTS_SERVERLESS_APPS,
 ]
 
+const NEW_PROD_SERVERLESS_APPS = [
+  'cognito-custom-mail-lambda',
+  'deploy-slack-bot',
+  'graphql-server',
+  'web-components-config-server',
+  ...WEB_COMPONENTS_SERVERLESS_APPS,
+  'admin-portal',
+  'developer-portal',
+  'aml-checklist',
+  'demo-site',
+  'elements',
+  'geo-diary',
+  'geo-diary-v2',
+  'lifetime-legal',
+  'marketplace',
+  'site-builder',
+  'smb-onboarder',
+  'web-components',
+  'elements-next',
+  'reapit-connect',
+]
+
 const NPM_APPS = [
   'cognito-auth',
   'config-manager',
@@ -342,7 +368,6 @@ module.exports = {
   removeUnuseChar,
   getVersionTag,
   syncFromLocalDistToS3Bucket,
-  fetchConfig,
   releaseWebApp,
   releaseServerless,
   releaseNpm,
@@ -353,6 +378,8 @@ module.exports = {
   WEB_APPS,
   SERVERLESS_APPS,
   NPM_APPS,
+  NEW_PROD_SERVERLESS_APPS,
   formatReleaseNote,
   getCommitLog,
+  releaseNewWebApp,
 }

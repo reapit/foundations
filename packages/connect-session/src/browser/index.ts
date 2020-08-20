@@ -41,7 +41,6 @@ export class ReapitConnectBrowserSession {
     }`
     this.fetching = false
     this.session = null
-    // this.connectInternalRedirect = null
     this.connectBindPublicMethods()
   }
 

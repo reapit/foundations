@@ -17,6 +17,8 @@
     "release:dev": "yarn build:credentials && serverless deploy --stage dev",
     "release:development": "yarn build:credentials &&  serverless deploy --stage dev",
     "release:production": "yarn build:credentials && serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "fetch-config": "yarn config-manager --namespace cloud --entity web-components-config-server --name local --mode fetch",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
