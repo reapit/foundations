@@ -23,7 +23,7 @@ const uploadArtifact = async () => {
       ).toString()
       console.info(resultTarFile)
       const copyS3Result = execSync(
-        `aws s3 cp ${fileName} s3://cloud-deployments-releases-cache --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
+        `aws s3 cp ${fileName} s3://cloud-deployments-releases-cache-prod --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
       ).toString()
       console.info(copyS3Result)
       await sendMessageToSlack(`Finish build \`${packageName}\` with file \`${fileName}\``)
