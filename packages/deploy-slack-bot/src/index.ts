@@ -66,7 +66,7 @@ const generateMessage = ({ packageName, environment, currentTag, previousTag }: 
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     release: `Releasing \`${packageName}\` ${environment} \`${currentTag}\``,
     'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
-    'delete-environment': `Teardown serverless environment for \`${packageName}\` with ${environment}`,
+    'delete-environment': `Teardown serverless \`${packageName}\` for \`${environment}\``,
   }
 }
 
@@ -107,7 +107,9 @@ const generateBodyForDispatch = async ({ eventType, args, packageName }) => {
     const rollbackTag = args?.[4]
     const environment = args?.[5]
     await sendMessageToSlack(
-      generateMessage({ currentTag: releaseTag, previousTag: rollbackTag, packageName, environment: environment })[eventType],
+      generateMessage({ currentTag: releaseTag, previousTag: rollbackTag, packageName, environment: environment })[
+        eventType
+      ],
     )
     return {
       event_type: eventType,
