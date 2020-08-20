@@ -45,12 +45,14 @@ export const handleLoadMore = ({
   numOfItemsPerPage: number
   pageNumber: number
 }) => () => {
+  console.log('handleLoadMore')
+  console.log('handleLoadMore -> loading', loading)
   !loading &&
     dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
 
 export const Apps: React.FunctionComponent = () => {
-  const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
+  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
@@ -75,6 +77,12 @@ export const Apps: React.FunctionComponent = () => {
    *
    */
   const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
+
+  const comingSoonAppSectionHeight = comingSoonAppSectionRef.current?.clientHeight || 0
+  const scrollThreshold = comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
+
+  console.log('comingSoonAppSectionHeight', comingSoonAppSectionHeight)
+  console.log('scrollThreshold', scrollThreshold)
 
   return (
     <ErrorBoundary>
@@ -102,9 +110,7 @@ export const Apps: React.FunctionComponent = () => {
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
-          scrollThreshold={
-            comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
-          }
+          scrollThreshold={scrollThreshold}
           // We disable the scrolling in the app list  container and allow the app root container to scroll
           // so the scrollableTarget must be set as app-root-container
           scrollableTarget="app-root-container"
@@ -121,7 +127,9 @@ export const Apps: React.FunctionComponent = () => {
         </InfiniteScroll>
 
         <div className="bb mb-4" />
-        <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
+        <div ref={comingSoonAppSectionRef}>
+          <ComingSoonApps />
+        </div>
       </Section>
     </ErrorBoundary>
   )

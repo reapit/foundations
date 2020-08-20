@@ -11,9 +11,7 @@ import comingSoonImage7 from '@/assets/images/coming-soon/7Twentyci.jpg'
 import comingSoonImage8 from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImage9 from '@/assets/images/coming-soon/9Yomdel.jpg'
 
-export type ComingSoonAppsProps = {
-  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
-}
+export type ComingSoonAppsProps = {}
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
@@ -30,39 +28,19 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-export const handleSetComingSoonAppSectionHeight = (
-  containerHeight?: number,
-  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>> | undefined,
-) => {
-  return () => {
-    if (containerHeight && setComingSoonAppSectionHeight) {
-      setComingSoonAppSectionHeight(containerHeight)
-    }
-  }
-}
-
-const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null)
-  const containerHeight = containerRef.current?.clientHeight
-
-  React.useEffect(handleSetComingSoonAppSectionHeight(containerHeight, setComingSoonAppSectionHeight), [
-    containerHeight,
-  ])
-
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = () => {
   return (
-    <div ref={containerRef}>
-      <Grid isMultiLine>
-        {comingSoonImagesList.map(imgSrc => (
-          <GridThreeColItem key={imgSrc}>
-            <div className="card">
-              <div className="card-image">
-                <img className="image" src={imgSrc} onError={onImageError} />
-              </div>
+    <Grid isMultiLine>
+      {comingSoonImagesList.map(imgSrc => (
+        <GridThreeColItem key={imgSrc}>
+          <div className="card">
+            <div className="card-image">
+              <img className="image" src={imgSrc} onError={onImageError} />
             </div>
-          </GridThreeColItem>
-        ))}
-      </Grid>
-    </div>
+          </div>
+        </GridThreeColItem>
+      ))}
+    </Grid>
   )
 }
 
