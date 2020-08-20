@@ -10,7 +10,7 @@ const uploadArtifact = async () => {
       workspaceName = '@reapit/elements'
     }
     try {
-      const fetchConfigResult = execSync(`yarn workspace ${workspaceName} fetch-config development`).toString()
+      const fetchConfigResult = execSync(`yarn workspace ${workspaceName} fetch-config --name production`).toString()
       console.info(fetchConfigResult)
       const lintResult = execSync(`yarn workspace ${workspaceName} lint`).toString()
       console.info(lintResult)
@@ -23,7 +23,7 @@ const uploadArtifact = async () => {
       ).toString()
       console.info(resultTarFile)
       const copyS3Result = execSync(
-        `aws s3 cp ${fileName} s3://cloud-release-artifact --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
+        `aws s3 cp ${fileName} s3://cloud-deployments-releases-cache --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
       ).toString()
       console.info(copyS3Result)
       await sendMessageToSlack(`Finish build \`${packageName}\` with file \`${fileName}\``)
