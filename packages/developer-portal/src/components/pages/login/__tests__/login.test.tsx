@@ -59,8 +59,7 @@ describe('Login', () => {
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
       const spyFn = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
-      const mockIsFirstTimeLogin = true
-      const fn = onLoginButtonClick(mockIsFirstTimeLogin)
+      const fn = onLoginButtonClick()
       fn()
       expect(spyFn).toBeCalled()
     })

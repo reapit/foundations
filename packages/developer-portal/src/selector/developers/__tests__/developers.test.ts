@@ -3,6 +3,7 @@ import {
   selectInviteDeveloperAsOrgMemberLoading,
   selectOrganisationMembers,
   selectOrganisationMembersLoading,
+  selectSetAsAdminLoading,
 } from '../developers'
 
 describe('developers', () => {
@@ -21,6 +22,13 @@ describe('developers', () => {
   describe('selectInviteDeveloperAsOrgMemberLoading', () => {
     it('should run correctly', () => {
       const data = selectInviteDeveloperAsOrgMemberLoading(appState)
+      expect(data).toEqual(false)
+    })
+  })
+
+  describe('selectSetAsAdminLoading', () => {
+    it('should run correctly', () => {
+      const data = selectSetAsAdminLoading(appState)
       expect(data).toEqual(false)
     })
   })

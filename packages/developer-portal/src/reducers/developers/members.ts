@@ -7,6 +7,9 @@ import {
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
   inviteDeveloperAsOrgMemberSuccess,
+  setAsAdmin,
+  setAsAdminSuccess,
+  setAsAdminFailed,
 } from '@/actions/developers'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -14,6 +17,9 @@ export type MembersState = PagedResultMemberModel_ & {
   isLoading: boolean
   errorMessage?: string | null
   inviteMember: {
+    isLoading: boolean
+  }
+  setAsAdmin: {
     isLoading: boolean
   }
 }
@@ -25,6 +31,9 @@ export const defaultState: MembersState = {
   totalCount: 0,
   isLoading: false,
   inviteMember: {
+    isLoading: false,
+  },
+  setAsAdmin: {
     isLoading: false,
   },
   errorMessage: null,
@@ -75,6 +84,26 @@ export const membersReducer = (state: MembersState = defaultState, action: Actio
       inviteMember: {
         isLoading: false,
       },
+    }
+  }
+  if (isType(action, setAsAdmin)) {
+    return {
+      ...state,
+      setAsAdmin: { isLoading: true },
+    }
+  }
+
+  if (isType(action, setAsAdminSuccess)) {
+    return {
+      ...state,
+      setAsAdmin: { isLoading: false },
+    }
+  }
+
+  if (isType(action, setAsAdminFailed)) {
+    return {
+      ...state,
+      setAsAdmin: { isLoading: false },
     }
   }
   return state

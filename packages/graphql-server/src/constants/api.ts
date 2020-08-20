@@ -21,6 +21,7 @@ export const URLS = {
   departments: '/departments',
   sources: '/sources',
   journalEntries: 'journalEntries',
+  enquiries: '/enquiries',
 }
 
 export const HEADERS = {

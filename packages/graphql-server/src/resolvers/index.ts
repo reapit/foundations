@@ -21,6 +21,7 @@ import Tasks from './tasks/resolvers'
 import Departments from './departments/resolvers'
 import Sources from './sources/resolvers'
 import JournalEntries from './journal-entries/resolvers'
+import Enquiries from './enquiries/resolvers'
 
 export const resolvers = merge(
   {
@@ -47,5 +48,6 @@ export const resolvers = merge(
   Departments,
   Sources,
   JournalEntries,
+  Enquiries,
 )
 export default resolvers
