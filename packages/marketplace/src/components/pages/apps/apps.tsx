@@ -54,14 +54,6 @@ export const Apps: React.FunctionComponent = () => {
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
   const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
 
-  React.useLayoutEffect(() => {
-    const height = comingSoonAppSectionRef.current?.clientHeight
-    console.log('useLayoutEffect -> height', height)
-    if (height && height > 0) {
-      setComingSoonAppSectionHeight(height)
-    }
-  }, [comingSoonAppSectionRef.current, comingSoonAppSectionRef.current?.clientHeight])
-
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
@@ -136,7 +128,7 @@ export const Apps: React.FunctionComponent = () => {
 
         <div className="bb mb-4" />
         <div ref={comingSoonAppSectionRef}>
-          <ComingSoonApps />
+          <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
         </div>
       </Section>
     </ErrorBoundary>
