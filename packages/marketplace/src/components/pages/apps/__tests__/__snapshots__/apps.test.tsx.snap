@@ -83,7 +83,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 hasMore={false}
                 loader={<Unknown />}
                 next={[Function]}
-                scrollThreshold="0px"
+                scrollThreshold={0.5}
                 scrollableTarget="app-root-container"
               >
                 <div
@@ -442,7 +442,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 hasMore={false}
                 loader={<Unknown />}
                 next={[Function]}
-                scrollThreshold="0px"
+                scrollThreshold={0.5}
                 scrollableTarget="app-root-container"
               >
                 <div

@@ -21,6 +21,8 @@ import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
 import styles from '@/styles/pages/apps.scss?mod'
 
+const DEFAULT_SCROLL_THRESHOLD = 0.5
+
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
   history.push(addQuery({ page }))
@@ -100,7 +102,9 @@ export const Apps: React.FunctionComponent = () => {
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
-          scrollThreshold={`${comingSoonAppSectionHeight}px`}
+          scrollThreshold={
+            comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
+          }
           // We disable the scrolling in the app list  container and allow the app root container to scroll
           // so the scrollableTarget must be set as app-root-container
           scrollableTarget="app-root-container"
