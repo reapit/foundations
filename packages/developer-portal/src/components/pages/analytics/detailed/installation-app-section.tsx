@@ -81,11 +81,32 @@ export const sortAppByDateInstalled = (
 
 export const handleSetPageNumber = setPageNumber => (pageNumber: number) => setPageNumber(pageNumber)
 
-export const installationTableColumn = [
+export const installationTableColumn: { Header: string; accessor: string | ((data) => string) }[] = [
   { Header: 'App Name', accessor: 'appName' },
   {
     Header: 'Client',
     accessor: 'client',
+  },
+  {
+    Header: 'Customer Name',
+    accessor: 'customerName',
+  },
+  {
+    Header: 'Customer Address',
+    accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
+      const {
+        buildingName = '',
+        buildingNumber = '',
+        line1 = '',
+        line2 = '',
+        line3 = '',
+        line4 = '',
+        postcode = '',
+        countryId = '',
+      } = customerAddress
+
+      return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+    },
   },
   {
     Header: 'Date of installation',

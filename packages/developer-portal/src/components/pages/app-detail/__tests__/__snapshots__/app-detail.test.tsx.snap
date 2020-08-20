@@ -595,6 +595,14 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                   "accessor": "client",
                                 },
                                 Object {
+                                  "Header": "Customer Name",
+                                  "accessor": "customerName",
+                                },
+                                Object {
+                                  "Header": "Customer Address",
+                                  "accessor": [Function],
+                                },
+                                Object {
                                   "Header": "Date Installed",
                                   "accessor": [Function],
                                 },

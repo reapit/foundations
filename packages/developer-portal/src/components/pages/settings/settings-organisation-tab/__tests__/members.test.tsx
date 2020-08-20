@@ -1,5 +1,5 @@
 import React from 'react'
-import { Members, closeSetMemberStatusModal, openSetMemberStatusModal } from '../members'
+import { Members, closeDisableMemberModal, openDisableMemberModal } from '../members'
 import { developerStub } from '@/sagas/__stubs__/developer'
 import * as ReactRedux from 'react-redux'
 import appState from '@/reducers/__stubs__/app-state'
@@ -19,25 +19,25 @@ describe('Members', () => {
     ).toMatchSnapshot()
   })
 
-  describe('openSetMemberStatusModal', () => {
+  describe('openDisableMemberModal', () => {
     it('should run correctly', () => {
       const user = developerStub
       const setSelectedUser = jest.fn()
-      const setEditStatusModalVisible = jest.fn()
-      openSetMemberStatusModal(setSelectedUser, setEditStatusModalVisible, user)()
-      expect(setEditStatusModalVisible).toBeCalled()
+      const setDisableMemberModalVisible = jest.fn()
+      openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, user)()
+      expect(setDisableMemberModalVisible).toBeCalled()
       expect(setSelectedUser).toBeCalled()
-      expect(setEditStatusModalVisible).toBeCalledWith(true)
+      expect(setDisableMemberModalVisible).toBeCalledWith(true)
       expect(setSelectedUser).toBeCalledWith(user)
     })
   })
 
-  describe('closeSetMemberStatusModal', () => {
+  describe('closeDisableMemberModal', () => {
     it('should run correctly', () => {
-      const setEditStatusModalVisible = jest.fn()
-      closeSetMemberStatusModal(setEditStatusModalVisible)()
-      expect(setEditStatusModalVisible).toBeCalled()
-      expect(setEditStatusModalVisible).toBeCalledWith(false)
+      const setDisableMemberModalVisible = jest.fn()
+      closeDisableMemberModal(setDisableMemberModalVisible)()
+      expect(setDisableMemberModalVisible).toBeCalled()
+      expect(setDisableMemberModalVisible).toBeCalledWith(false)
     })
   })
 })

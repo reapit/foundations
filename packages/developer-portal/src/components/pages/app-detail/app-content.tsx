@@ -88,6 +88,27 @@ export const generateInstallationTableColumns = (
       accessor: 'client',
     },
     {
+      Header: 'Customer Name',
+      accessor: 'customerName',
+    },
+    {
+      Header: 'Customer Address',
+      accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
+        const {
+          buildingName = '',
+          buildingNumber = '',
+          line1 = '',
+          line2 = '',
+          line3 = '',
+          line4 = '',
+          postcode = '',
+          countryId = '',
+        } = customerAddress
+
+        return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+      },
+    },
+    {
       Header: 'Date Installed',
       accessor: d => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
     },

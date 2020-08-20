@@ -113,3 +113,56 @@ describe('members reducer', () => {
     expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: false } })
   })
 })
+
+describe('membersReducer - disable member', () => {
+  it('should return default state if action not matched', () => {
+    const newState = membersReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
+    expect(newState).toEqual(defaultState)
+  })
+
+  it('should set state to test when DISABLE_MEMBER action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER as ActionType,
+      data: {
+        callback: jest.fn(),
+        developerId: '123',
+        memberId: '456',
+      },
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: true,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set state to test when DISABLE_MEMBER_FAILED action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER_FAILED as ActionType,
+      data: undefined,
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set state to test when DISABLE_MEMBER_SUCCESS action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER_SUCCESS as ActionType,
+      data: undefined,
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+})

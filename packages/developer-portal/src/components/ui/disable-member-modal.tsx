@@ -3,32 +3,41 @@ import { useSelector, useDispatch } from 'react-redux'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
-import { developerSetStatusRequest, developerSetStatusSetInitFormState } from '@/actions/developer-set-status'
-import { selectDeveloperSetStatusFormState } from '@/selector/developer-set-status'
+import { disableMember } from '@/actions/developers'
+import { selectDisableMemberLoading } from '@/selector/developers'
+import { selectCurrentMemberData } from '@/selector/current-member'
 
-export interface SetMemberStatusModalProps extends Pick<ModalProps, 'visible'> {
+export interface DisableMemberModalProps extends Pick<ModalProps, 'visible'> {
   developer?: DeveloperModel
   onCancel: () => void
   onSuccess: () => void
 }
 
-export const handleSetMemberStatus = (developer: DeveloperModel, dispatch) => () => {
-  dispatch(developerSetStatusRequest({ ...developer, isInactive: !developer.isInactive }))
+export const handleDisableMember = (developerId: string, memberId: string, dispatch, setSuccess) => () => {
+  dispatch(
+    disableMember({
+      developerId: developerId,
+      memberId: memberId,
+      callback: isSuccess => {
+        setSuccess(isSuccess)
+      },
+    }),
+  )
 }
 
-export const handleSetMemberStatusSuccess = (onSuccess, dispatch) => () => {
-  dispatch(developerSetStatusSetInitFormState())
+export const handleDisableMemberSuccess = (onSuccess, setSuccess) => () => {
   onSuccess()
+  setSuccess(false)
 }
 
-const SetMemberStatusModal: React.FC<SetMemberStatusModalProps> = ({ visible, developer, onCancel, onSuccess }) => {
+const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, developer, onCancel, onSuccess }) => {
   if (!developer) return null
-
+  const [isSuccess, setSuccess] = React.useState(false)
   const dispatch = useDispatch()
-  const formState = useSelector(selectDeveloperSetStatusFormState)
-  const isLoading = Boolean(formState === 'SUBMITTING')
-  const isSucceeded = Boolean(formState === 'SUCCESS')
-  const { isInactive, name } = developer
+  const isLoading = useSelector(selectDisableMemberLoading)
+  const currentUser = useSelector(selectCurrentMemberData)
+  const developerId = currentUser?.developerId || ''
+  const { name } = developer
 
   return (
     <Modal
@@ -44,29 +53,29 @@ const SetMemberStatusModal: React.FC<SetMemberStatusModalProps> = ({ visible, de
             variant="primary"
             loading={isLoading}
             type="button"
-            onClick={handleSetMemberStatus(developer, dispatch)}
+            onClick={handleDisableMember(developerId, developer?.id || '', dispatch, setSuccess)}
           >
             CONTINUE
           </Button>
         </>
       }
     >
-      {isSucceeded ? (
+      {isSuccess ? (
         <CallToAction
           title="Success"
           buttonText="OK"
-          onButtonClick={handleSetMemberStatusSuccess(onSuccess, dispatch)}
+          onButtonClick={handleDisableMemberSuccess(onSuccess, setSuccess)}
           isCenter
         >
-          Member &lsquo;{name}&rsquo; has been {isInactive ? 'enabled' : 'disabled'} successfully.
+          Member &lsquo;{name}&rsquo; has been disabled successfully.
         </CallToAction>
       ) : (
         <>
-          <ModalHeader title={`${isInactive ? 'Enable' : 'Disable'} Member?`} />
+          <ModalHeader title="Disable Member?" />
           <ModalBody
             body={
               <SubTitleH6>
-                Are you sure you want to {isInactive ? 'enable' : 'disable'} the account for member &lsquo;
+                Are you sure you want to disable the account for member &lsquo;
                 {name}&rsquo;?
               </SubTitleH6>
             }
@@ -82,7 +91,7 @@ const SetMemberStatusModal: React.FC<SetMemberStatusModalProps> = ({ visible, de
                   loading={isLoading}
                   type="button"
                   variant="primary"
-                  onClick={handleSetMemberStatus(developer, dispatch)}
+                  onClick={handleDisableMember(developerId, developer?.id || '', dispatch, setSuccess)}
                 >
                   Continue
                 </Button>
@@ -95,4 +104,4 @@ const SetMemberStatusModal: React.FC<SetMemberStatusModalProps> = ({ visible, de
   )
 }
 
-export default SetMemberStatusModal
+export default DisableMemberModal
