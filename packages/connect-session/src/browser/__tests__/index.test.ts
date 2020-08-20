@@ -157,7 +157,7 @@ describe('ReapitConnectBrowserSession', () => {
   })
 
   it('should redirect to login page if token endpoint fails', async () => {
-    // const mockedAuthEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectAuthorizeRedirect')
+    const mockedAuthEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectAuthorizeRedirect')
     const code = 'SOME_CODE'
     window.location.search = `?code=${code}`
 
@@ -168,7 +168,7 @@ describe('ReapitConnectBrowserSession', () => {
     await session.connectSession()
 
     expect(window.fetch).toHaveBeenCalledTimes(1)
-    expect(window.location.href).toEqual(`${window.location.origin}/some-other-route`)
+    expect(mockedAuthEndpoint).toHaveBeenCalled()
   })
 
   it('should redirect to login if the method is called on session', async () => {

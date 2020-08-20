@@ -13,6 +13,7 @@ export class ReapitConnectBrowserSession {
   // Static constants
   static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
+  static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
@@ -53,9 +54,25 @@ export class ReapitConnectBrowserSession {
     this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
   }
 
+  private get refreshToken(): string | null {
+    return (
+      this.session?.refreshToken ??
+      window.localStorage.getItem(`${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`)
+    )
+  }
+
+  private setRefreshToken(session: ReapitConnectSession) {
+    if (session.refreshToken) {
+      window.localStorage.setItem(
+        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`,
+        session.refreshToken,
+      )
+    }
+  }
+
   // See below, used to refresh session if I have a refresh token in local storage
   private get tokenRefreshEndpoint() {
-    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.session?.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
+    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
   }
 
   // See below, used to refresh session if I have a code in the URL
@@ -98,7 +115,7 @@ export class ReapitConnectBrowserSession {
 
       if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
 
-      // I need to verify the identity claims I have just received from the server
+      // I need to verify the identity claims I have just received from the server dwdqd
       const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
         session.id_token,
         this.connectUserPoolId,
@@ -119,13 +136,13 @@ export class ReapitConnectBrowserSession {
         loginIdentity,
       }
     } catch (err) {
-      this.handleError(`Reapit Connect Token Error ${err.message}`)
+      return this.handleError(`Reapit Connect Token Error ${err.message}`)
     }
   }
 
   private handleError(error: string) {
     console.error('Reapit Connect Error:', error)
-    window.location.href = this.connectLogoutRedirectPath
+    this.connectAuthorizeRedirect()
   }
 
   // set a redirect URI to my page where I instantiated the flow, by decoding the state object
@@ -189,12 +206,7 @@ export class ReapitConnectBrowserSession {
       // See comment in connectGetSession method. If I have a refresh token, I want to use this in the
       // first instance - get the refresh endpoint. Otherwise check to see if I have a code and get
       // the code endpoint so I can exchange for a token
-      const endpoint =
-        this.session && this.session.refreshToken
-          ? this.tokenRefreshEndpoint
-          : this.authCode
-          ? this.tokenCodeEndpoint
-          : null
+      const endpoint = this.refreshToken ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
 
       // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
       // a code I can exchange for a token
@@ -210,13 +222,14 @@ export class ReapitConnectBrowserSession {
       if (session) {
         // Cache the session in memory for future use then return it to the user
         this.session = session
+        this.setRefreshToken(session)
         return this.session
       }
 
       // The token endpoint failed to get a session so send me to login to get a new session
-      this.handleError('Failed to fetch session, redirecting to login to re-start OAuth Flow')
+      throw new Error('Failed to fetch session, redirecting to authorize to re-start OAuth Flow')
     } catch (err) {
-      this.handleError(`Reapit Connect Session error ${err.message}`)
+      return this.handleError(`Reapit Connect Session error ${err.message}`)
     }
   }
 }
