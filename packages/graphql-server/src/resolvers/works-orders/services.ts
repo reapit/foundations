@@ -60,16 +60,8 @@ export const createWorksOrderItem = (
   context: ServerContext,
 ): MutationCreateWorksOrderItemReturn => {
   const traceId = context.traceId
-  /*
-   * TODOME()
-   * rename
-   */
 
   logger.info('createWorksOrderItem', { traceId, args })
-  /*
-   * TODOME()
-   * rename API
-   */
 
   const worksOrder = callCreateWorksOrderItemAPI(args, context)
   return worksOrder

@@ -22,7 +22,7 @@ import Departments from './departments/resolvers'
 import Sources from './sources/resolvers'
 import JournalEntries from './journal-entries/resolvers'
 import Enquiries from './enquiries/resolvers'
-import WorkOrdes from './works-orders/resolvers'
+import WorkOrders from './works-orders/resolvers'
 
 export const resolvers = merge(
   {
@@ -50,6 +50,6 @@ export const resolvers = merge(
   Sources,
   JournalEntries,
   Enquiries,
-  WorkOrdes,
+  WorkOrders,
 )
 export default resolvers
