@@ -81,7 +81,6 @@ export const Apps: React.FunctionComponent = () => {
 
   const scrollThreshold = comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
 
-  console.log('comingSoonAppSectionHeight', comingSoonAppSectionHeight)
   console.log('scrollThreshold', scrollThreshold)
 
   return (

@@ -34,12 +34,20 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
 
   React.useLayoutEffect(() => {
-    const height = comingSoonAppSectionRef.current?.clientHeight
-    console.log('useLayoutEffect - ComingSoonApps component -> height', height)
-    if (height && height > 0 && setComingSoonAppSectionHeight) {
-      setComingSoonAppSectionHeight(height)
+    const offsetHeight = comingSoonAppSectionRef.current?.offsetHeight
+    const clientHeight = comingSoonAppSectionRef.current?.clientHeight
+    const scrolHeight = comingSoonAppSectionRef.current?.scrollHeight
+
+    const boundingClientRect = comingSoonAppSectionRef.current?.getBoundingClientRect()
+    console.log('boundingClientRect', boundingClientRect)
+
+    console.log(
+      `useLayoutEffect - ComingSoonApps component -> offsetHeight - ${offsetHeight} - clientHeight - ${clientHeight} - scrolHeight - ${scrolHeight}`,
+    )
+    if (offsetHeight && setComingSoonAppSectionHeight) {
+      setComingSoonAppSectionHeight(offsetHeight)
     }
-  }, [comingSoonAppSectionRef.current, comingSoonAppSectionRef.current?.clientHeight])
+  })
 
   return (
     <div ref={comingSoonAppSectionRef}>
