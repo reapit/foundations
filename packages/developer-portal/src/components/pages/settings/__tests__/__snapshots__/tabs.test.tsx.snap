@@ -21,7 +21,7 @@ exports[`Tabs should match a snapshot 1`] = `
             "active": false,
             "displayText": "Profile",
             "onTabClick": [Function],
-            "tabIdentifier": "/settings/",
+            "tabIdentifier": "/settings/profile",
           },
         ]
       }
@@ -33,12 +33,12 @@ exports[`Tabs should match a snapshot 1`] = `
         <ul>
           <li
             className=""
-            key="/settings/"
+            key="/settings/profile"
           >
             <a
-              aria-controls="/settings/"
+              aria-controls="/settings/profile"
               aria-selected={false}
-              id="/settings/"
+              id="/settings/profile"
               onClick={[Function]}
               role="tab"
             >

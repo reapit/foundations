@@ -1,21 +1,10 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Loader, Helper } from '@reapit/elements'
+import { Loader, Helper, H5 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
-import {
-  FormSection,
-  Form,
-  Grid,
-  GridItem,
-  Formik,
-  LevelRight,
-  Button,
-  FormHeading,
-  FormSubHeading,
-  H3,
-} from '@reapit/elements'
+import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, FormSubHeading, H3 } from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -141,9 +130,11 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                   You will need to first complete your Organisation information before submitting your Account details
                 </Helper>
               )}
-              <FormHeading>Accounts Information</FormHeading>
+              <H5>Accounts Information</H5>
               <FormSubHeading>
-                Information required by our accounts team to verify your billing information
+                The following account information is required for your organisation. Your details will be sent to our
+                Accounts Department to be verified. You can start subscriptions to services within the Developers
+                Portalj when your account status has been set to ‘Confirmed’.
               </FormSubHeading>
               <Grid>
                 <GridItem>

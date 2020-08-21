@@ -7,6 +7,7 @@ import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 import { PortalProvider } from '@reapit/elements'
+import { RedirectToSettingsProfilePage } from '@/components/pages/settings/settings'
 
 export const history = createBrowserHistory()
 const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
@@ -66,7 +67,8 @@ const Router = () => {
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} />
                 <PrivateRoute path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
-                <PrivateRoute path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
+                <PrivateRoute path={Routes.SETTINGS} exact component={RedirectToSettingsProfilePage} />
+                <PrivateRoute path={Routes.SETTINGS_PROFILE_TAB} fetcher exact component={SettingsPage} />
                 <PrivateRoute path={Routes.SETTINGS_BILLING_TAB} fetcher component={SettingsBillingTabPage} />
                 <PrivateRoute path={Routes.SETTINGS_ORGANISATION_TAB} fetcher component={SettingsOrganisationTabPage} />
                 <PrivateRoute path={Routes.WELCOME} exact component={WelcomePage} />

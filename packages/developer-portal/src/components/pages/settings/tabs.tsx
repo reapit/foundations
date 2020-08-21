@@ -13,12 +13,12 @@ export type TabConfigsProps = {
 export const tabConfigs = ({ currentUrl, history, role, isProd }: TabConfigsProps): TabConfig[] => {
   const tabs = [
     {
-      tabIdentifier: Routes.SETTINGS,
+      tabIdentifier: Routes.SETTINGS_PROFILE_TAB,
       displayText: 'Profile',
       onTabClick: () => {
-        history.push(Routes.SETTINGS)
+        history.push(Routes.SETTINGS_PROFILE_TAB)
       },
-      active: currentUrl === Routes.SETTINGS,
+      active: currentUrl === Routes.SETTINGS_PROFILE_TAB,
     },
   ]
 

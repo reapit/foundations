@@ -107,10 +107,11 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
         const { dateFrom } = values
         return (
           <Form>
-            <GridFourCol className={cx(styles.isRow, 'mb-4')}>
+            <GridFourCol className={cx(styles.isRow)}>
               <GridFourColItem className="pb-0">
                 <H6 className="mb-2">Date from</H6>
                 <DatePicker
+                  containerClassName="mb-0"
                   name="dateFrom"
                   labelText=""
                   id="dateFrom"
@@ -121,9 +122,10 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                   }}
                 />
               </GridFourColItem>
-              <GridFourColItem>
+              <GridFourColItem className="pb-0">
                 <H6 className="mb-2">To</H6>
                 <DatePicker
+                  containerClassName="mb-0"
                   name="dateTo"
                   labelText=""
                   id="dateTo"
@@ -135,13 +137,19 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                   }}
                 />
               </GridFourColItem>
-              <GridFourColItem>
+              <GridFourColItem className="pb-0">
                 <H6 className="mb-2">Client</H6>
                 <SelectBox name="clientId" options={clientOptions} labelText="" id="clientId" />
               </GridFourColItem>
-              <GridFourColItem>
+              <GridFourColItem className="pb-0">
                 <H6 className="mb-2">App</H6>
-                <SelectBox name="appId" options={renderAppSelectOptions(developerApps)} labelText="" id="appId" />
+                <SelectBox
+                  containerClassName="mb-0 pb-0"
+                  name="appId"
+                  options={renderAppSelectOptions(developerApps)}
+                  labelText=""
+                  id="appId"
+                />
               </GridFourColItem>
             </GridFourCol>
             <FormikAutoSave onSave={handleAutoSave(developerApps, installationAppDataArray, dispatch)} />

@@ -69,7 +69,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
       {
         title: 'Settings',
         key: 'SETTINGS',
-        url: Routes.SETTINGS,
+        url: Routes.SETTINGS_PROFILE_TAB,
         icon: <FaCog className="nav-item-icon" />,
         type: 'SECONDARY',
       },
