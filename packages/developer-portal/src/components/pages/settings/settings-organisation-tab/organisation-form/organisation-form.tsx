@@ -80,7 +80,7 @@ export const generateInitialValues = ({
     email,
     postcode,
     registrationNumber,
-    noRegistrationNumber: false,
+    noRegistrationNumber: Boolean(nationalInsurance),
     telephone,
     website,
     nationalInsurance,
