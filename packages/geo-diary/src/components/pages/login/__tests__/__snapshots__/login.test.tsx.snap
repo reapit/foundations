@@ -16,7 +16,7 @@ exports[`Login should match a snapshot 1`] = `
     <p
       className="pb-8"
     >
-      Welcome to geo-diary-v2
+      Welcome to geo-diary
     </p>
     <Component>
       <Component
