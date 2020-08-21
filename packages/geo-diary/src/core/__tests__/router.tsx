@@ -4,6 +4,7 @@ import Router from '../router'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Router />)).toMatchSnapshot()
+    const wrapper = shallow(<Router />)
+    expect(wrapper).toMatchSnapshot()
   })
 })

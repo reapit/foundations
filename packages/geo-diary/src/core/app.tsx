@@ -1,17 +1,22 @@
-import '../styles/index.scss'
-import React from 'react'
-import { Provider } from 'react-redux'
+import * as React from 'react'
+import { ApolloProvider } from '@apollo/react-hooks'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
+import getClient from '@/graphql/client'
 import Router from './router'
-import { PortalProvider } from '@reapit/elements'
-import store from './store'
+import './__styles__'
 
 const App = () => {
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const accessToken = session.connectSession?.accessToken || ''
+  if (!session.connectSession) {
+    return null
+  }
+
   return (
-    <Provider store={store.reduxStore}>
-      <PortalProvider>
-        <Router />
-      </PortalProvider>
-    </Provider>
+    <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
+      <Router />
+    </ApolloProvider>
   )
 }
 
