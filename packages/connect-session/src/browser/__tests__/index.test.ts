@@ -153,7 +153,7 @@ describe('ReapitConnectBrowserSession', () => {
 
     await session.connectSession()
 
-    expect(mockedAuthEndpoint).toHaveBeenCalledTimes(1)
+    expect(mockedAuthEndpoint).toHaveBeenCalled()
   })
 
   it('should redirect to login page if token endpoint fails', async () => {

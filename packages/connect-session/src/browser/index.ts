@@ -173,7 +173,10 @@ export class ReapitConnectBrowserSession {
   // but made public if I want to override the redirect URI I specified in the constructor
   public connectAuthorizeRedirect(redirectUri?: string): void {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
-    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${window.location.search}`)
+    const params = new URLSearchParams(window.location.search)
+    params.delete('code')
+    const search = params ? `?${params.toString()}` : ''
+    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
     window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
   }
 
