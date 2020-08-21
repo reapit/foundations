@@ -1472,6 +1472,12 @@ exports[`Members should match a snapshot when no error 1`] = `
           user={null}
           visible={false}
         />
+        <Component
+          developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
+          memberData={null}
+          onClose={[Function]}
+          visible={false}
+        />
       </section>
     </Component>
   </Component>
