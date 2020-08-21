@@ -23,13 +23,7 @@ const { inviteNameField, inviteEmailField, inviteMessageField, inviteJobTitleFie
 export type InviteMemberModalProps = ModalPropsV2 & {
   developerId: string
   visible?: boolean
-}
-
-export const initialValues = {
-  [inviteNameField.name]: '',
-  [inviteEmailField.name]: '',
-  [inviteMessageField.name]: '',
-  [inviteJobTitleField.name]: '',
+  memberData?: any
 }
 
 export const InviteMemberModalInput: React.FC = () => {
@@ -81,12 +75,25 @@ export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: (
   dispatch(inviteDeveloperAsOrgMember(params))
 }
 
-export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose, developerId }) => {
+export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
+  visible = false,
+  onClose,
+  developerId,
+  memberData,
+}) => {
   const dispatch = useDispatch()
   const loading = useSelector(selectInviteDeveloperAsOrgMemberLoading)
   if (!visible) {
     return null
   }
+
+  const initialValues = {
+    [inviteNameField.name]: memberData?.name || '',
+    [inviteEmailField.name]: memberData?.email || '',
+    [inviteJobTitleField.name]: memberData?.jobTitle || '',
+    [inviteMessageField.name]: '',
+  }
+
   return (
     <ModalV2 visible={visible} onClose={onClose} title="Invite New Member">
       <>

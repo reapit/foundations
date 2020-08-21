@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from './set-as-admin'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
+import InviteMemberModal from '@/components/ui/developer-invite-member-modal'
 import { selectCurrentMemberData } from '@/selector/current-member'
 
 export const columns = [
@@ -42,20 +43,33 @@ export const prepareData = (
   handleOpenSetAdminModal,
   setSelectedUser,
   setEditStatusModalVisible,
+  setReInviteModalVisible,
 ) => {
   return data.map(user => {
     const ableToSetAdmin = user.role === 'user' && user.status === 'active'
+    const ableToReInvite = ['inactive', 'rejected', 'pending'].includes(user.status)
+    const ableToDisable = user.status === 'active'
     return {
       ...user,
       action:
         currentUserId !== user.id ? (
           <FlexContainerBasic centerContent flexColumn>
-            <a
-              className={styles.hyperlinked}
-              onClick={openDisableMemberModal(setSelectedUser, setEditStatusModalVisible, user)}
-            >
-              {user.status === 'inactive' ? 'Invite Again' : 'Disable'}
-            </a>
+            {ableToDisable && (
+              <a
+                className={styles.hyperlinked}
+                onClick={openDisableMemberModal(setSelectedUser, setEditStatusModalVisible, user)}
+              >
+                Disable
+              </a>
+            )}
+            {ableToReInvite && (
+              <a
+                className={styles.hyperlinked}
+                onClick={openReinviteModal(setSelectedUser, setReInviteModalVisible, user)}
+              >
+                Invite Again
+              </a>
+            )}
             {ableToSetAdmin && (
               <a
                 data-test="button-cancel"
@@ -72,6 +86,15 @@ export const prepareData = (
         ) : null,
     }
   })
+}
+
+export const openReinviteModal = (setSelectedUser: Dispatch<any>, setModalOpen: Dispatch<boolean>, user) => () => {
+  setModalOpen(true)
+  setSelectedUser(user)
+}
+
+export const closeReinviteModal = (setModalOpen: Dispatch<boolean>) => () => {
+  setModalOpen(false)
 }
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () => {
@@ -93,6 +116,7 @@ export const Members: React.FC = () => {
   const [isSetAdminModalOpen, setIsSetAdminModalOpen] = React.useState<boolean>(false)
   const [selectedUser, setSelectedUser] = React.useState<any>(null)
   const [disableMemberModalVisible, setDisableMemberModalVisible] = React.useState<boolean>(false)
+  const [reInviteModalVisible, setReInviteModalVisible] = React.useState<boolean>(false)
 
   const handleOpenSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, true)
   const handleCloseSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, false)
@@ -109,6 +133,7 @@ export const Members: React.FC = () => {
     handleOpenSetAdminModal,
     setSelectedUser,
     setDisableMemberModalVisible,
+    setReInviteModalVisible,
   )
   return (
     <Section>
@@ -121,6 +146,12 @@ export const Members: React.FC = () => {
         onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
       />
       <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
+      <InviteMemberModal
+        developerId={currentUser.developerId as string}
+        visible={reInviteModalVisible}
+        onClose={closeReinviteModal(setReInviteModalVisible)}
+        memberData={selectedUser}
+      />
     </Section>
   )
 }
