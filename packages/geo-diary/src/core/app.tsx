@@ -12,7 +12,6 @@ const App = () => {
   if (!session.connectSession) {
     return null
   }
-
   return (
     <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
       <Router />
