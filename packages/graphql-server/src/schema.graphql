@@ -308,7 +308,7 @@ type Query {
     dateTo: String
     metadata: [String]
     name: String
-    embed: [String]
+    embed: [OfferEmbed]
   ): PagedResultOfferModel!
   GetOfferById(id: String!, embed: [String]): OfferModel!
   GetOffices(
@@ -1639,7 +1639,14 @@ type OfferModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedOfferModel
+}
+
+type EmbeddedOfferModel {
+  applicant: ApplicantModel
+  conveyancing: ConveyancingModel
+  property: PropertyModel
+  negotiator: NegotiatorModel
 }
 
 type PagedResultOfferModel {
@@ -1649,6 +1656,13 @@ type PagedResultOfferModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum OfferEmbed {
+  applicant
+  conveyancing
+  property
+  negotiator
 }
 
 type OfficeModel {
