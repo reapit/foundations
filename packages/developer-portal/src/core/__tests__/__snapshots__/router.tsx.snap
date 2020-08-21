@@ -185,6 +185,7 @@ exports[`Router should match a snapshot 1`] = `
             />
             <Component
               component={[Function]}
+              exact={true}
               path="/settings/"
             />
             <Component
