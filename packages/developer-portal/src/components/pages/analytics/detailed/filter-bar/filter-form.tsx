@@ -108,7 +108,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
         return (
           <Form>
             <GridFourCol className={cx(styles.isRow, 'mb-4')}>
-              <GridFourColItem>
+              <GridFourColItem className="pb-0">
                 <H6 className="mb-2">Date from</H6>
                 <DatePicker
                   name="dateFrom"

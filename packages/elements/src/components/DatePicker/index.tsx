@@ -153,7 +153,7 @@ export interface DatePickerProps {
   reactDatePickerProps?: any
   useCustomInput?: boolean
   popperPlacement?: string
-}
+
 
 export const DatePicker = ({
   name,
@@ -163,7 +163,9 @@ export const DatePicker = ({
   reactDatePickerProps = {},
   useCustomInput = true,
   popperPlacement = 'top',
-}: DatePickerProps) => {
+}:
+
+DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
@@ -183,6 +185,8 @@ export const DatePicker = ({
         const className = hasError ? 'input is-danger' : 'input is-primary'
 
         return (
+
+
           <div className="field">
             <div className="control">
               {labelText && (

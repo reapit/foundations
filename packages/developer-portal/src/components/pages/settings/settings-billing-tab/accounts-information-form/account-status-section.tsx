@@ -44,7 +44,6 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
       )}
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
-
       <Content className={statusText}>
         {initialStatus === 'pending' && (
           <div>
