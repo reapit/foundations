@@ -308,7 +308,7 @@ type Query {
     dateTo: String
     metadata: [String]
     name: String
-    embed: [OfferEmbed]
+    embed: [OfferQueryEmbed]
   ): PagedResultOfferModel!
   GetOfferById(id: String!, embed: [String]): OfferModel!
   GetOffices(
@@ -1658,7 +1658,7 @@ type PagedResultOfferModel {
   _links: JSON
 }
 
-enum OfferEmbed {
+enum OfferQueryEmbed {
   applicant
   conveyancing
   property
