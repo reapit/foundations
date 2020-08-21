@@ -5,6 +5,7 @@ export type Config = {
   googleAnalyticsKey: string
   connectOAuthUrl: string
   platformApiUrl: string
+  cognitoUserPoolId: string
 }
 
 export type PropertyProjectorConfig = {

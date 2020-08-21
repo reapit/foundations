@@ -15,6 +15,7 @@ window.reapit = {
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
     platformApiUrl: '',
+    cognitoUserPoolId: '',
   },
 }
 
