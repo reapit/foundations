@@ -71,7 +71,7 @@ jobs:
         run: |
           yarn fetch-config --name ${{ github.event.client_payload.environment }}
 
-      - name: Release Production
+      - name: Release
         run: |
           yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
 
