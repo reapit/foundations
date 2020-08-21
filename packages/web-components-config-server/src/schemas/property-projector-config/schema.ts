@@ -1,8 +1,9 @@
-import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations'
+import { attribute, hashKey, rangeKey, table } from '@aws/dynamodb-data-mapper-annotations'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { projectorTableName } from '@/constants/db'
 import { booleanObjectType } from 'aws-sdk/clients/iam'
 import { bool } from 'aws-sdk/clients/signer'
+import { Object } from 'aws-sdk/clients/s3'
 
 @table(projectorTableName)
 export class PropertyProjectorConfig {
@@ -10,7 +11,7 @@ export class PropertyProjectorConfig {
   customerId: string
 
   // Customer office ID
-  @attribute()
+  @rangeKey()
   officeId: string
 
   // Customer logo, contains the address to the chosen customer logo
@@ -27,15 +28,23 @@ export class PropertyProjectorConfig {
 
   // Rotation duration, a number representing the seconds a projector page is displayed for
   @attribute()
-  rotationDuration: number
-
-  // Refresh hour, a number representing how long in hours the projector will run for before restarting.
-  @attribute()
-  refreshHour: number
+  interval: number
 
   // Property limit, the maximum number of properties to be displayed by projector.
   @attribute()
   propertyLimit: number
+
+  // Marketing mode, determines whether sales, lettings or both types of properties are to be displayed.
+  @attribute()
+  marketingMode: string[]
+
+  // Selling status, the status of sales properties that are to be displayed on the projector.
+  @attribute()
+  sellingStatus: string[]
+
+  // Letting status, the status of letting properties that are to be displayed on the projector.
+  @attribute()
+  lettingStatus: string[]
 
   // Min price, the minimum price a property should be to be displayed by the projector.
   @attribute()
@@ -45,16 +54,16 @@ export class PropertyProjectorConfig {
   @attribute()
   maxPrice: number
 
-  // Randomize, a boolean value to determine whether properties should be randomized inside the projector.
+  // Min rent, the minimum rental value a property should be to be displayed by the projector.
   @attribute()
-  randomize: boolean
+  minRent: number
+
+  // Max rent, the maximum rental value a property should be to be displayed by the projector.
+  @attribute()
+  maxRent: number
 
   // Show address, a boolean value to determine whether a property's address should be shown in projector.
   showAddress: boolean
-
-  // Show strapline, a boolean value to determine whether a property's strapline should be shown in projector.
-  @attribute()
-  showStrapline: boolean
 
   // Sort by, a string containing the field to sort properties by within the projector.
   @attribute()
@@ -62,7 +71,7 @@ export class PropertyProjectorConfig {
 
   // Departments, an array of strings containing the departments for which projector should display properties for.
   @attribute()
-  departments: string[]
+  departments: Object[]
 
   // Offices, an array of strings containing the offices for which projector should display properties for.
   @attribute()
