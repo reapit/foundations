@@ -1222,7 +1222,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               id="description"
                               labelText="Description"
                               name="description"
-                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                               required={false}
                             >
                               <div
@@ -1259,7 +1259,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onPaste={[Function]}
-                                    placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                                    placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                                   >
                                     <div
                                       className="pell false "
