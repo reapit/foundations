@@ -104,17 +104,6 @@ const appState: ReduxState = {
       },
     },
   },
-  installations: {
-    formState: 'PENDING',
-    loading: false,
-    loadingFilter: false,
-    installationsAppData: null,
-    installationsFilteredAppData: null,
-  },
-  appUsageStats: {
-    loading: false,
-    appUsageStatsData: null,
-  },
   noticationMessage: {
     visible: false,
     variant: '',
@@ -179,11 +168,11 @@ const appState: ReduxState = {
   },
   developerSubscriptions: {
     create: {
-      loading: false,
+      isLoading: false,
       error: false,
     },
     list: {
-      loading: false,
+      isLoading: false,
       data: {
         data: [],
       },
@@ -191,22 +180,57 @@ const appState: ReduxState = {
   },
   developers: {
     members: {
-      loading: false,
-      pagedResult: {
-        data: [],
-      },
+      isLoading: false,
+      data: [],
       inviteMember: {
-        loading: false,
+        isLoading: false,
+      },
+      disableMember: {
+        isLoading: false,
+      },
+      setAsAdmin: {
+        isLoading: false,
       },
     },
     developerDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
     },
     memberDetails: {
-      loading: false,
+      isLoading: false,
       data: {},
       inviteStatus: 'PENDING',
+    },
+  },
+  installations: {
+    installationsList: {
+      list: {},
+      isLoading: false,
+    },
+    installationsFilterList: {
+      list: {},
+      isLoading: false,
+    },
+    formState: {
+      state: 'PENDING',
+    },
+  },
+  currentMember: {
+    isLoading: false,
+    data: {
+      id: '5d092fe0-daff-11ea-9712-0649ba4a135a',
+      created: '2020-07-31T21:30:31',
+      modified: '2020-08-12T09:15:20',
+      email: 'cbryan@reapit.com',
+      name: 'Craig Lorem',
+      jobTitle: 'Head of Platform',
+      status: 'active',
+      role: 'admin',
+      developerId: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
+      agencyCloudAccess: true,
+    },
+    update: {
+      isLoading: false,
     },
   },
 }

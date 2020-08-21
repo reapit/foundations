@@ -27,6 +27,7 @@ window.reapit = {
     developerEditionDownloadUrl: '',
     urlSchemeUrl: '',
     apiDocDesktop: '',
+    cognitoUserPoolId: '',
   },
 }
 
@@ -37,9 +38,7 @@ export const renderApp = (Component: React.ComponentType) => {
   if (isDesktop && html) {
     html.classList.add('is-desktop')
   }
-  if (window.location.href.includes('developer')) {
-    document.title = 'Developers'
-  }
+
   if (rootElement) {
     render(<Component />, rootElement)
   }

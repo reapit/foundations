@@ -15,6 +15,8 @@ import appState from '@/reducers/__stubs__/app-state'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { fetchApps } from '@/actions/apps'
 
+jest.mock('rc-animate')
+
 const createState = appSummaryState => {
   return {
     ...appState,
@@ -112,9 +114,11 @@ describe('Client', () => {
   describe('handleLoadMore', () => {
     it('should call dispatch', () => {
       const dispatch = jest.fn()
-      const fn = handleLoadMore({ dispatch, preview: false, loading: false })
-      fn(1)
-      expect(dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, preview: false, isInfinite: true }))
+      const fn = handleLoadMore({ dispatch, preview: false, loading: false, numOfItemsPerPage: 12, pageNumber: 1 })
+      fn()
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchApps({ pageNumber: 2, preview: false, isInfinite: true, pageSize: 12 }),
+      )
     })
   })
 

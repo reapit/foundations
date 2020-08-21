@@ -262,17 +262,17 @@ describe('handleAddNewRow', () => {
     fn()
     const expectedData = [...data]
     expectedData.push([
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
-      { value: '' },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
+      { value: '', touched: false },
     ])
     expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith({
       data: expectedData,
@@ -317,12 +317,12 @@ describe('handleAddNewRow', () => {
     const expectedData = [
       ...dataNotEqualColLength,
       [
-        { readOnly: true, value: '' },
-        { readOnly: true, value: '' },
-        { readOnly: true, value: '' },
-        { readOnly: true, value: '' },
-        { readOnly: true, value: '' },
-        { readOnly: true, value: '' },
+        { readOnly: true, value: '', touched: false },
+        { readOnly: true, value: '', touched: false },
+        { readOnly: true, value: '', touched: false },
+        { readOnly: true, value: '', touched: false },
+        { readOnly: true, value: '', touched: false },
+        { readOnly: true, value: '', touched: false },
         { value: '' },
         { value: '' },
         { value: '' },
@@ -480,8 +480,8 @@ describe('handleCellsChanged', () => {
     ;(generateDataWithReadOnlyAndIsValidated as jest.Mock).mockImplementation(() => newDataWithValidate)
     fn(changes)
     const expectedNewData = [
-      [{ value: '' }, { value: 'Building Name' }],
-      [{ value: '' }, { value: 'The Black House' }],
+      [{ value: '', touched: true }, { value: 'Building Name' }],
+      [{ value: '', touched: true }, { value: 'The Black House' }],
       [{ value: 'New York' }, { value: 'Building A' }],
     ]
     const expectedChangedCells = [
@@ -531,8 +531,8 @@ describe('handleCellsChanged', () => {
     ;(generateDataWithReadOnlyAndIsValidated as jest.Mock).mockImplementation(() => newDataWithValidate)
     fn(changes)
     const expectedNewData = [
-      [{ value: '' }, { value: 'Building Name' }],
-      [{ value: '' }, { value: 'The Black House' }],
+      [{ value: '', touched: true }, { value: 'Building Name' }],
+      [{ value: '', touched: true }, { value: 'The Black House' }],
       [{ value: 'New York' }, { value: 'Building A' }],
     ]
 
@@ -574,8 +574,8 @@ describe('handleOnChangeInput', () => {
     const result = await fn(eventMock)
     expect(parseCsvFile).toHaveBeenCalledWith('data')
     expect(convertToCompatibleData).toHaveBeenCalledWith(parseResult)
-    expect(validate).toHaveBeenCalledWith(data.slice(0, 3))
-    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(0, 3), validateMatrix)
+    expect(validate).toHaveBeenCalledWith(data.slice(1, 4))
+    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(1, 4), validateMatrix)
     expect(setUploadData).toHaveBeenCalled()
     expect(result).toBe('validated')
   })
@@ -770,6 +770,7 @@ describe('setUploadDataCallback', () => {
       shouldProcess: false,
       isModalOpen: false,
       exceedMaxRow: false,
+      header: [],
     }
     const partialData = {
       isModalOpen: true,

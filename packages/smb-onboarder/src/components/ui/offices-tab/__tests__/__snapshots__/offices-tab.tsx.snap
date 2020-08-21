@@ -10742,7 +10742,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
         }
       >
         <Component
-          setErrorServer={[Function]}
           totalCount={0}
         >
           <div
@@ -31837,31 +31836,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                 <div />
               </div>
             </Component>
-            <Component
-              componentError={null}
-              errorClearedComponent={[Function]}
-              errorClearedServer={[Function]}
-              serverError={null}
-            >
-              <div
-                className="toast "
-                data-test="toast-wrapper"
-                onClick={[Function]}
-              >
-                <Component
-                  fullWidth={true}
-                  type="reset"
-                  variant="danger"
-                >
-                  <button
-                    className="button  is-danger is-fullwidth "
-                    data-test=""
-                    disabled={false}
-                    type="reset"
-                  />
-                </Component>
-              </div>
-            </Component>
           </div>
         </Component>
       </ApolloProvider>
@@ -31878,290 +31852,307 @@ exports[`OfficesTab renderContent should match snapshot 1`] = `
 
 exports[`OfficesTab renderContent should match snapshot 2`] = `
 <div>
+  <Component>
+    <Component
+      CustomDownButton={
+        <Unknown
+          totalCount={0}
+        />
+      }
+      afterCellsChanged={[MockFunction]}
+      afterUploadDataValidated={[MockFunction]}
+      allowOnlyOneValidationErrorPerRow={true}
+      data={Array []}
+      hasDownloadButton={true}
+      hasUploadButton={true}
+      validate={[Function]}
+    />
+  </Component>
   <Component
-    message="mockError"
-    type="danger"
+    onChange={[MockFunction]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
   />
 </div>
 `;
 
 exports[`OfficesTab renderContent should match snapshot 3`] = `
 <div>
-  <Component
-    CustomDownButton={
-      <Unknown
-        setErrorServer={[MockFunction]}
-        totalCount={0}
-      />
-    }
-    afterCellsChanged={[MockFunction]}
-    afterUploadDataValidated={[MockFunction]}
-    allowOnlyOneValidationErrorPerRow={true}
-    data={
-      Array [
-        Array [
-          Object {
-            "className": "hidden-cell",
-            "readOnly": true,
-            "value": "id",
-          },
-          Object {
-            "className": "hidden-cell",
-            "readOnly": true,
-            "value": "_eTag",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Office Name",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Building Name",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Building No.",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Address 1",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Address 2",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Address 3",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Address 4",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Post Code",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Telephone",
-          },
-          Object {
-            "readOnly": true,
-            "value": "Office Email",
-          },
-        ],
-        Array [
-          Object {
-            "className": "hidden-cell",
-            "key": "id",
-            "readOnly": true,
-            "title": "id",
-            "value": "REA",
-          },
-          Object {
-            "className": "hidden-cell",
-            "key": "_eTag",
-            "readOnly": true,
-            "title": "etag",
-            "value": "\\"104F6D31FAFEB3B1DE6BB9CF8E071094\\"",
-          },
-          Object {
-            "key": "name",
-            "title": "Office Name",
-            "value": "Reapit",
-          },
-          Object {
-            "key": "address.buildingName",
-            "title": "Building Name",
-            "value": "",
-          },
-          Object {
-            "key": "address.buildingNumber",
-            "title": "Building No.",
-            "value": "15",
-          },
-          Object {
-            "key": "address.line1",
-            "title": "Address 1",
-            "value": "Example street",
-          },
-          Object {
-            "key": "address.line2",
-            "title": "Address 2",
-            "value": "Solihull",
-          },
-          Object {
-            "key": "address.line3",
-            "title": "Address 3",
-            "value": "West Midlands",
-          },
-          Object {
-            "key": "address.line4",
-            "title": "Address 4",
-            "value": "",
-          },
-          Object {
-            "key": "address.postcode",
-            "title": "Post Code",
-            "value": "B91 2XX",
-          },
-          Object {
-            "key": "workPhone",
-            "title": "Telephone",
-            "value": "01234 567890",
-          },
-          Object {
-            "key": "email",
-            "title": "Email",
-            "value": "example@email.com",
-          },
-        ],
-        Array [
-          Object {
-            "className": "hidden-cell",
-            "key": "id",
-            "readOnly": true,
-            "title": "id",
-            "value": "STL",
-          },
-          Object {
-            "className": "hidden-cell",
-            "key": "_eTag",
-            "readOnly": true,
-            "title": "etag",
-            "value": "\\"17465C0780A21582FFE1B06E35DEE37D\\"",
-          },
-          Object {
-            "key": "name",
-            "title": "Office Name",
-            "value": "Stevenage Lettings",
-          },
-          Object {
-            "key": "address.buildingName",
-            "title": "Building Name",
-            "value": "",
-          },
-          Object {
-            "key": "address.buildingNumber",
-            "title": "Building No.",
-            "value": "",
-          },
-          Object {
-            "key": "address.line1",
-            "title": "Address 1",
-            "value": "St George's Way",
-          },
-          Object {
-            "key": "address.line2",
-            "title": "Address 2",
-            "value": "Stevenage",
-          },
-          Object {
-            "key": "address.line3",
-            "title": "Address 3",
-            "value": "Hertfordshire",
-          },
-          Object {
-            "key": "address.line4",
-            "title": "Address 4",
-            "value": "",
-          },
-          Object {
-            "key": "address.postcode",
-            "title": "Post Code",
-            "value": "SG1 1XB",
-          },
-          Object {
-            "key": "workPhone",
-            "title": "Telephone",
-            "value": undefined,
-          },
-          Object {
-            "key": "email",
-            "title": "Email",
-            "value": "lettings@hughmason.co.uk",
-          },
-        ],
-        Array [
-          Object {
-            "className": "hidden-cell",
-            "key": "id",
-            "readOnly": true,
-            "title": "id",
-            "value": "STV",
-          },
-          Object {
-            "className": "hidden-cell",
-            "key": "_eTag",
-            "readOnly": true,
-            "title": "etag",
-            "value": "\\"7B2C4CFDFFA0EE83468BABC0F4A8D63C\\"",
-          },
-          Object {
-            "key": "name",
-            "title": "Office Name",
-            "value": "Stevenage",
-          },
-          Object {
-            "key": "address.buildingName",
-            "title": "Building Name",
-            "value": "",
-          },
-          Object {
-            "key": "address.buildingNumber",
-            "title": "Building No.",
-            "value": "",
-          },
-          Object {
-            "key": "address.line1",
-            "title": "Address 1",
-            "value": "St George's Way",
-          },
-          Object {
-            "key": "address.line2",
-            "title": "Address 2",
-            "value": "Stevenage",
-          },
-          Object {
-            "key": "address.line3",
-            "title": "Address 3",
-            "value": "Hertfordshire",
-          },
-          Object {
-            "key": "address.line4",
-            "title": "Address 4",
-            "value": "",
-          },
-          Object {
-            "key": "address.postcode",
-            "title": "Post Code",
-            "value": "SG1 1XB",
-          },
-          Object {
-            "key": "workPhone",
-            "title": "Telephone",
-            "value": undefined,
-          },
-          Object {
-            "key": "email",
-            "title": "Email",
-            "value": "stevenage.sales@hughmason.co.uk",
-          },
-        ],
-      ]
-    }
-    hasDownloadButton={true}
-    hasUploadButton={true}
-    validate={[Function]}
-  />
   <Component>
     <Component
-      onChange={[MockFunction]}
-      pageNumber={0}
-      pageSize={0}
-      totalCount={0}
+      CustomDownButton={
+        <Unknown
+          totalCount={0}
+        />
+      }
+      afterCellsChanged={[MockFunction]}
+      afterUploadDataValidated={[MockFunction]}
+      allowOnlyOneValidationErrorPerRow={true}
+      data={
+        Array [
+          Array [
+            Object {
+              "className": "hidden-cell",
+              "readOnly": true,
+              "value": "id",
+            },
+            Object {
+              "className": "hidden-cell",
+              "readOnly": true,
+              "value": "_eTag",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Office Name",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Building Name",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Building No.",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Address 1",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Address 2",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Address 3",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Address 4",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Post Code",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Telephone",
+            },
+            Object {
+              "readOnly": true,
+              "value": "Office Email",
+            },
+          ],
+          Array [
+            Object {
+              "className": "hidden-cell",
+              "key": "id",
+              "readOnly": true,
+              "title": "id",
+              "value": "REA",
+            },
+            Object {
+              "className": "hidden-cell",
+              "key": "_eTag",
+              "readOnly": true,
+              "title": "etag",
+              "value": "\\"104F6D31FAFEB3B1DE6BB9CF8E071094\\"",
+            },
+            Object {
+              "key": "name",
+              "title": "Office Name",
+              "value": "Reapit",
+            },
+            Object {
+              "key": "address.buildingName",
+              "title": "Building Name",
+              "value": "",
+            },
+            Object {
+              "key": "address.buildingNumber",
+              "title": "Building No.",
+              "value": "15",
+            },
+            Object {
+              "key": "address.line1",
+              "title": "Address 1",
+              "value": "Example street",
+            },
+            Object {
+              "key": "address.line2",
+              "title": "Address 2",
+              "value": "Solihull",
+            },
+            Object {
+              "key": "address.line3",
+              "title": "Address 3",
+              "value": "West Midlands",
+            },
+            Object {
+              "key": "address.line4",
+              "title": "Address 4",
+              "value": "",
+            },
+            Object {
+              "key": "address.postcode",
+              "title": "Post Code",
+              "value": "B91 2XX",
+            },
+            Object {
+              "key": "workPhone",
+              "title": "Telephone",
+              "value": "01234 567890",
+            },
+            Object {
+              "key": "email",
+              "title": "Email",
+              "value": "example@email.com",
+            },
+          ],
+          Array [
+            Object {
+              "className": "hidden-cell",
+              "key": "id",
+              "readOnly": true,
+              "title": "id",
+              "value": "STL",
+            },
+            Object {
+              "className": "hidden-cell",
+              "key": "_eTag",
+              "readOnly": true,
+              "title": "etag",
+              "value": "\\"17465C0780A21582FFE1B06E35DEE37D\\"",
+            },
+            Object {
+              "key": "name",
+              "title": "Office Name",
+              "value": "Stevenage Lettings",
+            },
+            Object {
+              "key": "address.buildingName",
+              "title": "Building Name",
+              "value": "",
+            },
+            Object {
+              "key": "address.buildingNumber",
+              "title": "Building No.",
+              "value": "",
+            },
+            Object {
+              "key": "address.line1",
+              "title": "Address 1",
+              "value": "St George's Way",
+            },
+            Object {
+              "key": "address.line2",
+              "title": "Address 2",
+              "value": "Stevenage",
+            },
+            Object {
+              "key": "address.line3",
+              "title": "Address 3",
+              "value": "Hertfordshire",
+            },
+            Object {
+              "key": "address.line4",
+              "title": "Address 4",
+              "value": "",
+            },
+            Object {
+              "key": "address.postcode",
+              "title": "Post Code",
+              "value": "SG1 1XB",
+            },
+            Object {
+              "key": "workPhone",
+              "title": "Telephone",
+              "value": undefined,
+            },
+            Object {
+              "key": "email",
+              "title": "Email",
+              "value": "lettings@hughmason.co.uk",
+            },
+          ],
+          Array [
+            Object {
+              "className": "hidden-cell",
+              "key": "id",
+              "readOnly": true,
+              "title": "id",
+              "value": "STV",
+            },
+            Object {
+              "className": "hidden-cell",
+              "key": "_eTag",
+              "readOnly": true,
+              "title": "etag",
+              "value": "\\"7B2C4CFDFFA0EE83468BABC0F4A8D63C\\"",
+            },
+            Object {
+              "key": "name",
+              "title": "Office Name",
+              "value": "Stevenage",
+            },
+            Object {
+              "key": "address.buildingName",
+              "title": "Building Name",
+              "value": "",
+            },
+            Object {
+              "key": "address.buildingNumber",
+              "title": "Building No.",
+              "value": "",
+            },
+            Object {
+              "key": "address.line1",
+              "title": "Address 1",
+              "value": "St George's Way",
+            },
+            Object {
+              "key": "address.line2",
+              "title": "Address 2",
+              "value": "Stevenage",
+            },
+            Object {
+              "key": "address.line3",
+              "title": "Address 3",
+              "value": "Hertfordshire",
+            },
+            Object {
+              "key": "address.line4",
+              "title": "Address 4",
+              "value": "",
+            },
+            Object {
+              "key": "address.postcode",
+              "title": "Post Code",
+              "value": "SG1 1XB",
+            },
+            Object {
+              "key": "workPhone",
+              "title": "Telephone",
+              "value": undefined,
+            },
+            Object {
+              "key": "email",
+              "title": "Email",
+              "value": "stevenage.sales@hughmason.co.uk",
+            },
+          ],
+        ]
+      }
+      hasDownloadButton={true}
+      hasUploadButton={true}
+      validate={[Function]}
     />
   </Component>
+  <Component
+    onChange={[MockFunction]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
 </div>
 `;

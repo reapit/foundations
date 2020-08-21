@@ -82,6 +82,9 @@ export const customCellRenderer = (
     className = '',
     readOnly,
     style: customStyle,
+    // dont need to pass this prop to td tag
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+    fixedReadOnly,
     ...restCell
   } = cell
   const { maxRow: maxRowIndex, maxCol: maxColIndex } = getMaxRowAndCol(data)
@@ -169,12 +172,13 @@ export const handleAddNewRow = (
         return {
           ...lastRow[i],
           value: '',
+          touched: false,
         }
       }
       return e
     })
-
   const newData = [...data, newEmptyRow]
+
   /**
    * data with isValidated setted
    * and readOnly set to true if
@@ -206,7 +210,7 @@ export const handleCellsChanged = (
   if (changes.every(({ value, row }, index, changesArray) => value === null && row === changesArray[0].row)) {
     const rowIndexToRemove = changes[0].row
     newData.splice(rowIndexToRemove, 1)
-    newCell = { value: null }
+    newCell = { value: null, touched: true }
   }
   // remove column case
   else if (changes.every(({ value, col }, index, changesArray) => value === null && col === changesArray[0].col)) {
@@ -214,12 +218,12 @@ export const handleCellsChanged = (
     newData.forEach((row, rowIndex) => {
       newData[rowIndex].splice(colIndexToRemove, 1)
     })
-    newCell = { value: null }
+    newCell = { value: null, touched: true }
   }
   // all other cases
   else {
     changes.forEach(({ row, col, value }) => {
-      newData[row][col] = { ...newData[row][col], value }
+      newData[row][col] = { ...newData[row][col], value, touched: true }
     })
   }
 
@@ -274,9 +278,12 @@ export const handleOnChangeInput = ({
       const file = target.files[0]
       const result = await parseCsvFile(file)
       const compatibleData = convertToCompatibleData(result)
-      const totalRow = compatibleData.length
+      // separate header row and data rows
+      const [header, ...restCompatibleData] = compatibleData
+      if (!restCompatibleData || restCompatibleData.length === 0) return
+      const totalRow = restCompatibleData.length
       // only allow maxUploadRow row
-      const slicedData = compatibleData.slice(0, maxUploadRow)
+      const slicedData = restCompatibleData.slice(0, maxUploadRow)
       if (typeof validate !== 'function') {
         setUploadData(
           setUploadDataCallback({
@@ -285,6 +292,7 @@ export const handleOnChangeInput = ({
             totalRow,
             exceedMaxRow: totalRow > maxUploadRow,
             isModalOpen: true,
+            header: header,
           }),
         )
         return 'not validated'
@@ -301,6 +309,7 @@ export const handleOnChangeInput = ({
           isModalOpen: true,
           totalRow,
           exceedMaxRow: totalRow > maxUploadRow,
+          header: header,
         }),
       )
       return 'validated'
@@ -313,6 +322,7 @@ export const handleOnChangeInput = ({
         invalidIndies: [],
         isModalOpen: true,
         totalRow: 0,
+        header: [],
       }),
     )
     return 'error'
@@ -348,6 +358,10 @@ export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => 
    * https://github.com/facebook/react/issues/4335
    */
   window.addEventListener('click', setContextMenuProp as any)
+
+  return () => {
+    window.removeEventListener('click', setContextMenuProp as any)
+  }
 }
 
 export const handleAfterDataChanged = (

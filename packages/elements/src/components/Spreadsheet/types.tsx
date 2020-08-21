@@ -10,6 +10,7 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string | null> {}
 export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: Cell }[]
 export type InvalidIndies = { row: number; col: number; cell: Cell }[]
 export interface UploadData {
+  header: Cell[]
   totalRow: number
   validatedData: Cell[][]
   invalidIndies: InvalidIndies
@@ -22,7 +23,7 @@ export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
 export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
 export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
   value: string | null
-  isValidated?: boolean
+  isValidated?: ValidateValue
   // to be used together with allowOnlyOneValidationErrorPerRow
   // won't allow readOnly property of the cell to be modified
   fixedReadOnly?: boolean
@@ -36,6 +37,8 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
     setSelected: SetSelected
     afterCellsChanged?: AfterCellsChanged
   }>
+  error?: ErrorString
+  touched?: boolean
 }
 
 export interface DoubleClickPayLoad {
@@ -45,8 +48,9 @@ export interface DoubleClickPayLoad {
   maxColIndex: number
   isReadOnly?: boolean
 }
-
-export type ValidateFunction = (data: Cell[][]) => boolean[][]
+export type ErrorString = string
+export type ValidateValue = boolean | ErrorString
+export type ValidateFunction = (data: Cell[][]) => ValidateValue[][]
 export type AfterCellsChanged = (changes: ChangedCells, data: Cell[][], setData: SetData) => any
 export type AfterDataChanged = (changes: ChangedCells, data: Cell[][]) => any
 export type AfterUploadDataValidated = (params: {

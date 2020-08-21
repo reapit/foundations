@@ -81,6 +81,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
             <Component
               className=""
               closable={false}
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               footer={
                 <Unknown
@@ -255,6 +261,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                     <Dialog
                       className=""
                       closable={false}
+                      closeIcon={
+                        <span
+                          aria-label="close"
+                          className="delete"
+                        />
+                      }
                       destroyOnClose={true}
                       focusTriggerAfterClose={true}
                       footer={
@@ -585,6 +597,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
             <Component
               className=""
               closable={false}
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               footer={
                 <Unknown
@@ -621,6 +639,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
             <Component
               className=""
               closable={false}
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               title={
                 <Unknown>

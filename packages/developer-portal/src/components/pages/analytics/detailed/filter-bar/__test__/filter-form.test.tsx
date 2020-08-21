@@ -10,7 +10,7 @@ import {
   renderClientSelectOptions,
   handleAutoSave,
 } from '../filter-form'
-import { appInstallationsFilterRequestData } from '@/actions/app-installations'
+import { fetchInstallationsFilterList } from '@/actions/installations'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
@@ -60,7 +60,7 @@ describe('FilterForm', () => {
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsFilterRequestData({
+        fetchInstallationsFilterList({
           appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           clientId: ['DXX'],
           pageSize: GET_ALL_PAGE_SIZE,
@@ -91,7 +91,7 @@ describe('FilterForm', () => {
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsFilterRequestData({
+        fetchInstallationsFilterList({
           appId: mockFormValues.appId,
           clientId: mockFormValues.clientId,
           pageSize: GET_ALL_PAGE_SIZE,

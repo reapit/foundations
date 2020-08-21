@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import {
   InstallationAppSection,
   handleSetPageNumber,
@@ -11,8 +11,11 @@ import {
 } from '../installation-app-section'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { AppInstallationsState } from '@/reducers/app-installations'
+import { InstallationsRootState } from '@/reducers/installations'
 import { handleMapAppNameToInstallation } from '../detailed-tab'
+import configureStore from 'redux-mock-store'
+import * as ReactRedux from 'react-redux'
+import appState from '@/reducers/__stubs__/app-state'
 
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
@@ -21,53 +24,52 @@ jest.mock('@reapit/elements', () => ({
 jest.mock('../../../../../core/store')
 
 const installations = {
-  loading: false,
-  installationsAppData: {
-    ...installationsStub,
+  installationsList: {
+    isLoading: false,
+    list: installationsStub,
   },
-} as AppInstallationsState
+} as InstallationsRootState
 
 describe('InstallationTable', () => {
   const installedApps = handleMapAppNameToInstallation(
-    installations.installationsAppData?.data || [],
+    installations.installationsList?.list?.data || [],
     appsDataStub.data.data || [],
   )()
+  let store
+
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
 
   it('should match snapshot', () => {
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installations}
-          apps={[]}
-        />,
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />
+        </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match with null installationsAppData', () => {
-    const installationsWithoutData = { ...installations, installationsAppData: null }
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installationsWithoutData}
-          apps={[]}
-        />,
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} apps={[]} />
+        </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
     expect(
-      shallow(
-        <InstallationAppSection
-          installedApps={installedApps}
-          filteredInstalledApps={installedApps}
-          installations={installations}
-        />,
+      mount(
+        <ReactRedux.Provider store={store}>
+          <InstallationAppSection installedApps={installedApps} filteredInstalledApps={installedApps} />
+        </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
@@ -93,6 +95,22 @@ describe('installationTableColumn', () => {
         if (Header === 'Date of Uninstallation') {
           expect(accessor({ created: 'date', terminatesOn: 'terminated date' })).toEqual('localtime')
           expect(accessor({})).toEqual('')
+        }
+        if (Header === 'Customer Address') {
+          expect(
+            accessor({
+              customerAddress: {
+                buildingName: 'Third Floor',
+                buildingNumber: '67-74',
+                line1: 'Saffron Hill',
+                line2: 'London',
+                line3: '',
+                line4: '',
+                postcode: 'EC1N 8QX',
+                countryId: 'GB',
+              },
+            }),
+          ).toEqual('Third Floor 67-74 Saffron Hill London   EC1N 8QX GB')
         }
       }
     })

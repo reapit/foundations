@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleMap from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
 import { combineAddress } from '../../utils/combine-address/combine-address'
+import notification from '../Notification'
 
 export type Coords = {
   lat: number
@@ -105,7 +106,10 @@ export const handleRequestDirectionServiceResponse = ({
     }
     directionsRenderer.setDirections(response)
   } else {
-    window.alert('Directions request failed due to ' + status)
+    notification.error({
+      message: 'Directions request failed due to ' + status,
+      placement: 'bottomRight',
+    })
   }
 }
 

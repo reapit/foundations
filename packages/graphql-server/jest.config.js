@@ -6,8 +6,7 @@ module.exports = {
   ...baseConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|dist)[/\\\\]',
-    'api.ts',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)[/\\\\]',
     '.d.ts',
     'index.ts',
   ],

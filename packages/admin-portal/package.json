@@ -14,13 +14,17 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js admin-portal reapit-admin-portal-dev",
+    "release:development": "serverless deploy --stage dev",
+    "release:production": "serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "cypress:ci": "cypress run --project \"./src/tests\"",
     "test-e2e:ci": "start-server-and-test start:prod http://localhost:8080 cypress:ci",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx src --fix",
-    "fetch-config": "yarn config-manager fetchConfig admin-portal",
+    "fetch-config": "yarn config-manager --namespace cloud --entity admin-portal --name local --mode fetch",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
@@ -35,8 +39,7 @@
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
     "react-responsive": "8.1.0",
-    "snyk": "^1.341.1",
-    "swagger-ui-react": "3.24.3"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.86",

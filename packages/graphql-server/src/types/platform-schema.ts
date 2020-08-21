@@ -1093,6 +1093,97 @@ export interface CompanyModel {
     [name: string]: any
   }
 }
+
+export interface CompanyRoleModel {
+  /**
+   * The unique identifier of the relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the related company
+   */
+  companyId?: string
+  /**
+   * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related entity
+   */
+  associatedId?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultCompanyRoleModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related company
+     */
+    companyId?: string
+    /**
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
 export interface ConfigurationCompanyTypes {
   Id?: string[]
 }
@@ -10108,4 +10199,2658 @@ export interface Vendors {
   LastCallTo?: string
   NextCallFrom?: string
   NextCallTo?: string
+}
+
+export interface Tenancies {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  id?: string[]
+  negotiatorId?: string[]
+  applicantId?: string[]
+  propertyId?: string[]
+  status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+  metadata?: string[]
+}
+/**
+ * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
+ */
+export interface TenancyCheckModel {
+  /**
+   * The unique identifier of the tenancy check
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy check was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy check was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Textual description of what the tenancy check relates to
+   */
+  description?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The unique identifier of the tenancy that this check relates to
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the teanncy check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of the physical address of a building or premise
+ */
+export interface TenancyContactAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * A summarised view of the details of a contact or company associated to a tenancy
+ */
+export interface TenancyContactModel {
+  /**
+   * The unique identifier of the contact or company
+   */
+  id?: string
+  /**
+   * The complete name of the contact or company
+   */
+  name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
+  /**
+   * The type of the contact (company/contact)
+   */
+  type?: string
+  /**
+   * The home phone number of the contact or company
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the contact or company
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact or company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact or company
+   */
+  email?: string
+  /**
+   * The primary address of the contact or company
+   */
+  primaryAddress?: {
+    /**
+     * The building name
+     */
+    buildingName?: string
+    /**
+     * The building number
+     */
+    buildingNumber?: string
+    /**
+     * The first line of the address
+     */
+    line1?: string
+    /**
+     * The second line of the address
+     */
+    line2?: string
+    /**
+     * The third line of the address
+     */
+    line3?: string
+    /**
+     * The fourth line of the address
+     */
+    line4?: string
+    /**
+     * The postcode
+     */
+    postcode?: string
+    /**
+     * The ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+}
+/**
+ * Representation of a relationship between a tenancy and a contact or company
+ */
+export interface TenancyContactRelationshipModel {
+  /**
+   * The unique identifier of the tenancy relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the tenancy
+   */
+  tenancyId?: string
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not this contact or company should be regarded as the main tenant
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a tenancy
+ */
+export interface TenancyModel {
+  /**
+   * The unique identifier of the tenancy
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+   */
+  status?: string
+  /**
+   * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not the tenancy is confirmed to finish at the end date
+   */
+  endDateConfirmed?: boolean
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property that relates to the tenancy
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for this tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company
+     */
+    id?: string
+    /**
+     * The complete name of the contact or company
+     */
+    name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
+    /**
+     * The type of the contact (company/contact)
+     */
+    type?: string
+    /**
+     * The home phone number of the contact or company
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact or company
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact or company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact or company
+     */
+    email?: string
+    /**
+     * The primary address of the contact or company
+     */
+    primaryAddress?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+  }[]
+  /**
+   * The ETag for the current version of the tenancy. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * A tenancy source of enquiry
+ */
+export interface TenancySourceModel {
+  /**
+   * The unique identifier of the source for this tenancy
+   */
+  id?: string
+  /**
+   * The source type (office/source)
+   */
+  type?: string
+}
+/**
+ * The details specific to applicants with a marketingMode of buying
+ */
+export interface UpdateApplicantBuyingModel {
+  /**
+   * The lower bound of the applicant's budget
+   */
+  priceFrom?: number // int32
+  /**
+   * The upper bound of the applicant's budget
+   */
+  priceTo?: number // int32
+}
+
+export interface UpdateTenancyCheckModel {
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+}
+export interface CreateTenancyModel {
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property that relates to the tenancy
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of enquiry for the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for the tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+}
+export interface CreateTenancyCheckModel {
+  /**
+   * Short, descriptive text describing the purpose of the check
+   */
+  description?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+}
+
+export interface PagedResultTenancyModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * example:
+     * 2019-08-14
+     */
+    startDate?: string // date
+    /**
+     * example:
+     * 2019-08-14
+     */
+    endDate?: string // date
+    /**
+     * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+     */
+    status?: string
+    /**
+     * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
+    /**
+     * The amount of rent required, returned in relation to the collection frequency
+     */
+    rent?: number // int32
+    /**
+     * The rent collection frequency (weekly/monthly/annually)
+     */
+    rentFrequency?: string
+    /**
+     * A flag determining whether or not the tenancy is confirmed to finish at the end date
+     */
+    endDateConfirmed?: boolean
+    /**
+     * A flag determining whether or not the tenancy has been extended indefinitely
+     */
+    isPeriodic?: boolean
+    /**
+     * The unique identifier of the type of tenancy
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator who is managing the tenancy
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the property that relates to the tenancy
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the applicant who has applied to be a tenant
+     */
+    applicantId?: string
+    /**
+     * The source of the tenancy
+     */
+    source?: {
+      /**
+       * The unique identifier of the source for this tenancy
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact or company
+       */
+      id?: string
+      /**
+       * The complete name of the contact or company
+       */
+      name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
+      /**
+       * The type of the contact (company/contact)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact or company
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact or company
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact or company
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact or company
+       */
+      email?: string
+      /**
+       * The primary address of the contact or company
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * The ETag for the current version of the tenancy. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultTenancyContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the tenancy
+     */
+    tenancyId?: string
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not this contact or company should be regarded as the main tenant
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultTenancyCheckModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy check
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy check was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy check was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Textual description of what the tenancy check relates to
+     */
+    description?: string
+    /**
+     * The status of the tenancy check (needed/notNeeded/arranging/completed)
+     */
+    status?: string
+    /**
+     * The type of the tenancy check (preTenancy/postTenancy)
+     */
+    type?: string
+    /**
+     * The unique identifier of the tenancy that this check relates to
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the teanncy check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord
+     */
+    id?: string
+    /**
+     * The date and time when the landlord was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the landlord was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * A flag determining whether or not the landlord is currently active
+     */
+    active?: boolean
+    /**
+     * The unique identifier of the company acting as the landlord's solicitor
+     */
+    solicitorId?: string
+    /**
+     * The unique identifier of the office that is associated to the landlord
+     */
+    officeId?: string
+    /**
+     * The source of the landlord
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the landlord
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The type of the contact (contact/company)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * The primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the landlord
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the landlord. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord relationship
+     */
+    id?: string
+    /**
+     * The unique identifier of the landlord
+     */
+    landlordId?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord
+     */
+    id?: string
+    /**
+     * The date and time when the landlord was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the landlord was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * A flag determining whether or not the landlord is currently active
+     */
+    active?: boolean
+    /**
+     * The unique identifier of the company acting as the landlord's solicitor
+     */
+    solicitorId?: string
+    /**
+     * The unique identifier of the office that is associated to the landlord
+     */
+    officeId?: string
+    /**
+     * The source of the landlord
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the landlord
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The name of the contact
+       */
+      name?: string
+      /**
+       * The type of the contact (contact/company)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * The primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the landlord
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the landlord. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface LandlordModel {
+  /**
+   * The unique identifier of the landlord
+   */
+  id?: string
+  /**
+   * The date and time when the landlord was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the landlord was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact
+     */
+    id?: string
+    /**
+     * The name of the contact
+     */
+    name?: string
+    /**
+     * The type of the contact (contact/company)
+     */
+    type?: string
+    /**
+     * The home phone number of the contact
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+    /**
+     * The primary address of the contact
+     */
+    primaryAddress?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+  }[]
+  /**
+   * App specific metadata that has been set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the landlord. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company to create a relationship with
+     */
+    associatedId?: string
+    /**
+     * The type of relationship to create (contact/company)
+     */
+    associatedType?: string
+  }[]
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company to create a relationship with
+     */
+    associatedId?: string
+    /**
+     * The type of relationship to create (contact/company)
+     */
+    associatedType?: string
+  }[]
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface UpdateLandlordModel {
+  /**
+   * A flag determining whether or not the landlord is currently active
+   */
+  active?: boolean
+  /**
+   * The unique identifier of the company acting as the landlord's solicitor
+   */
+  solicitorId?: string
+  /**
+   * The unique identifier of the office that is associated to the landlord
+   */
+  officeId?: string
+  /**
+   * The source of the landlord
+   */
+  source?: {
+    /**
+     * The unique identifier of the source of the landlord
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * App specific metadata that to set against the landlord
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface LandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the landlord relationship
+   */
+  id?: string
+  /**
+   * The unique identifier of the landlord
+   */
+  landlordId?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+export interface CreateLandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the contact or company to create a relationship with
+   */
+  associatedId?: string
+  /**
+   * The type of relationship to create (contact/company)
+   */
+  associatedType?: string
+}
+
+export interface Conveyancing {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  propertyId?: string[]
+  embed?: ('buyerSolicitor' | 'offer' | 'property' | 'vendor' | 'vendorSolicitor')[]
+  metadata?: string[]
+}
+/**
+ * Representation of an offers sales progression information
+ */
+export interface ConveyancingModel {
+  /**
+   * The unique identifier of the offer
+   */
+  id?: string
+  /**
+   * The date and time when the offer was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the offer was modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Flag set to true if this offer is external
+   */
+  isExternal?: boolean
+  /**
+   * The unique identifier of the property that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  propertyId?: string
+  /**
+   * The address of the property that this offer is associated to
+   */
+  propertyAddress?: string
+  /**
+   * The full name of the vendor of the property
+   */
+  vendor?: string
+  /**
+   * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  vendorId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  vendorSolicitorId?: string
+  /**
+   * The full name of the buyer who has submitted the offer
+   */
+  buyer?: string
+  /**
+   * The unique identifier of the contact that represents this buyer. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  buyerId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+   */
+  buyerSolicitorId?: string
+  /**
+   * The name of the agent who is marketing the property, where the offer is external and and relates to a property not instructed to the agent
+   */
+  externalAgent?: string
+  /**
+   * The unique identifier of the agent company that holds the property instruction
+   */
+  externalAgentId?: string
+  /**
+   * The unique identifier of the offer that sits above this one in the chain (where known)
+   */
+  upwardChainId?: string
+  /**
+   * The unique identifier of the offer that sits below this one in the chain (where known)
+   */
+  downwardChainId?: string
+  /**
+   * The date when the fixtures and fittings form has been completed
+   * example:
+   * 2019-08-14
+   */
+  fixturesAndFittingsCompleted?: string // date
+  /**
+   * The date when the title deeds were requested from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsRequested?: string // date
+  /**
+   * The date when the title deeds were received from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsReceived?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were sent
+   * example:
+   * 2019-08-14
+   */
+  enquiriesSent?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were answered
+   * example:
+   * 2019-08-14
+   */
+  enquiriesAnswered?: string // date
+  /**
+   * The date when the buyer paid for conveyancing searches
+   * example:
+   * 2019-08-14
+   */
+  searchesPaid?: string // date
+  /**
+   * The date when conveyancing searches were applied for
+   * example:
+   * 2019-08-14
+   */
+  searchesApplied?: string // date
+  /**
+   * The date when conveyancing searches were received for
+   * example:
+   * 2019-08-14
+   */
+  searchesReceived?: string // date
+  /**
+   * The date when the draft contract was sent
+   * example:
+   * 2019-08-14
+   */
+  contractSent?: string // date
+  /**
+   * The date when the draft contract was received
+   * example:
+   * 2019-08-14
+   */
+  contractReceived?: string // date
+  /**
+   * The date when the contract was approved
+   * example:
+   * 2019-08-14
+   */
+  contractApproved?: string // date
+  /**
+   * The date when the vendor signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractVendorSigned?: string // date
+  /**
+   * The date when the buyer signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractBuyerSigned?: string // date
+  /**
+   * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+   */
+  mortgageRequired?: string
+  /**
+   * The loan to value percentage of the mortgage required
+   */
+  mortgageLoanPercentage?: number // int32
+  /**
+   * The date when the mortgage application was submitted
+   * example:
+   * 2019-08-14
+   */
+  mortgageSubmitted?: string // date
+  /**
+   * The date when the mortgage offer was received
+   * example:
+   * 2019-08-14
+   */
+  mortgageOfferReceived?: string // date
+  /**
+   * The unique identifier of the company who will provide the mortgage
+   */
+  mortgageLenderId?: string
+  /**
+   * The unique identifier of the company who brokered the mortgage
+   */
+  mortgageBrokerId?: string
+  /**
+   * The date of the mortgage valuation/survey
+   * example:
+   * 2019-08-14
+   */
+  mortgageSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the mortgage valuation/survey
+   */
+  mortgageSurveyorId?: string
+  /**
+   * Indication of whether the buyer requires that an additional survey take place  (yes/no/unknown)
+   */
+  additionalSurveyRequired?: string
+  /**
+   * The date of the additional survey
+   * example:
+   * 2019-08-14
+   */
+  additionalSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the additional survey
+   */
+  additionalSurveyorId?: string
+  /**
+   * The date when the vendor conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedVendor?: string // date
+  /**
+   * The date when the buyer conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedBuyer?: string // date
+  /**
+   * The date when the sale completed
+   * example:
+   * 2019-08-14
+   */
+  completion?: string // date
+  /**
+   * The ETag for the current version of this conveyancing record. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  /**
+   * App specific metadata that has been set against this conveyancing record
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultConveyancingModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the offer
+     */
+    id?: string
+    /**
+     * The date and time when the offer was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the offer was modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Flag set to true if this offer is external
+     */
+    isExternal?: boolean
+    /**
+     * The unique identifier of the property that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    propertyId?: string
+    /**
+     * The address of the property that this offer is associated to
+     */
+    propertyAddress?: string
+    /**
+     * The full name of the vendor of the property
+     */
+    vendor?: string
+    /**
+     * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    vendorId?: string
+    /**
+     * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+     */
+    vendorSolicitorId?: string
+    /**
+     * The full name of the buyer who has submitted the offer
+     */
+    buyer?: string
+    /**
+     * The unique identifier of the contact that represents this buyer. Empty if the offer is external and relates to a property not instructed to the agent
+     */
+    buyerId?: string
+    /**
+     * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+     */
+    buyerSolicitorId?: string
+    /**
+     * The name of the agent who is marketing the property, where the offer is external and and relates to a property not instructed to the agent
+     */
+    externalAgent?: string
+    /**
+     * The unique identifier of the agent company that holds the property instruction
+     */
+    externalAgentId?: string
+    /**
+     * The unique identifier of the offer that sits above this one in the chain (where known)
+     */
+    upwardChainId?: string
+    /**
+     * The unique identifier of the offer that sits below this one in the chain (where known)
+     */
+    downwardChainId?: string
+    /**
+     * The date when the fixtures and fittings form has been completed
+     * example:
+     * 2019-08-14
+     */
+    fixturesAndFittingsCompleted?: string // date
+    /**
+     * The date when the title deeds were requested from land registry
+     * example:
+     * 2019-08-14
+     */
+    deedsRequested?: string // date
+    /**
+     * The date when the title deeds were received from land registry
+     * example:
+     * 2019-08-14
+     */
+    deedsReceived?: string // date
+    /**
+     * The date when the legal enquiries raised by the buyers solicitor were sent
+     * example:
+     * 2019-08-14
+     */
+    enquiriesSent?: string // date
+    /**
+     * The date when the legal enquiries raised by the buyers solicitor were answered
+     * example:
+     * 2019-08-14
+     */
+    enquiriesAnswered?: string // date
+    /**
+     * The date when the buyer paid for conveyancing searches
+     * example:
+     * 2019-08-14
+     */
+    searchesPaid?: string // date
+    /**
+     * The date when conveyancing searches were applied for
+     * example:
+     * 2019-08-14
+     */
+    searchesApplied?: string // date
+    /**
+     * The date when conveyancing searches were received for
+     * example:
+     * 2019-08-14
+     */
+    searchesReceived?: string // date
+    /**
+     * The date when the draft contract was sent
+     * example:
+     * 2019-08-14
+     */
+    contractSent?: string // date
+    /**
+     * The date when the draft contract was received
+     * example:
+     * 2019-08-14
+     */
+    contractReceived?: string // date
+    /**
+     * The date when the contract was approved
+     * example:
+     * 2019-08-14
+     */
+    contractApproved?: string // date
+    /**
+     * The date when the vendor signed the approved contract
+     * example:
+     * 2019-08-14
+     */
+    contractVendorSigned?: string // date
+    /**
+     * The date when the buyer signed the approved contract
+     * example:
+     * 2019-08-14
+     */
+    contractBuyerSigned?: string // date
+    /**
+     * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+     */
+    mortgageRequired?: string
+    /**
+     * The loan to value percentage of the mortgage required
+     */
+    mortgageLoanPercentage?: number // int32
+    /**
+     * The date when the mortgage application was submitted
+     * example:
+     * 2019-08-14
+     */
+    mortgageSubmitted?: string // date
+    /**
+     * The date when the mortgage offer was received
+     * example:
+     * 2019-08-14
+     */
+    mortgageOfferReceived?: string // date
+    /**
+     * The unique identifier of the company who will provide the mortgage
+     */
+    mortgageLenderId?: string
+    /**
+     * The unique identifier of the company who brokered the mortgage
+     */
+    mortgageBrokerId?: string
+    /**
+     * The date of the mortgage valuation/survey
+     * example:
+     * 2019-08-14
+     */
+    mortgageSurveyDate?: string // date
+    /**
+     * The unique identifier of the company who will perform the mortgage valuation/survey
+     */
+    mortgageSurveyorId?: string
+    /**
+     * Indication of whether the buyer requires that an additional survey take place  (yes/no/unknown)
+     */
+    additionalSurveyRequired?: string
+    /**
+     * The date of the additional survey
+     * example:
+     * 2019-08-14
+     */
+    additionalSurveyDate?: string // date
+    /**
+     * The unique identifier of the company who will perform the additional survey
+     */
+    additionalSurveyorId?: string
+    /**
+     * The date when the vendor conveyancer confirms the exchange
+     * example:
+     * 2019-08-14
+     */
+    exchangedVendor?: string // date
+    /**
+     * The date when the buyer conveyancer confirms the exchange
+     * example:
+     * 2019-08-14
+     */
+    exchangedBuyer?: string // date
+    /**
+     * The date when the sale completed
+     * example:
+     * 2019-08-14
+     */
+    completion?: string // date
+    /**
+     * The ETag for the current version of this conveyancing record. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    /**
+     * App specific metadata that has been set against this conveyancing record
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface UpdateConveyancingModel {
+  /**
+   * The unique identifier of the vendor that this offer is associated to. Empty if the offer is external and relates to a property not instructed to the agent
+   */
+  vendorSolicitorId?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  buyerSolicitorId?: string
+  /**
+   * The date when the fixtures and fittings form has been completed
+   * example:
+   * 2019-08-14
+   */
+  fixturesAndFittingsCompleted?: string // date
+  /**
+   * The date when the title deeds were requested from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsRequested?: string // date
+  /**
+   * The date when the title deeds were received from land registry
+   * example:
+   * 2019-08-14
+   */
+  deedsReceived?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were sent
+   * example:
+   * 2019-08-14
+   */
+  enquiriesSent?: string // date
+  /**
+   * The date when the legal enquiries raised by the buyers solicitor were answered
+   * example:
+   * 2019-08-14
+   */
+  enquiriesAnswered?: string // date
+  /**
+   * The date when the buyer paid for conveyancing searches
+   * example:
+   * 2019-08-14
+   */
+  searchesPaid?: string // date
+  /**
+   * The date when conveyancing searches were applied for
+   * example:
+   * 2019-08-14
+   */
+  searchesApplied?: string // date
+  /**
+   * The date when conveyancing searches were received
+   * example:
+   * 2019-08-14
+   */
+  searchesReceived?: string // date
+  /**
+   * The date when the draft contract was sent
+   * example:
+   * 2019-08-14
+   */
+  contractSent?: string // date
+  /**
+   * The date when the draft contract was received
+   * example:
+   * 2019-08-14
+   */
+  contractReceived?: string // date
+  /**
+   * The date when the contract was approved
+   * example:
+   * 2019-08-14
+   */
+  contractApproved?: string // date
+  /**
+   * The date when the vendor signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractVendorSigned?: string // date
+  /**
+   * The date when the buyer signed the approved contract
+   * example:
+   * 2019-08-14
+   */
+  contractBuyerSigned?: string // date
+  /**
+   * Indication of whether the buyer will require a mortgage to fund the purchase (yes/no/unknown)
+   */
+  mortgageRequired?: string
+  /**
+   * The loan to value percentage of the mortgage required
+   */
+  mortgageLoanPercentage?: number // int32
+  /**
+   * The date when the mortgage application was submitted
+   * example:
+   * 2019-08-14
+   */
+  mortgageSubmitted?: string // date
+  /**
+   * The date when the mortgage offer was received
+   * example:
+   * 2019-08-14
+   */
+  mortgageOfferReceived?: string // date
+  /**
+   * The unique identifier of the company who will provide the mortgage
+   */
+  mortgageLenderId?: string
+  /**
+   * The unique identifier of the company who brokered the mortgage
+   */
+  mortgageBrokerId?: string
+  /**
+   * The date of the mortgage valuation/survey
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  mortgageSurveyDate?: string // date-time
+  /**
+   * The unique identifier of the company who will perform the mortgage valuation/survey
+   */
+  mortgageSurveyorId?: string
+  /**
+   * Indication of whether the buyer requires that an additional survey take place (yes/no/unknown)
+   */
+  additionalSurveyRequired?: string
+  /**
+   * The date of the additional survey
+   * example:
+   * 2019-08-14
+   */
+  additionalSurveyDate?: string // date
+  /**
+   * The unique identifier of the company who will perform the additional survey
+   */
+  additionalSurveyorId?: string
+  /**
+   * The date when the vendor conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedVendor?: string // date
+  /**
+   * The date when the buyer conveyancer confirms the exchange
+   * example:
+   * 2019-08-14
+   */
+  exchangedBuyer?: string // date
+  /**
+   * The date when the sale completed
+   * example:
+   * 2019-08-14
+   */
+  completion?: string // date
+  /**
+   * App specific metadata to set against this conveyancing record
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+
+export interface CreateDownwardLinkModel {
+  /**
+   * The unique identifier of the offer below this one in the chain. Should be left empty if the upward property is external (instructed by another agent)
+   */
+  offerId?: string
+  /**
+   * The address of the property below this one in the chain
+   */
+  propertyAddress?: string
+  /**
+   * The name of the agent managing the sale of the property
+   */
+  agent?: string
+  /**
+   * The name of the buyer purchasing the property
+   */
+  buyer?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+   */
+  buyerSolicitorId?: string
+}
+
+export interface CreateUpwardLinkModel {
+  /**
+   * The unique identifier of the offer above this one in the chain. Should be left empty if the upward property is external (instructed by another agent)
+   */
+  offerId?: string
+  /**
+   * The address of the property above this one in the chain
+   */
+  propertyAddress?: string
+  /**
+   * The name of the agent managing the sale of the property
+   */
+  agent?: string
+  /**
+   * The name of the vendor selling the property
+   */
+  vendor?: string
+  /**
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   */
+  vendorSolicitorId?: string
+}
+
+/**
+ * Request body used to create an enquiry
+ * example:
+ * [object Object]
+ */
+export interface CreateEnquiryModel {
+  /**
+   * The title of the individual making the enquiry
+   */
+  title?: string
+  /**
+   * The forename of the individual making the enquiry
+   */
+  forename?: string
+  /**
+   * The surname of the individual making the enquiry
+   */
+  surname?: string
+  /**
+   * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+   */
+  position?: string
+  /**
+   * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+   */
+  enquiryType?: string
+  /**
+   * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+   */
+  message?: string
+  /**
+   * The unique identifier of the related office
+   */
+  officeId?: string
+  /**
+   * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
+   * The name of the source that the enquiry was generated from
+   */
+  sourceName?: string
+  /**
+   * The home phone number of the individual making the enquiry
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the individual making the enquiry
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the individual making the enquiry
+   */
+  mobilePhone?: string
+  /**
+   * The email of the individual making the enquiry
+   */
+  email?: string
+  /**
+   * The address of the individual making the enquiry
+   */
+  address?: {
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+  /**
+   * A list of unique property identifiers that the enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
+   */
+  propertyIds?: string[]
+}
+
+/**
+ * Representation of an enquiry
+ */
+export interface EnquiryModel {
+  /**
+   * The unique identifier of the enquiry
+   */
+  id?: number
+  /**
+   * The date and time when the enquiry was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the enquiry was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The title of the individual making the enquiry
+   */
+  title?: string
+  /**
+   * The forename of the individual making the enquiry
+   */
+  forename?: string
+  /**
+   * The surname of the individual making the enquiry
+   */
+  surname?: string
+  /**
+   * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+   */
+  enquiryType?: string
+  /**
+   * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+   */
+  message?: string
+  /**
+   * The status of the enquiry (pending/added/rejected/alreadyExists/duplicateEntry/spam)
+   */
+  status?: string
+  /**
+   * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
+   * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+   */
+  position?: string
+  /**
+   * The unique identifier of the office related to the enquiry
+   */
+  officeId?: string
+  /**
+   * The name of the source that the enquiry was generated by
+   */
+  sourceName?: string
+  /**
+   * The home phone number of the individual making the enquiry
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the individual making the enquiry
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the individual making the enquiry
+   */
+  mobilePhone?: string
+  /**
+   * The email of the individual making the enquiry
+   */
+  email?: string
+  /**
+   * The address of the individual making the enquiry
+   */
+  address?: {
+    /**
+     * The building name
+     */
+    buildingName?: string
+    /**
+     * The building number
+     */
+    buildingNumber?: string
+    /**
+     * The first line of the address
+     */
+    line1?: string
+    /**
+     * The second line of the address
+     */
+    line2?: string
+    /**
+     * The third line of the address
+     */
+    line3?: string
+    /**
+     * The fourth line of the address
+     */
+    line4?: string
+    /**
+     * The postcode
+     */
+    postcode?: string
+    /**
+     * The ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+  /**
+   * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
+   */
+  propertyIds?: string[]
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultEnquiryModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the enquiry
+     */
+    id?: number // int32
+    /**
+     * The date and time when the enquiry was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the enquiry was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The title of the individual making the enquiry
+     */
+    title?: string
+    /**
+     * The forename of the individual making the enquiry
+     */
+    forename?: string
+    /**
+     * The surname of the individual making the enquiry
+     */
+    surname?: string
+    /**
+     * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+     */
+    enquiryType?: string
+    /**
+     * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+     */
+    message?: string
+    /**
+     * The status of the enquiry (pending/added/rejected/alreadyExists/duplicateEntry/spam)
+     */
+    status?: string
+    /**
+     * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
+     * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+     */
+    position?: string
+    /**
+     * The unique identifier of the office related to the enquiry
+     */
+    officeId?: string
+    /**
+     * The name of the source that the enquiry was generated by
+     */
+    sourceName?: string
+    /**
+     * The home phone number of the individual making the enquiry
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the individual making the enquiry
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the individual making the enquiry
+     */
+    mobilePhone?: string
+    /**
+     * The email of the individual making the enquiry
+     */
+    email?: string
+    /**
+     * The address of the individual making the enquiry
+     */
+    address?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+    /**
+     * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
+     */
+    propertyIds?: string[]
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface JournalEntries {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
+  associatedId?: string[]
+  negotiatorId?: string[]
+  typeId?: string[]
+  createdFrom?: string
+  createdTo?: string
+}
+/**
+ * Representation of a journal entry
+ */
+export interface JournalEntryModel {
+  /**
+   * The date and time when the journal entry was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The type of journal entry
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator that created the entry
+   */
+  negotiatorId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+
+export interface PagedResultJournalEntryModel_ {
+  _embedded?: {
+    /**
+     * The date and time when the journal entry was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+     */
+    propertyId?: string
+    /**
+     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+     */
+    associatedId?: string
+    /**
+     * The type of journal entry
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator that created the entry
+     */
+    negotiatorId?: string
+    /**
+     * The textual description of the journal entry event
+     */
+    description?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+
+export interface CreateJournalEntryModel {
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
 }

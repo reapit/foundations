@@ -2,7 +2,7 @@ import React from 'react'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { mount } from 'enzyme'
-import { appInstallationsRequestData } from '@/actions/app-installations'
+import { fetchInstallationsList } from '@/actions/installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import AppContent, {
   handleUninstallSuccess,
@@ -17,7 +17,7 @@ import appState from '@/reducers/__stubs__/app-state'
 const mockState = {
   ...appState,
   installations: {
-    installationsAppData: installationsStub,
+    installationsList: installationsStub,
   },
 } as ReduxState
 
@@ -49,7 +49,7 @@ describe('AppContent', () => {
     handleUninstallSuccess(mockedHandleUninstallSuccessParams)()
     expect(handleAfterClose).toHaveBeenCalledWith({ setUninstallApp })
     expect(dispatch).toHaveBeenCalledWith(
-      appInstallationsRequestData({
+      fetchInstallationsList({
         appId: [appId],
         pageNumber: 1,
         pageSize: GET_ALL_PAGE_SIZE,
@@ -72,7 +72,7 @@ describe('AppContent', () => {
   describe('generateInstallationTableColumns', () => {
     it('should run correctly', () => {
       const result = generateInstallationTableColumns(jest.fn())()
-      expect(result).toHaveLength(3)
+      expect(result).toHaveLength(5)
     })
   })
 })

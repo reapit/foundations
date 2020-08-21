@@ -4,6 +4,7 @@ export type Config = {
   appEnv: AppEnv
   connectClientId: string
   connectOAuthUrl: string
+  connectUserPoolId: string
   platformApiUrl: string
 }
 

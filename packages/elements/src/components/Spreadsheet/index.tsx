@@ -19,6 +19,7 @@ import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
 import { usePrevious } from './utils'
 import { ModalUpload } from './modal-upload'
+import { H6 } from '../Typography'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -52,6 +53,36 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
+export const getErrorsFromData = (data: Cell[][]): JSX.Element[] => {
+  const errors: JSX.Element[] = []
+  const headers = data[0]
+  data.forEach((row = [], rowIndex) => {
+    row.forEach((cell, colIndex) => {
+      if (cell.error && cell.touched) {
+        const fieldName = headers[colIndex].value
+        const error = (
+          <p className="has-text-danger">
+            Field <b>{fieldName}</b> row <b>{rowIndex}</b> has the following problem: {cell.error}
+          </p>
+        )
+        errors.push(error)
+      }
+    })
+  })
+  return errors
+}
+
+export const renderErrorElements = (data: Cell[][] = []) => {
+  const errors = getErrorsFromData(data)
+  if (!errors.length) return null
+  return (
+    <div className="has-text-danger pt-4">
+      <H6 className="has-text-danger mb-1">The following validation errors have occurred:</H6>
+      {errors}
+    </div>
+  )
+}
+
 const initialUploadData: UploadData = {
   totalRow: 0,
   validatedData: [[]],
@@ -59,6 +90,7 @@ const initialUploadData: UploadData = {
   shouldProcess: false,
   isModalOpen: false,
   exceedMaxRow: false,
+  header: [],
 }
 
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
@@ -84,7 +116,6 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
   const [data, setData] = React.useState<Cell[][]>([[]])
-
   // store data relevant to upload handler
   const [uploadData, setUploadData] = React.useState<UploadData>(initialUploadData)
 
@@ -158,6 +189,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         cellRenderer={cellRenderer}
         {...rest}
       />
+      {renderErrorElements(data)}
       <div className="wrap-bottom">
         {hasAddButton && (
           <AddRowButton addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, validate)} />

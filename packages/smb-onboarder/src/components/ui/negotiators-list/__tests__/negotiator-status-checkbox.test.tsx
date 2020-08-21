@@ -29,7 +29,7 @@ const mockHandleCheckboxChangeParamsForUpdateCase = {
   disabled: false,
   setChecked: jest.fn(),
   setData: jest.fn(),
-  updateNegotiator: jest.fn(),
+  updateNegotiator: jest.fn().mockResolvedValue(true),
 }
 
 const mockHandleCheckboxChangeParamsForCreateCase = {
@@ -42,7 +42,7 @@ const mockHandleCheckboxChangeParamsForCreateCase = {
   disabled: false,
   setChecked: jest.fn(),
   setData: jest.fn(),
-  updateNegotiator: jest.fn(),
+  updateNegotiator: jest.fn().mockResolvedValue(true),
 }
 
 describe('NegotiatorStatusCheckbox', () => {
@@ -63,7 +63,7 @@ describe('NegotiatorStatusCheckbox', () => {
   describe('handleCheckBoxChange', () => {
     it('should return if checkbox is disabled', () => {
       if (mockProps.disabled) {
-        expect(handleCheckBoxChange).toReturn
+        expect(handleCheckBoxChange({ ...mockHandleCheckboxChangeParamsForCreateCase, disabled: true })).toBeUndefined()
       }
     })
     it('should execute updateNegotiator in case of existing row', () => {

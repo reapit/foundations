@@ -3166,6 +3166,53 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
             </form>
           </Form>
         </Formik>
+        <Component
+          footer={
+            Array [
+              <Unknown
+                onClick={[Function]}
+              >
+                Close
+              </Unknown>,
+            ]
+          }
+          isCentered={true}
+          onClose={[Function]}
+          title="Account Information Required"
+          visible={false}
+        >
+          <Component
+            className=""
+            closeIcon={
+              <span
+                aria-label="close"
+                className="delete"
+              />
+            }
+            destroyOnClose={true}
+            footer={
+              Array [
+                <Unknown
+                  onClick={[Function]}
+                >
+                  Close
+                </Unknown>,
+              ]
+            }
+            onClose={[Function]}
+            title={
+              <Unknown>
+                Account Information Required
+              </Unknown>
+            }
+            visible={false}
+            wrapClassName=""
+          >
+            <PortalWrapper
+              visible={false}
+            />
+          </Component>
+        </Component>
       </Component>
     </Router>
   </MemoryRouter>

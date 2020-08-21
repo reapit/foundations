@@ -102,6 +102,10 @@ export interface AppDetailModel {
    */
   developer?: string
   /**
+   * Gets a brief description of the developers organisation
+   */
+  developerAbout?: string
+  /**
    * Gets the email address of the developer's helpdesk responsible for providing support of the application
    */
   supportEmail?: string
@@ -818,6 +822,39 @@ export interface CreateSubscriptionModel {
   type?: string
 }
 /**
+ * Model to expose customer info
+ */
+export interface CustomerModel {
+  /**
+   * Gets the unique identifier associated to the customer
+   */
+  id?: string // uuid
+  /**
+   * The timestamp of entity creation
+   */
+  created?: string // date-time
+  /**
+   * The timestamp of entity modification
+   */
+  modified?: string // date-time
+  /**
+   * Gets the agency cloud identifier of the customer
+   */
+  agencyCloudId?: string
+  /**
+   * Gets the name of the customer
+   */
+  name?: string
+  /**
+   * Gets the address of the customer
+   */
+  address?: AddressModel
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
  * Model that represents a desktop integration type
  */
 export interface DesktopIntegrationTypeModel {
@@ -1074,7 +1111,7 @@ export interface MemberModel {
   /**
    * The id of this member
    */
-  id?: string
+  id?: string // uuid
   /**
    * The timestamp of entity creation
    */
@@ -1167,6 +1204,19 @@ export interface PagedResultCategoryModel_ {
    * List of paged data
    */
   data?: CategoryModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface PagedResultCustomerModel_ {
+  /**
+   * List of paged data
+   */
+  data?: CustomerModel[]
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32

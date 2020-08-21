@@ -19,15 +19,21 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
+  const currentUri = `${location.pathname}${location.search}`
+  const isRoot = connectInternalRedirect === '/'
 
-  if (!session.connectSession) {
+  if (!connectSession) {
     return null
   }
 
-  if (location.pathname === '/') {
-    return <Redirect to={Routes.INSTALLED_APPS} />
+  if (
+    (connectInternalRedirect && currentUri !== connectInternalRedirect) ||
+    (currentUri === connectInternalRedirect && isRoot)
+  ) {
+    const redirectUri = connectInternalRedirect === '/' ? Routes.INSTALLED_APPS : connectInternalRedirect
+    return <Redirect to={redirectUri} />
   }
 
   return (
@@ -42,7 +48,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
             />
       )}
         */}
-      <FlexContainerBasic flexColumn isScrollable>
+      <FlexContainerBasic id="app-root-container" flexColumn isScrollable>
         <FlexContainerResponsive hasPadding flexColumn>
           <Suspense
             fallback={

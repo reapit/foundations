@@ -4,6 +4,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 export interface ReapitConnectInitializers {
   connectClientId: string
   connectOAuthUrl: string
+  connectUserPoolId: string
   connectLoginRedirectPath: string
   connectLogoutRedirectPath: string
   connectContainerId: string
@@ -13,6 +14,7 @@ export interface ReapitConnectInitializers {
 export const ReapitConnectComponent = ({
   connectClientId,
   connectOAuthUrl,
+  connectUserPoolId,
   connectLoginRedirectPath,
   connectLogoutRedirectPath,
   connectContainerId,
@@ -21,6 +23,7 @@ export const ReapitConnectComponent = ({
   const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
     connectClientId,
     connectOAuthUrl,
+    connectUserPoolId,
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
   })

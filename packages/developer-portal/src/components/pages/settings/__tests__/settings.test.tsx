@@ -18,15 +18,17 @@ const mockState = {
 } as ReduxState
 
 describe('SettingsPage', () => {
-  it('should match snapshot', () => {
-    const mockStore = configureStore()
-    const store = mockStore(mockState)
+  describe('SettingsPage', () => {
+    it('should match snapshot', () => {
+      const mockStore = configureStore()
+      const store = mockStore(mockState)
 
-    const wrapper = shallow(
-      <Provider store={store}>
-        <SettingsPage />
-      </Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
+      const wrapper = shallow(
+        <Provider store={store}>
+          <SettingsPage />
+        </Provider>,
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
   })
 })

@@ -6,8 +6,8 @@ import { call, put, takeLatest, fork, all } from 'redux-saga/effects'
 import { fetchDeveloperDetailsSuccess, fetchDeveloperDetailsFailed } from '@/actions/developers'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import errorMessages from '@/constants/error-messages'
-import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
+import { notification } from '@reapit/elements'
 
 describe('fetchDeveloperDetails', () => {
   const params: Action<FetchDeveloperByIdParams> = {
@@ -30,10 +30,10 @@ describe('fetchDeveloperDetails', () => {
       put(fetchDeveloperDetailsFailed()),
     )
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
+      expect(clone.next().value).toEqual(
+        notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
         }),
       ),
     )

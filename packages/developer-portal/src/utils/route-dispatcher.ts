@@ -5,7 +5,7 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { fetchAppList } from '@/actions/apps'
 import { fetchMyIdentity } from '@/actions/developer'
-import { appInstallationsRequestData } from '../actions/app-installations'
+import { fetchInstallationsList } from '../actions/installations'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { getDeveloperId, getClientId } from './session'
@@ -13,6 +13,7 @@ import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 import { fetchCategoryList } from '@/actions/categories'
 import { fetchScopeList } from '@/actions/scopes'
+import { fetchCurrentMember } from '@/actions/current-member'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -40,7 +41,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
         const developerId = await getDeveloperId()
         store.dispatch(fetchAppDetail({ id, clientId }))
         store.dispatch(
-          appInstallationsRequestData({
+          fetchInstallationsList({
             appId: [id],
             pageNumber: 1,
             pageSize: GET_ALL_PAGE_SIZE,
@@ -50,6 +51,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
         )
         store.dispatch(fetchDesktopIntegrationTypeList())
         store.dispatch(fetchScopeList())
+        store.dispatch(requestDeveloperData())
+        store.dispatch(fetchCurrentMember())
       }
       break
     }
@@ -58,18 +61,25 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchCategoryList())
       store.dispatch(fetchDesktopIntegrationTypeList())
       break
-    case Routes.SETTINGS:
+    case Routes.SETTINGS: {
+      const developerId = await getDeveloperId()
+      store.dispatch(fetchOrganisationMembers({ id: developerId }))
       store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       break
+    }
     case Routes.SETTINGS_ORGANISATION_TAB: {
       const developerId = await getDeveloperId()
       store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       store.dispatch(fetchOrganisationMembers({ id: developerId }))
       break
     }
-    case Routes.SETTINGS_BILLING_TAB:
+    case Routes.SETTINGS_BILLING_TAB: {
+      store.dispatch(fetchCurrentMember())
       store.dispatch(requestDeveloperData())
       break
+    }
     case Routes.WEBHOOKS:
       store.dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
       break

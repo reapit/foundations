@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Papa from 'papaparse'
-import { Cell, SetData, ValidateFunction, ChangedCells, InvalidIndies } from './types'
+import { Cell, SetData, ValidateFunction, ChangedCells, InvalidIndies, ValidateValue } from './types'
 
 export const usePrevious = value => {
   const ref = React.useRef()
@@ -180,10 +180,13 @@ export const validatedDataGenerate = (data: Cell[][], validateFunction?: Validat
   // if valdateFunction is not set, then by default isValidated = true
   if (typeof validateFunction === 'function') {
     const validateMatrix = validateFunction(data)
-
-    return data.map((row, rowIndex) =>
-      row.map((cell, colIndex) => ({ ...cell, isValidated: validateMatrix[rowIndex][colIndex] })),
-    )
+    return data.map((row, rowIndex) => {
+      return row.map((cell, colIndex) => {
+        return typeof validateMatrix[rowIndex][colIndex] === 'string'
+          ? { ...cell, isValidated: false, error: validateMatrix[rowIndex][colIndex] }
+          : { ...cell, isValidated: validateMatrix[rowIndex][colIndex], error: '' }
+      })
+    }) as Cell[][]
   }
   return data.map(row => row.map(cell => ({ ...cell, isValidated: true })))
 }
@@ -208,7 +211,7 @@ export const calculateNumberOfInvalidRows = (invalidIndies: InvalidIndies): numb
  */
 export const createDataWithInvalidRowsRemoved = (
   data: Cell[][],
-  validateMatrix: boolean[][],
+  validateMatrix: ValidateValue[][],
 ): { dataWithInvalidRowsRemoved: Cell[][]; invalidIndies: InvalidIndies } => {
   let dataWithInvalidRowsRemoved: Cell[][] = []
   // store row, col, cell of invalid rows
@@ -221,7 +224,7 @@ export const createDataWithInvalidRowsRemoved = (
     const currentRow = [...row]
     currentRow.forEach((cell, colIndex) => {
       currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
-      if (!currentRow[colIndex].isValidated) {
+      if (typeof currentRow[colIndex].isValidated !== 'boolean' || !currentRow[colIndex].isValidated) {
         invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
         currentRowValid = false
         return
@@ -231,5 +234,6 @@ export const createDataWithInvalidRowsRemoved = (
       dataWithInvalidRowsRemoved.push(currentRow)
     }
   })
+  console.log('xxx format', dataWithInvalidRowsRemoved, invalidIndies)
   return { dataWithInvalidRowsRemoved, invalidIndies }
 }

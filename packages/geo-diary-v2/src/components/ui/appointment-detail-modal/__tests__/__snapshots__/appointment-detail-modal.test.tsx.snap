@@ -9336,6 +9336,12 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       >
         <Component
           className=""
+          closeIcon={
+            <span
+              aria-label="close"
+              className="delete"
+            />
+          }
           destroyOnClose={true}
           onClose={[Function]}
           title={<Unknown />}
@@ -9381,7 +9387,8 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               type="button"
                             >
                               <span
-                                class="rc-dialog-close-x"
+                                aria-label="close"
+                                class="delete"
                               />
                             </button>
                             <div
@@ -9440,6 +9447,12 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                 <Dialog
                   className=""
                   closable={true}
+                  closeIcon={
+                    <span
+                      aria-label="close"
+                      className="delete"
+                    />
+                  }
                   destroyOnClose={true}
                   focusTriggerAfterClose={true}
                   getContainer={[Function]}
@@ -9540,7 +9553,8 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   type="button"
                                 >
                                   <span
-                                    className="rc-dialog-close-x"
+                                    aria-label="close"
+                                    className="delete"
                                   />
                                 </button>
                                 <div
@@ -10057,6 +10071,12 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
       >
         <Component
           className=""
+          closeIcon={
+            <span
+              aria-label="close"
+              className="delete"
+            />
+          }
           destroyOnClose={true}
           onClose={[Function]}
           title={<Unknown />}
@@ -10102,7 +10122,8 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                               type="button"
                             >
                               <span
-                                class="rc-dialog-close-x"
+                                aria-label="close"
+                                class="delete"
                               />
                             </button>
                             <div
@@ -10161,6 +10182,12 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                 <Dialog
                   className=""
                   closable={true}
+                  closeIcon={
+                    <span
+                      aria-label="close"
+                      className="delete"
+                    />
+                  }
                   destroyOnClose={true}
                   focusTriggerAfterClose={true}
                   getContainer={[Function]}
@@ -10261,7 +10288,8 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                   type="button"
                                 >
                                   <span
-                                    className="rc-dialog-close-x"
+                                    aria-label="close"
+                                    className="delete"
                                   />
                                 </button>
                                 <div
@@ -18869,6 +18897,12 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       >
         <Component
           className=""
+          closeIcon={
+            <span
+              aria-label="close"
+              className="delete"
+            />
+          }
           destroyOnClose={true}
           onClose={[Function]}
           title={<Unknown />}
@@ -19300,6 +19334,12 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
       >
         <Component
           className=""
+          closeIcon={
+            <span
+              aria-label="close"
+              className="delete"
+            />
+          }
           destroyOnClose={true}
           onClose={[Function]}
           title={<Unknown />}

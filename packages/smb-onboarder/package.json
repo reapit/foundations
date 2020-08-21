@@ -17,23 +17,27 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js smb-onboarder reapit-smb-dev",
+    "release:development": "serverless deploy --stage dev",
+    "release:production": "serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e:ci-temp-disable": "yarn start:prod && cypress run --project './src/tests'",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "fetch-config": "yarn config-manager fetchConfig smb-onboarder",
+    "fetch-config": "yarn config-manager --namespace cloud --entity smb-onboarder --name local --mode fetch",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
-    "@reapit/cognito-auth": "^2.1.7",
     "@reapit/elements": "^0.5.60",
     "@reapit/utils": "^0.0.1",
     "apollo-boost": "^0.4.7",
     "async": "^3.2.0",
-    "snyk": "^1.341.1"
+    "snyk": "^1.341.1",
+    "@reapit/connect-session": "1.0.0-alpha.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",

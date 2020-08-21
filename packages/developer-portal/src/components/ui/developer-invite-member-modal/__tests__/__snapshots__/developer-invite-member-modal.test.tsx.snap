@@ -14,6 +14,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
   }
 >
   <Component
+    developerId="mockID"
     onClose={[MockFunction]}
   />
 </Provider>
@@ -33,6 +34,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
   }
 >
   <Component
+    developerId="mockID"
     onClose={[MockFunction]}
   />
 </Provider>
@@ -52,6 +54,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
   }
 >
   <Component
+    developerId="mockID"
     onClose={[MockFunction]}
     visible={true}
   >
@@ -62,6 +65,12 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
     >
       <Component
         className=""
+        closeIcon={
+          <span
+            aria-label="close"
+            className="delete"
+          />
+        }
         destroyOnClose={true}
         onClose={[MockFunction]}
         title={
@@ -111,7 +120,8 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                             type="button"
                           >
                             <span
-                              class="rc-dialog-close-x"
+                              aria-label="close"
+                              class="delete"
                             />
                           </button>
                           <div
@@ -271,6 +281,12 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
               <Dialog
                 className=""
                 closable={true}
+                closeIcon={
+                  <span
+                    aria-label="close"
+                    className="delete"
+                  />
+                }
                 destroyOnClose={true}
                 focusTriggerAfterClose={true}
                 getContainer={[Function]}
@@ -375,7 +391,8 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                 type="button"
                               >
                                 <span
-                                  className="rc-dialog-close-x"
+                                  aria-label="close"
+                                  className="delete"
                                 />
                               </button>
                               <div

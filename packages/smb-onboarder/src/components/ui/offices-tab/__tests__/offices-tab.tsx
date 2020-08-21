@@ -18,6 +18,8 @@ import {
   createDownLoadButtonOnClickFn,
   CreateDownLoadButtonOnClickFnParams,
   CustomDownButton,
+  mergeUploadedData,
+  prepareTableData,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -30,8 +32,8 @@ import {
   mockChangeCellsForCreateCase,
   mockChangeCellsForUpdateCase,
 } from '../__mocks__/offices'
-import { error } from '@/graphql/__mocks__/error'
 import { Cell } from '@reapit/elements'
+import errorMessages from '@/constants/error-messages'
 
 const mockQueries = {
   request: {
@@ -65,7 +67,7 @@ describe('OfficesTab', () => {
       const wrapper = mount(
         <Router>
           <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
-            <CustomDownButton setErrorServer={jest.fn} totalCount={0} />
+            <CustomDownButton totalCount={0} />
           </MockedProvider>
         </Router>,
       )
@@ -87,13 +89,15 @@ describe('OfficesTab', () => {
   })
 
   describe('createDownLoadButtonOnClickFn', () => {
+    window.URL.createObjectURL = jest.fn(() => 'test')
+
     it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
       const mockedParams = ({
         client: {
           query: jest.fn(
             () =>
-              new Promise((_, reject) => {
-                reject('error')
+              new Promise(reslove => {
+                reslove('error')
               }),
           ),
         },
@@ -104,27 +108,6 @@ describe('OfficesTab', () => {
       const fn = createDownLoadButtonOnClickFn(mockedParams)
       fn()
       setTimeout(() => {
-        done()
-      }, 1)
-    })
-    it('should call setErrorServer when error is received during fetching', done => {
-      const mockedParams = ({
-        client: {
-          query: jest.fn(
-            () =>
-              new Promise((_, reject) => {
-                reject(new Error('error'))
-              }),
-          ),
-        },
-        setErrorServer: jest.fn(),
-        totalCount: 200,
-        setIsDownloading: jest.fn(),
-      } as unknown) as CreateDownLoadButtonOnClickFnParams
-      const fn = createDownLoadButtonOnClickFn(mockedParams)
-      fn()
-      setTimeout(() => {
-        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
         done()
       }, 1)
     })
@@ -187,12 +170,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: true,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -201,12 +182,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -215,12 +194,10 @@ describe('OfficesTab', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
         loading: false,
-        error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: getDataTable(offices),
-        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -283,8 +260,8 @@ describe('OfficesTab', () => {
       const result = [
         [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, true, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
-        [true, true, true, true, true, true, true, true, true, true, false, true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
+        [true, true, true, true, true, true, true, true, true, true, errorMessages.FIELD_WRONG_PHONE_FORMAT, true],
       ]
       const dataTable = getDataTable(offices)
       expect(validate(dataTable)).toEqual(result)
@@ -292,8 +269,9 @@ describe('OfficesTab', () => {
   })
 
   describe('handleAfterCellChange', () => {
-    const createFuntion = jest.fn()
-    const updateFuntion = jest.fn()
+    const createFuntion = jest.fn().mockResolvedValue(true)
+    const updateFuntion = jest.fn().mockResolvedValue(true)
+    const setData = jest.fn()
     const dataTable = getDataTable(offices)
 
     it('should run create function', () => {
@@ -312,15 +290,16 @@ describe('OfficesTab', () => {
         { value: 'tester@reapit.com', key: 'email', isValidated: true },
       ]
       dataTable.push(preparedRow)
-      handleAfterCellChange(createFuntion, updateFuntion)(
-        [{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }],
-        dataTable,
-      )
+      handleAfterCellChange(
+        createFuntion,
+        updateFuntion,
+        setData,
+      )([{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }], dataTable)
       expect(createFuntion).toHaveBeenCalled()
     })
 
     it('should run update function', () => {
-      handleAfterCellChange(createFuntion, updateFuntion)(mockChangeCellsForUpdateCase, dataTable)
+      handleAfterCellChange(createFuntion, updateFuntion, setData)(mockChangeCellsForUpdateCase, dataTable)
       expect(updateFuntion).toHaveBeenCalled()
     })
   })
@@ -334,5 +313,94 @@ describe('OfficesTab', () => {
       { value: 'Building name' },
     ]
     expect(convertUploadedCellToTableCell(uploadedCell)).toEqual(expectCell)
+  })
+
+  describe('mergeUploadedData', () => {
+    const previousData: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 1', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+      [
+        { value: 'KA2', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 2', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987654321', key: 'workPhone', isValidated: true },
+        { value: 'tester2@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    const uploadedData: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 3', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    const result: Cell[][] = [
+      [
+        { value: 'KA1', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 3', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987111222', key: 'workPhone', isValidated: true },
+        { value: 'tester1@reapit.com', key: 'email', isValidated: true },
+      ],
+      [
+        { value: 'KA2', key: 'id', isValidated: true },
+        { value: '"2AAE3D6A093CA6DC344913491D668403"', key: '_eTag', isValidated: true },
+        { value: 'Reapit 2', key: 'name', isValidated: true },
+        { value: 'buiding', key: 'address.buildingName', isValidated: true },
+        { value: '123', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987654321', key: 'workPhone', isValidated: true },
+        { value: 'tester2@reapit.com', key: 'email', isValidated: true },
+      ],
+    ]
+    expect(mergeUploadedData(previousData, uploadedData)).toEqual(result)
+  })
+})
+
+describe('prepareTableData', () => {
+  it('should run correctly', () => {
+    const setTableData = jest.fn()
+    const fn = prepareTableData(setTableData)
+    fn()
+    expect(setTableData).toBeCalled()
   })
 })

@@ -5,11 +5,7 @@ import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import ConfirmUninstall, { ConfirmUninstallProps, handleSuccessUninstall, handleSubmit } from '../confirm-uninstall'
 import { installationStub } from '@/sagas/__stubs__/installation'
-import {
-  appInstallationsSetFormState,
-  UninstallParams,
-  appInstallationsRequestUninstall,
-} from '@/actions/app-installations'
+import { setInstallationsFormState, UninstallParams, requestInstallationsTerminate } from '@/actions/installations'
 
 const props: ConfirmUninstallProps = {
   appName: '1',
@@ -44,7 +40,7 @@ describe('ConfirmUninstall', () => {
       const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch)
       fn()
       expect(onUninstallSuccess).toBeCalled()
-      expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
+      expect(spyDispatch).toBeCalledWith(setInstallationsFormState('PENDING'))
       spyDispatch.mockClear()
     })
   })
@@ -55,7 +51,7 @@ describe('ConfirmUninstall', () => {
       const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch)
       fn()
       expect(onUninstallSuccess).toBeCalled()
-      expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
+      expect(spyDispatch).toBeCalledWith(setInstallationsFormState('PENDING'))
     })
   })
 
@@ -72,7 +68,7 @@ describe('ConfirmUninstall', () => {
         appId: appId,
         terminatedReason: formValues.terminatedReason,
       }
-      expect(spyDispatch).toBeCalledWith(appInstallationsRequestUninstall(params))
+      expect(spyDispatch).toBeCalledWith(requestInstallationsTerminate(params))
     })
   })
 })

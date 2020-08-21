@@ -3,6 +3,7 @@ import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
+import { notification } from '@reapit/elements'
 
 export const generateRequest = (accessToken: string) => async (operation: Operation) => {
   operation.setContext({
@@ -13,12 +14,21 @@ export const generateRequest = (accessToken: string) => async (operation: Operat
 }
 
 export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResponse) => {
+  let readableMessage
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, locations, path }) =>
-      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`),
-    )
+    graphQLErrors.map(({ message, locations, path }) => {
+      {
+        console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+        const messageNotIncludeTraceID = message?.split('-')?.pop()
+        readableMessage = messageNotIncludeTraceID
+      }
+    })
   }
-  if (networkError) console.log(`[Network error]: ${networkError}`)
+  if (networkError) {
+    readableMessage = `[Network error]: ${networkError}`
+    console.log(readableMessage)
+  }
+  notification.error({ message: readableMessage, placement: 'bottomRight' })
 }
 
 export const dataIdFromObject = (object: IdGetterObj) => {

@@ -42,7 +42,7 @@ describe('Tabs', () => {
       const history = {
         push: jest.fn(),
       }
-      const result = tabConfigs({ currentUrl: 'test', history, isAdmin: true, isProd: false })
+      const result = tabConfigs({ currentUrl: 'test', history, role: 'admin', isProd: false })
       expect(result).toHaveLength(3)
     })
 
@@ -50,8 +50,8 @@ describe('Tabs', () => {
       const history = {
         push: jest.fn(),
       }
-      const result = tabConfigs({ currentUrl: 'test', history, isAdmin: false, isProd: false })
-      expect(result).toHaveLength(2)
+      const result = tabConfigs({ currentUrl: 'test', history, role: 'user', isProd: false })
+      expect(result).toHaveLength(1)
     })
   })
 })

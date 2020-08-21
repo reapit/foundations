@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, H5, Section } from '@reapit/elements'
+import { Table, H5, Section, Loader } from '@reapit/elements'
 import { TrafficEventsModel } from '@/reducers/traffic-statistics/list'
 
 export type TrafficEventTableProps = {
@@ -34,6 +34,9 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
 
   const trafficEventTableColumn = React.useMemo(prepareColumnsData(trafficEvents), [trafficEvents])
 
+  if (loading) {
+    return <Loader />
+  }
   return (
     <Section hasMargin={false}>
       <H5>Hits By Resource</H5>

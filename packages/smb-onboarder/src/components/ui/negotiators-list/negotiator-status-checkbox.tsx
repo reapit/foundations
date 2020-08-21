@@ -1,14 +1,16 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
-import { Cell, SetData } from '@reapit/elements/src/components/Spreadsheet/types'
-import { prepareUpdateNegeotiatorParams } from './negotiators-list'
+import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
+import { prepareUpdateNegeotiatorParams, DataTableRow } from './negotiators-list'
+import { spreadSheetCheckbox } from './__styles__/negotiator-status-checkbox'
+import { cx } from 'linaria'
 
 export type NegotiatorStatusCheckboxProps = {
   cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
   data: Cell[][]
-  setData: SetData
   updateNegotiator: (params) => void
   disabled?: boolean
+  setData?: React.Dispatch<DataTableRow[][]>
 }
 
 export const handleCheckBoxChange = ({ e, data, row, col, disabled, setChecked, setData, updateNegotiator }) => {
@@ -42,6 +44,12 @@ export const handleCheckBoxChange = ({ e, data, row, col, disabled, setChecked, 
         __typename: 'NegotiatorModel',
       },
     },
+  }).then(() => {
+    // Update current status
+    setChecked(selectedValue)
+    const newData = data.map(row => row.map(cell => ({ ...cell })))
+    newData[row][col].value = selectedValue
+    setData(newData)
   })
 }
 
@@ -89,7 +97,7 @@ export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> =
   const checkBoxId = `${row}-${col}`
 
   return (
-    <div className="field field-checkbox">
+    <div className={cx('field field-checkbox', spreadSheetCheckbox)}>
       <input id={checkBoxId} className="checkbox" type="checkbox" checked={checked} onChange={onChange} />
       <label className="label" htmlFor={checkBoxId}>
         IS ACTIVE

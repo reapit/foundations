@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
-import { isAndroid, isIOS, isMacLike, isMobile } from './device-detection'
+import { isAndroid, isIOS, isMacLike, isMobile, isDesktop } from './device-detection'
 import { Section } from '@/components/Layout'
 
 storiesOf('DeviceDetection', module)
@@ -30,6 +30,13 @@ storiesOf('DeviceDetection', module)
     return (
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         Device is Mobile: {isMobile() ? 'True' : 'False'}
+      </Section>
+    )
+  })
+  .add('IsisDesktop', () => {
+    return (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        Device is isDesktop: {isDesktop() ? 'True' : 'False'}
       </Section>
     )
   })

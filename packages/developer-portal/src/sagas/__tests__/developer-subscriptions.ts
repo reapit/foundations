@@ -1,7 +1,5 @@
 import { put, call } from 'redux-saga/effects'
-import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
-import errorMessages from '@/constants/error-messages'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   developerFetchSubcriptionsList,
@@ -24,6 +22,8 @@ import {
   CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
 import { getDeveloperId } from '@/utils/session'
+import { notification } from '@reapit/elements'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/developer-subscriptions')
@@ -48,12 +48,10 @@ describe('developerSubscriptionsSagas', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+        notification.error({
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
     })
   })
@@ -111,12 +109,10 @@ describe('developerSubscriptionsSagas', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+        notification.error({
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
     })
   })

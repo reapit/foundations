@@ -7,7 +7,6 @@ import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
 import { getDefaultRoute } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
-import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
@@ -30,10 +29,9 @@ export const handleShowNotificationAfterPasswordChanged = (
   }
 }
 
-export const onLoginButtonClick = (isFirtTimeLogin: boolean) => {
+export const onLoginButtonClick = () => {
   return () => {
-    const redirectRoute = getDefaultRoute(isFirtTimeLogin)
-    reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
+    reapitConnectBrowserSession.connectLoginRedirect(getDefaultRoute(true))
   }
 }
 
@@ -41,7 +39,6 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
 
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  const isFirtTimeLogin = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
 
   React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
@@ -59,12 +56,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
           <p>Welcome to Reapit Foundations</p>
         </Section>
         <Level className={registerLevel}>
-          <Button
-            className={loginButton}
-            onClick={onLoginButtonClick(isFirtTimeLogin)}
-            fullWidth
-            dataTest="login-button"
-          >
+          <Button className={loginButton} onClick={onLoginButtonClick()} fullWidth dataTest="login-button">
             Login
           </Button>
           <div className={register}>

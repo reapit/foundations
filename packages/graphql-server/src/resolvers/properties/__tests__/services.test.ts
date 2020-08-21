@@ -1,10 +1,10 @@
 import { callGetPropertyByIdAPI, callGetPropertiesAPI, callCreatePropertyAPI, callUpdatePropertyAPI } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createPropertyArgsMock } from '../__mocks__/create-property'
-import { updatePropertyArgsMock } from '../__mocks__/update-property'
+import { mockContext } from '../../../__stubs__/context'
+import { createPropertyArgsMock } from '../__stubs__/create-property'
+import { updatePropertyArgsMock } from '../__stubs__/update-property'
 import { getPropertyById, getProperties, createProperty, updateProperty } from '../services'
-import { propertyMock } from '../__mocks__/property'
-import { propertiesMock } from '../__mocks__/properties'
+import { propertyMock } from '../__stubs__/property'
+import { propertiesMock } from '../__stubs__/properties'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

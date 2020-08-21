@@ -1786,11 +1786,11 @@ export interface ConveyancingModel {
  */
 export interface CreateApplicantBuyingModel {
   /**
-   * The lower bound of the applicant's budget
+   * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceTo' is not provided)
    */
   priceFrom?: number // int32
   /**
-   * The upper bound of the applicant's budget
+   * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
    */
   priceTo?: number // int32
 }
@@ -1801,7 +1801,7 @@ export interface CreateApplicantContactRelationshipModel {
   /**
    * The unique identifier of the contact or company to create a relationship with
    */
-  associatedId?: string
+  associatedId: string
   /**
    * The type of relationship to create (contact/company)
    */
@@ -1846,7 +1846,7 @@ export interface CreateApplicantModel {
   /**
    * Indicates whether the applicant is look to buy or rent a property (buying/renting)
    */
-  marketingMode?: string
+  marketingMode: string
   /**
    * A flag determining whether or not the applicant is actively looking for a property
    */
@@ -1870,7 +1870,7 @@ export interface CreateApplicantModel {
   /**
    * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
    */
-  departmentId?: string
+  departmentId: string
   /**
    * The unique identifier of the solicitor associated to the applicant
    */
@@ -1936,11 +1936,11 @@ export interface CreateApplicantModel {
    */
   buying?: {
     /**
-     * The lower bound of the applicant's budget
+     * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceTo' is not provided)
      */
     priceFrom?: number // int32
     /**
-     * The upper bound of the applicant's budget
+     * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceFrom' is not provided)
      */
     priceTo?: number // int32
   }
@@ -1959,15 +1959,15 @@ export interface CreateApplicantModel {
      */
     term?: string
     /**
-     * The lower bound of the applicant's budget
+     * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'renting' and 'rentTo' is 0)
      */
     rentFrom?: number // double
     /**
-     * The upper bound of the applicant's budget
+     * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'renting' and 'rentFrom' is 0)
      */
     rentTo?: number // double
     /**
-     * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually)
+     * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually).
      */
     rentFrequency?: string
     /**
@@ -2029,11 +2029,11 @@ export interface CreateApplicantModel {
   /**
    * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
    */
-  related?: {
+  related: {
     /**
      * The unique identifier of the contact or company to create a relationship with
      */
-    associatedId?: string
+    associatedId: string
     /**
      * The type of relationship to create (contact/company)
      */
@@ -2061,15 +2061,15 @@ export interface CreateApplicantRentingModel {
    */
   term?: string
   /**
-   * The lower bound of the applicant's budget
+   * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'renting' and 'rentTo' is 0)
    */
   rentFrom?: number // double
   /**
-   * The upper bound of the applicant's budget
+   * The upper bound of the applicant's budget. (Required when 'marketingMode' is 'renting' and 'rentFrom' is 0)
    */
   rentTo?: number // double
   /**
-   * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually)
+   * The desired rent collection frequency specified by the applicant's budget (weekly/monthly/annually).
    */
   rentFrequency?: string
   /**
@@ -2114,13 +2114,13 @@ export interface CreateAppointmentModel {
    * example:
    * 2019-08-14T12:30:02.0000000Z
    */
-  start?: string // date-time
+  start: string // date-time
   /**
    * The date and time when the appointment will end
    * example:
    * 2019-08-14T12:30:02.0000000Z
    */
-  end?: string // date-time
+  end: string // date-time
   /**
    * The date when the appointment should be followed up
    * example:
@@ -2130,7 +2130,7 @@ export interface CreateAppointmentModel {
   /**
    * The unique identifier of the appointment type
    */
-  typeId?: string
+  typeId: string
   /**
    * A free text description about the appointment
    */
@@ -2193,7 +2193,7 @@ export interface CreateAppointmentModel {
      */
     type?: string
     /**
-     * The date and time when the recurrence will stop
+     * The date and time when the recurrence will stop. (Required if 'type' is provided)
      * example:
      * 2019-08-14T12:30:02.0000000Z
      */
@@ -2219,7 +2219,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   type?: string
   /**
-   * The date and time when the recurrence will stop
+   * The date and time when the recurrence will stop. (Required if 'type' is provided)
    * example:
    * 2019-08-14T12:30:02.0000000Z
    */
@@ -2234,15 +2234,15 @@ export interface CreateAreaModel {
   /**
    * The name of the area
    */
-  name?: string
+  name: string
   /**
    * The type of area (postcodes/polygon/group)
    */
-  type?: string
+  type: string
   /**
    * The location details (comma delimited list of postcodes, group ids or lat/long coordinate groups)
    */
-  area?: string[]
+  area: string[]
   /**
    * A collection of unique identifiers of departments associated to the area
    */
@@ -2306,7 +2306,7 @@ export interface CreateCompanyModel {
   /**
    * The name of the company
    */
-  name?: string
+  name: string
   /**
    * The branch name of the company
    */
@@ -2326,25 +2326,25 @@ export interface CreateCompanyModel {
   /**
    * A collection of unique identifiers of company types that categorise the type of business the company operates
    */
-  typeIds?: string[]
+  typeIds: string[]
   /**
    * The unique identifier of a supplier type, if the company is a supplier
    */
   supplierTypeId?: string
   /**
-   * The work phone number of the company
+   * The work phone number of the company. (Required when no other contact or address details are provided)
    */
   workPhone?: string
   /**
-   * The mobile phone number of the company
+   * The mobile phone number of the company. (Required when no other contact or address details are provided)
    */
   mobilePhone?: string
   /**
-   * The email address of the company
+   * The email address of the company. (Required when no other contact or address details are provided)
    */
   email?: string
   /**
-   * The address of the company
+   * The address of the company. (Required when no other contact details are provided)
    */
   address?: {
     /**
@@ -2449,7 +2449,7 @@ export interface CreateContactModel {
   /**
    * The contact's surname
    */
-  surname?: string
+  surname: string
   /**
    * The contact's date of birth
    * example:
@@ -2463,7 +2463,7 @@ export interface CreateContactModel {
   /**
    * The marketing consent status of the contact (grant/deny/notAsked)
    */
-  marketingConsent?: string
+  marketingConsent: string
   /**
    * The source of the contact
    */
@@ -2478,31 +2478,31 @@ export interface CreateContactModel {
     type?: string
   }
   /**
-   * The home phone number of the contact
+   * The home phone number of the contact (Required when no other contact details are provided)
    */
   homePhone?: string
   /**
-   * The work phone number of the contact
+   * The work phone number of the contact (Required when no other contact details are provided)
    */
   workPhone?: string
   /**
-   * The mobile phone number of the contact
+   * The mobile phone number of the contact (Required when no other contact details are provided)
    */
   mobilePhone?: string
   /**
-   * The email address of the contact
+   * The email address of the contact (Required when no other contact details are provided)
    */
   email?: string
   /**
    * A collection of unique identifiers of offices attached to the contact
    */
-  officeIds?: string[]
+  officeIds: string[]
   /**
    * A collection of unique identifiers of negotiators attached to the contact
    */
-  negotiatorIds?: string[]
+  negotiatorIds: string[]
   /**
-   * The primary address of the contact
+   * The primary address of the contact (Required when no contact details are provided)
    */
   primaryAddress?: {
     /**
@@ -2653,23 +2653,23 @@ export interface CreateDocumentModel {
   /**
    * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
    */
-  associatedType?: string
+  associatedType: string
   /**
    * The unique identifier of the entity that the document is associated with
    */
-  associatedId?: string
+  associatedId: string
   /**
    * The unique identifier of the type of document
    */
-  typeId?: string
+  typeId: string
   /**
    * The filename of the document
    */
-  name?: string
+  name: string
   /**
    * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    */
-  fileData?: string
+  fileData: string
 }
 /**
  * Request body for associating this offer to another one below it in the chain
@@ -2682,19 +2682,19 @@ export interface CreateDownwardLinkModel {
    */
   offerId?: string
   /**
-   * The address of the property below this one in the chain
+   * The address of the property below this one in the chain. (Required when 'offerId' is not provided)
    */
   propertyAddress?: string
   /**
-   * The name of the agent managing the sale of the property
+   * The name of the agent managing the sale of the property. (Required when 'offerId' is not provided)
    */
   agent?: string
   /**
-   * The name of the buyer purchasing the property
+   * The name of the buyer purchasing the property. (Required when 'offerId' is not provided)
    */
   buyer?: string
   /**
-   * The unique identifier of the solicitor / conveyancer that the buyer has instructed
+   * The unique identifier of the solicitor / conveyancer that the buyer has instructed. (Required when 'offerId' is not provided)
    */
   buyerSolicitorId?: string
 }
@@ -2744,15 +2744,15 @@ export interface CreateEnquiryModel {
   /**
    * The title of the individual making the enquiry
    */
-  title?: string
+  title: string
   /**
    * The forename of the individual making the enquiry
    */
-  forename?: string
+  forename: string
   /**
    * The surname of the individual making the enquiry
    */
-  surname?: string
+  surname: string
   /**
    * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
    */
@@ -2760,37 +2760,37 @@ export interface CreateEnquiryModel {
   /**
    * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
    */
-  enquiryType?: string
+  enquiryType: string
   /**
    * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
    */
-  message?: string
+  message: string
   /**
    * The unique identifier of the related office
    */
-  officeId?: string
+  officeId: string
   /**
    * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
    */
-  marketingConsent?: string
+  marketingConsent: string
   /**
    * The name of the source that the enquiry was generated from
    */
-  sourceName?: string
+  sourceName: string
   /**
-   * The home phone number of the individual making the enquiry
+   * The home phone number of the individual making the enquiry (Required when no other contact details are given)
    */
   homePhone?: string
   /**
-   * The work phone number of the individual making the enquiry
+   * The work phone number of the individual making the enquiry (Required when no other contact details are given)
    */
   workPhone?: string
   /**
-   * The mobile phone number of the individual making the enquiry
+   * The mobile phone number of the individual making the enquiry (Required when no other contact details are given)
    */
   mobilePhone?: string
   /**
-   * The email of the individual making the enquiry
+   * The email of the individual making the enquiry (Required when no other contact details are given)
    */
   email?: string
   /**
@@ -2831,7 +2831,7 @@ export interface CreateEnquiryModel {
     countryId?: string
   }
   /**
-   * A list of unique property identifiers that the enquiry relates to
+   * A list of unique property identifiers that the enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
   propertyIds?: string[]
 }
@@ -2844,29 +2844,29 @@ export interface CreateIdentityCheckModel {
   /**
    * The unique identifier of the contact associated to the identity check
    */
-  contactId?: string
+  contactId: string
   /**
    * The date when the identity check was performed. This may differ to the date when the check was created
    * example:
    * 2019-08-14
    */
-  checkDate?: string // date
+  checkDate: string // date
   /**
    * The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
    */
-  status?: string
+  status: string
   /**
    * The unique identifier of the negotiator that initiated the identity check
    */
-  negotiatorId?: string
+  negotiatorId: string
   /**
    * The details of the first document that was provided as part of the identity check
    */
-  identityDocument1?: {
+  identityDocument1: {
     /**
      * The unique identifier of the type of identity document provided
      */
-    typeId?: string
+    typeId: string
     /**
      * The date when the document expires and becomes invalid
      * example:
@@ -2874,15 +2874,15 @@ export interface CreateIdentityCheckModel {
      */
     expiry?: string // date
     /**
-     * Details regarding the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number) (Required when 'fileData' is not given)
      */
     details?: string
     /**
-     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
      */
     fileData?: string
     /**
-     * The filename to store the document as
+     * The filename to store the document as (Required when 'details' are not given)
      */
     name?: string
   }
@@ -2893,7 +2893,7 @@ export interface CreateIdentityCheckModel {
     /**
      * The unique identifier of the type of identity document provided
      */
-    typeId?: string
+    typeId: string
     /**
      * The date when the document expires and becomes invalid
      * example:
@@ -2901,15 +2901,15 @@ export interface CreateIdentityCheckModel {
      */
     expiry?: string // date
     /**
-     * Details regarding the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number) (Required when 'fileData' is not given)
      */
     details?: string
     /**
-     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
      */
     fileData?: string
     /**
-     * The filename to store the document as
+     * The filename to store the document as (Required when 'details' are not given)
      */
     name?: string
   }
@@ -2927,7 +2927,7 @@ export interface CreateIdentityDocumentModel {
   /**
    * The unique identifier of the type of identity document provided
    */
-  typeId?: string
+  typeId: string
   /**
    * The date when the document expires and becomes invalid
    * example:
@@ -2935,15 +2935,15 @@ export interface CreateIdentityDocumentModel {
    */
   expiry?: string // date
   /**
-   * Details regarding the identity document (eg. passport number)
+   * Details regarding the identity document (eg. passport number) (Required when 'fileData' is not given)
    */
   details?: string
   /**
-   * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+   * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
    */
   fileData?: string
   /**
-   * The filename to store the document as
+   * The filename to store the document as (Required when 'details' are not given)
    */
   name?: string
 }
@@ -2954,21 +2954,21 @@ export interface CreateIdentityDocumentModel {
  */
 export interface CreateJournalEntryModel {
   /**
-   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type (Required when 'associatedId' is not given)
    */
   propertyId?: string
   /**
-   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy) (Required when 'associatedId' is given)
    */
   associatedType?: string
   /**
-   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property (Required when 'propertyId' is not given)
    */
   associatedId?: string
   /**
    * The textual description of the journal entry event
    */
-  description?: string
+  description: string
 }
 /**
  * Request body used to create a new relationship between a landlord and a contact or company
@@ -3000,7 +3000,7 @@ export interface CreateLandlordModel {
   /**
    * The unique identifier of the office that is associated to the landlord
    */
-  officeId?: string
+  officeId: string
   /**
    * The source of the landlord
    */
@@ -3017,7 +3017,7 @@ export interface CreateLandlordModel {
   /**
    * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
    */
-  related?: {
+  related: {
     /**
      * The unique identifier of the contact or company to create a relationship with
      */
@@ -3056,7 +3056,7 @@ export interface CreateNegotiatorModel {
   /**
    * The name of the negotiator
    */
-  name?: string
+  name: string
   /**
    * The job title of the negotiator
    */
@@ -3068,7 +3068,7 @@ export interface CreateNegotiatorModel {
   /**
    * The unique identifier of the office that the negotiator is attached to
    */
-  officeId?: string
+  officeId: string
   /**
    * The work phone number of the negotiator
    */
@@ -3097,11 +3097,11 @@ export interface CreateOfferModel {
   /**
    * The unique identifier of the applicant associated to the offer
    */
-  applicantId?: string
+  applicantId: string
   /**
    * The unique identifier of the property associated to the offer
    */
-  propertyId?: string
+  propertyId: string
   /**
    * The unique identifier of the negotiator associated to the offer
    */
@@ -3111,15 +3111,15 @@ export interface CreateOfferModel {
    * example:
    * 2019-08-14
    */
-  date?: string // date
+  date: string // date
   /**
    * The monetary amount of the offer
    */
-  amount?: number // double
+  amount: number // double
   /**
    * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
    */
-  status?: string
+  status: string
   /**
    * A free text field describing items that should be included in the sale
    */
@@ -3154,7 +3154,7 @@ export interface CreateOfficeAddressModel {
   /**
    * The first line of the address
    */
-  line1?: string
+  line1: string
   /**
    * The second line of the address
    */
@@ -3185,7 +3185,7 @@ export interface CreateOfficeModel {
   /**
    * The name of the office
    */
-  name?: string
+  name: string
   /**
    * The name of the office manager
    */
@@ -3193,7 +3193,7 @@ export interface CreateOfficeModel {
   /**
    * The address of the office
    */
-  address?: {
+  address: {
     /**
      * The building name
      */
@@ -3205,7 +3205,7 @@ export interface CreateOfficeModel {
     /**
      * The first line of the address
      */
-    line1?: string
+    line1: string
     /**
      * The second line of the address
      */
@@ -3257,7 +3257,7 @@ export interface CreatePropertyAddressModel {
   /**
    * The first line of the address
    */
-  line1?: string
+  line1: string
   /**
    * The second line of the address
    */
@@ -3285,11 +3285,11 @@ export interface CreatePropertyAddressModel {
     /**
      * The latitude coordinate of the coordinate pair
      */
-    latitude?: number // double
+    latitude: number // double
     /**
      * The longitude coordinate of the coordinate pair
      */
-    longitude?: number // double
+    longitude: number // double
   }
 }
 /**
@@ -3341,11 +3341,11 @@ export interface CreatePropertyGeolocationModel {
   /**
    * The latitude coordinate of the coordinate pair
    */
-  latitude?: number // double
+  latitude: number // double
   /**
    * The longitude coordinate of the coordinate pair
    */
-  longitude?: number // double
+  longitude: number // double
 }
 /**
  * Request body used to create a new property image
@@ -3356,19 +3356,19 @@ export interface CreatePropertyImageModel {
   /**
    * The base64 encoded file content, prefixed with the content type (eg. data:image/jpeg;base64,VGVzdCBmaWxl)
    */
-  data?: string
+  data: string
   /**
    * The unique identifier of the property attached to the image
    */
-  propertyId?: string
+  propertyId: string
   /**
    * The image caption
    */
-  caption?: string
+  caption: string
   /**
    * The type of image (picture/floorPlan/epc/map)
    */
-  type?: string
+  type: string
 }
 /**
  * Request body to set the internal dimensions of a new property
@@ -3443,11 +3443,11 @@ export interface CreatePropertyModel {
   /**
    * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
-  marketingMode?: string
+  marketingMode: string
   /**
    * The unique identifier of the department
    */
-  departmentId?: string
+  departmentId: string
   /**
    * The strapline description containing a short summary about the property
    */
@@ -3463,7 +3463,7 @@ export interface CreatePropertyModel {
   /**
    * The address of the property
    */
-  address?: {
+  address: {
     /**
      * The building name
      */
@@ -3475,7 +3475,7 @@ export interface CreatePropertyModel {
     /**
      * The first line of the address
      */
-    line1?: string
+    line1: string
     /**
      * The second line of the address
      */
@@ -3503,11 +3503,11 @@ export interface CreatePropertyModel {
       /**
        * The latitude coordinate of the coordinate pair
        */
-      latitude?: number // double
+      latitude: number // double
       /**
        * The longitude coordinate of the coordinate pair
        */
-      longitude?: number // double
+      longitude: number // double
     }
   }
   /**
@@ -3746,11 +3746,11 @@ export interface CreatePropertyModel {
   /**
    * The unique identifier of the negotiator managing the property
    */
-  negotiatorId?: string
+  negotiatorId: string
   /**
    * A collection of unique identifiers of offices attached to the property
    */
-  officeIds?: string[]
+  officeIds: string[]
   /**
    * The unique identifier of the area that the property resides in
    */
@@ -3857,11 +3857,11 @@ export interface CreateSourceModel {
   /**
    * The name of the source or advertising publication
    */
-  name?: string
+  name: string
   /**
    * The type of the source (source/advertisement)
    */
-  type?: string
+  type: string
   /**
    * A collection of the unique identifiers of offices that regularly get business from the source
    */
@@ -3878,7 +3878,7 @@ export interface CreateSourceModel {
  */
 export interface CreateTaskModel {
   /**
-   * The date the task becomes active
+   * The date the task becomes active (Required when 'TypeId' is given)
    * example:
    * 2019-08-14
    */
@@ -3896,11 +3896,11 @@ export interface CreateTaskModel {
   /**
    * The unique identifer of the negotiator that created the task
    */
-  senderId?: string
+  senderId: string
   /**
    * The textual contents of the task or message
    */
-  text?: string
+  text: string
   /**
    * The unique identifier of the landlord the task is associated to
    */
@@ -3924,11 +3924,11 @@ export interface CreateTaskModel {
   /**
    * The unique identifier of the negotiator or office the task is being sent to
    */
-  recipientId?: string
+  recipientId: string
   /**
    * The type of the recipient (office/negotiator)
    */
-  recipientType?: string
+  recipientType: string
   /**
    * App specific metadata that has been set against the task
    */
@@ -3945,15 +3945,15 @@ export interface CreateTenancyCheckModel {
   /**
    * Short, descriptive text describing the purpose of the check
    */
-  description?: string
+  description: string
   /**
    * The type of the tenancy check (preTenancy/postTenancy)
    */
-  type?: string
+  type: string
   /**
    * The status of the tenancy check (needed/notNeeded/arranging/completed)
    */
-  status?: string
+  status: string
 }
 /**
  * Request body used to create a new tenancy
@@ -3974,15 +3974,15 @@ export interface CreateTenancyModel {
   /**
    * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
    */
-  agentRole?: string
+  agentRole: string
   /**
    * The amount of rent required, returned in relation to the collection frequency
    */
-  rent?: number // int32
+  rent: number // int32
   /**
    * The rent collection frequency (weekly/monthly/annually)
    */
-  rentFrequency?: string
+  rentFrequency: string
   /**
    * A flag determining whether or not the tenancy has been extended indefinitely
    */
@@ -3990,19 +3990,19 @@ export interface CreateTenancyModel {
   /**
    * The unique identifier of the type of tenancy
    */
-  typeId?: string
+  typeId: string
   /**
    * The unique identifier of the negotiator who is managing the tenancy
    */
-  negotiatorId?: string
+  negotiatorId: string
   /**
    * The unique identifier of the property that relates to the tenancy
    */
-  propertyId?: string
+  propertyId: string
   /**
    * The unique identifier of the applicant who has applied to be a tenant
    */
-  applicantId?: string
+  applicantId: string
   /**
    * The source of enquiry for the tenancy
    */
@@ -4041,19 +4041,19 @@ export interface CreateUpwardLinkModel {
    */
   offerId?: string
   /**
-   * The address of the property above this one in the chain
+   * The address of the property above this one in the chain. (Required when 'offerId' is not provided)
    */
   propertyAddress?: string
   /**
-   * The name of the agent managing the sale of the property
+   * The name of the agent managing the sale of the property. (Required when 'offerId' is not provided)
    */
   agent?: string
   /**
-   * The name of the vendor selling the property
+   * The name of the vendor selling the property. (Required when 'offerId' is not provided)
    */
   vendor?: string
   /**
-   * The unique identifier of the solicitor / conveyancer that the vendor has instructed
+   * The unique identifier of the solicitor / conveyancer that the vendor has instructed. (Required when 'offerId' is not provided)
    */
   vendorSolicitorId?: string
 }
@@ -4066,11 +4066,11 @@ export interface CreateWorksOrderItemModel {
   /**
    * The notes attached to the works order item
    */
-  notes?: string
+  notes: string
   /**
    * The party to be charged for the work being carried out (landlord/tenant)
    */
-  chargeTo?: string
+  chargeTo: string
   /**
    * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
    */
@@ -4101,7 +4101,7 @@ export interface CreateWorksOrderModel {
   /**
    * The unique identifier of the property where the work is to be carried out
    */
-  propertyId?: string
+  propertyId: string
   /**
    * The unique identifier of the tenancy that the works order originated from
    */
@@ -4109,23 +4109,23 @@ export interface CreateWorksOrderModel {
   /**
    * The unique identifier of the negotiator that booked the works order
    */
-  negotiatorId?: string
+  negotiatorId: string
   /**
    * The unique id of the type of work that needs to be carried out
    */
-  typeId?: string
+  typeId: string
   /**
    * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
    */
-  status?: string
+  status: string
   /**
    * A free text description of the work required
    */
-  description?: string
+  description: string
   /**
    * The party requesting the work to be carried out (landlord/tenant/other)
    */
-  reporter?: string
+  reporter: string
   /**
    * The date when the works order was booked
    * example:
@@ -4147,15 +4147,15 @@ export interface CreateWorksOrderModel {
   /**
    * Individual work items to attach to the works order
    */
-  items?: {
+  items: {
     /**
      * The notes attached to the works order item
      */
-    notes?: string
+    notes: string
     /**
      * The party to be charged for the work being carried out (landlord/tenant)
      */
-    chargeTo?: string
+    chargeTo: string
     /**
      * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
      */
@@ -4485,7 +4485,7 @@ export interface EnquiryModel {
     countryId?: string
   }
   /**
-   * A list of unique property identifiers that this enquiry relates to
+   * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
   propertyIds?: string[]
   readonly _links?: {
@@ -4692,15 +4692,15 @@ export interface InsertLandlordContactRelationshipModel {
   /**
    * The unique identifier of the contact or company to create a relationship with
    */
-  associatedId?: string
+  associatedId: string
   /**
    * The type of relationship to create (contact/company)
    */
-  associatedType?: string
+  associatedType: string
   /**
    * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
    */
-  isMain?: boolean
+  isMain: boolean
 }
 /**
  * Request body used to create or update a relationship between a vendor and a contact or company
@@ -4711,15 +4711,15 @@ export interface InsertVendorContactRelationshipModel {
   /**
    * The unique identifier of the contact or company to create a relationship with
    */
-  associatedId?: string
+  associatedId: string
   /**
    * The type of relationship to create (contact/company)
    */
-  associatedType?: string
+  associatedType: string
   /**
    * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
    */
-  isMain?: boolean
+  isMain: boolean
 }
 export interface JournalEntries {
   pageSize?: number
@@ -7218,7 +7218,7 @@ export interface PagedResultEnquiryModel_ {
       countryId?: string
     }
     /**
-     * A list of unique property identifiers that this enquiry relates to
+     * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
      */
     propertyIds?: string[]
     readonly _links?: {
@@ -12738,7 +12738,7 @@ export interface UpdateSourceModel {
  */
 export interface UpdateTaskModel {
   /**
-   * The date the task becomes active
+   * The date the task becomes active (Required when 'TypeId' is given)
    * example:
    * 2019-08-14
    */

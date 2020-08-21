@@ -1,13 +1,1621 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false 1`] = `
-<Component
-  infoType="404"
-/>
-`;
-
-exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false 2`] = `
-<Component
-  infoType="404"
-/>
+exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DeveloperSettingsOrganisationTabPage>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component
+          role="admin"
+        >
+          <Component
+            tabConfigs={
+              Array [
+                Object {
+                  "active": false,
+                  "displayText": "Profile",
+                  "onTabClick": [Function],
+                  "tabIdentifier": "/settings/",
+                },
+                Object {
+                  "active": false,
+                  "displayText": "Organisation",
+                  "onTabClick": [Function],
+                  "tabIdentifier": "/settings/organisation",
+                },
+                Object {
+                  "active": false,
+                  "displayText": "Billing",
+                  "onTabClick": [Function],
+                  "tabIdentifier": "/settings/billing",
+                },
+              ]
+            }
+          >
+            <div
+              className=""
+              role="tablist"
+            >
+              <ul>
+                <li
+                  className=""
+                  key="/settings/"
+                >
+                  <a
+                    aria-controls="/settings/"
+                    aria-selected={false}
+                    id="/settings/"
+                    onClick={[Function]}
+                    role="tab"
+                  >
+                    Profile
+                  </a>
+                </li>
+                <li
+                  className=""
+                  key="/settings/organisation"
+                >
+                  <a
+                    aria-controls="/settings/organisation"
+                    aria-selected={false}
+                    id="/settings/organisation"
+                    onClick={[Function]}
+                    role="tab"
+                  >
+                    Organisation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  key="/settings/billing"
+                >
+                  <a
+                    aria-controls="/settings/billing"
+                    aria-selected={false}
+                    id="/settings/billing"
+                    onClick={[Function]}
+                    role="tab"
+                  >
+                    Billing
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </Component>
+        </Component>
+      </section>
+    </Component>
+    <OrganisationForm
+      onInviteNewMemberClick={[Function]}
+    >
+      <Component>
+        <div
+          className="loader-spinner body"
+          data-test=""
+        >
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
+      </Component>
+    </OrganisationForm>
+    <Component>
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <h5
+              className=""
+              id=""
+            >
+              Members
+            </h5>
+          </Component>
+          <Component
+            columns={
+              Array [
+                Object {
+                  "Header": "Name",
+                  "accessor": "name",
+                },
+                Object {
+                  "Header": "Job Title",
+                  "accessor": "jobTitle",
+                },
+                Object {
+                  "Header": "Email",
+                  "accessor": "email",
+                },
+                Object {
+                  "Header": "User Account",
+                  "accessor": "role",
+                },
+                Object {
+                  "Header": "Status",
+                  "accessor": "status",
+                },
+                Object {
+                  "accessor": "action",
+                  "columnProps": Object {
+                    "style": Object {
+                      "minWidth": "120px",
+                    },
+                  },
+                },
+              ]
+            }
+            data={Array []}
+            loading={false}
+            scrollable={true}
+          >
+            <div
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "overflow": "scroll",
+                }
+              }
+            >
+              <table
+                className="table is-striped is-fullwidth "
+                role="table"
+              >
+                <thead>
+                  <tr
+                    key="headerGroup_0"
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      key="header_name"
+                      role="columnheader"
+                    >
+                      Name
+                    </th>
+                    <th
+                      colSpan={1}
+                      key="header_jobTitle"
+                      role="columnheader"
+                    >
+                      Job Title
+                    </th>
+                    <th
+                      colSpan={1}
+                      key="header_email"
+                      role="columnheader"
+                    >
+                      Email
+                    </th>
+                    <th
+                      colSpan={1}
+                      key="header_role"
+                      role="columnheader"
+                    >
+                      User Account
+                    </th>
+                    <th
+                      colSpan={1}
+                      key="header_status"
+                      role="columnheader"
+                    >
+                      Status
+                    </th>
+                    <th
+                      colSpan={1}
+                      key="header_action"
+                      role="columnheader"
+                    >
+                      <emptyRenderer
+                        allColumns={
+                          Array [
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Name",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "name",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 0,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Job Title",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "jobTitle",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 150,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Email",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "email",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 300,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "User Account",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "role",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 450,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Status",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "status",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 600,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": [Function],
+                              "accessor": [Function],
+                              "canResize": true,
+                              "columnProps": Object {
+                                "style": Object {
+                                  "minWidth": "120px",
+                                },
+                              },
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "action",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 750,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                          ]
+                        }
+                        allColumnsHidden={false}
+                        column={
+                          Object {
+                            "Cell": [Function],
+                            "Footer": [Function],
+                            "Header": [Function],
+                            "accessor": [Function],
+                            "canResize": true,
+                            "columnProps": Object {
+                              "style": Object {
+                                "minWidth": "120px",
+                              },
+                            },
+                            "depth": 0,
+                            "getFooterProps": [Function],
+                            "getHeaderProps": [Function],
+                            "getToggleHiddenProps": [Function],
+                            "id": "action",
+                            "isVisible": true,
+                            "maxWidth": 9007199254740991,
+                            "minWidth": 0,
+                            "originalWidth": 150,
+                            "parent": undefined,
+                            "render": [Function],
+                            "sortDescFirst": false,
+                            "sortType": "alphanumeric",
+                            "toggleHidden": [Function],
+                            "totalFlexWidth": 150,
+                            "totalLeft": 750,
+                            "totalMaxWidth": 9007199254740991,
+                            "totalMinWidth": 0,
+                            "totalVisibleHeaderCount": 1,
+                            "totalWidth": 150,
+                            "width": 150,
+                          }
+                        }
+                        columns={
+                          Array [
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Name",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "name",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 0,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Job Title",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "jobTitle",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 150,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Email",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "email",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 300,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "User Account",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "role",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 450,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Status",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "status",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 600,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": [Function],
+                              "accessor": [Function],
+                              "canResize": true,
+                              "columnProps": Object {
+                                "style": Object {
+                                  "minWidth": "120px",
+                                },
+                              },
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "action",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 750,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                          ]
+                        }
+                        data={Array []}
+                        defaultColumn={Object {}}
+                        dispatch={[Function]}
+                        expandedDepth={0}
+                        expandedRows={Array []}
+                        flatHeaders={
+                          Array [
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Name",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "name",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 0,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Job Title",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "jobTitle",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 150,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Email",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "email",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 300,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "User Account",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "role",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 450,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Status",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "status",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 600,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": [Function],
+                              "accessor": [Function],
+                              "canResize": true,
+                              "columnProps": Object {
+                                "style": Object {
+                                  "minWidth": "120px",
+                                },
+                              },
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "action",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 750,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                          ]
+                        }
+                        flatRows={Array []}
+                        footerGroups={
+                          Array [
+                            Object {
+                              "getFooterGroupProps": [Function],
+                              "getHeaderGroupProps": [Function],
+                              "headers": Array [
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Name",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "name",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 0,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Job Title",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "jobTitle",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 150,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Email",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "email",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 300,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "User Account",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "role",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 450,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Status",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "status",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 600,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": [Function],
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "columnProps": Object {
+                                    "style": Object {
+                                      "minWidth": "120px",
+                                    },
+                                  },
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "action",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 750,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                              ],
+                            },
+                          ]
+                        }
+                        getHooks={[Function]}
+                        getRowId={[Function]}
+                        getSubRows={[Function]}
+                        getTableBodyProps={[Function]}
+                        getTableProps={[Function]}
+                        getToggleAllRowsExpandedProps={[Function]}
+                        getToggleHideAllColumnsProps={[Function]}
+                        headerGroups={
+                          Array [
+                            Object {
+                              "getFooterGroupProps": [Function],
+                              "getHeaderGroupProps": [Function],
+                              "headers": Array [
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Name",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "name",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 0,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Job Title",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "jobTitle",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 150,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Email",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "email",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 300,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "User Account",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "role",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 450,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": "Status",
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "status",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 600,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                                Object {
+                                  "Cell": [Function],
+                                  "Footer": [Function],
+                                  "Header": [Function],
+                                  "accessor": [Function],
+                                  "canResize": true,
+                                  "columnProps": Object {
+                                    "style": Object {
+                                      "minWidth": "120px",
+                                    },
+                                  },
+                                  "depth": 0,
+                                  "getFooterProps": [Function],
+                                  "getHeaderProps": [Function],
+                                  "getToggleHiddenProps": [Function],
+                                  "id": "action",
+                                  "isVisible": true,
+                                  "maxWidth": 9007199254740991,
+                                  "minWidth": 0,
+                                  "originalWidth": 150,
+                                  "parent": undefined,
+                                  "render": [Function],
+                                  "sortDescFirst": false,
+                                  "sortType": "alphanumeric",
+                                  "toggleHidden": [Function],
+                                  "totalFlexWidth": 150,
+                                  "totalLeft": 750,
+                                  "totalMaxWidth": 9007199254740991,
+                                  "totalMinWidth": 0,
+                                  "totalVisibleHeaderCount": 1,
+                                  "totalWidth": 150,
+                                  "width": 150,
+                                },
+                              ],
+                            },
+                          ]
+                        }
+                        headers={
+                          Array [
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Name",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "name",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 0,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Job Title",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "jobTitle",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 150,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Email",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "email",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 300,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "User Account",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "role",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 450,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Status",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "status",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 600,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": [Function],
+                              "accessor": [Function],
+                              "canResize": true,
+                              "columnProps": Object {
+                                "style": Object {
+                                  "minWidth": "120px",
+                                },
+                              },
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "action",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 750,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                          ]
+                        }
+                        initialRows={Array []}
+                        initialState={Object {}}
+                        isAllRowsExpanded={false}
+                        plugins={
+                          Array [
+                            [Function],
+                            [Function],
+                          ]
+                        }
+                        preExpandedRows={Array []}
+                        prepareRow={[Function]}
+                        rows={Array []}
+                        rowsById={Object {}}
+                        setHiddenColumns={[Function]}
+                        state={
+                          Object {
+                            "expanded": Object {},
+                            "hiddenColumns": Array [],
+                          }
+                        }
+                        stateReducer={[Function]}
+                        toggleAllRowsExpanded={[Function]}
+                        toggleHideAllColumns={[Function]}
+                        toggleHideColumn={[Function]}
+                        toggleRowExpanded={[Function]}
+                        totalColumnsMaxWidth={54043195528445944}
+                        totalColumnsMinWidth={0}
+                        totalColumnsWidth={900}
+                        useControlledState={[Function]}
+                        visibleColumns={
+                          Array [
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Name",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "name",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 0,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Job Title",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "jobTitle",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 150,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Email",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "email",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 300,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "User Account",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "role",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 450,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": "Status",
+                              "accessor": [Function],
+                              "canResize": true,
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "status",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 600,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                            Object {
+                              "Cell": [Function],
+                              "Footer": [Function],
+                              "Header": [Function],
+                              "accessor": [Function],
+                              "canResize": true,
+                              "columnProps": Object {
+                                "style": Object {
+                                  "minWidth": "120px",
+                                },
+                              },
+                              "depth": 0,
+                              "getFooterProps": [Function],
+                              "getHeaderProps": [Function],
+                              "getToggleHiddenProps": [Function],
+                              "id": "action",
+                              "isVisible": true,
+                              "maxWidth": 9007199254740991,
+                              "minWidth": 0,
+                              "originalWidth": 150,
+                              "parent": undefined,
+                              "render": [Function],
+                              "sortDescFirst": false,
+                              "sortType": "alphanumeric",
+                              "toggleHidden": [Function],
+                              "totalFlexWidth": 150,
+                              "totalLeft": 750,
+                              "totalMaxWidth": 9007199254740991,
+                              "totalMinWidth": 0,
+                              "totalVisibleHeaderCount": 1,
+                              "totalWidth": 150,
+                              "width": 150,
+                            },
+                          ]
+                        }
+                      >
+                         
+                      </emptyRenderer>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody />
+              </table>
+            </div>
+          </Component>
+          <DisableMemberModal
+            developer={null}
+            onCancel={[Function]}
+            onSuccess={[Function]}
+            visible={false}
+          />
+          <Component
+            onClose={[Function]}
+            user={null}
+            visible={false}
+          />
+          <Component
+            developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
+            memberData={null}
+            onClose={[Function]}
+            visible={false}
+          />
+        </section>
+      </Component>
+    </Component>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <Component
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button  is-primary  "
+                data-test=""
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Invite New Member
+              </button>
+            </Component>
+          </div>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
+      onClose={[Function]}
+      visible={false}
+    />
+  </DeveloperSettingsOrganisationTabPage>
+</Provider>
 `;

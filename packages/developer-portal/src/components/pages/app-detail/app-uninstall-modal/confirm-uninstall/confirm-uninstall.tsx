@@ -3,15 +3,12 @@ import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { ModalHeader, ModalBody, TextArea, ModalFooter, Button, SubTitleH6, Formik, Form } from '@reapit/elements'
-import {
-  UninstallParams,
-  appInstallationsRequestUninstall,
-  appInstallationsSetFormState,
-} from '@/actions/app-installations'
+import { UninstallParams } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectInstallationFormState } from '@/selector/installations'
 import formFields from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
+import { setInstallationsFormState, requestInstallationsTerminate } from '@/actions/installations'
 
 const { terminatedReasonField } = formFields
 
@@ -33,7 +30,7 @@ export const initialValues: ConfirmUninstallFormValues = {
 
 export const handleSuccessUninstall = (onUninstallSuccess: () => void, dispatch: Dispatch) => () => {
   onUninstallSuccess()
-  dispatch(appInstallationsSetFormState('PENDING'))
+  dispatch(setInstallationsFormState('PENDING'))
 }
 
 export const handleSubmit = (dispatch: Dispatch, installationDetail?: InstallationModel) => {
@@ -44,7 +41,7 @@ export const handleSubmit = (dispatch: Dispatch, installationDetail?: Installati
       appId: appId,
       terminatedReason: values.terminatedReason,
     }
-    dispatch(appInstallationsRequestUninstall(params))
+    dispatch(requestInstallationsTerminate(params))
   }
 }
 

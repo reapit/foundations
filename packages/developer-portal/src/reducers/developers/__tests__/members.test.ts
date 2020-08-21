@@ -24,7 +24,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: true,
+        isLoading: true,
       },
     }
     expect(newState).toEqual(expected)
@@ -38,7 +38,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
     expect(newState).toEqual(expected)
@@ -52,7 +52,7 @@ describe('membersReducer', () => {
     const expected = {
       ...defaultState,
       inviteMember: {
-        loading: false,
+        isLoading: false,
       },
     }
     expect(newState).toEqual(expected)
@@ -64,25 +64,105 @@ describe('members reducer', () => {
     const newState = membersReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
     expect(newState).toEqual(defaultState)
   })
-  it('should return state with loading is true', () => {
+  it('should return state with isLoading is true', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS as ActionType,
       data: undefined,
     })
-    expect(newState).toEqual({ ...defaultState, loading: true })
+    expect(newState).toEqual({ ...defaultState, isLoading: true })
   })
-  it('should return state with loading is false, data is {}', () => {
+  it('should return state with isLoading is false, data is {}', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS as ActionType,
       data: {},
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: {} })
+    expect(newState).toEqual({
+      ...defaultState,
+      isLoading: false,
+    })
   })
-  it('should return state with loading is false, data is {}', () => {
+  it('should return state with isLoading is false, data is {}', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED as ActionType,
-      data: {},
+      data: 'test',
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: null })
+    expect(newState).toEqual({ ...defaultState, isLoading: false, errorMessage: 'test' })
+  })
+
+  it('should return state with setAsAdmin isLoading is true, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: true } })
+  })
+
+  it('should return state with setAsAdmin isLoading is false, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN_SUCCESS as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: false } })
+  })
+
+  it('should return state with setAsAdmin isLoading is false, ', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.SET_AS_ADMIN_FAILED as ActionType,
+      data: '',
+    })
+    expect(newState).toEqual({ ...defaultState, setAsAdmin: { isLoading: false } })
+  })
+})
+
+describe('membersReducer - disable member', () => {
+  it('should return default state if action not matched', () => {
+    const newState = membersReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
+    expect(newState).toEqual(defaultState)
+  })
+
+  it('should set state to test when DISABLE_MEMBER action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER as ActionType,
+      data: {
+        callback: jest.fn(),
+        developerId: '123',
+        memberId: '456',
+      },
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: true,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set state to test when DISABLE_MEMBER_FAILED action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER_FAILED as ActionType,
+      data: undefined,
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set state to test when DISABLE_MEMBER_SUCCESS action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.DISABLE_MEMBER_SUCCESS as ActionType,
+      data: undefined,
+    })
+    const expected = {
+      ...defaultState,
+      disableMember: {
+        isLoading: false,
+      },
+    }
+    expect(newState).toEqual(expected)
   })
 })

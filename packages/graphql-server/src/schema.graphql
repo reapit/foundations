@@ -1,5 +1,1006 @@
 scalar JSON
 
+type ApplicantAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type ApplicantRelate {
+  id: String
+  name: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: ApplicantAddress
+}
+
+type ApplicantBuying {
+  priceFrom: Int
+  priceTo: Int
+}
+
+type ApplicantRenting {
+  moveDate: String
+  term: String
+  rentFrom: Int
+  rentTo: Int
+  rentFrequency: String
+  furnishing: [String]
+}
+
+type ApplicantExternalArea {
+  type: String
+  amountFrom: Int
+  amountTo: Int
+}
+
+type ApplicantInternalArea {
+  type: String
+  amount: Int
+}
+
+type ApplicantSource {
+  id: String
+  type: String
+}
+
+type ApplicantModel {
+  id: String
+  created: String
+  modified: String
+  marketingMode: String
+  currency: String
+  active: Boolean
+  notes: String
+  lastCall: String
+  nextCall: String
+  departmentId: String
+  solicitorId: String
+  type: [String]
+  style: [String]
+  situation: [String]
+  parking: [String]
+  age: [String]
+  locality: [String]
+  bedroomsMin: Int
+  bedroomsMax: Int
+  receptionsMin: Int
+  receptionsMax: Int
+  bathroomsMin: Int
+  bathroomsMax: Int
+  locationType: String
+  locationOptions: [String]
+  buying: ApplicantBuying
+  renting: ApplicantRenting
+  externalArea: ApplicantExternalArea
+  internalArea: ApplicantInternalArea
+  source: ApplicantSource
+  officeIds: [String]
+  negotiatorIds: [String]
+  related: [ApplicantRelate]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultApplicantModel {
+  _embedded: [ApplicantModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type ApplicantContactRelationshipModel {
+  id: String
+  created: String
+  modified: String
+  applicantId: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultApplicantContactRelationshipModel {
+  _embedded: [ApplicantContactRelationshipModel]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetApplicants(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String]
+    id: [String]
+    age: [String]
+    furnishing: [String]
+    locality: [String]
+    negotiatorId: [String]
+    officeId: [String]
+    parking: [String]
+    situation: [String]
+    style: [String]
+    type: [String]
+    address: String
+    departmentId: String
+    marketingMode: [String]
+    name: String
+    priceFrom: String
+    priceTo: String
+    rentFrom: String
+    rentTo: String
+    rentFrequency: [String]
+    bedroomsFrom: Int
+    bedroomsTo: Int
+    createdFrom: String
+    createdTo: String
+    lastCallFrom: String
+    lastCallTo: String
+    nextCallFrom: String
+    nextCallTo: String
+    metadata: [String]
+  ): PagedResultApplicantModel!
+  GetApplicantById(id: String!, embed: [String]): ApplicantModel!
+  GetApplicantRelationshipById(id: String!, relationshipId: String!): ApplicantContactRelationshipModel!
+  GetApplicantRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultApplicantContactRelationshipModel!
+  GetAppointments(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    typeId: [String!]
+    negotiatorId: [String!]
+    officeId: [String!]
+    propertyId: [String!]
+    start: String!
+    end: String!
+    includeCancelled: Boolean
+    includeUnconfirmed: Boolean
+  ): PagedResultAppointmentModel!
+  GetAppointmentById(id: String!): AppointmentModel!
+  GetAreas(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    departmentId: [String!]
+    officeId: [String!]
+    name: String
+    active: Boolean
+  ): PagedResultAreaModel!
+  GetAreaById(id: String!): AreaModel!
+  GetCompanyById(id: String!, embed: [String!]): CompanyModel!
+  GetCompanies(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    address: String
+    branch: String
+    name: String
+    typeId: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String!]
+  ): PagedResultCompanyModel_!
+  GetCompanyRoles(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
+  GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
+  GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
+  GetContacts(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    negotiatorId: [String!]
+    officeId: [String!]
+    address: String
+    identityCheck: String
+    name: String
+    marketingConsent: String
+    active: Boolean
+    createdFrom: String
+    createdTo: String
+  ): PagedResultContactModel!
+  GetContactById(id: String!): ContactModel!
+  GetConveyancing(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    propertyId: [String!]
+    embed: [String!]
+    metadata: [String!]
+  ): PagedResultConveyancingModel_!
+  GetConveyancingById(id: String!, embed: [String!]): ConveyancingModel!
+  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
+  GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
+  GetDepartmentById(id: String!): DepartmentModel!
+  GetEnquiries(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    enquiryType: String
+    createdFrom: String
+    createdTo: String
+  ): PagedResultEnquiryModel!
+  GetEnquiryById(id: Int!): EnquiryModel!
+  GetIdentityChecks(
+    id: [String!]
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    contactId: [String!]
+    negotiatorId: [String!]
+    checkDateFrom: String
+    checkDateTo: String
+    createdFrom: String
+    createdTo: String
+    status: [String!]
+  ): PagedResultIdentityCheckModel!
+  GetIdentityCheckById(id: String!): IdentityCheckModel!
+  GetJournalEntries(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    associatedType: [String!]
+    associatedId: [String!]
+    negotiatorId: [String!]
+    typeId: [String!]
+    createdFrom: String
+    createdTo: String
+  ): PagedResultJournalEntryModel_!
+  GetLandlordById(id: String!, embed: [String!]): LandlordModel!
+  GetLandlords(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    active: Boolean
+    address: String
+    name: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String!]
+  ): PagedResultLandlordModel!
+  GetLandlordRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultLandlordRelationshipModel!
+  GetLandlordRelationshipById(id: String!, relationshipId: String!): LandlordRelationshipModel!
+  GetNegotiators(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    officeId: [String!]
+    name: String
+    embed: [String!]
+  ): PagedResultNegotiatorModel!
+  GetNegotiatorById(id: String!, embed: [String!]): NegotiatorModel!
+  GetOffers(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String]
+    applicantId: [String]
+    propertyId: [String]
+    status: [String]
+    address: String
+    amountFrom: String
+    amountTo: String
+    dateFrom: String
+    dateTo: String
+    metadata: [String]
+    name: String
+    embed: [String]
+  ): PagedResultOfferModel!
+  GetOfferById(id: String!, embed: [String]): OfferModel!
+  GetOffices(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    address: String
+    name: String
+    embed: [String!]
+  ): PagedResultOfficeModel!
+  GetOfficeById(id: String!, embed: [String!]): OfficeModel!
+  Ping: String!
+  GetProperties(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    age: [String!]
+    agentRole: [String!]
+    landlordId: [String!]
+    lettingStatus: [String!]
+    locality: [String!]
+    parking: [String!]
+    sellingStatus: [String!]
+    situation: [String!]
+    style: [String!]
+    type: [String!]
+    address: String
+    departmentId: String
+    marketingMode: [String!]
+    bedroomsFrom: Int
+    bedroomsTo: Int
+    priceFrom: Int
+    priceTo: Int
+    rentFrom: Float
+    rentTo: Float
+    rentFrequency: [String!]
+    internetAdvertising: Boolean
+  ): PagedResultPropertyModel!
+  GetPropertyById(id: String!, embed: [String!]): PropertyModel!
+  GetPropertyImages(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    embed: [String!]
+    propertyId: [String!]
+    type: [String!]
+    metadata: [String!]
+  ): PagedResultPropertyImageModel!
+  GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetSources(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    departmentId: [String]
+    officeId: [String]
+    name: String
+    active: Boolean
+    type: String
+    createdFrom: String
+    createdTo: String
+  ): PagedResultSourceModel!
+  GetSourceById(id: String!): SourceModel!
+  GetTasks(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String]
+    id: [String]
+    applicantId: [String]
+    contactId: [String]
+    landlordId: [String]
+    officeId: [String]
+    propertyId: [String]
+    recipientId: [String]
+    senderId: [String]
+    typeId: [String]
+    tenancyId: [String]
+    activatesFrom: String
+    activatesTo: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String]
+  ): PagedResultTaskModel!
+  GetTaskById(id: String!, embed: [String]): TaskModel!
+  GetTenancies(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    negotiatorId: [String!]
+    applicantId: [String!]
+    propertyId: [String!]
+    status: [String!]
+    createdFrom: String
+    createdTo: String
+    modifiedFrom: String
+    modifiedTo: String
+    metadata: [String!]
+  ): PagedResultTenancies!
+  GetTenancyById(id: String!, embed: [String!]): TenancyModel!
+  GetTenancyRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyRelationships!
+  GetTenancyChecks(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyChecks!
+  GetTenancyCheckById(id: String!, checkId: String!): TenancyCheckModel!
+  GetVendors(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    embed: [String]
+    negotiatorId: [String]
+    officeId: [String]
+    address: String
+    name: String
+    createdFrom: String
+    createdTo: String
+    lastCallFrom: String
+    lastCallTo: String
+    nextCallFrom: String
+    nextCallTo: String
+    metadata: [String]
+  ): PagedResultVendorModel!
+  GetVendorById(id: String!, embed: [String]): VendorModel!
+  GetVendorRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
+  GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
+}
+
+input ApplicantAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+input ApplicantBuyingInput {
+  priceFrom: Int
+  priceTo: Int
+}
+
+input ApplicantRentingInput {
+  moveDate: String
+  term: String
+  rentFrom: Int
+  rentTo: Int
+  rentFrequency: String
+  furnishing: [String]
+}
+
+input ApplicantExternalAreaInput {
+  type: String
+  amountFrom: Int
+  amountTo: Int
+}
+
+input ApplicantInternalAreaInput {
+  type: String
+  amount: Int
+}
+
+input ApplicantSourceInput {
+  id: String
+  type: String
+}
+
+input ApplicantRelateInput {
+  associatedId: String
+  associatedType: String
+}
+
+type Mutation {
+  CreateApplicant(
+    marketingMode: String
+    active: Boolean
+    notes: String
+    lastCall: String
+    nextCall: String
+    departmentId: String
+    solicitorId: String
+    type: [String]
+    style: [String]
+    situation: [String]
+    parking: [String]
+    age: [String]
+    locality: [String]
+    bedroomsMin: Int
+    bedroomsMax: Int
+    receptionsMin: Int
+    receptionsMax: Int
+    bathroomsMin: Int
+    bathroomsMax: Int
+    locationType: String
+    locationOptions: [String]
+    buying: ApplicantBuyingInput
+    renting: ApplicantRentingInput
+    externalArea: ApplicantExternalAreaInput
+    internalArea: ApplicantInternalAreaInput
+    source: ApplicantSourceInput
+    officeIds: [String]
+    negotiatorIds: [String]
+    related: [ApplicantRelateInput]
+    metadata: JSON
+  ): ApplicantModel!
+  UpdateApplicant(
+    marketingMode: String
+    active: Boolean
+    notes: String
+    lastCall: String
+    nextCall: String
+    departmentId: String
+    solicitorId: String
+    type: [String]
+    style: [String]
+    situation: [String]
+    parking: [String]
+    age: [String]
+    locality: [String]
+    bedroomsMin: Int
+    bedroomsMax: Int
+    receptionsMin: Int
+    receptionsMax: Int
+    bathroomsMin: Int
+    bathroomsMax: Int
+    locationType: String
+    locationOptions: [String]
+    buying: ApplicantBuyingInput
+    renting: ApplicantRentingInput
+    externalArea: ApplicantExternalAreaInput
+    internalArea: ApplicantInternalAreaInput
+    source: ApplicantSourceInput
+    officeIds: [String]
+    negotiatorIds: [String]
+    metadata: JSON
+    id: String!
+    _eTag: String!
+  ): ApplicantModel!
+  CreateApplicantRelationship(
+    id: String!
+    associatedId: String!
+    associatedType: String!
+    isMain: Boolean!
+  ): ApplicantContactRelationshipModel
+  DeleteApplicantRelationship(id: String!, relationshipId: String!): String!
+  CreateAppointment(
+    start: String
+    end: String
+    followUpOn: String
+    typeId: String
+    description: String
+    organiserId: String
+    negotiatorIds: [String!]
+    officeIds: [String!]
+    propertyId: String
+    accompanied: Boolean
+    negotiatorConfirmed: Boolean
+    attendeeConfirmed: Boolean
+    propertyConfirmed: Boolean
+    recurrence: AppointmentModelRecurrenceInput
+    metadata: JSON
+    attendee: CreateAppointmentModelAttendeeInput
+  ): JSON!
+  UpdateAppointment(
+    id: String!
+    start: String
+    end: String
+    followUpOn: String
+    typeId: String
+    description: String
+    organiserId: String
+    negotiatorIds: [String!]
+    officeIds: [String!]
+    propertyId: String
+    accompanied: Boolean
+    negotiatorConfirmed: Boolean
+    attendeeConfirmed: Boolean
+    propertyConfirmed: Boolean
+    recurrence: AppointmentModelRecurrenceInput
+    metadata: JSON
+    attendee: UpdateAppointmentModelAttendeeInput
+    cancelled: Boolean
+    followUp: UpdateAppointmentModelFollowUpInput
+    _eTag: String!
+  ): AppointmentModel!
+  CreateArea(
+    name: String
+    type: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    parentId: String
+  ): JSON!
+  UpdateArea(
+    name: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    id: String!
+    _eTag: String!
+  ): AreaModel!
+  UpdateCompany(
+    _eTag: String!
+    id: String!
+    name: String
+    branch: String
+    notes: String
+    active: Boolean
+    vatRegistered: Boolean
+    typeIds: [String!]
+    supplierTypeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: CompanyModelAddressInput
+    metadata: JSON
+  ): CompanyModel!
+  CreateCompany(
+    name: String
+    branch: String
+    notes: String
+    active: Boolean
+    vatRegistered: Boolean
+    typeIds: [String!]
+    supplierTypeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: CompanyModelAddressInput
+    metadata: JSON
+  ): CompanyModel!
+  CreateContact(
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: ContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
+    metadata: JSON
+  ): JSON!
+  UpdateContact(
+    id: String!
+    _eTag: String!
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: ContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
+    metadata: JSON
+  ): ContactModel!
+  UpdateConveyancing(
+    _eTag: String!
+    id: String!
+    vendorSolicitorId: String
+    buyerSolicitorId: String
+    fixturesAndFittingsCompleted: String
+    deedsRequested: String
+    deedsReceived: String
+    enquiriesSent: String
+    enquiriesAnswered: String
+    searchesPaid: String
+    searchesApplied: String
+    searchesReceived: String
+    contractSent: String
+    contractReceived: String
+    contractApproved: String
+    contractVendorSigned: String
+    contractBuyerSigned: String
+    mortgageRequired: String
+    mortgageLoanPercentage: Int
+    mortgageSubmitted: String
+    mortgageOfferReceived: String
+    mortgageLenderId: String
+    mortgageBrokerId: String
+    mortgageSurveyDate: String
+    mortgageSurveyorId: String
+    additionalSurveyRequired: String
+    additionalSurveyDate: String
+    additionalSurveyorId: String
+    exchangedVendor: String
+    exchangedBuyer: String
+    completion: String
+    metadata: JSON
+  ): ConveyancingModel!
+  CreateDownwardLinkModel(
+    id: String!
+    offerId: String
+    propertyAddress: String
+    agent: String
+    buyer: String
+    buyerSolicitorId: String
+  ): ConveyancingModel!
+  DeleteDownwardLinkModel(id: String!): String!
+  CreateUpwardLinkModel(
+    id: String!
+    offerId: String
+    propertyAddress: String
+    agent: String
+    vendor: String
+    vendorSolicitorId: String
+  ): ConveyancingModel!
+  DeleteUpwardLinkModel(id: String!): String!
+  CreateEnquiry(
+    title: String
+    forename: String
+    surname: String
+    enquiryType: String
+    message: String
+    status: String
+    marketingConsent: String
+    position: String
+    officeId: String
+    sourceName: String
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    address: EnquiryAddressInput
+    propertyIds: [String]
+  ): EnquiryModel!
+  CreateIdentityCheck(
+    contactId: String
+    checkDate: String
+    status: String
+    negotiatorId: String
+    identityDocument1: IdentityCheckModelIdentityDocumentInput
+    identityDocument2: IdentityCheckModelIdentityDocumentInput
+    metadata: JSON
+  ): JSON!
+  UpdateIdentityCheck(
+    id: String!
+    _eTag: String!
+    checkDate: String
+    status: String
+    negotiatorId: String
+    identityDocument1: IdentityCheckModelIdentityDocumentInput
+    identityDocument2: IdentityCheckModelIdentityDocumentInput
+    metadata: JSON
+  ): IdentityCheckModel!
+  CreateJournalEntry(propertyId: String, associatedType: String, associatedId: String, description: String!): Boolean!
+  UpdateLandlord(
+    id: String!
+    _eTag: String!
+    active: Boolean
+    solicitorId: String
+    officeId: String
+    source: LandLordSourceInput
+    metadata: JSON
+  ): LandlordModel!
+  CreateLandlord(
+    active: Boolean
+    solicitorId: String
+    officeId: String
+    source: LandLordSourceInput
+    related: [CreateLandlordRelatedModel!]
+    metadata: JSON
+  ): LandlordModel!
+  CreateLandlordRelationship(
+    id: String!
+    associatedId: String
+    associatedType: String
+    isMain: Boolean
+  ): LandlordRelationshipModel!
+  DeleteLandlordRelationship(id: String!, relationshipId: String!): String
+  CreateNegotiator(
+    name: String
+    jobTitle: String
+    active: Boolean
+    officeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    metadata: JSON
+  ): JSON!
+  UpdateNegotiator(
+    id: String!
+    _eTag: String!
+    name: String
+    jobTitle: String
+    active: Boolean
+    workPhone: String
+    mobilePhone: String
+    email: String
+    metadata: JSON
+  ): NegotiatorModel!
+  CreateOffer(
+    applicantId: String
+    propertyId: String
+    negotiatorId: String
+    date: String
+    amount: String
+    status: String
+    inclusions: String
+    exclusions: String
+    conditions: String
+    metadata: JSON
+  ): OfferModel!
+  UpdateOffer(
+    id: String!
+    _eTag: String!
+    negotiatorId: String
+    date: String
+    amount: String
+    status: String
+    inclusions: String
+    exclusions: String
+    conditions: String
+    metadata: JSON
+  ): OfferModel!
+  CreateOffice(
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): OfficeModel!
+  UpdateOffice(
+    id: String!
+    _eTag: String!
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): OfficeModel!
+  CreateProperty(
+    marketingMode: String
+    departmentId: String
+    strapline: String
+    description: String
+    summary: String
+    address: AddressInput
+    bedrooms: Int
+    receptions: Int
+    bathrooms: Int
+    councilTax: String
+    internetAdvertising: Boolean
+    viewingArrangements: String
+    videoUrl: String
+    videoCaption: String
+    epc: EpcInput
+    externalArea: ExternalAreaInput
+    internalArea: InternalAreaInput
+    selling: SellingInput
+    letting: lettingInput
+    type: [String!]
+    style: [String!]
+    situation: [String!]
+    parking: [String!]
+    age: [String!]
+    locality: [String!]
+    rooms: [CreatePropertyRoomModelInput!]
+    negotiatorId: String
+    officeIds: [String!]
+    areaId: String
+    metadata: JSON
+  ): PropertyModel!
+  UpdateProperty(
+    id: String!
+    _eTag: String!
+    strapline: String
+    description: String
+    summary: String
+    address: AddressInput
+    bedrooms: Int
+    receptions: Int
+    bathrooms: Int
+    councilTax: String
+    internetAdvertising: Boolean
+    viewingArrangements: String
+    videoUrl: String
+    videoCaption: String
+    epc: EpcInput
+    externalArea: ExternalAreaInput
+    internalArea: InternalAreaInput
+    selling: SellingInput
+    letting: lettingInput
+    type: [String!]
+    style: [String!]
+    situation: [String!]
+    parking: [String!]
+    age: [String!]
+    locality: [String!]
+    negotiatorId: String
+    officeIds: [String!]
+    areaId: String
+    metadata: JSON
+  ): PropertyModel!
+  CreatePropertyImage(data: String, propertyId: String, caption: String, type: String): PropertyImageModel!
+  UpdatePropertyImage(_eTag: String!, id: String!, caption: String, type: String): PropertyImageModel!
+  DeletePropertyImage(id: String!): Boolean!
+  CreateSource(name: String, type: String, departmentIds: [String!], officeIds: [String!]): SourceModel!
+  UpdateSource(
+    name: String
+    type: String
+    departmentIds: [String!]
+    officeIds: [String!]
+    id: String!
+    _eTag: String!
+  ): SourceModel!
+  CreateTask(
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
+  UpdateTask(
+    _eTag: String!
+    id: String!
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
+  CreateTenancy(
+    startDate: String
+    endDate: String
+    agentRole: String
+    rent: Int
+    rentFrequency: String
+    isPeriodic: Boolean
+    typeId: String
+    negotiatorId: String
+    propertyId: String
+    applicantId: String
+    source: CreateTenancyRequestModelSource
+  ): TenancyModel!
+  CreateTenancyCheck(id: String!, description: String, type: String, status: String): TenancyCheckModel!
+  DeleteTenancyCheck(id: String!, checkId: String!): Boolean!
+  UpdateTenancyCheck(id: String!, checkId: String!, status: String, _eTag: String!): TenancyCheckModel!
+  UpdateVendor(
+    id: String!
+    _eTag: String!
+    nextCall: String
+    lastCall: String
+    typeId: String
+    sellingReasonId: String
+    solicitorId: String
+    source: VendorSourceInput
+    metadata: JSON
+  ): VendorModel!
+  CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
+  DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+}
+
 type AppointmentAttendeeModel {
   id: String
   type: String
@@ -82,337 +1083,6 @@ input UpdateAppointmentModelFollowUpInput {
   notes: String
 }
 
-type Query {
-  GetAppointments(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    id: [String!]
-    typeId: [String!]
-    negotiatorId: [String!]
-    officeId: [String!]
-    propertyId: [String!]
-    start: String!
-    end: String!
-    includeCancelled: Boolean
-    includeUnconfirmed: Boolean
-  ): PagedResultAppointmentModel!
-  GetAppointmentById(id: String!): AppointmentModel!
-  GetAreas(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    id: [String!]
-    departmentId: [String!]
-    officeId: [String!]
-    name: String
-    active: Boolean
-  ): PagedResultAreaModel!
-  GetAreaById(id: String!): AreaModel!
-  GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
-  GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
-  GetContacts(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    id: [String!]
-    negotiatorId: [String!]
-    officeId: [String!]
-    address: String
-    identityCheck: String
-    name: String
-    marketingConsent: String
-    active: Boolean
-    createdFrom: String
-    createdTo: String
-  ): PagedResultContactModel!
-  GetContactById(id: String!): ContactModel!
-  GetIdentityChecks(
-    id: [String!]
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    contactId: [String!]
-    negotiatorId: [String!]
-    checkDateFrom: String
-    checkDateTo: String
-    createdFrom: String
-    createdTo: String
-    status: [String!]
-  ): PagedResultIdentityCheckModel!
-  GetIdentityCheckById(id: String!): IdentityCheckModel!
-  GetNegotiators(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    id: [String!]
-    officeId: [String!]
-    name: String
-    embed: [String!]
-  ): PagedResultNegotiatorModel!
-  GetNegotiatorById(id: String!, embed: [String!]): NegotiatorModel!
-  GetOffices(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    id: [String!]
-    address: String
-    name: String
-    embed: [String!]
-  ): PagedResultOfficeModel!
-  GetOfficeById(id: String!, embed: [String!]): OfficeModel!
-  Ping: String!
-  GetProperties(
-    pageSize: Int
-    pageNumber: Int
-    sortBy: String
-    embed: [String!]
-    id: [String!]
-    age: [String!]
-    agentRole: [String!]
-    landlordId: [String!]
-    lettingStatus: [String!]
-    locality: [String!]
-    parking: [String!]
-    sellingStatus: [String!]
-    situation: [String!]
-    style: [String!]
-    type: [String!]
-    address: String
-    departmentId: String
-    marketingMode: [String!]
-    bedroomsFrom: Int
-    bedroomsTo: Int
-    priceFrom: Int
-    priceTo: Int
-    rentFrom: Float
-    rentTo: Float
-    rentFrequency: [String!]
-    internetAdvertising: Boolean
-  ): PagedResultPropertyModel!
-  GetPropertyById(id: String!, embed: [String!]): PropertyModel!
-}
-
-type Mutation {
-  CreateAppointment(
-    start: String
-    end: String
-    followUpOn: String
-    typeId: String
-    description: String
-    organiserId: String
-    negotiatorIds: [String!]
-    officeIds: [String!]
-    propertyId: String
-    accompanied: Boolean
-    negotiatorConfirmed: Boolean
-    attendeeConfirmed: Boolean
-    propertyConfirmed: Boolean
-    recurrence: AppointmentModelRecurrenceInput
-    metadata: JSON
-    attendee: CreateAppointmentModelAttendeeInput
-  ): JSON!
-  UpdateAppointment(
-    id: String!
-    start: String
-    end: String
-    followUpOn: String
-    typeId: String
-    description: String
-    organiserId: String
-    negotiatorIds: [String!]
-    officeIds: [String!]
-    propertyId: String
-    accompanied: Boolean
-    negotiatorConfirmed: Boolean
-    attendeeConfirmed: Boolean
-    propertyConfirmed: Boolean
-    recurrence: AppointmentModelRecurrenceInput
-    metadata: JSON
-    attendee: UpdateAppointmentModelAttendeeInput
-    cancelled: Boolean
-    followUp: UpdateAppointmentModelFollowUpInput
-    _eTag: String!
-  ): AppointmentModel!
-  CreateArea(
-    name: String
-    type: String
-    area: [String!]
-    departmentIds: [String!]
-    officeIds: [String!]
-    parentId: String
-  ): JSON!
-  UpdateArea(
-    name: String
-    area: [String!]
-    departmentIds: [String!]
-    officeIds: [String!]
-    id: String!
-    _eTag: String!
-  ): AreaModel!
-  CreateContact(
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    source: ContactModelSourceInput
-    homePhone: String
-    workPhone: String
-    mobilePhone: String
-    email: String
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    primaryAddress: ContactModelAddressInput
-    secondaryAddress: ContactModelAddressInput
-    workAddress: ContactModelAddressInput
-    metadata: JSON
-  ): JSON!
-  UpdateContact(
-    id: String!
-    _eTag: String!
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    source: ContactModelSourceInput
-    homePhone: String
-    workPhone: String
-    mobilePhone: String
-    email: String
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    primaryAddress: ContactModelAddressInput
-    secondaryAddress: ContactModelAddressInput
-    workAddress: ContactModelAddressInput
-    metadata: JSON
-  ): ContactModel!
-  CreateIdentityCheck(
-    contactId: String
-    checkDate: String
-    status: String
-    negotiatorId: String
-    identityDocument1: IdentityCheckModelIdentityDocumentInput
-    identityDocument2: IdentityCheckModelIdentityDocumentInput
-    metadata: JSON
-  ): JSON!
-  UpdateIdentityCheck(
-    id: String!
-    _eTag: String!
-    checkDate: String
-    status: String
-    negotiatorId: String
-    identityDocument1: IdentityCheckModelIdentityDocumentInput
-    identityDocument2: IdentityCheckModelIdentityDocumentInput
-    metadata: JSON
-  ): IdentityCheckModel!
-  CreateNegotiator(
-    name: String
-    jobTitle: String
-    active: Boolean
-    officeId: String
-    workPhone: String
-    mobilePhone: String
-    email: String
-    metadata: JSON
-  ): JSON!
-  UpdateNegotiator(
-    id: String!
-    _eTag: String!
-    name: String
-    jobTitle: String
-    active: Boolean
-    workPhone: String
-    mobilePhone: String
-    email: String
-    metadata: JSON
-  ): NegotiatorModel!
-  CreateOffice(
-    name: String
-    manager: String
-    address: OfficeModelAddressInput
-    workPhone: String
-    email: String
-    metadata: JSON
-  ): OfficeModel!
-  UpdateOffice(
-    id: String!
-    _eTag: String!
-    name: String
-    manager: String
-    address: OfficeModelAddressInput
-    workPhone: String
-    email: String
-    metadata: JSON
-  ): OfficeModel!
-  CreateProperty(
-    marketingMode: String
-    departmentId: String
-    strapline: String
-    description: String
-    summary: String
-    address: AddressInput
-    bedrooms: Int
-    receptions: Int
-    bathrooms: Int
-    councilTax: String
-    internetAdvertising: Boolean
-    viewingArrangements: String
-    videoUrl: String
-    videoCaption: String
-    epc: EpcInput
-    externalArea: ExternalAreaInput
-    internalArea: InternalAreaInput
-    selling: SellingInput
-    letting: lettingInput
-    type: [String!]
-    style: [String!]
-    situation: [String!]
-    parking: [String!]
-    age: [String!]
-    locality: [String!]
-    rooms: [CreatePropertyRoomModelInput!]
-    negotiatorId: String
-    officeIds: [String!]
-    areaId: String
-    metadata: JSON
-  ): PropertyModel!
-  UpdateProperty(
-    id: String!
-    _eTag: String!
-    strapline: String
-    description: String
-    summary: String
-    address: AddressInput
-    bedrooms: Int
-    receptions: Int
-    bathrooms: Int
-    councilTax: String
-    internetAdvertising: Boolean
-    viewingArrangements: String
-    videoUrl: String
-    videoCaption: String
-    epc: EpcInput
-    externalArea: ExternalAreaInput
-    internalArea: InternalAreaInput
-    selling: SellingInput
-    letting: lettingInput
-    type: [String!]
-    style: [String!]
-    situation: [String!]
-    parking: [String!]
-    age: [String!]
-    locality: [String!]
-    negotiatorId: String
-    officeIds: [String!]
-    areaId: String
-    metadata: JSON
-  ): PropertyModel!
-}
-
 type AreaModel {
   id: String
   created: String
@@ -435,6 +1105,85 @@ type PagedResultAreaModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+# Representation of a company
+"""
+Representation of a company
+"""
+type CompanyModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  branch: String
+  notes: String
+  active: Boolean
+  vatRegistered: Boolean
+  typeIds: [String!]
+  supplierTypeId: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  address: CompanyModel_address
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type CompanyModel_address {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  country: String
+}
+
+type PagedResultCompanyModel_ {
+  _embedded: [CompanyModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultCompanyRoleModel_ {
+  _embedded: [CompanyRoleModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type CompanyRoleModel {
+  id: String
+  created: String
+  modified: String
+  companyId: String
+  associatedType: String
+  associatedId: String
+  _links: JSON
+  _embedded: JSON
+}
+
+input CompanyModelAddressInput {
+  type: String
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
 }
 
 type ListItemModel {
@@ -527,6 +1276,151 @@ type PagedResultContactModel {
   _links: JSON
 }
 
+# Representation of an offers sales progression information
+"""
+Representation of an offers sales progression information
+"""
+type ConveyancingModel {
+  id: String
+  created: String
+  modified: String
+  isExternal: Boolean
+  propertyId: String
+  propertyAddress: String
+  vendor: String
+  vendorId: String
+  vendorSolicitorId: String
+  buyer: String
+  buyerId: String
+  buyerSolicitorId: String
+  externalAgent: String
+  externalAgentId: String
+  upwardChainId: String
+  downwardChainId: String
+  fixturesAndFittingsCompleted: String
+  deedsRequested: String
+  deedsReceived: String
+  enquiriesSent: String
+  enquiriesAnswered: String
+  searchesPaid: String
+  searchesApplied: String
+  searchesReceived: String
+  contractSent: String
+  contractReceived: String
+  contractApproved: String
+  contractVendorSigned: String
+  contractBuyerSigned: String
+  mortgageRequired: String
+  mortgageLoanPercentage: Int
+  mortgageSubmitted: String
+  mortgageOfferReceived: String
+  mortgageLenderId: String
+  mortgageBrokerId: String
+  mortgageSurveyDate: String
+  mortgageSurveyorId: String
+  additionalSurveyRequired: String
+  additionalSurveyDate: String
+  additionalSurveyorId: String
+  exchangedVendor: String
+  exchangedBuyer: String
+  completion: String
+  _eTag: String
+  metadata: JSON
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultConveyancingModel_ {
+  _embedded: [ConveyancingModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type DepartmentModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  typeOptions: [String!]
+  styleOptions: [String!]
+  situationOptions: [String!]
+  parkingOptions: [String!]
+  ageOptions: [String!]
+  localityOptions: [String!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultDepartmentModel_ {
+  _embedded: [DepartmentModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type EnquiryAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+input EnquiryAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type EnquiryModel {
+  id: Int
+  created: String
+  modified: String
+  title: String
+  forename: String
+  surname: String
+  enquiryType: String
+  message: String
+  status: String
+  marketingConsent: String
+  position: String
+  officeId: String
+  sourceName: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  address: EnquiryAddress
+  propertyIds: [String]
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultEnquiryModel {
+  _embedded: [EnquiryModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
 input IdentityCheckModelIdentityDocumentInput {
   typeId: String
   expiry: String
@@ -567,6 +1461,115 @@ type PagedResultIdentityCheckModel {
   _links: JSON
 }
 
+type JournalEntryModel {
+  created: String
+  propertyId: String
+  associatedType: String
+  associatedId: String
+  typeId: String
+  negotiatorId: String
+  description: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultJournalEntryModel_ {
+  _embedded: [JournalEntryModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type LandlordModel {
+  id: String
+  created: String
+  modified: String
+  active: Boolean
+  solicitorId: String
+  officeId: String
+  source: LandlordSourceModel
+  related: [LandlordRelatedModel!]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type LandlordSourceModel {
+  id: String
+  type: String
+}
+
+type LandlordRelatedModel {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: LandlordRelatedPrimaryAddressModel
+}
+
+type LandlordRelatedPrimaryAddressModel {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type PagedResultLandlordModel {
+  _embedded: [LandlordModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultLandlordRelationshipModel {
+  _embedded: [LandlordRelationshipModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type LandlordRelationshipModel {
+  id: String
+  landlordId: String
+  created: String
+  modified: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+input LandLordSourceInput {
+  id: String
+  type: String
+}
+
+input CreateLandlordRelatedModel {
+  associatedId: String
+  associatedType: String
+}
+
 type NegotiatorModel {
   id: String
   created: String
@@ -586,6 +1589,61 @@ type NegotiatorModel {
 
 type PagedResultNegotiatorModel {
   _embedded: [NegotiatorModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type OfferAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type OfferRelate {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: OfferAddress
+}
+
+type OfferModel {
+  id: String
+  created: String
+  modified: String
+  currency: String
+  applicantId: String
+  propertyId: String
+  OfferId: String
+  date: String
+  amount: String
+  status: String
+  inclusions: String
+  exclusions: String
+  conditions: String
+  related: [OfferRelate]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultOfferModel {
+  _embedded: [OfferModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -828,6 +1886,307 @@ type PropertyRoomModel {
   name: String
   dimensions: String
   description: String
+}
+
+type PagedResultPropertyImageModel {
+  _embedded: [PropertyImageModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PropertyImageModel {
+  id: String
+  created: String
+  modified: String
+  propertyId: String
+  url: String
+  caption: String
+  type: String
+  order: Int
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type SourceModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  type: String
+  officeIds: [String]
+  departmentIds: [String]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultSourceModel {
+  _embedded: [SourceModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type TaskModel {
+  id: String
+  created: String
+  modified: String
+  activates: String
+  completed: String
+  typeId: String
+  senderId: String
+  text: String
+  landlordId: String
+  propertyId: String
+  applicantId: String
+  tenancyId: String
+  contactId: String
+  recipientId: String
+  recipientType: String
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultTaskModel {
+  _embedded: [TaskModel]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultTenancies {
+  _embedded: [PagedResultTenanciesEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultTenanciesEmbedded {
+  id: String
+  created: String
+  modified: String
+  startDate: String
+  endDate: String
+  status: String
+  agentRole: String
+  rent: Int
+  rentFrequency: String
+  endDateConfirmed: Boolean
+  isPeriodic: Boolean
+  typeId: String
+  negotiatorId: String
+  propertyId: String
+  applicantId: String
+  source: TenancySourceModel
+  related: [TenancyRelatedModel!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancyModel {
+  id: String
+  created: String
+  modified: String
+  startDate: String
+  endDate: String
+  status: String
+  agentRole: String
+  rent: Int
+  rentFrequency: String
+  endDateConfirmed: Boolean
+  isPeriodic: Boolean
+  typeId: String
+  negotiatorId: String
+  propertyId: String
+  applicantId: String
+  source: TenancySourceModel
+  related: [TenancyRelatedModel!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancySourceModel {
+  id: String
+  type: String
+}
+
+type PagedResultTenancyRelationships {
+  _embedded: [PagedResultTenancyRelationshipsEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type TenancyRelatedModel {
+  id: String
+  name: String
+  title: String
+  forename: String
+  surname: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: TenancyPrimaryAddressModel
+}
+
+type TenancyPrimaryAddressModel {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type PagedResultTenancyRelationshipsEmbedded {
+  id: String
+  created: String
+  modified: String
+  tenancyId: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultTenancyChecks {
+  _embedded: [PagedResultTenancyChecksEmbedded!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultTenancyChecksEmbedded {
+  id: String
+  created: String
+  modified: String
+  description: String
+  status: String
+  type: String
+  tenancyId: String
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type TenancyCheckModel {
+  tenancyId: String
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+input CreateTenancyRequestModelSource {
+  id: String
+  type: String
+}
+
+type VendorAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type VendorRelate {
+  id: String
+  name: String
+  type: String
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: VendorAddress
+}
+
+input VendorSourceInput {
+  id: String
+  type: String
+}
+
+type VendorSourceModel {
+  id: String
+  type: String
+}
+
+type VendorModel {
+  id: String
+  created: String
+  modified: String
+  lastCall: String
+  nextCall: String
+  typeId: String
+  sellingReasonId: String
+  solicitorId: String
+  source: VendorSourceModel
+  related: [VendorRelate]
+  negotiatorId: String
+  officeIds: [String]
+  metadata: JSON
+  _eTag: JSON
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultVendorModel {
+  _embedded: [VendorModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type VendorRelationship {
+  id: String
+  vendorId: String
+  created: String
+  modified: String
+  associatedType: String
+  associatedId: String
+  isMain: Boolean
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultVendorRelationshipModel {
+  _embedded: [VendorRelationship!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
 }
 
 schema {

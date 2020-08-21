@@ -36,9 +36,7 @@
 .containerHeader {
   display: flex;
   align-items: center;
-  @include for-mobile-only {
-    flex-direction: column;
-  }
+  flex-direction: column;
 }
 
 .appIconContainer {
@@ -53,12 +51,6 @@
   padding: 1rem;
   align-items: center;
   text-align: center;
-
-  @include for-desktop-only {
-    width: calc(100% - 96px);
-    align-items: flex-end;
-    text-align: flex-end;
-  }
 }
 
 .containerOuterHeader {

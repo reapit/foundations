@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Loader } from '@reapit/elements'
+import { Loader, Helper } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
@@ -22,6 +22,7 @@ import ContactInformationSection from './contact-information-section'
 import AccountStatusSection from './account-status-section'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validationSchema } from './form-schema/validation-schema'
+import { selectIsRequiredDataOfBillingPageFilled } from '@/selector/billing'
 
 export type AccountsInformationFormProps = {}
 
@@ -111,6 +112,8 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
+  const isRequiredDataOfBillingPageFilled = useSelector(selectIsRequiredDataOfBillingPageFilled)
+
   const dispatch = useDispatch()
 
   const isShowLoader = isLoading && !isProd
@@ -133,16 +136,25 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
           <Form>
             <H3 isHeadingSection>Billing</H3>
             <FormSection>
+              {!isRequiredDataOfBillingPageFilled && (
+                <Helper variant="info">
+                  You will need to first complete your Organisation information before submitting your Account details
+                </Helper>
+              )}
               <FormHeading>Accounts Information</FormHeading>
               <FormSubHeading>
                 Information required by our accounts team to verify your billing information
               </FormSubHeading>
               <Grid>
                 <GridItem>
-                  <ContactInformationSection />
+                  <ContactInformationSection disabled={!isRequiredDataOfBillingPageFilled} />
                 </GridItem>
                 <GridItem>
-                  <ReapitReferenceSection setFieldValue={setFieldValue} values={values} />
+                  <ReapitReferenceSection
+                    disabled={!isRequiredDataOfBillingPageFilled}
+                    setFieldValue={setFieldValue}
+                    values={values}
+                  />
                   <DirectDebitSection
                     initialStatus={initialValues.status}
                     isSubmittedDebit={isSubmittedDebit}
@@ -161,7 +173,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 <div>
                   <LevelRight>
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
-                      Save
+                      SUBMIT TO ACCOUNTS
                     </Button>
                   </LevelRight>
                 </div>

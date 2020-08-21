@@ -11,6 +11,10 @@ import comingSoonImage7 from '@/assets/images/coming-soon/7Twentyci.jpg'
 import comingSoonImage8 from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonImage9 from '@/assets/images/coming-soon/9Yomdel.jpg'
 
+export type ComingSoonAppsProps = {
+  setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
+}
+
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
 
@@ -26,19 +30,39 @@ const comingSoonImagesList = [
   comingSoonImage9,
 ]
 
-const ComingSoonApps: React.FC = () => {
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
+  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
+
+  React.useLayoutEffect(() => {
+    const offsetHeight = comingSoonAppSectionRef.current?.offsetHeight
+    const clientHeight = comingSoonAppSectionRef.current?.clientHeight
+    const scrolHeight = comingSoonAppSectionRef.current?.scrollHeight
+
+    const boundingClientRect = comingSoonAppSectionRef.current?.getBoundingClientRect()
+    console.log('boundingClientRect', boundingClientRect)
+
+    console.log(
+      `useLayoutEffect - ComingSoonApps component -> offsetHeight - ${offsetHeight} - clientHeight - ${clientHeight} - scrolHeight - ${scrolHeight}`,
+    )
+    if (offsetHeight && setComingSoonAppSectionHeight) {
+      setComingSoonAppSectionHeight(offsetHeight)
+    }
+  })
+
   return (
-    <Grid isMultiLine>
-      {comingSoonImagesList.map(imgSrc => (
-        <GridThreeColItem key={imgSrc}>
-          <div className="card">
-            <div className="card-image">
-              <img className="image" src={imgSrc} onError={onImageError} />
+    <div ref={comingSoonAppSectionRef} style={{ minHeight: '100%' }}>
+      <Grid isMultiLine>
+        {comingSoonImagesList.map(imgSrc => (
+          <GridThreeColItem key={imgSrc}>
+            <div className="card">
+              <div className="card-image">
+                <img className="image" src={imgSrc} onError={onImageError} />
+              </div>
             </div>
-          </div>
-        </GridThreeColItem>
-      ))}
-    </Grid>
+          </GridThreeColItem>
+        ))}
+      </Grid>
+    </div>
   )
 }
 

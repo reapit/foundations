@@ -12,7 +12,7 @@ const createStore = (loading: boolean) => {
     developers: {
       members: {
         inviteMember: {
-          loading: loading,
+          isLoading: loading,
         },
       },
     },
@@ -29,7 +29,7 @@ describe('developer-invite-member-modal', () => {
       store = mockStore(createStore(false))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
-          <InviteMemberModal onClose={jest.fn()} />
+          <InviteMemberModal developerId="mockID" onClose={jest.fn()} />
         </ReactRedux.Provider>,
       )
       expect(wrapper).toMatchSnapshot()
@@ -39,7 +39,7 @@ describe('developer-invite-member-modal', () => {
       store = mockStore(createStore(true))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
-          <InviteMemberModal onClose={jest.fn()} />
+          <InviteMemberModal developerId="mockID" onClose={jest.fn()} />
         </ReactRedux.Provider>,
       )
       expect(wrapper).toMatchSnapshot()
@@ -49,7 +49,7 @@ describe('developer-invite-member-modal', () => {
       store = mockStore(createStore(false))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
-          <InviteMemberModal visible={true} onClose={jest.fn()} />
+          <InviteMemberModal developerId="mockID" visible={true} onClose={jest.fn()} />
         </ReactRedux.Provider>,
       )
       expect(wrapper).toMatchSnapshot()

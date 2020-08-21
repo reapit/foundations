@@ -132,6 +132,12 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         >
           <Component
             className=""
+            closeIcon={
+              <span
+                aria-label="close"
+                className="delete"
+              />
+            }
             destroyOnClose={true}
             footer={
               <div
@@ -205,7 +211,8 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 type="button"
                               >
                                 <span
-                                  class="rc-dialog-close-x"
+                                  aria-label="close"
+                                  class="delete"
                                 />
                               </button>
                               <div
@@ -305,6 +312,12 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                   <Dialog
                     className=""
                     closable={true}
+                    closeIcon={
+                      <span
+                        aria-label="close"
+                        className="delete"
+                      />
+                    }
                     destroyOnClose={true}
                     focusTriggerAfterClose={true}
                     footer={
@@ -433,7 +446,8 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     type="button"
                                   >
                                     <span
-                                      className="rc-dialog-close-x"
+                                      aria-label="close"
+                                      className="delete"
                                     />
                                   </button>
                                   <div
@@ -632,6 +646,12 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           >
             <Component
               className=""
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               onClose={[Function]}
               title={<Unknown />}
@@ -699,6 +719,12 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           >
             <Component
               className=""
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               onClose={[Function]}
               title={<Unknown />}
@@ -773,6 +799,12 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
   >
     <Component
       className=""
+      closeIcon={
+        <span
+          aria-label="close"
+          className="delete"
+        />
+      }
       destroyOnClose={true}
       onClose={[MockFunction]}
       title={<Unknown />}
@@ -818,7 +850,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                           type="button"
                         >
                           <span
-                            class="rc-dialog-close-x"
+                            aria-label="close"
+                            class="delete"
                           />
                         </button>
                         <div
@@ -898,6 +931,12 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
             <Dialog
               className=""
               closable={true}
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               focusTriggerAfterClose={true}
               getContainer={[Function]}
@@ -998,7 +1037,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               type="button"
                             >
                               <span
-                                className="rc-dialog-close-x"
+                                aria-label="close"
+                                className="delete"
                               />
                             </button>
                             <div
@@ -1179,6 +1219,12 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
   >
     <Component
       className=""
+      closeIcon={
+        <span
+          aria-label="close"
+          className="delete"
+        />
+      }
       destroyOnClose={true}
       onClose={[MockFunction]}
       title={<Unknown />}
@@ -1224,7 +1270,8 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                           type="button"
                         >
                           <span
-                            class="rc-dialog-close-x"
+                            aria-label="close"
+                            class="delete"
                           />
                         </button>
                         <div
@@ -1289,6 +1336,12 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
             <Dialog
               className=""
               closable={true}
+              closeIcon={
+                <span
+                  aria-label="close"
+                  className="delete"
+                />
+              }
               destroyOnClose={true}
               focusTriggerAfterClose={true}
               getContainer={[Function]}
@@ -1389,7 +1442,8 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               type="button"
                             >
                               <span
-                                className="rc-dialog-close-x"
+                                aria-label="close"
+                                className="delete"
                               />
                             </button>
                             <div

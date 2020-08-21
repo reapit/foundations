@@ -1,12 +1,25 @@
 # https://www.npmjs.com/package/serverless-single-page-app-plugin
-service: <%= appName %>
+service: cloud-<%= appName %>
 
 plugins:
   - serverless-single-page-app-plugin
   - serverless-plugin-ifelse
+  - serverless-s3-remover
+  - serverless-s3-deploy
 
 custom:
-  s3Bucket: reapit-<%= appName %>-${self:provider.stage}
+  s3Bucket: cloud-<%= appName %>-web-app-${opt:stage, 'dev'}
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  remover:
+     buckets:
+       - ${self:custom.s3WebAppBucket}
+  assets:
+    auto: true
+    targets:
+      - bucket: ${self:custom.s3WebAppBucket}
+        files:
+          - source: ./public/dist/
+            globs: '**/*'
 
 provider:
   name: aws

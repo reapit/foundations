@@ -10,6 +10,7 @@ import {
   H6,
   Input,
   LevelRight,
+  Helper,
 } from '@reapit/elements'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
@@ -22,6 +23,7 @@ export type DirectDebitSectionProps = {
   setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
   initialStatus?: string
   isSubmittedDebit: boolean
+  disabled?: Boolean
 }
 
 type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
@@ -79,22 +81,20 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
   setIsSubmittedDebit,
   isSubmittedDebit,
   initialStatus,
+  disabled,
 }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
   const { hasReapitAccountsRef, reapitReference } = values
 
-  const isInitialStatusPending = initialStatus === 'pending'
   const isInitialStatusIncomplete = initialStatus === 'incomplete'
-  const isInnitialStatusInvalid = !(isInitialStatusPending || isInitialStatusIncomplete)
+
+  const isInitialStatusInvalid = !isInitialStatusIncomplete
   const shouldHideDebitSection =
-    // after submit debit, hide this section
-    // when status is pending and hasReapitAccountRef is no -> mean that user already set up debit -> hide this section
-    (isInitialStatusPending && hasReapitAccountsRef === 'no') ||
     isSubmittedDebit ||
     // https://github.com/reapit/foundations/issues/1987
     // hide the direct debit section when status is not pending and incomplete
-    isInnitialStatusInvalid
+    isInitialStatusInvalid
 
   const isShowDirectDebitWithRef =
     hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH
@@ -111,9 +111,11 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
         <FormHeading>Direct Debit</FormHeading>
         <FormSubHeading>
           As you are providing a Reapit Reference, we will need to validate your account with our Accounts Department.
-          Once confirmed, any subscriptions will be added to your existing monthly Direct Debit. Please now click ‘Save’
-          to submit your account information
+          Once confirmed, any subscriptions will be added to your existing monthly Direct Debit.
         </FormSubHeading>
+        <Helper variant="info" closeButton={false}>
+          Please now click ‘Submit to Accounts’ to continue
+        </Helper>
       </GridItem>
     )
 
@@ -127,7 +129,9 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
             this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
             account will be verified by our Account Department.
           </FormSubHeading>
-          <Button onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>Setup Direct Debit</Button>
+          <Button disabled={Boolean(disabled)} onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>
+            Setup Direct Debit
+          </Button>
           <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         </GridItem>
         <DirectDebitModal

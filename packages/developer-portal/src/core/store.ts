@@ -11,14 +11,14 @@ import developer from '@/reducers/developer'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
-import appInstallationsReducer from '@/reducers/app-installations'
-import appUsageStatsReducer from '@/reducers/app-usage-stats'
 import trafficStatistics from '@/reducers/traffic-statistics'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
+import installationsReducer from '@/reducers/installations'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
+import { currentMemberReducer } from '@/reducers/current-member'
 
 import {
   appDetailSagas,
@@ -34,17 +34,17 @@ import {
 import { scopeListSagas } from '@/sagas/scopes'
 import { categoryListSagas } from '@/sagas/categories'
 import { desktopIntegrationTypeListSagas } from '@/sagas/desktop-integration-types'
-import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
-import appInstallationsSagas from '@/sagas/app-installations'
 import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
+import installationsSagas from '@/sagas/installations'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
+import { currentMemberSagas } from '@/sagas/current-member'
 
 export class Store {
   static _instance: Store
@@ -70,19 +70,18 @@ export class Store {
     error,
     developerSetStatus,
     settings: settingsReducer,
-    installations: appInstallationsReducer,
-    appUsageStats: appUsageStatsReducer,
     noticationMessage,
     trafficStatistics,
     developerSubscriptions,
     developers: developersReducer,
+    installations: installationsReducer,
     webhooksTopics: webhooksTopicsReducer,
     webhooksSubscriptions: webhooksSubscriptionsReducer,
+    currentMember: currentMemberReducer,
   })
 
   static sagas = function*() {
     yield all([
-      fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),
@@ -98,13 +97,14 @@ export class Store {
       fork(createAppRevisionSagas),
       fork(developerSetStatusSagas),
       fork(settingSagas),
-      fork(appInstallationsSagas),
       fork(trafficStatisticsSagas),
       fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
+      fork(installationsSagas),
       fork(webhooksTopicsSagas),
       fork(webhooksSubscriptionsSagas),
+      fork(currentMemberSagas),
     ])
   }
 

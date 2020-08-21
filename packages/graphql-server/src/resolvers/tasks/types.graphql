@@ -1,0 +1,90 @@
+type TaskModel {
+  id: String
+  created: String
+  modified: String
+  activates: String
+  completed: String
+  typeId: String
+  senderId: String
+  text: String
+  landlordId: String
+  propertyId: String
+  applicantId: String
+  tenancyId: String
+  contactId: String
+  recipientId: String
+  recipientType: String
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultTaskModel {
+  _embedded: [TaskModel]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetTasks(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String]
+    id: [String]
+    applicantId: [String]
+    contactId: [String]
+    landlordId: [String]
+    officeId: [String]
+    propertyId: [String]
+    recipientId: [String]
+    senderId: [String]
+    typeId: [String]
+    tenancyId: [String]
+    activatesFrom: String
+    activatesTo: String
+    createdFrom: String
+    createdTo: String
+    metadata: [String]
+  ): PagedResultTaskModel!
+  GetTaskById(id: String!, embed: [String]): TaskModel!
+}
+
+type Mutation {
+  CreateTask(
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
+  UpdateTask(
+    _eTag: String!
+    id: String!
+    activates: String
+    completed: String
+    typeId: String
+    senderId: String
+    text: String
+    landlordId: String
+    propertyId: String
+    applicantId: String
+    tenancyId: String
+    contactId: String
+    recipientId: String
+    recipientType: String
+    metadata: JSON
+  ): TaskModel!
+}

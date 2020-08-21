@@ -56,12 +56,17 @@ exports[`Settings should match snapshot 1`] = `
       }
     >
       <Component>
-        <Component>
+        <Component
+          className="justify-between items-center"
+          isFlex={true}
+        >
           <section
             className=""
             data-test=""
           >
-            <Component>
+            <Component
+              className="mb-0"
+            >
               <h3
                 className=""
                 id=""
@@ -69,6 +74,22 @@ exports[`Settings should match snapshot 1`] = `
                 Settings
               </h3>
             </Component>
+            <Component
+              dataTest="logout-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button  is-primary  "
+                data-test="logout-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Logout
+              </button>
+            </Component>
           </section>
         </Component>
         <Component>
@@ -79,160 +100,595 @@ exports[`Settings should match snapshot 1`] = `
             <Component>
               <div
                 className=""
+                data-test=""
               >
-                Customer ID: 
-                <strong />
-                 
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                NAME:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              John Smith
+                            </p>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                EMAIL ADDRESS:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              johnsmith@agent.com
+                            </p>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
               </div>
             </Component>
             <Component>
               <div
                 className=""
+                data-test=""
               >
-                This is your Customer ID which you will need for use with Private Apps and Web Components.
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                COMPANY:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              Agent Ltd
+                            </p>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                CUSTOMER ID:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p />
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
               </div>
             </Component>
-            <Component
-              className="bt pt-4"
-            >
+            <Component>
               <div
                 className=""
                 data-test=""
               >
-                <Component
-                  dataTest="logout-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button  is-primary  "
-                    data-test="logout-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
                   >
-                    Logout
-                  </button>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                COMPANY ADDRESS:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p>
+                              1 Street, Town, AB1 2CD
+                            </p>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  />
                 </Component>
               </div>
             </Component>
           </section>
         </Component>
+        <Component
+          changePassword={[Function]}
+          loading={false}
+        >
+          <Component>
+            <div
+              className=""
+            >
+              <Formik
+                initialValues={
+                  Object {
+                    "confirmPassword": "",
+                    "currentPassword": "",
+                    "password": "",
+                  }
+                }
+                onSubmit={[Function]}
+                validationSchema={
+                  ObjectSchema {
+                    "_blacklist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "_conditions": Array [],
+                    "_defaultDefault": [Function],
+                    "_deps": Array [],
+                    "_excludedEdges": Array [],
+                    "_exclusive": Object {},
+                    "_mutate": undefined,
+                    "_nodes": Array [
+                      "confirmPassword",
+                      "password",
+                      "currentPassword",
+                    ],
+                    "_options": Object {
+                      "abortEarly": true,
+                      "recursive": true,
+                    },
+                    "_type": "object",
+                    "_typeError": [Function],
+                    "_whitelist": RefSet {
+                      "list": Set {},
+                      "refs": Map {},
+                    },
+                    "fields": Object {
+                      "confirmPassword": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {
+                            "",
+                          },
+                          "refs": Map {
+                            "password" => Reference {
+                              "getter": [Function],
+                              "isContext": false,
+                              "isSibling": true,
+                              "isValue": false,
+                              "key": "password",
+                              "map": undefined,
+                              "path": "password",
+                            },
+                          },
+                        },
+                        "_whitelistError": [Function],
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                      "currentPassword": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                      "password": StringSchema {
+                        "_blacklist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "_conditions": Array [],
+                        "_deps": Array [],
+                        "_exclusive": Object {
+                          "matches": false,
+                          "required": true,
+                          "trim": false,
+                        },
+                        "_mutate": undefined,
+                        "_options": Object {
+                          "abortEarly": true,
+                          "recursive": true,
+                        },
+                        "_type": "string",
+                        "_typeError": [Function],
+                        "_whitelist": RefSet {
+                          "list": Set {},
+                          "refs": Map {},
+                        },
+                        "tests": Array [
+                          [Function],
+                          [Function],
+                          [Function],
+                        ],
+                        "transforms": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "tests": Array [],
+                    "transforms": Array [
+                      [Function],
+                    ],
+                    "type": "object",
+                  }
+                }
+              >
+                <Form>
+                  <form
+                    action="#"
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Change password
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="current-password"
+                              id="currentPassword"
+                              labelText="Current Password"
+                              name="currentPassword"
+                              type="password"
+                            >
+                              <Field
+                                name="currentPassword"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="currentPassword"
+                                    >
+                                      Current Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="current-password"
+                                      disabled={false}
+                                      id="currentPassword"
+                                      name="currentPassword"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="password"
+                              id="password"
+                              labelText="Password"
+                              name="password"
+                              type="password"
+                            >
+                              <Field
+                                name="password"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="password"
+                                    >
+                                      Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="password"
+                                      disabled={false}
+                                      id="password"
+                                      name="password"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component
+                          className="is-half"
+                        >
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="confirmPassword"
+                              id="confirmPassword"
+                              labelText="Confirm Password"
+                              name="confirmPassword"
+                              type="password"
+                            >
+                              <Field
+                                name="confirmPassword"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="confirmPassword"
+                                    >
+                                      Confirm Password
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="confirmPassword"
+                                      disabled={false}
+                                      id="confirmPassword"
+                                      name="confirmPassword"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder=""
+                                      type="password"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component
+                          dataTest="button-change-password"
+                          disabled={true}
+                          loading={false}
+                          type="submit"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test="button-change-password"
+                            disabled={true}
+                            type="submit"
+                          >
+                            Change Password
+                          </button>
+                        </Component>
+                      </div>
+                    </Component>
+                  </form>
+                </Form>
+              </Formik>
+            </div>
+          </Component>
+        </Component>
       </Component>
     </Router>
   </MemoryRouter>
 </Provider>
-`;
-
-exports[`Settings should match snapshot in desktop mode 1`] = `
-<MemoryRouter
-  initialEntries={
-    Array [
-      Object {
-        "key": "clientSettingsRoute",
-        "pathname": "/settings",
-      },
-    ]
-  }
->
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
-        "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "key": "clientSettingsRoute",
-            "pathname": "/settings",
-            "search": "",
-          },
-        ],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "index": 0,
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "key": "clientSettingsRoute",
-          "pathname": "/settings",
-          "search": "",
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
-  >
-    <Component>
-      <Component>
-        <section
-          className=""
-          data-test=""
-        >
-          <Component>
-            <h3
-              className=""
-              id=""
-            >
-              Settings
-            </h3>
-          </Component>
-        </section>
-      </Component>
-      <Component>
-        <section
-          className=""
-          data-test=""
-        >
-          <Component>
-            <div
-              className=""
-            >
-              Customer ID: 
-              <strong />
-               
-            </div>
-          </Component>
-          <Component>
-            <div
-              className=""
-            >
-              This is your Customer ID which you will need for use with Private Apps and Web Components.
-            </div>
-          </Component>
-          <Component
-            className="bt pt-4"
-          >
-            <div
-              className=""
-              data-test=""
-            >
-              <Component
-                dataTest="logout-btn"
-                onClick={[Function]}
-                type="button"
-                variant="primary"
-              >
-                <button
-                  className="button  is-primary  "
-                  data-test="logout-btn"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Logout
-                </button>
-              </Component>
-            </div>
-          </Component>
-        </section>
-      </Component>
-    </Component>
-  </Router>
-</MemoryRouter>
 `;

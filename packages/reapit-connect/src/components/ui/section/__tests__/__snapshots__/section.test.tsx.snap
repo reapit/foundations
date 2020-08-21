@@ -2,7 +2,7 @@
 
 exports[`Section should match snapshot 1`] = `
 <div
-  className="columns pt-4 pb-4"
+  className=""
   style={
     Object {
       "background": "white",
@@ -37,7 +37,7 @@ exports[`Section should match snapshot 1`] = `
 
 exports[`Section should match snapshot when has button 1`] = `
 <div
-  className="columns pt-4 pb-4"
+  className=""
   style={
     Object {
       "background": "white",
@@ -77,7 +77,7 @@ exports[`Section should match snapshot when has button 1`] = `
 
 exports[`Section should match snapshot when image in right 1`] = `
 <div
-  className="columns pt-4 pb-4"
+  className=""
   style={
     Object {
       "background": "white",

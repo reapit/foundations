@@ -13,11 +13,11 @@ describe('DeveloperSubscription', () => {
     ...appState,
     developerSubscriptions: {
       create: {
-        loading: false,
+        isLoading: false,
         error: false,
       },
       list: {
-        loading: false,
+        isLoading: false,
         data: listSubscriptionsStub,
       },
     },
@@ -26,7 +26,7 @@ describe('DeveloperSubscription', () => {
   describe('selectCreateDeveloperSubscriptionLoading', () => {
     it('should run correctly', () => {
       const output = selectCreateDeveloperSubscriptionLoading(mockState)
-      expect(output).toEqual(mockState.developerSubscriptions.create.loading)
+      expect(output).toEqual(mockState.developerSubscriptions.create.isLoading)
     })
   })
 

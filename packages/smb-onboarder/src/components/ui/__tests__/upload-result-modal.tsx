@@ -20,4 +20,38 @@ describe('UploadResultModal', () => {
       expect(wrapper).toMatchSnapshot()
     })
   })
+  describe('UploadResultModal', () => {
+    const mockProps: UploadResultModalProp = {
+      visible: true,
+      onCloseClick: jest.fn(),
+      results: {
+        success: 0,
+        failed: 0,
+        total: 0,
+        details: [{ success: true, rowData: [] }],
+      },
+    }
+
+    it('should match a snapshot', () => {
+      const wrapper = mount(<UploadResultModal {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+  describe('UploadResultModal', () => {
+    const mockProps: UploadResultModalProp = {
+      visible: true,
+      onCloseClick: jest.fn(),
+      results: {
+        success: 0,
+        failed: 0,
+        total: 0,
+        details: [{ success: false, rowData: [] }],
+      },
+    }
+
+    it('should match a snapshot', () => {
+      const wrapper = mount(<UploadResultModal {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
 })

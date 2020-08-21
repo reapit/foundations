@@ -17,6 +17,7 @@ describe('App', () => {
     // @ts-ignore
     global.window.location = {
       reload: {
+        // @ts-ignore
         bind: jest.fn(),
       },
     }

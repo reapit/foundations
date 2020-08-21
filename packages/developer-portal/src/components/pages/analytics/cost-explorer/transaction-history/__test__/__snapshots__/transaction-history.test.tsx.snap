@@ -29,14 +29,7 @@ exports[`TransactionHistory should match a snapshot 1`] = `
       </Component>
     </Component>
   </Component>
-  <Component>
-    <Component>
-      Previous Transactions
-    </Component>
-    <p>
-      No previous transactions in the past
-    </p>
-  </Component>
+  <Component />
   <Component>
     <Component />
   </Component>

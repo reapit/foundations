@@ -1,6 +1,7 @@
 import 'isomorphic-fetch'
 import jwt from 'jsonwebtoken'
-import { CoginitoAccess, ReapitConnectServerSessionInitializers } from '../types'
+import { CoginitoAccess, ReapitConnectServerSessionInitializers, LoginIdentity } from '../types'
+import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
 
 export class ReapitConnectServerSession {
   // Static constants
@@ -11,13 +12,20 @@ export class ReapitConnectServerSession {
   private connectOAuthUrl: string
   private connectClientId: string
   private connectClientSecret: string
+  private connectUserPoolId: string
   private accessToken: string | null
 
-  constructor({ connectClientId, connectClientSecret, connectOAuthUrl }: ReapitConnectServerSessionInitializers) {
+  constructor({
+    connectClientId,
+    connectClientSecret,
+    connectOAuthUrl,
+    connectUserPoolId,
+  }: ReapitConnectServerSessionInitializers) {
     // Instantiate my private variables from either local storage or from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
     this.connectClientSecret = connectClientSecret
+    this.connectUserPoolId = connectUserPoolId
     this.accessToken = null
     this.connectAccessToken = this.connectAccessToken.bind(this)
   }
@@ -52,6 +60,15 @@ export class ReapitConnectServerSession {
       if (session.error) {
         throw new Error(session.error)
       }
+      // I need to verify the identity claims I have just received from the server
+      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
+        session.id_token,
+        this.connectUserPoolId,
+      )
+
+      // If the idToken is invalid, don't return the session
+      if (!loginIdentity) throw new Error('Login identity was not verified')
+
       if (session && session.access_token) {
         return session.access_token
       }
@@ -64,8 +81,8 @@ export class ReapitConnectServerSession {
   // The main method for fetching an accessToken in an app.
   public async connectAccessToken(): Promise<string | void> {
     // Ideally, if I have a valid accessToken, just return it
-    if (this.accessToken && !this.accessTokenExpired) {
-      return this.accessToken
+    if (!this.accessTokenExpired) {
+      return this.accessToken as string
     }
 
     try {

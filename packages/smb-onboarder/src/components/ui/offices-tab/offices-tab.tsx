@@ -2,14 +2,13 @@ import * as React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import { ApolloClient } from 'apollo-boost'
 import queryString from 'query-string'
-import { ApolloError, ApolloQueryResult } from 'apollo-boost'
+import { ApolloQueryResult } from 'apollo-boost'
 import { useQuery, useApolloClient, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import {
   Loader,
   Cell,
   AfterCellsChanged,
-  Alert,
   Section,
   Pagination,
   Spreadsheet,
@@ -19,10 +18,9 @@ import {
   ChangedCells,
   isEmail,
   fieldValidateRequire,
-  Toast,
-  ErrorData,
   Button,
   handleDownloadCsv,
+  minLengthValidator,
 } from '@reapit/elements'
 import {
   PagedResultOfficeModel_,
@@ -40,8 +38,13 @@ import { startUpload, completeUpload, setUploadProgress } from '@/actions/update
 import { Dispatch } from '@/reducers/update-provider'
 import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
 import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
+import errorMessages from '@/constants/error-messages'
+
+export const MINIMUM_OFFICE_NAME_LENGTH = 3
 
 export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'id', className: 'hidden-cell' },
@@ -87,7 +90,6 @@ export type UpdateOfficeResponse = {
 
 export type RenderContentParams = {
   loading: boolean
-  error?: ApolloError
   pageNumber?: number
   pageSize?: number
   totalCount?: number
@@ -95,21 +97,18 @@ export type RenderContentParams = {
   handleChangePage: (page: number) => void
   afterCellsChanged: AfterCellsChanged
   handleAfterUpload: AfterUploadDataValidated
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
 }
 
 export interface CreateDownLoadButtonOnClickFnParams {
   totalCount: number
   client: ApolloClient<any>
   setIsDownloading: React.Dispatch<React.SetStateAction<boolean>>
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
 }
 
 export const createDownLoadButtonOnClickFn = ({
   totalCount = 0,
   client,
   setIsDownloading,
-  setErrorServer,
 }: CreateDownLoadButtonOnClickFnParams) => () => {
   const fetchPages = Math.ceil(totalCount / MAX_ENTITIES_FETCHABLE_AT_ONE_TIME)
 
@@ -138,30 +137,18 @@ export const createDownLoadButtonOnClickFn = ({
         mergedArr.push(...getOfficesEmbedded)
         return mergedArr
       }, [])
-      const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } })
+      const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } }, true)
       handleDownloadCsv(dataTable, window, document)()
-    })
-    .catch(err => {
-      setErrorServer({
-        type: 'SERVER',
-        message: err.message,
-      })
     })
     .finally(() => {
       setIsDownloading(false)
     })
 }
 
-export const CustomDownButton = ({
-  totalCount,
-  setErrorServer,
-}: {
-  totalCount: number
-  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
-}) => {
+export const CustomDownButton = ({ totalCount }: { totalCount: number }) => {
   const [isDownloading, setIsDownloading] = React.useState<boolean>(false)
   const client = useApolloClient()
-  const downloadButtonOnClick = createDownLoadButtonOnClickFn({ totalCount, setIsDownloading, client, setErrorServer })
+  const downloadButtonOnClick = createDownLoadButtonOnClickFn({ totalCount, setIsDownloading, client })
 
   return (
     <div className="download-button">
@@ -174,7 +161,6 @@ export const CustomDownButton = ({
 
 export const renderContent = ({
   loading,
-  error,
   dataTable,
   pageNumber = 0,
   pageSize = 0,
@@ -182,29 +168,26 @@ export const renderContent = ({
   handleChangePage,
   afterCellsChanged,
   handleAfterUpload,
-  setErrorServer,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
   }
-  if (error) {
-    return <Alert message={error.message} type="danger" />
-  }
   return (
     <React.Fragment>
-      <Spreadsheet
-        allowOnlyOneValidationErrorPerRow={true}
-        data={dataTable as Cell[][]}
-        validate={validate}
-        afterCellsChanged={afterCellsChanged}
-        hasUploadButton
-        hasDownloadButton
-        afterUploadDataValidated={handleAfterUpload}
-        CustomDownButton={<CustomDownButton setErrorServer={setErrorServer} totalCount={totalCount} />}
-      />
       <Section>
-        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+        <Spreadsheet
+          allowOnlyOneValidationErrorPerRow={true}
+          data={dataTable as Cell[][]}
+          validate={validate}
+          afterCellsChanged={afterCellsChanged}
+          hasUploadButton
+          hasDownloadButton
+          afterUploadDataValidated={handleAfterUpload}
+          CustomDownButton={<CustomDownButton totalCount={totalCount} />}
+        />
       </Section>
+
+      <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
     </React.Fragment>
   )
 }
@@ -218,7 +201,10 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
-export const handleAfterCellChange = (createOffice, updateOffice) => (changedCells: ChangedCells, data: Cell[][]) => {
+export const handleAfterCellChange = (createOffice, updateOffice, setData) => (
+  changedCells: ChangedCells,
+  data: Cell[][],
+) => {
   const [changes] = changedCells
   const {
     newCell: { isValidated },
@@ -242,32 +228,46 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
     const createOfficeParams = prepareCreateOfficeParams(changedCells, data)
     createOffice({
       variables: createOfficeParams,
+    }).then(response => {
+      const {
+        data: { CreateOffice },
+      } = response
+
+      rowData[0].value = CreateOffice.id
+      rowData[1].value = CreateOffice._eTag
+      setData(data)
     })
   }
 }
 /* istanbul ignore next */
-export const handleAfterUpload = (dispatch: Dispatch) => (params: {
+export const handleAfterUpload = (dispatch: Dispatch, accessToken: string) => (params: {
   uploadData: UploadData
   currentData: Cell[][]
   setData: SetData
 }) => {
   const { uploadData, setData } = params
+  const [firstRow, ...rest] = uploadData.validatedData
+  let data = uploadData.validatedData
+  // if first row is header row, ignore it
+  if (firstRow[0].value === 'id' && firstRow[1].value === '_eTag') {
+    data = rest
+  }
   const message: UploadCsvMessage = {
     from: 'FROM_MAIN',
     type: 'OFFICE',
-    data: uploadData.validatedData,
+    data,
     graphqlUri: window.reapit.config.graphqlUri,
-    accessToken: window.reapit.config.accessToken,
+    accessToken,
   }
   const uploadWorker = new Worker()
   uploadWorker.postMessage(message)
   uploadWorker.addEventListener('message', event => {
-    handleWorkerMessage(event.data, dispatch, setData, uploadData)
+    handleWorkerMessage(event.data, dispatch, setData)
   })
 }
 
 /* istanbul ignore next */
-export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch, setData, uploadData) => {
+export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch, setData) => {
   const { status, total = 0, success = 0, failed = 0, details = [] } = data
   if (status === 'STARTED') {
     dispatch(startUpload(total))
@@ -282,7 +282,9 @@ export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Di
         details,
       }),
     )
-    setData(prev => [...prev, ...uploadData.validatedData.map(row => convertUploadedCellToTableCell(row))])
+    const successRowsData = details.filter(item => item.success).map(item => item.rowData)
+    const uploadedDataTable = successRowsData.map(row => convertUploadedCellToTableCell(row))
+    setData(prev => mergeUploadedData(prev, uploadedDataTable))
   }
 }
 
@@ -341,99 +343,61 @@ export const prepareCreateOfficeParams = (changedCells: ChangedCells, data: Cell
   }
 }
 
-export const handleErrorMessageUseEffect = (createOfficeError, updateOfficeError, setErrorServer) => {
-  return () => {
-    if (createOfficeError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: createOfficeError.message,
-      })
-    }
-    if (updateOfficeError) {
-      setErrorServer({
-        type: 'SERVER',
-        message: updateOfficeError.message,
-      })
-    }
-  }
+export const prepareTableData = (setTableData: React.Dispatch<Cell[][]>, data?: OfficesQueryResponse) => () => {
+  const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
+  setTableData(dataTable)
 }
 
 export const OfficesTab: React.FC<OfficesTabProps> = () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const history = useHistory()
   const params = queryString.parse(location?.search)
   const page = Number(params?.page) || 1
-  const [serverError, setErrorServer] = React.useState<ErrorData | null>(null)
-  const [componentError, setErrorComponent] = React.useState<ErrorData | null>(null)
-  const { loading, error, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
+  const { loading, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
     variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
-  const [createOffice, { error: createOfficeError }] = useMutation<CreateOfficeResponse, CreateOfficeParams>(
-    CREATE_OFFICE,
-    {
-      update: (proxy, fetchResult) => {
-        const cacheData = proxy.readQuery<OfficesQueryResponse, OfficesQueryParams>({
-          query: GET_OFFICES,
-          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
-        })
-        proxy.writeQuery({
-          query: GET_OFFICES,
-          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
-          data: {
-            GetOffices: {
-              ...cacheData?.GetOffices,
-              _embedded: [...(cacheData?.GetOffices?._embedded || []), fetchResult.data?.CreateOffice],
-            },
+  const [createOffice] = useMutation<CreateOfficeResponse, CreateOfficeParams>(CREATE_OFFICE, {
+    update: (proxy, fetchResult) => {
+      const cacheData = proxy.readQuery<OfficesQueryResponse, OfficesQueryParams>({
+        query: GET_OFFICES,
+        variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+      })
+      proxy.writeQuery({
+        query: GET_OFFICES,
+        variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+        data: {
+          GetOffices: {
+            ...cacheData?.GetOffices,
+            _embedded: [...(cacheData?.GetOffices?._embedded || []), fetchResult.data?.CreateOffice],
           },
-        })
-      },
+        },
+      })
     },
-  )
-  const [updateOffice, { error: updateOfficeError }] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(
-    UPDATE_OFFICE,
-  )
+  })
+  const [updateOffice] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(UPDATE_OFFICE)
   const dispatch = useUploadDispatch()
 
-  const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
-
-  React.useEffect(handleErrorMessageUseEffect(createOfficeError, updateOfficeError, setErrorServer), [
-    createOfficeError,
-    updateOfficeError,
-  ])
-
-  const errorClearedComponent = () => {
-    setErrorComponent(null)
-  }
-
-  const errorClearedServer = () => {
-    setErrorServer(null)
-  }
+  const [tableData, setTableData] = React.useState<Cell[][]>([[]])
+  React.useEffect(prepareTableData(setTableData, data), [loading, page])
 
   return (
     <div>
       {renderContent({
-        setErrorServer,
         loading,
-        error,
-        dataTable,
+        dataTable: tableData,
         pageNumber: data?.GetOffices?.pageNumber,
         pageSize: data?.GetOffices?.pageSize,
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
-        afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
-        handleAfterUpload: handleAfterUpload(dispatch),
+        afterCellsChanged: handleAfterCellChange(createOffice, updateOffice, setTableData),
+        handleAfterUpload: handleAfterUpload(dispatch, connectSession?.accessToken || ''),
       })}
-      <Toast
-        componentError={componentError}
-        serverError={serverError}
-        errorClearedComponent={errorClearedComponent}
-        errorClearedServer={errorClearedServer}
-      />
     </div>
   )
 }
 
-export function getDataTable(data: OfficesQueryResponse): Cell[][] {
+export function getDataTable(data: OfficesQueryResponse, forDownload: boolean = false): Cell[][] {
   let dataTable: Cell[][] = [tableHeaders]
   const offices: OfficeModel[] = data.GetOffices?._embedded || []
   const dataRows = offices.map((office: OfficeModel) => [
@@ -450,7 +414,15 @@ export function getDataTable(data: OfficesQueryResponse): Cell[][] {
     { value: office.workPhone, key: 'workPhone', title: 'Telephone' },
     { value: office.email, key: 'email', title: 'Email' },
   ]) as Cell[][]
-  dataTable = [tableHeaders, ...dataRows]
+  let dataHeader = tableHeaders
+  if (forDownload) {
+    dataHeader = [
+      { readOnly: true, value: 'id (DO NOT EDIT)', className: 'hidden-cell' },
+      { readOnly: true, value: '_eTag (DO NOT EDIT)', className: 'hidden-cell' },
+      ...dataHeader.slice(2),
+    ]
+  }
+  dataTable = [dataHeader, ...dataRows]
   return dataTable
 }
 
@@ -458,11 +430,10 @@ export const validate = (data: Cell[][]) =>
   data.map((row, rowIndex) =>
     row.map((cell, cellIndex) => {
       if (rowIndex === 0) return true // dont need to validate header row
-      // cell name is required
-
+      // cell name is required and has length >= 3
       if (cellIndex === 2) {
-        const a1 = !fieldValidateRequire(cell.value as string)
-        return a1
+        const name = cell.value as string
+        return !fieldValidateRequire(name) && minLengthValidator(MINIMUM_OFFICE_NAME_LENGTH)(name)
       }
       // cell addess1 is required
       if (cellIndex === 5) {
@@ -474,11 +445,17 @@ export const validate = (data: Cell[][]) =>
       }
       // cell telephone is required
       if (cellIndex === 10) {
-        return !fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)) ||
+          errorMessages.FIELD_WRONG_PHONE_FORMAT
+        )
       }
       // cell email is required
       if (cellIndex === 11) {
-        return !fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)
+        return (
+          (!fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)) ||
+          errorMessages.FIELD_WRONG_EMAIL_FORMAT
+        )
       }
       return true
     }),
@@ -488,6 +465,26 @@ export const convertUploadedCellToTableCell = (cell: Cell[]): Cell[] => {
   cell[0] = { ...cell[0], key: 'id', readOnly: true, className: 'hidden-cell' }
   cell[1] = { ...cell[1], key: '_eTag', readOnly: true, className: 'hidden-cell' }
   return cell
+}
+
+export const mergeUploadedData = (prev: Cell[][], uploadedData: Cell[][]): Cell[][] => {
+  const prevIds = prev.map(rowData => rowData[0].value)
+  const createdData: Cell[][] = []
+  const updatedData = {} as Map<string, Cell[]>
+  uploadedData.forEach(rowData => {
+    if (prevIds.includes(rowData[0].value) && rowData[1].value) {
+      updatedData[rowData[0]?.value || ''] = rowData
+    } else {
+      createdData.push(rowData)
+    }
+  })
+  const newPrevData = prev.map(rowData => {
+    const id = rowData[0].value || ''
+    if (updatedData[id]) return updatedData[id]
+    return rowData
+  }) as Cell[][]
+
+  return [...newPrevData, ...createdData]
 }
 
 export default OfficesTab

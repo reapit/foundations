@@ -4,12 +4,12 @@ import {
   callCreateIdentityCheckAPI,
   callUpdateIdentityCheckAPI,
 } from '../api'
-import { mockContext } from '../../../__mocks__/context'
-import { createIdentityCheckArgsMock } from '../__mocks__/create-identity-check'
-import { updateIdentityCheckArgsMock } from '../__mocks__/update-identity-check'
+import { mockContext } from '../../../__stubs__/context'
+import { createIdentityCheckArgsMock } from '../__stubs__/create-identity-check'
+import { updateIdentityCheckArgsMock } from '../__stubs__/update-identity-check'
 import { getIdentityCheckById, getIdentityChecks, createIdentityCheck, updateIdentityCheck } from '../services'
-import { identityCheckMock } from '../__mocks__/identity-check'
-import { identityChecksMock } from '../__mocks__/identity-checks'
+import { identityCheckMock } from '../__stubs__/identity-check'
+import { identityChecksMock } from '../__stubs__/identity-checks'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

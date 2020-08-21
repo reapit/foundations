@@ -1,10 +1,15 @@
 import * as React from 'react'
 import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
+import {
+  selectInstallationsFilterList,
+  selectInstallationsLoading,
+  selectInstallationsFilterLoading,
+} from '@/selector/installations'
+import { useSelector } from 'react-redux'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
@@ -76,11 +81,32 @@ export const sortAppByDateInstalled = (
 
 export const handleSetPageNumber = setPageNumber => (pageNumber: number) => setPageNumber(pageNumber)
 
-export const installationTableColumn = [
+export const installationTableColumn: { Header: string; accessor: string | ((data) => string) }[] = [
   { Header: 'App Name', accessor: 'appName' },
   {
     Header: 'Client',
     accessor: 'client',
+  },
+  {
+    Header: 'Customer Name',
+    accessor: 'customerName',
+  },
+  {
+    Header: 'Customer Address',
+    accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
+      const {
+        buildingName = '',
+        buildingNumber = '',
+        line1 = '',
+        line2 = '',
+        line3 = '',
+        line4 = '',
+        postcode = '',
+        countryId = '',
+      } = customerAddress
+
+      return `${buildingName} ${buildingNumber} ${line1} ${line2} ${line3} ${line4} ${postcode} ${countryId}`
+    },
   },
   {
     Header: 'Date of installation',
@@ -105,12 +131,13 @@ export const currentInstallationTableColumn = [
 export const InstallationAppSection: React.FC<{
   installedApps: InstallationModelWithAppName[]
   filteredInstalledApps: InstallationModelWithAppName[]
-  installations?: AppInstallationsState
   apps?: AppSummaryModel[]
-  loading?: boolean
-}> = ({ installedApps, filteredInstalledApps, installations, apps = [], loading }) => {
+}> = ({ installedApps, filteredInstalledApps, apps = [] }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
-  const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
+  const installationFilterAppData = useSelector(selectInstallationsFilterList)
+
+  const installationListLoading = useSelector(selectInstallationsLoading)
+  const installationsFilterLoading = useSelector(selectInstallationsFilterLoading)
 
   const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
     filteredInstalledApps,
@@ -123,19 +150,22 @@ export const InstallationAppSection: React.FC<{
   ])
 
   const installationFilterAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationFilterAppDataArray, apps),
-    [installationFilterAppDataArray, apps],
+    handleMapAppNameToInstallation(installationFilterAppData?.data, apps),
+    [installationFilterAppData, apps],
   )
 
   return (
     <>
-      {loading ? (
+      {installationListLoading ? (
         <Loader />
       ) : (
         <>
           <Grid isMultiLine>
             <GridItem className="is-half">
-              <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
+              <DeveloperInstallationsChart
+                loading={installationsFilterLoading}
+                data={installationFilterAppDataArrayWithName}
+              />
             </GridItem>
             <GridItem className="is-half">
               <Section hasMargin={false}>
@@ -163,7 +193,7 @@ export const InstallationAppSection: React.FC<{
             pageNumber={pageNumber}
             onChange={handleSetPageNumber(setPageNumber)}
             pageSize={INSTALLATIONS_PER_PAGE}
-            totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
+            totalCount={installationFilterAppData?.totalCount ?? 0}
           />
         </>
       )}

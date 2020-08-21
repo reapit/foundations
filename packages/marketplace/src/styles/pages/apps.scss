@@ -1,6 +1,5 @@
 .app-list {
-  height: 100vh;
-  overflow: auto;
+  width: auto;
   /* Hide scrollbar. only show window scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -13,3 +12,4 @@
 .app-list::-webkit-scrollbar {
   display: none;
 }
+

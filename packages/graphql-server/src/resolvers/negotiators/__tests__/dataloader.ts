@@ -1,7 +1,7 @@
 import { generateNegotiatorBatchLoaderFn, generateNegotiatorLoader } from '../dataloader'
-import { negotiatorMock } from '../__mocks__/negotiator'
-import { negotiatorsMock } from '../__mocks__/negotiators'
-import { mockContext } from '../../../__mocks__/context'
+import { negotiatorMock } from '../__stubs__/negotiator'
+import { negotiatorsMock } from '../__stubs__/negotiators'
+import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

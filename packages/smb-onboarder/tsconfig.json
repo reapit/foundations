@@ -4,12 +4,29 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"],
-      "@reapit/utils": ["../utils/index.ts"]
+      "@/*": [
+        "src/*"
+      ],
+      "@reapit/elements": [
+        "../elements/src"
+      ],
+      "@reapit/utils": [
+        "../utils/index.ts"
+      ],
+      "@reapit/connect-session": [
+        "../connect-session/src"
+      ]
     }
   },
-  "include": ["src"],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "src/tests/cypress"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "public",
+    "dist",
+    "src/scripts",
+    "node_modules",
+    "src/tests/coverage",
+    "src/tests/cypress"
+  ]
 }

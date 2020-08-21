@@ -22,7 +22,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   animated = false,
 }) => {
   return (
-    <div className="mb-4">
+    <div className="overflow-hidden mb-4">
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType

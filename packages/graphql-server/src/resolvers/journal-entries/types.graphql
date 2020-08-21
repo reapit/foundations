@@ -1,0 +1,36 @@
+scalar JSON
+
+type JournalEntryModel {
+  created: String
+  propertyId: String
+  associatedType: String
+  associatedId: String
+  typeId: String
+  negotiatorId: String
+  description: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultJournalEntryModel_ {
+  _embedded: [JournalEntryModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetJournalEntries(pageSize: Int, pageNumber: Int, sortBy: String, associatedType: [String!], associatedId: [String!], negotiatorId: [String!], typeId: [String!], createdFrom: String, createdTo: String): PagedResultJournalEntryModel_!
+}
+
+type Mutation {
+  CreateJournalEntry(
+    propertyId: String
+    associatedType: String
+    associatedId: String
+    description: String!
+  ): Boolean!
+}

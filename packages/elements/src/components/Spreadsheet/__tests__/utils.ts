@@ -212,10 +212,10 @@ describe('validatedDataGenerate', () => {
     const data = [[{ value: 'old1' }, { value: 'old2' }], [{ value: 'old3' }]]
     const expectedResult = [
       [
-        { value: 'old1', isValidated: true },
-        { value: 'old2', isValidated: false },
+        { value: 'old1', isValidated: true, error: '' },
+        { value: 'old2', isValidated: false, error: '' },
       ],
-      [{ value: 'old3', isValidated: true }],
+      [{ value: 'old3', isValidated: true, error: '' }],
     ]
     const result = validatedDataGenerate(data, validate)
     expect(validate).toHaveBeenCalledWith(data)

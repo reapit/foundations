@@ -7,3 +7,11 @@ exports[`NegotiatorOfficeSelectbox should match a snapshot 1`] = `
   Reapit
 </span>
 `;
+
+exports[`NegotiatorOfficeSelectbox should match a snapshot 2`] = `
+<span
+  className="value-viewer"
+>
+  Reapit
+</span>
+`;

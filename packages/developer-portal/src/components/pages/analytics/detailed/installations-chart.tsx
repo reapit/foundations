@@ -6,7 +6,7 @@ import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from 
 
 export interface DeveloperInstallationsChartProps {
   data: Array<InstallationModelWithAppName>
-  loading?: boolean
+  loading: boolean
 }
 
 export const getChartOptions = data => {
@@ -59,16 +59,16 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
   }
 
   return (
-    <Section hasMargin={false}>
+    <>
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <Section hasMargin={false}>
           <H5>Installations By Day</H5>
           <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
-        </>
+        </Section>
       )}
-    </Section>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@
 
 exports[`PrivateRouter should match a snapshot 1`] = `
 <Route
+  loginType="CLIENT"
   render={[Function]}
 />
 `;
