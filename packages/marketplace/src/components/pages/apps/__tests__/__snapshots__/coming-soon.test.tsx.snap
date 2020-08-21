@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "minHeight": "100%",
+    }
+  }
+>
   <Component
     isMultiLine={true}
   >

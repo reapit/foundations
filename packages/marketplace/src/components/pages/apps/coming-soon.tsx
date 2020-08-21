@@ -50,7 +50,7 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   })
 
   return (
-    <div ref={comingSoonAppSectionRef}>
+    <div ref={comingSoonAppSectionRef} style={{ minHeight: '100%' }}>
       <Grid isMultiLine>
         {comingSoonImagesList.map(imgSrc => (
           <GridThreeColItem key={imgSrc}>
