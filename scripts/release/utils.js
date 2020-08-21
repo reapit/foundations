@@ -169,12 +169,10 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
     console.info(checkoutResult)
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
-      await copyConfig({ packageName: 'web-components' })
       await runReleaseCommand({ packageName: '@reapit/web-components', tagName, env })
       await runTestCyPress({ packageName, tagName, env })
       return
     }
-    await copyConfig({ packageName })
     await runReleaseCommand({ packageName, tagName, env })
     await runTestCyPress({ packageName, tagName, env })
     return

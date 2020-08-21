@@ -4,6 +4,7 @@ service: cloud-admin-portal
 plugins:
   - serverless-single-page-app-plugin
   - serverless-plugin-ifelse
+  - serverless-deployment-bucket
   - serverless-s3-remover
   - serverless-s3-deploy
 
@@ -20,9 +21,10 @@ custom:
         files:
           - source: ./public/dist/
             globs: '**/*'
+
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
