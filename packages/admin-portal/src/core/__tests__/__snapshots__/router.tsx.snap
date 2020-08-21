@@ -120,9 +120,6 @@ exports[`Router should match a snapshot 1`] = `
             />
           </Switch>
         </lazy>
-        <Redirect
-          to="/login"
-        />
       </Switch>
     </Component>
   </Suspense>

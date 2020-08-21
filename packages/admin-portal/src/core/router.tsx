@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
@@ -37,7 +37,6 @@ const Router = () => {
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>
-            <Redirect to={Routes.LOGIN} />
           </Switch>
         </PortalProvider>
       </React.Suspense>

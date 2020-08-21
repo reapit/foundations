@@ -70,6 +70,10 @@ export class ReapitConnectBrowserSession {
     }
   }
 
+  private clearRefreshToken() {
+    window.localStorage.removeItem(`${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`)
+  }
+
   // See below, used to refresh session if I have a refresh token in local storage
   private get tokenRefreshEndpoint() {
     return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
@@ -184,6 +188,7 @@ export class ReapitConnectBrowserSession {
   // Used as handler for logout menu button
   public connectLogoutRedirect(redirectUri?: string): void {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
+    this.clearRefreshToken()
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
