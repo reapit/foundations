@@ -14,7 +14,6 @@
       "packages/elements-next",
       "packages/elements",
       "packages/foundations-ts-definitions",
-      "packages/geo-diary-v2",
       "packages/geo-diary",
       "packages/graphql-server",
       "packages/marketplace",
