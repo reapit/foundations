@@ -22,6 +22,7 @@ export const URLS = {
   sources: '/sources',
   journalEntries: 'journalEntries',
   enquiries: '/enquiries',
+  worksOrders: '/worksOrders',
 }
 
 export const HEADERS = {
