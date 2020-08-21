@@ -4,6 +4,7 @@
   float: left;
   width: 100%;
   overflow: hidden;
+  display: flex;
 
   > div {
     float: left;
@@ -19,6 +20,7 @@
   position: relative;
   left: 50%;
   overflow: hidden;
+  height: 100%;
 }
 
 .btn-choose-auth-type-container-right {
@@ -27,6 +29,7 @@
   position: relative;
   left: 54%;
   overflow: hidden;
+  height: 100%;
 }
 
 .btn-choose-auth-type {
@@ -34,4 +37,5 @@
   text-transform: none;
   font-weight: 400;
   white-space: normal;
+  height: 100%;
 }
