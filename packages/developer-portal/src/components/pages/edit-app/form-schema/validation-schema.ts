@@ -121,8 +121,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
         .required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
-    .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1000))
-    .max(1000, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1000)),
+    .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
+    .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
 
   [summary.name]: Yup.string()
     .trim()
