@@ -66,7 +66,6 @@ const generateMessage = ({ packageName, environment, currentTag, previousTag }: 
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     release: `Releasing \`${packageName}\` ${environment} \`${currentTag}\``,
     'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
-    'delete-environment': `Teardown serverless \`${packageName}\` for \`${environment}\``,
   }
 }
 
