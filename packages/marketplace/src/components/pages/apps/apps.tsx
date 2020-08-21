@@ -51,7 +51,6 @@ export const handleLoadMore = ({
 }
 
 export const Apps: React.FunctionComponent = () => {
-  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
   const [comingSoonAppSectionHeight, setComingSoonAppSectionHeight] = React.useState(0)
 
   const history = useHistory()
@@ -126,9 +125,7 @@ export const Apps: React.FunctionComponent = () => {
         </InfiniteScroll>
 
         <div className="bb mb-4" />
-        <div ref={comingSoonAppSectionRef}>
-          <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
-        </div>
+        <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
       </Section>
     </ErrorBoundary>
   )

@@ -137,221 +137,225 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
               <div
                 className="bb mb-4"
               />
-              <div>
-                <ComingSoonApps
-                  setComingSoonAppSectionHeight={[Function]}
+              <ComingSoonApps
+                setComingSoonAppSectionHeight={[Function]}
+              >
+                <div
+                  style={
+                    Object {
+                      "minHeight": "100%",
+                    }
+                  }
                 >
-                  <div>
-                    <Component
-                      isMultiLine={true}
+                  <Component
+                    isMultiLine={true}
+                  >
+                    <div
+                      className=""
+                      data-test=""
                     >
-                      <div
-                        className=""
-                        data-test=""
+                      <Component
+                        key=""
                       >
-                        <Component
-                          key=""
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </ComingSoonApps>
-              </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </ComingSoonApps>
             </section>
           </Component>
         </ErrorBoundary>
@@ -511,221 +515,225 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
               <div
                 className="bb mb-4"
               />
-              <div>
-                <ComingSoonApps
-                  setComingSoonAppSectionHeight={[Function]}
+              <ComingSoonApps
+                setComingSoonAppSectionHeight={[Function]}
+              >
+                <div
+                  style={
+                    Object {
+                      "minHeight": "100%",
+                    }
+                  }
                 >
-                  <div>
-                    <Component
-                      isMultiLine={true}
+                  <Component
+                    isMultiLine={true}
+                  >
+                    <div
+                      className=""
+                      data-test=""
                     >
-                      <div
-                        className=""
-                        data-test=""
+                      <Component
+                        key=""
                       >
-                        <Component
-                          key=""
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          key=""
+                        </div>
+                      </Component>
+                      <Component
+                        key=""
+                      >
+                        <div
+                          className=""
+                          data-test=""
                         >
                           <div
-                            className=""
-                            data-test=""
+                            className="card"
                           >
                             <div
-                              className="card"
+                              className="card-image"
                             >
-                              <div
-                                className="card-image"
-                              >
-                                <img
-                                  className="image"
-                                  onError={[Function]}
-                                  src=""
-                                />
-                              </div>
+                              <img
+                                className="image"
+                                onError={[Function]}
+                                src=""
+                              />
                             </div>
                           </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </ComingSoonApps>
-              </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </ComingSoonApps>
             </section>
           </Component>
         </ErrorBoundary>
