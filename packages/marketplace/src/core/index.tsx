@@ -31,6 +31,7 @@ window.reapit = {
     previewExternalAppIds: [],
     previewFeaturedExternalAppIds: [],
     connectLoginRedirectPath: '',
+    comingSoonApps: [],
   },
 }
 
