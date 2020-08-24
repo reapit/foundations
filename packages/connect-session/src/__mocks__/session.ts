@@ -43,7 +43,6 @@ export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = 
 export const mockServerInitializers: ReapitConnectServerSessionInitializers = {
   connectClientId: 'SOME_CLIENT_ID',
   connectOAuthUrl: 'SOME_URL',
-  connectUserPoolId: 'SOME_USER_POOL_ID',
   connectClientSecret: 'SOME_SECRET',
 }
 

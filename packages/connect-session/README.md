@@ -192,11 +192,10 @@ import config from './config.json'
 
 const router = Router()
 
-const { connectClientId, connectClientSecret, connectOAuthUrl, connectUserPoolId } = config as ReapitConnectServerSessionInitializers
+const { connectClientId, connectClientSecret, connectOAuthUrl } = config as ReapitConnectServerSessionInitializers
 
 const reapitConnectSession = new ReapitConnectServerSession({
   connectClientId,
-  connectUserPoolId,
   connectClientSecret,
   connectOAuthUrl,
 })
