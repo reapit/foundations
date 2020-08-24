@@ -122,7 +122,7 @@ export const Submitting = () => {
       </p>
       <p className="mb-5">
         To list your app in the Marketplace, simply select the ‘Is Listed’ option when editing your app listing. Admin
-        approval for revisions and subscription charges will only apply when your app is set to ‘Listed’
+        approval for revisions and subscription charges will only apply when your app is set to ‘Listed’.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
