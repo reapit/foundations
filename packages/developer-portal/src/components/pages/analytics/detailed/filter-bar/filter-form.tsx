@@ -14,7 +14,7 @@ import {
 } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
@@ -25,7 +25,7 @@ import { SANDBOX_CLIENT_ID } from '@/constants/api'
 export type FilterFormProps = {
   initialValues: FilterFormInitialValues
   developerApps: AppSummaryModel[]
-  installationAppDataArray: any[]
+  installationAppDataArray: InstallationModel[]
 }
 
 export const renderAppSelectOptions = developerApps => {
@@ -43,14 +43,14 @@ export const renderAppSelectOptions = developerApps => {
   ]
 }
 
-export const renderClientSelectOptions = installationAppDataArray => {
+export const renderClientSelectOptions = (installationAppDataArray: InstallationModel[]) => {
   const filteredClients: SelectOption[] = []
   installationAppDataArray.forEach(client => {
     const existed = filteredClients.find(filteredClient => filteredClient.value === client.customerId)
     if (!existed) {
       filteredClients.push({
-        value: client.customerId,
-        label: client.customerName,
+        value: client.customerId || '',
+        label: client.customerName || '',
       })
     }
   })

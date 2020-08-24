@@ -3,7 +3,6 @@ import DefaultFilterGroup, { prepareDefaultFilterDateParams } from './default-fi
 import FilterForm from './filter-form'
 import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import { Content } from '@reapit/elements'
-import { SANDBOX_CLIENT_ID } from '../../../../../constants/api'
 
 export type FilterBarProps = {
   developerAppsData: AppSummaryModel[]
