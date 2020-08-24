@@ -141,6 +141,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 setComingSoonAppSectionHeight={[Function]}
               >
                 <div
+                  id="coming-soon-section"
                   style={
                     Object {
                       "minHeight": "100%",
@@ -519,6 +520,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 setComingSoonAppSectionHeight={[Function]}
               >
                 <div
+                  id="coming-soon-section"
                   style={
                     Object {
                       "minHeight": "100%",
