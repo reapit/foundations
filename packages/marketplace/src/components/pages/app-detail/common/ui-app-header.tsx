@@ -38,7 +38,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
           </div>
         </div>
       </GridItem>
-      <GridItem className="flex items-center">
+      <GridItem className="items-center">
         <img src={featureImageSrc || featureImagePlaceHolder} alt="Featured Image" />
       </GridItem>
     </Grid>

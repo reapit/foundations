@@ -25,7 +25,7 @@ exports[`AppHeader should match a snapshot 1`] = `
     </div>
   </Component>
   <Component
-    className="flex items-center"
+    className="items-center"
   >
     <img
       alt="Featured Image"

@@ -49,7 +49,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       )}
         */}
       <FlexContainerBasic id="app-root-container" flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
+        <FlexContainerResponsive hasPadding flexColumn isPageContainer>
           <Suspense
             fallback={
               <Section>
