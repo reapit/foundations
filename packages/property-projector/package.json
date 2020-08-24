@@ -26,14 +26,5 @@
     "@types/react-color": "^3.0.4",
     "react-color": "^2.18.1",
     "react-responsive-carousel": "^3.2.9"
-  },
-  "devDependencies": {
-    "yarn-deduplicate": "^2.1.1"
-  },
-  "resolutions": {
-    "@reapit/foundations-ts-definitions": "2020-02-13",
-    "@types/react-color": "^3.0.4",
-    "react-color": "^2.18.1",
-    "react-responsive-carousel": "^3.2.9"
   }
 }
