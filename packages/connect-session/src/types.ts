@@ -9,7 +9,6 @@ export interface ReapitConnectBrowserSessionInitializers {
 export interface ReapitConnectServerSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectUserPoolId: string
   connectClientSecret: string
 }
 
