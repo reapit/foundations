@@ -3,7 +3,6 @@ import DefaultFilterGroup, { prepareDefaultFilterDateParams } from './default-fi
 import FilterForm from './filter-form'
 import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import { Content } from '@reapit/elements'
-import { SANDBOX_CLIENT_ID } from '../../../../../constants/api'
 
 export type FilterBarProps = {
   developerAppsData: AppSummaryModel[]
@@ -30,15 +29,6 @@ export const prepareAppDeveloperAppData = (developerAppsData: AppSummaryModel[])
   }
 }
 
-export const prepareClientIds = installationAppDataArray => {
-  const clientIds = installationAppDataArray
-    .map((installation: InstallationModel) => {
-      return installation.client || ''
-    })
-    .filter((element, index, array) => array.indexOf(element) == index)
-  return [SANDBOX_CLIENT_ID, ...clientIds]
-}
-
 export const handleUseCallbackToPrepareFilterFormInitialValues = (dateFrom, dateTo) => {
   return () => {
     return {
@@ -61,17 +51,15 @@ export const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, install
 
   const initialValues = prepareFilterFormInitialValues()
   const { developerApps, developerAppIds } = prepareAppDeveloperAppData(developerAppsData)
-  const clientIds = prepareClientIds(installationAppDataArray)
 
   return (
     <Content>
-      <DefaultFilterGroup
-        appIds={developerAppIds}
-        clientIds={clientIds}
-        setDateFrom={setDateFrom}
-        setDateTo={setDateTo}
+      <DefaultFilterGroup appIds={developerAppIds} setDateFrom={setDateFrom} setDateTo={setDateTo} />
+      <FilterForm
+        initialValues={initialValues}
+        developerApps={developerApps}
+        installationAppDataArray={installationAppDataArray}
       />
-      <FilterForm initialValues={initialValues} developerApps={developerApps} clientIds={clientIds} />
     </Content>
   )
 }

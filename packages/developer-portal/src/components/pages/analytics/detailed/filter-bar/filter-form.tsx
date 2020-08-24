@@ -3,20 +3,29 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
 import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
-import { GridFourCol, GridFourColItem, DatePicker, SelectBox, DATE_TIME_FORMAT, H6 } from '@reapit/elements'
+import {
+  GridFourCol,
+  GridFourColItem,
+  DatePicker,
+  SelectBox,
+  DATE_TIME_FORMAT,
+  H6,
+  SelectOption,
+} from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { cx } from 'linaria'
 import { fetchInstallationsFilterList } from '@/actions/installations'
+import { SANDBOX_CLIENT_ID } from '@/constants/api'
 
 export type FilterFormProps = {
   initialValues: FilterFormInitialValues
   developerApps: AppSummaryModel[]
-  clientIds: string[]
+  installationAppDataArray: InstallationModel[]
 }
 
 export const renderAppSelectOptions = developerApps => {
@@ -34,23 +43,29 @@ export const renderAppSelectOptions = developerApps => {
   ]
 }
 
-export const renderClientSelectOptions = clientIds => {
-  const clientIdsUniqued = [...new Set(clientIds)]
+export const renderClientSelectOptions = (installationAppDataArray: InstallationModel[]) => {
+  const filteredClients: SelectOption[] = []
+  installationAppDataArray.forEach(client => {
+    const existed = filteredClients.find(filteredClient => filteredClient.value === client.customerId)
+    if (!existed) {
+      filteredClients.push({
+        value: client.customerId || '',
+        label: client.customerName || '',
+      })
+    }
+  })
   return [
     {
       label: 'All',
       value: '',
     },
-    ...clientIdsUniqued.map(client => {
-      return {
-        label: client as string,
-        value: client as string,
-      }
-    }),
+    { value: SANDBOX_CLIENT_ID, label: SANDBOX_CLIENT_ID },
+    ...filteredClients,
   ]
 }
 
-export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: string[], dispatch: Dispatch) => {
+export const handleAutoSave = (developerApps: AppSummaryModel[], clients: InstallationModel[], dispatch: Dispatch) => {
+  const clientIds = clients.map(client => client.customerId)
   return values => {
     const { appId, clientId, dateFrom, dateTo } = values
     const appIds = developerApps.map((app: AppSummaryModel) => {
@@ -83,8 +98,9 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
   }
 }
 
-export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developerApps, clientIds }) => {
+export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developerApps, installationAppDataArray }) => {
   const dispatch = useDispatch()
+  const clientOptions: SelectOption[] = renderClientSelectOptions(installationAppDataArray)
   return (
     <Formik initialValues={initialValues} enableReinitialize={true} onSubmit={() => {}}>
       {({ values }) => {
@@ -121,14 +137,14 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
               </GridFourColItem>
               <GridFourColItem>
                 <H6 className="mb-2">Client</H6>
-                <SelectBox name="clientId" options={renderClientSelectOptions(clientIds)} labelText="" id="clientId" />
+                <SelectBox name="clientId" options={clientOptions} labelText="" id="clientId" />
               </GridFourColItem>
               <GridFourColItem>
                 <H6 className="mb-2">App</H6>
                 <SelectBox name="appId" options={renderAppSelectOptions(developerApps)} labelText="" id="appId" />
               </GridFourColItem>
             </GridFourCol>
-            <FormikAutoSave onSave={handleAutoSave(developerApps, clientIds, dispatch)} />
+            <FormikAutoSave onSave={handleAutoSave(developerApps, installationAppDataArray, dispatch)} />
           </Form>
         )
       }}

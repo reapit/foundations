@@ -9,6 +9,7 @@ import {
   requestWebhookSubcriptionData,
   requestWebhookData,
 } from '@/actions/webhooks-subscriptions'
+import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface WebhookModal {
   id: string
@@ -18,15 +19,6 @@ export interface WebhookModal {
   topicIds: string[]
   customerIds: string[]
   active: boolean
-}
-
-export interface CustomerItem {
-  id: string
-  appId: string
-  created: string
-  client: string
-  status: string
-  authFlow: string
 }
 
 export interface TopicItem {
@@ -41,14 +33,6 @@ export interface TopicItem {
   associatedScope: string
 }
 
-export interface SubcriptionCustomers {
-  data: CustomerItem[]
-  pageNumber: number
-  pageSize: number
-  pageCount: number
-  totalCount: number
-}
-
 export interface SubcriptionTopics {
   _embedded: TopicItem[]
   pageNumber: number
@@ -59,7 +43,7 @@ export interface SubcriptionTopics {
 }
 
 export interface WebhookSubscription {
-  subcriptionCustomers: SubcriptionCustomers
+  subcriptionCustomers: PagedResultInstallationModel_
   subcriptionTopics: SubcriptionTopics
 }
 

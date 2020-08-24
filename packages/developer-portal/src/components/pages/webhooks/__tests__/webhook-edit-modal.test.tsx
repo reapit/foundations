@@ -11,8 +11,9 @@ import WebhookCreateModal, {
   generateTopicOptions,
   FormValuesType,
 } from '../webhook-edit-modal'
-import { TopicItem, CustomerItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { editWebhook, createWebhook } from '@/actions/webhooks-subscriptions'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 
 const mockProps: WebhookEditProps = {
   appId: '',
@@ -130,12 +131,14 @@ describe('WebhookEditModal', () => {
   })
 
   it('should return CustomerItem Options', () => {
-    const data: CustomerItem[] = [
+    const data: InstallationModel[] = [
       {
         id: 'string',
         created: 'string',
         appId: 'string',
         client: 'client',
+        customerId: 'customerId',
+        customerName: 'customerName',
         status: 'Terminated',
         authFlow: '',
       },
@@ -144,6 +147,8 @@ describe('WebhookEditModal', () => {
         created: 'string',
         appId: 'appId',
         client: 'client',
+        customerId: 'customerId',
+        customerName: 'customerName',
         status: 'Active',
         authFlow: '',
       },
@@ -156,9 +161,9 @@ describe('WebhookEditModal', () => {
         description: 'SBOX',
       },
       {
-        value: 'client',
-        label: 'client',
-        description: 'client',
+        value: 'customerId',
+        label: 'customerName',
+        description: 'customerName',
       },
     ]
 

@@ -15,7 +15,6 @@ import {
 
 const mockProps: DefaultFilterGroupProps = {
   appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-  clientIds: ['DXX'],
   setDateFrom: jest.fn(),
   setDateTo: jest.fn(),
 }
@@ -40,7 +39,7 @@ describe('FilterBar', () => {
 
   describe('handleFilterButtonClick', () => {
     const { last30DaysParams, todayParams, last7DaysParams } = prepareDefaultFilterDateParams()
-    const { appIds, clientIds, setDateFrom, setDateTo } = mockProps
+    const { appIds, setDateFrom, setDateTo } = mockProps
     const mockSetIsActive = jest.fn()
     const mockDispatch = jest.fn()
     const mockHandleFilter = jest.fn()
@@ -56,16 +55,16 @@ describe('FilterBar', () => {
       const fn = handleFilterButtonClick(FilterType.LAST_30_DAYS, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(last30DaysParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
-      expect(mockHandleFilter).toBeCalledWith(last30DaysParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      mockHandleFilter(last30DaysParams, appIds, setDateFrom, setDateTo, mockDispatch)
+      expect(mockHandleFilter).toBeCalledWith(last30DaysParams, appIds, setDateFrom, setDateTo, mockDispatch)
     })
 
     it('should run correctly when filter type is last month', () => {
       const fn = handleFilterButtonClick(FilterType.TODAY, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(todayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
-      expect(mockHandleFilter).toBeCalledWith(todayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      mockHandleFilter(todayParams, appIds, setDateFrom, setDateTo, mockDispatch)
+      expect(mockHandleFilter).toBeCalledWith(todayParams, appIds, setDateFrom, setDateTo, mockDispatch)
     })
   })
 

@@ -30,10 +30,11 @@ import {
   webhookDataClear,
   deleteWebhook,
 } from '@/actions/webhooks-subscriptions'
-import { CustomerItem, TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhooks-subscriptions'
 import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
 
@@ -67,7 +68,7 @@ export const generateTopicOptions = (topics: TopicItem[]) => {
   )
 }
 
-export const generateCustomerOptions = (customers: CustomerItem[]) => {
+export const generateCustomerOptions = (customers: InstallationModel[]) => {
   const customerOptions: SelectOption[] = [
     {
       value: 'SBOX',
@@ -75,12 +76,12 @@ export const generateCustomerOptions = (customers: CustomerItem[]) => {
       description: 'SBOX',
     } as SelectOption,
   ]
-  customers.forEach((customer: CustomerItem) => {
+  customers.forEach((customer: InstallationModel) => {
     if (customer.status === 'Active') {
       customerOptions.push({
-        value: customer.client,
-        label: customer.client,
-        description: customer.client,
+        value: customer.customerId,
+        label: customer.customerName,
+        description: customer.customerName,
       } as SelectOption)
     }
   })

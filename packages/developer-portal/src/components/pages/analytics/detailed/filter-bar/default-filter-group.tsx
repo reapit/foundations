@@ -4,7 +4,6 @@ import { Button, ButtonGroup, H6, DATE_TIME_FORMAT, Section } from '@reapit/elem
 
 export type DefaultFilterGroupProps = {
   appIds: string[]
-  clientIds: string[]
   setDateFrom: (date: string) => void
   setDateTo: (date: string) => void
 }
