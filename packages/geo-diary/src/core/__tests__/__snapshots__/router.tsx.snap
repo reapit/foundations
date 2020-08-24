@@ -23,19 +23,23 @@ exports[`Router should match a snapshot 1`] = `
   }
 >
   <Suspense
-    fallback={null}
+    fallback={<Unknown />}
   >
     <Switch>
       <Route
-        exact={true}
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
+          }
+        }
         path="/login"
-        render={[Function]}
       />
-      <withRouter(Connect(Component))
-        path="/"
-      >
+      <Component>
         <Switch>
-          <Connect(Component)
+          <Component
             allow="CLIENT"
             component={
               Object {
@@ -45,11 +49,10 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            fetcher={true}
             path="/"
           />
         </Switch>
-      </withRouter(Connect(Component))>
+      </Component>
       <Redirect
         to="/login"
       />

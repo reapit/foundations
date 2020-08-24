@@ -93,5 +93,4 @@ jobs:
             packages/aml-checklist/.webpack-cache
             packages/smb-onboarder/.webpack-cache
             packages/geo-diary/.webpack-cache
-            packages/geo-diary-v2/.webpack-cache
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}
