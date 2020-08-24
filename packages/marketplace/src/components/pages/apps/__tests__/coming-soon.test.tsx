@@ -1,6 +1,11 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import ComingSoonApps, { onImageError, getComingAppLinkHref, emptyComingSoonAppLinkHref } from '../coming-soon'
+import ComingSoonApps, {
+  onImageError,
+  getComingAppLinkHref,
+  emptyComingSoonAppLinkHref,
+  handleComingSoonSectionResizeObserver,
+} from '../coming-soon'
 
 jest.mock('@/assets/images/default-feature-image.jpg', () => 'placeHolderImage')
 
@@ -31,5 +36,27 @@ describe('onImageError', () => {
     onImageError(eventMock)
     const srcNew = eventMock.currentTarget.src
     expect(srcNew).toBe('placeHolderImage')
+  })
+})
+
+describe('handleComingSoonSectionResizeObserver', () => {
+  it('should run correctly', () => {
+    const mockSetHeight = jest.fn()
+    const mockEntry = {
+      contentRect: {
+        bottom: 0,
+        height: 10,
+        left: 0,
+        right: 0,
+        top: 0,
+        width: 10,
+        x: 0,
+        y: 0,
+      },
+    } as ResizeObserverEntry
+
+    const fn = handleComingSoonSectionResizeObserver(mockSetHeight)
+    fn(mockEntry)
+    expect(mockSetHeight).toBeCalledWith(mockEntry.contentRect.height)
   })
 })
