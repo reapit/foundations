@@ -3,7 +3,6 @@
 // project for security reasons and using random strings would be basically worthless as a test.
 // Given code comes from AWS, seems reasonable to trust the implementation.
 import 'isomorphic-fetch'
-import { promisify } from 'util'
 import jsonwebtoken from 'jsonwebtoken'
 import jwkToPem, { RSA } from 'jwk-to-pem'
 import { LoginIdentity } from '../types'
@@ -84,7 +83,6 @@ export const connectSessionVerifyDecodeIdToken = async (
   try {
     const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
-    const verifyPromised = promisify(jsonwebtoken.verify.bind(jsonwebtoken))
 
     if (tokenSections.length < 2) throw new Error('Id token is invalid')
 
@@ -100,7 +98,7 @@ export const connectSessionVerifyDecodeIdToken = async (
 
     if (!key) throw new Error('Id verification claim made for unknown kid')
 
-    const claim = (await verifyPromised(token, key.pem)) as Claim
+    const claim = jsonwebtoken.verify(token, key.pem) as Claim
     const currentSeconds = Math.floor(new Date().valueOf() / 1000)
 
     if (currentSeconds > claim.exp || currentSeconds < claim.auth_time) throw new Error('Id verification claim expired')
