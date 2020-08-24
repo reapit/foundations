@@ -45,7 +45,6 @@ export const handleLoadMore = ({
   numOfItemsPerPage: number
   pageNumber: number
 }) => () => {
-  console.log('------handleLoadMore------ -> loading', loading)
   !loading &&
     dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }

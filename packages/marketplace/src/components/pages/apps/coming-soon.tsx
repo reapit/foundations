@@ -1,4 +1,5 @@
 import * as React from 'react'
+import useResizeObserver from '@react-hook/resize-observer'
 import { GridThreeColItem, Grid } from '@reapit/elements'
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImage1 from '@/assets/images/coming-soon/1Yourkeys.jpeg'
@@ -33,22 +34,17 @@ const comingSoonImagesList = [
 const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
 
-  React.useLayoutEffect(() => {
-    const offsetHeight = document.getElementById('coming-soon-section')?.offsetHeight
-    console.log('offsetHeight', offsetHeight)
-
-    if (offsetHeight && setComingSoonAppSectionHeight) {
-      setComingSoonAppSectionHeight(offsetHeight)
+  useResizeObserver(comingSoonAppSectionRef, entry => {
+    if (!setComingSoonAppSectionHeight) {
+      return
     }
 
-    console.log(
-      '---- coming soon boundingClientRect ----',
-      document.getElementById('coming-soon-section')?.getBoundingClientRect(),
-    )
+    const elementHeight = entry.contentRect.height
+    setComingSoonAppSectionHeight(elementHeight)
   })
 
   return (
-    <div id="coming-soon-section" ref={comingSoonAppSectionRef} style={{ minHeight: '100%' }}>
+    <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
       <Grid isMultiLine>
         {comingSoonImagesList.map(imgSrc => (
           <GridThreeColItem key={imgSrc}>

@@ -29,6 +29,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
+    "@react-hook/resize-observer": "^1.1.0",
     "@reapit/connect-session": "1.0.0-alpha.1",
     "@reapit/elements": "^0.5.60",
     "@reapit/utils": "^0.0.1",
