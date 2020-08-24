@@ -23,14 +23,19 @@ type PagedResultJournalEntryModel_ {
 }
 
 type Query {
-  GetJournalEntries(pageSize: Int, pageNumber: Int, sortBy: String, associatedType: [String!], associatedId: [String!], negotiatorId: [String!], typeId: [String!], createdFrom: String, createdTo: String): PagedResultJournalEntryModel_!
+  GetJournalEntries(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    associatedType: [String!]
+    associatedId: [String!]
+    negotiatorId: [String!]
+    typeId: [String!]
+    createdFrom: String
+    createdTo: String
+  ): PagedResultJournalEntryModel_!
 }
 
 type Mutation {
-  CreateJournalEntry(
-    propertyId: String
-    associatedType: String
-    associatedId: String
-    description: String!
-  ): Boolean!
+  CreateJournalEntry(propertyId: String, associatedType: String, associatedId: String, description: String!): Boolean!
 }

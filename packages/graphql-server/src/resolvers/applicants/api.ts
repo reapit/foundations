@@ -33,11 +33,16 @@ export const callGetApplicantByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetApplicantByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetApplicantByIdReturn>(`${URLS.applicants}/${args.id}`, {
-      headers: {
-        Authorization: context.authorization,
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetApplicantByIdReturn>(
+      `${URLS.applicants}/${id}?${params}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
+    )
     return response?.data
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callGetApplicantByIdAPI' })

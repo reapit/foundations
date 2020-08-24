@@ -89,7 +89,20 @@ type ApplicantModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedApplicantModel
+}
+
+type EmbeddedApplicantModel {
+  appointments: [AppointmentModel]
+  areas: [AreaModel]
+  department: DepartmentModel
+  documents: [JSON]
+  negotiators: [NegotiatorModel]
+  offers: [OfferModel]
+  offices: [OfficeModel]
+  solicitor: CompanyModel
+  source: SourceModel
+  property: PropertyModel
 }
 
 type PagedResultApplicantModel {
@@ -127,7 +140,7 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String]
+    embed: [ApplicantQueryEmbed]
     id: [String]
     age: [String]
     furnishing: [String]
@@ -157,7 +170,7 @@ type Query {
     nextCallTo: String
     metadata: [String]
   ): PagedResultApplicantModel!
-  GetApplicantById(id: String!, embed: [String]): ApplicantModel!
+  GetApplicantById(id: String!, embed: [ApplicantQueryEmbed]): ApplicantModel!
   GetApplicantRelationshipById(id: String!, relationshipId: String!): ApplicantContactRelationshipModel!
   GetApplicantRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultApplicantContactRelationshipModel!
   GetAppointments(
@@ -173,8 +186,9 @@ type Query {
     end: String!
     includeCancelled: Boolean
     includeUnconfirmed: Boolean
+    embed: [AppointmentQueryEmbed]
   ): PagedResultAppointmentModel!
-  GetAppointmentById(id: String!): AppointmentModel!
+  GetAppointmentById(id: String!, embed: [AppointmentQueryEmbed]): AppointmentModel!
   GetAreas(
     pageSize: Int
     pageNumber: Int
@@ -186,12 +200,12 @@ type Query {
     active: Boolean
   ): PagedResultAreaModel!
   GetAreaById(id: String!): AreaModel!
-  GetCompanyById(id: String!, embed: [String!]): CompanyModel!
+  GetCompanyById(id: String!, embed: [CompanyQueryEmbed]): CompanyModel!
   GetCompanies(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [CompanyQueryEmbed]
     id: [String!]
     address: String
     branch: String
@@ -218,18 +232,19 @@ type Query {
     active: Boolean
     createdFrom: String
     createdTo: String
+    embed: [ContactQueryEmbed]
   ): PagedResultContactModel!
-  GetContactById(id: String!): ContactModel!
+  GetContactById(id: String!, embed: [ContactQueryEmbed]): ContactModel!
   GetConveyancing(
     pageSize: Int
     pageNumber: Int
     sortBy: String
     id: [String!]
     propertyId: [String!]
-    embed: [String!]
+    embed: [ContactQueryEmbed]
     metadata: [String!]
   ): PagedResultConveyancingModel_!
-  GetConveyancingById(id: String!, embed: [String!]): ConveyancingModel!
+  GetConveyancingById(id: String!, embed: [ConveyancingModel]): ConveyancingModel!
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
   GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
   GetDepartmentById(id: String!): DepartmentModel!
@@ -254,8 +269,9 @@ type Query {
     createdFrom: String
     createdTo: String
     status: [String!]
+    embed: [IdentityCheckQueryEmbed]
   ): PagedResultIdentityCheckModel!
-  GetIdentityCheckById(id: String!): IdentityCheckModel!
+  GetIdentityCheckById(id: String!, embed: [IdentityCheckQueryEmbed]): IdentityCheckModel!
   GetJournalEntries(
     pageSize: Int
     pageNumber: Int
@@ -267,12 +283,12 @@ type Query {
     createdFrom: String
     createdTo: String
   ): PagedResultJournalEntryModel_!
-  GetLandlordById(id: String!, embed: [String!]): LandlordModel!
+  GetLandlordById(id: String!, embed: [LandlordQueryEmbed]): LandlordModel!
   GetLandlords(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [LandlordQueryEmbed]
     id: [String!]
     active: Boolean
     address: String
@@ -290,9 +306,9 @@ type Query {
     id: [String!]
     officeId: [String!]
     name: String
-    embed: [String!]
+    embed: [NegotiatorQueryEmbed]
   ): PagedResultNegotiatorModel!
-  GetNegotiatorById(id: String!, embed: [String!]): NegotiatorModel!
+  GetNegotiatorById(id: String!, embed: [NegotiatorQueryEmbed]): NegotiatorModel!
   GetOffers(
     pageSize: Int
     pageNumber: Int
@@ -310,7 +326,7 @@ type Query {
     name: String
     embed: [OfferQueryEmbed]
   ): PagedResultOfferModel!
-  GetOfferById(id: String!, embed: [String]): OfferModel!
+  GetOfferById(id: String!, embed: [OfferQueryEmbed]): OfferModel!
   GetOffices(
     pageSize: Int
     pageNumber: Int
@@ -318,15 +334,15 @@ type Query {
     id: [String!]
     address: String
     name: String
-    embed: [String!]
+    embed: [OfficeQueryEmbed]
   ): PagedResultOfficeModel!
-  GetOfficeById(id: String!, embed: [String!]): OfficeModel!
+  GetOfficeById(id: String!, embed: [OfficeQueryEmbed]): OfficeModel!
   Ping: String!
   GetProperties(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [PropertyQueryEmbed]
     id: [String!]
     age: [String!]
     agentRole: [String!]
@@ -350,18 +366,18 @@ type Query {
     rentFrequency: [String!]
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
-  GetPropertyById(id: String!, embed: [String!]): PropertyModel!
+  GetPropertyById(id: String!, embed: [PropertyQueryEmbed]): PropertyModel!
   GetPropertyImages(
     pageSize: Int
     pageNumber: Int
     sortBy: String
     id: [String!]
-    embed: [String!]
+    embed: [PropertyImageQueryEmbed]
     propertyId: [String!]
     type: [String!]
     metadata: [String!]
   ): PagedResultPropertyImageModel!
-  GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetPropertyImageById(id: String!, embed: [PropertyImageQueryEmbed]): PropertyImageModel!
   GetSources(
     pageSize: Int
     pageNumber: Int
@@ -380,7 +396,7 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String]
+    embed: [TaskQueryEmbed]
     id: [String]
     applicantId: [String]
     contactId: [String]
@@ -397,12 +413,12 @@ type Query {
     createdTo: String
     metadata: [String]
   ): PagedResultTaskModel!
-  GetTaskById(id: String!, embed: [String]): TaskModel!
+  GetTaskById(id: String!, embed: [TaskQueryEmbed]): TaskModel!
   GetTenancies(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [TenancyQueryEmbed]
     id: [String!]
     negotiatorId: [String!]
     applicantId: [String!]
@@ -414,7 +430,7 @@ type Query {
     modifiedTo: String
     metadata: [String!]
   ): PagedResultTenancies!
-  GetTenancyById(id: String!, embed: [String!]): TenancyModel!
+  GetTenancyById(id: String!, embed: [TenancyQueryEmbed]): TenancyModel!
   GetTenancyRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyRelationships!
   GetTenancyChecks(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyChecks!
   GetTenancyCheckById(id: String!, checkId: String!): TenancyCheckModel!
@@ -423,7 +439,7 @@ type Query {
     pageNumber: Int
     sortBy: String
     id: [String!]
-    embed: [String]
+    embed: [VendorQueryEmbed]
     negotiatorId: [String]
     officeId: [String]
     address: String
@@ -436,7 +452,7 @@ type Query {
     nextCallTo: String
     metadata: [String]
   ): PagedResultVendorModel!
-  GetVendorById(id: String!, embed: [String]): VendorModel!
+  GetVendorById(id: String!, embed: [VendorQueryEmbed]): VendorModel!
   GetVendorRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
   GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
   GetWorksOrders(
@@ -462,6 +478,18 @@ type Query {
   GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder!
   GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem!
   GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem!
+}
+
+enum ApplicantQueryEmbed {
+  appointments
+  areas
+  department
+  documents
+  negotiators
+  offers
+  offices
+  solicitor
+  source
 }
 
 input ApplicantAddressInput {
@@ -1118,7 +1146,15 @@ type AppointmentModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedAppointmentModel
+}
+
+type EmbeddedAppointmentModel {
+  negotiators: [NegotiatorModel]
+  offices: [OfficeModel]
+  organiser: NegotiatorModel
+  property: PropertyModel
+  type: ListItemModel
 }
 
 type AppointmentModelFollowUp {
@@ -1156,6 +1192,14 @@ input UpdateAppointmentModelAttendeeInput {
 input UpdateAppointmentModelFollowUpInput {
   responseId: String
   notes: String
+}
+
+enum AppointmentQueryEmbed {
+  negotiators
+  offices
+  organiser
+  property
+  type
 }
 
 type AreaModel {
@@ -1204,7 +1248,7 @@ type CompanyModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedCompanyRoleModel
 }
 
 type CompanyModel_address {
@@ -1249,6 +1293,10 @@ type CompanyRoleModel {
   _embedded: JSON
 }
 
+type EmbeddedCompanyRoleModel {
+  companyTypes: [ListItemModel]
+}
+
 input CompanyModelAddressInput {
   type: String
   buildingName: String
@@ -1259,6 +1307,10 @@ input CompanyModelAddressInput {
   line4: String
   postcode: String
   countryId: String
+}
+
+enum CompanyQueryEmbed {
+  companyTypes
 }
 
 type ListItemModel {
@@ -1305,7 +1357,15 @@ type ContactModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedContactModel
+}
+
+type EmbeddedContactModel {
+  documents: JSON
+  identityChecks: [IdentityCheckModel]
+  negotiators: [NegotiatorModel]
+  offices: [OfficeModel]
+  source: SourceModel
 }
 
 type ContactModelAddress {
@@ -1349,6 +1409,14 @@ type PagedResultContactModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum ContactQueryEmbed {
+  documents
+  identityChecks
+  negotiators
+  offices
+  source
 }
 
 # Representation of an offers sales progression information
@@ -1402,7 +1470,15 @@ type ConveyancingModel {
   _eTag: String
   metadata: JSON
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedConveyancingModel
+}
+
+type EmbeddedConveyancingModel {
+  buyerSolicitor: CompanyModel
+  offer: OfferModel
+  property: PropertyModel
+  vendor: VendorModel
+  vendorSolicitor: CompanyModel
 }
 
 type PagedResultConveyancingModel_ {
@@ -1413,6 +1489,14 @@ type PagedResultConveyancingModel_ {
   totalPageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum ConveyancingQueryEmbed {
+  buyerSolicitor
+  offer
+  property
+  vendor
+  vendorSolicitor
 }
 
 type DepartmentModel {
@@ -1517,7 +1601,15 @@ type IdentityCheckModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedIdentityCheckModel
+}
+
+type EmbeddedIdentityCheckModel {
+  contact: ContactModel
+  document1: JSON
+  document2: JSON
+  documentType1: ListItemModel
+  documentType2: ListItemModel
 }
 
 type IdentityCheckModelIdentityDocument {
@@ -1534,6 +1626,14 @@ type PagedResultIdentityCheckModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum IdentityCheckQueryEmbed {
+  contact
+  document1
+  document2
+  documentType1
+  documentType2
 }
 
 type JournalEntryModel {
@@ -1558,6 +1658,24 @@ type PagedResultJournalEntryModel_ {
   _links: JSON
 }
 
+enum LandlordQueryEmbed {
+  appointments
+  documents
+  office
+  properties
+  solicitor
+  source
+}
+
+type EmbeddedLandlordModel {
+  appointments: [AppointmentModel]
+  documents: [JSON]
+  office: OfficeModel
+  properties: [PropertyModel]
+  solicitor: CompanyModel
+  source: SourceModel
+}
+
 type LandlordModel {
   id: String
   created: String
@@ -1570,7 +1688,7 @@ type LandlordModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedLandlordModel
 }
 
 type LandlordSourceModel {
@@ -1659,7 +1777,7 @@ type NegotiatorModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedNegotiatorModel
 }
 
 type PagedResultNegotiatorModel {
@@ -1669,6 +1787,14 @@ type PagedResultNegotiatorModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+type EmbeddedNegotiatorModel {
+  office: OfficeModel
+}
+
+enum NegotiatorQueryEmbed {
+  office
 }
 
 type OfferAddress {
@@ -1752,7 +1878,11 @@ type OfficeModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedOfficeModel
+}
+
+type EmbeddedOfficeModel {
+  negotiators: [NegotiatorModel]
 }
 
 type PagedResultOfficeModel {
@@ -1784,6 +1914,10 @@ input OfficeModelAddressInput {
   line4: String
   postcode: String
   countryId: String
+}
+
+enum OfficeQueryEmbed {
+  negotiators
 }
 
 input AddressInput {
@@ -1902,7 +2036,20 @@ type PropertyModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedPropertyModel
+}
+
+type EmbeddedPropertyModel {
+  appointments: [AppointmentModel]
+  area: AreaModel
+  department: DepartmentModel
+  documents: [JSON]
+  images: [PropertyImageModel]
+  landlord: LandlordModel
+  negotiator: NegotiatorModel
+  offers: [OfferModel]
+  tenancies: [TenancyModel]
+  vendor: VendorModel
 }
 
 type PropertyModelAddress {
@@ -1977,6 +2124,19 @@ type PropertyRoomModel {
   description: String
 }
 
+enum PropertyQueryEmbed {
+  appointments
+  area
+  department
+  documents
+  images
+  landlord
+  negotiator
+  offers
+  tenancies
+  vendor
+}
+
 type PagedResultPropertyImageModel {
   _embedded: [PropertyImageModel!]
   pageNumber: Int
@@ -1998,7 +2158,11 @@ type PropertyImageModel {
   order: Int
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedApplicantModel
+}
+
+enum PropertyImageQueryEmbed {
+  property
 }
 
 type SourceModel {
@@ -2042,7 +2206,16 @@ type TaskModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedTaskModel
+}
+
+type EmbeddedTaskModel {
+  applicant: ApplicantModel
+  contact: ContactModel
+  landlord: LandlordModel
+  property: PropertyModel
+  tenancy: TenancyModel
+  type: ListItemModel
 }
 
 type PagedResultTaskModel {
@@ -2054,37 +2227,34 @@ type PagedResultTaskModel {
   _links: JSON
 }
 
+enum TaskQueryEmbed {
+  applicant
+  contact
+  landlord
+  property
+  tenancy
+  type
+}
+
+enum TenancyQueryEmbed {
+  appointments
+  applicants
+  documents
+  negotiator
+  property
+  source
+  tasks
+  type
+}
+
 type PagedResultTenancies {
-  _embedded: [PagedResultTenanciesEmbedded!]
+  _embedded: [TenancyModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
   totalPageCount: Int
   totalCount: Int
   _links: JSON
-}
-
-type PagedResultTenanciesEmbedded {
-  id: String
-  created: String
-  modified: String
-  startDate: String
-  endDate: String
-  status: String
-  agentRole: String
-  rent: Int
-  rentFrequency: String
-  endDateConfirmed: Boolean
-  isPeriodic: Boolean
-  typeId: String
-  negotiatorId: String
-  propertyId: String
-  applicantId: String
-  source: TenancySourceModel
-  related: [TenancyRelatedModel!]
-  _eTag: String
-  _links: JSON
-  _embedded: JSON
 }
 
 type TenancyModel {
@@ -2107,7 +2277,18 @@ type TenancyModel {
   related: [TenancyRelatedModel!]
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedTenancyModel
+}
+
+type EmbeddedTenancyModel {
+  appointments: [AppointmentModel]
+  applicants: [ApplicantModel]
+  documents: [JSON]
+  negotiator: NegotiatorModel
+  property: PropertyModel
+  source: SourceModel
+  tasks: [TaskModel]
+  type: ListItemModel
 }
 
 type TenancySourceModel {
@@ -2163,7 +2344,7 @@ type PagedResultTenancyRelationshipsEmbedded {
 }
 
 type PagedResultTenancyChecks {
-  _embedded: [PagedResultTenancyChecksEmbedded!]
+  _embedded: [TenancyCheckModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -2172,7 +2353,7 @@ type PagedResultTenancyChecks {
   _links: JSON
 }
 
-type PagedResultTenancyChecksEmbedded {
+type TenancyCheckModel {
   id: String
   created: String
   modified: String
@@ -2185,16 +2366,19 @@ type PagedResultTenancyChecksEmbedded {
   _embedded: JSON
 }
 
-type TenancyCheckModel {
-  tenancyId: String
-  _eTag: String
-  _links: JSON
-  _embedded: JSON
-}
-
 input CreateTenancyRequestModelSource {
   id: String
   type: String
+}
+
+enum VendorQueryEmbed {
+  negotiator
+  offices
+  property
+  sellingReason
+  solicitor
+  source
+  type
 }
 
 type VendorAddress {
@@ -2245,7 +2429,17 @@ type VendorModel {
   metadata: JSON
   _eTag: JSON
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedVendorModel
+}
+
+type EmbeddedVendorModel {
+  negotiator: NegotiatorModel
+  offices: [OfficeModel]
+  property: PropertyModel
+  sellingReason: JSON
+  solicitor: CompanyModel
+  source: SourceModel
+  type: ListItemModel
 }
 
 type PagedResultVendorModel {

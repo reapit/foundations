@@ -14,7 +14,7 @@ type NegotiatorModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedNegotiatorModel
 }
 
 type PagedResultNegotiatorModel {
@@ -26,6 +26,14 @@ type PagedResultNegotiatorModel {
   _links: JSON
 }
 
+type EmbeddedNegotiatorModel {
+  office: OfficeModel
+}
+
+enum NegotiatorQueryEmbed {
+  office
+}
+
 type Query {
   GetNegotiators(
     pageSize: Int
@@ -34,10 +42,10 @@ type Query {
     id: [String!]
     officeId: [String!]
     name: String
-    embed: [String!]
+    embed: [NegotiatorQueryEmbed]
   ): PagedResultNegotiatorModel!
 
-  GetNegotiatorById(id: String!, embed: [String!]): NegotiatorModel!
+  GetNegotiatorById(id: String!, embed: [NegotiatorQueryEmbed]): NegotiatorModel!
 }
 
 type Mutation {

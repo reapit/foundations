@@ -88,7 +88,7 @@ type Query {
     embed: [OfferQueryEmbed]
   ): PagedResultOfferModel!
 
-  GetOfferById(id: String!, embed: [String]): OfferModel!
+  GetOfferById(id: String!, embed: [OfferQueryEmbed]): OfferModel!
 }
 
 type Mutation {
