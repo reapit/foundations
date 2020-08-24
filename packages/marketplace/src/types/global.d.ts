@@ -1,3 +1,8 @@
+export type ComingSoonApp = {
+  image: string
+  email: string
+}
+
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
@@ -21,6 +26,7 @@ export type Config = {
   previewExternalAppIds: string[]
   previewFeaturedExternalAppIds: string[]
   connectLoginRedirectPath: string
+  comingSoonApps: ComingSoonApp[]
 }
 
 declare global {
