@@ -48,17 +48,22 @@ export const getComingAppLinkHref = (email?: string) => {
   return emptyComingSoonAppLinkHref
 }
 
-const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
-  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
-
-  useResizeObserver(comingSoonAppSectionRef, entry => {
+export const handleComingSoonSectionResizeObserver = (
+  setComingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
+) => {
+  return (entry: ResizeObserverEntry) => {
     if (!setComingSoonAppSectionHeight) {
       return
     }
-
     const elementHeight = entry.contentRect.height
     setComingSoonAppSectionHeight(elementHeight)
-  })
+  }
+}
+
+const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
+  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
+
+  useResizeObserver(comingSoonAppSectionRef, handleComingSoonSectionResizeObserver(setComingSoonAppSectionHeight))
 
   return (
     <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
