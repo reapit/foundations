@@ -102,7 +102,6 @@ type EmbeddedApplicantModel {
   offices: [OfficeModel]
   solicitor: CompanyModel
   source: SourceModel
-  property: PropertyModel
 }
 
 type PagedResultApplicantModel {
@@ -241,10 +240,10 @@ type Query {
     sortBy: String
     id: [String!]
     propertyId: [String!]
-    embed: [ContactQueryEmbed]
+    embed: [ConveyancingQueryEmbed]
     metadata: [String!]
   ): PagedResultConveyancingModel_!
-  GetConveyancingById(id: String!, embed: [ConveyancingModel]): ConveyancingModel!
+  GetConveyancingById(id: String!, embed: [ConveyancingQueryEmbed]): ConveyancingModel!
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
   GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
   GetDepartmentById(id: String!): DepartmentModel!
@@ -2158,7 +2157,11 @@ type PropertyImageModel {
   order: Int
   _eTag: String
   _links: JSON
-  _embedded: EmbeddedApplicantModel
+  _embedded: EmbeddedPropertyImageModel
+}
+
+type EmbeddedPropertyImageModel {
+  property: PropertyModel
 }
 
 enum PropertyImageQueryEmbed {
@@ -2238,7 +2241,7 @@ enum TaskQueryEmbed {
 
 enum TenancyQueryEmbed {
   appointments
-  applicants
+  applicant
   documents
   negotiator
   property
@@ -2282,7 +2285,7 @@ type TenancyModel {
 
 type EmbeddedTenancyModel {
   appointments: [AppointmentModel]
-  applicants: [ApplicantModel]
+  applicant: ApplicantModel
   documents: [JSON]
   negotiator: NegotiatorModel
   property: PropertyModel

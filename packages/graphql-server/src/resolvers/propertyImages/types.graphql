@@ -21,10 +21,10 @@ type PropertyImageModel {
   order: Int
   _eTag: String
   _links: JSON
-  _embedded: EmbeddedApplicantModel
+  _embedded: EmbeddedPropertyImageModel
 }
 
-type EmbeddedApplicantModel {
+type EmbeddedPropertyImageModel {
   property: PropertyModel
 }
 

@@ -86,10 +86,10 @@ type Query {
     sortBy: String
     id: [String!]
     propertyId: [String!]
-    embed: [ContactQueryEmbed]
+    embed: [ConveyancingQueryEmbed]
     metadata: [String!]
   ): PagedResultConveyancingModel_!
-  GetConveyancingById(id: String!, embed: [ConveyancingModel]): ConveyancingModel!
+  GetConveyancingById(id: String!, embed: [ConveyancingQueryEmbed]): ConveyancingModel!
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
 }
 

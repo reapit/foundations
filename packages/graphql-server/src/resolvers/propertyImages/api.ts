@@ -26,8 +26,10 @@ export const callGetPropertyImageByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetPropertyImageByIdAPI', { traceId, args })
   try {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
     const response = await createPlatformAxiosInstance().get<GetPropertyImageByIdReturn>(
-      `${URLS.propertyImages}/${args.id}`,
+      `${URLS.propertyImages}/${id}?${params}`,
       {
         headers: {
           Authorization: context.authorization,

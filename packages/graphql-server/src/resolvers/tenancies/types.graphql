@@ -42,7 +42,7 @@ type Mutation {
 
 enum TenancyQueryEmbed {
   appointments
-  applicants
+  applicant
   documents
   negotiator
   property
@@ -86,7 +86,7 @@ type TenancyModel {
 
 type EmbeddedTenancyModel {
   appointments: [AppointmentModel]
-  applicants: [ApplicantModel]
+  applicant: ApplicantModel
   documents: [JSON]
   negotiator: NegotiatorModel
   property: PropertyModel

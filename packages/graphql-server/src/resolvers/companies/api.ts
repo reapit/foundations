@@ -23,11 +23,16 @@ export const callGetCompanyByIdAPI = async (args: GetCompanyByIdArgs, context: S
   const traceId = context.traceId
   logger.info('callGetCompanyByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetCompanyByIdReturn>(`${URLS.companies}/${args.id}`, {
-      headers: {
-        Authorization: context.authorization,
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetCompanyByIdReturn>(
+      `${URLS.companies}/${id}?${params}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
+    )
     return response?.data
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callGetCompanyByIdAPI' })

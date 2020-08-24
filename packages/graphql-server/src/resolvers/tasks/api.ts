@@ -21,7 +21,9 @@ export const callGetTaskByIdAPI = async (args: GetTaskByIdArgs, context: ServerC
   const traceId = context.traceId
   logger.info('callGetTaskByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetTaskByIdReturn>(`${URLS.tasks}/${args.id}`, {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetTaskByIdReturn>(`${URLS.tasks}/${id}?${params}`, {
       headers: {
         Authorization: context.authorization,
       },

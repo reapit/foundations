@@ -31,8 +31,10 @@ export const callGetConveyancingByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetConveyancingByIdAPI', { traceId, args })
   try {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
     const response = await createPlatformAxiosInstance().get<GetConveyancingByIdReturn>(
-      `${URLS.conveyancing}/${args.id}`,
+      `${URLS.conveyancing}/${id}?${params}`,
       {
         headers: {
           Authorization: context.authorization,

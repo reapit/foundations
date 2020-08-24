@@ -21,7 +21,9 @@ export const callGetOfficeByIdAPI = async (args: GetOfficeByIdArgs, context: Ser
   const traceId = context.traceId
   logger.info('callGetOfficeByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetOfficeByIdReturn>(`${URLS.offices}/${args.id}`, {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetOfficeByIdReturn>(`${URLS.offices}/${id}?${params}`, {
       headers: {
         Authorization: context.authorization,
       },
