@@ -34,23 +34,21 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
 
   React.useLayoutEffect(() => {
-    const offsetHeight = comingSoonAppSectionRef.current?.offsetHeight
-    const clientHeight = comingSoonAppSectionRef.current?.clientHeight
-    const scrolHeight = comingSoonAppSectionRef.current?.scrollHeight
+    const offsetHeight = document.getElementById('coming-soon-section')?.offsetHeight
+    console.log('offsetHeight', offsetHeight)
 
-    const boundingClientRect = comingSoonAppSectionRef.current?.getBoundingClientRect()
-    console.log('boundingClientRect', boundingClientRect)
-
-    console.log(
-      `useLayoutEffect - ComingSoonApps component -> offsetHeight - ${offsetHeight} - clientHeight - ${clientHeight} - scrolHeight - ${scrolHeight}`,
-    )
     if (offsetHeight && setComingSoonAppSectionHeight) {
       setComingSoonAppSectionHeight(offsetHeight)
     }
+
+    console.log(
+      '---- coming soon boundingClientRect ----',
+      document.getElementById('coming-soon-section')?.getBoundingClientRect(),
+    )
   })
 
   return (
-    <div ref={comingSoonAppSectionRef} style={{ minHeight: '100%' }}>
+    <div id="coming-soon-section" ref={comingSoonAppSectionRef} style={{ minHeight: '100%' }}>
       <Grid isMultiLine>
         {comingSoonImagesList.map(imgSrc => (
           <GridThreeColItem key={imgSrc}>

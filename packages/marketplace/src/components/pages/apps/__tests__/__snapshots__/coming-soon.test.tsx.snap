@@ -2,6 +2,7 @@
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
 <div
+  id="coming-soon-section"
   style={
     Object {
       "minHeight": "100%",
