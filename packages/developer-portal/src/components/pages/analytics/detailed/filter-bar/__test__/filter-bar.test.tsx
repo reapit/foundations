@@ -5,12 +5,10 @@ import {
   FilterBar,
   FilterBarProps,
   prepareAppDeveloperAppData,
-  prepareClientIds,
   handleUseCallbackToPrepareFilterFormInitialValues,
 } from '../filter-bar'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { SANDBOX_CLIENT_ID } from '../../../../../../constants/api'
 import { prepareDefaultFilterDateParams } from '../default-filter-group'
 
 const mockProps: FilterBarProps = {
@@ -28,13 +26,6 @@ describe('FilterBar', () => {
       const { developerApps, developerAppIds } = prepareAppDeveloperAppData(developerAppsData)
       expect(developerApps).toEqual(developerAppsData)
       expect(developerAppIds).toEqual(['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'])
-    })
-  })
-  describe('prepareClientIds', () => {
-    it('should run correctly', () => {
-      const { installationAppDataArray } = mockProps
-      const clientIds = prepareClientIds(installationAppDataArray)
-      expect(clientIds).toEqual([SANDBOX_CLIENT_ID, 'DXX'])
     })
   })
   describe('handleUseCallbackToPrepareFilterFormInitialValues', () => {
