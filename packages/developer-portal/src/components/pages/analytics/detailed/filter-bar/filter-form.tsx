@@ -64,7 +64,7 @@ export const renderClientSelectOptions = (installationAppDataArray: Installation
   ]
 }
 
-export const handleAutoSave = (developerApps: AppSummaryModel[], clients: any[], dispatch: Dispatch) => {
+export const handleAutoSave = (developerApps: AppSummaryModel[], clients: InstallationModel[], dispatch: Dispatch) => {
   const clientIds = clients.map(client => client.customerId)
   return values => {
     const { appId, clientId, dateFrom, dateTo } = values
