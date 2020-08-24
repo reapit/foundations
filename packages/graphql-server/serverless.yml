@@ -1,16 +1,12 @@
-service: graphql-server
+service: cloud-graphql-server
 plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
-  - serverless-s3-remover
 
 custom:
-  s3DeployBucket: cloud-graphql-server
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   env: ${file(./config.json)}
-  remover:
-     buckets:
-       - ${self:custom.s3DeployBucket}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -27,7 +23,7 @@ provider:
   endpointType: REGIONAL
   region: eu-west-2
   deploymentBucket:
-    name: ${self:custom.s3DeployBucket}
+    name: ${self:custom.s3CloudFormBucket}
     blockPublicAccess: false
 
   environment:

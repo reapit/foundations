@@ -1,19 +1,34 @@
 # https://www.npmjs.com/package/serverless-single-page-app-plugin
-service: elements-next
+service: cloud-elements-next
 
 plugins:
   - serverless-single-page-app-plugin
   - serverless-plugin-ifelse
-
+  - serverless-deployment-bucket
+  - serverless-s3-remover
+  - serverless-s3-deploy
 
 custom:
-  s3Bucket: reapit-elements-next-${self:provider.stage}
+  s3WebAppBucket: cloud-elements-next-${self:provider.stage}
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  remover:
+     buckets:
+       - ${self:custom.s3WebAppBucket}
+  assets:
+    auto: true
+    targets:
+      - bucket: ${self:custom.s3WebAppBucket}
+        files:
+          - source: ./public/dist/
+            globs: '**/*'
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
 
 resources:
   Resources:
@@ -21,7 +36,7 @@ resources:
     WebAppS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:custom.s3Bucket}
+        BucketName: ${self:custom.s3WebAppBucket}
         AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
@@ -62,7 +77,7 @@ resources:
                     ".s3.amazonaws.com"
                   ]
                 ]
-              Id: S3-${self:custom.s3Bucket}
+              Id: S3-${self:custom.s3WebAppBucket}
               CustomOriginConfig:
                 HTTPPort: 80
                 HTTPSPort: 443
@@ -94,7 +109,7 @@ resources:
               - GET
               - HEAD
               - OPTIONS
-            TargetOriginId: S3-${self:custom.s3Bucket}
+            TargetOriginId: S3-${self:custom.s3WebAppBucket}
             ForwardedValues:
               QueryString: 'false'
               Cookies:

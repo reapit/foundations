@@ -1,13 +1,29 @@
-service: cognito-mailer
-custom: ${file(./config.json)}
+service: cloud-cognito-mailer
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: cognito.mailer.${self:provider.stage}
-    blockPublicAccess: false
+    name: ${self:custom.s3CloudFormBucket}
   environment:
     COGNITO_USERPOOL_ID: ${self:custom.COGNITO_USERPOOL_ID}
     MARKET_PLACE_URL: ${self:custom.MARKET_PLACE_URL}

@@ -308,7 +308,7 @@ type Query {
     dateTo: String
     metadata: [String]
     name: String
-    embed: [String]
+    embed: [OfferQueryEmbed]
   ): PagedResultOfferModel!
   GetOfferById(id: String!, embed: [String]): OfferModel!
   GetOffices(
@@ -439,6 +439,29 @@ type Query {
   GetVendorById(id: String!, embed: [String]): VendorModel!
   GetVendorRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
   GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
+  GetWorksOrders(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [WorksOrdersEmbed]
+    id: [String]
+    companyId: [String]
+    negotiatorId: [String]
+    propertyId: [String]
+    status: [WorksOrdersStatus]
+    tenancyId: [String]
+    typeId: [String]
+    completedFrom: String
+    completedTo: String
+    createdFrom: String
+    createdTo: String
+    requiredFrom: String
+    requiredTo: String
+    metadata: JSON
+  ): PagedResultWorksOrders!
+  GetWorksOrdersById(embed: WorksOrdersEmbed, id: String!): WorkOrder!
+  GetWorksOrderItems(pageNumber: Int, pageSize: Int, id: String!): PagedResultWorksOrderItem!
+  GetWorksOrderItemById(itemId: String!, id: String!): WorksOrderItem!
 }
 
 input ApplicantAddressInput {
@@ -999,6 +1022,58 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+  DeleteWorksOrderItem(itemId: String!, id: String!): Boolean
+  UpdateWorksOrderItem(
+    notes: String
+    chargeTo: String
+    id: String!
+    itemId: String!
+    _eTag: String!
+    estimate: Float
+    estimateType: String
+    netAmount: Float
+    vatAmount: Float
+  ): WorksOrderItem!
+  CreateWorksOrderItem(
+    notes: String!
+    chargeTo: String!
+    id: String!
+    estimate: Float
+    estimateType: String
+    netAmount: Float
+    vatAmount: Float
+  ): WorksOrderItem!
+  UpdateWorksOrder(
+    propertyId: String
+    negotiatorId: String
+    typeId: String
+    status: String
+    description: String
+    reporter: String
+    companyId: String
+    tenancyId: String
+    booked: String
+    required: String
+    completed: String
+    metadata: JSON
+    _eTag: String!
+    id: String!
+  ): WorkOrder!
+  CreateWorksOrder(
+    propertyId: String!
+    negotiatorId: String!
+    typeId: String!
+    status: String!
+    description: String!
+    reporter: String!
+    items: [InputWorksOrderItem!]
+    companyId: String
+    tenancyId: String
+    booked: String
+    required: String
+    completed: String
+    metadata: JSON
+  ): WorkOrder!
 }
 
 type AppointmentAttendeeModel {
@@ -1639,7 +1714,14 @@ type OfferModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedOfferModel
+}
+
+type EmbeddedOfferModel {
+  applicant: ApplicantModel
+  conveyancing: ConveyancingModel
+  property: PropertyModel
+  negotiator: NegotiatorModel
 }
 
 type PagedResultOfferModel {
@@ -1649,6 +1731,13 @@ type PagedResultOfferModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum OfferQueryEmbed {
+  applicant
+  conveyancing
+  property
+  negotiator
 }
 
 type OfficeModel {
@@ -2185,6 +2274,96 @@ type PagedResultVendorRelationshipModel {
   pageNumber: Int
   pageSize: Int
   pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+enum WorksOrdersEmbed {
+  company
+  documents
+  negotiator
+  property
+  tenancy
+  type
+}
+
+enum WorksOrdersStatus {
+  pendingApproval
+  pendingQuote
+  raised
+  raisedToChase
+  landlordToComplete
+  complete
+  cancelled
+}
+
+input InputWorksOrderItem {
+  notes: String!
+  chargeTo: String!
+  estimate: Float
+  estimateType: String
+  netAmount: Float
+  vatAmount: Float
+}
+
+type WorksOrderItem {
+  id: String
+  worksOrderId: String
+  created: String
+  modified: String
+  notes: String
+  chargeTo: String
+  estimate: Float
+  estimateType: String
+  netAmount: Float
+  vatAmount: Float
+  grossAmount: Float
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type WorkOrder {
+  id: String
+  created: String
+  modified: String
+  companyId: String
+  propertyId: String
+  tenancyId: String
+  negotiatorId: String
+  typeId: String
+  status: String
+  description: String
+  reporter: String
+  booked: String
+  required: String
+  completed: String
+  totalNetAmount: Float
+  totalVatAmount: Float
+  totalGrossAmount: Float
+  metadata: JSON
+  items: [WorksOrderItem]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultWorksOrders {
+  _embedded: [WorkOrder!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type PagedResultWorksOrderItem {
+  _embedded: [WorksOrderItem!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalPageCount: Int
   totalCount: Int
   _links: JSON
 }

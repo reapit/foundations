@@ -43,7 +43,14 @@ type OfferModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedOfferModel
+}
+
+type EmbeddedOfferModel {
+  applicant: ApplicantModel
+  conveyancing: ConveyancingModel
+  property: PropertyModel
+  negotiator: NegotiatorModel
 }
 
 type PagedResultOfferModel {
@@ -53,6 +60,13 @@ type PagedResultOfferModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+enum OfferQueryEmbed {
+  applicant
+  conveyancing
+  property
+  negotiator
 }
 
 type Query {
@@ -71,7 +85,7 @@ type Query {
     dateTo: String
     metadata: [String]
     name: String
-    embed: [String]
+    embed: [OfferQueryEmbed]
   ): PagedResultOfferModel!
 
   GetOfferById(id: String!, embed: [String]): OfferModel!

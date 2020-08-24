@@ -61,11 +61,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
           aws-region: ${{secrets.AWS_REGION}}
 
-      - name: Fetch config
+      - name: Fetch config if staging
+        if: ${{ github.event.client_payload.environment == 'staging' }}
+        run: |
+          yarn fetch-config --name production
+
+      - name: Fetch config if not staging
+        if: ${{ github.event.client_payload.environment != 'staging' }}
         run: |
           yarn fetch-config --name ${{ github.event.client_payload.environment }}
 
-      - name: Release Production
+      - name: Release
         run: |
           yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
 

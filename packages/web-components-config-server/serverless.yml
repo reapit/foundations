@@ -1,9 +1,11 @@
-service: web-components-config-server
+service: cloud-web-components-config-server
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-deployment-bucket
 
 custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
@@ -16,12 +18,12 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: ${self:custom.env.AWS_REGION}
   deploymentBucket:
-    name: web-components-config-server.${self:provider.stage}
-    blockPublicAccess: false
+    name: ${self:custom.s3CloudFormBucket}
+
   environment:
     APP_ENV: ${self:custom.env.APP_ENV}
     NODE_ENV: 'production'

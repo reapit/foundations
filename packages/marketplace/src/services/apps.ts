@@ -20,10 +20,6 @@ export type FetchAppsParams = FetchListCommonParams & {
   registeredFrom?: string
   registeredTo?: string
 }
-/*
- * TODOME(fetchApps)
- * throw correct error
- */
 
 export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResultAppSummaryModel_> => {
   try {
@@ -43,10 +39,6 @@ export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResult
 export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
-/*
- * TODOME(fetchAppDetailSagas)
- * throw correct error
- */
 
 export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {

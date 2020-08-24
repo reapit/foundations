@@ -57,7 +57,7 @@ describe('generateInitialValues', () => {
       email,
       postcode,
       registrationNumber,
-      noRegistrationNumber: !registrationNumber,
+      noRegistrationNumber: Boolean(nationalInsurance),
       telephone,
       website,
       nationalInsurance,
