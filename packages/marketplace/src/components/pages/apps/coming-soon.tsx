@@ -70,7 +70,7 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
       <Grid isMultiLine>
         {(window.reapit.config.comingSoonApps || []).map(({ email, image }) => (
           <GridThreeColItem key={email}>
-            <div className="card">
+            <div className="card border-0">
               <div className="card-image">
                 <a href={getComingAppLinkHref(email)}>
                   <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
