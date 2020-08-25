@@ -103,7 +103,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
     <div className={container}>
       <div className={wrapper}>
         <H1 isCentered>Register</H1>
-        <p className="pb-8">Reapit Foundations developers</p>
+        <p className="mb-4">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
           <CallToAction
             title="Success!"

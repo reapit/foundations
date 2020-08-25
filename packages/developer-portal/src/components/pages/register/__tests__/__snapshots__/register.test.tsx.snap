@@ -69,7 +69,7 @@ exports[`Register should match a snapshot 1`] = `
               </h1>
             </Component>
             <p
-              className="pb-8"
+              className="mb-4"
             >
               Reapit Foundations developers
             </p>
