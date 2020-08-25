@@ -35,6 +35,7 @@ import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from 
 import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { SANDBOX_CLIENT_NAME, SANDBOX_CLIENT_ID } from '@/constants/api'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
 
@@ -69,15 +70,14 @@ export const generateTopicOptions = (topics: TopicItem[]) => {
 }
 
 export const generateCustomerOptions = (customers: InstallationModel[]) => {
-  const customerOptions: SelectOption[] = [
-    {
-      value: 'SBOX',
-      label: 'SBOX',
-      description: 'SBOX',
-    } as SelectOption,
-  ]
+  const customerOptions: SelectOption[] = []
+  customers.push({
+    customerId: SANDBOX_CLIENT_ID,
+    customerName: SANDBOX_CLIENT_NAME,
+  })
   customers.forEach((customer: InstallationModel) => {
-    if (customer.status === 'Active') {
+    const existed = customerOptions.find(option => option.value === customer.customerId)
+    if (customer.status === 'Active' && !existed) {
       customerOptions.push({
         value: customer.customerId,
         label: customer.customerName,

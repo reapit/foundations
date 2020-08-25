@@ -156,11 +156,6 @@ describe('WebhookEditModal', () => {
 
     const expected = [
       {
-        value: 'SBOX',
-        label: 'SBOX',
-        description: 'SBOX',
-      },
-      {
         value: 'customerId',
         label: 'customerName',
         description: 'customerName',
