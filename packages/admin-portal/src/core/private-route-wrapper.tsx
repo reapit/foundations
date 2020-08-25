@@ -21,18 +21,18 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const isRoot = connectInternalRedirect === '/'
+  const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/'
 
   if (!connectSession) {
     return null
   }
 
-  if (
-    (connectInternalRedirect && currentUri !== connectInternalRedirect) ||
-    (currentUri === connectInternalRedirect && isRoot)
-  ) {
-    const redirectUri = isRoot ? Routes.APPROVALS : connectInternalRedirect
-    return <Redirect to={redirectUri} />
+  if (isRoot) {
+    return <Redirect to={Routes.APPROVALS} />
+  }
+
+  if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
+    return <Redirect to={connectInternalRedirect} />
   }
 
   return (
