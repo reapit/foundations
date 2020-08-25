@@ -42,7 +42,15 @@ type AppointmentModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedAppointmentModel
+}
+
+type EmbeddedAppointmentModel {
+  negotiators: [NegotiatorModel]
+  offices: [OfficeModel]
+  organiser: NegotiatorModel
+  property: PropertyModel
+  type: ListItemModel
 }
 
 type AppointmentModelFollowUp {
@@ -82,6 +90,14 @@ input UpdateAppointmentModelFollowUpInput {
   notes: String
 }
 
+enum AppointmentQueryEmbed {
+  negotiators
+  offices
+  organiser
+  property
+  type
+}
+
 type Query {
   GetAppointments(
     pageSize: Int
@@ -96,9 +112,10 @@ type Query {
     end: String!
     includeCancelled: Boolean
     includeUnconfirmed: Boolean
+    embed: [AppointmentQueryEmbed]
   ): PagedResultAppointmentModel!
 
-  GetAppointmentById(id: String!): AppointmentModel!
+  GetAppointmentById(id: String!, embed: [AppointmentQueryEmbed]): AppointmentModel!
 }
 
 type Mutation {

@@ -4,7 +4,7 @@ type Query {
     pageNumber: Int
     sortBy: String
     id: [String!]
-    embed: [String]
+    embed: [VendorQueryEmbed]
     negotiatorId: [String]
     officeId: [String]
     address: String
@@ -17,7 +17,7 @@ type Query {
     nextCallTo: String
     metadata: [String]
   ): PagedResultVendorModel!
-  GetVendorById(id: String!, embed: [String]): VendorModel!
+  GetVendorById(id: String!, embed: [VendorQueryEmbed]): VendorModel!
   GetVendorRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultVendorRelationshipModel
   GetVendorRelationshipById(id: String!, relationshipId: String!): VendorRelationship
 }
@@ -36,6 +36,16 @@ type Mutation {
   ): VendorModel!
   CreateVendorRelationship(id: String!, associatedId: String, associatedType: String, isMain: Boolean): Boolean!
   DeleteVendorRelationship(id: String!, relationshipId: String!): Boolean!
+}
+
+enum VendorQueryEmbed {
+  negotiator
+  offices
+  property
+  sellingReason
+  solicitor
+  source
+  type
 }
 
 scalar JSON
@@ -87,9 +97,18 @@ type VendorModel {
   metadata: JSON
   _eTag: JSON
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedVendorModel
 }
 
+type EmbeddedVendorModel {
+  negotiator: NegotiatorModel
+  offices: [OfficeModel]
+  property: PropertyModel
+  sellingReason: JSON
+  solicitor: CompanyModel
+  source: SourceModel
+  type: ListItemModel
+}
 type PagedResultVendorModel {
   _embedded: [VendorModel!]
   pageNumber: Int

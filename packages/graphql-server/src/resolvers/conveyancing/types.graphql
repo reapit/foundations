@@ -50,7 +50,15 @@ type ConveyancingModel {
   _eTag: String
   metadata: JSON
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedConveyancingModel
+}
+
+type EmbeddedConveyancingModel {
+  buyerSolicitor: CompanyModel
+  offer: OfferModel
+  property: PropertyModel
+  vendor: VendorModel
+  vendorSolicitor: CompanyModel
 }
 
 type PagedResultConveyancingModel_ {
@@ -63,6 +71,14 @@ type PagedResultConveyancingModel_ {
   _links: JSON
 }
 
+enum ConveyancingQueryEmbed {
+  buyerSolicitor
+  offer
+  property
+  vendor
+  vendorSolicitor
+}
+
 type Query {
   GetConveyancing(
     pageSize: Int
@@ -70,10 +86,10 @@ type Query {
     sortBy: String
     id: [String!]
     propertyId: [String!]
-    embed: [String!]
+    embed: [ConveyancingQueryEmbed]
     metadata: [String!]
   ): PagedResultConveyancingModel_!
-  GetConveyancingById(id: String!, embed: [String!]): ConveyancingModel!
+  GetConveyancingById(id: String!, embed: [ConveyancingQueryEmbed]): ConveyancingModel!
   GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
 }
 

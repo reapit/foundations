@@ -17,7 +17,16 @@ type TaskModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedTaskModel
+}
+
+type EmbeddedTaskModel {
+  applicant: ApplicantModel
+  contact: ContactModel
+  landlord: LandlordModel
+  property: PropertyModel
+  tenancy: TenancyModel
+  type: ListItemModel
 }
 
 type PagedResultTaskModel {
@@ -29,12 +38,21 @@ type PagedResultTaskModel {
   _links: JSON
 }
 
+enum TaskQueryEmbed {
+  applicant
+  contact
+  landlord
+  property
+  tenancy
+  type
+}
+
 type Query {
   GetTasks(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String]
+    embed: [TaskQueryEmbed]
     id: [String]
     applicantId: [String]
     contactId: [String]
@@ -51,7 +69,7 @@ type Query {
     createdTo: String
     metadata: [String]
   ): PagedResultTaskModel!
-  GetTaskById(id: String!, embed: [String]): TaskModel!
+  GetTaskById(id: String!, embed: [TaskQueryEmbed]): TaskModel!
 }
 
 type Mutation {

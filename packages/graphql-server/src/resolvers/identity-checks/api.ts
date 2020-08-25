@@ -24,8 +24,10 @@ export const callGetIdentityCheckByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetIdentityCheckByIdAPI', { traceId, args })
   try {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
     const response = await createPlatformAxiosInstance().get<GetIdentityCheckByIdReturn>(
-      `${URLS.identityChecks}/${args.id}`,
+      `${URLS.identityChecks}/${id}?${params}`,
       {
         headers: {
           Authorization: context.authorization,

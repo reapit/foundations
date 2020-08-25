@@ -3,7 +3,7 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [TenancyQueryEmbed]
     id: [String!]
     negotiatorId: [String!]
     applicantId: [String!]
@@ -15,7 +15,7 @@ type Query {
     modifiedTo: String
     metadata: [String!]
   ): PagedResultTenancies!
-  GetTenancyById(id: String!, embed: [String!]): TenancyModel!
+  GetTenancyById(id: String!, embed: [TenancyQueryEmbed]): TenancyModel!
   GetTenancyRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyRelationships!
   GetTenancyChecks(id: String!, pageSize: Int, pageNumber: Int): PagedResultTenancyChecks!
   GetTenancyCheckById(id: String!, checkId: String!): TenancyCheckModel!
@@ -40,37 +40,25 @@ type Mutation {
   UpdateTenancyCheck(id: String!, checkId: String!, status: String, _eTag: String!): TenancyCheckModel!
 }
 
+enum TenancyQueryEmbed {
+  appointments
+  applicant
+  documents
+  negotiator
+  property
+  source
+  tasks
+  type
+}
+
 type PagedResultTenancies {
-  _embedded: [PagedResultTenanciesEmbedded!]
+  _embedded: [TenancyModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
   totalPageCount: Int
   totalCount: Int
   _links: JSON
-}
-
-type PagedResultTenanciesEmbedded {
-  id: String
-  created: String
-  modified: String
-  startDate: String
-  endDate: String
-  status: String
-  agentRole: String
-  rent: Int
-  rentFrequency: String
-  endDateConfirmed: Boolean
-  isPeriodic: Boolean
-  typeId: String
-  negotiatorId: String
-  propertyId: String
-  applicantId: String
-  source: TenancySourceModel
-  related: [TenancyRelatedModel!]
-  _eTag: String
-  _links: JSON
-  _embedded: JSON
 }
 
 type TenancyModel {
@@ -93,7 +81,18 @@ type TenancyModel {
   related: [TenancyRelatedModel!]
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedTenancyModel
+}
+
+type EmbeddedTenancyModel {
+  appointments: [AppointmentModel]
+  applicant: ApplicantModel
+  documents: [JSON]
+  negotiator: NegotiatorModel
+  property: PropertyModel
+  source: SourceModel
+  tasks: [TaskModel]
+  type: ListItemModel
 }
 
 type TenancySourceModel {
@@ -149,7 +148,7 @@ type PagedResultTenancyRelationshipsEmbedded {
 }
 
 type PagedResultTenancyChecks {
-  _embedded: [PagedResultTenancyChecksEmbedded!]
+  _embedded: [TenancyCheckModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -158,20 +157,13 @@ type PagedResultTenancyChecks {
   _links: JSON
 }
 
-type PagedResultTenancyChecksEmbedded {
+type TenancyCheckModel {
   id: String
   created: String
   modified: String
   description: String
   status: String
   type: String
-  tenancyId: String
-  _eTag: String
-  _links: JSON
-  _embedded: JSON
-}
-
-type TenancyCheckModel {
   tenancyId: String
   _eTag: String
   _links: JSON

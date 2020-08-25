@@ -12,7 +12,11 @@ type OfficeModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedOfficeModel
+}
+
+type EmbeddedOfficeModel {
+  negotiators: [NegotiatorModel]
 }
 
 type PagedResultOfficeModel {
@@ -46,6 +50,10 @@ input OfficeModelAddressInput {
   countryId: String
 }
 
+enum OfficeQueryEmbed {
+  negotiators
+}
+
 type Query {
   GetOffices(
     pageSize: Int
@@ -54,10 +62,10 @@ type Query {
     id: [String!]
     address: String
     name: String
-    embed: [String!]
+    embed: [OfficeQueryEmbed]
   ): PagedResultOfficeModel!
 
-  GetOfficeById(id: String!, embed: [String!]): OfficeModel!
+  GetOfficeById(id: String!, embed: [OfficeQueryEmbed]): OfficeModel!
 }
 
 type Mutation {
