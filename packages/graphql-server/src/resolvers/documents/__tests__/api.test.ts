@@ -5,11 +5,9 @@ import {
   callCreateDocumentAPI,
   callUpdateDocumentAPI,
   callDeleteDocumentAPI,
-  callGetDocumentDownloadAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
 import { documentMock } from '../__stubs__/document'
-import { documentDownloadArgMock, documentDownloadReturnMock } from '../__stubs__/document-download'
 import { documentsMock } from '../__stubs__/documents'
 import { createDocumentArgsMock } from '../__stubs__/create-document'
 import { updateDocumentArgsMock } from '../__stubs__/update-document'
@@ -120,25 +118,6 @@ describe('callDeleteDocumentAPI', () => {
       delete: jest.fn(() => Promise.reject('error caught')),
     })
     const result = await callDeleteDocumentAPI(deleteDocumentMockArgs, mockContext)
-    expect(result).toEqual('caught error')
-  })
-})
-
-describe('callGetDocumentDownloadAPI', () => {
-  it('should work correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.resolve({ data: documentDownloadReturnMock })),
-    })
-    const args = documentDownloadArgMock
-    const result = await callGetDocumentDownloadAPI(args, mockContext)
-    expect(result).toEqual(documentDownloadReturnMock)
-  })
-  it('should catch error correctly', async () => {
-    ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
-      get: jest.fn(() => Promise.reject('error caught')),
-    })
-    const args = { pageSize: 1 }
-    const result = await callGetDocumentsAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })
 })

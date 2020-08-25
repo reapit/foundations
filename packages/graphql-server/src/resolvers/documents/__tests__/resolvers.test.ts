@@ -7,14 +7,12 @@ import {
   mutationCreateDocument,
   mutationUpdateDocument,
   mutationDeleteDocument,
-  queryGetDocumentDownload,
 } from '../resolvers'
 import { createDocumentArgsMock } from '../__stubs__/create-document'
 import { updateDocumentArgsMock } from '../__stubs__/update-document'
 import { deleteDocumentMockArgs } from '../__stubs__/delete-document'
 import { documentMock } from '../__stubs__/document'
 import { documentsMock } from '../__stubs__/documents'
-import { documentDownloadReturnMock, documentDownloadArgMock } from '../__stubs__/document-download'
 import { mockContext } from '../../../__stubs__/context'
 
 jest.mock('../services', () => ({
@@ -22,7 +20,6 @@ jest.mock('../services', () => ({
   getDocuments: jest.fn(() => documentsMock),
   createDocument: jest.fn(() => true),
   updateDocument: jest.fn(() => true),
-  getDocumentDownload: jest.fn(() => documentDownloadReturnMock),
   deleteDocument: jest.fn(() => true),
 }))
 jest.mock('../../../errors', () => ({
@@ -103,20 +100,6 @@ describe('mutationDeleteDocument', () => {
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const result = mutationDeleteDocument(null, deleteDocumentMockArgs, mockContext)
-    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
-  })
-})
-
-describe('queryGetDocumentDownload', () => {
-  it('should return correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = queryGetDocumentDownload(null, documentDownloadArgMock, mockContext)
-    expect(result).toEqual(documentsServices.getDocumentDownload(documentDownloadArgMock, mockContext))
-  })
-
-  it('should return auth error correctly', () => {
-    ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = queryGetDocumentDownload(null, documentDownloadArgMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

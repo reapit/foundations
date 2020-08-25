@@ -3,14 +3,12 @@ import {
   callGetDocumentsAPI,
   callCreateDocumentAPI,
   callUpdateDocumentAPI,
-  callGetDocumentDownloadAPI,
   callDeleteDocumentAPI,
 } from '../api'
 import { mockContext } from '../../../__stubs__/context'
 import { createDocumentArgsMock } from '../__stubs__/create-document'
 import { updateDocumentArgsMock } from '../__stubs__/update-document'
 import { deleteDocumentMockArgs } from '../__stubs__/delete-document'
-import { documentDownloadReturnMock } from '../__stubs__/document-download'
 import { documentMock } from '../__stubs__/document'
 import { documentsMock } from '../__stubs__/documents'
 import { getDocumentById, getDocuments, createDocument, updateDocument } from '../services'
@@ -21,7 +19,6 @@ jest.mock('../api', () => ({
   callGetDocumentsAPI: jest.fn(() => Promise.resolve(documentsMock)),
   callCreateDocumentAPI: jest.fn(() => Promise.resolve(documentMock)),
   callUpdateDocumentAPI: jest.fn(() => Promise.resolve(documentMock)),
-  callGetDocumentDownloadAPI: jest.fn(() => Promise.resolve(documentDownloadReturnMock)),
   callDeleteDocumentAPI: jest.fn(() => Promise.resolve('RPT20000438')),
 }))
 
@@ -56,15 +53,6 @@ describe('updateDocument', () => {
     const result = await updateDocument(updateDocumentArgsMock, mockContext)
     expect(callUpdateDocumentAPI).toHaveBeenCalledWith(updateDocumentArgsMock, mockContext)
     expect(result).toEqual(documentMock)
-  })
-})
-
-describe('getDocumentDownload', () => {
-  it('should return correctly', async () => {
-    const args = { id: 'id', relationshipId: 'relationshipId' }
-    const result = await callGetDocumentDownloadAPI(args, mockContext)
-    expect(callGetDocumentDownloadAPI).toHaveBeenCalledWith(args, mockContext)
-    expect(result).toEqual(documentDownloadReturnMock)
   })
 })
 
