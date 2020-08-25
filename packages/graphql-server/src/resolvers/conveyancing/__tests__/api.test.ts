@@ -96,7 +96,6 @@ describe('callGetConveyancingChainAPI', () => {
   })
 })
 
-///asdas d
 describe('callCreateUpwardLinkModelAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
