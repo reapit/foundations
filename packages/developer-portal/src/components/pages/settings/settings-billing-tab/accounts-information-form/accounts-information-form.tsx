@@ -97,7 +97,6 @@ export type HandleUseEffectParams = {
 }
 
 const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
-  const isProd = window.reapit.config.appEnv === 'production'
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
@@ -105,7 +104,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
 
   const dispatch = useDispatch()
 
-  const isShowLoader = isLoading && !isProd
+  const isShowLoader = isLoading
   const [isSubmittedDebit, setIsSubmittedDebit] = React.useState<boolean>(false)
 
   if (isShowLoader) {

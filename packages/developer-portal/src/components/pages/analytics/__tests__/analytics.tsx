@@ -17,26 +17,13 @@ describe('AnalyticsPage', () => {
     expect(shallow(<AnalyticsPage />)).toMatchSnapshot()
   })
   describe('tabConfigs', () => {
-    it('should run correctly on prod env', () => {
-      if (window.reapit.config.appEnv === 'production') {
-        const mockCurrentTab = 'detailed'
-        const history = {
-          push: jest.fn(),
-        }
-        const result = tabConfigs({ currentTab: mockCurrentTab, history })
-        // Expect columns to have length 1 because we temporarily hide the Billing tab on Prod
-        expect(result).toHaveLength(1)
+    it('should run correctly in all envs', () => {
+      const mockCurrentTab = 'detailed'
+      const history = {
+        push: jest.fn(),
       }
-    })
-    it('should run correctly on other env', () => {
-      if (window.reapit.config.appEnv !== 'production') {
-        const mockCurrentTab = 'detailed'
-        const history = {
-          push: jest.fn(),
-        }
-        const result = tabConfigs({ currentTab: mockCurrentTab, history })
-        expect(result).toHaveLength(2)
-      }
+      const result = tabConfigs({ currentTab: mockCurrentTab, history })
+      expect(result).toHaveLength(2)
     })
   })
   describe('handleUseEffectToSetCurrentTab', () => {
