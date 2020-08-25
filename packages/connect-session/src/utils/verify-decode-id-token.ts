@@ -101,7 +101,11 @@ export const connectSessionVerifyDecodeIdToken = async (
     const claim = jsonwebtoken.verify(token, key.pem) as Claim
     const currentSeconds = Math.floor(new Date().valueOf() / 1000)
 
-    if (currentSeconds > claim.exp || currentSeconds < claim.auth_time) throw new Error('Id verification claim expired')
+    // Allow an extra 5 seconds to avoid CPU clock variance issues. See: https://github.com/reapit/foundations/issues/2467
+    // basically some Windows laptops calculate time nowin the past so the currentSeconds are before the
+    // auth_time in AWS. Not ideal but prevents constant invalid id_token messages
+    if (currentSeconds > claim.exp + 5 || currentSeconds + 5 < claim.auth_time)
+      throw new Error('Id verification claim expired')
     if (claim.iss !== cognitoIssuer) throw new Error('Id verification claim issuer is invalid')
     if (claim.token_use !== 'id') throw new Error('Id verification claim is not an id token')
 

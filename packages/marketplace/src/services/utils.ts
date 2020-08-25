@@ -1,5 +1,4 @@
 import { StringMap } from '@/types/core'
-import { API_VERSION } from './constants'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateHeader = async (marketplaceApiKey: string): Promise<StringMap> => {
@@ -30,7 +29,6 @@ export const initAuthorizedRequestHeaders = async () => {
   if (session && session.accessToken) {
     return {
       Authorization: `Bearer ${session.accessToken}`,
-      'api-version': API_VERSION,
       'Content-Type': 'application/json',
     }
   }

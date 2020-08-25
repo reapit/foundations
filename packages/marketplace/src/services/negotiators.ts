@@ -2,7 +2,7 @@ import { logger } from '@reapit/utils'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 import { initAuthorizedRequestHeaders } from './utils'
-import { URLS } from './constants'
+import { URLS, API_VERSION } from './constants'
 
 export interface FetchNegotiatorsParams {
   pageNumber?: number
@@ -21,7 +21,10 @@ export const fetchNegotiatorsApi = async (params: FetchNegotiatorsParams): Promi
       url: `${URLS.negotiators}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers,
+      headers: {
+        ...headers,
+        'api-version': API_VERSION,
+      },
     })
     return response
   } catch (error) {
