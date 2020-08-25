@@ -1,13 +1,9 @@
-service: cloud-api-docs-lambda
+service: api-docs-lambda
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-deployment-bucket
-  - serverless-s3-deploy
 
 custom:
-  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
-  env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -22,7 +18,8 @@ provider:
   runtime: nodejs12.x
   region: 'eu-west-2'
   deploymentBucket:
-    name: ${self:custom.s3CloudFormBucket}
+    name: api-docs-lambda
+    blockPublicAccess: false
   environment:
     NODE_ENV: 'production'
 
@@ -48,4 +45,8 @@ functions:
       - http:
           method: get
           path: /{proxy+}
+          cors: false
+      - http:
+          method: get
+          path: /
           cors: false

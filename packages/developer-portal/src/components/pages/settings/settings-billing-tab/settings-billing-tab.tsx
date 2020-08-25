@@ -7,7 +7,6 @@ import { Tabs } from '../tabs'
 import { selectCurrentMemberData, selectCurrentMemberIsLoading } from '@/selector/current-member'
 
 const SettingsBillingTabPage: React.FC<{}> = () => {
-  const isProd = window.reapit.config.appEnv === 'production'
   const currentUser = useSelector(selectCurrentMemberData)
   const loading = useSelector(selectCurrentMemberIsLoading)
   if (loading) {
@@ -19,8 +18,7 @@ const SettingsBillingTabPage: React.FC<{}> = () => {
         <Section>
           <Tabs role={currentUser?.role} />
         </Section>
-        {// Feature flag
-        !isProd && <AccountsInformationForm />}
+        <AccountsInformationForm />
         <Subcriptions />
       </>
     )

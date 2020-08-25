@@ -6,11 +6,10 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 export type TabConfigsProps = {
   currentUrl: string
   history: any
-  isProd: boolean
   role?: string
 }
 
-export const tabConfigs = ({ currentUrl, history, role, isProd }: TabConfigsProps): TabConfig[] => {
+export const tabConfigs = ({ currentUrl, history, role }: TabConfigsProps): TabConfig[] => {
   const tabs = [
     {
       tabIdentifier: Routes.SETTINGS_PROFILE_TAB,
@@ -22,7 +21,7 @@ export const tabConfigs = ({ currentUrl, history, role, isProd }: TabConfigsProp
     },
   ]
 
-  if (role === 'admin' && !isProd) {
+  if (role === 'admin') {
     // Use splice to make sure ORGANISATION_TAB is second tab
     tabs.push({
       tabIdentifier: Routes.SETTINGS_ORGANISATION_TAB,
@@ -53,6 +52,5 @@ export type TabsProps = {
 export const Tabs: React.FC<TabsProps> = ({ role }) => {
   const history = useHistory()
   const match = useRouteMatch()
-  const isProd = window.reapit.config.appEnv === 'production'
-  return <ElementsTabs tabConfigs={tabConfigs({ currentUrl: match.url, history, isProd, role })} />
+  return <ElementsTabs tabConfigs={tabConfigs({ currentUrl: match.url, history, role })} />
 }
