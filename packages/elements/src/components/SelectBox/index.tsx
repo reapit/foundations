@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
+import { cx } from 'linaria'
 
 export interface SelectBoxOptions {
   label: string
@@ -17,6 +18,7 @@ export interface SelectBoxProps {
   required?: boolean
   helpText?: string
   className?: string
+  containerClassName?: string
 }
 
 export const SelectBox = ({
@@ -28,6 +30,7 @@ export const SelectBox = ({
   required = false,
   helpText,
   className = '',
+  containerClassName = '',
 }: SelectBoxProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
@@ -35,7 +38,7 @@ export const SelectBox = ({
         const hasError = checkError(meta)
         const calculatedClassName = (hasError ? 'input is-danger' : 'input is-primary') + ' ' + className
         return (
-          <div className="field pb-2">
+          <div className={cx('field pb-2', containerClassName)}>
             <div className="control">
               {labelText && (
                 <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>

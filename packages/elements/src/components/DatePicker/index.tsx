@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
+import { cx } from 'linaria'
 ;(dayjs as any).extend(customParseFormat)
 
 const { useState, useEffect } = React
@@ -153,6 +154,7 @@ export interface DatePickerProps {
   reactDatePickerProps?: any
   useCustomInput?: boolean
   popperPlacement?: string
+  containerClassName?: string
 }
 
 export const DatePicker = ({
@@ -163,6 +165,7 @@ export const DatePicker = ({
   reactDatePickerProps = {},
   useCustomInput = true,
   popperPlacement = 'top',
+  containerClassName = '',
 }: DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
@@ -183,7 +186,7 @@ export const DatePicker = ({
         const className = hasError ? 'input is-danger' : 'input is-primary'
 
         return (
-          <div className="field">
+          <div className={cx('field', containerClassName)}>
             <div className="control">
               {labelText && (
                 <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>

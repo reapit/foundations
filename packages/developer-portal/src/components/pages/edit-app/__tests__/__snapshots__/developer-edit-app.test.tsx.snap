@@ -906,7 +906,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className="field pb-2"
+                                  className=""
                                 >
                                   <div
                                     className="control"

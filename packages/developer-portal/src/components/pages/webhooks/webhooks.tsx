@@ -204,7 +204,7 @@ export const DeveloperWebhooks = () => {
         <FormSubHeading>
           This system is designed to flexibly work with how your application is built and deployed. If you wish, you can
           set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
-          different webhook subscription per topic or per customer. For more information about Webhooks, please see our
+          different webhook subscription per topic or per customer. For more information about Webhooks, please see our{' '}
           <a
             className={linkStyles.link}
             href={`${Routes.API_DOCS}/api/webhooks`}

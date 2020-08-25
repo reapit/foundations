@@ -26,7 +26,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch correctly for the setting profile route', async () => {
-    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
+    await routeDispatcher(Routes.SETTINGS_PROFILE_TAB as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
     expect(store.dispatch).toHaveBeenCalledWith(fetchCurrentMember())
   })

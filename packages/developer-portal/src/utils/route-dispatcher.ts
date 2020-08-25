@@ -61,7 +61,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchCategoryList())
       store.dispatch(fetchDesktopIntegrationTypeList())
       break
-    case Routes.SETTINGS: {
+    case Routes.SETTINGS_PROFILE_TAB: {
       const developerId = await getDeveloperId()
       store.dispatch(fetchOrganisationMembers({ id: developerId }))
       store.dispatch(requestDeveloperData())

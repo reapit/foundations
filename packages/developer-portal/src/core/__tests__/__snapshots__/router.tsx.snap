@@ -184,6 +184,11 @@ exports[`Router should match a snapshot 1`] = `
               path="/analytics/:activeTab?"
             />
             <Component
+              component={[Function]}
+              exact={true}
+              path="/settings/"
+            />
+            <Component
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -194,7 +199,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/settings/"
+              path="/settings/profile"
             />
             <Component
               component={

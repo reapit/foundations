@@ -29,7 +29,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
   const shouldThankSettingDebit = hasReapitAccountsRef === 'no' && isSubmittedDebit
 
   return (
-    <GridItem>
+    <GridItem className="pl-0">
       {shouldThankInGeneral && (
         <Content className="is-italic">
           Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your
@@ -44,11 +44,10 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
       )}
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
-
       <Content className={statusText}>
         {initialStatus === 'pending' && (
           <div>
-            <i className="mb-1">We are currently verifying your information with our Accounts Department</i>
+            <i className="pb-2">We are currently verifying your information with our Accounts Department</i>
           </div>
         )}
         <b>ACCOUNT STATUS:</b> <i>{capitalizeFirstLetter(initialStatus || '')}</i>

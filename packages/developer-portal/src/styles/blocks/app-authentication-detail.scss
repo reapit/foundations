@@ -21,13 +21,13 @@
 .btnCopy {
   cursor: pointer;
   position: relative;
+  color: #555;
 }
 
 .tooltiptext {
   top: -5px;
   bottom: auto;
   right: 128%;
-
   visibility: hidden;
   position: absolute;
   min-width: 80px;

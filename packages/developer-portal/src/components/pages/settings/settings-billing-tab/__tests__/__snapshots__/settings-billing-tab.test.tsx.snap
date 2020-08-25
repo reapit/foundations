@@ -29,7 +29,7 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
                   "active": false,
                   "displayText": "Profile",
                   "onTabClick": [Function],
-                  "tabIdentifier": "/settings/",
+                  "tabIdentifier": "/settings/profile",
                 },
                 Object {
                   "active": false,
@@ -53,12 +53,12 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
               <ul>
                 <li
                   className=""
-                  key="/settings/"
+                  key="/settings/profile"
                 >
                   <a
-                    aria-controls="/settings/"
+                    aria-controls="/settings/profile"
                     aria-selected={false}
-                    id="/settings/"
+                    id="/settings/profile"
                     onClick={[Function]}
                     role="tab"
                   >
@@ -127,7 +127,7 @@ exports[`DeveloperDesktopPage SettingsBillingTabPage should match snapshot 1`] =
             </h5>
           </Component>
           <p
-            className="is-italic"
+            className="is-italic mb-4"
           >
             The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta Phase you can use the table below to view and manage your Developer Portal Subscriptions.
           </p>
