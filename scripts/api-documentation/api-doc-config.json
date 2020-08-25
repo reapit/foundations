@@ -1,9 +1,103 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-08-24T09:41:21.380Z",
+  "__export_date": "2020-08-25T08:33:04.244Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
+    {
+      "_id": "req_e412d215cc1a42569bcba6ff38c1747e",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetDocuments($pageSize: Int, $pageNumber: Int, $embed: [String]) {\\n  GetDocuments(pageSize: $pageSize, pageNumber: $pageNumber, embed: $embed) {\\n    _embedded {\\n      id\\n      associatedType\\n      associatedId\\n      typeId\\n      name\\n      _embedded {\\n        documentType {\\n          id\\n          value\\n        }\\n      }\\n    }\\n    pageNumber\\n    pageSize\\n    pageCount\\n    totalCount\\n    _links\\n  }\\n}\\n\",\"variables\":{\"pageSize\":5,\"pageNumber\":1,\"embed\":[\"documentType\"]},\"operationName\":\"GetDocuments\"}"
+      },
+      "created": 1598327605982,
+      "description": "",
+      "headers": [
+        { "id": "pair_f0bb5470afff46579fe5356726955a19", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_d92a67759274446e93adfdf7a5bc16d4",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597394850358,
+      "method": "POST",
+      "modified": 1598342405833,
+      "name": "GetDocuments",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "created": 1590994744285,
+      "description": "",
+      "environment": {
+        "graphqlServer": {
+          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJGb3VuZGF0aW9uc0RldmVsb3BlciIsIkFnZW5jeUNsb3VkRGV2ZWxvcGVyRWRpdGlvbiIsIkZvdW5kYXRpb25zRGV2ZWxvcGVyQWRtaW4iXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMi5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTJfaGJ0MEI3eXlzIiwidmVyc2lvbiI6MiwiY2xpZW50X2lkIjoiNjcyZ3JzdmkzMnIzZnNkMmZpcWk5bXBncTkiLCJldmVudF9pZCI6ImQ0Y2FiODFmLTc1YzItNDYxMi1iY2YxLWFlNTRkNTVlOWExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTgyNDM4NjIsImV4cCI6MTU5ODM0NDgyMywiaWF0IjoxNTk4MzQxMjI0LCJqdGkiOiJhODlhZDMzOS02NWU0LTRlZjgtYmYzNi0xMjEzN2FkYmYxNTIiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.LOXPhLdYqetbmkPMYqIZhc9LtzwcByh8nnjLELTYSOfFx1_xRo93Sg6NpiRpClp0i-5R_JxsTC_MHlJPqZmnpEjlC51nw7St6_0SUCm9Vl8Y5Bp8_imiQsty8SPLOvfOvyTY3c9HahsFvvrSQvg4d5s0bJtXJSBzTlt9eELOA2vYmuVPJgEpQw0h0zZO4dpNF0uspoVaiYhB56lQt2qf3N47aQ6cTlPd2fZaiauzZUVFxS4XghkNMy72BiXRhHuhO6scjQUEfrdj9QKqDhxxYrlh_3FKE5Ia51VZLGXJ1GgLilNR6Gg3BO-24hMTcc389sG2jfg5_3Y3F7wImu-Spw"
+        }
+      },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "metaSortKey": -1591008340991,
+      "modified": 1598341886280,
+      "name": "GraphQL Queries",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "created": 1590743470730,
+      "description": "",
+      "modified": 1590743470730,
+      "name": "Reapit APIs Documentation",
+      "parentId": null,
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_5d60bb276316441b9e6ed9b7c6c0ad13",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query GetDocumentById($id: String!, $embed: [String]) {\\n  GetDocumentById(id: $id, embed: $embed) {\\n    id\\n    associatedType\\n    associatedId\\n    typeId\\n    name\\n    _eTag\\n    _embedded {\\n      documentType {\\n        id\\n        value\\n      }\\n    }\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT20000401\"},\"operationName\":\"GetDocumentById\"}"
+      },
+      "created": 1598328323048,
+      "description": "",
+      "headers": [
+        { "id": "pair_f0bb5470afff46579fe5356726955a19", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_d92a67759274446e93adfdf7a5bc16d4",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597394850333,
+      "method": "POST",
+      "modified": 1598342456750,
+      "name": "GetDocumentById",
+      "parameters": [],
+      "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
     {
       "_id": "req_0993b1143ec54a1180dd70a8dc68dcfd",
       "authentication": {},
@@ -25,7 +119,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394850308,
       "method": "POST",
-      "modified": 1597821044909,
+      "modified": 1598342234493,
       "name": "GetEnquiries",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -37,32 +131,6 @@
       "settingStoreCookies": true,
       "url": "{{ graphqlServer.path }}",
       "_type": "request"
-    },
-    {
-      "_id": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
-      "created": 1590994744285,
-      "description": "",
-      "environment": {
-        "graphqlServer": {
-          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5IiwiZXZlbnRfaWQiOiJiMDc2MjU4Yy1iOGEzLTRiYTktYmI0NS1jZDA3MzU3ZGFiODAiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImFnZW5jeUNsb3VkXC9jb21wYW5pZXMucmVhZCBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLnJlYWQgYWdlbmN5Q2xvdWRcL29mZmljZXMud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy5yZWFkIGFnZW5jeUNsb3VkXC9wcm9wZXJ0aWVzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBsaWNhbnRzLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbnZleWFuY2luZy5yZWFkIGFnZW5jeUNsb3VkXC9pZGVudGl0eWNoZWNrcy5yZWFkIGFnZW5jeUNsb3VkXC93b3Jrc29yZGVycy53cml0ZSBhZ2VuY3lDbG91ZFwvZG9jdW1lbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZlcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2pvdXJuYWxlbnRyaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2xhbmRsb3Jkcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGVuYW5jaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbnZleWFuY2luZy53cml0ZSBhZ2VuY3lDbG91ZFwvZW5xdWlyaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL3NvdXJjZXMud3JpdGUgZW1haWwgYWdlbmN5Q2xvdWRcL2FyZWFzLndyaXRlIGFnZW5jeUNsb3VkXC9jb250YWN0cy53cml0ZSBhZ2VuY3lDbG91ZFwvaW1hZ2VzLnJlYWQgb3BlbmlkIHByb2ZpbGUgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL25lZ290aWF0b3JzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBsaWNhbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL25lZ290aWF0b3JzLnJlYWQgYWdlbmN5Q2xvdWRcL3ZlbmRvcnMud3JpdGUgcGhvbmUgYWdlbmN5Q2xvdWRcL2pvdXJuYWxlbnRyaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy5yZWFkIGFnZW5jeUNsb3VkXC9wcm9wZXJ0aWVzLnJlYWQgYWdlbmN5Q2xvdWRcL3ZlbmRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvY29udGFjdHMucmVhZCBhZ2VuY3lDbG91ZFwvYXBwb2ludG1lbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL2ltYWdlcy53cml0ZSBhZ2VuY3lDbG91ZFwvZG9jdW1lbnRzLndyaXRlIGFnZW5jeUNsb3VkXC90YXNrcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGVuYW5jaWVzLndyaXRlIiwiYXV0aF90aW1lIjoxNTk3MDI4MzgxLCJleHAiOjE1OTc3MzUzNDksImlhdCI6MTU5NzczMTc0OSwianRpIjoiYTZlMDRmMzAtYjNhNS00NTk2LTljZWQtM2ZhOTViY2VlNzA0IiwidXNlcm5hbWUiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUifQ.Crf00pQICTaa6u1f2qZPLXPH36JNR4P8XLnIT9WomLMcBUwPRqAwiFgdLaNWB86l58pQsnMhDvimGFcOw8vsFWaGXZxclHvvPIcGBnpI9Vt7S3q3MGvXMjZbQ8dVj2CELmFdhUdWavBAbXwdmDpL5lDBHd-wXqUPjTgm6htpwbE6kvTFEXUefTckO-20T_dVmMlAcdrl_YXpEN2QBYwi0VVXW6sv14oDODYY1b76DqEBaxrcbXxzveJcgzN7h9jQ5qa_6aPytPWGMnXJvy2SWwoSs98X-unJJK_y7nmeLE7HvLfHZEat0-ec5fU9dDH6quOUFeWFn60YQDHZkiC6jQ"
-        }
-      },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
-      "metaSortKey": -1591008340991,
-      "modified": 1597731771999,
-      "name": "GraphQL Queries",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
-    },
-    {
-      "_id": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "created": 1590743470730,
-      "description": "",
-      "modified": 1590743470730,
-      "name": "Reapit APIs Documentation",
-      "parentId": null,
-      "scope": null,
-      "_type": "workspace"
     },
     {
       "_id": "req_a530095d7cdf44519482ed36db446509",
@@ -85,7 +153,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394850283,
       "method": "POST",
-      "modified": 1597733948143,
+      "modified": 1598329116075,
       "name": "GetEnquiryById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -119,7 +187,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394850258,
       "method": "POST",
-      "modified": 1597731532529,
+      "modified": 1598334238310,
       "name": "GetSources",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -153,7 +221,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394850233,
       "method": "POST",
-      "modified": 1597731717562,
+      "modified": 1598329118053,
       "name": "GetSourceById",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -187,7 +255,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394850208,
       "method": "POST",
-      "modified": 1598260280670,
+      "modified": 1598329119071,
       "name": "GetTask",
       "parameters": [],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -221,7 +289,7 @@
       "isPrivate": false,
       "metaSortKey": -1597394684874,
       "method": "POST",
-      "modified": 1598260217511,
+      "modified": 1598329120554,
       "name": "GetTasks",
       "parameters": [{ "description": "", "id": "pair_e416b8158d664604bac744142b4156e9", "name": "", "value": "" }],
       "parentId": "fld_1dd6e6ca42414fbbafe7b8dce5fedfb2",
@@ -1839,6 +1907,124 @@
       "_type": "request"
     },
     {
+      "_id": "req_ce2aa1e8513449a8a9880d4ac9d00f06",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation CreateDocument($associatedType: String, $associatedId: String, $typeId: String, $name: String, $fileData: String) {\\n  CreateDocument(associatedType: $associatedType, associatedId: $associatedId, typeId: $typeId, name: $name, fileData: $fileData) {\\n    id\\n    name\\n    _eTag\\n  }\\n}\\n\",\"variables\":{\"associatedType\":\"property\",\"associatedId\":\"OXF190347\",\"typeId\":\"DET\",\"name\":\"24 Smithson Road Details.pdf\",\"fileData\":\"data:application/pdf;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\"},\"operationName\":\"CreateDocument\"}"
+      },
+      "created": 1598333959725,
+      "description": "",
+      "headers": [
+        { "id": "pair_43774a4dbe364959aba09cf162343dc2", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_02a1d03b5463421dbb18c9929bdab8ca",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597399446527,
+      "method": "POST",
+      "modified": 1598342215038,
+      "name": "CreateDocument",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
+      "created": 1591008340941,
+      "description": "",
+      "environment": {
+        "graphqlServer": {
+          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJGb3VuZGF0aW9uc0RldmVsb3BlciIsIkFnZW5jeUNsb3VkRGV2ZWxvcGVyRWRpdGlvbiIsIkZvdW5kYXRpb25zRGV2ZWxvcGVyQWRtaW4iXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMi5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTJfaGJ0MEI3eXlzIiwidmVyc2lvbiI6MiwiY2xpZW50X2lkIjoiNjcyZ3JzdmkzMnIzZnNkMmZpcWk5bXBncTkiLCJldmVudF9pZCI6ImQ0Y2FiODFmLTc1YzItNDYxMi1iY2YxLWFlNTRkNTVlOWExOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy5yZWFkIGFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2VucXVpcmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGFza3MucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaWRlbnRpdHljaGVja3Mud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy53cml0ZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy53cml0ZSBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBlbWFpbCBhZ2VuY3lDbG91ZFwvYXJlYXMud3JpdGUgYWdlbmN5Q2xvdWRcL2NvbnRhY3RzLndyaXRlIGFnZW5jeUNsb3VkXC9pbWFnZXMucmVhZCBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBwaG9uZSBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy5yZWFkIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMucmVhZCBhZ2VuY3lDbG91ZFwvaW1hZ2VzLndyaXRlIGFnZW5jeUNsb3VkXC9kb2N1bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLndyaXRlIGFnZW5jeUNsb3VkXC90ZW5hbmNpZXMud3JpdGUiLCJhdXRoX3RpbWUiOjE1OTgyNDM4NjIsImV4cCI6MTU5ODM0NDgyMywiaWF0IjoxNTk4MzQxMjI0LCJqdGkiOiJhODlhZDMzOS02NWU0LTRlZjgtYmYzNi0xMjEzN2FkYmYxNTIiLCJ1c2VybmFtZSI6IjI1OWIyM2JkLWZjNDQtNDQ5My1hZDU3LWYwMTliYjU3YTMxNSJ9.LOXPhLdYqetbmkPMYqIZhc9LtzwcByh8nnjLELTYSOfFx1_xRo93Sg6NpiRpClp0i-5R_JxsTC_MHlJPqZmnpEjlC51nw7St6_0SUCm9Vl8Y5Bp8_imiQsty8SPLOvfOvyTY3c9HahsFvvrSQvg4d5s0bJtXJSBzTlt9eELOA2vYmuVPJgEpQw0h0zZO4dpNF0uspoVaiYhB56lQt2qf3N47aQ6cTlPd2fZaiauzZUVFxS4XghkNMy72BiXRhHuhO6scjQUEfrdj9QKqDhxxYrlh_3FKE5Ia51VZLGXJ1GgLilNR6Gg3BO-24hMTcc389sG2jfg5_3Y3F7wImu-Spw"
+        }
+      },
+      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
+      "metaSortKey": -1591008340941,
+      "modified": 1598341249627,
+      "name": "GraphQL Mutations",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_a519419947ba48b9baa1ebac61b7f34b",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation UpdateDocument($id: String!, $_eTag: String!, $typeId: String, $name: String) {\\n  UpdateDocument(id: $id, _eTag: $_eTag, typeId: $typeId, name: $name) {\\n    id\\n    name\\n    _eTag\\n  }\\n}\\n\",\"variables\":{\"id\":\"RPT20000401\",\"name\":\"testings.pdf\",\"typeId\":\"DET\",\"_eTag\":\"\\\"DF135102ABEF79BBB20ACD2B2A3A31CB\\\"\"},\"operationName\":\"UpdateDocument\"}"
+      },
+      "created": 1598334324444,
+      "description": "",
+      "headers": [
+        { "id": "pair_43774a4dbe364959aba09cf162343dc2", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_02a1d03b5463421dbb18c9929bdab8ca",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597399446502,
+      "method": "POST",
+      "modified": 1598342500297,
+      "name": "UpdateDocument",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c65b7c237ae74c2e9d4d02a7a7c6ace9",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation DeleteDocument($id: String!) {\\n  DeleteDocument(id: $id)\\n}\\n\",\"variables\":{\"id\":\"RPT20000401\"},\"operationName\":\"DeleteDocument\"}"
+      },
+      "created": 1598341062091,
+      "description": "",
+      "headers": [
+        { "id": "pair_43774a4dbe364959aba09cf162343dc2", "name": "Content-Type", "value": "application/json" },
+        {
+          "description": "",
+          "id": "pair_02a1d03b5463421dbb18c9929bdab8ca",
+          "name": "Authorization",
+          "value": "{{ graphqlServer.authorization }}"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1597399446489.5,
+      "method": "POST",
+      "modified": 1598342491979,
+      "name": "DeleteDocument",
+      "parameters": [],
+      "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ graphqlServer.path }}",
+      "_type": "request"
+    },
+    {
       "_id": "req_b18a0cbb79184575b7846966cf68037a",
       "authentication": {},
       "body": {
@@ -1859,7 +2045,7 @@
       "isPrivate": false,
       "metaSortKey": -1597399446477,
       "method": "POST",
-      "modified": 1597733942146,
+      "modified": 1598334292368,
       "name": "CreateEnquiry",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1871,22 +2057,6 @@
       "settingStoreCookies": true,
       "url": "{{ graphqlServer.path }}",
       "_type": "request"
-    },
-    {
-      "_id": "fld_409546e4ec164297bafe59f22746cdb9",
-      "created": 1591008340941,
-      "description": "",
-      "environment": {
-        "graphqlServer": {
-          "authorization": "Bearer eyJraWQiOiI3UzdmUGRlcFdpN3FvdFhsK3o3NWlWQlJhcTE2UmhsTmNqQVhpR21Ta3BZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUiLCJjb2duaXRvOmdyb3VwcyI6WyJDdXN0b21lckFkbWluaXN0cmF0b3JzIiwiQWdlbmN5Q2xvdWREZXZlbG9wZXJFZGl0aW9uIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX2hidDBCN3l5cyIsInZlcnNpb24iOjIsImNsaWVudF9pZCI6IjY3Mmdyc3ZpMzJyM2ZzZDJmaXFpOW1wZ3E5IiwiZXZlbnRfaWQiOiJiMDc2MjU4Yy1iOGEzLTRiYTktYmI0NS1jZDA3MzU3ZGFiODAiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImFnZW5jeUNsb3VkXC9jb21wYW5pZXMucmVhZCBhZ2VuY3lDbG91ZFwvbGFuZGxvcmRzLnJlYWQgYWdlbmN5Q2xvdWRcL29mZmljZXMud3JpdGUgYWdlbmN5Q2xvdWRcL29mZmVycy5yZWFkIGFnZW5jeUNsb3VkXC9wcm9wZXJ0aWVzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBsaWNhbnRzLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbnZleWFuY2luZy5yZWFkIGFnZW5jeUNsb3VkXC9pZGVudGl0eWNoZWNrcy5yZWFkIGFnZW5jeUNsb3VkXC93b3Jrc29yZGVycy53cml0ZSBhZ2VuY3lDbG91ZFwvZG9jdW1lbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLndyaXRlIGFnZW5jeUNsb3VkXC9vZmZlcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2pvdXJuYWxlbnRyaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL2xhbmRsb3Jkcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGVuYW5jaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbnZleWFuY2luZy53cml0ZSBhZ2VuY3lDbG91ZFwvZW5xdWlyaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL3NvdXJjZXMud3JpdGUgZW1haWwgYWdlbmN5Q2xvdWRcL2FyZWFzLndyaXRlIGFnZW5jeUNsb3VkXC9jb250YWN0cy53cml0ZSBhZ2VuY3lDbG91ZFwvaW1hZ2VzLnJlYWQgb3BlbmlkIHByb2ZpbGUgYWdlbmN5Q2xvdWRcL3dvcmtzb3JkZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL25lZ290aWF0b3JzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBsaWNhbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL25lZ290aWF0b3JzLnJlYWQgYWdlbmN5Q2xvdWRcL3ZlbmRvcnMud3JpdGUgcGhvbmUgYWdlbmN5Q2xvdWRcL2pvdXJuYWxlbnRyaWVzLnJlYWQgYWdlbmN5Q2xvdWRcL2NvbXBhbmllcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy5yZWFkIGFnZW5jeUNsb3VkXC9wcm9wZXJ0aWVzLnJlYWQgYWdlbmN5Q2xvdWRcL3ZlbmRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvY29udGFjdHMucmVhZCBhZ2VuY3lDbG91ZFwvYXBwb2ludG1lbnRzLnJlYWQgYWdlbmN5Q2xvdWRcL2ltYWdlcy53cml0ZSBhZ2VuY3lDbG91ZFwvZG9jdW1lbnRzLndyaXRlIGFnZW5jeUNsb3VkXC90YXNrcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGVuYW5jaWVzLndyaXRlIiwiYXV0aF90aW1lIjoxNTk3MDI4MzgxLCJleHAiOjE1OTc3MzUzNDksImlhdCI6MTU5NzczMTc0OSwianRpIjoiYTZlMDRmMzAtYjNhNS00NTk2LTljZWQtM2ZhOTViY2VlNzA0IiwidXNlcm5hbWUiOiIyNTliMjNiZC1mYzQ0LTQ0OTMtYWQ1Ny1mMDE5YmI1N2EzMTUifQ.Crf00pQICTaa6u1f2qZPLXPH36JNR4P8XLnIT9WomLMcBUwPRqAwiFgdLaNWB86l58pQsnMhDvimGFcOw8vsFWaGXZxclHvvPIcGBnpI9Vt7S3q3MGvXMjZbQ8dVj2CELmFdhUdWavBAbXwdmDpL5lDBHd-wXqUPjTgm6htpwbE6kvTFEXUefTckO-20T_dVmMlAcdrl_YXpEN2QBYwi0VVXW6sv14oDODYY1b76DqEBaxrcbXxzveJcgzN7h9jQ5qa_6aPytPWGMnXJvy2SWwoSs98X-unJJK_y7nmeLE7HvLfHZEat0-ec5fU9dDH6quOUFeWFn60YQDHZkiC6jQ"
-        }
-      },
-      "environmentPropertyOrder": { "&": ["graphqlServer"], "&~|graphqlServer": ["authorization"] },
-      "metaSortKey": -1591008340941,
-      "modified": 1597731785017,
-      "name": "GraphQL Mutations",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
     },
     {
       "_id": "req_dd84742d6745424ea2ac0da475232b32",
@@ -2079,7 +2249,7 @@
       "isPrivate": false,
       "metaSortKey": -1597399446333.25,
       "method": "POST",
-      "modified": 1597888512494,
+      "modified": 1598341179408,
       "name": "DeleteUpwardLinkModel",
       "parameters": [{ "description": "", "id": "pair_59021eb47c884ca0807b88625ca6fc4c", "name": "", "value": "" }],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2249,7 +2419,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499298.5,
       "method": "POST",
-      "modified": 1597372603588,
+      "modified": 1598341183916,
       "name": "DeleteVendorRelationship",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2283,7 +2453,7 @@
       "isPrivate": false,
       "metaSortKey": -1597131499286,
       "method": "POST",
-      "modified": 1597291684855,
+      "modified": 1598341183366,
       "name": "CreateOffer",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -2682,7 +2852,7 @@
       "isPrivate": false,
       "metaSortKey": -1591007635103.8164,
       "method": "POST",
-      "modified": 1597388697151,
+      "modified": 1598341190783,
       "name": "DeleteLandlordRelationship",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -3872,22 +4042,12 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_aab19c533bf44649bb9a673c466635db",
+      "_id": "spc_5068094654374bdcaeab3a9dd30ffe2f",
       "contentType": "yaml",
       "contents": "",
-      "created": 1592456076991,
+      "created": 1591178451254,
       "fileName": "Reapit APIs Documentation",
-      "modified": 1592456076991,
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "api_spec"
-    },
-    {
-      "_id": "spc_eef1d9fba1c647d4beb96ce9a9f0724e",
-      "contentType": "yaml",
-      "contents": "",
-      "created": 1594355536434,
-      "fileName": "Reapit APIs Documentation",
-      "modified": 1594355536434,
+      "modified": 1591178451254,
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "api_spec"
     },
@@ -3953,4 +4113,3 @@
     }
   ]
 }
-
