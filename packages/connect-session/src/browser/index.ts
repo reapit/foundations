@@ -165,7 +165,6 @@ export class ReapitConnectBrowserSession {
 
   private handleError(error: string) {
     console.error('Reapit Connect Error:', error)
-    this.connectAuthorizeRedirect()
   }
 
   // set a redirect URI to my page where I instantiated the flow, by decoding the state object
@@ -254,7 +253,7 @@ export class ReapitConnectBrowserSession {
       }
 
       // The token endpoint failed to get a session so send me to login to get a new session
-      throw new Error('Failed to fetch session, redirecting to authorize to re-start OAuth Flow')
+      this.connectAuthorizeRedirect()
     } catch (err) {
       return this.handleError(`Reapit Connect Session error ${err.message}`)
     }

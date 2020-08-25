@@ -10,7 +10,7 @@ export const fetchScopesList = async (): Promise<ScopeModel[]> => {
       url: `${URLS.scopes}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

@@ -51,7 +51,7 @@ export const createHandleDownLoadButtonOnClickFn = ({
     url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
     api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
   const fileName = `reapit-billing-data-${month}.csv`
   FileSaver.saveAs(blob, fileName)

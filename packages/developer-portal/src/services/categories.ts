@@ -19,7 +19,7 @@ export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): P
       url: `${URLS.categories}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -35,7 +35,7 @@ export const createCategory = async (params: CreateCategoryParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -51,7 +51,7 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
       url: `${URLS.categories}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -67,7 +67,7 @@ export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
       url: `${URLS.categories}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

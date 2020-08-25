@@ -21,7 +21,7 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
     url: '/',
     api: window.reapit.config.uploadApiUrl,
     method: 'POST',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     body: object,
   })
 }
