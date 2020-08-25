@@ -88,11 +88,11 @@ export const installationTableColumn: { Header: string; accessor: string | ((dat
     accessor: 'client',
   },
   {
-    Header: 'Customer Name',
+    Header: 'Company Name',
     accessor: 'customerName',
   },
   {
-    Header: 'Customer Address',
+    Header: 'Company Address',
     accessor: ({ customerAddress = {} }: { customerAddress: InstallationModel['customerAddress'] }) => {
       const {
         buildingName = '',

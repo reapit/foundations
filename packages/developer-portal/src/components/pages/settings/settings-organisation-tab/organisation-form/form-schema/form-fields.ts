@@ -64,11 +64,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   aboutField: {
     name: 'about',
-    label: 'About',
+    label: 'About*',
   },
   companyNameField: {
     name: 'companyName',
-    label: 'Company Name',
+    label: 'Company Name*',
     errorMessage: 'Company name is not valid',
   },
   countryIdField: {
@@ -89,7 +89,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   line1Field: {
     name: 'line1',
-    label: 'Address Line 1*',
+    label: 'Address Line 1',
   },
   line2Field: {
     name: 'line2',
@@ -101,7 +101,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   line4Field: {
     name: 'line4',
-    label: 'Address Line 4*',
+    label: 'Address Line 4',
   },
   postcodeField: {
     name: 'postcode',
@@ -117,11 +117,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   telephoneField: {
     name: 'telephone',
-    label: 'Telephone',
+    label: 'Telephone*',
   },
   websiteField: {
     name: 'website',
-    label: 'Website',
+    label: 'Website*',
     errorMessage: 'Website is not valid',
   },
 }
