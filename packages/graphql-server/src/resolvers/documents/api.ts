@@ -10,8 +10,6 @@ import {
   UpdateDocumentReturn,
   DeleteDocumentArgs,
   DeleteDocumentReturn,
-  GetDocumentDownloadArgs,
-  GetDocumentDownloadReturn,
 } from './documents'
 import errors from '../../errors'
 
@@ -21,7 +19,6 @@ import logger from '../../logger'
 import { URLS } from '../../constants/api'
 import { handleError } from '../../utils/handle-error'
 import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
-import { FileResult } from '@/types'
 
 export const callGetDocumentByIdAPI = async (
   args: GetDocumentByIdArgs,
@@ -30,11 +27,16 @@ export const callGetDocumentByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetDocumentByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetDocumentByIdReturn>(`${URLS.documents}/${args.id}`, {
-      headers: {
-        Authorization: context.authorization,
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetDocumentByIdReturn>(
+      `${URLS.documents}/${id}?${params}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
+    )
     return response?.data
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callGetDocumentByIdAPI' })
@@ -83,9 +85,9 @@ export const callUpdateDocumentAPI = async (args: UpdateDocumentArgs, context: S
   const traceId = context.traceId
   logger.info('callUpdateDocumentAPI', { traceId, args })
   try {
-    const { _eTag, ...payload } = args
+    const { id, _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateDocumentReturn>(
-      `${URLS.appointments}/${args.id}`,
+      `${URLS.documents}/${id}`,
       payload,
       {
         headers: {
@@ -94,8 +96,8 @@ export const callUpdateDocumentAPI = async (args: UpdateDocumentArgs, context: S
         },
       },
     )
-    if (updateResponse) {
-      return callGetDocumentByIdAPI({ id: args.id }, context)
+    if (updateResponse.status === 204) {
+      return callGetDocumentByIdAPI({ id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
@@ -118,28 +120,6 @@ export const callDeleteDocumentAPI = async (args: DeleteDocumentArgs, context: S
     }
   } catch (error) {
     const handleErrorResult = await handleError({ error, traceId, caller: 'callDeleteDocumentAPI' })
-    return handleErrorResult
-  }
-}
-
-export const callGetDocumentDownloadAPI = async (
-  args: GetDocumentDownloadArgs,
-  context: ServerContext,
-): GetDocumentDownloadReturn => {
-  const traceId = context.traceId
-  logger.info('callGetDocumentDownloadAPI', { traceId, args })
-  try {
-    const response = await createPlatformAxiosInstance().get<GetDocumentDownloadArgs>(
-      `${URLS.documents}/${args.id}/download`,
-      {
-        headers: {
-          Authorization: context.authorization,
-        },
-      },
-    )
-    return response?.data as FileResult
-  } catch (error) {
-    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetDocumentDownloadAPI' })
     return handleErrorResult
   }
 }

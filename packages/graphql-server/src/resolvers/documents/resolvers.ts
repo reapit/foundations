@@ -14,8 +14,6 @@ import {
   MutationUpdateDocumentReturn,
   DeleteDocumentArgs,
   MutationDeleteDocumentReturn,
-  GetDocumentDownloadArgs,
-  QueryGetDocumentDownloadReturn,
 } from './documents'
 
 export const queryGetDocumentById = (
@@ -84,25 +82,10 @@ export const mutationDeleteDocument = (
   return documentServices.deleteDocument(args, context)
 }
 
-export const queryGetDocumentDownload = (
-  _: any,
-  args: GetDocumentDownloadArgs,
-  context: ServerContext,
-): QueryGetDocumentDownloadReturn => {
-  const traceId = context.traceId
-  logger.info('queryGetDocumentDownload', { traceId, args })
-  const isPermit = checkPermission(context)
-  if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId)
-  }
-  return documentServices.getDocumentDownload(args, context)
-}
-
 export default {
   Query: {
     GetDocumentById: queryGetDocumentById,
     GetDocuments: queryGetDocuments,
-    GetDocumentDownload: queryGetDocumentDownload,
   },
   Mutation: {
     CreateDocument: mutationCreateDocument,

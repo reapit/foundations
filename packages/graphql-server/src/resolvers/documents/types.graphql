@@ -1,95 +1,25 @@
 scalar JSON
 
-type DocumentAddress {
-  buildingName: String
-  buildingNumber: String
-  line1: String
-  line2: String
-  line3: String
-  line4: String
-  postcode: String
-  countryId: String
-}
-
-type DocumentRelate {
+type DocumentType {
   id: String
-  name: String
-  type: String
-  homePhone: String
-  workPhone: String
-  mobilePhone: String
-  email: String
-  primaryAddress: DocumentAddress
+  value: String
 }
 
-type DocumentBuying {
-  priceFrom: Int
-  priceTo: Int
-}
-
-type DocumentRenting {
-  moveDate: String
-  term: String
-  rentFrom: Int
-  rentTo: Int
-  rentFrequency: String
-  furnishing: [String]
-}
-
-type DocumentExternalArea {
-  type: String
-  amountFrom: Int
-  amountTo: Int
-}
-
-type DocumentInternalArea {
-  type: String
-  amount: Int
-}
-
-type DocumentSource {
-  id: String
-  type: String
+type EmbeddedDocumentModel {
+  documentType: [DocumentType]
 }
 
 type DocumentModel {
   id: String
   created: String
   modified: String
-  marketingMode: String
-  currency: String
-  active: Boolean
-  notes: String
-  lastCall: String
-  nextCall: String
-  departmentId: String
-  solicitorId: String
-  type: [String]
-  style: [String]
-  situation: [String]
-  parking: [String]
-  age: [String]
-  locality: [String]
-  bedroomsMin: Int
-  bedroomsMax: Int
-  receptionsMin: Int
-  receptionsMax: Int
-  bathroomsMin: Int
-  bathroomsMax: Int
-  locationType: String
-  locationOptions: [String]
-  buying: DocumentBuying
-  renting: DocumentRenting
-  externalArea: DocumentExternalArea
-  internalArea: DocumentInternalArea
-  source: DocumentSource
-  officeIds: [String]
-  negotiatorIds: [String]
-  related: [DocumentRelate]
-  metadata: JSON
-  _eTag: String
+  associatedType: String
+  associatedId: String
+  typeId: String
+  name: String
+  _eTag: JSON
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedDocumentModel
 }
 
 type PagedResultDocumentModel {
@@ -101,25 +31,16 @@ type PagedResultDocumentModel {
   _links: JSON
 }
 
-type DocumentContactRelationshipModel {
-  id: String
-  created: String
-  modified: String
-  documentId: String
-  associatedType: String
-  associatedId: String
-  isMain: Boolean
-  _links: JSON
-  _embedded: JSON
+type EntityTag {
+  buffer: String
+  offset: Int
+  length: Int
+  value: String
+  hasValue: Boolean
 }
 
-type PagedResultDocumentContactRelationshipModel {
-  _embedded: [DocumentContactRelationshipModel]
-  pageNumber: Int
-  pageSize: Int
-  pageCount: Int
-  totalCount: Int
-  _links: JSON
+type FileData {
+  base64: String
 }
 
 type Query {
@@ -129,159 +50,23 @@ type Query {
     sortBy: String
     embed: [String]
     id: [String]
-    age: [String]
-    furnishing: [String]
-    locality: [String]
-    negotiatorId: [String]
-    officeId: [String]
-    parking: [String]
-    situation: [String]
-    style: [String]
-    type: [String]
-    address: String
-    departmentId: String
-    marketingMode: [String]
-    name: String
-    priceFrom: String
-    priceTo: String
-    rentFrom: String
-    rentTo: String
-    rentFrequency: [String]
-    bedroomsFrom: Int
-    bedroomsTo: Int
-    createdFrom: String
-    createdTo: String
-    lastCallFrom: String
-    lastCallTo: String
-    nextCallFrom: String
-    nextCallTo: String
+    associatedId: [String]
+    associatedType: [String]
+    typeId: [String]
     metadata: [String]
   ): PagedResultDocumentModel!
-
   GetDocumentById(id: String!, embed: [String]): DocumentModel!
-  GetDocumentRelationshipById(id: String!, relationshipId: String!): DocumentContactRelationshipModel!
-  GetDocumentRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultDocumentContactRelationshipModel!
-}
-
-input DocumentAddressInput {
-  buildingName: String
-  buildingNumber: String
-  line1: String
-  line2: String
-  line3: String
-  line4: String
-  postcode: String
-  countryId: String
-}
-
-input DocumentBuyingInput {
-  priceFrom: Int
-  priceTo: Int
-}
-
-input DocumentRentingInput {
-  moveDate: String
-  term: String
-  rentFrom: Int
-  rentTo: Int
-  rentFrequency: String
-  furnishing: [String]
-}
-
-input DocumentExternalAreaInput {
-  type: String
-  amountFrom: Int
-  amountTo: Int
-}
-
-input DocumentInternalAreaInput {
-  type: String
-  amount: Int
-}
-
-input DocumentSourceInput {
-  id: String
-  type: String
-}
-
-input DocumentRelateInput {
-  associatedId: String
-  associatedType: String
 }
 
 type Mutation {
   CreateDocument(
-    marketingMode: String
-    active: Boolean
-    notes: String
-    lastCall: String
-    nextCall: String
-    departmentId: String
-    solicitorId: String
-    type: [String]
-    style: [String]
-    situation: [String]
-    parking: [String]
-    age: [String]
-    locality: [String]
-    bedroomsMin: Int
-    bedroomsMax: Int
-    receptionsMin: Int
-    receptionsMax: Int
-    bathroomsMin: Int
-    bathroomsMax: Int
-    locationType: String
-    locationOptions: [String]
-    buying: DocumentBuyingInput
-    renting: DocumentRentingInput
-    externalArea: DocumentExternalAreaInput
-    internalArea: DocumentInternalAreaInput
-    source: DocumentSourceInput
-    officeIds: [String]
-    negotiatorIds: [String]
-    related: [DocumentRelateInput]
-    metadata: JSON
+    associatedType: String
+    associatedId: String
+    typeId: String
+    name: String
+    fileData: String
   ): DocumentModel!
 
-  UpdateDocument(
-    marketingMode: String
-    active: Boolean
-    notes: String
-    lastCall: String
-    nextCall: String
-    departmentId: String
-    solicitorId: String
-    type: [String]
-    style: [String]
-    situation: [String]
-    parking: [String]
-    age: [String]
-    locality: [String]
-    bedroomsMin: Int
-    bedroomsMax: Int
-    receptionsMin: Int
-    receptionsMax: Int
-    bathroomsMin: Int
-    bathroomsMax: Int
-    locationType: String
-    locationOptions: [String]
-    buying: DocumentBuyingInput
-    renting: DocumentRentingInput
-    externalArea: DocumentExternalAreaInput
-    internalArea: DocumentInternalAreaInput
-    source: DocumentSourceInput
-    officeIds: [String]
-    negotiatorIds: [String]
-    metadata: JSON
-    id: String!
-    _eTag: String!
-  ): DocumentModel!
-
-  CreateDocumentRelationship(
-    id: String!
-    associatedId: String!
-    associatedType: String!
-    isMain: Boolean!
-  ): DocumentContactRelationshipModel
-  DeleteDocumentRelationship(id: String!, relationshipId: String!): String!
+  UpdateDocument(id: String!, _eTag: String!, typeId: String, name: String): DocumentModel!
+  DeleteDocument(id: String!): String!
 }

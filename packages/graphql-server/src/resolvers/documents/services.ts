@@ -11,8 +11,6 @@ import {
   UpdateDocumentReturn,
   DeleteDocumentArgs,
   DeleteDocumentReturn,
-  GetDocumentDownloadArgs,
-  GetDocumentDownloadReturn,
 } from './documents'
 import {
   callGetDocumentByIdAPI,
@@ -20,7 +18,6 @@ import {
   callCreateDocumentAPI,
   callUpdateDocumentAPI,
   callDeleteDocumentAPI,
-  callGetDocumentDownloadAPI,
 } from './api'
 
 export const getDocumentById = (args: GetDocumentByIdArgs, context: ServerContext): GetDocumentByIdReturn => {
@@ -58,23 +55,12 @@ export const deleteDocument = (args: DeleteDocumentArgs, context: ServerContext)
   return deleteResult
 }
 
-export const getDocumentDownload = (
-  args: GetDocumentDownloadArgs,
-  context: ServerContext,
-): GetDocumentDownloadReturn => {
-  const traceId = context.traceId
-  logger.info('getDocumentDownload', { traceId, args })
-  const documents = callGetDocumentDownloadAPI(args, context)
-  return documents
-}
-
 const documentServices = {
   getDocumentById,
   getDocuments,
   createDocument,
   updateDocument,
   deleteDocument,
-  getDocumentDownload,
 }
 
 export default documentServices
