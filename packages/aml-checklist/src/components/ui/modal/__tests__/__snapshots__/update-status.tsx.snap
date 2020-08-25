@@ -32,13 +32,6 @@ exports[`UpdateStatus should match snapshot 1`] = `
     >
       ID Check Successful
     </Component>
-    <Component
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Refer to Lifetime Legal
-    </Component>
   </div>
 </Fragment>
 `;
