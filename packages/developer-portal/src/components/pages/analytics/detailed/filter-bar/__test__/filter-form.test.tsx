@@ -15,7 +15,7 @@ import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
-import { SANDBOX_CLIENT_ID } from '@/constants/api'
+import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
 
 const mockProps: FilterFormProps = {
   initialValues: {
@@ -141,8 +141,8 @@ describe('FilterForm', () => {
           label: 'All',
           value: '',
         },
-        { value: SANDBOX_CLIENT_ID, label: SANDBOX_CLIENT_ID },
         { value: 'DXX', label: 'DXX' },
+        { value: SANDBOX_CLIENT_ID, label: SANDBOX_CLIENT_NAME },
       ])
     })
   })
