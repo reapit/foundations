@@ -14,6 +14,7 @@ export class ReapitConnectBrowserSession {
   static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
+  static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
@@ -57,21 +58,39 @@ export class ReapitConnectBrowserSession {
   private get refreshToken(): string | null {
     return (
       this.session?.refreshToken ??
-      window.localStorage.getItem(`${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`)
+      window.localStorage.getItem(
+        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
+      )
+    )
+  }
+
+  private get userName(): string | null {
+    return (
+      this.session?.loginIdentity.email ??
+      window.localStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
     )
   }
 
   private setRefreshToken(session: ReapitConnectSession) {
-    if (session.refreshToken) {
+    if (session.refreshToken && session.loginIdentity && session.loginIdentity.email) {
       window.localStorage.setItem(
-        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`,
+        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${session.loginIdentity.email}_${this.connectClientId}`,
         session.refreshToken,
+      )
+    }
+    if (session.loginIdentity && session.loginIdentity.email) {
+      window.localStorage.setItem(
+        `${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`,
+        session.loginIdentity.email,
       )
     }
   }
 
   private clearRefreshToken() {
-    window.localStorage.removeItem(`${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.connectClientId}`)
+    window.localStorage.removeItem(
+      `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
+    )
+    window.localStorage.removeItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
   }
 
   // See below, used to refresh session if I have a refresh token in local storage
