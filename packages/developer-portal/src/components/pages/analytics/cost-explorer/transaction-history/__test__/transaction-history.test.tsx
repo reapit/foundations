@@ -69,7 +69,7 @@ describe('TransactionHistory', () => {
         url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1&applicationId=2`,
         api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+        headers: await generateHeader(window.reapit.config.marketplaceApiKey),
       })
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()

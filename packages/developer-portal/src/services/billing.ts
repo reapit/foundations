@@ -64,7 +64,7 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -82,7 +82,7 @@ export const fetchBillingsByMonth = async (
       url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(rest)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

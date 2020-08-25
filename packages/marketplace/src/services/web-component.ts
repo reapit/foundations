@@ -38,7 +38,7 @@ export const fetchWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${applicationId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -56,7 +56,7 @@ export const updateWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${appId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'PATCH',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
       body: rest,
     })
     return response

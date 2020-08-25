@@ -59,7 +59,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
       url: `${URLS.developers}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -75,7 +75,7 @@ export const createDeveloper = async (params: CreateDeveloperParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -91,7 +91,7 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
       url: `${URLS.developers}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -108,7 +108,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -126,7 +126,7 @@ export const fetchOrganisationMembers = async (
       url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -152,7 +152,7 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -168,7 +168,7 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -185,7 +185,7 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: restParams,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -201,7 +201,7 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
       url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -218,7 +218,7 @@ export const updateOrganisationMemberById = async (params: UpdateOrganisationMem
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -239,7 +239,7 @@ export const disableMemberApi = async (params: DisableMemberParams) => {
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

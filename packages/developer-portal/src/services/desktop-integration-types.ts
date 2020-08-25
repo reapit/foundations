@@ -48,7 +48,7 @@ export const fetchDesktopIntegrationTypeListAPI = async (
       url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -64,7 +64,7 @@ export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegra
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -82,7 +82,7 @@ export const fetchDesktopIntegrationTypesById = async (
       url: `${URLS.desktopIntegrationTypes}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -99,7 +99,7 @@ export const updateDesktopIntegrationTypesById = async (params: UpdateDesktopInt
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

@@ -75,7 +75,7 @@ export const fetchAppsListAPI = async (params: FetchAppsListParams): Promise<Pag
       url: `${URLS.apps}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -89,7 +89,7 @@ export const fetchAppByIdByRawUrl = async (url: string): Promise<AppDetailModel>
     const response = await fetcherWithRawUrl({
       url,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
 
     return response
@@ -106,7 +106,7 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
       url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -122,7 +122,7 @@ export const createAppAPI = async (params: CreateAppParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return headers
   } catch (error) {
@@ -138,7 +138,7 @@ export const deleteAppById = async (params: DeleteAppByIdParams) => {
       url: `${URLS.apps}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -154,7 +154,7 @@ export const featureAppById = async (params: FeatureAppByIdParams) => {
       url: `${URLS.apps}/${id}/feature`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -170,7 +170,7 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
       url: `${URLS.apps}/${id}/feature`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -188,7 +188,7 @@ export const fetchAppRevisionsList = async (
       url: `${URLS.apps}/${id}/revisions?${setQueryParams(rest)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -205,7 +205,7 @@ export const createAppRevisionAPI = async (params: CreateAppRevisionParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -221,7 +221,7 @@ export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams)
       url: `${URLS.apps}/${id}/revisions/${revisionId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -238,7 +238,7 @@ export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParam
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -255,7 +255,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -271,7 +271,7 @@ export const fetchAppSecretByIdAPI = async (params: FetchAppSecretByIdParams): P
       url: `${URLS.apps}/${id}/secret`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -285,7 +285,7 @@ export const fetchDesktopIntegrationTypes = async () => {
     url: URLS.desktopIntegrationTypes,
     method: 'GET',
     api: window.reapit.config.marketplaceApiUrl,
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }
@@ -295,7 +295,7 @@ export const fetchAppDetail = async ({ clientId, id }) => {
     url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
     api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }
@@ -305,7 +305,7 @@ export const fetchAppApiKey = async ({ installationId }) => {
     url: `${URLS.installations}/${installationId}/apiKey`,
     api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }

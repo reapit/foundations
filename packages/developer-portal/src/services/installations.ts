@@ -48,7 +48,7 @@ export const fetchInstallationsList = async (
       url: `${URLS.installations}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -64,7 +64,7 @@ export const createInstallation = async (params: CreateInstallationParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -80,7 +80,7 @@ export const fetchInstallationById = async (params: FetchInstallationByIdParams)
       url: `${URLS.installations}/${installationId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -96,7 +96,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
       url: `${URLS.installations}/${installationId}/apiKey`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -112,7 +112,7 @@ export const deleteApiKeyInstallationById = async (params: DeleteApiKeyInstallat
       url: `${URLS.installations}/${installationId}/apiKey`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -129,7 +129,7 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

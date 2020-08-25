@@ -13,7 +13,7 @@ export const fetchApprovalsList = async (params: FetchApprovalsListParams): Prom
       url: `${URLS.approvals}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

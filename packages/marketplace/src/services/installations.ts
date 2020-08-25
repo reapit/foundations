@@ -39,7 +39,7 @@ export const createInstallation = async (params: CreateInstallationParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -55,7 +55,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
       url: `${URLS.installations}/${installationId}/apiKey`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -72,7 +72,7 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

@@ -119,7 +119,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-2"
+                            className=""
                           >
                             <div
                               className="control"
@@ -240,7 +240,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-2"
+                            className=""
                           >
                             <div
                               className="control"
