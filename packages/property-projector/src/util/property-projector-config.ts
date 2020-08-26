@@ -1,8 +1,9 @@
 import { PropertyProjectorConfig } from '@/types/global'
 import { ReapitConnectSession } from '@reapit/connect-session'
+import { getNegotiatorOfficeId } from './negotiator-helper'
 
-export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<any> => {
-  let propertyProjectorConfig: any = {
+export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<PropertyProjectorConfig> => {
+  const defaultPropertyProjectorConfig: PropertyProjectorConfig = {
     logo: '',
     primaryColour: '#006580',
     secondaryColour: '#FFFFFF',
@@ -20,9 +21,13 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     departments: {},
     offices: [],
   }
+
+  getNegotiatorOfficeId(session)
+
   try {
     const response = await fetch(`${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/ABC/RPT`)
     const data = await response.json()
+
     // check for error response
     if (!response.ok) {
       // get error message from body or default to response statusText
@@ -32,11 +37,11 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
 
     delete data['customerId']
     delete data['officeId']
-    propertyProjectorConfig = { ...propertyProjectorConfig, ...data }
-    return propertyProjectorConfig
+
+    return { ...defaultPropertyProjectorConfig, ...data }
   } catch (e) {
-    error => {
-      console.error('There was an error retrieving the configuration.', error)
-    }
+    console.error('There was an error retrieving the configuration.', e)
   }
+
+  return defaultPropertyProjectorConfig
 }

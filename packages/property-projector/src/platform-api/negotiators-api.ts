@@ -7,7 +7,7 @@ export const getNegotiators = async (
   session: ReapitConnectSession,
   criteria?: string,
 ): Promise<PagedResultNegotiatorModel_ | undefined> => {
-  let url = URLS.PROPERTIES
+  let url = URLS.NEGOTIATORS
 
   if (criteria !== null || criteria !== '') {
     url = `${url}?${criteria}`

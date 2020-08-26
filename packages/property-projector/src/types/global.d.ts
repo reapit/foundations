@@ -15,11 +15,16 @@ export type PropertyProjectorConfig = {
   secondaryColour: string
   interval: number
   propertyLimit: number
+  marketingMode: string[]
+  sellingStatus: string[]
+  lettingStatus: string[]
   minPrice: number
   maxPrice: number
+  minRent: number
+  maxRent: number
   showAddress: boolean
   sortBy: 'created' | 'price'
-  departments: any[]
+  departments: object
   offices: string[]
 }
 
