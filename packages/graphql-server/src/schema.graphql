@@ -96,7 +96,7 @@ type EmbeddedApplicantModel {
   appointments: [AppointmentModel]
   areas: [AreaModel]
   department: DepartmentModel
-  documents: [JSON]
+  documents: [DocumentModel]
   negotiators: [NegotiatorModel]
   offers: [OfferModel]
   offices: [OfficeModel]
@@ -1381,7 +1381,7 @@ type ContactModel {
 }
 
 type EmbeddedContactModel {
-  documents: JSON
+  documents: [DocumentModel]
   identityChecks: [IdentityCheckModel]
   negotiators: [NegotiatorModel]
   offices: [OfficeModel]
@@ -1661,8 +1661,8 @@ type IdentityCheckModel {
 
 type EmbeddedIdentityCheckModel {
   contact: ContactModel
-  document1: JSON
-  document2: JSON
+  document1: DocumentModel
+  document2: DocumentModel
   documentType1: ListItemModel
   documentType2: ListItemModel
 }
@@ -1724,7 +1724,7 @@ enum LandlordQueryEmbed {
 
 type EmbeddedLandlordModel {
   appointments: [AppointmentModel]
-  documents: [JSON]
+  documents: [DocumentModel]
   office: OfficeModel
   properties: [PropertyModel]
   solicitor: CompanyModel
@@ -2098,7 +2098,7 @@ type EmbeddedPropertyModel {
   appointments: [AppointmentModel]
   area: AreaModel
   department: DepartmentModel
-  documents: [JSON]
+  documents: [DocumentModel]
   images: [PropertyImageModel]
   landlord: LandlordModel
   negotiator: NegotiatorModel
@@ -2342,7 +2342,7 @@ type TenancyModel {
 type EmbeddedTenancyModel {
   appointments: [AppointmentModel]
   applicant: ApplicantModel
-  documents: [JSON]
+  documents: [DocumentModel]
   negotiator: NegotiatorModel
   property: PropertyModel
   source: SourceModel

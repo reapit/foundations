@@ -96,7 +96,7 @@ type EmbeddedApplicantModel {
   appointments: [AppointmentModel]
   areas: [AreaModel]
   department: DepartmentModel
-  documents: [JSON]
+  documents: [DocumentModel]
   negotiators: [NegotiatorModel]
   offers: [OfferModel]
   offices: [OfficeModel]

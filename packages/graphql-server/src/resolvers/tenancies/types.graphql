@@ -87,7 +87,7 @@ type TenancyModel {
 type EmbeddedTenancyModel {
   appointments: [AppointmentModel]
   applicant: ApplicantModel
-  documents: [JSON]
+  documents: [DocumentModel]
   negotiator: NegotiatorModel
   property: PropertyModel
   source: SourceModel
