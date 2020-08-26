@@ -30,7 +30,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/'
+  const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
 
   if (!connectSession) {
     return null
