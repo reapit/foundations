@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { App, isUserWithDevIdOnly } from '../app'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
-import { DEVELOPER_PORTAL_APPS } from '@/constants/routes'
+import { DEVELOPER_PORTAL_APPS_DEV } from '@/constants/routes'
 
 const mockedUseReapitConnect = (useReapitConnect as unknown) as jest.Mock
 
@@ -43,16 +43,16 @@ describe('isUserWithDevIdOnly', () => {
 })
 
 describe('App', () => {
-  test('redirect to https://dev.developers.reapit.cloud/apps when isUserWithDevIdOnly is true', () => {
+  test('redirect to https://developers.dev.paas.reapit.cloud/apps when isUserWithDevIdOnly is true', () => {
     window.location.href = ''
     mockedUseReapitConnect.mockReturnValueOnce({
       connectSession: { ...session, loginIdentity: loginIdentitiyWithDeveloperIdOnly },
     })
     shallow(<App />)
-    expect(location.href).toBe(DEVELOPER_PORTAL_APPS)
+    expect(location.href).toBe(DEVELOPER_PORTAL_APPS_DEV)
   })
 
-  test('redirect to https://dev.developers.reapit.cloud/apps when isUserWithDevIdOnly is false', () => {
+  test('redirect to https://developers.dev.paas.reapit.cloud/apps when isUserWithDevIdOnly is false', () => {
     window.location.href = ''
     mockedUseReapitConnect.mockReturnValue({
       connectSession: session,
