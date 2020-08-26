@@ -251,14 +251,14 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String]
+    embed: [DocumentQueryEmbed]
     id: [String]
     associatedId: [String]
     associatedType: [String]
     typeId: [String]
     metadata: [String]
   ): PagedResultDocumentModel!
-  GetDocumentById(id: String!, embed: [String]): DocumentModel!
+  GetDocumentById(id: String!, embed: [DocumentQueryEmbed]): DocumentModel!
   GetEnquiries(
     pageSize: Int
     pageNumber: Int
@@ -1576,16 +1576,8 @@ type PagedResultDocumentModel {
   _links: JSON
 }
 
-type EntityTag {
-  buffer: String
-  offset: Int
-  length: Int
-  value: String
-  hasValue: Boolean
-}
-
-type FileData {
-  base64: String
+enum DocumentQueryEmbed {
+  documentType
 }
 
 type EnquiryAddress {
