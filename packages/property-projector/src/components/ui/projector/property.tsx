@@ -38,9 +38,6 @@ const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
 
   return (
     <div className="property-projector">
-      <header style={projectorStyles}>
-        <img src={logo} />
-      </header>
       <PropertyImages images={property.images} />
       <div className="property-projector-information">
         <p style={projectorStyles} className="sale-status">
