@@ -6,6 +6,7 @@
       "packages/admin-portal",
       "packages/aml-checklist",
       "packages/cloud-alert",
+      "packages/cognito-custom-mail-lambda",
       "packages/config-manager",
       "packages/connect-session",
       "packages/cra-template-foundations",
