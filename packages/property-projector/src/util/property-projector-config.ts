@@ -22,10 +22,13 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     offices: [],
   }
 
-  getNegotiatorOfficeId(session)
+  const officeId = await getNegotiatorOfficeId(session)
+  const clientId = session.loginIdentity.clientId ?? 'RPT'
 
   try {
-    const response = await fetch(`${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/ABC/RPT`)
+    const response = await fetch(
+      `${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/${clientId}/${officeId}`,
+    )
     const data = await response.json()
 
     // check for error response
