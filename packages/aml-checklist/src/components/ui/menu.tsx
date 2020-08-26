@@ -35,11 +35,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         title: 'Apps',
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
-        callback: () =>
-          (window.location.href =
-            window.location.href.includes('dev') || window.location.href.includes('localhost')
-              ? 'https://dev.marketplace.reapit.cloud/installed'
-              : 'https://marketplace.reapit.cloud/installed'),
+        callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
         type: 'PRIMARY',
       },
       {
