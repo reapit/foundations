@@ -59,8 +59,14 @@ const Projector: React.FC<ProjectorProps> = props => {
     )
   }
 
+  const projectorStyles: React.CSSProperties = {
+    backgroundColor: config.primaryColour,
+  }
   return (
     <div className="projector-modal">
+      <header style={projectorStyles}>
+        <img src={config.logo} />
+      </header>
       <Carousel
         showArrows={false}
         showThumbs={false}
