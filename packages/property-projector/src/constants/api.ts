@@ -9,4 +9,5 @@ export const URLS = {
   OFFICES: '/offices',
   PROPERTIES: '/properties',
   PROPERTY_IMAGES: '/propertyImages',
+  NEGOTIATORS: '/negotiators',
 }

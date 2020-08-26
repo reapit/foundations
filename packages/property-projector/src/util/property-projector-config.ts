@@ -1,8 +1,7 @@
 import { PropertyProjectorConfig } from '@/types/global'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
-
-export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<PropertyProjectorConfig> => {
+export const getPropertyProjectorConfig = async (session: ReapitConnectSession): Promise<any> => {
   let propertyProjectorConfig: any = {
     logo: '',
     primaryColour: '#006580',
@@ -20,24 +19,24 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     sortBy: 'created',
     departments: {},
     offices: [],
-  };
-  try{
+  }
+  try {
     const response = await fetch(`${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/ABC/RPT`)
-    const data = await response.json();
+    const data = await response.json()
     // check for error response
     if (!response.ok) {
       // get error message from body or default to response statusText
-      const error = (data && data.message) || response.statusText;
-      throw new Error(error);
+      const error = (data && data.message) || response.statusText
+      throw new Error(error)
     }
 
-    delete data['customerId'];
-    delete data['officeId'];  
-    propertyProjectorConfig = {...propertyProjectorConfig, ...data};
-    return propertyProjectorConfig;
-  } catch(e){
+    delete data['customerId']
+    delete data['officeId']
+    propertyProjectorConfig = { ...propertyProjectorConfig, ...data }
+    return propertyProjectorConfig
+  } catch (e) {
     error => {
-      console.error('There was an error retrieving the configuration.', error);
-    };
+      console.error('There was an error retrieving the configuration.', error)
+    }
   }
 }
