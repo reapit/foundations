@@ -1325,15 +1325,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 1`] =
                           "value": "_links",
                         },
                       },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
-                        },
-                      },
                     ],
                   },
                   "typeCondition": Object {
@@ -1618,15 +1609,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 1`] =
                           "value": "_links",
                         },
                       },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
-                        },
-                      },
                     ],
                   },
                   "typeCondition": Object {
@@ -1821,15 +1803,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 1`] =
                         "name": Object {
                           "kind": "Name",
                           "value": "_links",
-                        },
-                      },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
                         },
                       },
                     ],
@@ -2734,15 +2707,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                         "value": "_links",
                       },
                     },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
-                      },
-                    },
                   ],
                 },
                 "typeCondition": Object {
@@ -2916,15 +2880,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       "name": Object {
                         "kind": "Name",
                         "value": "_links",
-                      },
-                    },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
                       },
                     },
                   ],
@@ -3121,15 +3076,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       "name": Object {
                         "kind": "Name",
                         "value": "_links",
-                      },
-                    },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
                       },
                     },
                   ],
@@ -3573,7 +3519,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -4064,15 +4010,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -4357,15 +4294,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -4560,15 +4488,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -5473,15 +5392,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -5655,15 +5565,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -5860,15 +5761,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -6355,7 +6247,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           "link": MockLink {
             "addTypename": false,
             "mockedResponsesByKey": Object {
-              "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+              "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
                 Object {
                   "request": Object {
                     "query": Object {
@@ -6846,15 +6738,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -7139,15 +7022,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -7342,15 +7216,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -8255,15 +8120,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -8437,15 +8293,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -8642,15 +8489,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -10886,15 +10724,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 3`] =
                           "value": "_links",
                         },
                       },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
-                        },
-                      },
                     ],
                   },
                   "typeCondition": Object {
@@ -11179,15 +11008,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 3`] =
                           "value": "_links",
                         },
                       },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
-                        },
-                      },
                     ],
                   },
                   "typeCondition": Object {
@@ -11382,15 +11202,6 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 3`] =
                         "name": Object {
                           "kind": "Name",
                           "value": "_links",
-                        },
-                      },
-                      Object {
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "_embedded",
                         },
                       },
                     ],
@@ -12295,15 +12106,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                         "value": "_links",
                       },
                     },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
-                      },
-                    },
                   ],
                 },
                 "typeCondition": Object {
@@ -12477,15 +12279,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       "name": Object {
                         "kind": "Name",
                         "value": "_links",
-                      },
-                    },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
                       },
                     },
                   ],
@@ -12682,15 +12475,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       "name": Object {
                         "kind": "Name",
                         "value": "_links",
-                      },
-                    },
-                    Object {
-                      "arguments": Array [],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "_embedded",
                       },
                     },
                   ],
@@ -13134,7 +12918,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -13625,15 +13409,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -13918,15 +13693,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -14121,15 +13887,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -15034,15 +14791,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -15216,15 +14964,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -15421,15 +15160,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -15916,7 +15646,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           "link": MockLink {
             "addTypename": false,
             "mockedResponsesByKey": Object {
-              "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+              "{\\"query\\":\\"mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean, $_eTag: String!) {\\\\n  UpdateAppointment(id: $id, cancelled: $cancelled, _eTag: $_eTag) {\\\\n    ...AppointmentModel\\\\n    property {\\\\n      ...PropertyModel\\\\n    }\\\\n    negotiators {\\\\n      ...NegotiatorModel\\\\n    }\\\\n    offices {\\\\n      ...OfficeModel\\\\n    }\\\\n    followUp {\\\\n      ...AppointmentModelFollowUp\\\\n    }\\\\n    attendee {\\\\n      ...AppointmentAttendeeModel\\\\n      contacts {\\\\n        ...AppointmentContactModel\\\\n      }\\\\n    }\\\\n    appointmentType {\\\\n      ...ListItemModel\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
                 Object {
                   "request": Object {
                     "query": Object {
@@ -16407,15 +16137,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -16700,15 +16421,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -16903,15 +16615,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -17816,15 +17519,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -17998,15 +17692,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -18203,15 +17888,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],

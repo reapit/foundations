@@ -19,5 +19,4 @@ fragment AppointmentModel on AppointmentModel {
   metadata
   _eTag
   _links
-  _embedded
 }
