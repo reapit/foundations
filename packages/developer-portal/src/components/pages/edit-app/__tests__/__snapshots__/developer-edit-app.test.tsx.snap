@@ -84,6 +84,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "name": undefined,
               "redirectUris": "",
               "scopes": Array [],
+              "screen1ImageUrl": "",
               "signoutUris": "",
               "summary": undefined,
               "supportEmail": undefined,
