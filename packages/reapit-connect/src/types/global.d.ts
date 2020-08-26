@@ -4,6 +4,7 @@ export type Config = {
   cognitoClientId: string
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
+  developerPortalUrl: string
 }
 
 declare global {
