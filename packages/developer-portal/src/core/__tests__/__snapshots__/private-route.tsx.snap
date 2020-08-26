@@ -18,7 +18,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
       Array [
         Object {
           "key": "developerAppsRoute",
-          "pathname": "/",
+          "pathname": "/apps",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             Object {
               "hash": "",
               "key": "developerAppsRoute",
-              "pathname": "/",
+              "pathname": "/apps",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "developerAppsRoute",
-            "pathname": "/",
+            "pathname": "/apps",
             "search": "",
           },
           "push": [Function],
