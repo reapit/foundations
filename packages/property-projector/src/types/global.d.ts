@@ -1,5 +1,6 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
+  dynamoEnv: string
   sentryDns: string
   connectClientId: string
   googleAnalyticsKey: string

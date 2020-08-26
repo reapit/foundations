@@ -16,7 +16,7 @@ export class PropertyProjectorConfig {
 
   // Customer logo, contains the address to the chosen customer logo
   @attribute()
-  customerLogo: string
+  logo: string
 
   // Primary colour, contains the hex value for the customer's chosen primary colour
   @attribute()
@@ -63,6 +63,7 @@ export class PropertyProjectorConfig {
   maxRent: number
 
   // Show address, a boolean value to determine whether a property's address should be shown in projector.
+  @attribute()
   showAddress: boolean
 
   // Sort by, a string containing the field to sort properties by within the projector.
@@ -71,7 +72,7 @@ export class PropertyProjectorConfig {
 
   // Departments, an array of strings containing the departments for which projector should display properties for.
   @attribute()
-  departments: Object[]
+  departments: object[]
 
   // Offices, an array of strings containing the offices for which projector should display properties for.
   @attribute()

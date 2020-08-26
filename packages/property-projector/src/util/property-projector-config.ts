@@ -21,25 +21,23 @@ export const getPropertyProjectorConfig = async (session: ReapitConnectSession):
     departments: {},
     offices: [],
   };
-
-  const response = await fetch("http://localhost:3000/dev/v1/property-projector-config/ABC/RPT")
-  .then(async response => {
+  try{
+    const response = await fetch(`${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/ABC/RPT`)
     const data = await response.json();
     // check for error response
     if (!response.ok) {
-        // get error message from body or default to response statusText
-        const error = (data && data.message) || response.statusText;
-        return Promise.reject(error);
+      // get error message from body or default to response statusText
+      const error = (data && data.message) || response.statusText;
+      throw new Error(error);
     }
 
     delete data['customerId'];
     delete data['officeId'];  
     propertyProjectorConfig = {...propertyProjectorConfig, ...data};
     return propertyProjectorConfig;
-  })
-  .catch(error => {
-    console.error('There was an error retrieving the configuration.', error);
-  });
-
- return propertyProjectorConfig;
+  } catch(e){
+    error => {
+      console.error('There was an error retrieving the configuration.', error);
+    };
+  }
 }

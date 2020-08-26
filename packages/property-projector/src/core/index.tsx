@@ -10,6 +10,7 @@ import { logger } from '@reapit/utils'
 window.reapit = {
   config: {
     appEnv: 'local',
+    dynamoEnv: '',
     sentryDns: '',
     connectClientId: '',
     googleAnalyticsKey: '',

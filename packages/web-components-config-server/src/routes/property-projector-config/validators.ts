@@ -1,17 +1,19 @@
 export const ALL_PARAMS = [
   'customerId',
   'officeId',
-  'customerLogo',
+  'logo',
   'primaryColour',
   'secondaryColour',
-  'rotationDuration',
-  'refreshHour',
+  'interval',
   'propertyLimit',
+  'marketingMode',
+  'sellingStatus',
+  'lettingStatus',
   'minPrice',
   'maxPrice',
-  'randomize',
+  'minRent',
+  'maxRent',
   'showAddress',
-  'showStrapline',
   'sortBy',
   'departments',
   'offices',
@@ -20,17 +22,19 @@ export const GET_BY_ID_REQUIRED_PARAMS = ['customerId', 'officeId',]
 export const CREATE_REQUIRED_PARAMS = [
   'customerId',
   'officeId',
-  'customerLogo',
+  'logo',
   'primaryColour',
   'secondaryColour',
-  'rotationDuration',
-  'refreshHour',
+  'interval',
   'propertyLimit',
+  'marketingMode',
+  'sellingStatus',
+  'lettingStatus',
   'minPrice',
   'maxPrice',
-  'randomize',
+  'minRent',
+  'maxRent',
   'showAddress',
-  'showStrapline',
   'sortBy',
   'departments',
   'offices',
@@ -47,24 +51,10 @@ export const validateFollowSchema = (data: { [key: string]: any }): false | stri
         }
         break
       }
-      case 'departments': {
-        const isValid = Array.isArray(data[key])
-        if (!isValid) {
-          invalidMessage += 'Invalid departments.'
-        }
-        break
-      }
-      case 'rotationDuration': {
+      case 'interval': {
         const isValid = !isNaN(data[key])
         if (!isValid) {
-          invalidMessage += 'Invalid rotationDuration.'
-        }
-        break
-      }
-      case 'refreshHour': {
-        const isValid = !isNaN(data[key])
-        if (!isValid) {
-          invalidMessage += 'Invalid refreshHour.'
+          invalidMessage += 'Invalid interval.'
         }
         break
       }
@@ -82,24 +72,24 @@ export const validateFollowSchema = (data: { [key: string]: any }): false | stri
         }
         break
       }
+      case 'minRent': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid minRent.'
+        }
+        break
+      }
+      case 'maxRent': {
+        const isValid = !isNaN(data[key])
+        if (!isValid) {
+          invalidMessage += 'Invalid maxRent.'
+        }
+        break
+      }
       case 'propertyLimit': {
         const isValid = !isNaN(data[key])
         if (!isValid) {
           invalidMessage += 'Invalid propertyLimit.'
-        }
-        break
-      }
-      case 'randomize': {
-        const isValid = typeof data[key] === 'boolean'
-        if (!isValid) {
-          invalidMessage += 'Invalid randomize value.'
-        }
-        break
-      }
-      case 'showStrapline': {
-        const isValid = typeof data[key] === 'boolean'
-        if (!isValid) {
-          invalidMessage += 'Invalid showStrapline.'
         }
         break
       }
@@ -150,6 +140,7 @@ export const validateCreate = (data: { [key: string]: any }) => {
 
   // check if param keys are valid
   const isParamsValid = dataKeys.every(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.length === CREATE_REQUIRED_PARAMS.length
+  console.log(dataKeys.length);
   // check if param is a valid schema item
   const errorMessage = validateFollowSchema(data)
 
