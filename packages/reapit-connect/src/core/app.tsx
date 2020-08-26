@@ -3,7 +3,6 @@ import Router from './router'
 import { css } from 'linaria'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
-import { DEVELOPER_PORTAL_APPS, DEVELOPER_PORTAL_APPS_DEV } from '../constants/routes'
 
 export const globals = css`
   :global() {
@@ -30,8 +29,7 @@ export const App = () => {
   }
 
   if (isUserWithDevIdOnly(session.connectSession?.loginIdentity)) {
-    window.location.href =
-      window.reapit.config.appEnv === 'production' ? DEVELOPER_PORTAL_APPS : DEVELOPER_PORTAL_APPS_DEV
+    window.location.href = window.reapit.config.developerPortalUrl
   }
 
   return <Router />
