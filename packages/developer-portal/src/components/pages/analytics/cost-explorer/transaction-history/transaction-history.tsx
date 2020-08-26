@@ -46,10 +46,15 @@ export const createHandleDownLoadButtonOnClickFn = ({
 }) => async e => {
   e.preventDefault()
 
+  const api =
+    window.reapit.config.appEnv === 'production'
+      ? window.reapit.config.platformApiUrl
+      : window.reapit.config.marketplaceApiUrl
+
   const params = setQueryParams({ applicationId: developerAppIds })
   const blob = await fetcherWithBlob({
     url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
-    api: window.reapit.config.marketplaceApiUrl,
+    api,
     method: 'GET',
     headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
