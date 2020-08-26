@@ -141,8 +141,8 @@ describe('FilterForm', () => {
           label: 'All',
           value: '',
         },
-        { value: 'DXX', label: 'DXX' },
         { value: SANDBOX_CLIENT_ID, label: SANDBOX_CLIENT_NAME },
+        { value: 'DXX', label: 'DXX' },
       ])
     })
   })

@@ -20,7 +20,7 @@ import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { cx } from 'linaria'
 import { fetchInstallationsFilterList } from '@/actions/installations'
-import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
+import { SANDBOX_CLIENT } from '@/constants/api'
 
 export type FilterFormProps = {
   initialValues: FilterFormInitialValues
@@ -45,7 +45,7 @@ export const renderAppSelectOptions = developerApps => {
 
 export const renderClientSelectOptions = (installationAppDataArray: InstallationModel[]) => {
   const filteredClients: SelectOption[] = []
-  installationAppDataArray.push({ customerId: SANDBOX_CLIENT_ID, customerName: SANDBOX_CLIENT_NAME })
+  installationAppDataArray.unshift(SANDBOX_CLIENT)
   installationAppDataArray.forEach(client => {
     const existed = filteredClients.find(filteredClient => filteredClient.value === client.customerId)
     if (!existed) {

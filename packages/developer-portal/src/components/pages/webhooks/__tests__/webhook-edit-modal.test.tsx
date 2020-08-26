@@ -14,6 +14,7 @@ import WebhookCreateModal, {
 import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { editWebhook, createWebhook } from '@/actions/webhooks-subscriptions'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
 
 const mockProps: WebhookEditProps = {
   appId: '',
@@ -155,6 +156,11 @@ describe('WebhookEditModal', () => {
     ]
 
     const expected = [
+      {
+        value: SANDBOX_CLIENT_ID,
+        label: SANDBOX_CLIENT_NAME,
+        description: SANDBOX_CLIENT_NAME,
+      },
       {
         value: 'customerId',
         label: 'customerName',
