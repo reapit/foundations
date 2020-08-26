@@ -190,7 +190,7 @@ type EmbeddedPropertyModel {
   appointments: [AppointmentModel]
   area: AreaModel
   department: DepartmentModel
-  documents: [JSON]
+  documents: [DocumentModel]
   images: [PropertyImageModel]
   landlord: LandlordModel
   negotiator: NegotiatorModel

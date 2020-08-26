@@ -55,7 +55,7 @@ enum LandlordQueryEmbed {
 
 type EmbeddedLandlordModel {
   appointments: [AppointmentModel]
-  documents: [JSON]
+  documents: [DocumentModel]
   office: OfficeModel
   properties: [PropertyModel]
   solicitor: CompanyModel

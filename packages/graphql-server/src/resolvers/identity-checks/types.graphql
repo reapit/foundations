@@ -26,8 +26,8 @@ type IdentityCheckModel {
 
 type EmbeddedIdentityCheckModel {
   contact: ContactModel
-  document1: JSON
-  document2: JSON
+  document1: DocumentModel
+  document2: DocumentModel
   documentType1: ListItemModel
   documentType2: ListItemModel
 }

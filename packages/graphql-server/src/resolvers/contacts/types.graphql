@@ -26,7 +26,7 @@ type ContactModel {
 }
 
 type EmbeddedContactModel {
-  documents: JSON
+  documents: [DocumentModel]
   identityChecks: [IdentityCheckModel]
   negotiators: [NegotiatorModel]
   offices: [OfficeModel]
