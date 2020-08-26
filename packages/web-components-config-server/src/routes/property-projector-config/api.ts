@@ -40,7 +40,6 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Pro
 }
 
 export const putConfig = async ({ traceId, data }): Promise<PropertyProjectorConfig> => {
-  dynamoDBMapper.createTable(PropertyProjectorConfig, {readCapacityUnits: 5, writeCapacityUnits: 5})
   try {
     logger.info('Updating config...', { traceId, data })
     const itemToUpdate = generateSchemaItem(data)

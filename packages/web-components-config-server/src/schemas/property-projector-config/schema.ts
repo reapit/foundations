@@ -72,7 +72,7 @@ export class PropertyProjectorConfig {
 
   // Departments, an array of strings containing the departments for which projector should display properties for.
   @attribute()
-  departments: object[]
+  departments: object
 
   // Offices, an array of strings containing the offices for which projector should display properties for.
   @attribute()
