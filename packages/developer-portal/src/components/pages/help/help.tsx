@@ -99,8 +99,10 @@ export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
   const loginIdentity = selectLoginIdentity(connectSession)
 
   React.useEffect(() => {
-    initChatBot(loginIdentity)
-  }, [])
+    if (loginIdentity.developerId) {
+      initChatBot(loginIdentity)
+    }
+  }, [loginIdentity])
 
   return (
     <>
