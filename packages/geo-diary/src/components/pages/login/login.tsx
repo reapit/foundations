@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Level } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic } from '@reapit/elements'
 import { loginPageContainer, loginPageFormContainer, loginPageImageContainer } from './__styles__'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
@@ -21,6 +21,9 @@ export const Login: React.FC = () => {
             Login
           </Button>
         </Level>
+        <FlexContainerBasic className="pt-8" centerContent>
+          {process.env.APP_VERSION}
+        </FlexContainerBasic>
       </div>
 
       <div className={loginPageImageContainer}>

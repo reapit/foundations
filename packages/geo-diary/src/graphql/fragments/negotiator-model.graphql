@@ -12,5 +12,4 @@ fragment NegotiatorModel on NegotiatorModel {
   metadata
   _eTag
   _links
-  _embedded
 }

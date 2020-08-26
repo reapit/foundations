@@ -19,5 +19,4 @@ fragment OfficeModel on OfficeModel {
   metadata
   _eTag
   _links
-  _embedded
 }
