@@ -53,7 +53,7 @@ export const labelTextOfField = {
   description: 'Description',
   redirectUris: 'Redirect URI(s)',
   signoutUris: 'Sign Out URI(s)',
-  screen1ImageUrl: 'Screenshot 1',
+  screen1ImageUrl: 'Feature Image',
   iconImageUrl: 'Icon',
   scopes: 'Permissions',
   authFlow: 'Authentication flow',
