@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
-import { checkError } from '../../utils/form'
 import { cx } from 'linaria'
 
 const { useState } = React
@@ -85,7 +84,7 @@ export const FileInput = ({
   return (
     <Field name={name}>
       {({ field, meta }: FieldProps<string>) => {
-        const hasError = checkError(meta)
+        const hasError = !!meta.error
         const hasFile = fileUrl || field.value
         const containerClassName = `file ${hasError ? 'is-danger' : 'is-primary'} ${hasFile ? 'has-name' : ''}`
 
