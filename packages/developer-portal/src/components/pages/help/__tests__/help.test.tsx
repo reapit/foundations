@@ -1,5 +1,5 @@
 import * as React from 'react'
-import initChatBot from '../../../../scripts/chat-bot'
+import { openChatbot } from '../../../../scripts/chat-bot'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import {
@@ -16,7 +16,6 @@ import configureStore from 'redux-mock-store'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
 import appState from '@/reducers/__stubs__/app-state'
-import { LoginIdentity } from '@reapit/connect-session'
 
 jest.mock('../../../../scripts/chat-bot')
 
@@ -87,9 +86,7 @@ describe('handleWhatsNew', () => {
 
 describe('handleFaq', () => {
   it('should called with correct props', () => {
-    const loginIdentity = {} as LoginIdentity
-    handleFaq(loginIdentity)
-    expect(initChatBot).toHaveBeenCalledTimes(1)
-    expect(initChatBot).toHaveBeenCalledWith(loginIdentity)
+    handleFaq()
+    expect(openChatbot).toHaveBeenCalledTimes(1)
   })
 })
