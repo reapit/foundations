@@ -212,6 +212,7 @@ export const handleSubmitApp = ({
   onSuccess,
   onError,
   currentOrganisation,
+  setIsListing,
 }: {
   appId: string
   dispatch: Dispatch
@@ -219,6 +220,7 @@ export const handleSubmitApp = ({
   onSuccess: () => void
   onError: () => void
   currentOrganisation?: DeveloperModel
+  setIsListing: React.Dispatch<React.SetStateAction<boolean>>
 }) => (appModel: CustomCreateRevisionModal) => {
   setSubmitting(true)
 
@@ -245,8 +247,15 @@ export const handleSubmitApp = ({
   }
   const sanitizeData = sanitizeAppData(appToSubmit)
 
-  if (currentOrganisation?.status === 'pending' || currentOrganisation?.status === 'incomplete') {
+  const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
+
+  if (!isCanList && !sanitizeData.isListed) {
+    setIsListing(false)
+  }
+
+  if (!isCanList && sanitizeData.isListed) {
     delete sanitizeData.isListed
+    setIsListing(true)
   }
 
   dispatch(
@@ -266,11 +275,11 @@ export const handleSubmitAppSuccess = (
   currentOrganisation?: DeveloperModel,
 ) => () => {
   setSubmitting(false)
+
   if (currentOrganisation?.status === 'incomplete' || currentOrganisation?.status === 'pending') {
     setIsShowBillingNotification(true)
     return
   }
-  history.push(Routes.APPS)
 }
 
 export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStateAction<boolean>>) => () => {
@@ -395,6 +404,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
+  const [isListing, setIsListing] = React.useState<boolean>(true)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -438,6 +448,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           onSuccess: handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, currentOrganisation),
           onError: handleSubmitAppError(setSubmitting),
           currentOrganisation,
+          setIsListing,
         })}
       >
         {({ setFieldValue, values, errors }) => {
@@ -496,7 +507,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
       {currentUser?.role && currentOrganisation?.status && (
         <ModalV2
           isCentered={true}
-          visible={isShowBillingNotification}
+          visible={isShowBillingNotification && isListing}
           onClose={handleCloseModal(setIsShowBillingNotification)}
           title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
           footer={[
@@ -508,6 +519,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
         </ModalV2>
       )}
+      {isShowBillingNotification && !isListing && <Redirect to={Routes.APPS} />}
     </>
   )
 }
