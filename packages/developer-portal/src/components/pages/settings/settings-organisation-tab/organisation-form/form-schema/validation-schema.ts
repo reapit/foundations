@@ -91,6 +91,7 @@ export const companyInformationFormSchema = Yup.object().shape({
 
   [line1Field.name]: Yup.string()
     .trim()
+    .required(FIELD_REQUIRED)
     .max(35, MAXIMUM_CHARACTER_LENGTH(35)),
 
   [line2Field.name]: Yup.string()
@@ -103,6 +104,7 @@ export const companyInformationFormSchema = Yup.object().shape({
 
   [line4Field.name]: Yup.string()
     .trim()
+    .required(FIELD_REQUIRED)
     .max(30, MAXIMUM_CHARACTER_LENGTH(30)),
 
   [postcodeField.name]: Yup.string()
