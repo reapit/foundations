@@ -10,7 +10,7 @@
     float: left;
     width: 100%;
     position: relative;
-    right: 50%;
+    right: 48%;
   }
 }
 
@@ -21,6 +21,12 @@
   left: 50%;
   overflow: hidden;
   height: 100%;
+}
+
+.btn-choose-auth-type-container-right button {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .btn-choose-auth-type-container-right {

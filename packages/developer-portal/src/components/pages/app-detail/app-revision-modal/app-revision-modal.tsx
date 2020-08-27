@@ -10,7 +10,7 @@ import {
   clearAppRevisionList,
 } from '@/actions/apps'
 import { AppDetailState } from '@/reducers/apps/app-detail'
-import { Modal, Loader, Button } from '@reapit/elements'
+import { Modal, Loader, Button, ModalV2 } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectAppRevisions, selectAppRevisionDetail, selectDeclineAppRevisionLoading } from '@/selector/app-revisions'
@@ -184,8 +184,17 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
         >
           <p>Are you sure you wish to cancel any pending revisions for this App?</p>
         </Modal>
-
-        <Modal visible={isDeclinedSuccessfully} afterClose={backToAppDetailsModal(appId, dispatch)}>
+        {/*
+         * TODOME(cancelNoti)
+         * use modalV2
+         */}
+        <ModalV2
+          hasHeader={false}
+          isCentered={true}
+          isPadding={false}
+          visible={isDeclinedSuccessfully}
+          afterClose={backToAppDetailsModal(appId, dispatch)}
+        >
           <CallToAction
             title="SUCCESS"
             type="success"
@@ -196,7 +205,7 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
             All pending revisions for this app have been cancelled. You can now use the ‘Edit Detail’ option to make any
             additional changes as required.
           </CallToAction>
-        </Modal>
+        </ModalV2>
       </>
     </Modal>
   )
