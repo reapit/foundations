@@ -37,16 +37,22 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://dev.marketplace.reapit.cloud/client/installed'
+      ? 'https://marketplace.dev.paas.reapit.cloud/client/installed'
       : 'https://marketplace.reapit.cloud/client/installed')
 
 export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
-  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
-  return <Sidebar {...menuConfigs} location={location} />
+  const desktopOptimisedMenu = connectIsDesktop
+    ? {
+        ...menuConfigs,
+        menu: menuConfigs.menu.filter(config => config.key !== 'APPS' && config.key !== 'LOGOUT'),
+      }
+    : menuConfigs
+  return <Sidebar {...desktopOptimisedMenu} location={location} />
 }
 
 export default Menu

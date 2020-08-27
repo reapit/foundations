@@ -41,7 +41,7 @@ describe('Menu', () => {
         search: '',
         state: {},
       }
-      const result = generateMenuConfig(location, false)
+      const result = generateMenuConfig(location, false, 'SBOX')
       expect(result).toBeDefined()
     })
   })
