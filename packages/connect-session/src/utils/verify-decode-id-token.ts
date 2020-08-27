@@ -118,6 +118,7 @@ export const connectSessionVerifyDecodeIdToken = async (
       adminId: claim['custom:reapit:marketAdmin'] || null,
       userCode: claim['custom:reapit:userCode'] || null,
       groups: claim['cognito:groups'] || [],
+      orgName: claim['custom:reapit:orgName'] || null,
     }
   } catch (error) {
     console.error('Reapit Connect Session error:', error.message)

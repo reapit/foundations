@@ -21,6 +21,14 @@ export const selectLoggedUserEmail = (state: ReapitConnectSession | null): strin
   return state?.loginIdentity?.email || ''
 }
 
+export const selectLoggedUserName = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity?.name || ''
+}
+
+export const selectLoggedUserCompanyName = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity?.orgName || ''
+}
+
 export const selectDeveloperEditionId = (state: ReapitConnectSession | null): string | null => {
   const loginIdentity = selectLoginIdentity(state)
 

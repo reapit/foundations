@@ -27,6 +27,7 @@ export interface LoginIdentity {
   adminId: string | null
   userCode: string | null
   groups: string[]
+  orgName: string | null
 }
 
 export interface CoginitoSession {

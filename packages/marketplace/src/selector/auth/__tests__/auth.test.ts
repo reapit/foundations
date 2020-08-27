@@ -5,6 +5,8 @@ import {
   selectDeveloperId,
   selectLoggedUserEmail,
   selectDeveloperEditionId,
+  selectLoggedUserName,
+  selectLoggedUserCompanyName,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
 
@@ -41,6 +43,16 @@ describe('auth', () => {
   describe('selectDeveloperEditionId', () => {
     it('should run correctly', () => {
       expect(selectDeveloperEditionId(auth)).toEqual(auth.loginIdentity.developerId)
+    })
+  })
+  describe('selectLoggedUserName', () => {
+    it('should run correctly', () => {
+      expect(selectLoggedUserName(auth)).toEqual(auth.loginIdentity.name)
+    })
+  })
+  describe('selectLoggedUserCompanyName', () => {
+    it('should run correctly', () => {
+      expect(selectLoggedUserCompanyName(auth)).toEqual(auth.loginIdentity.orgName)
     })
   })
 })
