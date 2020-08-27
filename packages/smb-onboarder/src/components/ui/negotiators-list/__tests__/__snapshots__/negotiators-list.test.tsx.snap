@@ -289,6 +289,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                           "kind": "Name",
                                           "value": "_embedded",
                                         },
+                                        "selectionSet": Object {
+                                          "kind": "SelectionSet",
+                                          "selections": Array [
+                                            Object {
+                                              "arguments": Array [],
+                                              "directives": Array [],
+                                              "kind": "Field",
+                                              "name": Object {
+                                                "kind": "Name",
+                                                "value": "office",
+                                              },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "id",
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "name",
+                                                    },
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          ],
+                                        },
                                       },
                                     ],
                                   },
@@ -475,7 +512,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                 "kind": "NamedType",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "String",
+                                  "value": "NegotiatorQueryEmbed",
                                 },
                               },
                             },
@@ -493,7 +530,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 593,
+                    "end": 672,
                     "source": Object {
                       "body": "query GetNegotiators(
   $id: [String!],
@@ -502,7 +539,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -519,7 +556,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -796,6 +838,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                         "kind": "Name",
                                         "value": "_embedded",
                                       },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "office",
+                                            },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "id",
+                                                  },
+                                                },
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "name",
+                                                  },
+                                                },
+                                              ],
+                                            },
+                                          },
+                                        ],
+                                      },
                                     },
                                   ],
                                 },
@@ -982,7 +1061,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "String",
+                                "value": "NegotiatorQueryEmbed",
                               },
                             },
                           },
@@ -1000,7 +1079,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                 ],
                 "kind": "Document",
                 "loc": Object {
-                  "end": 593,
+                  "end": 672,
                   "source": Object {
                     "body": "query GetNegotiators(
   $id: [String!],
@@ -1009,7 +1088,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -1026,7 +1105,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -3760,7 +3844,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                     },
                   },
                 ],
-                "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [String!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [NegotiatorQueryEmbed!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded {\\\\n        office {\\\\n          id\\\\n          name\\\\n        }\\\\n      }\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -4023,6 +4107,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -4209,7 +4330,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -4227,7 +4348,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -4236,7 +4357,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -4253,7 +4374,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -4530,6 +4656,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -4716,7 +4879,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -4734,7 +4897,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -4743,7 +4906,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -4760,7 +4923,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -6279,7 +6447,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                       },
                     },
                   ],
-                  "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [String!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [NegotiatorQueryEmbed!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded {\\\\n        office {\\\\n          id\\\\n          name\\\\n        }\\\\n      }\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -6542,6 +6710,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                                     "kind": "Name",
                                                     "value": "_embedded",
                                                   },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "office",
+                                                        },
+                                                        "selectionSet": Object {
+                                                          "kind": "SelectionSet",
+                                                          "selections": Array [
+                                                            Object {
+                                                              "arguments": Array [],
+                                                              "directives": Array [],
+                                                              "kind": "Field",
+                                                              "name": Object {
+                                                                "kind": "Name",
+                                                                "value": "id",
+                                                              },
+                                                            },
+                                                            Object {
+                                                              "arguments": Array [],
+                                                              "directives": Array [],
+                                                              "kind": "Field",
+                                                              "name": Object {
+                                                                "kind": "Name",
+                                                                "value": "name",
+                                                              },
+                                                            },
+                                                          ],
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
                                                 },
                                               ],
                                             },
@@ -6728,7 +6933,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                           "kind": "NamedType",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "String",
+                                            "value": "NegotiatorQueryEmbed",
                                           },
                                         },
                                       },
@@ -6746,7 +6951,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                             ],
                             "kind": "Document",
                             "loc": Object {
-                              "end": 593,
+                              "end": 672,
                               "source": Object {
                                 "body": "query GetNegotiators(
   $id: [String!],
@@ -6755,7 +6960,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -6772,7 +6977,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -7049,6 +7259,43 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -7235,7 +7482,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -7253,7 +7500,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -7262,7 +7509,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -7279,7 +7526,12 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -7865,6 +8117,43 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                           "kind": "Name",
                                           "value": "_embedded",
                                         },
+                                        "selectionSet": Object {
+                                          "kind": "SelectionSet",
+                                          "selections": Array [
+                                            Object {
+                                              "arguments": Array [],
+                                              "directives": Array [],
+                                              "kind": "Field",
+                                              "name": Object {
+                                                "kind": "Name",
+                                                "value": "office",
+                                              },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "id",
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "name",
+                                                    },
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          ],
+                                        },
                                       },
                                     ],
                                   },
@@ -8051,7 +8340,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                 "kind": "NamedType",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "String",
+                                  "value": "NegotiatorQueryEmbed",
                                 },
                               },
                             },
@@ -8069,7 +8358,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 593,
+                    "end": 672,
                     "source": Object {
                       "body": "query GetNegotiators(
   $id: [String!],
@@ -8078,7 +8367,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -8095,7 +8384,12 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -8372,6 +8666,43 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                         "kind": "Name",
                                         "value": "_embedded",
                                       },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "office",
+                                            },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "id",
+                                                  },
+                                                },
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "name",
+                                                  },
+                                                },
+                                              ],
+                                            },
+                                          },
+                                        ],
+                                      },
                                     },
                                   ],
                                 },
@@ -8558,7 +8889,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "String",
+                                "value": "NegotiatorQueryEmbed",
                               },
                             },
                           },
@@ -8576,7 +8907,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                 ],
                 "kind": "Document",
                 "loc": Object {
-                  "end": 593,
+                  "end": 672,
                   "source": Object {
                     "body": "query GetNegotiators(
   $id: [String!],
@@ -8585,7 +8916,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -8602,7 +8933,12 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -10332,6 +10668,43 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                               "kind": "Name",
                                               "value": "_embedded",
                                             },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "office",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "id",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "name",
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                              ],
+                                            },
                                           },
                                         ],
                                       },
@@ -10518,7 +10891,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                     "kind": "NamedType",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "String",
+                                      "value": "NegotiatorQueryEmbed",
                                     },
                                   },
                                 },
@@ -10536,7 +10909,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 593,
+                        "end": 672,
                         "source": Object {
                           "body": "query GetNegotiators(
   $id: [String!],
@@ -10545,7 +10918,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -10562,7 +10935,12 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -10839,6 +11217,43 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                             "kind": "Name",
                                             "value": "_embedded",
                                           },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "arguments": Array [],
+                                                "directives": Array [],
+                                                "kind": "Field",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "office",
+                                                },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "id",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "name",
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
                                         },
                                       ],
                                     },
@@ -11025,7 +11440,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                   "kind": "NamedType",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "String",
+                                    "value": "NegotiatorQueryEmbed",
                                   },
                                 },
                               },
@@ -11043,7 +11458,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 593,
+                      "end": 672,
                       "source": Object {
                         "body": "query GetNegotiators(
   $id: [String!],
@@ -11052,7 +11467,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -11069,7 +11484,12 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -11525,15 +11945,6 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -12090,15 +12501,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -13507,7 +13909,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     },
                   },
                 ],
-                "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [String!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [NegotiatorQueryEmbed!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded {\\\\n        office {\\\\n          id\\\\n          name\\\\n        }\\\\n      }\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -13770,6 +14172,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -13956,7 +14395,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -13974,7 +14413,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -13983,7 +14422,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -14000,7 +14439,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -14277,6 +14721,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -14463,7 +14944,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -14481,7 +14962,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -14490,7 +14971,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -14507,7 +14988,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -14977,6 +15463,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -15163,7 +15686,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -15181,7 +15704,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -15190,7 +15713,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -15207,7 +15730,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -15484,6 +16012,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                               "kind": "Name",
                                               "value": "_embedded",
                                             },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "office",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "id",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "name",
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                              ],
+                                            },
                                           },
                                         ],
                                       },
@@ -15670,7 +16235,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "kind": "NamedType",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "String",
+                                      "value": "NegotiatorQueryEmbed",
                                     },
                                   },
                                 },
@@ -15688,7 +16253,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 593,
+                        "end": 672,
                         "source": Object {
                           "body": "query GetNegotiators(
   $id: [String!],
@@ -15697,7 +16262,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -15714,7 +16279,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -16170,15 +16740,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -16737,15 +17298,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -17192,6 +17744,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -17378,7 +17967,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -17396,7 +17985,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -17405,7 +17994,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -17422,7 +18011,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -17699,6 +18293,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -17885,7 +18516,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -17903,7 +18534,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -17912,7 +18543,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -17929,7 +18560,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -18385,15 +19021,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -18952,15 +19579,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -19363,6 +19981,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                             "kind": "Name",
                                             "value": "_embedded",
                                           },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "arguments": Array [],
+                                                "directives": Array [],
+                                                "kind": "Field",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "office",
+                                                },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "id",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "name",
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
                                         },
                                       ],
                                     },
@@ -19549,7 +20204,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "kind": "NamedType",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "String",
+                                    "value": "NegotiatorQueryEmbed",
                                   },
                                 },
                               },
@@ -19567,7 +20222,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 593,
+                      "end": 672,
                       "source": Object {
                         "body": "query GetNegotiators(
   $id: [String!],
@@ -19576,7 +20231,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -19593,7 +20248,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -19870,6 +20530,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                           "kind": "Name",
                                           "value": "_embedded",
                                         },
+                                        "selectionSet": Object {
+                                          "kind": "SelectionSet",
+                                          "selections": Array [
+                                            Object {
+                                              "arguments": Array [],
+                                              "directives": Array [],
+                                              "kind": "Field",
+                                              "name": Object {
+                                                "kind": "Name",
+                                                "value": "office",
+                                              },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "id",
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "name",
+                                                    },
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          ],
+                                        },
                                       },
                                     ],
                                   },
@@ -20056,7 +20753,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "kind": "NamedType",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "String",
+                                  "value": "NegotiatorQueryEmbed",
                                 },
                               },
                             },
@@ -20074,7 +20771,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 593,
+                    "end": 672,
                     "source": Object {
                       "body": "query GetNegotiators(
   $id: [String!],
@@ -20083,7 +20780,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -20100,7 +20797,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -20544,15 +21246,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -21109,15 +21802,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                         ],
@@ -22517,7 +23201,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       },
                     },
                   ],
-                  "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [String!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"query GetNegotiators($id: [String!], $name: String, $officeId: [String!], $pageSize: Int, $pageNumber: Int, $sortBy: String, $embed: [NegotiatorQueryEmbed!]) {\\\\n  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {\\\\n    _embedded {\\\\n      id\\\\n      created\\\\n      modified\\\\n      name\\\\n      jobTitle\\\\n      active\\\\n      officeId\\\\n      workPhone\\\\n      mobilePhone\\\\n      email\\\\n      metadata\\\\n      _eTag\\\\n      _links\\\\n      _embedded {\\\\n        office {\\\\n          id\\\\n          name\\\\n        }\\\\n      }\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -22780,6 +23464,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                     "kind": "Name",
                                                     "value": "_embedded",
                                                   },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "office",
+                                                        },
+                                                        "selectionSet": Object {
+                                                          "kind": "SelectionSet",
+                                                          "selections": Array [
+                                                            Object {
+                                                              "arguments": Array [],
+                                                              "directives": Array [],
+                                                              "kind": "Field",
+                                                              "name": Object {
+                                                                "kind": "Name",
+                                                                "value": "id",
+                                                              },
+                                                            },
+                                                            Object {
+                                                              "arguments": Array [],
+                                                              "directives": Array [],
+                                                              "kind": "Field",
+                                                              "name": Object {
+                                                                "kind": "Name",
+                                                                "value": "name",
+                                                              },
+                                                            },
+                                                          ],
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
                                                 },
                                               ],
                                             },
@@ -22966,7 +23687,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                           "kind": "NamedType",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "String",
+                                            "value": "NegotiatorQueryEmbed",
                                           },
                                         },
                                       },
@@ -22984,7 +23705,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             ],
                             "kind": "Document",
                             "loc": Object {
-                              "end": 593,
+                              "end": 672,
                               "source": Object {
                                 "body": "query GetNegotiators(
   $id: [String!],
@@ -22993,7 +23714,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -23010,7 +23731,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -23287,6 +24013,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -23473,7 +24236,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -23491,7 +24254,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -23500,7 +24263,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -23517,7 +24280,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -23987,6 +24755,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -24173,7 +24978,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -24191,7 +24996,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -24200,7 +25005,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -24217,7 +25022,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -24494,6 +25304,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -24680,7 +25527,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -24698,7 +25545,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -24707,7 +25554,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -24724,7 +25571,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -25180,15 +26032,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -25747,15 +26590,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -26164,6 +26998,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                               "kind": "Name",
                                               "value": "_embedded",
                                             },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "office",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "id",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "name",
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                              ],
+                                            },
                                           },
                                         ],
                                       },
@@ -26350,7 +27221,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "kind": "NamedType",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "String",
+                                      "value": "NegotiatorQueryEmbed",
                                     },
                                   },
                                 },
@@ -26368,7 +27239,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 593,
+                        "end": 672,
                         "source": Object {
                           "body": "query GetNegotiators(
   $id: [String!],
@@ -26377,7 +27248,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -26394,7 +27265,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -26671,6 +27547,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                             "kind": "Name",
                                             "value": "_embedded",
                                           },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "arguments": Array [],
+                                                "directives": Array [],
+                                                "kind": "Field",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "office",
+                                                },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "id",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "name",
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
                                         },
                                       ],
                                     },
@@ -26857,7 +27770,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "kind": "NamedType",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "String",
+                                    "value": "NegotiatorQueryEmbed",
                                   },
                                 },
                               },
@@ -26875,7 +27788,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 593,
+                      "end": 672,
                       "source": Object {
                         "body": "query GetNegotiators(
   $id: [String!],
@@ -26884,7 +27797,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -26901,7 +27814,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -27211,6 +28129,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                   "kind": "Name",
                                                   "value": "_embedded",
                                                 },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "arguments": Array [],
+                                                      "directives": Array [],
+                                                      "kind": "Field",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "office",
+                                                      },
+                                                      "selectionSet": Object {
+                                                        "kind": "SelectionSet",
+                                                        "selections": Array [
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "id",
+                                                            },
+                                                          },
+                                                          Object {
+                                                            "arguments": Array [],
+                                                            "directives": Array [],
+                                                            "kind": "Field",
+                                                            "name": Object {
+                                                              "kind": "Name",
+                                                              "value": "name",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
                                           },
@@ -27397,7 +28352,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                         "kind": "NamedType",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "String",
+                                          "value": "NegotiatorQueryEmbed",
                                         },
                                       },
                                     },
@@ -27415,7 +28370,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 593,
+                            "end": 672,
                             "source": Object {
                               "body": "query GetNegotiators(
   $id: [String!],
@@ -27424,7 +28379,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -27441,7 +28396,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -27718,6 +28678,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -27904,7 +28901,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -27922,7 +28919,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -27931,7 +28928,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -27948,7 +28945,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -28417,15 +29419,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -28982,15 +29975,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -29582,15 +30566,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -30147,15 +31122,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -30569,6 +31535,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -30755,7 +31758,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -30773,7 +31776,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -30782,7 +31785,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -30799,7 +31802,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -31076,6 +32084,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                               "kind": "Name",
                                               "value": "_embedded",
                                             },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "office",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "id",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "name",
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                              ],
+                                            },
                                           },
                                         ],
                                       },
@@ -31262,7 +32307,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "kind": "NamedType",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "String",
+                                      "value": "NegotiatorQueryEmbed",
                                     },
                                   },
                                 },
@@ -31280,7 +32325,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 593,
+                        "end": 672,
                         "source": Object {
                           "body": "query GetNegotiators(
   $id: [String!],
@@ -31289,7 +32334,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -31306,7 +32351,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -31770,15 +32820,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -32335,15 +33376,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -32794,6 +33826,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                                 "kind": "Name",
                                                 "value": "_embedded",
                                               },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "arguments": Array [],
+                                                    "directives": Array [],
+                                                    "kind": "Field",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "office",
+                                                    },
+                                                    "selectionSet": Object {
+                                                      "kind": "SelectionSet",
+                                                      "selections": Array [
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "id",
+                                                          },
+                                                        },
+                                                        Object {
+                                                          "arguments": Array [],
+                                                          "directives": Array [],
+                                                          "kind": "Field",
+                                                          "name": Object {
+                                                            "kind": "Name",
+                                                            "value": "name",
+                                                          },
+                                                        },
+                                                      ],
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                             },
                                           ],
                                         },
@@ -32980,7 +34049,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "kind": "NamedType",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "String",
+                                        "value": "NegotiatorQueryEmbed",
                                       },
                                     },
                                   },
@@ -32998,7 +34067,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 593,
+                          "end": 672,
                           "source": Object {
                             "body": "query GetNegotiators(
   $id: [String!],
@@ -33007,7 +34076,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -33024,7 +34093,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -33301,6 +34375,43 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                               "kind": "Name",
                                               "value": "_embedded",
                                             },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "office",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "id",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "arguments": Array [],
+                                                        "directives": Array [],
+                                                        "kind": "Field",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "name",
+                                                        },
+                                                      },
+                                                    ],
+                                                  },
+                                                },
+                                              ],
+                                            },
                                           },
                                         ],
                                       },
@@ -33487,7 +34598,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "kind": "NamedType",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "String",
+                                      "value": "NegotiatorQueryEmbed",
                                     },
                                   },
                                 },
@@ -33505,7 +34616,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 593,
+                        "end": 672,
                         "source": Object {
                           "body": "query GetNegotiators(
   $id: [String!],
@@ -33514,7 +34625,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -33531,7 +34642,12 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize
@@ -33989,15 +35105,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -34552,15 +35659,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],

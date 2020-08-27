@@ -5,7 +5,7 @@ query GetNegotiators(
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
-  $embed: [String!]
+  $embed: [NegotiatorQueryEmbed!]
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
@@ -22,7 +22,12 @@ query GetNegotiators(
       metadata
       _eTag
       _links
-      _embedded
+      _embedded {
+        office {
+          id
+          name
+        }
+      }
     }
     pageNumber
     pageSize

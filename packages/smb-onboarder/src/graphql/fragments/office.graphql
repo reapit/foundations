@@ -12,7 +12,6 @@ fragment Office on OfficeModel {
   metadata
   _eTag
   _links
-  _embedded
 }
 
 fragment OfficeAddress on OfficeModelAddress {
