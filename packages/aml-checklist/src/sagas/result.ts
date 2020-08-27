@@ -9,13 +9,14 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import qs from 'query-string'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { logger } from '@reapit/utils'
+import { logger, cleanObject } from '@reapit/utils'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
+    const cleanedParamsObject = cleanObject(params.data)
     const headers = yield call(initAuthorizedRequestHeaders)
     const responseContacts = yield call(fetcher, {
-      url: `${URLS.contacts}/?${qs.stringify({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
+      url: `${URLS.contacts}/?${qs.stringify({ ...cleanedParamsObject, pageSize: CONTACTS_PER_PAGE })}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
