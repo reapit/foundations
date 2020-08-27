@@ -39,7 +39,7 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
   //   return errors.generateUserInputError(traceId)
   // }
   // return errors.generateInternalServerError(traceId)
-  return error
+  return error?.response
 }
 
 export type HandleGraphQlError = {
