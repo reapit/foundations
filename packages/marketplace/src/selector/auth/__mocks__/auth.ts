@@ -11,6 +11,7 @@ export const auth: ReapitConnectSession = {
     groups: ['AgencyCloudDeveloperEdition'],
     userCode: '123',
     name: '1312',
+    orgName: 'Reapit Ltd',
   },
   refreshToken: '131',
 }
