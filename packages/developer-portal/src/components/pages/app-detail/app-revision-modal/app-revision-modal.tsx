@@ -184,10 +184,6 @@ export const DeveloperAppRevisionModal: React.FC<AppRevisionModalProps> = ({
         >
           <p>Are you sure you wish to cancel any pending revisions for this App?</p>
         </Modal>
-        {/*
-         * TODOME(cancelNoti)
-         * use modalV2
-         */}
         <ModalV2
           hasHeader={false}
           isCentered={true}

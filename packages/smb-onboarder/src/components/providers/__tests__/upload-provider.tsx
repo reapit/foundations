@@ -1,20 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import UploadProvider, { handleCloseModal, handleUseEffect } from '../upload-provider'
-/*
- * TODOME(UploadProvider)
- * import
- */
 
 describe('UploadProvider', () => {
-  /*
-   * TODOME(UploadProvider)
-   test should run
-   dif status
-   dif isComplete
-   correct
-   *
-   */
   describe('handleUseEffect', () => {
     test('isCompleted = false and status = "UPLOADED"', () => {
       const setCompleted = jest.fn()
