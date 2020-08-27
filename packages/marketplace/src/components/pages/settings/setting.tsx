@@ -103,7 +103,7 @@ export const Settings: React.FC = () => {
           </GridItem>
         </Grid>
       </Section>
-      <ChangePasswordForm changePassword={changePassword} loading={loading} />
+      {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
     </>
   )
 }
