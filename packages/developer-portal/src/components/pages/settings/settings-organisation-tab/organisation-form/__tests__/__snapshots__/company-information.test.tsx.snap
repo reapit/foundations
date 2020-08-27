@@ -44,7 +44,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
       <Component
         disabled={false}
         id="taxNumber"
-        labelText="VAT Number"
+        labelText="VAT Number*"
         name="taxNumber"
         type="text"
       />
@@ -58,7 +58,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
       <Component
         disabled={false}
         id="registrationNumber"
-        labelText="Company registration number"
+        labelText="Company registration number*"
         name="registrationNumber"
         type="text"
       />
