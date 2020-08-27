@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getPropertyProjectorConfig savePropertyProjectorConfig} from '../../../util/property-projector-config'
+import { getPropertyProjectorConfig, savePropertyProjectorConfig } from '../../../util/property-projector-config'
 import { getDepartments } from '../../../platform-api/departments-api'
 import { getOffices } from '../../../platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'
@@ -31,10 +31,11 @@ import {
   DropdownSelect,
 } from '@reapit/elements'
 
-type ConfigFormProps = {}
+type ConfigFormProps = { officeId: string }
 
-const ConfigForm: React.FC<ConfigFormProps> = () => {
+const ConfigForm: React.FC<ConfigFormProps> = props => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { officeId } = props
 
   const [loading, setLoading] = useState(true)
   const [config, setConfig]: any = useState(null)
@@ -78,7 +79,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     }
 
     const fetchPropertyProjectorConfig = async () => {
-      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession))
+      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
     }
 
     if (connectSession) {
@@ -145,10 +146,12 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     // format the departments back into what the config expects e.g {G: ['house', 'bungalow']}
     values.departments.forEach(department => {
       newConfig.departments[department] = values[`${department}PropertyTypes`]
+      delete newConfig[`${department}PropertyTypes`]
     })
 
     console.info('Converted Form Submission Values: ', newConfig)
     setConfig(newConfig)
+    savePropertyProjectorConfig(connectSession as ReapitConnectSession, officeId, newConfig)
     showProjector()
     setError(null)
   }
