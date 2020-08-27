@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getPropertyProjectorConfig } from '../../../util/property-projector-config'
+import { getPropertyProjectorConfig savePropertyProjectorConfig} from '../../../util/property-projector-config'
 import { getDepartments } from '../../../platform-api/departments-api'
 import { getOffices } from '../../../platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'

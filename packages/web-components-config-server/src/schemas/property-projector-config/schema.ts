@@ -40,11 +40,11 @@ export class PropertyProjectorConfig {
 
   // Selling status, the status of sales properties that are to be displayed on the projector.
   @attribute()
-  sellingStatus: string[]
+  sellingStatuses: string[]
 
   // Letting status, the status of letting properties that are to be displayed on the projector.
   @attribute()
-  lettingStatus: string[]
+  lettingStatuses: string[]
 
   // Min price, the minimum price a property should be to be displayed by the projector.
   @attribute()

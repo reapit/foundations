@@ -28,11 +28,10 @@ export const propertyProjectorConfigGetByIdHandler = async (req: AppRequest, res
   }
 }
 
-
 export const propertyProjectorConfigPutHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = {
-      data: { ...req.body, customerId: req.body.customerId, officeId: req.body.officeId },
+      data: { ...req.body, customerId: req.params.customerId, officeId: req.params.officeId },
       traceId: req.traceId,
     }
     const { data } = params
@@ -51,8 +50,9 @@ export const propertyProjectorConfigPutHandler = async (req: AppRequest, res: Ap
   }
 }
 
-
-propertyProjectorConfig.get('/:customerId/:officeId', propertyProjectorConfigGetByIdHandler)
-propertyProjectorConfig.put('/', propertyProjectorConfigPutHandler)
+propertyProjectorConfig
+  .route('/:customerId/:officeId')
+  .get(propertyProjectorConfigGetByIdHandler)
+  .put(propertyProjectorConfigPutHandler)
 
 export default propertyProjectorConfig

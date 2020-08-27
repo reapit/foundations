@@ -7,8 +7,8 @@ export const ALL_PARAMS = [
   'interval',
   'propertyLimit',
   'marketingMode',
-  'sellingStatus',
-  'lettingStatus',
+  'sellingStatuses',
+  'lettingStatuses',
   'minPrice',
   'maxPrice',
   'minRent',
@@ -18,7 +18,7 @@ export const ALL_PARAMS = [
   'departments',
   'offices',
 ]
-export const GET_BY_ID_REQUIRED_PARAMS = ['customerId', 'officeId',]
+export const GET_BY_ID_REQUIRED_PARAMS = ['customerId', 'officeId']
 export const CREATE_REQUIRED_PARAMS = [
   'customerId',
   'officeId',
@@ -28,8 +28,8 @@ export const CREATE_REQUIRED_PARAMS = [
   'interval',
   'propertyLimit',
   'marketingMode',
-  'sellingStatus',
-  'lettingStatus',
+  'sellingStatuses',
+  'lettingStatuses',
   'minPrice',
   'maxPrice',
   'minRent',
@@ -114,9 +114,9 @@ export const validateGetById = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
 
   // check if param keys are valid
-  const isParamsValid = dataKeys.some(key => GET_BY_ID_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
+  const isParamsValid =
+    dataKeys.some(key => GET_BY_ID_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
   const errorMessage = validateFollowSchema(data)
-
 
   if (!isParamsValid) {
     const error: NodeJS.ErrnoException = new Error()
@@ -131,7 +131,7 @@ export const validateGetById = (data: { [key: string]: any }) => {
     error.code = '400'
     throw error
   }
-  
+
   return true
 }
 
@@ -139,8 +139,9 @@ export const validateCreate = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
 
   // check if param keys are valid
-  const isParamsValid = dataKeys.every(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.length === CREATE_REQUIRED_PARAMS.length
-  console.log(dataKeys.length);
+  const isParamsValid =
+    dataKeys.every(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.length === CREATE_REQUIRED_PARAMS.length
+  console.log(dataKeys.length)
   // check if param is a valid schema item
   const errorMessage = validateFollowSchema(data)
 
