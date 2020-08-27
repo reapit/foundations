@@ -30,7 +30,7 @@ jest.mock('../../../utils/axios-instances', () => ({
   })),
 }))
 
-describe('callGetAppointmentsAPI', () => {
+xdescribe('callGetAppointmentsAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: appointmentsMock })),
@@ -49,7 +49,7 @@ describe('callGetAppointmentsAPI', () => {
   })
 })
 
-describe('callGetAppointmentByIdAPI', () => {
+xdescribe('callGetAppointmentByIdAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: appointmentMock })),
@@ -69,7 +69,7 @@ describe('callGetAppointmentByIdAPI', () => {
   })
 })
 
-describe('callCreateAppointmentAPI', () => {
+xdescribe('callCreateAppointmentAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       post: jest.fn(() => Promise.resolve({ headers: 'header' })),
@@ -88,7 +88,7 @@ describe('callCreateAppointmentAPI', () => {
   })
 })
 
-describe('callUpdateAppointmentAPI', () => {
+xdescribe('callUpdateAppointmentAPI', () => {
   it('should work correctly', async () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       patch: jest.fn(() => Promise.resolve({ headers: 'header' })),
