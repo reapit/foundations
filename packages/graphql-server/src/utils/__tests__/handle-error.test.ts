@@ -3,7 +3,7 @@ import errors from '../../errors'
 import logger from '../../logger'
 
 jest.mock('../../logger/')
-xdescribe('handleError', () => {
+describe('handleError', () => {
   it('should return ValidationError', async () => {
     const input = {
       error: {
