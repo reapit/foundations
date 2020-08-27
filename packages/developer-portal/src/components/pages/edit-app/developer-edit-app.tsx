@@ -323,8 +323,13 @@ export const modalContent = {
       title: 'Account Information Required',
       content: (
         <div>
-          Before listing an app in the Marketplace, you will first need to submit your account information. Please visit
-          the <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
+          Any changes have been saved successfully.
+          <br />
+          However, before you can list an app in the Marketplace (updating the &apos;Is Listed&apos; field), you will
+          first need to submit your account information.
+          <br />
+          Please visit the&nbsp;
+          <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
         </div>
       ),
     },
@@ -332,9 +337,13 @@ export const modalContent = {
       title: 'Account Information Pending',
       content: (
         <div>
-          We are currently verifying your account information, once completed you will be able to list your app. To
-          check the status of your account, please visit the <Link to="/settings/billing">&apos;Billing&apos;</Link>{' '}
-          page.
+          Any changes have been saved successfully.
+          <br />
+          However, as we are currently verifying your account information you will not be able to list your app in the
+          Marketplace (update the &apos;Is Listed&apos; field) until this has been confirmed.
+          <br />
+          To check the status of your account, please visit the&nbsp;
+          <Link to="/settings/billing">&apos;Billing&apos;</Link> page.
         </div>
       ),
     },
@@ -344,8 +353,11 @@ export const modalContent = {
       title: 'Account Information Required',
       content: (
         <div>
-          Unfortunately, your account information has not yet been completed, please ask the Admin of your organisation
-          to visit the &apos;Billing&apos; page under &apos;Settings&apos;.
+          Any changes have been saved successfully.
+          <br />
+          However, as your account information has not yet been completed you will be unable to list your app in the
+          Marketplace (update the &apos;Is Listed&apos; field), please ask the Admin of your organisation to visit the
+          &apos;Billing&apos; page under &apos;Settings&apos; to complete.
         </div>
       ),
     },
@@ -353,8 +365,13 @@ export const modalContent = {
       title: 'Account Information Pending',
       content: (
         <div>
-          Your account information is currently being reviewed by our Accounts Department. Once this has been verified
-          your will be able to list your app.
+          Any changes have been saved successfully.
+          <br />
+          However, your account information is currently being reviewed by our Accounts Department. Once your account
+          has been confirmed, you will be to list your app in the Marketplace (update the &apos;Is Listed&apos; field).
+          <br />
+          The Admin of your organisation can check the status of your account by visiting the &apos;Billing&apos; page
+          under &apos;Settings&apos;.
         </div>
       ),
     },
