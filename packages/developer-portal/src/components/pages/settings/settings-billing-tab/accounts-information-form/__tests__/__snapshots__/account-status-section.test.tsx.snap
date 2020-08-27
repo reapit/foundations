@@ -12,10 +12,10 @@ exports[`AccountStatusSection should match snapshot 1`] = `
   <Component
     className=""
   >
-    <div>
-      <i
-        className="pb-2"
-      >
+    <div
+      className="pb-1"
+    >
+      <i>
         We are currently verifying your information with our Accounts Department
       </i>
     </div>
@@ -53,10 +53,10 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
   <Component
     className=""
   >
-    <div>
-      <i
-        className="pb-2"
-      >
+    <div
+      className="pb-1"
+    >
+      <i>
         We are currently verifying your information with our Accounts Department
       </i>
     </div>

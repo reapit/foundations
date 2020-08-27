@@ -4,7 +4,7 @@ import { Loader, Helper, H5 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
-import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, FormSubHeading, H3 } from '@reapit/elements'
+import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, H3 } from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -130,11 +130,13 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 </Helper>
               )}
               <H5>Accounts Information</H5>
-              <FormSubHeading>
+
+              <p className="is-italic mb-4">
                 The following account information is required for your organisation. Your details will be sent to our
-                Accounts Department to be verified. You can start subscriptions to services within the Developers
-                Portalj when your account status has been set to ‘Confirmed’.
-              </FormSubHeading>
+                Accounts Department to be verified. You can start subscriptions to services within the Developers Portal
+                when your account status has been set to &apos;Confirmed&apos;.
+              </p>
+
               <Grid>
                 <GridItem>
                   <ContactInformationSection disabled={!isRequiredDataOfBillingPageFilled} />
