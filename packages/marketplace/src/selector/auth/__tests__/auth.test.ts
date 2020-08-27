@@ -15,14 +15,16 @@ describe('auth', () => {
     it('run correctly', () => {
       expect(selectLoginIdentity(auth)).toEqual(auth.loginIdentity)
     })
-    it('selectLoginIdentity', () => {
-      expect(selectIsAdmin(auth)).toBeTruthy()
-      expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, adminId: '' } })).toBeFalsy()
-    })
   })
   describe('selectIsAdmin', () => {
     it('should return correctly', () => {
-      expect(selectIsAdmin(auth)).toEqual(!!auth.loginIdentity.adminId)
+      expect(
+        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'] } }),
+      ).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
     })
   })
   describe('selectClientId', () => {

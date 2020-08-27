@@ -17,11 +17,13 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
     return null
   }
 
+  const headers = await generateHeader(window.reapit.config.marketplaceApiKey)
+
   return fetcher({
     url: '/',
     api: window.reapit.config.uploadApiUrl,
     method: 'POST',
-    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+    headers,
     body: object,
   })
 }

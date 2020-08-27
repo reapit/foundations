@@ -51,9 +51,15 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
 
 export const Menu: React.FC = () => {
   const location = useLocation()
-  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
-  return <Sidebar {...menuConfigs} location={location} />
+  const desktopOptimisedMenu = connectIsDesktop
+    ? {
+        ...menuConfigs,
+        menu: menuConfigs.menu.filter(config => config.key !== 'APPS' && config.key !== 'LOGOUT'),
+      }
+    : menuConfigs
+  return <Sidebar {...desktopOptimisedMenu} location={location} />
 }
 
 export default Menu
