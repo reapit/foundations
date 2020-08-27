@@ -11,13 +11,17 @@ import comingSoonImageStarberry from '@/assets/images/coming-soon/2Starberry.jpg
 import comingSoonImageVyomm from '@/assets/images/coming-soon/5Vyomm.jpg'
 import comingSoonImageSpectre from '@/assets/images/coming-soon/6Spectre.jpg'
 
-import comingSoonImageTwentyci from '@/assets/images/coming-soon/7Twentyci.jpg'
+import comingSoonImageTwentyCiVMC from '@/assets/images/coming-soon/TwentyCiVMC.jpg'
+import comingSoonImageTwentyci from '@/assets/images/coming-soon/TwentyCiProspect.jpg'
 
 import comingSoonImageZero from '@/assets/images/coming-soon/8Zero.jpg'
 
 import comingSoonImageYomdel from '@/assets/images/coming-soon/9Yomdel.jpg'
 import comingSoonImageIntegrated from '@/assets/images/coming-soon/12Integrated.jpg'
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
+import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
+import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
+import comingSoonReapitPayments from '@/assets/images/coming-soon/ReapitPayments.jpg'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
@@ -36,6 +40,10 @@ const comingSoonImagesMap = {
   comingSoonImageZero,
   comingSoonImageSpectre,
   comingSoonSmsSpeedway,
+  comingSoonImageTwentyCiVMC,
+  comingSoonSmsSpeedWayIdVerification,
+  comingSoonIAMProperty,
+  comingSoonReapitPayments,
 }
 
 export const emptyComingSoonAppLinkHref = 'javascript:;'
