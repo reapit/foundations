@@ -12,5 +12,10 @@ fragment Negotiator on NegotiatorModel {
   metadata
   _eTag
   _links
-  _embedded
+  _embedded {
+    office {
+      id
+      name
+    }
+  }
 }
