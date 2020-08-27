@@ -118,64 +118,46 @@ describe('DeveloperSubmitApp', () => {
     const appModel = { redirectUris: '' } as CreateAppModel
     afterEach(() => jest.clearAllMocks())
 
-    const setIsCantListRoleTryingToListAppTestCases = [
+    const setIsListingTestCases = [
       {
         org: { status: 'pending' },
         isListed: true,
         inputDispatchIsListed: false,
-        expectsetIsCantListRoleTryingToListAppParams: true,
+        expectsetIsListingParams: true,
       },
       {
         org: { status: 'incomplete' },
         isListed: true,
         inputDispatchIsListed: false,
-        expectsetIsCantListRoleTryingToListAppParams: true,
+        expectsetIsListingParams: true,
       },
 
       {
         org: { status: 'pending' },
         isListed: false,
         inputDispatchIsListed: false,
-        expectsetIsCantListRoleTryingToListAppParams: false,
+        expectsetIsListingParams: false,
       },
       {
         org: { status: 'incomplete' },
         isListed: false,
         inputDispatchIsListed: false,
-        expectsetIsCantListRoleTryingToListAppParams: false,
-      },
-
-      {
-        org: { status: 'confirmed' },
-        isListed: false,
-        inputDispatchIsListed: false,
-        expectsetIsCantListRoleTryingToListAppParams: false,
-      },
-      {
-        org: { status: 'confirmed' },
-        isListed: true,
-        inputDispatchIsListed: true,
-        expectsetIsCantListRoleTryingToListAppParams: false,
+        expectsetIsListingParams: false,
       },
     ]
 
-    for (let {
-      org,
-      isListed,
-      expectsetIsCantListRoleTryingToListAppParams,
-      inputDispatchIsListed,
-    } of setIsCantListRoleTryingToListAppTestCases) {
+    for (let { org, isListed, expectsetIsListingParams, inputDispatchIsListed } of setIsListingTestCases) {
       test(`org status: ${org.status} - isListed: ${isListed} `, () => {
         const onSuccess = jest.fn()
         const onError = jest.fn()
-        const mockedsetIsCantListRoleTryingToListApp = jest.fn()
+        const mockedsetIsListing = jest.fn()
         const fn = handleSubmitApp({
           appId: 'testAppId',
           dispatch: spyDispatch,
           setSubmitting: jest.fn(),
           onSuccess: onSuccess,
           onError: onError,
-          setIsCantListRoleTryingToListApp: mockedsetIsCantListRoleTryingToListApp,
+          setIsListing: mockedsetIsListing,
           currentOrganisation: (org as unknown) as DeveloperModel,
         })
         fn({ ...appModel, isListed })
@@ -189,9 +171,7 @@ describe('DeveloperSubmitApp', () => {
             ...(inputDispatchIsListed === undefined ? {} : { isListed: inputDispatchIsListed }),
           }),
         )
-        expect(mockedsetIsCantListRoleTryingToListApp).toHaveBeenCalledWith(
-          expectsetIsCantListRoleTryingToListAppParams,
-        )
+        expect(mockedsetIsListing).toHaveBeenCalledWith(expectsetIsListingParams)
       })
     }
 
@@ -204,7 +184,7 @@ describe('DeveloperSubmitApp', () => {
         setSubmitting: jest.fn(),
         onSuccess: onSuccess,
         onError: onError,
-        setIsCantListRoleTryingToListApp: jest.fn(),
+        setIsListing: jest.fn(),
       })
       fn(appModel)
       expect(spyDispatch).toBeCalledWith(

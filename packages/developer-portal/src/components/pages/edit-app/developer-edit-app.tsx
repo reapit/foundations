@@ -212,7 +212,7 @@ export const handleSubmitApp = ({
   onSuccess,
   onError,
   currentOrganisation,
-  setIsCantListRoleTryingToListApp,
+  setIsListing,
 }: {
   appId: string
   dispatch: Dispatch
@@ -220,7 +220,7 @@ export const handleSubmitApp = ({
   onSuccess: () => void
   onError: () => void
   currentOrganisation?: DeveloperModel
-  setIsCantListRoleTryingToListApp: React.Dispatch<React.SetStateAction<boolean>>
+  setIsListing: React.Dispatch<React.SetStateAction<boolean>>
 }) => (appModel: CustomCreateRevisionModal) => {
   setSubmitting(true)
 
@@ -249,17 +249,13 @@ export const handleSubmitApp = ({
 
   const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
 
-  if (isCanList) {
-    setIsCantListRoleTryingToListApp(false)
-  }
-
   if (!isCanList && !sanitizeData.isListed) {
-    setIsCantListRoleTryingToListApp(false)
+    setIsListing(false)
   }
 
   if (!isCanList && sanitizeData.isListed) {
     sanitizeData.isListed = false
-    setIsCantListRoleTryingToListApp(true)
+    setIsListing(true)
   }
 
   dispatch(
@@ -402,7 +398,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
-  const [isCantListRoleTryingToListApp, setIsCantListRoleTryingToListApp] = React.useState<boolean>(true)
+  const [isListing, setIsListing] = React.useState<boolean>(false)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -446,7 +442,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           onSuccess: handleSubmitAppSuccess(setSubmitting, setIsShowBillingNotification),
           onError: handleSubmitAppError(setSubmitting),
           currentOrganisation,
-          setIsCantListRoleTryingToListApp,
+          setIsListing,
         })}
       >
         {({ setFieldValue, values, errors }) => {
@@ -505,7 +501,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
       {currentUser?.role && currentOrganisation?.status && (
         <ModalV2
           isCentered={true}
-          visible={isShowBillingNotification && isCantListRoleTryingToListApp}
+          visible={isShowBillingNotification && isListing}
           onClose={handleCloseModal(setIsShowBillingNotification)}
           title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
           footer={[
@@ -517,7 +513,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
         </ModalV2>
       )}
-      {isShowBillingNotification && !isCantListRoleTryingToListApp && <Redirect to={Routes.APPS} />}
+      {isShowBillingNotification && !isListing && <Redirect to={Routes.APPS} />}
     </>
   )
 }
