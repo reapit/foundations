@@ -7,7 +7,7 @@ const getProjectorProperties = async (session: ReapitConnectSession, config: any
 
   // get all properties using a given criteria
   let properties: any[] = await Promise.all(
-    departments.map(async department => {
+    Object.entries(departments).map(async department => {
       const params = buildPropertyUrlSearchParams(config, department)
       return (await getProperties(session as ReapitConnectSession, params.toString()))?._embedded
     }),
@@ -48,7 +48,7 @@ const buildPropertyUrlSearchParams = (
   department: any,
 ) => {
   const params = new URLSearchParams()
-  const [departmentId, departmentPropertyTypes]: any = Object.entries(department)[0]
+  const [departmentId, departmentPropertyTypes]: any = department
 
   params.append('departmentId', departmentId)
 

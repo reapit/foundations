@@ -16,8 +16,8 @@ export type PropertyProjectorConfig = {
   interval: number
   propertyLimit: number
   marketingMode: string[]
-  sellingStatus: string[]
-  lettingStatus: string[]
+  sellingStatuses: string[]
+  lettingStatuses: string[]
   minPrice: number
   maxPrice: number
   minRent: number

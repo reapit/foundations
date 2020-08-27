@@ -101,6 +101,11 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     const { departments, ...initalFormValues } = config
     const departmentPropertyTypes = {}
 
+    // set a default for the 'departmentPropertyTypes'
+    allDepartments.forEach(department => {
+      departmentPropertyTypes[`${department.id}PropertyTypes`] = []
+    })
+
     // created an array of department ids and department property types
     const configDepartments = Object.entries(departments).map(([departmentId, propertyTypes]) => {
       if (Array.isArray(propertyTypes)) {
@@ -135,14 +140,11 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
 
     const newConfig = { ...values }
 
-    // convert property types back into config departments object array
-    newConfig.departments = values.departments.map(department => {
-      const propertyTypes = values[`${department}PropertyTypes`]
-      if (newConfig[`${department}PropertyTypes`] !== undefined) {
-        delete newConfig[`${department}PropertyTypes`]
-        return { [department]: propertyTypes }
-      }
-      return { [department]: [] }
+    newConfig.departments = {}
+
+    // format the departments back into what the config expects e.g {G: ['house', 'bungalow']}
+    values.departments.forEach(department => {
+      newConfig.departments[department] = values[`${department}PropertyTypes`]
     })
 
     console.info('Converted Form Submission Values: ', newConfig)

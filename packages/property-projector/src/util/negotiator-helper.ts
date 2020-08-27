@@ -8,7 +8,7 @@ export const getNegotiatorOfficeId = async (session: ReapitConnectSession): Prom
   params.append('name', negotiatorName)
 
   const response = await getNegotiators(session, encodeUrl(params.toString()))
-  return response?._embedded ? response?._embedded[0].officeId : 'RPT'
+  return response?._embedded?.length ? response?._embedded[0].officeId : 'RPT'
 }
 
 function encodeUrl(url: string) {
