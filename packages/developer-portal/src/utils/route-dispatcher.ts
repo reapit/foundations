@@ -60,6 +60,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchAppDetail({ id }))
       store.dispatch(fetchCategoryList())
       store.dispatch(fetchDesktopIntegrationTypeList())
+      store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
       break
     case Routes.SETTINGS_PROFILE_TAB: {
       const developerId = await getDeveloperId()

@@ -118,25 +118,64 @@ describe('DeveloperSubmitApp', () => {
     const appModel = { redirectUris: '' } as CreateAppModel
     afterEach(() => jest.clearAllMocks())
 
-    const setIsListingTestCases = [
-      { org: { status: 'pending' }, isListed: true, expectSetIsListingParams: true },
-      { org: { status: 'incomplete' }, isListed: true, expectSetIsListingParams: true },
-      { org: { status: 'pending' }, isListed: false, expectSetIsListingParams: false },
-      { org: { status: 'incomplete' }, isListed: false, expectSetIsListingParams: false },
+    const setIsCantListRoleTryingToListAppTestCases = [
+      {
+        org: { status: 'pending' },
+        isListed: true,
+        inputDispatchIsListed: false,
+        expectsetIsCantListRoleTryingToListAppParams: true,
+      },
+      {
+        org: { status: 'incomplete' },
+        isListed: true,
+        inputDispatchIsListed: false,
+        expectsetIsCantListRoleTryingToListAppParams: true,
+      },
+
+      {
+        org: { status: 'pending' },
+        isListed: false,
+        inputDispatchIsListed: false,
+        expectsetIsCantListRoleTryingToListAppParams: false,
+      },
+      {
+        org: { status: 'incomplete' },
+        isListed: false,
+        inputDispatchIsListed: false,
+        expectsetIsCantListRoleTryingToListAppParams: false,
+      },
+
+      {
+        org: { status: 'confirmed' },
+        isListed: false,
+        inputDispatchIsListed: false,
+        expectsetIsCantListRoleTryingToListAppParams: false,
+      },
+      {
+        org: { status: 'confirmed' },
+        isListed: true,
+        inputDispatchIsListed: true,
+        expectsetIsCantListRoleTryingToListAppParams: false,
+      },
     ]
 
-    for (let { org, isListed, expectSetIsListingParams } of setIsListingTestCases) {
+    for (let {
+      org,
+      isListed,
+      expectsetIsCantListRoleTryingToListAppParams,
+      inputDispatchIsListed,
+    } of setIsCantListRoleTryingToListAppTestCases) {
       test(`org status: ${org.status} - isListed: ${isListed} `, () => {
         const onSuccess = jest.fn()
         const onError = jest.fn()
-        const mockedSetIsListing = jest.fn()
+        const mockedsetIsCantListRoleTryingToListApp = jest.fn()
         const fn = handleSubmitApp({
           appId: 'testAppId',
           dispatch: spyDispatch,
           setSubmitting: jest.fn(),
           onSuccess: onSuccess,
           onError: onError,
-          setIsListing: mockedSetIsListing,
+          setIsCantListRoleTryingToListApp: mockedsetIsCantListRoleTryingToListApp,
           currentOrganisation: (org as unknown) as DeveloperModel,
         })
         fn({ ...appModel, isListed })
@@ -147,10 +186,12 @@ describe('DeveloperSubmitApp', () => {
             id: 'testAppId',
             successCallback: onSuccess,
             errorCallback: onError,
-            ...(isListed ? {} : { isListed }),
+            ...(inputDispatchIsListed === undefined ? {} : { isListed: inputDispatchIsListed }),
           }),
         )
-        expect(mockedSetIsListing).toHaveBeenCalledWith(expectSetIsListingParams)
+        expect(mockedsetIsCantListRoleTryingToListApp).toHaveBeenCalledWith(
+          expectsetIsCantListRoleTryingToListAppParams,
+        )
       })
     }
 
@@ -163,7 +204,7 @@ describe('DeveloperSubmitApp', () => {
         setSubmitting: jest.fn(),
         onSuccess: onSuccess,
         onError: onError,
-        setIsListing: jest.fn(),
+        setIsCantListRoleTryingToListApp: jest.fn(),
       })
       fn(appModel)
       expect(spyDispatch).toBeCalledWith(
@@ -262,18 +303,7 @@ describe('DeveloperSubmitApp', () => {
       const setSubmitting = jest.fn()
       const { history } = getMockRouterProps({})
       const setIsShowBillingNotification = jest.fn()
-      const mockCurrentMember = {
-        id: '05f5a331-9122-4353-9e67-c6112654bffd',
-        created: '2020-08-11T13:02:36',
-        email: 'hollyjoyphillips+craig@gmail.com',
-        name: 'Craig Test',
-        jobTitle: 'CB',
-        status: 'pending',
-        role: 'user',
-        developerId: '3b358a06-65f6-46a6-a9fc-84bf1dce18c8',
-        agencyCloudAccess: false,
-      }
-      const fn = handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, mockCurrentMember)
+      const fn = handleSubmitAppSuccess(setSubmitting, setIsShowBillingNotification)
       fn()
       expect(setIsShowBillingNotification).toBeCalledWith(true)
       expect(history.push).not.toBeCalledWith(Routes.APPS)
