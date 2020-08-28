@@ -28,7 +28,7 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
 `;
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
-<Connect(ErrorBoundary)>
+<ErrorBoundary>
   <Component
     hasPadding={true}
   >
@@ -544,11 +544,11 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
       />
     </Component>
   </Component>
-</Connect(ErrorBoundary)>
+</ErrorBoundary>
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
-<Connect(ErrorBoundary)>
+<ErrorBoundary>
   <Component
     hasPadding={true}
   >
@@ -600,5 +600,5 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
       />
     </Component>
   </Component>
-</Connect(ErrorBoundary)>
+</ErrorBoundary>
 `;

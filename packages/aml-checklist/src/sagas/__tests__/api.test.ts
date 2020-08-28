@@ -1,4 +1,4 @@
-jest.mock('../checklist-detail', () => ({
+jest.mock('../api', () => ({
   fetchChecklist: jest.fn().mockResolvedValue(contact),
   fetchIdentityCheck: jest.fn().mockResolvedValue(idCheck),
   uploadImage: jest.fn().mockResolvedValue({ Url: 'mockUrl' }),
@@ -15,7 +15,7 @@ import {
   updateChecklist,
   updateIdentityCheck,
   createIdentityCheck,
-} from '../checklist-detail'
+} from '../api'
 
 const mockHeaders = {
   Authorization: '123',

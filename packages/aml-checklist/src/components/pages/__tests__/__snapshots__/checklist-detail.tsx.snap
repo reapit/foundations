@@ -207,7 +207,7 @@ exports[` 1`] = `
 exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Component />`;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
-<Connect(ErrorBoundary)>
+<ErrorBoundary>
   <Component
     hasBackground={false}
     hasPadding={false}
@@ -413,5 +413,5 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
     modalContentType="PROFILE"
     visible={true}
   />
-</Connect(ErrorBoundary)>
+</ErrorBoundary>
 `;

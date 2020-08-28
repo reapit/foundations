@@ -4,14 +4,11 @@ import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '@/actions/identity-types'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS } from '@/constants/api'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
+import { notification } from '@reapit/elements'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { identityTypes } from '../__stubs__/identity-types'
-
-jest.mock('../../core/store.ts')
+import { fetchIdentityDocumentTypes } from '../api'
+import { extractNetworkErrString } from '@reapit/utils'
 
 const mockHeaders = {
   Authorization: '123',
@@ -20,14 +17,7 @@ const mockHeaders = {
 describe('identity fetch data', () => {
   const gen = cloneableGenerator(identityTypesDataFetch)()
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.configuration}/identityDocumentTypes`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: mockHeaders,
-    }),
-  )
+  expect(gen.next(mockHeaders as any).value).toEqual(call(fetchIdentityDocumentTypes, { headers: mockHeaders }))
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
@@ -37,15 +27,13 @@ describe('identity fetch data', () => {
 
   it('api fail sagas', () => {
     const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(identityTypesRequestFailure()))
+    const err = { description: 'mockError' }
+    expect(clone.throw && clone.throw(err).value).toEqual(put(identityTypesRequestFailure()))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: extractNetworkErrString(err),
+        placement: 'bottomRight',
+      }),
     )
     expect(clone.next().done).toBe(true)
   })

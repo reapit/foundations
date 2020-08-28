@@ -1,19 +1,14 @@
 import resultSagas, { resultFetch, resultListen } from '../result'
 import ActionTypes from '@/constants/action-types'
+import { notification } from '@reapit/elements'
 import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/result'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS } from '@/constants/api'
-import qs from 'query-string'
-import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-
-jest.mock('../../core/store.ts')
+import { fetchContact } from '../api'
+import { extractNetworkErrString } from '@reapit/utils'
 
 const mockHeaders = {
   Authorization: '123',
@@ -31,10 +26,8 @@ describe('result fetch data', () => {
   const gen = cloneableGenerator(resultFetch)(params)
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
   expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.contacts}/?${qs.stringify({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
+    call(fetchContact, {
+      params,
       headers: mockHeaders,
     }),
   )
@@ -47,15 +40,13 @@ describe('result fetch data', () => {
 
   it('api fail sagas', () => {
     const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(resultRequestDataFailure()))
+    const err = { description: 'mockError' }
+    expect(clone.throw && clone.throw(err).value).toEqual(put(resultRequestDataFailure()))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: extractNetworkErrString(err),
+        placement: 'bottomRight',
+      }),
     )
     expect(clone.next().done).toBe(true)
   })
