@@ -34,9 +34,9 @@
   min-height: 800px;
 }
 
-.carousel .slide header img {
+.projector-modal header img {
   width: auto;
-  max-height: 80px;
+  max-height: 63px;
 }
 
 .carousel .slide .property-projector-images {
@@ -141,4 +141,20 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 55px);
+}
+
+.carousel-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 15px 30px;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
 }

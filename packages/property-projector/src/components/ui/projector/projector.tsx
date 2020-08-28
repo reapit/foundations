@@ -18,6 +18,7 @@ const Projector: React.FC<ProjectorProps> = props => {
   const [loading, setLoading] = useState(true)
   const [properties, setProperties]: any = useState([])
   const [userError, setUserError]: any = useState(false)
+  const [hideToolTipMessage, setHideToolTipMessage]: any = useState(false)
 
   useEffect(() => {
     const fetchProjectorProperties = async () => {
@@ -39,8 +40,10 @@ const Projector: React.FC<ProjectorProps> = props => {
         }
       }
     }
+
     if (connectSession) {
       fetchProjectorProperties()
+      setTimeout(() => setHideToolTipMessage(true), 5000)
     }
   }, [connectSession])
 
@@ -81,6 +84,9 @@ const Projector: React.FC<ProjectorProps> = props => {
           <ProjectorProperty key={idx} config={config} property={property} />
         ))}
       </Carousel>
+      <div className={hideToolTipMessage ? 'carousel-tooltip fade-out' : 'carousel-tooltip'}>
+        To close the Projector, press the 'ESC' key on your keyboard.
+      </div>
     </div>
   )
 }
