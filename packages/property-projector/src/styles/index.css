@@ -1,134 +1,140 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-.department-property-types{
-    margin-left: 30px;
+.department-property-types {
+  margin-left: 30px;
 }
 
-.projector-modal{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #D3D3D3;
-    z-index: 99999999;
+.projector-modal {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #d3d3d3;
+  z-index: 99999999;
 }
 
-.projector-modal header{
-    text-align: left;
-    padding: 30px;
-    height: 130px;
-    border-bottom: 5px solid #FFFFFF;
-    background-color: #006580;
+.projector-modal header {
+  text-align: left;
+  padding: 30px;
+  height: 130px;
+  border-bottom: 5px solid #ffffff;
+  background-color: #006580;
 }
 
-.carousel .slide .property-projector{
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 125px);
-    min-height: 800px;
+.carousel .slide .property-projector {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 125px);
+  min-height: 800px;
 }
 
-.carousel .slide header img{
-    width: auto;
-    max-height: 80px;
+.carousel .slide header img {
+  width: auto;
+  max-height: 80px;
 }
 
-.carousel .slide .property-projector-images{
-    display: flex;
-    height: 100%;
+.carousel .slide .property-projector-images {
+  display: flex;
+  height: 100%;
 }
 
-.carousel .slide .property-projector-images div{
-    flex: 1;
-    background-size: cover;
-    background-position: center;
+.carousel .slide .property-projector-images div {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
 }
 
 .carousel .slide .property-projector-side-images {
-    display: flex;
-    flex-direction: column;
-    border-left: 5px solid #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid #ffffff;
 }
 
-.carousel .slide .property-projector-side-images div:nth-of-type(2){
-    border-top: 5px solid #FFFFFF;
+.carousel .slide .property-projector-side-images div:nth-of-type(2) {
+  border-top: 5px solid #ffffff;
 }
 
-.carousel .slide .property-projector-information{
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    background-color: rgba(0,0,0,0.8);
-    padding: 10px 20px;
-    text-align: left;
-    min-width: 600px;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 25px;
+.carousel .slide .property-projector-information {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  text-align: left;
+  min-width: 600px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
 }
 
-.carousel .slide .property-projector-information p{
-    margin: 10px 0px;
-    padding: 0px 10px;
+.carousel .slide .property-projector-information p {
+  margin: 10px 0px;
+  padding: 0px 10px;
 }
 
-.carousel .slide .property-projector-information p svg{
-    width: 20px;
-    height: auto;
-    margin-right: 15px;
+.carousel .slide .property-projector-information p svg {
+  width: 20px;
+  height: auto;
+  margin-right: 15px;
 }
 
-.carousel .slide .property-projector-information .sale-status{
-    font-size: 40px;
-    background-color: #006580;
+.carousel .slide .property-projector-information .sale-status {
+  font-size: 40px;
+  background-color: #006580;
 }
 
-.carousel .slide .property-projector-information .rooms span{
-    margin-left: 30px;
+.carousel .slide .property-projector-information .rooms span {
+  margin-left: 30px;
 }
 
-.carousel .slide .property-projector-information .rooms span:first-of-type{
-    margin-left: 0px;
+.carousel .slide .property-projector-information .rooms span:first-of-type {
+  margin-left: 0px;
 }
 
-.projector-loading{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #006580;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    z-index: 99999999;
+.projector-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #006580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  z-index: 99999999;
 }
 
-.colour-picker-container{
-    position: relative;
+.colour-picker-container {
+  position: relative;
 }
 
-.colour-swatch{
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #74818d;
-    z-index: 1;
-    cursor: pointer;
+.colour-swatch {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #74818d;
+  z-index: 1;
+  cursor: pointer;
 }
 
-#primaryColour, #secondaryColour{
-    padding-left: 50px;
+#primaryColour,
+#secondaryColour {
+  padding-left: 50px;
 }
 
-.sketch-picker{
-    position: absolute;
-    top: 89px;
-    right: 8px;
-    z-index: 999999;
+.sketch-picker {
+  position: absolute;
+  top: 89px;
+  right: 8px;
+  z-index: 999999;
+}
+.office-checkbox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 55px);
 }
