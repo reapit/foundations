@@ -80,10 +80,6 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
       setAllOffices(offices)
     }
 
-    const fetchPropertyProjectorConfig = async () => {
-      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
-    }
-
     const fetchNegotiatorOfficeId = async () => {
       setOfficeId(await getNegotiatorOfficeId(connectSession as ReapitConnectSession))
     }
@@ -91,9 +87,9 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
     if (connectSession) {
       console.log('Session Data:', connectSession)
 
-      Promise.all([fetchDepartments(), fetchOffices(), fetchNegotiatorOfficeId()])
-        .then(() => fetchPropertyProjectorConfig())
-        .then(() => setLoading(false))
+      Promise.all([fetchDepartments(), fetchOffices(), fetchNegotiatorOfficeId()]).catch(err =>
+        console.error(`Inital load error: ${err}`),
+      )
 
       window.addEventListener('keydown', escapeKeyPressed, false)
     }
@@ -102,6 +98,16 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
       window.removeEventListener('keydown', escapeKeyPressed, false)
     }
   }, [connectSession])
+
+  useEffect(() => {
+    const fetchPropertyProjectorConfig = async () => {
+      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
+    }
+
+    if (officeId !== '') {
+      fetchPropertyProjectorConfig().then(() => setLoading(false))
+    }
+  }, [officeId])
 
   const escapeKeyPressed = event => {
     if (event.keyCode !== 27) return
