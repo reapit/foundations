@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import getProjectorProperties from '../../../util/projector-properties'
+import getProjectorProperties from '@/util/projector-properties'
 import ProjectorProperty from './property'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'

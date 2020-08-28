@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { getPropertyProjectorConfig, savePropertyProjectorConfig } from '../../../util/property-projector-config'
-import { getDepartments } from '../../../platform-api/departments-api'
-import { getOffices } from '../../../platform-api/offices-api'
+import { getPropertyProjectorConfig, savePropertyProjectorConfig } from '@/util/property-projector-config'
+import { getDepartments } from '@/platform-api/departments-api'
+import { getOffices } from '@/platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'
 import OfficeCheckboxes from './office-checkboxes'
 import Projector from '../projector'
 import ColourPicker from '../colour-picker'
-import { ERROR_MESSAGES } from '../../../constants/errors'
-import { SELLING_STATUS, LETTING_STATUS } from '../../../constants/statuses'
+import { ERROR_MESSAGES } from '@/constants/errors'
+import { SELLING_STATUS, LETTING_STATUS } from '@/constants/statuses'
+import { getNegotiatorOfficeId } from '@/util/negotiator-helper'
 import {
   H5,
   Section,
@@ -29,19 +30,20 @@ import {
   usePortal,
   Alert,
   DropdownSelect,
+  Loader,
 } from '@reapit/elements'
 
-type ConfigFormProps = { officeId: string }
+type ConfigFormProps = {}
 
-const ConfigForm: React.FC<ConfigFormProps> = props => {
+const ConfigForm: React.FC<ConfigFormProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { officeId } = props
 
   const [loading, setLoading] = useState(true)
   const [config, setConfig]: any = useState(null)
   const [allDepartments, setAllDepartments]: any[] = useState([])
   const [allOffices, setAllOffices]: any[] = useState([])
   const [error, setError]: any = useState(null)
+  const [officeId, setOfficeId] = useState('')
 
   const [showProjector, hideProjector] = usePortal(() => <Projector config={config} />, [config])
 
@@ -82,9 +84,17 @@ const ConfigForm: React.FC<ConfigFormProps> = props => {
       setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
     }
 
+    const fetchNegotiatorOfficeId = async () => {
+      setOfficeId(await getNegotiatorOfficeId(connectSession as ReapitConnectSession))
+    }
+
     if (connectSession) {
       console.log('Session Data:', connectSession)
-      Promise.all([fetchPropertyProjectorConfig(), fetchDepartments(), fetchOffices()]).then(() => setLoading(false))
+
+      Promise.all([fetchDepartments(), fetchOffices(), fetchNegotiatorOfficeId()])
+        .then(() => fetchPropertyProjectorConfig())
+        .then(() => setLoading(false))
+
       window.addEventListener('keydown', escapeKeyPressed, false)
     }
 
@@ -179,7 +189,11 @@ const ConfigForm: React.FC<ConfigFormProps> = props => {
   ]
 
   if (loading === true) {
-    return <div>loading...</div>
+    return (
+      <Section>
+        <Loader />
+      </Section>
+    )
   }
 
   return (

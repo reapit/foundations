@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAddress, getPrice, getStatus } from '../../../util/property-helpers'
+import { getAddress, getPrice, getStatus } from '@/util/property-helpers'
 
 type PropertyImagesProps = {
   images: string[]

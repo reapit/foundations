@@ -1,7 +1,7 @@
 import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { URLS, BASE_HEADERS } from '../constants/api'
+import { URLS, BASE_HEADERS } from '@/constants/api'
 
 export const configurationAppointmentsApiService = async (
   session: ReapitConnectSession,

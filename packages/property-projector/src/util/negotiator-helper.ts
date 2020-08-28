@@ -1,5 +1,5 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { getNegotiators } from '../platform-api/negotiators-api'
+import { getNegotiators } from '@/platform-api/negotiators-api'
 
 export const getNegotiatorOfficeId = async (session: ReapitConnectSession): Promise<any> => {
   const negotiatorName = session.loginIdentity.name

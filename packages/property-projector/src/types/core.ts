@@ -1,4 +1,4 @@
-import Routes from '../constants/routes'
+import Routes from '@/constants/routes'
 
 export interface StringMap {
   [key: string]: string

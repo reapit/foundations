@@ -1,4 +1,4 @@
-import { SELLING_STATUS, LETTING_STATUS } from '../constants/statuses'
+import { SELLING_STATUS, LETTING_STATUS } from '@/constants/statuses'
 
 export const getAddress = (property: any): string => {
   const address: string[] = []

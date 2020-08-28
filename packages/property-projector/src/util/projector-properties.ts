@@ -1,6 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { getProperties } from '../platform-api/properties-api'
-import { getAllPropertyImages } from '../platform-api/property-images-api'
+import { getProperties } from '@/platform-api/properties-api'
+import { getAllPropertyImages } from '@/platform-api/property-images-api'
 
 const getProjectorProperties = async (session: ReapitConnectSession, config: any) => {
   const { propertyLimit, departments } = config
