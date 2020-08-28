@@ -17,10 +17,14 @@
 
 .projector-modal header {
   text-align: left;
-  padding: 30px;
-  height: 130px;
+  padding: 25px;
+  height: 150px;
   border-bottom: 5px solid #ffffff;
   background-color: #006580;
+}
+
+.projector-modal header .logo {
+  height: 100px;
 }
 
 .carousel .slide .property-projector {
