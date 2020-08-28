@@ -22,14 +22,10 @@ import {
   pepSearch,
   fetchDataPepSearch,
   fetchInitialData,
-  fetchChecklist,
-  fetchIdentityCheck,
   onUpdateChecklist,
-  updateChecklist,
   onUpdateAddressHistory,
   onUpdateDeclarationAndRisk,
   updatePrimaryId,
-  updateIdentityCheck,
   updateSecondaryId,
   updateChecklistListen,
   updateAddressHistoryListen,
@@ -37,16 +33,14 @@ import {
   updateIdentityCheckStatusListen,
   updateIdentityCheckStatus,
 } from '../checklist-detail'
+import { fetchChecklist, fetchIdentityCheck, updateChecklist, updateIdentityCheck } from '../api'
 import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
-import { EntityType, DynamicLinkParams } from '@reapit/elements'
-
-jest.mock('../../core/store.ts')
+import { EntityType, DynamicLinkParams, notification } from '@reapit/elements'
+import { extractNetworkErrString } from '@reapit/utils'
 
 const mockHeaders = {
   Authorization: '123',
@@ -72,14 +66,12 @@ describe('checklist-detail', () => {
     })
     test('api call fail', () => {
       const clone = gen.clone()
-      if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+      const err = { description: 'mockError' }
+      expect(clone.throw && clone.throw(err).value).toEqual(
+        call(notification.error, {
+          message: extractNetworkErrString(err),
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
       expect(clone.next().done).toBe(true)
@@ -111,14 +103,12 @@ describe('checklist-detail', () => {
       })
       test('api call fail', () => {
         const clone = gen.clone()
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -149,14 +139,12 @@ describe('checklist-detail', () => {
       })
       test('api call fail', () => {
         const clone = gen.clone()
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -208,14 +196,12 @@ describe('checklist-detail', () => {
           metadata: contact.metadata,
         }
         expect(clone.next(contact).value).toEqual(call(updateChecklist, { contact: newContact, headers: mockHeaders }))
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -265,14 +251,12 @@ describe('checklist-detail', () => {
           metadata: contact.metadata,
         }
         expect(clone.next(contact).value).toEqual(call(updateChecklist, { contact: newContact, headers: mockHeaders }))
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -322,14 +306,12 @@ describe('checklist-detail', () => {
 
       test('api call fail', () => {
         const clone = gen.clone()
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -380,14 +362,12 @@ describe('checklist-detail', () => {
 
       test('api call fail', () => {
         const clone = gen.clone()
-        if (!clone.throw) throw new Error('Generator object cannot throw')
-        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+        const err = { description: 'mockError' }
+        expect(clone.throw && clone.throw(err).value).toEqual(
+          call(notification.error, {
+            message: extractNetworkErrString(err),
+            placement: 'bottomRight',
+          }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -416,14 +396,12 @@ describe('checklist-detail', () => {
 
     test('api call fail', () => {
       const clone = gen.clone()
-      if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+      const err = { description: 'mockError' }
+      expect(clone.throw && clone.throw(err).value).toEqual(
+        call(notification.error, {
+          message: extractNetworkErrString(err),
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -470,14 +448,12 @@ describe('checklist-detail', () => {
     })
     test('api call fail', () => {
       const clone = gen.clone()
-      if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+      const err = { description: 'mockError' }
+      expect(clone.throw && clone.throw(err).value).toEqual(
+        call(notification.error, {
+          message: extractNetworkErrString(err),
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -526,13 +502,12 @@ describe('checklist-detail', () => {
     test('api call fail', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+      const err = { description: 'mockError' }
+      expect(clone.throw && clone.throw(err).value).toEqual(
+        call(notification.error, {
+          message: extractNetworkErrString(err),
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)

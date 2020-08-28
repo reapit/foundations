@@ -1,33 +1,24 @@
-import { fetcher } from '@reapit/elements'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { errorThrownServer } from '../actions/error'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '../actions/identity-types'
-import errorMessages from '../constants/error-messages'
-import { logger } from '@reapit/utils'
+import { extractNetworkErrString, logger } from '@reapit/utils'
+import { fetchIdentityDocumentTypes } from './api'
+import { notification } from '@reapit/elements'
 
 export const identityTypesDataFetch = function*() {
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
-    const response = yield call(fetcher, {
-      url: `${URLS.configuration}/identityDocumentTypes`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: headers,
-    })
+    const response = yield call(fetchIdentityDocumentTypes, { headers })
     yield put(identityTypesReceiveData(response))
   } catch (err) {
     logger(err)
     yield put(identityTypesRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   }
 }
 

@@ -164,7 +164,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
 `;
 
 exports[`ClientSearch should match a snapshot 1`] = `
-<Connect(ErrorBoundary)>
+<ErrorBoundary>
   <Formik
     initialValues={
       Object {
@@ -297,5 +297,5 @@ exports[`ClientSearch should match a snapshot 1`] = `
   >
     <Component />
   </Formik>
-</Connect(ErrorBoundary)>
+</ErrorBoundary>
 `;

@@ -1,37 +1,20 @@
-import * as Sentry from '@sentry/browser'
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { errorThrownComponent } from '../../actions/error'
-import { Dispatch } from 'redux'
+import * as Sentry from '@sentry/browser'
 import errorMessages from '../../constants/error-messages'
-import { ErrorData } from '../../reducers/error'
-import { ReduxState } from '@/types/core'
-
-interface ErrorMappedActions {
-  errorThrownComponent: (error: ErrorData) => void
-}
-
-interface ErrorMappedProps {
-  componentError: ErrorData | null
-}
+import { notification } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
 }
 
-export type ErrorProps = ErrorMappedActions &
-  ErrorMappedProps & {
-    children?: React.ReactNode
-  }
-
-export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
+export class ErrorBoundary extends React.Component<{}, ErrorState> {
   static getDerivedStateFromError() {
     return {
       hasFailed: true,
     }
   }
 
-  constructor(props: ErrorProps) {
+  constructor(props: {}) {
     super(props)
     this.state = {
       hasFailed: false,
@@ -39,10 +22,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    this.props.errorThrownComponent({
-      type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR,
-    })
+    notification.error({ message: errorMessages.DEFAULT_COMPONENT_ERROR, placement: 'bottomRight' })
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
       Sentry.withScope(scope => {
@@ -50,7 +30,6 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
         Sentry.captureException(error)
       })
     }
-    console.error('ERROR BOUNDARY CAUGHT', error.message, info)
   }
 
   render() {
@@ -62,12 +41,4 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): ErrorMappedProps => ({
-  componentError: state.error.componentError,
-})
-
-const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
-  errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorBoundary)
+export default ErrorBoundary
