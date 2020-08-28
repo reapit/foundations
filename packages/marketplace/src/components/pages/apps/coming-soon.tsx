@@ -22,6 +22,7 @@ import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
 import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
 import comingSoonReapitPayments from '@/assets/images/coming-soon/ReapitPayments.jpg'
+import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
@@ -44,6 +45,7 @@ const comingSoonImagesMap = {
   comingSoonSmsSpeedWayIdVerification,
   comingSoonIAMProperty,
   comingSoonReapitPayments,
+  comingSoonImageMAB,
 }
 
 export const emptyComingSoonAppLinkHref = 'javascript:;'
