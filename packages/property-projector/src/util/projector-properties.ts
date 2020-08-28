@@ -85,10 +85,18 @@ const mergePropertyImagesById = (properties: any[], propertyImages: any[]) => {
   propertyImages.forEach(image => {
     if (Array.isArray(propertyImagesFormatted[image.propertyId])) {
       // there should only be a max of 3 images returned
+      /*
+       * TO DO:
+       * The API is returning incorrect image locations. To work around that we have removed "/SBOX" from the URLs.
+       * This is not a permenant fix and should be removed once the issue with the API has been resolved.
+       */
       if (propertyImagesFormatted[image.propertyId].length === 3) return
-      return (propertyImagesFormatted[image.propertyId] = [...propertyImagesFormatted[image.propertyId], image.url])
+      return (propertyImagesFormatted[image.propertyId] = [
+        ...propertyImagesFormatted[image.propertyId],
+        image.url.replace('/SBOX', ''),
+      ])
     } else {
-      return (propertyImagesFormatted[image.propertyId] = [image.url])
+      return (propertyImagesFormatted[image.propertyId] = [image.url.replace('/SBOX', '')])
     }
   })
 

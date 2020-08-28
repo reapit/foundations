@@ -52,7 +52,6 @@ export const getAllPropertyImages = async (session: ReapitConnectSession, criter
       }
       pageNumber++
     }
-
     return propertyImages
   } catch (err) {
     console.error('Error fetching Property Images', err.message)
