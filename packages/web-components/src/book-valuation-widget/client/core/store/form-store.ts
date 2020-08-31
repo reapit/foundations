@@ -23,7 +23,7 @@ export const formTwoStore = writable<FormTwoDataStore>({
 })
 
 //Form 3 store
-type FormThreeDataStoreKey =
+export type FormThreeDataStoreKey =
   | 'title'
   | 'firstName'
   | 'surname'

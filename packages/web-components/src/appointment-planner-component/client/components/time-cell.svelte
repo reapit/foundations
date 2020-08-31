@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { Dayjs } from 'dayjs'
   import { themeStore } from '../core/theme-store'
 
-  export let date: Dayjs
+  export let date
   export let startTime: string = ''
   export let handleOnClickCell: ({ appointmentDate: Date, appointmentTime: number }) => void
 
