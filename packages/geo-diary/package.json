@@ -13,7 +13,6 @@
   "scripts": {
     "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.pwa.prod.js",
     "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
-    "release:dev": "yarn build:prod && serverless deploy --stage dev",
     "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",

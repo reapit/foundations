@@ -71,7 +71,7 @@ jobs:
 
       - name: Release Develop
         run: |
-          yarn release:dev --since HEAD~1 --include-dependencies
+          yarn release:development --since HEAD~1 --include-dependencies
 
       - name: Write jest cache
         uses: actions/cache@v2

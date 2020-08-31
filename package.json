@@ -43,7 +43,7 @@
     "fetch-config": "lerna run --parallel --stream fetch-config --",
     "lint": "lerna run lint --parallel --stream",
     "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies --",
-    "release:dev": "lerna run release:dev --parallel",
+    "release:development": "lerna run release:development --parallel",
     "release-note": "node ./scripts/release/generate-release-note.js",
     "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
