@@ -13,7 +13,7 @@ import {
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
-import styles from '@/styles/pages/settings.scss?mod'
+import styles from './__styles__/settings.scss?mod'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void

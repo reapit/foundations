@@ -19,7 +19,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
-import styles from '@/styles/pages/apps.scss?mod'
+import styles from './__styles__/apps.scss?mod'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.5
 
