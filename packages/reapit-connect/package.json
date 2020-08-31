@@ -16,7 +16,7 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "cross-env IS_RELEASE=false node ../../scripts/release/release-dev.js reapit-connect reapit-reapit-connect-dev",
+    "release:dev": "cross-env IS_RELEASE=false && yarn build:prod && serverless deploy --stage dev",
     "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",

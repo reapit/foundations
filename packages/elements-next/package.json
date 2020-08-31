@@ -8,7 +8,7 @@
     "start:dev": "docz dev",
     "start:prod": "docz build && docz serve",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "release:dev": "node ../../scripts/release/release-dev.js elements reapit-elements-dev",
+    "release:dev": "yarn build:prod && serverless deploy --stage dev",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
