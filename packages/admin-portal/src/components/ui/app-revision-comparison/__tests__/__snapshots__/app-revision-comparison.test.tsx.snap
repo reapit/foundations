@@ -11,7 +11,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Name
     </h4>
-    <DiffViewer
+    <Component
       changedString="Amazon Shopping 2"
       currentString="Peter's Properties"
       type="words"
@@ -26,7 +26,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Category
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="words"
@@ -41,7 +41,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Home page
     </h4>
-    <DiffViewer
+    <Component
       changedString="https://www.amazon.com/"
       currentString="http://myawesomeproptechproduct.io"
       type="words"
@@ -56,7 +56,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Launch URI
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="words"
@@ -71,7 +71,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Support Email
     </h4>
-    <DiffViewer
+    <Component
       changedString="VBNApplication@test.com"
       currentString="support@reapit.com"
       type="words"
@@ -86,7 +86,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Telephone
     </h4>
-    <DiffViewer
+    <Component
       changedString="0800 279 7234"
       currentString="0113 288 2900"
       type="words"
@@ -101,7 +101,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Summary
     </h4>
-    <DiffViewer
+    <Component
       changedString="Shop millions of products, never miss amazing deals, compare prices and reviews
       and track your orders easily with the Amazon Shopping App!"
       currentString="vitae elementum curabitur vitae"
@@ -117,7 +117,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Description
     </h4>
-    <DiffRenderHTML
+    <Component
       changedString="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -144,7 +144,7 @@ Get
     >
       Redirect URIs
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="words"
@@ -159,7 +159,7 @@ Get
     >
       Signout URIs
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="words"
@@ -174,7 +174,7 @@ Get
     >
       Private Apps
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="words"
@@ -189,7 +189,7 @@ Get
     >
       Integration Type
     </h4>
-    <DiffViewer
+    <Component
       changedString=""
       currentString=""
       type="wordsWithSpace"
@@ -204,7 +204,7 @@ Get
     >
       Read data about developers
     </h4>
-    <DiffCheckbox
+    <Component
       changedChecked={true}
       currentChecked={true}
     />
@@ -218,7 +218,7 @@ Get
     >
       Write data about developers
     </h4>
-    <DiffCheckbox
+    <Component
       changedChecked={true}
       currentChecked={true}
     />
@@ -232,7 +232,7 @@ Get
     >
       Is listed
     </h4>
-    <DiffCheckbox
+    <Component
       changedChecked={false}
       currentChecked={false}
       dataTest="revision-diff-isListed"
@@ -247,7 +247,7 @@ Get
     >
       Is Direct API
     </h4>
-    <DiffCheckbox
+    <Component
       changedChecked={false}
       currentChecked={false}
       dataTest="revision-diff-isDirectApi"
@@ -263,7 +263,7 @@ Get
       media
        
     </h4>
-    <DiffMedia
+    <Component
       type="media"
     />
   </div>
