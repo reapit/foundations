@@ -1,4 +1,4 @@
-@import '../base/screen-size.scss';
+@import '@/styles/base/screen-size.scss';
 
 .categoryItem {
   display: inline;
@@ -27,12 +27,5 @@
   .categoryItem {
     display: block;
     margin: 4px;
-  }
-}
-
-.listCategories {
-  @include for-mobile-only {
-    display: flex;
-    flex-wrap: wrap;
   }
 }

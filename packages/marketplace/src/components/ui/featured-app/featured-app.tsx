@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { GridThreeColItem } from '@reapit/elements'
-import styles from '@/styles/blocks/featured-app.scss?mod'
+import styles from './__styles__/featured-app.scss?mod'
 import { Link } from 'react-router-dom'
 import Routes from '@/constants/routes'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import InstalledAppCard from './installed-app-card'
-import installedAppListStyles from '@/styles/blocks/installed-app-list.scss?mod'
+import installedAppListStyles from './__styles__/installed-app-list.scss?mod'
 import {
   Loader,
   H3,

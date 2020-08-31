@@ -1,4 +1,4 @@
-@import "../base/colors.scss";
+@import '@/styles/base/colors.scss';
 
 .sidebar {
   width: 100%;
@@ -24,8 +24,6 @@
   cursor: pointer;
   pointer-events: initial;
 }
-
-
 
 @media screen and (min-width: 769px) {
   .sidebar {

@@ -1,0 +1,6 @@
+.listCategories {
+  @include for-mobile-only {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

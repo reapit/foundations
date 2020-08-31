@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import AppCard from './app-card'
-import styles from '@/styles/blocks/app-list.scss?mod'
+import AppCard from '../app-card'
+import styles from './__styles__/app-list.scss?mod'
 import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
 
 export type AppListProps = {
