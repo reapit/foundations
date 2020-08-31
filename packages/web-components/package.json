@@ -73,7 +73,6 @@
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "svelte:check": "npx svelte-check",
     "fetch-config": "yarn config-manager --namespace cloud --entity web-components --name local --mode fetch",
-    "release:dev": "node ./scripts/release-serverless.js --stage dev",
     "release:development": "node ./scripts/release-serverless.js --stage dev",
     "release:production": "node ./scripts/release-serverless.js --stage prod",
     "remove:development": "serverless remove --stage dev",

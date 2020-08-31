@@ -6,7 +6,7 @@
   "scripts": {
     "build:prod": "node ./scripts/build.js",
     "fetch-config": "yarn config-manager --namespace cloud --entity demo-site --name local --mode fetch",
-    "release:dev": "yarn build:prod && serverless deploy --stage dev",
+    "release:development": "serverless deploy --stage dev",
     "start:prod": "sirv public/dist --dev -s --port 8080",
     "serve:web-components": "yarn workspace @reapit/web-components start:dev demo-site",
     "serve:demo-site": "node ./scripts/start-dev.js",
