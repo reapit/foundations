@@ -1,21 +1,27 @@
 import { AppRequest } from '../../../../../../utils/src/node/logger'
 
-/*
- * TODOME(getOffice)
- *
- */
+export const requiredInformation = [
+  {
+    fields: ['postcode', 'dateFrom', 'dateTo'],
+    property: 'query',
+  },
+  {
+    fields: ['reapit-customer'],
+    property: 'headers',
+  },
+]
+export const errorFieldRequiredInRequestProperty = (field: string, property: string) =>
+  `Field ${field} is required in request's ${property}`
+
 export const validateGetAppointmentSlotsRequest = (req: AppRequest) => {
-  /*
-   * TODOME(getOffice)
-   validate postCode from request
-   */
-  /*
-   * TODOME(getConfig)
-    - validate repait-custom in header request
-   */
-  /*
-   * TODOME(requestAppoint)
-   * validate dateFrom, dateTo from req
-   */
-  // if error code 400
+  for (let { fields, property } of requiredInformation) {
+    for (let field of fields) {
+      const fieldValue = req[property][field]
+      if (!fieldValue || typeof fieldValue !== 'string' || fieldValue.trim().length === 0) {
+        return errorFieldRequiredInRequestProperty(field, property)
+      }
+    }
+  }
+
+  return null
 }
