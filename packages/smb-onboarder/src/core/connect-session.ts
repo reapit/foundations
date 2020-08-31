@@ -5,4 +5,5 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectClientId: window.reapit.config.cognitoClientId,
   connectOAuthUrl: window.reapit.config.cognitoOAuthUrl,
   connectUserPoolId: window.reapit.config.cognitoUserPoolId,
+  connectLoginRedirectPath: window.reapit.config.connectLoginRedirectPath,
 })

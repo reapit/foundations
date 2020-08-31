@@ -28,6 +28,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={redirectUri} />
   }
 
+  const isRoot = window.location.pathname === '/'
+  if (isRoot) {
+    return <Redirect to={Routes.USERS} />
+  }
+
   return (
     <ApolloProvider client={getClient(connectSession?.accessToken || '', window.reapit.config.graphqlUri)}>
       <AppNavContainer>
