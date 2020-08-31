@@ -2,6 +2,7 @@ import {
   LOGIN_USERNAME_INPUT_SELECTOR,
   LOGIN_PASSWORD_INPUT_SELECTOR,
   SUBMIT_LOGIN_SELECTOR,
+  LOGIN_BUTTON_SELECTOR_BY_TAG,
 } from '../support/constants'
 
 Cypress.on('fail', (error, runnable) => {
@@ -22,6 +23,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'ge
   describe('Geo Diary App', () => {
     it('user should able to login Geo Diary App', () => {
       cy.visit(GEO_DIARY_URL).then(() => {
+        cy.get(LOGIN_BUTTON_SELECTOR_BY_TAG).should('contain', 'Login').click()
         cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
         cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
         cy.get(SUBMIT_LOGIN_SELECTOR).click()
