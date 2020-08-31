@@ -1,6 +1,6 @@
 import * as React from 'react'
 import CategoryItem from '../category-item'
-import styles from './__styles__/categories-list.scss?mod'
+import * as styles from './__styles__'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 
 export interface CategoriesListProps {

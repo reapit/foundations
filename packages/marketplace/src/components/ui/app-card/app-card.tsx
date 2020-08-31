@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Tile } from '@reapit/elements'
-import appCardStyles from './__styles__/app-card.scss?mod'
+import * as appCardStyles from './__styles__'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import Fade from '@/components/ui/fade'
 

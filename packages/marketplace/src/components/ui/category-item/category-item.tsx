@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styles from './__styles__/categories-item.scss?mod'
+import * as styles from './__styles__'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
+import { cx } from 'linaria'
 
 export interface CategoryItemProps {
   category?: CategoryModel
@@ -15,7 +16,7 @@ const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
 }: CategoryItemProps) => {
   if (!category) {
     return (
-      <li className={`${styles.categoryItem} ${selected && styles.categoryItemActive}`}>
+      <li className={cx(styles.categoryItem, selected && styles.categoryItemActive)}>
         <a
           href="#"
           onClick={event => {
@@ -30,7 +31,7 @@ const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
   }
 
   return (
-    <li className={`${styles.categoryItem} ${selected && styles.categoryItemActive}`}>
+    <li className={cx(styles.categoryItem, selected && styles.categoryItemActive)}>
       <a
         data-test-category-id={category?.id}
         href="#"

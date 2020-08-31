@@ -24,11 +24,11 @@ export const tag = css`
 export const container = css`
   height: 100%;
   margin-bottom: auto;
-  ${forMobileOnly} {
+  &${forMobileOnly} {
     display: flex;
     flex-direction: column-reverse;
   }
-  ${forMobileOnly} {
+  &${forMobileOnly} {
     min-width: 1024px;
   }
 `
