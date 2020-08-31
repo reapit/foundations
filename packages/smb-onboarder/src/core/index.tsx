@@ -18,7 +18,6 @@ window.reapit = {
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
     accessToken: '',
-    connectLoginRedirectPath: '',
   },
 }
 

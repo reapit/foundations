@@ -7,7 +7,6 @@ export type Config = {
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
   accessToken: string
-  connectLoginRedirectPath: string
 }
 
 declare global {
