@@ -1,10 +1,8 @@
 const {
   releaseWebApp,
-  releaseNewWebApp,
   sendMessageToSlack,
   releaseNpm,
   releaseServerless,
-  BUCKET_NAMES,
   SERVERLESS_APPS,
   NPM_APPS,
   WEB_APPS,
@@ -15,8 +13,6 @@ const release = async () => {
   const env = args[0]
   const packageName = args[1]
   const currentTag = args[2]
-  // Get Bucket name
-  const bucketName = BUCKET_NAMES && BUCKET_NAMES[env] && BUCKET_NAMES[env][packageName]
   const isValidParams = !!packageName && !!currentTag
   if (!isValidParams) {
     console.error('release params is not valid for packageName or currentTag or previousTag')
@@ -48,21 +44,7 @@ const release = async () => {
         console.error('release params is not valid for packageName or currentTag or previousTag')
         process.exit(1)
       }
-      releaseNewWebApp({ tagName: currentTag, packageName, env })
-    } catch (err) {
-      await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
-      throw new Error(err)
-    }
-  }
-
-  if (WEB_APPS.includes(packageName) && env === 'staging') {
-    try {
-      const isValidWebApp = isValidParams && !!env && !!bucketName
-      if (!isValidWebApp) {
-        console.error('release params is not valid for packageName or currentTag or previousTag')
-        process.exit(1)
-      }
-      releaseWebApp({ tagName: currentTag, bucketName, packageName, env })
+      releaseWebApp({ tagName: currentTag, packageName, env })
     } catch (err) {
       await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
       throw new Error(err)
@@ -71,13 +53,12 @@ const release = async () => {
 
   if (WEB_APPS.includes(packageName) && env === 'development') {
     try {
-      const isValidWebApp = isValidParams && !!env && !!bucketName
+      const isValidWebApp = isValidParams && !!env
       if (!isValidWebApp) {
         console.error('release params is not valid for packageName or currentTag or previousTag')
         process.exit(1)
       }
-      releaseWebApp({ tagName: currentTag, bucketName, packageName, env })
-      releaseNewWebApp({ tagName: currentTag, packageName, env })
+      releaseWebApp({ tagName: currentTag, packageName, env })
     } catch (err) {
       await sendMessageToSlack(`Deploy \`${packageName}\` version \`${currentTag}\` failed`)
       throw new Error(err)
