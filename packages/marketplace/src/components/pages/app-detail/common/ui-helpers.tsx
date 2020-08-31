@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../__styles__/standalone-app-detail.scss?mod'
+import * as styles from '../__styles__/standalone-app-detail'
 
 import { H5, Content } from '@reapit/elements'
 

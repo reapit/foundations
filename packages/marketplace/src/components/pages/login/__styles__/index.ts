@@ -1,21 +1,22 @@
-@import '@/styles/base/colors.scss';
+import { css } from 'linaria'
+import * as colors from '@/core/__styles__/colors'
 
-.container {
+export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: $white;
+  background-color: ${colors.white};
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
   }
-}
+`
 
-.wrapper {
-  background-color: $white;
+export const wrapper = css`
+  background-color: ${colors.white};
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;
@@ -49,10 +50,10 @@
   @media screen and (min-width: 1200px) {
     padding: 0 3rem;
   }
-}
+`
 
-.image {
-  background-color: $white;
+export const image = css`
+  background-color: ${colors.white};
   width: 66.66%;
   height: 100vh;
   font-size: 0;
@@ -67,13 +68,13 @@
     width: 100%;
     height: 300px;
   }
-}
+`
 
-.register-level {
+export const registerLevel = css`
   flex-direction: column;
-}
+`
 
-.register {
+export const register = css`
   max-width: 400px;
   width: 100%;
   text-align: right;
@@ -89,24 +90,24 @@
   @media screen and (min-width: 960px) {
     padding: 0;
   }
-}
-.loginForm {
+`
+
+export const loginForm = css`
   position: relative;
   .forgotPasswordContainer {
     position: absolute;
     right: 0;
     z-index: 1;
   }
-}
+`
 
-.labelTerms {
+export const labelTerms = css`
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-}
+`
 
-// Need this to override default without !important
-.loginButton.loginButton {
+export const loginButton = css`
   margin-right: auto;
   margin-left: auto;
-}
+`

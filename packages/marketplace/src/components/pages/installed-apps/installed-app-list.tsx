@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import InstalledAppCard from './installed-app-card'
-import installedAppListStyles from './__styles__/installed-app-list.scss?mod'
+import * as installedAppListStyles from './__styles__/installed-app-list'
 import {
   Loader,
   H3,
@@ -39,7 +39,7 @@ export const ListMobileScreen = ({
   loading,
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
-  <div className={`${installedAppListStyles.wrapList} ${loading ? installedAppListStyles.isLoading : ''}`}>
+  <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.isLoading)}>
     {list.map(app => (
       <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
     ))}
@@ -51,7 +51,7 @@ export const ListDesktopScreen = ({
   loading,
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
-  <GridFourCol className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`} data-test="app-list-container">
+  <GridFourCol className={cx(loading && installedAppListStyles.contentIsLoading)} data-test="app-list-container">
     {list.map(app => (
       <GridFourColItem key={app.id}>
         <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />

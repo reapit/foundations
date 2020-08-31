@@ -1,73 +1,73 @@
-@import '@/styles/base/colors.scss';
-@import '@/styles/base/screen-size.scss';
-@import '@/styles/base/browser.scss';
+import { css } from 'linaria'
+import * as colors from '@/core/__styles__/colors'
+import { forMobileOnly, forTabletAndBelow } from '@/core/__styles__/screen-size'
 
-.preview {
+export const preview = css`
   position: relative;
   top: 2px;
-}
+`
 
-.check {
+export const check = css`
   position: relative;
   top: 2px;
   left: 2px;
-  color: $reapit-green;
-}
+  color: ${colors.reapitGreen};
+`
 
-.tag {
+export const tag = css`
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: $grey-light;
+  background: ${colors.greyLight};
   margin: 0.5rem 0.5rem 0 0;
-}
+`
 
-.container {
+export const container = css`
   height: 100%;
   margin-bottom: auto;
-  @include for-mobile-only {
+  ${forMobileOnly} {
     display: flex;
     flex-direction: column-reverse;
   }
-  @include for-ie-only {
+  ${forMobileOnly} {
     min-width: 1024px;
   }
-}
+`
 
-.containerHeader {
+export const containerHeader = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-}
+`
 
-.appIconContainer {
+export const appIconContainer = css`
   width: 96px;
   height: auto;
   margin: 0 auto;
-}
+`
 
-.headerContent {
+export const headerContent = css`
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
   text-align: center;
-}
+`
 
-.containerOuterHeader {
-  @include for-tablet-and-below {
+export const containerOuterHeader = css`
+  ${forTabletAndBelow} {
     flex-direction: column;
   }
-}
+`
 
-.buttonGroup {
+export const buttonGroup = css`
   display: flex;
   flex-direction: column;
 
-  @include for-mobile-only {
+  ${forMobileOnly} {
     > button {
       width: 50%;
     }
 
     flex-direction: row;
   }
-}
+`

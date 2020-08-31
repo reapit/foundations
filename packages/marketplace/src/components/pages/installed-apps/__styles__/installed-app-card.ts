@@ -1,7 +1,9 @@
-$icon-width: 80px;
-$icon-height: 80px;
+import { css } from 'linaria'
 
-.container {
+const iconWidth = '80px'
+const iconHeight = '80px'
+
+export const container = css`
   display: flex;
   width: 50%;
   flex-direction: column;
@@ -14,25 +16,24 @@ $icon-height: 80px;
   @media (min-width: 600px) {
     width: 25%;
   }
-}
-.wrapIcon {
-  width: $icon-width;
-  height: $icon-height;
+`
+
+export const wrapIcon = css`
+  width: ${iconWidth};
+  height: ${iconHeight};
   cursor: pointer;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-}
-
-.icon {
-  width: $icon-width - 30px;
-  max-height: $icon-height - 30px;
-}
-
-.appTitle {
-  width: $icon-width * 1.5;
+`
+export const icon = css`
+  width: ${iconWidth} - 30px;
+  max-height: ${iconHeight} - 30px;
+`
+export const appTitle = css`
+  width: ${iconWidth} * 1.5;
   white-space: nowrap;
   margin-top: 1rem;
   text-align: center;
@@ -40,9 +41,8 @@ $icon-height: 80px;
   overflow: hidden;
   font-size: 16px;
   font-weight: bold;
-}
-
-.content {
+`
+export const content = css`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -50,4 +50,4 @@ $icon-height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 4.5rem;
-}
+`

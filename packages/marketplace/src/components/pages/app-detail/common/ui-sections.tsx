@@ -9,7 +9,7 @@ import {
 import { AppDetailSection, Tag, ImageSection } from './ui-helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
-import styles from '../__styles__/standalone-app-detail.scss?mod'
+import * as styles from '../__styles__/standalone-app-detail'
 import {
   LevelRight,
   Button,

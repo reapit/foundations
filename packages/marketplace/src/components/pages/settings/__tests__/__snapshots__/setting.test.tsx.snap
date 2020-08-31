@@ -92,7 +92,9 @@ exports[`Settings should match snapshot 1`] = `
             </Component>
           </section>
         </Component>
-        <Component>
+        <Component
+          className=""
+        >
           <section
             className=""
             data-test=""

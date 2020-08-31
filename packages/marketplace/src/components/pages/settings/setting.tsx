@@ -13,7 +13,7 @@ import {
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
-import styles from './__styles__/settings.scss?mod'
+import * as styles from './__styles__'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -57,7 +57,7 @@ export const Settings: React.FC = () => {
           </Button>
         )}
       </Section>
-      <Section className={styles['user-info-section']}>
+      <Section className={styles.userInfoSection}>
         <Grid>
           <GridItem>
             <Grid>

@@ -58,6 +58,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
       <Component>
         <ErrorBoundary>
           <Component
+            className=""
             hasBackground={false}
             hasMargin={false}
             hasPadding={false}
@@ -220,6 +221,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
       <Component>
         <ErrorBoundary>
           <Component
+            className=""
             hasBackground={false}
             hasMargin={false}
             hasPadding={false}

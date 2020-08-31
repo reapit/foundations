@@ -19,7 +19,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
-import styles from './__styles__/apps.scss?mod'
+import * as styles from './__styles__'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.5
 
@@ -82,7 +82,7 @@ export const Apps: React.FunctionComponent = () => {
   return (
     <ErrorBoundary>
       <Section
-        className={styles['app-list']}
+        className={styles.appList}
         isFlex
         isFlexColumn
         hasPadding={false}

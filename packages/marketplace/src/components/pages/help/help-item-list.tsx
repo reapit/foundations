@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './__styles__/help.scss?mod'
+import * as styles from './__styles__'
 import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements'
 
 export interface HelpItem {

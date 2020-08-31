@@ -1,9 +1,10 @@
-@import './installed-app-card.scss';
+import { css } from 'linaria'
 
-.contentIsLoading {
+export const contentIsLoading = css`
   opacity: 0.75;
-}
-.wrapList {
+`
+
+export const wrapList = css`
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
@@ -13,5 +14,6 @@
   & > * {
     margin-bottom: 1rem;
   }
-}
+`
 
+export const isLoading = css``
