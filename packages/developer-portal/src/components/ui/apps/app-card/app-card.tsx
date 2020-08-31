@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Tile } from '@reapit/elements'
-import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
+import { directAPI, appSummary } from './__styles__/app-card'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -30,12 +30,12 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
         subHeading={
           <>
             {app.developer}
-            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+            {app.isDirectApi ? <span className={directAPI}>(Direct API)</span> : ''}
           </>
         }
         image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
       >
-        <p className={appCardStyles.content}>{app.summary}</p>
+        <p className={appSummary}>{app.summary}</p>
       </Tile>
     </div>
   )

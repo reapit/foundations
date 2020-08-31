@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
-import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import CallToAction from '../../ui/call-to-action'
 import { Dispatch } from 'redux'
 import { deleteApp } from '@/actions/apps'
@@ -88,7 +87,7 @@ export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, after
                   <Button
                     dataTest="agree-btn"
                     loading={Boolean(isLoading)}
-                    className={appPermissionContentStyles.installButton}
+                    fullWidth
                     type="button"
                     variant="danger"
                     onClick={onDeleteButtonClick(appId, dispatch, setIsSuccedded)}
@@ -97,8 +96,8 @@ export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, after
                   </Button>
                   <Button
                     dataTest="disagree-btn"
-                    disabled={Boolean(isLoading)}
-                    className={appPermissionContentStyles.installButton}
+                    fullWidth
+                    className="w-100"
                     type="button"
                     variant="secondary"
                     onClick={afterClose}

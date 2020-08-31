@@ -1,8 +1,8 @@
-@import '../base/colors.scss';
+// import { black } from '@reapit/elements/src/styles'
+import { css } from 'linaria'
+import { black } from '@/core/__styles__/colors'
 
-// This solution is a bit shit and will only add an elipsis in webkit browsers
-// Sorry but other browsers no-supporty...
-.content {
+export const appSummary = css`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -10,11 +10,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   height: 72px;
-}
-
-.directAPI {
-  color: $black;
+`
+export const directAPI = css`
+  color: ${black};
   font-weight: 400;
   margin-left: 5px;
   white-space: nowrap;
-}
+`

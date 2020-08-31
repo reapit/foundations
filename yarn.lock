@@ -5274,15 +5274,6 @@
     jsonwebtoken "^8.5.1"
     snyk "^1.335.0"
 
-"@reapit/connect-session@1.0.0-alpha.1":
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.0-alpha.1.tgz#4c06af14318a8dd355d6a5a233f3f1db0bc26402"
-  integrity sha512-v07IY2skFIz/PZvNsd5ZucVyaEunWMigt/QIBELZdYC4zcphFCQJ4d1PuqYnTqkoc+dxWjXyLV4NVL2qzu/XtQ==
-  dependencies:
-    isomorphic-fetch "^2.2.1"
-    jsonwebtoken "^8.5.1"
-    snyk "^1.335.0"
-
 "@reapit/connect-session@1.0.1", "@reapit/connect-session@^1.0.0-alpha.1", "@reapit/connect-session@^1.0.0-alpha.2", "@reapit/connect-session@^1.0.0-alpha.3":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.1.tgz#a8feaf97b10a8f53cf8b1c012353c77620823dd8"

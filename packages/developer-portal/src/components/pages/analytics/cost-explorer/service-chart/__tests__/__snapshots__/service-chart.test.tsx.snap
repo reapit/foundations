@@ -132,7 +132,9 @@ exports[`ServiceChart should match a snapshot 1`] = `
             </Component>
           </div>
         </Component>
-        <div>
+        <div
+          className=""
+        >
           <Bar
             data={
               Object {

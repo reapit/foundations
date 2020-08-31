@@ -32,6 +32,7 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
           </h5>
         </Component>
         <a
+          className="text-underline"
           href="#"
           onClick={[Function]}
         >
