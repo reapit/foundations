@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12.x'
 
       - name: Get yarn cache location
         id: yarn-cache
@@ -71,7 +71,7 @@ jobs:
 
       - name: Release Develop
         run: |
-          yarn release:dev --since HEAD~1 --include-dependencies
+          yarn release:development --since HEAD~1 --include-dependencies
 
       - name: Write jest cache
         uses: actions/cache@v2

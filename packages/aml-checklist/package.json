@@ -16,7 +16,6 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-dev.js aml-checklist reapit-aml-checklist-dev",
     "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",
