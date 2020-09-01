@@ -14,21 +14,6 @@ Cypress.on('fail', (error, runnable) => {
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'search-widget') {
   const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('search-widget API', () => {
-    let property = {}
-    let properties = [] as any
-    let propertyImages = [] as any
-
-    beforeEach(function() {
-      cy.fixture('search-widget/property.json').then(data => {
-        property = data
-      })
-      cy.fixture('search-widget/properties.json').then(data => {
-        properties = data
-      })
-      cy.fixture('search-widget/property-images.json').then(data => {
-        propertyImages = data
-      })
-    })
     it('user should able to call search-widget /properties/<id>', () => {
       cy.request({
         url: `${WEB_COMPONENTS_API_URL}/properties/BED150319`,
@@ -43,8 +28,6 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         expect(response).to.have.property('body')
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
-        expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal(property)
       })
     })
     it('user should able to call search-widget /properties?<query params>', () => {
@@ -62,8 +45,6 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         expect(response).to.have.property('body')
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
-        expect(response.body._embedded).to.have.length(25)
-        expect(response.body._embedded).to.deep.equal(properties._embedded)
       })
     })
 
@@ -81,8 +62,6 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         expect(response).to.have.property('body')
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
-        expect(response.body._embedded).to.have.length(25)
-        expect(response.body._embedded).to.deep.equal(propertyImages._embedded)
       })
     })
   })
