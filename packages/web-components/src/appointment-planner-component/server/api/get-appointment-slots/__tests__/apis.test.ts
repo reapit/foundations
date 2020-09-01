@@ -25,8 +25,9 @@ describe('getOfficesByPostcode', () => {
     ;(fetcher as jest.Mock).mockReturnValueOnce(officesStub)
 
     const url = new URL(
-      `${process.env.PLATFORM_API_BASE_URL}/offices/?embed=negotiators?${stringify({
-        address: mockRequest.query.postcode,
+      `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
+        address: mockRequest.query?.postcode,
+        embed: 'negotiators',
       })}`,
     )
 

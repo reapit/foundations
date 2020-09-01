@@ -4,6 +4,7 @@ import { validatedErrorHandler } from '../../../../common/utils/error-handler'
 import { getOfficesByPostcode } from './apis'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { logger } from '../../core/logger'
+import { filterNegotiatorsIdByOffice } from './utils'
 
 export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => {
   const errStr = validateGetAppointmentSlotsRequest(req)
@@ -15,6 +16,9 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
   try {
     const offices = await getOfficesByPostcode(req)
+    const mockWebCompoenntConfigNegotiatorIds = ['AASD', 'ABCD', 'ABC']
+    const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, mockWebCompoenntConfigNegotiatorIds)
+
     res.status(200)
     res.end()
   } catch (err) {
@@ -23,12 +27,7 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
   /*
    * TODOME(getConfig)
-  - fetch config for reapit customer
-   */
-
-  /*
-   * TODOME(requestApoinmtne)
-   * call filter negotiators from office
+  - fetch config for reapit customer, pass a whole req
    */
 
   /*

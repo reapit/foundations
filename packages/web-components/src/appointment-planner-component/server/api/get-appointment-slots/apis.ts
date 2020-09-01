@@ -20,7 +20,10 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
 
     const url = new URL(
-      `${process.env.PLATFORM_API_BASE_URL}/offices/?embed=negotiators?${stringify({ address: req.query?.postcode })}`,
+      `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
+        address: req.query?.postcode,
+        embed: 'negotiators',
+      })}`,
     )
 
     const offices = await fetcher<PagedResultOfficeModel_, undefined>({
@@ -43,6 +46,11 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
 /*
  * TODOME(getConfig)
  * getConfigByCustomerIdHeader(customerId)
+ * logger
+ * add web-component server api from
+ * result type?
+ * config
+ * logger error
  */
 
 /*
