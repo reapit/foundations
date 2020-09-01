@@ -29,8 +29,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
-    const redirectUri = connectInternalRedirect === '/' ? Routes.HELP : connectInternalRedirect
-    return <Redirect to={redirectUri} />
+    return <Redirect to={connectInternalRedirect} />
   }
 
   return (
