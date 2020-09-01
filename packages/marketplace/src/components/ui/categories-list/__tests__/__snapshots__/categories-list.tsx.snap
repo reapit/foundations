@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoriesList should match a snapshot 1`] = `
-<ul>
+<ul
+  className=""
+>
   <CategoryItem
     onSelectCategory={[MockFunction]}
     selected={true}

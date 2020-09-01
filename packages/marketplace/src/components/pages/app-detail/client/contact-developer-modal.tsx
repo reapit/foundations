@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Grid, GridItem, SubTitleH6, Content, ModalV2 } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import * as linkStyles from '@/core/__styles__/elements'
 
 export type ContactDeveloperSectionType = {
   contact: {

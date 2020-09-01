@@ -1,21 +1,19 @@
-// color
 export const white = '#fff'
-export const black = '#12263f'
-export const greyDark = '#6e84a3'
-export const grey = '#95aac9'
+export const black = '#3b454e'
+export const grey = '#74818d'
 export const greyLight = '#f5f7f9'
-export const greyLighter = '#e3ebf6'
-export const greyLightest = '#f9fbfd'
-export const green = '#5fe781'
+
 export const greenLighter = '#acf2bd'
 export const greenLightest = '#e6ffed'
-export const red = '#e96171'
 export const redLighter = '#fdb8c0'
 export const redLightest = '#ffeef0'
+
 export const reapitDarkblue = '#262f69'
+export const reapitDarkblueDrakened = '#1e2554'
 export const reapitMidblue = '#0061a8'
 export const reapitLightblue = '#23a4de'
 export const reapitLightestblue = '#7bc9eb'
+
 export const reapitOrange = '#ec631b'
 export const reapitLime = '#cddb00'
 export const reapitTeal = '#006580'

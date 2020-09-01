@@ -1,4 +1,5 @@
 import { css } from 'linaria'
+import { black } from '@/core/__styles__/colors'
 
 export const content = css`
   display: -webkit-box;
@@ -11,7 +12,7 @@ export const content = css`
 `
 
 export const directAPI = css`
-  color: $black;
+  color: ${black};
   font-weight: 400;
   margin-left: 5px;
   white-space: nowrap;

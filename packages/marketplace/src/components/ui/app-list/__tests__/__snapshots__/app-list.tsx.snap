@@ -5,7 +5,7 @@ exports[`AppList should match a snapshot 1`] = `
   className="overflow-hidden mb-4"
 >
   <Component
-    className=" "
+    className=""
     data-test="app-list-container"
   >
     <Component
@@ -83,7 +83,7 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
   className="overflow-hidden mb-4"
 >
   <Component
-    className=" "
+    className=""
     data-test="app-list-container"
   >
     <Component

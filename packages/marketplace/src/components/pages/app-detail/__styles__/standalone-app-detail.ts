@@ -1,6 +1,7 @@
 import { css } from 'linaria'
 import * as colors from '@/core/__styles__/colors'
 import { forMobileOnly, forTabletAndBelow } from '@/core/__styles__/screen-size'
+import { forIeOnly } from '@/core/__styles__/browser'
 
 export const preview = css`
   position: relative;
@@ -24,11 +25,11 @@ export const tag = css`
 export const container = css`
   height: 100%;
   margin-bottom: auto;
-  &${forMobileOnly} {
+  ${forMobileOnly} {
     display: flex;
     flex-direction: column-reverse;
   }
-  &${forMobileOnly} {
+  ${forIeOnly} {
     min-width: 1024px;
   }
 `

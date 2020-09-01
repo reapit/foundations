@@ -2,6 +2,7 @@
 
 exports[`FeaturedApp should match a snapshot 1`] = `
 <Component
+  className=""
   key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
 >
   <div

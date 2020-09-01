@@ -1,7 +1,7 @@
 import { css } from 'linaria'
 
-const iconWidth = '80px'
-const iconHeight = '80px'
+const iconWidth = 80
+const iconHeight = 80
 
 export const container = css`
   display: flex;
@@ -19,8 +19,8 @@ export const container = css`
 `
 
 export const wrapIcon = css`
-  width: ${iconWidth};
-  height: ${iconHeight};
+  width: ${iconWidth}px;
+  height: ${iconHeight}px;
   cursor: pointer;
   background-color: #ffffff;
   display: flex;
@@ -29,11 +29,11 @@ export const wrapIcon = css`
   overflow: hidden;
 `
 export const icon = css`
-  width: ${iconWidth} - 30px;
-  max-height: ${iconHeight} - 30px;
+  width: ${iconWidth - 30}px;
+  max-height: ${iconHeight - 30}px;
 `
 export const appTitle = css`
-  width: ${iconWidth} * 1.5;
+  width: ${iconWidth * 1.5}px;
   white-space: nowrap;
   margin-top: 1rem;
   text-align: center;
