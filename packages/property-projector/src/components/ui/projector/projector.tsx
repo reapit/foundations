@@ -64,6 +64,7 @@ const Projector: React.FC<ProjectorProps> = props => {
 
   const projectorStyles: React.CSSProperties = {
     backgroundColor: config.primaryColour,
+    borderColor: config.secondaryColour,
   }
   return (
     <div className="projector-modal">

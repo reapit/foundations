@@ -1,12 +1,17 @@
 import React from 'react'
 import { getAddress, getPrice, getStatus } from '@/util/property-helpers'
+import { config } from 'process'
 
 type PropertyImagesProps = {
   images: string[]
+  borderColour: string
 }
 
 const PropertyImages: React.FC<PropertyImagesProps> = props => {
-  const { images } = props
+  const { borderColour, images } = props
+  const imageStyles: React.CSSProperties = {
+    borderColor: borderColour,
+  }
 
   if (images === undefined) {
     return null
@@ -16,9 +21,13 @@ const PropertyImages: React.FC<PropertyImagesProps> = props => {
   const mainImage = imageElements.shift()
 
   return (
-    <div className="property-projector-images">
+    <div style={imageStyles} className="property-projector-images">
       {mainImage}
-      {imageElements.length > 0 ? <div className="property-projector-side-images">{imageElements}</div> : null}
+      {imageElements.length > 0 ? (
+        <div style={imageStyles} className="property-projector-side-images">
+          {imageElements}
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -33,12 +42,12 @@ const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
   const { logo, primaryColour, secondaryColour, showAddress, showStrapline } = config
 
   const projectorStyles: React.CSSProperties = {
-    backgroundColor: primaryColour,
+    color: secondaryColour,
   }
 
   return (
     <div className="property-projector">
-      <PropertyImages images={property.images} />
+      <PropertyImages images={property.images} borderColour={config.secondaryColour} />
       <div className="property-projector-information">
         <p style={projectorStyles} className="sale-status">
           {getStatus(property)}
