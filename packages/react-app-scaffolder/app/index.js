@@ -13,7 +13,7 @@ module.exports = class extends Generator {
 
       this.log(yosay('Installing dependencies... this may take a minute!'))
 
-      await exec(`yarn prettier --write ./package.json`)
+      await exec(`npx prettier --write ./package.json`)
 
       this.log(yosay('App installed successfully!'))
 
