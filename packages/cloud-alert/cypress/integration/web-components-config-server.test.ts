@@ -14,13 +14,6 @@ Cypress.on('fail', (error, runnable) => {
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'web-components-config-server') {
   const WEB_COMPONENTS_CONFIG_API_URL = Cypress.env(`WEB_COMPONENTS_CONFIG_API_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('web-components-config-server API', () => {
-    let config = {}
-
-    beforeEach(function() {
-      cy.fixture('web-components-config-server/web-components-config.json').then(data => {
-        config = data
-      })
-    })
     it('user should able to call web-components-config-server /v1/health', () => {
       cy.request({
         url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/health`,
@@ -55,8 +48,6 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'we
         expect(response).to.have.property('body')
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
-        expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal(config)
       })
     })
   })
