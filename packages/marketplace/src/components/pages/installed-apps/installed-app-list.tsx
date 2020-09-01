@@ -39,7 +39,7 @@ export const ListMobileScreen = ({
   loading,
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
-  <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.isLoading)}>
+  <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.contentIsLoading)}>
     {list.map(app => (
       <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
     ))}

@@ -15,5 +15,3 @@ export const wrapList = css`
     margin-bottom: 1rem;
   }
 `
-
-export const isLoading = css``
