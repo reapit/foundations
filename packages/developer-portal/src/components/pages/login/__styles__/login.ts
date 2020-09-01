@@ -1,21 +1,23 @@
-@import '../base/colors.scss';
+import { css } from 'linaria'
+import { white } from '@/core/__styles__/colors'
+import { forTabletAndBelow, forMobileOnly } from '@/core/__styles__/media'
 
-.container {
+export const container = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: $white;
+  background-color: ${white};
 
-  @media screen and (max-width: 900px) {
+  ${forTabletAndBelow} {
     flex-direction: column-reverse;
   }
-}
+`
 
-.wrapper {
-  background-color: $white;
+export const wrapper = css`
+  background-color: ${white};
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;
@@ -36,23 +38,19 @@
     display: block;
   }
 
-  button,
+  button.button,
   .tabsContainer {
     margin: 0 auto 2rem auto;
     max-width: 400px;
   }
 
-  @media screen and (max-width: 900px) {
+  ${forTabletAndBelow} {
     width: 100%;
   }
+`
 
-  @media screen and (min-width: 1200px) {
-    padding: 0 3rem;
-  }
-}
-
-.image {
-  background-color: $white;
+export const image = css`
+  background-color: ${white};
   width: 66.66%;
   height: 100vh;
   font-size: 0;
@@ -63,36 +61,29 @@
     object-fit: cover;
   }
 
-  @media screen and (max-width: 900px) {
+  ${forTabletAndBelow} {
     width: 100%;
     height: 300px;
   }
-}
+`
 
-.register-level {
+export const registerLevel = css`
   flex-direction: column;
-}
+`
 
-.register {
+export const register = css`
   max-width: 400px;
   width: 100%;
   text-align: right;
   margin: 0 auto;
 
-  @media screen and (max-width: 768px) {
+  ${forMobileOnly} {
     padding-top: 1rem;
+    text-align: center;
   }
+`
 
-  @media screen and (min-width: 900px) {
-    padding-left: 1rem;
-  }
-
-  @media screen and (min-width: 960px) {
-    padding: 0;
-  }
-}
-
-.loginForm {
+export const loginForm = css`
   position: relative;
 
   .forgotPasswordContainer {
@@ -100,16 +91,18 @@
     right: 0;
     z-index: 1;
   }
-}
+`
 
-.labelTerms {
+export const labelTerms = css`
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-}
+`
 
 // Need this to override default without !important
-.loginButton.loginButton {
-  margin-right: auto;
-  margin-left: auto;
-}
+export const loginButton = css`
+  .loginButton {
+    margin-right: auto;
+    margin-left: auto;
+  }
+`

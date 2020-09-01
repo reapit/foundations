@@ -10,7 +10,7 @@ import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import roadmapImg from '@/assets/images/help/time-line.jpg'
 import whatNewImg from '@/assets/images/help/what-new.png'
-import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
+import HelpItemList, { HelpItem } from '@/components/ui/help-item-list'
 
 import { selectLoginIdentity } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'

@@ -17,7 +17,6 @@ import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { formFields } from './form-schema/form-fields'
 
 const { name, categoryId, supportEmail, telephone, homePage, launchUri, summary, description } = formFields
@@ -128,7 +127,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem className={styles.gridMaxHalfWidth}>
+        <GridItem className="is-half-desktop">
           <TextArea
             id="summary"
             dataTest="submit-app-summary"
@@ -138,9 +137,8 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
             required={isListed}
           />
         </GridItem>
-        <GridItem className={styles.gridMaxHalfWidth}>
+        <GridItem className="is-half-desktop">
           <TextAreaEditor
-            containerClass={styles.contentOverflowXScroll}
             id="description"
             actions={[
               'bold',

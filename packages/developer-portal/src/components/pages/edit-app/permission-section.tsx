@@ -39,7 +39,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
       }
     })}
     {errorScope && (
-      <div className={`has-text-danger has-text-right ${styles.errorScope}`} data-test="input-error">
+      <div className="has-text-danger has-text-right w-100" data-test="input-error">
         {errorScope}
       </div>
     )}

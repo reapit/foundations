@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '@/styles/pages/help.scss?mod'
 import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements'
+import { wrapBoxContent, button } from './__styles__/help-item-list'
 
 export interface HelpItem {
   imgSrc: string
@@ -15,15 +15,15 @@ export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
     {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
       <GridThreeColItem key={header}>
         <Section isFullHeight isFlex>
-          <Section className={styles.wrapBoxContent} isFlex isFlexColumn>
+          <Section className={wrapBoxContent} isFlex isFlexColumn>
             <Section className="flex-shrink-0">
-              <img className={styles.image} src={imgSrc} alt={header} />
+              <img src={imgSrc} alt={header} />
             </Section>
             <H5 isCentered>{header}</H5>
             <Content className="flex-grow-1">{text}</Content>
             <LevelRight className="text-end">
               <Button
-                className={styles.button}
+                className={button}
                 type="button"
                 variant="primary"
                 onClick={buttonOnClick}
