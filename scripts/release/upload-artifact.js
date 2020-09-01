@@ -1,4 +1,4 @@
-const execSync = require('child_process').execSync
+const { runCommand } = require('./utils')
 const { getVersionTag, WEB_APPS, sendMessageToSlack } = require('./utils')
 
 const uploadArtifact = async () => {
@@ -9,23 +9,30 @@ const uploadArtifact = async () => {
     if (packageName === 'elements') {
       workspaceName = '@reapit/elements'
     }
+    if (packageName === 'web-components') {
+      workspaceName = '@reapit/web-components'
+    }
     try {
-      const fetchConfigResult = execSync(`yarn workspace ${workspaceName} fetch-config --name production`).toString()
-      console.info(fetchConfigResult)
-      const lintResult = execSync(`yarn workspace ${workspaceName} lint`).toString()
-      console.info(lintResult)
-      const testResult = execSync(`yarn workspace ${workspaceName} test:ci`).toString()
-      console.info(testResult)
-      const buildResult = execSync(`yarn workspace ${workspaceName} build:prod`).toString()
-      console.info(buildResult)
-      const resultTarFile = execSync(
-        `tar -C ./packages/${packageName}/public  -czvf ${fileName} --exclude='config.json' dist`,
-      ).toString()
-      console.info(resultTarFile)
-      const copyS3Result = execSync(
-        `aws s3 cp ${fileName} s3://cloud-deployments-releases-cache-prod --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
-      ).toString()
-      console.info(copyS3Result)
+      runCommand('yarn', ['workspace', workspaceName, 'fetch-config', '--name', 'production'])
+      runCommand('yarn', ['workspace', workspaceName, 'lint'])
+      runCommand('yarn', ['workspace', workspaceName, 'test:ci'])
+      runCommand('yarn', ['workspace', workspaceName, 'build:prod'])
+      runCommand('tar', [
+        '-C',
+        `./packages/${packageName}/public`,
+        '-czvf',
+        fileName,
+        '--exclude="config.json"',
+        'dist',
+      ])
+      runCommand('aws', [
+        's3',
+        'cp',
+        fileName,
+        's3://cloud-deployments-releases-cache-prod',
+        '--grants',
+        'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
+      ])
       await sendMessageToSlack(`Finish build \`${packageName}\` with file \`${fileName}\``)
     } catch (err) {
       console.error(err)
