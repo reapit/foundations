@@ -1,16 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppSidebar should match a snapshot 1`] = `
-<div>
+<div
+  className=""
+>
   <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <div>
+    <div
+      className=""
+    >
       <Component>
         Browse Apps
       </Component>
-      <Component>
+      <Component
+        className=""
+      >
         Search
       </Component>
       <Formik
@@ -123,8 +129,12 @@ exports[`AppSidebar should match a snapshot 1`] = `
         }
       />
     </div>
-    <div>
-      <Component>
+    <div
+      className=""
+    >
+      <Component
+        className=""
+      >
         Filter
       </Component>
       <CategoriesList
@@ -166,6 +176,7 @@ exports[`FilterForm should match a snapshot 1`] = `
     placeholder="Search..."
     rightIcon={
       <button
+        className=""
         type="submit"
       >
         <FaSearch />

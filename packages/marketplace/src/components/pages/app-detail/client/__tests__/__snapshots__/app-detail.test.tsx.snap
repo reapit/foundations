@@ -57,6 +57,7 @@ exports[`AppDetail should match a snapshot 1`] = `
     >
       <AppDetail>
         <Component
+          className=""
           dataTest="client-app-detail-container"
         >
           <div
@@ -88,6 +89,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -97,6 +99,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -126,6 +129,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -135,6 +139,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}
@@ -203,6 +208,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -212,6 +218,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -241,6 +248,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -250,6 +258,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}
@@ -508,6 +517,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
     >
       <AppDetail>
         <Component
+          className=""
           dataTest="client-app-detail-container"
         >
           <div
@@ -539,6 +549,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -548,6 +559,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -577,6 +589,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -586,6 +599,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}
@@ -654,6 +668,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -663,6 +678,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -692,6 +708,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -701,6 +718,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}
@@ -959,6 +977,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
     >
       <AppDetail>
         <Component
+          className=""
           dataTest="client-app-detail-container"
         >
           <div
@@ -990,6 +1009,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -999,6 +1019,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -1028,6 +1049,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -1037,6 +1059,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}
@@ -1105,6 +1128,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className="flex"
                   >
                     <Unknown
+                      className=""
                       dataTest="agree-btn"
                       loading={false}
                       onClick={[Function]}
@@ -1114,6 +1138,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       Confirm
                     </Unknown>
                     <Unknown
+                      className=""
                       dataTest="disagree-btn"
                       disabled={false}
                       onClick={[Function]}
@@ -1143,6 +1168,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       className="flex"
                     >
                       <Unknown
+                        className=""
                         dataTest="agree-btn"
                         loading={false}
                         onClick={[Function]}
@@ -1152,6 +1178,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         Confirm
                       </Unknown>
                       <Unknown
+                        className=""
                         dataTest="disagree-btn"
                         disabled={false}
                         onClick={[Function]}

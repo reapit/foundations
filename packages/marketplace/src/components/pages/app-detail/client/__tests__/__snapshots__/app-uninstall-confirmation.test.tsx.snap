@@ -392,6 +392,7 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
     className="flex"
   >
     <Component
+      className=""
       dataTest="agree-btn"
       loading={false}
       onClick={[Function]}
@@ -401,6 +402,7 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
       Confirm
     </Component>
     <Component
+      className=""
       dataTest="disagree-btn"
       disabled={false}
       onClick={[MockFunction]}
@@ -520,6 +522,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               className="flex"
             >
               <Unknown
+                className=""
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -529,6 +532,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 Confirm
               </Unknown>
               <Unknown
+                className=""
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
@@ -558,6 +562,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 className="flex"
               >
                 <Unknown
+                  className=""
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -567,6 +572,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   Confirm
                 </Unknown>
                 <Unknown
+                  className=""
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
@@ -704,6 +710,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                         className="flex"
                       >
                         <Unknown
+                          className=""
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -713,6 +720,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           Confirm
                         </Unknown>
                         <Unknown
+                          className=""
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
@@ -862,6 +870,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                       className="flex"
                                     >
                                       <Component
+                                        className=""
                                         dataTest="agree-btn"
                                         loading={false}
                                         onClick={[Function]}
@@ -879,6 +888,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                         </button>
                                       </Component>
                                       <Component
+                                        className=""
                                         dataTest="disagree-btn"
                                         disabled={false}
                                         onClick={[MockFunction]}
