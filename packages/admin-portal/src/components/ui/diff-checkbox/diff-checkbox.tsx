@@ -13,7 +13,7 @@ export const DiffCheckbox = ({ currentChecked, changedChecked, dataTest }: DiffC
 
   return (
     <div className={checkboxContainer} data-test={dataTest || ''}>
-      <span className={cx(checkboxWrap, changed ? redBackground : '')}>
+      <span className={cx(checkboxWrap, changed && redBackground)}>
         <input type="checkbox" checked={currentChecked} readOnly data-test="current" />
       </span>
       {changed && <span className={arow}>&#8594;</span>}

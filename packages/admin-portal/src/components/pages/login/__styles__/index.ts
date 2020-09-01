@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { WHITE } from '../../../../core/__styles__'
+import { WHITE } from '@/core/__styles__/colors'
 
 export const loginContainer = css`
   min-width: 100vw;

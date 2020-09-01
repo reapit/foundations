@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { BLACK, GREY, GREY_LIGHT, GREEN_LIGHTER, RED_LIGHTER } from '../../../../core/__styles__'
+import { BLACK, GREY, GREY_LIGHT, GREEN_LIGHTER, RED_LIGHTER } from '@/core/__styles__/colors'
 
 export const checkboxContainer = css`
   background-color: ${GREY_LIGHT};

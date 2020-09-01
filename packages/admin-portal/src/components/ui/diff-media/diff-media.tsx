@@ -25,11 +25,11 @@ export const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) 
   const isDiff = currentMedia !== changedMedia
   return (
     <div className={diffMediaContainer}>
-      <div className={cx(diffBlock, type === 'icon' ? iconBlock : mediaBlock, isDiff ? redBackground : '')}>
+      <div className={cx(diffBlock, type === 'icon' ? iconBlock : mediaBlock, isDiff && redBackground)}>
         <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${currentMedia}")` }} />
       </div>
       <span className={arrow}>&#8594;</span>
-      <div className={cx(diffBlock, blockStyle, isDiff ? greenBackground : '')}>
+      <div className={cx(diffBlock, blockStyle, isDiff && greenBackground)}>
         <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${changedMedia}")` }} />
       </div>
     </div>

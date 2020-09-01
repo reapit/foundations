@@ -12,9 +12,9 @@ export const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLP
   const isDiff = currentString !== changedString
   return (
     <div className={diffHtmlContainer}>
-      <HTMLRender className={cx(diffRenderBlock, isDiff ? redBackground : '')} html={currentString || ''} />
+      <HTMLRender className={cx(diffRenderBlock, isDiff && redBackground)} html={currentString || ''} />
       <span className={arrow}>&#8594;</span>
-      <HTMLRender className={cx(diffRenderBlock, isDiff ? greenBackground : '')} html={changedString || ''} />
+      <HTMLRender className={cx(diffRenderBlock, isDiff && greenBackground)} html={changedString || ''} />
     </div>
   )
 }
