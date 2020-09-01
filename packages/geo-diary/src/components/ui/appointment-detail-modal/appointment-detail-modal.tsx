@@ -296,7 +296,7 @@ export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
         <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow px-0">
-            <FaClock className="vertical-align-text-top" />
+            <FaClock className="v-align-text-top" />
           </GridItem>
           <GridItem>
             <H6 className="inline-block">Time:</H6>

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { H5, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams, Section, Content } from '@reapit/elements'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { ReduxState } from '@/types/core'
 import lodashIsEqual from 'lodash.isequal'
 import {
@@ -186,7 +185,6 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
                 event?.preventDefault()
                 handleLaterClick(setCurrentPage)
               }}
-              className={styles.paginationButton}
               href="/"
             >
               {'Later >>'}
@@ -198,7 +196,6 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
                 event?.preventDefault()
                 handleEarlierClick(setCurrentPage)
               }}
-              className={styles.paginationButton}
               href="/"
             >
               {'<< Earlier'}

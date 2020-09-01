@@ -17,8 +17,6 @@ import { FilterFormInitialValues } from './filter-bar'
 import { AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
-import { cx } from 'linaria'
 import { fetchInstallationsFilterList } from '@/actions/installations'
 import { SANDBOX_CLIENT } from '@/constants/api'
 
@@ -108,7 +106,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
         const { dateFrom } = values
         return (
           <Form>
-            <GridFourCol className={cx(styles.isRow)}>
+            <GridFourCol>
               <GridFourColItem className="pb-0">
                 <H6 className="mb-2">Date from</H6>
                 <DatePicker

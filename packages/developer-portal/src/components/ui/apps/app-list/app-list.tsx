@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import AppCard from './app-card'
-import styles from '@/styles/blocks/app-list.scss?mod'
+import AppCard from '../app-card'
+import { contentIsLoading } from './__styles__/app-list'
 import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
 
 export type AppListProps = {
@@ -28,7 +28,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <GridFourCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+        <GridFourCol className={` ${loading ? contentIsLoading : ''}`} data-test="app-list-container">
           {list.map(app => (
             <GridThreeColItem key={app.id}>
               <AppCard

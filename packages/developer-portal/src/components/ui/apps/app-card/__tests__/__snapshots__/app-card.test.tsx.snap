@@ -19,13 +19,17 @@ exports[`AppCard should match a snapshot 1`] = `
     subHeading={
       <React.Fragment>
         Pete's Proptech World Ltd
-        <span>
+        <span
+          className=""
+        >
           (Direct API)
         </span>
       </React.Fragment>
     }
   >
-    <p>
+    <p
+      className=""
+    >
       nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
     </p>
   </Component>

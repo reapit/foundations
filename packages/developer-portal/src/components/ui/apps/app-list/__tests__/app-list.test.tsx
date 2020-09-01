@@ -5,7 +5,7 @@ import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader, GridThreeColItem, Helper } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import AppCard from '../app-card'
+import AppCard from '../../app-card'
 
 const props: AppListProps = {
   list: appsDataStub.data.data as AppSummaryModel[],

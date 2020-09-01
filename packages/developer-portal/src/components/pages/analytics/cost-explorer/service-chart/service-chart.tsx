@@ -2,7 +2,6 @@ import React from 'react'
 import ChartComponent, { Bar, ChartData, ChartComponentProps } from 'react-chartjs-2'
 import { H5, DATE_TIME_FORMAT, Section, Grid, GridItem, Loader } from '@reapit/elements'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectMyIdentity, selectBilling, selectDeveloperLoading, selectIsServiceChartLoading } from '@/selector'
 import { fetchBilling } from '@/actions/developer'
@@ -15,6 +14,7 @@ import { ChartLegendItem } from '@/components/ui/chart-legend/chart-legend'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
+import { chartContainer } from './__styles__/service-chart'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -232,7 +232,7 @@ export const ServiceChart: React.FC = () => {
           </Grid>
         </GridItem>
       </Grid>
-      <div className={styles.barChartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div>
+      <div className={chartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div>
     </Section>
   )
 }
