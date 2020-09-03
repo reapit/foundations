@@ -180,13 +180,17 @@ export const DevsManagement: React.FC = () => {
     },
   ]
 
+  if (isLoading || !data) {
+    return <Loader />
+  }
+
   return (
     <ErrorBoundary>
       <Section className="mb-0">
         <H3>Developer Management</H3>
       </Section>
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {renderResult(isLoading, data, columns, totalCount)}
+      {renderResult(data, columns, totalCount)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
       {/* <SetDeveloperStatusModal
         visible={isSetStatusModalOpen}
@@ -199,15 +203,10 @@ export const DevsManagement: React.FC = () => {
   )
 }
 
-export const renderResult = (isLoading, data, columns, totalCount) => {
-  if (isLoading || !data) {
-    return <Loader />
-  }
-
+export const renderResult = (data, columns, totalCount) => {
   if (data?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
-
   return (
     <>
       <Section>
