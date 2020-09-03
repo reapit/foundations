@@ -159,7 +159,7 @@ describe('renderResult', () => {
         id: 'buttonColumn',
       },
     ]
-    const result = renderResult([], columns, 0)
+    const result = renderResult(false, [], columns, 0)
     expect(result).toMatchSnapshot()
   })
 
@@ -219,7 +219,7 @@ describe('renderResult', () => {
         website: '',
       },
     ]
-    const result = renderResult(data, columns, 0)
+    const result = renderResult(false, data, columns, 0)
     expect(result).toMatchSnapshot()
   })
 })
