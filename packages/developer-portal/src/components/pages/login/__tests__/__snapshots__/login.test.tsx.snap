@@ -56,8 +56,12 @@ exports[`Login should match a snapshot 1`] = `
       }
     >
       <Component>
-        <div>
-          <div>
+        <div
+          className=""
+        >
+          <div
+            className=""
+          >
             <Component>
               <div
                 className=""
@@ -79,12 +83,15 @@ exports[`Login should match a snapshot 1`] = `
                 </p>
               </section>
             </Component>
-            <Component>
+            <Component
+              className=""
+            >
               <div
                 className=""
                 data-test=""
               >
                 <Component
+                  className=""
                   dataTest="login-button"
                   fullWidth={true}
                   onClick={[Function]}
@@ -99,7 +106,9 @@ exports[`Login should match a snapshot 1`] = `
                     Login
                   </button>
                 </Component>
-                <div>
+                <div
+                  className=""
+                >
                   Don't have an account yet? 
                   <Link
                     to="/register"
@@ -128,7 +137,9 @@ exports[`Login should match a snapshot 1`] = `
               />
             </Component>
           </div>
-          <div>
+          <div
+            className=""
+          >
             <img
               alt="Reapit Graphic"
               src=""

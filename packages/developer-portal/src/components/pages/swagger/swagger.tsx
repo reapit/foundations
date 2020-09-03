@@ -5,7 +5,7 @@ import '../../../styles/vendor/swagger.scss'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Loader, StringMap } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
-import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
+import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 
 export type InterceptorParams = {
   url: string

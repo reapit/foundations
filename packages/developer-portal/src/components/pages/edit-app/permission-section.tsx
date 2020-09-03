@@ -9,7 +9,6 @@ import {
   FormikErrors,
 } from '@reapit/elements'
 import { ScopeModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { formFields } from './form-schema/form-fields'
 
 export type PermissionSectionProps = {
@@ -39,7 +38,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
       }
     })}
     {errorScope && (
-      <div className={`has-text-danger has-text-right ${styles.errorScope}`} data-test="input-error">
+      <div className="has-text-danger has-text-right w-100" data-test="input-error">
         {errorScope}
       </div>
     )}
