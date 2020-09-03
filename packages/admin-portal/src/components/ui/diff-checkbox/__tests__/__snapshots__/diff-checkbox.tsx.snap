@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffCheckbox should match snapshot 1`] = `
+<div
+  className=""
+  data-test=""
+>
+  <span
+    className=""
+  >
+    <input
+      checked={true}
+      data-test="current"
+      readOnly={true}
+      type="checkbox"
+    />
+  </span>
+  <span
+    className=""
+  >
+    →
+  </span>
+  <span
+    className=""
+  >
+    <input
+      checked={false}
+      data-test="changed"
+      readOnly={true}
+      type="checkbox"
+    />
+  </span>
+</div>
+`;
