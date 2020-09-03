@@ -1,5 +1,5 @@
 require('isomorphic-fetch')
-const spawn = require('child_process').spawnSync
+const spawnSync = require('child_process').spawnSync
 const path = require('path')
 
 const removeUnuseChar = value => {
@@ -10,12 +10,12 @@ const removeUnuseChar = value => {
 }
 
 const runCommand = (cmd, args) => {
-  const resultObj = spawn(cmd, args)
+  const resultObj = spawnSync(cmd, args)
   const { stdout, stderr } = resultObj
 
   if (stderr.length !== 0) {
     console.error(stderr.toString().trim())
-    throw new Error(stderr.toString().trim())
+    return stderr.toString().trim()
   }
   console.info(stdout.toString().trim())
   return stdout.toString().trim()
