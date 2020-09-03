@@ -566,11 +566,11 @@ Get
                 className=""
               >
                 <Component
-                  className=" "
+                  className=""
                   html="enim facilisis"
                 >
                   <Component
-                    className=" "
+                    className=""
                   >
                     <div
                       className=""
@@ -586,7 +586,7 @@ Get
                   →
                 </span>
                 <Component
-                  className=" "
+                  className=""
                   html="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -603,7 +603,7 @@ Get
       notifications when a new deal is available."
                 >
                   <Component
-                    className=" "
+                    className=""
                   >
                     <div
                       className=""
@@ -804,10 +804,10 @@ Get
                 className=""
               >
                 <div
-                  className="  "
+                  className=""
                 >
                   <div
-                    className=" "
+                    className=""
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",
@@ -821,10 +821,10 @@ Get
                   →
                 </span>
                 <div
-                  className="  "
+                  className=""
                 >
                   <div
-                    className=" "
+                    className=""
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",

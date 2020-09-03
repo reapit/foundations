@@ -5,7 +5,7 @@ exports[`DiffRenderHTML should match a snapshot 1`] = `
   className=""
 >
   <Component
-    className=" "
+    className=""
     html="abc"
   />
   <span
@@ -14,7 +14,7 @@ exports[`DiffRenderHTML should match a snapshot 1`] = `
     →
   </span>
   <Component
-    className=" "
+    className=""
     html="<b>axxxxxxxxxxxbc<b>"
   />
 </div>

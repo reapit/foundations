@@ -5,10 +5,10 @@ exports[`DiffMedia should match a snapshot 1`] = `
   className=""
 >
   <div
-    className="  "
+    className=""
   >
     <div
-      className=" "
+      className=""
       style={
         Object {
           "backgroundImage": "url(\\"image-2\\")",
@@ -22,10 +22,10 @@ exports[`DiffMedia should match a snapshot 1`] = `
     →
   </span>
   <div
-    className="  "
+    className=""
   >
     <div
-      className=" "
+      className=""
       style={
         Object {
           "backgroundImage": "url(\\"image-1\\")",

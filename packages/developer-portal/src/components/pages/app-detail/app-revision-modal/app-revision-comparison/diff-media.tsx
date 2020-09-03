@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { cx } from 'linaria'
 import {
   iconBlock,
   mediaBlock,
@@ -24,12 +25,12 @@ const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) => {
   const isDiff = currentMedia !== changedMedia
   return (
     <div className={container}>
-      <div className={`${block} ${blockStyle} ${isDiff ? red : ''}`}>
-        <div className={`${image} ${imageStyle}`} style={{ backgroundImage: `url("${currentMedia}")` }} />
+      <div className={cx(block, blockStyle, isDiff && red)}>
+        <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${currentMedia}")` }} />
       </div>
       <span className={arrow}>&#8594;</span>
-      <div className={`${block} ${blockStyle} ${isDiff ? green : ''}`}>
-        <div className={`${image} ${imageStyle}`} style={{ backgroundImage: `url("${changedMedia}")` }} />
+      <div className={cx(block, blockStyle, isDiff && green)}>
+        <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${changedMedia}")` }} />
       </div>
     </div>
   )
