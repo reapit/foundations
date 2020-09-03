@@ -3,7 +3,7 @@
   "sentryDns": "",
   "googleAnalyticsKey": "",
   "connectClientId": "",
-  "connectUserPoolId": "eu-west-2_hbt0B7yys",
-  "connectOAuthUrl": "https://dev.connect.reapit.cloud",
-  "platformApiUrl": "https://dev.platform.reapit.cloud"
+  "connectUserPoolId": "",
+  "connectOAuthUrl": "",
+  "platformApiUrl": ""
 }
