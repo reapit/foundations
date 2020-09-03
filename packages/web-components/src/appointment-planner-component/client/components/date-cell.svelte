@@ -1,8 +1,9 @@
 <script lang="ts">
   import TimeCell from './time-cell.svelte'
+  import { Dayjs } from 'dayjs'
   import { themeStore } from '../core/theme-store'
 
-  export let date
+  export let date: Dayjs
   export let handleOnClickCell: ({ appointmentDate: Dayjs, appointmentTime: number }) => void
 
   // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
