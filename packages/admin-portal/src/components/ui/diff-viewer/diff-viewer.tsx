@@ -21,7 +21,7 @@ const diffTypes = {
 export const DiffViewer = ({ currentString, changedString, type = 'words' }: DiffViewerProps) => {
   const result = diffTypes[type](currentString, changedString).map((part, index) => {
     return (
-      <span key={index} className={cx(part.added ? greenBackground : part.removed && redBackground)}>
+      <span key={index} className={cx(part.added && greenBackground, part.removed && redBackground)}>
         {part.value}
       </span>
     )
