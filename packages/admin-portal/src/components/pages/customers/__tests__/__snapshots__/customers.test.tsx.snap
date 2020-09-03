@@ -1,5 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[` 1`] = `
+<div>
+  <div
+    className="mb-5"
+  >
+    <Component
+      columns={
+        Array [
+          Object {
+            "Header": "Customer ID",
+            "accessor": "agencyCloudId",
+          },
+          Object {
+            "Header": "Company",
+            "accessor": "name",
+          },
+          Object {
+            "Header": "Address",
+            "accessor": [Function],
+          },
+          Object {
+            "Cell": [Function],
+            "Header": "Logo",
+            "accessor": "logo",
+          },
+          Object {
+            "Cell": [Function],
+            "Header": "",
+            "id": "logoUpload",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "11",
+              "countryId": "GB",
+              "line1": "Birmingham Road",
+              "line2": "string",
+              "line3": "string",
+              "line4": "string",
+              "postcode": "string",
+            },
+            "agencyCloudId": "SBOS",
+            "created": "2020-08-04T14:49:06",
+            "id": "ee25966c-294a-4ffc-b640-bccd7eae889c",
+            "modified": "2020-08-04T14:59:22",
+            "name": "RyanWilcoxNew",
+          },
+        ]
+      }
+      loading={false}
+      scrollable={true}
+    />
+  </div>
+</div>
+`;
+
 exports[`CheckMarkCell should match snapshot with value 1`] = `
 <FaCheck
   className="has-text-success"
@@ -13,107 +73,6 @@ exports[`CheckMarkCell should match snapshot without value 1`] = `
 `;
 
 exports[`Customers should match a snapshot when LOADING false 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "customersRoute",
-          "pathname": "/customers",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "customersRoute",
-              "pathname": "/customers",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "customersRoute",
-            "pathname": "/customers",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Component>
-        <Component
-          variant="info"
-        >
-          <div
-            className="notification helper-wrap helper-info"
-          >
-            Unfortunately, there are no results that match your search criteria, please try again
-          </div>
-        </Component>
-        <Link
-          className="text-center"
-          to="/customers"
-        >
-          <LinkAnchor
-            className="text-center"
-            href="/customers"
-            navigate={[Function]}
-          >
-            <a
-              className="text-center"
-              href="/customers"
-              onClick={[Function]}
-            >
-              <Component
-                type="button"
-                variant="primary"
-              >
-                <button
-                  className="button  is-primary  "
-                  data-test=""
-                  disabled={false}
-                  type="button"
-                >
-                  New Search
-                </button>
-              </Component>
-            </a>
-          </LinkAnchor>
-        </Link>
-      </Component>
-    </Router>
-  </MemoryRouter>
-</Provider>
-`;
-
-exports[`Customers should match a snapshot when LOADING true 1`] = `
 <Provider
   store={
     Object {
@@ -301,17 +260,108 @@ exports[`Customers should match a snapshot when LOADING true 1`] = `
             </Formik>
           </Component>
           <Component>
-            <div
-              className="loader-spinner body"
+            <section
+              className=""
               data-test=""
             >
-              <div />
-              <div />
-              <div />
-              <div />
+              <div>
+                Total: 
+                0
+              </div>
+            </section>
+          </Component>
+          <Component
+            message="No Results "
+            type="info"
+          >
+            <div
+              className="notification is-info "
+              data-test=""
+              role="alert"
+            >
+              No Results 
             </div>
           </Component>
+          <Component
+            onChange={[Function]}
+            pageNumber={0}
+            pageSize={0}
+            totalCount={0}
+          />
         </ErrorBoundary>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Customers should match a snapshot when LOADING true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "customersRoute",
+          "pathname": "/customers",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "customersRoute",
+              "pathname": "/customers",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "customersRoute",
+            "pathname": "/customers",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
       </Component>
     </Router>
   </MemoryRouter>
@@ -374,45 +424,167 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
       }
     >
       <Component>
-        <Component
-          variant="info"
-        >
-          <div
-            className="notification helper-wrap helper-info"
+        <ErrorBoundary>
+          <Component
+            className="mb-0"
           >
-            Unfortunately, there are no results that match your search criteria, please try again
-          </div>
-        </Component>
-        <Link
-          className="text-center"
-          to="/customers"
-        >
-          <LinkAnchor
-            className="text-center"
-            href="/customers"
-            navigate={[Function]}
-          >
-            <a
-              className="text-center"
-              href="/customers"
-              onClick={[Function]}
+            <section
+              className=""
+              data-test=""
             >
-              <Component
-                type="button"
-                variant="primary"
-              >
-                <button
-                  className="button  is-primary  "
-                  data-test=""
-                  disabled={false}
-                  type="button"
+              <Component>
+                <h3
+                  className=""
+                  id=""
                 >
-                  New Search
-                </button>
+                  Customers
+                </h3>
               </Component>
-            </a>
-          </LinkAnchor>
-        </Link>
+            </section>
+          </Component>
+          <Component
+            filterValues={
+              Object {
+                "name": "",
+              }
+            }
+            onSearch={[Function]}
+          >
+            <Formik
+              initialValues={
+                Object {
+                  "name": "",
+                }
+              }
+              onSubmit={[Function]}
+            >
+              <Form
+                noValidate={true}
+              >
+                <form
+                  action="#"
+                  noValidate={true}
+                  onReset={[Function]}
+                  onSubmit={[Function]}
+                >
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      <Component
+                        className="items-center"
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component>
+                            <div
+                              className=""
+                              data-test=""
+                            >
+                              <Component
+                                id="name"
+                                labelText="Company Name"
+                                maxLength={256}
+                                name="name"
+                                type="text"
+                              >
+                                <Field
+                                  name="name"
+                                  validate={null}
+                                >
+                                  <div
+                                    className=""
+                                  >
+                                    <div
+                                      className="control "
+                                    >
+                                      <label
+                                        className="label inline-block "
+                                        htmlFor="name"
+                                      >
+                                        Company Name
+                                      </label>
+                                      <input
+                                        className=""
+                                        data-test=""
+                                        disabled={false}
+                                        id="name"
+                                        maxLength={256}
+                                        name="name"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        placeholder=""
+                                        type="text"
+                                        value=""
+                                      />
+                                    </div>
+                                  </div>
+                                </Field>
+                              </Component>
+                            </div>
+                          </Component>
+                          <Component
+                            className="mt-4"
+                          >
+                            <div
+                              className=""
+                              data-test=""
+                            >
+                              <Component
+                                type="submit"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="submit"
+                                >
+                                  Search
+                                </button>
+                              </Component>
+                            </div>
+                          </Component>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </form>
+              </Form>
+            </Formik>
+          </Component>
+          <Component>
+            <section
+              className=""
+              data-test=""
+            >
+              <div>
+                Total: 
+                0
+              </div>
+            </section>
+          </Component>
+          <Component
+            message="No Results "
+            type="info"
+          >
+            <div
+              className="notification is-info "
+              data-test=""
+              role="alert"
+            >
+              No Results 
+            </div>
+          </Component>
+          <Component
+            onChange={[Function]}
+            pageNumber={0}
+            pageSize={0}
+            totalCount={0}
+          />
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>
