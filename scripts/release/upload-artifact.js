@@ -13,11 +13,11 @@ const uploadArtifact = async () => {
       workspaceName = '@reapit/web-components'
     }
     try {
-      runCommand('yarn', ['workspace', workspaceName, 'fetch-config', '--name', 'production'])
-      runCommand('yarn', ['workspace', workspaceName, 'lint'])
-      runCommand('yarn', ['workspace', workspaceName, 'test:ci'])
-      runCommand('yarn', ['workspace', workspaceName, 'build:prod'])
-      runCommand('tar', [
+      await runCommand('yarn', ['workspace', workspaceName, 'fetch-config', '--name', 'production'])
+      await runCommand('yarn', ['workspace', workspaceName, 'lint'])
+      await runCommand('yarn', ['workspace', workspaceName, 'test:ci'])
+      await runCommand('yarn', ['workspace', workspaceName, 'build:prod'])
+      await runCommand('tar', [
         '-C',
         `./packages/${packageName}/public`,
         '-czvf',
@@ -25,7 +25,7 @@ const uploadArtifact = async () => {
         '--exclude="config.json"',
         'dist',
       ])
-      runCommand('aws', [
+      await runCommand('aws', [
         's3',
         'cp',
         fileName,

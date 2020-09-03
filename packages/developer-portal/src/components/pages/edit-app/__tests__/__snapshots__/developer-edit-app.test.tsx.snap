@@ -1153,7 +1153,9 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         className=""
                         data-test=""
                       >
-                        <Component>
+                        <Component
+                          className="is-half-desktop"
+                        >
                           <div
                             className=""
                             data-test=""
@@ -1197,7 +1199,9 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             </Component>
                           </div>
                         </Component>
-                        <Component>
+                        <Component
+                          className="is-half-desktop"
+                        >
                           <div
                             className=""
                             data-test=""

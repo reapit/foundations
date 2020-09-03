@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { UnsupportBrowserPopUp } from '@/components/ui/unsupport-browser-pop-up'
+import { UnsupportBrowserPopUp } from '@/components/ui/popup/unsupport-browser-pop-up'
 import { isIE } from '@/utils/browser'
 import Routes from '@/constants/routes'
 import { IFRAME_URLS } from '@/constants/iframe-urls'

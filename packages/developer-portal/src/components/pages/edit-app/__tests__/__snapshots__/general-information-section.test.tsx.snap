@@ -378,7 +378,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -422,7 +424,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       </Component>
                     </div>
                   </Component>
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -888,7 +892,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -931,7 +937,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       </Component>
                     </div>
                   </Component>
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""

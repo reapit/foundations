@@ -8,10 +8,14 @@ exports[`SuccessContent should match snapshot 1`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown>
+        <Unknown
+          className="has-text-weight-normal"
+        >
           You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
         </Unknown>
-        <Unknown>
+        <Unknown
+          className="has-text-weight-normal"
+        >
           Duong Pham
            - 
           <a
@@ -23,10 +27,14 @@ exports[`SuccessContent should match snapshot 1`] = `
             tanphamhaiduong@gmail.com
           </a>
         </Unknown>
-        <Unknown>
+        <Unknown
+          className="has-text-weight-normal"
+        >
           We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
         </Unknown>
-        <Unknown>
+        <Unknown
+          className="has-text-weight-normal"
+        >
           Reminder: There is no charge for the Developer Edition Licence during the Beta Phase.
         </Unknown>
       </React.Fragment>

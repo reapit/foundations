@@ -1,5 +1,17 @@
 import * as React from 'react'
-import styles from '@/styles/blocks/diff-media.scss?mod'
+import { cx } from 'linaria'
+import {
+  iconBlock,
+  mediaBlock,
+  iconImage,
+  mediaImage,
+  container,
+  block,
+  image,
+  arrow,
+  red,
+  green,
+} from './__styles__/pending-revision-comparison'
 
 export interface DiffMediaProps {
   currentMedia?: string
@@ -8,17 +20,17 @@ export interface DiffMediaProps {
 }
 
 const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) => {
-  const blockStyle = type === 'icon' ? styles.iconBlock : styles.mediaBlock
-  const imageStyle = type === 'icon' ? styles.iconImage : styles.mediaImage
+  const blockStyle = type === 'icon' ? iconBlock : mediaBlock
+  const imageStyle = type === 'icon' ? iconImage : mediaImage
   const isDiff = currentMedia !== changedMedia
   return (
-    <div className={styles.container}>
-      <div className={`${styles.block} ${blockStyle} ${isDiff ? styles.red : ''}`}>
-        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url("${currentMedia}")` }} />
+    <div className={container}>
+      <div className={cx(block, blockStyle, isDiff && red)}>
+        <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${currentMedia}")` }} />
       </div>
-      <span className={styles.arrow}>&#8594;</span>
-      <div className={`${styles.block} ${blockStyle} ${isDiff ? styles.green : ''}`}>
-        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url("${changedMedia}")` }} />
+      <span className={arrow}>&#8594;</span>
+      <div className={cx(block, blockStyle, isDiff && green)}>
+        <div className={cx(image, imageStyle)} style={{ backgroundImage: `url("${changedMedia}")` }} />
       </div>
     </div>
   )

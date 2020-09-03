@@ -163,7 +163,7 @@ exports[`Login should match a snapshot 1`] = `
               loading={false}
             >
               <div
-                className="undefined "
+                className=""
               >
                 <Component
                   message="This is a sandbox environment, with anonymised test data and isolated from production"

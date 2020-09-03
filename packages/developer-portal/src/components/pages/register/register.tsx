@@ -26,14 +26,12 @@ import { developerCreate, developerSetFormState } from '@/actions/developer'
 import CallToAction from '@/components/ui/call-to-action'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
-import loginStyles from '@/styles/pages/login.scss?mod'
+import { container, wrapper, image } from './__styles__/register'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
-
-const { container, wrapper, image } = loginStyles
 
 export type RegisterProps = {}
 

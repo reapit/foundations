@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DiffMedia should match a snapshot 1`] = `
-<div>
+<div
+  className=""
+>
   <div
-    className="undefined undefined undefined"
+    className=""
   >
     <div
-      className="undefined undefined"
+      className=""
       style={
         Object {
           "backgroundImage": "url(\\"image-2\\")",
@@ -14,14 +16,16 @@ exports[`DiffMedia should match a snapshot 1`] = `
       }
     />
   </div>
-  <span>
+  <span
+    className=""
+  >
     →
   </span>
   <div
-    className="undefined undefined undefined"
+    className=""
   >
     <div
-      className="undefined undefined"
+      className=""
       style={
         Object {
           "backgroundImage": "url(\\"image-1\\")",
