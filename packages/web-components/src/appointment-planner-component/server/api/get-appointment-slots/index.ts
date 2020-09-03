@@ -1,10 +1,21 @@
 import { AppRequest, AppResponse } from '@reapit/node-utils'
 import { validateGetAppointmentSlotsRequest } from './validators'
 import { validatedErrorHandler } from '../../../../common/utils/error-handler'
-import { getOfficesByPostcode } from './apis'
+import { getOfficesByPostcode, getWebComponentConfigForReapitCustomer } from './apis'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { logger } from '../../core/logger'
-import { filterNegotiatorsIdByOffice } from './utils'
+import { filterNegotiatorsIdByOffice, generateAppoinmenSlotDatesFromTimeRange } from './utils'
+
+export type AppointmentSlot = {
+  dateTimeStart: string
+  dateTimeEnd: string
+  negotiatorId?: string
+}
+
+export type AppoinmentSlotDate = {
+  date: string
+  slots: AppointmentSlot[]
+}
 
 export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => {
   const errStr = validateGetAppointmentSlotsRequest(req)
@@ -16,8 +27,16 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
   try {
     const offices = await getOfficesByPostcode(req)
-    const mockWebCompoenntConfigNegotiatorIds = ['AASD', 'ABCD', 'ABC']
-    const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, mockWebCompoenntConfigNegotiatorIds)
+    const config = await getWebComponentConfigForReapitCustomer(req)
+    const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, config?.negotiatorIds)
+    // appointmentSloDates = fn
+
+    const appointmentSlotDates = generateAppoinmenSlotDatesFromTimeRange({
+      dateFrom: req.query.dateFrom,
+      dateTo: req.query.dateTo,
+      appointmentLength: config.appointmentLength,
+      appointmentTimeGap: config.appointmentTimeGap,
+    })
 
     res.status(200)
     res.end()

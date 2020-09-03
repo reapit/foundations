@@ -7,33 +7,43 @@ import { logger } from '../../core/logger'
 import { fetcher } from '../../../../common/utils/fetcher-server'
 import { getServerHeaders } from '../../../../common/utils/get-server-headers'
 import { AppRequest } from '@reapit/node-utils'
-import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
+import { PACKAGE_SUFFIXES, DEFAULT_HEADERS_SERVER } from '../../../../common/utils/constants'
 import { stringify } from 'query-string'
 import { PagedResultOfficeModel_ } from '@reapit/foundations-ts-definitions'
 
-export const getWebComponentConfigForReapitCustomer = (req: AppRequest) => {}
+export type WebComponentConfigResult = {
+  appointmentLength: number
+  appointmentTimeGap: number
+  appId: string
+  appointmentTypes: any
+  customerId: string
+  daysOfWeek: number[]
+  negotiatorIds: string[]
+}
 
-export const getOfficesByPostcode = async (req: AppRequest) => {
-  logger.info('getOfficesByPostcode', { traceId: req.traceId, postcode: req.query.postcode })
+export const getWebComponentConfigForReapitCustomer = async (req: AppRequest) => {
+  // loger
+  logger.info('getWebComponentConfigForReapitCustomer', { traceId: req.traceId, postcode: req.query.postcode })
 
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
 
+    // update url here
     const url = new URL(
-      `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
-        address: req.query?.postcode,
-        embed: 'negotiators',
-      })}`,
+      `${process.env.WEB_COMPONENT_CONFIG_API}/${req.headers['reapit-customer'] ||
+        DEFAULT_HEADERS_SERVER['reapit-customer']}/${process.env.APPOINMENT_PLANNER_APP_ID}`,
     )
 
-    const offices = await fetcher<PagedResultOfficeModel_, undefined>({
+    // update model
+    const config = await fetcher<WebComponentConfigResult, undefined>({
       url: String(url),
       headers,
     })
 
-    return offices
+    return config
   } catch (err) {
-    await logger.error('getOfficesByPostcode', {
+    // logger
+    await logger.error('getWebComponentConfigForReapitCustomer', {
       traceId: req.traceId,
       error: err,
       headers: JSON.stringify(req.headers),
@@ -42,6 +52,36 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
     throw err
   }
 }
+
+// export const getOfficesByPostcode = async (req: AppRequest) => {
+//   logger.info('getOfficesByPostcode', { traceId: req.traceId, postcode: req.query.postcode })
+
+//   try {
+//     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
+
+//     const url = new URL(
+//       `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
+//         address: req.query?.postcode,
+//         embed: 'negotiators',
+//       })}`,
+//     )
+
+//     const offices = await fetcher<PagedResultOfficeModel_, undefined>({
+//       url: String(url),
+//       headers,
+//     })
+
+//     return offices
+//   } catch (err) {
+//     await logger.error('getOfficesByPostcode', {
+//       traceId: req.traceId,
+//       error: err,
+//       headers: JSON.stringify(req.headers),
+//     })
+
+//     throw err
+//   }
+// }
 
 /*
  * TODOME(getConfig)
@@ -55,5 +95,41 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
 
 /*
  * TODOME(requestApoinmtne)
- * getAppointmentByDateRange({ dateFrom, dateTo })
+ * getAppointmentByDateRange(req, filteredNegotiatorid)
  */
+// nego id: string
+export const getOfficesByPostcode = async (req: AppRequest) => {
+  // log
+  logger.info('getOfficesByPostcode', { traceId: req.traceId, postcode: req.query.postcode })
+
+  try {
+    const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
+
+    // url
+    // date format
+    // model
+    const url = new URL(
+      `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
+        address: req.query?.postcode,
+        embed: 'negotiators',
+      })}`,
+    )
+
+    // return
+    const offices = await fetcher<PagedResultOfficeModel_, undefined>({
+      url: String(url),
+      headers,
+    })
+
+    return offices
+  } catch (err) {
+    // thay fn
+    await logger.error('getOfficesByPostcode', {
+      traceId: req.traceId,
+      error: err,
+      headers: JSON.stringify(req.headers),
+    })
+
+    throw err
+  }
+}
