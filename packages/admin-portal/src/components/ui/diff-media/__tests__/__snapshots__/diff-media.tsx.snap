@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffMedia should match snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    className=""
+  >
+    <div
+      className=""
+      style={
+        Object {
+          "backgroundImage": "url(\\"https://media.jpg\\")",
+        }
+      }
+    />
+  </div>
+  <span
+    className=""
+  >
+    →
+  </span>
+  <div
+    className=""
+  >
+    <div
+      className=""
+      style={
+        Object {
+          "backgroundImage": "url(\\"https://media-changed.jpg\\")",
+        }
+      }
+    />
+  </div>
+</div>
+`;

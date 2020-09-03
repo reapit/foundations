@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffViewer should match snapshot 1`] = `
+<div
+  className=""
+>
+  <span
+    className=""
+    key="0"
+  >
+    hello world
+  </span>
+  <span
+    className=""
+    key="1"
+  >
+    hello galaxy
+  </span>
+</div>
+`;

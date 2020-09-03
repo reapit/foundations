@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffRenderHTML should match snapshot 1`] = `
+<div
+  className=""
+>
+  <Component
+    className=""
+    html="<h1>hello world</h1>"
+  />
+  <span
+    className=""
+  >
+    →
+  </span>
+  <Component
+    className=""
+    html="<p>hello galaxy</p>"
+  />
+</div>
+`;

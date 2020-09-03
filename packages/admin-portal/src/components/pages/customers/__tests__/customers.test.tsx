@@ -8,12 +8,15 @@ import {
   CheckMarkCell,
   LogoUploadButtonCell,
   CustomersFilterForm,
+  renderContent,
+  columns,
 } from '../customers'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
+import { customersList } from '@/sagas/customers/__stubs__/customers-list'
 import { History } from 'history'
 
 const historyMock = ({
@@ -76,6 +79,15 @@ describe('Customers', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+
+  describe('renderContent', () => {
+    const mockProps = {
+      customerData: customersList.data,
+      columns,
+    }
+    const wrapper = shallow(<div>{renderContent(mockProps)}</div>)
+    expect(wrapper).toMatchSnapshot()
   })
 })
 

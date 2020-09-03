@@ -301,6 +301,7 @@ exports[`ListingPreviewSection should match a snapshot 1`] = `
       </span>
        
       <a
+        className=""
         href="#"
         onClick={[Function]}
       >
@@ -379,7 +380,9 @@ exports[`StatusSection should match a snapshot where isListed true and is sideba
 >
   <div>
     Listed 
-    <FaCheck />
+    <FaCheck
+      className=""
+    />
   </div>
 </Component>
 `;
