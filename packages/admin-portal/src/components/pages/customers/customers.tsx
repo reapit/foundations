@@ -31,6 +31,7 @@ export type FilterValues = {
 
 export type OnSearch = (filterValues: FilterValues, { setStatus }: { setStatus: (string) => any }) => void
 export type CustomersFilterFormProps = {
+  history: History
   filterValues: FilterValues
   onSearch: OnSearch
 }
@@ -59,8 +60,12 @@ export const onSearchHandler = (history: History<any>): OnSearch => (filterValue
   history.push(`${Routes.CUSTOMERS}?${queryString}`)
 }
 
-export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filterValues, onSearch }) => (
-  <Formik initialValues={filterValues} onSubmit={onSearch}>
+export const refreshForm = history => () => {
+  history.push(Routes.CUSTOMERS)
+}
+
+export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filterValues, onSearch, history }) => (
+  <Formik initialValues={filterValues} onSubmit={onSearch} onReset={refreshForm(history)}>
     {({ status }) => {
       return (
         <Form noValidate={true}>
@@ -72,6 +77,9 @@ export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filter
               <GridItem className="mt-4">
                 <Button type="submit" variant="primary">
                   Search
+                </Button>
+                <Button type="reset" variant="primary">
+                  Refresh
                 </Button>
               </GridItem>
             </Grid>
@@ -160,7 +168,11 @@ export const Customers: React.FC = () => {
       <Section className="mb-0">
         <H3>Customers</H3>
       </Section>
-      <CustomersFilterForm onSearch={onSearchHandler(history)} filterValues={generateFilterValues(queryParams)} />
+      <CustomersFilterForm
+        onSearch={onSearchHandler(history)}
+        filterValues={generateFilterValues(queryParams)}
+        history={history}
+      />
       <Section>
         <div>Total: {totalCount}</div>
       </Section>
