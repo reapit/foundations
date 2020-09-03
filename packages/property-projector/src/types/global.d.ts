@@ -13,6 +13,7 @@ export type PropertyProjectorConfig = {
   logo: string
   primaryColour: string
   secondaryColour: string
+  headertextColour: string
   interval: number
   propertyLimit: number
   marketingMode: string[]

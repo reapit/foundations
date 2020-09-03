@@ -239,6 +239,16 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                           onChange={colour => setFieldValue('secondaryColour', colour)}
                         />
                       </GridItem>
+                      <GridItem className="colour-picker-container">
+                        <ColourPicker
+                          id="headertextColour"
+                          name="headertextColour"
+                          placeholder="#FFFFFF"
+                          labelText="Header Text Colour"
+                          colour={values.headertextColour}
+                          onChange={colour => setFieldValue('headertextColour', colour)}
+                        />
+                      </GridItem>
                     </Grid>
                   </FormSection>
                   <FormSection>

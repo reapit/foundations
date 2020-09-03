@@ -17,11 +17,13 @@ const PropertyImages: React.FC<PropertyImagesProps> = props => {
     return null
   }
 
-  const imageElements = images.map((image, idx) => <div key={idx} style={{ backgroundImage: `url(${image})` }}></div>)
+  const imageElements = images.map((image, idx) => (
+    <div key={idx} style={{ backgroundImage: `url(${image})`, ...imageStyles }}></div>
+  ))
   const mainImage = imageElements.shift()
 
   return (
-    <div style={imageStyles} className="property-projector-images">
+    <div className="property-projector-images">
       {mainImage}
       {imageElements.length > 0 ? (
         <div style={imageStyles} className="property-projector-side-images">
@@ -39,10 +41,11 @@ type ProjectorPropertyProps = {
 
 const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
   const { config, property } = props
-  const { logo, primaryColour, secondaryColour, showAddress, showStrapline } = config
+  const { logo, primaryColour, secondaryColour, showAddress, showStrapline, headertextColour } = config
 
   const projectorStyles: React.CSSProperties = {
-    color: secondaryColour,
+    color: headertextColour,
+    backgroundColor: primaryColour,
   }
 
   return (
