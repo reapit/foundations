@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'

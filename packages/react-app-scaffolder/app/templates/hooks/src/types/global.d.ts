@@ -6,6 +6,8 @@ export type Config = {
   googleAnalyticsKey: string
   connectOAuthUrl: string
   platformApiUrl: string
+  graphqlUri: string
+  marketplaceUrl: string
 }
 
 declare global {

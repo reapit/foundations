@@ -9,6 +9,12 @@ const props = {
   children: Component,
 }
 
+jest.mock('@reapit/elements', () => ({
+  notification: {
+    error: jest.fn(),
+  },
+}))
+
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
     expect(shallow(<ErrorBoundary {...props} />)).toMatchSnapshot()

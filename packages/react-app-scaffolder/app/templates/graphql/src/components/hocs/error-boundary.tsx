@@ -1,4 +1,6 @@
 import * as React from 'react'
+import errorMessages from '@/constants/error-messages'
+import { notification } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
@@ -23,7 +25,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('ERROR BOUNDARY CAUGHT', error.message, info)
+    notification.error({ message: errorMessages.DEFAULT_COMPONENT_ERROR, placement: 'bottomRight' })
   }
 
   render() {

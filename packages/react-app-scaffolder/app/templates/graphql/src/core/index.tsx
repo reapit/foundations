@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as Sentry from '@sentry/browser'
 import React from 'react'
 import { render } from 'react-dom'
@@ -17,6 +18,7 @@ window.reapit = {
     connectOAuthUrl: '',
     platformApiUrl: '',
     graphqlUri: '',
+    marketplaceUrl: '',
   },
 }
 
