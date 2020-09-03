@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import {
   Modal,
   Button,
@@ -210,7 +209,7 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                 />
                 <ModalFooter
                   footerItems={
-                    <Level className={styles.footer}>
+                    <Level className="w-100">
                       <LevelLeft>
                         {isUpdate && (
                           <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>

@@ -172,13 +172,17 @@ Get
               currentString="Peter's Properties"
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
+                  className=""
                   key="0"
                 >
                   Peter's
                 </span>
                 <span
+                  className=""
                   key="1"
                 >
                   Amazon
@@ -190,11 +194,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="3"
                 >
                   Properties
                 </span>
                 <span
+                  className=""
                   key="4"
                 >
                   Shopping 2
@@ -216,7 +222,9 @@ Get
               currentString=""
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -238,13 +246,17 @@ Get
               currentString="http://myawesomeproptechproduct.io"
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
+                  className=""
                   key="0"
                 >
                   http
                 </span>
                 <span
+                  className=""
                   key="1"
                 >
                   https
@@ -256,11 +268,13 @@ Get
                   ://
                 </span>
                 <span
+                  className=""
                   key="3"
                 >
                   myawesomeproptechproduct
                 </span>
                 <span
+                  className=""
                   key="4"
                 >
                   www
@@ -272,11 +286,13 @@ Get
                   .
                 </span>
                 <span
+                  className=""
                   key="6"
                 >
                   io
                 </span>
                 <span
+                  className=""
                   key="7"
                 >
                   amazon.com/
@@ -298,7 +314,9 @@ Get
               currentString=""
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -320,13 +338,17 @@ Get
               currentString="support@reapit.com"
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
+                  className=""
                   key="0"
                 >
                   support
                 </span>
                 <span
+                  className=""
                   key="1"
                 >
                   VBNApplication
@@ -338,11 +360,13 @@ Get
                   @
                 </span>
                 <span
+                  className=""
                   key="3"
                 >
                   reapit
                 </span>
                 <span
+                  className=""
                   key="4"
                 >
                   test
@@ -370,13 +394,17 @@ Get
               currentString="0113 288 2900"
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
+                  className=""
                   key="0"
                 >
                   0113
                 </span>
                 <span
+                  className=""
                   key="1"
                 >
                   0800
@@ -388,11 +416,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="3"
                 >
                   288
                 </span>
                 <span
+                  className=""
                   key="4"
                 >
                   279
@@ -404,11 +434,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="6"
                 >
                   2900
                 </span>
                 <span
+                  className=""
                   key="7"
                 >
                   7234
@@ -431,13 +463,17 @@ Get
               currentString="vitae elementum curabitur vitae"
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
+                  className=""
                   key="0"
                 >
                   vitae
                 </span>
                 <span
+                  className=""
                   key="1"
                 >
                   Shop
@@ -449,11 +485,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="3"
                 >
                   elementum
                 </span>
                 <span
+                  className=""
                   key="4"
                 >
                   millions
@@ -465,11 +503,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="6"
                 >
                   curabitur
                 </span>
                 <span
+                  className=""
                   key="7"
                 >
                   of
@@ -481,11 +521,13 @@ Get
                    
                 </span>
                 <span
+                  className=""
                   key="9"
                 >
                   vitae
                 </span>
                 <span
+                  className=""
                   key="10"
                 >
                   products, never miss amazing deals, compare prices and reviews
@@ -520,13 +562,15 @@ Get
       notifications when a new deal is available."
               currentString="enim facilisis"
             >
-              <div>
+              <div
+                className=""
+              >
                 <Component
-                  className="undefined undefined"
+                  className=" "
                   html="enim facilisis"
                 >
                   <Component
-                    className="undefined undefined"
+                    className=" "
                   >
                     <div
                       className=""
@@ -536,11 +580,13 @@ Get
                     </div>
                   </Component>
                 </Component>
-                <span>
+                <span
+                  className=""
+                >
                   →
                 </span>
                 <Component
-                  className="undefined undefined"
+                  className=" "
                   html="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -557,7 +603,7 @@ Get
       notifications when a new deal is available."
                 >
                   <Component
-                    className="undefined undefined"
+                    className=" "
                   >
                     <div
                       className=""
@@ -597,7 +643,9 @@ Get
               currentString=""
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -619,7 +667,9 @@ Get
               currentString=""
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -641,7 +691,9 @@ Get
               currentString=""
               type="words"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -663,7 +715,9 @@ Get
               currentString=""
               type="wordsWithSpace"
             >
-              <div>
+              <div
+                className=""
+              >
                 <span
                   className=""
                   key="0"
@@ -686,10 +740,11 @@ Get
               dataTest="revision-diff-isListed"
             >
               <div
+                className=""
                 data-test="revision-diff-isListed"
               >
                 <span
-                  className="undefined "
+                  className=" "
                 >
                   <input
                     checked={false}
@@ -716,10 +771,11 @@ Get
               dataTest="revision-diff-isDirectApi"
             >
               <div
+                className=""
                 data-test="revision-diff-isDirectApi"
               >
                 <span
-                  className="undefined "
+                  className=" "
                 >
                   <input
                     checked={false}
@@ -744,12 +800,14 @@ Get
             <DiffMedia
               type="media"
             >
-              <div>
+              <div
+                className=""
+              >
                 <div
-                  className="undefined undefined "
+                  className="  "
                 >
                   <div
-                    className="undefined undefined"
+                    className=" "
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",
@@ -757,14 +815,16 @@ Get
                     }
                   />
                 </div>
-                <span>
+                <span
+                  className=""
+                >
                   →
                 </span>
                 <div
-                  className="undefined undefined "
+                  className="  "
                 >
                   <div
-                    className="undefined undefined"
+                    className=" "
                     style={
                       Object {
                         "backgroundImage": "url(\\"undefined\\")",

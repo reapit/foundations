@@ -9,7 +9,6 @@ import {
   FormikErrors,
 } from '@reapit/elements'
 import { ScopeModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { formFields } from './form-schema/form-fields'
 
 export type PermissionSectionProps = {

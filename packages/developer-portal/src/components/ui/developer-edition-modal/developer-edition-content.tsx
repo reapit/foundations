@@ -11,7 +11,6 @@ import {
   ModalProps,
   LevelRight,
 } from '@reapit/elements'
-import developerEditionStyles from '@/styles/blocks/developer-edition-modal.scss?mod'
 import { FormValues } from './form-fields'
 import pdfLink from '@/assets/files/reapit-foundations-developer-agreement.pdf'
 import { formFields } from './form-fields'
@@ -41,7 +40,7 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
       <ModalBody
         body={
           <>
-            <SubTitleH6 className={developerEditionStyles.subTitle}>
+            <SubTitleH6 className="has-text-weight-normal">
               The Agency Cloud Developer Edition is a licensed product. However, there will be no charge for the licence
               during the Beta phase. For more information regarding the Developer Edition licence please refer to your
               Developer Registration&nbsp;

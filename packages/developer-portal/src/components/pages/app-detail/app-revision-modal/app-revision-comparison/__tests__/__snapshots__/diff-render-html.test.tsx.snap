@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DiffRenderHTML should match a snapshot 1`] = `
-<div>
+<div
+  className=""
+>
   <Component
-    className="undefined undefined"
+    className=" "
     html="abc"
   />
-  <span>
+  <span
+    className=""
+  >
     →
   </span>
   <Component
-    className="undefined undefined"
+    className=" "
     html="<b>axxxxxxxxxxxbc<b>"
   />
 </div>
