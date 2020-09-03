@@ -29,7 +29,7 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
     return errors.generateForbiddenError(traceId)
   }
   if (error?.response?.status === 404) {
-    return errors.generateNotFoundError(traceId)
+    return errors.generateNotFoundError(traceId, reapitBackendError)
   }
   if (error?.response?.status === 412) {
     return errors.generateUserInputError(traceId)
