@@ -1,17 +1,24 @@
 import { Request, Response } from 'express'
 import { getAppointmentSlots } from '../index'
 import { validateGetAppointmentSlotsRequest } from '../validators'
-import { getOfficesByPostcode } from '../apis'
-import { logger } from '../../../core/logger'
-import { errorHandler } from '../../../../../common/utils/error-handler'
 import { officesDataStub } from '../stubs/offices'
+import { appointmentsDataStub } from '../../__stubs__/appointments'
+import { configDataStub } from '../stubs/config'
 
-jest.mock('../apis')
+import {
+  getOfficesByPostcode,
+  getWebComponentConfigForReapitCustomer,
+  getAppointmentsByNegotiatorsIdsAndDateRange,
+} from '../apis'
 jest.mock('../validators')
 jest.mock('../../../../../common/utils/error-handler', () => ({
   ...jest.requireActual('../../../../../common/utils/error-handler'),
   errorHandler: jest.fn(),
 }))
+jest.mock('../apis')
+;(getOfficesByPostcode as jest.Mock).mockResolvedValue(officesDataStub)
+;(getAppointmentsByNegotiatorsIdsAndDateRange as jest.Mock).mockResolvedValue(appointmentsDataStub)
+;(getWebComponentConfigForReapitCustomer as jest.Mock).mockResolvedValue(configDataStub)
 
 describe('getAppointmentSlots endpoint', () => {
   test('validateGetAppointmentSlotsRequest throw error', () => {
@@ -35,30 +42,14 @@ describe('getAppointmentSlots endpoint', () => {
     expect(response.end).toHaveBeenCalledTimes(1)
   })
 
-  test('getOfficesByPostcode throw error', () => {
-    const req = {
-      url: '/appointments',
-    } as Request
-
-    const response = ({
-      status: jest.fn(),
-      end: jest.fn(),
-      json: jest.fn(),
-    } as unknown) as Response
-
-    const mockError = 'error'
-    ;(validateGetAppointmentSlotsRequest as jest.Mock).mockReturnValueOnce(null)
-    ;(getOfficesByPostcode as jest.Mock).mockImplementationOnce(() => {
-      throw mockError
-    })
-    getAppointmentSlots(req, response)
-
-    expect(errorHandler).toHaveBeenCalledWith(mockError, response, req, 'getAppointmentSlots', logger)
-  })
-
   test('happy case', async () => {
     const req = {
       url: '/appointments',
+      query: {
+        postcode: 'B9100',
+        dateFrom: '2021-01-31T20:00:00.000Z',
+        dateTo: '2021-02-02T00:00:00.000Z',
+      },
     } as Request
 
     const response = ({
@@ -71,6 +62,38 @@ describe('getAppointmentSlots endpoint', () => {
 
     await getAppointmentSlots(req, response)
     expect(response.status).toHaveBeenCalledWith(200)
+    expect(response.json).toHaveBeenCalledWith([
+      {
+        date: '2021-01-31T20:00:00.000Z',
+        slots: [
+          {
+            dateTimeStart: '2021-01-31T08:00:00.000Z',
+            dateTimeEnd: '2021-01-31T12:00:00.000Z',
+            negotiatorId: 'ASDS',
+          },
+          {
+            dateTimeStart: '2021-01-31T16:00:00.000Z',
+            dateTimeEnd: '2021-01-31T20:00:00.000Z',
+            negotiatorId: 'ASDS',
+          },
+        ],
+      },
+      {
+        date: '2021-02-01T20:00:00.000Z',
+        slots: [
+          {
+            dateTimeStart: '2021-02-01T08:00:00.000Z',
+            dateTimeEnd: '2021-02-01T12:00:00.000Z',
+            negotiatorId: 'ASDS',
+          },
+          {
+            dateTimeStart: '2021-02-01T16:00:00.000Z',
+            dateTimeEnd: '2021-02-01T20:00:00.000Z',
+            negotiatorId: 'ASDS',
+          },
+        ],
+      },
+    ])
     expect(response.end).toHaveBeenCalledTimes(1)
   })
 })

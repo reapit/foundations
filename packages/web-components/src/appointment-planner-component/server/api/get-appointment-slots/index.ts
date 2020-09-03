@@ -38,7 +38,9 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
   try {
     const offices = await getOfficesByPostcode(req)
+
     const config = await getWebComponentConfigForReapitCustomer(req)
+
     const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, config?.negotiatorIds)
 
     const appointmentSlotsOfDates = generateAppoinmenSlotDatesFromTimeRange({
@@ -60,6 +62,8 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
     res.json(appointmentSlotOfDatesWithNegotiatorId)
     res.end()
   } catch (err) {
+    console.log({ err })
+
     await errorHandler(err, res, req, 'getAppointmentSlots', logger)
   }
 }

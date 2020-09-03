@@ -5,21 +5,27 @@ import {
   generateAppoinmenSlotDatesFromTimeRange,
   findAppointmentBetween,
   findAvailableNegotiatorId,
+  assignNegotiatorIdToAppointmentSlotOfDates,
 } from '../utils'
 import {
   findAppointmentsBetweenParams,
   findAppointmentsBetweenParamsOutput,
   findAvailableNegotiatorIdParams,
+  assignNegotiatorIdToAppointmentSlotOfDatesParams,
+  assignNegotiatorIdToAppointmentSlotOfDatesOutput,
 } from '../stubs/utils'
 
 describe('appointment planner utils', () => {
+  test('assignNegotiatorIdToAppointmentSlotOfDates', () => {
+    const input = assignNegotiatorIdToAppointmentSlotOfDatesParams
+    expect(assignNegotiatorIdToAppointmentSlotOfDates(input)).toEqual(assignNegotiatorIdToAppointmentSlotOfDatesOutput)
+  })
+
   describe('findAvailableNegotiatorId - giving 2 negotiators id', () => {
     const testCases = ['caseFirstFreeSecondBusy', 'caseFirstBusySecondFree', 'caseBothAreBusy']
 
     for (let testCase of testCases) {
       test(testCase, () => {
-        console.log(findAvailableNegotiatorIdParams[testCase].input)
-
         expect(findAvailableNegotiatorId(findAvailableNegotiatorIdParams[testCase].input)).toBe(
           findAvailableNegotiatorIdParams[testCase].output,
         )
@@ -76,4 +82,10 @@ describe('appointment planner utils', () => {
 
     expect(generateAppoinmenSlotDatesFromTimeRange(input)).toEqual(output)
   })
+
+  /**
+   * get stuff with one slot
+   * mock findAvailableNegotiatorId to return id
+   * mock return return
+   */
 })

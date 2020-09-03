@@ -1,7 +1,7 @@
 // b ur sel
 import { PagedResultOfficeModel_, AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { WebComponentConfigResult } from './apis'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import { AppoinmentSlotsOfDate } from '.'
 import utc from 'dayjs/plugin/utc'
 dayjs.extend(utc)

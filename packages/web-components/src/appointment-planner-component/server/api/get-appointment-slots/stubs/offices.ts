@@ -5,8 +5,8 @@ export const officesDataStub: PagedResultOfficeModel_ = {
     {
       id: 'TFE',
       created: '2020-08-17T02:22:52Z',
-      modified: '2020-08-17T18:08:13Z',
-      name: 'test office',
+      modified: '2020-08-27T06:33:40Z',
+      name: 'ztest office',
       manager: null,
       address: {
         buildingName: '',
@@ -20,7 +20,7 @@ export const officesDataStub: PagedResultOfficeModel_ = {
       },
       workPhone: '987654321',
       email: 'tester@gmail.com',
-      _eTag: '"8A77CF8AA54467E40A6283192FFDA85C"',
+      _eTag: '"BEE65EE9FBDBCD54EF1E6BE5C0722A07"',
       _links: {
         self: {
           href: '/offices/TFE',
@@ -293,11 +293,11 @@ export const officesDataStub: PagedResultOfficeModel_ = {
     {
       id: 'ACR',
       created: '2020-08-14T06:30:03Z',
-      modified: '2020-08-17T18:08:14Z',
+      modified: '2020-09-03T05:49:54Z',
       name: 'aCreated 111',
       manager: null,
       address: {
-        buildingName: 'created',
+        buildingName: '1 2 created',
         buildingNumber: '20',
         line1: 'london 2',
         line2: '',
@@ -308,7 +308,7 @@ export const officesDataStub: PagedResultOfficeModel_ = {
       },
       workPhone: '987666222',
       email: 'tester@reapit.com',
-      _eTag: '"1E8CD11D31BD171FD696192A7B628985"',
+      _eTag: '"48444B0027CE7C8D8F65A9BF2B6574A8"',
       _links: {
         self: {
           href: '/offices/ACR',
@@ -323,16 +323,16 @@ export const officesDataStub: PagedResultOfficeModel_ = {
           {
             id: 'AAAD',
             created: '2020-08-17T03:38:51Z',
-            modified: '2020-08-17T03:39:06Z',
+            modified: '2020-08-27T09:14:39Z',
             name: 'aaaaaad',
-            jobTitle: null,
+            jobTitle: 'z',
             active: false,
             officeId: 'ACR',
             workPhone: null,
             mobilePhone: '12343123213',
             email: 'adsadsd@gmail.com',
             metadata: null,
-            _eTag: '"EEF1E8DA8A2AE77FDCC8170725F08F1B"',
+            _eTag: '"1D743CB73B7F65C7263A5CA2A2D183C3"',
             _links: {
               self: {
                 href: '/negotiators/AAAD',
@@ -438,6 +438,52 @@ export const officesDataStub: PagedResultOfficeModel_ = {
             _links: {
               self: {
                 href: '/negotiators/ÁDSD',
+              },
+              office: {
+                href: '/offices/CRT',
+              },
+            },
+            _embedded: null,
+          },
+          {
+            id: 'KEBU',
+            created: '2020-08-26T08:51:13Z',
+            modified: '2020-08-26T08:51:13Z',
+            name: 'Kevin Busby',
+            jobTitle: 'Window Cleaner',
+            active: true,
+            officeId: 'CRT',
+            workPhone: '01234 567890',
+            mobilePhone: '07890 123456',
+            email: 'kbusby@reapit.com',
+            metadata: null,
+            _eTag: '"CF5B02A276C3187698567E79829BEF83"',
+            _links: {
+              self: {
+                href: '/negotiators/KEBU',
+              },
+              office: {
+                href: '/offices/CRT',
+              },
+            },
+            _embedded: null,
+          },
+          {
+            id: 'MRKE',
+            created: '2020-08-26T08:40:55Z',
+            modified: '2020-08-26T08:40:55Z',
+            name: 'Mr Kev Dale',
+            jobTitle: 'Floor Cleaner',
+            active: true,
+            officeId: 'CRT',
+            workPhone: '01234 567890',
+            mobilePhone: '07123456789',
+            email: 'kbusby@reapit.com',
+            metadata: null,
+            _eTag: '"C598123129FCAC43712B4B5805FFECBB"',
+            _links: {
+              self: {
+                href: '/negotiators/MRKE',
               },
               office: {
                 href: '/offices/CRT',
@@ -1134,87 +1180,16 @@ export const officesDataStub: PagedResultOfficeModel_ = {
         negotiators: null,
       },
     },
-    {
-      id: 'ADD',
-      created: '2020-08-13T05:41:06Z',
-      modified: '2020-08-17T18:08:16Z',
-      name: 'aa Test update from upload',
-      manager: null,
-      address: {
-        buildingName: '',
-        buildingNumber: '',
-        line1: 'London',
-        line2: '',
-        line3: '',
-        line4: '',
-        postcode: 'B91 009',
-        countryId: '',
-      },
-      workPhone: '987666777',
-      email: 'test@mail.com',
-      _eTag: '"73F5DA2EDD600CCDC3D30172EB68FCE4"',
-      _links: {
-        self: {
-          href: '/offices/ADD',
-        },
-        negotiators: {
-          href: '/negotiators/?officeId=ADD',
-        },
-      },
-      metadata: {},
-      _embedded: {
-        negotiators: null,
-      },
-    },
-    {
-      id: 'PPT',
-      created: '2020-08-12T12:46:05Z',
-      modified: '2020-08-17T18:08:17Z',
-      name: 'PP Test Office',
-      manager: null,
-      address: {
-        buildingName: '',
-        buildingNumber: '15',
-        line1: 'Example street',
-        line2: 'Solihull',
-        line3: 'West Midlands',
-        line4: '',
-        postcode: 'B91 2XX',
-        countryId: '',
-      },
-      workPhone: '01234 567890',
-      email: 'example@email.com',
-      _eTag: '"969441283FA94CEE770B8E87A5114DDF"',
-      _links: {
-        self: {
-          href: '/offices/PPT',
-        },
-        negotiators: {
-          href: '/negotiators/?officeId=PPT',
-        },
-      },
-      metadata: {},
-      _embedded: {
-        negotiators: null,
-      },
-    },
   ],
   pageNumber: 1,
   pageSize: 25,
-  pageCount: 25,
-  totalCount: 170,
+  pageCount: 23,
   _links: {
     self: {
-      href: '/offices/?PageNumber=1&PageSize=25&embed=negotiators',
+      href: '/offices/?PageNumber=1&PageSize=25&address=B9100&embed=negotiators',
     },
     first: {
-      href: '/offices/?PageNumber=1&PageSize=25&embed=negotiators',
-    },
-    next: {
-      href: '/offices/?PageNumber=2&PageSize=25&embed=negotiators',
-    },
-    last: {
-      href: '/offices/?PageNumber=7&PageSize=25&embed=negotiators',
+      href: '/offices/?PageNumber=1&PageSize=25&address=B9100&embed=negotiators',
     },
   },
 }
