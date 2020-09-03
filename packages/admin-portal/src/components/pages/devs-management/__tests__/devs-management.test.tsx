@@ -6,6 +6,7 @@ import {
   onSearchHandler,
   handleFetchData,
   onClickStatusButton,
+  renderResult,
 } from '../devs-management'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { MemoryRouter } from 'react-router'
@@ -127,5 +128,98 @@ describe('onClickStatusButton', () => {
     fn()
     expect(setDeveloper).toBeCalledWith({ ...developerData })
     expect(setIsSetStatusModalOpen).toBeCalledWith(true)
+  })
+})
+
+describe('renderResult', () => {
+  it('should match snapshot when no result', () => {
+    const columns = [
+      {
+        Header: '#',
+        id: 'id',
+      },
+      { Header: 'Name', accessor: 'name' },
+      { Header: 'Company', accessor: 'company' },
+      { Header: 'Job Title', accessor: 'jobTitle' },
+      { Header: 'Email', accessor: 'email' },
+      { Header: 'Phone', accessor: 'telephone' },
+      {
+        Header: 'Created',
+        accessor: 'created',
+      },
+      {
+        Header: 'Status',
+        accessor: 'status',
+        columnProps: {
+          className: 'capitalize',
+        },
+      },
+      {
+        Header: '',
+        id: 'buttonColumn',
+      },
+    ]
+    const result = renderResult([], columns, 0)
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should match snapshot when has result data', () => {
+    const columns = [
+      {
+        Header: '#',
+        id: 'id',
+      },
+      { Header: 'Name', accessor: 'name' },
+      { Header: 'Company', accessor: 'company' },
+      { Header: 'Job Title', accessor: 'jobTitle' },
+      { Header: 'Email', accessor: 'email' },
+      { Header: 'Phone', accessor: 'telephone' },
+      {
+        Header: 'Created',
+        accessor: 'created',
+      },
+      {
+        Header: 'Status',
+        accessor: 'status',
+        columnProps: {
+          className: 'capitalize',
+        },
+      },
+      {
+        Header: '',
+        id: 'buttonColumn',
+      },
+    ]
+    const data = [
+      {
+        about: '',
+        agreedTerms: '2020-08-27T12:34:30',
+        company: 'Merisis Technology Ltd',
+        companyAddress: {
+          buildingName: '',
+          buildingNumber: '',
+          line1: '',
+          line2: '',
+          line3: '',
+          line4: '',
+          postcode: '',
+        },
+        created: '2020-08-27T12:34:32',
+        email: 'martin.coumbe@merisis.com',
+        externalId: 'c9988cf6-ce52-40a7-aedb-aa5e235d9057',
+        id: 'e40cfb8e-8bd9-454b-be58-15439565a020',
+        isInactive: false,
+        jobTitle: '',
+        modified: '2020-08-27T12:34:32',
+        name: 'Martin Coumbe',
+        registrationNumber: '',
+        status: 'incomplete',
+        taxNumber: '',
+        telephone: '0844 870 0555',
+        website: '',
+      },
+    ]
+    const result = renderResult(data, columns, 0)
+    expect(result).toMatchSnapshot()
   })
 })

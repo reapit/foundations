@@ -1,7 +1,6 @@
 import React from 'react'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -11,11 +10,11 @@ import {
   Button,
   Loader,
   setQueryParams,
-  Helper,
   H3,
   toLocalTime,
   isEmptyObject,
   Section,
+  Alert,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
@@ -181,48 +180,37 @@ export const DevsManagement: React.FC = () => {
     },
   ]
 
-  if (!isLoading && data?.length === 0) {
-    return (
-      <React.Fragment>
-        <Helper variant="info">
-          Unfortunately, there are no results that match your search criteria, please try again
-        </Helper>
-        <Link className="text-center" to={Routes.DEV_MANAGEMENT}>
-          <Button variant="primary" type="button">
-            New Search
-          </Button>
-        </Link>
-      </React.Fragment>
-    )
-  }
-
   return (
     <ErrorBoundary>
       <Section className="mb-0">
         <H3>Developer Management</H3>
       </Section>
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {isLoading || !data ? (
-        <Loader />
-      ) : (
-        <>
-          <Section>
-            <Table scrollable={true} loading={false} data={data || []} columns={columns} />
-          </Section>
-          <Section>
-            <div>Total: {totalCount}</div>
-          </Section>
-          <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-          {/* <SetDeveloperStatusModal
+      {isLoading || !data ? <Loader /> : renderResult(data, columns, totalCount)}
+      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      {/* <SetDeveloperStatusModal
         visible={isSetStatusModalOpen}
         afterClose={resetModal(false)}
         onSuccess={resetModal(true)}
         developer={developer}
       />  */}
-          <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
-        </>
-      )}
+      <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
     </ErrorBoundary>
+  )
+}
+
+export const renderResult = (data, columns, totalCount) => {
+  return data?.length === 0 ? (
+    <Alert message="No Results " type="info" />
+  ) : (
+    <>
+      <Section>
+        <div>Total: {totalCount}</div>
+      </Section>
+      <Section>
+        <Table scrollable={true} loading={false} data={data || []} columns={columns} />
+      </Section>
+    </>
   )
 }
 
