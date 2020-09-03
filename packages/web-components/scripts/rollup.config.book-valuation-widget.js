@@ -6,7 +6,6 @@ import generateRollupOutput from './generate-rollup-output'
 import generateCssOutput from './generate-css-output'
 import themesConfigurations from './rollup.config.themes.js'
 import autoPreprocess from 'svelte-preprocess'
-import typescript from '@rollup/plugin-typescript'
 
 const config = require(path.resolve(__dirname, '..', 'config.json'))
 

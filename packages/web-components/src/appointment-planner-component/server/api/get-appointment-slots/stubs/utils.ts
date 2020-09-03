@@ -1,13 +1,7 @@
 import { FindAppointmentsBetweenParams, FindAvailableNegotiatorIdParams } from '../utils'
 import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
-// | 'caseFirstBusySecondFree' | 'caseFirstFreeSecondBusy'
 export const findAvailableNegotiatorIdParams = {
-  // create case
-  // mock date
-  // pass
-  // result
-  // clean up data
   caseFirstFreeSecondBusy: {
     output: 'ASDS',
     input: {
@@ -64,8 +58,6 @@ export const findAvailableNegotiatorIdParams = {
       dateTimeStart: '2021-02-01T08:00:00.000Z',
     },
   },
-
-  // 0,0
   caseFirstBusySecondFree: {
     output: 'SSSS',
     input: {
@@ -122,11 +114,6 @@ export const findAvailableNegotiatorIdParams = {
       dateTimeStart: new Date('2021-01-31T16:00:00.000Z'),
     },
   },
-  // 0,1
-  // caseFirstBusySecondFree: {},
-  // 1,0
-  // caseFirstFreeSecondBusy: {},
-  // 0,0
   caseBothAreBusy: {
     output: undefined,
     input: {
@@ -229,10 +216,6 @@ export const findAvailableNegotiatorIdParams = {
       dateTimeStart: new Date('2021-01-31T08:00:00.000Z'),
     },
   },
-  // 0,1
-  // caseFirstBusySecondFree: {},
-  // 1,0
-  // caseFirstFreeSecondBusy: {},
 }
 
 export const findAppointmentsBetweenParamsOutput: AppointmentModel[] = [

@@ -1,9 +1,5 @@
-// appointemnt stubs
-// PagedResultAppointmentModel_
-
 import { PagedResultAppointmentModel_ } from '@reapit/foundations-ts-definitions'
 
-// copy result from
 export const appointmentsDataStub: PagedResultAppointmentModel_ = {
   _embedded: [
     {
@@ -1214,7 +1210,6 @@ export const appointmentsDataStub: PagedResultAppointmentModel_ = {
   pageNumber: 1,
   pageSize: 25,
   pageCount: 25,
-  totalPageCount: 301,
   totalCount: 7502,
   _links: {
     self: {

@@ -13,20 +13,8 @@ import {
 } from '../stubs/utils'
 
 describe('appointment planner utils', () => {
-  // case 1 a,b - is bussy
-  // case 1 a is bussy,b - is not bussy
-  // case 1 a is free - b is bussy
   describe('findAvailableNegotiatorId - giving 2 negotiators id', () => {
-    // case 1
-    // run fn with caseBothAreBusy
-    // log stringify and create output
-    const testCases = [
-      // 'caseBothAreBusy',
-      // comment
-      // 'caseFirstBusySecondFree',
-      'caseFirstFreeSecondBusy',
-      // add a new testcase
-    ]
+    const testCases = ['caseFirstFreeSecondBusy', 'caseFirstBusySecondFree', 'caseBothAreBusy']
 
     for (let testCase of testCases) {
       test(testCase, () => {
@@ -88,15 +76,4 @@ describe('appointment planner utils', () => {
 
     expect(generateAppoinmenSlotDatesFromTimeRange(input)).toEqual(output)
   })
-  /**
-   * test
-   * input: dateTo: 2
-   *  dateFrom: 5
-   * timeGap = 60*4 - every 4 hours
-   * timeLength 60* - every 4 hours
-   *
-   * case 1 normal
-   *
-   * 2020-02-31T17:00:00.000Z
-   */
 })

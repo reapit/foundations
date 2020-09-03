@@ -6,10 +6,6 @@ import { AppoinmentSlotsOfDate } from '.'
 import utc from 'dayjs/plugin/utc'
 dayjs.extend(utc)
 
-/**
- * toISOString
- */
-
 export const filterNegotiatorsIdByOffice = (pagedOffices: PagedResultOfficeModel_, negotiatorIds: string[]) =>
   negotiatorIds.filter(negotiatorId =>
     pagedOffices._embedded.some(office => {
@@ -27,12 +23,6 @@ const HOUR_TIME_START = 8
 const MINUTE_TIME_START = 0
 const HOUR_TIME_END = 20
 const MINUTE_TIME_END = 0
-
-// predefined time stop, time end
-// start - start time
-// end - end time
-// length
-// timeGap
 
 export const generateAppoinmenSlotDatesFromTimeRange = ({
   dateTo,
@@ -74,28 +64,6 @@ export const generateAppoinmenSlotDatesFromTimeRange = ({
   return appointmentSlotsOfDates
 }
 
-/*
- * TODOME(filterSlots)
- * getFreeNegotiator
- */
-
-/**
- * format: appointmentsByNegotiatorId
- * {negotiator-id: [meeting]]
- */
-
-/**
- * assignNegotiatorIdToAppointmentSlots
- * (slot, appointments, negotiatorIds)
- *
- * loop appointemntSlot.map
- * id = findAvaialbeNegotiator(id input, appointments from input, timeStart of slot, timeEnd slot)
- * if !id, return original
- * else return {original, id}
- *
- * type
- * fn
- */
 export type AssignNegotiatorIdToAppointmentSlotOfDatesParams = {
   appointmentSlotsOfDates: AppoinmentSlotsOfDate[]
   appointments: AppointmentModel[]
@@ -128,14 +96,6 @@ export const assignNegotiatorIdToAppointmentSlotOfDates = ({
     }),
   }))
 
-/**
- * findAvaialbeNegotiatorId(ids: arr, appointments: arr, timeStart: str, timeEnd: str)
- *
- *
- * appoinemtsnBetweenTimeRange = appointmentsBetwen(timeStart, timeEnd)
- * loop id, find -> isAppoinemtsnNotIncludeId(i)
- */
-
 export type FindAvailableNegotiatorIdParams = {
   negotiatorIds: string[]
   // appointments in different time range
@@ -144,41 +104,19 @@ export type FindAvailableNegotiatorIdParams = {
   dateTimeEnd: Date
 }
 
-/**
- * search appointments between time range
- * find first negotiator id that is not assigned to appointments
- */
 export const findAvailableNegotiatorId = ({
-  // copy
   negotiatorIds,
   appointments,
   dateTimeEnd,
   dateTimeStart,
 }: FindAvailableNegotiatorIdParams): string | undefined => {
   const appointmentsBetweenStartEnd = findAppointmentBetween({ appointments, dateTimeStart, dateTimeEnd })
-
-  // copy jsin stringity > beauty
-
-  /**
-   * declare input = ^ stringtify above
-   * declare ouput = stringlify pick from embed from above
-   */
-
   return negotiatorIds.find(negotiatorId => isNegotiatorIdAvailable(appointmentsBetweenStartEnd, negotiatorId))
 }
 
-/**
- * isAppoinemtsnIncludeId(appointments, id)
- *  each appointment -> some -> appointment.negotiatoris.include(id)
- */
 export const isNegotiatorIdAvailable = (appointments: AppointmentModel[], negotiatorId: string): boolean =>
   !appointments.some(appointment => appointment.negotiatorIds.includes(negotiatorId))
 
-/**
- * appointmentsBetwen(appointment, dateTimeStart, dateTimeEnd)
- * loop appointment,
- * if dateTimeStart >= (appointment.start)   && appointemnent.end <= dateTimeEnd
- */
 export type FindAppointmentsBetweenParams = {
   dateTimeStart: Date
   dateTimeEnd: Date

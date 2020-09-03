@@ -52,7 +52,6 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
     const appointmentSlotOfDatesWithNegotiatorId = assignNegotiatorIdToAppointmentSlotOfDates({
       appointments: appointments._embedded,
-      // debug only, plz revet
       appointmentSlotsOfDates: appointmentSlotsOfDates,
       negotiatorIds: filteredNegotiatorIds,
     })
