@@ -1,0 +1,11 @@
+query GetAppointments($pageSize: Int, $start: String!, $end: String!) {
+  GetAppointments(pageNumber: $pageSize, start: $start, end: $end) {
+    _embedded {
+      id
+      start
+      end
+    }
+    pageNumber
+    pageSize
+  }
+}

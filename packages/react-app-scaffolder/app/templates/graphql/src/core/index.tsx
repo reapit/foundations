@@ -15,8 +15,8 @@ window.reapit = {
     connectUserPoolId: '',
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
-    connectUserPoolId: '',
     platformApiUrl: '',
+    graphqlUri: '',
   },
 }
 
