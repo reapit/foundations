@@ -3,9 +3,46 @@ import {
   filterNegotiatorsIdByOffice,
   GenerateWorkingSlotFromTimeRangeParams,
   generateAppoinmenSlotDatesFromTimeRange,
+  findAppointmentBetween,
+  findAvailableNegotiatorId,
 } from '../utils'
+import {
+  findAppointmentsBetweenParams,
+  findAppointmentsBetweenParamsOutput,
+  findAvailableNegotiatorIdParams,
+} from '../stubs/utils'
 
 describe('appointment planner utils', () => {
+  // case 1 a,b - is bussy
+  // case 1 a is bussy,b - is not bussy
+  // case 1 a is free - b is bussy
+  describe('findAvailableNegotiatorId - giving 2 negotiators id', () => {
+    // case 1
+    // run fn with caseBothAreBusy
+    // log stringify and create output
+    const testCases = [
+      // 'caseBothAreBusy',
+      // comment
+      // 'caseFirstBusySecondFree',
+      'caseFirstFreeSecondBusy',
+      // add a new testcase
+    ]
+
+    for (let testCase of testCases) {
+      test(testCase, () => {
+        console.log(findAvailableNegotiatorIdParams[testCase].input)
+
+        expect(findAvailableNegotiatorId(findAvailableNegotiatorIdParams[testCase].input)).toBe(
+          findAvailableNegotiatorIdParams[testCase].output,
+        )
+      })
+    }
+  })
+
+  test('findAppointmentBetween', () => {
+    expect(findAppointmentBetween(findAppointmentsBetweenParams)).toEqual(findAppointmentsBetweenParamsOutput)
+  })
+
   test('filterNegotiatorsIdByOffice', () => {
     const input = ['AASD', 'ABCD', 'ABC']
     const output = ['AASD', 'ABCD']
@@ -17,8 +54,8 @@ describe('appointment planner utils', () => {
      * 31-01 -> 02/02
      */
     const input: GenerateWorkingSlotFromTimeRangeParams = {
-      dateTo: '2020-01-31T17:00:00.000Z',
-      dateFrom: '2020-02-02T17:00:00.000Z',
+      dateFrom: '2020-01-31T17:00:00.000Z',
+      dateTo: '2020-02-02T17:00:00.000Z',
       appointmentLength: 60 * 4, // 4hrs
       appointmentTimeGap: 60 * 4, // 4hrs
     }

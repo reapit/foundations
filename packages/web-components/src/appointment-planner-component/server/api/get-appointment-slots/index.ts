@@ -1,3 +1,5 @@
+// hold for quality
+
 import { AppRequest, AppResponse } from '@reapit/node-utils'
 import { validateGetAppointmentSlotsRequest } from './validators'
 import { validatedErrorHandler } from '../../../../common/utils/error-handler'
@@ -8,7 +10,11 @@ import {
 } from './apis'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { logger } from '../../core/logger'
-import { filterNegotiatorsIdByOffice, generateAppoinmenSlotDatesFromTimeRange } from './utils'
+import {
+  filterNegotiatorsIdByOffice,
+  generateAppoinmenSlotDatesFromTimeRange,
+  assignNegotiatorIdToAppointmentSlotOfDates,
+} from './utils'
 
 export type AppointmentSlot = {
   dateTimeStart: string
@@ -17,7 +23,7 @@ export type AppointmentSlot = {
   negotiatorId?: string
 }
 
-export type AppoinmentSlotDate = {
+export type AppoinmentSlotsOfDate = {
   date: string
   slots: AppointmentSlot[]
 }
@@ -35,9 +41,7 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
     const config = await getWebComponentConfigForReapitCustomer(req)
     const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, config?.negotiatorIds)
 
-    // appointmentSloDates = fn
-
-    const appointmentSlotDates = generateAppoinmenSlotDatesFromTimeRange({
+    const appointmentSlotsOfDates = generateAppoinmenSlotDatesFromTimeRange({
       dateFrom: req.query.dateFrom,
       dateTo: req.query.dateTo,
       appointmentLength: config.appointmentLength,
@@ -46,32 +50,17 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
 
     const appointments = await getAppointmentsByNegotiatorsIdsAndDateRange(req, filteredNegotiatorIds)
 
-    /*
-     * TODOME(requestApoinmtne)
-     * fetch appointment for negotitor list
-     */
+    const appointmentSlotOfDatesWithNegotiatorId = assignNegotiatorIdToAppointmentSlotOfDates({
+      appointments: appointments._embedded,
+      // debug only, plz revet
+      appointmentSlotsOfDates: appointmentSlotsOfDates,
+      negotiatorIds: filteredNegotiatorIds,
+    })
 
-    /*
-     * TODOME(filterSlots)
-     * generate time range
-     * get free negotiator from range
-     */
     res.status(200)
+    res.json(appointmentSlotOfDatesWithNegotiatorId)
     res.end()
   } catch (err) {
     await errorHandler(err, res, req, 'getAppointmentSlots', logger)
   }
-
-  /*
-   * TODOME(misc)
-    res 200
-   * res.json
-   res.end(j)
-   */
-
-  /*
-   * TODOME(misc)
-   * catch error
-   * logger.error
-   */
 }
