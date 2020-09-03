@@ -90,7 +90,6 @@ export const renderContent = ({
   customerData: CustomerModel[] | undefined
   columns: any[]
 }) => {
-  console.log('renderContent', customerData)
   if (customerData?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
