@@ -2,7 +2,6 @@ import logger from '../logger'
 import errors from '../errors'
 import { ApolloError } from 'apollo-server-lambda'
 import { AxiosError } from 'axios'
-import { stringifyError } from '@reapit/node-utils'
 
 export type HandleErrorParams = {
   error: AxiosError
@@ -11,12 +10,10 @@ export type HandleErrorParams = {
 }
 
 export const handleError = async ({ error, traceId, caller }: HandleErrorParams): Promise<ApolloError> => {
-  const reapitBackendError = error?.response?.data
-
   await logger.error(caller, {
     traceId,
     // either a back-end error or system error (code crash)
-    error: reapitBackendError ? JSON.stringify(reapitBackendError) : stringifyError(error),
+    error,
     headers: JSON.stringify(error?.response?.headers),
   })
   if (error?.response?.status === 400) {
@@ -29,7 +26,7 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
     return errors.generateForbiddenError(traceId)
   }
   if (error?.response?.status === 404) {
-    return errors.generateNotFoundError(traceId, reapitBackendError)
+    return errors.generateNotFoundError(traceId)
   }
   if (error?.response?.status === 412) {
     return errors.generateUserInputError(traceId)

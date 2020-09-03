@@ -45,8 +45,8 @@ export const generateInternalServerError = (traceId?: string) => {
   return error
 }
 
-export const generateNotFoundError = (traceId?: string, data?: any) => {
-  const error = new ApolloError(`${traceId || ''} - ${errorMessages.notFound}`, 'NOT_FOUND', data)
+export const generateNotFoundError = (traceId?: string) => {
+  const error = new ApolloError(`${traceId || ''} - ${errorMessages.notFound}`, 'NOT_FOUND')
   handleGraphQlError({ error: JSON.stringify(error), traceId, caller: 'generateNotFoundError' })
   return error
 }
