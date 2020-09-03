@@ -4,7 +4,7 @@ import { validateGetAppointmentSlotsRequest } from '../validators'
 import { getOfficesByPostcode } from '../apis'
 import { logger } from '../../../core/logger'
 import { errorHandler } from '../../../../../common/utils/error-handler'
-import { officesStub } from '../stubs/offices'
+import { officesDataStub } from '../stubs/offices'
 
 jest.mock('../apis')
 jest.mock('../validators')
@@ -67,7 +67,7 @@ describe('getAppointmentSlots endpoint', () => {
       json: jest.fn(),
     } as unknown) as Response
     ;(validateGetAppointmentSlotsRequest as jest.Mock).mockReturnValueOnce(null)
-    ;(getOfficesByPostcode as jest.Mock).mockResolvedValueOnce(officesStub)
+    ;(getOfficesByPostcode as jest.Mock).mockResolvedValueOnce(officesDataStub)
 
     await getAppointmentSlots(req, response)
     expect(response.status).toHaveBeenCalledWith(200)

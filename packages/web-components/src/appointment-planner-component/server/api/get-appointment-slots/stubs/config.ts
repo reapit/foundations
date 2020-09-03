@@ -1,6 +1,6 @@
 import { WebComponentConfigResult } from '../apis'
 
-export const configStub: WebComponentConfigResult = {
+export const configDataStub: WebComponentConfigResult = {
   customerId: 'SBOX',
   appId: '021af94d-411b-421a-bcbd-8c3edadc5421',
   appointmentLength: 1,

@@ -37,6 +37,7 @@ export const generateAppoinmenSlotDatesFromTimeRange = ({
   const dateTimeEndDayjs = dayjs(dateFrom)
 
   const appointmentSlotDates: AppoinmentSlotDate[] = []
+
   for (
     let dateTimeDayJs = dateTimeStartDayjs;
     dateTimeDayJs.isBefore(dateTimeEndDayjs);
@@ -46,6 +47,7 @@ export const generateAppoinmenSlotDatesFromTimeRange = ({
       date: dateTimeDayJs.toISOString(),
       slots: [],
     }
+
     const slotDateTimeStart = dateTimeDayJs.hour(HOUR_TIME_START).minute(MINUTE_TIME_START)
     const slotDateTimeEnd = dateTimeDayJs.hour(HOUR_TIME_END).minute(MINUTE_TIME_END)
 
@@ -56,7 +58,7 @@ export const generateAppoinmenSlotDatesFromTimeRange = ({
     ) {
       appointmentSlotDate.slots.push({
         dateTimeStart: slotDateTime.toISOString(),
-        dateTimeEnd: slotDateTime.add(appointmentLength, 'day').toISOString(),
+        dateTimeEnd: slotDateTime.add(appointmentLength, 'minute').toISOString(),
       })
     }
     appointmentSlotDates.push(appointmentSlotDate)

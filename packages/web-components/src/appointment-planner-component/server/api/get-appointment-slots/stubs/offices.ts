@@ -1,6 +1,6 @@
 import { PagedResultOfficeModel_ } from '@reapit/foundations-ts-definitions'
 
-export const officesStub: PagedResultOfficeModel_ = {
+export const officesDataStub: PagedResultOfficeModel_ = {
   _embedded: [
     {
       id: 'TFE',

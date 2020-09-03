@@ -9,7 +9,7 @@ import { getServerHeaders } from '../../../../common/utils/get-server-headers'
 import { AppRequest } from '@reapit/node-utils'
 import { PACKAGE_SUFFIXES, DEFAULT_HEADERS_SERVER } from '../../../../common/utils/constants'
 import { stringify } from 'query-string'
-import { PagedResultOfficeModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultOfficeModel_, PagedResultAppointmentModel_ } from '@reapit/foundations-ts-definitions'
 
 export type WebComponentConfigResult = {
   appointmentLength: number
@@ -97,7 +97,6 @@ export const getWebComponentConfigForReapitCustomer = async (req: AppRequest) =>
  * TODOME(requestApoinmtne)
  * getAppointmentByDateRange(req, filteredNegotiatorid)
  */
-// nego id: string
 export const getOfficesByPostcode = async (req: AppRequest) => {
   // log
   logger.info('getOfficesByPostcode', { traceId: req.traceId, postcode: req.query.postcode })
@@ -105,9 +104,6 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
 
-    // url
-    // date format
-    // model
     const url = new URL(
       `${process.env.PLATFORM_API_BASE_URL}/offices/?${stringify({
         address: req.query?.postcode,
@@ -123,8 +119,45 @@ export const getOfficesByPostcode = async (req: AppRequest) => {
 
     return offices
   } catch (err) {
-    // thay fn
     await logger.error('getOfficesByPostcode', {
+      traceId: req.traceId,
+      error: err,
+      headers: JSON.stringify(req.headers),
+    })
+
+    throw err
+  }
+}
+
+// nego id: string
+/**
+ * req
+ * negotiatorIds
+ */
+export const getAppointmentsByNegotiatorsIdsAndDateRange = async (req: AppRequest, negotiatorIds: string[]) => {
+  // log
+  logger.info('getAppointmentsByNegotiatorsIdsAndDateRange', { traceId: req.traceId, postcode: req.query.postcode })
+
+  try {
+    const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.APPOINTMENT_PLANNER)
+
+    const url = new URL(
+      `${process.env.PLATFORM_API_BASE_URL}/appointments/?${stringify({
+        start: req.query?.dateFrom,
+        end: req.query?.dateTo,
+        negotiatorId: negotiatorIds,
+      })}`,
+    )
+
+    const appointments = await fetcher<PagedResultAppointmentModel_, undefined>({
+      url: String(url),
+      headers,
+    })
+
+    return appointments
+  } catch (err) {
+    // thay fn
+    await logger.error('getAppointmentsByNegotiatorsIdsAndDateRange', {
       traceId: req.traceId,
       error: err,
       headers: JSON.stringify(req.headers),

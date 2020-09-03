@@ -1,7 +1,11 @@
 import { AppRequest, AppResponse } from '@reapit/node-utils'
 import { validateGetAppointmentSlotsRequest } from './validators'
 import { validatedErrorHandler } from '../../../../common/utils/error-handler'
-import { getOfficesByPostcode, getWebComponentConfigForReapitCustomer } from './apis'
+import {
+  getOfficesByPostcode,
+  getWebComponentConfigForReapitCustomer,
+  getAppointmentsByNegotiatorsIdsAndDateRange,
+} from './apis'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { logger } from '../../core/logger'
 import { filterNegotiatorsIdByOffice, generateAppoinmenSlotDatesFromTimeRange } from './utils'
@@ -9,6 +13,7 @@ import { filterNegotiatorsIdByOffice, generateAppoinmenSlotDatesFromTimeRange } 
 export type AppointmentSlot = {
   dateTimeStart: string
   dateTimeEnd: string
+  // No negotiator is assigned = slot unavailable
   negotiatorId?: string
 }
 
@@ -29,6 +34,7 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
     const offices = await getOfficesByPostcode(req)
     const config = await getWebComponentConfigForReapitCustomer(req)
     const filteredNegotiatorIds = filterNegotiatorsIdByOffice(offices, config?.negotiatorIds)
+
     // appointmentSloDates = fn
 
     const appointmentSlotDates = generateAppoinmenSlotDatesFromTimeRange({
@@ -38,27 +44,23 @@ export const getAppointmentSlots = async (req: AppRequest, res: AppResponse) => 
       appointmentTimeGap: config.appointmentTimeGap,
     })
 
+    const appointments = await getAppointmentsByNegotiatorsIdsAndDateRange(req, filteredNegotiatorIds)
+
+    /*
+     * TODOME(requestApoinmtne)
+     * fetch appointment for negotitor list
+     */
+
+    /*
+     * TODOME(filterSlots)
+     * generate time range
+     * get free negotiator from range
+     */
     res.status(200)
     res.end()
   } catch (err) {
     await errorHandler(err, res, req, 'getAppointmentSlots', logger)
   }
-
-  /*
-   * TODOME(getConfig)
-  - fetch config for reapit customer, pass a whole req
-   */
-
-  /*
-   * TODOME(requestApoinmtne)
-   * fetch appointment for negotitor list
-   */
-
-  /*
-   * TODOME(filterSlots)
-   * generate time range
-   * get free negotiator from range
-   */
 
   /*
    * TODOME(misc)
