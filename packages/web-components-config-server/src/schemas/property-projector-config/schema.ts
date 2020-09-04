@@ -26,6 +26,10 @@ export class PropertyProjectorConfig {
   @attribute()
   secondaryColour: string
 
+  // Header Text colour, contains the hex value for the colour of the info header text
+  @attribute()
+  headerTextColour: string
+
   // Rotation duration, a number representing the seconds a projector page is displayed for
   @attribute()
   interval: number

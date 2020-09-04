@@ -38,7 +38,7 @@ export const getPropertyProjectorConfig = async (
     logo: '',
     primaryColour: '#006580',
     secondaryColour: '#FFFFFF',
-    headertextColour: '#f5a623',
+    headerTextColour: '#FFFFFF',
     interval: 5,
     propertyLimit: 25,
     marketingMode: ['selling', 'letting'],

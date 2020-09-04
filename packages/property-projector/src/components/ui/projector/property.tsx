@@ -41,10 +41,10 @@ type ProjectorPropertyProps = {
 
 const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
   const { config, property } = props
-  const { logo, primaryColour, secondaryColour, showAddress, showStrapline, headertextColour } = config
+  const { logo, primaryColour, secondaryColour, showAddress, showStrapline, headerTextColour } = config
 
   const projectorStyles: React.CSSProperties = {
-    color: headertextColour,
+    color: headerTextColour,
     backgroundColor: primaryColour,
   }
 

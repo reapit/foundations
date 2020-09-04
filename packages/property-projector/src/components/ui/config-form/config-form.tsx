@@ -241,12 +241,12 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
                       </GridItem>
                       <GridItem className="colour-picker-container">
                         <ColourPicker
-                          id="headertextColour"
-                          name="headertextColour"
+                          id="headerTextColour"
+                          name="headerTextColour"
                           placeholder="#FFFFFF"
                           labelText="Header Text Colour"
-                          colour={values.headertextColour}
-                          onChange={colour => setFieldValue('headertextColour', colour)}
+                          colour={values.headerTextColour}
+                          onChange={colour => setFieldValue('headerTextColour', colour)}
                         />
                       </GridItem>
                     </Grid>
