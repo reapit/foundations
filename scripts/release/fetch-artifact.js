@@ -1,4 +1,5 @@
 const { WEB_APPS, sendMessageToSlack } = require('./utils')
+const fs = require('fs')
 const { runCommand } = require('./utils')
 
 const fetchCachedTarFile = async () => {
@@ -8,16 +9,13 @@ const fetchCachedTarFile = async () => {
 
   if (WEB_APPS.includes(packageName)) {
     try {
+      const publicPath = `./packages/${packageName}/public`
+      fs.mkdirSync(publicPath, { recursive: true })
       const fileName = `${currentTag}.tar.gz`
       await sendMessageToSlack(
         `Pulling the artifact \`${currentTag}\` from S3 bucket \`cloud-deployments-releases-cache-prod\``,
       )
-      runCommand('aws', [
-        's3',
-        'cp',
-        `s3://cloud-deployments-releases-cache-prod/${fileName}`,
-        `./packages/${packageName}/public`,
-      ])
+      runCommand('aws', ['s3', 'cp', `s3://cloud-deployments-releases-cache-prod/${fileName}`, publicPath])
     } catch (err) {
       console.error('fetchArtifact', err)
       throw new Error(err)
