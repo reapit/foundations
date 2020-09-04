@@ -2,6 +2,7 @@ import logger from '../logger'
 import errors from '../errors'
 import { ApolloError } from 'apollo-server-lambda'
 import { AxiosError } from 'axios'
+import { serializeError } from 'serialize-error'
 
 export type HandleErrorParams = {
   error: AxiosError
@@ -10,11 +11,12 @@ export type HandleErrorParams = {
 }
 
 export const handleError = async ({ error, traceId, caller }: HandleErrorParams): Promise<ApolloError> => {
-  await logger.error(caller, {
+  const reapitBackendError = error?.response?.data
+  logger.error(caller, {
     traceId,
     // either a back-end error or system error (code crash)
-    error,
-    headers: JSON.stringify(error?.response?.headers),
+    error: reapitBackendError ? reapitBackendError : serializeError(error),
+    headers: error?.response?.headers,
   })
   if (error?.response?.status === 400) {
     return errors.generateValidationError(traceId)
