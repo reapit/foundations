@@ -10,6 +10,7 @@ import {
   CustomersFilterForm,
   renderContent,
   columns,
+  refreshForm,
 } from '../customers'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
@@ -146,7 +147,23 @@ describe('CheckMarkCell', () => {
 
 describe('CustomersFilterForm', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} />)
+    const history = {
+      push: jest.fn(),
+    } as any
+    const wrapper = shallow(
+      <CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} history={history} />,
+    )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('refreshForm', () => {
+  it('should return correctly', () => {
+    const history = {
+      push: jest.fn(),
+    }
+    const fn = refreshForm(history)
+    fn()
+    expect(history.push).toBeCalledWith(Routes.CUSTOMERS)
   })
 })
