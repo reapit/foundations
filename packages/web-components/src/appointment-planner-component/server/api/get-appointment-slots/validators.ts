@@ -17,7 +17,8 @@ export const validateGetAppointmentSlotsRequest = (req: AppRequest) => {
   for (let { fields, property } of requiredInformation) {
     for (let field of fields) {
       const fieldValue = req[property][field]
-      if (!fieldValue || typeof fieldValue !== 'string' || fieldValue.trim().length === 0) {
+      const isFieldValueEmpty = !fieldValue || typeof fieldValue !== 'string' || fieldValue.trim().length === 0
+      if (isFieldValueEmpty) {
         return errorFieldRequiredInRequestProperty(field, property)
       }
     }
