@@ -29,7 +29,7 @@ exports[`AuthenticationFlowSection should match a snapshot 1`] = `
     . For more information on authentication, see our platform documentation
      
     <a
-      className={[Function]}
+      className=""
       href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
       rel="noopener noreferrer"
       target="_blank"

@@ -8,10 +8,15 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
         <Unknown>
           How do you intend to authenticate your app?
         </Unknown>
-        <div>
+        <div
+          className=""
+        >
           <div>
-            <div>
+            <div
+              className=""
+            >
               <Unknown
+                className=""
                 onClick={[Function]}
                 variant="secondary"
               >
@@ -23,8 +28,11 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
                 </p>
               </Unknown>
             </div>
-            <div>
+            <div
+              className=""
+            >
               <Unknown
+                className=""
                 onClick={[Function]}
                 variant="secondary"
               >

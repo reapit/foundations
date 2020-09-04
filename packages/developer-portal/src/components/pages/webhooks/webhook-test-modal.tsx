@@ -21,7 +21,7 @@ import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 import Routes from '@/constants/routes'
 
 export interface GenerateTopicOptions {
@@ -93,7 +93,7 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
               To test your Webhook subscription, please select a subscription topic and an example payload for that
               topic will be sent to the configured URL. For more information, please{' '}
               <a
-                className={linkStyles.link}
+                className={link}
                 href={`${Routes.API_DOCS}/api/webhooks#testing`}
                 target="_blank"
                 rel="noopener noreferrer"

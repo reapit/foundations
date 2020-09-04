@@ -13,7 +13,7 @@ import {
   SelectBoxOptions,
 } from '@reapit/elements'
 import { exec } from 'pell'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
@@ -42,7 +42,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
       <Helper>
         For more information on how to complete this form, please view our &quot;Step-by-step&quot; guide&nbsp;
         <a
-          className={linkStyles.link}
+          className={link}
           href="https://foundations-documentation.reapit.cloud/developer-portal"
           target="_blank"
           rel="noopener noreferrer"

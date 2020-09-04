@@ -59,7 +59,7 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
           To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
            
           <a
-            className={[Function]}
+            className=""
             href="/api-docs/api/webhooks#testing"
             rel="noopener noreferrer"
             target="_blank"

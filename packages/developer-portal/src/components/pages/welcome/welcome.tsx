@@ -7,7 +7,7 @@ import Step2 from '@/assets/images/step-2.png'
 import Step3 from '@/assets/images/step-3.png'
 import Step4 from '@/assets/images/step-4.png'
 import Step5 from '@/assets/images/step-5.png'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 import { setCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { content } from './__styles__/welcome'
 
@@ -48,7 +48,7 @@ export const Documentation = () => {
       <div className="mb-5">
         <p>
           <strong>
-            <a className={linkStyles.link} href={Routes.SWAGGER}>
+            <a className={link} href={Routes.SWAGGER}>
               APIs
             </a>
           </strong>
@@ -56,7 +56,7 @@ export const Documentation = () => {
         Our interactive documentation allows you to easily experiment with our APIs with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
         click{' '}
-        <a className={linkStyles.link} href={Routes.SWAGGER}>
+        <a className={link} href={Routes.SWAGGER}>
           here
         </a>
         .
@@ -65,7 +65,7 @@ export const Documentation = () => {
         <p>
           <strong>
             <a
-              className={linkStyles.link}
+              className={link}
               target="_blank"
               rel="noopener noreferrer"
               href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
@@ -76,7 +76,7 @@ export const Documentation = () => {
         </p>
         Also included within your account are Reapit{' '}
         <a
-          className={linkStyles.link}
+          className={link}
           target="_blank"
           rel="noopener noreferrer"
           href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
@@ -111,7 +111,7 @@ export const Submitting = () => {
         important to be as concise and as detailed as possible to make sure you are submitting a quality marketplace
         listing. More information on submitting your content can be found{' '}
         <a
-          className={linkStyles.link}
+          className={link}
           href="https://foundations-documentation.reapit.cloud/whats-new#summary"
           target="_blank"
           rel="noopener noreferrer"
