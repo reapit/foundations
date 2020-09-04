@@ -7,10 +7,105 @@ route: /
 
 Welcome to the homepage for V2.* of the Reapit Elements UI library. 
 
-## Usage
+## Specification
 
-TBC
+### Background
 
-## Contributing
+Elements v1.x has been a useful excercise to get us off the ground in terms of development. V2 / Next is a full re-write that will be the basis of Elements UI lib for the foreseeable future. The intention is to address the following structural problems with the v1 lib.
 
-TBC
+- Elements is very bloated both in terms of CSS and JS. We have too much unused CSS from Bulma and way to many NPM packages to do simple things.
+- Bulma UI lib makes it hard to change things, we have to override too many styles.
+- Inconsistent naming conventions and API for components / component props
+- Lack of variablisation means we can't change styles globally
+- API not fully documented by Storybook meaning options / variants / props for components and styles are not clear to external developers.
+- Poor support for non-react users. Most of our developers do not use React and we need to ensure the stylesheet solution is as usable for developers as the React components are for React Users.
+- Utilities mixed in with React components - both a poor separation of concens and insufficient documentation for the utilities.
+
+### Specification
+
+- Elements is a UI only library. Utilities and other modules should be migrated to the `@reapit/utils` package and will be documented and released as a separate NPM package.
+- CSS should be handwritten, we will not import any 3rd party CSS so we have full control over styles unless absolutely necessary eg DatePicker.
+- We should keep NPM packages to an absolute bare minimum, no packages to achieve trivial tasks to reduce library bloat.
+- All components to be strongly typed and heavily tested
+- Code that can be migrated or repurposed from v1 should be however, every component should be viewed critically, improved, upgraded, tidied and made consistent.
+- Components should be flexible where possible, render children to allow styling for custom components is a desirable pattern rather than binding specific single-use behaviours to the UI
+- Props should be consistent, boolean and imperative modifiers to allow for clean markup. These booleans should map to classes, re-usable where possible.
+
+```
+isActive
+isFlex
+isFlexColumn
+isTextCentered
+isPrimary
+isDanger
+isFullWidth
+hasChildren
+```
+- The generic styles folder contains a lib of generic classes, these should be used and composed over writing new CSS
+- All classes should be prefixed with `el` to ensure we do not clash with third party libs eg `elIsFlex` in Linaria will generate the class `el-is-flex`.
+- Colors, margins, borders, fonts, padding, font-sizes and anything that can be vairablized should be. We want to be able to change a global variable and see the changes everywhere.
+- CSS should look the same as the Bulma equivient where the component is equivient. Eg an input or a button in v1 should look identical in v2. We are actively hiring a designer and the styles will change in time but we want this to be simple to do when the time comes.
+- The docs should be styled the same as Elements - Elements docs should look like Elements!
+- There should be far fewer components. We have several different ways of doing notifications - there should be a single approach. See below for list of components to migrate.
+- HTML output should be next to the mounted React Component and the Rendered Component in the docs in all cases.
+- All variants of components should be visible at the top of the page in the generated props section. They should all be editable at the bottom, although only the basic component without variants should be rendered by default.
+- Where we export multiple components from the same file, we should export them as modules eg `<Headings.Subheading>`
+- Should work in Edge (latest version before Chromium), Edge Chromium, Firefox, Chrome, Safari
+- Should use Linaria `cx` for composing classes.
+
+### Components to migrate
+
+The following components to be built in v2. Will add tickets to each one as they are written.
+
+- Alert, Info and Helper to be combined into a single module with variant components
+- Button as a module with all variants including button group
+- Input as a module to include; Text, Number, Password, Number, Select, Image Upload (there are two of these, should be combined), Checkbox, Radio, DatePicker, MultiSelect (vanilla refactor), HTML Editor, File Input, Text Area
+- Dynamic links, tidied and refactored if required.
+- HTML Renderer
+- Helper guide - can be massively tidied and refactored
+- Headings - already have a start on this, to tidy up
+- Lists - to include UL, OL and Icon Lists
+- Section with super flexible variants to act as containers for any element
+- Container, for pages and top level elements - as per Section, super flexible with modifiers
+- Grid, Grid Items - should be based on native CSS Grid, basis 12 cols
+- Loader - inline and page centered variants
+- Maps - consider ditching React Wrappers for Google maps - it's trivial to load a map in a UseEffect hook and saves tonnes of JS
+- Menu - shoud be refactored to better support actions, icons and sub menus as a dropdown
+- Notification, Toast, ToastMessage, all combined - single module to notify users, simple implementation with variants. Current notification is the most flexible.
+- Modal, single, simple implementation
+- Pagination
+- Spreadsheet - tidy and refactor as required
+- Table - just a simple styled HTML table, we don't use any advanced functionality and if we need it, just use Spreadsheet
+- Form - to export Formik, to include form Headings and Helpers
+- Tabs
+- Progress bar
+- Wizard - should be refactored to be more flexible, we will be using this a lot.
+
+### Libraries to include
+
+#### Definitely
+
+- DayJS
+- Formik
+- Linaria
+- React Icons
+- React Datasheet
+- React Image Crop
+- React Transition Group
+- A much better looking and mobile friendly date picker
+
+#### Possibly
+
+WSYWIG Editor - currently we use:
+
+- Himalaya
+- Pell
+
+Google Maps component - currently we use but seem to offer little benefit:
+
+- react-google-map
+- react-google-maps-loader
+
+#### Others
+
+Can consider but needs to be justified on a benefit vs bloat basis
