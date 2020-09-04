@@ -12,7 +12,7 @@ const fetchCachedTarFile = async () => {
       await sendMessageToSlack(
         `Pulling the artifact \`${currentTag}\` from S3 bucket \`cloud-deployments-releases-cache-prod\``,
       )
-      runCommand('aws', [
+      await runCommand('aws', [
         's3',
         'cp',
         `s3://cloud-deployments-releases-cache-prod/${fileName}`,

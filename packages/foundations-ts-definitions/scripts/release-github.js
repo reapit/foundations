@@ -10,11 +10,11 @@ const { GITHUB_TOKEN } = process.env
 
 module.exports = async () => {
   try {
-    runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
-    runCommand('git', ['config', '--global', 'user.email', '"GithubActions@email.com"'])
-    runCommand('git', ['config', '--global', 'user.name', '"Github Actions"'])
+    await runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
+    await runCommand('git', ['config', '--global', 'user.email', '"GithubActions@email.com"'])
+    await runCommand('git', ['config', '--global', 'user.name', '"Github Actions"'])
 
-    runCommand('git', ['add', '.'])
+    await runCommand('git', ['add', '.'])
     /**
      * have to use execSync instead
      * husky is throwing output to stderr
