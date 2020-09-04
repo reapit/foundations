@@ -397,28 +397,40 @@ export const updateIdentityCheckStatus = function*({
   idCheck: IdentityCheckModel
   dynamicLinkParams: DynamicLinkParams
 }>) {
-  const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
-  const headers = yield call(initAuthorizedRequestHeaders)
-  yield put(checklistDetailSubmitForm(true))
+  try {
+    const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const headers = yield call(initAuthorizedRequestHeaders)
+    yield put(checklistDetailSubmitForm(true))
 
-  if (idCheck) {
-    const newIdCheck = {
-      ...existingIdCheck,
-      ...idCheck,
+    if (idCheck) {
+      const newIdCheck = {
+        ...existingIdCheck,
+        ...idCheck,
+      }
+      // delete metadata to avoid validation error
+      if (newIdCheck?.metadata && Object.keys(newIdCheck?.metadata).length < 1) {
+        delete newIdCheck.metadata
+      }
+      const responseIdentityCheck = yield call(updateIdentityCheck, {
+        headers,
+        identityChecks: newIdCheck,
+      })
+      if (responseIdentityCheck) {
+        yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
+      }
+      if (dynamicLinkParams.appMode === 'DESKTOP') {
+        yield call(navigateDynamicApp, dynamicLinkParams)
+      }
+      yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
     }
-    const responseIdentityCheck = yield call(updateIdentityCheck, {
-      headers,
-      identityChecks: newIdCheck,
+  } catch (err) {
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
     })
-    if (responseIdentityCheck) {
-      yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
-    }
-    if (dynamicLinkParams.appMode === 'DESKTOP') {
-      yield call(navigateDynamicApp, dynamicLinkParams)
-    }
-    yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
+  } finally {
+    yield put(checklistDetailSubmitForm(false))
   }
-  yield put(checklistDetailSubmitForm(false))
 }
 
 export const updateAddressHistoryListen = function*() {
