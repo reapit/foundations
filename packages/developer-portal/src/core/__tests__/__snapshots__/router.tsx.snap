@@ -53,22 +53,17 @@ exports[`Router should match a snapshot 1`] = `
           path="/404"
           render={[Function]}
         />
-        <Component
-          path="/invite"
-          showMenu={false}
-        >
-          <Component
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": null,
+              "_status": -1,
             }
-            path="/"
-          />
-        </Component>
+          }
+          path="/invite"
+        />
         <Component
           path="/"
         >
