@@ -1303,6 +1303,10 @@ export interface RejectRevisionModel {
    * Sets the reason the revision is rejected
    */
   rejectionReason?: string
+  /**
+   * Flag to determine if the revision has been rejected by a developer (defaulted to false)
+   */
+  rejectedByDeveloper?: boolean
 }
 /**
  * Model that represents a scope
