@@ -505,4 +505,4 @@ window.matchMedia =
 
 MockDate.set(1570747191389)
 window.HTMLElement.prototype.scrollIntoView = function() {}
-global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn() }
+global.console = { warn: jest.fn(), log: jest.fn(), error: jest.fn(), info: jest.fn() }

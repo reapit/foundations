@@ -12,10 +12,12 @@ window.reapit = {
     appEnv: 'local',
     sentryDns: '',
     connectClientId: '',
+    connectUserPoolId: '',
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
-    connectUserPoolId: '',
     platformApiUrl: '',
+    graphqlUri: '',
+    marketplaceUrl: '',
   },
 }
 

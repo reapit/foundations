@@ -1,9 +1,9 @@
 {
   "appEnv": "local",
   "sentryDns": "",
-  "connectClientId": "<%= clientId %>",
-  "connectUserPoolId": "",
   "googleAnalyticsKey": "",
+  "connectClientId": "",
+  "connectUserPoolId": "",
   "connectOAuthUrl": "",
   "platformApiUrl": "",
   "graphqlUri": "",
