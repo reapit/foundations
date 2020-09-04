@@ -528,19 +528,32 @@ describe('checklist-detail', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-
+      const newIdCheck = {
+        ...idCheck,
+        ...params.idCheck,
+      }
+      delete newIdCheck.metadata
       expect(clone.next(true as any).value).toEqual(
         call(updateIdentityCheck, {
           headers: mockHeaders,
-          identityChecks: {
-            ...idCheck,
-            ...params.idCheck,
-          },
+          identityChecks: newIdCheck,
         }),
       )
-      expect(clone.next({ ...idCheck, ...params.idCheck } as any).value).toEqual(
-        put(checklistDetailReceiveIdentityCheck({ ...idCheck, ...params.idCheck })),
+      expect(clone.next(newIdCheck).value).toEqual(put(checklistDetailReceiveIdentityCheck(newIdCheck)))
+    })
+
+    test('api call fail', () => {
+      const clone = gen.clone()
+      if (!clone.throw) throw new Error('Generator object cannot throw')
+      const err = { description: 'mockError' }
+      expect(clone.throw && clone.throw(err).value).toEqual(
+        call(notification.error, {
+          message: extractNetworkErrString(err),
+          placement: 'bottomRight',
+        }),
       )
+      expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
+      expect(clone.next().done).toBe(true)
     })
   })
 

@@ -28624,6 +28624,15 @@ react-image-crop@8.6.4:
     core-js "^3.4.2"
     prop-types "^15.7.2"
 
+react-image-crop@8.6.5:
+  version "8.6.5"
+  resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-8.6.5.tgz#8b67f3571ab3cf85096d9452b1dc1a05c9659a9e"
+  integrity sha512-IbcB8rPWZRClLfJjsB9de4sa7EwoLGnGSQH8BP+pay5uKkvulY6y3L4BGKhcckOt0NnTdUNAkeKICl9yH3wXuA==
+  dependencies:
+    clsx "^1.0.4"
+    core-js "^3.4.2"
+    prop-types "^15.7.2"
+
 react-immutable-proptypes@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.1.0.tgz#023d6f39bb15c97c071e9e60d00d136eac5fa0b4"

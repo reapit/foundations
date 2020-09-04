@@ -152,6 +152,36 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                 "name": "",
               }
             }
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "key": "customersRoute",
+                    "pathname": "/customers",
+                    "search": "",
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "key": "customersRoute",
+                  "pathname": "/customers",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
             onSearch={[Function]}
           >
             <Formik
@@ -160,6 +190,7 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                   "name": "",
                 }
               }
+              onReset={[Function]}
               onSubmit={[Function]}
             >
               <Form
@@ -247,6 +278,19 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                   type="submit"
                                 >
                                   Search
+                                </button>
+                              </Component>
+                              <Component
+                                type="reset"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="reset"
+                                >
+                                  Refresh
                                 </button>
                               </Component>
                             </div>
@@ -448,6 +492,36 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                 "name": "",
               }
             }
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "key": "customersRoute",
+                    "pathname": "/customers",
+                    "search": "",
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "key": "customersRoute",
+                  "pathname": "/customers",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
             onSearch={[Function]}
           >
             <Formik
@@ -456,6 +530,7 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                   "name": "",
                 }
               }
+              onReset={[Function]}
               onSubmit={[Function]}
             >
               <Form
@@ -545,6 +620,19 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                   Search
                                 </button>
                               </Component>
+                              <Component
+                                type="reset"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="reset"
+                                >
+                                  Refresh
+                                </button>
+                              </Component>
                             </div>
                           </Component>
                         </div>
@@ -598,6 +686,7 @@ exports[`CustomersFilterForm should match snapshot 1`] = `
       "name": "test",
     }
   }
+  onReset={[Function]}
   onSubmit={[MockFunction]}
 >
   <Component />
