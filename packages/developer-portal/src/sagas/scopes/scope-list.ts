@@ -1,6 +1,5 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { fetchScopeList, fetchScopeListSuccess, fetchScopeListFailed } from '@/actions/scopes'
-import { logger } from '@reapit/utils'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchScopeListAPI } from '@/services/scopes'
@@ -12,7 +11,6 @@ export const fetchScopeListSaga = function*() {
     yield put(fetchScopeListSuccess(scopes))
   } catch (err) {
     yield put(fetchScopeListFailed(err))
-    logger(err)
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',

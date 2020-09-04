@@ -9,7 +9,6 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {
@@ -24,7 +23,6 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
 
     yield put(developerSetStatusRequestSuccess())
   } catch (err) {
-    logger(err)
     yield put(developerSetStatusRequestFailure())
     yield put(
       errorThrownServer({

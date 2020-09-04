@@ -1,7 +1,6 @@
 import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
-import { logger } from '@reapit/utils'
 import { createAppRevisionAPI, CreateAppRevisionParams } from '@/services/apps'
 import { createAppRevisionSuccess, createAppRevisionFailed, createAppRevision } from '@/actions/apps'
 import { notification } from '@reapit/elements'
@@ -63,7 +62,6 @@ export const createAppRevisionSaga = function*({
     if (errorCallback) {
       errorCallback()
     }
-    logger(err)
     yield put(createAppRevisionFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

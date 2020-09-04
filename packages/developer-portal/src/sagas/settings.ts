@@ -9,7 +9,6 @@ import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -29,7 +28,6 @@ export const developerInformationFetch = function*() {
       yield put(requestDeveloperDataSuccess(response))
     }
   } catch (error) {
-    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -75,7 +73,6 @@ export const developerInfomationChange = function*({ data }: Action<UpdateDevelo
       yield put(requestDeveloperDataSuccess(newResponse))
     }
   } catch (error) {
-    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',

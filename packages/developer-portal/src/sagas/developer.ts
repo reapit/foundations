@@ -1,6 +1,5 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
 import {
   developerSetFormState,
   setMyIdentity,
@@ -32,7 +31,6 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
   } catch (err) {
-    logger(err)
     yield put(developerSetFormState('ERROR'))
     yield put(
       errorThrownServer({
@@ -54,7 +52,6 @@ export const fetchMyIdentitySagas = function*() {
       yield put(setMyIdentity(developerIdentity))
     }
   } catch (err) {
-    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -69,7 +66,6 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>
     const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
   } catch (err) {
-    logger(err)
     yield put(fetchBillingFailure(err))
     yield put(
       errorThrownServer({
@@ -85,7 +81,6 @@ export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillings
     const billingResponse = yield call(fetchBillingsByMonth, data)
     yield put(fetchMonthlyBillingSuccess(billingResponse))
   } catch (err) {
-    logger(err)
     yield put(fetchMonthlyBillingFailure(err))
     yield put(
       errorThrownServer({
@@ -102,7 +97,6 @@ export const developerWebhookPing = function*({ data }: Action<PingWebhooksByIdP
     yield call(pingWebhooksById, data)
     yield put(developerSetWebhookPingStatus('SUCCESS'))
   } catch (err) {
-    logger(err)
     yield put(developerSetWebhookPingStatus('FAILED'))
   }
 }
