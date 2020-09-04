@@ -1,6 +1,5 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { fetchCategoryList, fetchCategoryListSuccess, fetchCategoryListFailed } from '@/actions/categories'
-import { logger } from '@reapit/utils'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchCategoryListAPI } from '@/services/categories'
@@ -12,7 +11,6 @@ export const fetchCategoryListSaga = function*() {
     yield put(fetchCategoryListSuccess(categories))
   } catch (err) {
     yield put(fetchCategoryListFailed(err))
-    logger(err)
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',

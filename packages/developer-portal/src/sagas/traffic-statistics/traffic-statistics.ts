@@ -8,7 +8,6 @@ import {
   fetchTrafficStatisticsSuccess,
   fetchTrafficStatisticsFailed,
 } from '@/actions/traffic-statistics'
-import { logger } from '@reapit/utils'
 import { fetchTrafficStatistics, FetchTrafficStatisticsParams } from '@/services/traffic-statistics'
 
 const { FETCH_TRAFFIC_STATISTICS } = ActionTypes
@@ -18,7 +17,6 @@ export const apphttpTrafficEventSaga = function*({ data }: Action<FetchTrafficSt
     const response = yield call(fetchTrafficStatistics, data)
     yield put(fetchTrafficStatisticsSuccess(response))
   } catch (err) {
-    logger(err)
     yield put(fetchTrafficStatisticsFailed())
     yield put(
       errorThrownServer({

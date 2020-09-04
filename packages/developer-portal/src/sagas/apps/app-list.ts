@@ -2,7 +2,6 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { fetchAppList, fetchAppListSuccess, fetchAppListFailed } from '@/actions/apps'
 import { fetchAppsListAPI } from '@/services/apps'
-import { logger } from '@reapit/utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
@@ -24,7 +23,6 @@ export const fetchAppListSaga = function*({ data }) {
     yield put(fetchAppListSuccess(appsData))
   } catch (err) {
     yield put(fetchAppListFailed(err))
-    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

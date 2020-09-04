@@ -3,7 +3,6 @@ import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
-import { logger } from '@reapit/utils'
 import { createAppAPI, fetchAppByIdByRawUrl, CreateAppParams } from '@/services/apps'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { createAppSuccess, createAppFailed } from '@/actions/apps'
@@ -27,7 +26,6 @@ export const submitApp = function*({ data: { successCallback, ...appProps } }: A
     }
     yield put(createAppSuccess())
   } catch (err) {
-    logger(err)
     yield put(createAppFailed(err?.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
