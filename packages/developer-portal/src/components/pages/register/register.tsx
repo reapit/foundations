@@ -93,7 +93,7 @@ export const handleSetFormDefault = (dispatch: Dispatch) => () => {
 export const Register: React.FunctionComponent<RegisterProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const [visible, setVisible] = React.useState<boolean>(false)
+  const [visible, setVisible] = React.useState<boolean>(true)
   React.useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   const formState = useSelector(selectDeveloperFormState)
   const isSubmitting = formState === 'SUBMITTING'
