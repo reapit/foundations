@@ -1,6 +1,5 @@
 import React from 'react'
-import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-
+import { tag } from './__styles__/app-detail'
 import { H5, Content } from '@reapit/elements'
 
 interface AppDetailSectionProps {
@@ -26,7 +25,7 @@ export const AppDetailSection: React.FC<AppDetailSectionProps> = ({
   </Content>
 )
 
-export const Tag: React.FC = ({ children }) => <div className={styles.tag}>{children}</div>
+export const Tag: React.FC = ({ children }) => <div className={tag}>{children}</div>
 
 export const ImageSection: React.FC<ImageSectionProps> = ({ uri, alt = '' }) => {
   return uri ? (

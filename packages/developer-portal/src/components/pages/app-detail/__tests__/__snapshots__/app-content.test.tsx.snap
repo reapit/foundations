@@ -56,6 +56,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                 </span>
                  
                 <a
+                  className=""
                   href="#"
                   onClick={[Function]}
                 >
@@ -86,6 +87,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                     </span>
                      
                     <a
+                      className=""
                       href="#"
                       onClick={[Function]}
                     >

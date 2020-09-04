@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ManageApp should match snapshot 1`] = `
-<Component>
+<Component
+  className=""
+>
   <Component
     className="mb-2"
     dataTest="detail-modal-edit-button"

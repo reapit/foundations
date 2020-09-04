@@ -6,12 +6,7 @@ import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { selectAppAuthenticationLoading, selectAppAuthenticationCode } from '@/selector/app-authentication'
 import { fetchtAppAuthentication } from '@/actions/apps'
-import {
-  authenticationCodeWrap,
-  authenticationCode,
-  btnCopy,
-  tooltiptext,
-} from './__styles__/app-authentication-detail'
+import { authenticationCodeWrap, btnCopy, tooltiptext } from './__styles__/app-authentication-detail'
 
 export type AppAuthenticationDetailProps = {
   appId: string
@@ -63,7 +58,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
       {loading && <Loader body={false} />}
       {isShowedSecret && !loading && code && (
         <div className={authenticationCodeWrap}>
-          <p className={authenticationCode}>{code}</p>
+          <p className="authentication-code">{code}</p>
           <CopyToClipboard text={code} onCopy={handleCopyCode(setTooltipMessage)}>
             <div onMouseLeave={handleMouseLeave(setTooltipMessage)} role="button" className={btnCopy}>
               <FaCopy size={24} />

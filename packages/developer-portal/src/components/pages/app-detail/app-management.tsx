@@ -5,8 +5,8 @@ import { Content, Button } from '@reapit/elements'
 import { useHistory } from 'react-router'
 import routes from '@/constants/routes'
 import { History } from 'history'
-import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { AppDetailState } from '@/reducers/apps/app-detail'
+import { buttonGroup } from './__styles__/app-detail'
 
 interface AppManagementProps {
   pendingRevisions: boolean
@@ -41,7 +41,6 @@ export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => 
 export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
-  const { buttonGroup } = styles
   const history = useHistory()
 
   return (
