@@ -27,7 +27,9 @@ exports[`Ui Sections <ImageSection /> should match snapshot for has image 1`] = 
 exports[`Ui Sections <ImageSection /> should match snapshot for no images 1`] = `""`;
 
 exports[`Ui Sections <Tag /> should match snapshot 1`] = `
-<div>
+<div
+  className=""
+>
   Test
 </div>
 `;

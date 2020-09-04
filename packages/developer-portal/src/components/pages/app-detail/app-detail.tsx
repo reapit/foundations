@@ -9,13 +9,13 @@ import { History } from 'history'
 import { selectInstallationsListLoading } from '@/selector/installations'
 import { Loader, Grid, GridItem, Section } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/app-header'
-import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import routes from '@/constants/routes'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
+import { container } from './__styles__/app-detail'
 
 export type AppDetailProps = {}
 
@@ -62,7 +62,7 @@ const AppDetail: React.FC<AppDetailProps> = () => {
   }
 
   return (
-    <Grid className={styles.container}>
+    <Grid className={container}>
       <GridItem className="is-one-quarter">
         <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
       </GridItem>
