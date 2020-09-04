@@ -23,7 +23,7 @@ const listServerless = [
 const deployServerlessList = async () => {
   // This will run when run particular widget by yarn release:development --name <widget_name> in web-components folder
   if (name) {
-    await runCommand('serverless', ['deploy', '--config', `src/${name}/server/serverless.yml`, '--stage', stage])
+    runCommand('serverless', ['deploy', '--config', `src/${name}/server/serverless.yml`, '--stage', stage])
     return
   }
 

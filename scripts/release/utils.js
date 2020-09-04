@@ -21,9 +21,8 @@ const runCommand = (cmd, args) => {
   return stdout.toString().trim()
 }
 
-const getRef = async () => {
-  const ref = await runCommand('git', ['rev-parse', '--short', 'HEAD'])
-  return ref
+const getRef = () => {
+  return runCommand('git', ['rev-parse', '--short', 'HEAD'])
 }
 
 const getVersionTag = () => {
@@ -67,7 +66,7 @@ const sendMessageToSlack = async message => {
 const extractTarFile = async ({ tagName, packageName }) => {
   try {
     const fileName = `${tagName}.tar.gz`
-    await runCommand('tar', [
+    runCommand('tar', [
       '-C',
       `./packages/${packageName}/public`,
       '-xzvf',
@@ -87,13 +86,13 @@ const copyConfig = ({ packageName }) => {
 
 const runReleaseCommand = async ({ packageName, tagName, env }) => {
   await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-  await runCommand('yarn', ['workspace', packageName, `release:${env}`])
+  runCommand('yarn', ['workspace', packageName, `release:${env}`])
   await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
 }
 
-const runTestCyPress = async ({ packageName, tagName, env }) => {
+const runTestCypress = async ({ packageName, tagName, env }) => {
   await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
-  await runCommand('yarn', [
+  runCommand('yarn', [
     'workspace',
     'cloud-alert',
     'cypress:ci',
@@ -107,11 +106,15 @@ const releaseWebApp = async ({ tagName, packageName, env }) => {
   try {
     await extractTarFile({ tagName, packageName })
     // Ignore copy config for web-components
-    if (packageName !== 'web-components') {
-      await copyConfig({ packageName })
+    if (packageName === 'web-components') {
+      packageName = '@reapit/web-components'
+      await runReleaseCommand({ packageName, tagName, env })
+      await runTestCypress({ packageName, tagName, env })
+      return
     }
+    await copyConfig({ packageName })
     await runReleaseCommand({ packageName, tagName, env })
-    await runTestCyPress({ packageName, tagName, env })
+    await runTestCypress({ packageName, tagName, env })
   } catch (err) {
     console.error('releaseWebApp', err)
     throw new Error(err)
@@ -120,7 +123,7 @@ const releaseWebApp = async ({ tagName, packageName, env }) => {
 
 const runReleaseCommandForWebComponents = async ({ packageName, tagName, env }) => {
   await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-  await runCommand('yarn', ['workspace', '@reapit/web-components', `release:serverless:${env}`, '--name', packageName])
+  runCommand('yarn', ['workspace', '@reapit/web-components', `release:serverless:${env}`, '--name', packageName])
   await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
 }
 
@@ -131,15 +134,15 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
   }
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-    await runCommand('git', ['checkout', tagName])
+    runCommand('git', ['checkout', tagName])
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
       await runReleaseCommandForWebComponents({ packageName: packageName, tagName, env })
-      await runTestCyPress({ packageName, tagName, env })
+      await runTestCypress({ packageName, tagName, env })
       return
     }
     await runReleaseCommand({ packageName, tagName, env })
-    await runTestCyPress({ packageName, tagName, env })
+    await runTestCypress({ packageName, tagName, env })
     return
   } catch (err) {
     console.error('releaseServerless', err)
@@ -150,13 +153,13 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
 const releaseNpm = async ({ tagName, packageName }) => {
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-    await runCommand('git', ['checkout', tagName])
+    runCommand('git', ['checkout', tagName])
     await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
-    await runCommand('git', ['config', '--global', 'url.ssh://git@github.com/.insteadOf https://github.com/'])
-    await runCommand('git', ['config', '--global', 'user.email', `"${process.env.GITHUB_ACTOR}@email.com"`]).toString()
-    await runCommand('git', ['config', ' --global', 'user.name', `"${process.env.GITHUB_ACTOR}"`])
-    await runCommand('yarn', ['workspace', packageName, 'build:prod'])
-    await runCommand('yarn', ['workspace', packageName, 'publish'])
+    runCommand('git', ['config', '--global', 'url.ssh://git@github.com/.insteadOf https://github.com/'])
+    runCommand('git', ['config', '--global', 'user.email', `"${process.env.GITHUB_ACTOR}@email.com"`]).toString()
+    runCommand('git', ['config', ' --global', 'user.name', `"${process.env.GITHUB_ACTOR}"`])
+    runCommand('yarn', ['workspace', packageName, 'build:prod'])
+    runCommand('yarn', ['workspace', packageName, 'publish'])
     await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
   } catch (err) {
     console.error('releaseNpm', err)
@@ -217,7 +220,7 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/
 }
 
 const getCommitLog = async ({ currentTag, previousTag, packageName }) => {
-  const commitLog = await runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
+  const commitLog = runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
   return commitLog
 }
 
