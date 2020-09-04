@@ -31,15 +31,20 @@ export const termsParent = css`
     }
     &.child-with-alpha-bullet {
       &:before {
-        content: '(' counter(item, lower-alpha) ')' !important;
+        content: '(' counter(item, lower-alpha) ')';
       }
     }
-    [class*='terms-parent'] {
+    /* [class*='terms-parent'] {
       > .terms-child {
         &:before {
           content: counters(item, '.') ' ';
         }
+        &.child-with-alpha-bullet {
+          &:before {
+            content: '(' counter(item, lower-alpha) ')';
+          }
+        }
       }
-    }
+    } */
   }
 `

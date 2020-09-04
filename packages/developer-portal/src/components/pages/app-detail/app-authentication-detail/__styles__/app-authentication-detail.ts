@@ -8,11 +8,10 @@ export const authenticationCodeWrap = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
-
-export const authenticationCode = css`
-  word-break: break-all;
-  margin-bottom: 0 !important;
+  p.authentication-code {
+    word-break: break-all;
+    margin-bottom: 0;
+  }
 `
 
 export const btnCopy = css`
