@@ -53,7 +53,7 @@ export const UploadResultModal: React.FC<UploadResultModalProp> = ({ visible, re
                     </table>
                   </p>
                   <p>
-                    Errors <code>{errors.map(item => item.message).join('\n')}</code>
+                    Errors <code>{errors.map(({ message }) => message.split('-').pop()).join('\n')}</code>
                   </p>
                 </li>
               )
