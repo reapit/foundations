@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { errorClearedComponent, errorClearedServer, errorThrownComponent, errorThrownServer } from '../actions/error'
+import { errorClearedComponent, errorClearedServer, errorThrownComponent } from '../actions/error'
 
 export interface ErrorData {
   readonly status?: number
@@ -19,7 +19,7 @@ export const defaultState: ErrorState = {
 }
 
 const errorReducer = (state: ErrorState = defaultState, action: Action<any>): ErrorState => {
-  if (isType(action, errorClearedServer) || isType(action, errorThrownServer)) {
+  if (isType(action, errorClearedServer)) {
     return {
       ...state,
       serverError: action.data,

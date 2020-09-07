@@ -3,9 +3,9 @@ import {
   authenticatedReceiveData,
   authenticatedRequestDataFailure,
 } from '../actions/authenticated'
-import { put, fork, takeLatest, all } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 
@@ -17,14 +17,11 @@ export const authenticatedDataFetch = function*() {
 
     yield put(authenticatedReceiveData({ data: response }))
   } catch (err) {
-    console.error(err.message)
     yield put(authenticatedRequestDataFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
