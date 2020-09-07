@@ -91,7 +91,13 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
       url: `${URLS.developers}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers:
+        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
+        window.reapit.config.appEnv === 'production'
+          ? {
+              'Content-Type': 'application/json',
+            }
+          : await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -168,7 +174,13 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers:
+        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
+        window.reapit.config.appEnv === 'production'
+          ? {
+              'Content-Type': 'application/json',
+            }
+          : await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -185,7 +197,13 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: restParams,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers:
+        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
+        window.reapit.config.appEnv === 'production'
+          ? {
+              'Content-Type': 'application/json',
+            }
+          : await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -201,7 +219,13 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
       url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers:
+        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
+        window.reapit.config.appEnv === 'production'
+          ? {
+              'Content-Type': 'application/json',
+            }
+          : await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
