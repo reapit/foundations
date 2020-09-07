@@ -50,10 +50,7 @@ const Router = () => {
             <Route path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
-
-            <PrivateRouteWrapper path={Routes.INVITE} showMenu={false}>
-              <PrivateRoute path="/" component={Invite} />
-            </PrivateRouteWrapper>
+            <Route path={Routes.INVITE} component={Invite} />
 
             <PrivateRouteWrapper path="/">
               <Switch>

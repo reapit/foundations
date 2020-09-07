@@ -82,6 +82,7 @@ export type MenuProps = {}
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
   const menuConfigs = generateMenuConfig(location)
+  if (location.pathname === Routes.INVITE) return null
   return <Sidebar {...menuConfigs} location={location} />
 }
 
