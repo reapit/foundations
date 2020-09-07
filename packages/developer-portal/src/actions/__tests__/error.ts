@@ -1,4 +1,4 @@
-import { errorClearedComponent, errorClearedServer, errorThrownComponent, errorThrownServer } from '../error'
+import { errorClearedComponent, errorClearedServer, errorThrownComponent } from '../error'
 import ActionTypes from '../../constants/action-types'
 import { ErrorData } from '../../reducers/error'
 import errorMessages from '../../constants/error-messages'
@@ -21,14 +21,5 @@ describe('error actions', () => {
     } as ErrorData
     expect(errorThrownComponent.type).toEqual(ActionTypes.ERROR_THROWN_COMPONENT)
     expect(errorThrownComponent(errorData).data).toEqual(errorData)
-  })
-
-  it('should create a errorThrownServer action', () => {
-    const errorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR,
-    } as ErrorData
-    expect(errorThrownServer.type).toEqual(ActionTypes.ERROR_THROWN_SERVER)
-    expect(errorThrownServer(errorData).data).toEqual(errorData)
   })
 })
