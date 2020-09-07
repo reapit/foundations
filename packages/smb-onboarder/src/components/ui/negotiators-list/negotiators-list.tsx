@@ -42,8 +42,8 @@ export const tableHeaders: DataTableRow[] = [
 
 export const tableDownloadHeaders: DataTableRow[] = [
   ...tableHeaders,
-  { readOnly: true, value: 'Id' },
-  { readOnly: true, value: 'eTag' },
+  { readOnly: true, value: 'Id (DO NOT EDIT)' },
+  { readOnly: true, value: 'eTag (DO NOT EDIT)' },
 ]
 
 export type DataTableRow = {
