@@ -139,6 +139,19 @@ const dataMenu: ContextMenuData[] = [
   },
 ]
 
+function isInViewport(element) {
+  if (!element || !element.getBoundingClientRect()) {
+    return 'not'
+  }
+  const rect = element.getBoundingClientRect()
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  )
+}
+
 export const ContextMenu: React.FC<ContextMenuFCProps> = ({
   data,
   selected,
@@ -146,9 +159,24 @@ export const ContextMenu: React.FC<ContextMenuFCProps> = ({
   setContextMenuProp,
   onCellsChanged,
 }) => {
+  const measuredRef = React.useCallback(
+    node => {
+      if (node !== null) {
+        console.log('isInViewport', isInViewport(node))
+      }
+    },
+    [top, left],
+  )
+
   const visibleClass = visible ? 'spreadsheet-context-menu-visible' : 'spreadsheet-context-menu-hidden'
+
+  if (!visible) {
+    return null
+  }
+
   return (
     <div
+      ref={measuredRef}
       style={{ top, left }}
       className={`spreadsheet-context-menu ${visibleClass}`}
       onClick={handleContextClick(data, selected, setContextMenuProp, onCellsChanged)}
