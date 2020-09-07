@@ -23,7 +23,6 @@ import developerSagas, {
   developerWebhookPing,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
@@ -37,13 +36,19 @@ import {
   fetchBillingsByMonth,
 } from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
+import { notification } from '@reapit/elements'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
 jest.mock('@/services/developers')
 jest.mock('@/services/billing')
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements', () => ({
+  ...jest.requireActual('@reapit/elements'),
+  notification: {
+    error: jest.fn(),
+  },
+}))
 
 const params = { data: { page: 1 } }
 
@@ -62,12 +67,10 @@ describe('developer create', () => {
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(developerSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
     expect(clone.next().done).toEqual(true)
   })
@@ -103,12 +106,10 @@ describe('fetchBillingSagas', () => {
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(fetchBillingFailure('error')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
     expect(clone.next().done).toEqual(true)
   })
@@ -131,12 +132,10 @@ describe('fetchMonthlyBillingSagas', () => {
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(fetchMonthlyBillingFailure('error')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
     expect(clone.next().done).toEqual(true)
   })

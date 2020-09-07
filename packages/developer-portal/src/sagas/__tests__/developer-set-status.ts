@@ -1,4 +1,4 @@
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import { developerSetStatusRequestSaga } from '../developer-set-status'
 import { put, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -29,12 +29,10 @@ describe('developerSetStatusRequestSaga', () => {
 
     expect(gen.next().value).toEqual(put(developerSetStatusRequestFailure()))
     expect(gen.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
