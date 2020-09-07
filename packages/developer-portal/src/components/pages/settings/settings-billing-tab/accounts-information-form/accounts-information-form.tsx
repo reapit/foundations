@@ -120,6 +120,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
       onSubmit={onSubmit({ dispatch, setIsSubmittedDebit })}
     >
       {({ setFieldValue, values }) => {
+        const { hasReapitAccountsRef } = values
         return (
           <Form>
             <H3 isHeadingSection>Billing</H3>
@@ -165,7 +166,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 <div>
                   <LevelRight>
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
-                      SUBMIT TO ACCOUNTS
+                      {hasReapitAccountsRef === 'no' ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
                     </Button>
                   </LevelRight>
                 </div>
