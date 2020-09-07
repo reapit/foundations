@@ -219,6 +219,13 @@ export const handleAfterCellChange = (createOffice, updateOffice, setData) => (
     const updateOfficeParams = prepareUpdateOfficeParams(changedCells, data)
     updateOffice({
       variables: updateOfficeParams,
+    }).then(response => {
+      const {
+        data: { UpdateOffice },
+      } = response
+      // update etag after update office
+      rowData[1].value = UpdateOffice._eTag
+      setData(data)
     })
   } else {
     const isValidRow = rowData.every(row => row.isValidated)
