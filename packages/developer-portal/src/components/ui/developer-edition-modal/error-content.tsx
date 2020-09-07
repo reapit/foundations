@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
+
 import developerEditionGuide from '@/assets/files/developer-edition-guide.pdf'
 
 export const handleDownload = () => {
@@ -19,7 +20,7 @@ export const ErrorContent: React.FC<ErrorContentProps> = ({ afterClose }) => {
             It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To
             download, please use the ‘Download Now’ button below. For more information or support using the Developer
             Edition, please&nbsp;
-            <a className={linkStyles.link} target="_blank" rel="noopener noreferrer" href={developerEditionGuide}>
+            <a className={link} target="_blank" rel="noopener noreferrer" href={developerEditionGuide}>
               click here
             </a>
           </SubTitleH6>
