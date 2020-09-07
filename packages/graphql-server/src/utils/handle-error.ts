@@ -40,10 +40,4 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
   return errors.generateInternalServerError(traceId)
 }
 
-export type HandleGraphQlError = {
-  error: string | Error
-  traceId: string
-  caller: string
-}
-
 export default handleError
