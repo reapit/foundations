@@ -813,7 +813,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       >
                         For more information on how to complete this form, please view our "Step-by-step" guide 
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/developer-portal"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -1302,7 +1302,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                          
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -1814,7 +1814,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         . For more information on authentication, see our platform documentation
                          
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
                           rel="noopener noreferrer"
                           target="_blank"

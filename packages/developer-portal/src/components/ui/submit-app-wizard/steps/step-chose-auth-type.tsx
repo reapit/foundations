@@ -1,11 +1,16 @@
 import React from 'react'
-import styles from '@/styles/blocks/submit-app-wizard.scss?mod'
 import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 import { wizzardSteps } from '../constant'
 import authFlows from '@/constants/app-auth-flow'
+import {
+  btnChooseAuthTypeContainer,
+  btnChooseAuthTypeContainerLeft,
+  btnChooseAuthType,
+  btnChooseAuthTypeContainerRight,
+} from '../__styles__/submit-app-wizard'
 
 const { authFlowField } = formFields
 
@@ -31,12 +36,12 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
         body={
           <div>
             <H5>How do you intend to authenticate your app?</H5>
-            <div className={styles.btnChooseAuthTypeContainer}>
+            <div className={btnChooseAuthTypeContainer}>
               <div>
-                <div className={styles.btnChooseAuthTypeContainerLeft}>
+                <div className={btnChooseAuthTypeContainerLeft}>
                   <Button
                     variant="secondary"
-                    className={styles.btnChooseAuthType}
+                    className={btnChooseAuthType}
                     onClick={onClientSide(setWizardStep, setFieldValue)}
                   >
                     <b>Client Side</b>
@@ -46,10 +51,10 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
                     </p>
                   </Button>
                 </div>
-                <div className={styles.btnChooseAuthTypeContainerRight}>
+                <div className={btnChooseAuthTypeContainerRight}>
                   <Button
                     variant="secondary"
-                    className={styles.btnChooseAuthType}
+                    className={btnChooseAuthType}
                     onClick={onServerSide(setWizardStep, setFieldValue)}
                   >
                     <b>Server Side</b>

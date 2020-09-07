@@ -1,12 +1,12 @@
 /* purgecss start ignore */
-@import '../base/fonts.scss';
-@import '../base/colors.scss';
+import { css } from 'linaria'
+import { reapitMidblue, greyLight, grey } from '@/core/__styles__/colors'
 
 /*
   Overrides file to make Swagger UI look more like the rest of the site.
   Some pretty horrible Sass in here however, need to be very specific to override defaults.
 */
-.swagger {
+export const swagger = css`
   // Can't reset the global scrollbar to default styles
   // Need to write custom styles
   *::-webkit-scrollbar {
@@ -38,7 +38,7 @@
     a,
     .info,
     .markdown {
-      font-family: $font-family-roboto;
+      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
@@ -50,20 +50,20 @@
     h6,
     .title,
     .model-title {
-      font-family: $font-family-roboto;
+      font-family: 'Roboto', Helvetica, sans-serif;
     }
 
     .info a {
-      color: $reapit-mid-blue;
+      color: ${reapitMidblue};
     }
 
     .info table {
-      font-family: $font-family-roboto;
+      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
     a {
-      color: $reapit-mid-blue;
+      color: ${reapitMidblue};
     }
 
     .loading,
@@ -79,7 +79,7 @@
 
     h2,
     .info h2 {
-      font-family: $font-family-roboto;
+      font-family: 'Roboto', Helvetica, sans-serif;
       font-size: 2rem;
       font-weight: bold;
     }
@@ -90,9 +90,9 @@
 
     code,
     .prop-format {
-      font-family: $font-family-monospace;
+      font-family: 'Source Code Pro', monospace;
       font-size: 1rem;
-      color: $grey;
+      color: ${grey};
     }
 
     .auth-wrapper {
@@ -133,7 +133,7 @@
       border-radius: none;
 
       .model-container {
-        background: $grey-light;
+        background: ${greyLight};
         margin: 1rem 0;
       }
     }
@@ -141,11 +141,11 @@
     .model {
       td,
       .prop-type {
-        font-family: $font-family-monospace;
+        font-family: 'Source Code Pro', monospace;
       }
 
       .prop-type {
-        color: $grey;
+        color: ${grey};
       }
     }
 
@@ -164,16 +164,16 @@
 
       small {
         font-size: 1rem;
-        font-family: $font-family-roboto;
+        font-family: 'Roboto', Helvetica, sans-serif;
       }
     }
 
     p,
     .markdown,
     .opblock-summary-description {
-      font-family: $font-family-roboto;
-      color: $grey;
+      font-family: 'Roboto', Helvetica, sans-serif;
+      color: ${grey};
     }
   }
-}
+`
 /* purgecss end ignore */

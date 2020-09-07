@@ -38,7 +38,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className={[Function]}
+                    className=""
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -552,7 +552,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className={[Function]}
+                    className=""
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"

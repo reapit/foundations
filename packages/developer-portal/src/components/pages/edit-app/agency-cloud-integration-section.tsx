@@ -8,10 +8,10 @@ import {
   DropdownSelect,
   SelectOption,
 } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { link } from '@/styles/elements/link'
 
 export type AgencyCloudIntegrationSectionProps = {}
 
@@ -37,7 +37,7 @@ const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps
         desktop type. Please select the type of integration your app requires from the list below. For more information
         on Desktop Types, please{' '}
         <a
-          className={linkStyles.link}
+          className={link}
           href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
           target="_blank"
           rel="noopener noreferrer"

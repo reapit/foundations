@@ -1,7 +1,7 @@
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import * as React from 'react'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 
 export type SuccessContentProps = Pick<ModalProps, 'afterClose'> & {
   developer?: DeveloperModel
@@ -26,12 +26,7 @@ export const SuccessContent: React.FC<SuccessContentProps> = ({ developer, after
             </SubTitleH6>
             <SubTitleH6 className="has-text-weight-normal">
               {developer.name} -&nbsp;
-              <a
-                className={linkStyles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`mailto:${developer.email}`}
-              >
+              <a className={link} target="_blank" rel="noopener noreferrer" href={`mailto:${developer.email}`}>
                 {developer.email}
               </a>
             </SubTitleH6>
