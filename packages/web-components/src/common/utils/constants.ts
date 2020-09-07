@@ -4,7 +4,7 @@ export const DEFAULT_HEADERS = {
 }
 
 export const DEFAULT_HEADERS_SERVER = {
-  'reapit-customer': 'DXX',
+  'reapit-customer': 'SBOX',
 }
 
 export enum PACKAGE_SUFFIXES {

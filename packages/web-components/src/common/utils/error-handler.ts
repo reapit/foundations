@@ -1,5 +1,12 @@
 import { AppRequest, AppResponse } from '@reapit/node-utils'
 
+export const validatedErrorHandler = async (errStr: string, res: AppResponse) => {
+  const responseCode = 400
+  res.status(responseCode)
+  res.json(errStr)
+  res.end()
+}
+
 export const errorHandler = async (err: Error, res: AppResponse, req: AppRequest, caller: string, logger: any) => {
   const errorString = typeof err === 'string' ? err : JSON.stringify(err.message)
   const responseCode = Number(errorString.substring(1, 4)) || (errorString ? 400 : 500)
@@ -8,6 +15,7 @@ export const errorHandler = async (err: Error, res: AppResponse, req: AppRequest
     error: errorString,
     headers: JSON.stringify(req.headers),
   })
+
   res.status(responseCode)
   res.json(errorString)
   res.end()
