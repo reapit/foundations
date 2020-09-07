@@ -1,2 +1,2 @@
-# payments-poc
+# Payments POC
 POC for stripe payments gateway

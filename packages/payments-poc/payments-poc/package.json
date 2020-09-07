@@ -1,0 +1,22 @@
+{
+  "name": "payments-poc",
+  "version": "1.0.0",
+  "description": "POC Stripe Gateway",
+  "main": "index.js",
+  "repository": "git@github.com:reapit/payments-poc.git",
+  "author": "Will McVay <wmcvay@reapit.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "install:client": "cd payments-poc-client && yarn",
+    "install:server": "cd payments-poc-server && yarn",
+    "install:all": "concurrently \"yarn install:client\" \"yarn install:server\"",
+    "client:dev": "cd payments-poc-client && yarn start",
+    "server:dev": "cd payments-poc-server && yarn start",
+    "start:dev": "concurrently \"yarn client:dev\" \"yarn server:dev\""
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "devDependencies": {}
+}

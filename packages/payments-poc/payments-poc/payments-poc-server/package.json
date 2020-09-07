@@ -1,0 +1,24 @@
+{
+  "name": "payments-poc",
+  "version": "1.0.0",
+  "description": "POC Stripe Gateway",
+  "main": "index.js",
+  "repository": "git@github.com:reapit/payments-poc.git",
+  "author": "willmcvay@pm.me <wmcvay@reapit.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "stripe": "^8.92.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
