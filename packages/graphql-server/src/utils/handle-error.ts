@@ -12,6 +12,7 @@ export type HandleErrorParams = {
 
 export const handleError = async ({ error, traceId, caller }: HandleErrorParams): Promise<ApolloError> => {
   const reapitBackendError = error?.response?.data
+
   logger.error(caller, {
     traceId,
     // either a back-end error or system error (code crash)
@@ -43,13 +44,6 @@ export type HandleGraphQlError = {
   error: string | Error
   traceId: string
   caller: string
-}
-
-export const handleGraphQlError = async ({ error, traceId, caller }: HandleGraphQlError): Promise<void> => {
-  await logger.error(caller, {
-    traceId,
-    error: error instanceof Error ? JSON.stringify(error) : error,
-  })
 }
 
 export default handleError
