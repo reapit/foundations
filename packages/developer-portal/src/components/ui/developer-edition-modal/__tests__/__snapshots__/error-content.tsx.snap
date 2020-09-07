@@ -10,28 +10,36 @@ exports[`ErrorContent should match snapshot 1`] = `
       <Unknown
         className="has-text-weight-normal"
       >
-        It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. If you have not received your email with instructions on how to download, please let us know using the live chat feature on the 
+        It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To download, please use the ‘Download Now’ button below. For more information or support using the Developer Edition, please 
         <a
           className=""
-          href="/help"
+          href=""
           rel="noopener noreferrer"
           target="_blank"
         >
-          'Help'
+          click here
         </a>
-         page.
       </Unknown>
     }
   />
   <Component
     footerItems={
-      <Unknown
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
-      >
-        CLOSE
-      </Unknown>
+      <React.Fragment>
+        <Unknown
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          CLOSE
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          DOWNLOAD NOW
+        </Unknown>
+      </React.Fragment>
     }
   />
 </Fragment>
