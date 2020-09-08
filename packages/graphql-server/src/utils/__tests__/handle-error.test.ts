@@ -1,6 +1,5 @@
-import handleError, { HandleErrorParams, handleGraphQlError, HandleGraphQlError } from '../handle-error'
+import handleError, { HandleErrorParams } from '../handle-error'
 import errors from '../../errors'
-import logger from '../../logger'
 
 jest.mock('../../logger/')
 describe('handleError', () => {
@@ -144,17 +143,5 @@ describe('handleError', () => {
     } as HandleErrorParams
     const output = await handleError(input)
     expect(output).toEqual(errors.generateInternalServerError('mockTraceId'))
-  })
-})
-
-describe('handleGraphQlError', () => {
-  it('should run correctly', async () => {
-    const input = {
-      error: 'Error',
-      caller: 'mockCaller',
-      traceId: 'mockTraceId',
-    } as HandleGraphQlError
-    await handleGraphQlError(input)
-    expect(logger.error).toBeCalled()
   })
 })
