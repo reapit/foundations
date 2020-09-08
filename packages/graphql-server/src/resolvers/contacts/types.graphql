@@ -22,7 +22,15 @@ type ContactModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedContactModel
+}
+
+type EmbeddedContactModel {
+  documents: [DocumentModel]
+  identityChecks: [IdentityCheckModel]
+  negotiators: [NegotiatorModel]
+  offices: [OfficeModel]
+  source: SourceModel
 }
 
 type ContactModelAddress {
@@ -82,6 +90,14 @@ input ContactModelAddressInput {
   countryId: String
 }
 
+enum ContactQueryEmbed {
+  documents
+  identityChecks
+  negotiators
+  offices
+  source
+}
+
 type Query {
   GetContacts(
     pageSize: Int
@@ -97,9 +113,10 @@ type Query {
     active: Boolean
     createdFrom: String
     createdTo: String
+    embed: [ContactQueryEmbed]
   ): PagedResultContactModel!
 
-  GetContactById(id: String!): ContactModel!
+  GetContactById(id: String!, embed: [ContactQueryEmbed]): ContactModel!
 }
 
 type Mutation {

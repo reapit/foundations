@@ -1,9 +1,8 @@
 import { fetchtAppAuthentication, fetchtAppAuthenticationSuccess, fetchtAppAuthenticationFailed } from '@/actions/apps'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { logger } from '@reapit/utils'
 import { fetchAppSecretByIdAPI } from '@/services/apps'
 
 export const requestAuthCode = function*({ data: id }: Action<string>) {
@@ -12,13 +11,10 @@ export const requestAuthCode = function*({ data: id }: Action<string>) {
     yield put(fetchtAppAuthenticationSuccess(response))
   } catch (err) {
     yield put(fetchtAppAuthenticationFailed(err?.description))
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

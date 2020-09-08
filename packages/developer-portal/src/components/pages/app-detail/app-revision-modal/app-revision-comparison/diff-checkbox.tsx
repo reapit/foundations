@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styles from '@/styles/blocks/diff-checkbox.scss?mod'
+import { checkbox, arrow, container, red, green } from './__styles__/pending-revision-comparison'
 
 export interface DiffCheckboxProps {
   currentChecked: boolean
@@ -11,13 +11,13 @@ const DiffCheckbox = ({ currentChecked, changedChecked, dataTest }: DiffCheckbox
   const changed = currentChecked !== changedChecked
 
   return (
-    <div className={styles.container} data-test={dataTest || ''}>
-      <span className={`${styles.checkbox} ${changed ? styles.red : ''}`}>
+    <div className={container} data-test={dataTest || ''}>
+      <span className={`${checkbox} ${changed ? red : ''}`}>
         <input type="checkbox" checked={currentChecked} readOnly data-test="current" />
       </span>
-      {changed && <span className={styles.arrow}>&#8594;</span>}
+      {changed && <span className={arrow}>&#8594;</span>}
       {changed && (
-        <span className={`${styles.checkbox} ${styles.green}`}>
+        <span className={`${checkbox} ${green}`}>
           <input type="checkbox" checked={changedChecked} readOnly data-test="changed" />
         </span>
       )}

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SettingsPage RedirectToSettingsProfilePage should match snapshot 1`] = `
+<Redirect
+  to="/settings/profile"
+/>
+`;
+
 exports[`SettingsPage SettingsPage should match snapshot 1`] = `
 <ContextProvider
   value={

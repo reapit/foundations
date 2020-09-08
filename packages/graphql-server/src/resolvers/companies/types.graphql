@@ -19,7 +19,7 @@ type CompanyModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedCompanyRoleModel
 }
 
 type CompanyModel_address {
@@ -66,6 +66,10 @@ type CompanyRoleModel {
   _embedded: JSON
 }
 
+type EmbeddedCompanyRoleModel {
+  companyTypes: [ListItemModel]
+}
+
 input CompanyModelAddressInput {
   type: String
   buildingName: String
@@ -78,14 +82,18 @@ input CompanyModelAddressInput {
   countryId: String
 }
 
+enum CompanyQueryEmbed {
+  companyTypes
+}
+
 type Query {
-  GetCompanyById(id: String!, embed: [String!]): CompanyModel!
+  GetCompanyById(id: String!, embed: [CompanyQueryEmbed]): CompanyModel!
 
   GetCompanies(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [CompanyQueryEmbed]
     id: [String!]
     address: String
     branch: String

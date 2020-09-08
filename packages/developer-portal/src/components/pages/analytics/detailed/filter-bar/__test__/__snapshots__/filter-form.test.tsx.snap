@@ -33,11 +33,6 @@ exports[`FilterForm should match a snapshot 1`] = `
   }
 >
   <Component
-    clientIds={
-      Array [
-        "DXX",
-      ]
-    }
     developerApps={
       Array [
         Object {
@@ -93,6 +88,14 @@ exports[`FilterForm should match a snapshot 1`] = `
         "dateFrom": "2020-03-23",
         "dateTo": "2020-03-29",
       }
+    }
+    installationAppDataArray={
+      Array [
+        Object {
+          "customerId": "DXX",
+          "customerName": "DXX",
+        },
+      ]
     }
   />
 </ContextProvider>

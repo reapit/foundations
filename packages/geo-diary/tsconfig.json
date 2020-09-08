@@ -1,14 +1,15 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "sourceRoot": "/",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/utils": ["../utils/index.ts"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
 }

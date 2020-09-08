@@ -8,7 +8,9 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown>
+        <Unknown
+          className="has-text-weight-normal"
+        >
           The Agency Cloud Developer Edition is a licensed product. However, there will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition licence please refer to your Developer Registration 
           <a
             href=""

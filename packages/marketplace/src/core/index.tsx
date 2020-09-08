@@ -1,4 +1,3 @@
-import '../styles/index.scss'
 import * as Sentry from '@sentry/browser'
 import React from 'react'
 import { render } from 'react-dom'
@@ -31,6 +30,7 @@ window.reapit = {
     previewExternalAppIds: [],
     previewFeaturedExternalAppIds: [],
     connectLoginRedirectPath: '',
+    comingSoonApps: [],
   },
 }
 

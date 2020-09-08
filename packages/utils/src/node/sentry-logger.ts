@@ -19,7 +19,8 @@ export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => Wisto
   { error, traceId, headers },
 ) =>
   new Promise(resolve => {
-    loggerError(caller, { traceId, error: error?.response?.data, headers: error?.response?.headers })
+    loggerError(caller, { traceId, error: error })
+    console.log({ traceId }, JSON.stringify(error, null, 2))
 
     if (process.env.NODE_ENV === 'development') {
       resolve()

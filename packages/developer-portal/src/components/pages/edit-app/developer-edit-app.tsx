@@ -53,7 +53,7 @@ export const labelTextOfField = {
   description: 'Description',
   redirectUris: 'Redirect URI(s)',
   signoutUris: 'Sign Out URI(s)',
-  screen1ImageUrl: 'Screenshot 1',
+  screen1ImageUrl: 'Feature Image',
   iconImageUrl: 'Icon',
   scopes: 'Permissions',
   authFlow: 'Authentication flow',
@@ -127,7 +127,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     const iconImageUrl = icon ? icon.uri : ''
     const images = (media || [])
       .filter(({ type }) => type !== 'icon')
-      .reduce((a, c, i) => ({ ...a, [`screen${i + 1}ImageUrl`]: c.uri }), {})
+      .reduce((a, c, i) => ({ ...a, [`screen${i + 1}ImageUrl`]: c.uri }), { screen1ImageUrl: '' })
     // ^reason of using index instead of `order` property is because all images
     // in media have order of 0 (see ticket [CLD-623] to learn more)
 
@@ -212,6 +212,7 @@ export const handleSubmitApp = ({
   onSuccess,
   onError,
   currentOrganisation,
+  setIsListing,
 }: {
   appId: string
   dispatch: Dispatch
@@ -219,6 +220,7 @@ export const handleSubmitApp = ({
   onSuccess: () => void
   onError: () => void
   currentOrganisation?: DeveloperModel
+  setIsListing: React.Dispatch<React.SetStateAction<boolean>>
 }) => (appModel: CustomCreateRevisionModal) => {
   setSubmitting(true)
 
@@ -245,8 +247,15 @@ export const handleSubmitApp = ({
   }
   const sanitizeData = sanitizeAppData(appToSubmit)
 
-  if (currentOrganisation?.status === 'pending' || currentOrganisation?.status === 'incomplete') {
-    delete sanitizeData.isListed
+  const isCanList = currentOrganisation?.status !== 'pending' && currentOrganisation?.status !== 'incomplete'
+
+  if (!isCanList && !sanitizeData.isListed) {
+    setIsListing(false)
+  }
+
+  if (!isCanList && sanitizeData.isListed) {
+    sanitizeData.isListed = false
+    setIsListing(true)
   }
 
   dispatch(
@@ -261,16 +270,10 @@ export const handleSubmitApp = ({
 
 export const handleSubmitAppSuccess = (
   setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
-  history: History,
   setIsShowBillingNotification: React.Dispatch<React.SetStateAction<boolean>>,
-  currentOrganisation?: DeveloperModel,
 ) => () => {
   setSubmitting(false)
-  if (currentOrganisation?.status === 'incomplete' || currentOrganisation?.status === 'pending') {
-    setIsShowBillingNotification(true)
-    return
-  }
-  history.push(Routes.APPS)
+  setIsShowBillingNotification(true)
 }
 
 export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStateAction<boolean>>) => () => {
@@ -323,8 +326,13 @@ export const modalContent = {
       title: 'Account Information Required',
       content: (
         <div>
-          Before listing an app in the Marketplace, you will first need to submit your account information. Please visit
-          the <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
+          Any changes have been saved successfully.
+          <br />
+          However, before you can list an app in the Marketplace (updating the &apos;Is Listed&apos; field), you will
+          first need to submit your account information.
+          <br />
+          Please visit the&nbsp;
+          <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
         </div>
       ),
     },
@@ -332,9 +340,13 @@ export const modalContent = {
       title: 'Account Information Pending',
       content: (
         <div>
-          We are currently verifying your account information, once completed you will be able to list your app. To
-          check the status of your account, please visit the <Link to="/settings/billing">&apos;Billing&apos;</Link>{' '}
-          page.
+          Any changes have been saved successfully.
+          <br />
+          However, as we are currently verifying your account information you will not be able to list your app in the
+          Marketplace (update the &apos;Is Listed&apos; field) until this has been confirmed.
+          <br />
+          To check the status of your account, please visit the&nbsp;
+          <Link to="/settings/billing">&apos;Billing&apos;</Link> page.
         </div>
       ),
     },
@@ -344,8 +356,11 @@ export const modalContent = {
       title: 'Account Information Required',
       content: (
         <div>
-          Unfortunately, your account information has not yet been completed, please ask the Admin of your organisation
-          to visit the &apos;Billing&apos; page under &apos;Settings&apos;.
+          Any changes have been saved successfully.
+          <br />
+          However, as your account information has not yet been completed you will be unable to list your app in the
+          Marketplace (update the &apos;Is Listed&apos; field), please ask the Admin of your organisation to visit the
+          &apos;Billing&apos; page under &apos;Settings&apos; to complete.
         </div>
       ),
     },
@@ -353,8 +368,13 @@ export const modalContent = {
       title: 'Account Information Pending',
       content: (
         <div>
-          Your account information is currently being reviewed by our Accounts Department. Once this has been verified
-          your will be able to list your app.
+          Any changes have been saved successfully.
+          <br />
+          However, your account information is currently being reviewed by our Accounts Department. Once your account
+          has been confirmed, you will be to list your app in the Marketplace (update the &apos;Is Listed&apos; field).
+          <br />
+          The Admin of your organisation can check the status of your account by visiting the &apos;Billing&apos; page
+          under &apos;Settings&apos;.
         </div>
       ),
     },
@@ -378,6 +398,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const currentOrganisation = useSelector(selectSettingsPageDeveloperInformation)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
+  const [isListing, setIsListing] = React.useState<boolean>(false)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
@@ -418,9 +439,10 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           appId,
           dispatch,
           setSubmitting,
-          onSuccess: handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, currentOrganisation),
+          onSuccess: handleSubmitAppSuccess(setSubmitting, setIsShowBillingNotification),
           onError: handleSubmitAppError(setSubmitting),
           currentOrganisation,
+          setIsListing,
         })}
       >
         {({ setFieldValue, values, errors }) => {
@@ -479,7 +501,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
       {currentUser?.role && currentOrganisation?.status && (
         <ModalV2
           isCentered={true}
-          visible={isShowBillingNotification}
+          visible={isShowBillingNotification && isListing}
           onClose={handleCloseModal(setIsShowBillingNotification)}
           title={modalContent?.[currentUser.role]?.[currentOrganisation.status]?.title}
           footer={[
@@ -491,6 +513,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           {modalContent?.[currentUser.role]?.[currentOrganisation.status]?.content}
         </ModalV2>
       )}
+      {isShowBillingNotification && !isListing && <Redirect to={Routes.APPS} />}
     </>
   )
 }

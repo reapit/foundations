@@ -5,7 +5,7 @@ const path = require('path')
 const { FOUNDATION_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')
 const packageJsonPath = path.resolve(FOUNDATION_ROOT_FOLDER, './package.json')
 
-module.exports = () => {
+module.exports = async () => {
   const remotePackageVersionStdOut = runCommand('yarn', [
     'info',
     '@reapit/foundations-ts-definitions',

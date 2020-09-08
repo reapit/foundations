@@ -4,7 +4,6 @@ import {
   fetchDesktopIntegrationTypeListSuccess,
   fetchDesktopIntegrationTypeListFailed,
 } from '@/actions/desktop-integration-types'
-import { logger } from '@reapit/utils'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
@@ -16,7 +15,6 @@ export const fetchDesktopIntegrationTypeListSaga = function*() {
     yield put(fetchDesktopIntegrationTypeListSuccess(desktopIntegrationTypes))
   } catch (err) {
     yield put(fetchDesktopIntegrationTypeListFailed(err))
-    logger(err)
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',

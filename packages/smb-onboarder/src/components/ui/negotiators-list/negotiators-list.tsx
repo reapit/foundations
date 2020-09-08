@@ -40,6 +40,12 @@ export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Status' },
 ]
 
+export const tableDownloadHeaders: DataTableRow[] = [
+  ...tableHeaders,
+  { readOnly: true, value: 'Id (DO NOT EDIT)' },
+  { readOnly: true, value: 'eTag (DO NOT EDIT)' },
+]
+
 export type DataTableRow = {
   value?: string | boolean
   readOnly?: boolean
@@ -98,15 +104,25 @@ export type RenderNegotiatorListParams = {
   officeData?: OfficesQueryResponse
 }
 
-export const getDataTable = (
-  data: NegotiatorsQueryResponse,
-  updateNegotiator: (params) => void,
-  updateNegotiatorLoading: boolean,
-  createNegotiator: (params) => void,
-  officeData?: OfficesQueryResponse,
-  setData?: React.Dispatch<DataTableRow[][]>,
-): DataTableRow[][] => {
-  let dataTable: DataTableRow[][] = [tableHeaders]
+type GetDataTable = {
+  data: NegotiatorsQueryResponse
+  updateNegotiator: (params) => void
+  updateNegotiatorLoading: boolean
+  createNegotiator: (params) => void
+  officeData?: OfficesQueryResponse
+  setData?: React.Dispatch<DataTableRow[][]>
+  headers?: DataTableRow[]
+}
+
+export const getDataTable = ({
+  data,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+  setData,
+  headers = tableHeaders,
+}: GetDataTable): DataTableRow[][] => {
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
 
   const StatusCheckbox = props => {
@@ -150,7 +166,7 @@ export const getDataTable = (
       { value: _eTag, className: 'hidden' },
     ]
   })
-  dataTable = [tableHeaders, ...dataRows]
+  const dataTable = [headers, ...dataRows]
   return dataTable
 }
 
@@ -340,14 +356,15 @@ export const createDownLoadButtonOnClickFn = ({
         return mergedArr
       }, [])
 
-      const dataTable = getDataTable(
-        { GetNegotiators: { _embedded: mergedEmbed || [] } },
+      const dataTable = getDataTable({
+        data: { GetNegotiators: { _embedded: mergedEmbed || [] } },
         updateNegotiator,
         updateNegotiatorLoading,
         createNegotiator,
         officeData,
-      )
-      handleDownloadCsv(dataTable as Cell[][], window, document)()
+        headers: tableDownloadHeaders,
+      })
+      handleDownloadCsv(dataTable as Cell[][])()
     })
     .finally(() => {
       setIsDownloading(false)
@@ -421,6 +438,9 @@ export const renderNegotiatorList = ({
           afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
           validate={validate}
         />
+        <small className="has-text-link mb-1">
+          * Please input the cell with background red first when Add New user
+        </small>
       </Section>
 
       <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
@@ -436,14 +456,14 @@ export const prepareTableData = (
   createNegotiator,
   officeData,
 ) => () => {
-  const dataTable = getDataTable(
-    negotiatorData || { GetNegotiators: { _embedded: [] } },
+  const dataTable = getDataTable({
+    data: negotiatorData || { GetNegotiators: { _embedded: [] } },
     updateNegotiator,
     updateNegotiatorLoading,
     createNegotiator,
     officeData,
     setData,
-  )
+  })
   setData(dataTable)
 }
 

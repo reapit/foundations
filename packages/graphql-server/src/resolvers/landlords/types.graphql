@@ -1,10 +1,10 @@
 type Query {
-  GetLandlordById(id: String!, embed: [String!]): LandlordModel!
+  GetLandlordById(id: String!, embed: [LandlordQueryEmbed]): LandlordModel!
   GetLandlords(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [LandlordQueryEmbed]
     id: [String!]
     active: Boolean
     address: String
@@ -44,6 +44,24 @@ type Mutation {
   DeleteLandlordRelationship(id: String!, relationshipId: String!): String
 }
 
+enum LandlordQueryEmbed {
+  appointments
+  documents
+  office
+  properties
+  solicitor
+  source
+}
+
+type EmbeddedLandlordModel {
+  appointments: [AppointmentModel]
+  documents: [DocumentModel]
+  office: OfficeModel
+  properties: [PropertyModel]
+  solicitor: CompanyModel
+  source: SourceModel
+}
+
 type LandlordModel {
   id: String
   created: String
@@ -56,7 +74,7 @@ type LandlordModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedLandlordModel
 }
 
 type LandlordSourceModel {

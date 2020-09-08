@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountStatusSection should match snapshot 1`] = `
-<Component>
+<Component
+  className="pl-0"
+>
   <Component
     id="status"
     name="status"
@@ -10,10 +12,10 @@ exports[`AccountStatusSection should match snapshot 1`] = `
   <Component
     className=""
   >
-    <div>
-      <i
-        className="mb-1"
-      >
+    <div
+      className="pb-1"
+    >
+      <i>
         We are currently verifying your information with our Accounts Department
       </i>
     </div>
@@ -29,7 +31,9 @@ exports[`AccountStatusSection should match snapshot 1`] = `
 `;
 
 exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is no 1`] = `
-<Component>
+<Component
+  className="pl-0"
+>
   <Component
     className="is-italic"
   >
@@ -49,10 +53,10 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
   <Component
     className=""
   >
-    <div>
-      <i
-        className="mb-1"
-      >
+    <div
+      className="pb-1"
+    >
+      <i>
         We are currently verifying your information with our Accounts Department
       </i>
     </div>
@@ -68,7 +72,9 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
 `;
 
 exports[`AccountStatusSection should match snapshot with status !== pending 1`] = `
-<Component>
+<Component
+  className="pl-0"
+>
   <Component
     id="status"
     name="status"

@@ -1,10 +1,9 @@
 {
   "appEnv": "local",
   "sentryDns": "",
-  "platformApiUrl": "",
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
-  "googleMapApiKey": "",
-  "cognitoOAuthUrl": "",
-  "cognitoUserPoolId": ""
+  "cognitoOAuthUrl": "https://dev.connect.reapit.cloud",
+  "cognitoUserPoolId": "eu-west-2_hbt0B7yys",
+  "platformApiUrl": "https://dev.platform.reapit.cloud"
 }

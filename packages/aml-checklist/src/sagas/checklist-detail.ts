@@ -1,11 +1,9 @@
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { fetcher, ErrorData, isBase64, navigateDynamicApp, DynamicLinkParams, isEmptyObject } from '@reapit/elements'
+import { isBase64, navigateDynamicApp, DynamicLinkParams, isEmptyObject, notification } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { errorThrownServer } from '../actions/error'
 import {
   checklistDetailLoading,
   checklistDetailReceiveContact,
@@ -17,138 +15,21 @@ import {
   UpdateContactParams,
   UpdateIdentityCheckParams,
 } from '../actions/checklist-detail'
-import errorMessages from '../constants/error-messages'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
-import {
-  changeTimeZoneLocalForIdentityCheck,
-  changeTimeZoneUTCForIdentityCheck,
-  formatDateForContact,
-} from '@/utils/datetime'
-import { logger } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'
-
-export const fetchChecklist = async ({ id, headers }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.contacts}/${id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: headers,
-    })
-    return response
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
-
-export const fetchIdentityCheck = async ({ contactId, headers }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.idChecks}?ContactId=${contactId}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: headers,
-    })
-    const newResponse = {
-      ...response,
-      _embedded: response?._embedded.map(identityCheck => {
-        return changeTimeZoneLocalForIdentityCheck(identityCheck)
-      }),
-    }
-    return newResponse?._embedded?.[0] || null
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
-
-export const updateChecklist = async ({ contact, headers }) => {
-  try {
-    const formattedContact = formatDateForContact(contact)
-    const { _eTag, ...otherData } = formattedContact
-    const response = await fetcher({
-      url: `${URLS.contacts}/${contact.id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PATCH',
-      headers: {
-        ...headers,
-        'If-Match': _eTag,
-      },
-      body: otherData,
-    })
-    return response
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
-
-export const uploadImage = async ({ name, imageData, headers }) => {
-  // The fileuploader is not a Platform API. As such, api version header will throw if not deleted
-  const headersWithoutVersion = {
-    ...headers,
-  }
-  delete headersWithoutVersion['api-version']
-  try {
-    const response = await fetcher({
-      url: '/',
-      api: window.reapit.config.uploadApiUrl,
-      method: 'POST',
-      headers: headersWithoutVersion,
-      body: {
-        name,
-        imageData,
-      },
-    })
-    return response
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
-
-export const updateIdentityCheck = async ({ identityChecks, headers }) => {
-  try {
-    const { _eTag, ...otherData } = identityChecks
-    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(otherData)
-    const response = await fetcher({
-      url: `${URLS.idChecks}/${identityChecks.id}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'PATCH',
-      headers: {
-        ...headers,
-        'If-Match': _eTag,
-      },
-      body: formatedIdentityChecks,
-    })
-    return response
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
-
-export const createIdentityCheck = async ({ identityChecks, headers }) => {
-  try {
-    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
-    const response = await fetcher({
-      url: URLS.idChecks,
-      api: window.reapit.config.platformApiUrl,
-      method: 'POST',
-      headers: headers,
-      body: formatedIdentityChecks,
-    })
-    return response
-  } catch (err) {
-    logger(err)
-    return err
-  }
-}
+import {
+  createIdentityCheck,
+  fetchChecklist,
+  fetchIdentityCheck,
+  updateChecklist,
+  updateIdentityCheck,
+  uploadImage,
+} from './api'
+import { extractNetworkErrString } from '@reapit/utils'
 
 export const fetchInitialData = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
@@ -161,13 +42,10 @@ export const fetchInitialData = function*({ data: id }) {
     yield put(checklistDetailReceiveContact(contact))
     yield put(checklistDetailReceiveIdentityCheck(identityChecks))
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailLoading(false))
   }
@@ -200,13 +78,10 @@ export const onUpdateChecklist = function*({ data: { nextSection, contact } }: O
       }
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -264,13 +139,10 @@ export const onUpdateAddressHistory = function*({
       }
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -324,13 +196,10 @@ export const onUpdateDeclarationAndRisk = function*({
       }
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -348,7 +217,6 @@ export const fetchDataPepSearch = async ({ name, headers }) => {
     })
     return result
   } catch (err) {
-    logger(err)
     return err
   }
 }
@@ -366,13 +234,10 @@ export const pepSearch = function*({ data }) {
       yield put(checklistDetailShowModal(data.nextSection))
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -445,12 +310,10 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       yield put(checklistDetailHideModal())
     }
   } catch (err) {
-    logger(err)
-    const result: ErrorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR,
-    }
-    yield put(errorThrownServer(result))
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -511,12 +374,10 @@ export const updateSecondaryId = function*({
       yield put(checklistDetailHideModal())
     }
   } catch (err) {
-    logger(err)
-    const result: ErrorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR,
-    }
-    yield put(errorThrownServer(result))
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(checklistDetailSubmitForm(false))
   }
@@ -536,28 +397,40 @@ export const updateIdentityCheckStatus = function*({
   idCheck: IdentityCheckModel
   dynamicLinkParams: DynamicLinkParams
 }>) {
-  const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
-  const headers = yield call(initAuthorizedRequestHeaders)
-  yield put(checklistDetailSubmitForm(true))
+  try {
+    const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const headers = yield call(initAuthorizedRequestHeaders)
+    yield put(checklistDetailSubmitForm(true))
 
-  if (idCheck) {
-    const newIdCheck = {
-      ...existingIdCheck,
-      ...idCheck,
+    if (idCheck) {
+      const newIdCheck = {
+        ...existingIdCheck,
+        ...idCheck,
+      }
+      // delete metadata to avoid validation error
+      if (newIdCheck?.metadata && Object.keys(newIdCheck?.metadata).length < 1) {
+        delete newIdCheck.metadata
+      }
+      const responseIdentityCheck = yield call(updateIdentityCheck, {
+        headers,
+        identityChecks: newIdCheck,
+      })
+      if (responseIdentityCheck) {
+        yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
+      }
+      if (dynamicLinkParams.appMode === 'DESKTOP') {
+        yield call(navigateDynamicApp, dynamicLinkParams)
+      }
+      yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
     }
-    const responseIdentityCheck = yield call(updateIdentityCheck, {
-      headers,
-      identityChecks: newIdCheck,
+  } catch (err) {
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
     })
-    if (responseIdentityCheck) {
-      yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
-    }
-    if (dynamicLinkParams.appMode === 'DESKTOP') {
-      yield call(navigateDynamicApp, dynamicLinkParams)
-    }
-    yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
+  } finally {
+    yield put(checklistDetailSubmitForm(false))
   }
-  yield put(checklistDetailSubmitForm(false))
 }
 
 export const updateAddressHistoryListen = function*() {

@@ -5,6 +5,8 @@ import {
   selectDeveloperId,
   selectLoggedUserEmail,
   selectDeveloperEditionId,
+  selectLoggedUserName,
+  selectLoggedUserCompanyName,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
 
@@ -13,14 +15,16 @@ describe('auth', () => {
     it('run correctly', () => {
       expect(selectLoginIdentity(auth)).toEqual(auth.loginIdentity)
     })
-    it('selectLoginIdentity', () => {
-      expect(selectIsAdmin(auth)).toBeTruthy()
-      expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, adminId: '' } })).toBeFalsy()
-    })
   })
   describe('selectIsAdmin', () => {
     it('should return correctly', () => {
-      expect(selectIsAdmin(auth)).toEqual(!!auth.loginIdentity.adminId)
+      expect(
+        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'] } }),
+      ).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
     })
   })
   describe('selectClientId', () => {
@@ -41,6 +45,16 @@ describe('auth', () => {
   describe('selectDeveloperEditionId', () => {
     it('should run correctly', () => {
       expect(selectDeveloperEditionId(auth)).toEqual(auth.loginIdentity.developerId)
+    })
+  })
+  describe('selectLoggedUserName', () => {
+    it('should run correctly', () => {
+      expect(selectLoggedUserName(auth)).toEqual(auth.loginIdentity.name)
+    })
+  })
+  describe('selectLoggedUserCompanyName', () => {
+    it('should run correctly', () => {
+      expect(selectLoggedUserCompanyName(auth)).toEqual(auth.loginIdentity.orgName)
     })
   })
 })

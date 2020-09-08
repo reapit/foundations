@@ -78,7 +78,6 @@ const webpackConfig = {
               cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
             },
           },
-          'thread-loader',
           {
             loader: 'babel-loader',
             options: babelLoaderOptions,

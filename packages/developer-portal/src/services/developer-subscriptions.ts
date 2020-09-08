@@ -27,7 +27,7 @@ export const fetchSubscriptionsList = async (
       url: `${URLS.developerSubscriptions}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response as PagedResultSubscriptionModel_
   } catch (error) {
@@ -43,7 +43,7 @@ export const createDeveloperSubscription = async (params: CreateSubscriptionMode
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -59,7 +59,7 @@ export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
       url: `${URLS.developerSubscriptions}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

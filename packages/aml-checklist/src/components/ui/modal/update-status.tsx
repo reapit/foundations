@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { Button, DynamicLinkParams, AcButton, EntityType } from '@reapit/elements'
+import { DynamicLinkParams, AcButton, EntityType } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
@@ -61,19 +61,6 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
         >
           ID Check Successful
         </AcButton>
-        <Button
-          type="button"
-          variant="primary"
-          className={styles.returnBtn}
-          onClick={() => {
-            window.location.href =
-              window.location.href.includes('dev') || window.location.href.includes('localhost')
-                ? `https://dev.lifetime-legal-app.reapit.cloud/profile/${id}`
-                : `https://lifetime-legal-app.reapit.cloud/profile/${id}`
-          }}
-        >
-          Refer to Lifetime Legal
-        </Button>
       </div>
     </>
   )

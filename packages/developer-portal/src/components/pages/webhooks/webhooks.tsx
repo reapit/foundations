@@ -16,8 +16,7 @@ import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from './webhook-edit-modal'
 import { selectDeveloper } from '@/selector/developer'
 import WebhookTestModal from './webhook-test-modal'
-import styles from '@/styles/elements/link.scss?mod'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link, hyperlinked } from '@/styles/elements/link'
 import Routes from '@/constants/routes'
 import { selectAppListState } from '@/selector/apps/app-list'
 import { fetchWebhooksTopics } from '@/actions/webhooks-topics'
@@ -132,7 +131,7 @@ export const getTableTopicsData = ({
     topics: renderTopicName(topics, subscription.topicIds as string[]),
     customer: renderCustomerName(subscription.customerIds as string[]),
     test: (
-      <a className={styles.hyperlinked} onClick={() => handleOpenTestModal(subscription.id as string)}>
+      <a className={hyperlinked} onClick={() => handleOpenTestModal(subscription.id as string)}>
         Ping
       </a>
     ),
@@ -204,13 +203,8 @@ export const DeveloperWebhooks = () => {
         <FormSubHeading>
           This system is designed to flexibly work with how your application is built and deployed. If you wish, you can
           set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
-          different webhook subscription per topic or per customer. For more information about Webhooks, please see our
-          <a
-            className={linkStyles.link}
-            href={`${Routes.API_DOCS}/api/webhooks`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          different webhook subscription per topic or per customer. For more information about Webhooks, please see our{' '}
+          <a className={link} href={`${Routes.API_DOCS}/api/webhooks`} target="_blank" rel="noopener noreferrer">
             webhooks documentation
           </a>
         </FormSubHeading>

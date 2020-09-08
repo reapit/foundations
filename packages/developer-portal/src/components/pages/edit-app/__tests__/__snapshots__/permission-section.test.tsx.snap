@@ -13,7 +13,7 @@ exports[`MarketplaceStatusSection MarketplaceStatusSection should match a snapsh
     />
   </Component>
   <div
-    className="has-text-danger has-text-right undefined"
+    className="has-text-danger has-text-right w-100"
     data-test="input-error"
   >
     test
@@ -41,7 +41,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
       />
     </Component>
     <div
-      className="has-text-danger has-text-right undefined"
+      className="has-text-danger has-text-right w-100"
       data-test="input-error"
     >
       test

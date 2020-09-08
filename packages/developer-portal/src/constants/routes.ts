@@ -1,7 +1,6 @@
 const Routes = {
   AUTHENTICATION: '/authentication',
   AUTHENTICATION_LOGIN_TYPE: '/authentication/:loginType',
-  DEVELOPER: '/',
   WELCOME: '/welcome',
   APPS: '/apps',
   APP_DETAIL: '/apps/:appid',
@@ -14,6 +13,7 @@ const Routes = {
   RESET_PASSWORD: '/reset-password',
   WEBHOOKS: '/webhooks',
   SETTINGS: '/settings/',
+  SETTINGS_PROFILE_TAB: '/settings/profile',
   SETTINGS_ORGANISATION_TAB: '/settings/organisation',
   SETTINGS_BILLING_TAB: '/settings/billing',
   SUBMIT_APP: '/submit-app',

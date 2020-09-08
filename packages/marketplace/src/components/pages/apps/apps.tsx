@@ -19,7 +19,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
-import styles from '@/styles/pages/apps.scss?mod'
+import * as styles from './__styles__'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.5
 
@@ -45,7 +45,6 @@ export const handleLoadMore = ({
   numOfItemsPerPage: number
   pageNumber: number
 }) => () => {
-  console.log('------handleLoadMore------ -> loading', loading)
   !loading &&
     dispatch(fetchApps({ pageNumber: pageNumber + 1, preview, isInfinite: true, pageSize: numOfItemsPerPage }))
 }
@@ -80,12 +79,10 @@ export const Apps: React.FunctionComponent = () => {
 
   const scrollThreshold = comingSoonAppSectionHeight > 0 ? `${comingSoonAppSectionHeight}px` : DEFAULT_SCROLL_THRESHOLD
 
-  console.log('scrollThreshold', scrollThreshold)
-
   return (
     <ErrorBoundary>
       <Section
-        className={styles['app-list']}
+        className={styles.appList}
         isFlex
         isFlexColumn
         hasPadding={false}

@@ -3,7 +3,7 @@
 exports[`Swagger should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div
-    className="swagger"
+    className=""
   >
     <Component />
     <div

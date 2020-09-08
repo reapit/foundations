@@ -15,6 +15,7 @@ import { fetchTrafficStatistics } from '@/actions/traffic-statistics'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { SANDBOX_CLIENT_ID, SANDBOX_CLIENT_NAME } from '@/constants/api'
 
 const mockProps: FilterFormProps = {
   initialValues: {
@@ -23,7 +24,7 @@ const mockProps: FilterFormProps = {
     clientId: '',
     appId: '',
   },
-  clientIds: ['DXX'],
+  installationAppDataArray: [{ customerId: 'DXX', customerName: 'DXX' }],
   developerApps: appsDataStub.data.data || [],
 }
 
@@ -49,14 +50,14 @@ describe('FilterForm', () => {
 
   describe('handleAutoSave', () => {
     it('should run correctly', () => {
-      const { developerApps, clientIds } = mockProps
+      const { developerApps, installationAppDataArray } = mockProps
       const mockFormValues = {
         dateFrom: '2020-03-23',
         dateTo: '2020-03-29',
         clientId: '',
         appId: '',
       }
-      const fn = handleAutoSave(developerApps, clientIds, spyDispatch)
+      const fn = handleAutoSave(developerApps, installationAppDataArray, spyDispatch)
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
@@ -80,14 +81,14 @@ describe('FilterForm', () => {
     })
 
     it('should run correctly', () => {
-      const { developerApps, clientIds } = mockProps
+      const { developerApps, installationAppDataArray } = mockProps
       const mockFormValues = {
         dateFrom: '2020-03-23',
         dateTo: '2020-03-29',
         clientId: ['testClientId'],
         appId: ['testAppId'],
       }
-      const fn = handleAutoSave(developerApps, clientIds, spyDispatch)
+      const fn = handleAutoSave(developerApps, installationAppDataArray, spyDispatch)
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
@@ -133,17 +134,15 @@ describe('FilterForm', () => {
   })
   describe('renderClientSelectOptions', () => {
     it('should run correctly', () => {
-      const { clientIds } = mockProps
-      const clientOptions = renderClientSelectOptions(clientIds)
+      const { installationAppDataArray } = mockProps
+      const clientOptions = renderClientSelectOptions(installationAppDataArray)
       expect(clientOptions).toEqual([
         {
           label: 'All',
           value: '',
         },
-        {
-          label: 'DXX',
-          value: 'DXX',
-        },
+        { value: SANDBOX_CLIENT_ID, label: SANDBOX_CLIENT_NAME },
+        { value: 'DXX', label: 'DXX' },
       ])
     })
   })

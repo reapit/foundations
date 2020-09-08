@@ -21,7 +21,6 @@ foundations-ts-definitons:
 
 geo-diary:
   - packages/geo-diary/**
-  - packages/geo-diary-v2/**
 
 aml-checklist:
   - packages/aml-checklist/**

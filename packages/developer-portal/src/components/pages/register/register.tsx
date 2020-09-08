@@ -18,6 +18,7 @@ import {
   Formik,
   FormikTouched,
   DATE_TIME_FORMAT,
+  FlexContainerBasic,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
@@ -25,14 +26,12 @@ import { developerCreate, developerSetFormState } from '@/actions/developer'
 import CallToAction from '@/components/ui/call-to-action'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
-import loginStyles from '@/styles/pages/login.scss?mod'
+import { container, wrapper, image } from './__styles__/register'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
-
-const { container, wrapper, image } = loginStyles
 
 export type RegisterProps = {}
 
@@ -103,17 +102,19 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
     <div className={container}>
       <div className={wrapper}>
         <H1 isCentered>Register</H1>
-        <p className="pb-8">Reapit Foundations developers</p>
+        <p className="mb-4">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
-          <CallToAction
-            title="Success!"
-            buttonText="Login"
-            dataTest="register-success-message"
-            onButtonClick={onLoginButtonClick(history)}
-            isCenter
-          >
-            <div className="mb-3">Check your email to confirm your account</div>
-          </CallToAction>
+          <FlexContainerBasic centerContent>
+            <CallToAction
+              title="Success!"
+              buttonText="Login"
+              dataTest="register-success-message"
+              onButtonClick={onLoginButtonClick(history)}
+              isCenter
+            >
+              <div className="mb-3">Check your email to confirm your account</div>
+            </CallToAction>
+          </FlexContainerBasic>
         ) : (
           <>
             <Formik

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Button, Modal, ModalProps } from '@reapit/elements'
-import styles from '@/styles/blocks/term-and-conditions-modal.scss?mod'
 import { TermAndConditions } from './term-and-conditions'
 import { Schedule1 } from './schedule1'
 import { Schedule2 } from './schedule2'
+import { headingParagraph } from './__styles__/termsAndConditionsModal'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
@@ -41,7 +41,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
       }
     >
       <React.Fragment>
-        <p className={styles['heading-paragraph']}>
+        <p className={headingParagraph}>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
           incorporate the Registration Details, to the exclusion of all other terms.
         </p>

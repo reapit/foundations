@@ -12,7 +12,7 @@ const props = {
   Component,
   routerProps: {
     match: {
-      path: Routes.DEVELOPER,
+      path: Routes.APPS,
       params: { page: 1 },
     },
     location: {

@@ -4,7 +4,6 @@ import { CostCalculatorFormValues } from './cost-calculator-form'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
 import { Table, Grid, GridItem, H6, H5, Button, Section } from '@reapit/elements'
 import useFoundationCostTable, { endpointsUsedRange } from './use-foundation-cost-table'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
@@ -35,9 +34,9 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({ formValues: { endpoints
           <Button type="button" variant="secondary" onClick={toggleShowTable(isTableExpanded, setIsTableExpanded)}>
             <span>See calculation</span>
             {isTableExpanded ? (
-              <FaCaretUp className={styles.seeCalcullationButtonIcon} />
+              <FaCaretUp className="v-align-middle ml-1" />
             ) : (
-              <FaCaretDown className={styles.seeCalcullationButtonIcon} />
+              <FaCaretDown className="v-align-middle ml-1" />
             )}
           </Button>
         </GridItem>

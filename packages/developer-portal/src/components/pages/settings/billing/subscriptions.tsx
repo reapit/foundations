@@ -3,7 +3,7 @@ import { H5, Table, getDate, Loader, Section } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
-import styles from '@/styles/elements/link.scss?mod'
+import { hyperlinked } from '@/styles/elements/link'
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
@@ -58,7 +58,7 @@ export const genarateTableData = (subscriptions: SubscriptionModel[] = [], onCan
   return subscriptions.map(subscription => ({
     ...subscription,
     cancel: !subscription.cancelled && (
-      <a className={styles.hyperlinked} data-test="button-cancel" onClick={() => onCancel(subscription.id)}>
+      <a className={hyperlinked} data-test="button-cancel" onClick={() => onCancel(subscription.id)}>
         Cancel
       </a>
     ),
@@ -115,7 +115,7 @@ export const Subcriptions: React.FC = () => {
       ) : (
         <Section>
           <H5>Subscriptions</H5>
-          <p className="is-italic">
+          <p className="is-italic mb-4">
             The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta
             Phase you can use the table below to view and manage your Developer Portal Subscriptions.
           </p>

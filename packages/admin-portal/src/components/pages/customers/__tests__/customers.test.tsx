@@ -8,12 +8,16 @@ import {
   CheckMarkCell,
   LogoUploadButtonCell,
   CustomersFilterForm,
+  renderContent,
+  columns,
+  refreshForm,
 } from '../customers'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
+import { customersList } from '@/sagas/customers/__stubs__/customers-list'
 import { History } from 'history'
 
 const historyMock = ({
@@ -77,6 +81,15 @@ describe('Customers', () => {
       ),
     ).toMatchSnapshot()
   })
+
+  describe('renderContent', () => {
+    const mockProps = {
+      customerData: customersList.data,
+      columns,
+    }
+    const wrapper = shallow(<div>{renderContent(mockProps)}</div>)
+    expect(wrapper).toMatchSnapshot()
+  })
 })
 
 describe('onSearchHandler', () => {
@@ -134,7 +147,23 @@ describe('CheckMarkCell', () => {
 
 describe('CustomersFilterForm', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} />)
+    const history = {
+      push: jest.fn(),
+    } as any
+    const wrapper = shallow(
+      <CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} history={history} />,
+    )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('refreshForm', () => {
+  it('should return correctly', () => {
+    const history = {
+      push: jest.fn(),
+    }
+    const fn = refreshForm(history)
+    fn()
+    expect(history.push).toBeCalledWith(Routes.CUSTOMERS)
   })
 })

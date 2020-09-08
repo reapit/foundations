@@ -59,12 +59,16 @@ export type FetchBillingsByMonthParams = {
 }
 
 export const fetchBillings = async (params: FetchBillingsParams): Promise<BillingSummaryModel> => {
+  const api =
+    window.reapit.config.appEnv === 'production'
+      ? window.reapit.config.platformApiUrl
+      : window.reapit.config.marketplaceApiUrl
   try {
     const response = await fetcher({
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api,
       method: 'GET',
-      headers: generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -76,13 +80,17 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
 export const fetchBillingsByMonth = async (
   params: FetchBillingsByMonthParams,
 ): Promise<BillingBreakdownForMonthV2Model> => {
+  const api =
+    window.reapit.config.appEnv === 'production'
+      ? window.reapit.config.platformApiUrl
+      : window.reapit.config.marketplaceApiUrl
   try {
     const { month, ...rest } = params
     const response = await fetcher({
       url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(rest)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api,
       method: 'GET',
-      headers: generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaderWithApiV2(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

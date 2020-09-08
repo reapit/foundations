@@ -21,7 +21,9 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
   const traceId = context.traceId
   logger.info('callGetContactByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetContactByIdReturn>(`${URLS.contacts}/${args.id}`, {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetContactByIdReturn>(`${URLS.contacts}/${id}?${params}`, {
       headers: {
         Authorization: context.authorization,
       },

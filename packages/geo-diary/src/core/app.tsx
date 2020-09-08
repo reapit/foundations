@@ -1,18 +1,9 @@
-import '../styles/index.scss'
-import React from 'react'
-import { Provider } from 'react-redux'
+import * as React from 'react'
 import Router from './router'
-import { PortalProvider } from '@reapit/elements'
-import store from './store'
+import './__styles__'
 
 const App = () => {
-  return (
-    <Provider store={store.reduxStore}>
-      <PortalProvider>
-        <Router />
-      </PortalProvider>
-    </Provider>
-  )
+  return <Router />
 }
 
 export default App

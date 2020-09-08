@@ -20,10 +20,6 @@ export type FetchAppsParams = FetchListCommonParams & {
   registeredFrom?: string
   registeredTo?: string
 }
-/*
- * TODOME(fetchApps)
- * throw correct error
- */
 
 export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResultAppSummaryModel_> => {
   try {
@@ -31,7 +27,7 @@ export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResult
       url: `${URLS.apps}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -43,10 +39,6 @@ export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResult
 export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
-/*
- * TODOME(fetchAppDetailSagas)
- * throw correct error
- */
 
 export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
@@ -55,7 +47,7 @@ export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDe
       url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

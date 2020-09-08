@@ -13,6 +13,7 @@ export const mockLoginIdentity = {
   adminId: 'SOME_ADMIN_ID',
   userCode: 'SOME_USER_ID',
   groups: [],
+  orgName: 'reapit ltd',
 }
 
 export const mockBrowserSession: ReapitConnectSession = {
@@ -43,7 +44,6 @@ export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = 
 export const mockServerInitializers: ReapitConnectServerSessionInitializers = {
   connectClientId: 'SOME_CLIENT_ID',
   connectOAuthUrl: 'SOME_URL',
-  connectUserPoolId: 'SOME_USER_POOL_ID',
   connectClientSecret: 'SOME_SECRET',
 }
 

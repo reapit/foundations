@@ -1,7 +1,11 @@
-service: deploy-slack-bot
+service: cloud-deploy-slack-bot
 plugins:
   - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
 custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
@@ -14,12 +18,11 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: deploy-slack-bot-${self:provider.stage}
-    blockPublicAccess: false
+    name: ${self:custom.s3CloudFormBucket}
   environment:
     NODE_ENV: 'production'
     REPO_DISPATCH_API: ${self:custom.env.REPO_DISPATCH_API}

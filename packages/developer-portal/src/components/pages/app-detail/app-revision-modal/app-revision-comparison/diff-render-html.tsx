@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styles from '@/styles/blocks/diff-render-html.scss?mod'
+import { cx } from 'linaria'
 import { HTMLRender } from '@reapit/elements'
+import { red, green, diffRenderBlock, arrow, diffRenderHtmlContainer } from './__styles__/pending-revision-comparison'
 
 export interface DiffRenderHTMLProps {
   currentString?: string
@@ -10,10 +11,10 @@ export interface DiffRenderHTMLProps {
 const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLProps) => {
   const isDiff = currentString !== changedString
   return (
-    <div className={styles.container}>
-      <HTMLRender className={`${styles.diffRenderBlock} ${isDiff ? styles.red : ''}`} html={currentString || ''} />
-      <span className={styles.arrow}>&#8594;</span>
-      <HTMLRender className={`${styles.diffRenderBlock} ${isDiff ? styles.green : ''}`} html={changedString || ''} />
+    <div className={diffRenderHtmlContainer}>
+      <HTMLRender className={cx(diffRenderBlock, isDiff && red)} html={currentString || ''} />
+      <span className={arrow}>&#8594;</span>
+      <HTMLRender className={cx(diffRenderBlock, isDiff && green)} html={changedString || ''} />
     </div>
   )
 }

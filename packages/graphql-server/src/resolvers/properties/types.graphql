@@ -183,7 +183,20 @@ type PropertyModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedPropertyModel
+}
+
+type EmbeddedPropertyModel {
+  appointments: [AppointmentModel]
+  area: AreaModel
+  department: DepartmentModel
+  documents: [DocumentModel]
+  images: [PropertyImageModel]
+  landlord: LandlordModel
+  negotiator: NegotiatorModel
+  offers: [OfferModel]
+  tenancies: [TenancyModel]
+  vendor: VendorModel
 }
 
 type PropertyModelAddress {
@@ -259,12 +272,25 @@ type PropertyRoomModel {
   description: String
 }
 
+enum PropertyQueryEmbed {
+  appointments
+  area
+  department
+  documents
+  images
+  landlord
+  negotiator
+  offers
+  tenancies
+  vendor
+}
+
 type Query {
   GetProperties(
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String!]
+    embed: [PropertyQueryEmbed]
     id: [String!]
     age: [String!]
     agentRole: [String!]
@@ -289,5 +315,5 @@ type Query {
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
 
-  GetPropertyById(id: String!, embed: [String!]): PropertyModel!
+  GetPropertyById(id: String!, embed: [PropertyQueryEmbed]): PropertyModel!
 }

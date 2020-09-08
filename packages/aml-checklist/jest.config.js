@@ -16,6 +16,8 @@ module.exports = {
     '<rootDir>/src/tests',
     '.d.ts',
     'index.tsx',
+    'index.ts',
+    'api.ts',
   ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageThreshold: {

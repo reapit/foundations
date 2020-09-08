@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Grid, GridItem, SubTitleH6, Content, ModalV2 } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 
 export type ContactDeveloperSectionType = {
   contact: {
@@ -70,12 +70,7 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a
-                  className={linkStyles.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`mailto:${supportEmail}`}
-                >
+                <a className={link} target="_blank" rel="noopener noreferrer" href={`mailto:${supportEmail}`}>
                   {supportEmail}
                 </a>
               </p>
@@ -87,7 +82,7 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
+                <a className={link} href={homePage} target="_blank" rel="noopener noreferrer">
                   {homePage}
                 </a>
               </p>

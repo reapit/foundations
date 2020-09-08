@@ -2,7 +2,7 @@
 
 exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
 <Component
-  className=" "
+  className=""
   data-test="app-list-container"
 >
   <Component
@@ -74,7 +74,7 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
 
 exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
 <div
-  className="undefined "
+  className=""
 >
   <InstalledAppCard
     app={

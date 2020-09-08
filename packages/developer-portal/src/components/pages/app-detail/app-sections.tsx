@@ -9,7 +9,6 @@ import {
 import { AppDetailSection, Tag, ImageSection } from './app-ui-helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
-import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import {
   LevelRight,
   Button,
@@ -23,6 +22,7 @@ import {
 } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
+import { check, preview } from './__styles__/app-detail'
 
 interface IsSidebar {
   isSidebar?: boolean
@@ -125,7 +125,7 @@ export const StatusSection: React.FC<StatusSectionProps> = ({ isListed, isSideba
     <div>
       {isListed ? (
         <>
-          Listed <FaCheck className={styles.check} />
+          Listed <FaCheck className={check} />
         </>
       ) : (
         'Not listed'
@@ -150,7 +150,7 @@ export const ListingPreviewSection: React.FC<ListingPreviewSectionProps> = ({ on
       headerText={
         <>
           <span className="mr-2">See listing preview</span>{' '}
-          <a className={styles.preview} href="#" onClick={onListingPreviewClick}>
+          <a className={preview} href="#" onClick={onListingPreviewClick}>
             <FaExternalLinkAlt />
           </a>
         </>

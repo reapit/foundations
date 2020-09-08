@@ -1,6 +1,5 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
 import {
   developerSetFormState,
   setMyIdentity,
@@ -10,7 +9,6 @@ import {
   fetchMonthlyBillingFailure,
   developerSetWebhookPingStatus,
 } from '@/actions/developer'
-import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
@@ -23,6 +21,7 @@ import {
   FetchBillingsByMonthParams,
 } from '@/services/billing'
 import { getDeveloperId } from '@/utils/session'
+import { notification } from '@reapit/elements'
 
 export const developerCreate = function*({ data }: Action<CreateDeveloperModel>) {
   yield put(developerSetFormState('SUBMITTING'))
@@ -32,14 +31,11 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
   } catch (err) {
-    logger(err)
     yield put(developerSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -54,13 +50,10 @@ export const fetchMyIdentitySagas = function*() {
       yield put(setMyIdentity(developerIdentity))
     }
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -69,14 +62,11 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>
     const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
   } catch (err) {
-    logger(err)
     yield put(fetchBillingFailure(err))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -85,14 +75,11 @@ export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillings
     const billingResponse = yield call(fetchBillingsByMonth, data)
     yield put(fetchMonthlyBillingSuccess(billingResponse))
   } catch (err) {
-    logger(err)
     yield put(fetchMonthlyBillingFailure(err))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -102,7 +89,6 @@ export const developerWebhookPing = function*({ data }: Action<PingWebhooksByIdP
     yield call(pingWebhooksById, data)
     yield put(developerSetWebhookPingStatus('SUCCESS'))
   } catch (err) {
-    logger(err)
     yield put(developerSetWebhookPingStatus('FAILED'))
   }
 }

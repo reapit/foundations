@@ -89,7 +89,19 @@ type ApplicantModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedApplicantModel
+}
+
+type EmbeddedApplicantModel {
+  appointments: [AppointmentModel]
+  areas: [AreaModel]
+  department: DepartmentModel
+  documents: [DocumentModel]
+  negotiators: [NegotiatorModel]
+  offers: [OfferModel]
+  offices: [OfficeModel]
+  solicitor: CompanyModel
+  source: SourceModel
 }
 
 type PagedResultApplicantModel {
@@ -127,7 +139,7 @@ type Query {
     pageSize: Int
     pageNumber: Int
     sortBy: String
-    embed: [String]
+    embed: [ApplicantQueryEmbed]
     id: [String]
     age: [String]
     furnishing: [String]
@@ -158,9 +170,21 @@ type Query {
     metadata: [String]
   ): PagedResultApplicantModel!
 
-  GetApplicantById(id: String!, embed: [String]): ApplicantModel!
+  GetApplicantById(id: String!, embed: [ApplicantQueryEmbed]): ApplicantModel!
   GetApplicantRelationshipById(id: String!, relationshipId: String!): ApplicantContactRelationshipModel!
   GetApplicantRelationships(id: String!, pageSize: Int, pageNumber: Int): PagedResultApplicantContactRelationshipModel!
+}
+
+enum ApplicantQueryEmbed {
+  appointments
+  areas
+  department
+  documents
+  negotiators
+  offers
+  offices
+  solicitor
+  source
 }
 
 input ApplicantAddressInput {

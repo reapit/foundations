@@ -2,7 +2,8 @@ import * as React from 'react'
 import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
+import * as styles from '../__styles__/standalone-app-detail'
+
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
@@ -38,7 +39,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
           </div>
         </div>
       </GridItem>
-      <GridItem className="flex items-center">
+      <GridItem className="items-center">
         <img src={featureImageSrc || featureImagePlaceHolder} alt="Featured Image" />
       </GridItem>
     </Grid>

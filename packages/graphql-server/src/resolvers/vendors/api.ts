@@ -26,7 +26,9 @@ export const callGetVendorByIdAPI = async (args: GetVendorByIdArgs, context: Ser
   const traceId = context.traceId
   logger.info('callGetVendorByIdAPI', { traceId, args })
   try {
-    const response = await createPlatformAxiosInstance().get<GetVendorByIdReturn>(`${URLS.vendors}/${args.id}`, {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
+    const response = await createPlatformAxiosInstance().get<GetVendorByIdReturn>(`${URLS.vendors}/${id}?${params}`, {
       headers: {
         Authorization: context.authorization,
       },

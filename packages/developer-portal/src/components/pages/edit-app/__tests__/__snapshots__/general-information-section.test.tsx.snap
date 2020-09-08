@@ -38,7 +38,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className={[Function]}
+                    className=""
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -132,7 +132,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field pb-2"
+                            className=""
                           >
                             <div
                               className="control"
@@ -378,7 +378,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -422,7 +424,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       </Component>
                     </div>
                   </Component>
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -448,7 +452,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         id="description"
                         labelText="Description"
                         name="description"
-                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                        placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                         required={false}
                       >
                         <div
@@ -485,7 +489,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               onBlur={[Function]}
                               onChange={[Function]}
                               onPaste={[Function]}
-                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                             >
                               <div
                                 className="pell false "
@@ -548,7 +552,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className={[Function]}
+                    className=""
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -642,7 +646,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field pb-2"
+                            className=""
                           >
                             <div
                               className="control"
@@ -888,7 +892,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -931,7 +937,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       </Component>
                     </div>
                   </Component>
-                  <Component>
+                  <Component
+                    className="is-half-desktop"
+                  >
                     <div
                       className=""
                       data-test=""
@@ -957,7 +965,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         id="description"
                         labelText="Description"
                         name="description"
-                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                        placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                         required={true}
                       >
                         <div
@@ -994,7 +1002,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               onBlur={[Function]}
                               onChange={[Function]}
                               onPaste={[Function]}
-                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                             >
                               <div
                                 className="pell false "

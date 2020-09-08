@@ -7,6 +7,7 @@ export type UpdateContactArgs = { id: string; _eTag: string } & UpdateContactMod
 
 export type GetContactByIdArgs = {
   id: string
+  embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
 }
 
 export type GetContactsArgs = {
@@ -23,6 +24,7 @@ export type GetContactsArgs = {
   active?: boolean
   createdFrom?: string
   createdTo?: string
+  embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
 }
 
 // api return type

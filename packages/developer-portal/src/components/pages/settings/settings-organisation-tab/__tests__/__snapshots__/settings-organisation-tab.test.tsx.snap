@@ -29,7 +29,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                   "active": false,
                   "displayText": "Profile",
                   "onTabClick": [Function],
-                  "tabIdentifier": "/settings/",
+                  "tabIdentifier": "/settings/profile",
                 },
                 Object {
                   "active": false,
@@ -53,12 +53,12 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
               <ul>
                 <li
                   className=""
-                  key="/settings/"
+                  key="/settings/profile"
                 >
                   <a
-                    aria-controls="/settings/"
+                    aria-controls="/settings/profile"
                     aria-selected={false}
-                    id="/settings/"
+                    id="/settings/profile"
                     onClick={[Function]}
                     role="tab"
                   >

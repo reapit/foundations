@@ -1,0 +1,22 @@
+fragment AppointmentModel on AppointmentModel {
+  id
+  created
+  modified
+  start
+  end
+  typeId
+  description
+  recurring
+  cancelled
+  propertyId
+  organiserId
+  negotiatorIds
+  officeIds
+  accompanied
+  negotiatorConfirmed
+  attendeeConfirmed
+  propertyConfirmed
+  metadata
+  _eTag
+  _links
+}

@@ -14,7 +14,6 @@ import createSagaMiddleware from 'redux-saga'
 import { all, fork } from '@redux-saga/core/effects'
 
 import checklistDetail from '@/reducers/checklist-detail'
-import error from '@/reducers/error'
 import result from '@/reducers/result'
 import identityTypes from '@/reducers/identity-types'
 
@@ -39,7 +38,6 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers({
-    error,
     result,
     checklistDetail,
     identityTypes,

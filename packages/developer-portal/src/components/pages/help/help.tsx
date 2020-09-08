@@ -1,5 +1,5 @@
 import * as React from 'react'
-import initChatBot from '../../../scripts/chat-bot'
+import { initChatBot, openChatbot } from '../../../scripts/chat-bot'
 import { history } from '@/core/router'
 import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
@@ -10,10 +10,10 @@ import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import roadmapImg from '@/assets/images/help/time-line.jpg'
 import whatNewImg from '@/assets/images/help/what-new.png'
-import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
+import HelpItemList, { HelpItem } from '@/components/ui/help-item-list'
 
 import { selectLoginIdentity } from '@/selector/auth'
-import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const handleGotoWelcomeGuide = () => {
@@ -36,11 +36,11 @@ export const handleWhatsNew = () => {
   window.open(HelpLinks.WHATS_NEW, '_blank')
 }
 
-export const handleFaq = (loginIdentity?: LoginIdentity) => {
-  initChatBot(loginIdentity)
+export const handleFaq = () => {
+  openChatbot()
 }
 
-export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
+export const helpItems = (): HelpItem[] => [
   {
     imgSrc: welcomeImg,
     header: 'Welcome Guide',
@@ -80,7 +80,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
       'If you have a question that is not covered in the documentation you can ask here. Please note ' +
       'we don’t provide chat support for Agency Cloud Developer Edition.',
     buttonText: 'START CHAT',
-    buttonOnClick: () => handleFaq(loginIdentity),
+    buttonOnClick: () => handleFaq(),
   },
   {
     imgSrc: whatNewImg,
@@ -97,10 +97,17 @@ export type DeveloperHelpPageProps = {}
 export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
+
+  React.useEffect(() => {
+    if (loginIdentity.developerId) {
+      initChatBot(loginIdentity)
+    }
+  }, [loginIdentity])
+
   return (
     <>
       <H3 isHeadingSection>Help</H3>
-      <HelpItemList items={helpItems(loginIdentity)} />
+      <HelpItemList items={helpItems()} />
     </>
   )
 }

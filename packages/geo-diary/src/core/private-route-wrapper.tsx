@@ -1,78 +1,41 @@
 import * as React from 'react'
-import { RouteComponentProps } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import pageContainerStyles from '../styles/pages/page-container.scss?mod'
-import { Loader, AppNavContainer, Section } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
-import { authSetRefreshSession } from '../actions/auth'
-import { Dispatch } from 'redux'
-import { withRouter } from 'react-router'
-import { redirectToOAuth } from '@reapit/cognito-auth'
+import { Loader, AppNavContainer } from '@reapit/elements'
+import ErrorBoundary from './error-boundary'
+import { Redirect, useLocation } from 'react-router'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
+import { ApolloProvider } from '@apollo/react-hooks'
+import getClient from '@/graphql/client'
 
 const { Suspense } = React
 
-export interface PrivateRouteWrapperConnectActions {
-  setRefreshSession: (refreshParams: RefreshParams) => void
-}
+export type PrivateRouteWrapperProps = {}
 
-export interface PrivateRouteWrapperConnectState {
-  hasSession: boolean
-  isDesktopMode: boolean
-}
+export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ children }) => {
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const location = useLocation()
+  const currentUri = `${location.pathname}${location.search}`
+  const accessToken = connectSession?.accessToken || ''
 
-export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
-  PrivateRouteWrapperConnectActions &
-  RouteComponentProps & {
-    path: string
-  }
-
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
-  setRefreshSession,
-  children,
-  location,
-  isDesktopMode,
-  hasSession,
-}) => {
-  const cognitoClientId = window.reapit.config.cognitoClientId
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
-
-  if (refreshParams && !hasSession) {
-    setRefreshSession(refreshParams)
+  if (!connectSession) {
     return null
   }
 
-  if (!hasSession) {
-    redirectToOAuth(cognitoClientId)
-    return null
+  if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
+    return <Redirect to={connectInternalRedirect} />
   }
-
-  const { isDesktop } = pageContainerStyles
 
   return (
-    <AppNavContainer className={`${isDesktopMode ? isDesktop : ''}`}>
-      <Menu />
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      >
-        {children}
-      </Suspense>
-    </AppNavContainer>
+    <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
+      <AppNavContainer>
+        <Menu />
+        <Suspense fallback={<Loader body />}>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </Suspense>
+      </AppNavContainer>
+    </ApolloProvider>
   )
 }
 
-const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
-  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
-})
-
-const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
-  setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRouteWrapper))
+export default PrivateRouteWrapper

@@ -214,7 +214,12 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         updateNegotiator: jest.fn(),
         createNegotiator: jest.fn(),
-        dataTable: getDataTable(negotiators, mockUpdateNegotiator, mockUpdateNegotiatorLoading, mockCreateNegotiator),
+        dataTable: getDataTable({
+          data: negotiators,
+          updateNegotiator: mockUpdateNegotiator,
+          updateNegotiatorLoading: mockUpdateNegotiatorLoading,
+          createNegotiator: mockCreateNegotiator,
+        }),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -225,12 +230,12 @@ describe('NegotiatorList', () => {
       const mockCreateNegotiator = jest.fn()
       const mockUpdateNegotiatorLoading = false
       it('should run correctly', () => {
-        const dataTable = getDataTable(
-          negotiators,
-          mockUpdateNegotiator,
-          mockUpdateNegotiatorLoading,
-          mockCreateNegotiator,
-        )
+        const dataTable = getDataTable({
+          data: negotiators,
+          updateNegotiator: mockUpdateNegotiator,
+          updateNegotiatorLoading: mockUpdateNegotiatorLoading,
+          createNegotiator: mockCreateNegotiator,
+        })
         expect(Array.isArray(dataTable)).toBe(true)
         expect(dataTable.length).toBe(4)
         expect(dataTable[0]).toEqual(tableHeaders)
@@ -251,12 +256,12 @@ describe('NegotiatorList', () => {
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
         const mockUpdateNegotiatorLoading = false
-        const dataTable = getDataTable(
-          negotiators,
-          mockUpdateNegotiator,
-          mockUpdateNegotiatorLoading,
-          mockCreateNegotiator,
-        )
+        const dataTable = getDataTable({
+          data: negotiators,
+          updateNegotiator: mockUpdateNegotiator,
+          updateNegotiatorLoading: mockUpdateNegotiatorLoading,
+          createNegotiator: mockCreateNegotiator,
+        })
         expect(validate(dataTable as Cell[][])).toEqual([
           [true, true, true, true, true, true],
           [true, true, true, true, true, true, true, true],
@@ -272,12 +277,12 @@ describe('NegotiatorList', () => {
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
         const mockUpdateNegotiatorLoading = false
-        const dataTable = getDataTable(
-          negotiators,
-          mockUpdateNegotiator,
-          mockUpdateNegotiatorLoading,
-          mockCreateNegotiator,
-        )
+        const dataTable = getDataTable({
+          data: negotiators,
+          updateNegotiator: mockUpdateNegotiator,
+          updateNegotiatorLoading: mockUpdateNegotiatorLoading,
+          createNegotiator: mockCreateNegotiator,
+        })
         expect(prepareUpdateNegeotiatorParams(dataTable as Cell[][], mockRowIndex)).toEqual({
           id: 'MGL',
           name: 'Abel Robertson',
@@ -296,12 +301,12 @@ describe('NegotiatorList', () => {
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
         const mockUpdateNegotiatorLoading = false
-        const dataTable = getDataTable(
-          negotiators,
-          mockUpdateNegotiator,
-          mockUpdateNegotiatorLoading,
-          mockCreateNegotiator,
-        )
+        const dataTable = getDataTable({
+          data: negotiators,
+          updateNegotiator: mockUpdateNegotiator,
+          updateNegotiatorLoading: mockUpdateNegotiatorLoading,
+          createNegotiator: mockCreateNegotiator,
+        })
         expect(prepareCreateNegeotiatorParams(dataTable as Cell[][], mockRowIndex)).toEqual({
           name: 'Abel Robertson',
           jobTitle: undefined,
@@ -363,14 +368,14 @@ describe('prepareTableData', () => {
       officeData,
     )
     fn()
-    expect(getDataTable).toHaveBeenCalledWith(
-      negotiatorData,
+    expect(getDataTable).toHaveBeenCalledWith({
+      data: negotiatorData,
       updateNegotiator,
       updateNegotiatorLoading,
       createNegotiator,
       officeData,
       setData,
-    )
+    })
     expect(setData).toBeCalled()
   })
 })

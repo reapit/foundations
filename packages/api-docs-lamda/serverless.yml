@@ -46,3 +46,7 @@ functions:
           method: get
           path: /{proxy+}
           cors: false
+      - http:
+          method: get
+          path: /
+          cors: false

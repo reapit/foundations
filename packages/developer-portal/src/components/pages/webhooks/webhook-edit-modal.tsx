@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import {
   Modal,
   Button,
@@ -30,10 +29,12 @@ import {
   webhookDataClear,
   deleteWebhook,
 } from '@/actions/webhooks-subscriptions'
-import { CustomerItem, TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
+import { TopicItem } from '@/reducers/webhooks-subscriptions/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhooks-subscriptions'
 import { validationSchema } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { SANDBOX_CLIENT } from '@/constants/api'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
 
@@ -67,20 +68,16 @@ export const generateTopicOptions = (topics: TopicItem[]) => {
   )
 }
 
-export const generateCustomerOptions = (customers: CustomerItem[]) => {
-  const customerOptions: SelectOption[] = [
-    {
-      value: 'SBOX',
-      label: 'SBOX',
-      description: 'SBOX',
-    } as SelectOption,
-  ]
-  customers.forEach((customer: CustomerItem) => {
-    if (customer.status === 'Active') {
+export const generateCustomerOptions = (customers: InstallationModel[]) => {
+  const customerOptions: SelectOption[] = []
+  customers.unshift(SANDBOX_CLIENT)
+  customers.forEach((customer: InstallationModel) => {
+    const existed = customerOptions.find(option => option.value === customer.customerId)
+    if (customer.status === 'Active' && !existed) {
       customerOptions.push({
-        value: customer.client,
-        label: customer.client,
-        description: customer.client,
+        value: customer.customerId,
+        label: customer.customerName,
+        description: customer.customerName,
       } as SelectOption)
     }
   })
@@ -212,7 +209,7 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                 />
                 <ModalFooter
                   footerItems={
-                    <Level className={styles.footer}>
+                    <Level className="w-100">
                       <LevelLeft>
                         {isUpdate && (
                           <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>

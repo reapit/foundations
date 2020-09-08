@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, RadioSelect } from '@reapit/elements'
-import linkStyles from '@/styles/elements/link.scss?mod'
+import { link } from '@/styles/elements/link'
 
 export type AuthenticationFlowSectionProps = {
   authFlow?: string
@@ -22,7 +22,7 @@ const AuthenticationFlowSection: React.FC<AuthenticationFlowSectionProps> = ({ s
         <strong>This flow must not be used for applications without a server-side component</strong>. For more
         information on authentication, see our platform documentation{' '}
         <a
-          className={linkStyles.link}
+          className={link}
           href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
           target="_blank"
           rel="noopener noreferrer"

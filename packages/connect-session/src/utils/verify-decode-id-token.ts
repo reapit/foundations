@@ -3,7 +3,6 @@
 // project for security reasons and using random strings would be basically worthless as a test.
 // Given code comes from AWS, seems reasonable to trust the implementation.
 import 'isomorphic-fetch'
-import { promisify } from 'util'
 import jsonwebtoken from 'jsonwebtoken'
 import jwkToPem, { RSA } from 'jwk-to-pem'
 import { LoginIdentity } from '../types'
@@ -84,7 +83,6 @@ export const connectSessionVerifyDecodeIdToken = async (
   try {
     const tokenSections = token.split('.')
     const cognitoIssuer = `https://cognito-idp.eu-west-2.amazonaws.com/${connectUserPoolId}`
-    const verifyPromised = promisify(jsonwebtoken.verify.bind(jsonwebtoken))
 
     if (tokenSections.length < 2) throw new Error('Id token is invalid')
 
@@ -100,10 +98,15 @@ export const connectSessionVerifyDecodeIdToken = async (
 
     if (!key) throw new Error('Id verification claim made for unknown kid')
 
-    const claim = (await verifyPromised(token, key.pem)) as Claim
+    const claim = jsonwebtoken.verify(token, key.pem) as Claim
     const currentSeconds = Math.floor(new Date().valueOf() / 1000)
 
-    if (currentSeconds > claim.exp || currentSeconds < claim.auth_time) throw new Error('Id verification claim expired')
+    // Allow 5 minutes to avoid CPU clock latency issues. See: https://github.com/reapit/foundations/issues/2467
+    // basically some Windows laptops calculate time not terribly accurately and can be out by as much as 2 or 3 mins
+    // based on testing so the currentSeconds are before the auth_time in AWS.
+    // Not ideal but prevents constant invalid id_token messages
+    if (currentSeconds > claim.exp + 300 || currentSeconds + 300 < claim.auth_time)
+      throw new Error('Id verification claim expired')
     if (claim.iss !== cognitoIssuer) throw new Error('Id verification claim issuer is invalid')
     if (claim.token_use !== 'id') throw new Error('Id verification claim is not an id token')
 
@@ -115,6 +118,7 @@ export const connectSessionVerifyDecodeIdToken = async (
       adminId: claim['custom:reapit:marketAdmin'] || null,
       userCode: claim['custom:reapit:userCode'] || null,
       groups: claim['cognito:groups'] || [],
+      orgName: claim['custom:reapit:orgName'] || null,
     }
   } catch (error) {
     console.error('Reapit Connect Session error:', error.message)

@@ -1,21 +1,10 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Loader, Helper } from '@reapit/elements'
+import { Loader, Helper, H5 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
-import {
-  FormSection,
-  Form,
-  Grid,
-  GridItem,
-  Formik,
-  LevelRight,
-  Button,
-  FormHeading,
-  FormSubHeading,
-  H3,
-} from '@reapit/elements'
+import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, H3 } from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -108,7 +97,6 @@ export type HandleUseEffectParams = {
 }
 
 const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
-  const isProd = window.reapit.config.appEnv === 'production'
   const developerInfo = useSelector(selectSettingsPageDeveloperInformation)
   const isLoading = useSelector(selectSettingsPageIsLoading)
 
@@ -116,7 +104,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
 
   const dispatch = useDispatch()
 
-  const isShowLoader = isLoading && !isProd
+  const isShowLoader = isLoading
   const [isSubmittedDebit, setIsSubmittedDebit] = React.useState<boolean>(false)
 
   if (isShowLoader) {
@@ -141,10 +129,14 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                   You will need to first complete your Organisation information before submitting your Account details
                 </Helper>
               )}
-              <FormHeading>Accounts Information</FormHeading>
-              <FormSubHeading>
-                Information required by our accounts team to verify your billing information
-              </FormSubHeading>
+              <H5>Accounts Information</H5>
+
+              <p className="is-italic mb-4">
+                The following account information is required for your organisation. Your details will be sent to our
+                Accounts Department to be verified. You can start subscriptions to services within the Developers Portal
+                when your account status has been set to &apos;Confirmed&apos;.
+              </p>
+
               <Grid>
                 <GridItem>
                   <ContactInformationSection disabled={!isRequiredDataOfBillingPageFilled} />

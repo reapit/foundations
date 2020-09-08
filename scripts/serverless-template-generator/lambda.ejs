@@ -1,7 +1,11 @@
-service: <%= appName %>
+service: cloud-<%= appName %>
 plugins:
   - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
 custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
@@ -14,12 +18,12 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: <%= appName %>-${self:provider.stage}
-    blockPublicAccess: false
+    name: ${self:custom.s3CloudFormBucket}
+
   environment:
     NODE_ENV: 'production'
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}

@@ -1,35 +1,26 @@
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
+import { notification } from '@reapit/elements'
 import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS } from '@/constants/api'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/result'
-import qs from 'query-string'
-import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { logger } from '@reapit/utils'
+import { fetchContact } from './api'
+import { extractNetworkErrString } from '@reapit/utils'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const responseContacts = yield call(fetcher, {
-      url: `${URLS.contacts}/?${qs.stringify({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
+    const responseContacts = yield call(fetchContact, {
+      params,
       headers,
     })
     yield put(resultReceiveData(responseContacts))
   } catch (err) {
-    logger(err)
     yield put(resultRequestDataFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: extractNetworkErrString(err),
+      placement: 'bottomRight',
+    })
   }
 }
 

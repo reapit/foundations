@@ -488,15 +488,6 @@ exports[`Page Offices Component Offices should match a snapshot 1`] = `
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -1051,15 +1042,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                         ],
@@ -1617,15 +1599,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -2203,15 +2176,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                           Object {
@@ -2786,15 +2750,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -3370,15 +3325,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                           Object {
@@ -3952,15 +3898,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -4536,15 +4473,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                           Object {
@@ -5125,15 +5053,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -5709,15 +5628,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -6338,15 +6248,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -6901,15 +6802,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -7467,15 +7359,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -8053,15 +7936,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -8636,15 +8510,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -9220,15 +9085,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -9802,15 +9658,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -10386,15 +10233,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -10975,15 +10813,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -11559,15 +11388,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -12192,15 +12012,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -12755,15 +12566,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -13321,15 +13123,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -13907,15 +13700,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -14490,15 +14274,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -15074,15 +14849,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -15656,15 +15422,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -16240,15 +15997,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -16829,15 +16577,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -17413,15 +17152,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                                 Object {
@@ -18007,15 +17737,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -18591,15 +18312,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                             "name": Object {
                               "kind": "Name",
                               "value": "_links",
-                            },
-                          },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
                             },
                           },
                           Object {
@@ -19211,15 +18923,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -19774,15 +19477,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -20340,15 +20034,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -20926,15 +20611,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -21509,15 +21185,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -22093,15 +21760,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -22675,15 +22333,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -23259,15 +22908,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -23848,15 +23488,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -24432,15 +24063,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                                 Object {
@@ -25032,15 +24654,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -25616,15 +25229,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -26230,15 +25834,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -26793,15 +26388,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -27384,15 +26970,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -27968,15 +27545,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {
@@ -28605,15 +28173,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -29168,15 +28727,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -29734,15 +29284,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -30320,15 +29861,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -30903,15 +30435,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -31487,15 +31010,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -32069,15 +31583,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -32653,15 +32158,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                             Object {
@@ -33242,15 +32738,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -33826,15 +33313,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                               Object {

@@ -84,6 +84,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "name": undefined,
               "redirectUris": "",
               "scopes": Array [],
+              "screen1ImageUrl": "",
               "signoutUris": "",
               "summary": undefined,
               "supportEmail": undefined,
@@ -812,7 +813,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       >
                         For more information on how to complete this form, please view our "Step-by-step" guide 
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/developer-portal"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -906,7 +907,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className="field pb-2"
+                                  className=""
                                 >
                                   <div
                                     className="control"
@@ -1152,7 +1153,9 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         className=""
                         data-test=""
                       >
-                        <Component>
+                        <Component
+                          className="is-half-desktop"
+                        >
                           <div
                             className=""
                             data-test=""
@@ -1196,7 +1199,9 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             </Component>
                           </div>
                         </Component>
-                        <Component>
+                        <Component
+                          className="is-half-desktop"
+                        >
                           <div
                             className=""
                             data-test=""
@@ -1222,7 +1227,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               id="description"
                               labelText="Description"
                               name="description"
-                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                               required={false}
                             >
                               <div
@@ -1259,7 +1264,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onPaste={[Function]}
-                                    placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                                    placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                                   >
                                     <div
                                       className="pell false "
@@ -1297,7 +1302,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                          
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -1809,7 +1814,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         . For more information on authentication, see our platform documentation
                          
                         <a
-                          className={[Function]}
+                          className=""
                           href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
                           rel="noopener noreferrer"
                           target="_blank"

@@ -23,6 +23,7 @@ import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { ReduxState } from '@/types/core'
 import { createAppRevision } from '@/actions/apps'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('@/utils/cookie', () => ({
   getCookieString: jest.fn(),
@@ -116,6 +117,64 @@ describe('DeveloperSubmitApp', () => {
   describe('handleSubmitApp', () => {
     const appModel = { redirectUris: '' } as CreateAppModel
     afterEach(() => jest.clearAllMocks())
+
+    const setIsListingTestCases = [
+      {
+        org: { status: 'pending' },
+        isListed: true,
+        inputDispatchIsListed: false,
+        expectsetIsListingParams: true,
+      },
+      {
+        org: { status: 'incomplete' },
+        isListed: true,
+        inputDispatchIsListed: false,
+        expectsetIsListingParams: true,
+      },
+
+      {
+        org: { status: 'pending' },
+        isListed: false,
+        inputDispatchIsListed: false,
+        expectsetIsListingParams: false,
+      },
+      {
+        org: { status: 'incomplete' },
+        isListed: false,
+        inputDispatchIsListed: false,
+        expectsetIsListingParams: false,
+      },
+    ]
+
+    for (let { org, isListed, expectsetIsListingParams, inputDispatchIsListed } of setIsListingTestCases) {
+      test(`org status: ${org.status} - isListed: ${isListed} `, () => {
+        const onSuccess = jest.fn()
+        const onError = jest.fn()
+        const mockedsetIsListing = jest.fn()
+        const fn = handleSubmitApp({
+          appId: 'testAppId',
+          dispatch: spyDispatch,
+          setSubmitting: jest.fn(),
+          onSuccess: onSuccess,
+          onError: onError,
+          setIsListing: mockedsetIsListing,
+          currentOrganisation: (org as unknown) as DeveloperModel,
+        })
+        fn({ ...appModel, isListed })
+        expect(spyDispatch).toBeCalledWith(
+          createAppRevision({
+            redirectUris: [],
+            signoutUris: [],
+            id: 'testAppId',
+            successCallback: onSuccess,
+            errorCallback: onError,
+            ...(inputDispatchIsListed === undefined ? {} : { isListed: inputDispatchIsListed }),
+          }),
+        )
+        expect(mockedsetIsListing).toHaveBeenCalledWith(expectsetIsListingParams)
+      })
+    }
+
     it('should call submitRevision when have appId', () => {
       const onSuccess = jest.fn()
       const onError = jest.fn()
@@ -125,6 +184,7 @@ describe('DeveloperSubmitApp', () => {
         setSubmitting: jest.fn(),
         onSuccess: onSuccess,
         onError: onError,
+        setIsListing: jest.fn(),
       })
       fn(appModel)
       expect(spyDispatch).toBeCalledWith(
@@ -219,44 +279,11 @@ describe('DeveloperSubmitApp', () => {
   })
 
   describe('handleSubmitAppSuccess', () => {
-    it('should call history push', () => {
-      const setSubmitting = jest.fn()
-      const { history } = getMockRouterProps({})
-      const setIsShowBillingNotification = jest.fn()
-      const mockCurrentMember = {
-        id: '05f5a331-9122-4353-9e67-c6112654bffd',
-        created: '2020-08-11T13:02:36',
-        email: 'hollyjoyphillips+craig@gmail.com',
-        name: 'Craig Test',
-        jobTitle: 'CB',
-        status: 'confirm',
-        role: 'user',
-        developerId: '3b358a06-65f6-46a6-a9fc-84bf1dce18c8',
-        agencyCloudAccess: false,
-      }
-      const fn = handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, mockCurrentMember)
-      fn()
-      expect(setSubmitting).toBeCalled()
-      expect(history.push).toBeCalledWith(Routes.APPS)
-      expect(setIsShowBillingNotification).not.toBeCalled()
-    })
-
     it('should call setIsShowBillingNotification', () => {
       const setSubmitting = jest.fn()
       const { history } = getMockRouterProps({})
       const setIsShowBillingNotification = jest.fn()
-      const mockCurrentMember = {
-        id: '05f5a331-9122-4353-9e67-c6112654bffd',
-        created: '2020-08-11T13:02:36',
-        email: 'hollyjoyphillips+craig@gmail.com',
-        name: 'Craig Test',
-        jobTitle: 'CB',
-        status: 'pending',
-        role: 'user',
-        developerId: '3b358a06-65f6-46a6-a9fc-84bf1dce18c8',
-        agencyCloudAccess: false,
-      }
-      const fn = handleSubmitAppSuccess(setSubmitting, history, setIsShowBillingNotification, mockCurrentMember)
+      const fn = handleSubmitAppSuccess(setSubmitting, setIsShowBillingNotification)
       fn()
       expect(setIsShowBillingNotification).toBeCalledWith(true)
       expect(history.push).not.toBeCalledWith(Routes.APPS)

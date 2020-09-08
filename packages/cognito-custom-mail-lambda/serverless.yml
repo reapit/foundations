@@ -1,20 +1,28 @@
-service: cognito-mailer
-custom: ${file(./config.json)}
+service: cloud-cognito-mailer
+plugins:
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-cognito-mailer-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: cognito.mailer.${self:provider.stage}
-    blockPublicAccess: false
+    name: ${self:custom.s3CloudFormBucket}
   environment:
-    COGNITO_USERPOOL_ID: ${self:custom.COGNITO_USERPOOL_ID}
-    MARKET_PLACE_URL: ${self:custom.MARKET_PLACE_URL}
+    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    MARKET_PLACE_URL: ${self:custom.env.MARKET_PLACE_URL}
+
 package:
   include:
     - dist/**
     - node_modules/**
+    - config.json
   exclude:
     - .git/**
     - .github/**
@@ -22,21 +30,20 @@ package:
     - coverage/**
     - src/**
     - .gitignore
-    - env.example.yml
-    - env.yml
     - package.json
+    - jest.config.js
     - README.md
     - serverless.yml
+    - config.example.json
     - tsconfig.json
-    - tsconfig.legacy.json
-    - tslint.json
     - yarn.lock
+    - .snyk
 
 functions:
   cognitoCustomMailerHandler:
     handler: dist/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
-        pool: ${self:custom.COGNITO_USERPOOL_ID}
+        pool: ${self:custom.env.COGNITO_USERPOOL_ID}
         trigger: CustomMessage
         existing: true

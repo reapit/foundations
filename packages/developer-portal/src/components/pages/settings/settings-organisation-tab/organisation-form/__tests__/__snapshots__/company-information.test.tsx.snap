@@ -6,7 +6,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="companyName"
-        labelText="Company Name"
+        labelText="Company Name*"
         name="companyName"
         type="text"
       />
@@ -14,7 +14,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="telephone"
-        labelText="Telephone"
+        labelText="Telephone*"
         name="telephone"
         type="text"
       />
@@ -24,7 +24,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="website"
-        labelText="Website"
+        labelText="Website*"
         name="website"
         type="text"
       />
@@ -44,7 +44,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
       <Component
         disabled={false}
         id="taxNumber"
-        labelText="VAT Number"
+        labelText="VAT Number*"
         name="taxNumber"
         type="text"
       />
@@ -58,7 +58,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
       <Component
         disabled={false}
         id="registrationNumber"
-        labelText="Company registration number"
+        labelText="Company registration number*"
         name="registrationNumber"
         type="text"
       />
@@ -73,7 +73,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     <Component>
       <Component
         id="about"
-        labelText="About"
+        labelText="About*"
         name="about"
       />
     </Component>

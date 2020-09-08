@@ -56,7 +56,9 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
       }
     >
       <AppDetail>
-        <Component>
+        <Component
+          className=""
+        >
           <div
             className=""
             data-test=""
@@ -249,7 +251,9 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                         id=""
                         pendingRevisions={false}
                       >
-                        <Component>
+                        <Component
+                          className=""
+                        >
                           <div
                             className=""
                             data-test=""
@@ -328,14 +332,20 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                               className=""
                               data-test=""
                             >
-                              <div>
-                                <div>
+                              <div
+                                className=""
+                              >
+                                <div
+                                  className=""
+                                >
                                   <img
                                     className="image is-96x96"
                                     src=""
                                   />
                                 </div>
-                                <div>
+                                <div
+                                  className=""
+                                >
                                   <Component>
                                     <h3
                                       className=""
@@ -348,13 +358,16 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                       id=""
                                     >
                                       Verified by Reapit 
-                                      <FaCheck>
+                                      <FaCheck
+                                        className=""
+                                      >
                                         <IconBase
                                           attr={
                                             Object {
                                               "viewBox": "0 0 512 512",
                                             }
                                           }
+                                          className=""
                                         >
                                           <svg
                                             fill="currentColor"
@@ -442,6 +455,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                   </span>
                                    
                                   <a
+                                    className=""
                                     href="#"
                                     onClick={[Function]}
                                   >
@@ -472,6 +486,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                       </span>
                                        
                                       <a
+                                        className=""
                                         href="#"
                                         onClick={[Function]}
                                       >
@@ -595,11 +610,11 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                   "accessor": "client",
                                 },
                                 Object {
-                                  "Header": "Customer Name",
+                                  "Header": "Company Name",
                                   "accessor": "customerName",
                                 },
                                 Object {
-                                  "Header": "Customer Address",
+                                  "Header": "Company Address",
                                   "accessor": [Function],
                                 },
                                 Object {

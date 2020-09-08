@@ -47,7 +47,7 @@ export type OrganisationFormValues = {
 export const formFields: Record<FieldKeys, FormFieldInfo> = {
   taxNumberField: {
     name: 'taxNumber',
-    label: 'VAT Number',
+    label: 'VAT Number*',
   },
   noTaxRegistrationField: {
     name: 'noTaxRegistration',
@@ -64,11 +64,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   aboutField: {
     name: 'about',
-    label: 'About',
+    label: 'About*',
   },
   companyNameField: {
     name: 'companyName',
-    label: 'Company Name',
+    label: 'Company Name*',
     errorMessage: 'Company name is not valid',
   },
   countryIdField: {
@@ -109,7 +109,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   registrationNumberField: {
     name: 'registrationNumber',
-    label: 'Company registration number',
+    label: 'Company registration number*',
   },
   noRegistrationNumberField: {
     name: 'noRegistrationNumber',
@@ -117,11 +117,11 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   telephoneField: {
     name: 'telephone',
-    label: 'Telephone',
+    label: 'Telephone*',
   },
   websiteField: {
     name: 'website',
-    label: 'Website',
+    label: 'Website*',
     errorMessage: 'Website is not valid',
   },
 }

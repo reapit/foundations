@@ -1,11 +1,11 @@
 import * as React from 'react'
 import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
-import '../../../styles/vendor/swagger.scss'
+import { swagger } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Loader, StringMap } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
-import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
+import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 
 export type InterceptorParams = {
   url: string
@@ -52,7 +52,7 @@ export const SwaggerPage: React.SFC = () => {
 
   return (
     <ErrorBoundary>
-      <div className="swagger">
+      <div className={swagger}>
         {(loading || !accessToken) && <Loader />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI

@@ -4,11 +4,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { H3, Button, Section, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
-import { selectClientId } from '@/selector/auth'
+import {
+  selectClientId,
+  selectLoggedUserEmail,
+  selectLoggedUserName,
+  selectLoggedUserCompanyName,
+} from '@/selector/auth'
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
-import styles from '@/styles/pages/settings.scss?mod'
+import * as styles from './__styles__'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -34,9 +39,13 @@ export const createDispatchers = (
 export const Settings: React.FC = () => {
   const dispatch = useDispatch()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const customerId = selectClientId(connectSession)
   const { changePassword, logout } = createDispatchers(dispatch, connectSession)
   const loading = useSelector(selectUpdatePasswordLoading)
+
+  const customerId = selectClientId(connectSession)
+  const email = selectLoggedUserEmail(connectSession)
+  const name = selectLoggedUserName(connectSession)
+  const companyName = selectLoggedUserCompanyName(connectSession)
 
   return (
     <>
@@ -48,7 +57,7 @@ export const Settings: React.FC = () => {
           </Button>
         )}
       </Section>
-      <Section className={styles['user-info-section']}>
+      <Section className={styles.userInfoSection}>
         <Grid>
           <GridItem>
             <Grid>
@@ -56,7 +65,7 @@ export const Settings: React.FC = () => {
                 <SubTitleH6>NAME:</SubTitleH6>
               </GridItem>
               <GridItem>
-                <p>John Smith</p>
+                <p>{name}</p>
               </GridItem>
             </Grid>
           </GridItem>
@@ -66,7 +75,7 @@ export const Settings: React.FC = () => {
                 <SubTitleH6>EMAIL ADDRESS:</SubTitleH6>
               </GridItem>
               <GridItem>
-                <p>johnsmith@agent.com</p>
+                <p>{email}</p>
               </GridItem>
             </Grid>
           </GridItem>
@@ -78,7 +87,7 @@ export const Settings: React.FC = () => {
                 <SubTitleH6>COMPANY:</SubTitleH6>
               </GridItem>
               <GridItem>
-                <p>Agent Ltd</p>
+                <p>{companyName}</p>
               </GridItem>
             </Grid>
           </GridItem>
@@ -93,21 +102,8 @@ export const Settings: React.FC = () => {
             </Grid>
           </GridItem>
         </Grid>
-        <Grid>
-          <GridItem>
-            <Grid>
-              <GridItem>
-                <SubTitleH6>COMPANY ADDRESS:</SubTitleH6>
-              </GridItem>
-              <GridItem>
-                <p>1 Street, Town, AB1 2CD</p>
-              </GridItem>
-            </Grid>
-          </GridItem>
-          <GridItem />
-        </Grid>
       </Section>
-      <ChangePasswordForm changePassword={changePassword} loading={loading} />
+      {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
     </>
   )
 }

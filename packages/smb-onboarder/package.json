@@ -16,7 +16,6 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-dev.js smb-onboarder reapit-smb-dev",
     "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",
@@ -37,7 +36,7 @@
     "apollo-boost": "^0.4.7",
     "async": "^3.2.0",
     "snyk": "^1.341.1",
-    "@reapit/connect-session": "1.0.0-alpha.1"
+    "@reapit/connect-session": "1.0.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",

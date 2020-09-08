@@ -12,6 +12,7 @@ export type UpdateAppointmentArgs = { id: string; _eTag: string } & UpdateAppoin
 
 export type GetAppointmentByIdArgs = {
   id: string
+  embed?: ('negotiators' | 'offices' | 'organiser' | 'property' | 'type')[]
 }
 
 export type GetAppointmentsArgs = {
@@ -27,6 +28,7 @@ export type GetAppointmentsArgs = {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
+  embed?: ('negotiators' | 'offices' | 'organiser' | 'property' | 'type')[]
 }
 
 // api return type

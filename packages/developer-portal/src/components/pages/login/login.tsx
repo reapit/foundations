@@ -7,12 +7,10 @@ import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
 import { getDefaultRoute } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
-import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-
-const { wrapper, container, image, register, registerLevel, loginButton } = loginStyles
+import { wrapper, container, image, register, registerLevel, loginButton } from './__styles__/login'
 
 export type LoginProps = {}
 

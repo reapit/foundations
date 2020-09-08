@@ -21,7 +21,15 @@ type PropertyImageModel {
   order: Int
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedPropertyImageModel
+}
+
+type EmbeddedPropertyImageModel {
+  property: PropertyModel
+}
+
+enum PropertyImageQueryEmbed {
+  property
 }
 
 type Query {
@@ -30,13 +38,13 @@ type Query {
     pageNumber: Int
     sortBy: String
     id: [String!]
-    embed: [String!]
+    embed: [PropertyImageQueryEmbed]
     propertyId: [String!]
     type: [String!]
     metadata: [String!]
   ): PagedResultPropertyImageModel!
 
-  GetPropertyImageById(id: String!, embed: [String!]): PropertyImageModel!
+  GetPropertyImageById(id: String!, embed: [PropertyImageQueryEmbed]): PropertyImageModel!
 }
 
 type Mutation {

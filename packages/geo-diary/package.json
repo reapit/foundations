@@ -2,37 +2,38 @@
   "name": "geo-diary",
   "version": "0.0.1",
   "private": true,
-  "description": "Geo Diary App",
+  "description": "This is geo-diary using graphql",
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:reapit/foundations.git"
+    "url": "git+git@github.com:reapit/app-name.git"
   },
   "license": "MIT",
-  "author": "Author",
+  "author": "Reapit",
   "main": "./src/index.ts",
   "scripts": {
-    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
+    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.pwa.prod.js",
+    "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
+    "release:development": "serverless deploy --stage dev",
+    "release:production": "serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage dev",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-dev.js geo-diary reapit-geo-diary-dev",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
-    "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.1.7",
-    "@reapit/elements": "^0.5.60",
-    "@reapit/utils": "^0.0.1",
-    "localforage": "^1.7.3",
-    "snyk": "^1.341.1"
+    "@reapit/connect-session": "1.0.1",
+    "little-loader": "^0.2.0"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
-  },
-  "snyk": true
+    "@reapit/elements": "^0.5.60",
+    "@reapit/utils": "^0.0.1",
+    "@reapit/cognito-auth": "^2.1.7",
+    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@types/googlemaps": "^3.39.3"
+  }
 }

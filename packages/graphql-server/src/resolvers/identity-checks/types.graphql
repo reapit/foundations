@@ -21,7 +21,15 @@ type IdentityCheckModel {
   metadata: JSON
   _eTag: String
   _links: JSON
-  _embedded: JSON
+  _embedded: EmbeddedIdentityCheckModel
+}
+
+type EmbeddedIdentityCheckModel {
+  contact: ContactModel
+  document1: DocumentModel
+  document2: DocumentModel
+  documentType1: ListItemModel
+  documentType2: ListItemModel
 }
 
 type IdentityCheckModelIdentityDocument {
@@ -40,6 +48,14 @@ type PagedResultIdentityCheckModel {
   _links: JSON
 }
 
+enum IdentityCheckQueryEmbed {
+  contact
+  document1
+  document2
+  documentType1
+  documentType2
+}
+
 type Query {
   GetIdentityChecks(
     id: [String!]
@@ -53,9 +69,10 @@ type Query {
     createdFrom: String
     createdTo: String
     status: [String!]
+    embed: [IdentityCheckQueryEmbed]
   ): PagedResultIdentityCheckModel!
 
-  GetIdentityCheckById(id: String!): IdentityCheckModel!
+  GetIdentityCheckById(id: String!, embed: [IdentityCheckQueryEmbed]): IdentityCheckModel!
 }
 
 type Mutation {

@@ -9,7 +9,6 @@ export interface ReapitConnectBrowserSessionInitializers {
 export interface ReapitConnectServerSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectUserPoolId: string
   connectClientSecret: string
 }
 
@@ -28,6 +27,7 @@ export interface LoginIdentity {
   adminId: string | null
   userCode: string | null
   groups: string[]
+  orgName: string | null
 }
 
 export interface CoginitoSession {

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { H5, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams, Section, Content } from '@reapit/elements'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { ReduxState } from '@/types/core'
 import lodashIsEqual from 'lodash.isequal'
 import {
@@ -46,12 +45,17 @@ export const createHandleDownLoadButtonOnClickFn = ({
 }) => async e => {
   e.preventDefault()
 
+  const api =
+    window.reapit.config.appEnv === 'production'
+      ? window.reapit.config.platformApiUrl
+      : window.reapit.config.marketplaceApiUrl
+
   const params = setQueryParams({ applicationId: developerAppIds })
   const blob = await fetcherWithBlob({
     url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
-    api: window.reapit.config.marketplaceApiUrl,
+    api,
     method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
   })
   const fileName = `reapit-billing-data-${month}.csv`
   FileSaver.saveAs(blob, fileName)
@@ -181,7 +185,6 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
                 event?.preventDefault()
                 handleLaterClick(setCurrentPage)
               }}
-              className={styles.paginationButton}
               href="/"
             >
               {'Later >>'}
@@ -193,7 +196,6 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
                 event?.preventDefault()
                 handleEarlierClick(setCurrentPage)
               }}
-              className={styles.paginationButton}
               href="/"
             >
               {'<< Earlier'}

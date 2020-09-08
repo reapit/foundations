@@ -1,7 +1,6 @@
 import { put, call, takeLatest, all } from '@redux-saga/core/effects'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { logger } from '@reapit/utils'
 import { fetchAppRevisionsById, FetchAppRevisionsByIdParams } from '@/services/apps'
 import { fork } from 'redux-saga/effects'
 import { fetchAppRevisionDetailSuccess, fetchAppRevisionDetail, fetchAppRevisionDetailFailed } from '@/actions/apps'
@@ -12,7 +11,6 @@ export const fetchRevisionDetailSaga = function*({ data: { id, revisionId } }: A
     const response = yield call(fetchAppRevisionsById, { id, revisionId })
     yield put(fetchAppRevisionDetailSuccess(response))
   } catch (err) {
-    logger(err)
     yield put(fetchAppRevisionDetailFailed(err?.description || errorMessages.DEFAULT_SERVER_ERROR))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,

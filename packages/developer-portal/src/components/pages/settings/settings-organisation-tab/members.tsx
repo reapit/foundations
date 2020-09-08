@@ -2,7 +2,7 @@ import React, { Dispatch } from 'react'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from './set-as-admin'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
-import styles from '@/styles/elements/link.scss?mod'
+import { hyperlinked } from '@/styles/elements/link'
 import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 import InviteMemberModal from '@/components/ui/developer-invite-member-modal'
@@ -56,24 +56,21 @@ export const prepareData = (
           <FlexContainerBasic centerContent flexColumn>
             {ableToDisable && (
               <a
-                className={styles.hyperlinked}
+                className={hyperlinked}
                 onClick={openDisableMemberModal(setSelectedUser, setEditStatusModalVisible, user)}
               >
                 Disable
               </a>
             )}
             {ableToReInvite && (
-              <a
-                className={styles.hyperlinked}
-                onClick={openReinviteModal(setSelectedUser, setReInviteModalVisible, user)}
-              >
+              <a className={hyperlinked} onClick={openReinviteModal(setSelectedUser, setReInviteModalVisible, user)}>
                 Invite Again
               </a>
             )}
             {ableToSetAdmin && (
               <a
                 data-test="button-cancel"
-                className={styles.hyperlinked}
+                className={hyperlinked}
                 onClick={() => {
                   setSelectedUser(user)
                   handleOpenSetAdminModal()

@@ -7,6 +7,9 @@ import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchAppList } from '@/actions/apps'
 import { fetchCurrentMember } from '@/actions/current-member'
+import { fetchAppDetail } from '@/actions/apps'
+import { fetchCategoryList } from '@/actions/categories'
+import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
 
 jest.mock('@reapit/elements')
 jest.mock('../../core/store')
@@ -20,13 +23,17 @@ jest.mock('@/utils/session', () => ({
 }))
 
 describe('routeDispatcher', () => {
+  afterAll(() => {
+    jest.resetAllMocks()
+  })
+
   test('should dispatch to developerRequestData for the developer route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(fetchAppList({ page: 1 }))
   })
 
   it('should dispatch correctly for the setting profile route', async () => {
-    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
+    await routeDispatcher(Routes.SETTINGS_PROFILE_TAB as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
     expect(store.dispatch).toHaveBeenCalledWith(fetchCurrentMember())
   })
@@ -38,5 +45,15 @@ describe('routeDispatcher', () => {
     await routeDispatcher(Routes.ANALYTICS_TAB as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(fetchAppList({ appsPerPage: GET_ALL_PAGE_SIZE, page: 1 }))
     expect(store.dispatch).toHaveBeenCalledWith(fetchMyIdentity())
+  })
+  it('should dispatch to required actions for the app edit route', async () => {
+    const mockId = '1'
+    await routeDispatcher(Routes.APPS_EDIT as RouteValue, { appid: mockId })
+
+    expect(store.dispatch).toHaveBeenCalledWith(fetchAppDetail({ id: mockId }))
+    expect(store.dispatch).toHaveBeenCalledWith(fetchCategoryList())
+    expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypeList())
+    expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
+    expect(store.dispatch).toHaveBeenCalledWith(fetchCurrentMember())
   })
 })

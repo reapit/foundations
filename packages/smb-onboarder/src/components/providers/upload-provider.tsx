@@ -11,14 +11,7 @@ export const handleCloseModal = (setCompleted, dispatch) => () => {
   dispatch(resetState())
   setCompleted(false)
 }
-/*
- * TODOME(UploadProvider)
- * extract to fn
- *
- * status: pick
- * is: bool
- * set: follow
- */
+
 export type HandleUseEffectParams = Pick<State, 'status'> & {
   isCompleted: Boolean
   setCompleted: (value: React.SetStateAction<boolean>) => void
@@ -36,10 +29,6 @@ function UploadProvider({ children }: UploadProviderProps) {
   const [isCompleted, setCompleted] = React.useState(false)
   const [state, dispatch] = React.useReducer(reducer, initialState)
   const { status, totalItem, completedItem, uploadResult } = state
-  /*
-   * TODOME(UploadProvider)
-   * ref to func
-   */
 
   React.useEffect(handleUseEffect({ isCompleted, status, setCompleted }), [status])
 

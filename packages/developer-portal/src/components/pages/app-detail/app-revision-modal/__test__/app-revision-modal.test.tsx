@@ -100,6 +100,7 @@ describe('DeveloperAppRevisionModal', () => {
         email: 'mock@test.com',
         name: 'mock user',
         userCode: 'mockUserCode',
+        orgName: null,
         groups: [],
       }
       const fn = handleCancelPendingRevisionsButtonClick(spyDispatch, appId, appRevisionId, loginIdentity)

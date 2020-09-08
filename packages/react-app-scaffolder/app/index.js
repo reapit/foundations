@@ -10,10 +10,9 @@ const yosay = require('yosay')
 module.exports = class extends Generator {
   _installAndExport() {
     return new Promise(async (resolve, reject) => {
-
       this.log(yosay('Installing dependencies... this may take a minute!'))
 
-      await exec(`yarn prettier --write ./package.json`)
+      await exec(`npx prettier --write ./package.json`)
 
       this.log(yosay('App installed successfully!'))
 
@@ -114,7 +113,7 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'stateManagementStyle',
         message: 'How do you want to manage state?',
-        choices: ['Redux', 'React Hooks & Context'],
+        choices: ['Redux', 'React Hooks & Context', 'Apollo GraphQL'],
       },
     ])
 
@@ -125,6 +124,10 @@ module.exports = class extends Generator {
 
     if (stateManagementStyle === 'React Hooks & Context') {
       this.projectPath = './hooks'
+    }
+
+    if (stateManagementStyle === 'Apollo GraphQL') {
+      this.projectPath = './graphql'
     }
     /**
      * Destination path

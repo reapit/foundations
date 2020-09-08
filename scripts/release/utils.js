@@ -1,6 +1,5 @@
 require('isomorphic-fetch')
-const spawn = require('child_process').spawnSync
-const execSync = require('child_process').execSync
+const spawnSync = require('child_process').spawnSync
 const path = require('path')
 
 const removeUnuseChar = value => {
@@ -11,12 +10,12 @@ const removeUnuseChar = value => {
 }
 
 const runCommand = (cmd, args) => {
-  const resultObj = spawn(cmd, args)
+  const resultObj = spawnSync(cmd, args)
   const { stdout, stderr } = resultObj
 
   if (stderr.length !== 0) {
     console.error(stderr.toString().trim())
-    throw new Error(stderr.toString().trim())
+    return stderr.toString().trim()
   }
   console.info(stdout.toString().trim())
   return stdout.toString().trim()
@@ -67,10 +66,12 @@ const sendMessageToSlack = async message => {
 const extractTarFile = async ({ tagName, packageName }) => {
   try {
     const fileName = `${tagName}.tar.gz`
-    const tarDistResult = execSync(
-      `tar -C ./packages/${packageName}/public -xzvf ./packages/${packageName}/public/${fileName}`,
-    ).toString()
-    console.info(tarDistResult)
+    runCommand('tar', [
+      '-C',
+      `./packages/${packageName}/public`,
+      '-xzvf',
+      `./packages/${packageName}/public/${fileName}`,
+    ])
   } catch (err) {
     console.error('releaseWebApp', err)
     throw new Error(err)
@@ -80,82 +81,50 @@ const extractTarFile = async ({ tagName, packageName }) => {
 const copyConfig = ({ packageName }) => {
   const destinationFolder = `${process.cwd()}/packages/${packageName}/public/dist`
   const configFilePath = `${process.cwd()}/packages/${packageName}/config.json`
-  const copyConfigResult = execSync(`cp ${configFilePath} ${destinationFolder}`).toString()
-  console.info(copyConfigResult)
+  runCommand('cp', [configFilePath, destinationFolder])
 }
 
 const runReleaseCommand = async ({ packageName, tagName, env }) => {
   await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-  const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
-  console.info(realeaseResult)
+  runCommand('yarn', ['workspace', packageName, `release:${env}`])
   await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
 }
 
-const runTestCyPress = async ({ packageName, tagName, env }) => {
+const runTestCypress = async ({ packageName, tagName, env }) => {
   await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
-  const cypressTest = execSync(
-    `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
-  ).toString()
-  console.log(cypressTest)
+  runCommand('yarn', [
+    'workspace',
+    'cloud-alert',
+    'cypress:ci',
+    '--env',
+    `ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
+  ])
   await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
 }
 
-/**
- * @deprecated
- * This function will be remove after finish migration to new cloud
- */
-const syncFromLocalDistToS3Bucket = ({ bucketName, packageName }) => {
-  try {
-    const distPath = `${process.cwd()}/packages/${packageName}/public/dist`
-    // cp all assert with cache-control 365 days exclude sw.js and index.html
-    const copyWithCache = execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "no-store"`,
-    ).toString()
-    console.info(copyWithCache)
-
-    // cp index.html and sw.js with no-cache control
-    const copyWithNoCache = execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "*" --include "sw.js" --include "index.html" --include "config.json"`,
-    ).toString()
-    console.info(copyWithNoCache)
-  } catch (err) {
-    console.error('deployToS3', err)
-    throw new Error(err)
-  }
-}
-
-/**
- * @deprecated
- * This function will be remove after finish migration to new cloud
- */
-const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
-  // This is temporary fix for deployment to new prod and old prod env
-  if (env === 'staging') {
-    env = 'production'
-  }
+const releaseWebApp = async ({ tagName, packageName, env }) => {
   try {
     await extractTarFile({ tagName, packageName })
+    // Ignore copy config for web-components
+    if (packageName === 'web-components') {
+      packageName = '@reapit/web-components'
+      await runReleaseCommand({ packageName, tagName, env })
+      await runTestCypress({ packageName, tagName, env })
+      return
+    }
     await copyConfig({ packageName })
-    await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-    await syncFromLocalDistToS3Bucket({ bucketName, packageName })
-    await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
-    await runTestCyPress({ packageName, tagName, env })
+    await runReleaseCommand({ packageName, tagName, env })
+    await runTestCypress({ packageName, tagName, env })
   } catch (err) {
     console.error('releaseWebApp', err)
     throw new Error(err)
   }
 }
 
-const releaseNewWebApp = async ({ tagName, packageName, env }) => {
-  try {
-    await extractTarFile({ tagName, packageName })
-    await copyConfig({ packageName })
-    await runReleaseCommand({ packageName, tagName, env })
-    await runTestCyPress({ packageName, tagName, env })
-  } catch (err) {
-    console.error('releaseNewWebApp', err)
-    throw new Error(err)
-  }
+const runReleaseCommandForWebComponents = async ({ packageName, tagName, env }) => {
+  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
+  runCommand('yarn', ['workspace', '@reapit/web-components', `release:serverless:${env}`, '--name', packageName])
+  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
 }
 
 const releaseServerless = async ({ tagName, packageName, env }) => {
@@ -165,18 +134,15 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
   }
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-    const checkoutResult = execSync(`git checkout ${tagName}`).toString()
-    console.info(checkoutResult)
+    runCommand('git', ['checkout', tagName])
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
-      await copyConfig({ packageName: 'web-components' })
-      await runReleaseCommand({ packageName: '@reapit/web-components', tagName, env })
-      await runTestCyPress({ packageName, tagName, env })
+      await runReleaseCommandForWebComponents({ packageName: packageName, tagName, env })
+      await runTestCypress({ packageName, tagName, env })
       return
     }
-    await copyConfig({ packageName })
     await runReleaseCommand({ packageName, tagName, env })
-    await runTestCyPress({ packageName, tagName, env })
+    await runTestCypress({ packageName, tagName, env })
     return
   } catch (err) {
     console.error('releaseServerless', err)
@@ -187,23 +153,13 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
 const releaseNpm = async ({ tagName, packageName }) => {
   try {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-    const checkoutResult = execSync(`git checkout ${tagName}`).toString()
-    console.info(checkoutResult)
+    runCommand('git', ['checkout', tagName])
     await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
-    const setGitHubUseSSHResult = execSync(
-      'git config --global url.ssh://git@github.com/.insteadOf https://github.com/',
-    ).toString()
-    console.info(setGitHubUseSSHResult)
-    const setUserEmailResult = execSync(
-      `git config --global user.email "${process.env.GITHUB_ACTOR}@email.com"`,
-    ).toString()
-    console.info(setUserEmailResult)
-    const setUserNameResult = execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`).toString()
-    console.info(setUserNameResult)
-    const buildResult = execSync(`yarn workspace ${packageName} build:prod`)
-    console.info(buildResult)
-    const publishResult = execSync(`yarn workspace ${packageName} publish`).toString()
-    console.info(publishResult)
+    runCommand('git', ['config', '--global', 'url.ssh://git@github.com/.insteadOf https://github.com/'])
+    runCommand('git', ['config', '--global', 'user.email', `"${process.env.GITHUB_ACTOR}@email.com"`]).toString()
+    runCommand('git', ['config', ' --global', 'user.name', `"${process.env.GITHUB_ACTOR}"`])
+    runCommand('yarn', ['workspace', packageName, 'build:prod'])
+    runCommand('yarn', ['workspace', packageName, 'publish'])
     await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
   } catch (err) {
     console.error('releaseNpm', err)
@@ -263,44 +219,9 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/
   return releaseNote
 }
 
-const getCommitLog = ({ currentTag, previousTag, packageName }) => {
+const getCommitLog = async ({ currentTag, previousTag, packageName }) => {
   const commitLog = runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
   return commitLog
-}
-
-const BUCKET_NAMES = {
-  staging: {
-    'admin-portal': 'reapit-admin-portal-prod',
-    'developer-portal': 'reapit-developer-portal-prod',
-    'aml-checklist': 'reapit-aml-checklist-prod',
-    'demo-site': 'reapit-demo-site-prod',
-    elements: 'reapit-elements-prod',
-    'geo-diary': 'reapit-geo-diary-prod',
-    'geo-diary-v2': 'reapit-geo-diary-v2-prod',
-    'lifetime-legal': 'reapit-lifetime-legal-prod',
-    marketplace: 'reapit-app-store-prod',
-    'site-builder': 'reapit-site-builder-prod',
-    'smb-onboarder': 'reapit-smb-prod',
-    'web-components': 'reapit-web-components-prod',
-    'elements-next': 'reapit-elements-next-prod',
-    'reapit-connect': 'reapit-reapit-connect-prod',
-  },
-  development: {
-    'admin-portal': 'reapit-admin-portal-dev',
-    'developer-portal': 'reapit-developer-portal-dev',
-    'aml-checklist': 'reapit-aml-checklist-dev',
-    'demo-site': 'reapit-demo-site',
-    elements: 'reapit-elements-dev',
-    'geo-diary': 'reapit-geo-diary-dev',
-    'geo-diary-v2': 'reapit-geo-diary-v2-dev',
-    'lifetime-legal': 'reapit-lifetime-legal-dev',
-    marketplace: 'reapit-app-store',
-    'site-builder': 'reapit-site-builder-dev',
-    'smb-onboarder': 'reapit-smb-prod',
-    'web-components': 'reapit-web-components',
-    'elements-next': 'reapit-elements-next-dev',
-    'reapit-connect': 'reapit-reapit-connect-dev',
-  },
 }
 
 const WEB_APPS = [
@@ -330,28 +251,6 @@ const SERVERLESS_APPS = [
   ...WEB_COMPONENTS_SERVERLESS_APPS,
 ]
 
-const NEW_PROD_SERVERLESS_APPS = [
-  'cognito-custom-mail-lambda',
-  'deploy-slack-bot',
-  'graphql-server',
-  'web-components-config-server',
-  ...WEB_COMPONENTS_SERVERLESS_APPS,
-  'admin-portal',
-  'developer-portal',
-  'aml-checklist',
-  'demo-site',
-  'elements',
-  'geo-diary',
-  'geo-diary-v2',
-  'lifetime-legal',
-  'marketplace',
-  'site-builder',
-  'smb-onboarder',
-  'web-components',
-  'elements-next',
-  'reapit-connect',
-]
-
 const NPM_APPS = [
   'cognito-auth',
   'config-manager',
@@ -367,19 +266,15 @@ const NPM_APPS = [
 module.exports = {
   removeUnuseChar,
   getVersionTag,
-  syncFromLocalDistToS3Bucket,
-  releaseWebApp,
   releaseServerless,
   releaseNpm,
   runCommand,
   getRef,
   sendMessageToSlack,
-  BUCKET_NAMES,
   WEB_APPS,
   SERVERLESS_APPS,
   NPM_APPS,
-  NEW_PROD_SERVERLESS_APPS,
   formatReleaseNote,
   getCommitLog,
-  releaseNewWebApp,
+  releaseWebApp,
 }

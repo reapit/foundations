@@ -456,15 +456,6 @@ exports[`OfficesTab CustomDownButton should match a snapshot 1`] = `
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -1019,15 +1010,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           "name": Object {
                             "kind": "Name",
                             "value": "_links",
-                          },
-                        },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
                           },
                         },
                       ],
@@ -1638,15 +1620,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -2137,15 +2110,6 @@ mutation CREATE_OFFICE(
                           "name": Object {
                             "kind": "Name",
                             "value": "_links",
-                          },
-                        },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
                           },
                         },
                       ],
@@ -2756,15 +2720,6 @@ mutation CREATE_OFFICE(
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -3331,15 +3286,6 @@ mutation UPDATE_OFFICE(
                             "value": "_links",
                           },
                         },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
-                          },
-                        },
                       ],
                     },
                     "typeCondition": Object {
@@ -3564,7 +3510,7 @@ mutation UPDATE_OFFICE(
             "link": MockLink {
               "addTypename": false,
               "mockedResponsesByKey": Object {
-                "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -3921,15 +3867,6 @@ mutation UPDATE_OFFICE(
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -4424,15 +4361,6 @@ mutation CREATE_OFFICE(
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -4614,7 +4542,7 @@ mutation CREATE_OFFICE(
                     },
                   },
                 ],
-                "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -5041,15 +4969,6 @@ mutation CREATE_OFFICE(
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -5618,15 +5537,6 @@ mutation UPDATE_OFFICE(
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -5808,7 +5718,7 @@ mutation UPDATE_OFFICE(
                     },
                   },
                 ],
-                "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -6236,15 +6146,6 @@ mutation UPDATE_OFFICE(
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -6803,15 +6704,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -7149,7 +7041,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
               "link": MockLink {
                 "addTypename": false,
                 "mockedResponsesByKey": Object {
-                  "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -7506,15 +7398,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -8009,15 +7892,6 @@ mutation CREATE_OFFICE(
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -8199,7 +8073,7 @@ mutation CREATE_OFFICE(
                       },
                     },
                   ],
-                  "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -8626,15 +8500,6 @@ mutation CREATE_OFFICE(
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -9203,15 +9068,6 @@ mutation UPDATE_OFFICE(
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -9393,7 +9249,7 @@ mutation UPDATE_OFFICE(
                       },
                     },
                   ],
-                  "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -9821,15 +9677,6 @@ mutation UPDATE_OFFICE(
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -10386,15 +10233,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -11227,15 +11065,6 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -11790,15 +11619,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                           "name": Object {
                             "kind": "Name",
                             "value": "_links",
-                          },
-                        },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
                           },
                         },
                       ],
@@ -12409,15 +12229,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -12908,15 +12719,6 @@ mutation CREATE_OFFICE(
                           "name": Object {
                             "kind": "Name",
                             "value": "_links",
-                          },
-                        },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
                           },
                         },
                       ],
@@ -13527,15 +13329,6 @@ mutation CREATE_OFFICE(
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -14100,15 +13893,6 @@ mutation UPDATE_OFFICE(
                           "name": Object {
                             "kind": "Name",
                             "value": "_links",
-                          },
-                        },
-                        Object {
-                          "arguments": Array [],
-                          "directives": Array [],
-                          "kind": "Field",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "_embedded",
                           },
                         },
                       ],
@@ -14760,15 +14544,6 @@ mutation UPDATE_OFFICE(
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -15325,15 +15100,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -15478,7 +15244,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
             "link": MockLink {
               "addTypename": false,
               "mockedResponsesByKey": Object {
-                "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -15835,15 +15601,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -16338,15 +16095,6 @@ mutation CREATE_OFFICE(
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -16528,7 +16276,7 @@ mutation CREATE_OFFICE(
                     },
                   },
                 ],
-                "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -16955,15 +16703,6 @@ mutation CREATE_OFFICE(
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -17532,15 +17271,6 @@ mutation UPDATE_OFFICE(
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -17722,7 +17452,7 @@ mutation UPDATE_OFFICE(
                     },
                   },
                 ],
-                "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -18150,15 +17880,6 @@ mutation UPDATE_OFFICE(
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -18715,15 +18436,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -19443,15 +19155,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -20006,15 +19709,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -20630,15 +20324,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -21193,15 +20878,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -21773,15 +21449,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "value": "_links",
                               },
                             },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
-                              },
-                            },
                           ],
                         },
                         "typeCondition": Object {
@@ -22338,15 +22005,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "value": "_links",
                             },
                           },
-                          Object {
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "_embedded",
-                            },
-                          },
                         ],
                       },
                       "typeCondition": Object {
@@ -22482,7 +22140,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
               "link": MockLink {
                 "addTypename": false,
                 "mockedResponsesByKey": Object {
-                  "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"mutation CREATE_OFFICE($name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  CreateOffice(name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -22839,15 +22497,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -23342,15 +22991,6 @@ mutation CREATE_OFFICE(
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -23532,7 +23172,7 @@ mutation CREATE_OFFICE(
                       },
                     },
                   ],
-                  "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"mutation UPDATE_OFFICE($id: String!, $_eTag: String!, $name: String, $manager: String, $address: OfficeModelAddressInput, $workPhone: String, $email: String, $metadata: JSON) {\\\\n  UpdateOffice(id: $id, _eTag: $_eTag, name: $name, manager: $manager, address: $address, workPhone: $workPhone, email: $email, metadata: $metadata) {\\\\n    ...Office\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -23959,15 +23599,6 @@ mutation CREATE_OFFICE(
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -24536,15 +24167,6 @@ mutation UPDATE_OFFICE(
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -24726,7 +24348,7 @@ mutation UPDATE_OFFICE(
                       },
                     },
                   ],
-                  "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -25154,15 +24776,6 @@ mutation UPDATE_OFFICE(
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "_links",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "_embedded",
                                       },
                                     },
                                   ],
@@ -25719,15 +25332,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "_links",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
                                     },
                                   },
                                 ],
@@ -26447,15 +26051,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -27010,15 +26605,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -27596,15 +27182,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -28159,15 +27736,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                               "name": Object {
                                 "kind": "Name",
                                 "value": "_links",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_embedded",
                               },
                             },
                           ],
@@ -28759,15 +28327,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                       "value": "_links",
                                     },
                                   },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "_embedded",
-                                    },
-                                  },
                                 ],
                               },
                               "typeCondition": Object {
@@ -29322,15 +28881,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "_links",
-                                  },
-                                },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
                                   },
                                 },
                               ],
@@ -29913,15 +29463,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -30476,15 +30017,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "_links",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
                                 },
                               },
                             ],
@@ -31104,15 +30636,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                     "value": "_links",
                                   },
                                 },
-                                Object {
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "_embedded",
-                                  },
-                                },
                               ],
                             },
                             "typeCondition": Object {
@@ -31669,15 +31192,6 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                                   "value": "_links",
                                 },
                               },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_embedded",
-                                },
-                              },
                             ],
                           },
                           "typeCondition": Object {
@@ -31864,9 +31378,31 @@ exports[`OfficesTab renderContent should match snapshot 2`] = `
       allowOnlyOneValidationErrorPerRow={true}
       data={Array []}
       hasDownloadButton={true}
+      hasDownloadSampleButton={true}
       hasUploadButton={true}
+      sampleHeaders={
+        Array [
+          "id",
+          "_eTag",
+          "Office Name",
+          "Building Name",
+          "Building No.",
+          "Address 1",
+          "Address 2",
+          "Address 3",
+          "Address 4",
+          "Post Code",
+          "Telephone",
+          "Office Email",
+        ]
+      }
       validate={[Function]}
     />
+    <small
+      className="has-text-link mb-1"
+    >
+      * Please input the cell with background red first when Add New office
+    </small>
   </Component>
   <Component
     onChange={[MockFunction]}
@@ -32144,9 +31680,31 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
         ]
       }
       hasDownloadButton={true}
+      hasDownloadSampleButton={true}
       hasUploadButton={true}
+      sampleHeaders={
+        Array [
+          "id",
+          "_eTag",
+          "Office Name",
+          "Building Name",
+          "Building No.",
+          "Address 1",
+          "Address 2",
+          "Address 3",
+          "Address 4",
+          "Post Code",
+          "Telephone",
+          "Office Email",
+        ]
+      }
       validate={[Function]}
     />
+    <small
+      className="has-text-link mb-1"
+    >
+      * Please input the cell with background red first when Add New office
+    </small>
   </Component>
   <Component
     onChange={[MockFunction]}

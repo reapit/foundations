@@ -1,5 +1,5 @@
 import { trafficStatisticsSagas, appHttpTrafficEventListen, apphttpTrafficEventSaga } from '../traffic-statistics'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
@@ -14,7 +14,12 @@ import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
 import { fetchTrafficStatistics } from '@/services/traffic-statistics'
 
 jest.mock('@/services/traffic-statistics')
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements', () => ({
+  ...jest.requireActual('@reapit/elements'),
+  notification: {
+    error: jest.fn(),
+  },
+}))
 
 const params = {
   type: 'FETCH_TRAFFIC_STATISTICS' as ActionType,
@@ -39,12 +44,10 @@ describe('app-http-traffic-per-day sagas', () => {
       if (clone.throw) {
         expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(fetchTrafficStatisticsFailed()))
         expect(clone.next().value).toEqual(
-          put(
-            errorThrownServer({
-              type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR,
-            }),
-          ),
+          call(notification.error, {
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+            placement: 'bottomRight',
+          }),
         )
       }
       expect(clone.next().done).toBe(true)

@@ -6,7 +6,7 @@ export const handleLaunchApp = (app: AppSummaryModel, connectIsDesktop: Boolean)
   }
 
   if (connectIsDesktop) {
-    window.location.href = `agencycloud://app?id=${app.id}&launchUri=${app.homePage}`
+    window.location.href = `agencycloud://app?id=${app.id}&launchUri=${app.launchUri}`
     return
   }
 

@@ -8,6 +8,7 @@ export type Config = {
   googleAnalyticsKey: string
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
+  marketplaceUrl: string
 }
 
 declare global {

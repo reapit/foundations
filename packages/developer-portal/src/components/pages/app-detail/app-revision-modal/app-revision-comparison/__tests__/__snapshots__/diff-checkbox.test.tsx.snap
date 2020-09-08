@@ -2,10 +2,11 @@
 
 exports[`DiffCheckbox should match a snapshot 1`] = `
 <div
+  className=""
   data-test=""
 >
   <span
-    className="undefined undefined"
+    className=" "
   >
     <input
       checked={true}
@@ -14,11 +15,13 @@ exports[`DiffCheckbox should match a snapshot 1`] = `
       type="checkbox"
     />
   </span>
-  <span>
+  <span
+    className=""
+  >
     →
   </span>
   <span
-    className="undefined undefined"
+    className=" "
   >
     <input
       checked={false}

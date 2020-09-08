@@ -168,7 +168,7 @@ describe('ReapitConnectBrowserSession', () => {
     await session.connectSession()
 
     expect(window.fetch).toHaveBeenCalledTimes(1)
-    expect(mockedAuthEndpoint).toHaveBeenCalled()
+    expect(mockedAuthEndpoint).toHaveBeenCalledTimes(1)
   })
 
   it('should redirect to login if the method is called on session', async () => {

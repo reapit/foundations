@@ -1,0 +1,64 @@
+scalar JSON
+
+type DocumentType {
+  id: String
+  value: String
+}
+
+type EmbeddedDocumentModel {
+  documentType: [DocumentType]
+}
+
+type DocumentModel {
+  id: String
+  created: String
+  modified: String
+  associatedType: String
+  associatedId: String
+  typeId: String
+  name: String
+  _eTag: JSON
+  _links: JSON
+  _embedded: EmbeddedDocumentModel
+}
+
+type PagedResultDocumentModel {
+  _embedded: [DocumentModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+enum DocumentQueryEmbed {
+  documentType
+}
+
+type Query {
+  GetDocuments(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [DocumentQueryEmbed]
+    id: [String]
+    associatedId: [String]
+    associatedType: [String]
+    typeId: [String]
+    metadata: [String]
+  ): PagedResultDocumentModel!
+  GetDocumentById(id: String!, embed: [DocumentQueryEmbed]): DocumentModel!
+}
+
+type Mutation {
+  CreateDocument(
+    associatedType: String
+    associatedId: String
+    typeId: String
+    name: String
+    fileData: String
+  ): DocumentModel!
+
+  UpdateDocument(id: String!, _eTag: String!, typeId: String, name: String): DocumentModel!
+  DeleteDocument(id: String!): String!
+}

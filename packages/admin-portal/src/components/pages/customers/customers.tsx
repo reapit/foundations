@@ -1,7 +1,6 @@
 import React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
@@ -9,7 +8,7 @@ import {
   Table,
   Button,
   Loader,
-  Helper,
+  Alert,
   H3,
   Section,
   Form,
@@ -24,6 +23,7 @@ import qs from 'querystring'
 import { selectCustomersList } from '@/selector/customers'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { cleanObject } from '@reapit/utils'
+import { CustomerModel } from '@reapit/foundations-ts-definitions'
 
 export type FilterValues = {
   name: string
@@ -31,6 +31,7 @@ export type FilterValues = {
 
 export type OnSearch = (filterValues: FilterValues, { setStatus }: { setStatus: (string) => any }) => void
 export type CustomersFilterFormProps = {
+  history: History
   filterValues: FilterValues
   onSearch: OnSearch
 }
@@ -59,8 +60,12 @@ export const onSearchHandler = (history: History<any>): OnSearch => (filterValue
   history.push(`${Routes.CUSTOMERS}?${queryString}`)
 }
 
-export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filterValues, onSearch }) => (
-  <Formik initialValues={filterValues} onSubmit={onSearch}>
+export const refreshForm = history => () => {
+  history.push(Routes.CUSTOMERS)
+}
+
+export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filterValues, onSearch, history }) => (
+  <Formik initialValues={filterValues} onSubmit={onSearch} onReset={refreshForm(history)}>
     {({ status }) => {
       return (
         <Form noValidate={true}>
@@ -73,6 +78,9 @@ export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filter
                 <Button type="submit" variant="primary">
                   Search
                 </Button>
+                <Button type="reset" variant="primary">
+                  Refresh
+                </Button>
               </GridItem>
             </Grid>
             {status && <p className="has-text-danger">{status}</p>}
@@ -82,6 +90,23 @@ export const CustomersFilterForm: React.FC<CustomersFilterFormProps> = ({ filter
     }}
   </Formik>
 )
+
+export const renderContent = ({
+  customerData = [],
+  columns,
+}: {
+  customerData: CustomerModel[] | undefined
+  columns: any[]
+}) => {
+  if (customerData?.length === 0) {
+    return <Alert message="No Results " type="info" />
+  }
+  return (
+    <div className="mb-5">
+      <Table scrollable={true} loading={false} data={customerData} columns={columns} />
+    </div>
+  )
+}
 
 export const LogoUploadButtonCell = () => {
   return (
@@ -95,7 +120,7 @@ export const CheckMarkCell = ({ cell: { value } }) => {
   return value ? <FaCheck className="has-text-success" /> : <FaTimes className="has-text-danger" />
 }
 
-const columns = [
+export const columns = [
   { Header: 'Customer ID', accessor: 'agencyCloudId' },
   { Header: 'Company', accessor: 'name' },
   {
@@ -134,20 +159,8 @@ export const Customers: React.FC = () => {
   const location = useLocation()
   const { isLoading, data, pageSize, pageNumber, totalCount } = useSelector(selectCustomersList)
   const queryParams = new URLSearchParams(location.search)
-
-  if (!isLoading && data?.length === 0) {
-    return (
-      <React.Fragment>
-        <Helper variant="info">
-          Unfortunately, there are no results that match your search criteria, please try again
-        </Helper>
-        <Link className="text-center" to={Routes.CUSTOMERS}>
-          <Button variant="primary" type="button">
-            New Search
-          </Button>
-        </Link>
-      </React.Fragment>
-    )
+  if (isLoading) {
+    return <Loader />
   }
 
   return (
@@ -155,25 +168,21 @@ export const Customers: React.FC = () => {
       <Section className="mb-0">
         <H3>Customers</H3>
       </Section>
-      <CustomersFilterForm onSearch={onSearchHandler(history)} filterValues={generateFilterValues(queryParams)} />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <Section>
-            <Table scrollable={true} loading={false} data={data || []} columns={columns} />
-          </Section>
-          <Section>
-            <div>Total: {totalCount}</div>
-          </Section>
-          <Pagination
-            onChange={onPageChangeHandler(history, queryParams)}
-            totalCount={totalCount}
-            pageSize={pageSize}
-            pageNumber={pageNumber}
-          />
-        </>
-      )}
+      <CustomersFilterForm
+        onSearch={onSearchHandler(history)}
+        filterValues={generateFilterValues(queryParams)}
+        history={history}
+      />
+      <Section>
+        <div>Total: {totalCount}</div>
+      </Section>
+      {renderContent({ customerData: data, columns })}
+      <Pagination
+        onChange={onPageChangeHandler(history, queryParams)}
+        totalCount={totalCount}
+        pageSize={pageSize}
+        pageNumber={pageNumber}
+      />
     </ErrorBoundary>
   )
 }

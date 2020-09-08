@@ -92,7 +92,9 @@ exports[`Settings should match snapshot 1`] = `
             </Component>
           </section>
         </Component>
-        <Component>
+        <Component
+          className=""
+        >
           <section
             className=""
             data-test=""
@@ -132,9 +134,7 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            <p>
-                              John Smith
-                            </p>
+                            <p />
                           </div>
                         </Component>
                       </div>
@@ -162,91 +162,6 @@ exports[`Settings should match snapshot 1`] = `
                                 id=""
                               >
                                 EMAIL ADDRESS:
-                              </h6>
-                            </Component>
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <p>
-                              johnsmith@agent.com
-                            </p>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </div>
-            </Component>
-            <Component>
-              <div
-                className=""
-                data-test=""
-              >
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component>
-                              <h6
-                                className=""
-                                id=""
-                              >
-                                COMPANY:
-                              </h6>
-                            </Component>
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <p>
-                              Agent Ltd
-                            </p>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component>
-                              <h6
-                                className=""
-                                id=""
-                              >
-                                CUSTOMER ID:
                               </h6>
                             </Component>
                           </div>
@@ -290,7 +205,7 @@ exports[`Settings should match snapshot 1`] = `
                                 className=""
                                 id=""
                               >
-                                COMPANY ADDRESS:
+                                COMPANY:
                               </h6>
                             </Component>
                           </div>
@@ -300,9 +215,7 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            <p>
-                              1 Street, Town, AB1 2CD
-                            </p>
+                            <p />
                           </div>
                         </Component>
                       </div>
@@ -313,7 +226,38 @@ exports[`Settings should match snapshot 1`] = `
                   <div
                     className=""
                     data-test=""
-                  />
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                CUSTOMER ID:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <p />
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
                 </Component>
               </div>
             </Component>

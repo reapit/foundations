@@ -6,10 +6,23 @@ import Routes from '@/constants/routes'
 import { Location } from 'history'
 import { FaCloud, FaCloudDownloadAlt, FaClipboardList } from 'react-icons/fa'
 import { IoIosPeople } from 'react-icons/io'
-import { selectIsAdmin, selectDeveloperId } from '@/selector/auth'
+import { selectIsAdmin, selectDeveloperId, selectClientId } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'
+import domvsLogo from '@/assets/images/Domvs.jpg'
 
-export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): MenuConfig => {
+// This is a really naff hack to hardcode our first client logo into the menu. Remove when we have a
+// logo upload and API
+const SettingsIcon: React.FC<{ clientId: string }> = ({ clientId }) => {
+  return clientId === 'DOM' ? (
+    <img src={domvsLogo} />
+  ) : clientId === 'RPT' ? (
+    <ReapitLogo className="nav-item-icon" />
+  ) : (
+    <IoIosPeople className="nav-item-icon" />
+  )
+}
+
+export const generateMenuConfig = (location: Location<any>, isAdmin: boolean, clientId: string): MenuConfig => {
   return {
     defaultActiveKey: 'BROWSE_APPS',
     location,
@@ -44,7 +57,7 @@ export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): M
       {
         key: 'SETTINGS',
         url: Routes.SETTINGS,
-        icon: <IoIosPeople className="nav-item-icon" />,
+        icon: <SettingsIcon clientId={clientId} />,
         type: 'SECONDARY',
       },
     ],
@@ -61,11 +74,12 @@ export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
+  const clientId = selectClientId(connectSession)
 
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   const isAdmin = isDesktopAdmin || isDeveloperEdition
 
-  const menuConfigs = generateMenuConfig(location, isAdmin)
+  const menuConfigs = generateMenuConfig(location, isAdmin, clientId)
 
   // invalid login type. E.g. admin view marketplace apps
 

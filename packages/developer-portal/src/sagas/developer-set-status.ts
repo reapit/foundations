@@ -6,10 +6,9 @@ import {
 } from '@/actions/developer-set-status'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {
@@ -24,14 +23,11 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
 
     yield put(developerSetStatusRequestSuccess())
   } catch (err) {
-    logger(err)
     yield put(developerSetStatusRequestFailure())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

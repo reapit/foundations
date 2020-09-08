@@ -167,6 +167,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     graphic={
       <img
         alt="step-1"
+        className="w-100"
         src=""
       />
     }
@@ -179,6 +180,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     graphic={
       <img
         alt="step-2"
+        className="w-100"
         src=""
       />
     }
@@ -191,6 +193,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     graphic={
       <img
         alt="step-3"
+        className="w-100"
         src=""
       />
     }
@@ -203,6 +206,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     graphic={
       <img
         alt="step-4"
+        className="w-100"
         src=""
       />
     }
@@ -215,6 +219,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     graphic={
       <img
         alt="step-5"
+        className="w-100"
         src=""
       />
     }

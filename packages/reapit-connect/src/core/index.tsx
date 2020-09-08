@@ -12,6 +12,7 @@ window.reapit = {
     cognitoClientId: '',
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
+    developerPortalUrl: '',
   },
 }
 
