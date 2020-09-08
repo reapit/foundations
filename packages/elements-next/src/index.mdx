@@ -50,8 +50,9 @@ hasChildren
 - HTML output should be next to the mounted React Component and the Rendered Component in the docs in all cases.
 - All variants of components should be visible at the top of the page in the generated props section. They should all be editable at the bottom, although only the basic component without variants should be rendered by default.
 - Where we export multiple components from the same file, we should export them as modules eg `<Headings.Subheading>`
-- Should work in Edge (latest version before Chromium), Edge Chromium, Firefox, Chrome, Safari
+- Should work in Edge (latest version before Chromium), Edge Chromium, Firefox, Chrome, Safari. Should implement PostCSS autoprefixer to ensure browser compatibility
 - Should use Linaria `cx` for composing classes.
+- Forms and form elements should be agnostic, no Formik so we can be as flexible as we like. Should allow passing of callbacks via props to trigger actions onChange, onBlur, onClick, onSubmit. 
 
 ### Components to migrate
 
@@ -59,7 +60,7 @@ The following components to be built in v2. Will add tickets to each one as they
 
 - Alert, Info and Helper to be combined into a single module with variant components
 - Button as a module with all variants including button group
-- Input as a module to include; Text, Number, Password, Number, Select, Image Upload (there are two of these, should be combined), Checkbox, Radio, DatePicker, MultiSelect (vanilla refactor), HTML Editor, File Input, Text Area
+- Input as a module to include; Text, Number, Password, Number, Select, Image Upload (there are two of these, should be combined), Checkbox, Radio, DatePicker, MultiSelect (vanilla refactor), HTML Editor, File Input, Text Area. See above, framework agnostic, should have a consistent callback API via props eg onChange, onSubmit etc.
 - Dynamic links, tidied and refactored if required.
 - HTML Renderer
 - Helper guide - can be massively tidied and refactored
@@ -69,15 +70,14 @@ The following components to be built in v2. Will add tickets to each one as they
 - Container, for pages and top level elements - as per Section, super flexible with modifiers
 - Grid, Grid Items - should be based on native CSS Grid, basis 12 cols
 - Loader - inline and page centered variants
-- Maps - consider ditching React Wrappers for Google maps - it's trivial to load a map in a UseEffect hook and saves tonnes of JS
 - Menu - shoud be refactored to better support actions, icons and sub menus as a dropdown
 - Notification, Toast, ToastMessage, all combined - single module to notify users, simple implementation with variants. Current notification is the most flexible.
 - Modal, single, simple implementation
 - Pagination
 - Spreadsheet - tidy and refactor as required
-- Table - just a simple styled HTML table, we don't use any advanced functionality and if we need it, just use Spreadsheet
-- Form - to export Formik, to include form Headings and Helpers
+- Table - just a simple styled HTML table, we don't use any advanced functionality and if we need it, just use Spreadsheet. Am open to keeping React Table but only if the user API is less Janky, and we have proper typing.
 - Tabs
+- Forms - just the form headers, labels and info elements - should be form framework agnostic
 - Progress bar
 - Wizard - should be refactored to be more flexible, we will be using this a lot.
 
@@ -86,13 +86,12 @@ The following components to be built in v2. Will add tickets to each one as they
 #### Definitely
 
 - DayJS
-- Formik
 - Linaria
 - React Icons
 - React Datasheet
 - React Image Crop
 - React Transition Group
-- A much better looking and mobile friendly date picker
+- React DatePicker assuming we can style it to be more "Elements" friendly, ie correct fonts, sizes colors and to be mobile friendly
 
 #### Possibly
 
@@ -101,10 +100,9 @@ WSYWIG Editor - currently we use:
 - Himalaya
 - Pell
 
-Google Maps component - currently we use but seem to offer little benefit:
+Table
 
-- react-google-map
-- react-google-maps-loader
+- React table maybe but needs to be more user friendly in implementation
 
 #### Others
 
