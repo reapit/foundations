@@ -658,7 +658,7 @@ describe('handleContextMenu', () => {
     const fn = handleContextMenu(setContextMenuProp)
     fn(mockEvent)
     expect(spy).toHaveBeenCalled()
-    expect(setContextMenuProp).toHaveBeenCalledWith({ visible: true, left: 20, top: 10 })
+    expect(setContextMenuProp).toHaveBeenCalledWith({ visible: true, left: 10, top: 10 })
   })
 })
 

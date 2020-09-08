@@ -61,10 +61,8 @@ export const onSelectCells = (setSelected: SetSelected) => ({ start, end }: Sele
   setSelected({ start, end })
 }
 
-export const handleContextMenu = (setContextMenuProp: SetContextMenuProp) => (e, cell, i, j) => {
+export const handleContextMenu = (setContextMenuProp: SetContextMenuProp) => (e: MouseEvent) => {
   const { clientX, clientY } = e
-  console.log('i', i)
-  console.log('j', j)
   e.preventDefault()
   setContextMenuProp({ visible: true, top: clientY, left: clientX })
 }

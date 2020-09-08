@@ -1,5 +1,13 @@
 import * as React from 'react'
-import { ContextMenuData, SetContextMenuProp, Cell, SelectedMatrix, ContextMenuFCProps, OnCellsChanged } from './types'
+import {
+  ContextMenuData,
+  SetContextMenuProp,
+  Cell,
+  SelectedMatrix,
+  ContextMenuFCProps,
+  OnCellsChanged,
+  ContextMenuProp,
+} from './types'
 import { hideContextMenu } from './handlers'
 
 // clear means set value to empty string ""
@@ -139,34 +147,42 @@ const dataMenu: ContextMenuData[] = [
   },
 ]
 
-function isInViewport(element) {
-  if (!element || !element.getBoundingClientRect()) {
-    return 'not'
+export const handleRenderMenuInsideViewPort = (
+  setContextMenuProp: React.Dispatch<React.SetStateAction<ContextMenuProp>>,
+  contextMenuProp: ContextMenuProp,
+) => {
+  return (element: HTMLDivElement) => {
+    if (!element || !element.getBoundingClientRect()) {
+      return
+    }
+
+    const { innerWidth: windowWidth, innerHeight: windowHeight } = window
+    const { right: elementRightPosition, bottom: elementBottomPosition } = element.getBoundingClientRect()
+    const { top: contextMenuTopPosition, left: contextMenuLeftPosition } = contextMenuProp
+
+    if (elementRightPosition > windowWidth) {
+      const offScreenDistance = windowWidth - elementRightPosition
+      setContextMenuProp({ ...contextMenuProp, left: contextMenuLeftPosition + offScreenDistance })
+    }
+
+    if (elementBottomPosition > windowHeight) {
+      const offScreenDistance = windowHeight - elementBottomPosition
+      setContextMenuProp({ ...contextMenuProp, top: contextMenuTopPosition + offScreenDistance })
+    }
   }
-  const rect = element.getBoundingClientRect()
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  )
 }
 
 export const ContextMenu: React.FC<ContextMenuFCProps> = ({
   data,
   selected,
-  contextMenuProp: { visible, top, left },
+  contextMenuProp,
   setContextMenuProp,
   onCellsChanged,
 }) => {
-  const measuredRef = React.useCallback(
-    node => {
-      if (node !== null) {
-        console.log('isInViewport', isInViewport(node))
-      }
-    },
-    [top, left],
-  )
+  const { visible, top, left } = contextMenuProp
+  const measuredRef = React.useCallback(handleRenderMenuInsideViewPort(setContextMenuProp, contextMenuProp), [
+    contextMenuProp,
+  ])
 
   const visibleClass = visible ? 'spreadsheet-context-menu-visible' : 'spreadsheet-context-menu-hidden'
 
