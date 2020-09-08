@@ -123,7 +123,6 @@ describe('handleRenderMenuInsideViewPort', () => {
       visible: true,
     }
     const mockSetContextMenuProp = jest.fn()
-    // const getBoundingClientRectSpy = jest.fn(() => ({ right: 20, bottom: 20 }))
     const mockContextMenuElement = {
       getBoundingClientRect: () => ({ right: 50, bottom: 50 }),
     }
