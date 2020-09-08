@@ -56,13 +56,13 @@ describe('onSubmit', () => {
     expect(setIsSubmittedDebit).toHaveBeenCalledWith(false)
   })
 
-  it('onSubmit should run correctly when hasReapitAccountsRef is no', () => {
+  it('onSubmit should run correctly when hasReapitAccountsRef is no & status=incomplete', () => {
     const dispatch = jest.fn()
     const setIsSubmittedDebit = jest.fn()
     const values: AccountsInformationFormValues = {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'no',
-      status: 'pending',
+      status: 'incomplete',
       billingEmail: 'a@gmail.com',
       reapitReference: 'aaa111',
       billingTelephone: '11111111',

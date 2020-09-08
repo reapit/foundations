@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {
-  GridItem,
   FormHeading,
   FormSubHeading,
   Button,
@@ -81,7 +80,6 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
   setIsSubmittedDebit,
   isSubmittedDebit,
   initialStatus,
-  disabled,
 }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
@@ -107,7 +105,7 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
 
   if (isShowDirectDebitWithRef)
     return (
-      <GridItem>
+      <div>
         <FormHeading>Direct Debit</FormHeading>
         <FormSubHeading>
           As you are providing a Reapit Reference, we will need to validate your account with our Accounts Department.
@@ -116,24 +114,19 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
         <Helper variant="info" closeButton={false}>
           Please now click ‘Submit to Accounts’ to continue
         </Helper>
-      </GridItem>
+      </div>
     )
 
   if (isShowDirectDebitWithoutRef)
     return (
       <>
-        <GridItem>
-          <FormHeading>Direct Debit</FormHeading>
-          <FormSubHeading>
-            You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal,
-            this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
-            account will be verified by our Account Department.
-          </FormSubHeading>
-          <Button disabled={Boolean(disabled)} onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>
-            Setup Direct Debit
-          </Button>
-          <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
-        </GridItem>
+        <FormHeading>Direct Debit</FormHeading>
+        <FormSubHeading>
+          You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal, this
+          includes submitting an app for approval and listing an app within the Marketplace. Once completed your account
+          will be verified by our Account Department.
+        </FormSubHeading>
+        <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         <DirectDebitModal
           visible={isOpenDirectDebitModal}
           onClose={handleToggleModal(setIsOpenDirectDebitModal, false)}

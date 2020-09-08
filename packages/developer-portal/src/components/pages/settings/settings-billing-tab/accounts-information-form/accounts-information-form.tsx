@@ -75,9 +75,15 @@ export const onSubmit = ({
   setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
 }) => (values: AccountsInformationFormValues) => {
   const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
+  const shouldOpenDebit = hasReapitAccountsRef === 'no' && status === 'incomplete'
+  if (shouldOpenDebit) {
+    window.open(
+      `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.debitApiKey}*&hosted=false`,
+      '_blank',
+    )
+  }
 
-  // currently has to manually set the status value
-  const shouldSetStatusToPending = hasReapitAccountsRef === 'yes' && reapitReference
+  const shouldSetStatusToPending = status !== 'confirmed'
 
   const dataToSubmit: UpdateDeveloperModel = {
     status: shouldSetStatusToPending ? 'pending' : status,
@@ -120,7 +126,8 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
       onSubmit={onSubmit({ dispatch, setIsSubmittedDebit })}
     >
       {({ setFieldValue, values }) => {
-        const { hasReapitAccountsRef } = values
+        const { hasReapitAccountsRef, status } = values
+        const isSubmitDebitButton = hasReapitAccountsRef === 'no' && status === 'incomplete'
         return (
           <Form>
             <H3 isHeadingSection>Billing</H3>
@@ -166,7 +173,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 <div>
                   <LevelRight>
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
-                      {hasReapitAccountsRef === 'no' ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
+                      {isSubmitDebitButton ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
                     </Button>
                   </LevelRight>
                 </div>

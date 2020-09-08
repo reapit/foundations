@@ -2,6 +2,7 @@ import * as React from 'react'
 import { GridItem, Input, Content, Helper } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
 import { statusText } from './__styles__/account-status-section'
+import { cx } from 'linaria'
 
 const { statusField } = formFields
 
@@ -31,7 +32,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
   return (
     <GridItem className="pl-0">
       {shouldThankInGeneral && (
-        <Content className="is-italic">
+        <Content className={cx('is-italic', statusText)}>
           Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your
           information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and
           you can procced with any subscriptions.
