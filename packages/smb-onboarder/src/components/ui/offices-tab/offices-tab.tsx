@@ -153,7 +153,7 @@ export const createDownLoadButtonOnClickFn = ({
         return mergedArr
       }, [])
       const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } }, true)
-      handleDownloadCsv(dataTable, window, document)()
+      handleDownloadCsv(dataTable)()
     })
     .finally(() => {
       setIsDownloading(false)

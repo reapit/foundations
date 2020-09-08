@@ -31,8 +31,6 @@ import {
 } from '../__stubs__'
 import {
   getMaxRowAndCol,
-  convertDataToCsv,
-  unparseDataToCsvString,
   validatedDataGenerate,
   parseCsvFile,
   convertToCompatibleData,
