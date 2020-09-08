@@ -185,6 +185,9 @@ export const renderContent = ({
           afterUploadDataValidated={handleAfterUpload}
           CustomDownButton={<CustomDownButton totalCount={totalCount} />}
         />
+        <small className="has-text-link mb-1">
+          * Please input the cell with background red first when Add New office
+        </small>
       </Section>
 
       <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />

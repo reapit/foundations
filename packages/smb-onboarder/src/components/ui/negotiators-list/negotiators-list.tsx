@@ -438,6 +438,9 @@ export const renderNegotiatorList = ({
           afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
           validate={validate}
         />
+        <small className="has-text-link mb-1">
+          * Please input the cell with background red first when Add New user
+        </small>
       </Section>
 
       <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
