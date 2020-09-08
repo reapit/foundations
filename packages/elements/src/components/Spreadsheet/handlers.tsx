@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
+import FileSaver from 'file-saver'
 import {
   Cell,
   DoubleClickPayLoad,
@@ -329,40 +330,19 @@ export const handleOnChangeInput = ({
   }
 }
 
-export const handleDownload = (data: Cell[][], window, document: Document | undefined) => (): boolean => {
+export const handleDownload = (data: Cell[][]) => () => {
   /* convert from Cell[][] to string[][] */
   const parseResult = convertDataToCsv(data)
-
   /* convert from string[][] to string */
   const csvData = unparseDataToCsvString(parseResult)
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
-
-  if (window && document) {
-    const file = window.URL.createObjectURL(dataBlob)
-    const link = document.createElement('a')
-    link.download = `reapit-${new Date()}.csv`
-    link.href = file
-    document.body.appendChild(link)
-    link.click()
-    return true
-  }
-  return false
+  FileSaver.saveAs(dataBlob, `reapit-${new Date()}.csv`)
 }
 
-export const handleDownloadSample = (headers: string[], window, document: Document | undefined) => (): boolean => {
+export const handleDownloadSample = (headers: string[]) => () => {
   const csvData = unparseDataToCsvString([headers])
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
-
-  if (window && document) {
-    const file = window.URL.createObjectURL(dataBlob)
-    const link = document.createElement('a')
-    link.download = `reapit-sample-${new Date()}.csv`
-    link.href = file
-    document.body.appendChild(link)
-    link.click()
-    return true
-  }
-  return false
+  FileSaver.saveAs(dataBlob, `reapit-sample-${new Date()}.csv`)
 }
 
 export const hideContextMenu = (prev: ContextMenuProp): ContextMenuProp => ({ ...prev, visible: false })

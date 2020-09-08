@@ -9,8 +9,6 @@ import {
   handleCellsChanged,
   handleOnChangeInput,
   handleClickUpload,
-  handleDownload,
-  handleDownloadSample,
   handleContextMenu,
   handleAfterDataChanged,
   hideContextMenu,
@@ -628,42 +626,6 @@ describe('handleClickUpload', () => {
       current: null,
     } as any
     const fn = handleClickUpload(ref)
-    const result = fn()
-    expect(result).toBe(false)
-  })
-})
-
-describe('handleDownload', () => {
-  it(
-    'should call convertDataToCsv & unparseDataToCsvString with' + ' correct arg and return true if window & document',
-    () => {
-      window.URL.createObjectURL = jest.fn()
-      const fn = handleDownload(data, window, document)
-      const result = fn()
-      expect(convertDataToCsv).toHaveBeenCalledWith(data)
-      expect(unparseDataToCsvString).toHaveBeenCalledWith(parseResult.data)
-      expect(result).toBe(true)
-    },
-  )
-  it('should return false if window & document are undefined', () => {
-    const fn = handleDownload(data, undefined, undefined)
-    const result = fn()
-    expect(result).toBe(false)
-  })
-})
-
-describe('handleDownloadSample', () => {
-  const sampleHeaders = ['id', '_etag']
-  const parseResult = { data: [['id', '_etag']] }
-  it('should call unparseDataToCsvString with' + ' correct arg and return true if window & document', () => {
-    window.URL.createObjectURL = jest.fn()
-    const fn = handleDownloadSample(sampleHeaders, window, document)
-    const result = fn()
-    expect(unparseDataToCsvString).toHaveBeenCalledWith(parseResult.data)
-    expect(result).toBe(true)
-  })
-  it('should return false if window & document are undefined', () => {
-    const fn = handleDownloadSample(sampleHeaders, undefined, undefined)
     const result = fn()
     expect(result).toBe(false)
   })

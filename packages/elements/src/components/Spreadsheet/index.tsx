@@ -37,7 +37,7 @@ export const UploadButton = ({ onChangeInput }) => {
 export const DownloadButton = ({ data }) => {
   return (
     <div className="download-button">
-      <Button type="submit" variant="info" onClick={handleDownload(data, window, document)}>
+      <Button type="submit" variant="info" onClick={handleDownload(data)}>
         Download file
       </Button>
     </div>
@@ -47,7 +47,7 @@ export const DownloadButton = ({ data }) => {
 export const DownloadSampleButton = ({ headers }) => {
   return (
     <div className="download-button">
-      <Button type="submit" variant="info" onClick={handleDownloadSample(headers, window, document)}>
+      <Button type="submit" variant="info" onClick={handleDownloadSample(headers)}>
         Download Sample
       </Button>
     </div>
