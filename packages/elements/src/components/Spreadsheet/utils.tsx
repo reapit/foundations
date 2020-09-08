@@ -59,7 +59,9 @@ export const unparseDataToCsvString = (parseResult: string[][]): string => Papa.
  * for compatible reason
  */
 export const convertToCompatibleData = (parsedResult): Cell[][] =>
-  parsedResult.data.map(rowArray => rowArray.map(value => ({ value })))
+  parsedResult.data
+    .filter(rowArray => !rowArray.every(value => !value)) // filter rows which have all cells are empty
+    .map(rowArray => rowArray.map(value => ({ value })))
 
 /**
  * Convert back from Cell[][] to string[][]
@@ -234,6 +236,5 @@ export const createDataWithInvalidRowsRemoved = (
       dataWithInvalidRowsRemoved.push(currentRow)
     }
   })
-  console.log('xxx format', dataWithInvalidRowsRemoved, invalidIndies)
   return { dataWithInvalidRowsRemoved, invalidIndies }
 }
