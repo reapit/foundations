@@ -61,6 +61,21 @@ export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'Office Email' },
 ]
 
+const sampleHeaders = [
+  'id',
+  '_eTag',
+  'Office Name',
+  'Building Name',
+  'Building No.',
+  'Address 1',
+  'Address 2',
+  'Address 3',
+  'Address 4',
+  'Post Code',
+  'Telephone',
+  'Office Email',
+]
+
 export type OfficesTabProps = {}
 
 export interface OfficesQueryParams {
@@ -184,6 +199,8 @@ export const renderContent = ({
           hasDownloadButton
           afterUploadDataValidated={handleAfterUpload}
           CustomDownButton={<CustomDownButton totalCount={totalCount} />}
+          hasDownloadSampleButton
+          sampleHeaders={sampleHeaders}
         />
       </Section>
 

@@ -14,6 +14,7 @@ import {
   handleSetContextMenu,
   handleAfterDataChanged,
   handleInitialDataChanged,
+  handleDownloadSample,
 } from './handlers'
 import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
@@ -38,6 +39,16 @@ export const DownloadButton = ({ data }) => {
     <div className="download-button">
       <Button type="submit" variant="info" onClick={handleDownload(data, window, document)}>
         Download file
+      </Button>
+    </div>
+  )
+}
+
+export const DownloadSampleButton = ({ headers }) => {
+  return (
+    <div className="download-button">
+      <Button type="submit" variant="info" onClick={handleDownloadSample(headers, window, document)}>
+        Download Sample
       </Button>
     </div>
   )
@@ -111,6 +122,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
    *
    */
   allowOnlyOneValidationErrorPerRow = false,
+  hasDownloadSampleButton,
+  sampleHeaders,
   ...rest
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
@@ -174,6 +187,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
               })}
             />
           )}
+          {hasDownloadSampleButton && <DownloadSampleButton headers={sampleHeaders} />}
           {hasDownloadButton && CustomDownButton}
           {hasDownloadButton && !CustomDownButton && <DownloadButton data={data} />}
         </div>

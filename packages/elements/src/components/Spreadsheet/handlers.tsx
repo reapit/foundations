@@ -349,6 +349,22 @@ export const handleDownload = (data: Cell[][], window, document: Document | unde
   return false
 }
 
+export const handleDownloadSample = (headers: string[], window, document: Document | undefined) => (): boolean => {
+  const csvData = unparseDataToCsvString([headers])
+  const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
+
+  if (window && document) {
+    const file = window.URL.createObjectURL(dataBlob)
+    const link = document.createElement('a')
+    link.download = `reapit-sample-${new Date()}.csv`
+    link.href = file
+    document.body.appendChild(link)
+    link.click()
+    return true
+  }
+  return false
+}
+
 export const hideContextMenu = (prev: ContextMenuProp): ContextMenuProp => ({ ...prev, visible: false })
 
 export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => () => {
