@@ -34,7 +34,6 @@ describe('getInitHasReapitAccountsRef', () => {
 describe('onSubmit', () => {
   it('onSubmit should run correctly', () => {
     const dispatch = jest.fn()
-    const setIsSubmittedDebit = jest.fn()
     const values: AccountsInformationFormValues = {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'yes',
@@ -51,14 +50,12 @@ describe('onSubmit', () => {
       billingKeyContact: 'name',
       billingEmail: 'a@gmail.com',
     }
-    onSubmit({ dispatch, setIsSubmittedDebit })(values)
+    onSubmit({ dispatch })(values)
     expect(dispatch).toHaveBeenCalledWith(updateDeveloperData(expectedData))
-    expect(setIsSubmittedDebit).toHaveBeenCalledWith(false)
   })
 
   it('onSubmit should run correctly when hasReapitAccountsRef is no & status=incomplete', () => {
     const dispatch = jest.fn()
-    const setIsSubmittedDebit = jest.fn()
     const values: AccountsInformationFormValues = {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'no',
@@ -75,7 +72,7 @@ describe('onSubmit', () => {
       billingKeyContact: 'name',
       billingEmail: 'a@gmail.com',
     }
-    onSubmit({ dispatch, setIsSubmittedDebit })(values)
+    onSubmit({ dispatch })(values)
     expect(dispatch).toHaveBeenCalledWith(updateDeveloperData(expectedData))
   })
 })
