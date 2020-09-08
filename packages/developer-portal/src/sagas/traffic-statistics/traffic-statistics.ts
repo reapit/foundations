@@ -1,7 +1,7 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 import {
   HttpTrafficPerDayParams,
@@ -18,12 +18,10 @@ export const apphttpTrafficEventSaga = function*({ data }: Action<FetchTrafficSt
     yield put(fetchTrafficStatisticsSuccess(response))
   } catch (err) {
     yield put(fetchTrafficStatisticsFailed())
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   }
 }
 

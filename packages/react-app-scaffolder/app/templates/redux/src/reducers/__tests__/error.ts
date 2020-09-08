@@ -44,40 +44,4 @@ describe('error reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
-
-  it('should set a server error', () => {
-    const errorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR,
-    } as ErrorData
-    const newState = errorReducer(undefined, {
-      type: ActionTypes.ERROR_THROWN_SERVER as ActionType,
-      data: errorData,
-    })
-    const expected = {
-      ...defaultState,
-      serverError: errorData,
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should clear a server error', () => {
-    const errorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR,
-    } as ErrorData
-
-    const newState = errorReducer(
-      { ...defaultState, serverError: errorData },
-      {
-        type: ActionTypes.ERROR_CLEARED_SERVER as ActionType,
-        data: null,
-      },
-    )
-    const expected = {
-      ...defaultState,
-      serverError: null,
-    }
-    expect(newState).toEqual(expected)
-  })
 })

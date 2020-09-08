@@ -13,7 +13,7 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { ChangePasswordParams, settingShowLoading, requestDeveloperDataSuccess } from '@/actions/settings'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { selectDeveloperEmail } from '@/selector/developer'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
@@ -33,6 +33,13 @@ jest.mock('../../core/router', () => ({
 }))
 jest.mock('@/services/cognito-identity', () => ({
   changePasswordService: jest.fn().mockResolvedValue('SUCCESS'),
+}))
+
+jest.mock('@reapit/elements', () => ({
+  ...jest.requireActual('@reapit/elements'),
+  notification: {
+    error: jest.fn(),
+  },
 }))
 
 describe('settings', () => {
@@ -55,12 +62,10 @@ describe('settings', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -108,12 +113,10 @@ describe('settings', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -152,14 +155,26 @@ describe('settings', () => {
         }),
       )
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw({ message: 'error message' }).value).toEqual(put(settingShowLoading(false)))
+      expect(clone.throw({ message: 'error message' }).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
 
     it('should call API fail', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw({ message: 'error message' }).value).toEqual(put(settingShowLoading(false)))
+      expect(clone.throw({ message: 'error message' }).value).toEqual(
+        call(notification.error, {
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+          placement: 'bottomRight',
+        }),
+      )
+      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
   })

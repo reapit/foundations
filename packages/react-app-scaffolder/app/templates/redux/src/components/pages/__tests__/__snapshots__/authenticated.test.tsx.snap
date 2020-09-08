@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authenticated should match a snapshot 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      isHeadingSection={true}
+    >
+      Welcome To Reapit Foundations
+    </Component>
+    <Component>
+      <Component>
+        Next steps:
+      </Component>
+      <p>
+        You are now authenticated against our sandbox data.
+      </p>
+      <p>
+        Your Reapit connectSession object is available via the useReapitConnect hook and will be automatically refreshed unless you logout. This will provide you with an accessToken and login identity information to authenticate against our plaform APIs. For more on this
+         
+        <a
+          href="https://developers.reapit.cloud/api-docs//api/web#connect-session"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          visit here.
+        </a>
+      </p>
+    </Component>
+  </Component>
+</Fragment>
+`;
