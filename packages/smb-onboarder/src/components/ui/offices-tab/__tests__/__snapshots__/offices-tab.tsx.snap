@@ -31378,7 +31378,24 @@ exports[`OfficesTab renderContent should match snapshot 2`] = `
       allowOnlyOneValidationErrorPerRow={true}
       data={Array []}
       hasDownloadButton={true}
+      hasDownloadSampleButton={true}
       hasUploadButton={true}
+      sampleHeaders={
+        Array [
+          "id",
+          "_eTag",
+          "Office Name",
+          "Building Name",
+          "Building No.",
+          "Address 1",
+          "Address 2",
+          "Address 3",
+          "Address 4",
+          "Post Code",
+          "Telephone",
+          "Office Email",
+        ]
+      }
       validate={[Function]}
     />
     <small
@@ -31663,7 +31680,24 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
         ]
       }
       hasDownloadButton={true}
+      hasDownloadSampleButton={true}
       hasUploadButton={true}
+      sampleHeaders={
+        Array [
+          "id",
+          "_eTag",
+          "Office Name",
+          "Building Name",
+          "Building No.",
+          "Address 1",
+          "Address 2",
+          "Address 3",
+          "Address 4",
+          "Post Code",
+          "Telephone",
+          "Office Email",
+        ]
+      }
       validate={[Function]}
     />
     <small

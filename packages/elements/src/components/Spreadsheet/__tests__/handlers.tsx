@@ -9,7 +9,6 @@ import {
   handleCellsChanged,
   handleOnChangeInput,
   handleClickUpload,
-  handleDownload,
   handleContextMenu,
   handleAfterDataChanged,
   hideContextMenu,
@@ -32,8 +31,6 @@ import {
 } from '../__stubs__'
 import {
   getMaxRowAndCol,
-  convertDataToCsv,
-  unparseDataToCsvString,
   validatedDataGenerate,
   parseCsvFile,
   convertToCompatibleData,
@@ -627,25 +624,6 @@ describe('handleClickUpload', () => {
       current: null,
     } as any
     const fn = handleClickUpload(ref)
-    const result = fn()
-    expect(result).toBe(false)
-  })
-})
-
-describe('handleDownload', () => {
-  it(
-    'should call convertDataToCsv & unparseDataToCsvString with' + ' correct arg and return true if window & document',
-    () => {
-      window.URL.createObjectURL = jest.fn()
-      const fn = handleDownload(data, window, document)
-      const result = fn()
-      expect(convertDataToCsv).toHaveBeenCalledWith(data)
-      expect(unparseDataToCsvString).toHaveBeenCalledWith(parseResult.data)
-      expect(result).toBe(true)
-    },
-  )
-  it('should return false if window & document are undefined', () => {
-    const fn = handleDownload(data, undefined, undefined)
     const result = fn()
     expect(result).toBe(false)
   })

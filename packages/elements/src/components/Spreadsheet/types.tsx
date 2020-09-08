@@ -76,6 +76,8 @@ export interface SpreadsheetProps {
   CustomDownButton?: JSX.Element
   allowOnlyOneValidationErrorPerRow?: boolean
   maxUploadRow?: number
+  hasDownloadSampleButton?: boolean
+  sampleHeaders?: string[]
 }
 
 export type SelectedMatrix = {

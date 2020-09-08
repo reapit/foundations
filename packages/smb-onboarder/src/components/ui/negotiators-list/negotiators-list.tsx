@@ -364,7 +364,7 @@ export const createDownLoadButtonOnClickFn = ({
         officeData,
         headers: tableDownloadHeaders,
       })
-      handleDownloadCsv(dataTable as Cell[][], window, document)()
+      handleDownloadCsv(dataTable as Cell[][])()
     })
     .finally(() => {
       setIsDownloading(false)
