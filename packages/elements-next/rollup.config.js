@@ -6,6 +6,8 @@ import babel from '@rollup/plugin-babel'
 import scss from 'rollup-plugin-scss'
 import linaria from 'linaria/rollup'
 import typescript from 'rollup-plugin-typescript2'
+import postcss from 'rollup-plugin-postcss'
+import autoprefixer from 'autoprefixer'
 
 const globals = {
   react: 'react',
@@ -32,6 +34,9 @@ export default {
   plugins: [
     resolve({
       browser: true,
+    }),
+    postcss({
+      plugins: [autoprefixer()],
     }),
     commonjs(),
     json(),
