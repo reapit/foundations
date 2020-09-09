@@ -4,11 +4,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const uuidv4 = require('uuid').v4
-
+const cors = require('cors')
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
 const app = express()
 const { resolve } = require('path')
 const port = process.env.PORT || 4242
+
+app.use(cors())
 
 app.use(
   session({
@@ -100,7 +102,7 @@ function generateAccountLink(accountID, origin) {
       type: 'account_onboarding',
       account: accountID,
       refresh_url: `${origin}/onboard-user/refresh`,
-      return_url: `${origin}/success.html`,
+      return_url: `${origin}/onboard-user/success`,
     })
     .then((link) => link.url)
 }
@@ -157,6 +159,7 @@ app.post(
 )
 
 app.get('/get-oauth-link', async (req, res) => {
+  console.log('HERE I AM')
   const state = uuidv4()
   req.session.state = state
   const args = new URLSearchParams({
@@ -169,6 +172,7 @@ app.get('/get-oauth-link', async (req, res) => {
 
 app.get('/authorize-oauth', async (req, res) => {
   const { code, state } = req.query
+  const origin = `${req.headers.origin}`
 
   // Assert the state matches the state you provided in the OAuth link (optional).
   if (req.session.state !== state) {
@@ -189,7 +193,7 @@ app.get('/authorize-oauth', async (req, res) => {
         saveAccountId(connected_account_id)
 
         // Render some HTML or redirect to a different page.
-        return res.redirect(301, '/success.html')
+        return res.redirect(301, `${origin}/auth/success`)
       },
       (err) => {
         if (err.type === 'StripeInvalidGrantError') {

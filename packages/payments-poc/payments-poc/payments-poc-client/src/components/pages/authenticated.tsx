@@ -1,66 +1,30 @@
 import * as React from 'react'
-import { H3, H5, Section, Content } from '@reapit/elements'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { configurationAppointmentsApiService } from '../../platform-api/configuration-api'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { getOauthLink } from '../../stripe-api/oauth'
+import { onBoardUser } from '../../stripe-api/onboard'
 
 export type AuthenticatedProps = {}
 
 export const Authenticated: React.FC<AuthenticatedProps> = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appointmentConfigTypes, setAppointmentConfigTypes] = React.useState([] as ListItemModel[])
-
-  React.useEffect(() => {
-    const fetchAppoinmentConfigs = async () => {
-      const serviceResponse = await configurationAppointmentsApiService(connectSession)
-      if (serviceResponse) {
-        setAppointmentConfigTypes(serviceResponse)
-      }
-    }
-    if (connectSession) {
-      fetchAppoinmentConfigs()
-    }
-  }, [connectSession])
-
-  console.log('Appointment Config Types are: ', appointmentConfigTypes)
   return (
     <>
-      <Content>
-        <H3 isHeadingSection>Welcome To Reapit Foundations</H3>
-        <Section>
-          <H5>Next steps:</H5>
-          <p>You are now authenticated against our sandbox data.</p>
-          <p>
-            Your Reapit connectSession object is available via the useReapitConnect hook and will be automatically
-            refreshed unless you logout. This will provide you with an accessToken and login identity information to
-            authenticate against our plaform APIs. For more on this{' '}
-            <a
-              href="https://developers.reapit.cloud/api-docs//api/web#connect-session"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              visit here.
-            </a>
-          </p>
-          <p>
-            There is a sample fetch service that pulls Appointment Config Types from Foundations API to demonstrate
-            fetching data using this scaffold, logging the data out to the JS console. Naturally you can replace this
-            endpoint in the platform-api file with an API of your choosing from the API explorer in the developer
-            portal. For our API explorer{' '}
-            <a href="https://developers.reapit.cloud/swagger" target="_blank" rel="noreferrer noopener">
-              visit here.
-            </a>
-          </p>
-          <p>
-            Included in the scaffold is the latest version of the Elements UI library. This is the simplest way for you
-            to adhere to the basic style guidelines for Marketplace applications. For more on this{' '}
-            <a href="https://developers.reapit.cloud/api-docs/elements" target="_blank" rel="noreferrer noopener">
-              visit here.
-            </a>
-          </p>
-        </Section>
-      </Content>
+      <div className="sr-root">
+        <div className="sr-main">
+          <div className="sr-onboarding-summary onboarding-view">
+            <h1>Onboard an Express account with OAuth</h1>
+          </div>
+          <button id="submit" onClick={getOauthLink}>
+            Onboard with OAuth
+          </button>
+
+          <div className="sr-payment-summary payment-view">
+            <h1 className="order-amount">
+              Setup payouts to list your home on Kavholm
+            </h1>
+          </div>
+
+          <button id="submit" onClick={onBoardUser}>Setup payouts on Stripe</button>
+        </div>
+      </div>
     </>
   )
 }

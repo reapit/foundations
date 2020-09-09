@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
-import './CheckoutForm.css'
 import { getProductDetails, createPaymentIntent } from '../../stripe-api/payment'
-import { PaymentIntent, StripeCardElement } from '@stripe/stripe-js'
+import { StripeCardElement } from '@stripe/stripe-js'
 import { checkoutFormStyles } from './__styles__/checkout-form'
 
 export default function CheckoutForm() {

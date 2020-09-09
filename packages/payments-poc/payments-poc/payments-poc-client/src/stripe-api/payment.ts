@@ -1,6 +1,8 @@
+import { API_BASE } from '../constants/api'
+
 export const createPaymentIntent = (options) => {
   return window
-    .fetch(`/create-payment-intent`, {
+    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/create-payment-intent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +28,7 @@ export const createPaymentIntent = (options) => {
 
 export const getProductDetails = (options) => {
   return window
-    .fetch(`/product-details`, {
+    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/product-details`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ export const getProductDetails = (options) => {
 
 export const getPublicStripeKey = (options) => {
   return window
-    .fetch(`/public-key`, {
+    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/public-key`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

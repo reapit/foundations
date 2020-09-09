@@ -6,3 +6,8 @@ export const BASE_HEADERS = {
 export const URLS = {
   CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
 }
+
+export const API_BASE = {
+  development: 'http://localhost:4242',
+  production: ''
+}
