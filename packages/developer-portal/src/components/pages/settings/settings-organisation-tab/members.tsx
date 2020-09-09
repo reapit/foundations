@@ -112,8 +112,10 @@ export const openDisableMemberModal = (setSelectedUser, setDisableMemberModalVis
 }
 
 export const PRIORITY_LEVEL = {
-  active: 2,
-  pending: 1,
+  active: 4,
+  inactive: 3,
+  pending: 2,
+  rejected: 1,
   other: 0,
 }
 
@@ -133,10 +135,10 @@ export const handleGenerateUniqueDataList = (data: MemberModelWithAction[]) => (
       return newAcc
     }
 
-    // PRIORITY_LEVEL[status] will be undefined if status is not 'active' or 'pending'
+    // PRIORITY_LEVEL[status] will be undefined if status is not in the list
     // its priority will be  0 in this case
     const currentItemPriority = PRIORITY_LEVEL[status] ?? PRIORITY_LEVEL.other
-    const inHashMapItemPriority = PRIORITY_LEVEL[accumulator[email]] ?? PRIORITY_LEVEL.other
+    const inHashMapItemPriority = PRIORITY_LEVEL[accumulator[email].status] ?? PRIORITY_LEVEL.other
 
     const currentItemCreated = dayjs(created)
     const inHashMapItemCreated = dayjs(accumulator[email].created)
