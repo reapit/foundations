@@ -26,10 +26,10 @@ custom:
 
 provider:
   name: aws
-  apiKeys:
-    - name: web-components-api-key
-      value: ${self:custom.env.APPOINTMENT_PLANNER_API_KEY}
-      description: This api key for appointment planner
+  # apiKeys:
+    # - name: web-components-api-key
+      # value: ${self:custom.env.APPOINTMENT_PLANNER_API_KEY}
+      # description: This api key for appointment planner
       # customerId: DXX
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
@@ -84,7 +84,7 @@ functions:
           method: get
           authorizer:
             arn: ${self:custom.env.AUTHORIZER_ARN }
-            resultTtlInSeconds: 0
+            resultTtlInSeconds: 300
             identitySource: method.request.header.x-api-key
             type: request
           cors:
