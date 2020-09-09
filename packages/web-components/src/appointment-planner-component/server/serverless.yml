@@ -27,10 +27,10 @@ custom:
 provider:
   name: aws
   apiKeys:
-    - name: APPOINTMENT_PLANNER_API
-      customerId: SBOX
-      value: ${self:custom.env.API_KEY} # let cloudformation name the key (recommended when setting api key value)
-      description: Api key description # Optional
+    - name: web-components-api-key
+      value: ${self:custom.env.APPOINTMENT_PLANNER_API_KEY}
+      description: This api key for appointment planner
+      # customerId: DXX
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
@@ -84,7 +84,7 @@ functions:
           method: get
           authorizer:
             arn: ${self:custom.env.AUTHORIZER_ARN }
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.x-api-key
             type: request
           cors:
