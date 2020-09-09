@@ -26,6 +26,11 @@ custom:
 
 provider:
   name: aws
+  apiKeys:
+    - name: APPOINTMENT_PLANNER_API
+      customerId: SBOX
+      value: ${self:custom.env.API_KEY} # let cloudformation name the key (recommended when setting api key value)
+      description: Api key description # Optional
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
@@ -34,6 +39,14 @@ provider:
   #   restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
+  usagePlan:
+    quota:
+      limit: 100000000
+      offset: 0
+      period: DAY
+    throttle:
+      burstLimit: 1000
+      rateLimit: 5000
 
   environment:
     NODE_ENV: ${self:custom.env.NODE_ENV}
@@ -69,6 +82,11 @@ functions:
       - http:
           path: appointment-slots
           method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
