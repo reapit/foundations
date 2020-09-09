@@ -1,5 +1,13 @@
 import * as React from 'react'
-import { ContextMenuData, SetContextMenuProp, Cell, SelectedMatrix, ContextMenuFCProps, OnCellsChanged } from './types'
+import {
+  ContextMenuData,
+  SetContextMenuProp,
+  Cell,
+  SelectedMatrix,
+  ContextMenuFCProps,
+  OnCellsChanged,
+  ContextMenuProp,
+} from './types'
 import { hideContextMenu } from './handlers'
 
 // clear means set value to empty string ""
@@ -139,16 +147,52 @@ const dataMenu: ContextMenuData[] = [
   },
 ]
 
+export const handleRenderMenuInsideViewPort = (
+  setContextMenuProp: React.Dispatch<React.SetStateAction<ContextMenuProp>>,
+  contextMenuProp: ContextMenuProp,
+) => {
+  return (element: HTMLDivElement) => {
+    if (!element || !element.getBoundingClientRect()) {
+      return
+    }
+
+    const { innerWidth: windowWidth, innerHeight: windowHeight } = window
+    const { right: elementRightPosition, bottom: elementBottomPosition } = element.getBoundingClientRect()
+    const { top: contextMenuTopPosition, left: contextMenuLeftPosition } = contextMenuProp
+
+    if (elementRightPosition > windowWidth) {
+      const offScreenDistance = windowWidth - elementRightPosition
+      setContextMenuProp({ ...contextMenuProp, left: contextMenuLeftPosition + offScreenDistance })
+    }
+
+    if (elementBottomPosition > windowHeight) {
+      const offScreenDistance = windowHeight - elementBottomPosition
+      setContextMenuProp({ ...contextMenuProp, top: contextMenuTopPosition + offScreenDistance })
+    }
+  }
+}
+
 export const ContextMenu: React.FC<ContextMenuFCProps> = ({
   data,
   selected,
-  contextMenuProp: { visible, top, left },
+  contextMenuProp,
   setContextMenuProp,
   onCellsChanged,
 }) => {
+  const { visible, top, left } = contextMenuProp
+  const measuredRef = React.useCallback(handleRenderMenuInsideViewPort(setContextMenuProp, contextMenuProp), [
+    contextMenuProp,
+  ])
+
   const visibleClass = visible ? 'spreadsheet-context-menu-visible' : 'spreadsheet-context-menu-hidden'
+
+  if (!visible) {
+    return null
+  }
+
   return (
     <div
+      ref={measuredRef}
       style={{ top, left }}
       className={`spreadsheet-context-menu ${visibleClass}`}
       onClick={handleContextClick(data, selected, setContextMenuProp, onCellsChanged)}
