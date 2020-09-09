@@ -8,6 +8,7 @@ export const mockLoginIdentity = {
   adminId: 'SOME_ADMIN_ID',
   userCode: 'SOME_USER_ID',
   groups: [],
+  orgName: 'SOME_ORG_NAME',
 }
 
 export const mockBrowserSession: ReapitConnectSession = {
