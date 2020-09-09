@@ -13,16 +13,17 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 type WelcomeProps = {}
 
-export const showHandleAgencyCloudSectionGroups = ['ReapitUsers', 'ReapitUsersAdmin']
+export const showHandleAgencyCloudSectionGroups = ['ReapitUser', 'ReapitUsersAdmin']
 
 export const handleIsShowAgencyCloudSectionMemo = (session: ReapitConnectHook) => () => {
   const sessionGroups = session?.connectSession?.loginIdentity?.groups || []
-  // return sessionGroups.some(group => showHandleAgencyCloudSectionGroups.includes(group))
-  return true
+
+  return sessionGroups.some(group => showHandleAgencyCloudSectionGroups.includes(group))
 }
 
 export const Welcome: React.FC<WelcomeProps> = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
+
   const isShowAgencyCloudSection = React.useMemo(handleIsShowAgencyCloudSectionMemo(session), [
     session?.connectSession?.loginIdentity?.groups,
   ])

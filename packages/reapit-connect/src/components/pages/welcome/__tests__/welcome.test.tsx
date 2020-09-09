@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Welcome } from '../welcome'
+import { Welcome, handleIsShowAgencyCloudSectionMemo } from '../welcome'
+import { ReapitConnectHook } from '@reapit/connect-session'
 
 const session = {
   accessToken: '123',
@@ -17,10 +18,25 @@ const session = {
     email: 'cbryan@reapit.com',
     developerId: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
     clientId: 'DXX',
-    adminId: '1',
     userCode: 'LJW',
   },
 }
+
+describe('handleIsShowAgencyCloudSectionMemo', () => {
+  test('return false when groups empty', () => {
+    expect(handleIsShowAgencyCloudSectionMemo((session as unknown) as ReapitConnectHook)()).toBeFalsy()
+  })
+  test('return true when groups include showHandleAgencyCloudSectionGroups group', () => {
+    const inputs = [
+      { connectSession: { ...session, loginIdentity: { ...session.loginIdentity, groups: ['ReapitUser'] } } },
+      { connectSession: { ...session, loginIdentity: { ...session.loginIdentity, groups: ['ReapitUsersAdmin'] } } },
+    ]
+
+    for (let input of inputs) {
+      expect(handleIsShowAgencyCloudSectionMemo((input as unknown) as ReapitConnectHook)()).toBeTruthy()
+    }
+  })
+})
 
 describe('Welcome', () => {
   it('should match snapshot', () => {
