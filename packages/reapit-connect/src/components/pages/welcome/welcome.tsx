@@ -5,15 +5,27 @@ import RowSection from '@/components/ui/section'
 import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
 import marketplaceGraphicImage from '@/assets/images/MarketplaceGraphic.jpg'
 import mainHeadingGraphicImage from '@/assets/images/MainHeadingGraphic.jpg'
+import agencyCloudGraphicImage from '@/assets/images/AgencyCloudGraphic.jpg'
 import { logoWrapStyle, logoStyle, buttonStyle, developerPortalButton, marketplaceButton } from './__styles__'
 import { cx } from 'linaria'
-import { useReapitConnect } from '@reapit/connect-session'
+import { useReapitConnect, ReapitConnectHook } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 type WelcomeProps = {}
 
+export const showHandleAgencyCloudSectionGroups = ['ReapitUsers', 'ReapitUsersAdmin']
+
+export const handleIsShowAgencyCloudSectionMemo = (session: ReapitConnectHook) => () => {
+  const sessionGroups = session?.connectSession?.loginIdentity?.groups || []
+  // return sessionGroups.some(group => showHandleAgencyCloudSectionGroups.includes(group))
+  return true
+}
+
 export const Welcome: React.FC<WelcomeProps> = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
+  const isShowAgencyCloudSection = React.useMemo(handleIsShowAgencyCloudSectionMemo(session), [
+    session?.connectSession?.loginIdentity?.groups,
+  ])
   const developerId = session?.connectSession?.loginIdentity?.developerId
   const clientId = session?.connectSession?.loginIdentity?.clientId
 
@@ -48,6 +60,15 @@ export const Welcome: React.FC<WelcomeProps> = () => {
               DEVELOPERS PORTAL
             </a>
           }
+        />
+      )}
+      {isShowAgencyCloudSection && (
+        <RowSection
+          background="#015b73"
+          heading="Agency Cloud"
+          subheading="Account Successfully Created"
+          description="If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect with your new credentials. If not, please contact your IT Department or Administrator to arrange installation."
+          image={agencyCloudGraphicImage}
         />
       )}
       {clientId && (
