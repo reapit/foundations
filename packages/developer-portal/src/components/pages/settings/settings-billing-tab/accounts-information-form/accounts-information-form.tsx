@@ -67,17 +67,17 @@ export const generateInitialValues = ({
 }
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
-export const onSubmit = ({
-  dispatch,
-  setIsSubmittedDebit,
-}: {
-  dispatch: Dispatch
-  setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
-}) => (values: AccountsInformationFormValues) => {
+export const onSubmit = ({ dispatch }: { dispatch: Dispatch }) => (values: AccountsInformationFormValues) => {
   const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
+  const shouldOpenDebit = hasReapitAccountsRef === 'no' && status === 'incomplete'
+  if (shouldOpenDebit) {
+    window.open(
+      `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.debitApiKey}*&hosted=false`,
+      '_blank',
+    )
+  }
 
-  // currently has to manually set the status value
-  const shouldSetStatusToPending = hasReapitAccountsRef === 'yes' && reapitReference
+  const shouldSetStatusToPending = status !== 'confirmed'
 
   const dataToSubmit: UpdateDeveloperModel = {
     status: shouldSetStatusToPending ? 'pending' : status,
@@ -87,7 +87,6 @@ export const onSubmit = ({
     billingKeyContact,
     billingTelephone,
   }
-  setIsSubmittedDebit(false)
   dispatch(updateDeveloperData(dataToSubmit))
 }
 
@@ -105,7 +104,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const dispatch = useDispatch()
 
   const isShowLoader = isLoading
-  const [isSubmittedDebit, setIsSubmittedDebit] = React.useState<boolean>(false)
 
   if (isShowLoader) {
     return <Loader />
@@ -114,12 +112,10 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const initialValues = generateInitialValues({ developerInfo, defaultInitialValues })
 
   return (
-    <Formik
-      validationSchema={validationSchema}
-      initialValues={initialValues}
-      onSubmit={onSubmit({ dispatch, setIsSubmittedDebit })}
-    >
+    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={onSubmit({ dispatch })}>
       {({ setFieldValue, values }) => {
+        const { hasReapitAccountsRef, status } = values
+        const isSubmitDebitButton = hasReapitAccountsRef === 'no' && status === 'incomplete'
         return (
           <Form>
             <H3 isHeadingSection>Billing</H3>
@@ -147,16 +143,9 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                     setFieldValue={setFieldValue}
                     values={values}
                   />
-                  <DirectDebitSection
-                    initialStatus={initialValues.status}
-                    isSubmittedDebit={isSubmittedDebit}
-                    setIsSubmittedDebit={setIsSubmittedDebit}
-                    setFieldValue={setFieldValue}
-                    values={values}
-                  />
+                  <DirectDebitSection initialStatus={initialValues.status} values={values} />
                   <AccountStatusSection
                     hasReapitAccountsRef={values.hasReapitAccountsRef}
-                    isSubmittedDebit={isSubmittedDebit}
                     initialStatus={initialValues.status}
                   />
                 </GridItem>
@@ -165,7 +154,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 <div>
                   <LevelRight>
                     <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
-                      SUBMIT TO ACCOUNTS
+                      {isSubmitDebitButton ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
                     </Button>
                   </LevelRight>
                 </div>
