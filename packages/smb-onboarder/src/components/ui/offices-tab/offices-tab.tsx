@@ -61,6 +61,21 @@ export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'Office Email' },
 ]
 
+const sampleHeaders = [
+  'id',
+  '_eTag',
+  'Office Name',
+  'Building Name',
+  'Building No.',
+  'Address 1',
+  'Address 2',
+  'Address 3',
+  'Address 4',
+  'Post Code',
+  'Telephone',
+  'Office Email',
+]
+
 export type OfficesTabProps = {}
 
 export interface OfficesQueryParams {
@@ -138,7 +153,7 @@ export const createDownLoadButtonOnClickFn = ({
         return mergedArr
       }, [])
       const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } }, true)
-      handleDownloadCsv(dataTable, window, document)()
+      handleDownloadCsv(dataTable)()
     })
     .finally(() => {
       setIsDownloading(false)
@@ -184,7 +199,12 @@ export const renderContent = ({
           hasDownloadButton
           afterUploadDataValidated={handleAfterUpload}
           CustomDownButton={<CustomDownButton totalCount={totalCount} />}
+          hasDownloadSampleButton
+          sampleHeaders={sampleHeaders}
         />
+        <small className="has-text-link mb-1">
+          * Please input the cell with background red first when Add New office
+        </small>
       </Section>
 
       <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />

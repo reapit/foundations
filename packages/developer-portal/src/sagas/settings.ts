@@ -5,7 +5,6 @@ import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
-import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
@@ -28,12 +27,10 @@ export const developerInformationFetch = function*() {
       yield put(requestDeveloperDataSuccess(response))
     }
   } catch (error) {
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(settingShowLoading(false))
   }
@@ -73,12 +70,10 @@ export const developerInfomationChange = function*({ data }: Action<UpdateDevelo
       yield put(requestDeveloperDataSuccess(newResponse))
     }
   } catch (error) {
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
   } finally {
     yield put(settingShowLoading(false))
   }
@@ -109,8 +104,8 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     localStorage.setItem('isPasswordChanged', 'true')
     reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
-    notification.error({
-      message: error.message,
+    yield call(notification.error, {
+      message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',
     })
   } finally {

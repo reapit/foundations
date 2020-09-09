@@ -2,14 +2,19 @@ import { fetchAppDetailSaga } from '../app-detail'
 import { put, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { errorThrownServer } from '@/actions/error'
+import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { fetchAppDetailSuccess } from '@/actions/apps'
 
-jest.mock('@reapit/elements')
+jest.mock('@reapit/elements', () => ({
+  ...jest.requireActual('@reapit/elements'),
+  notification: {
+    error: jest.fn(),
+  },
+}))
 
 const paramsClientId: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
@@ -36,12 +41,10 @@ describe('fetch developer app detail with clientId', () => {
     const clone = gen.clone()
     // @ts-ignore
     expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
@@ -59,12 +62,10 @@ describe('fetch developer app detail without clientId', () => {
     const clone = gen.clone()
     // @ts-ignore
     expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
@@ -102,12 +103,10 @@ describe('client app detail fetch data and fetch apiKey', () => {
     const clone = gen.clone()
     // @ts-ignore
     expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      }),
     )
   })
 })
