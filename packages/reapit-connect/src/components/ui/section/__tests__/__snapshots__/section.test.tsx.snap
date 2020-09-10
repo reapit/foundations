@@ -9,27 +9,29 @@ exports[`Section should match snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
-  >
-    <img
-      alt="Test heading"
-      src=""
-    />
-  </Component>
-  <Component
-    className=""
-  >
-    <Component>
-      Test heading
-    </Component>
-    <Component>
-      Test sub heading
+  <Component>
+    <Component
+      className=""
+    >
+      <img
+        alt="Test heading"
+        src=""
+      />
     </Component>
     <Component
-      className="mb-4"
+      className=""
     >
-      Test description
+      <Component>
+        Test heading
+      </Component>
+      <Component>
+        Test sub heading
+      </Component>
+      <Component
+        className="mb-4"
+      >
+        Test description
+      </Component>
     </Component>
   </Component>
 </div>
@@ -44,33 +46,35 @@ exports[`Section should match snapshot when has button 1`] = `
     }
   }
 >
-  <Component
-    className=""
-  >
-    <Component>
-      Test heading
-    </Component>
-    <Component>
-      Test sub heading
+  <Component>
+    <Component
+      className=""
+    >
+      <Component>
+        Test heading
+      </Component>
+      <Component>
+        Test sub heading
+      </Component>
+      <Component
+        className="mb-4"
+      >
+        Test description
+      </Component>
+      <a
+        href="/test"
+      >
+        My button
+      </a>
     </Component>
     <Component
-      className="mb-4"
+      className=""
     >
-      Test description
+      <img
+        alt="Test heading"
+        src=""
+      />
     </Component>
-    <a
-      href="/test"
-    >
-      My button
-    </a>
-  </Component>
-  <Component
-    className=""
-  >
-    <img
-      alt="Test heading"
-      src=""
-    />
   </Component>
 </div>
 `;
@@ -84,28 +88,30 @@ exports[`Section should match snapshot when image in right 1`] = `
     }
   }
 >
-  <Component
-    className=""
-  >
-    <Component>
-      Test heading
-    </Component>
-    <Component>
-      Test sub heading
+  <Component>
+    <Component
+      className=""
+    >
+      <Component>
+        Test heading
+      </Component>
+      <Component>
+        Test sub heading
+      </Component>
+      <Component
+        className="mb-4"
+      >
+        Test description
+      </Component>
     </Component>
     <Component
-      className="mb-4"
+      className=""
     >
-      Test description
+      <img
+        alt="Test heading"
+        src=""
+      />
     </Component>
-  </Component>
-  <Component
-    className=""
-  >
-    <img
-      alt="Test heading"
-      src=""
-    />
   </Component>
 </div>
 `;
