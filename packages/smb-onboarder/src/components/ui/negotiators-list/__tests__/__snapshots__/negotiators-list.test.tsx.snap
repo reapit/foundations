@@ -35891,14 +35891,14 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 2`] = `
       hasDownloadSampleButton={true}
       sampleHeaders={
         Array [
+          "id (Left blank when create )",
+          "_eTag (Left blank when create )",
           "Username",
           "Job Title",
           "Email Address",
           "Telephone",
           "Office",
           "Status",
-          "id",
-          "_eTag",
         ]
       }
       validate={[Function]}
@@ -36067,14 +36067,14 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
       hasDownloadSampleButton={true}
       sampleHeaders={
         Array [
+          "id (Left blank when create )",
+          "_eTag (Left blank when create )",
           "Username",
           "Job Title",
           "Email Address",
           "Telephone",
           "Office",
           "Status",
-          "id",
-          "_eTag",
         ]
       }
       validate={[Function]}

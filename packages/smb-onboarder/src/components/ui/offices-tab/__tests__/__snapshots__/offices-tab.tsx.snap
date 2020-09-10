@@ -31382,8 +31382,8 @@ exports[`OfficesTab renderContent should match snapshot 2`] = `
       hasUploadButton={true}
       sampleHeaders={
         Array [
-          "id",
-          "_eTag",
+          "id (Left blank when create )",
+          "_eTag (Left blank when create )",
           "Office Name",
           "Building Name",
           "Building No.",
@@ -31684,8 +31684,8 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
       hasUploadButton={true}
       sampleHeaders={
         Array [
-          "id",
-          "_eTag",
+          "id (Left blank when create )",
+          "_eTag (Left blank when create )",
           "Office Name",
           "Building Name",
           "Building No.",

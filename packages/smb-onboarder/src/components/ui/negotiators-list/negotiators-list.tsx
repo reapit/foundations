@@ -46,7 +46,16 @@ export const tableDownloadHeaders: DataTableRow[] = [
   { readOnly: true, value: 'eTag (DO NOT EDIT)' },
 ]
 
-const sampleHeaders = ['Username', 'Job Title', 'Email Address', 'Telephone', 'Office', 'Status', 'id', '_eTag']
+const sampleHeaders = [
+  'id (Left blank when create )',
+  '_eTag (Left blank when create )',
+  'Username',
+  'Job Title',
+  'Email Address',
+  'Telephone',
+  'Office',
+  'Status',
+]
 
 export type DataTableRow = {
   value?: string | boolean
