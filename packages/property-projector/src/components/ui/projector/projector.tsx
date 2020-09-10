@@ -7,7 +7,7 @@ import ProjectorProperty from './property'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 
-type ProjectorProps = {
+export type ProjectorProps = {
   config: any
 }
 

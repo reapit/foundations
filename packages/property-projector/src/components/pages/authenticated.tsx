@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { H3, Content } from '@reapit/elements'
 import ConfigForm from '../ui/config-form'
 
