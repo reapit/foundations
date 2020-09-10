@@ -1,5 +1,5 @@
 import { getPropertyProjectorConfig, savePropertyProjectorConfig } from '../property-projector-config'
-import { mockBrowserSession } from '../../platform-api/__mocks__/session'
+import { mockBrowserSession } from '@/platform-api/__mocks__/session'
 import { PropertyProjectorConfig } from '@/types/global'
 import mockPropertyProjectorConfig from '../__mocks__/config'
 import { fetcher } from '@reapit/elements'
