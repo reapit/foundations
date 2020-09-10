@@ -4,7 +4,7 @@ export const BASE_HEADERS = {
 }
 
 export const URLS = {
-  CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
+  PROPERTIES: '/properties',
 }
 
 export const API_BASE = {

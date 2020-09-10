@@ -1,15 +1,15 @@
 import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { PropertyModel, PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
 import { URLS, BASE_HEADERS } from '../constants/api'
 
-export const configurationAppointmentsApiService = async (
+export const propertiesApiService = async (
   session: ReapitConnectSession,
-): Promise<ListItemModel[] | undefined> => {
+): Promise<PropertyModel[] | undefined> => {
   try {
-    const response: ListItemModel[] | undefined = await fetcher({
+    const response: PagedResultPropertyModel_ | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: URLS.CONFIGURATION_APPOINTMENT_TYPES,
+      url: `${URLS.PROPERTIES}/?agentRole=rentCollection&marketingMode=letting`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -18,11 +18,11 @@ export const configurationAppointmentsApiService = async (
     })
 
     if (response) {
-      return response
+      return response._embedded as PropertyModel[]
     }
 
     throw new Error('No response returned by API')
   } catch (err) {
-    console.error('Error fetching Configuration Appointment Types', err.message)
+    console.error('Error fetching properties', err.message)
   }
 }

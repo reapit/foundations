@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
-import { getProductDetails, createPaymentIntent } from '../../stripe-api/payment'
+import { createPaymentIntent } from '../../stripe-api/payment'
 import { StripeCardElement } from '@stripe/stripe-js'
 import { checkoutFormStyles } from './__styles__/checkout-form'
+import { Payment } from '../pages/authenticated'
+import { Button, H5 } from '@reapit/elements'
 
-export default function CheckoutForm() {
-  const [amount, setAmount] = useState(0)
-  const [currency, setCurrency] = useState('')
+export default function CheckoutForm({
+  payment,
+  propertyId,
+}: {
+  payment: Payment
+  propertyId: string
+}) {
+  const { amount, currency } = payment
   const [clientSecret, setClientSecret] = useState('')
   const [error, setError] = useState('')
   const [metadata, setMetadata] = useState()
@@ -16,23 +23,16 @@ export default function CheckoutForm() {
   const elements = useElements()
 
   useEffect(() => {
-    // Step 1: Fetch product details such as amount and currency from
-    // API to make sure it can't be tampered with in the client.
-    getProductDetails({}).then((productDetails) => {
-      setAmount(productDetails.amount / 100)
-      setCurrency(productDetails.currency)
-    })
+    // Create PaymentIntent over Stripe API
 
-    // Step 2: Create PaymentIntent over Stripe API
-    
-    createPaymentIntent({})
+    createPaymentIntent({ amount: amount * 100, currency })
       .then((clientSecret) => {
         setClientSecret(clientSecret)
       })
       .catch((err) => {
         setError(err.message)
       })
-  }, [])
+  }, [amount, currency])
 
   const handleSubmit = async (ev) => {
     ev.preventDefault()
@@ -40,7 +40,7 @@ export default function CheckoutForm() {
 
     // Step 3: Use clientSecret from PaymentIntent and the CardElement
     // to confirm payment with stripe.confirmCardPayment()
-    if(!stripe || !elements) return
+    if (!stripe || !elements) return
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement) as StripeCardElement,
@@ -64,14 +64,11 @@ export default function CheckoutForm() {
   }
 
   const renderSuccess = () => {
+    console.log(JSON.stringify(metadata, null, 2))
     return (
-      <div className="sr-field-success message">
-        <h1>Your test payment succeeded</h1>
-        <p>View PaymentIntent response:</p>
-        <pre className="sr-callout">
-          <code>{JSON.stringify(metadata, null, 2)}</code>
-        </pre>
-      </div>
+      <H5>
+        Payment of {currency} {amount} received for {propertyId}
+      </H5>
     )
   }
 
@@ -80,7 +77,7 @@ export default function CheckoutForm() {
       style: {
         base: {
           color: '#32325d',
-          fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+          fontFamily: '"Roboto", Helvetica, sans-serif',
           fontSmoothing: 'antialiased',
           fontSize: '16px',
           '::placeholder': {
@@ -88,51 +85,52 @@ export default function CheckoutForm() {
           },
         },
         invalid: {
-          color: '#fa755a',
+          color: '#006580',
           iconColor: '#fa755a',
         },
       },
     }
 
     return (
-      <form className={checkoutFormStyles} onSubmit={handleSubmit}>
-        <h1>
-          {currency.toLocaleUpperCase()}{' '}
-          {amount.toLocaleString(navigator.language, {
-            minimumFractionDigits: 2,
-          })}{' '}
-        </h1>
-        <h4>Pre-order the Pasha package</h4>
+      <>
+        <H5>Payment for {propertyId}</H5>
+        <form className={checkoutFormStyles} onSubmit={handleSubmit}>
+          <h1>
+            {currency.toLocaleUpperCase()}{' '}
+            {amount.toLocaleString(navigator.language, {
+              minimumFractionDigits: 2,
+            })}{' '}
+          </h1>
+          <div className="sr-combo-inputs">
+            <div className="sr-combo-inputs-row">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                autoComplete="cardholder"
+                className="sr-input"
+              />
+            </div>
 
-        <div className="sr-combo-inputs">
-          <div className="sr-combo-inputs-row">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Name"
-              autoComplete="cardholder"
-              className="sr-input"
-            />
+            <div className="sr-combo-inputs-row">
+              <CardElement
+                className="sr-input sr-card-element"
+                options={options}
+              />
+            </div>
           </div>
 
-          <div className="sr-combo-inputs-row">
-            <CardElement
-              className="sr-input sr-card-element"
-              options={options}
-            />
-          </div>
-        </div>
+          {error && <div className="message sr-field-error">{error}</div>}
 
-        {error && <div className="message sr-field-error">{error}</div>}
-
-        <button
-          className="btn"
-          disabled={processing || !clientSecret || !stripe}
-        >
-          {processing ? 'Processing…' : 'Pay'}
-        </button>
-      </form>
+          <Button
+            type="submit"
+            disabled={processing || !clientSecret || !stripe}
+          >
+            {processing ? 'Processing…' : 'Pay'}
+          </Button>
+        </form>
+      </>
     )
   }
 

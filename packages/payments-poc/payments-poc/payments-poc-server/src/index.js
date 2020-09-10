@@ -25,38 +25,29 @@ app.use(express.static(process.env.STATIC_DIR))
 // Use JSON parser for all non-webhook routes
 app.use((req, res, next) => {
   if (req.originalUrl === '/webhook') {
+    console.log('Calling Webhook')
     next()
   } else {
+    console.log('Parsing request')
     bodyParser.json()(req, res, next)
   }
 })
 
 app.get('/', (req, res) => {
+  console.log('Serving static')
   const path = resolve(process.env.STATIC_DIR + '/index.html')
   res.sendFile(path)
 })
 
 app.get('/public-key', (req, res) => {
+  console.log('Requesting public key')
   res.send({ publicKey: process.env.STRIPE_PUBLISHABLE_KEY })
 })
 
-app.get('/product-details', (req, res) => {
-  let data = getProductDetails()
-  res.send(data)
-})
-
 app.post('/create-payment-intent', async (req, res) => {
-  const body = req.body
-  const productDetails = getProductDetails()
-
-  const options = {
-    ...body,
-    amount: productDetails.amount,
-    currency: productDetails.currency,
-  }
-
+  console.log('Patyment is',req.body)
   try {
-    const paymentIntent = await stripe.paymentIntents.create(options)
+    const paymentIntent = await stripe.paymentIntents.create(req.body)
     res.json(paymentIntent)
   } catch (err) {
     res.json(err)
@@ -107,9 +98,7 @@ function generateAccountLink(accountID, origin) {
     .then((link) => link.url)
 }
 
-let getProductDetails = () => {
-  return { currency: 'EUR', amount: 9900 }
-}
+
 
 // Webhook handler for asynchronous events.
 app.post(

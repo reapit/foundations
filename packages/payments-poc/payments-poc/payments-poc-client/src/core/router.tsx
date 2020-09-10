@@ -30,7 +30,6 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
-const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
 const OAuthSuccess = React.lazy(() => catchChunkError(() => import('../components/pages/oauth-success')))
 const OnboardSuccess = React.lazy(() => catchChunkError(() => import('../components/pages/onboard-success')))
 
@@ -41,7 +40,6 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.PAYMENT} component={PaymentPage} />
             <Route path={Routes.HOME} component={AuthenticatedPage} />
             <Route path={Routes.ONBOARD_SUCCESS} component={OnboardSuccess} />
             <Route path={Routes.OAUTH_SUCCESS} component={OAuthSuccess} />
