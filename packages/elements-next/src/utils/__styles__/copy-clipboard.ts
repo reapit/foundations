@@ -1,7 +1,7 @@
 import { css } from 'linaria'
-import { colors } from '@/styles/colors'
-import { layoutSizes } from '@/styles/layout'
-import { fontSizes } from '@/styles/fonts'
+import { colors } from '../../styles/colors'
+import { layoutSizes } from '../../styles/layout'
+import { fontSizes } from '../../styles/fonts'
 
 export const copyClipboardWrapper = css`
   position: relative;
