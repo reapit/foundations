@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DepartmentCheckboxes should match a snap shot 1`] = `
+<Component>
+  <Component>
+    Departments
+  </Component>
+  <Component>
+    Only properties from the selected departments and types will be shown in your Property Projector.
+  </Component>
+  <Component
+    id="department-G"
+    labelText="General"
+    name="departments"
+    value="G"
+  />
+  <div
+    className="department-property-types"
+  >
+    <Component
+      id="G-house"
+      key="0"
+      labelText="house"
+      name="GPropertyTypes"
+      value="house"
+    />
+    <Component
+      id="G-bungalow"
+      key="1"
+      labelText="bungalow"
+      name="GPropertyTypes"
+      value="bungalow"
+    />
+  </div>
+</Component>
+`;
