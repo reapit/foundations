@@ -1,4 +1,5 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, useMemo } from 'react'
+import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from './set-as-admin'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
@@ -7,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 import InviteMemberModal from '@/components/ui/developer-invite-member-modal'
 import { selectCurrentMemberData } from '@/selector/current-member'
+import dayjs from 'dayjs'
 
 export const columns = [
   {
@@ -109,6 +111,59 @@ export const openDisableMemberModal = (setSelectedUser, setDisableMemberModalVis
   setDisableMemberModalVisible(true)
 }
 
+export const PRIORITY_LEVEL = {
+  active: 4,
+  inactive: 3,
+  pending: 2,
+  rejected: 1,
+  other: 0,
+}
+
+type MemberModelWithAction = MemberModel & { action?: any }
+
+export const handleGenerateUniqueDataList = (data: MemberModelWithAction[]) => () => {
+  const uniqueHashMapWithEmailKey: { [key: string]: MemberModelWithAction } = data.reduce((accumulator, item) => {
+    const newAcc = { ...accumulator }
+    const { email, status, created } = item
+
+    if (!email || !status || !created) {
+      return newAcc
+    }
+
+    if (!accumulator[email]) {
+      newAcc[email] = item
+      return newAcc
+    }
+
+    // PRIORITY_LEVEL[status] will be undefined if status is not in the list
+    // its priority will be  0 in this case
+    const currentItemPriority = PRIORITY_LEVEL[status] ?? PRIORITY_LEVEL.other
+    const inHashMapItemPriority = PRIORITY_LEVEL[accumulator[email].status] ?? PRIORITY_LEVEL.other
+
+    const currentItemCreated = dayjs(created)
+    const inHashMapItemCreated = dayjs(accumulator[email].created)
+
+    // when already had in hashmap -> check priority to update
+    // 'active' & 'pending' take over other status
+    if (currentItemPriority > inHashMapItemPriority) {
+      newAcc[email] = item
+    }
+
+    // if same priority, newer invite goes first
+    if (currentItemPriority === inHashMapItemPriority && currentItemCreated.isAfter(inHashMapItemCreated)) {
+      newAcc[email] = item
+    }
+    return newAcc
+  }, {})
+
+  // sort by data so that newer members go first
+  const sortedDataByDate = Object.values(uniqueHashMapWithEmailKey).sort((a, b) => {
+    return dayjs(a.created).isAfter(dayjs(b.created)) ? -1 : 0
+  })
+
+  return sortedDataByDate
+}
+
 export const Members: React.FC = () => {
   const [isSetAdminModalOpen, setIsSetAdminModalOpen] = React.useState<boolean>(false)
   const [selectedUser, setSelectedUser] = React.useState<any>(null)
@@ -132,10 +187,12 @@ export const Members: React.FC = () => {
     setDisableMemberModalVisible,
     setReInviteModalVisible,
   )
+  const memoizedUniqueDataList = useMemo(handleGenerateUniqueDataList(data), [data])
+
   return (
     <Section>
       <H5>Members</H5>
-      <Table scrollable loading={loading} data={data} columns={columns} />
+      <Table scrollable loading={loading} data={memoizedUniqueDataList} columns={columns} />
       <DisableMemberModal
         visible={disableMemberModalVisible}
         developer={selectedUser}
