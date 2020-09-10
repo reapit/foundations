@@ -1,8 +1,9 @@
-service: cloud-web-components-search-widget
+service: cloud-search-widget
 plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-add-api-key
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
@@ -26,12 +27,28 @@ custom:
 
 provider:
   name: aws
+  apiKeys:
+    - name: cloud-search-widget-api-key
+      deleteAtRemoval: false
+      usagePlan:
+        name: "cloud-search-widget-usage-plan"
+        description: "This is usage plan for search-widget"
+        quota:
+          limit: 100000000
+          offset: 0
+          period: DAY
+        throttle:
+          burstLimit: 1000
+          rateLimit: 5000
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  apiGateway:
-    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
-    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
+  resourcePolicy:
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource: ${self:custom.env.SEARCH_WIDGET_RESOURCE_POLICY_API}
+
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
 
@@ -67,6 +84,11 @@ functions:
       - http:
           path: properties
           method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -81,6 +103,11 @@ functions:
       - http:
           path: properties/{id}
           method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -94,6 +121,25 @@ functions:
                 reapit-customer: false
       - http:
           path: propertyImages
+          method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false
+      - http:
+          path: ping
           method: get
           cors:
             origin: '*'
