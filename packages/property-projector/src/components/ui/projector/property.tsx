@@ -34,14 +34,14 @@ const PropertyImages: React.FC<PropertyImagesProps> = props => {
   )
 }
 
-type ProjectorPropertyProps = {
+export type ProjectorPropertyProps = {
   config: any
   property: any
 }
 
 const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
   const { config, property } = props
-  const { logo, primaryColour, secondaryColour, showAddress, showStrapline, headerTextColour } = config
+  const { primaryColour, secondaryColour, showAddress, headerTextColour } = config
 
   const projectorStyles: React.CSSProperties = {
     color: headerTextColour,
@@ -50,7 +50,7 @@ const ProjectorProperty: React.FC<ProjectorPropertyProps> = props => {
 
   return (
     <div className="property-projector">
-      <PropertyImages images={property.images} borderColour={config.secondaryColour} />
+      <PropertyImages images={property.images} borderColour={secondaryColour} />
       <div className="property-projector-information">
         <p style={projectorStyles} className="sale-status">
           {getStatus(property)}
