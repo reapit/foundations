@@ -3,6 +3,7 @@ plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-add-api-key
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
@@ -26,11 +27,19 @@ custom:
 
 provider:
   name: aws
-  # apiKeys:
-    # - name: web-components-api-key
-      # value: ${self:custom.env.APPOINTMENT_PLANNER_API_KEY}
-      # description: This api key for appointment planner
-      # customerId: DXX
+  apiKeys:
+    - name: web-components-api-key
+      deleteAtRemoval: false
+      usagePlan:
+        name: "web-components-usage-plan"
+        description: "This is usage plan for web components"
+        quota:
+          limit: 100000000
+          offset: 0
+          period: DAY
+        throttle:
+          burstLimit: 1000
+          rateLimit: 5000
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
@@ -41,18 +50,10 @@ provider:
     - Effect: Allow
       Principal: '*'
       Action: execute-api:Invoke
-      Resource:
-        - execute-api: ${self:custom.env.APPOINTMENT_PLANNER_RESOURCE_POLICY_API}
+      Resource: ${self:custom.env.APPOINTMENT_PLANNER_RESOURCE_POLICY_API}
+
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
-  usagePlan:
-    quota:
-      limit: 100000000
-      offset: 0
-      period: DAY
-    throttle:
-      burstLimit: 1000
-      rateLimit: 5000
 
   environment:
     NODE_ENV: ${self:custom.env.NODE_ENV}
