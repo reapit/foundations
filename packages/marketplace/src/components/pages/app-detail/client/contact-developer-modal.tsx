@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Grid, GridItem, SubTitleH6, Content, ModalV2 } from '@reapit/elements'
 import * as linkStyles from '@/core/__styles__/elements'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export type ContactDeveloperSectionType = {
   contact: {
@@ -24,6 +25,7 @@ export const ContactDeveloperSection = ({
   contact: { developer, telephone, supportEmail, homePage },
 }: ContactDeveloperSectionType) => {
   const [visible, setVisible] = React.useState<boolean>(false)
+  const isDesktop = getMarketplaceGlobalsByKey()
 
   return (
     <>
@@ -70,14 +72,18 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a
-                  className={linkStyles.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`mailto:${supportEmail}`}
-                >
-                  {supportEmail}
-                </a>
+                {isDesktop ? (
+                  supportEmail
+                ) : (
+                  <a
+                    className={linkStyles.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`mailto:${supportEmail}`}
+                  >
+                    {supportEmail}
+                  </a>
+                )}
               </p>
             </GridItem>
           </Grid>
