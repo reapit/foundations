@@ -1,19 +1,39 @@
 mutation UpdateNegotiator(
-  $id: String!,
-  $_eTag: String!,
-  $name: String,
-  $jobTitle: String,
-  $active: Boolean,
-  $mobilePhone: String,
+  $id: String!
+  $_eTag: String!
+  $name: String
+  $jobTitle: String
+  $active: Boolean
+  $mobilePhone: String
   $email: String
 ) {
-  UpdateNegotiator(id: $id, _eTag: $_eTag, name: $name, jobTitle: $jobTitle, active: $active, mobilePhone: $mobilePhone, email: $email) {
-      id
-      name
-      jobTitle
-      active
-      mobilePhone
-      email
-      _eTag
+  UpdateNegotiator(
+    id: $id
+    _eTag: $_eTag
+    name: $name
+    jobTitle: $jobTitle
+    active: $active
+    mobilePhone: $mobilePhone
+    email: $email
+  ) {
+    id
+    created
+    modified
+    name
+    jobTitle
+    active
+    officeId
+    workPhone
+    mobilePhone
+    email
+    metadata
+    _eTag
+    _links
+    _embedded {
+      office {
+        id
+        name
+      }
+    }
   }
 }

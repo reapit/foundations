@@ -3,6 +3,7 @@ import { CreateOfficeModel } from '@reapit/foundations-ts-definitions'
 import { Cell } from '@reapit/elements'
 import { UploadResultDetail } from '@/reducers/update-provider'
 import { UpdateOfficeParams } from '@/components/ui/offices-tab/offices-tab'
+import { NegotiatorCreateParams, NegotiatorUpdateParams } from '@/components/ui/negotiators-list/negotiators-list'
 
 export interface WorkerMessage {
   from: 'FROM_MAIN' | 'FROM_WORKER'
@@ -26,7 +27,7 @@ export interface UploadCsvResponseMessage {
 export interface MutationParams<T> {
   graphqlUri?: string
   accessToken?: string
-  operationName: string
+  operationName?: string
   query: string
   variables: T
 }
@@ -35,6 +36,7 @@ export interface MutationResult<T> {
   success: boolean
   data?: MutationParams<T>
   errors?: Array<{ message: string }>
+  response?: ExecutionResult
 }
 
 /*
@@ -84,6 +86,7 @@ export const mutation = <T>({
         resolve({
           success: true,
           data: { operationName, query, variables },
+          response,
         })
       })
       .catch(error =>
@@ -129,5 +132,30 @@ export const prepareUpdateOfficeParams = (rowData: Cell[]): UpdateOfficeParams =
     },
     workPhone: rowData[10].value as string, // workPhone column
     email: rowData[11].value as string, // email column
+  }
+}
+
+export const prepareUpdateNegotiatorParams = (rowData: Cell[]): NegotiatorUpdateParams => {
+  const active = Boolean(rowData[5].value?.toLowerCase() === 'true')
+  return {
+    name: rowData[0].value as string, // name column
+    jobTitle: rowData[1].value as string, // jobTitle column
+    email: rowData[2].value as string, // email column
+    mobilePhone: rowData[3].value as string, // mobilePhone column
+    active: active, // active column
+    id: rowData[6]?.value as string,
+    _eTag: rowData[7]?.value as string,
+  }
+}
+
+export const prepareCreateNegotiatorParams = (rowData: Cell[]): NegotiatorCreateParams => {
+  const active = Boolean(rowData[5].value?.toLowerCase() === 'true')
+  return {
+    name: rowData[0].value as string, // name column
+    jobTitle: rowData[1].value as string, // jobTitle column
+    email: rowData[2].value as string, // email column
+    mobilePhone: rowData[3].value as string, // mobilePhone column
+    officeId: rowData[4].value as string, // mobilePhone column
+    active: active, // active column
   }
 }
