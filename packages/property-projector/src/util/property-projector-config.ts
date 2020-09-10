@@ -1,6 +1,6 @@
 import { PropertyProjectorConfig } from '@/types/global'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { getNegotiatorOfficeId } from './negotiator-helper'
+import { fetcher } from '@reapit/elements'
 
 export const savePropertyProjectorConfig = async (
   session: ReapitConnectSession,
@@ -10,18 +10,13 @@ export const savePropertyProjectorConfig = async (
   const clientId = session.loginIdentity.clientId ?? 'RPT'
 
   try {
-    const response = await fetch(
-      `${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/${clientId}/${officeId}`,
-      { method: 'PUT', body: JSON.stringify(config), headers: { 'content-type': 'application/json' } },
-    )
-    const data = await response.json()
-
-    // check for error response
-    if (!response.ok) {
-      // get error message from body or default to response statusText
-      const error = (data && data.message) || response.statusText
-      throw new Error(error)
-    }
+    await fetcher({
+      api: window.reapit.config.dynamoEnv,
+      url: `/dev/v1/property-projector-config/${clientId}/${officeId}`,
+      method: 'PUT',
+      body: JSON.stringify(config),
+      headers: { 'content-type': 'application/json' },
+    })
 
     return true
   } catch (e) {
@@ -57,17 +52,14 @@ export const getPropertyProjectorConfig = async (
   const clientId = session.loginIdentity.clientId ?? 'RPT'
 
   try {
-    const response = await fetch(
-      `${window.reapit.config.dynamoEnv}/dev/v1/property-projector-config/${clientId}/${officeId}`,
-    )
-    const data = await response.json()
-
-    // check for error response
-    if (!response.ok) {
-      // get error message from body or default to response statusText
-      const error = (data && data.message) || response.statusText
-      throw new Error(error)
-    }
+    const data = await fetcher({
+      api: window.reapit.config.dynamoEnv,
+      url: `/dev/v1/property-projector-config/${clientId}/${officeId}`,
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
 
     delete data['customerId']
     delete data['officeId']
