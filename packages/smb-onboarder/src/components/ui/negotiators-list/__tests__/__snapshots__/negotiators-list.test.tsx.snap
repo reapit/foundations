@@ -35888,6 +35888,19 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 2`] = `
       afterCellsChanged={[Function]}
       allowOnlyOneValidationErrorPerRow={true}
       data={Array []}
+      hasDownloadSampleButton={true}
+      sampleHeaders={
+        Array [
+          "Username",
+          "Job Title",
+          "Email Address",
+          "Telephone",
+          "Office",
+          "Status",
+          "id",
+          "_eTag",
+        ]
+      }
       validate={[Function]}
     />
     <small
@@ -36049,6 +36062,19 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
               "value": "\\"B28EE5CFF654DB22BF3247CA028C10C3\\"",
             },
           ],
+        ]
+      }
+      hasDownloadSampleButton={true}
+      sampleHeaders={
+        Array [
+          "Username",
+          "Job Title",
+          "Email Address",
+          "Telephone",
+          "Office",
+          "Status",
+          "id",
+          "_eTag",
         ]
       }
       validate={[Function]}

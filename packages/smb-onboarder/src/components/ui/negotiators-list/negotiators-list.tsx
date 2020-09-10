@@ -46,6 +46,8 @@ export const tableDownloadHeaders: DataTableRow[] = [
   { readOnly: true, value: 'eTag (DO NOT EDIT)' },
 ]
 
+const sampleHeaders = ['Username', 'Job Title', 'Email Address', 'Telephone', 'Office', 'Status', 'id', '_eTag']
+
 export type DataTableRow = {
   value?: string | boolean
   readOnly?: boolean
@@ -437,6 +439,8 @@ export const renderNegotiatorList = ({
           data={dataTable as Cell[][]}
           afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
           validate={validate}
+          hasDownloadSampleButton
+          sampleHeaders={sampleHeaders}
         />
         <small className="has-text-link mb-1">
           * Please input the cell with background red first when Add New user
