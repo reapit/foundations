@@ -58,7 +58,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
                 className={cx('button', buttonStyle, developerPortalButton)}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={URLS[appEnv].marketplacePortal}
+                href={URLS[appEnv].developerPortal}
               >
                 DEVELOPERS PORTAL
               </a>
@@ -86,7 +86,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
                 className={cx('button', buttonStyle, marketplaceButton)}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={URLS[appEnv].developerPortal}
+                href={URLS[appEnv].marketplacePortal}
               >
                 Marketplace
               </a>
