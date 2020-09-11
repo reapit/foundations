@@ -4,6 +4,14 @@ export const sectionContainer = css`
   @media screen and (min-width: 768px) {
     height: 400px;
   }
+
+  &:nth-child(odd) > .container {
+    flex-direction: row-reverse;
+  }
+
+  &:nth-child(even) > .container {
+    flex-direction: row;
+  }
 `
 
 export const gridItem = css`
