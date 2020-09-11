@@ -63,11 +63,11 @@ export default {
         tocLinkActive: colors.black,
       },
       header: {
-        bg: colors.blue,
-        text: colors.white,
+        bg: colors.white,
+        text: colors.blue,
         button: {
-          bg: colors.white,
-          color: colors.blue,
+          bg: colors.blue,
+          color: colors.white,
         },
       },
       playground: {
