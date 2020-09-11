@@ -16,7 +16,9 @@ const mockPropertyProjectorConfig: PropertyProjectorConfig = {
   maxRent: 0,
   showAddress: true,
   sortBy: 'created',
-  departments: {},
+  departments: {
+    G: ['house'],
+  },
   offices: [],
 }
 
