@@ -1,13 +1,14 @@
 import { css } from 'linaria'
-import { variables } from './variables'
 
 /* Below is a slimmed down version of of Normalize CSS plus some basic defaults */
-
 export const globalStyles = css`
   :global() {
     /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap'); */
-    ${variables}
     html {
+      --font-monospace: 'Source Code Pro', monospace;
+      --font-default: 'Roboto', Helvetica, Arial, sans-serif;
+      --color-black: #3b454e;
+      --color-blue: #0061a8;
       box-sizing: border-box;
       font-family: var(--font-default);
       color: var(--color-black);
@@ -143,6 +144,20 @@ export const globalStyles = css`
 
     [hidden] {
       display: none;
+    }
+
+    [data-testid='main-container'] {
+      [data-testid='live-preview'] {
+        padding: 0px;
+      }
+
+      [data-testid='playground'] {
+      }
+
+      [data-testid='live-editor'] * {
+        font-family: var(--font-monospace, '"Source Code Pro", monospace') !important;
+        font-size: 1rem !important;
+      }
     }
   }
 `

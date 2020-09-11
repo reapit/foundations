@@ -2,7 +2,7 @@ import { css } from 'linaria'
 
 export const copyClipboardWrapper = css`
   position: relative;
-  font-size: var(--font-size-default, 1rem);
+  /* font-size: var(--font-size-default, 1rem);
   background: var(--color-grey-lightest, #f5f7f9);
 
   p {
@@ -16,5 +16,5 @@ export const copyClipboardWrapper = css`
     position: absolute;
     right: var(--layout-size-base, 1rem);
     cursor: pointer;
-  }
+  } */
 `

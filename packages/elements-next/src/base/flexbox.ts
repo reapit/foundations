@@ -69,9 +69,9 @@ export const elFlexGrow = css`
 
 // Flex Shrink
 export const elFlexShrink0 = css`
-  flex-grow: 0;
+  flex-shrink: 0;
 `
 
 export const elFlexShrink = css`
-  flex-grow: 1;
+  flex-shrink: 1;
 `
