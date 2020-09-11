@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void
   className?: string
   dataTest?: string
+  children?: React.ReactNode
 }
 
 export const Button: React.SFC<ButtonProps> = ({
@@ -33,12 +34,7 @@ export const Button: React.SFC<ButtonProps> = ({
       : 'is-danger'
 
   return (
-    <button
-      type={type}
-      className={`button ${className} ${theme} ${isFullWidth ? 'is-fullwidth' : ''} ${isLoading ? 'is-loading' : ''}`}
-      onClick={onClick}
-      data-test={dataTest}
-    >
+    <button type={type} data-test={dataTest}>
       {children}
     </button>
   )
