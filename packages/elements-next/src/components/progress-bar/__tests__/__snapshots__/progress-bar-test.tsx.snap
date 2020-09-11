@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar should match snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    className=""
+    style={
+      Object {
+        "width": "20%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`ProgressBar should match snapshot 2`] = `
+<div
+  className=""
+>
+  <div
+    className=""
+    style={
+      Object {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`ProgressBar should match snapshot 3`] = `
+<div
+  className=""
+>
+  <div
+    className=""
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;

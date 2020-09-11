@@ -1,0 +1,25 @@
+---
+name: Progress Bar
+route: /progress-bar
+---
+
+import { Playground, Props } from 'docz'
+import { ProgressBar } from './progress-bar'
+import { DocsWrapper } from '@/utils/docs-wrapper'
+
+# Heading
+
+## Document
+
+<Props of={ProgressBar} />
+
+## Usage
+
+<Playground>
+  <DocsWrapper>
+    <ProgressBar progress={25}></ProgressBar>
+    <ProgressBar progress={50}></ProgressBar>
+    <ProgressBar progress={75}></ProgressBar>
+    <ProgressBar progress={100}></ProgressBar>
+  </DocsWrapper>
+</Playground>
