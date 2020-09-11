@@ -45,6 +45,8 @@ provider:
     # add APPOINTMNET_PLANNER_API
     COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
     SENTRY_DSN: ${self:custom.env.SEARCH_WIDGET_API_SENTRY_DNS}
+    APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API: ${self:custom.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API}
+    APPOINMENT_PLANNER_APP_KEY: ${self:custom.env.APPOINMENT_PLANNER_APP_KEY}
     SENTRY_PROJECT: search-widget-server
 package:
   individually: true
@@ -63,11 +65,11 @@ package:
     - public/**
 
 functions:
-  searchWidgetHandler:
-    handler: src/search-widget/server/core/index.searchWidgetHandler
+  bookValuationHandler:
+    handler: src/book-valuation-widget/server/core/index.bookValuationHandler
     events:
       - http:
-          path: properties
+          path: appointment-slots
           method: get
           cors:
             origin: '*'
@@ -81,7 +83,7 @@ functions:
                 Authorization: false
                 reapit-customer: false
       - http:
-          path: properties/{id}
+          path: ping
           method: get
           cors:
             origin: '*'
@@ -94,18 +96,3 @@ functions:
                 api-version: false
                 Authorization: false
                 reapit-customer: false
-      - http:
-          path: propertyImages
-          method: get
-          cors:
-            origin: '*'
-            headers: ${self:custom.allowedHeaders}
-            allowCredentials: false
-          private: true
-          request:
-            parameters:
-              headers:
-                api-version: false
-                Authorization: false
-                reapit-customer: false
-# replace id

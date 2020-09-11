@@ -1,26 +1,23 @@
 import { fetcher } from '../utils/fetcher-server'
 import { errorHandler } from '../utils/error-handler'
-import { getServerHeaders } from '../utils/get-server-headers'
+import { getAppointmentPlannerAPIHeaders } from '../utils/get-server-headers'
 import { PACKAGE_SUFFIXES } from '../utils/constants'
 import { AppRequest, AppResponse } from '@reapit/node-utils'
 import { AppoinmentSlotsOfDate } from '../../appointment-planner-component/server/api/get-appointment-slots'
-/*
- * TODOME(serverValuation)
- * rename getAppointmentSlots
- */
-export const createGetAppointmentSlotsFn = logger => async (req: AppRequest, res: AppResponse) => {
+import { stringify } from 'query-string'
+export const createGetAppointmentSlotsFn = (logger: any, packageSuffix: PACKAGE_SUFFIXES) => async (
+  req: AppRequest,
+  res: AppResponse,
+) => {
   try {
-    /*
-     * TODOME(serverViewing)
-     * chnage api
-     */
-    const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
-    const url = new URL(`${process.env.PLATFORM_API_BASE_URL}${req.url}`)
+    const headers = await getAppointmentPlannerAPIHeaders(req, packageSuffix)
+
+    // forward queries
+    const url = new URL(`${process.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API}?${stringify(req.query)}`)
 
     /*
      * TODOME(serverValuation)
-     * update typing
-     * PR merge
+     * forward all headers, and queries
      */
     const result = await fetcher<AppoinmentSlotsOfDate, undefined>({
       url: String(url),

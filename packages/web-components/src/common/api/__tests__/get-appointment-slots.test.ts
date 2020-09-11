@@ -24,8 +24,10 @@ jest.mock('../../utils/error-handler')
  */
 
 describe('getAppointmentSlots wrapper API', () => {
+  process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
+  process.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API = 'http://localhost:3000'
+
   it('should correctly call the fetcher for appointment slots', async () => {
-    process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
     /*
      * TODOME(serverViewing)
      * mock stuff
@@ -56,7 +58,7 @@ describe('getAppointmentSlots wrapper API', () => {
      * update fn
      */
 
-    await createGetAppointmentSlotsFn(null)(req, res)
+    await createGetAppointmentSlotsFn(null, PACKAGE_SUFFIXES.SEARCH_WIDGET)(req, res)
     /*
      * TODOME(serverViewing)
      * change api
@@ -76,7 +78,6 @@ describe('getAppointmentSlots wrapper API', () => {
   })
 
   it('should correctly catch an error', async () => {
-    process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
     const error = new Error('Something went wrong')
     ;(fetcher as jest.Mock).mockImplementation(() => {
       throw error
@@ -101,7 +102,7 @@ describe('getAppointmentSlots wrapper API', () => {
      * TODOME(serverViewing)
      * update this
      */
-    await createGetAppointmentSlotsFn(logger)(req, res)
+    await createGetAppointmentSlotsFn(logger, PACKAGE_SUFFIXES.SEARCH_WIDGET)(req, res)
 
     /*
      * TODOME()
