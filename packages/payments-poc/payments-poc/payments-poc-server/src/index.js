@@ -8,6 +8,7 @@ const cors = require('cors')
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
 const app = express()
 const { resolve } = require('path')
+const { getAccountHandler, createAccountHander } = require('./db')
 const port = process.env.PORT || 4242
 
 app.use(cors())
@@ -25,7 +26,6 @@ app.use(express.static(process.env.STATIC_DIR))
 // Use JSON parser for all non-webhook routes
 app.use((req, res, next) => {
   if (req.originalUrl === '/webhook') {
-    console.log('Calling Webhook')
     next()
   } else {
     console.log('Parsing request')
@@ -34,18 +34,15 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  console.log('Serving static')
   const path = resolve(process.env.STATIC_DIR + '/index.html')
   res.sendFile(path)
 })
 
 app.get('/public-key', (req, res) => {
-  console.log('Requesting public key')
   res.send({ publicKey: process.env.STRIPE_PUBLISHABLE_KEY })
 })
 
 app.post('/create-payment-intent', async (req, res) => {
-  console.log('Patyment is',req.body)
   try {
     const paymentIntent = await stripe.paymentIntents.create(req.body)
     res.json(paymentIntent)
@@ -98,8 +95,6 @@ function generateAccountLink(accountID, origin) {
     .then((link) => link.url)
 }
 
-
-
 // Webhook handler for asynchronous events.
 app.post(
   '/webhook',
@@ -148,9 +143,9 @@ app.post(
 )
 
 app.get('/get-oauth-link', async (req, res) => {
-  console.log('HERE I AM')
-  const state = uuidv4()
+  const state = req.query.customerId
   req.session.state = state
+
   const args = new URLSearchParams({
     state,
     client_id: process.env.STRIPE_CLIENT_ID,
@@ -159,32 +154,35 @@ app.get('/get-oauth-link', async (req, res) => {
   return res.send({ url })
 })
 
+app.get('/get-account-id', async (req, res) => {
+  const customerId = req.query.customerId
+  const account = await getAccountHandler(customerId)
+  res.status(200)
+  return res.send({
+      account,
+  })
+})
+
 app.get('/authorize-oauth', async (req, res) => {
   const { code, state } = req.query
-  const origin = `${req.headers.origin}`
-
-  // Assert the state matches the state you provided in the OAuth link (optional).
-  if (req.session.state !== state) {
-    return res
-      .status(403)
-      .json({ error: 'Incorrect state parameter: ' + state })
-  }
-
-  // Send the authorization code to Stripe's API.
   stripe.oauth
     .token({
       grant_type: 'authorization_code',
       code,
     })
     .then(
-      (response) => {
-        var connected_account_id = response.stripe_user_id
-        saveAccountId(connected_account_id)
+      async (response) => {
+        const connected_account_id = response.stripe_user_id
 
+        await createAccountHander({
+          accountId: connected_account_id,
+          customerId: state,
+        })
         // Render some HTML or redirect to a different page.
-        return res.redirect(301, `${origin}/auth/success`)
+        return res.redirect(301, `https://payments.dev.paas.reapit.cloud`)
       },
       (err) => {
+        console.log('error', err)
         if (err.type === 'StripeInvalidGrantError') {
           return res
             .status(400)
@@ -196,9 +194,6 @@ app.get('/authorize-oauth', async (req, res) => {
     )
 })
 
-const saveAccountId = (id) => {
-  // Save the connected account ID from the response to your database.
-  console.log('Connected account ID: ' + id)
-}
-
 app.listen(port, () => console.log(`Node server listening on port ${port}!`))
+
+module.exports = app

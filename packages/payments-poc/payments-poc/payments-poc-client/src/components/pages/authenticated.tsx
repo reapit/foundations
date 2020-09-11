@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { getOauthLink } from '../../stripe-api/oauth'
-import { onBoardUser } from '../../stripe-api/onboard'
+import { getOauthLink, accountIdService } from '../../stripe-api/oauth'
+// import { onBoardUser } from '../../stripe-api/onboard'
 import {
   Button,
   Section,
@@ -10,6 +10,7 @@ import {
   Tile,
   GridFourColItem,
   combineAddress,
+  H5,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { propertiesApiService } from '../../platform-api/properties-api'
@@ -27,6 +28,9 @@ export type AuthenticatedProps = {}
 export type Payment = {
   currency: string
   amount: number
+  transfer_data: {
+    destination: string
+  }
 }
 
 export const Authenticated: React.FC<AuthenticatedProps> = () => {
@@ -34,19 +38,34 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
   const [properties, setProperties] = React.useState([] as PropertyModel[])
   const [payment, setPayment] = React.useState(null as Payment | null)
   const [propertyId, setPropertyId] = React.useState('')
-
+  const [accountId, setAccountId] = React.useState('')
+  console.log(connectSession)
   React.useEffect(() => {
-    const fetchAppoinmentConfigs = async () => {
+    const fetchProperties = async () => {
       const serviceResponse = await propertiesApiService(connectSession)
       if (serviceResponse) {
         setProperties(serviceResponse)
       }
     }
     if (connectSession) {
-      fetchAppoinmentConfigs()
+      fetchProperties()
     }
   }, [connectSession])
 
+  React.useEffect(() => {
+    const fetchAccountId = async () => {
+      const serviceResponse = await accountIdService(connectSession.loginIdentity.email)
+      console.log(serviceResponse)
+      if (serviceResponse && serviceResponse.accountId) {
+        setAccountId(serviceResponse.accountId)
+      }
+    }
+    if (connectSession) {
+      fetchAccountId()
+    }
+  }, [connectSession])
+
+  console.log(accountId)
   console.log(properties)
 
   return (
@@ -54,12 +73,15 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
       <H3 isHeadingSection>Reapit Payments Portal</H3>
       <Section>
         <LevelRight>
-          <Button type="submit" onClick={getOauthLink}>
-            Create Stripe Express Account
-          </Button>
-          <Button type="submit" onClick={onBoardUser}>
+          {!accountId && connectSession && connectSession.loginIdentity.email && (
+            <Button type="submit" onClick={() => getOauthLink(connectSession.loginIdentity.email)}>
+              Register to receive payments
+            </Button>
+          )}
+          {accountId && <H5>Logged into Stripe account: {accountId}</H5>}
+          {/* <Button type="submit" onClick={onBoardUser}>
             Setup Stripe Payouts
-          </Button>
+          </Button> */}
         </LevelRight>
       </Section>
       {payment && (
@@ -69,7 +91,7 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
           </Elements>
         </Section>
       )}
-      {properties && (
+      {properties && accountId && (
         <Section>
           <GridFourCol>
             {properties.map((property) => (
@@ -85,6 +107,9 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
                         setPayment({
                           currency: property.currency || 'GBP',
                           amount: property.letting?.rent || 0,
+                          transfer_data: {
+                            destination: accountId,
+                          },
                         })
                       }}
                     >

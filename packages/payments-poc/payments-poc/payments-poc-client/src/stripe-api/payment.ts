@@ -2,7 +2,7 @@ import { API_BASE } from '../constants/api'
 
 export const createPaymentIntent = (options) => {
   return window
-    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/create-payment-intent`, {
+    .fetch(`${API_BASE[window.reapit.config.appEnv]}/create-payment-intent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export const createPaymentIntent = (options) => {
 
 export const getProductDetails = (options) => {
   return window
-    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/product-details`, {
+    .fetch(`${API_BASE[window.reapit.config.appEnv]}/product-details`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const getProductDetails = (options) => {
 
 export const getPublicStripeKey = (options) => {
   return window
-    .fetch(`${API_BASE[process.env.NODE_ENV || 'development']}/public-key`, {
+    .fetch(`${API_BASE[window.reapit.config.appEnv]}/public-key`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

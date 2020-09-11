@@ -13,7 +13,7 @@ export default function CheckoutForm({
   payment: Payment
   propertyId: string
 }) {
-  const { amount, currency } = payment
+  const { amount, currency, transfer_data } = payment
   const [clientSecret, setClientSecret] = useState('')
   const [error, setError] = useState('')
   const [metadata, setMetadata] = useState()
@@ -23,16 +23,15 @@ export default function CheckoutForm({
   const elements = useElements()
 
   useEffect(() => {
-    // Create PaymentIntent over Stripe API
-
-    createPaymentIntent({ amount: amount * 100, currency })
+  
+    createPaymentIntent({ amount: amount * 100, currency, transfer_data })
       .then((clientSecret) => {
         setClientSecret(clientSecret)
       })
       .catch((err) => {
         setError(err.message)
       })
-  }, [amount, currency])
+  }, [amount, currency, transfer_data])
 
   const handleSubmit = async (ev) => {
     ev.preventDefault()

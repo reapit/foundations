@@ -8,6 +8,6 @@ export const URLS = {
 }
 
 export const API_BASE = {
-  development: 'http://localhost:4242',
-  production: ''
+  local: 'http://localhost:4242',
+  development: 'https://mubjn57p2e.execute-api.eu-west-2.amazonaws.com/dev'
 }
