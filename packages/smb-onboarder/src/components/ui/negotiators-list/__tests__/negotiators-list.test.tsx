@@ -20,6 +20,7 @@ import {
   createDownLoadButtonOnClickFn,
   CustomDownButton,
   prepareTableData,
+  mergeUploadedData,
 } from '../negotiators-list'
 import GET_NEGOTIATORS from '../gql/get-negotiators.graphql'
 import UPDATE_NEGOTIATOR from '../gql/update-negotiator.graphql'
@@ -184,6 +185,7 @@ describe('NegotiatorList', () => {
         dataTable: [],
         updateNegotiator: jest.fn(),
         createNegotiator: jest.fn(),
+        handleUploadData: jest.fn(),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -198,6 +200,7 @@ describe('NegotiatorList', () => {
         dataTable: [],
         updateNegotiator: jest.fn(),
         createNegotiator: jest.fn(),
+        handleUploadData: jest.fn(),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -220,6 +223,7 @@ describe('NegotiatorList', () => {
           updateNegotiatorLoading: mockUpdateNegotiatorLoading,
           createNegotiator: mockCreateNegotiator,
         }),
+        handleUploadData: jest.fn(),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -378,4 +382,43 @@ describe('prepareTableData', () => {
     })
     expect(setData).toBeCalled()
   })
+})
+
+describe('mergeUploadedData', () => {
+  const prev = []
+  const updatedData = []
+  const createdData = [
+    [
+      { value: 'id' },
+      { value: 'etag' },
+      { value: 'Office name' },
+      { value: 'building name' },
+      { value: 'building number' },
+      { value: 'address 1' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: 'XD111' },
+      { value: '0987654321' },
+      { value: 'tester@reapit.com' },
+    ],
+  ]
+  const expected = [
+    [
+      { value: 'id' },
+      { value: 'etag' },
+      { value: 'Office name' },
+      { value: 'building name' },
+      { value: 'building number' },
+      { value: 'address 1' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: 'XD111' },
+      { value: '0987654321' },
+      { value: 'tester@reapit.com' },
+    ],
+  ]
+  const result = mergeUploadedData(prev, createdData, updatedData)
+  expect(result).toEqual(expected)
 })

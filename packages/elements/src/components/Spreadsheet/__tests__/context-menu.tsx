@@ -1,7 +1,16 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { ContextMenu, handleContextClick, clearRow, clearCol, removeRow, removeCol } from '../context-menu'
+import {
+  ContextMenu,
+  handleContextClick,
+  clearRow,
+  clearCol,
+  removeRow,
+  removeCol,
+  handleRenderMenuInsideViewPort,
+} from '../context-menu'
 import { selectedMatrix, setContextMenuProp, data } from '../__stubs__'
+import { ContextMenuProp } from '../types'
 
 const onCellsChanged = jest.fn()
 
@@ -101,6 +110,34 @@ describe('handleContextClick', () => {
     }
     const result = fn(mockEvent)
     expect(result).toBe('')
+  })
+})
+
+describe('handleRenderMenuInsideViewPort', () => {
+  it('should run correctly', () => {
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 20 })
+    Object.defineProperty(window, 'innerHeight', { writable: true, configurable: true, value: 20 })
+    const mockContextMenuProps: ContextMenuProp = {
+      left: 100,
+      top: 100,
+      visible: true,
+    }
+    const mockSetContextMenuProp = jest.fn()
+    const mockContextMenuElement = {
+      getBoundingClientRect: () => ({ right: 50, bottom: 50 }),
+    }
+    const fn = handleRenderMenuInsideViewPort(mockSetContextMenuProp, mockContextMenuProps)
+    fn(mockContextMenuElement as any)
+    expect(mockSetContextMenuProp).toHaveBeenCalledWith({
+      top: 100,
+      left: 70,
+      visible: true,
+    })
+    expect(mockSetContextMenuProp).toHaveBeenCalledWith({
+      top: 70,
+      left: 100,
+      visible: true,
+    })
   })
 })
 

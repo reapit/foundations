@@ -12,14 +12,6 @@ exports[`Section should match snapshot 1`] = `
   <Component
     className=""
   >
-    <img
-      alt="Test heading"
-      src=""
-    />
-  </Component>
-  <Component
-    className=""
-  >
     <Component>
       Test heading
     </Component>
@@ -31,6 +23,14 @@ exports[`Section should match snapshot 1`] = `
     >
       Test description
     </Component>
+  </Component>
+  <Component
+    className=""
+  >
+    <img
+      alt="Test heading"
+      src=""
+    />
   </Component>
 </div>
 `;

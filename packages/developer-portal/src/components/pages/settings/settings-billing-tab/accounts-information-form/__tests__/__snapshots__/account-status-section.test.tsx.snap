@@ -35,15 +35,9 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
   className="pl-0"
 >
   <Component
-    className="is-italic"
+    className=""
   >
     Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and you can procced with any subscriptions.
-  </Component>
-  <Component
-    closeButton={false}
-    variant="info"
-  >
-    Thank you for setting up a Direct Debit, please now click on ‘Submit to Accounts’ to continue
   </Component>
   <Component
     id="status"

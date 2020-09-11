@@ -1,8 +1,9 @@
-service: cloud-web-components-appointment-planner
+service: cloud-appointment-planner
 plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
+  - serverless-add-api-key
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
@@ -26,12 +27,28 @@ custom:
 
 provider:
   name: aws
+  apiKeys:
+    - name: cloud-appointment-planner-api-key
+      deleteAtRemoval: false
+      usagePlan:
+        name: "cloud-appointment-planner-usage-plan"
+        description: "This is usage plan for appointment planner"
+        quota:
+          limit: 100000000
+          offset: 0
+          period: DAY
+        throttle:
+          burstLimit: 1000
+          rateLimit: 5000
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  apiGateway:
-    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
-    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
+  resourcePolicy:
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource: ${self:custom.env.APPOINTMENT_PLANNER_RESOURCE_POLICY_API}
+
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
 
@@ -69,6 +86,11 @@ functions:
       - http:
           path: appointment-slots
           method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}

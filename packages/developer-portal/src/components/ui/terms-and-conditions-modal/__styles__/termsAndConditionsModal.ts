@@ -34,17 +34,5 @@ export const termsParent = css`
         content: '(' counter(item, lower-alpha) ')';
       }
     }
-    /* [class*='terms-parent'] {
-      > .terms-child {
-        &:before {
-          content: counters(item, '.') ' ';
-        }
-        &.child-with-alpha-bullet {
-          &:before {
-            content: '(' counter(item, lower-alpha) ')';
-          }
-        }
-      }
-    } */
   }
 `

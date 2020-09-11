@@ -1,2 +1,1 @@
-import '@/styles/global'
-import '@/styles/docs'
+import '@/docz/styles/global'

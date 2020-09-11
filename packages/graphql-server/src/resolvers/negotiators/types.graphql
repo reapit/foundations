@@ -58,7 +58,7 @@ type Mutation {
     mobilePhone: String
     email: String
     metadata: JSON
-  ): JSON!
+  ): NegotiatorModel!
 
   UpdateNegotiator(
     id: String!
