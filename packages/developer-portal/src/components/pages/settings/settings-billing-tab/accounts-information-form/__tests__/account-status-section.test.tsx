@@ -4,7 +4,6 @@ import AccountStatusSection, { capitalizeFirstLetter } from '../account-status-s
 
 const defaultProps = {
   initialStatus: 'pending',
-  isSubmittedDebit: true,
   hasReapitAccountsRef: 'yes',
 }
 describe('AccountStatusSection', () => {

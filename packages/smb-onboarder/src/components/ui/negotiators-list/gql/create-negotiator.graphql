@@ -1,10 +1,37 @@
 mutation CreateNegotiator(
-  $name: String,
-  $jobTitle: String,
-  $active: Boolean,
-  $officeId: String,
-  $mobilePhone: String,
+  $name: String
+  $jobTitle: String
+  $active: Boolean
+  $officeId: String
+  $mobilePhone: String
   $email: String
 ) {
-  CreateNegotiator(name: $name, jobTitle: $jobTitle, active: $active, officeId: $officeId, mobilePhone: $mobilePhone, email: $email)
+  CreateNegotiator(
+    name: $name
+    jobTitle: $jobTitle
+    active: $active
+    officeId: $officeId
+    mobilePhone: $mobilePhone
+    email: $email
+  ) {
+    id
+    created
+    modified
+    name
+    jobTitle
+    active
+    officeId
+    workPhone
+    mobilePhone
+    email
+    metadata
+    _eTag
+    _links
+    _embedded {
+      office {
+        id
+        name
+      }
+    }
+  }
 }

@@ -17,6 +17,7 @@ import {
   minLengthValidator,
   Button,
   handleDownloadCsv,
+  AfterUploadDataValidated,
 } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
 import GET_NEGOTIATORS from './gql/get-negotiators.graphql'
@@ -26,10 +27,16 @@ import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
 import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
-
 import GET_OFFICES from '../offices-tab/gql/get-offices.graphql'
 import { OfficesQueryResponse, OfficesQueryParams } from '../offices-tab/offices-tab'
 import errorMessages from '@/constants/error-messages'
+import { Dispatch } from '@/reducers/update-provider'
+import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
+import { useUploadDispatch } from '@/hooks/use-upload'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
+import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
+import { startUpload, completeUpload, setUploadProgress } from '@/actions/update-provider'
 
 export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Username' },
@@ -44,6 +51,17 @@ export const tableDownloadHeaders: DataTableRow[] = [
   ...tableHeaders,
   { readOnly: true, value: 'Id (DO NOT EDIT)' },
   { readOnly: true, value: 'eTag (DO NOT EDIT)' },
+]
+
+const sampleHeaders = [
+  'id (Left blank when create )',
+  '_eTag (Left blank when create )',
+  'Username',
+  'Job Title',
+  'Email Address',
+  'Telephone',
+  'Office',
+  'Status',
 ]
 
 export type DataTableRow = {
@@ -102,6 +120,7 @@ export type RenderNegotiatorListParams = {
   updateNegotiator: () => void
   createNegotiator: () => void
   officeData?: OfficesQueryResponse
+  handleUploadData: AfterUploadDataValidated
 }
 
 type GetDataTable = {
@@ -166,8 +185,8 @@ export const getDataTable = ({
       { value: _eTag, className: 'hidden' },
     ]
   })
-  const dataTable = [headers, ...dataRows]
-  return dataTable
+
+  return headers.length ? [headers, ...dataRows] : dataRows
 }
 
 export const handleChangePage = ({ history }) => (pageNumber: number) => {
@@ -405,6 +424,102 @@ export const CustomDownButton = ({
   )
 }
 
+export const handleAfterUpload = (
+  dispatch: Dispatch,
+  accessToken: string,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+) => ({ uploadData, setData }) => {
+  const message: UploadCsvMessage = {
+    from: 'FROM_MAIN',
+    type: 'NEGOTIATOR',
+    data: uploadData.validatedData,
+    graphqlUri: window.reapit.config.graphqlUri,
+    accessToken,
+  }
+  const uploadWorker = new Worker()
+  uploadWorker.postMessage(message)
+  uploadWorker.addEventListener('message', event => {
+    handleWorkerMessage(
+      event.data,
+      dispatch,
+      setData,
+      updateNegotiator,
+      updateNegotiatorLoading,
+      createNegotiator,
+      officeData,
+    )
+  })
+}
+
+/* istanbul ignore next */
+export const handleWorkerMessage = (
+  data: UploadCsvResponseMessage,
+  dispatch: Dispatch,
+  setData,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+) => {
+  const { status, total = 0, success = 0, failed = 0, details = [] } = data
+  if (status === 'STARTED') {
+    dispatch(startUpload(total))
+  } else if (status === 'INPROGRESS') {
+    dispatch(setUploadProgress(success + failed))
+  } else if (data.status === 'FINISH') {
+    dispatch(
+      completeUpload({
+        total,
+        success,
+        failed,
+        details,
+      }),
+    )
+
+    const successCreatedRowsData = details
+      .filter(item => item.success && item?.response?.data?.CreateNegotiator)
+      .map(item => item?.response?.data?.CreateNegotiator)
+
+    const successUpdatedRowsData = details
+      .filter(item => item.success && item?.response?.data?.UpdateNegotiator)
+      .map(item => item?.response?.data?.UpdateNegotiator)
+
+    const successCreatedRowTableData = getDataTable({
+      data: { GetNegotiators: { _embedded: successCreatedRowsData } },
+      updateNegotiator,
+      updateNegotiatorLoading,
+      createNegotiator,
+      officeData,
+      setData,
+      headers: [],
+    }) as Cell[][]
+
+    const successUpdateedRowTableData = getDataTable({
+      data: { GetNegotiators: { _embedded: successUpdatedRowsData } },
+      updateNegotiator,
+      updateNegotiatorLoading,
+      createNegotiator,
+      officeData,
+      setData,
+      headers: [],
+    }) as Cell[][]
+
+    setData(prev => mergeUploadedData(prev, successCreatedRowTableData, successUpdateedRowTableData))
+  }
+}
+
+export const mergeUploadedData = (prev: Cell[][], createdData: Cell[][], updatedData: Cell[][]): Cell[][] => {
+  if (updatedData.length === 0 && createdData.length === 0) return prev
+
+  const newUpdatedData = prev.map(rowData => {
+    return updatedData.find(row => row[6]?.value === rowData[6]?.value) || rowData
+  })
+  return [...newUpdatedData, ...createdData]
+}
+
 export const renderNegotiatorList = ({
   loading,
   dataTable,
@@ -416,6 +531,7 @@ export const renderNegotiatorList = ({
   createNegotiator,
   officeData,
   updateNegotiatorLoading,
+  handleUploadData,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
@@ -433,10 +549,13 @@ export const renderNegotiatorList = ({
               totalCount={totalCount}
             />
           }
+          afterUploadDataValidated={handleUploadData}
           allowOnlyOneValidationErrorPerRow={true}
           data={dataTable as Cell[][]}
           afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
           validate={validate}
+          hasDownloadSampleButton
+          sampleHeaders={sampleHeaders}
         />
         <small className="has-text-link mb-1">
           * Please input the cell with background red first when Add New user
@@ -472,6 +591,8 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
+  const dispatch = useUploadDispatch()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const [data, setData] = React.useState<DataTableRow[][]>([[]])
   const [updateNegotiator, { loading: updateNegotiatorLoading }] = useMutation(UPDATE_NEGOTIATOR)
@@ -547,6 +668,14 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
         updateNegotiator: updateNegotiator,
         createNegotiator: createNegotiator,
         officeData,
+        handleUploadData: handleAfterUpload(
+          dispatch,
+          connectSession?.accessToken || '',
+          updateNegotiator,
+          updateNegotiatorLoading,
+          createNegotiator,
+          officeData,
+        ),
       })}
     </div>
   )

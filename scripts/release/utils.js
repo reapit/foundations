@@ -219,7 +219,7 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/
   return releaseNote
 }
 
-const getCommitLog = async ({ currentTag, previousTag, packageName }) => {
+const getCommitLog = ({ currentTag, previousTag, packageName }) => {
   const commitLog = runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
   return commitLog
 }

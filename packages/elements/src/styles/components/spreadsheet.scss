@@ -123,8 +123,8 @@ span.data-grid-container:focus {
       display: flex;
       justify-content: flex-end;
 
-      .download-button {
-        margin-left: 1rem;
+      .download-button:not(:last-child) {
+        margin-right: 1rem;
       }
     }
   }

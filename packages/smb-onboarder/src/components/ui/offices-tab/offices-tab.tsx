@@ -62,8 +62,8 @@ export const tableHeaders: Cell[] = [
 ]
 
 const sampleHeaders = [
-  'id',
-  '_eTag',
+  'id (Left blank when create )',
+  '_eTag (Left blank when create )',
   'Office Name',
   'Building Name',
   'Building No.',

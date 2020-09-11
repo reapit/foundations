@@ -1,4 +1,11 @@
-import { serial, prepareCreateOfficeParams, mutation } from '../worker-upload-helper'
+import {
+  serial,
+  prepareCreateOfficeParams,
+  mutation,
+  prepareUpdateOfficeParams,
+  prepareUpdateNegotiatorParams,
+  prepareCreateNegotiatorParams,
+} from '../worker-upload-helper'
 
 describe('worker-upload-helper', () => {
   describe('serial', () => {
@@ -103,6 +110,88 @@ describe('worker-upload-helper', () => {
         email: 'tester@reapit.com',
       }
       expect(prepareCreateOfficeParams(rowData)).toEqual(expectVal)
+    })
+  })
+  describe('prepareUpdateOfficeParams', () => {
+    it('should run correctly', async () => {
+      const rowData = [
+        { value: 'id' },
+        { value: 'etag' },
+        { value: 'Office name' },
+        { value: 'building name' },
+        { value: 'building number' },
+        { value: 'address 1' },
+        { value: '' },
+        { value: '' },
+        { value: '' },
+        { value: 'XD111' },
+        { value: '0987654321' },
+        { value: 'tester@reapit.com' },
+      ]
+      const expectVal = {
+        id: 'id',
+        _eTag: 'etag',
+        name: 'Office name',
+        address: {
+          buildingName: 'building name',
+          buildingNumber: 'building number',
+          line1: 'address 1',
+          line2: '',
+          line3: '',
+          line4: '',
+          postcode: 'XD111',
+        },
+        workPhone: '0987654321',
+        email: 'tester@reapit.com',
+      }
+      expect(prepareUpdateOfficeParams(rowData)).toEqual(expectVal)
+    })
+  })
+
+  describe('prepareUpdateNegotiatorParams', () => {
+    it('should run correctly', async () => {
+      const rowData = [
+        { value: 'name' },
+        { value: 'jobTitle' },
+        { value: 'mail' },
+        { value: '0987654321' },
+        { value: 'building number' },
+        { value: 'TRUE' },
+        { value: 'id' },
+        { value: 'etag' },
+      ]
+      const expectVal = {
+        name: 'name',
+        jobTitle: 'jobTitle',
+        email: 'mail',
+        mobilePhone: '0987654321',
+        active: true,
+        id: 'id',
+        _eTag: 'etag',
+      }
+      expect(prepareUpdateNegotiatorParams(rowData)).toEqual(expectVal)
+    })
+  })
+
+  describe('prepareCreateNegotiatorParams', () => {
+    it('should run correctly', async () => {
+      const rowData = [
+        { value: 'name' },
+        { value: 'jobTitle' },
+        { value: 'mail' },
+        { value: '0987654321' },
+        { value: 'DXX' },
+        { value: 'TRUE' },
+      ]
+      const expectVal = {
+        name: 'name',
+        jobTitle: 'jobTitle',
+        email: 'mail',
+        mobilePhone: '0987654321',
+        active: true,
+        officeId: 'DXX',
+      }
+      expect(prepareCreateNegotiatorParams(rowData)).toEqual(expectVal)
     })
   })
 })
