@@ -41,7 +41,7 @@ export default {
       body: 1.5,
       heading: 1.125,
     },
-    fontSizes: [12, 13, 13, 13, 24, 28, 32],
+    fontSizes: ['0.5rem', '1rem', '1rem', '1rem', '1.5rem', '1.5rem', '2rem'],
     fonts: {
       body: '"Roboto", sans-serif',
       heading: '"Roboto", sans-serif',

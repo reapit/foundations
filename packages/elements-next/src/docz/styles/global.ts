@@ -152,12 +152,12 @@ export const globalStyles = css`
       }
 
       [data-testid='playground'] {
-        font-size: 13px !important;
+        font-size: 1rem !important;
       }
 
       [data-testid='live-editor'] * {
         font-family: var(--font-monospace, '"Source Code Pro", monospace') !important;
-        font-size: 13px !important;
+        font-size: 1rem !important;
       }
     }
   }
