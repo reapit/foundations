@@ -10,6 +10,7 @@ jest.mock('../api', () => {
     getConfigByClientId: jest.fn(() => Promise.resolve(propertyProjectorConfig)),
     createConfig: jest.fn(() => Promise.resolve(propertyProjectorConfig)),
     putConfig: jest.fn(() => Promise.resolve(propertyProjectorConfig)),
+    getConfigByOfficeId: jest.fn(() => Promise.resolve(propertyProjectorConfig)),
   }
 })
 
@@ -20,8 +21,6 @@ describe('property-projector-config', () => {
         traceId: 'mockTraceId',
         headers: {},
         body: {
-          customerId: 'RPT',
-          officeId: 'CRT',
           logo: '',
           primaryColour: '#eeeeee',
           secondaryColour: '#000000',
@@ -82,9 +81,9 @@ describe('property-projector-config', () => {
       } as unknown) as AppResponse
       await propertyProjectorConfigGetByIdHandler(mockRequest, mockResponse)
       setTimeout(() => {
-        expect(mockResponse.send).toBeCalledWith(propertyProjectorConfig)
-        done()
-      }, 1000)
+      expect(mockResponse.send).toBeCalledWith(propertyProjectorConfig)
+      done()
+    }, 1000)
     })
   })
 })
