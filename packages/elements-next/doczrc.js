@@ -1,53 +1,89 @@
 // TODO - a start on theming - needs some work - ideally, should look like Elements itself
+const colors = {
+  white: '#fff',
+  black: '#3b454e',
+  grey: '#74818d',
+  greyLight: '#dbdbdb',
+  greyLightest: '#f5f7f9',
+  green: '#a0c862',
+  greenLighter: '#acf2bd',
+  greenLightest: '#e6ffed',
+  red: '#d3033d',
+  redLighter: '#fdb8c0',
+  redLightest: '#ffeef0',
+  blue: '#0061a8',
+  blueDark: '#262f69',
+  blueDarkest: '#1e2554',
+  blueLight: '#23a4de',
+  blueLightest: '#7bc9eb',
+  orange: '#ec631b',
+  lime: '#cddb00',
+  teal: '#006580',
+  plumb: '#7a2c81',
+  purple: '#a4185c',
+  gold: '#ffb71b',
+  background: '#f5f7f9',
+  text: '#3b454e',
+  border: '#95aac9',
+}
+
 export default {
   dest: '/public/dist',
   typescript: true,
-  showDarkModeSwitch: false,
   themeConfig: {
-    colors: {
-      text: '#3b454e',
-      background: '#fff',
-      primary: '#0061a8',
+    showDarkModeSwitch: true,
+    fontWeights: {
+      body: 400,
+      heading: 700,
+      bold: 700,
     },
-    prism: {
-      plain: {
-        fontFamily: '"Source Code Pro", monospace',
-        color: '#393A34',
-        backgroundColor: '#f5f7f9',
-      },
+    lineHeights: {
+      body: 1.5,
+      heading: 1.125,
     },
+    fontSizes: [12, 13, 13, 13, 24, 28, 32],
     fonts: {
       body: '"Roboto", sans-serif',
       heading: '"Roboto", sans-serif',
       monospace: '"Source Code Pro", monospace',
     },
-    radii: {
-      square: 0,
-      radius: 0,
-      rounded: 0,
-    },
-    styles: {
-      h1: {
-        fontSize: '2rem',
-        fontFamily: 'heading',
-        fontWeight: 'heading',
-        color: 'text',
-        mt: 0,
-        mb: 4,
+    colors: {
+      primary: colors.blue,
+      text: colors.text,
+      muted: colors.gray,
+      link: colors.blue,
+      background: colors.background,
+      border: colors.border,
+      sidebar: {
+        bg: colors.white,
+        navGroup: colors.black,
+        navLink: colors.black,
+        navLinkActive: colors.blue,
+        tocLink: colors.black,
+        tocLinkActive: colors.black,
       },
-      code: {
-        fontFamily: '"Source Code Pro", monospace',
+      header: {
+        bg: colors.blue,
+        text: colors.white,
+        button: {
+          bg: colors.white,
+          color: colors.blue,
+        },
       },
-      inlineCode: {
-        fontFamily: '"Source Code Pro", monospace',
+      playground: {
+        bg: colors.white,
+        border: colors.border,
       },
-      pre: {
-        my: 4,
-        p: 3,
-        variant: 'prism',
-        textAlign: 'left',
-        fontFamily: '"Source Code Pro", monospace',
-        borderRadius: 'radius',
+      blockquote: {
+        color: colors.white,
+      },
+      props: {
+        bg: colors.white,
+        text: colors.black,
+        highlight: colors.blue,
+        defaultValue: colors.gray,
+        descriptionText: colors.grayDark,
+        descriptionBg: colors.background,
       },
     },
   },

@@ -3,13 +3,17 @@ name: Heading
 route: /headings
 ---
 
-import { Playground, Props } from 'docz'
+import { Props } from 'docz'
 import { Heading } from './headings'
+import { HeadingMain } from './headings'
 import { DocsWrapper } from '@/utils/docs-wrapper'
+import Playground from '@/components/playground'
 
 # Heading
-## Document
-<Props of={Heading.Main} />
+Headings are used as the titles of each major section of a page in the interface
+
+## Properties
+<Props of={HeadingMain} />
 
 ## Usage
 <Playground>
@@ -20,4 +24,3 @@ import { DocsWrapper } from '@/utils/docs-wrapper'
     <Heading.SubSecondary>SubHeading Secondary</Heading.SubSecondary>
   </DocsWrapper>
 </Playground>
-
