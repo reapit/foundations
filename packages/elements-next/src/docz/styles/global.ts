@@ -37,7 +37,7 @@ export const globalStyles = css`
     kbd,
     samp {
       font-family: var(--font-monospace);
-      font-size: 13px;
+      font-size: 1rem;
     }
 
     a {
