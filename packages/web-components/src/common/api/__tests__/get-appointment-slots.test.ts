@@ -1,5 +1,5 @@
 import { fetcher } from '../../utils/fetcher-server'
-import { getServerHeaders, getAppointmentPlannerAPIHeaders } from '../../utils/get-server-headers'
+import { getAppointmentPlannerAPIHeaders } from '../../utils/get-server-headers'
 import { Request, Response } from 'express'
 import { PACKAGE_SUFFIXES } from '../../utils/constants'
 import { errorHandler } from '../../utils/error-handler'
