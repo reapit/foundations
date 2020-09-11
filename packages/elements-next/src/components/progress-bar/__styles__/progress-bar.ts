@@ -6,7 +6,7 @@ export const elProgressBar = css`
   border: 1px solid var(--color-teal, '#006580');
   width: 100%;
 `
-export const elBar = css`
+export const elPercentageBar = css`
   background: var(--color-teal, '#006580');
   height: 100%;
 `
