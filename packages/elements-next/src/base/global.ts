@@ -1,17 +1,16 @@
 import { css } from 'linaria'
-import { colors } from './colors'
-import { fontFamilies } from './fonts'
+import { variables } from './variables'
 
 /* Below is a slimmed down version of of Normalize CSS plus some basic defaults */
 
 export const globalStyles = css`
   :global() {
     /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap'); */
-
+    ${variables}
     html {
       box-sizing: border-box;
-      font-family: ${fontFamilies.default};
-      color: ${colors.black};
+      font-family: var(--font-default);
+      color: var(--color-black);
       line-height: 1.15;
       -webkit-text-size-adjust: 100%;
     }
@@ -36,13 +35,13 @@ export const globalStyles = css`
     code,
     kbd,
     samp {
-      font-family: ${fontFamilies.monospace};
+      font-family: var(--font-monospace);
       font-size: 1rem;
     }
 
     a {
       background-color: transparent;
-      color: ${colors.blue};
+      color: var(--color-blue);
     }
 
     b,

@@ -61,6 +61,46 @@ export const elMr4 = css`
   margin-right: 1rem;
 `
 
+export const elMb0 = css`
+  margin-bottom: 0;
+`
+
+export const elMb1 = css`
+  margin-bottom: 0.25rem;
+`
+
+export const elMb2 = css`
+  margin-bottom: 0.5rem;
+`
+
+export const elMb3 = css`
+  margin-bottom: 0.75rem;
+`
+
+export const elMb4 = css`
+  margin-bottom: 1rem;
+`
+
+export const elMt0 = css`
+  margin-top: 0;
+`
+
+export const elMt1 = css`
+  margin-top: 0.25rem;
+`
+
+export const elMt2 = css`
+  margin-top: 0.5rem;
+`
+
+export const elMt3 = css`
+  margin-top: 0.75rem;
+`
+
+export const elMt4 = css`
+  margin-top: 1rem;
+`
+
 export const elMy0 = css`
   margin-top: 0;
   margin-bottom: 0;

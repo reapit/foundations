@@ -1,5 +1,4 @@
 import { css } from 'linaria'
-import { fontFamilies } from './fonts'
 
 /* Some style overrides for the docs - need to style with attrs because uses CSS modules
  * not to include in the main bundle*/
@@ -15,7 +14,7 @@ export const docsGlobalStyles = css`
       }
 
       [data-testid='live-editor'] * {
-        font-family: ${fontFamilies.monospace} !important;
+        font-family: var(--font-monospace, '"Source Code Pro", monospace') !important;
         font-size: 1rem !important;
       }
     }
