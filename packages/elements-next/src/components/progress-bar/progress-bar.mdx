@@ -5,7 +5,7 @@ route: /progress-bar
 
 import { Playground, Props } from 'docz'
 import { ProgressBar } from './progress-bar'
-import { DocsWrapper } from '@/utils/docs-wrapper'
+import DocsWrapper from '@/docz/docs-wrapper'
 
 # Heading
 
@@ -17,12 +17,10 @@ import { DocsWrapper } from '@/utils/docs-wrapper'
 
 <Playground>
   <DocsWrapper>
+    <ProgressBar percentage={0}></ProgressBar>
     <ProgressBar percentage={25}></ProgressBar>
-
     <ProgressBar percentage={50}></ProgressBar>
-
     <ProgressBar percentage={75}></ProgressBar>
-
     <ProgressBar percentage={100}></ProgressBar>
   </DocsWrapper>
 </Playground>
