@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H2, SubTitleH4, SubTitleH6, GridItem, FlexContainerResponsive } from '@reapit/elements'
+import { H2, SubTitleH4, SubTitleH6, GridItem } from '@reapit/elements'
 import { cx } from 'linaria'
 import { sectionContainer, hasBackgroundSection, gridItem } from './__styles__'
 

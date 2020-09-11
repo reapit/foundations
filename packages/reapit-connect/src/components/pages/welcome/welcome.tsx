@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Section, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
+import { FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
 import logo from '@/assets/images/reapit-connect.png'
 import RowSection from '@/components/ui/section'
 import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
