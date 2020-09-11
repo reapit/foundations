@@ -1,9 +1,5 @@
 import { attribute, hashKey, rangeKey, table } from '@aws/dynamodb-data-mapper-annotations'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { projectorTableName } from '@/constants/db'
-import { booleanObjectType } from 'aws-sdk/clients/iam'
-import { bool } from 'aws-sdk/clients/signer'
-import { Object } from 'aws-sdk/clients/s3'
 
 @table(projectorTableName)
 export class PropertyProjectorConfig {
