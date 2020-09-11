@@ -21,7 +21,6 @@ describe('Section', () => {
       subheading: 'Test sub heading',
       description: 'Test description',
       image: developerPortalImage,
-      imageLeft: false,
     }
 
     expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
@@ -33,7 +32,6 @@ describe('Section', () => {
       subheading: 'Test sub heading',
       description: 'Test description',
       image: developerPortalImage,
-      imageLeft: false,
       button: <a href="/test">My button</a>,
     }
 

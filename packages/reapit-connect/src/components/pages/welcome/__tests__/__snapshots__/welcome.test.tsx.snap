@@ -15,7 +15,6 @@ exports[`Welcome should match snapshot 1`] = `
     description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
     heading="Welcome to Reapit Connect"
     image=""
-    imageLeft={false}
     subheading="Your account has been successfully created"
   />
 </Component>
@@ -36,7 +35,6 @@ exports[`Welcome should match snapshot for client 1`] = `
     description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
     heading="Welcome to Reapit Connect"
     image=""
-    imageLeft={false}
     subheading="Your account has been successfully created"
   />
 </Component>
@@ -57,7 +55,6 @@ exports[`Welcome should match snapshot for developer 1`] = `
     description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
     heading="Welcome to Reapit Connect"
     image=""
-    imageLeft={false}
     subheading="Your account has been successfully created"
   />
 </Component>
