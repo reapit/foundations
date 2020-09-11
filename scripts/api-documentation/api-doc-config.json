@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-09-11T05:45:22.966Z",
+  "__export_date": "2020-09-11T06:27:59.302Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
@@ -4957,22 +4957,24 @@
       "color": "#00c400",
       "created": 1590743650077,
       "data": {
+        "appointmentPlannerServerDomain": "localhost:3000",
         "graphQLServerDomain": "localhost:3000/local/graphql",
         "protocol": "http",
-        "webComponentConfigServerDomain": "localhost:3000",
-        "webComponentServerDomain": "localhost:3000"
+        "searchWidgetServerDomain": "localhost:3000",
+        "webComponentConfigServerDomain": "localhost:3000"
       },
       "dataPropertyOrder": {
         "&": [
           "protocol",
           "webComponentConfigServerDomain",
-          "webComponentServerDomain",
+          "appointmentPlannerServerDomain",
+          "searchWidgetServerDomain",
           "graphQLServerDomain"
         ]
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1597650547093,
+      "modified": 1599805637605,
       "name": "local",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
