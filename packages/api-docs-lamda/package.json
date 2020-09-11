@@ -17,7 +17,7 @@
     "serverless-webpack": "^5.3.1"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "serverless-http": "^2.3.2",
     "serverless-webpack": "^5.3.1",
     "typescript": "~3.9.3",
