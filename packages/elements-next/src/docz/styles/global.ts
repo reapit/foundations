@@ -152,6 +152,7 @@ export const globalStyles = css`
       }
 
       [data-testid='playground'] {
+        font-size: 1rem !important;
       }
 
       [data-testid='live-editor'] * {
