@@ -1,61 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome should match snapshot 1`] = `
-<Component>
-  <div
-    className=""
+<Component
+  flexColumn={true}
+  isScrollable={true}
+>
+  <Component
+    flexColumn={true}
   >
-    <img
-      alt="logo"
+    <div
       className=""
-      src=""
+    >
+      <img
+        alt="logo"
+        className=""
+        src=""
+      />
+    </div>
+    <Memo()
+      description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
+      heading="Welcome to Reapit Connect"
+      image=""
+      subheading="Your account has been successfully created"
     />
-  </div>
-  <Memo()
-    description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
-    heading="Welcome to Reapit Connect"
-    image=""
-    subheading="Your account has been successfully created"
-  />
+  </Component>
 </Component>
 `;
 
 exports[`Welcome should match snapshot for client 1`] = `
-<Component>
-  <div
-    className=""
+<Component
+  flexColumn={true}
+  isScrollable={true}
+>
+  <Component
+    flexColumn={true}
   >
-    <img
-      alt="logo"
+    <div
       className=""
-      src=""
+    >
+      <img
+        alt="logo"
+        className=""
+        src=""
+      />
+    </div>
+    <Memo()
+      description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
+      heading="Welcome to Reapit Connect"
+      image=""
+      subheading="Your account has been successfully created"
     />
-  </div>
-  <Memo()
-    description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
-    heading="Welcome to Reapit Connect"
-    image=""
-    subheading="Your account has been successfully created"
-  />
+  </Component>
 </Component>
 `;
 
 exports[`Welcome should match snapshot for developer 1`] = `
-<Component>
-  <div
-    className=""
+<Component
+  flexColumn={true}
+  isScrollable={true}
+>
+  <Component
+    flexColumn={true}
   >
-    <img
-      alt="logo"
+    <div
       className=""
-      src=""
+    >
+      <img
+        alt="logo"
+        className=""
+        src=""
+      />
+    </div>
+    <Memo()
+      description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
+      heading="Welcome to Reapit Connect"
+      image=""
+      subheading="Your account has been successfully created"
     />
-  </div>
-  <Memo()
-    description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
-    heading="Welcome to Reapit Connect"
-    image=""
-    subheading="Your account has been successfully created"
-  />
+  </Component>
 </Component>
 `;
