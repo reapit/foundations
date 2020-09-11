@@ -2,12 +2,12 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import github from 'prism-react-renderer/themes/github'
-import { copyClipboardWrapper } from './__styles__/copy-clipboard'
 import { BsClipboard } from 'react-icons/bs'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { elPA } from '@/styles/padding'
 import { cx } from 'linaria'
-import { elBT } from '@/styles/borders'
+import { elPA } from '@/base/padding'
+import { elBorderT } from '@/base/borders'
+import { copyClipboardWrapper } from './styles'
 
 interface DocsWrapperProps {
   children: React.ReactElement
@@ -25,7 +25,7 @@ export const DocsWrapper: React.FC<DocsWrapperProps> = ({ children }) => {
   return (
     <>
       {children}
-      <div className={cx(copyClipboardWrapper, elPA, elBT)}>
+      <div className={cx(copyClipboardWrapper, elPA, elBorderT)}>
         <CopyToClipboard text={markup} onCopy={handleClipboardCopy(setIsCopied)}>
           <BsClipboard />
         </CopyToClipboard>
@@ -47,3 +47,5 @@ export const DocsWrapper: React.FC<DocsWrapperProps> = ({ children }) => {
     </>
   )
 }
+
+export default DocsWrapper

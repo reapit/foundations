@@ -36,7 +36,6 @@ export const Welcome: React.FC<WelcomeProps> = () => {
         <img className={logoStyle} src={logo} alt="logo" />
       </div>
       <RowSection
-        imageLeft={false}
         heading="Welcome to Reapit Connect"
         subheading="Your account has been successfully created"
         description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
@@ -75,7 +74,6 @@ export const Welcome: React.FC<WelcomeProps> = () => {
       {clientId && (
         <RowSection
           background="#1e2554"
-          imageLeft={!developerId}
           heading="Marketplace"
           subheading="Enhancing the power of Agency Cloud"
           description="The Foundations App Marketplace provides agencies with a variety of app and software integrations that have been tested and approved for immediate integration, allowing agencies to customise their Reapit CRM software to suit their business needs."
