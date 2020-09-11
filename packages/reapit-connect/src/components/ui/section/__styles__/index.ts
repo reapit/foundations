@@ -5,11 +5,11 @@ export const sectionContainer = css`
     height: 400px;
   }
 
-  &:nth-child(odd) > .container {
+  &:nth-child(odd) {
     flex-direction: row-reverse;
   }
 
-  &:nth-child(even) > .container {
+  &:nth-child(even) {
     flex-direction: row;
   }
 `

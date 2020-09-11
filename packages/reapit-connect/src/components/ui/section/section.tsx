@@ -27,18 +27,16 @@ export const Section: React.FC<SectionProps> = ({
         background: background || 'white',
       }}
     >
-      <FlexContainerResponsive>
-        <GridItem className={cx('flex items-start justify-center', gridItem, !!background && hasBackgroundSection)}>
-          <H2>{heading}</H2>
-          <SubTitleH4>{subheading}</SubTitleH4>
-          <SubTitleH6 className="mb-4">{description}</SubTitleH6>
-          {!!button && button}
-        </GridItem>
+      <GridItem className={cx('flex items-start justify-center', gridItem, !!background && hasBackgroundSection)}>
+        <H2>{heading}</H2>
+        <SubTitleH4>{subheading}</SubTitleH4>
+        <SubTitleH6 className="mb-4">{description}</SubTitleH6>
+        {!!button && button}
+      </GridItem>
 
-        <GridItem className={cx('flex items-center justify-center', gridItem)}>
-          <img alt={heading} src={image} />
-        </GridItem>
-      </FlexContainerResponsive>
+      <GridItem className={cx('flex items-center justify-center', gridItem)}>
+        <img alt={heading} src={image} />
+      </GridItem>
     </div>
   )
 }
