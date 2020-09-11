@@ -1,14 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayEventRequestContextWithAuthorizer } from 'aws-lambda'
 import { bookValuationHandler, parseHeadersFromEvent } from '../index'
-/*
- * TODOME(serverValuation)
- * replace handler
- */
 
-/*
- * TODOME(serverValuation)
- * update desc
- */
 describe('bookValuationHandler', () => {
   it('should launch without crashing', async () => {
     try {

@@ -11,41 +11,19 @@ export const createGetAppointmentSlotsFn = (logger: any, packageSuffix: PACKAGE_
 ) => {
   try {
     const headers = await getAppointmentPlannerAPIHeaders(req, packageSuffix)
-
-    // forward queries
     const url = new URL(`${process.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API}?${stringify(req.query)}`)
 
-    /*
-     * TODOME(serverValuation)
-     * forward all headers, and queries
-     */
     const result = await fetcher<AppoinmentSlotsOfDate, undefined>({
       url: String(url),
       headers,
     })
 
-    /*
-     * TODOME(serverValuation)
-     * remove if
-     */
-    /*
-     * TODOME(serverValuation)
-     * update result
-     */
     res.status(200)
-    /*
-     * TODOME(serverValuation)
-     * change variable
-     */
+
     res.json(result)
     res.end()
   } catch (err) {
     console.log({ err })
-
-    /*
-     * TODOME(serverValuation)
-     * renmae logger
-     */
 
     await errorHandler(err, res, req, 'getAppointmentSlots', logger)
   }

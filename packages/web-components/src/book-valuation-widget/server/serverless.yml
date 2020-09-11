@@ -1,4 +1,4 @@
-service: cloud-web-components-book-valuationjkjkfc
+service: cloud-web-components-book-valuation
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -44,10 +44,8 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
-    # rename
     COGNITO_CLIENT_ID_BOOK_A_VALUATION: ${self:custom.env.COGNITO_CLIENT_ID_BOOK_A_VALUATION}
     COGNITO_CLIENT_SECRET_BOOK_A_VALUATION: ${self:custom.env.COGNITO_CLIENT_SECRET_BOOK_A_VALUATION}
-    # add APPOINTMNET_PLANNER_API
     COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
     SENTRY_DSN: ${self:custom.env.SEARCH_WIDGET_API_SENTRY_DNS}
     APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API: ${self:custom.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API}

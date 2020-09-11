@@ -12,10 +12,6 @@ export enum PACKAGE_SUFFIXES {
   'APPOINTMENT_PLANNER' = 'APPOINTMENT_PLANNER',
   'BOOK_A_VIEWING' = 'BOOK_A_VIEWING',
   'BOOK_A_VALUATION' = 'BOOK_A_VALUATION',
-  /*
-   * TODOME(serverValuation)
-   * add surfix
-   */
 }
 
 export const DEFAULT_CENTER = { lat: 51.507325, lng: -0.127716 }

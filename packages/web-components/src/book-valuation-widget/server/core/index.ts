@@ -43,26 +43,11 @@ export const parseHeadersFromEvent = (event: APIGatewayProxyEvent) => {
   return newHeaders
 }
 
-/*
- * TODOME(serverValuation)
- * update varriable
- * bookValuationgHandler
- */
-
 export const bookValuationHandler = async (event: APIGatewayProxyEvent, context: Context) => {
-  /*
-   * TODOME(serverViewing)
-   * update logger
-   */
-
-  console.log('appointmentPlannerHandler', { event, context })
+  console.log('bookValuationHandler', { event, context })
   const newHeaders = parseHeadersFromEvent(event)
   event.headers = newHeaders
-  /*
-   * TODOME(serverViewing)
-   * update logger
-   */
 
-  console.log('appointmentPlannerHandler', { newHeaders })
+  console.log('bookValuationHandler', { newHeaders })
   return expressApp(event, context)
 }

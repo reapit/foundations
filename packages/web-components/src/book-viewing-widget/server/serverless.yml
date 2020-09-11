@@ -1,5 +1,3 @@
-# copy from search widget
-# replace id
 service: cloud-web-components-book-viewing
 plugins:
   - serverless-webpack

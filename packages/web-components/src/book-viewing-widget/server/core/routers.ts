@@ -1,8 +1,4 @@
 import { Router, Response, Request } from 'express'
-/*
- * TODOME(bookViewing)
- * point to correct api0
- */
 
 import { createGetAppointmentSlotsFn } from '../../../common/api/get-appointment-slots'
 import { logger } from '../core/logger'

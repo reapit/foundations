@@ -1,9 +1,4 @@
 import { APIGatewayProxyEvent, APIGatewayEventRequestContextWithAuthorizer } from 'aws-lambda'
-/*
- * TODOME(serverViewing)
- * change imprt
- * change describe
- */
 
 import { bookViewingHandler, parseHeadersFromEvent } from '../index'
 
