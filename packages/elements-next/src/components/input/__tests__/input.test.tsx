@@ -48,21 +48,6 @@ describe('Input', () => {
   it('should match a snapshot with helper text', () => {
     expect(toJson(shallow(<Input {...errTextComponentInputProps} />))).toMatchSnapshot()
   })
-  /*
-   * TODOME(comp)
-   * help text
-   * err text
-   */
-
-  /*
-   * TODOME(comp)
-   * add test case for errText
-   */
-
-  /*
-   * TODOME(comp)
-   * remove test
-   */
 
   afterEach(() => {
     jest.resetAllMocks()

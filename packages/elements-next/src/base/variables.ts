@@ -44,8 +44,6 @@ export const elVariablesCssStr = `
   --layout-size-2: 2rem;
   --layout-size-3: 3rem;
   /** variant variables */
-  --color-primary: hsl(171, 100%, 41%);
-  --color-info: hsl(204, 86%, 53%);
   --color-danger: hsl(348, 100%, 61%);
 `
 
