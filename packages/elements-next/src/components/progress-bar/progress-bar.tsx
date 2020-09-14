@@ -1,5 +1,5 @@
 import React from 'react'
-import { elProgressBar, elProgress } from './styles'
+import { elProgress } from './styles'
 
 export type ProgressBarProps = {
   percentage: number
@@ -19,11 +19,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = (props: ProgressBarProps)
     validPercentage = MIN
   }
 
-  return (
-    <div className={elProgress}>
-      <div className={elProgressBar} style={{ width: `${validPercentage}%` }} />
-    </div>
-  )
+  return <progress className={elProgress} value={validPercentage} max="100"></progress>
 }
 
 ProgressBar.displayName = 'ProgressBar'
