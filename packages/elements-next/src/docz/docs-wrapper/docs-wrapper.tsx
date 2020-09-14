@@ -1,4 +1,5 @@
 import React from 'react'
+import jsbeautify from 'js-beautify'
 import { renderToStaticMarkup } from 'react-dom/server'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import github from 'prism-react-renderer/themes/github'
@@ -29,7 +30,7 @@ export const DocsWrapper: React.FC<DocsWrapperProps> = ({ children }) => {
         <CopyToClipboard text={markup} onCopy={handleClipboardCopy(setIsCopied)}>
           <BsClipboard />
         </CopyToClipboard>
-        <Highlight {...defaultProps} code={markup} theme={github} language="jsx">
+        <Highlight {...defaultProps} code={jsbeautify.html(markup)} theme={github} language="markup">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={{ ...style }}>
               {tokens.map((line, i) => (

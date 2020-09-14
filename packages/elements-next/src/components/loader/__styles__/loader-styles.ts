@@ -22,7 +22,7 @@ export const elLoader = css`
 `
 
 export const elLoaderOverlay = css`
-  background: white;
+  background: var(--color-white, #fff);
   position: absolute;
   top: 0;
   left: 0;
@@ -63,7 +63,7 @@ export const elSpinner = css`
     margin: 0;
   }
   > div {
-    background-color: #74818d;
+    background-color: var(--color-grey, #74818d);
     height: 100%;
     width: 6px;
     display: inline-block;

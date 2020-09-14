@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader should match a snapshot when children is defined 1`] = `
+<div
+  className=""
+>
+  <div>
+    content
+  </div>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when description=test 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+    <p>
+      test
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when indicator=test 1`] = `
+<div>
+  <div
+    className=""
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when isLoading=false 1`] = `""`;
+
+exports[`Loader should match a snapshot when isLoading=true 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when size=default 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when size=large 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when size=small 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader should match a snapshot when wrapperClassName=test 1`] = `
+<div
+  className="test"
+>
+  <div
+    className=""
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+  </div>
+</div>
+`;
