@@ -1,0 +1,22 @@
+---
+name: Checkbox
+route: /checkbox
+---
+
+import { Props } from 'docz'
+import DocsWrapper from '@/docz/docs-wrapper'
+import Playground from '@/components/playground'
+import { Checkbox } from './checkbox'
+
+# Checkbox
+Checkboxs are used as the titles of each major section of a page in the interface
+
+## Properties
+<Props of={Checkbox} />
+
+## Usage
+<Playground>
+  <DocsWrapper>
+    <Checkbox id="test" name="test" label="test" className="test" value={false} />
+  </DocsWrapper>
+</Playground>
