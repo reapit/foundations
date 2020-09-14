@@ -1,5 +1,6 @@
 import React from 'react'
-import jsbeautify from 'js-beautify'
+import prettier from 'prettier/standalone'
+import parserHTML from 'prettier/parser-html'
 import { renderToStaticMarkup } from 'react-dom/server'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import github from 'prism-react-renderer/themes/github'
@@ -23,6 +24,7 @@ export const handleClipboardCopy = (setIsCopied: (isCopied: boolean) => void) =>
 export const DocsWrapper: React.FC<DocsWrapperProps> = ({ children }) => {
   const [isCopied, setIsCopied] = React.useState(false)
   const markup = renderToStaticMarkup(children)
+  const formattedHTML = prettier.format(markup, { parser: 'html', plugins: [parserHTML] })
   return (
     <>
       {children}
@@ -30,7 +32,7 @@ export const DocsWrapper: React.FC<DocsWrapperProps> = ({ children }) => {
         <CopyToClipboard text={markup} onCopy={handleClipboardCopy(setIsCopied)}>
           <BsClipboard />
         </CopyToClipboard>
-        <Highlight {...defaultProps} code={jsbeautify.html(markup)} theme={github} language="markup">
+        <Highlight {...defaultProps} code={formattedHTML} theme={github} language="markup">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={{ ...style }}>
               {tokens.map((line, i) => (

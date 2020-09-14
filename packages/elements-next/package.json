@@ -60,7 +60,5 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.6"
   },
-  "dependencies": {
-    "js-beautify": "^1.13.0"
-  }
+  "dependencies": {}
 }
