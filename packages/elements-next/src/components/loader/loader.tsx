@@ -4,7 +4,7 @@ import { elLoader, elLoaderOverlay, elSpinner } from './__styles__/loader-styles
 
 export enum SpinnerSize {
   SMALL = 'small',
-  DEFAILT = 'default',
+  DEFAULT = 'default',
   LARGE = 'large',
 }
 
@@ -41,7 +41,7 @@ export const renderSpinner = (params: RenderSpinnerParams) => {
 export const Loader: React.FC<LoaderProps> = ({
   children,
   wrapperClassName,
-  size = SpinnerSize.DEFAILT,
+  size = SpinnerSize.DEFAULT,
   isLoading = true,
   indicator,
   description,

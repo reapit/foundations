@@ -31,7 +31,7 @@ describe('Loader', () => {
     expect(shallow(<Loader size={SpinnerSize.SMALL} />)).toMatchSnapshot()
   })
   it('should match a snapshot when size=default', () => {
-    expect(shallow(<Loader size={SpinnerSize.DEFAILT} />)).toMatchSnapshot()
+    expect(shallow(<Loader size={SpinnerSize.DEFAULT} />)).toMatchSnapshot()
   })
   it('should match a snapshot when size=large', () => {
     expect(shallow(<Loader size={SpinnerSize.LARGE} />)).toMatchSnapshot()
