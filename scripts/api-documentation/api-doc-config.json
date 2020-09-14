@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-09-04T08:32:04.507Z",
+  "__export_date": "2020-09-11T06:27:59.302Z",
   "__export_source": "insomnia.desktop.app:v2020.3.3",
   "resources": [
     {
@@ -4416,13 +4416,13 @@
         {
           "id": "pair_bfbf0f85d31649598647cdbf06029128",
           "name": "x-api-key",
-          "value": "d41d8cd98f00b204e9800998ecf8427e"
+          "value": "{{ webComponent.appointmentPlanerApiKey }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590990438230,
       "method": "GET",
-      "modified": 1599208274124,
+      "modified": 1599802970046,
       "name": "AppointmentSlots",
       "parameters": [
         {
@@ -4483,13 +4483,13 @@
           "description": "",
           "id": "pair_93157b01757d4b31af4100a22176a228",
           "name": "x-api-key",
-          "value": "{{ webComponent.token  }}"
+          "value": "{{ webComponent.appointmentPlanerApiKey }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590985921703,
       "method": "GET",
-      "modified": 1591079864119,
+      "modified": 1599802983883,
       "name": "Ping",
       "parameters": [],
       "parentId": "fld_5c9518fdcf3644a28045bd40b913bae0",
@@ -4513,13 +4513,13 @@
           "description": "",
           "id": "pair_a8e5cc23c0264d6784bd41a1f0ee2b14",
           "name": "x-api-key",
-          "value": "{{ webComponent.token  }}"
+          "value": "{{ webComponent.searchWidgetApiKey }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590750217571,
       "method": "GET",
-      "modified": 1591079881080,
+      "modified": 1599803040097,
       "name": "GetProperty",
       "parameters": [],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
@@ -4555,13 +4555,13 @@
           "description": "",
           "id": "pair_368158254f4f4bcc84d10eaffbedba63",
           "name": "x-api-key",
-          "value": "{{ webComponent.token  }}"
+          "value": "{{ webComponent.searchWidgetApiKey }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590750185077,
       "method": "GET",
-      "modified": 1591030172737,
+      "modified": 1599803058059,
       "name": "GetProperties",
       "parameters": [
         {
@@ -4658,13 +4658,13 @@
           "description": "",
           "id": "pair_c59ba5e082954e28a86b4664c65edf4a",
           "name": "x-api-key",
-          "value": "{{ webComponent.token  }}"
+          "value": "{{ webComponent.searchWidgetApiKey }}"
         }
       ],
       "isPrivate": false,
       "metaSortKey": -1590745976349,
       "method": "GET",
-      "modified": 1591030174946,
+      "modified": 1599803064435,
       "name": "GetPropertyImages",
       "parameters": [],
       "parentId": "fld_87df969d916c4128b56686f8fec7c05b",
@@ -4873,11 +4873,12 @@
           "path": "{{ protocol  }}://{{ graphQLServerDomain  }}"
         },
         "webComponent": {
-          "appointmentsPath": "{{ protocol  }}://{{ webComponentServerDomain  }}",
+          "appointmentPlanerApiKey": "ee907281-4680-4ec7-8144-184a41d0f099",
+          "appointmentsPath": "{{ protocol  }}://{{ appointmentPlannerServerDomain }}",
           "configServerHealthPath": "{{ protocol  }}://{{ webComponentConfigServerDomain  }}/dev/v1/health",
           "configServerPath": "{{ protocol }}://{{ webComponentConfigServerDomain  }}/dev/v1/web-components-config",
-          "searchWidgetPath": "{{ protocol  }}://{{ webComponentServerDomain  }}",
-          "token": ""
+          "searchWidgetApiKey": "9c116b08-ee80-4ddf-bd5c-337f2ccac361",
+          "searchWidgetPath": "{{ protocol  }}://{{ searchWidgetServerDomain }}"
         }
       },
       "dataPropertyOrder": {
@@ -4894,12 +4895,13 @@
           "configServerHealthPath",
           "searchWidgetPath",
           "appointmentsPath",
-          "token"
+          "appointmentPlanerApiKey",
+          "searchWidgetApiKey"
         ]
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1598262061611,
+      "modified": 1599803031939,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -4928,22 +4930,24 @@
       "color": "#ecec00",
       "created": 1590743508931,
       "data": {
+        "apppoinmentPlannerServerDomain": "du7nxhvp67.execute-api.eu-west-2.amazonaws.com/dev",
         "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
         "protocol": "https",
-        "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
-        "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
+        "searchWidgetServerDomain": "61iwkthgyi.execute-api.eu-west-2.amazonaws.com/dev",
+        "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com"
       },
       "dataPropertyOrder": {
         "&": [
           "protocol",
           "webComponentConfigServerDomain",
-          "webComponentServerDomain",
+          "apppoinmentPlannerServerDomain",
+          "searchWidgetServerDomain",
           "graphQLServerDomain"
         ]
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1597142035694,
+      "modified": 1599802848470,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -4953,22 +4957,24 @@
       "color": "#00c400",
       "created": 1590743650077,
       "data": {
+        "appointmentPlannerServerDomain": "localhost:3000",
         "graphQLServerDomain": "localhost:3000/local/graphql",
         "protocol": "http",
-        "webComponentConfigServerDomain": "localhost:3000",
-        "webComponentServerDomain": "localhost:3000"
+        "searchWidgetServerDomain": "localhost:3000",
+        "webComponentConfigServerDomain": "localhost:3000"
       },
       "dataPropertyOrder": {
         "&": [
           "protocol",
           "webComponentConfigServerDomain",
-          "webComponentServerDomain",
+          "appointmentPlannerServerDomain",
+          "searchWidgetServerDomain",
           "graphQLServerDomain"
         ]
       },
       "isPrivate": false,
       "metaSortKey": 0,
-      "modified": 1597650547093,
+      "modified": 1599805637605,
       "name": "local",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -4978,22 +4984,24 @@
       "color": "#d00000",
       "created": 1590748587252,
       "data": {
+        "appointmentPlannerServerDomain": "du7nxhvp67.execute-api.eu-west-2.amazonaws.com/dev",
         "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
         "protocol": "https",
-        "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
-        "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
+        "searchWidgetServerDomain": "61iwkthgyi.execute-api.eu-west-2.amazonaws.com/dev",
+        "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com"
       },
       "dataPropertyOrder": {
         "&": [
           "protocol",
           "webComponentConfigServerDomain",
-          "webComponentServerDomain",
+          "appointmentPlannerServerDomain",
+          "searchWidgetServerDomain",
           "graphQLServerDomain"
         ]
       },
       "isPrivate": false,
       "metaSortKey": 2,
-      "modified": 1591080062972,
+      "modified": 1599802880194,
       "name": "production",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
