@@ -3,6 +3,10 @@ import { shallow } from 'enzyme'
 import { Button, ButtonGroup } from '../button'
 
 describe('Button', () => {
+  it('should match snapshot - all default', () => {
+    const wrapper = shallow(<Button>text</Button>)
+    expect(wrapper).toMatchSnapshot()
+  })
   it('should match snapshot - primary variant', () => {
     const wrapper = shallow(<Button variant="primary">text</Button>)
     expect(wrapper).toMatchSnapshot()
