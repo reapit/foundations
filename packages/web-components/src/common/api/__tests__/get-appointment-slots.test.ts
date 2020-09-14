@@ -37,9 +37,6 @@ describe('getAppointmentSlots wrapper API', () => {
       headers,
     })
     expect(res.status).toHaveBeenCalledWith(200)
-
-    expect(res.json).toHaveBeenCalledWith(assignNegotiatorIdToAppointmentSlotOfDatesOutput)
-    expect(res.end).toHaveBeenCalledTimes(1)
   })
 
   it('should correctly catch an error', async () => {

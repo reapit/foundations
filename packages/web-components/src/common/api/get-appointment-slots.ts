@@ -18,10 +18,7 @@ export const createGetAppointmentSlotsFn = (logger: any, packageSuffix: PACKAGE_
       headers,
     })
 
-    res.status(200)
-
-    res.json(result)
-    res.end()
+    res.status(200).json(result)
   } catch (err) {
     console.log({ err })
 
