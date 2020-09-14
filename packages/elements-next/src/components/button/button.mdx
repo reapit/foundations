@@ -4,18 +4,82 @@ route: /button
 ---
 
 import {  Props } from 'docz'
-import { Button } from './button'
+import { Button, ButtonGroup } from './button'
 import DocsWrapper from '@/docz/docs-wrapper'
 import Playground from '@/components/playground'
 
-# Heading
+# Button
 ## Document
 <Props of={Button} />
 
 ## Usage
+
+### Primary
 <Playground>
   <DocsWrapper>
-    <Button>hi</Button>
+    <Button variant="primary">PRIMARY</Button>
   </DocsWrapper>
 </Playground>
 
+### Secondary
+<Playground>
+  <DocsWrapper>
+    <Button variant="secondary">SECONDARY</Button>
+  </DocsWrapper>
+</Playground>
+
+### Danger
+<Playground>
+  <DocsWrapper>
+    <Button variant="danger">DANGER</Button>
+  </DocsWrapper>
+</Playground>
+
+### Info
+<Playground>
+  <DocsWrapper>
+    <Button variant="info">INFO</Button>
+  </DocsWrapper>
+</Playground>
+
+### Disabled
+<Playground>
+  <DocsWrapper>
+    <Button variant="primary" disabled>DISABLED</Button>
+  </DocsWrapper>
+</Playground>
+
+### Loading
+<Playground>
+  <DocsWrapper>
+    <Button variant="primary" isLoading>LOADING</Button>
+  </DocsWrapper>
+</Playground>
+
+# ButtonGroup
+## Document
+<Props of={ButtonGroup} />
+
+## Usage
+
+### Default
+<Playground>
+  <DocsWrapper>
+    <ButtonGroup>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="info">Info</Button>
+    </ButtonGroup>
+  </DocsWrapper>
+</Playground>
+
+### Centered
+<Playground>
+  <DocsWrapper>
+    <ButtonGroup isCentered>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="info">Info</Button>
+    </ButtonGroup>
+  </DocsWrapper>
+</Playground>
