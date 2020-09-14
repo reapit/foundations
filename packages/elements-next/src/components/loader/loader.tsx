@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { cx } from 'linaria'
-import { elLoader, elLoaderOverlay, elSpinner } from './__styles__/loader-styles'
+import { elLoaderContainer, elLoaderOverlay, elLoader } from './__styles__/loader-styles'
 
 export enum SpinnerSize {
   SMALL = 'small',
@@ -22,7 +22,7 @@ export const renderSpinner = (params: RenderSpinnerParams) => {
   const { isLoading, size, indicator, description } = params
 
   return (
-    <div className={cx(elSpinner, size, isLoading && 'is-loading')}>
+    <div className={cx(elLoader, size, isLoading && 'is-loading')}>
       {indicator ? (
         indicator
       ) : (
@@ -58,10 +58,10 @@ export const Loader: React.FC<LoaderProps> = ({
   }
 
   return (
-    <div className={cx(elLoader, isLoading && 'is-loading', 'is-embedded', wrapperClassName)}>
+    <div className={cx(elLoaderContainer, isLoading && 'is-loading', wrapperClassName)}>
       {children}
-      <div className={elLoaderOverlay} />
       {spinner}
+      <div className={elLoaderOverlay} />
     </div>
   )
 }

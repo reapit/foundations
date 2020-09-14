@@ -9,9 +9,6 @@ exports[`Loader should match a snapshot when children is defined 1`] = `
   </div>
   <div
     className=""
-  />
-  <div
-    className=""
   >
     <div
       className="rect1"
@@ -26,6 +23,9 @@ exports[`Loader should match a snapshot when children is defined 1`] = `
       className="rect4"
     />
   </div>
+  <div
+    className=""
+  />
 </div>
 `;
 

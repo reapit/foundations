@@ -1,23 +1,21 @@
 import { css } from 'linaria'
 
-export const elLoader = css`
+export const elLoaderContainer = css`
   position: relative;
   width: 100%;
   height: 100%;
   &.is-loading {
     .el-loader-overlay {
-      opacity: 0.7;
+      opacity: 0.8;
     }
   }
-  &.is-embedded {
-    .el-spinner {
-      position: absolute;
-      margin: auto;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
+  .el-loader {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 `
 
@@ -26,7 +24,7 @@ export const elLoaderOverlay = css`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 1;
   width: 100%;
   height: 100%;
   clear: both;
@@ -37,11 +35,11 @@ export const elLoaderOverlay = css`
   transition: opacity 0.5s ease;
 `
 
-export const elSpinner = css`
+export const elLoader = css`
   margin: auto;
   height: 40px;
   text-align: center;
-  z-index: 5;
+  z-index: 2;
   opacity: 0;
   transition: opacity 0.5s ease;
   &.is-loading {
