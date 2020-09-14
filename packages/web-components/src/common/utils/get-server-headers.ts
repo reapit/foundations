@@ -6,6 +6,15 @@ type Token = {
   access_token: string
 }
 
+export const getAppointmentPlannerAPIHeaders = async (req: Request, packageSuffix: PACKAGE_SUFFIXES) => {
+  const serverlessHeaders = await getServerHeaders(req, packageSuffix)
+
+  return {
+    'reapit-customer': serverlessHeaders['reapit-customer'],
+    'X-Api-key': process.env.APPOINMENT_PLANNER_APP_KEY,
+  }
+}
+
 export const getServerHeaders = async (req: Request, packageSuffix: PACKAGE_SUFFIXES) => {
   // For local development, I need to get a token from my client secret, in prod, this is added as a
   // header by my lambda authorizer so not required
