@@ -14,7 +14,7 @@ interface CheckboxProps {
 export const Checkbox: React.FC<CheckboxProps> = ({ id, name, label, className, value, disabled = false }) => {
   return (
     <label htmlFor={id} className={cx(elCheckbox, className)}>
-      {label}
+      {!!label && label}
       <input id={id} name={name} type="checkbox" checked={!!value} disabled={disabled} />
       <span />
     </label>
