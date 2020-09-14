@@ -1,6 +1,6 @@
 import { css } from 'linaria'
 
-export const elVariables = css`
+export const elVariablesCssStr = `
   /* color variables */
   --color-white: #fff;
   --color-black: #3b454e;
@@ -43,4 +43,12 @@ export const elVariables = css`
   --layout-size-2_3: calc(2rem / 3);
   --layout-size-2: 2rem;
   --layout-size-3: 3rem;
+  /** variant variables */
+  --color-primary: hsl(171, 100%, 41%);
+  --color-info: hsl(204, 86%, 53%);
+  --color-danger: hsl(348, 100%, 61%);
+`
+
+export const elVariables = css`
+  ${elVariablesCssStr}
 `

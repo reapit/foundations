@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should match a snapshot 1`] = `
+<div
+  className=""
+>
+  <input
+    className=""
+    disabled={false}
+    id="username"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input should match a snapshot with err text 1`] = `
+<div>
+  <input
+    className=""
+    disabled={false}
+    id="username"
+    type="text"
+  />
+  <p>
+    <b>
+      Helper text
+    </b>
+  </p>
+</div>
+`;
+
+exports[`Input should match a snapshot with helper text 1`] = `
+<div>
+  <input
+    className=""
+    disabled={false}
+    id="username"
+    type="text"
+  />
+  <p>
+    err
+  </p>
+</div>
+`;
+
+exports[`Input should match a snapshot with right icon 1`] = `
+<div>
+  <input
+    className=""
+    disabled={false}
+    id="username"
+    type="text"
+  />
+  <span
+    className=""
+  >
+    <FaSearch />
+  </span>
+</div>
+`;

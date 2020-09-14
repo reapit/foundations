@@ -1,0 +1,59 @@
+---
+name: Input
+route: /input
+---
+
+import { Props } from 'docz'
+import { Input } from './input'
+import DocsWrapper from '@/docz/docs-wrapper'
+import Playground from '@/components/playground'
+import { FaSearch } from 'react-icons/fa'
+import { elMt4 } from '../../base/spacing'
+
+## Input
+
+Input is a building block of form as they are used to input value
+
+## Properties
+
+## Usage
+
+### Input with props value, onChange, and place holder
+
+<Playground>
+  {() => {
+    const [text, _setText] = React.useState('')
+    const setText = e => _setText(e.target.value)
+    return <Input placeholder="place holder" value={text} onChange={setText} />
+  }}
+</Playground>
+
+### Input with helper text
+
+<Playground>
+  <Input helperText="This a helper text" />
+</Playground>
+
+### Input with error text
+
+<Playground>
+  <Input errText="This an error text" />
+</Playground>
+
+### Input with icon on the right
+
+<Playground>
+  <Input rightIcon={<FaSearch />} />
+</Playground>
+
+### Input with different types
+
+<Playground>
+  {() => (
+    <div>
+      {['text', 'password', 'email', 'tel'].map(type => (
+        <Input placeholder={type} className={elMt4} type={type} />
+      ))}
+    </div>
+  )}
+</Playground>

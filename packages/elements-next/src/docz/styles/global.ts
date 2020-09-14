@@ -1,10 +1,146 @@
 import { css } from 'linaria'
+import { elVariablesCssStr } from '@/base/variables'
+
+export const resetCssStr = `
+  /* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  menu,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  main,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+  /* HTML5 hidden-attribute fix for newer browsers */
+  *[hidden] {
+    display: none;
+  }
+  body {
+    line-height: 1;
+  }
+  menu,
+  ol,
+  ul {
+    list-style: none;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+`
 
 /* Below is a slimmed down version of of Normalize CSS plus some basic defaults */
 export const globalStyles = css`
   :global() {
     /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap'); */
+
+    ${resetCssStr}
     html {
+      ${elVariablesCssStr}
+
       --font-monospace: 'Source Code Pro', monospace;
       --font-default: 'Roboto', Helvetica, Arial, sans-serif;
       --color-black: #3b454e;
