@@ -20,13 +20,11 @@ interface ButtonProps
   isFullWidth?: boolean
   onClick?: () => void
   className?: string
-  children?: React.ReactNode
 }
 
 interface ButtonGroupProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCentered?: boolean
   className?: string
-  children?: React.ReactNode
 }
 
 const variantClass = {
