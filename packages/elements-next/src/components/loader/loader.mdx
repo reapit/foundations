@@ -1,0 +1,129 @@
+---
+name: Loader
+route: /Loader
+---
+
+import { useState } from 'react'
+import { Props } from 'docz'
+import DocsWrapper from '@/docz/docs-wrapper'
+import Playground from '@/components/playground'
+import Loader from './loader'
+
+# Loader
+Loaders are used as the loading component of each major section of a page in the interface
+
+## Properties
+<Props of={Loader} />
+
+## Usage
+
+### Basic
+A simple loading status.
+<Playground>
+  <DocsWrapper>
+    <Loader/>
+  </DocsWrapper>
+</Playground>
+
+### Size
+A small Spin is used for loading text, default sized Spin for loading a card-level block, and large Spin used for loading a page.
+<Playground>
+  <DocsWrapper>
+    <Loader size="small"/>
+    <Loader/>
+    <Loader size="large"/>
+  </DocsWrapper>
+</Playground>
+
+### Embedded Mode
+Embedding content into Loader will set it into loading state.
+<Playground>
+    {() => {
+      const [isLoading, setIsLoading] = React.useState(true)
+      return (
+        <DocsWrapper>
+            <Loader isLoading={isLoading}>
+              <div
+                style={{
+                  padding: 10,
+                  border: '1px solid grey',
+                  borderRadius: 5,
+                }}
+              >
+                <h3>Your content</h3>
+                <hr />
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industrys standard dummy text ever since the 1500s
+                </p>
+              </div>
+            </Loader>
+            <button style={{ marginTop: 10 }} onClick={() => setIsLoading(!isLoading)}>
+              Toggle Loading State
+            </button>
+        </DocsWrapper>
+      )
+    }}
+</Playground>
+
+### Custom Loading Indicator
+Use custom loading spinner.
+<Playground>
+    {() => {
+      const [isLoading, setIsLoading] = React.useState(true)
+      return (
+        <DocsWrapper>
+            <Loader isLoading={isLoading} indicator="Custom Loading Spinner...">
+              <div
+                style={{
+                  padding: 10,
+                  border: '1px solid grey',
+                  borderRadius: 5,
+                }}
+              >
+                <h3>Your content</h3>
+                <hr />
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industrys standard dummy text ever since the 1500s
+                </p>
+              </div>
+            </Loader>
+            <button style={{ marginTop: 10 }} onClick={() => setIsLoading(!isLoading)}>
+              Toggle Loading State
+            </button>
+        </DocsWrapper>
+      )
+    }}
+</Playground>
+
+### Custom Description
+Add description below the loader
+<Playground>
+    {() => {
+      const [isLoading, setIsLoading] = React.useState(true)
+      return (
+        <DocsWrapper>
+            <Loader isLoading={isLoading} description="Fetching data...">
+              <div
+                style={{
+                  padding: 10,
+                  border: '1px solid grey',
+                  borderRadius: 5,
+                }}
+              >
+                <h3>Your content</h3>
+                <hr />
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industrys standard dummy text ever since the 1500s
+                </p>
+              </div>
+            </Loader>
+            <button style={{ marginTop: 10 }} onClick={() => setIsLoading(!isLoading)}>
+              Toggle Loading State
+            </button>
+        </DocsWrapper>
+      )
+    }}
+</Playground>
