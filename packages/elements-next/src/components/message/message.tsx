@@ -7,7 +7,7 @@ export interface MessageProps {
   /**
    * Message content
    */
-  message?: string
+  message: string
   /**
    * message variant
    */
