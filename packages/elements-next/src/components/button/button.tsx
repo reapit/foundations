@@ -12,7 +12,7 @@ import {
 import { elFlexJustifyCenter } from '../../base/flexbox'
 import { elWFull } from '../../base/sizing'
 
-interface ButtonProps
+export interface ButtonProps
   extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   type?: 'submit' | 'reset' | 'button'
   variant?: 'primary' | 'secondary' | 'danger' | 'info'
@@ -22,7 +22,8 @@ interface ButtonProps
   className?: string
 }
 
-interface ButtonGroupProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface ButtonGroupProps
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCentered?: boolean
   className?: string
 }
