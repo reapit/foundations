@@ -18,7 +18,6 @@ export const buttonStyle = css`
   min-width: 200px;
 
   &:active {
-    color: white;
   }
   &:focus {
     color: white;
@@ -28,6 +27,9 @@ export const buttonStyle = css`
     color: white;
     border-color: transparent;
   }
+`
+export const agencyCloudButton = css`
+  background-color: #a2c862;
 `
 
 export const developerPortalButton = css`

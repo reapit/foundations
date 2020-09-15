@@ -2,8 +2,14 @@ import { css } from 'linaria'
 
 export const sectionContainer = css`
   @media screen and (min-width: 768px) {
-    height: 400px;
+    height: 330px;
   }
+
+  h2 {
+    font-weight: 400;
+  }
+
+  font-weight: 700;
 
   &:nth-child(odd) {
     flex-direction: row-reverse;

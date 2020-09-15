@@ -6,7 +6,14 @@ import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
 import marketplaceGraphicImage from '@/assets/images/MarketplaceGraphic.jpg'
 import mainHeadingGraphicImage from '@/assets/images/MainHeadingGraphic.jpg'
 import agencyCloudGraphicImage from '@/assets/images/AgencyCloudGraphic.jpg'
-import { logoWrapStyle, logoStyle, buttonStyle, developerPortalButton, marketplaceButton } from './__styles__'
+import {
+  logoWrapStyle,
+  logoStyle,
+  buttonStyle,
+  developerPortalButton,
+  marketplaceButton,
+  agencyCloudButton,
+} from './__styles__'
 import { cx } from 'linaria'
 import { useReapitConnect, ReapitConnectHook } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -69,9 +76,19 @@ export const Welcome: React.FC<WelcomeProps> = () => {
           <RowSection
             background="#015b73"
             heading="Agency Cloud"
-            subheading="Account Successfully Created"
-            description="If you have Agency Cloud already installed on your machine, you can now login via Reapit Connect with your new credentials. If not, please contact your IT Department or Administrator to arrange installation."
+            subheading="Software Download"
+            description="When you are ready, please click 'Download' below to begin the installation process of Reapit's Award winning CRM solution."
             image={agencyCloudGraphicImage}
+            button={
+              <a
+                className={cx('button', buttonStyle, agencyCloudButton)}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={URLS[appEnv].developerPortal}
+              >
+                Download
+              </a>
+            }
           />
         )}
         {clientId && (
