@@ -75,3 +75,29 @@ export const elFlexShrink0 = css`
 export const elFlexShrink = css`
   flex-shrink: 1;
 `
+
+// Justify content
+
+export const elFlexJustifyCenter = css`
+  justify-content: center;
+`
+
+export const elFlexJustifyStart = css`
+  justify-content: flex-start;
+`
+
+export const elFlexJustifyEnd = css`
+  justify-content: flex-end;
+`
+
+export const elFlexJustifyBetween = css`
+  justify-content: space-between;
+`
+
+export const elFlexJustifyAround = css`
+  justify-content: space-around;
+`
+
+export const elFlexJustifyEvenly = css`
+  justify-content: space-evenly;
+`
