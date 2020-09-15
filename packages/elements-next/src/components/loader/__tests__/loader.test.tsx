@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import Loader, { SpinnerSize } from '../loader'
+import Loader from '../loader'
 
 describe('Loader', () => {
   it('should match a snapshot when isLoading=true', () => {
@@ -28,12 +28,12 @@ describe('Loader', () => {
     ).toMatchSnapshot()
   })
   it('should match a snapshot when size=small', () => {
-    expect(shallow(<Loader size={SpinnerSize.SMALL} />)).toMatchSnapshot()
+    expect(shallow(<Loader size="small" />)).toMatchSnapshot()
   })
   it('should match a snapshot when size=default', () => {
-    expect(shallow(<Loader size={SpinnerSize.DEFAULT} />)).toMatchSnapshot()
+    expect(shallow(<Loader size="default" />)).toMatchSnapshot()
   })
   it('should match a snapshot when size=large', () => {
-    expect(shallow(<Loader size={SpinnerSize.LARGE} />)).toMatchSnapshot()
+    expect(shallow(<Loader size="large" />)).toMatchSnapshot()
   })
 })

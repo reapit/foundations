@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Checkbox, CheckboxProps } from './checkbox'
 
 export default {
-  title: 'Example/Checkbox',
+  title: 'Checkbox',
   component: Checkbox,
   argTypes: {
     backgroundColor: { control: 'color' },

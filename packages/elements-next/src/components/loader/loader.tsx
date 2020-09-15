@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { cx } from 'linaria'
-import { elLoaderContainer, elLoaderOverlay, elLoader } from './__styles__/loader-styles'
+import { elLoaderContainer, elLoaderOverlay, elLoader } from './styles'
 
 export type LoaderProps = {
   isLoading?: boolean
   wrapperClassName?: string
-  size?: 'small' | 'default' | 'large'
+  size?: 'default' | 'small' | 'large'
   indicator?: React.ReactNode
   description?: string
 }
