@@ -1,0 +1,106 @@
+service: cloud-web-components-book-valuation
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+  allowedHeaders:
+    - Content-Type
+    - X-Amz-Date
+    - Authorization
+    - X-Api-Key
+    - X-Amz-Security-Token
+    - X-Amz-User-Agent
+    - reapit-customer
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+  usagePlan:
+    quota:
+      limit: 100000000
+      offset: 0
+      period: DAY
+    throttle:
+      burstLimit: 1000
+      rateLimit: 5000
+
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    COGNITO_CLIENT_ID_BOOK_A_VALUATION: ${self:custom.env.COGNITO_CLIENT_ID_BOOK_A_VALUATION}
+    COGNITO_CLIENT_SECRET_BOOK_A_VALUATION: ${self:custom.env.COGNITO_CLIENT_SECRET_BOOK_A_VALUATION}
+    COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
+    SENTRY_DSN: ${self:custom.env.SEARCH_WIDGET_API_SENTRY_DNS}
+    APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API: ${self:custom.env.APPPOINTMENT_PLANNER_GET_APPOINTMENT_SLOTS_API}
+    APPOINMENT_PLANNER_APP_KEY: ${self:custom.env.APPOINMENT_PLANNER_APP_KEY}
+    SENTRY_PROJECT: search-widget-server
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
+
+functions:
+  bookValuationHandler:
+    handler: src/book-valuation-widget/server/core/index.bookValuationHandler
+    events:
+      - http:
+          path: appointment-slots
+          method: get
+          authorizer:
+            arn: ${self:custom.env.AUTHORIZER_ARN }
+            resultTtlInSeconds: 300
+            identitySource: method.request.header.x-api-key
+            type: request
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false
+      - http:
+          path: ping
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false
