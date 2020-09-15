@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from 'linaria'
 import { elCheckbox } from './styles'
 
-interface CheckboxProps {
+export interface CheckboxProps {
   name: string
   value: boolean | string
   id?: string
