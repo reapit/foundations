@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar should match snapshot 1`] = `
+<progress
+  className=""
+  max="100"
+  value={20}
+/>
+`;
+
+exports[`ProgressBar should match snapshot 2`] = `
+<progress
+  className=""
+  max="100"
+  value={0}
+/>
+`;
+
+exports[`ProgressBar should match snapshot 3`] = `
+<progress
+  className=""
+  max="100"
+  value={100}
+/>
+`;
