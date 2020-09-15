@@ -332,7 +332,7 @@ export const modalContent = {
           first need to submit your account information.
           <br />
           Please visit the&nbsp;
-          <Link to="/settings/billing">&apos;Billing&apos;</Link> page to complete.
+          <Link to="/settings/billing">&apos;Billing&apos;</Link> page, within Settings, to complete.
         </div>
       ),
     },
