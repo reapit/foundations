@@ -10,18 +10,10 @@ exports[`Loader should match a snapshot when children is defined 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
   <div
     className=""
@@ -34,18 +26,10 @@ exports[`Loader should match a snapshot when description=test 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
     <p>
       test
     </p>
@@ -70,18 +54,10 @@ exports[`Loader should match a snapshot when isLoading=true 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 </div>
 `;
@@ -91,18 +67,10 @@ exports[`Loader should match a snapshot when size=default 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 </div>
 `;
@@ -112,18 +80,10 @@ exports[`Loader should match a snapshot when size=large 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 </div>
 `;
@@ -133,18 +93,10 @@ exports[`Loader should match a snapshot when size=small 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 </div>
 `;
@@ -156,18 +108,10 @@ exports[`Loader should match a snapshot when wrapperClassName=test 1`] = `
   <div
     className=""
   >
-    <div
-      className="rect1"
-    />
-    <div
-      className="rect2"
-    />
-    <div
-      className="rect3"
-    />
-    <div
-      className="rect4"
-    />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 </div>
 `;

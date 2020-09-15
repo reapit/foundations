@@ -67,15 +67,15 @@ export const elLoader = css`
     display: inline-block;
     animation: sk-stretchdelay 1.2s infinite ease-in-out;
     margin: 0 1.5px;
-  }
-  .rect2 {
-    animation-delay: -1.1s;
-  }
-  .rect3 {
-    animation-delay: -1s;
-  }
-  .rect4 {
-    animation-delay: -0.9s;
+    &:nth-child(2) {
+      animation-delay: -1.1s;
+    }
+    &:nth-child(3) {
+      animation-delay: -1s;
+    }
+    &:nth-child(4) {
+      animation-delay: -0.9s;
+    }
   }
 
   @keyframes sk-stretchdelay {
