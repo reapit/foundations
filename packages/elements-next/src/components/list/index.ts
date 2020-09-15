@@ -1,1 +1,1 @@
-export { default } from './list'
+export { OrderList, BulletList, List as default } from './list'

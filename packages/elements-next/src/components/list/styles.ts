@@ -3,9 +3,12 @@ import { css } from 'linaria'
 export const elList = css`
   display: flex;
   flex-direction: column;
-  svg {
-    margin-right: 1rem;
-    vertical-align: text-top;
+  li {
+    margin-bottom: 0.5rem;
+    svg {
+      margin-right: 1rem;
+      vertical-align: text-top;
+    }
   }
 `
 
