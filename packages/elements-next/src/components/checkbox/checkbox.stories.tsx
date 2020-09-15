@@ -9,46 +9,9 @@ import { elMr4 } from '@/base/spacing'
 export default {
   title: 'Checkbox',
   component: Checkbox,
-  argTypes: {
-    name: {
-      name: 'name',
-      required: true,
-      description: 'This is name of the checkbox',
-      control: 'text',
-    },
-    value: {
-      name: 'value',
-      required: false,
-      description: 'This is value of the checkbox',
-      control: 'boolean',
-    },
-    id: {
-      name: 'id',
-      required: false,
-      description: 'This is id of the checkbox',
-      control: 'text',
-    },
-    label: {
-      name: 'label',
-      required: false,
-      description: 'This is label of the checkbox',
-      control: 'text',
-    },
-    className: {
-      name: 'className',
-      required: false,
-      description: 'This is checkbox className if you want to override',
-    },
-    disabled: {
-      name: 'disabled',
-      required: false,
-      description: 'This is disabled for checkbox',
-      control: 'boolean',
-    },
-  },
   args: {
-    name: '',
-    value: false,
+    name: 'field_name',
+    checked: false,
     id: undefined,
     label: undefined,
     className: undefined,
@@ -63,14 +26,16 @@ const Template: Story<CheckboxProps> = args => <Checkbox {...args} />
 
 export const UseAsSingle = Template.bind({})
 UseAsSingle.args = {
-  value: true,
+  checked: true,
   label: 'Checkbox',
 }
 
 const GroupTemplate: Story<CheckboxProps> = () => (
   <div className={elFlex}>
-    <Checkbox className={elMr4} name="group" label="Option 1" value="Option 1" />
-    <Checkbox className={elMr4} name="group" label="Option 2" value="Option 2" />
+    <Checkbox className={elMr4} name="field_name" label="Option 1" value="option_1" />
+    <Checkbox className={elMr4} name="field_name" label="Option 2" value="option_2" />
+    <Checkbox className={elMr4} name="field_name" label="Option 3" value="option_3" />
+    <Checkbox className={elMr4} name="field_name" label="Option 4" value="option_4" />
   </div>
 )
 

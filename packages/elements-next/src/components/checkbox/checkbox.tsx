@@ -4,7 +4,8 @@ import { elCheckbox } from './styles'
 
 export interface CheckboxProps {
   name: string
-  value: boolean | string
+  value?: string | ReadonlyArray<string> | number
+  checked?: boolean
   id?: string
   label?: string
   className?: string
@@ -17,7 +18,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   label,
   className,
-  value = false,
+  value,
+  checked = false,
   disabled = false,
   onChange,
 }) => {
@@ -28,7 +30,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         type="checkbox"
         name={name}
         id={id}
-        checked={onChange && !!value}
+        checked={checked}
+        value={value}
         onChange={onChange}
       />
       {!!label && <label htmlFor={id}>{label}</label>}
