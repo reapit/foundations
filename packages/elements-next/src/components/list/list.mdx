@@ -1,0 +1,85 @@
+---
+name: List
+route: /list
+---
+
+import { Props } from 'docz'
+import { List, Item } from './list'
+import DocsWrapper from '@/docz/docs-wrapper'
+import Playground from '@/components/playground'
+import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
+
+# Heading
+
+List
+
+## Properties
+
+List.Item
+
+<Props of={Item} />
+
+List
+
+<Props of={List} />
+
+## Usage
+
+### List with custom renderer item
+
+<Playground>
+  {() => {
+    const items = [{ value: 'Viewing' }, { value: '11:00 AM - 12:00 PM' }, { value: 'Info about the viewing' }]
+    const renderItem = item => {
+      return <div>{item.value}</div>
+    }
+    return (
+      <DocsWrapper>
+        <List.IconList items={items} renderItem={renderItem} />
+      </DocsWrapper>
+    )
+  }}
+</Playground>
+
+### Icon List
+
+<Playground>
+  {() => {
+    const items = [
+      { value: 'Viewing', icon: <FaStreetView /> },
+      { value: '11:00 AM - 12:00 PM', icon: <FaClock /> },
+      { value: 'Info about the viewing', icon: <FaStickyNote /> },
+    ]
+    return (
+      <DocsWrapper>
+        <List.IconList items={items} />
+      </DocsWrapper>
+    )
+  }}
+</Playground>
+
+### Order List
+
+<Playground>
+  {() => {
+    const items = [{ value: 'Viewing' }, { value: '11:00 AM - 12:00 PM' }, { value: 'Info about the viewing' }]
+    return (
+      <DocsWrapper>
+        <List.OrderList items={items} />
+      </DocsWrapper>
+    )
+  }}
+</Playground>
+
+### Bullet List
+
+<Playground>
+  {() => {
+    const items = [{ value: 'Viewing' }, { value: '11:00 AM - 12:00 PM' }, { value: 'Info about the viewing' }]
+    return (
+      <DocsWrapper>
+        <List.BulletList items={items} />
+      </DocsWrapper>
+    )
+  }}
+</Playground>
