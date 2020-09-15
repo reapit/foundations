@@ -7,6 +7,11 @@ import { ProgressBar, ProgressBarProps } from './progress-bar'
 export default {
   title: 'ProgressBar',
   component: ProgressBar,
+  argTypes: {
+    percentage: {
+      control: { type: 'range', min: 0, max: 100 },
+    },
+  },
 } as Meta
 
 const Template: Story<ProgressBarProps> = args => <ProgressBar {...args} />

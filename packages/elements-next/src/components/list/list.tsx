@@ -1,13 +1,13 @@
 import { cx } from 'linaria'
 import React from 'react'
+import Loader from '../loader'
 import { elList, elIconList } from './styles'
 
 export interface ListProps {
-  className?: string
-  style?: React.CSSProperties
-  loading?: boolean
   items: any[]
   renderItem?: (item: any, index: number) => React.ReactNode
+  className?: string
+  loading?: boolean
 }
 
 type ItemProps = {
@@ -31,20 +31,24 @@ export const renderItems = (renderItem, items) => {
 }
 
 export const List: React.FC<ListProps> = ({ items, renderItem, loading, className }) => {
-  if (loading) return <p>Loading...</p>
+  if (loading) {
+    return <Loader />
+  }
 
   return <ul className={cx(elList, elIconList, className)}>{renderItems(renderItem, items)}</ul>
 }
 
 export const OrderList: React.FC<ListProps> = ({ items, renderItem, loading, className }) => {
   if (loading) {
-    return <p>Loading...</p>
+    return <Loader />
   }
   return <ol className={cx(elList, className)}>{renderItems(renderItem, items)}</ol>
 }
 
 export const BulletList: React.FC<ListProps> = ({ items, renderItem, loading, className }) => {
-  if (loading) return <p>Loading...</p>
+  if (loading) {
+    return <Loader />
+  }
 
   return <ul className={cx(elList, className)}>{renderItems(renderItem, items)}</ul>
 }
