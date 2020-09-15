@@ -2,16 +2,10 @@ import * as React from 'react'
 import { cx } from 'linaria'
 import { elLoaderContainer, elLoaderOverlay, elLoader } from './__styles__/loader-styles'
 
-export enum SpinnerSize {
-  SMALL = 'small',
-  DEFAULT = 'default',
-  LARGE = 'large',
-}
-
 export type LoaderProps = {
   isLoading?: boolean
   wrapperClassName?: string
-  size?: SpinnerSize
+  size?: 'small' | 'default' | 'large'
   indicator?: React.ReactNode
   description?: string
 }
@@ -41,7 +35,7 @@ export const renderSpinner = (params: RenderSpinnerParams) => {
 export const Loader: React.FC<LoaderProps> = ({
   children,
   wrapperClassName,
-  size = SpinnerSize.DEFAULT,
+  size = 'default',
   isLoading = true,
   indicator,
   description,
