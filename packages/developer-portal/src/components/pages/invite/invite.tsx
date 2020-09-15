@@ -17,6 +17,11 @@ import RejectedModal from './rejected'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
 import { Dispatch } from 'redux'
 
+/*
+ * TODOME(Update)
+ * remove api fetch
+ */
+
 export const handleFetchDeveloperData = (dispatch: Dispatch, developerId: string, memberId: string) => () => {
   dispatch(fetchDeveloperDetails({ id: developerId }))
   dispatch(fetchMemberDetails({ memberId, developerId }))
@@ -79,7 +84,15 @@ export const Invite: React.FC = () => {
   const location = useLocation()
 
   const queryParams = getParamsFromPath(location.search)
+  /*
+   * TODOME(Update)
+   * move name, job title extract
+   */
   const { developerId, memberId } = queryParams
+  /*
+   * TODOME(Update)
+   * remove api fetch
+   */
 
   useEffect(handleFetchDeveloperData(dispatch, developerId, memberId), [dispatch, developerId, memberId])
 
@@ -87,13 +100,26 @@ export const Invite: React.FC = () => {
   const developerDetailsLoading = useSelector(selectDeveloperDetailsLoading)
   const memberDetails = useSelector(selectMemberDetails)
   const memberDetailsLoading = useSelector(selectMemberDetailsLoading)
+  // ?
   const inviteStatus = useSelector(selectInviteMemberStatus)
+  /*
+   * TODOME(Update)
+   * remove, as get from query params
+   */
 
   const { company = '' } = developerDetails || {}
   const { name = '', jobTitle = '' } = memberDetails || {}
+  /*
+   * TODOME(Update)
+   * remove loading, nodata flow
+   */
 
   const loading = developerDetailsLoading || memberDetailsLoading
   const noData = !developerDetails || !memberDetails
+  /*
+   * TODOME(Update)
+   * remove render loading flow
+   */
 
   if (loading) return <Loader />
   if (!loading && noData) return <Info infoType="404" />
