@@ -29,7 +29,7 @@
     "@reapit/elements": "^0.5.60",
     "@reapit/foundations-ts-definitions": "2020-03-04",
     "@reapit/utils": "^0.0.1",
-    "apollo-server-lambda": "2.10.1",
+    "apollo-server-lambda": "2.17.0",
     "axios": "^0.19.2",
     "cookie": "0.4.1",
     "dataloader": "^2.0.0",
