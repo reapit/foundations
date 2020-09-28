@@ -1,31 +1,14 @@
-import React, { useEffect } from 'react'
-import { ModalV2, Formik, Input, Form, Content, Loader, Button, Info } from '@reapit/elements'
+import React from 'react'
+import { ModalV2, Formik, Input, Form, Content, Button } from '@reapit/elements'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchDeveloperDetails, fetchMemberDetails } from '@/actions/developers'
-import {
-  selectDeveloperDetails,
-  selectDeveloperDetailsLoading,
-  selectMemberDetails,
-  selectMemberDetailsLoading,
-  selectInviteMemberStatus,
-} from '@/selector/developers'
+import { selectInviteMemberStatus } from '@/selector/developers'
 import { acceptInviteMember, rejectInviteMember } from '@/actions/developers'
 import AcceptedModal from './accepted'
 import RejectedModal from './rejected'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
 import { Dispatch } from 'redux'
-
-/*
- * TODOME(Update)
- * remove api fetch
- */
-
-export const handleFetchDeveloperData = (dispatch: Dispatch, developerId: string, memberId: string) => () => {
-  dispatch(fetchDeveloperDetails({ id: developerId }))
-  dispatch(fetchMemberDetails({ memberId, developerId }))
-}
 
 export const handleSubmit = (dispatch: Dispatch, developerId: string, memberId: string) => values => {
   const params = {
@@ -84,45 +67,9 @@ export const Invite: React.FC = () => {
   const location = useLocation()
 
   const queryParams = getParamsFromPath(location.search)
-  /*
-   * TODOME(Update)
-   * move name, job title extract
-   */
-  const { developerId, memberId } = queryParams
-  /*
-   * TODOME(Update)
-   * remove api fetch
-   */
+  const { developerId, memberId, memberName: name, memberJobTitle: jobTitle, organisationName: company } = queryParams
 
-  useEffect(handleFetchDeveloperData(dispatch, developerId, memberId), [dispatch, developerId, memberId])
-
-  const developerDetails = useSelector(selectDeveloperDetails)
-  const developerDetailsLoading = useSelector(selectDeveloperDetailsLoading)
-  const memberDetails = useSelector(selectMemberDetails)
-  const memberDetailsLoading = useSelector(selectMemberDetailsLoading)
-  // ?
   const inviteStatus = useSelector(selectInviteMemberStatus)
-  /*
-   * TODOME(Update)
-   * remove, as get from query params
-   */
-
-  const { company = '' } = developerDetails || {}
-  const { name = '', jobTitle = '' } = memberDetails || {}
-  /*
-   * TODOME(Update)
-   * remove loading, nodata flow
-   */
-
-  const loading = developerDetailsLoading || memberDetailsLoading
-  const noData = !developerDetails || !memberDetails
-  /*
-   * TODOME(Update)
-   * remove render loading flow
-   */
-
-  if (loading) return <Loader />
-  if (!loading && noData) return <Info infoType="404" />
 
   const onSubmit = handleSubmit(dispatch, developerId, memberId)
   const onReject = handleReject(dispatch, developerId, memberId)
