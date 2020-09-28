@@ -75,7 +75,10 @@ export const createDeveloper = async (params: CreateDeveloperParams) => {
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers:
+        window.reapit.config.appEnv === 'production'
+          ? { 'Content-Type': 'application/json' }
+          : await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

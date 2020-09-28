@@ -14,7 +14,7 @@ const Routes = {
 }
 
 export const developerRoutes = {
-  DEV: 'https://dev.developers.reapit.cloud',
+  DEV: 'https://developers.dev.paas.reapit.cloud',
   PROD: 'https://developers.reapit.cloud',
   DESKTOP: '/desktop',
 }

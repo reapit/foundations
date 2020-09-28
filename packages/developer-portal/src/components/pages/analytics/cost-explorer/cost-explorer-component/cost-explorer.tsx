@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H5, Grid, H6, GridItem, DATE_TIME_FORMAT, Section, LevelRight, Button } from '@reapit/elements'
+import { H5, Grid, H6, GridItem, DATE_TIME_FORMAT, Section, LevelRight, Button, Helper } from '@reapit/elements'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'
@@ -163,6 +163,11 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
   return (
     <Section hasMargin={false}>
       <H5>Cost Explorer: Cost & Usage</H5>
+      <Helper variant="info">
+        We have suspended fees for the following services until March 2021: Annual Developer Registration, App Listing
+        (publishing an app in the marketplace), Developer Edition of Agency Cloud and Reapit Connect. Only API
+        consumption charges will apply.
+      </Helper>
       <Grid>
         <GridItem>
           <p className="is-italic">
