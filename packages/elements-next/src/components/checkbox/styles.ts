@@ -1,63 +1,69 @@
 import { css } from 'linaria'
 
 export const elCheckbox = css`
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  user-select: none;
-
-  /* Hide the browser's default checkbox */
   input {
     position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
     width: 0;
-  }
+    height: 0;
+    opacity: 0;
 
-  /* Create a custom checkbox */
-  span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-  }
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+      color: var(--color-grey, #74818d);
+    }
 
-  /* On mouse-over, add a grey background color */
-  &:hover input ~ span {
-    background-color: #ccc;
-  }
+    // Box.
+    & + label:before {
+      content: '';
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: white;
+      border: 1px solid var(--color-grey, #74818d);
+    }
 
-  /* When the checkbox is checked, add a blue background */
-  & input:checked ~ span {
-    background-color: #2196f3;
-  }
+    // Box hover
+    &:hover + label:before {
+      background: var(--color-teal, #006580);
+      border-color: var(--color-teal, #006580);
+    }
 
-  /* Create the checkmark/indicator (hidden when not checked) */
-  span:after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
+    // Box focus
+    label:before {
+      box-shadow: 0 0 0 1px var(--color-grey, #74818d);
+    }
 
-  /* Show the checkmark when checked */
-  & input:checked ~ span:after {
-    display: block;
-  }
+    // Box checked
+    &:checked + label:before {
+      background: var(--color-teal, #006580);
+      border-color: var(--color-teal, #006580);
+    }
 
-  /* Style the checkmark/indicator */
-  & span:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    &:disabled + label {
+      color: #b8b8b8;
+      cursor: auto;
+    }
+
+    &:disabled + label:before {
+      box-shadow: none;
+      background: #ddd;
+    }
+
+    // Checkmark
+    &:checked + label:after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 11px;
+      background: white;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+      transform: rotate(45deg);
+    }
   }
 `

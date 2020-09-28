@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BulletList should match snapshot 1`] = `
+<ul
+  className=""
+>
+  <Component
+    key="0"
+    value="Viewing"
+  />
+  <Component
+    key="1"
+    value="11:00 AM - 12:00 PM"
+  />
+  <Component
+    key="2"
+    value="Info about the viewing"
+  />
+</ul>
+`;
+
+exports[`List should match snapshot 1`] = `
+<ul
+  className=""
+>
+  <Component
+    icon={<FaStreetView />}
+    key="0"
+    value="Viewing"
+  />
+  <Component
+    icon={<FaClock />}
+    key="1"
+    value="11:00 AM - 12:00 PM"
+  />
+  <Component
+    icon={<FaStickyNote />}
+    key="2"
+    value="Info about the viewing"
+  />
+</ul>
+`;
+
+exports[`OrderList should match snapshot 1`] = `
+<ol
+  className=""
+>
+  <Component
+    key="0"
+    value="Viewing"
+  />
+  <Component
+    key="1"
+    value="11:00 AM - 12:00 PM"
+  />
+  <Component
+    key="2"
+    value="Info about the viewing"
+  />
+</ol>
+`;
