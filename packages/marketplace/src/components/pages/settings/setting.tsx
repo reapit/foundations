@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { H3, Button, Section, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
+import { LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import {
@@ -36,6 +37,25 @@ export const createDispatchers = (
   }
 }
 
+const roles = {
+  FoundationsDeveloper: 'App Developer',
+  AgencyCloudDeveloperEdition: 'Developer Edition Subscriber',
+  FoundationsDeveloperAdmin: 'Developer Admin',
+  ReapitEmployee: 'Reapit Employee',
+  ReapitUser: 'User',
+  ReapitUserAdmin: 'User Admin',
+}
+
+const getCompanyRoles = (loginIdentity?: LoginIdentity): string => {
+  if (!loginIdentity) return ''
+  return loginIdentity?.groups.reduce((acc, curr) => {
+    const role = roles[curr]
+    if (!acc && role) return role
+    if (!role) return acc
+    return `${acc}, ${role}`
+  }, '')
+}
+
 export const Settings: React.FC = () => {
   const dispatch = useDispatch()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
@@ -46,6 +66,7 @@ export const Settings: React.FC = () => {
   const email = selectLoggedUserEmail(connectSession)
   const name = selectLoggedUserName(connectSession)
   const companyName = selectLoggedUserCompanyName(connectSession)
+  const role = getCompanyRoles(connectSession?.loginIdentity)
 
   return (
     <>
@@ -101,6 +122,17 @@ export const Settings: React.FC = () => {
               </GridItem>
             </Grid>
           </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem>
+            <Grid>
+              <GridItem>
+                <SubTitleH6>ROLE:</SubTitleH6>
+              </GridItem>
+              <GridItem>{role}</GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem></GridItem>
         </Grid>
       </Section>
       {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}

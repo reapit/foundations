@@ -33,7 +33,6 @@ export const selectLoggedUserCompanyName = (state: ReapitConnectSession | null):
 
 export const selectDeveloperEditionId = (state: ReapitConnectSession | null): string | null => {
   const loginIdentity = selectLoginIdentity(state)
-
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
     return state?.loginIdentity?.developerId || ''
   }

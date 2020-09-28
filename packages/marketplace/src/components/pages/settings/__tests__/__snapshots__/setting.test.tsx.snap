@@ -261,6 +261,54 @@ exports[`Settings should match snapshot 1`] = `
                 </Component>
               </div>
             </Component>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <h6
+                                className=""
+                                id=""
+                              >
+                                ROLE:
+                              </h6>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          />
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  />
+                </Component>
+              </div>
+            </Component>
           </section>
         </Component>
         <Component
