@@ -59,8 +59,8 @@ exports[`AcceptedModal should match snapshot 1`] = `
         <Formik
           initialValues={
             Object {
-              "jobTitle": "",
-              "name": "",
+              "jobTitle": undefined,
+              "name": undefined,
             }
           }
           onSubmit={[Function]}
@@ -159,7 +159,6 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   >
                                     <p>
                                       You have been invited to join the '
-                                      
                                       ' organisation on Reapit Foundations.
                                     </p>
                                     <p>
