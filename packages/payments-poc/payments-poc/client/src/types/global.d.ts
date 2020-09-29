@@ -6,6 +6,7 @@ export type Config = {
   connectOAuthUrl: string
   connectUserPoolId: string
   platformApiUrl: string
+  paymentsApiUrl: string
 }
 
 declare global {

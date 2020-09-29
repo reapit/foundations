@@ -8,19 +8,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "install:client": "cd payments-poc-client && yarn",
-    "install:server": "cd payments-poc-server && yarn",
+    "install:client": "cd client && yarn",
+    "install:server": "cd server && yarn",
     "install:all": "concurrently \"yarn install:client\" \"yarn install:server\"",
-    "client:dev": "cd payments-poc-client && yarn start",
-    "server:dev": "cd payments-poc-server && yarn start",
+    "client:dev": "cd client && yarn start",
+    "server:dev": "serverless offline",
     "start:dev": "concurrently \"yarn client:dev\" \"yarn server:dev\"",
-    "build:client": "cd payments-poc-client && yarn build",
+    "build:client": "cd client && yarn build",
     "build:server": "serverless deploy",
-    "deploy:development": "yarn build:client && yarn build:server"
+    "deploy:development": "yarn fetch-config:development && yarn build:client && yarn build:server",
+    "fetch-config:development": "concurrently \"cd client && yarn fetch-config --name development\" \"cd server && yarn fetch-config --name development\"",
+    "fetch-config:local": "concurrently \"cd client && yarn fetch-config\" \"cd server && yarn fetch-config\""
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@reapit/config-manager": "^2.0.8",
     "babel-loader": "8.0.6",
     "concurrently": "^5.3.0",
     "serverless-deployment-bucket": "^1.1.2",

@@ -3,12 +3,18 @@ const TABLE_NAME = 'payments-poc-developement'
 
 AWS.config.update({
   region: 'eu-west-2',
-  endpoint: ''
+  profile: 'dev'
 })
+
+if (process.env.APP_ENV === 'local') {
+  AWS.config.update({
+    profile: 'dev'
+  })
+}  
 
 const docClient = new AWS.DynamoDB.DocumentClient()
 
-const createAccountHander = (account) => {
+export const createAccountHander = (account) => {
   try {
     console.log('Accound is', account)
     const itemToSave = {
@@ -34,7 +40,7 @@ const createAccountHander = (account) => {
   }
 }
 
-const getAccountHandler = (customerId) => {
+export const getAccountHandler = (customerId: string) => {
   try {
     const itemToGet = {
       TableName: TABLE_NAME,
@@ -62,7 +68,3 @@ const getAccountHandler = (customerId) => {
   }
 }
 
-module.exports = {
-  createAccountHander,
-  getAccountHandler,
-}

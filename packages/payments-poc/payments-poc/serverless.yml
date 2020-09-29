@@ -11,7 +11,7 @@ plugins:
 custom:
   s3WebAppBucket: cloud-payments-portal-${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
-  env: ${file(./config.json)}
+  env: ${file(./server/config.json)}
   remover:
     buckets:
       - ${self:custom.s3WebAppBucket}
@@ -20,7 +20,7 @@ custom:
     targets:
       - bucket: ${self:custom.s3WebAppBucket}
         files:
-          - source: ./payments-poc-client/build/
+          - source: ./client/build/
             globs: '**/*'
   webpack:
     webpackConfig: 'webpack.config.js'
@@ -42,10 +42,8 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
     STRIPE_SECRET_KEY: ${self:custom.env.STRIPE_SECRET_KEY}
-    STRIPE_WEBHOOK_SECRET: ${self:custom.env.STRIPE_WEBHOOK_SECRET}
     STRIPE_PUBLISHABLE_KEY: ${self:custom.env.STRIPE_PUBLISHABLE_KEY}
     STRIPE_CLIENT_ID: ${self:custom.env.STRIPE_CLIENT_ID}
-    STATIC_DIR: ${self:custom.env.STATIC_DIR}
 package:
   individually: true
   include:
@@ -64,7 +62,7 @@ package:
 
 functions:
   payments-portalServer:
-    handler: payments-poc-server/src/lambda.lambda
+    handler: server/src/index.app
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

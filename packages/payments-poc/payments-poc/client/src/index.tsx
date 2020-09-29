@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Config } from './types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
-import config from './reapit.config.json'
+import config from './config.json'
 
 // Init global config
 window.reapit = {
@@ -12,6 +12,7 @@ window.reapit = {
     connectOAuthUrl: '',
     connectUserPoolId: '',
     platformApiUrl: '',
+    paymentsApiUrl: ''
   },
 }
 

@@ -41,7 +41,8 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "serve": "serve build -s -l 8080",
-    "lint": "concurrently 'tsc --noEmit' 'eslint --cache --ext=ts,tsx src'"
+    "lint": "concurrently 'tsc --noEmit' 'eslint --cache --ext=ts,tsx src'",
+    "fetch-config": "yarn config-manager --namespace cloud --entity payments-poc-client --name local --mode fetch --file-path ./src/config.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "^2.0.8"
   }
 }

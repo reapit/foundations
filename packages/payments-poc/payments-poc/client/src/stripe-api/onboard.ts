@@ -1,7 +1,5 @@
-import { API_BASE } from '../constants/api'
-
 export const onBoardUser = async () => {
-  await fetch(`${API_BASE[window.reapit.config.appEnv]}/onboard-user`, {
+  await fetch(`${window.reapit.config.paymentsApiUrl}/onboard-user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

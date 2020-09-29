@@ -6,8 +6,3 @@ export const BASE_HEADERS = {
 export const URLS = {
   PROPERTIES: '/properties',
 }
-
-export const API_BASE = {
-  local: 'http://localhost:4242',
-  development: 'https://mubjn57p2e.execute-api.eu-west-2.amazonaws.com/dev'
-}

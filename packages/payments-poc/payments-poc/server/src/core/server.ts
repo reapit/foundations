@@ -1,41 +1,24 @@
-const env = require('dotenv').config()
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const express = require('express')
-const bodyParser = require('body-parser')
-const session = require('express-session')
-const uuidv4 = require('uuid').v4
-const cors = require('cors')
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
+import StripeSDK from 'stripe'
+import express from 'express'
+import bodyParser from 'body-parser'
+import session from 'express-session'
+import { v4 } from 'uuid'
+import cors from 'cors'
 const app = express()
-const { resolve } = require('path')
-const { getAccountHandler, createAccountHander } = require('./db')
-const port = process.env.PORT || 4242
-
+import { getAccountHandler, createAccountHander } from './dynamo-db'
+const stripe = new StripeSDK(process.env.STRIPE_SECRET_KEY, {} as any)
 app.use(cors())
 
 app.use(
   session({
-    secret: uuidv4(),
+    secret: v4(),
     resave: false,
     saveUninitialized: true,
   })
 )
 
-app.use(express.static(process.env.STATIC_DIR))
-
-// Use JSON parser for all non-webhook routes
 app.use((req, res, next) => {
-  if (req.originalUrl === '/webhook') {
-    next()
-  } else {
-    console.log('Parsing request')
-    bodyParser.json()(req, res, next)
-  }
-})
-
-app.get('/', (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + '/index.html')
-  res.sendFile(path)
+  bodyParser.json()(req, res, next)
 })
 
 app.get('/public-key', (req, res) => {
@@ -95,59 +78,12 @@ function generateAccountLink(accountID, origin) {
     .then((link) => link.url)
 }
 
-// Webhook handler for asynchronous events.
-app.post(
-  '/webhook',
-  bodyParser.raw({ type: 'application/json' }),
-  async (req, res) => {
-    let data
-    let eventType
-    // Check if webhook signing is configured.
-    if (webhookSecret) {
-      // Retrieve the event by verifying the signature using the raw body and secret.
-      let event
-      let signature = req.headers['stripe-signature']
-
-      try {
-        event = stripe.webhooks.constructEvent(
-          req.body,
-          signature,
-          webhookSecret
-        )
-      } catch (err) {
-        console.log(`⚠️ Webhook signature verification failed.`)
-        return res.sendStatus(400)
-      }
-      // Extract the object from the event.
-      data = event.data
-      eventType = event.type
-    } else {
-      // Webhook signing is recommended, but if the secret is not configured in `config.js`,
-      // retrieve the event data directly from the request body.
-      data = req.body.data
-      eventType = req.body.type
-    }
-
-    if (eventType === 'payment_intent.succeeded') {
-      // Fulfill any orders, e-mail receipts, etc
-      console.log('💰 Payment received!')
-    }
-
-    if (eventType === 'payment_intent.payment_failed') {
-      // Notify the customer that their order was not fulfilled
-      console.log('❌ Payment failed.')
-    }
-
-    res.sendStatus(200)
-  }
-)
-
 app.get('/get-oauth-link', async (req, res) => {
   const state = req.query.customerId
   req.session.state = state
 
   const args = new URLSearchParams({
-    state,
+    state: state as string,
     client_id: process.env.STRIPE_CLIENT_ID,
   })
   const url = `https://connect.stripe.com/express/oauth/authorize?${args.toString()}`
@@ -155,11 +91,11 @@ app.get('/get-oauth-link', async (req, res) => {
 })
 
 app.get('/get-account-id', async (req, res) => {
-  const customerId = req.query.customerId
+  const customerId = req.query.customerId as string | undefined
   const account = await getAccountHandler(customerId)
   res.status(200)
   return res.send({
-      account,
+    account,
   })
 })
 
@@ -168,7 +104,7 @@ app.get('/authorize-oauth', async (req, res) => {
   stripe.oauth
     .token({
       grant_type: 'authorization_code',
-      code,
+      code: code as string,
     })
     .then(
       async (response) => {
@@ -194,6 +130,6 @@ app.get('/authorize-oauth', async (req, res) => {
     )
 })
 
-app.listen(port, () => console.log(`Node server listening on port ${port}!`))
+// app.listen(port, () => console.log(`Node server listening on port ${port}!`))
 
-module.exports = app
+export default app

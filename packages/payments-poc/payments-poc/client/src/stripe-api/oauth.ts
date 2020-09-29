@@ -1,7 +1,7 @@
-import { API_BASE } from '../constants/api'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const getOauthLink = async (customerId: string,) => {
-  await fetch(`${API_BASE[window.reapit.config.appEnv]}/get-oauth-link?customerId=${customerId}`, {
+  await fetch(`${window.reapit.config.paymentsApiUrl}/get-oauth-link?customerId=${customerId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -18,11 +18,13 @@ export const getOauthLink = async (customerId: string,) => {
 
 export const accountIdService = async (
   customerId: string,
+  session: ReapitConnectSession
 ): Promise<{accountId: string} | undefined> => {
-  return await fetch(`${API_BASE[window.reapit.config.appEnv]}/get-account-id?customerId=${customerId}`, {
+  return await fetch(`${window.reapit.config.paymentsApiUrl}/get-account-id?customerId=${customerId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: session.idToken
     },
   })
     .then((response) => response.json())

@@ -1,5 +1,6 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
+const { ContextReplacementPlugin } = require('webpack')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -8,14 +9,18 @@ module.exports = {
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   node: false,
   optimization: {
-    minimize: true,
+    minimize: slsw.lib.webpack.isLocal ? false : true,
   },
   devtool: 'inline-cheap-module-source-map',
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'lambda.js',
+    filename: '[name].js',
   },
+  plugins: [
+    new ContextReplacementPlugin(/express|encoding/)
+  ],
+  // externals: [{ 'express': { commonjs: 'express' } }],
   module: {
     rules: [
       {
@@ -37,12 +42,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-  ],
   resolve: {
-    extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json'],
-    alias: {
-      '@': path.resolve(__dirname, 'src/'),
-    },
+    extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json']
   },
 }
