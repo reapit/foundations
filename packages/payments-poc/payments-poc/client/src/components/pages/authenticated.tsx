@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { getOauthLink, accountIdService } from '../../stripe-api/oauth'
+import { getOauthLink, accountService } from '../../stripe-api/oauth'
 // import { onBoardUser } from '../../stripe-api/onboard'
 import {
   Button,
@@ -54,7 +54,7 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
 
   React.useEffect(() => {
     const fetchAccountId = async () => {
-      const serviceResponse = await accountIdService(connectSession.loginIdentity.email, connectSession)
+      const serviceResponse = await accountService(connectSession.loginIdentity.email, connectSession)
       console.log(serviceResponse)
       if (serviceResponse && serviceResponse.accountId) {
         setAccountId(serviceResponse.accountId)

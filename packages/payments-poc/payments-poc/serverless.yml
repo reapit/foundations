@@ -44,6 +44,8 @@ provider:
     STRIPE_SECRET_KEY: ${self:custom.env.STRIPE_SECRET_KEY}
     STRIPE_PUBLISHABLE_KEY: ${self:custom.env.STRIPE_PUBLISHABLE_KEY}
     STRIPE_CLIENT_ID: ${self:custom.env.STRIPE_CLIENT_ID}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    CLIENT_URL: ${self:custom.env.CLIENT_URL}
 package:
   individually: true
   include:

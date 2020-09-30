@@ -1,10 +1,11 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 
-export const getOauthLink = async (customerId: string,) => {
-  await fetch(`${window.reapit.config.paymentsApiUrl}/get-oauth-link?customerId=${customerId}`, {
+export const getOauthLink = async (customerCode: string, session: ReapitConnectSession) => {
+  await fetch(`${window.reapit.config.paymentsApiUrl}/stripe-oauth-link/${customerCode}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: session.idToken
     },
   })
     .then((response) => response.json())
@@ -16,11 +17,11 @@ export const getOauthLink = async (customerId: string,) => {
 }
 
 
-export const accountIdService = async (
-  customerId: string,
+export const accountService = async (
+  customerCode: string,
   session: ReapitConnectSession
 ): Promise<{accountId: string} | undefined> => {
-  return await fetch(`${window.reapit.config.paymentsApiUrl}/get-account-id?customerId=${customerId}`, {
+  return await fetch(`${window.reapit.config.paymentsApiUrl}/account/${customerCode}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
