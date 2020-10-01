@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { db } from '../../core/db'
-import { logger, AppRequest } from '../../core/logger'
+import { logger, AppRequest, stringifyError } from '../../core/logger'
 import { generatePaymentsItem } from '../../core/schema'
 
 export const getAccount = async (req: AppRequest, res: Response) => {
@@ -18,6 +18,19 @@ export const getAccount = async (req: AppRequest, res: Response) => {
       account: result,
     })
   } catch (error) {
-    console.log('Get Account error', error.message)
+    logger.error('Error retrieving account', stringifyError(error))
+    if (error.name === 'ItemNotFoundException') {
+      res.status(200)
+      return res.json({
+        error: `Account not found for ${customerCode}`,
+        code: 404,
+      })
+    }
+
+    res.status(400)
+    res.json({
+      error: `Bad request ${error}`,
+      code: 400,
+    })
   }
 }

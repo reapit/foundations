@@ -14,7 +14,7 @@ export class PaymentsAccount {
   accountId: string
 
   @attribute()
-  userName: number
+  userName: string
 }
 
 export const generatePaymentsItem = (data: Partial<PaymentsAccount>) =>

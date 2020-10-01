@@ -1,7 +1,7 @@
 import winston, { LeveledLogMethod } from 'winston'
 import { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
-import uuid from 'uuid'
+import uuid from 'uuid/v4'
 import { serializeError } from 'serialize-error'
 import * as Sentry from '@sentry/node'
 
@@ -136,7 +136,7 @@ export const traceIdMiddleware = (
   next: NextFunction
 ) => {
   Object.defineProperty(req, 'traceId', {
-    value: uuid.v4(),
+    value: uuid(),
   })
   next()
 }

@@ -149,7 +149,7 @@ input[type='text'] {
 .sr-input:focus,
 .StripeElement--focus,
 input[type='text']:focus,
-button:focus,
+
 .focused {
   box-shadow: 0 0 0 1px rgba(50, 151, 211, 0.3),
     0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 0 0 4px rgba(50, 151, 211, 0.3);
@@ -282,29 +282,7 @@ input[type='text']::placeholder {
 } */
 
 /* Buttons and links */
-button {
-  background: var(--accent-color);
-  /* border-radius: var(--radius); */
-  color: white;
-  border: 0;
-  padding: 12px 16px;
-  margin-top: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: block;
-}
-button:hover {
-  filter: contrast(115%);
-}
-button:active {
-  transform: translateY(0px) scale(0.98);
-  filter: brightness(0.9);
-}
-button:disabled {
-  opacity: 0.5;
-  cursor: none;
-}
+
 
 .sr-payment-form button,
 .fullwidth {

@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import session from 'express-session'
-import uuid from 'uuid'
+import uuid from 'uuid/v4'
 import cors from 'cors'
 import { morganLogging, traceIdMiddleware } from './logger'
 import router from './router'
@@ -12,7 +12,7 @@ app.use(cors())
 
 app.use(
   session({
-    secret: uuid.v4(),
+    secret: uuid(),
     resave: false,
     saveUninitialized: true,
   })

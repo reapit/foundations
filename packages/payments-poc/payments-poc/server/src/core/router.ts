@@ -12,7 +12,7 @@ const router = Router()
 
 router.get('/account/:customerCode', (req: AppRequest, res: AppResponse) => getAccount(req, res))
 router.get('/stripe-authorize', (req: AppRequest, res: AppResponse) => authorizeStripe(req, res))
-router.get('/stripe-oath-link/:customerCode', (req: AppRequest, res: AppResponse) => stripeOauthLink(req, res))
+router.get('/stripe-oauth-link/:customerCode', (req: AppRequest, res: AppResponse) => stripeOauthLink(req, res))
 router.get('/stripe-onboard-user/refresh', (req: AppRequest, res: AppResponse) => stripeOnboardUserRefresh(req, res))
 router.get('/stripe-onboard-user', (req: AppRequest, res: AppResponse) => stripeOnboardUser(req, res))
 router.get('/stripe-public-key', (req: AppRequest, res: AppResponse) => publicKey(req, res))

@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
+import { FaSignOutAlt, FaCloud, FaPoundSign, FaHome, FaDollarSign, FaCashRegister } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
+import Routes from '../../constants/routes'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -12,7 +13,7 @@ export const generateMenuConfig = (
   mode: Pick<MenuConfig, 'mode'>['mode'],
 ): any => {
   return {
-    defaultActiveKey: 'LOGO',
+    defaultActiveKey: 'PAYMENTS',
     mode,
     location,
     menu: [
@@ -29,6 +30,34 @@ export const generateMenuConfig = (
         type: 'PRIMARY',
       },
       {
+        title: 'Payments',
+        key: 'PAYMENTS',
+        icon: <FaPoundSign className="nav-item-icon" />,
+        url: Routes.PAYMENT,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Rentals',
+        key: 'RENTALS',
+        icon: <FaHome className="nav-item-icon" />,
+        url: Routes.RENTALS,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Purchases',
+        key: 'PURCHASES',
+        icon: <FaDollarSign className="nav-item-icon" />,
+        url: 'wdwefdw',
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Deposits',
+        key: 'DEPOSITS',
+        icon: <FaCashRegister className="nav-item-icon" />,
+        url: Routes.RENTALS,
+        type: 'PRIMARY',
+      },
+      {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
@@ -42,7 +71,7 @@ export const generateMenuConfig = (
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://dev.marketplace.reapit.cloud/installed'
+      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
       : 'https://marketplace.reapit.cloud/installed')
 
 export type MenuProps = RouteComponentProps

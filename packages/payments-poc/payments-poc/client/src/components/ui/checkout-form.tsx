@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
-import { createPaymentIntent } from '../../stripe-api/payment'
 import { StripeCardElement } from '@stripe/stripe-js'
 import { checkoutFormStyles } from './__styles__/checkout-form'
-import { Payment } from '../pages/authenticated'
-import { Button, H5 } from '@reapit/elements'
+import { Button, Alert } from '@reapit/elements'
+import {
+  createStripePaymentIntent,
+  StripePaymentIntentRequest,
+} from '../../payments-api/stripe'
+import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
 export default function CheckoutForm({
   payment,
-  propertyId,
+  property,
+  // closeModal,
+  setIsOverdue
 }: {
-  payment: Payment
-  propertyId: string
+  payment: StripePaymentIntentRequest
+  property: PropertyModel
+  // closeModal: () => void
+  setIsOverdue: (isOverdue: boolean) => void
 }) {
   const { amount, currency, transfer_data } = payment
   const [clientSecret, setClientSecret] = useState('')
   const [error, setError] = useState('')
-  const [metadata, setMetadata] = useState()
+  // const [metadata, setMetadata] = useState()
   const [succeeded, setSucceeded] = useState(false)
   const [processing, setProcessing] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
 
   useEffect(() => {
-  
-    createPaymentIntent({ amount: amount * 100, currency, transfer_data })
+    createStripePaymentIntent({ amount: amount * 100, currency, transfer_data })
       .then((clientSecret) => {
-        setClientSecret(clientSecret)
+        setClientSecret(clientSecret as string)
       })
       .catch((err) => {
         setError(err.message)
@@ -57,17 +63,26 @@ export default function CheckoutForm({
       setError('')
       setSucceeded(true)
       setProcessing(false)
-      setMetadata(payload.paymentIntent as any)
+      // setMetadata(payload.paymentIntent as any)
       console.log('[PaymentIntent]', payload.paymentIntent)
     }
   }
 
   const renderSuccess = () => {
-    console.log(JSON.stringify(metadata, null, 2))
+    // console.log(JSON.stringify(metadata, null, 2))
+    setIsOverdue(false)
+
     return (
-      <H5>
-        Payment of {currency} {amount} received for {propertyId}
-      </H5>
+      <>
+        <Alert
+          type="success"
+          message={`Payment of ${currency} ${amount} received for ${property.id}`}
+        />
+
+        {/* <Button variant="primary" fullWidth onClick={closeModal}>
+          Continue
+        </Button> */}
+      </>
     )
   }
 
@@ -92,7 +107,6 @@ export default function CheckoutForm({
 
     return (
       <>
-        <H5>Payment for {propertyId}</H5>
         <form className={checkoutFormStyles} onSubmit={handleSubmit}>
           <h1>
             {currency.toLocaleUpperCase()}{' '}

@@ -8,11 +8,13 @@ export const createAccount = async (
   req: AppRequest,
   res: Response,
   accountId?: string,
-  customerCode?: string
+  state?: string,
 ) => {
   try {
     const { traceId } = req
-    const itemToCreate = generatePaymentsItem({ accountId, customerCode })
+    const { customerCode, userName } = JSON.parse(state)
+    if (!customerCode || !userName) throw new Error('Customer Code and Username are required')
+    const itemToCreate = generatePaymentsItem({ accountId, customerCode, userName })
     const result = await db.put(itemToCreate, {
       condition: {
         type: 'And',
@@ -24,6 +26,10 @@ export const createAccount = async (
           new FunctionExpression(
             'attribute_not_exists',
             new AttributePath('accountId')
+          ),
+          new FunctionExpression(
+            'attribute_not_exists',
+            new AttributePath('userName')
           ),
         ],
       },
