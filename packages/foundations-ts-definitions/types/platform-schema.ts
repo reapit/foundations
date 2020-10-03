@@ -5286,7 +5286,7 @@ export interface OfferContactModel {
    */
   email?: string
   /**
-   * The primary address of the contact
+   * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
     /**
@@ -5327,6 +5327,14 @@ export interface OfferContactModel {
  * Representation of an offer
  */
 export interface OfferModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
   /**
    * The unique identifier of the offer
    */
@@ -5430,7 +5438,7 @@ export interface OfferModel {
      */
     email?: string
     /**
-     * The primary address of the contact
+     * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
       /**
@@ -5477,13 +5485,177 @@ export interface OfferModel {
    * The ETag for the current version of the offer. Used for managing update concurrency
    */
   readonly _eTag?: string
-  readonly _links?: {
+}
+export interface OfferModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the offer
+     */
+    id?: string
+    /**
+     * The the date and time when the offer was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the offer was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The currency that applies to monetary amounts exposed in the model
+     */
+    currency?: string
+    /**
+     * The unique identifier of the applicant associated to the offer
+     */
+    applicantId?: string
+    /**
+     * The unique identifier of the property associated to the offer
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator associated to the offer
+     */
+    negotiatorId?: string
+    /**
+     * The date when the offer was made
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The monetary amount of the offer
+     */
+    amount?: number // double
+    /**
+     * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
+     */
+    status?: string
+    /**
+     * A free text field describing items that should be included in the sale
+     */
+    inclusions?: string
+    /**
+     * A free text field describing items that are explicitly excluded from the sale
+     */
+    exclusions?: string
+    /**
+     * A free text field describing any other conditions set by either party that relate to the sale
+     */
+    conditions?: string
+    /**
+     * A collection of contacts associated to the offer
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact
+       */
+      id?: string
+      /**
+       * The complete name of the contact or company
+       */
+      name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
+      /**
+       * The type of the contact (contact/company)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+      /**
+       * Representation of the physical address of a building or premise
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides in
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the offer
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the offer. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
     [name: string]: {
       href?: string
     }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 export interface Offers {
@@ -7668,178 +7840,6 @@ export interface PagedResultNegotiatorModel_ {
     }
     /**
      * The ETag for the current version of the negotiator. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultOfferModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the offer
-     */
-    id?: string
-    /**
-     * The the date and time when the offer was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the offer was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The currency that applies to monetary amounts exposed in the model
-     */
-    currency?: string
-    /**
-     * The unique identifier of the applicant associated to the offer
-     */
-    applicantId?: string
-    /**
-     * The unique identifier of the property associated to the offer
-     */
-    propertyId?: string
-    /**
-     * The unique identifier of the negotiator associated to the offer
-     */
-    negotiatorId?: string
-    /**
-     * The date when the offer was made
-     * example:
-     * 2019-08-14
-     */
-    date?: string // date
-    /**
-     * The monetary amount of the offer
-     */
-    amount?: number // double
-    /**
-     * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
-     */
-    status?: string
-    /**
-     * A free text field describing items that should be included in the sale
-     */
-    inclusions?: string
-    /**
-     * A free text field describing items that are explicitly excluded from the sale
-     */
-    exclusions?: string
-    /**
-     * A free text field describing any other conditions set by either party that relate to the sale
-     */
-    conditions?: string
-    /**
-     * A collection of contacts associated to the offer
-     */
-    related?: {
-      /**
-       * The unique identifier of the contact
-       */
-      id?: string
-      /**
-       * The complete name of the contact or company
-       */
-      name?: string
-      /**
-       * The title of the contact (Available when 'type' is 'contact')
-       */
-      title?: string
-      /**
-       * The forename of the contact (Available when 'type' is 'contact')
-       */
-      forename?: string
-      /**
-       * The surname of the the contact (Available when 'type' is 'contact')
-       */
-      surname?: string
-      /**
-       * The type of the contact (contact/company)
-       */
-      type?: string
-      /**
-       * The home phone number of the contact
-       */
-      homePhone?: string
-      /**
-       * The work phone number of the contact
-       */
-      workPhone?: string
-      /**
-       * The mobile phone number of the contact
-       */
-      mobilePhone?: string
-      /**
-       * The email address of the contact
-       */
-      email?: string
-      /**
-       * The primary address of the contact
-       */
-      primaryAddress?: {
-        /**
-         * The building name
-         */
-        buildingName?: string
-        /**
-         * The building number
-         */
-        buildingNumber?: string
-        /**
-         * The first line of the address
-         */
-        line1?: string
-        /**
-         * The second line of the address
-         */
-        line2?: string
-        /**
-         * The third line of the address
-         */
-        line3?: string
-        /**
-         * The fourth line of the address
-         */
-        line4?: string
-        /**
-         * The postcode
-         */
-        postcode?: string
-        /**
-         * The ISO-3166 country code that the address resides in
-         */
-        countryId?: string
-      }
-    }[]
-    /**
-     * App specific metadata that has been set against the offer
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of the offer. Used for managing update concurrency
      */
     readonly _eTag?: string
     readonly _links?: {
