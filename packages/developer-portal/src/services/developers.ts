@@ -94,13 +94,7 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
       url: `${URLS.developers}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers:
-        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
-        window.reapit.config.appEnv === 'production'
-          ? {
-              'Content-Type': 'application/json',
-            }
-          : await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -177,13 +171,7 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers:
-        // Route is unprotected in prod so users can accept invites. In dev, it is protected by the API key still
-        window.reapit.config.appEnv === 'production'
-          ? {
-              'Content-Type': 'application/json',
-            }
-          : await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
