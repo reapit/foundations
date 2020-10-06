@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "serverless-offline": "^5.12.1",
-    "serverless-webpack": "^5.3.1"
+    "serverless-webpack": "^5.3.5"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "serverless-http": "^2.3.2",
-    "serverless-webpack": "^5.3.1",
+    "serverless-webpack": "^5.3.5",
     "typescript": "~3.9.3",
     "snyk": "^1.385.0"
   },
