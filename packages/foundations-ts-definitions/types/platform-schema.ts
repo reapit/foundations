@@ -720,6 +720,14 @@ export interface AppointmentFollowUpModel {
  * Representation of a calendar appointment
  */
 export interface AppointmentModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
   /**
    * The unique identifier of the appointment
    */
@@ -761,7 +769,7 @@ export interface AppointmentModel {
    */
   recurring?: boolean
   /**
-   * Recurrence information relating to the appointment
+   * Representation of an appointments recurrence details
    */
   recurrence?: {
     /**
@@ -784,7 +792,7 @@ export interface AppointmentModel {
    */
   cancelled?: boolean
   /**
-   * Follow up information relating to the appointment
+   * Follow up information relating to an appointment
    */
   followUp?: {
     /**
@@ -886,13 +894,193 @@ export interface AppointmentModel {
    * The ETag for the current version of the appointment. Used for managing update concurrency
    */
   readonly _eTag?: string
-  readonly _links?: {
+}
+export interface AppointmentModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the appointment
+     */
+    id?: string
+    /**
+     * The date and time when the appointment was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the appointment was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The date and time when the appointment will start
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    start?: string // date-time
+    /**
+     * The date and time when the appointment will end
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    end?: string // date-time
+    /**
+     * The unique identifier of the appointment type
+     */
+    typeId?: string
+    /**
+     * A free text description about the appointment
+     */
+    description?: string
+    /**
+     * A flag denoting whether or not the appointment recurs
+     */
+    recurring?: boolean
+    /**
+     * Representation of an appointments recurrence details
+     */
+    recurrence?: {
+      /**
+       * The recurrence interval
+       */
+      interval?: number // int32
+      /**
+       * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
+       */
+      type?: string
+      /**
+       * The date the appointment recurs until
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      until?: string // date-time
+    }
+    /**
+     * A flag denoting whether or not the appointment has been cancelled
+     */
+    cancelled?: boolean
+    /**
+     * Follow up information relating to an appointment
+     */
+    followUp?: {
+      /**
+       * The date when the appointment should be followed up
+       * example:
+       * 2019-08-14
+       */
+      due?: string // date
+      /**
+       * The unique identifier of a pre-defined follow up response type
+       */
+      responseId?: string
+      /**
+       * Free text internal follow up notes to be stored against the appointment
+       */
+      notes?: string
+    }
+    /**
+     * The unique identifier of the property related to the appointment
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator that organised the appointment
+     */
+    organiserId?: string
+    /**
+     * A collection of unique identifiers of negotiators attached to the appointment
+     */
+    negotiatorIds?: string[]
+    /**
+     * A collection of unique identifiers of offices attached to the appointment
+     */
+    officeIds?: string[]
+    /**
+     * An appointment attendee
+     */
+    attendee?: {
+      /**
+       * The unique identifier of the attendee
+       */
+      id?: string
+      /**
+       * The type of attendee
+       */
+      type?: string
+      /**
+       * A collection of contacts relating to the attendee
+       */
+      contacts?: {
+        /**
+         * The unique identifier of the contact
+         */
+        id?: string
+        /**
+         * The name of the contact
+         */
+        name?: string
+        /**
+         * The home phone number of the contact
+         */
+        homePhone?: string
+        /**
+         * The work phone number of the contact
+         */
+        workPhone?: string
+        /**
+         * The mobile phone number of the contact
+         */
+        mobilePhone?: string
+        /**
+         * The email address of the contact
+         */
+        email?: string
+      }[]
+    }
+    /**
+     * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
+     */
+    accompanied?: boolean
+    /**
+     * A flag denoting whether or not the main negotiator has confirmed their attendance
+     */
+    negotiatorConfirmed?: boolean
+    /**
+     * A flag denoting whether or not the attendee has confirmed their attendance
+     */
+    attendeeConfirmed?: boolean
+    /**
+     * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
+     */
+    propertyConfirmed?: boolean
+    /**
+     * App specific metadata that has been set against the appointment
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the appointment. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
     [name: string]: {
       href?: string
     }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 export interface Appointments {
@@ -1035,6 +1223,14 @@ export interface CompanyAddressModel {
  * Representation of a company
  */
 export interface CompanyModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
   /**
    * The unique identifier of the company
    */
@@ -1092,7 +1288,7 @@ export interface CompanyModel {
    */
   email?: string
   /**
-   * The address of the company
+   * Representation of the physical address of a building or premise
    */
   address?: {
     /**
@@ -1138,6 +1334,136 @@ export interface CompanyModel {
    * The ETag for the current version of the company. Used for managing update concurrency
    */
   readonly _eTag?: string
+}
+export interface CompanyModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the company
+     */
+    id?: string
+    /**
+     * The date and time when the company was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the company was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The name of the company
+     */
+    name?: string
+    /**
+     * The branch name of the company
+     */
+    branch?: string
+    /**
+     * A free text field containing notes that describe the company's business or service offering
+     */
+    notes?: string
+    /**
+     * A flag determining whether or not the company is currently active
+     */
+    active?: boolean
+    /**
+     * A flag determining whether or not the company is VAT registered
+     */
+    vatRegistered?: boolean
+    /**
+     * A collection of unique identifiers of company types that categorise the type of business the company operates
+     */
+    typeIds?: string[]
+    /**
+     * The unique identifier of a supplier type, if the company is a supplier
+     */
+    supplierTypeId?: string
+    /**
+     * The work phone number of the company
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the company
+     */
+    email?: string
+    /**
+     * Representation of the physical address of a building or premise
+     */
+    address?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      country?: string
+    }
+    /**
+     * App specific metadata that has been set against the company
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the company. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of the roles that an individual companies possesses
+ */
+export interface CompanyRoleModel {
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -1146,11 +1472,6 @@ export interface CompanyModel {
   readonly _embedded?: {
     [name: string]: any
   }
-}
-/**
- * Representation of the roles that an individual companies possesses
- */
-export interface CompanyRoleModel {
   /**
    * The unique identifier of the relationship
    */
@@ -1179,13 +1500,55 @@ export interface CompanyRoleModel {
    * The unique identifier of the related entity
    */
   associatedId?: string
-  readonly _links?: {
+}
+export interface CompanyRoleModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related company
+     */
+    companyId?: string
+    /**
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
     [name: string]: {
       href?: string
     }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 export interface ConfigurationCompanyTypes {
@@ -1236,6 +1599,14 @@ export interface ContactAddressModel {
  * Representation of an individual contact
  */
 export interface ContactModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
   /**
    * The unique identifier of the contact
    */
@@ -1283,7 +1654,7 @@ export interface ContactModel {
    */
   identityCheck?: string
   /**
-   * The source of the contact
+   * Representation of a contact's source
    */
   source?: {
     /**
@@ -1312,7 +1683,7 @@ export interface ContactModel {
    */
   email?: string
   /**
-   * The primary address of the contact
+   * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
     /**
@@ -1353,7 +1724,7 @@ export interface ContactModel {
     countryId?: string
   }
   /**
-   * The secondary address of the contact
+   * Representation of the physical address of a building or premise
    */
   secondaryAddress?: {
     /**
@@ -1394,7 +1765,7 @@ export interface ContactModel {
     countryId?: string
   }
   /**
-   * The work address of the contact
+   * Representation of the physical address of a building or premise
    */
   workAddress?: {
     /**
@@ -1452,6 +1823,249 @@ export interface ContactModel {
    * The ETag for the current version of the contact. Used for managing update concurrency
    */
   readonly _eTag?: string
+}
+export interface ContactModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the contact
+     */
+    id?: string
+    /**
+     * The date and time when the contact was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the contact was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The contact's title  (eg. Mr, Mrs, Miss, Dr)
+     */
+    title?: string
+    /**
+     * The contact's forename
+     */
+    forename?: string
+    /**
+     * The contact's surname
+     */
+    surname?: string
+    /**
+     * The contact's date of birth
+     * example:
+     * 2019-08-14
+     */
+    dateOfBirth?: string // date
+    /**
+     * A flag determining whether or not the contact is currently active
+     */
+    active?: boolean
+    /**
+     * The marketing consent status of the contact (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
+     * The status of the last identity check performed against the contact (pass/fail/pending/cancelled/warnings/unchecked)
+     */
+    identityCheck?: string
+    /**
+     * Representation of a contact's source
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the contact
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * The home phone number of the contact
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+    /**
+     * Representation of the physical address of a building or premise
+     */
+    primaryAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * Representation of the physical address of a building or premise
+     */
+    secondaryAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * Representation of the physical address of a building or premise
+     */
+    workAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * A collection of unique identifiers of offices attached to the contact
+     */
+    officeIds?: string[]
+    /**
+     * A collection of unique identifiers of negotiators attached to the contact
+     */
+    negotiatorIds?: string[]
+    /**
+     * App specific metadata that has been set against the contact
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the contact. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of the roles that an individual contacts possesses
+ */
+export interface ContactRoleModel {
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -1460,11 +2074,6 @@ export interface ContactModel {
   readonly _embedded?: {
     [name: string]: any
   }
-}
-/**
- * Representation of the roles that an individual contacts possesses
- */
-export interface ContactRoleModel {
   /**
    * The unique identifier of the relationship
    */
@@ -1493,13 +2102,55 @@ export interface ContactRoleModel {
    * The unique identifier of the related entity
    */
   associatedId?: string
-  readonly _links?: {
+}
+export interface ContactRoleModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related contact
+     */
+    contactId?: string
+    /**
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
     [name: string]: {
       href?: string
     }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 /**
@@ -2148,7 +2799,7 @@ export interface CreateAppointmentModel {
    */
   officeIds?: string[]
   /**
-   * Details of the external appointment attendee
+   * Represents an external attendee on an appointment
    */
   attendee?: {
     /**
@@ -2181,7 +2832,7 @@ export interface CreateAppointmentModel {
    */
   propertyConfirmed?: boolean
   /**
-   * Details of the recurrence pattern for the appointment
+   * Details of an appointment's recurrence pattern
    */
   recurrence?: {
     /**
@@ -2344,7 +2995,7 @@ export interface CreateCompanyModel {
    */
   email?: string
   /**
-   * The address of the company. (Required when no other contact details are provided)
+   * Request body to set the address of a new company
    */
   address?: {
     /**
@@ -2465,7 +3116,7 @@ export interface CreateContactModel {
    */
   marketingConsent: string
   /**
-   * The source of the contact
+   * Request body used to set the source of a new contact
    */
   source?: {
     /**
@@ -2502,7 +3153,7 @@ export interface CreateContactModel {
    */
   negotiatorIds: string[]
   /**
-   * The primary address of the contact (Required when no contact details are provided)
+   * Request body used to set an address against a new contact
    */
   primaryAddress?: {
     /**
@@ -2543,7 +3194,7 @@ export interface CreateContactModel {
     countryId?: string
   }
   /**
-   * The secondary address of the contact
+   * Request body used to set an address against a new contact
    */
   secondaryAddress?: {
     /**
@@ -2584,7 +3235,7 @@ export interface CreateContactModel {
     countryId?: string
   }
   /**
-   * The work address of the contact
+   * Request body used to set an address against a new contact
    */
   workAddress?: {
     /**
@@ -6185,194 +6836,6 @@ export interface PagedResultApplicantModel_ {
     }
   }
 }
-export interface PagedResultAppointmentModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the appointment
-     */
-    id?: string
-    /**
-     * The date and time when the appointment was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the appointment was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The date and time when the appointment will start
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    start?: string // date-time
-    /**
-     * The date and time when the appointment will end
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    end?: string // date-time
-    /**
-     * The unique identifier of the appointment type
-     */
-    typeId?: string
-    /**
-     * A free text description about the appointment
-     */
-    description?: string
-    /**
-     * A flag denoting whether or not the appointment recurs
-     */
-    recurring?: boolean
-    /**
-     * Recurrence information relating to the appointment
-     */
-    recurrence?: {
-      /**
-       * The recurrence interval
-       */
-      interval?: number // int32
-      /**
-       * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
-       */
-      type?: string
-      /**
-       * The date the appointment recurs until
-       * example:
-       * 2019-08-14T12:30:02.0000000Z
-       */
-      until?: string // date-time
-    }
-    /**
-     * A flag denoting whether or not the appointment has been cancelled
-     */
-    cancelled?: boolean
-    /**
-     * Follow up information relating to the appointment
-     */
-    followUp?: {
-      /**
-       * The date when the appointment should be followed up
-       * example:
-       * 2019-08-14
-       */
-      due?: string // date
-      /**
-       * The unique identifier of a pre-defined follow up response type
-       */
-      responseId?: string
-      /**
-       * Free text internal follow up notes to be stored against the appointment
-       */
-      notes?: string
-    }
-    /**
-     * The unique identifier of the property related to the appointment
-     */
-    propertyId?: string
-    /**
-     * The unique identifier of the negotiator that organised the appointment
-     */
-    organiserId?: string
-    /**
-     * A collection of unique identifiers of negotiators attached to the appointment
-     */
-    negotiatorIds?: string[]
-    /**
-     * A collection of unique identifiers of offices attached to the appointment
-     */
-    officeIds?: string[]
-    /**
-     * An appointment attendee
-     */
-    attendee?: {
-      /**
-       * The unique identifier of the attendee
-       */
-      id?: string
-      /**
-       * The type of attendee
-       */
-      type?: string
-      /**
-       * A collection of contacts relating to the attendee
-       */
-      contacts?: {
-        /**
-         * The unique identifier of the contact
-         */
-        id?: string
-        /**
-         * The name of the contact
-         */
-        name?: string
-        /**
-         * The home phone number of the contact
-         */
-        homePhone?: string
-        /**
-         * The work phone number of the contact
-         */
-        workPhone?: string
-        /**
-         * The mobile phone number of the contact
-         */
-        mobilePhone?: string
-        /**
-         * The email address of the contact
-         */
-        email?: string
-      }[]
-    }
-    /**
-     * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
-     */
-    accompanied?: boolean
-    /**
-     * A flag denoting whether or not the main negotiator has confirmed their attendance
-     */
-    negotiatorConfirmed?: boolean
-    /**
-     * A flag denoting whether or not the attendee has confirmed their attendance
-     */
-    attendeeConfirmed?: boolean
-    /**
-     * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
-     */
-    propertyConfirmed?: boolean
-    /**
-     * App specific metadata that has been set against the appointment
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of the appointment. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
 export interface PagedResultAreaModel_ {
   _embedded?: {
     /**
@@ -6419,469 +6882,6 @@ export interface PagedResultAreaModel_ {
      * The ETag for the current version of the area. Used for managing update concurrency
      */
     readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultCompanyModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the company
-     */
-    id?: string
-    /**
-     * The date and time when the company was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the company was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The name of the company
-     */
-    name?: string
-    /**
-     * The branch name of the company
-     */
-    branch?: string
-    /**
-     * A free text field containing notes that describe the company's business or service offering
-     */
-    notes?: string
-    /**
-     * A flag determining whether or not the company is currently active
-     */
-    active?: boolean
-    /**
-     * A flag determining whether or not the company is VAT registered
-     */
-    vatRegistered?: boolean
-    /**
-     * A collection of unique identifiers of company types that categorise the type of business the company operates
-     */
-    typeIds?: string[]
-    /**
-     * The unique identifier of a supplier type, if the company is a supplier
-     */
-    supplierTypeId?: string
-    /**
-     * The work phone number of the company
-     */
-    workPhone?: string
-    /**
-     * The mobile phone number of the company
-     */
-    mobilePhone?: string
-    /**
-     * The email address of the company
-     */
-    email?: string
-    /**
-     * The address of the company
-     */
-    address?: {
-      /**
-       * The building name
-       */
-      buildingName?: string
-      /**
-       * The building number
-       */
-      buildingNumber?: string
-      /**
-       * The first line of the address
-       */
-      line1?: string
-      /**
-       * The second line of the address
-       */
-      line2?: string
-      /**
-       * The third line of the address
-       */
-      line3?: string
-      /**
-       * The fourth line of the address
-       */
-      line4?: string
-      /**
-       * The postcode
-       */
-      postcode?: string
-      /**
-       * The ISO-3166 country code that the address resides within
-       */
-      country?: string
-    }
-    /**
-     * App specific metadata that has been set against the company
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of the company. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultCompanyRoleModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the relationship
-     */
-    id?: string
-    /**
-     * The date and time when the relationship was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the relationship was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The unique identifier of the related company
-     */
-    companyId?: string
-    /**
-     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
-     */
-    associatedType?: string
-    /**
-     * The unique identifier of the related entity
-     */
-    associatedId?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultContactModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the contact
-     */
-    id?: string
-    /**
-     * The date and time when the contact was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the contact was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The contact's title  (eg. Mr, Mrs, Miss, Dr)
-     */
-    title?: string
-    /**
-     * The contact's forename
-     */
-    forename?: string
-    /**
-     * The contact's surname
-     */
-    surname?: string
-    /**
-     * The contact's date of birth
-     * example:
-     * 2019-08-14
-     */
-    dateOfBirth?: string // date
-    /**
-     * A flag determining whether or not the contact is currently active
-     */
-    active?: boolean
-    /**
-     * The marketing consent status of the contact (grant/deny/notAsked)
-     */
-    marketingConsent?: string
-    /**
-     * The status of the last identity check performed against the contact (pass/fail/pending/cancelled/warnings/unchecked)
-     */
-    identityCheck?: string
-    /**
-     * The source of the contact
-     */
-    source?: {
-      /**
-       * The unique identifier of the source of the contact
-       */
-      id?: string
-      /**
-       * The source type (office/source)
-       */
-      type?: string
-    }
-    /**
-     * The home phone number of the contact
-     */
-    homePhone?: string
-    /**
-     * The work phone number of the contact
-     */
-    workPhone?: string
-    /**
-     * The mobile phone number of the contact
-     */
-    mobilePhone?: string
-    /**
-     * The email address of the contact
-     */
-    email?: string
-    /**
-     * The primary address of the contact
-     */
-    primaryAddress?: {
-      /**
-       * The type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * The building name
-       */
-      buildingName?: string
-      /**
-       * The building number
-       */
-      buildingNumber?: string
-      /**
-       * The first line of the address
-       */
-      line1?: string
-      /**
-       * The second line of the address
-       */
-      line2?: string
-      /**
-       * The third line of the address
-       */
-      line3?: string
-      /**
-       * The fourth line of the address
-       */
-      line4?: string
-      /**
-       * The postcode
-       */
-      postcode?: string
-      /**
-       * The ISO-3166 country code that the address resides in
-       */
-      countryId?: string
-    }
-    /**
-     * The secondary address of the contact
-     */
-    secondaryAddress?: {
-      /**
-       * The type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * The building name
-       */
-      buildingName?: string
-      /**
-       * The building number
-       */
-      buildingNumber?: string
-      /**
-       * The first line of the address
-       */
-      line1?: string
-      /**
-       * The second line of the address
-       */
-      line2?: string
-      /**
-       * The third line of the address
-       */
-      line3?: string
-      /**
-       * The fourth line of the address
-       */
-      line4?: string
-      /**
-       * The postcode
-       */
-      postcode?: string
-      /**
-       * The ISO-3166 country code that the address resides in
-       */
-      countryId?: string
-    }
-    /**
-     * The work address of the contact
-     */
-    workAddress?: {
-      /**
-       * The type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * The building name
-       */
-      buildingName?: string
-      /**
-       * The building number
-       */
-      buildingNumber?: string
-      /**
-       * The first line of the address
-       */
-      line1?: string
-      /**
-       * The second line of the address
-       */
-      line2?: string
-      /**
-       * The third line of the address
-       */
-      line3?: string
-      /**
-       * The fourth line of the address
-       */
-      line4?: string
-      /**
-       * The postcode
-       */
-      postcode?: string
-      /**
-       * The ISO-3166 country code that the address resides in
-       */
-      countryId?: string
-    }
-    /**
-     * A collection of unique identifiers of offices attached to the contact
-     */
-    officeIds?: string[]
-    /**
-     * A collection of unique identifiers of negotiators attached to the contact
-     */
-    negotiatorIds?: string[]
-    /**
-     * App specific metadata that has been set against the contact
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of the contact. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultContactRoleModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the relationship
-     */
-    id?: string
-    /**
-     * The date and time when the relationship was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the relationship was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The unique identifier of the related contact
-     */
-    contactId?: string
-    /**
-     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
-     */
-    associatedType?: string
-    /**
-     * The unique identifier of the related entity
-     */
-    associatedId?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -11125,7 +11125,7 @@ export interface UpdateAppointmentModel {
    */
   officeIds?: string[]
   /**
-   * Details of the external appointment attendee
+   * Represents an external attendee on an appointment
    */
   attendee?: {
     /**
@@ -11158,7 +11158,7 @@ export interface UpdateAppointmentModel {
    */
   propertyConfirmed?: boolean
   /**
-   * Details added when the appointment has been followed up
+   * Represents the follow up information on a single appointment
    */
   followUp?: {
     /**
@@ -11171,7 +11171,7 @@ export interface UpdateAppointmentModel {
     notes?: string
   }
   /**
-   * Details of the recurrence pattern for the appointment
+   * Details of an appointment's recurrence pattern
    */
   recurrence?: {
     /**
@@ -11326,7 +11326,7 @@ export interface UpdateCompanyModel {
    */
   email?: string
   /**
-   * The address of the company
+   * Request body to set the address of an existing company
    */
   address?: {
     /**
@@ -11447,7 +11447,7 @@ export interface UpdateContactModel {
    */
   marketingConsent?: string
   /**
-   * The source of the contact
+   * Request body used to update the source of an existing contact
    */
   source?: {
     /**
@@ -11484,7 +11484,7 @@ export interface UpdateContactModel {
    */
   negotiatorIds?: string[]
   /**
-   * The primary address of the contact
+   * Request body used to update an address on an existing contact
    */
   primaryAddress?: {
     /**
@@ -11525,7 +11525,7 @@ export interface UpdateContactModel {
     countryId?: string
   }
   /**
-   * The secondary address of the contact
+   * Request body used to update an address on an existing contact
    */
   secondaryAddress?: {
     /**
@@ -11566,7 +11566,7 @@ export interface UpdateContactModel {
     countryId?: string
   }
   /**
-   * The work address of the contact
+   * Request body used to update an address on an existing contact
    */
   workAddress?: {
     /**
