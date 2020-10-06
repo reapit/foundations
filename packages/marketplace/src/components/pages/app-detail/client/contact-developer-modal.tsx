@@ -72,14 +72,20 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a
-                  className={linkStyles.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={isDesktop ? `agencycloud://process/email?address=${supportEmail}` : `mailto:${supportEmail}`}
-                >
-                  {supportEmail}
-                </a>
+                {isDesktop ? (
+                  <a className={linkStyles.link} href={`agencycloud://process/email?address=${supportEmail}`}>
+                    {supportEmail}
+                  </a>
+                ) : (
+                  <a
+                    className={linkStyles.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`mailto:${supportEmail}`}
+                  >
+                    {supportEmail}
+                  </a>
+                )}
               </p>
             </GridItem>
           </Grid>
@@ -89,14 +95,15 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a
-                  className={linkStyles.link}
-                  href={isDesktop ? `agencycloud://process/webpage?url=${homePage}` : homePage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {homePage}
-                </a>
+                {isDesktop ? (
+                  <a className={linkStyles.link} href={`agencycloud://process/webpage?url=${homePage}`}>
+                    {homePage}
+                  </a>
+                ) : (
+                  <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
+                    {homePage}
+                  </a>
+                )}
               </p>
             </GridItem>
           </Grid>
