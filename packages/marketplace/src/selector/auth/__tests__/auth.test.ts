@@ -7,6 +7,7 @@ import {
   selectDeveloperEditionId,
   selectLoggedUserName,
   selectLoggedUserCompanyName,
+  selectIsUser,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
 
@@ -27,6 +28,17 @@ describe('auth', () => {
       expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
     })
   })
+
+  describe('selectIsUser', () => {
+    it('should return correctly', () => {
+      expect(selectIsUser({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUser'] } })).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(selectIsUser({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
+    })
+  })
+
   describe('selectClientId', () => {
     it('should run correctly', () => {
       expect(selectClientId(auth)).toEqual(auth.loginIdentity.clientId)
