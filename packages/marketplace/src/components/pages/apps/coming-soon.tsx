@@ -86,9 +86,15 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
           <GridThreeColItem key={email}>
             <div className="card border-0">
               <div className="card-image">
-                <a href={getComingAppLinkHref(connectIsDesktop, email)}>
-                  <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
-                </a>
+                {connectIsDesktop ? (
+                  <a href={getComingAppLinkHref(connectIsDesktop, email)}>
+                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+                  </a>
+                ) : (
+                  <a href={getComingAppLinkHref(connectIsDesktop, email)} target="_blank" rel="noopener noreferrer">
+                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+                  </a>
+                )}
               </div>
             </div>
           </GridThreeColItem>

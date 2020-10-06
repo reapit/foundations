@@ -56,7 +56,9 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
     case 'p':
       return <p {...attributes}>{children}</p>
     case 'a':
-      return (
+      return window[GLOBAL_KEY] ? (
+        <a {...getAnchorAttrs(attributes as { [key: string]: any })}>{children}</a>
+      ) : (
         <a target="_blank" rel="noopener" {...getAnchorAttrs(attributes as { [key: string]: any })}>
           {children}
         </a>
