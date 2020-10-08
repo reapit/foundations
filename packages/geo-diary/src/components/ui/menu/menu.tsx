@@ -37,8 +37,8 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://marketplace.dev.paas.reapit.cloud/client/installed'
-      : 'https://marketplace.reapit.cloud/client/installed')
+      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
+      : 'https://marketplace.reapit.cloud/installed')
 
 export type MenuProps = {}
 

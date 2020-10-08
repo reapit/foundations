@@ -40,8 +40,8 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         callback: () =>
           (window.location.href =
             window.location.href.includes('dev') || window.location.href.includes('localhost')
-              ? 'https://dev.marketplace.reapit.cloud/client/installed'
-              : 'https://marketplace.reapit.cloud/client/installed'),
+              ? 'https://marketplace.dev.paas.reapit.cloud/installed'
+              : 'https://marketplace.reapit.cloud/installed'),
         type: 'PRIMARY',
       },
       {
