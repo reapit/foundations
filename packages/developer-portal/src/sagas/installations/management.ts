@@ -1,6 +1,11 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { UninstallParams, InstallParams } from '@/actions/installations'
-import { createInstallation, removeAccessToAppById } from '@/services/installations'
+import {
+  createInstallation,
+  CreateInstallationParams,
+  removeAccessToAppById,
+  RemoveAccessToAppByIdParams,
+} from '@/services/installations'
 import { getClientId, getLoggedUserEmail } from '@/utils/session'
 import { setInstallationsFormState } from '@/actions/installations'
 import { Action } from '@/types/core'
@@ -23,7 +28,7 @@ export const createInstallationSaga = function*(options) {
       throw error
     }
 
-    yield call(createInstallation, { ...data, clientId, approvedBy: email })
+    yield call(createInstallation, { ...data, clientId, approvedBy: email } as CreateInstallationParams)
     if (data.callback) {
       data.callback()
     }
@@ -43,7 +48,7 @@ export const requestInstallationTerminateSaga = function*(options) {
     yield put(setInstallationsFormState('SUBMITTING'))
     const email = yield getLoggedUserEmail()
 
-    yield call(removeAccessToAppById, { ...data, terminatedBy: email })
+    yield call(removeAccessToAppById, { ...data, terminatedBy: email } as RemoveAccessToAppByIdParams)
     yield put(setInstallationsFormState('SUCCESS'))
 
     data.callback && data.callback()

@@ -9,9 +9,10 @@ import { setInstallationsFormState, UninstallParams, InstallParams } from '@/act
 import { put, call, takeLatest, fork, all } from 'redux-saga/effects'
 import { getLoggedUserEmail, getDeveloperId } from '@/utils/session'
 import errorMessages from '@/constants/error-messages'
-import { createInstallation, removeAccessToAppById } from '@/services/installations'
+import { createInstallation, removeAccessToAppById, RemoveAccessToAppByIdParams } from '@/services/installations'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
+import { CreateInstallationParams } from '@/services/installations'
 
 const installParams = {
   data: {
@@ -39,7 +40,7 @@ describe('createInstallationSaga', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next('1').value).toEqual(
-      call(createInstallation, { ...installParams.data, clientId: '1', approvedBy: '1' }),
+      call(createInstallation, { ...installParams.data, clientId: '1', approvedBy: '1' } as CreateInstallationParams),
     )
     expect(clone.next().value).toEqual(put(setInstallationsFormState('SUCCESS')))
   })
@@ -50,7 +51,9 @@ describe('appUninstallSaga', () => {
   expect(gen.next().value).toEqual(put(setInstallationsFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(getLoggedUserEmail())
 
-  expect(gen.next('1').value).toEqual(call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' }))
+  expect(gen.next('1').value).toEqual(
+    call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' } as RemoveAccessToAppByIdParams),
+  )
 
   test('api call success', () => {
     const clone = gen.clone()
