@@ -7,6 +7,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { FetchInstallationsListParams } from '@/services/installations'
 import { FormState } from '@/types/core'
+import { CreateInstallationParams, RemoveAccessToAppByIdParams } from '@/services/installations'
 
 export type UninstallParams = {
   installationId: string
@@ -39,3 +40,11 @@ export const createInstallations = actionCreator<InstallParams>(ActionTypes.CREA
 
 // Terminate INSTALLATIONS
 export const requestInstallationsTerminate = actionCreator<UninstallParams>(ActionTypes.REQUEST_INSTALLATIONS_TERMINATE)
+
+export const installApp = actionCreator<CreateInstallationParams>(ActionTypes.INSTALL_APP)
+export const installAppSuccess = actionCreator<void>(ActionTypes.INSTALL_APP_SUCCESS)
+export const installAppFailed = actionCreator<string>(ActionTypes.INSTALL_APP_FAILED)
+
+export const uninstallApp = actionCreator<RemoveAccessToAppByIdParams>(ActionTypes.UNINSTALL_APP)
+export const uninstallAppSuccess = actionCreator<void>(ActionTypes.UNINSTALL_APP_SUCCESS)
+export const uninstallAppFailed = actionCreator<string>(ActionTypes.UNINSTALL_APP_FAILED)

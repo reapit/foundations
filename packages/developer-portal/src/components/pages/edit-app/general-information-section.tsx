@@ -11,6 +11,7 @@ import {
   TextArea,
   TextAreaEditor,
   SelectBoxOptions,
+  Checkbox,
 } from '@reapit/elements'
 import { exec } from 'pell'
 import { link } from '@/styles/elements/link'
@@ -18,6 +19,7 @@ import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from './form-schema/form-fields'
+import { checkbox, editor } from './__styles__/styles'
 
 const { name, categoryId, supportEmail, telephone, homePage, launchUri, summary, description } = formFields
 
@@ -55,7 +57,8 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         The section below relates to the fields that comprise the listing of your application as it will appear to a
         user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted
         application, how best to make your app discoverable to users and to determine where to launch it from the
-        marketplace.
+        marketplace. When you have done your initial app submit, please return here to set the &ldquo;is Listed&rdquo;
+        status to make the app installable for users.
       </FormSubHeading>
       <Grid isMultiLine>
         <GridItem>
@@ -70,11 +73,35 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
           />
         </GridItem>
         <GridItem>
+          <div className="control">
+            <div className={checkbox}>
+              <Checkbox
+                name={formFields.isListed.name}
+                labelText={formFields.isListed.label as string}
+                id={formFields.isListed.name}
+              />
+            </div>
+          </div>
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem>
           <SelectBox
             id={categoryId.name}
             name={categoryId.name}
             options={categoryOptions}
             labelText={categoryId.label as string}
+          />
+        </GridItem>
+        <GridItem>
+          <Input
+            dataTest="submit-app-home-page"
+            type="text"
+            labelText={homePage.label as string}
+            id={homePage.name}
+            name={homePage.name}
+            placeholder={homePage.placeHolder}
+            required={isListed}
           />
         </GridItem>
       </Grid>
@@ -92,30 +119,6 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         </GridItem>
         <GridItem>
           <Input
-            dataTest="submit-app-phone"
-            type="tel"
-            labelText={telephone.label as string}
-            id={telephone.name}
-            name={telephone.name}
-            placeholder={telephone.placeHolder}
-            required={isListed}
-          />
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem>
-          <Input
-            dataTest="submit-app-home-page"
-            type="text"
-            labelText={homePage.label as string}
-            id={homePage.name}
-            name={homePage.name}
-            placeholder={homePage.placeHolder}
-            required={isListed}
-          />
-        </GridItem>
-        <GridItem>
-          <Input
             dataTest="submit-app-launch-uri"
             type="text"
             labelText={launchUri.label as string}
@@ -127,7 +130,18 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem className="is-half-desktop">
+        <GridItem>
+          <div className="pb-4">
+            <Input
+              dataTest="submit-app-phone"
+              type="tel"
+              labelText={telephone.label as string}
+              id={telephone.name}
+              name={telephone.name}
+              placeholder={telephone.placeHolder}
+              required={isListed}
+            />
+          </div>
           <TextArea
             id="summary"
             dataTest="submit-app-summary"
@@ -140,6 +154,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         <GridItem className="is-half-desktop">
           <TextAreaEditor
             id="description"
+            containerClass={editor}
             actions={[
               'bold',
               'italic',
@@ -162,6 +177,9 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
           />
         </GridItem>
       </Grid>
+      {/* <Grid>
+        <GridItem className="is-half-desktop"></GridItem>
+      </Grid> */}
     </FormSection>
   )
 }

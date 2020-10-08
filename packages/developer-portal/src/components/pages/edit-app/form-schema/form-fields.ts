@@ -128,7 +128,7 @@ export const formFields: Record<Field, FormFieldInfo> = {
   },
   isListed: {
     name: 'isListed',
-    label: 'Is Listed',
+    label: 'Is Listed Marketplace',
   },
   isDirectApi: {
     name: 'isDirectApi',

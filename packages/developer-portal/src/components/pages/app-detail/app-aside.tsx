@@ -3,7 +3,7 @@ import routes from '@/constants/routes'
 import { useHistory } from 'react-router'
 import { History } from 'history'
 import { FlexContainerBasic } from '@reapit/elements'
-import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppManageMent from './app-management'
 import {
@@ -11,10 +11,10 @@ import {
   DesktopIntegrationSection,
   PrivateAppSection,
   DirectApiSection,
-  StatusSection,
   BackToAppsSection,
 } from './app-sections'
 import { AppDetailState } from '@/reducers/apps/app-detail'
+import { StatusSection } from './app-status-section'
 
 interface AsideProps {
   appDetailState: AppDetailState
@@ -31,7 +31,7 @@ export const DeveloperAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, 
   const history = useHistory()
   const { isMobile } = useReactResponsive()
   const { data } = appDetailState
-  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data || {}
+  const { isDirectApi, category, pendingRevisions, id = '', limitToClientIds = [] } = data || {}
 
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
@@ -39,7 +39,7 @@ export const DeveloperAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, 
       <DesktopIntegrationSection desktopIntegrationTypes={desktopIntegrationTypes} isSidebar />
       <PrivateAppSection limitToClientIds={limitToClientIds} isSidebar />
       <DirectApiSection isDirectApi={isDirectApi} isSidebar />
-      <StatusSection isListed={isListed} isSidebar />
+      <StatusSection appDetail={data as AppDetailModel} isSidebar />
       <AppManageMent appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
       {isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
     </FlexContainerBasic>

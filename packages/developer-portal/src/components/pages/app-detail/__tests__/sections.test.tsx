@@ -5,7 +5,6 @@ import {
   DesktopIntegrationSection,
   PrivateAppSection,
   DirectApiSection,
-  StatusSection,
   BackToAppsSection,
   ListingPreviewSection,
   AuthenticationSection,
@@ -70,16 +69,6 @@ describe('DirectApiSection', () => {
 
   it('should match a snapshot where isDirectApi true and is sidebar', () => {
     expect(shallow(<DirectApiSection isDirectApi isSidebar />)).toMatchSnapshot()
-  })
-})
-
-describe('StatusSection', () => {
-  it('should match a snapshot where isListed false and not sidebar', () => {
-    expect(shallow(<StatusSection isListed={false} />)).toMatchSnapshot()
-  })
-
-  it('should match a snapshot where isListed true and is sidebar', () => {
-    expect(shallow(<StatusSection isListed isSidebar />)).toMatchSnapshot()
   })
 })
 

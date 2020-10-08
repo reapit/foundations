@@ -13,6 +13,9 @@ export const selectInstallationsListData = (state: ReduxState): InstallationMode
   return state.installations.installationsList?.list?.data || []
 }
 
+export const selectSboxInstallation = (state: ReduxState): InstallationModel | undefined =>
+  state.installations.installationsList?.list?.data?.find(installation => installation.customerId === 'SBOX')
+
 export const selectInstallationsFilterListData = (state: ReduxState): InstallationModel[] => {
   return state.installations.installationsFilterList?.list?.data || []
 }
