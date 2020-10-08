@@ -27,17 +27,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
+  if (window.location.pathname === '/') {
+    return <Redirect to={Routes.LOGIN} />
+  }
+
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
 
   if (!connectSession) {
     return null
-  }
-
-  if (isRoot) {
-    return <Redirect to={Routes.APPS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

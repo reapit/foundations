@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { H4, H5, H6 } from '../Typography'
+import { GLOBAL_KEY } from '../DynamicLinks/utils'
 
 export interface Element {
   type: string
@@ -35,9 +36,19 @@ const getAttributes = (domTag: Element, index: number) => {
   return { ...reactPropsAttributes, key: index, style: {} }
 }
 
+const getAnchorAttrs = (attributes: { [key: string]: any }) => {
+  const href = attributes['href']
+  const dynamicHref = window[GLOBAL_KEY] ? `agencycloud://process/webpage?url=${href}` : href
+  return {
+    ...attributes,
+    href: dynamicHref,
+  }
+}
+
 const sortTags = (domTag: Element, index: number, diffing: boolean) => {
   const children = rendererModule.getChildren(domTag, diffing)
   const attributes = rendererModule.getAttributes(domTag, index)
+
   if (!children || !children.length) {
     return null
   }
@@ -45,8 +56,10 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
     case 'p':
       return <p {...attributes}>{children}</p>
     case 'a':
-      return (
-        <a target="_blank" rel="noopener" {...attributes}>
+      return window[GLOBAL_KEY] ? (
+        <a {...getAnchorAttrs(attributes as { [key: string]: any })}>{children}</a>
+      ) : (
+        <a target="_blank" rel="noopener" {...getAnchorAttrs(attributes as { [key: string]: any })}>
           {children}
         </a>
       )

@@ -23,6 +23,8 @@ import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMS
 import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
 import comingSoonReapitPayments from '@/assets/images/coming-soon/ReapitPayments.jpg'
 import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
@@ -50,9 +52,10 @@ const comingSoonImagesMap = {
 
 export const emptyComingSoonAppLinkHref = 'javascript:;'
 
-export const getComingAppLinkHref = (email?: string) => {
+export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
   if (email) {
-    return `mailto:${email}?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards`
+    const prefix = isDesktop ? 'agencycloud://process/email?address=' : 'mailto:'
+    return `${prefix}${email}?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards`
   }
 
   return emptyComingSoonAppLinkHref
@@ -72,6 +75,7 @@ export const handleComingSoonSectionResizeObserver = (
 
 const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
   const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   useResizeObserver(comingSoonAppSectionRef, handleComingSoonSectionResizeObserver(setComingSoonAppSectionHeight))
 
@@ -82,9 +86,15 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
           <GridThreeColItem key={email}>
             <div className="card border-0">
               <div className="card-image">
-                <a href={getComingAppLinkHref(email)}>
-                  <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
-                </a>
+                {connectIsDesktop ? (
+                  <a href={getComingAppLinkHref(connectIsDesktop, email)}>
+                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+                  </a>
+                ) : (
+                  <a href={getComingAppLinkHref(connectIsDesktop, email)} target="_blank" rel="noopener noreferrer">
+                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+                  </a>
+                )}
               </div>
             </div>
           </GridThreeColItem>

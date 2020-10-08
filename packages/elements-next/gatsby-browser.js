@@ -1,1 +1,0 @@
-import '@/docz/styles/global'

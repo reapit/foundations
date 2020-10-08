@@ -29,7 +29,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
         fetchApps({
           pageNumber: page,
           pageSize: numOfItemsPerPage,
-          isFeatured: false,
           preview,
         }),
       )

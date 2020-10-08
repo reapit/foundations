@@ -6,7 +6,7 @@ import { LoginIdentity } from '@reapit/connect-session'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
-import { selectDeveloperEditionId } from '@/selector/auth'
+import { selectDeveloperEditionId, selectIsUser } from '@/selector/auth'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>
@@ -18,13 +18,13 @@ export const handleRedirectToAuthenticationPage = (
   history: History,
   loginIdentity: LoginIdentity | null | undefined,
   isDeveloperEdition: Boolean,
+  isUser: Boolean,
 ) => {
   return () => {
     if (!loginIdentity) {
       return
     }
-    const { clientId } = loginIdentity
-    if (!clientId && !isDeveloperEdition) {
+    if (!isDeveloperEdition && !isUser) {
       history.replace(Routes.AUTHENTICATION)
     }
   }
@@ -36,12 +36,14 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
+  const isUser = selectIsUser(connectSession)
   const loginIdentity = connectSession?.loginIdentity
 
-  React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity, isDeveloperEdition), [
+  React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity, isDeveloperEdition, isUser), [
     loginIdentity,
     history,
     isFetchingAccessToken,
+    isUser,
   ])
 
   if (isFetchingAccessToken) {

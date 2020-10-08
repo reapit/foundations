@@ -31,21 +31,32 @@ describe('PrivateRouter', () => {
   })
 
   describe('handleRedirectToAuthenticationPage', () => {
-    it('should not redirect to authentication page for DEVELOPER EDITION', () => {
+    it('should not redirect to authentication page for DEVELOPER EDITION only', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
-      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, true)
+      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, true, false)
       fn()
-      expect(history.replace).toHaveBeenCalledTimes(0)
+      expect(history.replace).not.toHaveBeenCalled()
     })
-    it('should redirect to authentication page for CLIENT', () => {
+
+    it('should not redirect to authentication page for CLIENT only', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
-      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, false)
+      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, false, true)
+      fn()
+      expect(history.replace).not.toHaveBeenCalled()
+    })
+
+    it('should redirect to authentication page if neither CLIENT or DEVELOPER EDITION', () => {
+      const mockLoginIdentity = {
+        clientId: '',
+        developerId: 'testDeveloperId',
+      } as LoginIdentity
+      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, false, false)
       fn()
       expect(history.replace).toBeCalledWith(Routes.AUTHENTICATION)
     })

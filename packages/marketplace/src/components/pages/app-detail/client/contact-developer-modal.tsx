@@ -73,7 +73,9 @@ export const ContactDeveloperSection = ({
             <GridItem>
               <p>
                 {isDesktop ? (
-                  supportEmail
+                  <a className={linkStyles.link} href={`agencycloud://process/email?address=${supportEmail}`}>
+                    {supportEmail}
+                  </a>
                 ) : (
                   <a
                     className={linkStyles.link}
@@ -93,9 +95,15 @@ export const ContactDeveloperSection = ({
             </GridItem>
             <GridItem>
               <p>
-                <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
-                  {homePage}
-                </a>
+                {isDesktop ? (
+                  <a className={linkStyles.link} href={`agencycloud://process/webpage?url=${homePage}`}>
+                    {homePage}
+                  </a>
+                ) : (
+                  <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
+                    {homePage}
+                  </a>
+                )}
               </p>
             </GridItem>
           </Grid>

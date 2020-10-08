@@ -28,7 +28,7 @@
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
     "async": "^3.2.0",
     "aws-sdk": "^2.682.0",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",

@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { greenLighter, reapitGreen } from '@/core/__styles__/colors'
+import { greyLight, reapitGreen } from '@/core/__styles__/colors'
 import { forMobileOnly, forIEOnly, forTabletAndBelow } from '@/core/__styles__/media'
 
 export const preview = css`
@@ -15,7 +15,7 @@ export const check = css`
 export const tag = css`
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: ${greenLighter};
+  background: ${greyLight};
   margin: 0.5rem 0.5rem 0 0;
 `
 export const container = css`

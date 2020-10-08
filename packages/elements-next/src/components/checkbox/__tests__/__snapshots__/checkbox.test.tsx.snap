@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should match snapshot 1`] = `
+<div
+  className=""
+>
+  <input
+    checked={false}
+    disabled={true}
+    name="mockName"
+    type="checkbox"
+    value="option1"
+  />
+  <label>
+    mockLabel
+  </label>
+</div>
+`;
+
+exports[`Checkbox should match snapshot 2`] = `
+<div>
+  <Component
+    label="mockLabel"
+    name="mockName"
+    value="option1"
+  />
+  <Component
+    label="mockLabel"
+    name="mockName"
+    value="option2"
+  />
+</div>
+`;
+
+exports[`Checkbox should match snapshot when true 1`] = `
+<div
+  className=""
+>
+  <input
+    checked={true}
+    disabled={false}
+    id="mockName"
+    name="mockName"
+    type="checkbox"
+  />
+</div>
+`;
