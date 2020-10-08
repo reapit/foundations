@@ -3,10 +3,11 @@
 exports[`Welcome should match snapshot 1`] = `
 <Component
   flexColumn={true}
-  isScrollable={true}
 >
   <Component
     flexColumn={true}
+    hasPadding={true}
+    isScrollable={true}
   >
     <div
       className=""
@@ -30,10 +31,11 @@ exports[`Welcome should match snapshot 1`] = `
 exports[`Welcome should match snapshot for client 1`] = `
 <Component
   flexColumn={true}
-  isScrollable={true}
 >
   <Component
     flexColumn={true}
+    hasPadding={true}
+    isScrollable={true}
   >
     <div
       className=""
@@ -57,10 +59,11 @@ exports[`Welcome should match snapshot for client 1`] = `
 exports[`Welcome should match snapshot for developer 1`] = `
 <Component
   flexColumn={true}
-  isScrollable={true}
 >
   <Component
     flexColumn={true}
+    hasPadding={true}
+    isScrollable={true}
   >
     <div
       className=""
