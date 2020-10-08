@@ -33,7 +33,7 @@ describe('Menu', () => {
     it('should run correcly', () => {
       window.location.href = 'https://dev.site-builder.reapit.cloud'
       const fn = callbackAppClick()
-      expect(fn).toEqual('https://dev.marketplace.reapit.cloud/client/installed')
+      expect(fn).toEqual('https://marketplace.dev.paas.reapit.cloud/installed')
     })
   })
 })
