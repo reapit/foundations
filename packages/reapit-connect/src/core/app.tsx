@@ -30,6 +30,7 @@ export const App = () => {
 
   if (isUserWithDevIdOnly(session.connectSession?.loginIdentity)) {
     window.location.href = window.reapit.config.developerPortalUrl
+    return null
   }
 
   return <Router />

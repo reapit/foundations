@@ -33,8 +33,8 @@ export const Welcome: React.FC<WelcomeProps> = () => {
   const clientId = session?.connectSession?.loginIdentity?.clientId
 
   return (
-    <FlexContainerBasic flexColumn isScrollable>
-      <FlexContainerResponsive flexColumn>
+    <FlexContainerBasic flexColumn>
+      <FlexContainerResponsive flexColumn isScrollable hasPadding>
         <div className={logoWrapStyle}>
           <img className={logoStyle} src={logo} alt="logo" />
         </div>

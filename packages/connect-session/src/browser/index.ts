@@ -11,7 +11,6 @@ import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-tok
 
 export class ReapitConnectBrowserSession {
   // Static constants
-  static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
   static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
@@ -108,8 +107,8 @@ export class ReapitConnectBrowserSession {
     if (this.session) {
       const decoded = jwt.decode(this.session.accessToken) as CoginitoAccess
       const expiry = decoded['exp']
-
-      return expiry ? expiry < ReapitConnectBrowserSession.TOKEN_EXPIRY : true
+      const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
+      return expiry ? expiry < fiveMinsFromNow : true
     }
 
     return true
@@ -164,6 +163,7 @@ export class ReapitConnectBrowserSession {
   }
 
   private handleError(error: string) {
+    this.clearRefreshToken()
     console.error('Reapit Connect Error:', error)
   }
 
@@ -202,6 +202,7 @@ export class ReapitConnectBrowserSession {
   // Used as handler for login page button
   public connectLoginRedirect(redirectUri?: string): void {
     const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
+    this.clearRefreshToken()
     window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${loginRedirectUri}`
   }
 
