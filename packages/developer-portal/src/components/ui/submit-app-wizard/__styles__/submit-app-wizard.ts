@@ -35,7 +35,7 @@ export const btnChooseAuthTypeContainerRight = css`
   button {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 `
 

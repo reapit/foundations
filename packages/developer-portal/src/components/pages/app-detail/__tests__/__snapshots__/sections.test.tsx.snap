@@ -400,31 +400,6 @@ exports[`PrivateAppSection should match a snapshot where limitToClientIds hasLen
 </Component>
 `;
 
-exports[`StatusSection should match a snapshot where isListed false and not sidebar 1`] = `
-<Component
-  headerText="Status"
-  isSidebar={false}
->
-  <div>
-    Not listed
-  </div>
-</Component>
-`;
-
-exports[`StatusSection should match a snapshot where isListed true and is sidebar 1`] = `
-<Component
-  headerText="Status"
-  isSidebar={true}
->
-  <div>
-    Listed 
-    <FaCheck
-      className=""
-    />
-  </div>
-</Component>
-`;
-
 exports[`SummarySection should match a snapshot 1`] = `
 <Component
   className="is-italic"
