@@ -2,9 +2,9 @@ import React from 'react'
 import { H3, Content } from '@reapit/elements'
 import ConfigForm from '../ui/config-form'
 
-export type AuthenticatedProps = {}
+export type ProjectorAppProps = {}
 
-export const Authenticated: React.FC<AuthenticatedProps> = () => {
+export const ProjectorApp: React.FC<ProjectorAppProps> = () => {
   return (
     <>
       <Content>
@@ -15,4 +15,4 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
   )
 }
 
-export default Authenticated
+export default ProjectorApp
