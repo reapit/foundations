@@ -51,15 +51,13 @@ const comingSoonImagesMap = {
   comingSoonImageMAB,
 }
 
-export const emptyComingSoonAppLinkHref = 'javascript:;'
-
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
   if (email) {
     const prefix = isDesktop ? 'agencycloud://process/email?address=' : 'mailto:'
     return `${prefix}${email}?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards`
   }
 
-  return emptyComingSoonAppLinkHref
+  return null
 }
 
 export const handleComingSoonSectionResizeObserver = (
@@ -83,23 +81,29 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   return (
     <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
       <Grid isMultiLine>
-        {(window.reapit.config.comingSoonApps || []).map(({ email, image }) => (
-          <GridThreeColItem key={email}>
-            <div className="card border-0">
-              <div className="card-image">
-                {connectIsDesktop ? (
-                  <a href={getComingAppLinkHref(connectIsDesktop, email)}>
-                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
-                  </a>
-                ) : (
-                  <a href={getComingAppLinkHref(connectIsDesktop, email)} target="_blank" rel="noopener noreferrer">
-                    <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
-                  </a>
-                )}
+        {(window.reapit.config.comingSoonApps || []).map(({ email, image }) => {
+          const emailLink = getComingAppLinkHref(connectIsDesktop, email)
+          const ImageComponent = () => <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+          return (
+            <GridThreeColItem key={email}>
+              <div className="card border-0">
+                <div className="card-image">
+                  {connectIsDesktop && emailLink ? (
+                    <a href={emailLink}>
+                      <ImageComponent />
+                    </a>
+                  ) : emailLink ? (
+                    <a href={emailLink} target="_blank" rel="noopener noreferrer">
+                      <ImageComponent />
+                    </a>
+                  ) : (
+                    <ImageComponent />
+                  )}
+                </div>
               </div>
-            </div>
-          </GridThreeColItem>
-        ))}
+            </GridThreeColItem>
+          )
+        })}
       </Grid>
     </div>
   )

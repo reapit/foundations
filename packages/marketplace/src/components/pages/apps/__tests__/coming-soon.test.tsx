@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import ComingSoonApps, {
   onImageError,
   getComingAppLinkHref,
-  emptyComingSoonAppLinkHref,
   handleComingSoonSectionResizeObserver,
 } from '../coming-soon'
 
@@ -22,7 +21,7 @@ describe('getComingAppLinkHref', () => {
     )
   })
   test('email is empty', () => {
-    expect(getComingAppLinkHref(false)).toBe(emptyComingSoonAppLinkHref)
+    expect(getComingAppLinkHref(false)).toBeNull()
   })
 })
 
