@@ -49,7 +49,7 @@ const handleInstallledCheckboxChange = (
 }
 
 export const StatusSection: FC<StatusSectionProps> = ({ appDetail, isSidebar }) => {
-  const { isListed } = appDetail
+  const { isListed, authFlow } = appDetail
   const sboxInstallation = useSelector(selectSboxInstallation)
   const [isInstalledSboxState, setIsInstalledSbox] = useState<boolean>(Boolean(sboxInstallation))
   const { appid } = useParams<{ appid: string }>()
@@ -58,6 +58,9 @@ export const StatusSection: FC<StatusSectionProps> = ({ appDetail, isSidebar }) 
 
   return (
     <>
+      <AppDetailSection headerText="Authentication Flow" isSidebar={isSidebar}>
+        {authFlow === 'clientCredentials' ? 'Client Credentials' : 'Authorization Code'}
+      </AppDetailSection>
       <AppDetailSection headerText="Status" isSidebar={isSidebar}>
         <div>
           {isListed ? (
