@@ -3,7 +3,7 @@ import useResizeObserver from '@react-hook/resize-observer'
 import { GridThreeColItem, Grid } from '@reapit/elements'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
-
+import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
 import comingSoonImageYourkeys from '@/assets/images/coming-soon/1Yourkeys.jpg'
 
 import comingSoonImageStarberry from '@/assets/images/coming-soon/2Starberry.jpg'
@@ -34,6 +34,7 @@ export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
 
 const comingSoonImagesMap = {
+  comingSoonImageZoopla,
   comingSoonImageYourkeys,
   comingSoonImageVyomm,
   comingSoonImageStarberry,

@@ -20,6 +20,7 @@ import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
 import * as styles from './__styles__'
+import useReactResponsive from '../../hooks/use-react-responsive'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.5
 
@@ -58,6 +59,8 @@ export const Apps: React.FunctionComponent = () => {
 
   const appsListState = useSelector(selectAppsListState)
   const hasParams = hasFilterParams(location.search)
+  const { isLargeDesktop } = useReactResponsive()
+
   const apps = appsListState?.data || []
   const { totalCount = 0, pageNumber = 1 } = appsListState || {}
 
@@ -94,9 +97,10 @@ export const Apps: React.FunctionComponent = () => {
         {!hasParams && featuredApps.length > 0 && (
           <div className="pb-4 bb mb-4">
             <Grid isMultiLine>
-              {featuredApps.map(app => (
-                <FeaturedApp key={app.id} app={app} />
-              ))}
+              {featuredApps.map((app, i) => {
+                if (i > 1 && !isLargeDesktop) return null
+                return <FeaturedApp key={app.id} app={app} />
+              })}
             </Grid>
           </div>
         )}

@@ -215,6 +215,31 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                         isSidebar={true}
                       >
                         <Component
+                          headerText="Authentication Flow"
+                          isSidebar={true}
+                        >
+                          <Component
+                            dataTest=""
+                          >
+                            <div
+                              className=""
+                              data-test=""
+                            >
+                              <Component
+                                className="mb-2"
+                              >
+                                <h5
+                                  className=""
+                                  id=""
+                                >
+                                  Authentication Flow
+                                </h5>
+                              </Component>
+                              Authorization Code
+                            </div>
+                          </Component>
+                        </Component>
+                        <Component
                           headerText="Status"
                           isSidebar={true}
                         >
