@@ -5396,7 +5396,7 @@
     jsonwebtoken "^8.5.1"
     snyk "^1.335.0"
 
-"@reapit/connect-session@1.0.1", "@reapit/connect-session@^1.0.0-alpha.1", "@reapit/connect-session@^1.0.0-alpha.2", "@reapit/connect-session@^1.0.0-alpha.3":
+"@reapit/connect-session@1.0.1", "@reapit/connect-session@^1.0.0-alpha.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.1.tgz#a8feaf97b10a8f53cf8b1c012353c77620823dd8"
   integrity sha512-Y6Um8i9XAlT41I8lu3IPmrxjAkNn42tmGr0ApTPW5m8TMCaoGEk+TFzhUOoseaDRSOi107/OWVR/2QKt3DoMhw==
