@@ -28,7 +28,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.60",
+    "@reapit/elements": "^1.0.3",
     "@reapit/utils": "^0.0.1",
     "react-to-print": "^2.4.0",
     "snyk": "^1.341.1"
