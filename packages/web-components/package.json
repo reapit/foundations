@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@reapit/connect-session": "^1.0.0-alpha.2",
+    "@reapit/connect-session": "^2.0.7",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dayjs": "^1.8.30",
