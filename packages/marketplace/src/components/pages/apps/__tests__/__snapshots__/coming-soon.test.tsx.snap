@@ -1,11 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ComingSoonAppComponent should match a snapshot 1`] = `
+<Component
+  key="sales@yourkeys.com"
+>
+  <div
+    className="card border-0"
+  >
+    <div
+      className="card-image"
+    >
+      <a
+        href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <ImageComponent />
+      </a>
+    </div>
+  </div>
+</Component>
+`;
+
 exports[`ComingSoonApps should match a snapshot 1`] = `
 <div
   id="coming-soon-section"
 >
   <Component
+    isHeadingSection={true}
+  >
+    Agency Cloud Apps
+  </Component>
+  <Component
     isMultiLine={true}
+  >
+    <Component
+      app={
+        Object {
+          "email": "sales@yourkeys.com",
+          "image": "comingSoonImageYourkeys",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageYourkeys"
+    />
+    <Component
+      app={
+        Object {
+          "email": "hello@vyomm.com",
+          "image": "comingSoonImageVyomm",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageVyomm"
+    />
+    <Component
+      app={
+        Object {
+          "email": "support@sms-speedway.com",
+          "image": "comingSoonSmsSpeedWayIdVerification",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonSmsSpeedWayIdVerification"
+    />
+    <Component
+      app={
+        Object {
+          "email": "support@sms-speedway.com",
+          "image": "comingSoonSmsSpeedway",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonSmsSpeedway"
+    />
+    <Component
+      app={
+        Object {
+          "email": "hphillips@reapit.com",
+          "image": "comingSoonReapitPayments",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonReapitPayments"
+    />
+    <Component
+      app={
+        Object {
+          "email": "hphillips@reapit.com",
+          "image": "comingSoonImageMAB",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageMAB"
+    />
+    <Component
+      app={
+        Object {
+          "email": "helpdesk@perfectportal.co.uk",
+          "image": "comingSoonPerfectPortal",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonPerfectPortal"
+    />
+    <Component
+      app={
+        Object {
+          "email": "partner@movinghub.co.uk",
+          "image": "comingSoonMovingHub",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonMovingHub"
+    />
+  </Component>
+  <div
+    className="bb mb-4"
   />
+  <Component
+    isHeadingSection={true}
+  >
+    Third Party Integrations
+  </Component>
+  <Component
+    isMultiLine={true}
+  >
+    <Component
+      app={
+        Object {
+          "email": "hello@starberry.tv",
+          "image": "comingSoonImageStarberry",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageStarberry"
+    />
+    <Component
+      app={
+        Object {
+          "email": "sales@yomdel.com",
+          "image": "comingSoonImageYomdel",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageYomdel"
+    />
+    <Component
+      app={
+        Object {
+          "email": "info@integratedinterest.com",
+          "image": "comingSoonImageIntegrated",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageIntegrated"
+    />
+    <Component
+      app={
+        Object {
+          "email": "enquiries@zerodeposit.com",
+          "image": "comingSoonImageZero",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageZero"
+    />
+    <Component
+      app={
+        Object {
+          "email": "enquiries@twentyea.co.uk",
+          "image": "comingSoonImageTwentyci",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageTwentyci"
+    />
+    <Component
+      app={
+        Object {
+          "email": "enquiries@viewmychain.com",
+          "image": "comingSoonImageTwentyCiVMC",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageTwentyCiVMC"
+    />
+    <Component
+      app={
+        Object {
+          "email": "app-support@iamproperty.com",
+          "image": "comingSoonIAMProperty",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonIAMProperty"
+    />
+    <Component
+      app={
+        Object {
+          "email": "support@spectre.uk.com",
+          "image": "comingSoonImageSpectre",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageSpectre"
+    />
+  </Component>
+  <div
+    className="bb mb-4"
+  />
+  <Component
+    isHeadingSection={true}
+  >
+    Portal Integrations
+  </Component>
+  <Component
+    isMultiLine={true}
+  >
+    <Component
+      app={
+        Object {
+          "email": "",
+          "image": "comingSoonImageZoopla",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonImageZoopla"
+    />
+    <Component
+      app={
+        Object {
+          "email": "",
+          "image": "comingSoonOnTheMarket",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonOnTheMarket"
+    />
+    <Component
+      app={
+        Object {
+          "email": "",
+          "image": "comingSoonRightMove",
+        }
+      }
+      isDesktop={false}
+      key="comingSoonRightMove"
+    />
+  </Component>
 </div>
 `;

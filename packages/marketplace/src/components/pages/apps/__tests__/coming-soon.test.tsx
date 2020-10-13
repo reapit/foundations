@@ -1,16 +1,53 @@
+/* eslint-disable react/jsx-no-undef */
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import ComingSoonApps, {
   onImageError,
   getComingAppLinkHref,
   handleComingSoonSectionResizeObserver,
+  ComingSoonAppComponent,
 } from '../coming-soon'
 
 jest.mock('@/assets/images/default-feature-image.jpg', () => 'placeHolderImage')
 
+const config = {
+  agencyCloud: [
+    { image: 'comingSoonImageYourkeys', email: 'sales@yourkeys.com' },
+    { image: 'comingSoonImageVyomm', email: 'hello@vyomm.com' },
+    { image: 'comingSoonSmsSpeedWayIdVerification', email: 'support@sms-speedway.com' },
+    { image: 'comingSoonSmsSpeedway', email: 'support@sms-speedway.com' },
+    { image: 'comingSoonReapitPayments', email: 'hphillips@reapit.com' },
+    { image: 'comingSoonImageMAB', email: 'hphillips@reapit.com' },
+    { image: 'comingSoonPerfectPortal', email: 'helpdesk@perfectportal.co.uk' },
+    { image: 'comingSoonMovingHub', email: 'partner@movinghub.co.uk' },
+  ],
+  thirdParty: [
+    { image: 'comingSoonImageStarberry', email: 'hello@starberry.tv' },
+    { image: 'comingSoonImageYomdel', email: 'sales@yomdel.com' },
+    { image: 'comingSoonImageIntegrated', email: 'info@integratedinterest.com' },
+    { image: 'comingSoonImageZero', email: 'enquiries@zerodeposit.com' },
+    { image: 'comingSoonImageTwentyci', email: 'enquiries@twentyea.co.uk' },
+    { image: 'comingSoonImageTwentyCiVMC', email: 'enquiries@viewmychain.com' },
+    { image: 'comingSoonIAMProperty', email: 'app-support@iamproperty.com' },
+    { image: 'comingSoonImageSpectre', email: 'support@spectre.uk.com' },
+  ],
+  portals: [
+    { image: 'comingSoonImageZoopla', email: '' },
+    { image: 'comingSoonOnTheMarket', email: '' },
+    { image: 'comingSoonRightMove', email: '' },
+  ],
+}
+
 describe('ComingSoonApps', () => {
+  window.reapit.config.comingSoonApps = config
   it('should match a snapshot', () => {
     expect(shallow(<ComingSoonApps />)).toMatchSnapshot()
+  })
+})
+
+describe('ComingSoonAppComponent', () => {
+  it('should match a snapshot', () => {
+    expect(shallow(<ComingSoonAppComponent app={config.agencyCloud[0]} isDesktop={false} />)).toMatchSnapshot()
   })
 })
 
