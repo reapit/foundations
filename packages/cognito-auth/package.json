@@ -33,7 +33,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.60",
+    "@reapit/elements": "^1.0.3",
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
     "hardtack": "^4.1.2",
