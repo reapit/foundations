@@ -1,10 +1,26 @@
 import { Action } from '../../types/core'
 import { isType } from '../../utils/actions'
-import { fetchDeveloperListSuccess, fetchDeveloperListFailed, fetchDeveloperList } from '../../actions/devs-management'
-import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
+import {
+  fetchDeveloperListSuccess,
+  fetchDeveloperListFailed,
+  fetchDeveloperList,
+  fetchDeveloperMembersListSuccess,
+} from '../../actions/devs-management'
+import { PagedResultDeveloperModel_, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
-export type DeveloperListState = PagedResultDeveloperModel_ & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
+export type DeveloperData = DeveloperModel & {
+  subRows?: MemberModel[]
+}
+
+export type DevelopersWithMembers = PagedResultDeveloperModel_ & {
+  data: DeveloperData[]
+  currentMember?: MemberModel & {
+    isMember: boolean
+  }
+}
+
+export type DeveloperListState = DevelopersWithMembers & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
 
 export const defaultState: DeveloperListState = getDefaultFetchListValue()
 
@@ -18,6 +34,38 @@ const developerListReducer = (state: DeveloperListState = defaultState, action: 
       ...state,
       isLoading: false,
       ...(action.data || {}),
+    }
+  }
+
+  if (isType(action, fetchDeveloperMembersListSuccess)) {
+    const members = action.data?.data
+    const firstMember = members && members[0]
+
+    if (!firstMember) {
+      return {
+        ...state,
+      }
+    }
+
+    const developerToAddMembers = state.data.find(developer => developer.id === firstMember.developerId)
+
+    if (!developerToAddMembers) {
+      return {
+        ...state,
+      }
+    }
+
+    const developerWithMembers = {
+      ...developerToAddMembers,
+      subRows: members?.map(member => ({ ...member, isMember: true })),
+    }
+
+    const newDevelopers = [...state.data] as DeveloperData[]
+    newDevelopers.splice(newDevelopers.indexOf(developerToAddMembers), 1, developerWithMembers)
+
+    return {
+      ...state,
+      data: newDevelopers,
     }
   }
 
