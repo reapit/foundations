@@ -38,7 +38,7 @@ type ConfigFormProps = {}
 const ConfigForm: React.FC<ConfigFormProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const [config, setConfig]: any = useState(null)
   const [allDepartments, setAllDepartments]: any[] = useState([])
   const [allOffices, setAllOffices]: any[] = useState([])

@@ -15,8 +15,7 @@ export type ColourPickerProps = {
 
 const ColourPicker: React.FC<ColourPickerProps> = props => {
   const { id, name, placeholder, labelText, colour, onChange } = props
-
-  const [showColourPicker, setShowColourPicker]: any = useState(false)
+  const [showColourPicker, setShowColourPicker] = useState<boolean>(false)
 
   const toggleColourPicker = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setShowColourPicker(!showColourPicker)

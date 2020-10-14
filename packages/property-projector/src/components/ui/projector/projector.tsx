@@ -15,10 +15,10 @@ const Projector: React.FC<ProjectorProps> = props => {
   const { config } = props
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const [properties, setProperties]: any = useState([])
-  const [userError, setUserError]: any = useState(false)
-  const [hideToolTipMessage, setHideToolTipMessage]: any = useState(false)
+  const [userError, setUserError] = useState<boolean>(false)
+  const [hideToolTipMessage, setHideToolTipMessage] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchProjectorProperties = async () => {
