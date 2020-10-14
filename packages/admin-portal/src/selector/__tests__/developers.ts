@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { selectDeveloperSetStatusFormState } from '../developer-set-status'
+import { selectDeveloperSetStatusFormState } from '../developers'
 
 describe('selectAppDeleteFormState', () => {
   it('should run correctly', () => {
