@@ -25,10 +25,9 @@ import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
 import StatusModal from './set-status-modal/status-modal'
-import DisableMemberModal from '../../ui/disable-member-modal'
-import SetAsAdminModal from '../../ui/set-as-admin-modal'
-// import { DeveloperMemberListValues } from '../../../actions/devs-management'
-import { FetchOrganisationMembersParams } from '../../../services/developers'
+import DisableMemberModal from '@/components/ui/disable-member-modal'
+import SetAsAdminModal from '@/components/ui/set-as-admin-modal'
+import { FetchOrganisationMembersParams } from '@/services/developers'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -127,24 +126,17 @@ export const DevsManagement: React.FC = () => {
     }
   }
 
-  // const pageNo = pageNumber - 1
-  // const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
-  // const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
-
   const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
   const StatusBtnCell = ({ row: { original } }) => {
-    const ableToSetAdmin = original.role === 'user' && original.status === 'active'
-    const ableToDisable = original.status === 'active'
+    const activeUser = original.status === 'active'
     if (original.isMember) {
-      console.log(original)
-
-      return selectedUser !== original.id ? (
+      return (
         <FlexContainerBasic centerContent flexColumn>
-          {ableToDisable && (
+          {activeUser && (
             <a onClick={openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, original)}>Disable</a>
           )}
 
-          {ableToSetAdmin && (
+          {activeUser ? (
             <a
               data-test="button-cancel"
               // className={hyperlinked}
@@ -153,12 +145,13 @@ export const DevsManagement: React.FC = () => {
                 handleOpenSetAdminModal()
               }}
             >
-              Set as Admin
+              {original.role === 'user' ? 'Set Admin' : 'Unset Admin'}
             </a>
+          ) : (
+            'Inactive User'
           )}
         </FlexContainerBasic>
-      ) : null
-      // setSelectedUser(original)
+      )
     }
 
     return (
@@ -174,23 +167,17 @@ export const DevsManagement: React.FC = () => {
 
   const MembersBtnCell = ({ row: { original } }) => {
     if (original.isMember) {
-      // console.log(original)
       return null
     }
-    // console.log(original.agencyCloudAccess)
+
     return (
       <Button type="button" variant="primary" onClick={() => fetchMemberData({ id: original.id as string })}>
-        Members
+        Fetch Members
       </Button>
     )
   }
 
   const columns = [
-    // {
-    //   Header: '#',
-    //   id: 'id',
-    //   Cell: HeaderCell,
-    // },
     { Header: 'Company', accessor: 'company' },
     { Header: 'Name', accessor: 'name' },
     { Header: 'Job Title', accessor: 'jobTitle' },
@@ -235,7 +222,7 @@ export const DevsManagement: React.FC = () => {
       <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
       <DisableMemberModal
         visible={disableMemberModalVisible}
-        developer={selectedUser}
+        member={selectedUser}
         onCancel={closeDisableMemberModal(setDisableMemberModalVisible)}
         onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
       />
@@ -249,7 +236,6 @@ export const renderResult = (data, columns, totalCount) => {
     return <Alert message="No Results " type="info" />
   }
 
-  // data.map(item => console.log(item.subRows))
   return (
     <>
       <Section>

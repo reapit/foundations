@@ -1,14 +1,12 @@
 import * as React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import CallToAction from '@/components/ui/call-to-action'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { MemberModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
 import { disableMember } from '@/actions/devs-management'
-// import { selectDisableMemberLoading } from '@/selector/developers'
-import { selectCurrentMemberData } from '@/selector/developers'
 
 export interface DisableMemberModalProps extends Pick<ModalProps, 'visible'> {
-  developer?: DeveloperModel
+  member?: MemberModel
   onCancel: () => void
   onSuccess: () => void
 }
@@ -30,14 +28,13 @@ export const handleDisableMemberSuccess = (onSuccess, setSuccess) => () => {
   setSuccess(false)
 }
 
-const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, developer, onCancel, onSuccess }) => {
-  if (!developer) return null
+const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, member, onCancel, onSuccess }) => {
+  if (!member) return null
   const [isSuccess, setSuccess] = React.useState(false)
   const dispatch = useDispatch()
   const isLoading = false
-  const currentUser = useSelector(selectCurrentMemberData)
-  const developerId = currentUser?.developerId || ''
-  const { name } = developer
+  const developerId = member?.developerId || ''
+  const { name } = member
 
   return (
     <Modal
@@ -53,7 +50,7 @@ const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, develo
             variant="primary"
             loading={isLoading}
             type="button"
-            onClick={handleDisableMember(developerId, developer?.id || '', dispatch, setSuccess)}
+            onClick={handleDisableMember(developerId, member?.id || '', dispatch, setSuccess)}
           >
             CONTINUE
           </Button>
@@ -91,7 +88,7 @@ const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, develo
                   loading={isLoading as boolean}
                   type="button"
                   variant="primary"
-                  onClick={handleDisableMember(developerId, developer?.id || '', dispatch, setSuccess)}
+                  onClick={handleDisableMember(developerId, member?.id || '', dispatch, setSuccess)}
                 >
                   Continue
                 </Button>

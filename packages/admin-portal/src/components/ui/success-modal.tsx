@@ -22,7 +22,7 @@ export const SuccessModal: React.FunctionComponent<SuccessModalProps> = ({ name,
     >
       <Content>
         <p>
-          ‘<strong>{name}</strong>’ has been successfully set as an Admin of your organisation
+          Admin status for ‘<strong>{name}</strong>’ has successfully been updated
         </p>
       </Content>
     </ModalV2>
