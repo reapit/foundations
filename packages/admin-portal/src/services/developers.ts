@@ -20,20 +20,25 @@ export type FetchDevelopersListParams = FetchListCommonParams & {
   registeredTo?: string
 }
 
-export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
+export type UpdateDeveloperParams = FetchByIdCommonParams & UpdateDeveloperModel
 
 export type FetchDeveloperBillingPeriod = {
   period: string
 }
 
-export type UpdateOrganisationMemberByIdParams = FetchByIdCommonParams & {
+export type UpdateDeveloperMemberParams = FetchByIdCommonParams & {
   memberId: string
 } & UpdateMemberModel
 
-export type FetchOrganisationMembersParams = FetchByIdCommonParams &
+export type FetchDeveloperMembersParams = FetchByIdCommonParams &
   FetchListCommonParams & {
     email?: string
   }
+
+export type DisableDeveloperMemberParams = AcceptInviteModel & {
+  developerId: string
+  memberId: string
+}
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -50,7 +55,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
   }
 }
 
-export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => {
+export const updateDeveloperById = async (params: UpdateDeveloperParams) => {
   try {
     const { id, ...rest } = params
     const response = await fetcher({
@@ -84,7 +89,7 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
 }
 
 export const fetchOrganisationMembers = async (
-  params: FetchOrganisationMembersParams,
+  params: FetchDeveloperMembersParams,
 ): Promise<PagedResultMemberModel_> => {
   try {
     const { id, ...restParams } = params
@@ -101,7 +106,7 @@ export const fetchOrganisationMembers = async (
   }
 }
 
-export const updateOrganisationMemberById = async (params: UpdateOrganisationMemberByIdParams) => {
+export const updateOrganisationMemberById = async (params: UpdateDeveloperMemberParams) => {
   try {
     const { id: developerId, memberId, ...rest } = params
     const response = await fetcher({
@@ -118,12 +123,7 @@ export const updateOrganisationMemberById = async (params: UpdateOrganisationMem
   }
 }
 
-export type DisableMemberParams = AcceptInviteModel & {
-  developerId: string
-  memberId: string
-}
-
-export const disableMemberApi = async (params: DisableMemberParams) => {
+export const disableMemberApi = async (params: DisableDeveloperMemberParams) => {
   try {
     const { developerId, memberId } = params
     const response = await fetcher({

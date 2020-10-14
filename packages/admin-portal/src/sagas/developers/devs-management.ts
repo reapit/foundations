@@ -18,7 +18,7 @@ import dayjs from 'dayjs'
 import {
   fetchDevelopersList,
   fetchOrganisationMembers,
-  FetchOrganisationMembersParams,
+  FetchDeveloperMembersParams,
   disableMemberApi,
   updateOrganisationMemberById,
 } from '@/services/developers'
@@ -53,7 +53,7 @@ export const fetchDeveloperListHandler = function*({ data: { page, queryString }
   }
 }
 
-export const organisationFetchMembers = function*({ data }: Action<FetchOrganisationMembersParams>) {
+export const organisationFetchMembers = function*({ data }: Action<FetchDeveloperMembersParams>) {
   try {
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchDeveloperMembersListSuccess(response))
@@ -101,7 +101,7 @@ export const fetchDeveloperListListen = function*() {
 }
 
 export const fetchDeveloperMemberListListen = function*() {
-  yield takeLatest<Action<FetchOrganisationMembersParams>>(
+  yield takeLatest<Action<FetchDeveloperMembersParams>>(
     ActionTypes.FETCH_DEVELOPER_MEMBER_LIST,
     organisationFetchMembers,
   )

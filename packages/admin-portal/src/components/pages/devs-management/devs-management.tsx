@@ -27,7 +27,7 @@ import { cleanObject } from '@reapit/utils'
 import StatusModal from './set-status-modal/status-modal'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
 import SetAsAdminModal from '@/components/ui/set-as-admin-modal'
-import { FetchOrganisationMembersParams } from '@/services/developers'
+import { FetchDeveloperMembersParams } from '@/services/developers'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -41,7 +41,7 @@ export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDevelo
   dispatch(fetchDeveloperList(requestData))
 }
 
-export const handleFetchMemberData = (dispatch: Dispatch) => (requestData: FetchOrganisationMembersParams) => {
+export const handleFetchMemberData = (dispatch: Dispatch) => (requestData: FetchDeveloperMembersParams) => {
   dispatch(fetchDeveloperMemberList(requestData))
 }
 
