@@ -1,9 +1,10 @@
 import developersReducer, { defaultState as developerReducerDefaultState } from '../../developers'
-import { defaultState as developerListState } from '../../developers/list'
+import { defaultState as developerListState, DeveloperListState } from '../../developers/list'
 
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
+import { memberStub } from '@/sagas/developers/__stubs__/member'
 import { errorMessages } from '@reapit/utils'
 
 describe('developersReducer reducer', () => {
@@ -54,6 +55,30 @@ describe('developersReducer reducer', () => {
         pageSize: 10,
         pageCount: 10,
         totalCount: 69,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should add subrows of members to a developer when fetchDeveloperMembersListSuccess is called', () => {
+    const newState = developersReducer(
+      {
+        ...developerReducerDefaultState,
+        list: {
+          data: [developerStub],
+        } as DeveloperListState,
+      },
+      {
+        type: ActionTypes.FETCH_DEVELOPER_MEMBERS_LIST_SUCCESS,
+        data: {
+          data: [memberStub],
+        },
+      },
+    )
+    const expected = {
+      ...developerReducerDefaultState,
+      list: {
+        data: [{ ...developerStub, subRows: [memberStub] }],
       },
     }
     expect(newState).toEqual(expected)

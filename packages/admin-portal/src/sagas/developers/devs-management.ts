@@ -58,7 +58,6 @@ export const organisationFetchMembers = function*({ data }: Action<FetchDevelope
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchDeveloperMembersListSuccess(response))
   } catch (err) {
-    yield put(fetchDeveloperMembersListSuccess(err?.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',
@@ -68,9 +67,8 @@ export const organisationFetchMembers = function*({ data }: Action<FetchDevelope
 
 export const developerDisableMember = function*({ data }: Action<DisableMemberActionParams>) {
   try {
-    yield call(disableMemberApi, data)
+    yield call(disableMemberApi, { developerId: data.developerId, memberId: data.memberId })
     data.callback(true)
-    console.log(data)
     yield put(fetchDeveloperMemberList({ id: data.developerId }))
   } catch (err) {
     data.callback(false)
@@ -81,12 +79,12 @@ export const developerDisableMember = function*({ data }: Action<DisableMemberAc
   }
 }
 
-export const setDeloperMemberAdmin = function*({ data }: Action<SetAsAdminParams>) {
+export const setDeveloperMemberAdmin = function*({ data }: Action<SetAsAdminParams>) {
   const { callback, ...params } = data
   try {
     yield call(updateOrganisationMemberById, params)
     yield put(fetchDeveloperMemberList({ id: data.id }))
-    console.log(data)
+
     callback && callback()
   } catch (err) {
     notification.error({
@@ -111,8 +109,8 @@ export const disableDeveloperMemberListen = function*() {
   yield takeLatest<Action<DisableMemberActionParams>>(ActionTypes.DISABLE_MEMBER, developerDisableMember)
 }
 
-export const setDeloperMemberAdminListen = function*() {
-  yield takeLatest<Action<SetAsAdminParams>>(ActionTypes.SET_AS_ADMIN, setDeloperMemberAdmin)
+export const setDeveloperMemberAdminListen = function*() {
+  yield takeLatest<Action<SetAsAdminParams>>(ActionTypes.SET_AS_ADMIN, setDeveloperMemberAdmin)
 }
 
 const devsManagementSagas = function*() {
@@ -120,7 +118,7 @@ const devsManagementSagas = function*() {
     fork(fetchDeveloperListListen),
     fork(fetchDeveloperMemberListListen),
     fork(disableDeveloperMemberListen),
-    fork(setDeloperMemberAdminListen),
+    fork(setDeveloperMemberAdminListen),
   ])
 }
 

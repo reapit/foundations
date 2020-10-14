@@ -18,7 +18,7 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
 import { fetchDeveloperList, fetchDeveloperListValues, fetchDeveloperMemberList } from '@/actions/devs-management'
 import qs from 'querystring'
 import { selectDeveloperListState } from '@/selector/admin'
@@ -83,7 +83,11 @@ export const closeDisableMemberModal = (
   setDisableMemberModalVisible(false)
 }
 
-export const openDisableMemberModal = (setSelectedUser, setDisableMemberModalVisible, user) => () => {
+export const openDisableMemberModal = (
+  setSelectedUser: React.Dispatch<React.SetStateAction<MemberModel>>,
+  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+  user: MemberModel,
+) => () => {
   setSelectedUser(user)
   setDisableMemberModalVisible(true)
 }
@@ -139,7 +143,7 @@ export const DevsManagement: React.FC = () => {
           {activeUser ? (
             <a
               data-test="button-cancel"
-              // className={hyperlinked}
+              className="text-ellipsis"
               onClick={() => {
                 setSelectedUser(original)
                 handleOpenSetAdminModal()
