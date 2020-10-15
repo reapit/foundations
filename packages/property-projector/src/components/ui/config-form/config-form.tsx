@@ -11,6 +11,7 @@ import ColourPicker from '../colour-picker'
 import { ERROR_MESSAGES } from '@/constants/errors'
 import { SELLING_STATUS, LETTING_STATUS } from '@/constants/statuses'
 import { getNegotiatorOfficeId } from '@/util/negotiator-helper'
+import { PropertyProjectorConfig, Department, Office } from '@/types/global'
 import {
   H5,
   Section,
@@ -39,12 +40,14 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const [loading, setLoading] = useState<boolean>(true)
-  const [config, setConfig]: any = useState(null)
-  const [allDepartments, setAllDepartments]: any[] = useState([])
-  const [allOffices, setAllOffices]: any[] = useState([])
-  const [officeId, setOfficeId] = useState('')
+  const [config, setConfig] = useState<PropertyProjectorConfig>()
+  const [allDepartments, setAllDepartments] = useState<Department[]>([])
+  const [allOffices, setAllOffices] = useState<Office[]>([])
+  const [officeId, setOfficeId] = useState<string>('')
 
-  const [showProjector, hideProjector] = usePortal(() => <Projector config={config} />, [config])
+  const [showProjector, hideProjector] = usePortal(() => <Projector config={config as PropertyProjectorConfig} />, [
+    config,
+  ])
 
   console.info('Reapit Property Projector Config: ', config)
 
@@ -63,7 +66,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
         }
       })
 
-      setAllDepartments(departments)
+      setAllDepartments(departments as Department[])
     }
 
     const fetchOffices = async () => {
@@ -76,7 +79,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
         }
       })
 
-      setAllOffices(offices)
+      setAllOffices(offices as Office[])
     }
 
     const fetchNegotiatorOfficeId = async () => {
@@ -114,7 +117,7 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
   }
 
   const getInitialFormValues = () => {
-    const { departments, ...initalFormValues } = config
+    const { departments, ...initalFormValues } = config as PropertyProjectorConfig
     const departmentPropertyTypes = {}
 
     // set a default for the 'departmentPropertyTypes'

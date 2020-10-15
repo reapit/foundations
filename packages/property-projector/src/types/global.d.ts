@@ -29,6 +29,17 @@ export type PropertyProjectorConfig = {
   offices: string[]
 }
 
+export type Department = {
+  id: string
+  name: string
+  propertyTypes: string[]
+}
+
+export type Office = {
+  id: string
+  name: string
+}
+
 declare global {
   interface Window {
     reapit: {
