@@ -1,6 +1,6 @@
-import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
+import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const categoriesStub: PagedResultCategoryModel_ = {
+export const categoriesStub: CategoryModelPagedResult = {
   data: [
     {
       id: '3',

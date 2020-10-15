@@ -12,7 +12,7 @@ import {
   deleteSubscription,
   createDeveloperSubscription,
 } from '@/services/developer-subscriptions'
-import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { subscriptionModelStub } from '@/sagas/__stubs__/developer-subscriptions'
 import {
   developerFetchSubscriptionsSuccess,
@@ -40,7 +40,7 @@ describe('developerSubscriptionsSagas', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next({}).value).toEqual(put(developerFetchSubscriptionsSuccess({} as PagedResultSubscriptionModel_)))
+      expect(clone.next({}).value).toEqual(put(developerFetchSubscriptionsSuccess({} as SubscriptionModelPagedResult)))
       expect(clone.next().done).toBe(true)
     })
 

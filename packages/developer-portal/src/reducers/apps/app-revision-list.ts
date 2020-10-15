@@ -6,14 +6,14 @@ import {
   fetchAppRevisionListFailed,
   clearAppRevisionList,
 } from '@/actions/apps'
-import { PagedResultAppRevisionModel_ } from '@reapit/foundations-ts-definitions'
+import { AppRevisionModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface FetchAppRevisionListParams {
   page: number
   appsPerPage?: number
 }
 
-export type AppRevisionListState = PagedResultAppRevisionModel_ & {
+export type AppRevisionListState = AppRevisionModelPagedResult & {
   isLoading: boolean
   errorMessage?: string | null
 }

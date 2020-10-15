@@ -1,6 +1,6 @@
-import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const installationsStub: PagedResultInstallationModel_ = {
+export const installationsStub: InstallationModelPagedResult = {
   data: [
     {
       id: 'b3c2f644-3241-4298-b320-b0398ff492f9',

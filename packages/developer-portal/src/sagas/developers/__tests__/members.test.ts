@@ -28,7 +28,7 @@ import {
   disableMemberFailed,
 } from '@/actions/developers'
 import ActionTypes from '@/constants/action-types'
-import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
+import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { getDeveloperId } from '@/utils/session'
 import { notification } from '@reapit/elements'
 
@@ -56,7 +56,7 @@ describe('members', () => {
 
     it('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next({}).value).toEqual(put(fetchOrganisationMembersSuccess({} as PagedResultMemberModel_)))
+      expect(clone.next({}).value).toEqual(put(fetchOrganisationMembersSuccess({} as MemberModelPagedResult)))
       expect(clone.next().done).toBe(true)
     })
 

@@ -4,7 +4,7 @@ import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, FlexC
 import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel } from '@reapit/foundations-ts-definitions'
 import { ValidateFormikOnMount } from '../utils'
 import authFlows from '@/constants/app-auth-flow'
 import { wizzardSteps } from '../constant'

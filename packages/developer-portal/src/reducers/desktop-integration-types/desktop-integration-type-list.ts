@@ -5,14 +5,14 @@ import {
   fetchDesktopIntegrationTypeListSuccess,
   fetchDesktopIntegrationTypeListFailed,
 } from '@/actions/desktop-integration-types'
-import { PagedResultDesktopIntegrationTypeModel_ } from '@reapit/foundations-ts-definitions'
+import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface FetchDesktopIntegrationTypeListParams {
   page: number
   desktopIntegrationTypesPerPage?: number
 }
 
-export type DesktopIntegrationTypeListState = PagedResultDesktopIntegrationTypeModel_ & {
+export type DesktopIntegrationTypeListState = DesktopIntegrationTypeModelPagedResult & {
   isLoading: boolean
   errorMessage?: string | null
 }

@@ -8,7 +8,7 @@ import {
   developerCreateSubscriptionFalure,
   developerCreateSubscriptionClearError,
 } from '@/actions/developer-subscriptions'
-import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export type DeveloperSubscriptionsState = {
   create: CreateDeveloperSubscriptionsState
@@ -21,7 +21,7 @@ export type CreateDeveloperSubscriptionsState = {
 }
 
 export type ListDeveloperSubscriptionsState = {
-  data: PagedResultSubscriptionModel_ | null
+  data: SubscriptionModelPagedResult | null
   isLoading: boolean
 }
 

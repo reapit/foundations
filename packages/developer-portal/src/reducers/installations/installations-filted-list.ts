@@ -1,6 +1,6 @@
 import { Action } from '../../types/core'
 import { isType } from '../../utils/actions'
-import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   fetchInstallationsFilterList,
   fetchInstallationsFilterListSuccess,
@@ -9,7 +9,7 @@ import {
 
 export interface InstallationsFilterListState {
   isLoading: boolean
-  list: PagedResultInstallationModel_ | null
+  list: InstallationModelPagedResult | null
 }
 
 export const defaultState: InstallationsFilterListState = {

@@ -1,6 +1,6 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
-import { AppClientSecretModel } from '@/types/marketplace-api-schema'
+import { AppClientSecretModel } from '@reapit/foundations-ts-definitions'
 
 export const fetchtAppAuthentication = actionCreator<string>(ActionTypes.FETCH_APP_AUTHENTICATION)
 export const fetchtAppAuthenticationSuccess = actionCreator<AppClientSecretModel>(

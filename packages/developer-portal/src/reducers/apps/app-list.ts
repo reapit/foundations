@@ -1,14 +1,14 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchAppList, fetchAppListSuccess, fetchAppListFailed, clearAppList } from '@/actions/apps'
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface FetchAppListParams {
   page: number
   appsPerPage?: number
 }
 
-export type AppListState = PagedResultAppSummaryModel_ & {
+export type AppListState = AppSummaryModelPagedResult & {
   isLoading: boolean
   errorMessage?: string | null
 }

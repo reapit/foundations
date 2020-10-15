@@ -24,7 +24,7 @@ export type DesktopIntegrationTypeModel = {
   url?: string
 }
 
-export type PagedResultDesktopIntegrationTypeModel_ = {
+export type DesktopIntegrationTypeModelPagedResult = {
   data?: DesktopIntegrationTypeModel[]
   pageNumber?: number
   pageSize?: number
@@ -42,7 +42,7 @@ export type UpdateDesktopIntegrationTypesByIdParams = FetchByIdCommonParams & Up
 
 export const fetchDesktopIntegrationTypeListAPI = async (
   params: fetchDesktopIntegrationTypeListAPIParams,
-): Promise<PagedResultDesktopIntegrationTypeModel_> => {
+): Promise<DesktopIntegrationTypeModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
