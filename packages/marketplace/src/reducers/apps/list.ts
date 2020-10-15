@@ -1,10 +1,10 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchApps, fetchAppsSuccess, fetchAppsFailed, fetchAppsInfiniteSuccess } from '@/actions/apps'
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { mergeAppsWithoutDuplicateId } from '@/utils/browse-app'
 
-export type AppsListState = PagedResultAppSummaryModel_ & {
+export type AppsListState = AppSummaryModelPagedResult & {
   isLoading: boolean
   errorMessage: string
 }

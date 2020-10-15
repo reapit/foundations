@@ -1,9 +1,9 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchFeatureApps, fetchFeatureAppsSuccess, fetchFeatureAppsFailed } from '@/actions/apps'
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export type FeatureListState = PagedResultAppSummaryModel_ & {
+export type FeatureListState = AppSummaryModelPagedResult & {
   isLoading: boolean
   errorMessage: string
 }

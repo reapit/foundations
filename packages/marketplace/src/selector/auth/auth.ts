@@ -18,11 +18,16 @@ export const selectIsUser = (state: ReapitConnectSession | null): boolean => {
 }
 
 export const selectClientId = (state: ReapitConnectSession | null): string => {
-  return state?.loginIdentity?.clientId || ''
+  return state?.loginIdentity?.clientId || 'SBOX'
 }
 
-export const selectDeveloperId = (state: ReapitConnectSession | null): string => {
-  return state?.loginIdentity.developerId || ''
+export const selectDeveloperId = (state: ReapitConnectSession | null): string | null => {
+  return state?.loginIdentity.developerId || null
+}
+
+export const selectSandboxDeveloper = (state: ReapitConnectSession | null): string | null => {
+  const developerId = selectDeveloperId(state)
+  return selectClientId(state) === 'SBOX' && developerId ? developerId : null
 }
 
 export const selectLoggedUserEmail = (state: ReapitConnectSession | null): string => {

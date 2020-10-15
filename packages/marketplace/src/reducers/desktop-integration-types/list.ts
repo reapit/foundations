@@ -1,5 +1,5 @@
 import { isType } from '@/utils/actions'
-import { PagedResultDesktopIntegrationTypeModel_ } from '@reapit/foundations-ts-definitions'
+import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   fetchDesktopIntegrationTypes,
   fetchDesktopIntegrationTypesFailed,
@@ -7,7 +7,7 @@ import {
 } from '@/actions/desktop-integration-types'
 import { Action } from '@/types/core'
 
-export type DesktopIntegrationTypesState = PagedResultDesktopIntegrationTypeModel_ & {
+export type DesktopIntegrationTypesState = DesktopIntegrationTypeModelPagedResult & {
   isLoading: boolean
   errorMessage: string
 }

@@ -1,4 +1,4 @@
-import { PagedResultAppSummaryModel_, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -21,7 +21,7 @@ export type FetchAppsParams = FetchListCommonParams & {
   registeredTo?: string
 }
 
-export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsApi = async (params: FetchAppsParams): Promise<AppSummaryModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
