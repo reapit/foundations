@@ -66,6 +66,10 @@ export interface AppClientSecretModel {
  */
 export interface AppDetailModel {
   /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
    * Gets the GUID of the app
    */
   id?: string // uuid
@@ -169,9 +173,6 @@ export interface AppDetailModel {
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
-  /**
-   * Gets the apps category
-   */
   category?: CategoryModel
   /**
    * Gets the collection of scopes against the app
@@ -181,15 +182,15 @@ export interface AppDetailModel {
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
-  /**
-   * Gets the links associated to this model
-   */
-  readonly links?: LinkModel[]
 }
 /**
  * App revision detailed representation
  */
 export interface AppRevisionModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * Gets the unique identifier of the app revision
    */
@@ -258,9 +259,6 @@ export interface AppRevisionModel {
    * Gets the desktop integration type ids of this revision
    */
   desktopIntegrationTypeIds?: string[]
-  /**
-   * Gets the app revisions category
-   */
   category?: CategoryModel
   /**
    * Gets the scopes that have been associated to this revision
@@ -270,15 +268,28 @@ export interface AppRevisionModel {
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface AppRevisionModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: AppRevisionModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * App summary representation
  */
 export interface AppSummaryModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * Gets the GUID of the app
    */
@@ -355,15 +366,28 @@ export interface AppSummaryModel {
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface AppSummaryModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: AppSummaryModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Approval representation
  */
 export interface ApprovalModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * Apps unique identifier
    */
@@ -384,10 +408,19 @@ export interface ApprovalModel {
    * Gets the date the revision was created
    */
   readonly created?: string // date-time
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface ApprovalModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: ApprovalModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * The model responsible for the approval of an app revision
@@ -407,6 +440,10 @@ export interface ApproveModel {
  */
 export interface CategoryModel {
   /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
    * Gets the unique identifier associated to the category
    */
   id?: string
@@ -418,10 +455,19 @@ export interface CategoryModel {
    * Gets the description of the category
    */
   description?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface CategoryModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: CategoryModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Model to expose company address info
@@ -774,9 +820,6 @@ export interface CreateDeveloperModel {
    * Sets the registration number of the developers organisation
    */
   registrationNumber?: string
-  /**
-   * Sets the address of the developers organisation
-   */
   companyAddress?: CreateAddressModel
 }
 /**
@@ -826,6 +869,10 @@ export interface CreateSubscriptionModel {
  */
 export interface CustomerModel {
   /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
    * Gets the unique identifier associated to the customer
    */
   id?: string // uuid
@@ -845,19 +892,29 @@ export interface CustomerModel {
    * Gets the name of the customer
    */
   name?: string
-  /**
-   * Gets the address of the customer
-   */
   address?: AddressModel
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface CustomerModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: CustomerModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Model that represents a desktop integration type
  */
 export interface DesktopIntegrationTypeModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * The unique identifier of the integration type
    */
@@ -874,15 +931,28 @@ export interface DesktopIntegrationTypeModel {
    * A link to the integration types documentation
    */
   url?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface DesktopIntegrationTypeModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: DesktopIntegrationTypeModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Model that represents a developer
  */
 export interface DeveloperModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * The id of this developer
    */
@@ -971,19 +1041,29 @@ export interface DeveloperModel {
    * The status of the developer (incomplete/pending/confirmed/underReview/removed)
    */
   status?: string
-  /**
-   * The address of the developers organisation
-   */
   companyAddress?: CompanyAddressModel
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface DeveloperModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: DeveloperModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * Installation representation
  */
 export interface InstallationModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * Gets the unique identifier of the installation
    */
@@ -1024,14 +1104,20 @@ export interface InstallationModel {
    * Gets the name of the customer that has granted access to the app (or revoked it)
    */
   customerName?: string
-  /**
-   * Gets the address of the customer
-   */
   customerAddress?: AddressModel
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface InstallationModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: InstallationModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * The model responsible for inviting a recipient to a developer organisation
@@ -1080,6 +1166,10 @@ export interface LinkModel {
  */
 export interface MediaModel {
   /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+  /**
    * Gets the unique identifier of the media item
    */
   id?: string // uuid
@@ -1099,15 +1189,15 @@ export interface MediaModel {
    * Gets the order of this particular picture in the list of available media
    */
   order?: number // int32
-  /**
-   * Gets the links associated to this model
-   */
-  readonly links?: LinkModel[]
 }
 /**
  * Model that represents a member of a developer organisation
  */
 export interface MemberModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * The id of this member
    */
@@ -1152,119 +1242,11 @@ export interface MemberModel {
    * A flag specifying if the member has access to agency cloud
    */
   agencyCloudAccess?: boolean
-  /**
-   * Gets the links associated to this model
-   */
-  readonly links?: LinkModel[]
 }
 /**
  * Model to handle paged data and information
  */
-export interface PagedResultAppRevisionModel_ {
-  /**
-   * List of paged data
-   */
-  data?: AppRevisionModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultAppSummaryModel_ {
-  /**
-   * List of paged data
-   */
-  data?: AppSummaryModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultApprovalModel_ {
-  /**
-   * List of paged data
-   */
-  data?: ApprovalModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultCategoryModel_ {
-  /**
-   * List of paged data
-   */
-  data?: CategoryModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultCustomerModel_ {
-  /**
-   * List of paged data
-   */
-  data?: CustomerModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultDesktopIntegrationTypeModel_ {
-  /**
-   * List of paged data
-   */
-  data?: DesktopIntegrationTypeModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultDeveloperModel_ {
-  /**
-   * List of paged data
-   */
-  data?: DeveloperModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultInstallationModel_ {
-  /**
-   * List of paged data
-   */
-  data?: InstallationModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultMemberModel_ {
+export interface MemberModelPagedResult {
   /**
    * List of paged data
    */
@@ -1274,18 +1256,13 @@ export interface PagedResultMemberModel_ {
   pageCount?: number // int32
   totalCount?: number // int32
 }
-/**
- * Model to handle paged data and information
- */
-export interface PagedResultSubscriptionModel_ {
-  /**
-   * List of paged data
-   */
-  data?: SubscriptionModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
+export interface ProblemDetails {
+  [name: string]: any
+  type?: string
+  title?: string
+  status?: number // int32
+  detail?: string
+  instance?: string
 }
 /**
  * The model responsible for rejection of a revision
@@ -1325,6 +1302,10 @@ export interface ScopeModel {
  * Model to expose subscription info
  */
 export interface SubscriptionModel {
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
   /**
    * The unique identifier associated to the subscription
    */
@@ -1369,10 +1350,19 @@ export interface SubscriptionModel {
    * The frequency in which the subscription renews (monthly/annually)
    */
   frequency?: string
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface SubscriptionModelPagedResult {
   /**
-   * Gets the links associated to this model
+   * List of paged data
    */
-  readonly links?: LinkModel[]
+  data?: SubscriptionModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
 }
 /**
  * The model responsible for terminating the installation between a specific client and app
@@ -1522,9 +1512,6 @@ export interface UpdateDeveloperModel {
    * Sets the status of the developer
    */
   status?: string
-  /**
-   * Sets the address of the developers organisation
-   */
   companyAddress?: UpdateAddressModel
 }
 /**
