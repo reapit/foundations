@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { useHistory } from 'react-router-dom'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
+import { FaReadme, FaCog, FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -33,14 +32,14 @@ export const generateMenuConfig = (
         title: 'Docs',
         key: 'DOCS',
         url: '/docs',
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <FaReadme className="nav-item-icon" />,
         type: 'PRIMARY',
       },
       {
         title: 'Config',
         key: 'CONFIG',
         url: '/',
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <FaCog className="nav-item-icon" />,
         type: 'PRIMARY',
       },
       {
