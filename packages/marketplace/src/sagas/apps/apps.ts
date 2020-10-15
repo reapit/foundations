@@ -34,7 +34,7 @@ export const fetchApps = function*({ data }) {
 
     const response = yield call(fetchAppsApi, fetchAppsParams)
 
-    if (isInfinite) {
+    if (isInfinite || developerId) {
       yield put(fetchAppsInfiniteSuccess(response))
       return
     }
