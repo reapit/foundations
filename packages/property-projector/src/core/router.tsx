@@ -32,6 +32,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const ProjectorAppPage = React.lazy(() => catchChunkError(() => import('../components/pages/projectorApp')))
+const DocumentationPage = React.lazy(() => catchChunkError(() => import('../components/pages/documentation')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -41,7 +42,8 @@ const Router = () => (
           <Route path={Routes.LOGIN} component={LoginPage} />
           <PrivateRouteWrapper>
             <Switch>
-              <Route path={Routes.HOME} component={ProjectorAppPage} />
+              <Route exact path={Routes.HOME} component={ProjectorAppPage} />
+              <Route path={Routes.DOCS} component={DocumentationPage} />
             </Switch>
           </PrivateRouteWrapper>
           <Redirect to={Routes.LOGIN} />

@@ -1,13 +1,13 @@
 import React from 'react'
 import { FormSection, FormHeading, FormSubHeading, Checkbox } from '@reapit/elements'
+import { Department } from '@/types/global'
 
 type DepartmentCheckboxesProps = {
-  departments: any[]
+  departments: Department[]
 }
 
 const DepartmentCheckboxes: React.FC<DepartmentCheckboxesProps> = props => {
   const { departments } = props
-
   const departmentCheckboxes = departments.map(dep => {
     return (
       <React.Fragment key={dep.id}>

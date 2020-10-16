@@ -1,13 +1,13 @@
 import React from 'react'
 import { FormSection, FormHeading, FormSubHeading, Checkbox, Grid, GridItem } from '@reapit/elements'
+import { Office } from '@/types/global'
 
 type OfficeCheckboxesProps = {
-  offices: any[]
+  offices: Office[]
 }
 
 const OfficeCheckboxes: React.FC<OfficeCheckboxesProps> = props => {
   const { offices } = props
-
   return (
     <FormSection>
       <FormHeading>Offices</FormHeading>

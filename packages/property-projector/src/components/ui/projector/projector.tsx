@@ -3,12 +3,13 @@ import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import getProjectorProperties from '@/util/projector-properties'
 import ProjectorProperty from './property'
+import { PropertyProjectorConfig } from '@/types/global'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 
 export type ProjectorProps = {
-  config: any
+  config: PropertyProjectorConfig
 }
 
 const Projector: React.FC<ProjectorProps> = props => {
@@ -17,7 +18,7 @@ const Projector: React.FC<ProjectorProps> = props => {
 
   const [loading, setLoading] = useState<boolean>(true)
   const [properties, setProperties]: any = useState([])
-  const [userError, setUserError] = useState<boolean>(false)
+  const [userError, setUserError] = useState<string>('')
   const [hideToolTipMessage, setHideToolTipMessage] = useState<boolean>(false)
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const Projector: React.FC<ProjectorProps> = props => {
   if (loading) {
     return (
       <div className="projector-loading" style={{ backgroundColor: config.primaryColour }}>
-        {userError === false ? 'loading...' : `${userError} Press 'ESC' to close.`}
+        {userError === '' ? 'loading...' : `${userError} Press 'ESC' to close.`}
       </div>
     )
   }
