@@ -49,8 +49,16 @@ export const appsListReducer = (state: AppsListState = defaultAppsListState, act
   }
 
   if (isType(action, fetchDeveloperAppsSuccess)) {
+    const {
+      data: { data: developerApps },
+    } = action
+
+    const { data: oldAppsList } = state
+
+    const uniqueAppsList = mergeAppsWithoutDuplicateId(developerApps || [], oldAppsList, [])
     return {
       ...state,
+      data: uniqueAppsList,
       isLoading: false,
       developerApps: action.data.data || [],
     }
