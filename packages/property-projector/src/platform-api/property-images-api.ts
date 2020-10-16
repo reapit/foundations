@@ -2,6 +2,7 @@ import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { PagedResultPropertyImageModel_ } from '@reapit/foundations-ts-definitions'
 import { URLS, BASE_HEADERS } from '@/constants/api'
+import { getAllResource } from '@/util/api-helper'
 
 export const getPropertyImages = async (
   session: ReapitConnectSession,
@@ -34,26 +35,6 @@ export const getPropertyImages = async (
   }
 }
 
-export const getAllPropertyImages = async (session: ReapitConnectSession, criteria?: URLSearchParams) => {
-  const pageSize = 100
-  let propertyImages: any = []
-  let pageNumber = 1
-  let keepGoing = true
-
-  criteria?.set('pageSize', `${pageSize}`)
-
-  try {
-    while (keepGoing) {
-      criteria?.set('pageNumber', `${pageNumber}`)
-      let response = await getPropertyImages(session, criteria?.toString())
-      propertyImages = propertyImages.concat(response?._embedded)
-      if (pageSize !== response?.pageCount) {
-        keepGoing = false
-      }
-      pageNumber++
-    }
-    return propertyImages
-  } catch (err) {
-    console.error('Error fetching Property Images', err.message)
-  }
+export const getAllPropertyImages = (session: ReapitConnectSession, criteria: URLSearchParams) => {
+  return getAllResource(session, getPropertyImages, criteria)
 }

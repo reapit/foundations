@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getPropertyProjectorConfig, savePropertyProjectorConfig } from '@/util/property-projector-config'
-import { getDepartments } from '@/platform-api/departments-api'
-import { getOffices } from '@/platform-api/offices-api'
+import { getAllDepartments } from '@/platform-api/departments-api'
+import { getAllOffices } from '@/platform-api/offices-api'
 import DepartmentCheckboxes from './department-checkboxes'
 import OfficeCheckboxes from './office-checkboxes'
 import Projector from '../projector'
@@ -48,47 +48,29 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
 
   console.info('Reapit Property Projector Config: ', config)
 
-  /**
-   * @todo adjust so the departments/offices aren't limited by pagination
-   */
   useEffect(() => {
     const fetchDepartments = async () => {
-      const departments = (await getDepartments(connectSession as ReapitConnectSession))?._embedded?.map(department => {
-        const { id, name, typeOptions: propertyTypes } = department
-
-        return {
-          id,
-          name,
-          propertyTypes,
-        }
-      })
-
-      setAllDepartments(departments)
+      setAllDepartments(await getAllDepartments(connectSession as ReapitConnectSession))
     }
 
     const fetchOffices = async () => {
-      const offices = (await getOffices(connectSession as ReapitConnectSession))?._embedded?.map(department => {
-        const { id, name } = department
-
-        return {
-          id,
-          name,
-        }
-      })
-
-      setAllOffices(offices)
+      setAllOffices(await getAllOffices(connectSession as ReapitConnectSession))
     }
 
     const fetchNegotiatorOfficeId = async () => {
       setOfficeId(await getNegotiatorOfficeId(connectSession as ReapitConnectSession))
     }
 
+    const fetchPropertyProjectorConfig = async () => {
+      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
+    }
+
     if (connectSession) {
       console.log('Session Data:', connectSession)
 
-      Promise.all([fetchDepartments(), fetchOffices(), fetchNegotiatorOfficeId()]).catch(err =>
-        console.error(`Inital load error: ${err}`),
-      )
+      Promise.all([fetchDepartments(), fetchOffices(), fetchNegotiatorOfficeId()]) // get all of the departments/offices and negotiator office id
+        .then(() => fetchPropertyProjectorConfig().then(() => setLoading(false))) // then fetch the property projector config - then finally set loading to false
+        .catch(err => console.error(`Inital load error: ${err}`))
 
       window.addEventListener('keydown', escapeKeyPressed, false)
     }
@@ -97,16 +79,6 @@ const ConfigForm: React.FC<ConfigFormProps> = () => {
       window.removeEventListener('keydown', escapeKeyPressed, false)
     }
   }, [connectSession])
-
-  useEffect(() => {
-    const fetchPropertyProjectorConfig = async () => {
-      setConfig(await getPropertyProjectorConfig(connectSession as ReapitConnectSession, officeId))
-    }
-
-    if (officeId !== '') {
-      fetchPropertyProjectorConfig().then(() => setLoading(false))
-    }
-  }, [officeId])
 
   const escapeKeyPressed = event => {
     if (event.keyCode !== 27) return

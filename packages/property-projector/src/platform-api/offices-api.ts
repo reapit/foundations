@@ -2,12 +2,23 @@ import { fetcher } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { PagedResultOfficeModel_ } from '@reapit/foundations-ts-definitions'
 import { URLS, BASE_HEADERS } from '@/constants/api'
+import { getAllResource } from '@/util/api-helper'
 
-export const getOffices = async (session: ReapitConnectSession): Promise<PagedResultOfficeModel_ | undefined> => {
+export const getOffices = async (
+  session: ReapitConnectSession,
+  criteria?: string,
+): Promise<PagedResultOfficeModel_ | undefined> => {
+  let url = URLS.OFFICES
+
+  if (criteria !== null || criteria !== '') {
+    url = `${url}?${criteria}`
+    console.log(url, 'thisisisit')
+  }
+
   try {
     const response: PagedResultOfficeModel_ | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: URLS.OFFICES,
+      url,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,
@@ -23,4 +34,13 @@ export const getOffices = async (session: ReapitConnectSession): Promise<PagedRe
   } catch (err) {
     console.error('Error fetching Offices', err.message)
   }
+}
+
+export const getAllOffices = async (session: ReapitConnectSession) => {
+  return (await getAllResource(session, getOffices, new URLSearchParams())).map(({ id, name }) => {
+    return {
+      id,
+      name,
+    }
+  })
 }
