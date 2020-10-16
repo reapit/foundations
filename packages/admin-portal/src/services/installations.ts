@@ -1,4 +1,4 @@
-import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -23,7 +23,7 @@ export type FetchApiKeyInstallationByIdParams = {
 
 export const fetchInstallationsList = async (
   params: FetchInstallationsListParams,
-): Promise<PagedResultInstallationModel_> => {
+): Promise<InstallationModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.installations}?${setQueryParams(params)}`,

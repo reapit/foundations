@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export type AppsFeaturedParams = {
   id: string
@@ -15,6 +15,6 @@ export type AppsParams = {
 }
 
 export const fetchAppList = actionCreator<AppsParams>(ActionTypes.FETCH_APP_LIST)
-export const fetchAppListSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APP_LIST_SUCCESS)
+export const fetchAppListSuccess = actionCreator<AppSummaryModelPagedResult>(ActionTypes.FETCH_APP_LIST_SUCCESS)
 export const fetchAppListFailed = actionCreator<string>(ActionTypes.FETCH_APP_LIST_FAILED)
 export const requestMarkAppAsFeatured = actionCreator<AppsFeaturedParams>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED)

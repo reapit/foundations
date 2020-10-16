@@ -1,10 +1,10 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchApprovalList, fetchApprovalListSuccess, fetchApprovalListFailed } from '@/actions/approvals'
-import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
+import { ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { getDefaultFetchListValue, FetchListResult } from '@reapit/utils'
 
-export type ApprovalList = FetchListResult<PagedResultApprovalModel_>
+export type ApprovalList = FetchListResult<ApprovalModelPagedResult>
 
 export type ApprovalsState = ApprovalList
 

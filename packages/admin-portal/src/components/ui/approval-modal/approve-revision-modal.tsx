@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { ApproveModel } from '@reapit/foundations-ts-definitions'
+import { ApproveModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
 import { requestApproveRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
@@ -8,7 +8,6 @@ import { Dispatch } from 'redux'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectAppRevisionDetail, selectAppRevisionFormState } from '@/selector/app-revisions'
-import { AppRevisionModel } from '@/types/marketplace-api-schema'
 
 export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onApproveSuccess: () => void

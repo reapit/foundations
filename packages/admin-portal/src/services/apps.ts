@@ -1,5 +1,5 @@
 import {
-  PagedResultAppSummaryModel_,
+  AppSummaryModelPagedResult,
   AppDetailModel,
   AppRevisionModel,
   ApproveModel,
@@ -45,7 +45,7 @@ export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId:
 
 export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
 
-export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsList = async (params: FetchAppsListParams): Promise<AppSummaryModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,

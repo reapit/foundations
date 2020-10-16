@@ -2,7 +2,7 @@ import ActionTypes from '@/constants/action-types'
 import { actionCreator } from '@/utils/actions'
 import {
   TerminateInstallationModel,
-  PagedResultInstallationModel_,
+  InstallationModelPagedResult,
   CreateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
 import { FetchInstallationsListParams } from '@/services/installations'
@@ -18,7 +18,7 @@ export type InstallParams = CreateInstallationModel & { callback?: () => void }
 
 // Installations List
 export const fetchInstallationsList = actionCreator<FetchInstallationsListParams>(ActionTypes.FETCH_INSTALLATIONS_LIST)
-export const fetchInstallationsListSuccess = actionCreator<PagedResultInstallationModel_>(
+export const fetchInstallationsListSuccess = actionCreator<InstallationModelPagedResult>(
   ActionTypes.FETCH_INSTALLATIONS_LIST_SUCCESS,
 )
 export const fetchInstallationsListFailed = actionCreator<void>(ActionTypes.FETCH_INSTALLATIONS_LIST_FAILED)
@@ -27,7 +27,7 @@ export const fetchInstallationsListFailed = actionCreator<void>(ActionTypes.FETC
 export const fetchInstallationsFilterList = actionCreator<FetchInstallationsListParams>(
   ActionTypes.FETCH_INSTALLATIONS_FILTER_LIST,
 )
-export const fetchInstallationsFilterListSuccess = actionCreator<PagedResultInstallationModel_>(
+export const fetchInstallationsFilterListSuccess = actionCreator<InstallationModelPagedResult>(
   ActionTypes.FETCH_INSTALLATIONS_FILTER_LIST_SUCCESS,
 )
 export const fetchInstallationsFilterListFailed = actionCreator<void>(

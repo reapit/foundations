@@ -3,9 +3,10 @@ import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import { FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop } from 'react-icons/fa'
+import { FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop, FaStoreAlt } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase } from 'react-icons/go'
+import { menuItemOverflow } from './__styles__/menu'
 
 export const generateMenuConfig = (location: Location<any>): MenuConfig => {
   return {
@@ -58,6 +59,13 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
         url: Routes.DESKTOP,
         type: 'PRIMARY',
         icon: <FaDesktop className="nav-item-icon" />,
+      },
+      {
+        title: <div className={menuItemOverflow}>Marketplace</div>,
+        key: 'MARKETPLACE',
+        icon: <FaStoreAlt className="nav-item-icon" />,
+        callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
+        type: 'PRIMARY',
       },
       {
         title: 'Help',

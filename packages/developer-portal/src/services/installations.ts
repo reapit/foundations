@@ -1,5 +1,5 @@
 import {
-  PagedResultInstallationModel_,
+  InstallationModelPagedResult,
   CreateInstallationModel,
   InstallationModel,
   TerminateInstallationModel,
@@ -45,7 +45,7 @@ export type RemoveAccessToAppByIdParams = TerminateInstallationModel & {
 
 export const fetchInstallationsList = async (
   params: FetchInstallationsListParams,
-): Promise<PagedResultInstallationModel_> => {
+): Promise<InstallationModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.installations}?${setQueryParams(params)}`,

@@ -1,5 +1,5 @@
 import { ReduxState, FormState } from '@/types/core'
-import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const selectInstallationsListLoading = (state: ReduxState): boolean => {
   return state.installations.installationsList.isLoading
@@ -20,7 +20,7 @@ export const selectInstallationsFilterListData = (state: ReduxState): Installati
   return state.installations.installationsFilterList?.list?.data || []
 }
 
-export const selectInstallationsFilterList = (state: ReduxState): PagedResultInstallationModel_ | null => {
+export const selectInstallationsFilterList = (state: ReduxState): InstallationModelPagedResult | null => {
   return state.installations.installationsFilterList?.list
 }
 

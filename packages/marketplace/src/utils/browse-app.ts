@@ -13,13 +13,16 @@ export const getNumberOfItems = () => {
 }
 
 export const mergeAppsWithoutDuplicateId = (
+  developerApps: AppSummaryModel[],
   oldApps: AppSummaryModel[] | undefined = [],
   newApps: AppSummaryModel[] | undefined = [],
 ): AppSummaryModel[] => {
   const newAppIds = newApps.map(app => app.id)
-  const filteredOldApps = oldApps.filter(app => !newAppIds.includes(app.id))
+  const developerAppIds = developerApps.map(app => app.id)
+  const filteredOldApps = oldApps.filter(app => !newAppIds.includes(app.id) && !developerAppIds.includes(app.id))
+  const filteredNewApps = newApps.filter(app => !developerAppIds.includes(app.id))
 
-  return [...filteredOldApps, ...newApps]
+  return [...developerApps, ...filteredOldApps, ...filteredNewApps]
 }
 
 export const generateParamsForPreviewApps = (

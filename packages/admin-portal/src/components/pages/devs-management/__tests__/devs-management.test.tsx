@@ -18,11 +18,11 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { PagedResultDeveloperModel_, MemberModel } from '@reapit/foundations-ts-definitions'
+import { DeveloperModelPagedResult, MemberModel } from '@reapit/foundations-ts-definitions'
 import { fetchDeveloperList, fetchDeveloperMemberList } from '@/actions/devs-management'
 import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 
-const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
+const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
   return {
     ...appState,
     adminDevManagement: {

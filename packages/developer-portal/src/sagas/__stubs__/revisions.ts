@@ -1,6 +1,6 @@
-import { PagedResultAppRevisionModel_ } from '@reapit/foundations-ts-definitions'
+import { AppRevisionModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const revisionsDataStub: PagedResultAppRevisionModel_ = {
+export const revisionsDataStub: AppRevisionModelPagedResult = {
   data: [
     {
       id: 'd29b62ae-a57b-4ab4-9c37-1365f356d926',

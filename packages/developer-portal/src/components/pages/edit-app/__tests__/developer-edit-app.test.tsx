@@ -19,7 +19,6 @@ import DeveloperSubmitApp, {
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { ReduxState } from '@/types/core'
 import { createAppRevision } from '@/actions/apps'
@@ -115,7 +114,7 @@ describe('DeveloperSubmitApp', () => {
   })
 
   describe('handleSubmitApp', () => {
-    const appModel = { redirectUris: '' } as CreateAppModel
+    const appModel = { redirectUris: '' } as any
     afterEach(() => jest.clearAllMocks())
 
     const setIsListingTestCases = [

@@ -4,6 +4,7 @@ import { Tile } from '@reapit/elements'
 import * as appCardStyles from './__styles__'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import Fade from '@/components/ui/fade'
+import { cx } from 'linaria'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -29,7 +30,16 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
   const clickAction = (app.installedOn && onSettingsClick ? onSettingsClick : onClick) as () => void
 
   const content = (
-    <div data-test-app-id={app.id} data-test-app-name={app.name}>
+    <div
+      className={cx(!app.isListed && appCardStyles.bannerWrap)}
+      data-test-app-id={app.id}
+      data-test-app-name={app.name}
+    >
+      {!app.isListed && (
+        <div className={appCardStyles.bannerOuter}>
+          <div className={appCardStyles.bannerInner}>In Development</div>
+        </div>
+      )}
       <Tile
         onClick={clickAction}
         dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}

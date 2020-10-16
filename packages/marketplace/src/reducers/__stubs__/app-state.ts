@@ -43,6 +43,7 @@ const appState: ReduxState = {
       totalCount: 0,
       isLoading: false,
       errorMessage: '',
+      developerApps: [],
     },
     detail: {
       data: {},

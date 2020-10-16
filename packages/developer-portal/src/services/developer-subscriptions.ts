@@ -1,7 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import {
   SubscriptionModel,
-  PagedResultSubscriptionModel_,
+  SubscriptionModelPagedResult,
   CreateSubscriptionModel,
 } from '@reapit/foundations-ts-definitions'
 import { stringify } from 'query-string'
@@ -21,7 +21,7 @@ export type DeleteSubscriptionParams = {
 
 export const fetchSubscriptionsList = async (
   params: FetchSubscriptionsListParams,
-): Promise<PagedResultSubscriptionModel_> => {
+): Promise<SubscriptionModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.developerSubscriptions}?${stringify(params)}`,
@@ -29,7 +29,7 @@ export const fetchSubscriptionsList = async (
       method: 'GET',
       headers: await generateHeader(window.reapit.config.marketplaceApiKey),
     })
-    return response as PagedResultSubscriptionModel_
+    return response as SubscriptionModelPagedResult
   } catch (error) {
     logger(error)
     throw error

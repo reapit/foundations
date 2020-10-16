@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
+import { IoIosConstruct } from 'react-icons/io'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import * as styles from '../__styles__/standalone-app-detail'
-
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
@@ -17,10 +17,10 @@ export type AppHeaderProps = {
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
-  const { media } = appDetailData
+  const { media, isListed } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
-  const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer } = styles
+  const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer, checkOrange } = styles
 
   return (
     <Grid className={cx('flex', 'items-center', 'mb-4', containerOuterHeader, 'flex-col-min-height')}>
@@ -32,7 +32,15 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
           <div className={headerContent}>
             <H3>{appDetailData.name || ''}</H3>
             <SubTitleH6>
-              Verified by Reapit <FaCheck className={check} />
+              {isListed ? (
+                <>
+                  Verified by Reapit <FaCheck className={check} />{' '}
+                </>
+              ) : (
+                <>
+                  In Development <IoIosConstruct className={checkOrange} />{' '}
+                </>
+              )}
             </SubTitleH6>
 
             {buttonGroup && buttonGroup}

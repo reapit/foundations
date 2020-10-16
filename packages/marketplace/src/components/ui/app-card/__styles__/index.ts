@@ -17,3 +17,55 @@ export const directAPI = css`
   margin-left: 5px;
   white-space: nowrap;
 `
+
+export const bannerWrap = css`
+  position: relative;
+`
+
+export const bannerOuter = css`
+  width: 175px;
+  height: 175px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+`
+
+export const bannerInner = css`
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  transform: rotate(-45deg);
+  position: relative;
+  padding: 0.7rem 0;
+  top: 35px;
+  left: -60px;
+  width: 230px;
+  background-color: #0061a8;
+  color: #fff;
+`
+
+export const bannerOuterSmall = css`
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+`
+
+export const bannerInnerSmall = css`
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: #333;
+  text-align: center;
+  transform: rotate(-45deg);
+  position: relative;
+  padding: 0.5rem 0;
+  top: 22px;
+  left: -57px;
+  width: 185px;
+  background-color: #0061a8;
+  color: #fff;
+`

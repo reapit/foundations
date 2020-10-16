@@ -24,10 +24,11 @@ exports[`AppHeader should match a snapshot 1`] = `
           Peter's Properties
         </Component>
         <Component>
-          Verified by Reapit 
-          <FaCheck
+          In Development 
+          <IoIosConstruct
             className=""
           />
+           
         </Component>
       </div>
     </div>

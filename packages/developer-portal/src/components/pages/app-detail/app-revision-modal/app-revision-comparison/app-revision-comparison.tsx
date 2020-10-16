@@ -7,7 +7,7 @@ import {
   DesktopIntegrationTypeModel,
 } from '@reapit/foundations-ts-definitions'
 import DiffMedia from './diff-media'
-import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import DiffCheckbox from './diff-checkbox'
 import DiffViewer from './diff-viewer'
 import DiffRenderHTML from './diff-render-html'

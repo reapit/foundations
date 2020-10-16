@@ -1,6 +1,6 @@
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const appsDataStub: PagedResultAppSummaryModel_ = {
+export const appsDataStub: AppSummaryModelPagedResult = {
   data: [
     {
       id: '09043eb8-9e5e-4650-b7f1-f0cb62699027',
@@ -58,7 +58,7 @@ export const appsDataStub: PagedResultAppSummaryModel_ = {
   totalCount: 6,
 }
 
-export const featuredAppsDataStub: { data: PagedResultAppSummaryModel_ } = {
+export const featuredAppsDataStub: { data: AppSummaryModelPagedResult } = {
   data: {
     data: [
       {

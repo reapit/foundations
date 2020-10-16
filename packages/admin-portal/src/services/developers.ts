@@ -1,8 +1,8 @@
 import {
   UpdateDeveloperModel,
-  PagedResultDeveloperModel_,
+  DeveloperModelPagedResult,
   AcceptInviteModel,
-  PagedResultMemberModel_,
+  MemberModelPagedResult,
   UpdateMemberModel,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/elements'
@@ -40,7 +40,7 @@ export type DisableDeveloperMemberParams = AcceptInviteModel & {
   memberId: string
 }
 
-export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
+export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<DeveloperModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.developers}/?${setQueryParams(params)}`,
@@ -90,7 +90,7 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
 
 export const fetchOrganisationMembers = async (
   params: FetchDeveloperMembersParams,
-): Promise<PagedResultMemberModel_> => {
+): Promise<MemberModelPagedResult> => {
   try {
     const { id, ...restParams } = params
     const response = await fetcher({

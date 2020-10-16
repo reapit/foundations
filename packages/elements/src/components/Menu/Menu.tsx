@@ -12,7 +12,7 @@ export interface MenuConfig extends RouteProps {
 
 export interface MenuItem {
   type: 'PRIMARY' | 'SECONDARY' | 'LOGO'
-  title?: string
+  title?: string | React.ReactNode
   key: string
   icon: React.ReactNode
   url?: string

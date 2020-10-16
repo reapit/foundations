@@ -1,12 +1,14 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchApps, fetchAppsSuccess, fetchAppsFailed, fetchAppsInfiniteSuccess } from '@/actions/apps'
-import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
+import { AppSummaryModelPagedResult, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { mergeAppsWithoutDuplicateId } from '@/utils/browse-app'
+import { fetchDeveloperAppsSuccess } from '../../actions/apps/apps'
 
-export type AppsListState = PagedResultAppSummaryModel_ & {
+export type AppsListState = AppSummaryModelPagedResult & {
   isLoading: boolean
   errorMessage: string
+  developerApps: AppSummaryModel[]
 }
 
 export const defaultAppsListState: AppsListState = {
@@ -17,6 +19,7 @@ export const defaultAppsListState: AppsListState = {
   totalCount: 0,
   isLoading: false,
   errorMessage: '',
+  developerApps: [],
 }
 
 export const appsListReducer = (state: AppsListState = defaultAppsListState, action: Action<any>): AppsListState => {
@@ -45,14 +48,22 @@ export const appsListReducer = (state: AppsListState = defaultAppsListState, act
     }
   }
 
+  if (isType(action, fetchDeveloperAppsSuccess)) {
+    return {
+      ...state,
+      isLoading: false,
+      developerApps: action.data.data || [],
+    }
+  }
+
   if (isType(action, fetchAppsInfiniteSuccess)) {
     const {
       data: { data: newAppsList, ...rest },
     } = action
 
-    const { data: oldAppsList } = state
+    const { data: oldAppsList, developerApps } = state
 
-    const uniqueAppsList = mergeAppsWithoutDuplicateId(oldAppsList, newAppsList)
+    const uniqueAppsList = mergeAppsWithoutDuplicateId(developerApps, oldAppsList, newAppsList)
 
     return {
       ...state,

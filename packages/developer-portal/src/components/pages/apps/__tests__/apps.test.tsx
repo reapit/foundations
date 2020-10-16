@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
 import DeveloperHome, { handleOnCardClick, handleOnChange, onShowSubmitAppModal, onCloseSubmitAppModal } from '../apps'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
 

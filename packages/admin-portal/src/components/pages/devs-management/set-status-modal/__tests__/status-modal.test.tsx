@@ -4,11 +4,11 @@ import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { FormikProps } from '@reapit/elements'
 import configureStore from 'redux-mock-store'
-import { PagedResultDeveloperModel_ } from '@/types/marketplace-api-schema'
+import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
 import appState from '@/reducers/__stubs__/app-state'
 import * as ReactRedux from 'react-redux'
 
-const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
+const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
   return {
     ...appState,
     adminDevManagement: {

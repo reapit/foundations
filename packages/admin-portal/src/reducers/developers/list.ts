@@ -6,14 +6,14 @@ import {
   fetchDeveloperList,
   fetchDeveloperMembersListSuccess,
 } from '../../actions/devs-management'
-import { PagedResultDeveloperModel_, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
+import { DeveloperModelPagedResult, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
 export type DeveloperData = DeveloperModel & {
   subRows?: MemberModel[]
 }
 
-export type DevelopersWithMembers = PagedResultDeveloperModel_ & {
+export type DevelopersWithMembers = DeveloperModelPagedResult & {
   data: DeveloperData[]
   currentMember?: MemberModel & {
     isMember: boolean

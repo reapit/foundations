@@ -20,7 +20,7 @@ import {
   disableMemberFailed,
 } from '../developers'
 import { FetchOrganisationMembersParams } from '@/services/developers'
-import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
+import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 describe('developers', () => {
   describe('inviteDeveloperAsOrgMember', () => {
@@ -50,7 +50,7 @@ describe('member action', () => {
   })
 
   it('should create a fetchOrganisationMembersSuccess action', () => {
-    const params: PagedResultMemberModel_ = {
+    const params: MemberModelPagedResult = {
       data: [],
       pageCount: 1,
       pageNumber: 20,
