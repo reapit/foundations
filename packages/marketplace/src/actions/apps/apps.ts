@@ -12,6 +12,9 @@ export const fetchDeveloperApps = actionCreator<FetchAppsParams & { developerId?
 export const fetchAppsInfiniteSuccess = actionCreator<AppSummaryModelPagedResult>(
   ActionTypes.FETCH_APPS_INFINITE_SUCCESS,
 )
+export const fetchDeveloperAppsSuccess = actionCreator<AppSummaryModelPagedResult>(
+  ActionTypes.FETCH_DEVELOPER_APPS_SUCCESS,
+)
 export const fetchAppsSuccess = actionCreator<AppSummaryModelPagedResult>(ActionTypes.FETCH_APPS_SUCCESS)
 export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILED)
 

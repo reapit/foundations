@@ -252,7 +252,9 @@ exports[`Settings should match snapshot 1`] = `
                             className=""
                             data-test=""
                           >
-                            <p />
+                            <p>
+                              SBOX
+                            </p>
                           </div>
                         </Component>
                       </div>

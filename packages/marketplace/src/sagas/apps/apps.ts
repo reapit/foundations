@@ -11,21 +11,19 @@ import {
 } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-// import { selectDeveloperId } from '@/selector/auth'
 import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsParams } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { generateParamsForPreviewApps } from '@/utils/browse-app'
+import { fetchDeveloperAppsSuccess } from '../../actions/apps/apps'
 
 export const fetchApps = function*({ data }) {
   try {
     const { isInfinite, preview, developerId } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
-    // const developerId = yield call(selectDeveloperId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
-    // const fetchDeveloperApps = developerId && clientId === 'SBOX'
-    console.log('data is', data)
+
     const defaultParams = {
       clientId,
       developerId,
@@ -36,7 +34,7 @@ export const fetchApps = function*({ data }) {
 
     const response = yield call(fetchAppsApi, fetchAppsParams)
 
-    if (isInfinite || developerId) {
+    if (isInfinite) {
       yield put(fetchAppsInfiniteSuccess(response))
       return
     }
@@ -55,24 +53,15 @@ export const fetchDeveloperApps = function*({ data }) {
   try {
     const { developerId } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
-    // const developerId = yield call(selectDeveloperId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
-    // const fetchDeveloperApps = developerId && clientId === 'SBOX'
-    // console.log('data is', data)
     const defaultParams = {
       clientId,
       developerId,
       ...data,
     }
-    console.log('here i am', defaultParams)
     const response = yield call(fetchAppsApi, defaultParams)
 
-    // if (developerId) {
-    yield put(fetchAppsInfiniteSuccess(response))
-    return
-    // }
-
-    // yield put(fetchAppsSuccess(response))
+    yield put(fetchDeveloperAppsSuccess(response))
   } catch (err) {
     yield put(fetchAppsFailed(err.description))
     notification.error({
@@ -86,12 +75,10 @@ export const fetchFeatureApps = function*({ data }) {
   try {
     const { preview } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
-    // const developerId = yield call(selectDeveloperId, connectSession)
     const clientId = yield call(selectClientId, connectSession)
 
     const defaultParams = {
       clientId,
-      // developerId: developerId ? [developerId] : undefined,
       isFeatured: true,
       ...data,
     }

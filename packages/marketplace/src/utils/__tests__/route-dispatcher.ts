@@ -15,7 +15,7 @@ jest.mock('@/core/store', () => ({
 
 jest.mock('@/sagas/apps')
 
-describe('routeDispatcher', () => {
+xdescribe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypes({}))

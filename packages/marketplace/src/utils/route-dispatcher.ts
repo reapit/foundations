@@ -28,7 +28,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       const numOfItemsPerPage = getNumberOfItems()
       // store.dispatch(fetchDesktopIntegrationTypes({}))
       // store.dispatch(fetchCategories({}))
-      console.log(developerId)
       if (developerId) {
         store.dispatch(
           fetchDeveloperApps({
