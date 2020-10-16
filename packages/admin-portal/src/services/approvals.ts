@@ -1,4 +1,4 @@
-import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
+import { ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -7,7 +7,7 @@ import { FetchListCommonParams } from './types'
 
 export type FetchApprovalsListParams = FetchListCommonParams
 
-export const fetchApprovalsList = async (params: FetchApprovalsListParams): Promise<PagedResultApprovalModel_> => {
+export const fetchApprovalsList = async (params: FetchApprovalsListParams): Promise<ApprovalModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.approvals}?${setQueryParams(params)}`,

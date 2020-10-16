@@ -19,7 +19,7 @@ import {
   DisableMemberActionParams,
 } from '@/actions/devs-management'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { PagedResultDeveloperModel_, PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
+import { DeveloperModelPagedResult, MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   fetchDevelopersList,
   updateOrganisationMemberById,
@@ -34,7 +34,7 @@ import ActionTypes from '../../../constants/action-types'
 
 jest.mock('@/services/developers')
 
-const fakeResponse = {} as PagedResultDeveloperModel_
+const fakeResponse = {} as DeveloperModelPagedResult
 const params = {
   data: {
     page: 1,
@@ -131,7 +131,7 @@ describe('organisationFetchMembers', () => {
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next({}).value).toEqual(put(fetchDeveloperMembersListSuccess({} as PagedResultMemberModel_)))
+    expect(clone.next({}).value).toEqual(put(fetchDeveloperMembersListSuccess({} as MemberModelPagedResult)))
     expect(clone.next().done).toBe(true)
   })
 
