@@ -135,4 +135,4 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   )
 }
 
-export default ComingSoonApps
+export default React.memo(ComingSoonApps)
