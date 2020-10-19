@@ -1,20 +1,11 @@
 service: cloud-deploy-slack-bot
 plugins:
-  - serverless-webpack
   - serverless-offline
   - serverless-deployment-bucket
 
 custom:
-  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  s3CloudFormBucket: cloud-deploy-slack-bot-${opt:stage, 'dev'}
   env: ${file(./config.json)}
-  webpack:
-    webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockFile: false
-    excludeFiles: src/**/*.test.ts
-    keepOutputDirectory: true
 
 provider:
   name: aws
@@ -34,6 +25,8 @@ package:
   individually: true
   include:
     - dist/**
+    - node_modules/**
+    - config.json
   exclude:
     - package.json
     - node_modules/**
@@ -48,7 +41,14 @@ package:
 
 functions:
   deploy-slack-bot:
-    handler: src/index.handler
+    handler: dist/index.handler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          method: any
+          path: /{proxy+}
+          cors: true
+      - http:
+          method: any
+          path: /
+          cors: true
+

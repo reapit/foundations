@@ -5,7 +5,10 @@
   "author": "Duong Pham",
   "license": "MIT",
   "scripts": {
-    "fetch-config": "yarn config-manager --namespace cloud --entity deploy-slack-bot --name local --mode fetch"
+    "fetch-config": "yarn config-manager --namespace cloud --entity deploy-slack-bot --name local --mode fetch",
+    "build:prod": "rimraf dist && tsc --p tsconfig.json",
+    "release:development": "rimraf dist && tsc --p tsconfig.json && serverless deploy --stage dev",
+    "release:production": "rimraf dist && tsc --p tsconfig.json && serverless deploy --stage prod"
   },
   "dependencies": {
     "aws-lambda": "^1.0.5",
@@ -13,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "isomorphic-fetch": "^3.0.0",
-    "serverless-http": "^2.3.2"
+    "query-string": "^6.13.6",
+    "serverless-http": "^2.6.0"
   }
 }

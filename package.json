@@ -28,6 +28,8 @@
     "nohoist": [
       "**/cognito-custom-mail-lambda",
       "**/cognito-custom-mail-lambda/**",
+      "**/deploy-slack-bot",
+      "**/deploy-slack-bot/**",
       "**/web-components",
       "**/web-components/**",
       "**/react-app-scaffolder",
@@ -44,14 +46,11 @@
     "lint": "lerna run lint --parallel --stream",
     "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies --",
     "release:development": "lerna run release:development --parallel",
-    "release-note": "node ./scripts/release/generate-release-note.js",
-    "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
     "fetch-artifact": "node ./scripts/release/fetch-artifact.js",
     "test": "lerna run test:ci --parallel",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
-    "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",
     "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {

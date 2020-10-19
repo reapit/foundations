@@ -1,4 +1,4 @@
-name: Release Tag
+name: Build Release Tag
 
 on:
   push:
@@ -52,7 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
 
       - name: Configure AWS credentials to Production
         uses: aws-actions/configure-aws-credentials@v1

@@ -34,9 +34,9 @@
     "prepublish": "npm run snyk-protect"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 11"
+    "> 0.5%",
+    "not IE 11",
+    "chrome 69"
   ],
   "dependencies": {
     "bulma": "^0.9.0",

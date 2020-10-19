@@ -26,10 +26,7 @@ const babelLoaderOptions = {
       {
         useBuiltIns: 'entry',
         corejs: '3',
-        targets: {
-          chrome: '58',
-          ie: '11',
-        },
+        targets: '> 0.5%, not IE 11, chrome 79',
       },
     ],
     'linaria/babel',

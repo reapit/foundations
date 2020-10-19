@@ -14,8 +14,8 @@ const uploadArtifact = async () => {
     }
     try {
       runCommand('yarn', ['workspace', workspaceName, 'fetch-config', '--name', 'production'])
-      runCommand('yarn', ['workspace', workspaceName, 'lint'])
       runCommand('yarn', ['workspace', workspaceName, 'test:ci'])
+      runCommand('yarn', ['workspace', workspaceName, 'lint'])
       runCommand('yarn', ['workspace', workspaceName, 'build:prod'])
       runCommand('tar', [
         '-C',
@@ -33,10 +33,10 @@ const uploadArtifact = async () => {
         '--grants',
         'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
       ])
-      await sendMessageToSlack(`Finish build \`${packageName}\` with file \`${fileName}\``)
+      await sendMessageToSlack(`Finished building release \`${packageName}\` file \`${fileName}\``)
     } catch (err) {
       console.error(err)
-      await sendMessageToSlack(`Build failed for \`${packageName}\` with file \`${fileName}\``)
+      await sendMessageToSlack(`Build failed for \`${packageName}\` file \`${fileName}\``)
       throw new Error(err)
     }
   }
