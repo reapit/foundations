@@ -1,4 +1,4 @@
-name: Release Develop
+name: Release Dev
 
 on:
   push:
@@ -56,17 +56,9 @@ jobs:
         run: |
           yarn fetch-config --name development --since HEAD~1 --include-dependencies
 
-      - name: Lint
-        run: |
-          yarn lint --since HEAD~1 --include-dependencies
-
       - name: Build
         run: |
           yarn build --since HEAD~1 --include-dependencies
-
-      - name: Test
-        run: |
-          yarn test --since HEAD~1 --include-dependencies
 
       - name: Release Develop
         run: |

@@ -26,7 +26,6 @@ const getRef = () => {
 }
 
 const getVersionTag = () => {
-  // This one use in case release dev we not create the tag
   const packageFolderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
   try {
     const tagName = process.env.RELEASE_VERSION
@@ -85,21 +84,21 @@ const copyConfig = ({ packageName }) => {
 }
 
 const runReleaseCommand = async ({ packageName, tagName, env }) => {
-  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Releasing \`${packageName}\` version \`${tagName}\``)
   runCommand('yarn', ['workspace', packageName, `release:${env}`])
-  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Finished releasing \`${packageName}\` version \`${tagName}\``)
 }
 
 const runTestCypress = async ({ packageName, tagName, env }) => {
-  await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`E2E tests running \`${packageName}\` version \`${tagName}\``)
   runCommand('yarn', [
     'workspace',
     'cloud-alert',
     'cypress:ci',
     '--env',
-    `ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
+    `ENVIRONMENT=${env === 'prod' ? 'production' : 'development'},PACKAGE_NAME=${packageName}`,
   ])
-  await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Uptime tests passed for \`${packageName}\` version \`${tagName}\``)
 }
 
 const releaseWebApp = async ({ tagName, packageName, env }) => {
@@ -122,18 +121,20 @@ const releaseWebApp = async ({ tagName, packageName, env }) => {
 }
 
 const runReleaseCommandForWebComponents = async ({ packageName, tagName, env }) => {
-  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-  runCommand('yarn', ['workspace', '@reapit/web-components', `release:serverless:${env}`, '--name', packageName])
-  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Releasing \`${packageName}\` version \`${tagName}\``)
+  runCommand('yarn', [
+    'workspace',
+    '@reapit/web-components',
+    `release:serverless:${env === 'prod' ? 'production' : 'development'}`,
+    '--name',
+    packageName,
+  ])
+  await sendMessageToSlack(`Finished releasing \`${packageName}\` version \`${tagName}\``)
 }
 
 const releaseServerless = async ({ tagName, packageName, env }) => {
-  // This is temporary fix for deployment to new prod and old prod env
-  if (env === 'staging') {
-    env = 'production'
-  }
   try {
-    await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+    await sendMessageToSlack(`Checking out \`${packageName}\` version \`${tagName}\``)
     runCommand('git', ['checkout', tagName])
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
@@ -152,71 +153,19 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
 
 const releaseNpm = async ({ tagName, packageName }) => {
   try {
-    await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+    await sendMessageToSlack(`Checking out \`${packageName}\` version \`${tagName}\``)
     runCommand('git', ['checkout', tagName])
-    await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
+    await sendMessageToSlack(`Releasing for npm \`${packageName}\` version \`${tagName}\``)
     runCommand('git', ['config', '--global', 'url.ssh://git@github.com/.insteadOf https://github.com/'])
     runCommand('git', ['config', '--global', 'user.email', `"${process.env.GITHUB_ACTOR}@email.com"`]).toString()
     runCommand('git', ['config', ' --global', 'user.name', `"${process.env.GITHUB_ACTOR}"`])
     runCommand('yarn', ['workspace', packageName, 'build:prod'])
     runCommand('yarn', ['workspace', packageName, 'publish'])
-    await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
+    await sendMessageToSlack(`Finished publishing \`${packageName}\` version \`${tagName}\` to NPM`)
   } catch (err) {
     console.error('releaseNpm', err)
     throw new Error(err)
   }
-}
-
-const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
-  let newReleaseNote = releaseNote
-  const COMMIT_INDEX = 0
-  const COMMIT_AUTHOR_INDEX = 1
-  newReleaseNote = newReleaseNote.concat(`
-- ${commitLogArr[COMMIT_INDEX]} | ${
-    commitLogArr[COMMIT_AUTHOR_INDEX]
-      ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
-      : commitLogArr[COMMIT_AUTHOR_INDEX]
-  } | `)
-  return newReleaseNote
-}
-
-const appendCommitMessage = ({ releaseNote, commitLogArr }) => {
-  let newReleaseNote = releaseNote
-  for (let i = 4; i < commitLogArr.length; i++) {
-    newReleaseNote = newReleaseNote.concat(
-      `${commitLogArr[i] ? commitLogArr[i].replace('\n').replace(/\s{2,}/g, '') : ''}`,
-    )
-  }
-  return newReleaseNote
-}
-
-const formatReleaseNote = ({ previousTag, currentTag, commitLog }) => {
-  let releaseNote = `
------------------------------------------------------------------------------
-Release: ${currentTag}
-Rollback: ${previousTag}
-Changes:
-commit | author |description
-  `
-  const footer = `
-
-approver: @willmcvay
-monitor: https://sentry.io/organizations/reapit-ltd/projects/
------------------------------------------------------------------------------
-`
-  if (!commitLog) {
-    return releaseNote.concat(footer)
-  }
-  const commitArr = commitLog.split('commit ')
-  commitArr.forEach(item => {
-    const commitLogArr = item.split('\n')
-    if (commitLogArr.length > 1) {
-      releaseNote = appendCommitInfo({ releaseNote, commitLogArr })
-      releaseNote = appendCommitMessage({ releaseNote, commitLogArr })
-    }
-  })
-  releaseNote = releaseNote.concat(footer)
-  return releaseNote
 }
 
 const getCommitLog = ({ currentTag, previousTag, packageName }) => {
@@ -274,7 +223,6 @@ module.exports = {
   WEB_APPS,
   SERVERLESS_APPS,
   NPM_APPS,
-  formatReleaseNote,
   getCommitLog,
   releaseWebApp,
 }

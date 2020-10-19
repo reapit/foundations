@@ -63,9 +63,7 @@ export type GenerateMessageParams = {
 
 const generateMessage = ({ packageName, environment, currentTag, previousTag }: GenerateMessageParams) => {
   return {
-    'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
-    release: `Releasing \`${packageName}\` ${environment} \`${currentTag}\``,
-    'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
+    release: `Releasing \`${packageName}\` to \`${environment}\` at tag \`${currentTag}\`, rollback is \`${previousTag}\``,
   }
 }
 
@@ -85,54 +83,22 @@ const dispatchGithubActions = async body => {
 }
 
 const generateBodyForDispatch = async ({ eventType, args, packageName }) => {
-  if (eventType === 'release-note' || eventType === 'update-release-note') {
-    const releaseTag = args?.[3]
-    const rollbackTag = args?.[4]
-    await sendMessageToSlack(
-      generateMessage({ currentTag: releaseTag, previousTag: rollbackTag, packageName, environment: '' })[eventType],
-    )
-    return {
-      event_type: eventType,
-      client_payload: {
-        package_name: packageName,
-        current_tag: releaseTag,
-        previous_tag: rollbackTag,
-      },
-    }
-  }
-
-  if (eventType === 'release') {
-    const releaseTag = args?.[3]
-    const rollbackTag = args?.[4]
-    const environment = args?.[5]
-    await sendMessageToSlack(
-      generateMessage({ currentTag: releaseTag, previousTag: rollbackTag, packageName, environment: environment })[
-        eventType
-      ],
-    )
-    return {
-      event_type: eventType,
-      client_payload: {
-        package_name: packageName,
-        current_tag: releaseTag,
-        previous_tag: rollbackTag,
-        environment,
-      },
-    }
-  }
-
-  if (eventType === 'delete-environment') {
-    const environment = args?.[3]
-    await sendMessageToSlack(
-      generateMessage({ currentTag: '', previousTag: '', packageName, environment: environment })[eventType],
-    )
-    return {
-      event_type: eventType,
-      client_payload: {
-        package_name: packageName,
-        environment: environment,
-      },
-    }
+  const environment = args?.[2]
+  const releaseTag = args?.[3]
+  const rollbackTag = args?.[4]
+  await sendMessageToSlack(
+    generateMessage({ currentTag: releaseTag, previousTag: rollbackTag, packageName, environment: environment })[
+      eventType
+    ],
+  )
+  return {
+    event_type: eventType,
+    client_payload: {
+      package_name: packageName,
+      current_tag: releaseTag,
+      previous_tag: rollbackTag,
+      environment,
+    },
   }
 }
 
@@ -143,22 +109,17 @@ app.post('/release', async (req: Request, res: Response) => {
   const textFromSlack = req?.body?.event?.text || ''
   console.info(textFromSlack)
   const args = textFromSlack.split(' ')
-  const eventType = args?.[1]
-  const packageName = args?.[2]
-
-  if (eventType === 'help') {
+  const eventType = 'release'
+  const packageName = args?.[1]
+  if (packageName === 'help') {
     await sendMessageToSlack(`
-\`@Reapit Cloud Releases help\` <= The command will show you the way to use release bot \n
-\`@Reapit Cloud Releases release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will generate the release note\n
-\`@Reapit Cloud Releases release <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do the release and environment is development by default\n
-\`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will do update the release note in github and document\n
-\`@Reapit Cloud Releases delete-environment <package_name> <environment>\` <= The command will remove the infrastructure\n
+\`@Reapit Cloud Releases <package_name> <env (development or production)> <release_tag> <roll_back_tag> \`\n
     `)
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
 
   if (!packageName) {
-    await sendMessageToSlack('You need to input the package want to release')
+    await sendMessageToSlack('Package name not supplied')
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
 
