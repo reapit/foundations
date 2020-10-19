@@ -23,7 +23,7 @@ const sortLighthouseReport = results => {
 const runLighthouse = async (url, chrome) => {
   const results = await lighthouse(url, {
     ...CONSTANTS.lighthouseOptions,
-    port: chrome.port
+    port: chrome.port,
   })
 
   return sortLighthouseReport(results.lhr)
@@ -56,7 +56,7 @@ const getResultsSequentially = async (url, chrome) =>
     // test runs to be executed.
     await runLighthouse(url, chrome),
     await runLighthouse(url, chrome),
-    await runLighthouse(url, chrome)
+    await runLighthouse(url, chrome),
   ])
 
 // If I want multiple instances of chrome to run the tests in parallel, will all at the same time.
@@ -65,10 +65,11 @@ const getResultsInParallel = async (url, chromeInstances) =>
   getAverageResults(await Promise.all(chromeInstances.map(chrome => runLighthouse(url, chrome))))
 
 // Determines if I need ro run in paralel or sequentially based on CONSTANTS.paralleliseChrome.
-const getResults = (url, chromeInstances) =>
-  CONSTANTS.paralleliseChrome
+const getResults = (url, chromeInstances) => {
+  return CONSTANTS.paralleliseChrome
     ? getResultsInParallel(url, chromeInstances)
     : getResultsSequentially(url, chromeInstances)
+}
 
 // Helpful for debugging, logs out acutal scores vs benchmark. SUCCESS if actual over benchmark,
 // WARNING if within tolerance specified in CONSTANTS, ERROR if less than benchmark, less tolerance
@@ -106,7 +107,7 @@ describe('Lighthouse Tests', function() {
           // instance of Chrome to run in paralell
           chromeLauncher.launch(chromeLauncherOptions),
           chromeLauncher.launch(chromeLauncherOptions),
-          chromeLauncher.launch(chromeLauncherOptions)
+          chromeLauncher.launch(chromeLauncherOptions),
         ])
       : // Every test run will be in the same instance of Chrome
         await chromeLauncher.launch(chromeLauncherOptions)

@@ -1,14 +1,14 @@
 const path = require('path')
-const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
-const hashFiles = require('../utils/hash-files')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+
+const ESLintPLugin = new ESLintWebpackPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'] })
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -47,13 +47,6 @@ const webpackConfig = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
-    new ForkTsCheckerWebpackPlugin({
-      useTypescriptIncrementalApi: true,
-    }),
-    new ForkTsCheckerNotifierWebpackPlugin({
-      title: 'TypeScript',
-      excludeWarnings: false,
-    }),
     new EnvironmentPlugin({
       APP_VERSION: `${tagName.packageName}_${tagName.version}`,
     }),
@@ -81,16 +74,8 @@ const webpackConfig = {
         windows: false,
       },
     }),
-    new HardSourceWebpackPlugin({
-      // each package has its own .webpack-cache
-      cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
-      environmentHash: {
-        root: path.join(__dirname, '../..'),
-        directories: [],
-        // use yarn.lock at the root of the monorepo as hash, relative to this file
-        files: ['yarn.lock'],
-      },
-    }),
+    new FriendlyErrorsWebpackPlugin(),
+    ESLintPLugin,
   ],
   module: {
     rules: [
@@ -115,15 +100,6 @@ const webpackConfig = {
         exclude: generateRegexExcludePackages(),
         use: [
           {
-            loader: 'cache-loader',
-            options: {
-              // each package has its own .webpack-cache
-              cacheDirectory: `${PATHS.cacheWebpackDir}/cache-loader`,
-              // use yarn.lock at the root of the monorepo as hash, relative to this file
-              cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
-            },
-          },
-          {
             loader: 'babel-loader',
             options: babelLoaderOptions,
           },
@@ -133,7 +109,7 @@ const webpackConfig = {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
-          { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+          { loader: 'ts-loader' },
         ],
       },
       {
@@ -215,11 +191,13 @@ const webpackConfig = {
     },
   },
   devServer: {
-    host: '0.0.0.0',
     contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
     compress: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,
+    hot: true,
+    quiet: true,
+    open: 'Google Chrome',
     stats: {
       cached: false,
       cachedAssets: false,

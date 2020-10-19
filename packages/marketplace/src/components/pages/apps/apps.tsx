@@ -124,7 +124,6 @@ export const Apps: React.FunctionComponent = () => {
             />
           </TransitionGroup>
         </InfiniteScroll>
-
         <div className="bb mb-4" />
         <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
       </Section>

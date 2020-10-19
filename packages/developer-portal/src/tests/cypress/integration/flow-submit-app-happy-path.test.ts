@@ -47,7 +47,7 @@ describe('Submit app happy path', () => {
       signoutUris: 'https://google.com',
     }
 
-    for (let selectKey in inputTestData) {
+    for (const selectKey in inputTestData) {
       const data = inputTestData[selectKey]
       const selector = (developerSubmitAppPageSelectors as any)[selectKey]
       cy.get(selector).type(data)
@@ -56,7 +56,7 @@ describe('Submit app happy path', () => {
       iconImage: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==',
       screenshot1: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII=',
     }
-    for (let selectKey in fileUploadTestData) {
+    for (const selectKey in fileUploadTestData) {
       const data = fileUploadTestData[selectKey]
       const selector = (developerSubmitAppPageSelectors as any)[selectKey]
       cy.get(selector).upload(

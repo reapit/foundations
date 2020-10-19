@@ -6,12 +6,6 @@ import { ConsumptionCostTypesTable } from './consumption-cost-types-table'
 import { warn } from './__styles__/termsAndConditionsModal'
 import { cx } from 'linaria'
 
-interface ConsumptionCost {
-  type: string
-  amount: string
-  payable: string
-}
-
 export const Schedule2 = () => (
   <div>
     <H4 className={cx(warn, 'text-center')}>There are no fees or consumption costs during the Beta period</H4>

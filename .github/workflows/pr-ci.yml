@@ -44,19 +44,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-        # Only web apps built with webpack have .webpack-cache
-      - name: Get Web Apps build cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            packages/admin-portal/.webpack-cache
-            packages/marketplace/.webpack-cache
-            packages/developer-portal/.webpack-cache
-            packages/aml-checklist/.webpack-cache
-            packages/smb-onboarder/.webpack-cache
-            packages/geo-diary/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}
-
       - name: Fetch config
         run: |
           yarn fetch-config --name development
