@@ -28,6 +28,7 @@ const identityCheckList = [
   { label: 'Unchecked', value: 'Unchecked' },
 ]
 
+// eslint-disable-next-line
 export const renderForm = ({ connectIsDesktop }) => ({ values }) => {
   return (
     <Section>

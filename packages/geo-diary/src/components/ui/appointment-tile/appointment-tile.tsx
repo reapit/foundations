@@ -82,7 +82,7 @@ export const renderFooterItems = ({
 }: RenderFooterItemsParams) => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
-  let buttons = [
+  const buttons = [
     <Button
       className="is-centered mr-2 mb-2"
       variant="info"

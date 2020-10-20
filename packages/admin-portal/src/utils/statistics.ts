@@ -36,7 +36,7 @@ export const getChartData = (data: any[], range: Range): ChartDataType => {
   let formatedFromDate = dayjs(dateRange.from)
     .startOf('day')
     .toDate()
-  let formatedToDate = dayjs(dateRange.to)
+  const formatedToDate = dayjs(dateRange.to)
     .startOf('day')
     .toDate()
   while (formatedFromDate <= formatedToDate) {
