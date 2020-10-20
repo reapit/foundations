@@ -24,7 +24,7 @@
     "snyk": "^1.385.0"
   },
   "scripts": {
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "start:dev": "NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
     "release": " serverless deploy"
   }

@@ -53,7 +53,7 @@ export type RenderIdParams = {
 export type RowIdParams = {
   row: { index: number }
 }
-
+// eslint-disable-next-line react/display-name
 export const renderId = ({ page }: RenderIdParams) => ({ row: { index } }: RowIdParams) => {
   const pageNoTimesRevsions = (page - 1) * REVISIONS_PER_PAGE
   return <div>{pageNoTimesRevsions + index + 1}</div>
@@ -104,7 +104,8 @@ export const renderViewDetailButton = ({
   appDetail,
   setIsModalOpen,
   dispatch,
-}: RenderViewDetailButtonParams) => ({ row: { original } }: RowDetailButtonParams) => {
+}: // eslint-disable-next-line react/display-name
+RenderViewDetailButtonParams) => ({ row: { original } }: RowDetailButtonParams) => {
   const { appId, appRevisionId } = original
   const currentRevisionId = revisionDetail?.id
   const currentAppId = appDetail?.id

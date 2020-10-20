@@ -36,6 +36,7 @@ export const renderNoResult = (param: string, time: string) => {
   )
 }
 
+// eslint-disable-next-line
 export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSearchStatus, contact }) => () => {
   const { param, result, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
   return (

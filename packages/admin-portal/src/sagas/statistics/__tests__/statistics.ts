@@ -17,7 +17,7 @@ jest.mock('@/services/apps')
 describe('statisticsDataFetch', () => {
   const params: StatisticsRequestParams = { area: 'APPS', range: 'WEEK' }
   const gen = cloneableGenerator(statisticsDataFetch)({ data: params })
-  let queryParams = {} as any
+  const queryParams = {} as any
   if (params.range !== 'ALL') {
     const dateRange = getDateRange(params.range)
     queryParams.RegisteredFrom = dateRange.from.toISOString()

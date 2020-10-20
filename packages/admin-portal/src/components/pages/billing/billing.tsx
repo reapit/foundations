@@ -55,10 +55,6 @@ export const handleDownloadBillingPeriod = (period: string, setFileBlob: Dispatc
     })
 }
 
-type Month = {
-  proiod: string
-}
-
 export const genarateYearsListOptions = (yearFrom: number) => {
   const years: SelectOption[] = []
   const currentYear = dayjs().year()

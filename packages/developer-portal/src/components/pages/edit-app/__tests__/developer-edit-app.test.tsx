@@ -145,7 +145,7 @@ describe('DeveloperSubmitApp', () => {
       },
     ]
 
-    for (let { org, isListed, expectsetIsListingParams, inputDispatchIsListed } of setIsListingTestCases) {
+    for (const { org, isListed, expectsetIsListingParams, inputDispatchIsListed } of setIsListingTestCases) {
       test(`org status: ${org.status} - isListed: ${isListed} `, () => {
         const onSuccess = jest.fn()
         const onError = jest.fn()

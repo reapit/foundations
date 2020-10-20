@@ -70,7 +70,6 @@ export const Apps: React.FC = () => {
           />
         </>
       )}
-
       <SandboxPopUp loading={isLoading} />
     </ErrorBoundary>
   )

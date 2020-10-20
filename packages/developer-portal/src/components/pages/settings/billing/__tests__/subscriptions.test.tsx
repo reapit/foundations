@@ -56,10 +56,9 @@ describe('handleDeleteSubscription', () => {
 
 describe('Subcriptions', () => {
   it('should match snapshot', () => {
-    let store
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(appState)
+    const store = mockStore(appState)
 
     expect(
       mount(

@@ -55,31 +55,17 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn scan-secrets && lint-staged && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
+      "pre-commit": "yarn scan-secrets && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "lint-staged": {
-    "**/cypress/**/*.{ts,tsx}": [
-      "git add"
-    ],
-    "packages/**/*.{ts,tsx,js}": [
-      "yarn lint:fix",
-      "git add"
-    ]
-  },
   "dependencies": {
     "@sentry/browser": "^5.11.1",
-    "@types/webpack": "^4.41.6",
     "dayjs": "^1.8.19",
-    "error-polyfill": "^0.1.2",
-    "file-saver": "^2.0.2",
     "graphql": "^14.5.8",
     "hardtack": "^4.1.2",
-    "papaparse": "^5.1.1",
     "pell": "^1.0.6",
     "react": "^16.12.0",
-    "react-datepicker": "^2.9.6",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
     "react-redux": "^7.1.3",
@@ -87,8 +73,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "redux-saga": "^1.1.3",
-    "s3": "^4.4.0",
-    "yargs": "^15.3.1",
+    "svelte": "^3.24.0",
     "yup": "^0.29.1"
   },
   "devDependencies": {
@@ -121,11 +106,11 @@
     "@types/react-router": "^5.1.3",
     "@types/react-router-dom": "^5.1.3",
     "@types/storybook__react": "^4.0.2",
+    "@types/webpack": "^4.41.6",
     "@types/yup": "^0.29.2",
-    "@typescript-eslint/eslint-plugin": "~2.23.0",
-    "@typescript-eslint/parser": "~2.23.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
     "autoprefixer": "^9.8.0",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.13.0",
     "babel-polyfill": "^6.26.0",
@@ -143,18 +128,17 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-svelte3": "^2.7.3",
+    "eslint-webpack-plugin": "^2.1.0",
     "favicons-webpack-plugin": "^2.1.0",
     "file-loader": "^3.0.1",
-    "fork-ts-checker-notifier-webpack-plugin": "^1.0.0",
-    "fork-ts-checker-webpack-plugin": "^1.3.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql-tag": "^2.10.1",
-    "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "isomorphic-fetch": "^2.2.1",
@@ -163,13 +147,11 @@
     "jest-coverage-badges": "^1.1.2",
     "jest-fetch-mock": "^2.1.2",
     "jest-transform-graphql": "^2.1.0",
-    "lerna": "^3.19.0",
+    "lerna": "^3.22.1",
     "linaria": "^1.4.0-beta.10",
-    "lint-staged": "^9.5.0",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.7.0",
     "mockdate": "^2.0.5",
-    "ncp": "^2.0.0",
     "node-sass": "^4.12.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
@@ -180,6 +162,7 @@
     "react-docgen-typescript-loader": "^3.3.0",
     "regenerator-runtime": "^0.13.5",
     "rimraf": "^3.0.0",
+    "s3": "^4.4.0",
     "sass-loader": "^7.1.0",
     "semver": "^7.1.1",
     "serialize-error": "^7.0.1",
@@ -194,7 +177,6 @@
     "shelljs": "^0.8.4",
     "start-server-and-test": "^1.11.0",
     "style-loader": "^0.23.1",
-    "svelte": "^3.24.0",
     "sw2dts": "^2.6.2",
     "thread-loader": "^2.1.3",
     "ts-jest": "^25.2.0",
@@ -203,10 +185,10 @@
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "~3.7.2",
-    "typescript-eslint": "^0.0.1-alpha.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.11.0",
-    "workbox-webpack-plugin": "^5.1.3"
+    "workbox-webpack-plugin": "^5.1.3",
+    "yargs": "^15.3.1"
   }
 }

@@ -41,7 +41,7 @@ describe('submitAppValidation', () => {
     ]
 
     const output = {} as any
-    for (let key of validateRequiredKeys) {
+    for (const key of validateRequiredKeys) {
       output[key] = errorMessages.FIELD_REQUIRED
     }
     output.description = 'Must be between 150 and 1000 characters'

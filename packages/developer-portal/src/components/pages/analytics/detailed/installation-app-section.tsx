@@ -36,7 +36,7 @@ export const handleCountCurrentInstallationForEachApp = (
 export const countAppsHasInstallation = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
 ): InstallationAppsRowType[] => {
-  let temp = {}
+  const temp = {}
   return installationsAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
     if (!appName || terminatesOn) {
       return prevValue

@@ -25,8 +25,8 @@ export const downloadDocument = async (documentId: string) => {
       }),
     ])
 
-    let url = window.URL.createObjectURL(documentBlob)
-    let a = window.document.createElement('a')
+    const url = window.URL.createObjectURL(documentBlob)
+    const a = window.document.createElement('a')
     a.href = url
     a.target = '_blank'
     a.download = `${identityDocument.name}`

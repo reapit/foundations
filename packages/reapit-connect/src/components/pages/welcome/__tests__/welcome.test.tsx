@@ -32,7 +32,7 @@ describe('handleIsShowAgencyCloudSectionMemo', () => {
       { connectSession: { ...session, loginIdentity: { ...session.loginIdentity, groups: ['ReapitUsersAdmin'] } } },
     ]
 
-    for (let input of inputs) {
+    for (const input of inputs) {
       expect(handleIsShowAgencyCloudSectionMemo((input as unknown) as ReapitConnectHook)()).toBeTruthy()
     }
   })

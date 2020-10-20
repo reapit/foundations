@@ -78,7 +78,7 @@ export const datasets = [
 export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model | null) => {
   const clonedDataSet = JSON.parse(JSON.stringify(datasets))
 
-  let labels: string[] = []
+  const labels: string[] = []
   if (!billing?.periods) {
     return {
       labels,
