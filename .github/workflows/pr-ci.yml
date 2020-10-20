@@ -52,10 +52,6 @@ jobs:
         run: |
           yarn test --since origin/master --include-dependencies
 
-      - name: Lint
-        run: |
-          yarn lint --since origin/master --include-dependencies
-
       - name: Build
         run: |
           yarn build --since origin/master --include-dependencies

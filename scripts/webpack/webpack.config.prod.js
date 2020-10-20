@@ -7,7 +7,10 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('../release/utils')
-// const ESLintPlugin = require('eslint-webpack-plugin')
+const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+
+const ESLintPLugin = new ESLintWebpackPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'] })
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -221,6 +224,8 @@ const webpackConfig = {
       APP_VERSION: APP_VERSION,
     }),
     new HashedModuleIdsPlugin(),
+    new FriendlyErrorsWebpackPlugin(),
+    ESLintPLugin,
   ],
 }
 

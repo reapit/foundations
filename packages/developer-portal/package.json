@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
-    "start:dev": "webpack-dev-server --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+    "start:dev": "webpack-dev-server  --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --silent",
@@ -36,6 +36,7 @@
     "file-saver": "^2.0.2",
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
+    "papaparse": "^5.1.1",
     "react-chartjs-2": "^2.8.0",
     "react-responsive": "8.1.0",
     "snyk": "^1.341.1",
@@ -44,7 +45,6 @@
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.86",
     "@types/nanoid": "^2.1.0",
-    "eslint-webpack-plugin": "^2.1.0",
     "redux-mock-store": "^1.5.4"
   },
   "husky": {

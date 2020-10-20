@@ -40,6 +40,7 @@ const webpackConfig = {
   context: process.cwd(),
   entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
   output: {
+    pathinfo: false,
     path: PATHS.output,
     filename: '[name].[hash].js',
   },
@@ -212,6 +213,7 @@ const webpackConfig = {
     splitChunks: {
       chunks: 'all',
     },
+    runtimeChunk: true,
   },
 }
 

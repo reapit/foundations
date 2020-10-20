@@ -18,7 +18,7 @@
     "start:dev": "yarn build:schema && serverless offline --stage local --printOutput",
     "start:prod": "node ./dist/app.js",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent,
     "fetch-ts-definitions": "node scripts/fetch-ts-definitions.js",
     "fetch-config": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
     "snyk-protect": "snyk protect",
