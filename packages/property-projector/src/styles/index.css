@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.department-property-types {
+  margin-left: 30px;
+}
+
+.projector-modal {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #d3d3d3;
+  z-index: 99999999;
+}
+
+.projector-modal header {
+  text-align: left;
+  padding: 25px;
+  height: 150px;
+  border-bottom: 5px solid #ffffff;
+  background-color: #006580;
+}
+
+.projector-modal header .logo {
+  height: 100px;
+}
+
+.carousel .slide .property-projector {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 125px);
+  min-height: 800px;
+}
+
+.projector-modal header img {
+  width: auto;
+  max-height: 63px;
+}
+
+.carousel .slide .property-projector-images {
+  display: flex;
+  height: 100%;
+}
+
+.carousel .slide .property-projector-images div {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel .slide .property-projector-side-images {
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid #ffffff;
+}
+
+.carousel .slide .property-projector-side-images div:nth-of-type(2) {
+  border-top: 5px solid #ffffff;
+}
+
+.carousel .slide .property-projector-information {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  text-align: left;
+  min-width: 600px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.carousel .slide .property-projector-information p {
+  margin: 10px 0px;
+  padding: 0px 10px;
+}
+
+.carousel .slide .property-projector-information p svg {
+  width: 20px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.carousel .slide .property-projector-information .sale-status {
+  font-size: 40px;
+  background-color: #006580;
+}
+
+.carousel .slide .property-projector-information .rooms span {
+  margin-left: 30px;
+}
+
+.carousel .slide .property-projector-information .rooms span:first-of-type {
+  margin-left: 0px;
+}
+
+.projector-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #006580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  z-index: 99999999;
+}
+
+.colour-picker-container {
+  position: relative;
+}
+
+.colour-swatch {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #74818d;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#primaryColour,
+#headerTextColour,
+#secondaryColour {
+  padding-left: 50px;
+}
+
+.sketch-picker {
+  position: absolute;
+  top: 89px;
+  right: 8px;
+  z-index: 999999;
+}
+.office-checkbox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 55px);
+}
+
+.carousel-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 15px 30px;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}

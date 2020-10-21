@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projector should match a snapshot 1`] = `
+<div
+  className="projector-loading"
+  style={
+    Object {
+      "backgroundColor": "#000000",
+    }
+  }
+>
+  loading...
+</div>
+`;

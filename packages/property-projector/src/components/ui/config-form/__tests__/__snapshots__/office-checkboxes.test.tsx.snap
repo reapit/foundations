@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficeCheckboxes should match a snapshot 1`] = `
+<Component>
+  <Component>
+    Offices
+  </Component>
+  <Component>
+    Only properties from the selected offices will be shown in your Property Projector.
+  </Component>
+  <Component>
+    <Component
+      className="office-checkbox"
+    >
+      <Component
+        id="office-ABC"
+        key="ABC"
+        labelText="Solihull"
+        name="offices"
+        value="ABC"
+      />
+      <Component
+        id="office-XYZ"
+        key="XYZ"
+        labelText="London"
+        name="offices"
+        value="XYZ"
+      />
+    </Component>
+  </Component>
+</Component>
+`;

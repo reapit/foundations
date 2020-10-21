@@ -1,9 +1,9 @@
 import dynamoDBMapper from '@/dynamodb-mapper'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import logger from '@/logger'
-import { CreateParams, DeleteParams, UpdateParams, GetByClientIdParams } from '@/schemas/api-types'
-import { WebComponentConfig } from '@/schemas/schema'
-import { generateSchemaItem } from '@/schemas/utils'
+import { CreateParams, DeleteParams, UpdateParams, GetByClientIdParams } from '@/schemas/web-components-config/api-types'
+import { WebComponentConfig } from '@/schemas/web-components-config/schema'
+import { generateSchemaItem } from '@/schemas/web-components-config/utils'
 import { stringifyError } from '@reapit/node-utils'
 
 export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams): Promise<WebComponentConfig> => {
