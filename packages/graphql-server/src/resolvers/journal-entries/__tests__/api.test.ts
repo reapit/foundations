@@ -3,6 +3,16 @@ import { createJournalEntryArgsMock } from '../__stubs__/create-journal-entry'
 import { mockContext } from '../../../__stubs__/context'
 import { callGetJournalEntriesAPI, callCreateJournalEntryAPI } from '../api'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => {
     return {

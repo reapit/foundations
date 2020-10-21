@@ -1,6 +1,15 @@
 import handleError, { HandleErrorParams } from '../handle-error'
 import errors from '../../errors'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
 jest.mock('../../logger/')
 describe('handleError', () => {
   it('should return ValidationError', async () => {

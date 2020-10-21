@@ -12,6 +12,16 @@ import { createIdentityCheckArgsMock } from '../__stubs__/create-identity-check'
 import { updateIdentityCheckArgsMock } from '../__stubs__/update-identity-check'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
 }))

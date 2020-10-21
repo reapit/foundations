@@ -3,6 +3,16 @@ import { departmentMock } from '../__stubs__/department'
 import { departmentsMock } from '../__stubs__/departments'
 import { mockContext } from '../../../__stubs__/context'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../services', () => ({
   getDepartmentById: jest.fn(() => departmentMock),
   getDepartments: jest.fn(() => departmentsMock),

@@ -3,6 +3,16 @@ import { propertyImageMock } from '../__stubs__/propertyImage'
 import { propertyImagesMock } from '../__stubs__/propertyImages'
 import { mockContext } from '../../../__stubs__/context'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../services', () => ({
   getPropertyImageById: jest.fn(() => propertyImageMock),
   getPropertyImages: jest.fn(() => propertyImagesMock),

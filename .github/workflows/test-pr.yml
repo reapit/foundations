@@ -1,4 +1,4 @@
-name: PR CI
+name: Test PR
 
 on:
   pull_request:
@@ -44,14 +44,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Fetch config
-        run: |
-          yarn fetch-config --name development
-
       - name: Test
         run: |
           yarn test --since origin/master --include-dependencies
-
-      - name: Build
-        run: |
-          yarn build --since origin/master --include-dependencies
