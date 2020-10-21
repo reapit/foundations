@@ -9,10 +9,10 @@
   "private": true,
   "scripts": {
     "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
-    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+    "start:dev": "webpack-dev-server --hot --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",
@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@react-hook/resize-observer": "^1.1.0",
-    "@reapit/connect-session": "1.0.1",
-    "@reapit/elements": "^0.5.60",
+    "@reapit/connect-session": "2.0.7",
+    "@reapit/elements": "^1.0.3",
     "@reapit/utils": "^0.0.1",
     "chart.js": "^2.9.3",
     "diff": "^4.0.1",
@@ -60,9 +60,9 @@
     ]
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
+    "> 0.5%",
+    "not IE 11",
+    "chrome 69"
   ],
   "snyk": true
 }

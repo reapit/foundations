@@ -15,6 +15,13 @@ export const check = css`
   color: ${colors.reapitGreen};
 `
 
+export const checkOrange = css`
+  position: relative;
+  top: 2px;
+  left: 2px;
+  color: ${colors.reapitGold};
+`
+
 export const tag = css`
   display: inline-block;
   padding: 0.5rem 1rem;

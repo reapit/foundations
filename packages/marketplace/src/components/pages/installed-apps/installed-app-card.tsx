@@ -3,6 +3,8 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import * as installedAppCardStyles from './__styles__/installed-app-card'
 import { isMobile, Tile } from '@reapit/elements'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
+import * as appCardStyles from '../../ui/app-card/__styles__'
+import { cx } from 'linaria'
 
 export interface InstalledAppCardProps {
   app: AppSummaryModel
@@ -32,7 +34,16 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
   }
 
   return (
-    <div data-test-app-id={app.id} data-test-app-name={app.name}>
+    <div
+      className={cx(!app.isListed && appCardStyles.bannerWrap)}
+      data-test-app-id={app.id}
+      data-test-app-name={app.name}
+    >
+      {!app.isListed && (
+        <div className={appCardStyles.bannerOuterSmall}>
+          <div className={appCardStyles.bannerInnerSmall}>In Development</div>
+        </div>
+      )}
       <Tile
         onClick={onClick as () => void}
         heading={app.name || ''}

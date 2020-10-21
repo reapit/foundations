@@ -3,6 +3,7 @@
  */
 
 declare namespace yargs {
+  // eslint-disable-next-line
   export type Arguments<T> = any
 }
 

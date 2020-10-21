@@ -13,12 +13,12 @@ import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
 import GeneralInformationSection from './general-information-section'
 import AgencyCloudIntegrationSection from './agency-cloud-integration-section'
-import AuthenticationFlowSection from './authentication-flow-section'
+// import AuthenticationFlowSection from './authentication-flow-section'
 import RedirectUriSection from './redirect-uri-section'
 import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
-import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import { selectCategories } from '@/selector/app-categories'
 import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
@@ -452,7 +452,9 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
             <Form noValidate={true}>
               <GeneralInformationSection isListed={!!isListed} />
               <AgencyCloudIntegrationSection />
-              <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} />
+              {/* Section not required right now - eventually we will remove but
+               testing with users first to see if it causes confusion */}
+              {/* <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} /> */}
               <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
               <UploadImageSection isListed={!!isListed} />
               <MarketplaceStatusSection />

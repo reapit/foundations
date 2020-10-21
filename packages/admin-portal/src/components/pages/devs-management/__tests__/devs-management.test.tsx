@@ -7,6 +7,10 @@ import {
   handleFetchData,
   onClickStatusButton,
   renderResult,
+  handleFetchMemberData,
+  handleToggleVisibleModal,
+  closeDisableMemberModal,
+  openDisableMemberModal,
 } from '../devs-management'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { MemoryRouter } from 'react-router'
@@ -14,11 +18,11 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
-import { fetchDeveloperList } from '@/actions/devs-management'
+import { DeveloperModelPagedResult, MemberModel } from '@reapit/foundations-ts-definitions'
+import { fetchDeveloperList, fetchDeveloperMemberList } from '@/actions/devs-management'
 import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 
-const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
+const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
   return {
     ...appState,
     adminDevManagement: {
@@ -116,6 +120,45 @@ describe('handleFetchData', () => {
     const fn = handleFetchData(dispatch)
     fn(params)
     expect(dispatch).toBeCalledWith(fetchDeveloperList(params))
+  })
+})
+
+describe('handleFetchMemberData', () => {
+  it('should run correctly', () => {
+    const dispatch = jest.fn()
+    const params = {
+      id: 'SOME_ID',
+    }
+    const fn = handleFetchMemberData(dispatch)
+    fn(params)
+    expect(dispatch).toBeCalledWith(fetchDeveloperMemberList(params))
+  })
+})
+
+describe('handleToggleVisibleModal', () => {
+  it('should run correctly', () => {
+    const setModalOpen = jest.fn()
+    handleToggleVisibleModal(setModalOpen, true)()
+    expect(setModalOpen).toBeCalledWith(true)
+  })
+})
+
+describe('closeDisableMemberModal', () => {
+  it('should run correctly', () => {
+    const setDisableMemberModalVisible = jest.fn()
+    closeDisableMemberModal(setDisableMemberModalVisible)()
+    expect(setDisableMemberModalVisible).toBeCalledWith(false)
+  })
+})
+
+describe('openDisableMemberModal', () => {
+  it('should run correctly', () => {
+    const setSelectedUser = jest.fn()
+    const setDisableMemberModalVisible = jest.fn()
+    const user = {} as MemberModel
+    openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, user)()
+    expect(setSelectedUser).toBeCalledWith(user)
+    expect(setDisableMemberModalVisible).toBeCalledWith(true)
   })
 })
 

@@ -1,9 +1,9 @@
 import {
   CreateDeveloperModel,
   UpdateDeveloperModel,
-  PagedResultDeveloperModel_,
+  DeveloperModelPagedResult,
   DeveloperModel,
-  PagedResultMemberModel_,
+  MemberModelPagedResult,
   MemberModel,
   AcceptInviteModel,
   UpdateMemberModel,
@@ -53,7 +53,7 @@ export type UpdateOrganisationMemberByIdParams = FetchByIdCommonParams & {
   memberId: string
 } & UpdateMemberModel
 
-export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
+export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<DeveloperModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.developers}?${stringify(params)}`,
@@ -122,7 +122,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
 
 export const fetchOrganisationMembers = async (
   params: FetchOrganisationMembersParams,
-): Promise<PagedResultMemberModel_> => {
+): Promise<MemberModelPagedResult> => {
   try {
     const { id, ...restParams } = params
     const response = await fetcher({

@@ -1,8 +1,8 @@
 import {
   CreateAppModel,
-  PagedResultAppSummaryModel_,
+  AppSummaryModelPagedResult,
   AppDetailModel,
-  PagedResultAppRevisionModel_,
+  AppRevisionModelPagedResult,
   CreateAppRevisionModel,
   AppRevisionModel,
   ApproveModel,
@@ -69,7 +69,7 @@ export type RejectAppRevisionByIdParams = FetchByIdCommonParams & {
 
 export type FetchAppSecretByIdParams = FetchByIdCommonParams
 
-export const fetchAppsListAPI = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsListAPI = async (params: FetchAppsListParams): Promise<AppSummaryModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
@@ -181,7 +181,7 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
 
 export const fetchAppRevisionsList = async (
   params: FetchAppRevisionsListParams,
-): Promise<PagedResultAppRevisionModel_> => {
+): Promise<AppRevisionModelPagedResult> => {
   try {
     const { id, ...rest } = params
     const response = await fetcher({

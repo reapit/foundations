@@ -25,7 +25,7 @@
   "scripts": {
     "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
@@ -33,7 +33,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.60",
+    "@reapit/elements": "^1.0.3",
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
     "hardtack": "^4.1.2",

@@ -12,9 +12,7 @@ const fetchCachedTarFile = async () => {
       const publicPath = `./packages/${packageName}/public`
       fs.mkdirSync(publicPath, { recursive: true })
       const fileName = `${currentTag}.tar.gz`
-      await sendMessageToSlack(
-        `Pulling the artifact \`${currentTag}\` from S3 bucket \`cloud-deployments-releases-cache-prod\``,
-      )
+      await sendMessageToSlack(`Pulling release \`${currentTag}\` from S3 \`cloud-deployments-releases-cache-prod\``)
       runCommand('aws', ['s3', 'cp', `s3://cloud-deployments-releases-cache-prod/${fileName}`, publicPath])
     } catch (err) {
       console.error('fetchArtifact', err)

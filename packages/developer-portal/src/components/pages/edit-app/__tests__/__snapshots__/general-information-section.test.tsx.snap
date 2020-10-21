@@ -58,7 +58,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 <div
                   className=""
                 >
-                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
                 </div>
               </Component>
               <Component
@@ -121,6 +121,66 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       className=""
                       data-test=""
                     >
+                      <div
+                        className="control"
+                      >
+                        <div
+                          className=""
+                        >
+                          <Component
+                            id="isListed"
+                            labelText="Is Listed Marketplace"
+                            name="isListed"
+                          >
+                            <div
+                              className="field "
+                            >
+                              <div
+                                className="control"
+                              >
+                                <Field
+                                  name="isListed"
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="field field-checkbox"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="checkbox"
+                                      data-test=""
+                                      id="isListed"
+                                      onChange={[Function]}
+                                      type="checkbox"
+                                      value=""
+                                    />
+                                    <label
+                                      className="label"
+                                      htmlFor="isListed"
+                                    >
+                                      Is Listed Marketplace
+                                    </label>
+                                  </div>
+                                </Field>
+                              </div>
+                            </div>
+                          </Component>
+                        </div>
+                      </div>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
                       <Component
                         id="categoryId"
                         labelText="Category"
@@ -159,6 +219,54 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   Please select
                                 </option>
                               </select>
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-home-page"
+                        id="homePage"
+                        labelText="Home page"
+                        name="homePage"
+                        placeholder="Your company homepage. HTTP:// or HTTPS://"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="homePage"
+                          validate={null}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="homePage"
+                              >
+                                Home page
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-home-page"
+                                disabled={false}
+                                id="homePage"
+                                name="homePage"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                type="text"
+                                value=""
+                              />
                             </div>
                           </div>
                         </Field>
@@ -226,109 +334,6 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       data-test=""
                     >
                       <Component
-                        dataTest="submit-app-phone"
-                        id="telephone"
-                        labelText="Telephone"
-                        name="telephone"
-                        placeholder="Should one of our developers need to contact you about your app"
-                        required={false}
-                        type="tel"
-                      >
-                        <Field
-                          name="telephone"
-                          validate={null}
-                        >
-                          <div
-                            className=""
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="telephone"
-                              >
-                                Telephone
-                              </label>
-                              <input
-                                className=""
-                                data-test="submit-app-phone"
-                                disabled={false}
-                                id="telephone"
-                                name="telephone"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Should one of our developers need to contact you about your app"
-                                type="tel"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Component>
-                    </div>
-                  </Component>
-                </div>
-              </Component>
-              <Component>
-                <div
-                  className=""
-                  data-test=""
-                >
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component
-                        dataTest="submit-app-home-page"
-                        id="homePage"
-                        labelText="Home page"
-                        name="homePage"
-                        placeholder="Your company homepage. HTTP:// or HTTPS://"
-                        required={false}
-                        type="text"
-                      >
-                        <Field
-                          name="homePage"
-                          validate={null}
-                        >
-                          <div
-                            className=""
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block "
-                                htmlFor="homePage"
-                              >
-                                Home page
-                              </label>
-                              <input
-                                className=""
-                                data-test="submit-app-home-page"
-                                disabled={false}
-                                id="homePage"
-                                name="homePage"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Your company homepage. HTTP:// or HTTPS://"
-                                type="text"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component
                         dataTest="submit-app-launch-uri"
                         id="launchUri"
                         labelText="Launch URI"
@@ -378,13 +383,56 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component
-                    className="is-half-desktop"
-                  >
+                  <Component>
                     <div
                       className=""
                       data-test=""
                     >
+                      <div
+                        className="pb-4"
+                      >
+                        <Component
+                          dataTest="submit-app-phone"
+                          id="telephone"
+                          labelText="Telephone"
+                          name="telephone"
+                          placeholder="Should one of our developers need to contact you about your app"
+                          required={false}
+                          type="tel"
+                        >
+                          <Field
+                            name="telephone"
+                            validate={null}
+                          >
+                            <div
+                              className=""
+                            >
+                              <div
+                                className="control "
+                              >
+                                <label
+                                  className="label inline-block "
+                                  htmlFor="telephone"
+                                >
+                                  Telephone
+                                </label>
+                                <input
+                                  className=""
+                                  data-test="submit-app-phone"
+                                  disabled={false}
+                                  id="telephone"
+                                  name="telephone"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="Should one of our developers need to contact you about your app"
+                                  type="tel"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </Field>
+                        </Component>
+                      </div>
                       <Component
                         dataTest="submit-app-summary"
                         id="summary"
@@ -448,6 +496,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             },
                           ]
                         }
+                        containerClass=""
                         dataTest="submit-app-description"
                         id="description"
                         labelText="Description"
@@ -484,6 +533,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   },
                                 ]
                               }
+                              containerClass=""
                               dataTest="submit-app-description"
                               hasError={false}
                               onBlur={[Function]}
@@ -572,7 +622,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 <div
                   className=""
                 >
-                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
                 </div>
               </Component>
               <Component
@@ -635,6 +685,66 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       className=""
                       data-test=""
                     >
+                      <div
+                        className="control"
+                      >
+                        <div
+                          className=""
+                        >
+                          <Component
+                            id="isListed"
+                            labelText="Is Listed Marketplace"
+                            name="isListed"
+                          >
+                            <div
+                              className="field "
+                            >
+                              <div
+                                className="control"
+                              >
+                                <Field
+                                  name="isListed"
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="field field-checkbox"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="checkbox"
+                                      data-test=""
+                                      id="isListed"
+                                      onChange={[Function]}
+                                      type="checkbox"
+                                      value=""
+                                    />
+                                    <label
+                                      className="label"
+                                      htmlFor="isListed"
+                                    >
+                                      Is Listed Marketplace
+                                    </label>
+                                  </div>
+                                </Field>
+                              </div>
+                            </div>
+                          </Component>
+                        </div>
+                      </div>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
                       <Component
                         id="categoryId"
                         labelText="Category"
@@ -673,6 +783,54 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   Please select
                                 </option>
                               </select>
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-home-page"
+                        id="homePage"
+                        labelText="Home page"
+                        name="homePage"
+                        placeholder="Your company homepage. HTTP:// or HTTPS://"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="homePage"
+                          validate={[Function]}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="homePage"
+                              >
+                                Home page
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-home-page"
+                                disabled={false}
+                                id="homePage"
+                                name="homePage"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                type="text"
+                                value=""
+                              />
                             </div>
                           </div>
                         </Field>
@@ -740,109 +898,6 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       data-test=""
                     >
                       <Component
-                        dataTest="submit-app-phone"
-                        id="telephone"
-                        labelText="Telephone"
-                        name="telephone"
-                        placeholder="Should one of our developers need to contact you about your app"
-                        required={true}
-                        type="tel"
-                      >
-                        <Field
-                          name="telephone"
-                          validate={[Function]}
-                        >
-                          <div
-                            className=""
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block required-label"
-                                htmlFor="telephone"
-                              >
-                                Telephone
-                              </label>
-                              <input
-                                className=""
-                                data-test="submit-app-phone"
-                                disabled={false}
-                                id="telephone"
-                                name="telephone"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Should one of our developers need to contact you about your app"
-                                type="tel"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Component>
-                    </div>
-                  </Component>
-                </div>
-              </Component>
-              <Component>
-                <div
-                  className=""
-                  data-test=""
-                >
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component
-                        dataTest="submit-app-home-page"
-                        id="homePage"
-                        labelText="Home page"
-                        name="homePage"
-                        placeholder="Your company homepage. HTTP:// or HTTPS://"
-                        required={true}
-                        type="text"
-                      >
-                        <Field
-                          name="homePage"
-                          validate={[Function]}
-                        >
-                          <div
-                            className=""
-                          >
-                            <div
-                              className="control "
-                            >
-                              <label
-                                className="label inline-block required-label"
-                                htmlFor="homePage"
-                              >
-                                Home page
-                              </label>
-                              <input
-                                className=""
-                                data-test="submit-app-home-page"
-                                disabled={false}
-                                id="homePage"
-                                name="homePage"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Your company homepage. HTTP:// or HTTPS://"
-                                type="text"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </Field>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component
                         dataTest="submit-app-launch-uri"
                         id="launchUri"
                         labelText="Launch URI"
@@ -892,13 +947,56 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   className=""
                   data-test=""
                 >
-                  <Component
-                    className="is-half-desktop"
-                  >
+                  <Component>
                     <div
                       className=""
                       data-test=""
                     >
+                      <div
+                        className="pb-4"
+                      >
+                        <Component
+                          dataTest="submit-app-phone"
+                          id="telephone"
+                          labelText="Telephone"
+                          name="telephone"
+                          placeholder="Should one of our developers need to contact you about your app"
+                          required={true}
+                          type="tel"
+                        >
+                          <Field
+                            name="telephone"
+                            validate={[Function]}
+                          >
+                            <div
+                              className=""
+                            >
+                              <div
+                                className="control "
+                              >
+                                <label
+                                  className="label inline-block required-label"
+                                  htmlFor="telephone"
+                                >
+                                  Telephone
+                                </label>
+                                <input
+                                  className=""
+                                  data-test="submit-app-phone"
+                                  disabled={false}
+                                  id="telephone"
+                                  name="telephone"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder="Should one of our developers need to contact you about your app"
+                                  type="tel"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </Field>
+                        </Component>
+                      </div>
                       <Component
                         dataTest="submit-app-summary"
                         id="summary"
@@ -961,6 +1059,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             },
                           ]
                         }
+                        containerClass=""
                         dataTest="submit-app-description"
                         id="description"
                         labelText="Description"
@@ -997,6 +1096,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   },
                                 ]
                               }
+                              containerClass=""
                               dataTest="submit-app-description"
                               hasError={false}
                               onBlur={[Function]}

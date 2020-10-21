@@ -635,6 +635,17 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             resetModal={[Function]}
             visible={false}
           />
+          <DisableMemberModal
+            member={null}
+            onCancel={[Function]}
+            onSuccess={[Function]}
+            visible={false}
+          />
+          <Component
+            onClose={[Function]}
+            user={null}
+            visible={false}
+          />
         </ErrorBoundary>
       </Component>
     </Router>
@@ -1275,6 +1286,17 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
           <Component
             developer={Object {}}
             resetModal={[Function]}
+            visible={false}
+          />
+          <DisableMemberModal
+            member={null}
+            onCancel={[Function]}
+            onSuccess={[Function]}
+            visible={false}
+          />
+          <Component
+            onClose={[Function]}
+            user={null}
             visible={false}
           />
         </ErrorBoundary>
@@ -1919,6 +1941,17 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
             resetModal={[Function]}
             visible={false}
           />
+          <DisableMemberModal
+            member={null}
+            onCancel={[Function]}
+            onSuccess={[Function]}
+            visible={false}
+          />
+          <Component
+            onClose={[Function]}
+            user={null}
+            visible={false}
+          />
         </ErrorBoundary>
       </Component>
     </Router>
@@ -2010,6 +2043,7 @@ exports[`renderResult should match snapshot when has result data 1`] = `
           },
         ]
       }
+      expandable={true}
       loading={false}
       scrollable={true}
     />

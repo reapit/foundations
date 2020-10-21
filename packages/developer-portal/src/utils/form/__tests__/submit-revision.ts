@@ -34,7 +34,7 @@ describe('submitRevisionValidation', () => {
     ]
 
     const output = {}
-    for (let key of validateRequiredKeys) {
+    for (const key of validateRequiredKeys) {
       output[key] = errorMessages.FIELD_REQUIRED
     }
     expect(validate(input)).toEqual(output)

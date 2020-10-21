@@ -214,6 +214,14 @@ const appState: ReduxState = {
     formState: {
       state: 'PENDING',
     },
+    install: {
+      isLoading: false,
+      errorMessage: '',
+    },
+    uninstall: {
+      isLoading: false,
+      errorMessage: '',
+    },
   },
   currentMember: {
     isLoading: false,

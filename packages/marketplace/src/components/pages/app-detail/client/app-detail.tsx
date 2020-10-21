@@ -8,7 +8,7 @@ import AppUninstallConfirmation from '@/components/pages/app-detail/client/app-u
 import { selectDesktopIntegrationTypes } from '@/selector/desktop-integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
-import { selectIsAdmin } from '@/selector/auth'
+import { selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -23,7 +23,6 @@ import { BackToAppsSection } from '../common/ui-sections'
 import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectDeveloperEditionId } from '@/selector/auth'
 import { NonAdminInstallModal, NonAdminUninstallModal } from './non-admin-modal'
 
 export type ClientAppDetailProps = {}
@@ -80,8 +79,8 @@ const AppDetail: React.FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
-  const isAdmin = isDesktopAdmin || isDeveloperEdition
+  const sandboxDeveloper = Boolean(selectSandboxDeveloper(connectSession))
+  const isAdmin = isDesktopAdmin || sandboxDeveloper
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
@@ -119,7 +118,7 @@ const AppDetail: React.FC = () => {
   // selector selectAppDetailData return {} if not data
 
   const unfetched = Object.keys(appDetailData).length === 0
-  const { installedOn = '', name = '' } = appDetailData
+  const { name = '' } = appDetailData
 
   return (
     <Grid className={styles.container} dataTest="client-app-detail-container">
@@ -136,7 +135,7 @@ const AppDetail: React.FC = () => {
                 appDetailData={appDetailData}
                 buttonGroup={
                   <AppDetailButtonGroup
-                    installedOn={installedOn}
+                    appDetailData={appDetailData}
                     onInstallConfirmationModal={onInstallConfirmationModal}
                     onUninstallConfirmationModal={onUninstsallConfirmationModal}
                   />

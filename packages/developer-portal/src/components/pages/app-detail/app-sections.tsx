@@ -8,7 +8,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { AppDetailSection, Tag, ImageSection } from './app-ui-helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
-import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 import {
   LevelRight,
   Button,
@@ -22,9 +22,9 @@ import {
 } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
-import { check, preview } from './__styles__/app-detail'
+import { preview } from './__styles__/app-detail'
 
-interface IsSidebar {
+export interface IsSidebar {
   isSidebar?: boolean
 }
 
@@ -42,10 +42,6 @@ interface PrivateAppSectionProps extends IsSidebar {
 
 interface DirectApiSectionProps extends IsSidebar {
   isDirectApi: boolean | undefined
-}
-
-interface StatusSectionProps extends IsSidebar {
-  isListed: boolean | undefined
 }
 
 interface BackToAppsSectionProps {
@@ -117,20 +113,6 @@ export const PrivateAppSection: React.FC<PrivateAppSectionProps> = ({ limitToCli
 export const DirectApiSection: React.FC<DirectApiSectionProps> = ({ isDirectApi, isSidebar = false }) => (
   <AppDetailSection headerText="Direct API" isSidebar={isSidebar}>
     {convertBooleanToYesNoString(Boolean(isDirectApi))}
-  </AppDetailSection>
-)
-
-export const StatusSection: React.FC<StatusSectionProps> = ({ isListed, isSidebar = false }) => (
-  <AppDetailSection headerText="Status" isSidebar={isSidebar}>
-    <div>
-      {isListed ? (
-        <>
-          Listed <FaCheck className={check} />
-        </>
-      ) : (
-        'Not listed'
-      )}
-    </div>
   </AppDetailSection>
 )
 

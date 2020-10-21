@@ -7,8 +7,7 @@ import { fetchRevision } from '@/actions/revision-detail'
 import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { fetchAppDetail } from '@/actions/app-detail'
-import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
-import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { ApprovalModel, AppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { selectAppDetailData } from '@/selector/app-detail'
 import { selectAppRevisionDetailData } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
@@ -54,7 +53,7 @@ export type RenderIdParams = {
 export type RowIdParams = {
   row: { index: number }
 }
-
+// eslint-disable-next-line react/display-name
 export const renderId = ({ page }: RenderIdParams) => ({ row: { index } }: RowIdParams) => {
   const pageNoTimesRevsions = (page - 1) * REVISIONS_PER_PAGE
   return <div>{pageNoTimesRevsions + index + 1}</div>
@@ -105,7 +104,8 @@ export const renderViewDetailButton = ({
   appDetail,
   setIsModalOpen,
   dispatch,
-}: RenderViewDetailButtonParams) => ({ row: { original } }: RowDetailButtonParams) => {
+}: // eslint-disable-next-line react/display-name
+RenderViewDetailButtonParams) => ({ row: { original } }: RowDetailButtonParams) => {
   const { appId, appRevisionId } = original
   const currentRevisionId = revisionDetail?.id
   const currentAppId = appDetail?.id

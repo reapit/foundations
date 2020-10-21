@@ -1,4 +1,4 @@
-import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
+import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -7,7 +7,7 @@ import { FetchListCommonParams } from './types'
 
 export type FetchCategoriesParams = FetchListCommonParams
 
-export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise<PagedResultCategoryModel_> => {
+export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise<CategoryModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.categories}?${setQueryParams(params)}`,

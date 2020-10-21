@@ -833,7 +833,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       <div
                         className=""
                       >
-                        The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
+                        The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
                       </div>
                     </Component>
                     <Component
@@ -896,6 +896,66 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             className=""
                             data-test=""
                           >
+                            <div
+                              className="control"
+                            >
+                              <div
+                                className=""
+                              >
+                                <Component
+                                  id="isListed"
+                                  labelText="Is Listed Marketplace"
+                                  name="isListed"
+                                >
+                                  <div
+                                    className="field "
+                                  >
+                                    <div
+                                      className="control"
+                                    >
+                                      <Field
+                                        name="isListed"
+                                        type="checkbox"
+                                      >
+                                        <div
+                                          className="field field-checkbox"
+                                        >
+                                          <input
+                                            checked={false}
+                                            className="checkbox"
+                                            data-test=""
+                                            id="isListed"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                            value=""
+                                          />
+                                          <label
+                                            className="label"
+                                            htmlFor="isListed"
+                                          >
+                                            Is Listed Marketplace
+                                          </label>
+                                        </div>
+                                      </Field>
+                                    </div>
+                                  </div>
+                                </Component>
+                              </div>
+                            </div>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
                             <Component
                               id="categoryId"
                               labelText="Category"
@@ -934,6 +994,54 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         Please select
                                       </option>
                                     </select>
+                                  </div>
+                                </div>
+                              </Field>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component
+                              dataTest="submit-app-home-page"
+                              id="homePage"
+                              labelText="Home page"
+                              name="homePage"
+                              placeholder="Your company homepage. HTTP:// or HTTPS://"
+                              required={false}
+                              type="text"
+                            >
+                              <Field
+                                name="homePage"
+                                validate={null}
+                              >
+                                <div
+                                  className=""
+                                >
+                                  <div
+                                    className="control "
+                                  >
+                                    <label
+                                      className="label inline-block "
+                                      htmlFor="homePage"
+                                    >
+                                      Home page
+                                    </label>
+                                    <input
+                                      className=""
+                                      data-test="submit-app-home-page"
+                                      disabled={false}
+                                      id="homePage"
+                                      name="homePage"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                      type="text"
+                                      value=""
+                                    />
                                   </div>
                                 </div>
                               </Field>
@@ -1001,109 +1109,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             data-test=""
                           >
                             <Component
-                              dataTest="submit-app-phone"
-                              id="telephone"
-                              labelText="Telephone"
-                              name="telephone"
-                              placeholder="Should one of our developers need to contact you about your app"
-                              required={false}
-                              type="tel"
-                            >
-                              <Field
-                                name="telephone"
-                                validate={null}
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <div
-                                    className="control "
-                                  >
-                                    <label
-                                      className="label inline-block "
-                                      htmlFor="telephone"
-                                    >
-                                      Telephone
-                                    </label>
-                                    <input
-                                      className=""
-                                      data-test="submit-app-phone"
-                                      disabled={false}
-                                      id="telephone"
-                                      name="telephone"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      placeholder="Should one of our developers need to contact you about your app"
-                                      type="tel"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </Field>
-                            </Component>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component
-                              dataTest="submit-app-home-page"
-                              id="homePage"
-                              labelText="Home page"
-                              name="homePage"
-                              placeholder="Your company homepage. HTTP:// or HTTPS://"
-                              required={false}
-                              type="text"
-                            >
-                              <Field
-                                name="homePage"
-                                validate={null}
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <div
-                                    className="control "
-                                  >
-                                    <label
-                                      className="label inline-block "
-                                      htmlFor="homePage"
-                                    >
-                                      Home page
-                                    </label>
-                                    <input
-                                      className=""
-                                      data-test="submit-app-home-page"
-                                      disabled={false}
-                                      id="homePage"
-                                      name="homePage"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      placeholder="Your company homepage. HTTP:// or HTTPS://"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </Field>
-                            </Component>
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component
                               dataTest="submit-app-launch-uri"
                               id="launchUri"
                               labelText="Launch URI"
@@ -1153,13 +1158,56 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         className=""
                         data-test=""
                       >
-                        <Component
-                          className="is-half-desktop"
-                        >
+                        <Component>
                           <div
                             className=""
                             data-test=""
                           >
+                            <div
+                              className="pb-4"
+                            >
+                              <Component
+                                dataTest="submit-app-phone"
+                                id="telephone"
+                                labelText="Telephone"
+                                name="telephone"
+                                placeholder="Should one of our developers need to contact you about your app"
+                                required={false}
+                                type="tel"
+                              >
+                                <Field
+                                  name="telephone"
+                                  validate={null}
+                                >
+                                  <div
+                                    className=""
+                                  >
+                                    <div
+                                      className="control "
+                                    >
+                                      <label
+                                        className="label inline-block "
+                                        htmlFor="telephone"
+                                      >
+                                        Telephone
+                                      </label>
+                                      <input
+                                        className=""
+                                        data-test="submit-app-phone"
+                                        disabled={false}
+                                        id="telephone"
+                                        name="telephone"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        placeholder="Should one of our developers need to contact you about your app"
+                                        type="tel"
+                                        value=""
+                                      />
+                                    </div>
+                                  </div>
+                                </Field>
+                              </Component>
+                            </div>
                             <Component
                               dataTest="submit-app-summary"
                               id="summary"
@@ -1223,6 +1271,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   },
                                 ]
                               }
+                              containerClass=""
                               dataTest="submit-app-description"
                               id="description"
                               labelText="Description"
@@ -1259,6 +1308,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         },
                                       ]
                                     }
+                                    containerClass=""
                                     dataTest="submit-app-description"
                                     hasError={false}
                                     onBlur={[Function]}
@@ -1773,181 +1823,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   </div>
                 </Component>
               </AgencyCloudIntegrationSection>
-              <AuthenticationFlowSection
-                setFieldValue={[Function]}
-              >
-                <Component>
-                  <div
-                    className=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                      >
-                        AUTHENTICATION FLOW *
-                      </div>
-                    </Component>
-                    <Component>
-                      <div
-                        className=""
-                      >
-                        Please select an authentication flow for your application.
-                         
-                        <strong>
-                          You can only do this once when you submit your app
-                        </strong>
-                        . If your application is
-                         
-                        <strong>
-                          user facing
-                        </strong>
-                        , you should select "Authorization Code". This will allow you to use our hosted authentication service, Reapit Connect. If you are developing a
-                         
-                        <strong>
-                          server-side machine to machine
-                        </strong>
-                         application such as a feed to another system, you should select "Client Credentials".
-                         
-                        <strong>
-                          This flow must not be used for applications without a server-side component
-                        </strong>
-                        . For more information on authentication, see our platform documentation
-                         
-                        <a
-                          className=""
-                          href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          here
-                        </a>
-                         
-                        before progressing.
-                      </div>
-                    </Component>
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component
-                              disabled={true}
-                              id="authFlow"
-                              name="authFlow"
-                              options={
-                                Array [
-                                  Object {
-                                    "label": "AUTHORIZATION CODE (Reapit Connect)",
-                                    "value": "authorisationCode",
-                                  },
-                                  Object {
-                                    "label": "CLIENT CREDENTIALS",
-                                    "value": "clientCredentials",
-                                  },
-                                ]
-                              }
-                              setFieldValue={[Function]}
-                            >
-                              <Field
-                                name="authFlow"
-                                type="radio"
-                              >
-                                <div
-                                  className="field pb-2 "
-                                >
-                                  <div
-                                    className="control"
-                                  >
-                                    <label
-                                      className="label"
-                                      htmlFor="authFlow"
-                                    />
-                                    <Component
-                                      className=""
-                                      isMultiLine={true}
-                                    >
-                                      <div
-                                        className=""
-                                        data-test=""
-                                      >
-                                        <Component
-                                          className=""
-                                          key="0"
-                                        >
-                                          <div
-                                            className=""
-                                            data-test=""
-                                          >
-                                            <div
-                                              className="radio-wrap"
-                                            >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={true}
-                                                id="authFlowAUTHORIZATION CODE (Reapit Connect)"
-                                                key="authorisationCode"
-                                                name="authFlow"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="authorisationCode"
-                                              />
-                                              <label
-                                                htmlFor="authFlowAUTHORIZATION CODE (Reapit Connect)"
-                                              >
-                                                AUTHORIZATION CODE (Reapit Connect)
-                                              </label>
-                                            </div>
-                                          </div>
-                                        </Component>
-                                        <Component
-                                          className=""
-                                          key="1"
-                                        >
-                                          <div
-                                            className=""
-                                            data-test=""
-                                          >
-                                            <div
-                                              className="radio-wrap"
-                                            >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={true}
-                                                id="authFlowCLIENT CREDENTIALS"
-                                                key="clientCredentials"
-                                                name="authFlow"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="clientCredentials"
-                                              />
-                                              <label
-                                                htmlFor="authFlowCLIENT CREDENTIALS"
-                                              >
-                                                CLIENT CREDENTIALS
-                                              </label>
-                                            </div>
-                                          </div>
-                                        </Component>
-                                      </div>
-                                    </Component>
-                                  </div>
-                                </div>
-                              </Field>
-                            </Component>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-              </AuthenticationFlowSection>
               <RedirectUriSection
                 isPrivateApp="no"
                 setFieldValue={[Function]}
@@ -2941,7 +2816,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       <div
                         className=""
                       >
-                        This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Direct API”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Direct API”. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
+                        This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Direct API”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Direct API”.
                       </div>
                     </Component>
                     <Component>
@@ -2986,51 +2861,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         htmlFor="isDirectApi"
                                       >
                                         Direct API
-                                      </label>
-                                    </div>
-                                  </Field>
-                                </div>
-                              </div>
-                            </Component>
-                          </div>
-                        </Component>
-                        <Component>
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component
-                              id="isListed"
-                              labelText="Is Listed"
-                              name="isListed"
-                            >
-                              <div
-                                className="field "
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <Field
-                                    name="isListed"
-                                    type="checkbox"
-                                  >
-                                    <div
-                                      className="field field-checkbox"
-                                    >
-                                      <input
-                                        checked={false}
-                                        className="checkbox"
-                                        data-test=""
-                                        id="isListed"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                        value=""
-                                      />
-                                      <label
-                                        className="label"
-                                        htmlFor="isListed"
-                                      >
-                                        Is Listed
                                       </label>
                                     </div>
                                   </Field>

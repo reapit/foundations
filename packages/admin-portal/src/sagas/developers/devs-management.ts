@@ -3,15 +3,25 @@ import {
   fetchDeveloperListSuccess,
   fetchDeveloperListFailed,
   fetchDeveloperListValues,
+  fetchDeveloperMembersListSuccess,
+  DisableMemberActionParams,
+  fetchDeveloperMemberList,
+  SetAsAdminParams,
 } from '@/actions/devs-management'
 
 import { DATE_TIME_FORMAT, notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { extractNetworkErrString } from '@reapit/utils'
+import { extractNetworkErrString, errorMessages } from '@reapit/utils'
 import dayjs from 'dayjs'
-import { fetchDevelopersList } from '@/services/developers'
+import {
+  fetchDevelopersList,
+  fetchOrganisationMembers,
+  FetchDeveloperMembersParams,
+  disableMemberApi,
+  updateOrganisationMemberById,
+} from '@/services/developers'
 
 export const fetchDeveloperListHandler = function*({ data: { page, queryString } }) {
   try {
@@ -43,12 +53,73 @@ export const fetchDeveloperListHandler = function*({ data: { page, queryString }
   }
 }
 
+export const organisationFetchMembers = function*({ data }: Action<FetchDeveloperMembersParams>) {
+  try {
+    const response = yield call(fetchOrganisationMembers, data)
+    yield put(fetchDeveloperMembersListSuccess(response))
+  } catch (err) {
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
+  }
+}
+
+export const developerDisableMember = function*({ data }: Action<DisableMemberActionParams>) {
+  try {
+    yield call(disableMemberApi, { developerId: data.developerId, memberId: data.memberId })
+    data.callback(true)
+    yield put(fetchDeveloperMemberList({ id: data.developerId }))
+  } catch (err) {
+    data.callback(false)
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
+  }
+}
+
+export const setDeveloperMemberAdmin = function*({ data }: Action<SetAsAdminParams>) {
+  const { callback, ...params } = data
+  try {
+    yield call(updateOrganisationMemberById, params)
+    yield put(fetchDeveloperMemberList({ id: data.id }))
+
+    callback && callback()
+  } catch (err) {
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
+  }
+}
+
 export const fetchDeveloperListListen = function*() {
   yield takeLatest<Action<fetchDeveloperListValues>>(ActionTypes.FETCH_DEVELOPER_LIST, fetchDeveloperListHandler)
 }
 
+export const fetchDeveloperMemberListListen = function*() {
+  yield takeLatest<Action<FetchDeveloperMembersParams>>(
+    ActionTypes.FETCH_DEVELOPER_MEMBER_LIST,
+    organisationFetchMembers,
+  )
+}
+
+export const disableDeveloperMemberListen = function*() {
+  yield takeLatest<Action<DisableMemberActionParams>>(ActionTypes.DISABLE_MEMBER, developerDisableMember)
+}
+
+export const setDeveloperMemberAdminListen = function*() {
+  yield takeLatest<Action<SetAsAdminParams>>(ActionTypes.SET_AS_ADMIN, setDeveloperMemberAdmin)
+}
+
 const devsManagementSagas = function*() {
-  yield all([fork(fetchDeveloperListListen)])
+  yield all([
+    fork(fetchDeveloperListListen),
+    fork(fetchDeveloperMemberListListen),
+    fork(disableDeveloperMemberListen),
+    fork(setDeveloperMemberAdminListen),
+  ])
 }
 
 export default devsManagementSagas

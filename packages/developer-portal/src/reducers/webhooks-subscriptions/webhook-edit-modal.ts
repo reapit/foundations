@@ -9,7 +9,7 @@ import {
   requestWebhookSubcriptionData,
   requestWebhookData,
 } from '@/actions/webhooks-subscriptions'
-import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface WebhookModal {
   id: string
@@ -43,7 +43,7 @@ export interface SubcriptionTopics {
 }
 
 export interface WebhookSubscription {
-  subcriptionCustomers: PagedResultInstallationModel_
+  subcriptionCustomers: InstallationModelPagedResult
   subcriptionTopics: SubcriptionTopics
 }
 

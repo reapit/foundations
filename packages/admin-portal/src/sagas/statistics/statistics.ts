@@ -16,7 +16,7 @@ export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 export const statisticsDataFetch = function*({ data }) {
   try {
     const { area, range } = data
-    let queryParams = {} as any
+    const queryParams = {} as any
     if (range !== 'ALL') {
       const dateRange = getDateRange(range)
       queryParams.RegisteredFrom = dateRange.from.toISOString()

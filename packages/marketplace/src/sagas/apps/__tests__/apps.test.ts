@@ -2,11 +2,18 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { appSagasListen, appsSagas, fetchAppDetailSagas, fetchApps, fetchFeatureApps } from '../apps'
+import {
+  appSagasListen,
+  appsSagas,
+  fetchAppDetailSagas,
+  fetchApps,
+  fetchFeatureApps,
+  fetchDeveloperApps,
+} from '../apps'
 import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsParams } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { auth } from '@/selector/auth/__mocks__/auth'
-import { selectClientId, selectDeveloperEditionId } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import {
   fetchAppDetailFailed,
@@ -30,20 +37,14 @@ describe('apps', () => {
     } as Action<FetchAppsParams>
     const gen = cloneableGenerator(fetchApps)(params)
     expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
-    expect(gen.next(auth).value).toEqual(call(selectDeveloperEditionId, auth))
-    expect(gen.next(auth.loginIdentity.developerId).value).toEqual(call(selectClientId, auth))
-
-    it('should return', () => {
-      const clone = gen.clone()
-      expect(clone.next().done).toEqual(true)
-    })
+    expect(gen.next(auth).value).toEqual(call(selectClientId, auth))
 
     it('api call success', () => {
       const clone = gen.clone()
       expect(clone.next(auth.loginIdentity.clientId).value).toEqual(
         call(fetchAppsApi, {
           clientId: auth.loginIdentity.clientId,
-          developerId: [auth.loginIdentity.developerId],
+          developerId: undefined,
           pageNumber: 1,
           pageSize: 10,
         } as FetchAppsParams),
@@ -72,20 +73,14 @@ describe('apps', () => {
     } as Action<FetchAppsParams>
     const gen = cloneableGenerator(fetchFeatureApps)(params)
     expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
-    expect(gen.next(auth).value).toEqual(call(selectDeveloperEditionId, auth))
-    expect(gen.next(auth.loginIdentity.developerId).value).toEqual(call(selectClientId, auth))
-
-    it('should return', () => {
-      const clone = gen.clone()
-      expect(clone.next().done).toEqual(true)
-    })
+    expect(gen.next(auth).value).toEqual(call(selectClientId, auth))
 
     it('api call success', () => {
       const clone = gen.clone()
       expect(clone.next(auth.loginIdentity.clientId).value).toEqual(
         call(fetchAppsApi, {
           clientId: auth.loginIdentity.clientId,
-          developerId: [auth.loginIdentity.developerId],
+          developerId: undefined,
           isFeatured: true,
           pageNumber: 1,
           pageSize: 10,
@@ -155,6 +150,9 @@ describe('apps', () => {
         takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps),
       )
       expect(gen.next().value).toEqual(takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps))
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_DEVELOPER_APPS, fetchDeveloperApps),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

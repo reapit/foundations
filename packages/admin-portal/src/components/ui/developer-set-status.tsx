@@ -5,7 +5,7 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalPr
 import CallToAction from '@/components/ui/call-to-action'
 import { setRequestDeveloperStatusFormState, initRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperSetStatusFormState } from '@/selector/developer-set-status'
+import { selectDeveloperSetStatusFormState } from '@/selector/developers'
 
 export type SetDeveloperStatusProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onSuccess: () => void

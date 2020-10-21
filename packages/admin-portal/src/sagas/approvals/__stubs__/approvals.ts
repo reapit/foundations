@@ -1,6 +1,6 @@
-import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
+import { ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const approvalsStub: { data: PagedResultApprovalModel_ } = {
+export const approvalsStub: { data: ApprovalModelPagedResult } = {
   data: {
     data: [
       {

@@ -14,9 +14,9 @@ import {
   setAsAdminSuccess,
   setAsAdminFailed,
 } from '@/actions/developers'
-import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
+import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export type MembersState = PagedResultMemberModel_ & {
+export type MembersState = MemberModelPagedResult & {
   isLoading: boolean
   errorMessage?: string | null
   inviteMember: {

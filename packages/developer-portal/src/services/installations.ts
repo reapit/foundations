@@ -1,5 +1,5 @@
 import {
-  PagedResultInstallationModel_,
+  InstallationModelPagedResult,
   CreateInstallationModel,
   InstallationModel,
   TerminateInstallationModel,
@@ -22,7 +22,9 @@ export type FetchInstallationsListParams = FetchListCommonParams & {
   isInstalled?: boolean
 }
 
-export type CreateInstallationParams = CreateInstallationModel
+export type CreateInstallationParams = CreateInstallationModel & {
+  callback: () => void
+}
 
 export type FetchInstallationByIdParams = {
   installationId: string
@@ -38,11 +40,12 @@ export type DeleteApiKeyInstallationById = {
 
 export type RemoveAccessToAppByIdParams = TerminateInstallationModel & {
   installationId: string
+  callback: () => void
 }
 
 export const fetchInstallationsList = async (
   params: FetchInstallationsListParams,
-): Promise<PagedResultInstallationModel_> => {
+): Promise<InstallationModelPagedResult> => {
   try {
     const response = await fetcher({
       url: `${URLS.installations}?${setQueryParams(params)}`,

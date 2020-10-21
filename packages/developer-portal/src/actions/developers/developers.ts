@@ -10,7 +10,7 @@ import {
   UpdateOrganisationMemberByIdParams,
   DisableMemberParams,
 } from '@/services/developers'
-import { PagedResultMemberModel_, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
+import { MemberModelPagedResult, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
 
 export type SetAsAdminParams = UpdateOrganisationMemberByIdParams & {
@@ -20,7 +20,7 @@ export type SetAsAdminParams = UpdateOrganisationMemberByIdParams & {
 export const fetchOrganisationMembers = actionCreator<FetchOrganisationMembersParams>(
   ActionTypes.ORGANISATION_FETCH_MEMBERS,
 )
-export const fetchOrganisationMembersSuccess = actionCreator<PagedResultMemberModel_>(
+export const fetchOrganisationMembersSuccess = actionCreator<MemberModelPagedResult>(
   ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS,
 )
 export const fetchOrganisationMembersFailed = actionCreator<string>(ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED)

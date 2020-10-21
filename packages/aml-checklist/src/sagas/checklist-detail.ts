@@ -162,7 +162,7 @@ export const onUpdateDeclarationAndRisk = function*({
   const headers = yield call(initAuthorizedRequestHeaders)
   const currentContact = yield select(selectCheckListDetailContact)
   try {
-    let { type, reason, declarationForm, riskAssessmentForm } = metadata?.declarationRisk || {}
+    const { type, reason, declarationForm, riskAssessmentForm } = metadata?.declarationRisk || {}
     const [declarationResponse, riskAssessmentResponse] = yield all([
       isBase64(declarationForm)
         ? call(uploadImage, { headers, name: `declaration-${type}-${reason}`, imageData: declarationForm })

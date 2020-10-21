@@ -1,4 +1,3 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
@@ -6,10 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
-const hashFiles = require('../utils/hash-files')
 const { getVersionTag, getRef } = require('../release/utils')
 
 const EXCLUDE_PACKAGES = ['linaria']
@@ -31,10 +28,7 @@ const babelLoaderOptions = {
       {
         useBuiltIns: 'entry',
         corejs: '3',
-        targets: {
-          chrome: '58',
-          ie: '11',
-        },
+        targets: '> 0.5%, not IE 11, chrome 79',
       },
     ],
     'linaria/babel',
@@ -78,16 +72,6 @@ const webpackConfig = {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
         use: [
-          {
-            loader: 'cache-loader',
-            options: {
-              // each package has its own .webpack-cache
-              cacheDirectory: `${PATHS.cacheWebpackDir}/cache-loader`,
-              // use yarn.lock at the root of the monorepo as hash, relative to this file
-              cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
-            },
-          },
-          'thread-loader',
           {
             loader: 'babel-loader',
             options: babelLoaderOptions,
@@ -262,16 +246,6 @@ const webpackConfig = {
       ],
     }),
     new HashedModuleIdsPlugin(),
-    new HardSourceWebpackPlugin({
-      // each package has its own .webpack-cache
-      cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
-      environmentHash: {
-        root: path.join(__dirname, '../..'),
-        directories: [],
-        // use yarn.lock at the root of the monorepo as hash, relative to this file
-        files: ['yarn.lock'],
-      },
-    }),
   ],
 }
 

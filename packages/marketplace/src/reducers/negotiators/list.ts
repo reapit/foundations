@@ -1,10 +1,10 @@
-import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
+import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchNegotiators, fetchNegotiatorsFailed, fetchNegotiatorsSuccess } from '@/actions/negotiators'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
-export type NegotiatorsState = PagedResultCategoryModel_ & {
+export type NegotiatorsState = CategoryModelPagedResult & {
   isLoading: boolean
   errorMessage: string
 }

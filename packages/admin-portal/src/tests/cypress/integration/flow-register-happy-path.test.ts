@@ -15,7 +15,7 @@ describe('Register happy path', () => {
       textBoxEmail: `testEmail${nanoid(5)}@gmail.com`,
       textBoxCompanyName: 'Test company',
     }
-    for (let inputTestDataSelector in inputTestData) {
+    for (const inputTestDataSelector in inputTestData) {
       const data = inputTestData[inputTestDataSelector]
       const selector = (registerPageSelectors as any)[inputTestDataSelector]
       cy.get(selector).type(data)

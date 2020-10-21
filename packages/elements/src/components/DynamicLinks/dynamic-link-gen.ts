@@ -102,15 +102,3 @@ export const navigateDynamicApp = (
     window.location.href = dynamicLink
   }
 }
-
-// TODO - needs a test, just need to test in prod first, bit hacky
-export const setMessageEventListener = () => {
-  window.addEventListener('message', (event: MessageEvent) => {
-    if (event.origin.startsWith('https://reapit.github.io')) {
-      console.log('Reapit Dynamic Link Is', event.data)
-      if (event.data.dynamicLink) {
-        window.location.href = event.data.dynamicLink
-      }
-    }
-  })
-}

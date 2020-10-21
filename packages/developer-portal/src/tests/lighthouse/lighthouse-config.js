@@ -12,7 +12,7 @@ module.exports = {
     pwa: 10,
     accessibility: 10,
     'best-practices': 10,
-    seo: 10
+    seo: 10,
   },
   lighthouseOptions: {
     // Choose which device type to simulate (options: mobile/desktop/none). default is mobile.
@@ -23,12 +23,12 @@ module.exports = {
     // throttlingMethod: 'provided',
     onlyCategories: [
       // comment out categories if we want to limit the number of lighthouse audits and / or speed up the tests.
-      'performance'
+      'performance',
       // 'pwa',
       // 'accessibility',
       // 'best-practices',
       // 'seo'
-    ]
+    ],
   },
   configs: [
     {
@@ -39,8 +39,8 @@ module.exports = {
         pwa: 50,
         accessibility: 50,
         'best-practices': 50,
-        seo: 50
-      }
+        seo: 50,
+      },
     },
     {
       page: 'Item',
@@ -50,12 +50,12 @@ module.exports = {
         pwa: 50,
         accessibility: 50,
         'best-practices': 50,
-        seo: 50
-      }
-    }
+        seo: 50,
+      },
+    },
   ],
   chromeLauncherOptions: {
     // Comment out if we want to run on a real Chrome instance
-    chromeFlags: ['--headless']
-  }
+    chromeFlags: ['--headless'],
+  },
 }

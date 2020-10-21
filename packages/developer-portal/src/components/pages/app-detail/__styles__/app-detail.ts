@@ -11,6 +11,7 @@ export const check = css`
   top: 2px;
   left: 2px;
   color: ${reapitGreen};
+  margin-right: 2px;
 `
 export const tag = css`
   display: inline-block;

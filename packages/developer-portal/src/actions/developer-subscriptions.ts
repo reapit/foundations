@@ -4,13 +4,13 @@ import { FetchSubscriptionsListParams } from '@/services/developer-subscriptions
 import {
   SubscriptionModel,
   CreateSubscriptionModel,
-  PagedResultSubscriptionModel_,
+  SubscriptionModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 
 export const developerFetchSubscriptions = actionCreator<FetchSubscriptionsListParams>(
   ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS,
 )
-export const developerFetchSubscriptionsSuccess = actionCreator<PagedResultSubscriptionModel_>(
+export const developerFetchSubscriptionsSuccess = actionCreator<SubscriptionModelPagedResult>(
   ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS_SUCCESS,
 )
 export const developerDeleteSubscription = actionCreator<string>(ActionTypes.DEVELOPER_DELETE_SUBSCRIPTION)

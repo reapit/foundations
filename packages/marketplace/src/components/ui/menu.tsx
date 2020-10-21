@@ -4,11 +4,12 @@ import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
-import { FaCloud, FaCloudDownloadAlt, FaClipboardList } from 'react-icons/fa'
+import { FaCloud, FaCloudDownloadAlt, FaClipboardList, FaLaptopCode } from 'react-icons/fa'
 import { IoIosPeople } from 'react-icons/io'
-import { selectIsAdmin, selectDeveloperId, selectClientId } from '@/selector/auth'
+import { selectIsAdmin, selectClientId, selectSandboxDeveloper } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import domvsLogo from '@/assets/images/Domvs.jpg'
+import { menuItemOverflow } from './__styles__/menu'
 
 // This is a really naff hack to hardcode our first client logo into the menu. Remove when we have a
 // logo upload and API
@@ -22,7 +23,12 @@ const SettingsIcon: React.FC<{ clientId: string }> = ({ clientId }) => {
   )
 }
 
-export const generateMenuConfig = (location: Location<any>, isAdmin: boolean, clientId: string): MenuConfig => {
+export const generateMenuConfig = (
+  location: Location<any>,
+  isAdmin: boolean,
+  isDesktop: boolean,
+  clientId: string,
+): MenuConfig => {
   return {
     defaultActiveKey: 'BROWSE_APPS',
     location,
@@ -55,6 +61,14 @@ export const generateMenuConfig = (location: Location<any>, isAdmin: boolean, cl
         disabled: !isAdmin,
       },
       {
+        title: <div className={menuItemOverflow}>Developers</div>,
+        key: 'DEVELOPERS',
+        icon: <FaLaptopCode className="nav-item-icon" />,
+        callback: () => (window.location.href = window.reapit.config.developerPortalUrl),
+        type: 'PRIMARY',
+        disabled: !isAdmin || isDesktop,
+      },
+      {
         key: 'SETTINGS',
         url: Routes.SETTINGS,
         icon: <SettingsIcon clientId={clientId} />,
@@ -72,16 +86,14 @@ export type MenuProps = {}
 
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
   const clientId = selectClientId(connectSession)
 
-  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
-  const isAdmin = isDesktopAdmin || isDeveloperEdition
+  const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
+  const isAdmin = isDesktopAdmin || Boolean(isSandboxDeveloper)
 
-  const menuConfigs = generateMenuConfig(location, isAdmin, clientId)
-
-  // invalid login type. E.g. admin view marketplace apps
+  const menuConfigs = generateMenuConfig(location, isAdmin, connectIsDesktop, clientId)
 
   return <Sidebar {...menuConfigs} location={location} />
 }

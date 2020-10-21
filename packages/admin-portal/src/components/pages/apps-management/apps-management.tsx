@@ -39,6 +39,7 @@ export type DeleteModalData = {
   developerName: string
 }
 
+// eslint-disable-next-line
 export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
   const { id } = row.original
   const { value } = cell
@@ -70,6 +71,7 @@ export type RenderDeleteActionParams = {
   deleteModalData: DeleteModalData
 }
 
+// eslint-disable-next-line
 export const renderDeleteAction = ({ setDataDeleteModal, deleteModalData }: RenderDeleteActionParams) => ({ row }) => (
   <Button
     type="button"

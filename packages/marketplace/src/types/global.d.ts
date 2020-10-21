@@ -26,7 +26,11 @@ export type Config = {
   previewExternalAppIds: string[]
   previewFeaturedExternalAppIds: string[]
   connectLoginRedirectPath: string
-  comingSoonApps: ComingSoonApp[]
+  comingSoonApps: {
+    agencyCloud: ComingSoonApp[]
+    thirdParty: ComingSoonApp[]
+    portals: ComingSoonApp[]
+  }
 }
 
 declare global {

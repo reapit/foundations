@@ -18,13 +18,13 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "serverless-http": "^2.3.2",
+    "serverless-http": "^2.6.0",
     "serverless-webpack": "^5.3.5",
     "typescript": "~3.9.3",
     "snyk": "^1.385.0"
   },
   "scripts": {
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "start:dev": "NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
     "release": " serverless deploy"
   }

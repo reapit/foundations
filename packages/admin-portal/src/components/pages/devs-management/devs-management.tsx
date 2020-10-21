@@ -2,7 +2,6 @@ import React from 'react'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router'
-import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
@@ -15,30 +14,20 @@ import {
   isEmptyObject,
   Section,
   Alert,
+  FlexContainerBasic,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
-// import SetDeveloperStatusModal from '@/components/ui/developer-set-status'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
+import { DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
+import { fetchDeveloperList, fetchDeveloperListValues, fetchDeveloperMemberList } from '@/actions/devs-management'
 import qs from 'querystring'
 import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
 import StatusModal from './set-status-modal/status-modal'
-
-// export interface DevsManagementMappedActions {
-//   fetchData: (requestdata: fetchDeveloperListValues) => void
-// }
-
-// export interface DevsManagementMappedProps {
-//   DeveloperListState: DeveloperListState
-//   filterValues: DevsManagementFilterFormValues
-//   onPageChange: any
-//   onSearch: any
-// }
-
-// export type DevsManagementProps = DevsManagementMappedActions & DevsManagementMappedProps
+import DisableMemberModal from '@/components/ui/disable-member-modal'
+import SetAsAdminModal from '@/components/ui/set-as-admin-modal'
+import { FetchDeveloperMembersParams } from '@/services/developers'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -50,6 +39,14 @@ export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementF
 
 export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDeveloperListValues) => {
   dispatch(fetchDeveloperList(requestData))
+}
+
+export const handleFetchMemberData = (dispatch: Dispatch) => (requestData: FetchDeveloperMembersParams) => {
+  dispatch(fetchDeveloperMemberList(requestData))
+}
+
+export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () => {
+  setModalOpen(isVisible)
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: DevsManagementFilterFormValues) => (
@@ -80,6 +77,21 @@ export const onSearchHandler = (history: History<any>) => (
   }
 }
 
+export const closeDisableMemberModal = (
+  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+) => () => {
+  setDisableMemberModalVisible(false)
+}
+
+export const openDisableMemberModal = (
+  setSelectedUser: React.Dispatch<React.SetStateAction<MemberModel>>,
+  setDisableMemberModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+  user: MemberModel,
+) => () => {
+  setSelectedUser(user)
+  setDisableMemberModalVisible(true)
+}
+
 export const onClickStatusButton = (
   setDeveloper: React.Dispatch<DeveloperModel>,
   setIsSetStatusModalOpen: React.Dispatch<boolean>,
@@ -94,12 +106,18 @@ export const DevsManagement: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const fetchData = handleFetchData(dispatch)
+  const fetchMemberData = handleFetchMemberData(dispatch)
   const queryParams = new URLSearchParams(location.search)
   const filterValues = buildFilterValues(queryParams)
   const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
   const onSearch = React.useCallback(onSearchHandler(history), [history])
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
+  const [isSetAdminModalOpen, setIsSetAdminModalOpen] = React.useState<boolean>(false)
+  const [selectedUser, setSelectedUser] = React.useState<any>(null)
   const [developer, setDeveloper] = React.useState<DeveloperModel>({} as DeveloperModel)
+  const [disableMemberModalVisible, setDisableMemberModalVisible] = React.useState<boolean>(false)
+  const handleOpenSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, true)
+  const handleCloseSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, false)
 
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = DeveloperListState
@@ -112,33 +130,34 @@ export const DevsManagement: React.FC = () => {
     }
   }
 
-  const pageNo = pageNumber - 1
-  const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
-  const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
-
-  // Note: Comment because not use in the moment
-
-  // const ButtonCell = ({ row: { original } }) => {
-  //   const { id, isInactive } = original as DeveloperModel
-
-  //   return (
-  //     <Button
-  //       type="button"
-  //       variant="primary"
-  //       onClick={() => {
-  //         if (id) {
-  //           setDeveloper({ ...original, isInactive: isInactive! })
-  //           setIsSetStatusModalOpen(true)
-  //         }
-  //       }}
-  //     >
-  //       {isInactive ? 'Enable' : 'Deactive'}
-  //     </Button>
-  //   )
-  // }
-
   const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
   const StatusBtnCell = ({ row: { original } }) => {
+    const activeUser = original.status === 'active'
+    if (original.isMember) {
+      return (
+        <FlexContainerBasic centerContent flexColumn>
+          {activeUser && (
+            <a onClick={openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, original)}>Disable</a>
+          )}
+
+          {activeUser ? (
+            <a
+              data-test="button-cancel"
+              className="text-ellipsis"
+              onClick={() => {
+                setSelectedUser(original)
+                handleOpenSetAdminModal()
+              }}
+            >
+              {original.role === 'user' ? 'Set Admin' : 'Unset Admin'}
+            </a>
+          ) : (
+            'Inactive User'
+          )}
+        </FlexContainerBasic>
+      )
+    }
+
     return (
       <Button
         type="button"
@@ -150,14 +169,21 @@ export const DevsManagement: React.FC = () => {
     )
   }
 
+  const MembersBtnCell = ({ row: { original } }) => {
+    if (original.isMember) {
+      return null
+    }
+
+    return (
+      <Button type="button" variant="primary" onClick={() => fetchMemberData({ id: original.id as string })}>
+        Fetch Members
+      </Button>
+    )
+  }
+
   const columns = [
-    {
-      Header: '#',
-      id: 'id',
-      Cell: HeaderCell,
-    },
-    { Header: 'Name', accessor: 'name' },
     { Header: 'Company', accessor: 'company' },
+    { Header: 'Name', accessor: 'name' },
     { Header: 'Job Title', accessor: 'jobTitle' },
     { Header: 'Email', accessor: 'email' },
     { Header: 'Phone', accessor: 'telephone' },
@@ -178,6 +204,11 @@ export const DevsManagement: React.FC = () => {
       id: 'buttonColumn',
       Cell: StatusBtnCell,
     },
+    {
+      Header: '',
+      id: 'membersColumn',
+      Cell: MembersBtnCell,
+    },
   ]
 
   if (isLoading || !data) {
@@ -192,13 +223,14 @@ export const DevsManagement: React.FC = () => {
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
       {renderResult(data, columns, totalCount)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-      {/* <SetDeveloperStatusModal
-        visible={isSetStatusModalOpen}
-        afterClose={resetModal(false)}
-        onSuccess={resetModal(true)}
-        developer={developer}
-      />  */}
       <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
+      <DisableMemberModal
+        visible={disableMemberModalVisible}
+        member={selectedUser}
+        onCancel={closeDisableMemberModal(setDisableMemberModalVisible)}
+        onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
+      />
+      <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
     </ErrorBoundary>
   )
 }
@@ -207,13 +239,14 @@ export const renderResult = (data, columns, totalCount) => {
   if (data?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
+
   return (
     <>
       <Section>
         <div>Total: {totalCount}</div>
       </Section>
       <Section>
-        <Table scrollable={true} loading={false} data={data || []} columns={columns} />
+        <Table expandable scrollable={true} loading={false} data={data || []} columns={columns} />
       </Section>
     </>
   )
