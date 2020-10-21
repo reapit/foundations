@@ -17,6 +17,16 @@ import { vendorRelationshipsStub } from '../__stubs__/vendor-relationships'
 import { createVendorRelationshipArgsStub } from '../__stubs__/create-vendor-relationships'
 import { deleteVendorRelationshipsArgsStub } from '../__stubs__/delete-vendor-relationships'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
 }))

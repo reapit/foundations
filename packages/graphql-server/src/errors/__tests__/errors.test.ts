@@ -9,6 +9,15 @@ import {
 } from '../errors'
 import { AuthenticationError, UserInputError, ApolloError, ForbiddenError, ValidationError } from 'apollo-server-lambda'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
 describe('generateAuthenticationError', () => {
   it('should return AuthenticationError', () => {
     const traceId = 'traceId'

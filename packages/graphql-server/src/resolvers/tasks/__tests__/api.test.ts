@@ -7,6 +7,9 @@ import { createTaskArgsMock } from '../__stubs__/create-task'
 import { updateTaskArgsMock } from '../__stubs__/update-task'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
+jest.mock('apollo-server-lambda', () => {
+  return {}
+})
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
 }))

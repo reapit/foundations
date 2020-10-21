@@ -10,6 +10,16 @@ jest.mock('../services', () => ({
   updateCompany: jest.fn(() => true),
 }))
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 describe('company-dataloader', () => {
   describe('generateCompanyBatchLoaderFn', () => {
     it('should run correctly', () => {

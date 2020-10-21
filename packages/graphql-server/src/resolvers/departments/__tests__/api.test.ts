@@ -4,6 +4,16 @@ import { mockContext } from '../../../__stubs__/context'
 import { callGetDepartmentByIdAPI, callGetDepartmentsAPI } from '../api'
 import { URLS } from '../../../constants/api'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => {
     return {

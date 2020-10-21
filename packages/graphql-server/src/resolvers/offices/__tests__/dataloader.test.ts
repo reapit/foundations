@@ -3,6 +3,16 @@ import { officeMock } from '../__stubs__/office'
 import { officesMock } from '../__stubs__/offices'
 import { mockContext } from '../../../__stubs__/context'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../services', () => ({
   getOfficeById: jest.fn(() => officeMock),
   getOffices: jest.fn(() => officesMock),

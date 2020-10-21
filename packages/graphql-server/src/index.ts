@@ -38,7 +38,7 @@ export const handleContext = ({ event, context }) => {
   if (isProductionEnv) {
     logger.info('handleContext', { traceId, event })
   }
-  let newContext = {
+  const newContext = {
     traceId: traceId,
     headers: event.headers,
     authorization: event?.headers?.Authorization || '',

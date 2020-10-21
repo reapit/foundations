@@ -8,6 +8,15 @@ import { createSourceArgsMock } from '../__stubs__/create-source'
 import { updateSourceArgsMock } from '../__stubs__/update-source'
 import { URLS } from '../../../constants/api'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
 }))

@@ -22,6 +22,9 @@
       ],
       "@reapit/node-utils": [
         "../utils/src/node/index.ts"
+      ],
+      "@reapit/foundations-ts-definitions": [
+        "../foundations-ts-definitions/src"
       ]
     }
   },

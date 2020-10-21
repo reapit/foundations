@@ -15,7 +15,6 @@ const uploadArtifact = async () => {
     try {
       runCommand('yarn', ['workspace', workspaceName, 'fetch-config', '--name', 'production'])
       runCommand('yarn', ['workspace', workspaceName, 'test:ci'])
-      runCommand('yarn', ['workspace', workspaceName, 'lint'])
       runCommand('yarn', ['workspace', workspaceName, 'build:prod'])
       runCommand('tar', [
         '-C',

@@ -14,6 +14,16 @@ import { updateDocumentArgsMock } from '../__stubs__/update-document'
 import { deleteDocumentMockArgs } from '../__stubs__/delete-document'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
 }))

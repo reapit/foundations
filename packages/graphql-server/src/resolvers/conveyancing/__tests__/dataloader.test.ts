@@ -3,6 +3,16 @@ import { conveyancingDetailMock } from '../__stubs__/conveyancing-detail'
 import { conveyancingMock } from '../__stubs__/conveyancing'
 import { mockContext } from '../../../__stubs__/context'
 
+jest.mock('apollo-server-lambda', () => {
+  return {
+    AuthenticationError: jest.fn(),
+    ValidationError: jest.fn(),
+    ForbiddenError: jest.fn(),
+    ApolloError: jest.fn(),
+    UserInputError: jest.fn(),
+  }
+})
+
 jest.mock('../services', () => ({
   getConveyancingById: jest.fn(() => conveyancingDetailMock),
   getConveyancing: jest.fn(() => conveyancingMock),
