@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<Memo(MenuComponent)
+  defaultActiveKey="LOGO"
+  menu={
+    Array [
+      Object {
+        "icon": <Unknown
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "icon": <MdAccountBalance
+          className="nav-item-icon"
+        />,
+        "key": "ACCOUNTS",
+        "title": "Accounts",
+        "type": "PRIMARY",
+        "url": "/accounts",
+      },
+      Object {
+        "icon": <FaDatabase
+          className="nav-item-icon"
+        />,
+        "key": "DATA",
+        "title": "Data",
+        "type": "PRIMARY",
+        "url": "/data",
+      },
+      Object {
+        "icon": <GiHealthNormal
+          className="nav-item-icon"
+        />,
+        "key": "HEALTH",
+        "title": "Health",
+        "type": "PRIMARY",
+        "url": "/health",
+      },
+      Object {
+        "icon": <MdSettings
+          className="nav-item-icon"
+        />,
+        "key": "SETTINGS",
+        "title": "Settings",
+        "type": "PRIMARY",
+        "url": "/settings",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
+      },
+    ]
+  }
+  mode="WEB"
+/>
+`;

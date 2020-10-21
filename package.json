@@ -10,6 +10,7 @@
       "packages/config-manager",
       "packages/connect-session",
       "packages/cra-template-foundations",
+      "packages/data-warehouse",
       "packages/developer-portal",
       "packages/elements",
       "packages/foundations-ts-definitions",

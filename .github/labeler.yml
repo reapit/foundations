@@ -55,3 +55,6 @@ connect-session:
 
 reapit-connect-welcome:
   - packages/reapit-connect/**
+
+data-warehouse:
+  - packages/data-warehouse/**
