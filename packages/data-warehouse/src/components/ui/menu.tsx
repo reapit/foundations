@@ -1,10 +1,13 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
+import { FaSignOutAlt, FaCloud, FaDatabase } from 'react-icons/fa'
+import { MdAccountBalance, MdSettings } from 'react-icons/md'
+import { GiHealthNormal } from 'react-icons/gi'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
+import Routes from '../../constants/routes'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -20,6 +23,34 @@ export const generateMenuConfig = (
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
         type: 'LOGO',
+      },
+      {
+        title: 'Accounts',
+        key: 'ACCOUNTS',
+        icon: <MdAccountBalance className="nav-item-icon" />,
+        url: Routes.ACCOUNTS,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Data',
+        key: 'DATA',
+        icon: <FaDatabase className="nav-item-icon" />,
+        url: Routes.DATA,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Health',
+        key: 'HEALTH',
+        icon: <GiHealthNormal className="nav-item-icon" />,
+        url: Routes.HEALTH,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Settings',
+        key: 'SETTINGS',
+        icon: <MdSettings className="nav-item-icon" />,
+        url: Routes.SETTINGS,
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',

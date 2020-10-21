@@ -4,6 +4,7 @@ import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContaine
 import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
+import Routes from '../constants/routes'
 
 const { Suspense } = React
 
@@ -16,6 +17,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return null
+  }
+
+  if (window.location.pathname === '/') {
+    return <Redirect to={Routes.ACCOUNTS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

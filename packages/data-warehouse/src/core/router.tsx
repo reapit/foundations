@@ -29,7 +29,10 @@ export const catchChunkError = (
 }
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts')))
+const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data')))
+const HealthPage = React.lazy(() => catchChunkError(() => import('../components/pages/health')))
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +41,10 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
+            <Route path={Routes.ACCOUNTS} component={AccountsPage} />
+            <Route path={Routes.DATA} component={DataPage} />
+            <Route path={Routes.HEALTH} component={HealthPage} />
+            <Route path={Routes.SETTINGS} component={SettingsPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
