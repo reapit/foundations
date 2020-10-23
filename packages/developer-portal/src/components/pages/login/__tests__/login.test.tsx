@@ -10,8 +10,6 @@ import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import * as ConnectSession from '@reapit/connect-session'
-import { ReapitConnectHook } from '@reapit/connect-session'
 
 const mockState = {
   ...appState,
