@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accounts should match a snapshot 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      isHeadingSection={true}
+    >
+      Accounts
+    </Component>
+    <Component>
+      <Component>
+        Next steps:
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;
