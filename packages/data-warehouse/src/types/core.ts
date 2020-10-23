@@ -18,3 +18,24 @@ export interface FetcherParams<T> {
   isPrivate?: boolean
   body?: T
 }
+
+export interface PagedApiResponse<T> {
+  _embedded: T[]
+  pageNumber: number
+  pageSize: number
+  pageCount: number
+  totalPageCount: number
+  totalCount: number
+  _links: Links
+}
+
+interface Links {
+  self: Self
+  first: Self
+  next: Self
+  last: Self
+}
+
+interface Self {
+  href: string
+}

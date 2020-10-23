@@ -5,6 +5,7 @@ import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
 import Routes from '../constants/routes'
+import ErrorBoundary from '../components/hocs/error-boundary'
 
 const { Suspense } = React
 
@@ -31,15 +32,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       <Menu />
       <FlexContainerBasic flexColumn isScrollable>
         <FlexContainerResponsive hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense
+              fallback={
+                <Section>
+                  <Loader />
+                </Section>
+              }
+            >
+              {children}
+            </Suspense>
+          </ErrorBoundary>
         </FlexContainerResponsive>
       </FlexContainerBasic>
     </AppNavContainer>

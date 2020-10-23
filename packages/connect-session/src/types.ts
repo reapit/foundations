@@ -28,6 +28,7 @@ export interface LoginIdentity {
   userCode: string | null
   groups: string[]
   orgName: string | null
+  orgId: string | null
 }
 
 export interface CoginitoSession {
@@ -47,6 +48,7 @@ export interface CoginitoIdentity {
   'custom:reapit:clientCode'?: string
   'custom:reapit:marketAdmin'?: string
   'custom:reapit:userCode'?: string
+  'custom:reapit:orgId'?: string
   aud: string
   token_use: string
   auth_time: number
