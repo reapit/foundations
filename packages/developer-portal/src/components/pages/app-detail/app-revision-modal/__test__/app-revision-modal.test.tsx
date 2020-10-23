@@ -102,6 +102,7 @@ describe('DeveloperAppRevisionModal', () => {
         userCode: 'mockUserCode',
         orgName: null,
         groups: [],
+        orgId: 'SOME_ID',
       }
       const fn = handleCancelPendingRevisionsButtonClick(spyDispatch, appId, appRevisionId, loginIdentity)
       fn()

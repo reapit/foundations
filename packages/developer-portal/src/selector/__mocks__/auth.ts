@@ -12,6 +12,7 @@ export const auth: ReapitConnectSession = {
     userCode: '123',
     name: '1312',
     orgName: 'Reapit Ltd',
+    orgId: 'SOME_ORG_ID',
   },
   refreshToken: '131',
 }

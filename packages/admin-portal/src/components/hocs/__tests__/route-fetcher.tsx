@@ -22,10 +22,6 @@ const props = {
 }
 
 describe('RouteFetcher', () => {
-  beforeAll(() => {
-    jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect)
-  })
-
   it('should match a snapshot', () => {
     expect(shallow(<RouteFetcher {...props} />)).toMatchSnapshot()
   })

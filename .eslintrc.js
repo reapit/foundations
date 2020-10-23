@@ -86,12 +86,7 @@ module.exports = {
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 0,
-    'react-hooks/exhaustive-deps': [
-      'warn',
-      {
-        additionalHooks: 'useRecoilCallback',
-      },
-    ],
+    'react-hooks/exhaustive-deps': 0,
   },
   settings: {
     react: {

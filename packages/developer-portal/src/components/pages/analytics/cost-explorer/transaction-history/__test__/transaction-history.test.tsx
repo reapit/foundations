@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { URLS } from '@/services/constants'
 import { generateHeader } from '@/services/utils'
-import * as ReapitElements from '@reapit/elements'
+import { fetcherWithBlob } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import TransactionHistory, {
   selectTransactionHistoryState,
@@ -24,9 +24,17 @@ const mockState: ReduxState = {
   },
 }
 
+jest.mock('@reapit/elements', () => ({
+  fetcherWithBlob: jest.fn(
+    () =>
+      new Promise(resolve => {
+        resolve(new Blob())
+      }),
+  ),
+  setQueryParams: () => 'applicationId=1&applicationId=2',
+}))
+
 describe('TransactionHistory', () => {
-  let spyFetcher
-  const mockedBlob = new Blob()
   const mockedCreateObjectURL = jest.fn(() => 'mocked url')
 
   beforeAll(() => {
@@ -34,12 +42,6 @@ describe('TransactionHistory', () => {
       createObjectURL: mockedCreateObjectURL,
     }
     jest.spyOn(ReactRedux, 'useSelector').mockImplementation(() => mockState)
-    spyFetcher = jest.spyOn(ReapitElements, 'fetcherWithBlob').mockImplementation(
-      () =>
-        new Promise(resolve => {
-          resolve(mockedBlob)
-        }),
-    )
   })
 
   describe('createHandleDownLoadButtonOnClickFn', () => {
@@ -62,10 +64,10 @@ describe('TransactionHistory', () => {
         preventDefault: jest.fn(),
       }
 
-      const fn = createHandleDownLoadButtonOnClickFn(params)
+      const fn = await createHandleDownLoadButtonOnClickFn(params)
       await fn(mockEvent)
 
-      expect(spyFetcher).toHaveBeenCalledWith({
+      expect(fetcherWithBlob).toHaveBeenCalledWith({
         url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1&applicationId=2`,
         api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
@@ -74,7 +76,7 @@ describe('TransactionHistory', () => {
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()
 
-      expect(spySaveAsFunc).toBeCalledWith(mockedBlob, 'reapit-billing-data-2020-01.csv')
+      expect(spySaveAsFunc).toBeCalledWith(new Blob(), 'reapit-billing-data-2020-01.csv')
     })
   })
 

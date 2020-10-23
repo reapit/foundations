@@ -31,9 +31,6 @@ describe('Login', () => {
   })
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
-    jest
-      .spyOn(ConnectSession, 'useReapitConnect')
-      .mockImplementation(() => ({ connectSession: null } as ReapitConnectHook))
     expect(
       mount(
         <ReactRedux.Provider store={store}>

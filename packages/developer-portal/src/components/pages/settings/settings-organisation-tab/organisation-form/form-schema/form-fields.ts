@@ -30,7 +30,7 @@ export type OrganisationFormValues = {
   about: string
   companyName: string
   countryId: string
-  iconImageUrl: string
+  iconImageUrl?: string
   buildingName: string
   buildingNumber: string
   line1: string

@@ -138,7 +138,7 @@ export const handleGenerateUniqueDataList = (data: MemberModelWithAction[]) => (
     // PRIORITY_LEVEL[status] will be undefined if status is not in the list
     // its priority will be  0 in this case
     const currentItemPriority = PRIORITY_LEVEL[status] ?? PRIORITY_LEVEL.other
-    const inHashMapItemPriority = PRIORITY_LEVEL[accumulator[email].status] ?? PRIORITY_LEVEL.other
+    const inHashMapItemPriority = PRIORITY_LEVEL[accumulator[email].status as string] ?? PRIORITY_LEVEL.other
 
     const currentItemCreated = dayjs(created)
     const inHashMapItemCreated = dayjs(accumulator[email].created)
@@ -154,7 +154,7 @@ export const handleGenerateUniqueDataList = (data: MemberModelWithAction[]) => (
       newAcc[email] = item
     }
     return newAcc
-  }, {})
+  }, {} as { [key: string]: MemberModelWithAction })
 
   // sort by data so that newer members go first
   const sortedDataByDate = Object.values(uniqueHashMapWithEmailKey).sort((a, b) => {
