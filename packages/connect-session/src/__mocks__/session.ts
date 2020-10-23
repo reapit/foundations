@@ -12,8 +12,9 @@ export const mockLoginIdentity = {
   clientId: 'SOME_CLIENT_ID',
   adminId: 'SOME_ADMIN_ID',
   userCode: 'SOME_USER_ID',
+  orgName: 'SOME_ORG_NAME',
+  orgId: 'SOME_ORG_ID',
   groups: [],
-  orgName: 'reapit ltd',
 }
 
 export const mockBrowserSession: ReapitConnectSession = {

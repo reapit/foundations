@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { H3, H5, Section, Content } from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { configurationAppointmentsApiService } from '@/platform-api/configuration-api'
+import { configurationAppointmentsApiService } from '@/services/configuration-api'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type DataProps = {}

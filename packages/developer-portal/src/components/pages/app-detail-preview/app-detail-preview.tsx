@@ -42,7 +42,7 @@ export const loadAppDetailPreviewDataFromLocalStorage = (
 const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
   const dispatch = useDispatch()
   const [appDetailPreviewData, setAppDetailPreviewData] = React.useState<AppDetailPreviewProps | null>(null)
-  const { appId } = useParams()
+  const { appId } = useParams<{ appId: string }>()
 
   React.useEffect(loadAppDetailPreviewDataFromLocalStorage(appId, setAppDetailPreviewData, dispatch), [appId, dispatch])
 

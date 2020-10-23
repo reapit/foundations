@@ -8,6 +8,7 @@ export const mockLoginIdentity = {
   adminId: 'SOME_ADMIN_ID',
   userCode: 'SOME_USER_ID',
   orgName: 'SOME_ORG_NAME',
+  orgId: 'SOME_ORG_ID',
   groups: [],
 }
 
@@ -23,6 +24,7 @@ export const mockBrowserSession: ReapitConnectSession = {
     'custom:reapit:clientCode': mockLoginIdentity.clientId,
     'custom:reapit:marketAdmin': mockLoginIdentity.adminId,
     'custom:reapit:userCode': mockLoginIdentity.userCode,
+    'custom:reapit:orgId': mockLoginIdentity.orgId,
     'cognito:groups': mockLoginIdentity.groups,
   }),
   loginIdentity: mockLoginIdentity,
