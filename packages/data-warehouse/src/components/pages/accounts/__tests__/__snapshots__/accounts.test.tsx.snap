@@ -1,26 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accounts should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "current": Object {
-        "addTransactionMetadata": [Function],
-        "getGraph": [Function],
-        "getState": [Function],
-        "replaceState": [Function],
-        "subscribeToTransactions": [Function],
-      },
-    }
-  }
->
-  <ContextProvider
-    value={null}
+<Fragment>
+  <Component
+    isHeadingSection={true}
   >
-    <Batcher
-      setNotifyBatcherOfChange={[Function]}
-    />
-    <Component />
-  </ContextProvider>
-</ContextProvider>
+    Accounts
+  </Component>
+</Fragment>
 `;

@@ -29,11 +29,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
 
   render() {
     if (this.state.hasFailed) {
-      return (
-        <Alert message="danger" type="danger">
-          Hiya
-        </Alert>
-      )
+      return <Alert message="Something went wrong, please refresh the page" type="danger" />
     }
 
     return this.props.children

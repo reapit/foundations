@@ -2,8 +2,8 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <RecoilRoot>
+  <Component>
     <MockRouter />
-  </RecoilRoot>
+  </Component>
 </ErrorBoundary>
 `;
