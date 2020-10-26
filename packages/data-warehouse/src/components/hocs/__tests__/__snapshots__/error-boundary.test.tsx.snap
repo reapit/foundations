@@ -2,11 +2,9 @@
 
 exports[`ErrorBoundary should match a snapshot when has an error 1`] = `
 <Component
-  message="danger"
+  message="Something went wrong, please refresh the page"
   type="danger"
->
-  Hiya
-</Component>
+/>
 `;
 
 exports[`ErrorBoundary should match a snapshot when no error 1`] = `<Component />`;

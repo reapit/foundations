@@ -20,6 +20,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           }
         />
       </ErrorBoundary>
+      <ToastError />
     </Component>
   </Component>
 </Component>
