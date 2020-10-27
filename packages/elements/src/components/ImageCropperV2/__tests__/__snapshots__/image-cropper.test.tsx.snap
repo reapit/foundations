@@ -19,7 +19,7 @@ exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
           >
             Crop Image
           </Component>
-          <s
+          <a
             circularCrop={false}
             className=""
             crop={
