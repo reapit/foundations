@@ -5,5 +5,5 @@ export const BASE_HEADERS = {
 
 export const URLS = {
   CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
-  ACCOUNTS: '/dataMarketplace/accounts',
+  ACCOUNTS: '/dataMarketplace/Accounts',
 }

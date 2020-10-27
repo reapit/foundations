@@ -3,7 +3,9 @@
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component>
-    <MockRouter />
+    <Component>
+      <MockRouter />
+    </Component>
   </Component>
 </ErrorBoundary>
 `;

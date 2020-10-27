@@ -10,3 +10,12 @@ export interface AccountModel {
   username: string
   isAdmin: boolean
 }
+
+export interface AccountCreateModel {
+  username: string
+  password: string
+  isAdmin: boolean
+  devMode: boolean
+  organisationId: string
+  organisationName: string
+}

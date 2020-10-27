@@ -4303,15 +4303,6 @@
     jwk-to-pem "^2.0.4"
     snyk "^1.335.0"
 
-"@reapit/connect-session@^1.0.0-alpha.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.1.tgz#a8feaf97b10a8f53cf8b1c012353c77620823dd8"
-  integrity sha512-Y6Um8i9XAlT41I8lu3IPmrxjAkNn42tmGr0ApTPW5m8TMCaoGEk+TFzhUOoseaDRSOi107/OWVR/2QKt3DoMhw==
-  dependencies:
-    isomorphic-fetch "^2.2.1"
-    jsonwebtoken "^8.5.1"
-    snyk "^1.335.0"
-
 "@reapit/elements@^0.5.60":
   version "0.5.63"
   resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.63.tgz#b660597b28eb79e9e603c866b801d2408bbf4fc7"
@@ -25472,11 +25463,6 @@ rechoir@^0.6.2:
   integrity sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
   dependencies:
     resolve "^1.1.6"
-
-recoil@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.13.tgz#23e6d63135c07d8defbd91aaa35dca94ec5c15a6"
-  integrity sha512-2OToaQ8GR//KsdKdaEhMi04QKStLGRpk3qjC58iBpZpUtsByZ4dUy2UJtRcYuhnVlltGZ8HNwcEQRdFOS864SQ==
 
 recursive-readdir@2.2.2:
   version "2.2.2"
