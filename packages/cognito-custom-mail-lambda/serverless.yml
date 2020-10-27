@@ -1,10 +1,9 @@
-service: cloud-cognito-mailer
+service: cloud-custom-mailer
 plugins:
-  - serverless-offline
   - serverless-deployment-bucket
 
 custom:
-  s3CloudFormBucket: cloud-cognito-mailer-${opt:stage, 'dev'}
+  s3CloudFormBucket: cloud-custom-mailer-${opt:stage, 'dev'}
   env: ${file(./config.json)}
 
 provider:

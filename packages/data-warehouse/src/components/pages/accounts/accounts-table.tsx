@@ -17,26 +17,27 @@ export interface TableCellProps<T> {
   cell: { value: T }
 }
 
-export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
-  const disableAccount = (
-    setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
-    value: string,
-  ) => async () => {
-    const disabled = await disableAccountsService(value)
+export const disableAccount = (
+  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
+  value: string,
+) => async () => {
+  const disabled = await disableAccountsService(value)
 
-    if (!disabled) return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
+  if (!disabled) return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
 
-    const accounts = await getAccountsService()
-    if (accounts) {
-      return setAccounts(accounts)
-    }
-    return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+  const accounts = await getAccountsService()
+  if (accounts) {
+    return setAccounts(accounts)
   }
+  return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+}
 
+export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
   const DisableButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setServerErrorState } = useContext(ErrorContext)
 
-    return <Button onClick={disableAccount(setServerErrorState, value)}>Disable</Button>
+    return <Button onClick={disableAccount(setServerErrorState, setAccounts, value)}>Disable</Button>
   }
 
   const IsAdminCell: React.FC<TableCellProps<boolean>> = ({ cell: { value } }) => {
