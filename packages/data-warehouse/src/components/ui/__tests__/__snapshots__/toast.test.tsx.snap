@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "messageState": Object {
+        "message": "",
+        "variant": "primary",
+        "visible": false,
+      },
+      "setMessageState": [Function],
+    }
+  }
+>
+  <ToastError />
+</ContextProvider>
+`;

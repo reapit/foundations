@@ -5,8 +5,9 @@ export type PagedAccountsModel = PagedApiResponse<AccountModel>
 export interface AccountModel {
   id: string
   created: string
-  modified: string
+  modified: string | null
   organisationId: string
+  published?: string
   username: string
   isAdmin: boolean
 }

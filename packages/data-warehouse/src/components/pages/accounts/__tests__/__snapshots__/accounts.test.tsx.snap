@@ -28,23 +28,13 @@ exports[`Accounts should match a snapshot 1`] = `
     <Component>
       Account Details
     </Component>
-    <TransitionGroup
-      childFactory={[Function]}
-      component="div"
-    >
-      <CSSTransition
-        classNames="fade"
-        in={true}
-        timeout={300}
-        unmountOnExit={true}
+    <mock-styled.div>
+      <Component
+        variant="info"
       >
-        <Component
-          variant="info"
-        >
-          No accounts yet provisioned for your organisation
-        </Component>
-      </CSSTransition>
-    </TransitionGroup>
+        No accounts yet provisioned for your organisation
+      </Component>
+    </mock-styled.div>
   </Component>
 </Fragment>
 `;

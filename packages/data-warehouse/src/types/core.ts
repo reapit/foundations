@@ -30,10 +30,10 @@ export interface PagedApiResponse<T> {
 }
 
 interface Links {
-  self: Self
-  first: Self
-  next: Self
-  last: Self
+  self?: Self
+  first?: Self
+  next?: Self
+  last?: Self
 }
 
 interface Self {

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSetsTable should match a snapshot 1`] = `
+<Component
+  columns={
+    Array [
+      Object {
+        "Header": "Name",
+        "accessor": "name",
+      },
+      Object {
+        "Header": "Provider",
+        "accessor": "provider",
+      },
+      Object {
+        "Header": "Summary",
+        "accessor": "summary",
+      },
+      Object {
+        "Header": "Description",
+        "accessor": "description",
+      },
+      Object {
+        "Cell": [Function],
+        "Header": "Create Data Share",
+        "accessor": "id",
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "description": "Long version of the same info",
+        "iconUrl": null,
+        "id": "legacyDb",
+        "name": "RPS Database",
+        "provider": "Reapit Ltd",
+        "published": "2020-10-03T08:00:00.0000000Z",
+        "summary": "Access to legacy data",
+      },
+      Object {
+        "description": "Access to legacy views",
+        "iconUrl": null,
+        "id": "legacyViews",
+        "name": "RPS Views",
+        "provider": "Reapit Ltd",
+        "published": "2020-10-03T08:00:00.0000000Z",
+        "summary": "Access to legacy views",
+      },
+    ]
+  }
+  scrollable={true}
+/>
+`;

@@ -5,7 +5,7 @@ export type PagedSharesModel = PagedApiResponse<SharesModel>
 export interface SharesModel {
   id: string
   created: string
-  modified: string
+  modified: string | null
   organisationId: string
   developerId: string
   datasetId: string
