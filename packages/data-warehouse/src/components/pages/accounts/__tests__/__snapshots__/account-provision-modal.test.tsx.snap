@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountProvisionModal should match a snapshot 1`] = `
+<Component
+  afterClose={[MockFunction]}
+  title="Provision Data Warehouse Account"
+  visible={true}
+>
+  <Formik
+    initialValues={
+      Object {
+        "devMode": false,
+        "isAdmin": false,
+        "organisationId": undefined,
+        "organisationName": undefined,
+        "password": "",
+        "username": "",
+      }
+    }
+    onSubmit={[Function]}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "password",
+          "username",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "password": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "matches": false,
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+          "username": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "matches": false,
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+        "type": "object",
+      }
+    }
+  >
+    <Component />
+  </Formik>
+</Component>
+`;

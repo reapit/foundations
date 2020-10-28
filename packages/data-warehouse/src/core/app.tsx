@@ -2,7 +2,7 @@ import * as React from 'react'
 import Router from './router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { injectSwitchModeToWindow, PortalProvider } from '@reapit/elements'
-import { ErrorProvider } from '../context/error-context'
+import { MessageProvider } from '../context/message-context'
 
 injectSwitchModeToWindow()
 
@@ -12,9 +12,9 @@ const App = () => {
   return (
     <ErrorBoundary>
       <PortalProvider>
-        <ErrorProvider>
+        <MessageProvider>
           <Router />
-        </ErrorProvider>
+        </MessageProvider>
       </PortalProvider>
     </ErrorBoundary>
   )

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SharesTable should match a snapshot 1`] = `
+<Component
+  columns={
+    Array [
+      Object {
+        "Header": "Data Set Name",
+        "accessor": "datasetName",
+      },
+      Object {
+        "Header": "Database",
+        "accessor": "database",
+      },
+      Object {
+        "Header": "Schema",
+        "accessor": "schema",
+      },
+      Object {
+        "Header": "Account Name",
+        "accessor": "accountName",
+      },
+      Object {
+        "Cell": [Function],
+        "Header": "Url",
+        "accessor": "url",
+      },
+      Object {
+        "Cell": [Function],
+        "Header": "DSN",
+        "accessor": "dsn",
+      },
+      Object {
+        "Header": "Status",
+        "accessor": "status",
+      },
+      Object {
+        "Cell": [Function],
+        "Header": "Create Data Share",
+        "accessor": "id",
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "accountId": "XY81204",
+        "accountName": "WILLMCVAY",
+        "created": "2020-10-28T12:10:02.0000000Z",
+        "customerId": "DEV",
+        "database": "reapit",
+        "datasetId": "legacyDb",
+        "datasetName": "RPS Database",
+        "developerId": "6ad99b9f-4c1d-453f-a591-eba068dfc745",
+        "dsn": "Driver={SnowflakeDSIIDriver};Server=XY81204.eu-west-1.snowflakecomputing.com;Database=reapit;schema=customers_rps_DEV;uid=<user name>;pwd=<password>;",
+        "id": "4a1c7cf9-3c25-4583-892a-4ec7b587a822",
+        "modified": null,
+        "organisationId": "8aa72233-aabb-4595-8712-f81ad8bb0dc3",
+        "region": "eu-west-1",
+        "schema": "customers_rps_DEV",
+        "status": "active",
+        "url": "https://XY81204.eu-west-1.snowflakecomputing.com/",
+        "warehouse": "STANDARD_WH",
+      },
+    ]
+  }
+  scrollable={true}
+/>
+`;

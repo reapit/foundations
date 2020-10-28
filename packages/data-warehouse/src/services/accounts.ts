@@ -79,3 +79,32 @@ export const createAccountsService = async (account: AccountCreateModel): Promis
     console.error('Error', err.message)
   }
 }
+
+export const updateAccountService = async (
+  account: Partial<AccountCreateModel>,
+  accountId: string,
+): Promise<boolean | undefined> => {
+  try {
+    const session = await reapitConnectBrowserSession.connectSession()
+
+    if (!session) throw new Error('No Reapit Connect Session is present')
+
+    const response: boolean | undefined = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url: `${URLS.ACCOUNTS}/${accountId}`,
+      method: 'PATCH',
+      headers: {
+        ...BASE_HEADERS,
+        Authorization: `Bearer ${session.accessToken}`,
+      },
+      body: account,
+    })
+
+    if (response) {
+      return response
+    }
+    throw new Error('Failed to update account')
+  } catch (err) {
+    console.error('Error', err.message)
+  }
+}

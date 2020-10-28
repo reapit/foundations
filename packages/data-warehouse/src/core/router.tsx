@@ -30,7 +30,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts/accounts')))
-const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data')))
+const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
 const HealthPage = React.lazy(() => catchChunkError(() => import('../components/pages/health')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 

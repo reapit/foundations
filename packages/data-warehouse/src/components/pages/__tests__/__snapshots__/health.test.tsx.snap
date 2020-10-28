@@ -1,18 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Health should match a snapshot 1`] = `
-<Fragment>
+<Component>
+  <Component
+    isHeadingSection={true}
+  >
+    Health
+  </Component>
   <Component>
-    <Component
-      isHeadingSection={true}
-    >
-      Health
-    </Component>
     <Component>
-      <Component>
-        Next steps:
-      </Component>
+      Next steps:
     </Component>
   </Component>
-</Fragment>
+</Component>
 `;

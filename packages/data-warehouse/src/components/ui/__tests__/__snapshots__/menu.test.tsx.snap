@@ -31,24 +31,6 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/data",
       },
       Object {
-        "icon": <GiHealthNormal
-          className="nav-item-icon"
-        />,
-        "key": "HEALTH",
-        "title": "Health",
-        "type": "PRIMARY",
-        "url": "/health",
-      },
-      Object {
-        "icon": <MdSettings
-          className="nav-item-icon"
-        />,
-        "key": "SETTINGS",
-        "title": "Settings",
-        "type": "PRIMARY",
-        "url": "/settings",
-      },
-      Object {
         "callback": [Function],
         "icon": <FaCloud
           className="nav-item-icon"

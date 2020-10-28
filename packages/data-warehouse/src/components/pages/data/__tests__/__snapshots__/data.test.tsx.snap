@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data should match a snapshot 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      isHeadingSection={true}
+    >
+      Data
+    </Component>
+    <Component>
+      <Component>
+        Data Sets
+      </Component>
+      <mock-styled.div>
+        <Component
+          variant="info"
+        >
+          No datasets available for your organisation
+        </Component>
+      </mock-styled.div>
+    </Component>
+    <Component>
+      <Component>
+        Data Shares
+      </Component>
+      <mock-styled.div>
+        <Component
+          variant="info"
+        >
+          No data shares available for your organisation
+        </Component>
+      </mock-styled.div>
+    </Component>
+  </Component>
+</Fragment>
+`;

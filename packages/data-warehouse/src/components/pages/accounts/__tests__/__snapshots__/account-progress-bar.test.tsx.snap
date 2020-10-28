@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountProgressBar should match a snapshot 1`] = `
+<Component>
+  <mock-styled.div
+    width={50}
+  >
+    50
+    %
+  </mock-styled.div>
+  <ProgressMessage
+    percentageComplete={50}
+  />
+</Component>
+`;

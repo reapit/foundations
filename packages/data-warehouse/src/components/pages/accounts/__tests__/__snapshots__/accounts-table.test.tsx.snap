@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountsTable should match a snapshot 1`] = `
+<Fragment>
+  <AccountUpdateModal
+    accountId={null}
+    handleClose={[Function]}
+    visible={false}
+  />
+  <Component
+    columns={
+      Array [
+        Object {
+          "Header": "User Name",
+          "accessor": "username",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "Update Password",
+          "accessor": "id",
+          "id": "created",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "Delete Account",
+          "accessor": "id",
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "created": "2020-10-28T15:46:02.0000000Z",
+          "id": "e43cfd79-da23-4158-9ef4-75e4e3823a71",
+          "isAdmin": false,
+          "modified": null,
+          "organisationId": "8aa72233-aabb-4595-8712-f81ad8bb0dc3",
+          "username": "hiyaall",
+        },
+      ]
+    }
+    scrollable={true}
+  />
+</Fragment>
+`;

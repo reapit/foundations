@@ -1,12 +1,11 @@
-import React, { SetStateAction, useContext } from 'react'
-import { Button, ErrorData, Table } from '@reapit/elements'
+import React, { SetStateAction, useContext, useState } from 'react'
+import { Button, Table } from '@reapit/elements'
 import { disableAccountsService, getAccountsService } from '../../../services/accounts'
-import { FaCheck, FaTimes } from 'react-icons/fa'
 import { AccountModel } from '../../../types/accounts'
-import { ErrorContext } from '../../../context/error-context'
+import { MessageContext, MessageState } from '../../../context/message-context'
 import { Dispatch } from 'react'
-import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
+import AccountUpdateModal from './account-update-modal'
 
 export interface AccountsTableProps {
   accounts: AccountModel[]
@@ -18,30 +17,63 @@ export interface TableCellProps<T> {
 }
 
 export const disableAccount = (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
   value: string,
 ) => async () => {
   const disabled = await disableAccountsService(value)
 
-  if (!disabled) return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
+  if (!disabled) {
+    return setMessageState({
+      visible: true,
+      variant: 'danger',
+      message: 'Something went wrong disabling account, please try again',
+    })
+  }
+
+  setMessageState({
+    visible: true,
+    variant: 'info',
+    message: 'Account successfully disabled',
+  })
 
   const accounts = await getAccountsService()
+
   if (accounts) {
     return setAccounts(accounts)
   }
-  return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+
+  return setMessageState({
+    visible: true,
+    variant: 'danger',
+    message: 'Something went wrong fetching accounts, please try again',
+  })
 }
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
-  const DisableButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setServerErrorState } = useContext(ErrorContext)
-
-    return <Button onClick={disableAccount(setServerErrorState, setAccounts, value)}>Disable</Button>
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
+  const handleModalClose = () => {
+    setModalVisible(false)
+    setSelectedAccountId(null)
+  }
+  const handleModalOpen = (accountId: string) => () => {
+    setModalVisible(true)
+    setSelectedAccountId(accountId)
   }
 
-  const IsAdminCell: React.FC<TableCellProps<boolean>> = ({ cell: { value } }) => {
-    return value ? <FaCheck /> : <FaTimes />
+  const DeleteButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+    const { setMessageState } = useContext(MessageContext)
+
+    return (
+      <Button variant="danger" onClick={disableAccount(setMessageState, setAccounts, value)}>
+        Delete
+      </Button>
+    )
+  }
+
+  const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+    return <Button onClick={handleModalOpen(value)}>Update</Button>
   }
 
   const columns = [
@@ -50,18 +82,24 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
       accessor: 'username',
     },
     {
-      Header: 'Admin User',
-      accessor: 'isAdmin',
-      Cell: IsAdminCell,
+      Header: 'Update Password',
+      accessor: 'id',
+      id: 'created',
+      Cell: UpdatePasswordButton,
     },
     {
-      Header: 'Disable Account',
+      Header: 'Delete Account',
       accessor: 'id',
-      Cell: DisableButton,
+      Cell: DeleteButton,
     },
   ]
 
-  return <Table columns={columns} data={accounts} />
+  return (
+    <>
+      <AccountUpdateModal visible={modalVisible} handleClose={handleModalClose} accountId={selectedAccountId} />
+      <Table columns={columns} data={accounts} scrollable />
+    </>
+  )
 }
 
 export default AccountsTable

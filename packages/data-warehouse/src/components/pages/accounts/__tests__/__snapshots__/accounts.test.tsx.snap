@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accounts should match a snapshot 1`] = `
+<Fragment>
+  <Component
+    className="justify-between items-center"
+    isFlex={true}
+  >
+    <Component
+      className="mb-0"
+    >
+      Accounts
+    </Component>
+    <Component
+      onClick={[Function]}
+    >
+      Provision Account
+    </Component>
+    <AccountProvisionModal
+      handleClose={[Function]}
+      setAccounts={[Function]}
+      setPercentageComplete={[Function]}
+      setProvisionInProgress={[Function]}
+      visible={false}
+    />
+  </Component>
+  <Component>
+    <Component>
+      Account Details
+    </Component>
+    <mock-styled.div>
+      <Component
+        variant="info"
+      >
+        No accounts yet provisioned for your organisation
+      </Component>
+    </mock-styled.div>
+  </Component>
+</Fragment>
+`;
