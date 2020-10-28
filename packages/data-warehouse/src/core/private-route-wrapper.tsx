@@ -6,7 +6,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
 import Routes from '../constants/routes'
 import ErrorBoundary from '../components/hocs/error-boundary'
-import ToastError from '../components/ui/toast-error'
+import Toast from '../components/ui/toast'
 
 const { Suspense } = React
 
@@ -44,7 +44,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
               {children}
             </Suspense>
           </ErrorBoundary>
-          <ToastError />
+          <Toast />
         </FlexContainerResponsive>
       </FlexContainerBasic>
     </AppNavContainer>

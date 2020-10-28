@@ -4,8 +4,7 @@ import { getAccountsService } from '../../../services/accounts'
 import { PagedApiResponse } from '../../../types/core'
 import { AccountModel } from '../../../types/accounts'
 import AccountsTable from './accounts-table'
-import { serverError } from '../../ui/toast-error'
-import { ErrorContext } from '../../../context/error-context'
+import { MessageContext } from '../../../context/message-context'
 import AccountProvisionModal from './account-provision-modal'
 import AccountProgressBar from './account-progress-bar'
 import FadeIn from '../../../styles/fade-in'
@@ -16,7 +15,7 @@ export const Accounts: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [provisionInProgress, setProvisionInProgress] = useState<boolean>(false)
   const [percentageComplete, setPercentageComplete] = useState(0)
-  const { setServerErrorState } = useContext(ErrorContext)
+  const { setMessageState } = useContext(MessageContext)
   const handleModalClose = () => setModalVisible(false)
   const handleModalOpen = () => setModalVisible(true)
 
@@ -28,7 +27,11 @@ export const Accounts: React.FC = () => {
       if (accounts) {
         return setAccounts(accounts)
       }
-      return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+      return setMessageState({
+        visible: true,
+        variant: 'danger',
+        message: 'Something went wrong fetching accounts, please try again',
+      })
     }
     getAccounts()
   }, [setAccounts, setAccountsLoading])
@@ -58,7 +61,9 @@ export const Accounts: React.FC = () => {
             <AccountsTable accounts={accounts?._embedded ?? []} setAccounts={setAccounts} />
           </FadeIn>
         ) : (
-          <Helper variant="info">No accounts yet provisioned for your organisation</Helper>
+          <FadeIn>
+            <Helper variant="info">No accounts yet provisioned for your organisation</Helper>
+          </FadeIn>
         )}
       </Section>
     </>

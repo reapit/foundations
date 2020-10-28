@@ -1,21 +1,10 @@
 import React, { Dispatch, useContext } from 'react'
-import {
-  Button,
-  ErrorData,
-  Form,
-  Formik,
-  FormSection,
-  FormSubHeading,
-  Input,
-  LevelRight,
-  Modal,
-} from '@reapit/elements'
+import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements'
 import * as Yup from 'yup'
 import { passwordRegex } from '@reapit/utils'
 import { AccountCreateModel } from '../../../types/accounts'
 import { updateAccountService } from '../../../services/accounts'
-import { serverError } from '../../ui/toast-error'
-import { ErrorContext } from '../../../context/error-context'
+import { MessageContext, MessageState } from '../../../context/message-context'
 
 export interface AccountUpdateModalProps {
   visible: boolean
@@ -24,19 +13,29 @@ export interface AccountUpdateModalProps {
 }
 
 export const updateAccount = async (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   account: Partial<AccountCreateModel>,
   accountId: string,
 ) => {
   const updatedAccount = await updateAccountService(account, accountId)
 
   if (!updatedAccount) {
-    return setServerErrorState(serverError('Something went wrong updating account, please try again'))
+    return setMessageState({
+      message: 'Something went wrong updating password, please try again',
+      variant: 'danger',
+      visible: true,
+    })
   }
+
+  setMessageState({
+    message: 'Successfully updated password',
+    variant: 'info',
+    visible: true,
+  })
 }
 
 const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accountId, handleClose }) => {
-  const { setServerErrorState } = useContext(ErrorContext)
+  const { setMessageState } = useContext(MessageContext)
 
   return (
     <Modal visible={visible} title="Data Warehouse Password Update" afterClose={handleClose}>
@@ -48,7 +47,7 @@ const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accoun
         }
         onSubmit={(account: Partial<AccountCreateModel>) => {
           if (accountId) {
-            updateAccount(setServerErrorState, account, accountId)
+            updateAccount(setMessageState, account, accountId)
           }
           handleClose()
         }}

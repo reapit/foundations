@@ -1,8 +1,7 @@
 import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, ErrorData, Table } from '@reapit/elements'
-import { ErrorContext } from '../../../context/error-context'
+import { Button, Table } from '@reapit/elements'
+import { MessageContext, MessageState } from '../../../context/message-context'
 import { Dispatch } from 'react'
-import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
 import { deleteSharesService, getSharesService } from '../../../services/shares'
 import { SharesModel } from '../../../types/shares'
@@ -20,19 +19,31 @@ export interface TableCellProps<T> {
 }
 
 export const deleteShare = (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
   value: string,
 ) => async () => {
   const disabled = await deleteSharesService(value)
 
-  if (!disabled) return setServerErrorState(serverError('Something went wrong deleting this data share'))
+  if (!disabled) {
+    return setMessageState({
+      message: 'Something went wrong deleting this data share',
+      variant: 'danger',
+      visible: true,
+    })
+  }
+
+  setMessageState({
+    message: 'Successfully deleted share',
+    variant: 'info',
+    visible: true,
+  })
 
   const shares = await getSharesService()
   if (shares) {
     return setShares(shares)
   }
-  return setServerErrorState(serverError('Something went wrong fetching shares'))
+  return setMessageState({ message: 'Something went wrong fetching shares', variant: 'danger', visible: true })
 }
 
 export const handleMouseLeave = (setTooltipMessage: React.Dispatch<React.SetStateAction<string>>, message: string) => {
@@ -75,9 +86,13 @@ export const URLComponent: React.FC<TableCellProps<string>> = ({ cell: { value }
 
 export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) => {
   const DeleteShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setServerErrorState } = useContext(ErrorContext)
+    const { setMessageState } = useContext(MessageContext)
 
-    return <Button onClick={deleteShare(setServerErrorState, setShares, value)}>Delete Share</Button>
+    return (
+      <Button variant="danger" onClick={deleteShare(setMessageState, setShares, value)}>
+        Delete Share
+      </Button>
+    )
   }
 
   const columns = [

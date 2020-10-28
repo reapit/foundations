@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { H3, H5, Section, Content, Helper, Loader } from '@reapit/elements'
-import { ErrorContext } from '../../../context/error-context'
-import { serverError } from '../../ui/toast-error'
+import { MessageContext } from '../../../context/message-context'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'
 import { SharesModel } from '../../../types/shares'
@@ -19,7 +18,7 @@ export const Data: React.FC<DataProps> = () => {
   const [shares, setShares] = useState<PagedApiResponse<SharesModel>>()
   const [sharesLoading, setSharesLoading] = useState<boolean>(false)
 
-  const { setServerErrorState } = useContext(ErrorContext)
+  const { setMessageState } = useContext(MessageContext)
 
   useEffect(() => {
     const getDataSets = async () => {
@@ -29,7 +28,11 @@ export const Data: React.FC<DataProps> = () => {
       if (dataSetsFetched) {
         return setDataSets(dataSetsFetched)
       }
-      return setServerErrorState(serverError('Something went wrong fetching data sets, please try again'))
+      return setMessageState({
+        message: 'Something went wrong fetching data sets, please try again',
+        variant: 'danger',
+        visible: true,
+      })
     }
     getDataSets()
   }, [setDataSets, setDataSetsLoading])
@@ -42,7 +45,11 @@ export const Data: React.FC<DataProps> = () => {
       if (sharesFetched) {
         return setShares(sharesFetched)
       }
-      return setServerErrorState(serverError('Something went wrong fetching data shares, please try again'))
+      return setMessageState({
+        message: 'Something went wrong fetching data shares, please try again',
+        variant: 'danger',
+        visible: true,
+      })
     }
     getShares()
   }, [setShares, setSharesLoading])
@@ -60,7 +67,9 @@ export const Data: React.FC<DataProps> = () => {
               <DataSetsTable dataSets={dataSets._embedded} setShares={setShares} />
             </FadeIn>
           ) : (
-            <Helper variant="info">No datasets available for your organisation</Helper>
+            <FadeIn>
+              <Helper variant="info">No datasets available for your organisation</Helper>
+            </FadeIn>
           )}
         </Section>
         <Section>
@@ -72,7 +81,9 @@ export const Data: React.FC<DataProps> = () => {
               <SharesTable shares={shares._embedded} setShares={setShares} />
             </FadeIn>
           ) : (
-            <Helper variant="info">No data shares available for your organisation</Helper>
+            <FadeIn>
+              <Helper variant="info">No data shares available for your organisation</Helper>
+            </FadeIn>
           )}
         </Section>
       </Content>

@@ -1,9 +1,7 @@
 import React, { SetStateAction, useContext } from 'react'
-import { Button, ErrorData, Table } from '@reapit/elements'
-// import { FaCheck, FaTimes } from 'react-icons/fa'
-import { ErrorContext } from '../../../context/error-context'
+import { Button, Table } from '@reapit/elements'
+import { MessageContext, MessageState } from '../../../context/message-context'
 import { Dispatch } from 'react'
-import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'
 import { createRequestService } from '../../../services/requests'
@@ -20,26 +18,42 @@ export interface TableCellProps<T> {
 }
 
 export const createRequest = (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
   value: string,
 ) => async () => {
-  const disabled = await createRequestService(value)
+  const createdShare = await createRequestService(value)
 
-  if (!disabled) return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
+  if (!createdShare) {
+    return setMessageState({
+      message: 'Something went wrong disabling account, please try again',
+      variant: 'danger',
+      visible: true,
+    })
+  }
+
+  setMessageState({
+    message: 'Successfully created a share',
+    variant: 'info',
+    visible: true,
+  })
 
   const shares = await getSharesService()
   if (shares) {
     return setShares(shares)
   }
-  return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+  return setMessageState({
+    message: 'Something went wrong fetching shares, please try refreshing',
+    variant: 'danger',
+    visible: true,
+  })
 }
 
 export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShares }) => {
   const RequestDataSetModel: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setServerErrorState } = useContext(ErrorContext)
+    const { setMessageState } = useContext(MessageContext)
 
-    return <Button onClick={createRequest(setServerErrorState, setShares, value)}>Create Share</Button>
+    return <Button onClick={createRequest(setMessageState, setShares, value)}>Create Share</Button>
   }
 
   const columns = [
@@ -66,7 +80,7 @@ export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShare
     },
   ]
 
-  return <Table columns={columns} data={dataSets} />
+  return <Table columns={columns} data={dataSets} scrollable />
 }
 
 export default DataSetsTable

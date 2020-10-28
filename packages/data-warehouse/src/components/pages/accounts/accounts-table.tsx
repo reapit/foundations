@@ -1,10 +1,9 @@
 import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, ErrorData, Table } from '@reapit/elements'
+import { Button, Table } from '@reapit/elements'
 import { disableAccountsService, getAccountsService } from '../../../services/accounts'
 import { AccountModel } from '../../../types/accounts'
-import { ErrorContext } from '../../../context/error-context'
+import { MessageContext, MessageState } from '../../../context/message-context'
 import { Dispatch } from 'react'
-import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
 import AccountUpdateModal from './account-update-modal'
 
@@ -18,19 +17,37 @@ export interface TableCellProps<T> {
 }
 
 export const disableAccount = (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
   value: string,
 ) => async () => {
   const disabled = await disableAccountsService(value)
 
-  if (!disabled) return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
+  if (!disabled) {
+    return setMessageState({
+      visible: true,
+      variant: 'danger',
+      message: 'Something went wrong disabling account, please try again',
+    })
+  }
+
+  setMessageState({
+    visible: true,
+    variant: 'info',
+    message: 'Account successfully disabled',
+  })
 
   const accounts = await getAccountsService()
+
   if (accounts) {
     return setAccounts(accounts)
   }
-  return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+
+  return setMessageState({
+    visible: true,
+    variant: 'danger',
+    message: 'Something went wrong fetching accounts, please try again',
+  })
 }
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
@@ -45,10 +62,14 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
     setSelectedAccountId(accountId)
   }
 
-  const DisableButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setServerErrorState } = useContext(ErrorContext)
+  const DeleteButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+    const { setMessageState } = useContext(MessageContext)
 
-    return <Button onClick={disableAccount(setServerErrorState, setAccounts, value)}>Disable</Button>
+    return (
+      <Button variant="danger" onClick={disableAccount(setMessageState, setAccounts, value)}>
+        Delete
+      </Button>
+    )
   }
 
   const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
@@ -63,20 +84,20 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
     {
       Header: 'Update Password',
       accessor: 'id',
-      id: `#${Math.random() * 10}`,
+      id: 'created',
       Cell: UpdatePasswordButton,
     },
     {
-      Header: 'Disable Account',
+      Header: 'Delete Account',
       accessor: 'id',
-      Cell: DisableButton,
+      Cell: DeleteButton,
     },
   ]
 
   return (
     <>
       <AccountUpdateModal visible={modalVisible} handleClose={handleModalClose} accountId={selectedAccountId} />
-      <Table columns={columns} data={accounts} />
+      <Table columns={columns} data={accounts} scrollable />
     </>
   )
 }

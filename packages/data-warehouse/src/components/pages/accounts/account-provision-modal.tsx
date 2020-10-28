@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react'
 import {
   Button,
-  ErrorData,
   Form,
   FormHeading,
   Formik,
@@ -17,9 +16,8 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'
 import { createAccountsService, getAccountsService } from '../../../services/accounts'
-import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
-import { ErrorContext } from '../../../context/error-context'
+import { MessageContext, MessageState } from '../../../context/message-context'
 
 export interface AccountProvisionModalProps {
   visible: boolean
@@ -30,7 +28,7 @@ export interface AccountProvisionModalProps {
 }
 
 export const createAccount = async (
-  setServerErrorState: Dispatch<React.SetStateAction<ErrorData | null>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setProvisionInProgress: Dispatch<SetStateAction<boolean>>,
   setPercentageComplete: Dispatch<SetStateAction<number>>,
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
@@ -40,8 +38,18 @@ export const createAccount = async (
 
   if (!createdAccount) {
     setProvisionInProgress(false)
-    return setServerErrorState(serverError('Something went wrong disabling account, please try again'))
+    return setMessageState({
+      message: 'Something went wrong disabling account, please try again',
+      variant: 'danger',
+      visible: true,
+    })
   }
+
+  setMessageState({
+    message: 'Successfully provisioned account',
+    variant: 'info',
+    visible: true,
+  })
 
   const accounts = await getAccountsService()
 
@@ -54,7 +62,11 @@ export const createAccount = async (
   if (accounts) {
     return setAccounts(accounts)
   }
-  return setServerErrorState(serverError('Something went wrong fetching accounts, please try again'))
+  return setMessageState({
+    message: 'Something went wrong fetching accounts, please try again',
+    variant: 'danger',
+    visible: true,
+  })
 }
 
 const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
@@ -65,7 +77,7 @@ const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
   handleClose,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { setServerErrorState } = useContext(ErrorContext)
+  const { setMessageState } = useContext(MessageContext)
 
   return (
     <Modal visible={visible} title="Provision Data Warehouse Account" afterClose={handleClose}>
@@ -81,7 +93,7 @@ const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
           } as AccountCreateModel
         }
         onSubmit={(account: AccountCreateModel) => {
-          createAccount(setServerErrorState, setProvisionInProgress, setPercentageComplete, setAccounts, account)
+          createAccount(setMessageState, setProvisionInProgress, setPercentageComplete, setAccounts, account)
           setProvisionInProgress(true)
           handleClose()
         }}
