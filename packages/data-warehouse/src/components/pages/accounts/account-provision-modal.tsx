@@ -49,7 +49,7 @@ export const createAccount = async (
 
   setTimeout(() => {
     setProvisionInProgress(false)
-  }, 5000)
+  }, 10000)
 
   if (accounts) {
     return setAccounts(accounts)

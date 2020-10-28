@@ -1,12 +1,12 @@
-import React, { SetStateAction, useContext } from 'react'
+import React, { SetStateAction, useContext, useState } from 'react'
 import { Button, ErrorData, Table } from '@reapit/elements'
 import { disableAccountsService, getAccountsService } from '../../../services/accounts'
-import { FaCheck, FaTimes } from 'react-icons/fa'
 import { AccountModel } from '../../../types/accounts'
 import { ErrorContext } from '../../../context/error-context'
 import { Dispatch } from 'react'
 import { serverError } from '../../ui/toast-error'
 import { PagedApiResponse } from '../../../types/core'
+import AccountUpdateModal from './account-update-modal'
 
 export interface AccountsTableProps {
   accounts: AccountModel[]
@@ -34,14 +34,25 @@ export const disableAccount = (
 }
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
+  const handleModalClose = () => {
+    setModalVisible(false)
+    setSelectedAccountId(null)
+  }
+  const handleModalOpen = (accountId: string) => () => {
+    setModalVisible(true)
+    setSelectedAccountId(accountId)
+  }
+
   const DisableButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setServerErrorState } = useContext(ErrorContext)
 
     return <Button onClick={disableAccount(setServerErrorState, setAccounts, value)}>Disable</Button>
   }
 
-  const IsAdminCell: React.FC<TableCellProps<boolean>> = ({ cell: { value } }) => {
-    return value ? <FaCheck /> : <FaTimes />
+  const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+    return <Button onClick={handleModalOpen(value)}>Update</Button>
   }
 
   const columns = [
@@ -50,9 +61,10 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
       accessor: 'username',
     },
     {
-      Header: 'Admin User',
-      accessor: 'isAdmin',
-      Cell: IsAdminCell,
+      Header: 'Update Password',
+      accessor: 'id',
+      id: `#${Math.random() * 10}`,
+      Cell: UpdatePasswordButton,
     },
     {
       Header: 'Disable Account',
@@ -61,7 +73,12 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
     },
   ]
 
-  return <Table columns={columns} data={accounts} />
+  return (
+    <>
+      <AccountUpdateModal visible={modalVisible} handleClose={handleModalClose} accountId={selectedAccountId} />
+      <Table columns={columns} data={accounts} />
+    </>
+  )
 }
 
 export default AccountsTable

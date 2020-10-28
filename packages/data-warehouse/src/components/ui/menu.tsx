@@ -2,8 +2,8 @@ import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
 import { FaSignOutAlt, FaCloud, FaDatabase } from 'react-icons/fa'
-import { MdAccountBalance, MdSettings } from 'react-icons/md'
-import { GiHealthNormal } from 'react-icons/gi'
+import { MdAccountBalance /*, MdSettings */ } from 'react-icons/md'
+// import { GiHealthNormal } from 'react-icons/gi'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -38,20 +38,20 @@ export const generateMenuConfig = (
         url: Routes.DATA,
         type: 'PRIMARY',
       },
-      {
-        title: 'Health',
-        key: 'HEALTH',
-        icon: <GiHealthNormal className="nav-item-icon" />,
-        url: Routes.HEALTH,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Settings',
-        key: 'SETTINGS',
-        icon: <MdSettings className="nav-item-icon" />,
-        url: Routes.SETTINGS,
-        type: 'PRIMARY',
-      },
+      // {
+      //   title: 'Health',
+      //   key: 'HEALTH',
+      //   icon: <GiHealthNormal className="nav-item-icon" />,
+      //   url: Routes.HEALTH,
+      //   type: 'PRIMARY',
+      // },
+      // {
+      //   title: 'Settings',
+      //   key: 'SETTINGS',
+      //   icon: <MdSettings className="nav-item-icon" />,
+      //   url: Routes.SETTINGS,
+      //   type: 'PRIMARY',
+      // },
       {
         title: 'Apps',
         key: 'APPS',
