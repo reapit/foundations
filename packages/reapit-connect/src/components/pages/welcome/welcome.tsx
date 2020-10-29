@@ -74,7 +74,7 @@ export const Welcome: React.FC<WelcomeProps> = () => {
             image={agencyCloudGraphicImage}
           />
         )}
-        {clientId && (
+        {clientId && clientId === 'SBOX' && (
           <RowSection
             background="#1e2554"
             heading="Marketplace"

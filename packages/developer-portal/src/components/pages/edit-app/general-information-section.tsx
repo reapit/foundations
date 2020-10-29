@@ -57,8 +57,8 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         The section below relates to the fields that comprise the listing of your application as it will appear to a
         user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted
         application, how best to make your app discoverable to users and to determine where to launch it from the
-        marketplace. When you have done your initial app submit, please return here to set the &ldquo;is Listed&rdquo;
-        status to make the app installable for users.
+        marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace,
+        please return here and select &ldquo;Submit for Approval&rdquo;.
       </FormSubHeading>
       <Grid isMultiLine>
         <GridItem>
@@ -77,7 +77,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
             <div className={checkbox}>
               <Checkbox
                 name={formFields.isListed.name}
-                labelText={formFields.isListed.label as string}
+                labelText={isListed ? (formFields.isListed.label as string) : 'Submit for approval'}
                 id={formFields.isListed.name}
               />
             </div>
