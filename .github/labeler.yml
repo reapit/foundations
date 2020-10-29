@@ -58,3 +58,9 @@ reapit-connect-welcome:
 
 data-warehouse:
   - packages/data-warehouse/**
+
+payments-server:
+  - packages/payments-server/**
+
+payments-client:
+  - packages/payments-client/**

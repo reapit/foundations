@@ -11,7 +11,7 @@ module.exports = {
       prefix: '<rootDir>/',
     }),
   },
-  coveragePathIgnorePatterns: ['<rootDir>/src/tests'],
+  coveragePathIgnorePatterns: ['<rootDir>/src/services', '<rootDir>/src/tests'],
   coverageThreshold: {
     global: {
       branches: 0,
