@@ -328,8 +328,8 @@ export const modalContent = {
         <div>
           Any changes have been saved successfully.
           <br />
-          However, before you can list an app in the Marketplace (updating the &apos;Is Listed&apos; field), you will
-          first need to submit your account information.
+          However, before you can list an app in the Marketplace (&apos;Submit for approval&apos;), you will first need
+          to submit your account information.
           <br />
           Please visit the&nbsp;
           <Link to="/settings/billing">&apos;Billing&apos;</Link> page, within Settings, to complete.
@@ -343,7 +343,7 @@ export const modalContent = {
           Any changes have been saved successfully.
           <br />
           However, as we are currently verifying your account information you will not be able to list your app in the
-          Marketplace (update the &apos;Is Listed&apos; field) until this has been confirmed.
+          Marketplace (&apos;Submit for approval&apos;) until this has been confirmed.
           <br />
           To check the status of your account, please visit the&nbsp;
           <Link to="/settings/billing">&apos;Billing&apos;</Link> page.
@@ -359,7 +359,7 @@ export const modalContent = {
           Any changes have been saved successfully.
           <br />
           However, as your account information has not yet been completed you will be unable to list your app in the
-          Marketplace (update the &apos;Is Listed&apos; field), please ask the Admin of your organisation to visit the
+          Marketplace (&apos;Submit for approval&apos;), please ask the Admin of your organisation to visit the
           &apos;Billing&apos; page under &apos;Settings&apos; to complete.
         </div>
       ),
@@ -371,7 +371,7 @@ export const modalContent = {
           Any changes have been saved successfully.
           <br />
           However, your account information is currently being reviewed by our Accounts Department. Once your account
-          has been confirmed, you will be to list your app in the Marketplace (update the &apos;Is Listed&apos; field).
+          has been confirmed, you will be to list your app in the Marketplace (&apos;Submit for approval&apos;).
           <br />
           The Admin of your organisation can check the status of your account by visiting the &apos;Billing&apos; page
           under &apos;Settings&apos;.

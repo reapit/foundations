@@ -58,7 +58,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 <div
                   className=""
                 >
-                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
               </Component>
               <Component
@@ -129,7 +129,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         >
                           <Component
                             id="isListed"
-                            labelText="Is Listed Marketplace"
+                            labelText="Submit for approval"
                             name="isListed"
                           >
                             <div
@@ -158,7 +158,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                       className="label"
                                       htmlFor="isListed"
                                     >
-                                      Is Listed Marketplace
+                                      Submit for approval
                                     </label>
                                   </div>
                                 </Field>
@@ -622,7 +622,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                 <div
                   className=""
                 >
-                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app submit, please return here to set the “is Listed” status to make the app installable for users.
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
               </Component>
               <Component
@@ -693,7 +693,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         >
                           <Component
                             id="isListed"
-                            labelText="Is Listed Marketplace"
+                            labelText="Status: Listed"
                             name="isListed"
                           >
                             <div
@@ -722,7 +722,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                       className="label"
                                       htmlFor="isListed"
                                     >
-                                      Is Listed Marketplace
+                                      Status: Listed
                                     </label>
                                   </div>
                                 </Field>
