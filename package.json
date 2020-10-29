@@ -17,6 +17,7 @@
       "packages/geo-diary",
       "packages/graphql-server",
       "packages/marketplace",
+      "packages/payments-poc",
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
       "packages/utils"
@@ -178,7 +179,7 @@
     "start-server-and-test": "^1.11.0",
     "style-loader": "^0.23.1",
     "sw2dts": "^2.6.2",
-    "ts-jest": "^26.4.1",
+    "ts-jest": "^26.4.3",
     "ts-loader": "^8.0.6",
     "ts-paths-to-webpack-alias": "^0.3.1",
     "tsdx": "^0.12.3",
