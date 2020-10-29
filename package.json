@@ -17,7 +17,7 @@
       "packages/geo-diary",
       "packages/graphql-server",
       "packages/marketplace",
-      "packages/payments-poc",
+      "packages/payments-poc/*",
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
       "packages/utils"
