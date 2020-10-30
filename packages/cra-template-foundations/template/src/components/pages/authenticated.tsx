@@ -13,6 +13,7 @@ export const Authenticated: React.FC<AuthenticatedProps> = () => {
 
   React.useEffect(() => {
     const fetchAppoinmentConfigs = async () => {
+      if (!connectSession) return
       const serviceResponse = await configurationAppointmentsApiService(connectSession)
       if (serviceResponse) {
         setAppointmentConfigTypes(serviceResponse)

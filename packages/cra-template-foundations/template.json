@@ -1,7 +1,7 @@
 {
   "package": {
     "dependencies": {
-      "@reapit/elements": "^1.0.0",
+      "@reapit/elements": "^1.0.4",
       "@reapit/connect-session": "^2.0.0",
       "@reapit/foundations-ts-definitions": "^0.0.85",
       "@testing-library/react": "~10.0.1",
