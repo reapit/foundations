@@ -198,7 +198,6 @@ const webpackConfig = {
     historyApiFallback: true,
     hot: true,
     quiet: true,
-    open: 'Google Chrome',
     stats: {
       cached: false,
       cachedAssets: false,
