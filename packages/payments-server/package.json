@@ -17,7 +17,7 @@
     "start:dev": "serverless offline --stage local --printOutput",
     "test:ci:skipped": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "fetch-config": "yarn config-manager --namespace cloud --entity payments-poc-server --name local --mode fetch"
+    "fetch-config": "yarn config-manager --namespace cloud --entity payments-server --name local --mode fetch"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
