@@ -42,7 +42,7 @@
     "merge-graphql-schemas": "^1.7.6",
     "query-string": "^6.13.0",
     "snyk": "^1.341.1",
-    "tslib": "2.0.2",
+    "tslib": "2.0.3",
     "uuid": "^3.3.3",
     "winston": "^3.2.1"
   },
