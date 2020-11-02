@@ -9,4 +9,5 @@ export const PAYMENTS_HEADERS = {
 
 export const URLS = {
   PROPERTIES: '/properties',
+  MERCHANT_KEY_API: '/merchant-session-keys',
 }

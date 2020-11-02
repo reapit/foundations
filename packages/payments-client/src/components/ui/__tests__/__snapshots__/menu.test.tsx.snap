@@ -31,33 +31,6 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/payment",
       },
       Object {
-        "icon": <FaHome
-          className="nav-item-icon"
-        />,
-        "key": "RENTALS",
-        "title": "Rentals",
-        "type": "PRIMARY",
-        "url": "/rentals",
-      },
-      Object {
-        "icon": <FaDollarSign
-          className="nav-item-icon"
-        />,
-        "key": "PURCHASES",
-        "title": "Purchases",
-        "type": "PRIMARY",
-        "url": "wdwefdw",
-      },
-      Object {
-        "icon": <FaCashRegister
-          className="nav-item-icon"
-        />,
-        "key": "DEPOSITS",
-        "title": "Deposits",
-        "type": "PRIMARY",
-        "url": "/rentals",
-      },
-      Object {
         "callback": [Function],
         "icon": <FaSignOutAlt
           className="nav-item-icon"

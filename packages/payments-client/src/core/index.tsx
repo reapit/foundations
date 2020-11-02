@@ -19,6 +19,13 @@ window.reapit = {
     graphqlUri: '',
     marketplaceUrl: '',
     paymentsApiUrl: '',
+    opayo: {
+      SBOX: {
+        integrationKey: '',
+        passKey: '',
+        vendorName: '',
+      },
+    },
   },
 }
 
