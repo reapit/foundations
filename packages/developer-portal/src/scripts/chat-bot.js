@@ -1,5 +1,5 @@
-module.exports = {
-  initChatBot: function(loginIdentity) {
+const initChatBot = loginIdentity => {
+  return new Promise(resolve => {
     window._chatlio = window._chatlio || []
 
     !(function() {
@@ -34,12 +34,21 @@ module.exports = {
           })
         })
       }
+      resolve()
     })()
-  },
-
-  openChatbot: function() {
-    if (window._chatlio) {
-      window._chatlio.open()
-    }
-  },
+  })
 }
+
+const openChatbot = loginIdentity => {
+  if (window._chatlio) {
+    window._chatlio.open()
+  } else {
+    initChatBot(loginIdentity).then(() => {
+      if (window._chatlio) {
+        window._chatlio.open()
+      }
+    })
+  }
+}
+
+module.exports = { openChatbot, initChatBot }
