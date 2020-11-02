@@ -35,6 +35,7 @@ exports[`AccountsTable should match a snapshot 1`] = `
           "isAdmin": false,
           "modified": null,
           "organisationId": "8aa72233-aabb-4595-8712-f81ad8bb0dc3",
+          "status": "active",
           "username": "hiyaall",
         },
       ]

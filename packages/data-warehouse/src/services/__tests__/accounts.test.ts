@@ -1,4 +1,4 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher, fetcherWithReturnHeader } from '@reapit/elements'
 import { AccountCreateModel } from '../../types/accounts'
 import { createAccountsService, disableAccountsService, getAccountsService, updateAccountService } from '../accounts'
 import { stubAccounts } from '../__stubs__/accounts'
@@ -7,6 +7,7 @@ jest.mock('@reapit/elements')
 jest.mock('../../core/connect-session')
 
 const mockedFetch = fetcher as jest.Mock
+const mockedFetchWithHeaders = fetcherWithReturnHeader as jest.Mock
 
 describe('getAccountsService', () => {
   it('should return a response from the accounts service', async () => {
@@ -38,13 +39,14 @@ describe('disableAccountsService', () => {
 
 describe('createAccountsService', () => {
   it('should return a response from the accounts service', async () => {
-    mockedFetch.mockReturnValueOnce(true)
-    expect(await createAccountsService({} as AccountCreateModel)).toEqual(true)
+    const headers = new Headers({ location: 'someUrl' })
+    mockedFetchWithHeaders.mockReturnValueOnce(headers)
+    expect(await createAccountsService({} as AccountCreateModel)).toEqual(headers.get('location'))
   })
 
   it('should catch an error if no response from accounts service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
-    mockedFetch.mockReturnValueOnce(undefined as any)
+    mockedFetchWithHeaders.mockReturnValueOnce(undefined as any)
     await createAccountsService({} as AccountCreateModel)
     expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to create account')
   })

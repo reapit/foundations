@@ -10,6 +10,7 @@ export const stubAccounts: PagedApiResponse<AccountModel> = {
       organisationId: '8aa72233-aabb-4595-8712-f81ad8bb0dc3',
       username: 'hiyaall',
       isAdmin: false,
+      status: 'active',
     },
   ],
   pageNumber: 1,

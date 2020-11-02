@@ -15,7 +15,7 @@ import { passwordRegex } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'
-import { createAccountsService, getAccountsService } from '../../../services/accounts'
+import { createAccountsService, getAccountService, getAccountsService } from '../../../services/accounts'
 import { PagedApiResponse } from '../../../types/core'
 import { MessageContext, MessageState } from '../../../context/message-context'
 
@@ -27,6 +27,18 @@ export interface AccountProvisionModalProps {
   handleClose: () => void
 }
 
+export const handlePolling = async (setPercentageComplete: Dispatch<SetStateAction<number>>, accountUri: string) => {
+  const accountId = accountUri.split('/').slice(-1)[0]
+
+  setInterval(async () => {
+    const account = await getAccountService(accountId)
+    if (account) {
+      console.log(account.status)
+      // Creating new warehouse organisation
+    }
+  }, 5000)
+}
+
 export const createAccount = async (
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setProvisionInProgress: Dispatch<SetStateAction<boolean>>,
@@ -34,16 +46,18 @@ export const createAccount = async (
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
   account: AccountCreateModel,
 ) => {
-  const createdAccount = await createAccountsService(account)
+  const accountUri = await createAccountsService(account)
 
-  if (!createdAccount) {
+  if (!accountUri) {
     setProvisionInProgress(false)
     return setMessageState({
-      message: 'Something went wrong disabling account, please try again',
+      message: 'Something went wrong creating account, please try again',
       variant: 'danger',
       visible: true,
     })
   }
+
+  await handlePolling(setPercentageComplete, accountUri)
 
   setMessageState({
     message: 'Successfully provisioned account',
