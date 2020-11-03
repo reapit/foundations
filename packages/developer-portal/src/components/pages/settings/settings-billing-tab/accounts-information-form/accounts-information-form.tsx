@@ -72,7 +72,7 @@ export const onSubmit = ({ dispatch }: { dispatch: Dispatch }) => (values: Accou
   const shouldOpenDebit = hasReapitAccountsRef === 'no' && status === 'incomplete'
   if (shouldOpenDebit) {
     window.open(
-      `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.debitApiKey}*&hosted=false`,
+      `https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.adobeSignApiKey}*&hosted=false`,
       '_blank',
     )
   }

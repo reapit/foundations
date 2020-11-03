@@ -1,8 +1,8 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { initAuthorizedRequestHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
+import { generateHeaders } from './utils'
 
 // Manual defined Model
 
@@ -125,7 +125,7 @@ export const fetchWebhooksSubscriptionsListApi = async (
   params: FetchWebhooksSubscriptionsListParams,
 ): Promise<PagedResultWebhookModel_> => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
@@ -141,7 +141,7 @@ export const fetchWebhooksSubscriptionsListApi = async (
 
 export const createWebhooksSubscription = async (params: CreateWebhooksSubscriptionParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}`,
       api: window.reapit.config.platformApiUrl,
@@ -160,7 +160,7 @@ export const fetchWebhooksSubscriptionById = async (
   params: FetchWebhooksSubscriptionByIdParams,
 ): Promise<WebhookModel> => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
@@ -177,7 +177,7 @@ export const fetchWebhooksSubscriptionById = async (
 
 export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubscriptionByIdParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
@@ -195,7 +195,7 @@ export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubsc
 
 export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubscriptionByIdParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
@@ -212,7 +212,7 @@ export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubsc
 
 export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}/ping`,
@@ -233,7 +233,7 @@ export const fetchWebhooksTopicsListApi = async (
   params: FetchWebhooksTopicsListParams,
 ): Promise<PagedResultTopicModel_> => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
@@ -249,7 +249,7 @@ export const fetchWebhooksTopicsListApi = async (
 
 export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
@@ -266,7 +266,7 @@ export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => 
 
 export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParams): Promise<TopicModel> => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhooksTopics}/${id}`,
@@ -282,7 +282,7 @@ export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParam
 }
 export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdParams) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhooksTopics}/${id}`,

@@ -90,12 +90,12 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const email = yield select(selectDeveloperEmail)
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
-    const cognitoClientId = window.reapit.config.cognitoClientId
+    const connectClientId = window.reapit.config.connectClientId
     const response = yield call(changePasswordService, {
       userName: email,
       password,
       newPassword,
-      cognitoClientId,
+      connectClientId,
     })
     const isCallAPISuccess = response === 'SUCCESS'
     if (!isCallAPISuccess) {

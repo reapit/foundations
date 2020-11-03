@@ -6,6 +6,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Loader, StringMap } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
 import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
+import { URLS } from '../../../services/constants'
 
 export type InterceptorParams = {
   url: string
@@ -27,9 +28,9 @@ export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetS
 }
 
 export const fetchInterceptor = (params: InterceptorParams, accessToken: string | null) => {
-  if (params.url === window.reapit.config.swaggerUrl) {
-    return params
-  }
+  // if (params.url === `${window.reapit.config.platformApiUrl}${URLS.docs}`) {
+  //   return params
+  // }
 
   return {
     ...params,
@@ -41,7 +42,7 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken: string 
   }
 }
 
-export const SwaggerPage: React.SFC = () => {
+export const SwaggerPage: React.FC = () => {
   const [loading, setLoading] = React.useState(true)
   const [accessToken, setAccessToken] = React.useState<string | null>(null)
   const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, accessToken)
@@ -56,7 +57,7 @@ export const SwaggerPage: React.SFC = () => {
         {(loading || !accessToken) && <Loader />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
-            url={window.reapit.config.swaggerUrl}
+            url={`${window.reapit.config.platformApiUrl}${URLS.docs}`}
             onComplete={handleOnComplete(setLoading)}
             docExpansion="none"
             requestInterceptor={requestInterceptor}

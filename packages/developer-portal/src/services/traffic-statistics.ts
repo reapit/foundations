@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 
 export type EndpointStatisticsModel = {
@@ -41,13 +41,13 @@ export const fetchTrafficStatistics = async (
   const api =
     window.reapit.config.appEnv === 'production'
       ? window.reapit.config.platformApiUrl
-      : window.reapit.config.marketplaceApiUrl
+      : window.reapit.config.platformApiUrl
   try {
     const response = await fetcher({
       url: `${URLS.trafficEventStatistics}?${setQueryParams(params)}`,
       api,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

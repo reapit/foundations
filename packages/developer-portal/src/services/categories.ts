@@ -1,7 +1,7 @@
 import { CategoryModelPagedResult, CreateCategoryModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
@@ -17,9 +17,9 @@ export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): P
   try {
     const response = await fetcher({
       url: `${URLS.categories}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -32,10 +32,10 @@ export const createCategory = async (params: CreateCategoryParams) => {
   try {
     const response = await fetcher({
       url: `${URLS.categories}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -49,9 +49,9 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
     const { id } = params
     const response = await fetcher({
       url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -65,9 +65,9 @@ export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
     const { id } = params
     const response = await fetcher({
       url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

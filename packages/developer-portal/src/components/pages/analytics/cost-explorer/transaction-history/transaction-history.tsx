@@ -12,7 +12,7 @@ import {
 } from './utils'
 import dayjs, { Dayjs } from 'dayjs'
 import { URLS } from '@/services/constants'
-import { generateHeader } from '@/services/utils'
+import { generateHeaders } from '@/services/utils'
 import FileSaver from 'file-saver'
 import { selectAppListState } from '@/selector/apps/app-list'
 
@@ -48,14 +48,14 @@ export const createHandleDownLoadButtonOnClickFn = ({
   const api =
     window.reapit.config.appEnv === 'production'
       ? window.reapit.config.platformApiUrl
-      : window.reapit.config.marketplaceApiUrl
+      : window.reapit.config.platformApiUrl
 
   const params = setQueryParams({ applicationId: developerAppIds })
   const blob = await fetcherWithBlob({
     url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
     api,
     method: 'GET',
-    headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+    headers: await generateHeaders(),
   })
   const fileName = `reapit-billing-data-${month}.csv`
   FileSaver.saveAs(blob, fileName)
