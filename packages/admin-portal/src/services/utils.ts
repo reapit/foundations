@@ -6,6 +6,7 @@ export const generateHeaders = async () => {
   if (session && session.accessToken) {
     return {
       Authorization: `Bearer ${session.accessToken}`,
+      'Api-Version': 'latest',
       'Content-Type': 'application/json',
     } as StringMap
   }

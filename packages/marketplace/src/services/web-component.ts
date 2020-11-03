@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { URLS } from './constants'
 
@@ -38,7 +38,7 @@ export const fetchWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${applicationId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -56,7 +56,7 @@ export const updateWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${appId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'PATCH',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
       body: rest,
     })
     return response

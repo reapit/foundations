@@ -8,7 +8,7 @@ export const handleBtnBackToMarketplace = () => {
 }
 
 export const handleBtnGoThereNow = () => {
-  window.open(window.reapit.config.adminPortalUrl, '_self')
+  window.open('https://developer-admin.reapit.cloud', '_self')
 }
 
 const HandleLegacyAdminRoutesModal: React.FC<{}> = () => {
@@ -30,7 +30,7 @@ const HandleLegacyAdminRoutesModal: React.FC<{}> = () => {
     >
       <>
         The admin portal has permanently moved to{' '}
-        <a href={window.reapit.config.adminPortalUrl}>{window.reapit.config.adminPortalUrl}</a> Please remove any
+        <a href={'https://developer-admin.reapit.cloud'}>{'https://developer-admin.reapit.cloud'}</a> Please remove any
         bookmarks to this page and in future visit the developer portal direct. Thankyou.
       </>
     </Modal>

@@ -1,7 +1,7 @@
 import { AppSummaryModelPagedResult, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
@@ -25,9 +25,9 @@ export const fetchAppsApi = async (params: FetchAppsParams): Promise<AppSummaryM
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -45,9 +45,9 @@ export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDe
     const { id, clientId } = params
     const response = await fetcher({
       url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

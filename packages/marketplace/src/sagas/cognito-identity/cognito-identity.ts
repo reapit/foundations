@@ -11,12 +11,12 @@ export const clientPasswordChange = function*({ data }: Action<ChangePasswordPar
   try {
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword, email } = data
-    const cognitoClientId = window.reapit.config.cognitoClientId
+    const connectClientId = window.reapit.config.connectClientId
     const response = yield call(changePasswordService, {
       userName: email,
       password,
       newPassword,
-      cognitoClientId,
+      connectClientId,
     })
     const isCallAPISuccess = response === 'SUCCESS'
     if (!isCallAPISuccess) {
