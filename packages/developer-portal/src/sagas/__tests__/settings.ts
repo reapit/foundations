@@ -31,6 +31,7 @@ jest.mock('../../core/router', () => ({
     replace: jest.fn(),
   },
 }))
+jest.mock('@/services/utils')
 jest.mock('@/services/cognito-identity', () => ({
   changePasswordService: jest.fn().mockResolvedValue('SUCCESS'),
 }))
@@ -139,7 +140,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: window.reapit.config.cognitoClientId || '',
+          connectClientId: window.reapit.config.connectClientId,
         }),
       )
     })
@@ -151,7 +152,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: window.reapit.config.cognitoClientId || '',
+          connectClientId: window.reapit.config.connectClientId,
         }),
       )
       if (!clone.throw) throw new Error('Generator object cannot throw')

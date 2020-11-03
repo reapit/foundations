@@ -28,7 +28,7 @@ describe('cognitoIdentitySagas', () => {
         password: '123',
         newPassword: '456',
         userName: 'tester@reapit.com',
-        cognitoClientId: window.reapit.config.cognitoClientId || '',
+        connectClientId: window.reapit.config.connectClientId,
       }),
     )
 

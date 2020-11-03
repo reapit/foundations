@@ -6,7 +6,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 
@@ -49,9 +49,9 @@ export const fetchInstallationsList = async (
   try {
     const response = await fetcher({
       url: `${URLS.installations}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -64,10 +64,10 @@ export const createInstallation = async (params: CreateInstallationParams) => {
   try {
     const response = await fetcher({
       url: `${URLS.installations}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -81,9 +81,9 @@ export const fetchInstallationById = async (params: FetchInstallationByIdParams)
     const { installationId } = params
     const response = await fetcher({
       url: `${URLS.installations}/${installationId}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -97,9 +97,9 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
     const { installationId } = params
     const response = await fetcher({
       url: `${URLS.installations}/${installationId}/apiKey`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -113,9 +113,9 @@ export const deleteApiKeyInstallationById = async (params: DeleteApiKeyInstallat
     const { installationId } = params
     const response = await fetcher({
       url: `${URLS.installations}/${installationId}/apiKey`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -129,10 +129,10 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
     const { installationId, ...rest } = params
     const response = await fetcher({
       url: `${URLS.installations}/${installationId}/terminate`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: rest,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

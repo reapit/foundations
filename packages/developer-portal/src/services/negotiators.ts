@@ -1,5 +1,5 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { initAuthorizedRequestHeaders } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { URLS } from './constants'
 
@@ -37,7 +37,7 @@ export type NegotiatorsResult = {
 
 export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<NegotiatorsResult> => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
+    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.negotiators}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,

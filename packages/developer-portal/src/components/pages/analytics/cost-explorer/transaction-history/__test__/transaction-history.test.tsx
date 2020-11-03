@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { URLS } from '@/services/constants'
-import { generateHeader } from '@/services/utils'
+import { generateHeaders } from '@/services/utils'
 import { fetcherWithBlob } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import TransactionHistory, {
@@ -23,6 +23,8 @@ const mockState: ReduxState = {
     loading: false,
   },
 }
+
+jest.mock('@/services/utils')
 
 jest.mock('@reapit/elements', () => ({
   fetcherWithBlob: jest.fn(
@@ -69,9 +71,9 @@ describe('TransactionHistory', () => {
 
       expect(fetcherWithBlob).toHaveBeenCalledWith({
         url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1&applicationId=2`,
-        api: window.reapit.config.marketplaceApiUrl,
+        api: window.reapit.config.platformApiUrl,
         method: 'GET',
-        headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+        headers: await generateHeaders(),
       })
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()

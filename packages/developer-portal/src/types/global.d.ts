@@ -1,23 +1,15 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
-  marketplaceApiUrl: string
-  marketplaceApiKey: string
-  uploadApiUrl: string
-  swaggerUrl: string
-  elementDocumentUrl: string
-  cognitoClientId: string
   googleAnalyticsKey: string
-  cognitoOAuthUrl: string
-  cognitoUserPoolId: string
+  connectClientId: string
+  connectOAuthUrl: string
+  connectUserPoolId: string
   chatbotAppId: string
   marketplaceUrl: string
   platformApiUrl: string
-  webComponentConfigApiUrl: string
   developerEditionDownloadUrl: string
-  urlSchemeUrl: string
-  apiDocDesktop: string
-  debitApiKey: string
+  adobeSignApiKey: string
 }
 
 declare global {

@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 import { AddressModel, LinkModel } from '@reapit/foundations-ts-definitions'
@@ -31,9 +31,9 @@ export const fetchCustomersList = async (params: FetchCustomersListParams): Prom
   try {
     const response = await fetcher({
       url: `${URLS.customers}/?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

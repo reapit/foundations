@@ -1,24 +1,23 @@
-export const API_VERSION = '2020-01-31'
+export const API_VERSION = 'latest'
 export const MARKETPLACE_API_VERSION = '2'
 
 export const URLS = {
-  developers: '/developers',
-  developer: '/developer',
-  apps: '/apps',
-  approvals: '/approvals',
-  installations: '/installations',
-  scopes: '/scopes',
-  categories: '/categories',
+  developers: '/marketplace/developers',
+  apps: '/marketplace/apps',
+  approvals: '/marketplace/approvals',
+  installations: '/marketplace/installations',
+  scopes: '/marketplace/scopes',
+  categories: '/marketplace/categories',
   docs: '/docs',
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
-  desktopIntegrationTypes: '/DesktopIntegrationTypes',
+  desktopIntegrationTypes: '/marketplace/DesktopIntegrationTypes',
   webhooks: '/webhooks',
   webhookSubscriptions: '/webhooks/subscriptions',
   webhooksTopics: '/webhooks/topics',
   trafficEventBilling: '/trafficevents/billing',
   trafficEventStatistics: '/trafficevents/trafficStatistics',
   negotiators: '/negotiators',
-  webComponentConfig: '/v1/web-components-config',
-  developerSubscriptions: '/subscriptions',
+  developerSubscriptions: '/marketplace/subscriptions',
+  fileUpload: '/fileUpload',
 }

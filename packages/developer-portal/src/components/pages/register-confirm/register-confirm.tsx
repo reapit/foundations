@@ -7,7 +7,7 @@ export const handleUseEffect = ({ userName, verificationCode, replace }) => () =
   confirmRegistration({
     userName,
     verificationCode,
-    cognitoClientId: window.reapit.config.cognitoClientId,
+    connectClientId: window.reapit.config.connectClientId,
   })
     .then(() => {
       replace(`${Routes.LOGIN}?isSuccess=1`)

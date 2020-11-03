@@ -1,5 +1,6 @@
 import { fetcher, isBase64 } from '@reapit/elements'
-import { generateHeader } from './utils'
+import { URLS } from './constants'
+import { generateHeaders } from './utils'
 
 export type ImageUploaderReq = {
   name?: string
@@ -17,13 +18,11 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
     return null
   }
 
-  const headers = await generateHeader(window.reapit.config.marketplaceApiKey)
-
   return fetcher({
-    url: '/',
-    api: window.reapit.config.uploadApiUrl,
+    url: URLS.fileUpload,
+    api: window.reapit.config.platformApiUrl,
     method: 'POST',
-    headers,
+    headers: await generateHeaders(),
     body: object,
   })
 }

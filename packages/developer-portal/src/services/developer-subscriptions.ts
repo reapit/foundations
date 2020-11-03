@@ -6,7 +6,7 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { stringify } from 'query-string'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 
@@ -25,9 +25,9 @@ export const fetchSubscriptionsList = async (
   try {
     const response = await fetcher({
       url: `${URLS.developerSubscriptions}?${stringify(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response as SubscriptionModelPagedResult
   } catch (error) {
@@ -40,10 +40,10 @@ export const createDeveloperSubscription = async (params: CreateSubscriptionMode
   try {
     const response = await fetcher({
       url: `${URLS.developerSubscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -57,9 +57,9 @@ export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
   try {
     const response = await fetcher({
       url: `${URLS.developerSubscriptions}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

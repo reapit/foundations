@@ -7,8 +7,12 @@ const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
-const ESLintPLugin = new ESLintWebpackPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'] })
+const ESLintPLugin = new ESLintWebpackPlugin({
+  extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'],
+  lintDirtyModulesOnly: true,
+})
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -77,6 +81,7 @@ const webpackConfig = {
     }),
     new FriendlyErrorsWebpackPlugin(),
     ESLintPLugin,
+    new HardSourceWebpackPlugin(),
   ],
   module: {
     rules: [

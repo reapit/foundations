@@ -14,7 +14,7 @@ Cypress.on('fail', (error, runnable) => {
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'web-components-config-server') {
   const WEB_COMPONENTS_CONFIG_API_URL = Cypress.env(`WEB_COMPONENTS_CONFIG_API_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('web-components-config-server API', () => {
-    it('user should able to call web-components-config-server /v1/health', () => {
+    it.skip('user should able to call web-components-config-server /v1/health', () => {
       cy.request({
         url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/health`,
         method: 'GET',
@@ -34,7 +34,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'we
         })
       })
     })
-    it('user should able to call web-components-config-server /v1/web-components-config/<customer_id>/<app_id>', () => {
+    it.skip('user should able to call web-components-config-server /v1/web-components-config/<customer_id>/<app_id>', () => {
       cy.request({
         url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/web-components-config/TEST/1`,
         method: 'GET',

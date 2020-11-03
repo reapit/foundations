@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
+import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
@@ -46,9 +46,9 @@ export const fetchDesktopIntegrationTypesList = async (
   try {
     const response = await fetcher({
       url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -61,10 +61,10 @@ export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegra
   try {
     const response = await fetcher({
       url: `${URLS.desktopIntegrationTypes}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -80,9 +80,9 @@ export const fetchDesktopIntegrationTypesById = async (
     const { id } = params
     const response = await fetcher({
       url: `${URLS.desktopIntegrationTypes}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -96,10 +96,10 @@ export const updateDesktopIntegrationTypesById = async (params: UpdateDesktopInt
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.categories}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
