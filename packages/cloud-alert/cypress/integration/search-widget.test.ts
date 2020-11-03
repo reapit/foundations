@@ -14,7 +14,7 @@ Cypress.on('fail', (error, runnable) => {
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'search-widget') {
   const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('search-widget API', () => {
-    it('user should able to call search-widget /properties/<id>', () => {
+    it.skip('user should able to call search-widget /properties/<id>', () => {
       cy.request({
         url: `${WEB_COMPONENTS_API_URL}/properties/BED150319`,
         method: 'GET',
@@ -30,7 +30,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         expect(response.status).to.equal(200)
       })
     })
-    it('user should able to call search-widget /properties?<query params>', () => {
+    it.skip('user should able to call search-widget /properties?<query params>', () => {
       cy.request({
         // eslint-disable-next-line max-len
         url: `${WEB_COMPONENTS_API_URL}/properties?keywords=london&isRental=true&apiKey&customerId=DXX&pageNumber=1&bedroomsFrom=1&bedroomsTo=2&priceFrom=300000&priceTo=500000&sortBy=price&propertyType=house&addedIn`,
@@ -48,7 +48,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
       })
     })
 
-    it('user should able to call /propertyImages', () => {
+    it.skip('user should able to call /propertyImages', () => {
       cy.request({
         url: `${WEB_COMPONENTS_API_URL}/propertyImages`,
         method: 'GET',

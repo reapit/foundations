@@ -24,7 +24,9 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'li
     // skip because it hasn't been migrated to prod connect session
     it.skip('user should able to login Life Time Legal App', () => {
       cy.visit(LIFE_TIME_LEGAL_URL).then(() => {
-        cy.get(LOGIN_BUTTON_SELECTOR_BY_TAG).should('contain', 'Login').click()
+        cy.get(LOGIN_BUTTON_SELECTOR_BY_TAG)
+          .should('contain', 'Login')
+          .click()
         cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
         cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
         cy.get(SUBMIT_LOGIN_SELECTOR).click()

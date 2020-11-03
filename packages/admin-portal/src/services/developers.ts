@@ -7,10 +7,10 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { stringify } from 'query-string'
+import { generateHeaders } from './utils'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -44,9 +44,9 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
   try {
     const response = await fetcher({
       url: `${URLS.developers}/?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -60,10 +60,10 @@ export const updateDeveloperById = async (params: UpdateDeveloperParams) => {
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.developers}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -77,9 +77,9 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
     const { period } = params
     const response = await fetcherWithBlob({
       url: `${URLS.developers}/costs/${period}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -95,9 +95,9 @@ export const fetchOrganisationMembers = async (
     const { id, ...restParams } = params
     const response = await fetcher({
       url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -111,10 +111,10 @@ export const updateOrganisationMemberById = async (params: UpdateDeveloperMember
     const { id: developerId, memberId, ...rest } = params
     const response = await fetcher({
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {
@@ -128,9 +128,9 @@ export const disableMemberApi = async (params: DisableDeveloperMemberParams) => 
     const { developerId, memberId } = params
     const response = await fetcher({
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: await generateHeaders(),
     })
     return response
   } catch (error) {

@@ -1,7 +1,6 @@
 import * as Sentry from '@sentry/browser'
 import React from 'react'
 import { render } from 'react-dom'
-import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 import { logger } from '@reapit/utils'
@@ -11,22 +10,10 @@ window.reapit = {
   config: {
     appEnv: 'production',
     sentryDns: '',
-    marketplaceApiUrl: '',
-    marketplaceApiKey: '',
-    uploadApiUrl: '',
-    swaggerUrl: '',
-    elementDocumentUrl: '',
-    cognitoClientId: '',
-    googleAnalyticsKey: '',
-    cognitoOAuthUrl: '',
-    chatbotAppId: '',
-    marketplaceUrl: '',
+    connectClientId: '',
+    connectOAuthUrl: '',
     platformApiUrl: '',
-    webComponentConfigApiUrl: '',
-    developerEditionDownloadUrl: '',
-    urlSchemeUrl: '',
-    apiDocDesktop: '',
-    cognitoUserPoolId: '',
+    connectUserPoolId: '',
   },
 }
 
@@ -55,11 +42,6 @@ const run = async () => {
         dsn: config.sentryDns,
         environment: config.appEnv,
       })
-    }
-
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
     window.reapit.config = config

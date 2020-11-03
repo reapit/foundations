@@ -18,7 +18,6 @@
       "packages/graphql-server",
       "packages/marketplace",
       "packages/payments-client",
-      "packages/payments-server",
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
       "packages/utils"
