@@ -5,7 +5,6 @@ import { AnalyticsTab, handleUseEffectToSetCurrentTab, renderTabContent, tabConf
 import AnalyticsPage from '../analytics'
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
   useHistory: () => ({ replace: jest.fn() }),
   useParams: () => ({
     activeTab: null,

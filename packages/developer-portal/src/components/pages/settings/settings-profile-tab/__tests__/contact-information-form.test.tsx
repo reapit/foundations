@@ -14,7 +14,7 @@ import { Provider } from 'react-redux'
 
 const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useDispatch: jest.fn(() => dispatch),
   useSelector: jest.fn(() => jest.fn()),
 }))

@@ -19,7 +19,7 @@ const mockState = {
 } as ReduxState
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+  ...(jest.requireActual('react-router-dom') as Object), // use actual for all non-hook parts
   useHistory: () => ({ replace: jest.fn() }),
   useRouteMatch: () => ({ url: 'test' }),
 }))

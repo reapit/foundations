@@ -8,6 +8,7 @@ const { getVersionTag } = require('../release/utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const AutoDllPlugin = require('autodll-webpack-plugin')
 
 const ESLintPLugin = new ESLintWebpackPlugin({
   extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'],
@@ -82,6 +83,59 @@ const webpackConfig = {
     new FriendlyErrorsWebpackPlugin(),
     ESLintPLugin,
     new HardSourceWebpackPlugin(),
+    new AutoDllPlugin({
+      inject: true,
+      filename: '[name].js',
+      context: process.cwd(),
+      entry: {
+        vendor: [
+          '@reapit/elements',
+          '@reapit/connect-session',
+          'hardtack',
+          'himalaya',
+          'jsonwebtoken',
+          'linaria',
+          'pell',
+          'prop-types',
+          'papaparse',
+          'react',
+          'react-dom',
+          'file-saver',
+          'dayjs',
+          'react-ga',
+          'react-redux',
+          'react-router',
+          'react-router-dom',
+          'redux',
+          'redux-saga',
+          'formik',
+          'yup',
+          'chart.js',
+          'diff',
+          'react-chartjs-2',
+          'react-responsive',
+          'swagger-ui-react',
+          'lodash.isequal',
+          'lodash.orderby',
+          'rc-dialog',
+          'rc-notification',
+          'rc-select',
+          'rc-tooltip',
+          'react-datasheet',
+          'react-datepicker',
+          'react-google-map',
+          'react-google-maps-loader',
+          'react-icons',
+          'react-image-crop',
+          'react-table',
+          'react-to-print',
+          'jwk-to-pem',
+          'isomorphic-fetch',
+          'little-loader',
+          'react-infinite-scroll-component',
+        ],
+      },
+    }),
   ],
   module: {
     rules: [
@@ -217,7 +271,6 @@ const webpackConfig = {
     splitChunks: {
       chunks: 'all',
     },
-    runtimeChunk: true,
   },
 }
 

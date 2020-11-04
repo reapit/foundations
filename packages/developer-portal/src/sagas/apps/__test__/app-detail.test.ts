@@ -10,7 +10,7 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { fetchAppDetailSuccess } from '@/actions/apps'
 
 jest.mock('@reapit/elements', () => ({
-  ...jest.requireActual('@reapit/elements'),
+  ...(jest.requireActual('@reapit/elements') as Object),
   notification: {
     error: jest.fn(),
   },

@@ -8,7 +8,7 @@ import { developerCreateSubscriptionClearError } from '@/actions/developer-subsc
 import { developerStub } from '@/sagas/__stubs__/developer'
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useSelector: jest.fn(() => jest.fn()),
 }))
 

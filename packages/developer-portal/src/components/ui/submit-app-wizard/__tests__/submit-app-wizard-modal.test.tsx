@@ -8,7 +8,7 @@ jest.mock('../steps/step-submit-app-success', () => ({
 }))
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useDispatch: jest.fn(),
 }))
 

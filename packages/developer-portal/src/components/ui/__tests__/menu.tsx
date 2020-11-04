@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => ({
     location: 'location',
   })),
