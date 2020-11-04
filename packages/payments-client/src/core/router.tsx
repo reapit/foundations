@@ -30,7 +30,6 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments')))
-const RentalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/rentals')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -40,7 +39,6 @@ const Router = () => (
         <PrivateRouteWrapper>
           <Switch>
             <Route path={Routes.PAYMENT} component={PaymentsPage} />
-            <Route path={Routes.RENTALS} component={RentalsPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
