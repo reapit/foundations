@@ -1,13 +1,12 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
-  appId?: string
+  appId: string
   sentryDns: string
-  platformApiUrl: string
-  uploadApiUrl: string
-  cognitoClientId: string
   googleAnalyticsKey: string
-  cognitoOAuthUrl: string
-  cognitoUserPoolId: string
+  platformApiUrl: string
+  connectClientId: string
+  connectOAuthUrl: string
+  connectUserPoolId: string
   marketplaceUrl: string
 }
 
