@@ -59,10 +59,7 @@ export type FetchBillingsByMonthParams = {
 }
 
 export const fetchBillings = async (params: FetchBillingsParams): Promise<BillingSummaryModel> => {
-  const api =
-    window.reapit.config.appEnv === 'production'
-      ? window.reapit.config.platformApiUrl
-      : window.reapit.config.platformApiUrl
+  const api = window.reapit.config.platformApiUrl
   try {
     const response = await fetcher({
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
@@ -80,10 +77,7 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
 export const fetchBillingsByMonth = async (
   params: FetchBillingsByMonthParams,
 ): Promise<BillingBreakdownForMonthV2Model> => {
-  const api =
-    window.reapit.config.appEnv === 'production'
-      ? window.reapit.config.platformApiUrl
-      : window.reapit.config.platformApiUrl
+  const api = window.reapit.config.platformApiUrl
   try {
     const { month, ...rest } = params
     const response = await fetcher({
