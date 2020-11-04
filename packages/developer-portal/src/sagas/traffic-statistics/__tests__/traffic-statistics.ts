@@ -15,7 +15,7 @@ import { fetchTrafficStatistics } from '@/services/traffic-statistics'
 
 jest.mock('@/services/traffic-statistics')
 jest.mock('@reapit/elements', () => ({
-  ...jest.requireActual('@reapit/elements'),
+  ...(jest.requireActual('@reapit/elements') as Object),
   notification: {
     error: jest.fn(),
   },

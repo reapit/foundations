@@ -44,7 +44,7 @@ jest.mock('@/services/developers')
 jest.mock('@/services/billing')
 
 jest.mock('@reapit/elements', () => ({
-  ...jest.requireActual('@reapit/elements'),
+  ...(jest.requireActual('@reapit/elements') as Object),
   notification: {
     error: jest.fn(),
   },

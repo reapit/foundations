@@ -21,7 +21,7 @@ import { developerState } from '@/sagas/__stubs__/developer'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
 
 jest.mock('@reapit/elements', () => ({
-  ...jest.requireActual('@reapit/elements'),
+  ...(jest.requireActual('@reapit/elements') as Object),
   toLocalTime: jest.fn().mockReturnValue('localtime'),
 }))
 jest.mock('../../../../../core/store')

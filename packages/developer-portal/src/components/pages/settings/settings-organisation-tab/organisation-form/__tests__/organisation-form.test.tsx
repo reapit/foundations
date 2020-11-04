@@ -7,7 +7,7 @@ import appState from '@/reducers/__stubs__/app-state'
 
 const developerInformation: DeveloperModel | null = appState.settings.developerInfomation
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useDispatch: jest.fn(),
   useSelector: jest.fn(() => developerInformation),
 }))

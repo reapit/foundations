@@ -5,7 +5,7 @@ import Routes from '@/constants/routes'
 import { confirmRegistration } from '@/services/cognito-identity'
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+  // ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
   useLocation: () => ({ location: { search: '?userName=mockUserName@gmail.com&verificationCode=123' } }),
   useHistory: () => ({ replace: jest.fn() }),
 }))

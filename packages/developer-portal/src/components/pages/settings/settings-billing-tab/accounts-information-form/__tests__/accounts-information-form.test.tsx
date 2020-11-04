@@ -14,7 +14,7 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 const developerInfo = appState.settings.developerInfomation
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useSelector: jest.fn(),
   useDispatch: jest.fn(),
 }))

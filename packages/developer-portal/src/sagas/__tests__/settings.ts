@@ -37,7 +37,7 @@ jest.mock('@/services/cognito-identity', () => ({
 }))
 
 jest.mock('@reapit/elements', () => ({
-  ...jest.requireActual('@reapit/elements'),
+  ...(jest.requireActual('@reapit/elements') as Object),
   notification: {
     error: jest.fn(),
   },
