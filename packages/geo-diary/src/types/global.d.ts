@@ -10,10 +10,10 @@ import {
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
-  cognitoClientId: string
   googleAnalyticsKey: string
-  cognitoOAuthUrl: string
-  cognitoUserPoolId: string
+  connectClientId: string
+  connectOAuthUrl: string
+  connectUserPoolId: string
   graphqlUri: string
   googleMapApiKey: string
 }

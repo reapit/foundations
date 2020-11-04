@@ -2,6 +2,7 @@ service: cloud-api-docs-lambda
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-deployment-bucket
 
 custom:
   webpack:

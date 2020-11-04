@@ -1,12 +1,11 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
+  googleAnalyticsKey: string
   connectClientId: string
   connectUserPoolId: string
-  googleAnalyticsKey: string
   connectOAuthUrl: string
   platformApiUrl: string
-  graphqlUri: string
   marketplaceUrl: string
 }
 
