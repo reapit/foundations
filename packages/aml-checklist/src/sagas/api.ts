@@ -75,8 +75,8 @@ export const uploadImage = async ({ name, imageData, headers }) => {
   delete headersWithoutVersion['api-version']
   try {
     const response = await fetcher({
-      url: '/',
-      api: window.reapit.config.uploadApiUrl,
+      url: URLS.fileUpload,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       headers: headersWithoutVersion,
       body: {

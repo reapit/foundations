@@ -1,6 +1,6 @@
 {
   "name": "payments-client",
-  "description": "Description",
+  "description": "Payments Client For Sage Pay",
   "version": "0.0.1",
   "private": true,
   "repository": {
@@ -21,10 +21,7 @@
     "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
-  "dependencies": {
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.11.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ts-jest": "^26.4.3"
   }

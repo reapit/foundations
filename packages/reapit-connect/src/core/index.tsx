@@ -9,9 +9,9 @@ window.reapit = {
   config: {
     appId: '',
     appEnv: 'production',
-    cognitoClientId: '',
-    cognitoOAuthUrl: '',
-    cognitoUserPoolId: '',
+    connectClientId: '',
+    connectOAuthUrl: '',
+    connectUserPoolId: '',
     developerPortalUrl: '',
   },
 }

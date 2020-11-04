@@ -1,7 +1,8 @@
-service: api-docs-lambda
+service: cloud-api-docs-lambda
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-deployment-bucket
 
 custom:
   webpack:
@@ -18,7 +19,7 @@ provider:
   runtime: nodejs12.x
   region: 'eu-west-2'
   deploymentBucket:
-    name: api-docs-lambda
+    name: cloud-api-docs-lambda
     blockPublicAccess: false
   environment:
     NODE_ENV: 'production'

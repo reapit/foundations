@@ -1,9 +1,9 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   appId?: string
-  cognitoClientId: string
-  cognitoOAuthUrl: string
-  cognitoUserPoolId: string
+  connectClientId: string
+  connectOAuthUrl: string
+  connectUserPoolId: string
   developerPortalUrl: string
 }
 

@@ -27,13 +27,14 @@ import {
   AppointmentContactModel,
   PropertyModel,
 } from '@reapit/foundations-ts-definitions'
-import { LoginMode } from '@reapit/cognito-auth'
 import { FaClock, FaMale, FaBuilding, FaHome, FaStickyNote, FaHandshake } from 'react-icons/fa'
 import { TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { ExtendedAppointmentModel } from '@/types/global'
 import UPDATE_APPOINTMENT_BY_ID from './update-appointment-by-id.graphql'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+
+type LoginMode = 'WEB' | 'DESKTOP'
 
 export const capitalizeFirstLetter = (value: string) => {
   if (!value) {

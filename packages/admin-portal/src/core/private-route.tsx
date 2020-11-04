@@ -13,7 +13,7 @@ export interface PrivateRouteProps {
 
 export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const adminId = connectSession?.loginIdentity?.adminId
+  const adminId = connectSession?.loginIdentity?.groups.includes('ReapitEmployeeFoundationsAdmin')
 
   return (
     <Route

@@ -1,6 +1,0 @@
-{
-  "REPO_DISPATCH_API": "https://api.github.com/repos/reapit/foundations/dispatches",
-  "SLACK_BOT_HOOK": "",
-  "SLACK_BOT_SIGNING_SECRET": "",
-  "GITHUB_TOKEN": ""
-}

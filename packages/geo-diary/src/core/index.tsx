@@ -16,10 +16,10 @@ window.reapit = {
   config: {
     appEnv: 'production',
     sentryDns: '',
-    cognitoClientId: '',
     googleAnalyticsKey: '',
-    cognitoOAuthUrl: '',
-    cognitoUserPoolId: '',
+    connectClientId: '',
+    connectOAuthUrl: '',
+    connectUserPoolId: '',
     graphqlUri: '',
     googleMapApiKey: '',
   },
@@ -38,7 +38,7 @@ const run = async () => {
   try {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
-    const isLocal = config.appEnv === 'local'
+    const isLocal = config.appEnv !== 'production'
 
     if (!isLocal && config.sentryDns) {
       Sentry.init({

@@ -11,4 +11,5 @@ export const URLS = {
   idChecks: '/identityChecks',
   configuration: '/configuration',
   documents: '/documents',
+  fileUpload: '/fileUpload',
 }
