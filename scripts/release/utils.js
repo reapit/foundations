@@ -111,6 +111,9 @@ const releaseWebApp = async ({ tagName, packageName, env }) => {
       await runTestCypress({ packageName, tagName, env })
       return
     }
+    if (packageName === 'elements') {
+      packageName = '@reapit/elements'
+    }
     await copyConfig({ packageName })
     await runReleaseCommand({ packageName, tagName, env })
     await runTestCypress({ packageName, tagName, env })
