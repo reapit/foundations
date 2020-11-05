@@ -9,7 +9,6 @@ plugins:
 custom:
   s3WebAppBucket: cloud-payments-client-${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
-  env: ${file(./config.json)}
   remover:
     buckets:
       - ${self:custom.s3WebAppBucket}

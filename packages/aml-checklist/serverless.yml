@@ -1,4 +1,3 @@
-# https://www.npmjs.com/package/serverless-single-page-app-plugin
 service: cloud-aml-checklist
 
 plugins:
