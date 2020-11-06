@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud, FaPoundSign, FaHome, FaDollarSign, FaCashRegister } from 'react-icons/fa'
+import { FaSignOutAlt, FaCloud, FaPoundSign } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -34,27 +34,6 @@ export const generateMenuConfig = (
         key: 'PAYMENTS',
         icon: <FaPoundSign className="nav-item-icon" />,
         url: Routes.PAYMENT,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Rentals',
-        key: 'RENTALS',
-        icon: <FaHome className="nav-item-icon" />,
-        url: Routes.RENTALS,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Purchases',
-        key: 'PURCHASES',
-        icon: <FaDollarSign className="nav-item-icon" />,
-        url: 'wdwefdw',
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Deposits',
-        key: 'DEPOSITS',
-        icon: <FaCashRegister className="nav-item-icon" />,
-        url: Routes.RENTALS,
         type: 'PRIMARY',
       },
       {

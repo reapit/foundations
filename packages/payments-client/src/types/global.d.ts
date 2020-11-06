@@ -1,3 +1,9 @@
+export type OpayoKeys = {
+  integrationKey: string
+  passKey: string
+  vendorName: string
+}
+
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
@@ -9,12 +15,18 @@ export type Config = {
   graphqlUri: string
   marketplaceUrl: string
   paymentsApiUrl: string
+  opayo: { [key: string]: OpayoKeys }
 }
 
 declare global {
   interface Window {
     reapit: {
       config: Config
+    }
+    sagepayOwnForm: ({
+      merchantSessionKey: string,
+    }) => {
+      tokeniseCardDetails: (params: any) => void
     }
   }
 }

@@ -5,17 +5,12 @@ exports[`Payments should match a snapshot 1`] = `
   <Component
     isHeadingSection={true}
   >
-    Reapit Payments Portal
+    Reapit Payments
   </Component>
   <Component
     variant="info"
   >
-    Welome to Reapit Payments portal. It seems you dont currently have an account. To set up to receive payments first click the Register button below where you will be redirected to our payment provider Stripe. When you have set up an account, you will redirected to this page and will be able to make payments on a range of resources.
-  </Component>
-  <Component
-    isFlexColumn={true}
-  >
-    <Component />
+    Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please talk to your administrator to set this up for you.
   </Component>
 </Fragment>
 `;

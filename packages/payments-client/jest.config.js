@@ -4,7 +4,11 @@ const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
   ...baseConfig,
-  testPathIgnorePatterns: ['<rootDir>/src/tests/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/src/tests/',
+    '<rootDir>/src/stripe-components/',
+    '<rootDir>/src/stripe-payments-api/',
+  ],
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
