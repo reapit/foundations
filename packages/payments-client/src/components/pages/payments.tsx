@@ -4,22 +4,18 @@ import {
   Section,
   H3,
   LevelRight,
-  // H5,
   Helper,
-  // Alert,
   Loader,
-  // Grid,
-  // Content,
-  // SubTitleH6,
-  // GridItem,
   Formik,
   Form,
   FormSection,
-  FormHeading,
-  FormSubHeading,
   Input,
+  GridItem,
+  Grid,
+  H5,
 } from '@reapit/elements'
 import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-key'
+import { opayoCreateTransactionService } from '../../opayo-api/transactions'
 // import * as Yup from 'yup'
 
 export const Authenticated: React.FC = () => {
@@ -57,6 +53,12 @@ export const Authenticated: React.FC = () => {
         <Section isFlexColumn>
           <Formik
             initialValues={{
+              customerFirstName: '',
+              customerLastName: '',
+              address1: '',
+              city: '',
+              postalCode: '',
+              country: '',
               cardholderName: '',
               cardNumber: '',
               expiryDate: '',
@@ -64,25 +66,60 @@ export const Authenticated: React.FC = () => {
               cardIdentifier: '',
             }}
             onSubmit={cardDetails => {
-              console.log(window.sagepayOwnForm, cardDetails)
+              console.log(cardDetails)
+              const {
+                cardholderName,
+                cardNumber,
+                expiryDate,
+                securityCode,
+                customerFirstName,
+                customerLastName,
+                address1,
+                city,
+                postalCode,
+                country,
+              } = cardDetails
               window
                 .sagepayOwnForm({
                   merchantSessionKey: merchantKey.merchantSessionKey,
                 })
                 .tokeniseCardDetails({
                   cardDetails: {
-                    cardholderName: cardDetails.cardholderName,
-                    cardNumber: cardDetails.cardNumber,
-                    expiryDate: cardDetails.expiryDate,
-                    securityCode: cardDetails.securityCode,
+                    cardholderName,
+                    cardNumber,
+                    expiryDate,
+                    securityCode,
                   },
-                  onTokenised: function(result) {
+                  onTokenised: async result => {
                     if (result.success) {
-                      cardDetails.cardIdentifier = result.cardIdentifier
-                      const form = document.querySelector('form')
-                      if (form) {
-                        form.submit()
-                      }
+                      // cardDetails.cardIdentifier = result.cardIdentifier
+
+                      const payment = await opayoCreateTransactionService({
+                        transactionType: 'Payment',
+                        paymentMethod: {
+                          card: {
+                            merchantSessionKey: merchantKey.merchantSessionKey,
+                            cardIdentifier: result.cardIdentifier,
+                            save: false,
+                          },
+                        },
+                        vendorTxCode: `demotransaction-${Math.floor(Math.random() * 1000)}`,
+                        amount: 1000,
+                        currency: 'GBP',
+                        description: 'Rent payment',
+                        apply3DSecure: 'Disable',
+                        customerFirstName,
+                        customerLastName,
+                        billingAddress: {
+                          address1,
+                          city,
+                          postalCode,
+                          country,
+                        },
+                        entryMethod: 'Ecommerce',
+                      })
+
+                      console.log('payment result is', payment)
                     } else {
                       console.log(JSON.stringify(result))
                     }
@@ -97,36 +134,103 @@ export const Authenticated: React.FC = () => {
             {() => (
               <Form className="form">
                 <FormSection>
-                  <FormHeading>Account details</FormHeading>
-                  <FormSubHeading>Card payment form here</FormSubHeading>
-                  <Input
-                    id="cardholderName"
-                    type="text"
-                    placeholder="Your name here"
-                    name="cardholderName"
-                    labelText="Cardholder Name"
-                  />
-                  <Input
-                    id="cardNumber"
-                    type="text"
-                    placeholder="Your Card Number here"
-                    name="cardNumber"
-                    labelText="Card Number"
-                  />
-                  <Input
-                    id="expiryDate"
-                    type="text"
-                    placeholder="Your Expiry Date here"
-                    name="expiryDate"
-                    labelText="Expires"
-                  />
-                  <Input
-                    id="securityCode"
-                    type="text"
-                    placeholder="Your securityCode here"
-                    name="securityCode"
-                    labelText="Security Code"
-                  />
+                  <H5>Payee Details</H5>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        id="customerFirstName"
+                        type="text"
+                        placeholder="Your first name here"
+                        name="customerFirstName"
+                        labelText="Billing First Name"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        id="customerLastName"
+                        type="text"
+                        placeholder="Your second name here"
+                        name="customerLastName"
+                        labelText="Billing Second Name"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        id="address1"
+                        type="text"
+                        placeholder="Your address first line"
+                        name="address1"
+                        labelText="Address First Line"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input id="city" type="text" placeholder="Your city here" name="city" labelText="Town / City" />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        id="postalCode"
+                        type="text"
+                        placeholder="Your postcode here"
+                        name="postalCode"
+                        labelText="Postcode"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        id="country"
+                        type="text"
+                        placeholder="Your country here"
+                        name="country"
+                        labelText="Country"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <H5>Card Details</H5>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        id="cardholderName"
+                        type="text"
+                        placeholder="Your name here"
+                        name="cardholderName"
+                        labelText="Cardholder Name"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        id="cardNumber"
+                        type="text"
+                        placeholder="Your Card Number here"
+                        name="cardNumber"
+                        labelText="Card Number"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        id="expiryDate"
+                        type="text"
+                        placeholder="Your Expiry Date here"
+                        name="expiryDate"
+                        labelText="Expires"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        id="securityCode"
+                        type="text"
+                        placeholder="Your securityCode here"
+                        name="securityCode"
+                        labelText="Security Code"
+                      />
+                    </GridItem>
+                  </Grid>
+
                   <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
                   <LevelRight>
                     <Button variant="primary" type="submit">
