@@ -7,7 +7,6 @@ const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const AutoDllPlugin = require('autodll-webpack-plugin')
 
 const ESLintPLugin = new ESLintWebpackPlugin({
@@ -82,10 +81,9 @@ const webpackConfig = {
     }),
     new FriendlyErrorsWebpackPlugin(),
     ESLintPLugin,
-    new HardSourceWebpackPlugin(),
     new AutoDllPlugin({
       inject: true,
-      filename: '[name].js',
+      filename: '[name].dll.js',
       context: process.cwd(),
       entry: {
         vendor: [

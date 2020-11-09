@@ -287,6 +287,13 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
     }
     if (!idCheck) {
       const session: ReapitConnectSession = yield call(reapitConnectBrowserSession.connectSession)
+      if (!session.loginIdentity.userCode) {
+        return yield call(notification.info, {
+          message:
+            'You are not currently logged in as negotiator. The Reapit Platform API only supports Identity Checks performed by negotiators. As such, you your data will not be saved and you will need to log in as another user to complete this action.',
+          placement: 'bottomRight',
+        })
+      }
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
@@ -351,6 +358,13 @@ export const updateSecondaryId = function*({
       })
     } else {
       const session: ReapitConnectSession = yield call(reapitConnectBrowserSession.connectSession)
+      if (!session.loginIdentity.userCode) {
+        return yield call(notification.info, {
+          message:
+            'You are not currently logged in as negotiator. The Reapit Platform API only supports Identity Checks performed by negotiators. As such, you your data will not be saved and you will need to log in as another user to complete this action.',
+          placement: 'bottomRight',
+        })
+      }
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
