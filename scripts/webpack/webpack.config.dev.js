@@ -87,8 +87,6 @@ const webpackConfig = {
       context: process.cwd(),
       entry: {
         vendor: [
-          '@reapit/elements',
-          '@reapit/connect-session',
           'hardtack',
           'himalaya',
           'jsonwebtoken',
