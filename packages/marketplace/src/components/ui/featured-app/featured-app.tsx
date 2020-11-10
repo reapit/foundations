@@ -5,6 +5,7 @@ import * as styles from './__styles__'
 import { Link } from 'react-router-dom'
 import Routes from '@/constants/routes'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
+import FadeIn from '../../../core/__styles__/fade-in'
 
 export interface FeaturedAppProps {
   app: AppSummaryModel
@@ -21,7 +22,9 @@ const FeaturedApp: React.FunctionComponent<FeaturedAppProps> = ({ app }: Feature
       <div className="card">
         <div className="card-image">
           <Link className="image" to={`${Routes.APPS}/${app.id}`}>
-            <img key={app.id} className="image" alt={app.name} src={featureImageSrc} onError={onImageError} />
+            <FadeIn>
+              <img key={app.id} className="image" alt={app.name} src={featureImageSrc} onError={onImageError} />
+            </FadeIn>
           </Link>
         </div>
       </div>

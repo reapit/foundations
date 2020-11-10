@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { TransitionGroup } from 'react-transition-group'
 import { Dispatch } from 'redux'
 import qs from 'query-string'
 import { History } from 'history'
 import { useSelector, useDispatch } from 'react-redux'
-import { Loader, Section, H3, Grid } from '@reapit/elements'
+import { Section, H3, Grid } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
@@ -108,21 +107,18 @@ export const Apps: React.FunctionComponent = () => {
           dataLength={apps.length}
           next={handleLoadMore({ dispatch, preview, loading, numOfItemsPerPage, pageNumber })}
           hasMore={hasMore}
-          loader={<Loader key="infiniteScrollLoader" />}
+          loader={null}
           scrollThreshold={scrollThreshold}
           // We disable the scrolling in the app list  container and allow the app root container to scroll
           // so the scrollableTarget must be set as app-root-container
           scrollableTarget="app-root-container"
         >
-          <TransitionGroup>
-            <AppList
-              list={apps}
-              loading={loading}
-              onCardClick={handleOnCardClick(history)}
-              infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-              animated
-            />
-          </TransitionGroup>
+          <AppList
+            list={apps}
+            loading={loading}
+            onCardClick={handleOnCardClick(history)}
+            infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+          />
         </InfiniteScroll>
         <div className="bb mb-4" />
         <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />

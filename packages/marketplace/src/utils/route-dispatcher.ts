@@ -15,7 +15,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
-  const preview = queryParams.get('preview')?.toLowerCase() === 'true'
 
   const connectSession = await reapitConnectBrowserSession.connectSession()
   if (!connectSession) return null
@@ -37,12 +36,11 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           }),
         )
       }
-      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS, preview }))
+      store.dispatch(fetchFeatureApps({ pageNumber: 1, pageSize: FEATURED_APPS }))
       store.dispatch(
         fetchApps({
           pageNumber: page,
           pageSize: numOfItemsPerPage,
-          preview,
           isInfinite: true,
         }),
       )

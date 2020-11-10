@@ -15,13 +15,15 @@ exports[`FeaturedApp should match a snapshot 1`] = `
         className="image"
         to="/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027"
       >
-        <img
-          alt="test"
-          className="image"
-          key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
-          onError={[Function]}
-          src=""
-        />
+        <mock-styled.div>
+          <img
+            alt="test"
+            className="image"
+            key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+            onError={[Function]}
+            src=""
+          />
+        </mock-styled.div>
       </Link>
     </div>
   </div>

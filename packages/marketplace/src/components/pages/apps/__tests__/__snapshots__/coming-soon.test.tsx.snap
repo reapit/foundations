@@ -10,13 +10,15 @@ exports[`ComingSoonAppComponent should match a snapshot 1`] = `
     <div
       className="card-image"
     >
-      <a
-        href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <ImageComponent />
-      </a>
+      <mock-styled.div>
+        <a
+          href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <ImageComponent />
+        </a>
+      </mock-styled.div>
     </div>
   </div>
 </Component>

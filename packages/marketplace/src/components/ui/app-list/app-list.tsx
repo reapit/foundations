@@ -4,6 +4,7 @@ import AppCard from '../app-card'
 import * as styles from './__styles__'
 import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
 import { cx } from 'linaria'
+import FadeIn from '../../../core/__styles__/fade-in'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -11,7 +12,6 @@ export type AppListProps = {
   onCardClick?: (app: AppSummaryModel) => void
   onSettingsClick?: (app: AppSummaryModel) => void
   infoType: InfoType
-  animated?: boolean
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -20,7 +20,6 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onCardClick,
   onSettingsClick,
   infoType,
-  animated = false,
 }) => {
   return (
     <div className="overflow-hidden mb-4">
@@ -34,26 +33,27 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
         <GridFourCol className={cx(loading && styles.contentIsLoading)} data-test="app-list-container">
           {list.map(app => (
             <GridThreeColItem key={app.id}>
-              <AppCard
-                app={app}
-                onClick={
-                  onCardClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onCardClick(app)
-                      }
-                    : undefined
-                }
-                onSettingsClick={
-                  onSettingsClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onSettingsClick(app)
-                      }
-                    : undefined
-                }
-                animated={animated}
-              />
+              <FadeIn>
+                <AppCard
+                  app={app}
+                  onClick={
+                    onCardClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onCardClick(app)
+                        }
+                      : undefined
+                  }
+                  onSettingsClick={
+                    onSettingsClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onSettingsClick(app)
+                        }
+                      : undefined
+                  }
+                />
+              </FadeIn>
             </GridThreeColItem>
           ))}
         </GridFourCol>

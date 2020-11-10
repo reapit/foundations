@@ -3,11 +3,11 @@ import { notification } from '@reapit/elements'
 import {
   fetchAppsSuccess,
   fetchAppsFailed,
-  fetchFeatureAppsSuccess,
-  fetchFeatureAppsFailed,
   fetchAppDetailSuccess,
   fetchAppDetailFailed,
   fetchAppsInfiniteSuccess,
+  fetchFeatureAppsSuccess,
+  fetchFeatureAppsFailed,
 } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -15,24 +15,19 @@ import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsParams } fr
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { fetchApiKeyInstallationById } from '@/services/installations'
-import { generateParamsForPreviewApps } from '@/utils/browse-app'
 import { fetchDeveloperAppsSuccess } from '../../actions/apps/apps'
 
 export const fetchApps = function*({ data }) {
   try {
-    const { isInfinite, preview, developerId } = data
+    const { isInfinite, developerId } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const clientId = yield call(selectClientId, connectSession)
 
-    const defaultParams = {
+    const response = yield call(fetchAppsApi, {
       clientId,
       developerId,
       ...data,
-    }
-
-    const { fetchAppsParams } = generateParamsForPreviewApps(defaultParams, preview)
-
-    const response = yield call(fetchAppsApi, fetchAppsParams)
+    })
 
     if (isInfinite) {
       yield put(fetchAppsInfiniteSuccess(response))
@@ -73,19 +68,14 @@ export const fetchDeveloperApps = function*({ data }) {
 
 export const fetchFeatureApps = function*({ data }) {
   try {
-    const { preview } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const clientId = yield call(selectClientId, connectSession)
 
-    const defaultParams = {
+    const response = yield call(fetchAppsApi, {
       clientId,
       isFeatured: true,
       ...data,
-    }
-
-    const { fetchFeatureAppsParams } = generateParamsForPreviewApps(defaultParams, preview)
-
-    const response = yield call(fetchAppsApi, fetchFeatureAppsParams)
+    })
 
     yield put(fetchFeatureAppsSuccess(response))
   } catch (err) {

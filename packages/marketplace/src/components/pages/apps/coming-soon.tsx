@@ -26,6 +26,7 @@ import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ComingSoonApp } from '@/types/global'
+import FadeIn from '../../../core/__styles__/fade-in'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
@@ -86,17 +87,19 @@ export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({ app: { em
     <GridThreeColItem key={email}>
       <div className="card border-0">
         <div className="card-image">
-          {isDesktop && emailLink ? (
-            <a href={emailLink}>
+          <FadeIn>
+            {isDesktop && emailLink ? (
+              <a href={emailLink}>
+                <ImageComponent />
+              </a>
+            ) : emailLink ? (
+              <a href={emailLink} target="_blank" rel="noopener noreferrer">
+                <ImageComponent />
+              </a>
+            ) : (
               <ImageComponent />
-            </a>
-          ) : emailLink ? (
-            <a href={emailLink} target="_blank" rel="noopener noreferrer">
-              <ImageComponent />
-            </a>
-          ) : (
-            <ImageComponent />
-          )}
+            )}
+          </FadeIn>
         </div>
       </div>
     </GridThreeColItem>

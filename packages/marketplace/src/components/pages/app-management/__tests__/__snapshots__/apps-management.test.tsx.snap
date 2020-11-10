@@ -56,22 +56,45 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
       }
     >
       <Component>
-        <Component
-          infoType="404"
-        >
+        <ErrorBoundary>
           <Component
-            message="Page not found"
-            type="danger"
+            isHeadingSection={true}
+          >
+            <h3
+              className=""
+              id=""
+            >
+              Manage Apps
+            </h3>
+          </Component>
+          <Component
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            onSettingsClick={[Function]}
           >
             <div
-              className="notification is-danger "
-              data-test=""
-              role="alert"
+              className="overflow-hidden mb-4"
             >
-              Page not found
+              <Component
+                variant="info"
+              >
+                <div
+                  className="notification helper-wrap helper-info"
+                >
+                  It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                </div>
+              </Component>
             </div>
           </Component>
-        </Component>
+          <Component
+            onChange={[Function]}
+            pageNumber={1}
+            pageSize={12}
+            totalCount={0}
+          />
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>
@@ -134,17 +157,29 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
       }
     >
       <Component>
-        <Component>
-          <div
-            className="loader-spinner body"
-            data-test=""
+        <ErrorBoundary>
+          <Component
+            isHeadingSection={true}
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <h3
+              className=""
+              id=""
+            >
+              Manage Apps
+            </h3>
+          </Component>
+          <Component>
+            <div
+              className="loader-spinner body"
+              data-test=""
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+          </Component>
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>
@@ -207,22 +242,45 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
       }
     >
       <Component>
-        <Component
-          infoType="404"
-        >
+        <ErrorBoundary>
           <Component
-            message="Page not found"
-            type="danger"
+            isHeadingSection={true}
+          >
+            <h3
+              className=""
+              id=""
+            >
+              Manage Apps
+            </h3>
+          </Component>
+          <Component
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            onSettingsClick={[Function]}
           >
             <div
-              className="notification is-danger "
-              data-test=""
-              role="alert"
+              className="overflow-hidden mb-4"
             >
-              Page not found
+              <Component
+                variant="info"
+              >
+                <div
+                  className="notification helper-wrap helper-info"
+                >
+                  It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                </div>
+              </Component>
             </div>
           </Component>
-        </Component>
+          <Component
+            onChange={[Function]}
+            pageNumber={1}
+            pageSize={12}
+            totalCount={0}
+          />
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>

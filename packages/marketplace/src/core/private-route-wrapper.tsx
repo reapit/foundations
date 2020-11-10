@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-// import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
+import { selectDeveloperId, selectIsAdmin } from '../selector/auth'
 
 const { Suspense } = React
 
@@ -23,12 +23,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
   const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
+  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
+  const isDesktopAdmin = selectIsAdmin(connectSession)
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   if (!connectSession) {
     return null
   }
 
-  if (isRoot) {
+  if (isRoot || (location.pathname.includes(Routes.MY_APPS) && !isAdmin)) {
     return <Redirect to={Routes.APPS} />
   }
 
@@ -39,17 +42,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       {showMenu && <Menu />}
-      {/* Temporary comment due to https://github.com/reapit/foundations/issues/1055 */}
-      {/*
-        {loginType === 'CLIENT' && (
-          <ClientWelcomeMessageModal
-            visible={!isTermAccepted}
-            onAccept={handleOnAcceptClientWelcome({ dispatch, setClientTermAcceptedCookieAndState })}
-            />
-      )}
-        */}
       <FlexContainerBasic id="app-root-container" flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn isPageContainer>
+        <FlexContainerResponsive hasPadding flexColumn>
           <Suspense
             fallback={
               <Section>
