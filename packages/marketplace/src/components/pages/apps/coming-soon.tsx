@@ -22,6 +22,7 @@ import comingSoonMovingHub from '@/assets/images/coming-soon/MovingHub.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
+import comingSoonHomeSearch from '@/assets/images/coming-soon/Homesearch.jpg'
 
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -57,6 +58,7 @@ const comingSoonImagesMap = {
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,
+  comingSoonHomeSearch,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
