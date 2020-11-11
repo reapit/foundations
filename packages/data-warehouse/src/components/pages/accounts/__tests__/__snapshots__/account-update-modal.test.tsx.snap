@@ -1,85 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountUpdateModal should match a snapshot 1`] = `
-<Component
-  afterClose={[MockFunction]}
-  title="Data Warehouse Password Update"
-  visible={true}
+<ContextProvider
+  value={
+    Object {
+      "messageState": Object {
+        "errorMessage": undefined,
+        "infoMessage": undefined,
+      },
+      "setMessageState": [Function],
+    }
+  }
 >
-  <Formik
-    initialValues={
-      Object {
-        "password": "",
-      }
-    }
-    onSubmit={[Function]}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_conditions": Array [],
-        "_defaultDefault": [Function],
-        "_deps": Array [],
-        "_excludedEdges": Array [],
-        "_exclusive": Object {},
-        "_mutate": undefined,
-        "_nodes": Array [
-          "password",
-        ],
-        "_options": Object {
-          "abortEarly": true,
-          "recursive": true,
-        },
-        "_type": "object",
-        "_typeError": [Function],
-        "_whitelist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "fields": Object {
-          "password": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "matches": false,
-              "required": true,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-        ],
-        "type": "object",
-      }
-    }
-  >
-    <Component />
-  </Formik>
-</Component>
+  <AccountUpdateModal
+    accountId="SOME_ID"
+    handleClose={[MockFunction]}
+    visible={true}
+  />
+</ContextProvider>
+`;
+
+exports[`AccountUpdateModalForm should match a snapshot 1`] = `
+<Form
+  className="form"
+>
+  <Component>
+    <Component>
+      Enter new password below
+    </Component>
+    <Component
+      id="password"
+      labelText="Password"
+      name="password"
+      placeholder="*********"
+      type="password"
+    />
+    <Component>
+      <Component
+        onClick={[MockFunction]}
+        type="button"
+        variant="secondary"
+      >
+        Cancel
+      </Component>
+      <Component
+        type="submit"
+        variant="primary"
+      >
+        Update
+      </Component>
+    </Component>
+  </Component>
+</Form>
 `;

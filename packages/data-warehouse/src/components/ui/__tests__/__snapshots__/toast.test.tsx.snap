@@ -1,18 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toast should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "messageState": Object {
-        "message": "",
-        "variant": "primary",
-        "visible": false,
-      },
-      "setMessageState": [Function],
-    }
-  }
->
-  <ToastError />
-</ContextProvider>
+<Component>
+  <ToastError>
+    <Component
+      hasNavBar={true}
+      message=""
+      onCloseToast={[Function]}
+      variant="info"
+      visible={false}
+    >
+      <div
+        className=""
+        data-test="toast-wrapper"
+        onClick={[Function]}
+      >
+        <Component
+          fullWidth={true}
+          type="reset"
+          variant="info"
+        >
+          <button
+            className="button  is-info is-fullwidth "
+            data-test=""
+            disabled={false}
+            type="reset"
+          />
+        </Component>
+      </div>
+    </Component>
+  </ToastError>
+</Component>
 `;

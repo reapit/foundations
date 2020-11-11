@@ -39,11 +39,7 @@ export const generateMenuConfig = (
   }
 }
 
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
-      : 'https://marketplace.reapit.cloud/installed')
+export const callbackAppClick = () => (window.location.href = 'https://marketplace.reapit.cloud/installed')
 
 export type MenuProps = RouteComponentProps
 

@@ -1,12 +1,11 @@
-import React, { SetStateAction, useContext } from 'react'
+import React, { SetStateAction, Dispatch, useContext, useState } from 'react'
 import { Button, Table } from '@reapit/elements'
-import { MessageContext, MessageState } from '../../../context/message-context'
-import { Dispatch } from 'react'
+import { MessageContext } from '../../../context/message-context'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'
-import { createRequestService } from '../../../services/requests'
-import { getSharesService } from '../../../services/shares'
+
 import { SharesModel } from '../../../types/shares'
+import { createRequest } from './data-handlers'
 
 export interface DataSetsTableProps {
   dataSets: DataSetModel[]
@@ -17,43 +16,21 @@ export interface TableCellProps<T> {
   cell: { value: T }
 }
 
-export const createRequest = (
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
-  value: string,
-) => async () => {
-  const createdShare = await createRequestService(value)
-
-  if (!createdShare) {
-    return setMessageState({
-      message: 'Something went wrong disabling account, please try again',
-      variant: 'danger',
-      visible: true,
-    })
-  }
-
-  setMessageState({
-    message: 'Successfully created a share',
-    variant: 'info',
-    visible: true,
-  })
-
-  const shares = await getSharesService()
-  if (shares) {
-    return setShares(shares)
-  }
-  return setMessageState({
-    message: 'Something went wrong fetching shares, please try refreshing',
-    variant: 'danger',
-    visible: true,
-  })
-}
-
 export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShares }) => {
+  const [creatingShare, setCreatingShare] = useState('')
   const RequestDataSetModel: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
+    const isLoading = Boolean(creatingShare && creatingShare === value)
 
-    return <Button onClick={createRequest(setMessageState, setShares, value)}>Create Share</Button>
+    return (
+      <Button
+        onClick={createRequest(setMessageState, setCreatingShare, setShares, value)}
+        disabled={isLoading}
+        loading={isLoading}
+      >
+        Create Share
+      </Button>
+    )
   }
 
   const columns = [

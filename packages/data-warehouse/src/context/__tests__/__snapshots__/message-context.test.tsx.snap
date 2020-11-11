@@ -5,9 +5,8 @@ exports[`Toast should match a snapshot 1`] = `
   value={
     Object {
       "messageState": Object {
-        "message": "",
-        "variant": "primary",
-        "visible": false,
+        "errorMessage": undefined,
+        "infoMessage": undefined,
       },
       "setMessageState": [Function],
     }

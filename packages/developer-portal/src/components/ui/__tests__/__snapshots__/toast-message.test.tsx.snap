@@ -21,7 +21,7 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
       visible={false}
     >
       <div
-        className="toast "
+        className=""
         data-test="toast-wrapper"
         onClick={[Function]}
       >

@@ -11,13 +11,13 @@ module.exports = {
       prefix: '<rootDir>/',
     }),
   },
-  coveragePathIgnorePatterns: ['<rootDir>/src/tests'],
+  coveragePathIgnorePatterns: ['<rootDir>/src/tests', '<rootDir>/src/types/', 'index.tsx', 'index.ts'],
   coverageThreshold: {
     global: {
-      branches: 0,
-      functions: 0,
-      lines: 0,
-      statements: 0,
+      branches: 67,
+      functions: 67,
+      lines: 93,
+      statements: 90,
     },
   },
 }

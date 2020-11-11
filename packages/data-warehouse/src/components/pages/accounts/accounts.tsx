@@ -27,11 +27,7 @@ export const Accounts: React.FC = () => {
       if (accounts) {
         return setAccounts(accounts)
       }
-      return setMessageState({
-        visible: true,
-        variant: 'danger',
-        message: 'Something went wrong fetching accounts, please try again',
-      })
+      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
     }
     getAccounts()
   }, [setAccounts, setAccountsLoading])
@@ -40,7 +36,13 @@ export const Accounts: React.FC = () => {
     <>
       <Section className="justify-between items-center" isFlex>
         <H3 className="mb-0">Accounts</H3>
-        <Button onClick={handleModalOpen}>Provision Account</Button>
+        <Button
+          onClick={handleModalOpen}
+          loading={provisionInProgress && percentageComplete < 100}
+          disabled={provisionInProgress && percentageComplete < 100}
+        >
+          Provision Account
+        </Button>
         <AccountProvisionModal
           visible={modalVisible}
           handleClose={handleModalClose}

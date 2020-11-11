@@ -1,9 +1,16 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import Accounts from '../accounts'
+import { MessageProvider } from '../../../../context/message-context'
 
 describe('Accounts', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Accounts />)).toMatchSnapshot()
+    expect(
+      mount(
+        <MessageProvider>
+          <Accounts />
+        </MessageProvider>,
+      ),
+    ).toMatchSnapshot()
   })
 })

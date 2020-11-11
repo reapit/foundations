@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { getSharesService } from '../shares'
+import { deleteSharesService, getSharesService } from '../shares'
 import { stubShares } from '../__stubs__/shares'
 
 jest.mock('@reapit/elements')
@@ -18,5 +18,19 @@ describe('getSharesService', () => {
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getSharesService()
     expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch shares')
+  })
+})
+
+describe('deleteSharesService', () => {
+  it('should return a response from the delete accounts service', async () => {
+    mockedFetch.mockReturnValueOnce(true)
+    expect(await deleteSharesService('SOME_ID')).toEqual(true)
+  })
+
+  it('should catch an error if no response from delete accounts service', async () => {
+    const errorSpy = jest.spyOn(console, 'error')
+    mockedFetch.mockReturnValueOnce(undefined as any)
+    await deleteSharesService('SOME_ID')
+    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to delete share')
   })
 })

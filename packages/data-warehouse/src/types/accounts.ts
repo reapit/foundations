@@ -10,6 +10,7 @@ export interface AccountModel {
   published?: string
   username: string
   isAdmin: boolean
+  status: string | null
 }
 
 export interface AccountCreateModel {

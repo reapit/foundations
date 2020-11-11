@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AccountProvisionForm should match a snapshot 1`] = `
+<Form
+  className="form"
+>
+  <Component>
+    <Component>
+      Account details
+    </Component>
+    <Component>
+      The information below will be used to access your data warehouse account
+    </Component>
+    <Component
+      id="username"
+      labelText="Username"
+      name="username"
+      placeholder="Your username here"
+      type="text"
+    />
+    <Component
+      id="password"
+      labelText="Password"
+      name="password"
+      placeholder="*********"
+      type="password"
+    />
+    <Component>
+      <Component
+        onClick={[MockFunction]}
+        type="button"
+        variant="secondary"
+      >
+        Cancel
+      </Component>
+      <Component
+        type="submit"
+        variant="primary"
+      >
+        Provision
+      </Component>
+    </Component>
+  </Component>
+</Form>
+`;
+
 exports[`AccountProvisionModal should match a snapshot 1`] = `
 <Component
   afterClose={[MockFunction]}
@@ -116,7 +160,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
       }
     }
   >
-    <Component />
+    <Component
+      handleClose={[MockFunction]}
+    />
   </Formik>
 </Component>
 `;
