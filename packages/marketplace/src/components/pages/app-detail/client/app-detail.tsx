@@ -64,7 +64,7 @@ export const handleUnInstallAppButtonClick = (
 
 export const onBackToAppsButtonClick = (history: History) => () => {
   if (canGoBack(history)) {
-    history.goBack()
+    return history.goBack()
   }
   history.push(Routes.APPS)
 }
@@ -114,8 +114,6 @@ const AppDetail: React.FC = () => {
   const { isMobile } = useReactResponsive()
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-
-  // selector selectAppDetailData return {} if not data
 
   const unfetched = Object.keys(appDetailData).length === 0
   const { name = '' } = appDetailData

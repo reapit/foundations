@@ -17,14 +17,14 @@ jest.mock('@/selector/categories', () => ({
 }))
 jest.mock('@/utils/client-url-params')
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useHistory: jest.fn(),
   useLocation: jest.fn(() => ({
     search: `?${search.name}=app1&${searchBy.name}=appName&page=1`,
   })),
 }))
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useSelector: jest.fn(),
 }))
 

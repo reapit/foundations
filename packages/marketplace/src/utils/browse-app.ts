@@ -1,5 +1,4 @@
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { FetchAppsParams } from '@/services/apps'
 
 export const HEADER_HEIGHT = 68
 export const FEATURED_APP_HEIGHT = 200
@@ -23,31 +22,4 @@ export const mergeAppsWithoutDuplicateId = (
   const filteredNewApps = newApps.filter(app => !developerAppIds.includes(app.id))
 
   return [...developerApps, ...filteredOldApps, ...filteredNewApps]
-}
-
-export const generateParamsForPreviewApps = (
-  defaultParams: FetchAppsParams,
-  preview?: boolean,
-): {
-  fetchAppsParams: FetchAppsParams
-  fetchFeatureAppsParams: FetchAppsParams
-} => {
-  if (!preview) {
-    return { fetchAppsParams: defaultParams, fetchFeatureAppsParams: defaultParams }
-  }
-
-  const featuredAppsExternalAppIds = preview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
-  const mainAppsExternalAppIds = preview ? window.reapit.config.previewExternalAppIds : undefined
-
-  const { pageNumber, pageSize } = defaultParams
-
-  const baseParams = { pageSize, pageNumber }
-
-  return {
-    fetchAppsParams: { ...baseParams, externalAppId: mainAppsExternalAppIds },
-    fetchFeatureAppsParams: {
-      ...baseParams,
-      externalAppId: featuredAppsExternalAppIds,
-    },
-  }
 }

@@ -2,14 +2,13 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useHistory } from 'react-router'
 import { History } from 'history'
-import { Loader, Info, Pagination, H3 } from '@reapit/elements'
+import { Loader, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
 import { selectAppsListState } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
-import { selectDeveloperId, selectIsAdmin } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -24,42 +23,38 @@ export const handleOnSettingClick = (history: History) => (app: AppSummaryModel)
 export const AppsManagement: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
-
   const installedApps = useSelector(selectAppsListState)
-  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
-  const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isAdmin = isDesktopAdmin || isDeveloperEdition
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
 
-  const unfetched = !installedApps.data
   const loading = installedApps.isLoading
   const list = installedApps?.data || []
   const { totalCount, pageSize } = installedApps || {}
 
-  if (unfetched || loading) {
-    return <Loader />
-  }
-  if (!isAdmin) return <Info infoType="404" />
-
   return (
     <ErrorBoundary>
       <H3 isHeadingSection>Manage Apps</H3>
-      <AppList
-        list={list}
-        loading={loading}
-        onCardClick={(app: AppSummaryModel) => handleLaunchApp(app, connectIsDesktop)}
-        onSettingsClick={handleOnSettingClick(history)}
-        infoType="INSTALLED_APPS_EMPTY"
-      />
-      <Pagination
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
-        onChange={handleOnChange(history)}
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <AppList
+            list={list}
+            loading={loading}
+            onCardClick={(app: AppSummaryModel) => handleLaunchApp(app, connectIsDesktop)}
+            onSettingsClick={handleOnSettingClick(history)}
+            infoType="INSTALLED_APPS_EMPTY"
+          />
+          <Pagination
+            totalCount={totalCount}
+            pageSize={pageSize}
+            pageNumber={pageNumber}
+            onChange={handleOnChange(history)}
+          />
+        </>
+      )}
     </ErrorBoundary>
   )
 }

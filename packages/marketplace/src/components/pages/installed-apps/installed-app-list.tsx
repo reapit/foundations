@@ -4,11 +4,9 @@ import InstalledAppCard from './installed-app-card'
 import * as installedAppListStyles from './__styles__/installed-app-list'
 import {
   Loader,
-  H3,
   InfoType,
   PaginationProps,
   Pagination,
-  FlexContainerBasic,
   isMobile,
   GridFourCol,
   GridFourColItem,
@@ -16,6 +14,7 @@ import {
   infoText,
 } from '@reapit/elements'
 import { cx } from 'linaria'
+import FadeIn from '../../../core/__styles__/fade-in'
 
 export type InstalledAppListProps = {
   list: AppSummaryModel[]
@@ -41,7 +40,9 @@ export const ListMobileScreen = ({
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.contentIsLoading)}>
     {list.map(app => (
-      <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
+      <FadeIn key={app.id}>
+        <InstalledAppCard app={app} onClick={onClickHandler(onCardClick, app)} />
+      </FadeIn>
     ))}
   </div>
 )
@@ -54,7 +55,9 @@ export const ListDesktopScreen = ({
   <GridFourCol className={cx(loading && installedAppListStyles.contentIsLoading)} data-test="app-list-container">
     {list.map(app => (
       <GridFourColItem key={app.id}>
-        <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
+        <FadeIn>
+          <InstalledAppCard app={app} onClick={onClickHandler(onCardClick, app)} />
+        </FadeIn>
       </GridFourColItem>
     ))}
   </GridFourCol>
@@ -68,10 +71,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   pagination,
 }) => {
   return (
-    <FlexContainerBasic flexColumn>
-      <H3 className={cx(isMobile() && 'text-center')} isHeadingSection>
-        Installed Apps
-      </H3>
+    <>
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}
@@ -83,7 +83,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
       )}
       {loading && <Loader body />}
       {pagination && <Pagination {...pagination} />}
-    </FlexContainerBasic>
+    </>
   )
 }
 

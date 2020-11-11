@@ -58,6 +58,17 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
       <Component>
         <ErrorBoundary>
           <Component
+            className=""
+            isHeadingSection={true}
+          >
+            <h3
+              className=""
+              id=""
+            >
+              Installed Apps
+            </h3>
+          </Component>
+          <Component
             infoType="INSTALLED_APPS_EMPTY"
             list={Array []}
             loading={false}
@@ -72,39 +83,20 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
             }
           >
             <Component
-              flexColumn={true}
+              variant="info"
             >
               <div
-                className=""
+                className="notification helper-wrap helper-info"
               >
-                <Component
-                  className=""
-                  isHeadingSection={true}
-                >
-                  <h3
-                    className=""
-                    id=""
-                  >
-                    Installed Apps
-                  </h3>
-                </Component>
-                <Component
-                  variant="info"
-                >
-                  <div
-                    className="notification helper-wrap helper-info"
-                  >
-                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                  </div>
-                </Component>
-                <Component
-                  onChange={[Function]}
-                  pageNumber={1}
-                  pageSize={12}
-                  totalCount={0}
-                />
+                It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
               </div>
             </Component>
+            <Component
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={12}
+              totalCount={0}
+            />
           </Component>
         </ErrorBoundary>
       </Component>
@@ -171,6 +163,17 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
       <Component>
         <ErrorBoundary>
           <Component
+            className=""
+            isHeadingSection={true}
+          >
+            <h3
+              className=""
+              id=""
+            >
+              Installed Apps
+            </h3>
+          </Component>
+          <Component
             infoType="INSTALLED_APPS_EMPTY"
             list={Array []}
             loading={false}
@@ -185,39 +188,20 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
             }
           >
             <Component
-              flexColumn={true}
+              variant="info"
             >
               <div
-                className=""
+                className="notification helper-wrap helper-info"
               >
-                <Component
-                  className=""
-                  isHeadingSection={true}
-                >
-                  <h3
-                    className=""
-                    id=""
-                  >
-                    Installed Apps
-                  </h3>
-                </Component>
-                <Component
-                  variant="info"
-                >
-                  <div
-                    className="notification helper-wrap helper-info"
-                  >
-                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                  </div>
-                </Component>
-                <Component
-                  onChange={[Function]}
-                  pageNumber={1}
-                  pageSize={12}
-                  totalCount={0}
-                />
+                It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
               </div>
             </Component>
+            <Component
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={12}
+              totalCount={0}
+            />
           </Component>
         </ErrorBoundary>
       </Component>

@@ -6,13 +6,13 @@ const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 const dispatch = jest.fn()
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...(jest.requireActual('react-redux') as Object),
   useDispatch: jest.fn(() => dispatch),
   useSelector: jest.fn(() => jest.fn()),
 }))
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => locationMock),
 }))
 
@@ -22,14 +22,18 @@ jest.mock('@/utils/auth-route', () => ({
 }))
 
 jest.mock('@/utils/cookie', () => ({
-  ...jest.requireActual('@/utils/cookie'),
+  ...(jest.requireActual('@/utils/cookie') as Object),
   getCookieString: jest.fn(() => 'cookie-string'),
 }))
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
-    connectSession: {},
+    connectSession: {
+      loginIdentity: {
+        developerId: 'SOME_ID',
+      },
+    },
     connectInternalRedirect: '',
   }),
 }))
