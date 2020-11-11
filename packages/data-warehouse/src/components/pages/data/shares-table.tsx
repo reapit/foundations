@@ -1,13 +1,13 @@
 import React, { SetStateAction, useContext, useState } from 'react'
 import { Button, Table } from '@reapit/elements'
-import { MessageContext, MessageState } from '../../../context/message-context'
+import { MessageContext } from '../../../context/message-context'
 import { Dispatch } from 'react'
 import { PagedApiResponse } from '../../../types/core'
-import { deleteSharesService, getSharesService } from '../../../services/shares'
 import { SharesModel } from '../../../types/shares'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { btnCopy, tooltiptext } from './__styles__/tooltip'
+import { deleteShare, handleCopyCode, handleMouseLeave } from './data-handlers'
 
 export interface SharesTableProps {
   shares: SharesModel[]
@@ -16,51 +16,6 @@ export interface SharesTableProps {
 
 export interface TableCellProps<T> {
   cell: { value: T }
-}
-
-export const deleteShare = (
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  setDeletingShare: Dispatch<React.SetStateAction<string>>,
-  setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
-  value: string,
-) => async () => {
-  setDeletingShare(value)
-
-  const disabled = await deleteSharesService(value)
-
-  setDeletingShare('')
-
-  if (!disabled) {
-    return setMessageState({
-      message: 'Something went wrong deleting this data share',
-      variant: 'danger',
-      visible: true,
-    })
-  }
-
-  setMessageState({
-    message: 'Successfully deleted share',
-    variant: 'info',
-    visible: true,
-  })
-
-  const shares = await getSharesService()
-  if (shares) {
-    return setShares(shares)
-  }
-  return setMessageState({ message: 'Something went wrong fetching shares', variant: 'danger', visible: true })
-}
-
-export const handleMouseLeave = (setTooltipMessage: React.Dispatch<React.SetStateAction<string>>, message: string) => {
-  return () => {
-    setTooltipMessage(message)
-  }
-}
-
-export const handleCopyCode = (setTooltipMessage: React.Dispatch<React.SetStateAction<string>>) => {
-  return () => {
-    setTooltipMessage('Copied')
-  }
 }
 
 export const DSNComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {

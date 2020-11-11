@@ -1,37 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Data should match a snapshot 1`] = `
-<Fragment>
+<Component>
   <Component>
-    <Component
-      isHeadingSection={true}
-    >
-      Data
-    </Component>
     <Component>
-      <Component>
-        Data Sets
-      </Component>
-      <mock-styled.div>
+      <div
+        className=""
+        data-test=""
+      >
         <Component
-          variant="info"
+          isHeadingSection={true}
         >
-          No datasets available for your organisation
+          <h3
+            className=""
+            id=""
+          >
+            Data
+          </h3>
         </Component>
-      </mock-styled.div>
-    </Component>
-    <Component>
-      <Component>
-        Data Shares
-      </Component>
-      <mock-styled.div>
-        <Component
-          variant="info"
-        >
-          No data shares available for your organisation
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h5
+                className=""
+                id=""
+              >
+                Data Sets
+              </h5>
+            </Component>
+            <Component>
+              <div
+                className="loader-spinner body"
+                data-test=""
+              >
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+            </Component>
+          </section>
         </Component>
-      </mock-styled.div>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h5
+                className=""
+                id=""
+              >
+                Data Shares
+              </h5>
+            </Component>
+            <Component>
+              <div
+                className="loader-spinner body"
+                data-test=""
+              >
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+            </Component>
+          </section>
+        </Component>
+      </div>
     </Component>
   </Component>
-</Fragment>
+</Component>
 `;

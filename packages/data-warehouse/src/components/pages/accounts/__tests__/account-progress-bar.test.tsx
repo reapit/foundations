@@ -1,9 +1,15 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import AccountProgressBar from '../account-progress-bar'
 
 describe('AccountProgressBar', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<AccountProgressBar percentageComplete={50} setPercentageComplete={jest.fn()} />)).toMatchSnapshot()
+  const percentages = [0, 19, 39, 59, 79, 94, 99, 100]
+
+  percentages.forEach(percent => {
+    it(`should match a snapshot for ${percent} complete`, () => {
+      expect(
+        mount(<AccountProgressBar percentageComplete={percent} setPercentageComplete={jest.fn()} />),
+      ).toMatchSnapshot()
+    })
   })
 })

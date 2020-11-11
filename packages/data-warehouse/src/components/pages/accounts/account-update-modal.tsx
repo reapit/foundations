@@ -1,10 +1,10 @@
-import React, { Dispatch, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements'
 import * as Yup from 'yup'
 import { passwordRegex } from '@reapit/utils'
 import { AccountCreateModel } from '../../../types/accounts'
-import { updateAccountService } from '../../../services/accounts'
-import { MessageContext, MessageState } from '../../../context/message-context'
+import { MessageContext } from '../../../context/message-context'
+import { updateAccount } from './account-handlers'
 
 export interface AccountUpdateModalProps {
   visible: boolean
@@ -12,27 +12,22 @@ export interface AccountUpdateModalProps {
   handleClose: () => void
 }
 
-export const updateAccount = async (
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  account: Partial<AccountCreateModel>,
-  accountId: string,
-) => {
-  const updatedAccount = await updateAccountService(account, accountId)
-
-  if (!updatedAccount) {
-    return setMessageState({
-      message: 'Something went wrong updating password, please try again',
-      variant: 'danger',
-      visible: true,
-    })
-  }
-
-  setMessageState({
-    message: 'Successfully updated password',
-    variant: 'info',
-    visible: true,
-  })
-}
+export const AccountUpdateModalForm: React.FC<Partial<AccountUpdateModalProps>> = ({ handleClose }) => (
+  <Form className="form">
+    <FormSection>
+      <FormSubHeading>Enter new password below</FormSubHeading>
+      <Input id="password" type="password" placeholder="*********" name="password" labelText="Password" />
+      <LevelRight>
+        <Button variant="secondary" type="button" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button variant="primary" type="submit">
+          Update
+        </Button>
+      </LevelRight>
+    </FormSection>
+  </Form>
+)
 
 const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accountId, handleClose }) => {
   const { setMessageState } = useContext(MessageContext)
@@ -57,22 +52,7 @@ const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accoun
             .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
         })}
       >
-        {() => (
-          <Form className="form">
-            <FormSection>
-              <FormSubHeading>Enter new password below</FormSubHeading>
-              <Input id="password" type="password" placeholder="*********" name="password" labelText="Password" />
-              <LevelRight>
-                <Button variant="secondary" type="button" onClick={handleClose}>
-                  Cancel
-                </Button>
-                <Button variant="primary" type="submit">
-                  Update
-                </Button>
-              </LevelRight>
-            </FormSection>
-          </Form>
-        )}
+        <AccountUpdateModalForm handleClose={handleClose} />
       </Formik>
     </Modal>
   )

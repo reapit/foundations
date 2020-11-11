@@ -27,11 +27,7 @@ export const Accounts: React.FC = () => {
       if (accounts) {
         return setAccounts(accounts)
       }
-      return setMessageState({
-        visible: true,
-        variant: 'danger',
-        message: 'Something went wrong fetching accounts, please try again',
-      })
+      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
     }
     getAccounts()
   }, [setAccounts, setAccountsLoading])

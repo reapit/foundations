@@ -1,6 +1,12 @@
 import { fetcher, fetcherWithReturnHeader } from '@reapit/elements'
 import { AccountCreateModel } from '../../types/accounts'
-import { createAccountsService, disableAccountsService, getAccountsService, updateAccountService } from '../accounts'
+import {
+  createAccountsService,
+  disableAccountsService,
+  getAccountService,
+  getAccountsService,
+  updateAccountService,
+} from '../accounts'
 import { stubAccounts } from '../__stubs__/accounts'
 
 jest.mock('@reapit/elements')
@@ -19,6 +25,20 @@ describe('getAccountsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getAccountsService()
+    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch account')
+  })
+})
+
+describe('getAccountService', () => {
+  it('should return a response from the accounts service', async () => {
+    mockedFetch.mockReturnValueOnce(stubAccounts._embedded[0])
+    expect(await getAccountService('SOME_ID')).toEqual(stubAccounts._embedded[0])
+  })
+
+  it('should catch an error if no response from accounts service', async () => {
+    const errorSpy = jest.spyOn(console, 'error')
+    mockedFetch.mockReturnValueOnce(undefined as any)
+    await getAccountService('SOME_ID')
     expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch account')
   })
 })

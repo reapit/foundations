@@ -1,11 +1,11 @@
 import React, { SetStateAction, useContext, useState } from 'react'
 import { Button, Table } from '@reapit/elements'
-import { disableAccountsService, getAccountsService } from '../../../services/accounts'
 import { AccountModel } from '../../../types/accounts'
-import { MessageContext, MessageState } from '../../../context/message-context'
+import { MessageContext } from '../../../context/message-context'
 import { Dispatch } from 'react'
 import { PagedApiResponse } from '../../../types/core'
 import AccountUpdateModal from './account-update-modal'
+import { disableAccount } from './account-handlers'
 
 export interface AccountsTableProps {
   accounts: AccountModel[]
@@ -14,45 +14,6 @@ export interface AccountsTableProps {
 
 export interface TableCellProps<T> {
   cell: { value: T }
-}
-
-export const disableAccount = (
-  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
-  setDisabling: Dispatch<React.SetStateAction<boolean>>,
-  value: string,
-) => async () => {
-  setDisabling(true)
-
-  const disabled = await disableAccountsService(value)
-
-  setDisabling(false)
-
-  if (!disabled) {
-    return setMessageState({
-      visible: true,
-      variant: 'danger',
-      message: 'Something went wrong disabling account, please try again',
-    })
-  }
-
-  setMessageState({
-    visible: true,
-    variant: 'info',
-    message: 'Account successfully disabled',
-  })
-
-  const accounts = await getAccountsService()
-
-  if (accounts) {
-    return setAccounts(accounts)
-  }
-
-  return setMessageState({
-    visible: true,
-    variant: 'danger',
-    message: 'Something went wrong fetching accounts, please try again',
-  })
 }
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {

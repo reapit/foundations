@@ -28,11 +28,7 @@ export const Data: React.FC<DataProps> = () => {
       if (dataSetsFetched) {
         return setDataSets(dataSetsFetched)
       }
-      return setMessageState({
-        message: 'Something went wrong fetching data sets, please try again',
-        variant: 'danger',
-        visible: true,
-      })
+      return setMessageState({ errorMessage: 'Something went wrong fetching data sets, please try again' })
     }
     getDataSets()
   }, [setDataSets, setDataSetsLoading])
@@ -45,11 +41,7 @@ export const Data: React.FC<DataProps> = () => {
       if (sharesFetched) {
         return setShares(sharesFetched)
       }
-      return setMessageState({
-        message: 'Something went wrong fetching data shares, please try again',
-        variant: 'danger',
-        visible: true,
-      })
+      return setMessageState({ errorMessage: 'Something went wrong fetching data shares, please try again' })
     }
     getShares()
   }, [setShares, setSharesLoading])

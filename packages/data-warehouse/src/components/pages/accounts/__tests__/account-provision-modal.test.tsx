@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AccountProvisionModal from '../account-provision-modal'
+import AccountProvisionModal, { AccountProvisionForm } from '../account-provision-modal'
 
 describe('AccountProvisionModal', () => {
   it('should match a snapshot', () => {
@@ -15,5 +15,11 @@ describe('AccountProvisionModal', () => {
         />,
       ),
     ).toMatchSnapshot()
+  })
+})
+
+describe('AccountProvisionForm', () => {
+  it('should match a snapshot', () => {
+    expect(shallow(<AccountProvisionForm handleClose={jest.fn()} />)).toMatchSnapshot()
   })
 })

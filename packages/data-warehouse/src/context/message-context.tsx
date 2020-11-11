@@ -1,15 +1,18 @@
 import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
-import { ToastVariant } from '@reapit/elements'
 
 export interface MessageState {
-  visible: boolean
-  message: string
-  variant: ToastVariant
+  errorMessage?: string
+  infoMessage?: string
 }
 
 export interface MessageContextProps {
-  messageState: MessageState
-  setMessageState: Dispatch<SetStateAction<MessageState>>
+  messageState: Partial<MessageState>
+  setMessageState: Dispatch<SetStateAction<Partial<MessageState>>>
+}
+
+export const defaultMessageState: MessageState = {
+  errorMessage: undefined,
+  infoMessage: undefined,
 }
 
 export const MessageContext = createContext<MessageContextProps>({} as MessageContextProps)
@@ -17,13 +20,18 @@ export const MessageContext = createContext<MessageContextProps>({} as MessageCo
 const { Consumer, Provider } = MessageContext
 
 export const MessageProvider: React.FC = ({ children }) => {
-  const [messageState, setMessageState] = useState<MessageState>({
-    variant: 'primary',
-    message: '',
-    visible: false,
-  })
+  const [messageState, setMessageState] = useState<Partial<MessageState>>(defaultMessageState)
 
-  return <Provider value={{ messageState, setMessageState }}>{children}</Provider>
+  return (
+    <Provider
+      value={{
+        messageState,
+        setMessageState,
+      }}
+    >
+      {children}
+    </Provider>
+  )
 }
 
 export const MessageConsumer = Consumer
