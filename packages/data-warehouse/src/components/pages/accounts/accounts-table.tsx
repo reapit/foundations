@@ -19,9 +19,14 @@ export interface TableCellProps<T> {
 export const disableAccount = (
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
+  setDisabling: Dispatch<React.SetStateAction<boolean>>,
   value: string,
 ) => async () => {
+  setDisabling(true)
+
   const disabled = await disableAccountsService(value)
+
+  setDisabling(false)
 
   if (!disabled) {
     return setMessageState({
@@ -52,6 +57,7 @@ export const disableAccount = (
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [disabling, setDisabling] = useState<boolean>(false)
   const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
   const handleModalClose = () => {
     setModalVisible(false)
@@ -66,7 +72,12 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
     const { setMessageState } = useContext(MessageContext)
 
     return (
-      <Button variant="danger" onClick={disableAccount(setMessageState, setAccounts, value)}>
+      <Button
+        variant="danger"
+        onClick={disableAccount(setMessageState, setAccounts, setDisabling, value)}
+        disabled={disabling}
+        loading={disabling}
+      >
         Delete
       </Button>
     )

@@ -20,10 +20,15 @@ export interface TableCellProps<T> {
 
 export const deleteShare = (
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  setDeletingShare: Dispatch<React.SetStateAction<string>>,
   setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
   value: string,
 ) => async () => {
+  setDeletingShare(value)
+
   const disabled = await deleteSharesService(value)
+
+  setDeletingShare('')
 
   if (!disabled) {
     return setMessageState({
@@ -85,11 +90,19 @@ export const URLComponent: React.FC<TableCellProps<string>> = ({ cell: { value }
 }
 
 export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) => {
+  const [deletingShare, setDeletingShare] = useState('')
+
   const DeleteShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
+    const isLoading = Boolean(deletingShare && deletingShare === value)
 
     return (
-      <Button variant="danger" onClick={deleteShare(setMessageState, setShares, value)}>
+      <Button
+        variant="danger"
+        onClick={deleteShare(setMessageState, setDeletingShare, setShares, value)}
+        disabled={isLoading}
+        loading={isLoading}
+      >
         Delete Share
       </Button>
     )

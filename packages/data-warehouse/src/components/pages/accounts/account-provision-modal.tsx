@@ -27,16 +27,22 @@ export interface AccountProvisionModalProps {
   handleClose: () => void
 }
 
-export const handlePolling = async (setPercentageComplete: Dispatch<SetStateAction<number>>, accountUri: string) => {
+export const handlePolling = (
+  setPercentageComplete: Dispatch<SetStateAction<number>>,
+  accountUri: string,
+): Promise<void | number> => {
   const accountId = accountUri.split('/').slice(-1)[0]
 
-  setInterval(async () => {
-    const account = await getAccountService(accountId)
-    if (account) {
-      console.log(account.status)
-      // Creating new warehouse organisation
-    }
-  }, 5000)
+  return new Promise(resolve => {
+    const interval = window.setInterval(async () => {
+      const account = await getAccountService(accountId)
+      if (account && account.status === 'User is active') {
+        console.log(account.status)
+        setPercentageComplete(100)
+        resolve(interval)
+      }
+    }, 3000)
+  })
 }
 
 export const createAccount = async (
@@ -57,7 +63,11 @@ export const createAccount = async (
     })
   }
 
-  await handlePolling(setPercentageComplete, accountUri)
+  const polling = await handlePolling(setPercentageComplete, accountUri)
+
+  if (polling) {
+    window.clearInterval(polling)
+  }
 
   setMessageState({
     message: 'Successfully provisioned account',
@@ -67,9 +77,8 @@ export const createAccount = async (
 
   const accounts = await getAccountsService()
 
-  setPercentageComplete(100)
-
   setTimeout(() => {
+    setPercentageComplete(0)
     setProvisionInProgress(false)
   }, 10000)
 

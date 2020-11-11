@@ -11,8 +11,7 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
 
     const { orgId, developerId, email, name, clientId } = session.loginIdentity
 
-    if (!orgId || !developerId || !clientId)
-      throw new Error('Organisation, developer and customerIds must be supplied to make a request')
+    if (!orgId || !developerId) throw new Error('Organisation and developer must be supplied to make a request')
 
     const request: CreateRequestModel = {
       organisationId: orgId,
@@ -21,7 +20,7 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
       requesterName: name,
       requestMessage: 'Please can I access this data',
       datasetId,
-      customerId: clientId,
+      customerId: clientId || 'SBOX',
       devMode: false,
     }
 

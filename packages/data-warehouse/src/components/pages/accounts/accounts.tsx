@@ -40,7 +40,13 @@ export const Accounts: React.FC = () => {
     <>
       <Section className="justify-between items-center" isFlex>
         <H3 className="mb-0">Accounts</H3>
-        <Button onClick={handleModalOpen}>Provision Account</Button>
+        <Button
+          onClick={handleModalOpen}
+          loading={provisionInProgress && percentageComplete < 100}
+          disabled={provisionInProgress && percentageComplete < 100}
+        >
+          Provision Account
+        </Button>
         <AccountProvisionModal
           visible={modalVisible}
           handleClose={handleModalClose}

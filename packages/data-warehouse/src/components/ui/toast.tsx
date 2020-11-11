@@ -7,7 +7,7 @@ const ToastError: React.FC = () => {
   const { visible, message, variant } = messageState
   const onCloseToast = () => setMessageState(prev => ({ ...prev, visible: false }))
 
-  return <ToastMessage visible={visible} message={message} variant={variant} onCloseToast={onCloseToast} />
+  return <ToastMessage visible={visible} message={message} variant={variant} onCloseToast={onCloseToast} hasNavBar />
 }
 
 export default ToastError

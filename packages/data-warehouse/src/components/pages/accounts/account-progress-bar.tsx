@@ -47,30 +47,29 @@ const ProgressMessage: React.FC<{ percentageComplete: number }> = ({ percentageC
   if (percentageComplete < 40) return <ProgressMessageText key={2}>Creating account...</ProgressMessageText>
   if (percentageComplete < 60) return <ProgressMessageText key={3}>Provisioning compute...</ProgressMessageText>
   if (percentageComplete < 80) return <ProgressMessageText key={4}>Preparing permissions...</ProgressMessageText>
-  if (percentageComplete < 100) return <ProgressMessageText key={5}>Setting up defaults...</ProgressMessageText>
+  if (percentageComplete < 95) return <ProgressMessageText key={5}>Setting up defaults...</ProgressMessageText>
+  if (percentageComplete < 100) return <ProgressMessageText key={6}>Nearly there, final checks...</ProgressMessageText>
   return (
-    <ProgressMessageText key={6}>
+    <ProgressMessageText key={7}>
       Your data is ready! <span role="img">🚀</span>
     </ProgressMessageText>
   )
 }
 
 const AccountProgressBar: React.FC<AccountProgressBarProps> = ({ percentageComplete, setPercentageComplete }) => {
-  const incrementPercent = () => {
-    setPercentageComplete(prev => {
-      if (prev < 100) {
-        return prev + 0.5
-      }
-
-      return prev
-    })
-  }
-
   useEffect(() => {
-    if (!percentageComplete) {
-      setInterval(incrementPercent, 167)
-    }
-  }, [percentageComplete, incrementPercent])
+    const interval = window.setInterval(() => {
+      setPercentageComplete(prev => {
+        if (prev < 95) {
+          return prev + 0.5
+        }
+
+        return prev
+      })
+    }, 300)
+
+    return () => window.clearInterval(interval)
+  }, [percentageComplete])
 
   return (
     <Section>

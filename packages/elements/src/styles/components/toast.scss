@@ -19,6 +19,11 @@
     -webkit-transform: translateY(-$layout-base);
   }
 
+  &.has-nav-bar {
+    left: $nav-bar-width;
+    width: calc(100% - #{$nav-bar-width});
+  }
+
   @include for-ie-only {
     width: inherit;
     left: $nav-bar-width;

@@ -1,4 +1,4 @@
-import React, { SetStateAction, useContext } from 'react'
+import React, { SetStateAction, useContext, useState } from 'react'
 import { Button, Table } from '@reapit/elements'
 import { MessageContext, MessageState } from '../../../context/message-context'
 import { Dispatch } from 'react'
@@ -19,14 +19,19 @@ export interface TableCellProps<T> {
 
 export const createRequest = (
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  setCreatingShare: Dispatch<React.SetStateAction<string>>,
   setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
   value: string,
 ) => async () => {
+  setCreatingShare(value)
+
   const createdShare = await createRequestService(value)
+
+  setCreatingShare('')
 
   if (!createdShare) {
     return setMessageState({
-      message: 'Something went wrong disabling account, please try again',
+      message: 'Something went wrong creating share, please try again',
       variant: 'danger',
       visible: true,
     })
@@ -50,10 +55,20 @@ export const createRequest = (
 }
 
 export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShares }) => {
+  const [creatingShare, setCreatingShare] = useState('')
   const RequestDataSetModel: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
+    const isLoading = Boolean(creatingShare && creatingShare === value)
 
-    return <Button onClick={createRequest(setMessageState, setShares, value)}>Create Share</Button>
+    return (
+      <Button
+        onClick={createRequest(setMessageState, setCreatingShare, setShares, value)}
+        disabled={isLoading}
+        loading={isLoading}
+      >
+        Create Share
+      </Button>
+    )
   }
 
   const columns = [
