@@ -17,6 +17,7 @@ import { formFieldsContactInfomation } from './form-schema/form-fields'
 import { updateCurrentMember } from '@/actions/current-member'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsUpdating } from '@/selector/current-member'
+import FadeIn from '../../../../styles/fade-in'
 
 const { nameField, jobTitleField } = formFieldsContactInfomation
 
@@ -69,41 +70,43 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
         return (
           <FormSection>
             <Form>
-              <FormHeading>Contact Information</FormHeading>
-              <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
-              <Grid>
-                <GridItem>
-                  <Input
-                    disabled={isUpdating}
-                    dataTest="name"
-                    type="text"
-                    labelText={nameField.label as string}
-                    id={nameField.name}
-                    name={nameField.name}
-                  />
-                </GridItem>
-                <GridItem>
-                  <Input
-                    disabled={isUpdating}
-                    dataTest="job-title"
-                    type="text"
-                    labelText={jobTitleField.label as string}
-                    id={jobTitleField.name}
-                    name={jobTitleField.name}
-                  />
-                </GridItem>
-              </Grid>
-              <LevelRight>
-                <Button
-                  dataTest="save-changes"
-                  disabled={!isValid}
-                  loading={isUpdating}
-                  variant="primary"
-                  type="submit"
-                >
-                  Save Changes
-                </Button>
-              </LevelRight>
+              <FadeIn>
+                <FormHeading>Contact Information</FormHeading>
+                <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
+                <Grid>
+                  <GridItem>
+                    <Input
+                      disabled={isUpdating}
+                      dataTest="name"
+                      type="text"
+                      labelText={nameField.label as string}
+                      id={nameField.name}
+                      name={nameField.name}
+                    />
+                  </GridItem>
+                  <GridItem>
+                    <Input
+                      disabled={isUpdating}
+                      dataTest="job-title"
+                      type="text"
+                      labelText={jobTitleField.label as string}
+                      id={jobTitleField.name}
+                      name={jobTitleField.name}
+                    />
+                  </GridItem>
+                </Grid>
+                <LevelRight>
+                  <Button
+                    dataTest="save-changes"
+                    disabled={!isValid}
+                    loading={isUpdating}
+                    variant="primary"
+                    type="submit"
+                  >
+                    Save Changes
+                  </Button>
+                </LevelRight>
+              </FadeIn>
             </Form>
           </FormSection>
         )

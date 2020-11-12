@@ -4,6 +4,7 @@ import { H5, Grid, GridItem, Content, Section, Button, H3 } from '@reapit/elemen
 import Routes from '@/constants/routes'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import { developerDesktopPricingTile } from './__styles__/pricing-tile'
+import FadeIn from '../../../styles/fade-in'
 
 export const handleToggleVisibleModal = (
   setIsDeveloperEditionModalOpen: React.Dispatch<boolean>,
@@ -101,12 +102,16 @@ export const DeveloperDesktopContentPartTwo: React.FC = () => {
 export const DeveloperDesktopPage: React.FC = () => (
   <ErrorBoundary>
     <H3 isHeadingSection>Desktop</H3>
-    <Section>
-      <DeveloperDesktopContentPartOne />
-    </Section>
-    <Section>
-      <DeveloperDesktopContentPartTwo />
-    </Section>
+    <FadeIn>
+      <Section>
+        <DeveloperDesktopContentPartOne />
+      </Section>
+    </FadeIn>
+    <FadeIn>
+      <Section>
+        <DeveloperDesktopContentPartTwo />
+      </Section>
+    </FadeIn>
   </ErrorBoundary>
 )
 

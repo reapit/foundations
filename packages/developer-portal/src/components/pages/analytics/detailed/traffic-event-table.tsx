@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Table, H5, Section, Loader } from '@reapit/elements'
 import { TrafficEventsModel } from '@/reducers/traffic-statistics/list'
+import FadeIn from '../../../../styles/fade-in'
 
 export type TrafficEventTableProps = {
   trafficEvents: TrafficEventsModel | null
@@ -43,14 +44,16 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
       <p className="is-italic mb-4">
         A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
       </p>
-      <Table
-        bordered
-        scrollable
-        columns={trafficEventTableColumn}
-        data={requestsByEndpoint}
-        loading={loading}
-        maxHeight={450}
-      />
+      <FadeIn>
+        <Table
+          bordered
+          scrollable
+          columns={trafficEventTableColumn}
+          data={requestsByEndpoint}
+          loading={loading}
+          maxHeight={450}
+        />
+      </FadeIn>
     </Section>
   )
 }

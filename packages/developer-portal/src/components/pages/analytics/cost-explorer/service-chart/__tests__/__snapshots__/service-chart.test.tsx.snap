@@ -126,7 +126,9 @@ exports[`ServiceChart should match a snapshot 1`] = `
                   <div
                     className=""
                     data-test=""
-                  />
+                  >
+                    <mock-styled.div />
+                  </div>
                 </Component>
               </div>
             </Component>

@@ -28,7 +28,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerResponsive hasBackground>
+          <Loader />
+        </FlexContainerResponsive>
+      </AppNavContainer>
+    )
   }
 
   if (isRoot || (location.pathname.includes(Routes.MY_APPS) && !isAdmin)) {

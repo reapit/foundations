@@ -12,6 +12,7 @@ import AccountStatusSection from './account-status-section'
 import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validationSchema } from './form-schema/validation-schema'
 import { selectIsRequiredDataOfBillingPageFilled } from '@/selector/billing'
+import FadeIn from '../../../../../styles/fade-in'
 
 export type AccountsInformationFormProps = {}
 
@@ -119,47 +120,49 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
         return (
           <Form>
             <H3 isHeadingSection>Billing</H3>
-            <FormSection>
-              {!isRequiredDataOfBillingPageFilled && (
-                <Helper variant="info">
-                  You will need to first complete your Organisation information before submitting your Account details
-                </Helper>
-              )}
-              <H5>Accounts Information</H5>
+            <FadeIn>
+              <FormSection>
+                {!isRequiredDataOfBillingPageFilled && (
+                  <Helper variant="info">
+                    You will need to first complete your Organisation information before submitting your Account details
+                  </Helper>
+                )}
+                <H5>Accounts Information</H5>
 
-              <p className="is-italic mb-4">
-                The following account information is required for your organisation. Your details will be sent to our
-                Accounts Department to be verified. You can start subscriptions to services within the Developers Portal
-                when your account status has been set to &apos;Confirmed&apos;.
-              </p>
+                <p className="is-italic mb-4">
+                  The following account information is required for your organisation. Your details will be sent to our
+                  Accounts Department to be verified. You can start subscriptions to services within the Developers
+                  Portal when your account status has been set to &apos;Confirmed&apos;.
+                </p>
 
-              <Grid>
-                <GridItem>
-                  <ContactInformationSection disabled={!isRequiredDataOfBillingPageFilled} />
-                </GridItem>
-                <GridItem>
-                  <ReapitReferenceSection
-                    disabled={!isRequiredDataOfBillingPageFilled}
-                    setFieldValue={setFieldValue}
-                    values={values}
-                  />
-                  <DirectDebitSection initialStatus={initialValues.status} values={values} />
-                  <AccountStatusSection
-                    hasReapitAccountsRef={values.hasReapitAccountsRef}
-                    initialStatus={initialValues.status}
-                  />
-                </GridItem>
-              </Grid>
-              <LevelRight>
-                <div>
-                  <LevelRight>
-                    <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
-                      {isSubmitDebitButton ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
-                    </Button>
-                  </LevelRight>
-                </div>
-              </LevelRight>
-            </FormSection>
+                <Grid>
+                  <GridItem>
+                    <ContactInformationSection disabled={!isRequiredDataOfBillingPageFilled} />
+                  </GridItem>
+                  <GridItem>
+                    <ReapitReferenceSection
+                      disabled={!isRequiredDataOfBillingPageFilled}
+                      setFieldValue={setFieldValue}
+                      values={values}
+                    />
+                    <DirectDebitSection initialStatus={initialValues.status} values={values} />
+                    <AccountStatusSection
+                      hasReapitAccountsRef={values.hasReapitAccountsRef}
+                      initialStatus={initialValues.status}
+                    />
+                  </GridItem>
+                </Grid>
+                <LevelRight>
+                  <div>
+                    <LevelRight>
+                      <Button className="mb-3" loading={isLoading} dataTest="save-btn" type="submit">
+                        {isSubmitDebitButton ? 'SUBMIT TO ACCOUNTS & SETUP DIRECT DEBIT' : 'SUBMIT TO ACCOUNTS'}
+                      </Button>
+                    </LevelRight>
+                  </div>
+                </LevelRight>
+              </FormSection>
+            </FadeIn>
           </Form>
         )
       }}

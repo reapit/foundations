@@ -14,6 +14,7 @@ import { formatNumber, formatCurrency } from '@/utils/number-formatter'
 import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 import { unparse } from 'papaparse'
 import { saveAs } from 'file-saver'
+import FadeIn from '../../../../../styles/fade-in'
 
 export type CostExplorerProps = {}
 
@@ -163,41 +164,43 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
   return (
     <Section hasMargin={false}>
       <H5>Cost Explorer: Cost & Usage</H5>
-      <Helper variant="info">
-        We have suspended fees for the following services until March 2021: Annual Developer Registration, App Listing
-        (publishing an app in the marketplace), Developer Edition of Agency Cloud and Reapit Connect. Only API
-        consumption charges will apply.
-      </Helper>
-      <Grid>
-        <GridItem>
-          <p className="is-italic">
-            The table below does not include Sandbox Services, as the testing environment is free of charge
-          </p>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem className="is-half-desktop">
-          <Grid>
-            <GridItem className="is-one-quarter">
-              <H6>Month</H6>
-            </GridItem>
-            <GridItem>
-              <CostFilterForm initialValues={initialValues} onSave={onSave} />
-            </GridItem>
-          </Grid>
-        </GridItem>
+      <FadeIn>
+        <Helper variant="info">
+          We have suspended fees for the following services until March 2021: Annual Developer Registration, App Listing
+          (publishing an app in the marketplace), Developer Edition of Agency Cloud and Reapit Connect. Only API
+          consumption charges will apply.
+        </Helper>
+        <Grid>
+          <GridItem>
+            <p className="is-italic">
+              The table below does not include Sandbox Services, as the testing environment is free of charge
+            </p>
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem className="is-half-desktop">
+            <Grid>
+              <GridItem className="is-one-quarter">
+                <H6>Month</H6>
+              </GridItem>
+              <GridItem>
+                <CostFilterForm initialValues={initialValues} onSave={onSave} />
+              </GridItem>
+            </Grid>
+          </GridItem>
 
-        <GridItem className="is-half-desktop">
-          <LevelRight className="has-text-right">
-            <Button onClick={handleDownloadCSV(csvData)}>Download</Button>
-          </LevelRight>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem>
-          <CostExplorerTable columns={columns} tableData={tableData} />
-        </GridItem>
-      </Grid>
+          <GridItem className="is-half-desktop">
+            <LevelRight className="has-text-right">
+              <Button onClick={handleDownloadCSV(csvData)}>Download</Button>
+            </LevelRight>
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem>
+            <CostExplorerTable columns={columns} tableData={tableData} />
+          </GridItem>
+        </Grid>
+      </FadeIn>
     </Section>
   )
 }

@@ -8,6 +8,7 @@ import CompanyAddressSection from './company-address-section'
 import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
 import { updateDeveloperData } from '@/actions/settings'
+import FadeIn from '../../../../../styles/fade-in'
 
 export const defaultInitialValues: OrganisationFormValues = {
   about: '',
@@ -167,11 +168,17 @@ const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberCl
               </span>
             </H3>
             <FormSection>
-              <CompanyInformationSection formValues={values} />
-              <CompanyAddressSection />
-              <LevelRight>
-                <Button type="submit">Save</Button>
-              </LevelRight>
+              <FadeIn>
+                <CompanyInformationSection formValues={values} />
+              </FadeIn>
+              <FadeIn>
+                <CompanyAddressSection />
+              </FadeIn>
+              <FadeIn>
+                <LevelRight>
+                  <Button type="submit">Save</Button>
+                </LevelRight>
+              </FadeIn>
             </FormSection>
           </Form>
         )
