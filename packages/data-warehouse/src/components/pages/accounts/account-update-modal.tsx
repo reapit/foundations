@@ -17,6 +17,13 @@ export const AccountUpdateModalForm: React.FC<Partial<AccountUpdateModalProps>> 
     <FormSection>
       <FormSubHeading>Enter new password below</FormSubHeading>
       <Input id="password" type="password" placeholder="*********" name="password" labelText="Password" />
+      <Input
+        id="passwordConfirm"
+        type="password"
+        placeholder="*********"
+        name="passwordConfirm"
+        labelText="Confirm Password"
+      />
       <LevelRight>
         <Button variant="secondary" type="button" onClick={handleClose}>
           Cancel
@@ -38,6 +45,7 @@ const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accoun
         initialValues={
           {
             password: '',
+            passwordConfirm: '',
           } as Partial<AccountCreateModel>
         }
         onSubmit={(account: Partial<AccountCreateModel>) => {
@@ -50,6 +58,9 @@ const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accoun
           password: Yup.string()
             .required('Required')
             .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
+          passwordConfirm: Yup.string()
+            .oneOf([Yup.ref('password')], 'Passwords must match')
+            .required('Required'),
         })}
       >
         <AccountUpdateModalForm handleClose={handleClose} />

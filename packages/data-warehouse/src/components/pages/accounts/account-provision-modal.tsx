@@ -34,6 +34,13 @@ export const AccountProvisionForm: React.FC<Partial<AccountProvisionModalProps>>
       <FormSubHeading>The information below will be used to access your data warehouse account</FormSubHeading>
       <Input id="username" type="text" placeholder="Your username here" name="username" labelText="Username" />
       <Input id="password" type="password" placeholder="*********" name="password" labelText="Password" />
+      <Input
+        id="passwordConfirm"
+        type="password"
+        placeholder="*********"
+        name="passwordConfirm"
+        labelText="Confirm Password"
+      />
       <LevelRight>
         <Button variant="secondary" type="button" onClick={handleClose}>
           Cancel
@@ -63,6 +70,7 @@ const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
           {
             username: '',
             password: '',
+            passwordConfirm: '',
             isAdmin: false,
             devMode: false,
             organisationId: connectSession?.loginIdentity.orgId,
@@ -81,6 +89,9 @@ const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
           password: Yup.string()
             .required('Required')
             .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
+          passwordConfirm: Yup.string()
+            .oneOf([Yup.ref('password')], 'Passwords must match')
+            .required('Required'),
         })}
       >
         <AccountProvisionForm handleClose={handleClose} />

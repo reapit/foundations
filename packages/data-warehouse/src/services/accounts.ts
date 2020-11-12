@@ -122,7 +122,9 @@ export const updateAccountService = async (
         ...BASE_HEADERS,
         Authorization: `Bearer ${session.accessToken}`,
       },
-      body: account,
+      body: {
+        password: account.password,
+      },
     })
 
     if (response) {

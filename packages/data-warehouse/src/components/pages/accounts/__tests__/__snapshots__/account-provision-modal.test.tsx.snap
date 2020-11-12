@@ -25,6 +25,13 @@ exports[`AccountProvisionForm should match a snapshot 1`] = `
       placeholder="*********"
       type="password"
     />
+    <Component
+      id="passwordConfirm"
+      labelText="Confirm Password"
+      name="passwordConfirm"
+      placeholder="*********"
+      type="password"
+    />
     <Component>
       <Component
         onClick={[MockFunction]}
@@ -58,6 +65,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         "organisationId": undefined,
         "organisationName": undefined,
         "password": "",
+        "passwordConfirm": "",
         "username": "",
       }
     }
@@ -75,6 +83,7 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         "_exclusive": Object {},
         "_mutate": undefined,
         "_nodes": Array [
+          "passwordConfirm",
           "password",
           "username",
         ],
@@ -113,6 +122,46 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
             },
             "tests": Array [
               [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+          "passwordConfirm": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {
+                "password" => Reference {
+                  "getter": [Function],
+                  "isContext": false,
+                  "isSibling": true,
+                  "isValue": false,
+                  "key": "password",
+                  "map": undefined,
+                  "path": "password",
+                },
+              },
+            },
+            "_whitelistError": [Function],
+            "tests": Array [
               [Function],
             ],
             "transforms": Array [

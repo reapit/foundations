@@ -1,11 +1,18 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { Menu, generateMenuConfig, MenuProps } from '../menu'
+import { Router } from 'react-router'
+import { createBrowserHistory } from 'history'
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
+    const history = createBrowserHistory()
     const props = {} as MenuProps
-    const wrapper = shallow(<Menu {...props} />)
+    const wrapper = mount(
+      <Router history={history}>
+        <Menu {...props} />
+      </Router>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 

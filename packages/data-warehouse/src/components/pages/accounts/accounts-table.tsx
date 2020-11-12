@@ -18,7 +18,7 @@ export interface TableCellProps<T> {
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
-  const [disabling, setDisabling] = useState<boolean>(false)
+  const [disabling, setDisabling] = useState<string>('')
   const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
   const handleModalClose = () => {
     setModalVisible(false)
@@ -31,13 +31,14 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
 
   const DeleteButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
+    const isDisabled = Boolean(disabling && disabling === value)
 
     return (
       <Button
         variant="danger"
         onClick={disableAccount(setMessageState, setAccounts, setDisabling, value)}
-        disabled={disabling}
-        loading={disabling}
+        disabled={isDisabled}
+        loading={isDisabled}
       >
         Delete
       </Button>
