@@ -1,55 +1,450 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Memo(MenuComponent)
-  defaultActiveKey="LOGO"
-  menu={
-    Array [
-      Object {
-        "icon": <Unknown
-          className="nav-item-icon"
-        />,
-        "key": "LOGO",
-        "type": "LOGO",
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
       },
-      Object {
-        "icon": <MdAccountBalance
-          className="nav-item-icon"
-        />,
-        "key": "ACCOUNTS",
-        "title": "Accounts",
-        "type": "PRIMARY",
-        "url": "/accounts",
-      },
-      Object {
-        "icon": <FaDatabase
-          className="nav-item-icon"
-        />,
-        "key": "DATA",
-        "title": "Data",
-        "type": "PRIMARY",
-        "url": "/data",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <FaCloud
-          className="nav-item-icon"
-        />,
-        "key": "APPS",
-        "title": "Apps",
-        "type": "PRIMARY",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <FaSignOutAlt
-          className="nav-item-icon"
-        />,
-        "key": "LOGOUT",
-        "title": "Logout",
-        "type": "SECONDARY",
-      },
-    ]
+      "push": [Function],
+      "replace": [Function],
+    }
   }
-  mode="WEB"
-/>
+>
+  <Component>
+    <Memo(MenuComponent)
+      defaultActiveKey="LOGO"
+      menu={
+        Array [
+          Object {
+            "icon": <Unknown
+              className="nav-item-icon"
+            />,
+            "key": "LOGO",
+            "type": "LOGO",
+          },
+          Object {
+            "icon": <MdAccountBalance
+              className="nav-item-icon"
+            />,
+            "key": "ACCOUNTS",
+            "title": "Accounts",
+            "type": "PRIMARY",
+            "url": "/accounts",
+          },
+          Object {
+            "icon": <FaDatabase
+              className="nav-item-icon"
+            />,
+            "key": "DATA",
+            "title": "Data",
+            "type": "PRIMARY",
+            "url": "/data",
+          },
+          Object {
+            "callback": [Function],
+            "icon": <FaCloud
+              className="nav-item-icon"
+            />,
+            "key": "APPS",
+            "title": "Apps",
+            "type": "PRIMARY",
+          },
+          Object {
+            "callback": [Function],
+            "icon": <FaSignOutAlt
+              className="nav-item-icon"
+            />,
+            "key": "LOGOUT",
+            "title": "Logout",
+            "type": "SECONDARY",
+          },
+        ]
+      }
+      mode="WEB"
+    >
+      <nav
+        className="nav-bar "
+      >
+        <ul>
+          <Component
+            activeItemRef={
+              Object {
+                "current": null,
+              }
+            }
+            item={
+              Object {
+                "icon": <Unknown
+                  className="nav-item-icon"
+                />,
+                "key": "LOGO",
+                "type": "LOGO",
+              }
+            }
+            key="LOGO"
+          >
+            <span
+              className="nav-item-link is-logo"
+            >
+              <li
+                className="nav-item is-active"
+                onClick={[Function]}
+              >
+                <div>
+                  <Component
+                    className="nav-item-icon"
+                  >
+                    <svg
+                      className="nav-item-icon"
+                      height="49px"
+                      viewBox="28.5 30 40 49"
+                      width="40px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>
+                        Reapit_House_RGB
+                      </title>
+                      <g
+                        id="House"
+                      >
+                        <polygon
+                          points="57.03 78.42 48.72 58.21 28.54 49.81 28.54 78.42 57.03 78.42"
+                          style={
+                            Object {
+                              "fill": "#262f69",
+                            }
+                          }
+                        />
+                        <polygon
+                          points="68.93 78.42 68.93 67.29 68.93 66.57 48.7 58.22 57.03 78.42 68.93 78.42"
+                          style={
+                            Object {
+                              "fill": "#0061a8",
+                            }
+                          }
+                        />
+                        <polygon
+                          points="28.54 49.81 48.7 58.22 40.38 38.05 28.54 49.81"
+                          style={
+                            Object {
+                              "fill": "#7bc9eb",
+                            }
+                          }
+                        />
+                        <polygon
+                          points="68.93 49.81 48.76 29.66 45.63 32.78 40.37 38.06 48.7 58.22 68.93 66.57 68.93 49.81"
+                          style={
+                            Object {
+                              "fill": "#23a4de",
+                            }
+                          }
+                        />
+                      </g>
+                    </svg>
+                  </Component>
+                </div>
+              </li>
+            </span>
+          </Component>
+          <Component
+            item={
+              Object {
+                "icon": <MdAccountBalance
+                  className="nav-item-icon"
+                />,
+                "key": "ACCOUNTS",
+                "title": "Accounts",
+                "type": "PRIMARY",
+                "url": "/accounts",
+              }
+            }
+            key="ACCOUNTS"
+          >
+            <Link
+              className="nav-item-link is-primary"
+              to="/accounts"
+            >
+              <LinkAnchor
+                className="nav-item-link is-primary"
+                href="/accounts"
+                navigate={[Function]}
+              >
+                <a
+                  className="nav-item-link is-primary"
+                  href="/accounts"
+                  onClick={[Function]}
+                >
+                  <li
+                    className="nav-item "
+                    onClick={[Function]}
+                  >
+                    <div>
+                      <MdAccountBalance
+                        className="nav-item-icon"
+                      >
+                        <IconBase
+                          attr={
+                            Object {
+                              "viewBox": "0 0 24 24",
+                            }
+                          }
+                          className="nav-item-icon"
+                        >
+                          <svg
+                            className="nav-item-icon"
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"
+                              key="0"
+                            />
+                          </svg>
+                        </IconBase>
+                      </MdAccountBalance>
+                    </div>
+                    <div
+                      className="nav-item-title"
+                    >
+                      Accounts
+                    </div>
+                  </li>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </Component>
+          <Component
+            item={
+              Object {
+                "icon": <FaDatabase
+                  className="nav-item-icon"
+                />,
+                "key": "DATA",
+                "title": "Data",
+                "type": "PRIMARY",
+                "url": "/data",
+              }
+            }
+            key="DATA"
+          >
+            <Link
+              className="nav-item-link is-primary"
+              to="/data"
+            >
+              <LinkAnchor
+                className="nav-item-link is-primary"
+                href="/data"
+                navigate={[Function]}
+              >
+                <a
+                  className="nav-item-link is-primary"
+                  href="/data"
+                  onClick={[Function]}
+                >
+                  <li
+                    className="nav-item "
+                    onClick={[Function]}
+                  >
+                    <div>
+                      <FaDatabase
+                        className="nav-item-icon"
+                      >
+                        <IconBase
+                          attr={
+                            Object {
+                              "viewBox": "0 0 448 512",
+                            }
+                          }
+                          className="nav-item-icon"
+                        >
+                          <svg
+                            className="nav-item-icon"
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 448 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"
+                              key="0"
+                            />
+                          </svg>
+                        </IconBase>
+                      </FaDatabase>
+                    </div>
+                    <div
+                      className="nav-item-title"
+                    >
+                      Data
+                    </div>
+                  </li>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </Component>
+          <Component
+            item={
+              Object {
+                "callback": [Function],
+                "icon": <FaCloud
+                  className="nav-item-icon"
+                />,
+                "key": "APPS",
+                "title": "Apps",
+                "type": "PRIMARY",
+              }
+            }
+            key="APPS"
+          >
+            <a
+              className="nav-item-link is-primary"
+              onClick={[Function]}
+            >
+              <li
+                className="nav-item "
+                onClick={[Function]}
+              >
+                <div>
+                  <FaCloud
+                    className="nav-item-icon"
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 640 512",
+                        }
+                      }
+                      className="nav-item-icon"
+                    >
+                      <svg
+                        className="nav-item-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 640 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaCloud>
+                </div>
+                <div
+                  className="nav-item-title"
+                >
+                  Apps
+                </div>
+              </li>
+            </a>
+          </Component>
+          <Component
+            item={
+              Object {
+                "callback": [Function],
+                "icon": <FaSignOutAlt
+                  className="nav-item-icon"
+                />,
+                "key": "LOGOUT",
+                "title": "Logout",
+                "type": "SECONDARY",
+              }
+            }
+            key="LOGOUT"
+          >
+            <a
+              className="nav-item-link is-secondary"
+              onClick={[Function]}
+            >
+              <li
+                className="nav-item "
+                onClick={[Function]}
+              >
+                <div>
+                  <FaSignOutAlt
+                    className="nav-item-icon"
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 512 512",
+                        }
+                      }
+                      className="nav-item-icon"
+                    >
+                      <svg
+                        className="nav-item-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaSignOutAlt>
+                </div>
+                <div
+                  className="nav-item-title"
+                >
+                  Logout
+                </div>
+              </li>
+            </a>
+          </Component>
+        </ul>
+      </nav>
+    </Memo(MenuComponent)>
+  </Component>
+</Router>
 `;

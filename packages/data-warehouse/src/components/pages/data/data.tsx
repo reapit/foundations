@@ -9,16 +9,33 @@ import { getDataSetsService } from '../../../services/data-sets'
 import FadeIn from '../../../styles/fade-in'
 import DataSetsTable from './data-sets-table'
 import SharesTable from './shares-table'
+import { AccountModel } from '../../../types/accounts'
+import { getAccountsService } from '../../../services/accounts'
 
 export type DataProps = {}
 
 export const Data: React.FC<DataProps> = () => {
+  const [accounts, setAccounts] = useState<PagedApiResponse<AccountModel>>()
+  const [accountsLoading, setAccountsLoading] = useState<boolean>(false)
   const [dataSets, setDataSets] = useState<PagedApiResponse<DataSetModel>>()
   const [dataSetsLoading, setDataSetsLoading] = useState<boolean>(false)
   const [shares, setShares] = useState<PagedApiResponse<SharesModel>>()
   const [sharesLoading, setSharesLoading] = useState<boolean>(false)
 
   const { setMessageState } = useContext(MessageContext)
+
+  useEffect(() => {
+    const getAccounts = async () => {
+      setAccountsLoading(true)
+      const accounts = await getAccountsService()
+      setAccountsLoading(false)
+      if (accounts) {
+        return setAccounts(accounts)
+      }
+      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
+    }
+    getAccounts()
+  }, [setAccounts, setAccountsLoading])
 
   useEffect(() => {
     const getDataSets = async () => {
@@ -51,12 +68,16 @@ export const Data: React.FC<DataProps> = () => {
       <Content>
         <H3 isHeadingSection>Data</H3>
         <Section>
-          <H5>Data Sets</H5>
+          <H5>Available Data</H5>
           {dataSetsLoading ? (
             <Loader />
           ) : dataSets?._embedded.length ? (
             <FadeIn>
-              <DataSetsTable dataSets={dataSets._embedded} setShares={setShares} />
+              <DataSetsTable
+                dataSets={dataSets._embedded}
+                setShares={setShares}
+                hasAccount={Boolean(accounts?._embedded.length)}
+              />
             </FadeIn>
           ) : (
             <FadeIn>
@@ -66,8 +87,14 @@ export const Data: React.FC<DataProps> = () => {
         </Section>
         <Section>
           <H5>Data Shares</H5>
-          {sharesLoading ? (
+          {sharesLoading || accountsLoading ? (
             <Loader />
+          ) : !accounts?._embedded.length ? (
+            <FadeIn>
+              <Helper variant="info">
+                You will need to provision an account from the Accounts page before you can share data
+              </Helper>
+            </FadeIn>
           ) : shares?._embedded.length ? (
             <FadeIn>
               <SharesTable shares={shares._embedded} setShares={setShares} />

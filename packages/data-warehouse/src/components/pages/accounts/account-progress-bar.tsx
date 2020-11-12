@@ -16,7 +16,7 @@ const ProgressMessage: React.FC<{ percentageComplete: number }> = ({ percentageC
   if (percentageComplete < 100) return <ProgressMessageText key={6}>Nearly there, final checks...</ProgressMessageText>
   return (
     <ProgressMessageText key={7}>
-      Your data is ready! <span role="img">🚀</span>
+      Your account is ready! <span role="img">🚀</span>
     </ProgressMessageText>
   )
 }

@@ -10,13 +10,14 @@ import { createRequest } from './data-handlers'
 export interface DataSetsTableProps {
   dataSets: DataSetModel[]
   setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>
+  hasAccount: boolean
 }
 
 export interface TableCellProps<T> {
   cell: { value: T }
 }
 
-export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShares }) => {
+export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShares, hasAccount }) => {
   const [creatingShare, setCreatingShare] = useState('')
   const RequestDataSetModel: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
     const { setMessageState } = useContext(MessageContext)
@@ -25,7 +26,7 @@ export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShare
     return (
       <Button
         onClick={createRequest(setMessageState, setCreatingShare, setShares, value)}
-        disabled={isLoading}
+        disabled={isLoading || !hasAccount}
         loading={isLoading}
       >
         Create Share

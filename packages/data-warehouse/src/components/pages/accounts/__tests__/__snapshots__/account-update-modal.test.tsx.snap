@@ -35,6 +35,13 @@ exports[`AccountUpdateModalForm should match a snapshot 1`] = `
       placeholder="*********"
       type="password"
     />
+    <Component
+      id="passwordConfirm"
+      labelText="Confirm Password"
+      name="passwordConfirm"
+      placeholder="*********"
+      type="password"
+    />
     <Component>
       <Component
         onClick={[MockFunction]}

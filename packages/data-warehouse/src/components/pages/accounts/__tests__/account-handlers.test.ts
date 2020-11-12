@@ -3,6 +3,7 @@ import {
   disableAccountsService,
   getAccountsService,
   updateAccountService,
+  getAccountService,
 } from '../../../../services/accounts'
 import { AccountCreateModel } from '../../../../types/accounts'
 import { createAccount, disableAccount, handlePolling, updateAccount } from '../account-handlers'
@@ -17,13 +18,29 @@ jest.mock('../../../../services/accounts', () => ({
 
 describe('account handlers', () => {
   describe('handlePolling', () => {
-    it('should wait on accounts service and set percent complete to 100 on done', async () => {
-      const mockSetPercentComplete = jest.fn()
+    it('should wait on accounts service and return a successful provision', async () => {
       const accountUri = 'https://some-url/SOME_ID'
-      const timer = await handlePolling(mockSetPercentComplete, accountUri)
+      const result = await handlePolling(accountUri)
       jest.runAllTimers()
-      expect(mockSetPercentComplete).toHaveBeenLastCalledWith(100)
-      expect(timer).toEqual(3)
+
+      expect(result).toEqual({ provisioned: true, interval: 3 })
+    })
+
+    it('should wait on accounts service and return an unsuccessful provision', async () => {
+      const accountUri = 'https://some-url/SOME_ID'
+      ;(getAccountService as jest.Mock).mockReturnValue({
+        status: 'An error was encountered when creating this account',
+      })
+      const result = await handlePolling(accountUri)
+      jest.runAllTimers()
+
+      expect(result).toEqual({ provisioned: false, interval: 6 })
+    })
+
+    afterAll(() => {
+      ;(getAccountService as jest.Mock).mockReturnValue({
+        status: 'User is active',
+      })
     })
   })
 
@@ -65,7 +82,32 @@ describe('account handlers', () => {
 
       expect(mockSetProvisionInProgress).toHaveBeenLastCalledWith(false)
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
-        errorMessage: 'Something went wrong creating account, please try again',
+        errorMessage: 'Something went wrong creating an account, please try again',
+      })
+    })
+
+    it('should handle an error if provisioning fails ', async () => {
+      const mockSetMessageState = jest.fn()
+      const mockSetProvisionInProgress = jest.fn()
+      const mockSetPercentComplete = jest.fn()
+      const mockSetAccounts = jest.fn()
+      const mockAccount = {} as AccountCreateModel
+      ;(getAccountService as jest.Mock).mockReturnValue({
+        status: 'An error was encountered when creating this account',
+      })
+
+      await createAccount(
+        mockSetMessageState,
+        mockSetProvisionInProgress,
+        mockSetPercentComplete,
+        mockSetAccounts,
+        mockAccount,
+      )
+
+      expect(mockSetPercentComplete).toHaveBeenLastCalledWith(0)
+      expect(mockSetProvisionInProgress).toHaveBeenLastCalledWith(false)
+      expect(mockSetMessageState).toHaveBeenLastCalledWith({
+        errorMessage: 'Something went wrong creating an account, please try again',
       })
     })
 
@@ -76,6 +118,9 @@ describe('account handlers', () => {
       const mockSetAccounts = jest.fn()
       const mockAccount = {} as AccountCreateModel
       ;(getAccountsService as jest.Mock).mockReturnValueOnce(undefined)
+      ;(getAccountService as jest.Mock).mockReturnValue({
+        status: 'User is active',
+      })
 
       await createAccount(
         mockSetMessageState,
@@ -124,8 +169,8 @@ describe('account handlers', () => {
       const mockValue = 'SOME_ID'
 
       await disableAccount(mockSetMessageState, mockSetAccounts, mockSetDisabling, mockValue)()
-      expect(mockSetDisabling).toHaveBeenCalledWith(true)
-      expect(mockSetDisabling).toHaveBeenLastCalledWith(false)
+      expect(mockSetDisabling).toHaveBeenCalledWith('SOME_ID')
+      expect(mockSetDisabling).toHaveBeenLastCalledWith('')
       expect(mockSetMessageState).toHaveBeenLastCalledWith({ infoMessage: 'Account successfully deleted' })
       expect(mockSetAccounts).toHaveBeenLastCalledWith({})
     })
@@ -138,8 +183,8 @@ describe('account handlers', () => {
       ;(disableAccountsService as jest.Mock).mockReturnValueOnce(undefined)
 
       await disableAccount(mockSetMessageState, mockSetAccounts, mockSetDisabling, mockValue)()
-      expect(mockSetDisabling).toHaveBeenCalledWith(true)
-      expect(mockSetDisabling).toHaveBeenLastCalledWith(false)
+      expect(mockSetDisabling).toHaveBeenCalledWith('SOME_ID')
+      expect(mockSetDisabling).toHaveBeenLastCalledWith('')
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
         errorMessage: 'Something went wrong deleting account, please try again',
       })
@@ -153,8 +198,8 @@ describe('account handlers', () => {
       ;(getAccountsService as jest.Mock).mockReturnValueOnce(undefined)
 
       await disableAccount(mockSetMessageState, mockSetAccounts, mockSetDisabling, mockValue)()
-      expect(mockSetDisabling).toHaveBeenCalledWith(true)
-      expect(mockSetDisabling).toHaveBeenLastCalledWith(false)
+      expect(mockSetDisabling).toHaveBeenCalledWith('SOME_ID')
+      expect(mockSetDisabling).toHaveBeenLastCalledWith('')
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
         errorMessage: 'Something went wrong fetching accounts, please try again',
       })

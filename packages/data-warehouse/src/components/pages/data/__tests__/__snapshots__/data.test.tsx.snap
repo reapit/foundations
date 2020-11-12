@@ -28,7 +28,7 @@ exports[`Data should match a snapshot 1`] = `
                 className=""
                 id=""
               >
-                Data Sets
+                Available Data
               </h5>
             </Component>
             <Component>

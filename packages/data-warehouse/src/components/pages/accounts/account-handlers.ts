@@ -10,18 +10,19 @@ import { PagedApiResponse } from '../../../types/core'
 import { MessageState } from '../../../context/message-context'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'
 
-export const handlePolling = (
-  setPercentageComplete: Dispatch<SetStateAction<number>>,
-  accountUri: string,
-): Promise<void | number> => {
+export const handlePolling = (accountUri: string): Promise<{ provisioned: boolean; interval: number }> => {
   const accountId = accountUri.split('/').slice(-1)[0]
 
   return new Promise(resolve => {
     const interval = window.setInterval(async () => {
       const account = await getAccountService(accountId)
+
       if (account && account.status === 'User is active') {
-        setPercentageComplete(100)
-        resolve(interval)
+        resolve({ provisioned: true, interval })
+      }
+
+      if (account && account.status === 'An error was encountered when creating this account') {
+        resolve({ provisioned: false, interval })
       }
     }, 3000)
   })
@@ -38,15 +39,20 @@ export const createAccount = async (
 
   if (!accountUri) {
     setProvisionInProgress(false)
-    return setMessageState({ errorMessage: 'Something went wrong creating account, please try again' })
+    return setMessageState({ errorMessage: 'Something went wrong creating an account, please try again' })
   }
 
-  const polling = await handlePolling(setPercentageComplete, accountUri)
+  const { provisioned, interval } = await handlePolling(accountUri)
 
-  if (polling) {
-    window.clearInterval(polling)
+  window.clearInterval(interval)
+
+  if (!provisioned) {
+    setPercentageComplete(0)
+    setProvisionInProgress(false)
+    return setMessageState({ errorMessage: 'Something went wrong creating an account, please try again' })
   }
 
+  setPercentageComplete(100)
   setMessageState({ infoMessage: 'Successfully provisioned account' })
 
   const accounts = await getAccountsService()
@@ -79,14 +85,14 @@ export const updateAccount = async (
 export const disableAccount = (
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
-  setDisabling: Dispatch<React.SetStateAction<boolean>>,
+  setDisabling: Dispatch<React.SetStateAction<string>>,
   value: string,
 ) => async () => {
-  setDisabling(true)
+  setDisabling(value)
 
   const disabled = await disableAccountsService(value)
 
-  setDisabling(false)
+  setDisabling('')
 
   if (!disabled) {
     return setMessageState({ errorMessage: 'Something went wrong deleting account, please try again' })

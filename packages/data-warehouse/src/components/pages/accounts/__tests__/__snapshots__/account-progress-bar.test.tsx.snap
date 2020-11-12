@@ -232,7 +232,7 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
         <mock-styled.div
           key="7"
         >
-          Your data is ready! 
+          Your account is ready! 
           <span
             role="img"
           >

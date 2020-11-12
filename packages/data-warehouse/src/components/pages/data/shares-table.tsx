@@ -77,22 +77,31 @@ export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) =
       accessor: 'schema',
     },
     {
+      Header: 'Warehouse',
+      accessor: 'warehouse',
+    },
+    {
+      Header: 'Region',
+      accessor: 'region',
+    },
+    {
+      Header: 'Account Id',
+      accessor: 'accountId',
+    },
+    {
       Header: 'Account Name',
       accessor: 'accountName',
     },
-    {
-      Header: 'Url',
-      accessor: 'url',
-      Cell: URLComponent,
-    },
+    // Removing field for now as don't currently want to share via url
+    // {
+    //   Header: 'Url',
+    //   accessor: 'url',
+    //   Cell: URLComponent,
+    // },
     {
       Header: 'DSN',
       accessor: 'dsn',
       Cell: DSNComponent,
-    },
-    {
-      Header: 'Status',
-      accessor: 'status',
     },
     {
       Header: 'Create Data Share',

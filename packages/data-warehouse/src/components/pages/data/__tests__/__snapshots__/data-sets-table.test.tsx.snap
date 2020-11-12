@@ -24,6 +24,7 @@ exports[`DataSetsTable should match a snapshot 1`] = `
       },
     ]
   }
+  hasAccount={true}
   setShares={[MockFunction]}
 >
   <Component
