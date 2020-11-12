@@ -36,7 +36,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerResponsive hasBackground>
+          <Loader />
+        </FlexContainerResponsive>
+      </AppNavContainer>
+    )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

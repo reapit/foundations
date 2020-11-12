@@ -16,6 +16,7 @@ import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 import { container } from './__styles__/app-detail'
+import FadeIn from '../../../styles/fade-in'
 
 export type AppDetailProps = {}
 
@@ -64,13 +65,23 @@ const AppDetail: React.FC<AppDetailProps> = () => {
   return (
     <Grid className={container}>
       <GridItem className="is-one-quarter">
-        <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
+        <FadeIn>
+          <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
+        </FadeIn>
       </GridItem>
       <GridItem className="is-three-quarters">
         <Section isFlex isFlexColumn hasBackground isFullHeight>
-          <AppHeader appDetailData={appDetailData} />
-          <AppContent appDetailState={appDetailState} />
-          {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
+          <FadeIn>
+            <AppHeader appDetailData={appDetailData} />
+          </FadeIn>
+          <FadeIn>
+            <AppContent appDetailState={appDetailState} />
+          </FadeIn>
+          {!isMobile && (
+            <FadeIn>
+              <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+            </FadeIn>
+          )}
         </Section>
       </GridItem>
     </Grid>

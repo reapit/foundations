@@ -24,6 +24,7 @@ import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NonAdminInstallModal, NonAdminUninstallModal } from './non-admin-modal'
+import FadeIn from '../../../../core/__styles__/fade-in'
 
 export type ClientAppDetailProps = {}
 
@@ -125,22 +126,32 @@ const AppDetail: React.FC = () => {
       ) : (
         <>
           <GridItem className="is-one-quarter">
-            <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+            <FadeIn>
+              <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+            </FadeIn>
           </GridItem>
           <GridItem className="is-three-quarters">
             <Section isFlex isFlexColumn isFullHeight>
-              <AppHeader
-                appDetailData={appDetailData}
-                buttonGroup={
-                  <AppDetailButtonGroup
-                    appDetailData={appDetailData}
-                    onInstallConfirmationModal={onInstallConfirmationModal}
-                    onUninstallConfirmationModal={onUninstsallConfirmationModal}
-                  />
-                }
-              />
-              <AppContent appDetailData={appDetailData} />
-              {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
+              <FadeIn>
+                <AppHeader
+                  appDetailData={appDetailData}
+                  buttonGroup={
+                    <AppDetailButtonGroup
+                      appDetailData={appDetailData}
+                      onInstallConfirmationModal={onInstallConfirmationModal}
+                      onUninstallConfirmationModal={onUninstsallConfirmationModal}
+                    />
+                  }
+                />
+              </FadeIn>
+              <FadeIn>
+                <AppContent appDetailData={appDetailData} />
+              </FadeIn>
+              {!isMobile && (
+                <FadeIn>
+                  <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+                </FadeIn>
+              )}
             </Section>
           </GridItem>
         </>

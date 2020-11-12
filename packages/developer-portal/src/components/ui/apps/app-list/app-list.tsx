@@ -3,6 +3,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 import { contentIsLoading } from './__styles__/app-list'
 import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
+import FadeIn from '../../../../styles/fade-in'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -31,25 +32,27 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
         <GridFourCol className={` ${loading ? contentIsLoading : ''}`} data-test="app-list-container">
           {list.map(app => (
             <GridThreeColItem key={app.id}>
-              <AppCard
-                app={app}
-                onClick={
-                  onCardClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onCardClick(app)
-                      }
-                    : undefined
-                }
-                onSettingsClick={
-                  onSettingsClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onSettingsClick(app)
-                      }
-                    : undefined
-                }
-              />
+              <FadeIn>
+                <AppCard
+                  app={app}
+                  onClick={
+                    onCardClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onCardClick(app)
+                        }
+                      : undefined
+                  }
+                  onSettingsClick={
+                    onSettingsClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onSettingsClick(app)
+                        }
+                      : undefined
+                  }
+                />
+              </FadeIn>
             </GridThreeColItem>
           ))}
         </GridFourCol>

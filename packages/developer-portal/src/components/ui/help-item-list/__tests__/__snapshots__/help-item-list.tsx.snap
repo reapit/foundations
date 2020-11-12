@@ -5,294 +5,306 @@ exports[`HelpItemList should match a snapshot 1`] = `
   <Component
     key="Welcome Guide"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="Welcome Guide"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          Welcome Guide
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            VIEW
+            <img
+              alt="Welcome Guide"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            Welcome Guide
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              VIEW
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
   <Component
     key="Request a Feature"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="Request a Feature"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          Request a Feature
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
-      look at all requests carefully however, we cannot guarantee all will be implemented.
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            REQUEST
+            <img
+              alt="Request a Feature"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            Request a Feature
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      look at all requests carefully however, we cannot guarantee all will be implemented.
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              REQUEST
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
   <Component
     key="Report a Bug"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="Report a Bug"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          Report a Bug
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            REPORT
+            <img
+              alt="Report a Bug"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            Report a Bug
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              REPORT
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
   <Component
     key="Roadmap"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="Roadmap"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          Roadmap
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          Want to see what we are building or check on the progress of your feature requests?
-      You can see our product roadmap milestones here. 
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            VIEW
+            <img
+              alt="Roadmap"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            Roadmap
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            Want to see what we are building or check on the progress of your feature requests?
+      You can see our product roadmap milestones here. 
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              VIEW
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
   <Component
     key="Need Help?"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="Need Help?"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          Need Help?
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            START CHAT
+            <img
+              alt="Need Help?"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            Need Help?
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              START CHAT
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
   <Component
     key="What’s New"
   >
-    <Component
-      isFlex={true}
-      isFullHeight={true}
-    >
+    <mock-styled.div>
       <Component
-        className=""
         isFlex={true}
-        isFlexColumn={true}
+        isFullHeight={true}
       >
         <Component
-          className="flex-shrink-0"
-        >
-          <img
-            alt="What’s New"
-            src=""
-          />
-        </Component>
-        <Component
-          isCentered={true}
-        >
-          What’s New
-        </Component>
-        <Component
-          className="flex-grow-1"
-        >
-          We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
-      new features and fixes have been released.
-        </Component>
-        <Component
-          className="text-end"
+          className=""
+          isFlex={true}
+          isFlexColumn={true}
         >
           <Component
-            className=""
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
+            className="flex-shrink-0"
           >
-            VIEW
+            <img
+              alt="What’s New"
+              src=""
+            />
+          </Component>
+          <Component
+            isCentered={true}
+          >
+            What’s New
+          </Component>
+          <Component
+            className="flex-grow-1"
+          >
+            We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.
+          </Component>
+          <Component
+            className="text-end"
+          >
+            <Component
+              className=""
+              disabled={false}
+              fullWidth={false}
+              loading={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              VIEW
+            </Component>
           </Component>
         </Component>
       </Component>
-    </Component>
+    </mock-styled.div>
   </Component>
 </Component>
 `;

@@ -15,6 +15,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
 import { chartContainer } from './__styles__/service-chart'
+import FadeIn from '../../../../../styles/fade-in'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -228,7 +229,7 @@ export const ServiceChart: React.FC = () => {
       <Grid>
         <GridItem className="is-7 is-offset-5">
           <Grid isMultiLine isMobile>
-            {renderChartLegend(chartElement, chartLegendItems)}
+            <FadeIn>{renderChartLegend(chartElement, chartLegendItems)}</FadeIn>
           </Grid>
         </GridItem>
       </Grid>

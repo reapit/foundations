@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { Loader, H5, Section } from '@reapit/elements'
 import { InstallationModelWithAppName } from '@/components/pages/analytics/detailed/installation-app-section'
 import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
+import FadeIn from '../../../../styles/fade-in'
 
 export interface DeveloperInstallationsChartProps {
   data: Array<InstallationModelWithAppName>
@@ -65,7 +66,9 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
       ) : (
         <Section hasMargin={false}>
           <H5>Installations By Day</H5>
-          <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
+          <FadeIn>
+            <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
+          </FadeIn>
         </Section>
       )}
     </>

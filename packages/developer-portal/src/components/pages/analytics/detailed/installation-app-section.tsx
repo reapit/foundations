@@ -10,6 +10,7 @@ import {
   selectInstallationsFilterLoading,
 } from '@/selector/installations'
 import { useSelector } from 'react-redux'
+import FadeIn from '../../../../styles/fade-in'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
@@ -175,19 +176,23 @@ export const InstallationAppSection: React.FC<{
                   installations per app
                 </p>
                 <br />
-                <Table
-                  bordered
-                  scrollable
-                  columns={currentInstallationTableColumn}
-                  data={currentInstallationApps}
-                  loading={false}
-                />
+                <FadeIn>
+                  <Table
+                    bordered
+                    scrollable
+                    columns={currentInstallationTableColumn}
+                    data={currentInstallationApps}
+                    loading={false}
+                  />
+                </FadeIn>
               </Section>
             </GridItem>
           </Grid>
           <Section>
             <H5>Installation Details</H5>
-            <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+            <FadeIn>
+              <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+            </FadeIn>
           </Section>
           <Pagination
             pageNumber={pageNumber}

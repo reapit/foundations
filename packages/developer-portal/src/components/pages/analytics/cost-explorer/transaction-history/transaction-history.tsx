@@ -15,6 +15,7 @@ import { URLS } from '@/services/constants'
 import { generateHeaders } from '@/services/utils'
 import FileSaver from 'file-saver'
 import { selectAppListState } from '@/selector/apps/app-list'
+import FadeIn from '../../../../../styles/fade-in'
 
 export type TransactionHistoryProps = {}
 
@@ -169,40 +170,42 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   return (
     <Section hasMargin={false}>
       <H5>Transaction History</H5>
-      {currentPage === 1
-        ? renderFirstPage({ developerAppIds, previousTransactionDates })
-        : renderPreviousTransactionHistoryList({
-            dates: previousTransactionDates,
-            developerAppIds,
-            startIndex: startIndex,
-            endIndex: endIndex,
-          })}
-      <Grid>
-        <GridItem>
-          {isShowLaterButton && (
-            <a
-              onClick={event => {
-                event?.preventDefault()
-                handleLaterClick(setCurrentPage)
-              }}
-              href="/"
-            >
-              {'Later >>'}
-            </a>
-          )}
-          {isShowEarlierButton && (
-            <a
-              onClick={event => {
-                event?.preventDefault()
-                handleEarlierClick(setCurrentPage)
-              }}
-              href="/"
-            >
-              {'<< Earlier'}
-            </a>
-          )}
-        </GridItem>
-      </Grid>
+      <FadeIn>
+        {currentPage === 1
+          ? renderFirstPage({ developerAppIds, previousTransactionDates })
+          : renderPreviousTransactionHistoryList({
+              dates: previousTransactionDates,
+              developerAppIds,
+              startIndex: startIndex,
+              endIndex: endIndex,
+            })}
+        <Grid>
+          <GridItem>
+            {isShowLaterButton && (
+              <a
+                onClick={event => {
+                  event?.preventDefault()
+                  handleLaterClick(setCurrentPage)
+                }}
+                href="/"
+              >
+                {'Later >>'}
+              </a>
+            )}
+            {isShowEarlierButton && (
+              <a
+                onClick={event => {
+                  event?.preventDefault()
+                  handleEarlierClick(setCurrentPage)
+                }}
+                href="/"
+              >
+                {'<< Earlier'}
+              </a>
+            )}
+          </GridItem>
+        </Grid>
+      </FadeIn>
     </Section>
   )
 }

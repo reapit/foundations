@@ -11,6 +11,7 @@ import { formatCurrency } from '@/utils/number-formatter'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
+import FadeIn from '../../../../styles/fade-in'
 
 export const TimeCell = ({ cell: { value } }) => <p>{getDate(value)}</p>
 export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Active'}</p>
@@ -115,11 +116,13 @@ export const Subcriptions: React.FC = () => {
       ) : (
         <Section>
           <H5>Subscriptions</H5>
-          <p className="is-italic mb-4">
-            The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta
-            Phase you can use the table below to view and manage your Developer Portal Subscriptions.
-          </p>
-          <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
+          <FadeIn>
+            <p className="is-italic mb-4">
+              The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta
+              Phase you can use the table below to view and manage your Developer Portal Subscriptions.
+            </p>
+            <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
+          </FadeIn>
         </Section>
       )}
       <ConfirmModal

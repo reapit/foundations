@@ -7,31 +7,33 @@ exports[`TransactionHistory should match a snapshot 1`] = `
   <Component>
     Transaction History
   </Component>
-  <Component>
+  <mock-styled.div>
     <Component>
-      This Months Transactions To Date
-    </Component>
-    <Component
-      key="Thu, 10 Oct 2019 22:39:51 GMT"
-    >
-      <Component
-        className="is-one-third"
-      >
-        October 2019
-      </Component>
       <Component>
-        <a
-          href="#"
-          onClick={[Function]}
+        This Months Transactions To Date
+      </Component>
+      <Component
+        key="Thu, 10 Oct 2019 22:39:51 GMT"
+      >
+        <Component
+          className="is-one-third"
         >
-          Download
-        </a>
+          October 2019
+        </Component>
+        <Component>
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+            Download
+          </a>
+        </Component>
       </Component>
     </Component>
-  </Component>
-  <Component />
-  <Component>
     <Component />
-  </Component>
+    <Component>
+      <Component />
+    </Component>
+  </mock-styled.div>
 </Component>
 `;
