@@ -198,7 +198,7 @@ const webpackConfig = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: '[name].[hash].css',
     }),
     new FaviconsWebpackPlugin({
       logo: PATHS.logo,
