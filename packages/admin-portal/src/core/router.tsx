@@ -17,6 +17,7 @@ const AppsManagementPage = React.lazy(() => catchChunkError(() => import('../com
 const Statistics = React.lazy(() => catchChunkError(() => import('../components/pages/statistics')))
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 const CustomersPage = React.lazy(() => catchChunkError(() => import('../components/pages/customers')))
+const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/pages/subscriptions')))
 
 const Router = () => {
   return (
@@ -34,6 +35,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
                 <PrivateRoute path={Routes.STATS} component={Statistics} exact />
                 <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact fetcher />
+                <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact fetcher />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

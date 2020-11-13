@@ -7,6 +7,7 @@ const Routes = {
   STATS: '/stats',
   CUSTOMERS: '/customers',
   AUTHENTICATION: '/authentication',
+  SUBSCRIPTIONS: '/subscriptions',
   FOUR_O_FOUR: '/404',
 }
 
