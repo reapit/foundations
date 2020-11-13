@@ -1,6 +1,8 @@
 import { ReduxState } from '@/types/core'
 import { ApprovalList } from '@/reducers/apps/approvals'
 import { DeveloperListState } from '@/reducers/developers/list'
+import { SubscriptionListState } from '@/reducers/subscriptions/list'
+
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { StatisticsState } from '@/reducers/apps/statistics'
 
@@ -22,4 +24,8 @@ export const selectStatistics = (state: ReduxState): StatisticsState => {
 
 export const selectDeveloperListState = (state: ReduxState): DeveloperListState => {
   return state.developers.list
+}
+
+export const selectSubscriptionListState = (state: ReduxState): SubscriptionListState => {
+  return state.subscriptions.list
 }
