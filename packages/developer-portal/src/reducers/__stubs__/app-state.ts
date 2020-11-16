@@ -238,6 +238,7 @@ const appState: ReduxState = {
       agencyCloudAccess: true,
     },
     update: {
+      state: 'UNKNOWN',
       isLoading: false,
     },
   },

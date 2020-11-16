@@ -19,6 +19,11 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
           </Unknown>
         }
       />
+      <Component
+        onAccept={[Function]}
+        tapOutsideToDissmiss={false}
+        visible={false}
+      />
     </Component>
   </Component>
 </Component>

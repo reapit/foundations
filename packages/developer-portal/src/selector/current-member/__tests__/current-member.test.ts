@@ -1,4 +1,9 @@
-import { selectCurrentMemberData, selectCurrentMemberIsLoading, selectCurrentMemberIsUpdating } from '../current-member'
+import {
+  selectCurrentMemberData,
+  selectCurrentMemberIsLoading,
+  selectCurrentMemberIsUpdating,
+  selectCurrentMemberUpdateState,
+} from '../current-member'
 import appState from '@/reducers/__stubs__/app-state'
 
 describe('selectCurrentMemberIsLoading', () => {
@@ -15,5 +20,11 @@ describe('selectCurrentMemberData', () => {
 describe('selectCurrentMemberData', () => {
   it('should run correctly', () => {
     expect(selectCurrentMemberIsUpdating(appState)).toEqual(appState.currentMember.update.isLoading)
+  })
+})
+
+describe('selectCurrentMemberUpdateState', () => {
+  it('should run correctly', () => {
+    expect(selectCurrentMemberUpdateState(appState)).toEqual(appState.currentMember.update.state)
   })
 })

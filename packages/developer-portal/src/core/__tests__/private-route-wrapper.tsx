@@ -4,7 +4,10 @@ import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { PrivateRouteWrapper } from '../private-route-wrapper'
+import { handleUpdateTerms, PrivateRouteWrapper } from '../private-route-wrapper'
+import { updateCurrentMember } from '../../actions/current-member'
+import dayjs from 'dayjs'
+import { DATE_TIME_FORMAT } from '@reapit/elements'
 
 const locationMock = { search: '', pathname: '/test' }
 const dispatch = jest.fn()
@@ -63,5 +66,16 @@ describe('PrivateRouteWrapper', () => {
       </Provider>,
     )
     expect(useLocation).toHaveBeenCalled()
+  })
+
+  it('should correctly call update terms', () => {
+    const mockDispatch = jest.fn()
+    const fn = handleUpdateTerms(mockDispatch)
+    fn()
+    expect(mockDispatch).toHaveBeenCalledWith(
+      updateCurrentMember({
+        agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+      }),
+    )
   })
 })

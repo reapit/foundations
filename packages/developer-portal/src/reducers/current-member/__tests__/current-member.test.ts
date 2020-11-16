@@ -31,6 +31,7 @@ describe('currentMember reducer', () => {
     const expected = {
       ...defaultState,
       update: {
+        state: 'UNKNOWN',
         isLoading: true,
       },
     }
@@ -58,6 +59,7 @@ describe('currentMember reducer', () => {
     const expected = {
       ...defaultState,
       update: {
+        state: 'SUCCESS',
         isLoading: false,
       },
     }
@@ -78,13 +80,14 @@ describe('currentMember reducer', () => {
 
   it('should set loading to false when failed update', () => {
     const newState = currentMemberReducer(undefined, {
-      type: ActionTypes.CURRENT_MEMBER_FETCH_FAILED as ActionType,
+      type: ActionTypes.CURRENT_MEMBER_UPDATE_FAILED as ActionType,
       data: null,
     })
     const expected = {
       ...defaultState,
       isLoading: false,
       update: {
+        state: 'FAILED',
         isLoading: false,
       },
     }
