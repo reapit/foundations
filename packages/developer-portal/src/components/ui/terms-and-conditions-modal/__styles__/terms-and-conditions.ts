@@ -46,20 +46,11 @@ export const TermsUl = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  /* counter-reset: item; */
-  /* > li  */
-  /* schedule-parent > li {
-      &:before {
-        content: counters(ul-item, '.') ' ';
-      }
-    } */
-  /* } */
 `
 
 export const TermsLiBullet = styled.li`
   display: table;
   margin-bottom: 0.6em;
-  /* counter-increment: item; */
   &:before {
     content: '.';
     font-weight: 700;
