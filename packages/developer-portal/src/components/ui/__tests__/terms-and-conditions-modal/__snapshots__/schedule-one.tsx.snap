@@ -1,322 +1,196 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Schedule1 it matches a snapshot 1`] = `
+exports[`Schedule One it matches a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
         class=""
+        data-test=""
       >
-        <h4
+        <h5
           class=""
           id=""
         >
-          SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
-        </h4>
-        <ol
-          class="schedule-parent"
-        >
-          <li
-            class="terms-child schedule-child"
-          >
-            <h6
+          Schedule 1 - Application User Term Principles
+        </h5>
+        <mock-styled.ol>
+          <mock-styled.li>
+            <h5
               class=""
               id=""
             >
-              GENERAL
-            </h6>
-            <ol
-              class="schedule-parent"
-            >
-              <li
-                class="terms-child schedule-child"
-              >
+              General
+            </h5>
+            <mock-styled.ol>
+              <mock-styled.li>
                 <span>
                   The Developer must not include any terms in the Application User Terms, which conflict with the Developer’s obligations pursuant to this Agreement.
                 </span>
-                <ol
-                  class="schedule-parent"
-                />
-              </li>
-              <li
-                class="terms-child schedule-child"
-              >
+              </mock-styled.li>
+              <mock-styled.li>
                 <span>
                   The Developer must ensure that the Application:
                 </span>
-                <ol
-                  class="schedule-parent"
-                >
-                  <li
-                    class="terms-child schedule-child"
-                  >
+                <mock-styled.ol>
+                  <mock-styled.li>
                     <span>
                       should access only the minimum data fields which that Application needs to work properly; and
                     </span>
-                    <ol
-                      class="schedule-parent"
-                    />
-                  </li>
-                  <li
-                    class="terms-child schedule-child"
-                  >
+                  </mock-styled.li>
+                  <mock-styled.li>
                     <span>
                       ensure any data is collected, processed, transmitted, maintained and used in accordance with the Application User Terms, all applicable laws and reasonable measures that protect the privacy and security of the relevant end user (including at a minimum those set out below at Paragraph 2).
                     </span>
-                    <ol
-                      class="schedule-parent"
-                    />
-                  </li>
-                </ol>
-              </li>
-              <li
-                class="terms-child schedule-child"
-              >
+                  </mock-styled.li>
+                </mock-styled.ol>
+              </mock-styled.li>
+              <mock-styled.li>
                 <span>
                   Without prejudice to the foregoing, the Application User Terms must contain clear and legally adequate disclosures about the nature of the Application’s integration with the Reapit Software (and any other software) and the User Data collected by the Application, as well as the Developer’s intended use of it.
                 </span>
-                <ol
-                  class="schedule-parent"
-                />
-              </li>
-              <li
-                class="terms-child schedule-child"
-              >
+              </mock-styled.li>
+              <mock-styled.li>
                 <span>
                   The Application User Terms should include a clear statement that the Application has not been developed by Reapit and that Reapit bears no responsibility or liability for the Application and does not warrant that it does (or will in the future) function and integrate with the Reapit Software.
                 </span>
-                <ol
-                  class="schedule-parent"
-                />
-              </li>
-            </ol>
-          </li>
-          <li
-            class="terms-child schedule-child"
-          >
-            <h6
+              </mock-styled.li>
+            </mock-styled.ol>
+          </mock-styled.li>
+          <mock-styled.li>
+            <h5
               class=""
               id=""
             >
-              DATA PROTECTION
-            </h6>
-            <ol
-              class="schedule-parent"
-            >
-              <li
-                class="terms-child schedule-child"
-              >
+              Data Protection
+            </h5>
+            <mock-styled.ol>
+              <mock-styled.li>
                 <span>
                   The Application User Terms must comply with Data Protection Laws.
                 </span>
-                <ol
-                  class="schedule-parent"
-                />
-              </li>
-              <li
-                class="terms-child schedule-child"
-              >
+              </mock-styled.li>
+              <mock-styled.li>
                 <span>
                   Without prejudice to the generality of the paragraph 2.1, the Developer must clearly notify the end users of the relevant Application as to:
                 </span>
-                <ol
-                  class="schedule-parent"
-                >
-                  <li
-                    class="terms-child schedule-child"
-                  >
+                <mock-styled.ol>
+                  <mock-styled.li>
                     <span>
                       the types of personal data collected or processed by the Developer and the intended processing purposes of that personal data;
                     </span>
-                    <ol
-                      class="schedule-parent"
-                    />
-                  </li>
-                  <li
-                    class="terms-child schedule-child"
-                  >
+                  </mock-styled.li>
+                  <mock-styled.li>
                     <span>
                       where such Personal Data is stored (identity and location of entity maintaining the relevant database); and
                     </span>
-                    <ol
-                      class="schedule-parent"
-                    />
-                  </li>
-                  <li
-                    class="terms-child schedule-child"
-                  >
+                  </mock-styled.li>
+                  <mock-styled.li>
                     <span>
                       whether any third parties are involved as sub-processors of the Personal Data.
                     </span>
-                    <ol
-                      class="schedule-parent"
-                    />
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-        </ol>
-        ;
+                  </mock-styled.li>
+                </mock-styled.ol>
+              </mock-styled.li>
+            </mock-styled.ol>
+          </mock-styled.li>
+        </mock-styled.ol>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
       class=""
+      data-test=""
     >
-      <h4
+      <h5
         class=""
         id=""
       >
-        SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
-      </h4>
-      <ol
-        class="schedule-parent"
-      >
-        <li
-          class="terms-child schedule-child"
-        >
-          <h6
+        Schedule 1 - Application User Term Principles
+      </h5>
+      <mock-styled.ol>
+        <mock-styled.li>
+          <h5
             class=""
             id=""
           >
-            GENERAL
-          </h6>
-          <ol
-            class="schedule-parent"
-          >
-            <li
-              class="terms-child schedule-child"
-            >
+            General
+          </h5>
+          <mock-styled.ol>
+            <mock-styled.li>
               <span>
                 The Developer must not include any terms in the Application User Terms, which conflict with the Developer’s obligations pursuant to this Agreement.
               </span>
-              <ol
-                class="schedule-parent"
-              />
-            </li>
-            <li
-              class="terms-child schedule-child"
-            >
+            </mock-styled.li>
+            <mock-styled.li>
               <span>
                 The Developer must ensure that the Application:
               </span>
-              <ol
-                class="schedule-parent"
-              >
-                <li
-                  class="terms-child schedule-child"
-                >
+              <mock-styled.ol>
+                <mock-styled.li>
                   <span>
                     should access only the minimum data fields which that Application needs to work properly; and
                   </span>
-                  <ol
-                    class="schedule-parent"
-                  />
-                </li>
-                <li
-                  class="terms-child schedule-child"
-                >
+                </mock-styled.li>
+                <mock-styled.li>
                   <span>
                     ensure any data is collected, processed, transmitted, maintained and used in accordance with the Application User Terms, all applicable laws and reasonable measures that protect the privacy and security of the relevant end user (including at a minimum those set out below at Paragraph 2).
                   </span>
-                  <ol
-                    class="schedule-parent"
-                  />
-                </li>
-              </ol>
-            </li>
-            <li
-              class="terms-child schedule-child"
-            >
+                </mock-styled.li>
+              </mock-styled.ol>
+            </mock-styled.li>
+            <mock-styled.li>
               <span>
                 Without prejudice to the foregoing, the Application User Terms must contain clear and legally adequate disclosures about the nature of the Application’s integration with the Reapit Software (and any other software) and the User Data collected by the Application, as well as the Developer’s intended use of it.
               </span>
-              <ol
-                class="schedule-parent"
-              />
-            </li>
-            <li
-              class="terms-child schedule-child"
-            >
+            </mock-styled.li>
+            <mock-styled.li>
               <span>
                 The Application User Terms should include a clear statement that the Application has not been developed by Reapit and that Reapit bears no responsibility or liability for the Application and does not warrant that it does (or will in the future) function and integrate with the Reapit Software.
               </span>
-              <ol
-                class="schedule-parent"
-              />
-            </li>
-          </ol>
-        </li>
-        <li
-          class="terms-child schedule-child"
-        >
-          <h6
+            </mock-styled.li>
+          </mock-styled.ol>
+        </mock-styled.li>
+        <mock-styled.li>
+          <h5
             class=""
             id=""
           >
-            DATA PROTECTION
-          </h6>
-          <ol
-            class="schedule-parent"
-          >
-            <li
-              class="terms-child schedule-child"
-            >
+            Data Protection
+          </h5>
+          <mock-styled.ol>
+            <mock-styled.li>
               <span>
                 The Application User Terms must comply with Data Protection Laws.
               </span>
-              <ol
-                class="schedule-parent"
-              />
-            </li>
-            <li
-              class="terms-child schedule-child"
-            >
+            </mock-styled.li>
+            <mock-styled.li>
               <span>
                 Without prejudice to the generality of the paragraph 2.1, the Developer must clearly notify the end users of the relevant Application as to:
               </span>
-              <ol
-                class="schedule-parent"
-              >
-                <li
-                  class="terms-child schedule-child"
-                >
+              <mock-styled.ol>
+                <mock-styled.li>
                   <span>
                     the types of personal data collected or processed by the Developer and the intended processing purposes of that personal data;
                   </span>
-                  <ol
-                    class="schedule-parent"
-                  />
-                </li>
-                <li
-                  class="terms-child schedule-child"
-                >
+                </mock-styled.li>
+                <mock-styled.li>
                   <span>
                     where such Personal Data is stored (identity and location of entity maintaining the relevant database); and
                   </span>
-                  <ol
-                    class="schedule-parent"
-                  />
-                </li>
-                <li
-                  class="terms-child schedule-child"
-                >
+                </mock-styled.li>
+                <mock-styled.li>
                   <span>
                     whether any third parties are involved as sub-processors of the Personal Data.
                   </span>
-                  <ol
-                    class="schedule-parent"
-                  />
-                </li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-      </ol>
-      ;
+                </mock-styled.li>
+              </mock-styled.ol>
+            </mock-styled.li>
+          </mock-styled.ol>
+        </mock-styled.li>
+      </mock-styled.ol>
     </div>
   </div>,
   "debug": [Function],
