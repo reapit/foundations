@@ -11,9 +11,12 @@ Object {
         <div
           class="mb-3"
         >
-          <u>
+          <h6
+            class=""
+            id=""
+          >
             Calculation of Total Consumption Cost - Methodology:
-          </u>
+          </h6>
           <div
             class=""
           >
@@ -461,9 +464,12 @@ Object {
       <div
         class="mb-3"
       >
-        <u>
+        <h6
+          class=""
+          id=""
+        >
           Calculation of Total Consumption Cost - Methodology:
-        </u>
+        </h6>
         <div
           class=""
         >

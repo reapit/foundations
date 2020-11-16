@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
+import { Table, FlexContainerBasic, Grid, GridItem, H6 } from '@reapit/elements'
 
 const consumptionCostsMethodology = [
   {
@@ -116,7 +116,7 @@ const consumptionCostMethodologyColumns = [
 export const ConsumptionCostMethodologyTable = () => (
   <div className="mt-10">
     <div className="mb-3">
-      <u>Calculation of Total Consumption Cost - Methodology:</u>
+      <H6>Calculation of Total Consumption Cost - Methodology:</H6>
       <FlexContainerBasic>
         <Grid className="is-vcentered">
           <GridItem>(On last day of monthly billing period)</GridItem>
