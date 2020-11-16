@@ -34,11 +34,22 @@ export const TermsLiAlpha = styled(TermsLi)`
 `
 
 export const modalWidth = css`
-  .modal-content,
-  .modal-card {
-    max-width: 1000px;
-    width: auto;
-    padding: 0 2rem;
+  @media only screen and (min-width: 1000px) {
+    .modal-content,
+    .modal-card {
+      max-width: 940px;
+      width: auto;
+      padding: 0 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .modal-content,
+    .modal-card {
+      max-width: 1140px;
+      width: auto;
+      padding: 0 2rem;
+    }
   }
 `
 

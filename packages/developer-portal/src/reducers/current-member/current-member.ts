@@ -10,10 +10,13 @@ import {
 } from '@/actions/current-member'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
 
+export type CurrentMemberUpdateState = 'UNKNOWN' | 'SUCCESS' | 'FAILED'
+
 export type CurrentMemberRootState = {
   data: MemberModel
   isLoading: boolean
   update: {
+    state: CurrentMemberUpdateState
     isLoading: boolean
   }
 }
@@ -22,6 +25,7 @@ export const defaultState: CurrentMemberRootState = {
   isLoading: false,
   data: {},
   update: {
+    state: 'UNKNOWN',
     isLoading: false,
   },
 }
@@ -56,6 +60,7 @@ export const currentMemberReducer = (
     return {
       ...state,
       update: {
+        ...state.update,
         isLoading: true,
       },
     }
@@ -65,6 +70,7 @@ export const currentMemberReducer = (
     return {
       ...state,
       update: {
+        state: 'SUCCESS',
         isLoading: false,
       },
     }
@@ -74,6 +80,7 @@ export const currentMemberReducer = (
     return {
       ...state,
       update: {
+        state: 'FAILED',
         isLoading: false,
       },
     }
