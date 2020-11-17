@@ -83,6 +83,10 @@ export const ScheduleThree = () => (
         The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side
         Applications for the Marketplace.
       </TermsLi>
+      <TermsLi>
+        The Developer will conduct an industry-standard penetration test on each Application at least once every
+        calendar year and provide Reapit with the results of such test.
+      </TermsLi>
     </TermsOl>
   </Content>
 )

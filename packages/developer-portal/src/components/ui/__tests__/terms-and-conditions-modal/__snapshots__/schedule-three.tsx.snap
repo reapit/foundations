@@ -86,6 +86,9 @@ Object {
           <mock-styled.li>
             The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side Applications for the Marketplace.
           </mock-styled.li>
+          <mock-styled.li>
+            The Developer will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test.
+          </mock-styled.li>
         </mock-styled.ol>
       </div>
     </div>
@@ -171,6 +174,9 @@ Object {
         </mock-styled.li>
         <mock-styled.li>
           The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side Applications for the Marketplace.
+        </mock-styled.li>
+        <mock-styled.li>
+          The Developer will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test.
         </mock-styled.li>
       </mock-styled.ol>
     </div>
