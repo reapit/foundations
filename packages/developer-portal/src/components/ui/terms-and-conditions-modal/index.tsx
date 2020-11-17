@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button, Helper, Modal, ModalProps } from '@reapit/elements'
-import { TermAndConditions } from './term-and-conditions'
+import { TermAndConditions } from './terms-and-conditions'
 import { ScheduleOne } from './schedule-one'
 import { ScheduleTwo } from './schedule-two'
 import { modalWidth } from './__styles__/terms-and-conditions'

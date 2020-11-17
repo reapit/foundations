@@ -1,11 +1,5 @@
-import { reapitRed } from '@/core/__styles__/colors'
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
-
-export const Warn = styled.h5`
-  color: ${reapitRed} !important;
-  text-align: center;
-`
 
 export const TermsOl = styled.ol`
   list-style-type: none;
