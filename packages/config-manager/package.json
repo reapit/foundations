@@ -26,6 +26,6 @@
     "change-case": "^4.1.1",
     "prettier": "^1.19.1",
     "prompts": "^2.3.2",
-    "yargs": "^15.4.1"
+    "yargs": "^16.0.0"
   }
 }
