@@ -35,7 +35,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
                 <PrivateRoute path={Routes.STATS} component={Statistics} exact />
                 <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact fetcher />
-                <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact fetcher />
+                <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

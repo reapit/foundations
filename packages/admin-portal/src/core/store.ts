@@ -12,7 +12,7 @@ import { statisticsSagas } from '@/sagas/statistics'
 import { approvalsSagas } from '@/sagas/approvals'
 import { devsManagementSagas, developerSetStatusSagas } from '@/sagas/developers'
 import { customersListSagas } from '@/sagas/customers'
-import subscriptionsSagas from '@/sagas/subscriptions'
+import subscriptionsListSagas from '@/sagas/subscriptions'
 
 import { injectSwitchModeToWindow } from '@reapit/elements'
 
@@ -49,7 +49,7 @@ export class Store {
       fork(appsManagementSagas),
       fork(statisticsSagas),
       fork(customersListSagas),
-      fork(subscriptionsSagas),
+      fork(subscriptionsListSagas),
     ])
   }
 

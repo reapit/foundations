@@ -43,8 +43,8 @@ export const fetchSubscriptionListListen = function*() {
   )
 }
 
-const subscriptionsSagas = function*() {
+const subscriptionsListSagas = function*() {
   yield all([fork(fetchSubscriptionListListen)])
 }
 
-export default subscriptionsSagas
+export default subscriptionsListSagas

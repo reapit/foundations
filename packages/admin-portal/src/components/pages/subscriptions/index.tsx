@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router'
@@ -13,14 +13,17 @@ import {
   isEmptyObject,
   Section,
   Alert,
+  Button,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import SubscriptionsFilterForm, { SubscriptionsFilterFormValues } from '@/components/ui/subscriptions-filter-form'
 import { selectSubscriptionListState } from '@/selector/admin'
 import { cleanObject } from '@reapit/utils'
+import { fetchSubscriptionList, fetchSubscriptionListValues } from '@/actions/subscriptions'
+import store from '../../../core/store'
 
 export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFilterFormValues => {
-  const type = queryParams.get('name') || ''
+  const type = queryParams.get('type') || ''
   const developerId = queryParams.get('developerId') || ''
   return { type, developerId } as SubscriptionsFilterFormValues
 }
@@ -50,6 +53,7 @@ export const onSearchHandler = (history: History<any>) => (
     setStatus('Please enter at least one search criteria')
     return
   }
+
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
@@ -66,33 +70,48 @@ export const Subscriptions: React.FC = () => {
   const onSearch = React.useCallback(onSearchHandler(history), [history])
 
   const SubscriptionsListState = useSelector(selectSubscriptionListState)
+
+  const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+  useEffect(() => {
+    store.dispatch(fetchSubscriptionList({ page, queryString: history.location.search } as fetchSubscriptionListValues))
+  }, [history.location.search])
+
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = SubscriptionsListState
 
   const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
 
+  const StatusCell = ({ cell: { value } }) => <p>{value ? 'Deactived' : 'Active'}</p>
+
+  const DeleteButton = () => (
+    <Button type="button" variant="danger" onClick={() => {}}>
+      Cancel
+    </Button>
+  )
+
   const columns = [
-    { Header: 'Company', accessor: 'company' },
-    { Header: 'Name', accessor: 'name' },
-    { Header: 'Job Title', accessor: 'jobTitle' },
-    { Header: 'Email', accessor: 'email' },
-    { Header: 'Phone', accessor: 'telephone' },
+    { Header: 'Subscription Type', accessor: 'type' },
+    { Header: 'Summary', accessor: 'summary' },
+    { Header: 'Application ID', accessor: 'applicationId' },
+    { Header: 'Member Name', accessor: 'email' },
+    { Header: 'Member Email', accessor: 'user' },
     {
-      Header: 'Created',
+      Header: 'Start Date',
       accessor: 'created',
       Cell: CreatedCell,
     },
     {
-      Header: 'Status',
-      accessor: 'status',
-      columnProps: {
-        className: 'capitalize',
-      },
+      Header: 'Renewal Date',
+      accessor: 'renews',
+    },
+    { Header: 'Frequency', accessor: 'frequency' },
+    { Header: 'Cost', accessor: 'cost' },
+    { Header: 'Status', accessor: 'cancelled', Cell: StatusCell },
+    {
+      Header: '',
+      id: 'membersColumn',
+      Cell: DeleteButton,
     },
   ]
-
-  if (isLoading || !data) {
-    return <Loader />
-  }
 
   return (
     <ErrorBoundary>
@@ -100,8 +119,14 @@ export const Subscriptions: React.FC = () => {
         <H3>Subscriptions</H3>
       </Section>
       <SubscriptionsFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {renderResult(data, columns, totalCount)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      {isLoading || !data ? (
+        <Loader />
+      ) : (
+        <>
+          {renderResult(data, columns, totalCount)}
+          <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+        </>
+      )}
     </ErrorBoundary>
   )
 }
