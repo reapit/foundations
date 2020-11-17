@@ -13,6 +13,8 @@ import {
   DropdownSelect,
   SelectOption,
 } from '@reapit/elements'
+import store from '../../core/store'
+import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
 import { selectDeveloperListState } from '@/selector/admin'
 import { DeveloperData } from '@/reducers/developers/list'
 
@@ -37,6 +39,10 @@ export const prepareDevelopersOptions: (data: DeveloperData[]) => SelectOption[]
   })
 
 export const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValues, onSearch }) => {
+  React.useEffect(() => {
+    store.dispatch(fetchDeveloperList({ queryString: '?page=1' } as fetchDeveloperListValues))
+  }, [])
+
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data } = DeveloperListState
   const developers = prepareDevelopersOptions(data)
@@ -47,8 +53,8 @@ export const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filt
         return (
           <Form noValidate={true}>
             <FormSection>
-              <FormHeading>Developer Management Filter Form</FormHeading>
-              <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
+              <FormHeading>Subscriptions Filter Form</FormHeading>
+              <FormSubHeading>Filter the result by type and developer</FormSubHeading>
               <Grid className="items-center">
                 <GridItem>
                   <Input type="text" labelText="Type" id="type" name="type" />
