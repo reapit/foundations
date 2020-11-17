@@ -16,10 +16,15 @@ import {
   Button,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import SubscriptionsFilterForm, { SubscriptionsFilterFormValues } from '@/components/ui/subscriptions-filter-form'
+import SubscriptionsFilterForm, {
+  SubscriptionsFilterFormValues,
+} from '@/components/ui/subscriptions/subscriptions-filter-form'
+import CancelConfirmModal from '@/components/ui/subscriptions/subscription-cancel-confirm'
+import MemberNameCell from '@/components/ui/subscriptions/subscription-member-name-cell'
 import { selectSubscriptionListState } from '@/selector/admin'
 import { cleanObject } from '@reapit/utils'
-import { fetchSubscriptionList, fetchSubscriptionListValues } from '@/actions/subscriptions'
+import { fetchSubscriptionList, FetchSubscriptionListQuery, cancelSubscription } from '@/actions/subscriptions'
+import { CancelSubscriptionParams } from '@/services/subscriptions'
 import store from '../../../core/store'
 
 export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFilterFormValues => {
@@ -64,6 +69,7 @@ export const onSearchHandler = (history: History<any>) => (
 export const Subscriptions: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const search = location.search
   const queryParams = new URLSearchParams(location.search)
   const filterValues = buildFilterValues(queryParams)
   const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
@@ -73,8 +79,16 @@ export const Subscriptions: React.FC = () => {
 
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
   useEffect(() => {
-    store.dispatch(fetchSubscriptionList({ page, queryString: history.location.search } as fetchSubscriptionListValues))
-  }, [history.location.search])
+    if (search) {
+      store.dispatch(fetchSubscriptionList({ page, queryString: search } as FetchSubscriptionListQuery))
+    }
+  }, [search])
+
+  const [cancelSubId, setCancelSubId] = React.useState<string>('')
+
+  const onCancelSubscription = () => {
+    store.dispatch(cancelSubscription({ id: cancelSubId } as CancelSubscriptionParams))
+  }
 
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = SubscriptionsListState
 
@@ -82,8 +96,8 @@ export const Subscriptions: React.FC = () => {
 
   const StatusCell = ({ cell: { value } }) => <p>{value ? 'Deactived' : 'Active'}</p>
 
-  const DeleteButton = () => (
-    <Button type="button" variant="danger" onClick={() => {}}>
+  const DeleteButton = ({ cell: { value } }) => (
+    <Button type="button" variant="danger" onClick={() => setCancelSubId(value)}>
       Cancel
     </Button>
   )
@@ -92,7 +106,7 @@ export const Subscriptions: React.FC = () => {
     { Header: 'Subscription Type', accessor: 'type' },
     { Header: 'Summary', accessor: 'summary' },
     { Header: 'Application ID', accessor: 'applicationId' },
-    { Header: 'Member Name', accessor: 'email' },
+    { Header: 'Member Name', accessor: 'developerId', Cell: MemberNameCell },
     { Header: 'Member Email', accessor: 'user' },
     {
       Header: 'Start Date',
@@ -108,7 +122,7 @@ export const Subscriptions: React.FC = () => {
     { Header: 'Status', accessor: 'cancelled', Cell: StatusCell },
     {
       Header: '',
-      id: 'membersColumn',
+      accessor: 'id',
       Cell: DeleteButton,
     },
   ]
@@ -127,6 +141,11 @@ export const Subscriptions: React.FC = () => {
           <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
         </>
       )}
+      <CancelConfirmModal
+        onConfirm={onCancelSubscription}
+        isShowConfirmModal={cancelSubId !== ''}
+        setCancelSubId={setCancelSubId}
+      />
     </ErrorBoundary>
   )
 }

@@ -10,12 +10,16 @@ export type FetchSubscriptionsListParams = FetchListCommonParams & {
   developerId: string
 }
 
+export interface CancelSubscriptionParams {
+  id: string
+}
+
 export const fetchSubscriptionsList = async (
   params: FetchSubscriptionsListParams,
 ): Promise<SubscriptionModelPagedResult> => {
   try {
     const response = await fetcher({
-      url: `${URLS.subscriptions}/?${setQueryParams(params)}`,
+      url: `${URLS.subscriptions}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: await generateHeaders(),
@@ -24,5 +28,21 @@ export const fetchSubscriptionsList = async (
   } catch (error) {
     logger(error)
     throw error
+  }
+}
+
+export const cancelSubscription = async (params: CancelSubscriptionParams) => {
+  try {
+    const { id } = params
+    const response = await fetcher({
+      url: `${URLS.subscriptions}/${id}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'DELETE',
+      headers: await generateHeaders(),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
   }
 }

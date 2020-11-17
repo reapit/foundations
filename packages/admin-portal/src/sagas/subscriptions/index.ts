@@ -2,15 +2,16 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import {
   fetchSubscriptionListSuccess,
   fetchSubscriptionListFailed,
-  fetchSubscriptionListValues,
+  FetchSubscriptionListQuery,
+  CancelSubscriptionActionParams,
 } from '@/actions/subscriptions'
 
 import { notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { extractNetworkErrString } from '@reapit/utils'
-import { fetchSubscriptionsList } from '@/services/subscriptions'
+import { extractNetworkErrString, errorMessages } from '@reapit/utils'
+import { fetchSubscriptionsList, cancelSubscription } from '@/services/subscriptions'
 
 export const fetchSubscriptionListHandler = function*({ data: { page, queryString } }) {
   try {
@@ -36,11 +37,25 @@ export const fetchSubscriptionListHandler = function*({ data: { page, queryStrin
   }
 }
 
+export const cancelSubscriptionHandler = function*({ data: { id, callback } }) {
+  try {
+    yield call(cancelSubscription, { id })
+    callback(true)
+  } catch (err) {
+    callback(false)
+    notification.error({
+      message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+    })
+  }
+}
+
 export const fetchSubscriptionListListen = function*() {
-  yield takeLatest<Action<fetchSubscriptionListValues>>(
-    ActionTypes.FETCH_SUBCRIPTION_LIST,
-    fetchSubscriptionListHandler,
-  )
+  yield takeLatest<Action<FetchSubscriptionListQuery>>(ActionTypes.FETCH_SUBCRIPTION_LIST, fetchSubscriptionListHandler)
+}
+
+export const cancelSubscriptionListen = function*() {
+  yield takeLatest<Action<CancelSubscriptionActionParams>>(ActionTypes.DISABLE_MEMBER, cancelSubscriptionHandler)
 }
 
 const subscriptionsListSagas = function*() {
