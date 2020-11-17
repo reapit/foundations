@@ -44,12 +44,8 @@ export const DataSetsTable: React.FC<DataSetsTableProps> = ({ dataSets, setShare
       accessor: 'provider',
     },
     {
-      Header: 'Summary',
-      accessor: 'summary',
-    },
-    {
       Header: 'Description',
-      accessor: 'description',
+      accessor: 'summary',
     },
     {
       Header: 'Create Data Share',
