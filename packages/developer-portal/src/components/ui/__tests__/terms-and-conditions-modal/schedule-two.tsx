@@ -1,10 +1,10 @@
 import React from 'react'
-import { Schedule2 } from '../../terms-and-conditions-modal/schedule2'
+import { ScheduleTwo } from '../../terms-and-conditions-modal/schedule-two'
 import { render } from '@testing-library/react'
 
-describe('Schedule1', () => {
+describe('Schedule Two', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(<Schedule2 />)
+    const wrapper = render(<ScheduleTwo />)
     expect(wrapper).toMatchSnapshot()
   })
 })

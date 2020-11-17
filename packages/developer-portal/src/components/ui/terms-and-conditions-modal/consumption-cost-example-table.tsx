@@ -18,7 +18,7 @@ export const ConsumptionCostExampleTable: React.FC = () => {
   return (
     <div className="mt-10">
       <div className="mb-3">
-        <u>Calculation of Total Consumption Cost - Example for representative purposes only: </u>
+        <H6>Calculation of Total Consumption Cost - Example for representative purposes only: </H6>
       </div>
       <Grid className="is-vcentered is-mobile">
         <GridItem className="is-one-quarter-tablet is-half-mobile">

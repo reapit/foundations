@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { Button, Modal, ModalProps } from '@reapit/elements'
+import { Button, Helper, Modal, ModalProps } from '@reapit/elements'
 import { TermAndConditions } from './term-and-conditions'
-import { Schedule1 } from './schedule1'
-import { Schedule2 } from './schedule2'
-import { headingParagraph } from './__styles__/termsAndConditionsModal'
+import { ScheduleOne } from './schedule-one'
+import { ScheduleTwo } from './schedule-two'
+import { modalWidth } from './__styles__/terms-and-conditions'
+import { ScheduleThree } from './schedule-three'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
@@ -13,7 +14,7 @@ export type TermsAndConditionsModalProps = {
 } & Pick<ModalProps, 'visible' | 'afterClose'>
 
 export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditionsModalProps> = ({
-  visible,
+  visible = true,
   afterClose,
   onAccept,
   onDecline,
@@ -22,6 +23,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
 }) => {
   return (
     <Modal
+      className={modalWidth}
       title="Terms and Conditions"
       size="medium"
       visible={visible}
@@ -40,15 +42,17 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
         </>
       }
     >
-      <React.Fragment>
-        <p className={headingParagraph}>
+      <>
+        <Helper variant="info">Please agree the Reapit Developer Terms and Conditions to proceed</Helper>
+        <p>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
           incorporate the Registration Details, to the exclusion of all other terms.
         </p>
         <TermAndConditions />
-        <Schedule1 />
-        <Schedule2 />
-      </React.Fragment>
+        <ScheduleOne />
+        <ScheduleTwo />
+        <ScheduleThree />
+      </>
     </Modal>
   )
 }

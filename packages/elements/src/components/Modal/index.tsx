@@ -119,7 +119,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   useEffect(() => {
     if (visible) {
       let element: HTMLElement | null
-      let handleHidePortal = () => {
+      const handleHidePortal = () => {
         if (tapOutsideToDissmiss) {
           hidePortal()
           afterClose && afterClose()

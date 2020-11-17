@@ -2,6 +2,7 @@
 
 exports[`Menu should match a snapshot 1`] = `
 <Component
+  className=""
   footerItems={
     <React.Fragment>
       <Unknown
@@ -24,11 +25,15 @@ exports[`Menu should match a snapshot 1`] = `
   title="Terms and Conditions"
   visible={true}
 >
-  <p
-    className=""
+  <Component
+    variant="info"
   >
+    Please agree the Reapit Developer Terms and Conditions to proceed
+  </Component>
+  <p>
     These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
   </p>
+  <Component />
   <Component />
   <Component />
   <Component />
