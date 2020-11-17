@@ -9,9 +9,6 @@ Object {
         class=""
         data-test=""
       >
-        <mock-styled.h5>
-          There are no fees or consumption costs during the Beta period
-        </mock-styled.h5>
         <h5
           class=""
           id=""
@@ -896,9 +893,6 @@ Object {
       class=""
       data-test=""
     >
-      <mock-styled.h5>
-        There are no fees or consumption costs during the Beta period
-      </mock-styled.h5>
       <h5
         class=""
         id=""

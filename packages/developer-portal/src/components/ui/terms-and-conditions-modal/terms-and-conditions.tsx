@@ -1,8 +1,8 @@
 import React from 'react'
 import { Content, H5 } from '@reapit/elements'
-import { TermsOl, TermsLi, TermsLiAlpha, Warn } from './__styles__/terms-and-conditions'
+import { TermsOl, TermsLi, TermsLiAlpha } from './__styles__/terms-and-conditions'
 
-export const TermAndConditions = () => (
+export const TermsAndConditions = () => (
   <Content>
     <TermsOl>
       <TermsLi>
@@ -340,9 +340,6 @@ export const TermAndConditions = () => (
           </TermsLi>
         </TermsOl>
       </TermsLi>
-
-      <Warn>There are no fees or consumption costs during the Beta period</Warn>
-
       <TermsLi>
         <H5>Fees and Payment</H5>
         <TermsOl>
