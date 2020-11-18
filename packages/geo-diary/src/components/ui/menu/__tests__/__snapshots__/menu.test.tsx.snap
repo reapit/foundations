@@ -2,7 +2,7 @@
 
 exports[`Menu should match a snapshot 1`] = `
 <Memo(MenuComponent)
-  defaultActiveKey="LOGO"
+  defaultActiveKey="APPS"
   location={
     Object {
       "location": "location",

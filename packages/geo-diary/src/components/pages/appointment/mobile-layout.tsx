@@ -27,7 +27,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
   if (queryParams.tab === 'map') {
     return (
       <>
-        <Section className="flex-shrink-0" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
+        <Section className="flex-shrink-0 pb-4" isFlex isFlexColumn hasPadding={false} hasMargin={false}>
           <ListAndMapTab queryParams={queryParams} history={history} />
         </Section>
         <AppointmentMap appointments={appointments} />
@@ -37,7 +37,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
 
   return (
     <>
-      <Section className="flex-shrink-0" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
+      <Section className="pb-4" isFlex isFlexColumn hasPadding={false} hasMargin={false}>
         <ListAndMapTab queryParams={queryParams} history={history} />
         <AppointmentTime queryParams={queryParams} history={history} />
         <TravelMode queryParams={queryParams} history={history} />

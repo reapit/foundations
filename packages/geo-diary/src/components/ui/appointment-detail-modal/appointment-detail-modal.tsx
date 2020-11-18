@@ -15,7 +15,6 @@ import {
   combineAddress,
   ModalV2,
   ModalPropsV2,
-  H5,
   isMobile,
 } from '@reapit/elements'
 import { useMutation } from '@apollo/react-hooks'
@@ -362,25 +361,30 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
   )
 
   return (
-    <ModalV2 visible={isShowConfirmModal} destroyOnClose={true} onClose={handleHideConfirmModal(setIsShowConfirmModal)}>
+    <ModalV2
+      visible={isShowConfirmModal}
+      destroyOnClose={true}
+      onClose={handleHideConfirmModal(setIsShowConfirmModal)}
+      title="Cancel appointment?"
+    >
       <React.Fragment>
-        <H5>Are you sure you want to cancel this appointment?</H5>
+        <p>Are you sure you want to cancel this appointment?</p>
         <Section isFlex hasPadding={false} hasMargin={false}>
           <Button
-            variant="info"
-            loading={loading}
-            onClick={handleUpdateAppointment({ updateAppointment, appointment })}
-            type="button"
-          >
-            Yes
-          </Button>
-          <Button
-            variant="info"
+            variant="secondary"
             disabled={loading}
             onClick={handleHideConfirmModal(setIsShowConfirmModal)}
             type="button"
           >
             No
+          </Button>
+          <Button
+            variant="danger"
+            loading={loading}
+            onClick={handleUpdateAppointment({ updateAppointment, appointment })}
+            type="button"
+          >
+            Yes
           </Button>
         </Section>
       </React.Fragment>

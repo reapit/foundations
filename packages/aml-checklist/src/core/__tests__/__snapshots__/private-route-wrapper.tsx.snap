@@ -10,7 +10,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   >
     <Component
       flexColumn={true}
-      hasBackground={false}
     >
       <Suspense
         fallback={

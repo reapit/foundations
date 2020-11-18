@@ -1,7 +1,19 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Button, Input, SelectBox, H3, AcButton, EntityType, AppParams, Form, Formik, Section } from '@reapit/elements'
+import {
+  Button,
+  Input,
+  SelectBox,
+  H3,
+  AcButton,
+  EntityType,
+  AppParams,
+  Form,
+  Formik,
+  Section,
+  FadeIn,
+} from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
@@ -31,55 +43,59 @@ const identityCheckList = [
 // eslint-disable-next-line
 export const renderForm = ({ connectIsDesktop }) => ({ values }) => {
   return (
-    <Section>
-      <H3>Client Search</H3>
-      <Form className="mb-8">
-        <Input
-          id={nameField.name}
-          type="text"
-          placeholder={nameField.placeHolder}
-          name={nameField.name}
-          labelText={nameField.label}
-        />
-        <Input
-          id={addressField.name}
-          type="text"
-          placeholder={addressField.placeHolder}
-          name={addressField.name}
-          labelText={addressField.label}
-        />
-        <SelectBox
-          id={identityCheckField.name}
-          name={identityCheckField.name}
-          labelText={identityCheckField.label}
-          options={identityCheckList}
-        />
-        <Button className="is-right" type="submit" variant="primary">
-          Search
-        </Button>
-        {connectIsDesktop && (
-          <AcButton
-            dynamicLinkParams={{
-              entityType: EntityType.CONTACT,
-              queryParams: {
-                name: values.name,
-                address: values.address,
-                appId: window.reapit.config.appId,
-                appParam: AppParams.CONTACT_CODE,
-              },
-              appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
-            }}
-            buttonProps={{
-              type: 'button',
-              variant: 'primary',
-              disabled: !values.name && !values.address,
-            }}
-          >
-            Advanced Search
-          </AcButton>
-        )}
-      </Form>
-    </Section>
+    <>
+      <H3 isHeadingSection>Client Search</H3>
+      <Section>
+        <FadeIn>
+          <Form className="mb-8">
+            <Input
+              id={nameField.name}
+              type="text"
+              placeholder={nameField.placeHolder}
+              name={nameField.name}
+              labelText={nameField.label}
+            />
+            <Input
+              id={addressField.name}
+              type="text"
+              placeholder={addressField.placeHolder}
+              name={addressField.name}
+              labelText={addressField.label}
+            />
+            <SelectBox
+              id={identityCheckField.name}
+              name={identityCheckField.name}
+              labelText={identityCheckField.label}
+              options={identityCheckList}
+            />
+            <Button className="is-right" type="submit" variant="primary">
+              Search
+            </Button>
+            {connectIsDesktop && (
+              <AcButton
+                dynamicLinkParams={{
+                  entityType: EntityType.CONTACT,
+                  queryParams: {
+                    name: values.name,
+                    address: values.address,
+                    appId: window.reapit.config.appId,
+                    appParam: AppParams.CONTACT_CODE,
+                  },
+                  appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
+                }}
+                buttonProps={{
+                  type: 'button',
+                  variant: 'primary',
+                  disabled: !values.name && !values.address,
+                }}
+              >
+                Advanced Search
+              </AcButton>
+            )}
+          </Form>
+        </FadeIn>
+      </Section>
+    </>
   )
 }
 

@@ -9170,6 +9170,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       <Component
         destroyOnClose={true}
         onClose={[Function]}
+        title="Cancel appointment?"
         visible={true}
       >
         <Component
@@ -9182,7 +9183,11 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           }
           destroyOnClose={true}
           onClose={[Function]}
-          title={<Unknown />}
+          title={
+            <Unknown>
+              Cancel appointment?
+            </Unknown>
+          }
           visible={true}
           wrapClassName=""
         >
@@ -9238,35 +9243,34 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               >
                                 <h4
                                   class="modal-card-title is-4 pt-2 pb-2"
-                                />
+                                >
+                                  Cancel appointment?
+                                </h4>
                               </div>
                             </div>
                             <div
                               class="rc-dialog-body"
                             >
-                              <h5
-                                class=""
-                                id=""
-                              >
+                              <p>
                                 Are you sure you want to cancel this appointment?
-                              </h5>
+                              </p>
                               <section
                                 class=""
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-info  "
-                                  data-test=""
-                                  type="button"
-                                >
-                                  Yes
-                                </button>
-                                <button
-                                  class="button  is-info  "
+                                  class="button  is-secondary  "
                                   data-test=""
                                   type="button"
                                 >
                                   No
+                                </button>
+                                <button
+                                  class="button  is-danger  "
+                                  data-test=""
+                                  type="button"
+                                >
+                                  Yes
                                 </button>
                               </section>
                             </div>
@@ -9301,7 +9305,11 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                   onClose={[Function]}
                   prefixCls="rc-dialog"
                   switchScrollingEffect={[Function]}
-                  title={<Unknown />}
+                  title={
+                    <Unknown>
+                      Cancel appointment?
+                    </Unknown>
+                  }
                   visible={true}
                   wrapClassName=""
                 >
@@ -9405,21 +9413,18 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     <Component>
                                       <h4
                                         className="modal-card-title is-4 pt-2 pb-2"
-                                      />
+                                      >
+                                        Cancel appointment?
+                                      </h4>
                                     </Component>
                                   </div>
                                 </div>
                                 <div
                                   className="rc-dialog-body"
                                 >
-                                  <Component>
-                                    <h5
-                                      className=""
-                                      id=""
-                                    >
-                                      Are you sure you want to cancel this appointment?
-                                    </h5>
-                                  </Component>
+                                  <p>
+                                    Are you sure you want to cancel this appointment?
+                                  </p>
                                   <Component
                                     hasMargin={false}
                                     hasPadding={false}
@@ -9430,35 +9435,35 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                       data-test=""
                                     >
                                       <Component
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="info"
-                                      >
-                                        <button
-                                          className="button  is-info  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Yes
-                                        </button>
-                                      </Component>
-                                      <Component
                                         disabled={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="info"
+                                        variant="secondary"
                                       >
                                         <button
-                                          className="button  is-info  "
+                                          className="button  is-secondary  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
                                         >
                                           No
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        loading={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="danger"
+                                      >
+                                        <button
+                                          className="button  is-danger  "
+                                          data-test=""
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Yes
                                         </button>
                                       </Component>
                                     </section>
@@ -9905,6 +9910,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
       <Component
         destroyOnClose={true}
         onClose={[Function]}
+        title="Cancel appointment?"
         visible={true}
       >
         <Component
@@ -9917,7 +9923,11 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
           }
           destroyOnClose={true}
           onClose={[Function]}
-          title={<Unknown />}
+          title={
+            <Unknown>
+              Cancel appointment?
+            </Unknown>
+          }
           visible={true}
           wrapClassName=""
         >
@@ -9973,35 +9983,34 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                               >
                                 <h4
                                   class="modal-card-title is-4 pt-2 pb-2"
-                                />
+                                >
+                                  Cancel appointment?
+                                </h4>
                               </div>
                             </div>
                             <div
                               class="rc-dialog-body"
                             >
-                              <h5
-                                class=""
-                                id=""
-                              >
+                              <p>
                                 Are you sure you want to cancel this appointment?
-                              </h5>
+                              </p>
                               <section
                                 class=""
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-info  "
-                                  data-test=""
-                                  type="button"
-                                >
-                                  Yes
-                                </button>
-                                <button
-                                  class="button  is-info  "
+                                  class="button  is-secondary  "
                                   data-test=""
                                   type="button"
                                 >
                                   No
+                                </button>
+                                <button
+                                  class="button  is-danger  "
+                                  data-test=""
+                                  type="button"
+                                >
+                                  Yes
                                 </button>
                               </section>
                             </div>
@@ -10036,7 +10045,11 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                   onClose={[Function]}
                   prefixCls="rc-dialog"
                   switchScrollingEffect={[Function]}
-                  title={<Unknown />}
+                  title={
+                    <Unknown>
+                      Cancel appointment?
+                    </Unknown>
+                  }
                   visible={true}
                   wrapClassName=""
                 >
@@ -10140,21 +10153,18 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                     <Component>
                                       <h4
                                         className="modal-card-title is-4 pt-2 pb-2"
-                                      />
+                                      >
+                                        Cancel appointment?
+                                      </h4>
                                     </Component>
                                   </div>
                                 </div>
                                 <div
                                   className="rc-dialog-body"
                                 >
-                                  <Component>
-                                    <h5
-                                      className=""
-                                      id=""
-                                    >
-                                      Are you sure you want to cancel this appointment?
-                                    </h5>
-                                  </Component>
+                                  <p>
+                                    Are you sure you want to cancel this appointment?
+                                  </p>
                                   <Component
                                     hasMargin={false}
                                     hasPadding={false}
@@ -10165,35 +10175,35 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                       data-test=""
                                     >
                                       <Component
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="info"
-                                      >
-                                        <button
-                                          className="button  is-info  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Yes
-                                        </button>
-                                      </Component>
-                                      <Component
                                         disabled={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="info"
+                                        variant="secondary"
                                       >
                                         <button
-                                          className="button  is-info  "
+                                          className="button  is-secondary  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
                                         >
                                           No
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        loading={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="danger"
+                                      >
+                                        <button
+                                          className="button  is-danger  "
+                                          data-test=""
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Yes
                                         </button>
                                       </Component>
                                     </section>
@@ -18569,6 +18579,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       <Component
         destroyOnClose={true}
         onClose={[Function]}
+        title="Cancel appointment?"
         visible={false}
       >
         <Component
@@ -18581,7 +18592,11 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           }
           destroyOnClose={true}
           onClose={[Function]}
-          title={<Unknown />}
+          title={
+            <Unknown>
+              Cancel appointment?
+            </Unknown>
+          }
           visible={false}
           wrapClassName=""
         >
@@ -19006,6 +19021,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
       <Component
         destroyOnClose={true}
         onClose={[Function]}
+        title="Cancel appointment?"
         visible={false}
       >
         <Component
@@ -19018,7 +19034,11 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
           }
           destroyOnClose={true}
           onClose={[Function]}
-          title={<Unknown />}
+          title={
+            <Unknown>
+              Cancel appointment?
+            </Unknown>
+          }
           visible={false}
           wrapClassName=""
         >

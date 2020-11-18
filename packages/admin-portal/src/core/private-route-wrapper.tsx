@@ -24,7 +24,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive hasPadding flexColumn isPageContainer>
+            <Loader />
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    )
   }
 
   if (isRoot) {

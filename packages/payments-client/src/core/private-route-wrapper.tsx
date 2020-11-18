@@ -16,7 +16,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive hasPadding flexColumn>
+            <Loader />
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    )
   }
 
   if (

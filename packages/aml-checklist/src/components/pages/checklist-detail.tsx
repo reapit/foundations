@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader, Tile, Button, Section } from '@reapit/elements'
+import { Loader, Tile, Button, Section, FadeIn } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -89,21 +89,23 @@ export const renderCheckMark = (isCompleted: boolean, isOnMobile: boolean) => {
 export const renderSections = (sections: SectionProps[]) => {
   return sections.map((section, index) => {
     return (
-      <div className="pb-4" key={index}>
-        <Tile
-          heading={section.title}
-          menu={
-            <div className={styles.statusSectionWrap}>
-              {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, false)}
-              <Button type="button" variant="primary" onClick={section.onEdit}>
-                {section.buttonText}
-              </Button>
-            </div>
-          }
-        >
-          {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, true)}
-        </Tile>
-      </div>
+      <FadeIn key={index}>
+        <Section hasPadding={false}>
+          <Tile
+            heading={section.title}
+            menu={
+              <div className={styles.statusSectionWrap}>
+                {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, false)}
+                <Button type="button" variant="primary" onClick={section.onEdit}>
+                  {section.buttonText}
+                </Button>
+              </div>
+            }
+          >
+            {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, true)}
+          </Tile>
+        </Section>
+      </FadeIn>
     )
   })
 }

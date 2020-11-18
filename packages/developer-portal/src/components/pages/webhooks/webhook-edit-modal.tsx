@@ -18,6 +18,7 @@ import {
   Level,
   LevelLeft,
   LevelRight,
+  notification,
 } from '@reapit/elements'
 import {
   requestWebhookSubcriptionData,
@@ -84,7 +85,33 @@ export const generateCustomerOptions = (customers: InstallationModel[]) => {
   return customerOptions
 }
 
-export const onCreate = (dispatch: Dispatch, appId: string) => (values: FormValuesType) => {
+export const checkSelectedValid = (list: SelectOption[], items: string[], entity: 'customers' | 'topics'): boolean => {
+  const errorsList = items.filter(item => !list.find(listItem => listItem.value === item))
+
+  if (errorsList.length) {
+    notification.error({
+      message: `Invalid ${entity} selected. Please select only ${entity} that are available in the dropdown. Invalid selections are ${errorsList.join(
+        ', ',
+      )}`,
+      placement: 'bottomRight',
+    })
+    return false
+  }
+
+  return true
+}
+
+export const onCreate = (
+  dispatch: Dispatch,
+  topicOptions: SelectOption[],
+  customerOptions: SelectOption[],
+  appId: string,
+) => (values: FormValuesType) => {
+  const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
+  const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
+
+  if (!topicsValid || !customersValid) return
+
   const params: CreateWebhookParams = {
     applicationId: appId,
     url: values.url,
@@ -96,7 +123,18 @@ export const onCreate = (dispatch: Dispatch, appId: string) => (values: FormValu
   dispatch(createWebhook(params))
 }
 
-export const onEdit = (dispatch: Dispatch, webhookId: string, appId: string) => (values: FormValuesType) => {
+export const onEdit = (
+  dispatch: Dispatch,
+  topicOptions: SelectOption[],
+  customerOptions: SelectOption[],
+  webhookId: string,
+  appId: string,
+) => (values: FormValuesType) => {
+  const topicsValid = checkSelectedValid(topicOptions, values.topicIds, 'topics')
+  const customersValid = checkSelectedValid(customerOptions, values.customerIds, 'customers')
+
+  if (!topicsValid || !customersValid) return
+
   const params: EditWebhookParams = {
     applicationId: appId,
     webhookId,
@@ -146,7 +184,9 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
     }
   }, [])
 
-  const onSubmit = isUpdate ? onEdit(dispatch, webhookId, appId) : onCreate(dispatch, appId)
+  const onSubmit = isUpdate
+    ? onEdit(dispatch, topicOptions, customerOptions, webhookId, appId)
+    : onCreate(dispatch, topicOptions, customerOptions, appId)
   const onDelete = () => dispatch(deleteWebhook({ webhookId, applicationId: appId }))
 
   if (!visible) {

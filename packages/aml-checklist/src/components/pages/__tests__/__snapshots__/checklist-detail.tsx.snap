@@ -2,220 +2,11 @@
 
 exports[` 1`] = `
 <div>
-  <div
-    className="pb-4"
+  <mock-styled.div
     key="0"
   >
     <Component
-      heading="Personal Details"
-      menu={
-        <div>
-          <div
-            className="undefined undefined"
-          >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
-          </div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            Edit
-          </Unknown>
-        </div>
-      }
-    >
-      <div
-        className="undefined undefined"
-      >
-        <FaCheck />
-        <span>
-          Completed
-        </span>
-      </div>
-    </Component>
-  </div>
-  <div
-    className="pb-4"
-    key="1"
-  >
-    <Component
-      heading="Primary ID"
-      menu={
-        <div>
-          <div
-            className="undefined undefined"
-          >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            Edit
-          </Unknown>
-        </div>
-      }
-    >
-      <div
-        className="undefined undefined"
-      >
-        <FaTimes />
-        <span>
-          Incomplete
-        </span>
-      </div>
-    </Component>
-  </div>
-  <div
-    className="pb-4"
-    key="2"
-  >
-    <Component
-      heading="Secondary ID"
-      menu={
-        <div>
-          <div
-            className="undefined undefined"
-          >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
-          </div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            Edit
-          </Unknown>
-        </div>
-      }
-    >
-      <div
-        className="undefined undefined"
-      >
-        <FaCheck />
-        <span>
-          Completed
-        </span>
-      </div>
-    </Component>
-  </div>
-  <div
-    className="pb-4"
-    key="3"
-  >
-    <Component
-      heading="Address Information"
-      menu={
-        <div>
-          <div
-            className="undefined undefined"
-          >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            Edit
-          </Unknown>
-        </div>
-      }
-    >
-      <div
-        className="undefined undefined"
-      >
-        <FaTimes />
-        <span>
-          Incomplete
-        </span>
-      </div>
-    </Component>
-  </div>
-  <div
-    className="pb-4"
-    key="4"
-  >
-    <Component
-      heading="Declaration Risk Management"
-      menu={
-        <div>
-          <div
-            className="undefined undefined"
-          >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            Edit
-          </Unknown>
-        </div>
-      }
-    >
-      <div
-        className="undefined undefined"
-      >
-        <FaTimes />
-        <span>
-          Incomplete
-        </span>
-      </div>
-    </Component>
-  </div>
-  <div
-    className="pb-4"
-    key="5"
-  >
-    <Component
-      heading="Report"
-      menu={
-        <div>
-          <Unknown
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
-          >
-            View
-          </Unknown>
-        </div>
-      }
-    />
-  </div>
-</div>
-`;
-
-exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Component />`;
-
-exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
-<ErrorBoundary>
-  <Component
-    hasBackground={false}
-    hasPadding={false}
-  >
-    <Connect(Component) />
-    <div
-      className="pb-4"
-      key="0"
+      hasPadding={false}
     >
       <Component
         heading="Personal Details"
@@ -230,6 +21,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               </span>
             </div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -247,10 +39,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </span>
         </div>
       </Component>
-    </div>
-    <div
-      className="pb-4"
-      key="1"
+    </Component>
+  </mock-styled.div>
+  <mock-styled.div
+    key="1"
+  >
+    <Component
+      hasPadding={false}
     >
       <Component
         heading="Primary ID"
@@ -265,6 +60,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               </span>
             </div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -282,10 +78,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </span>
         </div>
       </Component>
-    </div>
-    <div
-      className="pb-4"
-      key="2"
+    </Component>
+  </mock-styled.div>
+  <mock-styled.div
+    key="2"
+  >
+    <Component
+      hasPadding={false}
     >
       <Component
         heading="Secondary ID"
@@ -300,6 +99,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               </span>
             </div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -317,10 +117,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </span>
         </div>
       </Component>
-    </div>
-    <div
-      className="pb-4"
-      key="3"
+    </Component>
+  </mock-styled.div>
+  <mock-styled.div
+    key="3"
+  >
+    <Component
+      hasPadding={false}
     >
       <Component
         heading="Address Information"
@@ -335,6 +138,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               </span>
             </div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -352,10 +156,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </span>
         </div>
       </Component>
-    </div>
-    <div
-      className="pb-4"
-      key="4"
+    </Component>
+  </mock-styled.div>
+  <mock-styled.div
+    key="4"
+  >
+    <Component
+      hasPadding={false}
     >
       <Component
         heading="Declaration Risk Management"
@@ -370,6 +177,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               </span>
             </div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -387,16 +195,20 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </span>
         </div>
       </Component>
-    </div>
-    <div
-      className="pb-4"
-      key="5"
+    </Component>
+  </mock-styled.div>
+  <mock-styled.div
+    key="5"
+  >
+    <Component
+      hasPadding={false}
     >
       <Component
         heading="Report"
         menu={
           <div>
             <Unknown
+              onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
@@ -405,7 +217,231 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           </div>
         }
       />
-    </div>
+    </Component>
+  </mock-styled.div>
+</div>
+`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Component />`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
+<ErrorBoundary>
+  <Component
+    hasBackground={false}
+    hasPadding={false}
+  >
+    <Connect(Component) />
+    <mock-styled.div
+      key="0"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Personal Details"
+          menu={
+            <div>
+              <div
+                className="undefined undefined"
+              >
+                <FaCheck />
+                <span>
+                  Completed
+                </span>
+              </div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Unknown>
+            </div>
+          }
+        >
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
+        </Component>
+      </Component>
+    </mock-styled.div>
+    <mock-styled.div
+      key="1"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Primary ID"
+          menu={
+            <div>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Unknown>
+            </div>
+          }
+        >
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+        </Component>
+      </Component>
+    </mock-styled.div>
+    <mock-styled.div
+      key="2"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Secondary ID"
+          menu={
+            <div>
+              <div
+                className="undefined undefined"
+              >
+                <FaCheck />
+                <span>
+                  Completed
+                </span>
+              </div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Unknown>
+            </div>
+          }
+        >
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
+        </Component>
+      </Component>
+    </mock-styled.div>
+    <mock-styled.div
+      key="3"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Address Information"
+          menu={
+            <div>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Unknown>
+            </div>
+          }
+        >
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+        </Component>
+      </Component>
+    </mock-styled.div>
+    <mock-styled.div
+      key="4"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Declaration Risk Management"
+          menu={
+            <div>
+              <div
+                className="undefined undefined"
+              >
+                <FaTimes />
+                <span>
+                  Incomplete
+                </span>
+              </div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Unknown>
+            </div>
+          }
+        >
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+        </Component>
+      </Component>
+    </mock-styled.div>
+    <mock-styled.div
+      key="5"
+    >
+      <Component
+        hasPadding={false}
+      >
+        <Component
+          heading="Report"
+          menu={
+            <div>
+              <Unknown
+                type="button"
+                variant="primary"
+              >
+                View
+              </Unknown>
+            </div>
+          }
+        />
+      </Component>
+    </mock-styled.div>
   </Component>
   <withRouter()
     afterClose={[MockFunction]}

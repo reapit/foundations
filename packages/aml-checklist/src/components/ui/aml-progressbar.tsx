@@ -10,7 +10,8 @@ import {
   AcLink,
   EntityType,
   SubTitleH5,
-  FlexContainerBasic,
+  FadeIn,
+  Section,
 } from '@reapit/elements'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
@@ -44,43 +45,39 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
   const name = `${title || ''} ${forename || ''} ${surname || ''}`.trim()
 
   return (
-    <div className="mb-4">
-      <FlexContainerBasic hasPadding flexColumn hasBackground>
-        <div>
-          <Level>
-            <LevelLeft>
-              <LevelItem>
-                <div>
-                  <H3 className="mb-6">
-                    <AcLink
-                      dynamicLinkParams={{
-                        appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
-                        entityType: EntityType.CONTACT,
-                        entityCode: id,
-                      }}
-                    >
-                      {name}
-                    </AcLink>
-                  </H3>
-                  <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
-                </div>
-              </LevelItem>
-            </LevelLeft>
-            <LevelRight>
-              <LevelItem>
-                <Button disabled={!idCheck} type="button" variant="primary" onClick={() => showModal(ID_STATUS.UPDATE)}>
-                  Update Status
-                </Button>
-              </LevelItem>
-            </LevelRight>
-          </Level>
-          <ProgressBar percentage={progress.percentage} />
-          <div className="has-text-right">
-            {progress.completed}/{progress.total} <span>Completed</span>
-          </div>
+    <FadeIn>
+      <Section>
+        <Level>
+          <LevelLeft>
+            <LevelItem>
+              <H3>
+                <AcLink
+                  dynamicLinkParams={{
+                    appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
+                    entityType: EntityType.CONTACT,
+                    entityCode: id,
+                  }}
+                >
+                  {name}
+                </AcLink>
+              </H3>
+              <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+            </LevelItem>
+          </LevelLeft>
+          <LevelRight>
+            <LevelItem>
+              <Button disabled={!idCheck} type="button" variant="primary" onClick={() => showModal(ID_STATUS.UPDATE)}>
+                Update Status
+              </Button>
+            </LevelItem>
+          </LevelRight>
+        </Level>
+        <ProgressBar percentage={progress.percentage} />
+        <div className="has-text-right">
+          {progress.completed}/{progress.total} <span>Completed</span>
         </div>
-      </FlexContainerBasic>
-    </div>
+      </Section>
+    </FadeIn>
   )
 }
 

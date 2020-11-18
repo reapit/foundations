@@ -9,9 +9,12 @@ import { AppDetailData } from '@/reducers/developer'
 import { Grid, GridItem, Section, Alert } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectIntegrationTypes } from '../../../selector/integration-types'
+import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { getDesktopIntegrationTypes } from '../../../utils/get-desktop-integration-types'
 
-export type AppDetailPreviewProps = {}
+export type AppDetailPreviewProps = AppDetailData
 
 export const loadAppDetailPreviewDataFromLocalStorage = (
   appId: string,
@@ -43,6 +46,10 @@ const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
   const dispatch = useDispatch()
   const [appDetailPreviewData, setAppDetailPreviewData] = React.useState<AppDetailPreviewProps | null>(null)
   const { appId } = useParams<{ appId: string }>()
+  const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
+  const userDesktopIntegrationTypes = appDetailPreviewData
+    ? getDesktopIntegrationTypes(appDetailPreviewData.desktopIntegrationTypeIds || [], desktopIntegrationTypes)
+    : []
 
   React.useEffect(loadAppDetailPreviewDataFromLocalStorage(appId, setAppDetailPreviewData, dispatch), [appId, dispatch])
 
@@ -55,7 +62,7 @@ const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
       ) : (
         <>
           <GridItem className="is-one-quarter">
-            <AppAside appDetailData={appDetailPreviewData} desktopIntegrationTypes={[]} />
+            <AppAside appDetailData={appDetailPreviewData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
           </GridItem>
           <GridItem className="is-three-quarters">
             <Section isFlex isFlexColumn isFullHeight>

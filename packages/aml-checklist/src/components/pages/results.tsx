@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
-import { Pagination, Table, Button, H3, Info, H6, Section } from '@reapit/elements'
+import { Pagination, Table, Button, H3, Section, FadeIn, Helper, Loader } from '@reapit/elements'
 import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
 
@@ -98,19 +98,6 @@ export const fnFetchContacts = (
   }
 }
 
-export const renderEmptyResult = () => (
-  <Section hasPadding={false} hasMargin={false} isCentered>
-    <Info infoType="">
-      <H6>No Results found</H6>
-    </Info>
-    <Link to={Routes.HOME} className="inline-block">
-      <Button variant="info" type="button">
-        New Search
-      </Button>
-    </Link>
-  </Section>
-)
-
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
   const { search, loading } = resultState
   const { totalCount, pageSize, _embedded = [] } = resultState?.contacts || {}
@@ -126,22 +113,39 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
 
   return (
     <ErrorBoundary>
-      {!search || Number(totalCount) === 0 ? (
-        renderEmptyResult()
-      ) : (
-        <Section hasPadding>
-          {search && <H3>Showing Results for &lsquo;{searchTitle}&rsquo;</H3>}
-          <Table scrollable data={_embedded} columns={columns} loading={loading} />
-          <Section>
+      <>
+        <Section className="justify-between items-center" isFlex>
+          <H3 className="mb-0">{search ? `Showing Results for "${searchTitle}"` : 'No Search Applied'}</H3>
+          <Link to={Routes.HOME}>
+            <Button type="button" variant="primary">
+              New Search
+            </Button>
+          </Link>
+        </Section>
+        <Section>
+          {loading ? (
+            <Loader />
+          ) : (
+            <FadeIn>
+              {!search || Number(totalCount) === 0 ? (
+                <Helper variant="info">No search results</Helper>
+              ) : (
+                <Table scrollable data={_embedded} columns={columns} loading={loading} />
+              )}
+            </FadeIn>
+          )}
+        </Section>
+        {!loading && (
+          <FadeIn>
             <Pagination
               pageNumber={pageNumber}
               pageSize={pageSize}
               totalCount={totalCount}
               onChange={handleChangePage}
             />
-          </Section>
-        </Section>
-      )}
+          </FadeIn>
+        )}
+      </>
     </ErrorBoundary>
   )
 }
