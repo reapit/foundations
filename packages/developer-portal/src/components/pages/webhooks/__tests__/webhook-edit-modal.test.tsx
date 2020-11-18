@@ -45,13 +45,14 @@ describe('WebhookEditModal', () => {
   })
 
   it('should call editWebhook', () => {
+    const selectOptions = [{ value: 'TEST', label: 'TEST' }]
     const webhookId = ''
     const appId = ''
-    const fn = onEdit(spyDispatch, webhookId, appId)
+    const fn = onEdit(spyDispatch, selectOptions, selectOptions, webhookId, appId)
     const values: FormValuesType = {
       url: '',
-      topicIds: [],
-      customerIds: [],
+      topicIds: ['TEST'],
+      customerIds: ['TEST'],
       active: false,
     }
     fn(values)
@@ -67,13 +68,63 @@ describe('WebhookEditModal', () => {
       }),
     )
   })
-  it('should call createWebhook', () => {
+
+  it('should not call editWebhook if invalid topics or customers', () => {
+    const selectOptions = [{ value: 'INVALID', label: 'INVALID' }]
+    const webhookId = ''
     const appId = ''
-    const fn = onCreate(spyDispatch, appId)
+    const fn = onEdit(spyDispatch, selectOptions, selectOptions, webhookId, appId)
+    const values: FormValuesType = {
+      url: '',
+      topicIds: ['TEST'],
+      customerIds: ['TEST'],
+      active: false,
+    }
+    fn(values)
+    expect(spyDispatch).toBeCalledWith(
+      editWebhook({
+        applicationId: appId,
+        webhookId,
+        url: values.url,
+        description: '',
+        topicIds: values.topicIds,
+        customerIds: values.customerIds,
+        active: values.active,
+      }),
+    )
+  })
+
+  it('should call createWebhook', () => {
+    const selectOptions = [{ value: 'TEST', label: 'TEST' }]
+    const appId = ''
+    const fn = onCreate(spyDispatch, selectOptions, selectOptions, appId)
     const values = {
       url: '',
-      topicIds: [],
-      customerIds: [],
+      topicIds: ['TEST'],
+      customerIds: ['TEST'],
+      active: false,
+    }
+    fn(values)
+    expect(spyDispatch).toBeCalledWith(
+      createWebhook({
+        applicationId: appId,
+        url: values.url,
+        description: '',
+        topicIds: values.topicIds,
+        customerIds: values.customerIds,
+        active: values.active,
+      }),
+    )
+  })
+
+  it('should not call createWebhook if invalid topics or customers', () => {
+    const selectOptions = [{ value: 'INVALID', label: 'INVALID' }]
+    const appId = ''
+    const fn = onCreate(spyDispatch, selectOptions, selectOptions, appId)
+    const values = {
+      url: '',
+      topicIds: ['TEST'],
+      customerIds: ['TEST'],
       active: false,
     }
     fn(values)

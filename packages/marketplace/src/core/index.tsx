@@ -49,7 +49,7 @@ const run = async () => {
     const isLocal = config.appEnv === 'local'
 
     window.reapit.config = config
-    if (!isLocal && config.sentryDns) {
+    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
       Sentry.init({
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,

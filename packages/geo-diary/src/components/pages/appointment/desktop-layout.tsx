@@ -8,6 +8,7 @@ import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { mapContainer, appoinmentContainer } from './__styles__'
+import { Section } from '@reapit/elements'
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
@@ -25,8 +26,10 @@ export const DesktopLayout: React.FC<DesktopLayoutProps> = ({ appointments }) =>
   return (
     <>
       <div className={appoinmentContainer}>
-        <AppointmentTime queryParams={queryParams} history={history} />
-        <TravelMode queryParams={queryParams} history={history} />
+        <Section>
+          <AppointmentTime queryParams={queryParams} history={history} />
+          <TravelMode queryParams={queryParams} history={history} />
+        </Section>
         <AppointmentList appointments={appointments} />
       </div>
       <div className={mapContainer}>

@@ -17,7 +17,7 @@ Object {
               class="nav-item-link is-logo"
             >
               <li
-                class="nav-item is-active"
+                class="nav-item "
               >
                 <div>
                   <svg
@@ -58,7 +58,7 @@ Object {
               class="nav-item-link is-primary"
             >
               <li
-                class="nav-item "
+                class="nav-item is-active"
               >
                 <div>
                   <svg
@@ -133,7 +133,7 @@ Object {
             class="nav-item-link is-logo"
           >
             <li
-              class="nav-item is-active"
+              class="nav-item "
             >
               <div>
                 <svg
@@ -174,7 +174,7 @@ Object {
             class="nav-item-link is-primary"
           >
             <li
-              class="nav-item "
+              class="nav-item is-active"
             >
               <div>
                 <svg
@@ -306,7 +306,7 @@ Object {
               class="nav-item-link is-logo"
             >
               <li
-                class="nav-item is-active"
+                class="nav-item "
               >
                 <div>
                   <svg
@@ -347,7 +347,7 @@ Object {
               class="nav-item-link is-primary"
             >
               <li
-                class="nav-item "
+                class="nav-item is-active"
               >
                 <div>
                   <svg
@@ -422,7 +422,7 @@ Object {
             class="nav-item-link is-logo"
           >
             <li
-              class="nav-item is-active"
+              class="nav-item "
             >
               <div>
                 <svg
@@ -463,7 +463,7 @@ Object {
             class="nav-item-link is-primary"
           >
             <li
-              class="nav-item "
+              class="nav-item is-active"
             >
               <div>
                 <svg

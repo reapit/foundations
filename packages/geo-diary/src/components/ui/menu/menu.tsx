@@ -8,7 +8,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
-    defaultActiveKey: 'LOGO',
+    defaultActiveKey: 'APPS',
     location,
     menu: [
       {

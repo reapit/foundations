@@ -11,7 +11,6 @@ import {
   generateSearchTitle,
   fnChangePage,
   fnFetchContacts,
-  renderEmptyResult,
 } from '../results'
 import { contacts } from '@/sagas/__stubs__/contacts'
 import { ReduxState } from '@/types/core'
@@ -74,13 +73,6 @@ describe('Result', () => {
       const search = {}
       fnFetchContacts(search, pageNumber, fetchContacts)()
       expect(fetchContacts).toBeCalled()
-    })
-  })
-
-  describe('renderEmptyResult', () => {
-    it('should run correctly', () => {
-      const fn = renderEmptyResult()
-      expect(fn).toMatchSnapshot()
     })
   })
 

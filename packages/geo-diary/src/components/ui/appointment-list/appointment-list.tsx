@@ -2,6 +2,7 @@ import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import AppointmentTile from '../appointment-tile'
 import dayjs from 'dayjs'
+import { FadeIn, Helper } from '@reapit/elements'
 
 export type AppointmentListProps = {
   appointments: ExtendedAppointmentModel[]
@@ -33,7 +34,11 @@ export type AppointmentTypeQueryVariables = {
 
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
   if (appointments.length === 0) {
-    return <div className="py-8 px-4 text-center">No appointments</div>
+    return (
+      <FadeIn>
+        <Helper variant="info">No appointments</Helper>
+      </FadeIn>
+    )
   }
 
   return (
@@ -41,9 +46,11 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
       {appointments?.map((appointment: ExtendedAppointmentModel) => {
         const nextAppointment = getTodayNextAppointment(appointments)
         return (
-          <div className="mb-4" key={appointment.id}>
-            <AppointmentTile appointment={appointment} nextAppointment={nextAppointment} />
-          </div>
+          <FadeIn key={appointment.id}>
+            <div className="mb-4">
+              <AppointmentTile appointment={appointment} nextAppointment={nextAppointment} />
+            </div>
+          </FadeIn>
         )
       })}
     </>

@@ -19,7 +19,11 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
   const accessToken = connectSession?.accessToken || ''
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <Loader body />
+      </AppNavContainer>
+    )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

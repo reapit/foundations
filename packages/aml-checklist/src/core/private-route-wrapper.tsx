@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Loader, AppNavContainer, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
 import Menu from '@/components/ui/menu'
-import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Redirect, useLocation } from 'react-router'
@@ -11,11 +10,18 @@ const { Suspense } = React
 export const PrivateRouteWrapper: React.FC = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const hasBackground = location.pathname === Routes.RESULTS
   const currentUri = `${location.pathname}${location.search}`
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerBasic hasPadding flexColumn isScrollable>
+          <FlexContainerResponsive flexColumn>
+            <Loader />
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
@@ -26,7 +32,7 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
     <AppNavContainer>
       <Menu />
       <FlexContainerBasic hasPadding flexColumn isScrollable>
-        <FlexContainerResponsive flexColumn hasBackground={hasBackground}>
+        <FlexContainerResponsive flexColumn>
           <Suspense fallback={<Loader body />}>{children}</Suspense>
         </FlexContainerResponsive>
       </FlexContainerBasic>

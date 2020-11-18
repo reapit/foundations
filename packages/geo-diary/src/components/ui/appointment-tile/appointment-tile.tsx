@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tile, IconList, getTime, Button, H5, SubTitleH5 } from '@reapit/elements'
+import { Tile, IconList, getTime, Button, H5, SubTitleH5, FadeIn } from '@reapit/elements'
 import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 import { History } from 'history'
@@ -151,18 +151,20 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, n
   const [isShowDetail, setShowDetail] = React.useState<boolean>(false)
   return (
     <>
-      <Tile
-        hightlight={queryParams.appointmentId === appointment.id}
-        key={appointment.id}
-        heading={heading}
-        footerItems={[
-          <div key={appointment.id}>
-            {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
-          </div>,
-        ]}
-      >
-        <IconList items={renderIconItems({ appointment })} />
-      </Tile>
+      <FadeIn>
+        <Tile
+          hightlight={queryParams.appointmentId === appointment.id}
+          key={appointment.id}
+          heading={heading}
+          footerItems={[
+            <div key={appointment.id}>
+              {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
+            </div>,
+          ]}
+        >
+          <IconList items={renderIconItems({ appointment })} />
+        </Tile>
+      </FadeIn>
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment}

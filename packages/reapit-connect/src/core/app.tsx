@@ -3,6 +3,7 @@ import Router from './router'
 import { css } from 'linaria'
 import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
+import { FlexContainerBasic, FlexContainerResponsive, Loader } from '@reapit/elements'
 
 export const globals = css`
   :global() {
@@ -25,7 +26,13 @@ export const App = () => {
   const session = useReapitConnect(reapitConnectBrowserSession)
 
   if (!session.connectSession?.loginIdentity) {
-    return null
+    return (
+      <FlexContainerBasic flexColumn>
+        <FlexContainerResponsive flexColumn isScrollable hasPadding>
+          <Loader />
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
+    )
   }
 
   if (isUserWithDevIdOnly(session.connectSession?.loginIdentity)) {

@@ -3,8 +3,8 @@
 exports[`mobile-layout MobileLayout should render correctly 1`] = `
 <Fragment>
   <Component
-    className="flex-shrink-0"
-    hasBackground={false}
+    className="pb-4"
+    hasMargin={false}
     hasPadding={false}
     isFlex={true}
     isFlexColumn={true}

@@ -18,7 +18,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const accessToken = connectSession?.accessToken || ''
 
   if (!connectSession) {
-    return null
+    return (
+      <AppNavContainer>
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive hasPadding flexColumn>
+            <Loader />
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    )
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

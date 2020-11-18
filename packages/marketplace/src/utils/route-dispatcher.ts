@@ -5,8 +5,8 @@ import { fetchFeatureApps, fetchAppDetail, fetchDeveloperApps } from '@/actions/
 import { fetchApps } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId, selectDeveloperId, selectSandboxDeveloper } from '@/selector/auth'
-// needed for filtering but turned off at present
-// import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
+import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
+// Needed for filtering but commented out for now
 // import { fetchCategories } from '@/actions/categories'
 import { APPS_PER_PAGE, FEATURED_APPS, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { getNumberOfItems } from './browse-app'
@@ -47,12 +47,14 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.APP_DETAIL: {
+      store.dispatch(fetchDesktopIntegrationTypes({}))
       if (id) {
         store.dispatch(fetchAppDetail({ id, clientId }))
       }
       break
     }
     case Routes.APP_DETAIL_MANAGE: {
+      store.dispatch(fetchDesktopIntegrationTypes({}))
       if (id) {
         store.dispatch(fetchAppDetail({ id, clientId }))
       }

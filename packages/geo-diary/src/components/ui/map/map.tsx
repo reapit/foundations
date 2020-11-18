@@ -145,7 +145,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
   return (
     <>
       <Gmaps
-        autoFitBounds={true}
+        autoFitBounds={appointments.length}
         apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
         markerCallBack={handleMarkerOnClick(appointments, setAppointment, setAppointmentDetailModalVisible)}

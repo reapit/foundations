@@ -5,6 +5,7 @@ import Routes from '@/constants/routes'
 import { RouteValue } from '@/types/core'
 import { fetchAppDetail, fetchApps, fetchDeveloperApps, fetchFeatureApps } from '@/actions/apps'
 import { APPS_PER_PAGE, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { fetchDesktopIntegrationTypes } from '../../actions/desktop-integration-types'
 
 jest.mock('@reapit/elements')
 
@@ -41,11 +42,13 @@ describe('routeDispatcher', () => {
 
   it('should dispatch to a single endpoint for the APP_DETAIL route', async () => {
     await routeDispatcher(Routes.APP_DETAIL as RouteValue, { appid: 'SOME_ID' })
+    expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypes({}))
     expect(store.dispatch).toHaveBeenCalledWith(fetchAppDetail({ id: 'SOME_ID', clientId: 'SOME_CLIENT_ID' }))
   })
 
   it('should dispatch to a single endpoint for the APP_DETAIL_MANAGE route', async () => {
     await routeDispatcher(Routes.APP_DETAIL_MANAGE as RouteValue, { appid: 'SOME_ID' })
+    expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypes({}))
     expect(store.dispatch).toHaveBeenCalledWith(fetchAppDetail({ id: 'SOME_ID', clientId: 'SOME_CLIENT_ID' }))
   })
 
