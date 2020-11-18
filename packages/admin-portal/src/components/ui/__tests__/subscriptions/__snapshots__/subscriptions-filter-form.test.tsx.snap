@@ -1,0 +1,1025 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminDevManagementRoute",
+          "pathname": "/subscriptions",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminDevManagementRoute",
+              "pathname": "/subscriptions",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminDevManagementRoute",
+            "pathname": "/subscriptions",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <SubscriptionsFilterForm
+        filterValues={
+          Object {
+            "developerId": "developerId",
+            "type": "type",
+          }
+        }
+        onSearch={[MockFunction]}
+      >
+        <Formik
+          initialValues={
+            Object {
+              "developerId": "developerId",
+              "type": "type",
+            }
+          }
+          onSubmit={[MockFunction]}
+        >
+          <Form
+            noValidate={true}
+          >
+            <form
+              action="#"
+              noValidate={true}
+              onReset={[Function]}
+              onSubmit={[Function]}
+            >
+              <Component>
+                <div
+                  className=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      Subscriptions Filter Form
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      Filter the result by type and developer
+                    </div>
+                  </Component>
+                  <Component
+                    className="items-center"
+                  >
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component
+                            id="type"
+                            labelText="Type"
+                            name="type"
+                            type="text"
+                          >
+                            <Field
+                              name="type"
+                              validate={null}
+                            >
+                              <div
+                                className=""
+                              >
+                                <div
+                                  className="control "
+                                >
+                                  <label
+                                    className="label inline-block "
+                                    htmlFor="type"
+                                  >
+                                    Type
+                                  </label>
+                                  <input
+                                    className=""
+                                    data-test=""
+                                    disabled={false}
+                                    id="type"
+                                    name="type"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder=""
+                                    type="text"
+                                    value="type"
+                                  />
+                                </div>
+                              </div>
+                            </Field>
+                          </Component>
+                        </div>
+                      </Component>
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component
+                            id="developerId"
+                            labelText="Dropdown Select"
+                            mode="multiple"
+                            name="developerId"
+                            options={Array []}
+                            placeholder="Please select"
+                          >
+                            <div
+                              className="field"
+                            >
+                              <div
+                                className="control"
+                              >
+                                <Field
+                                  name="developerId"
+                                  validate={null}
+                                >
+                                  <div
+                                    className="field field-dropdown-select"
+                                  >
+                                    <label
+                                      className="label "
+                                    >
+                                      Dropdown Select
+                                    </label>
+                                    <Select
+                                      className="is-primary input"
+                                      dropdownStyle={
+                                        Object {
+                                          "zIndex": 999,
+                                        }
+                                      }
+                                      id="developerId"
+                                      mode="multiple"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      placeholder="Please select"
+                                      tagRender={[Function]}
+                                      value="developerId"
+                                    >
+                                      <ForwardRef(Select)
+                                        className="is-primary input"
+                                        dropdownStyle={
+                                          Object {
+                                            "zIndex": 999,
+                                          }
+                                        }
+                                        id="developerId"
+                                        mode="multiple"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        placeholder="Please select"
+                                        tagRender={[Function]}
+                                        value="developerId"
+                                      >
+                                        <div
+                                          className="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                                          onBlur={[Function]}
+                                          onFocus={[Function]}
+                                          onKeyDown={[Function]}
+                                          onKeyUp={[Function]}
+                                          onMouseDown={[Function]}
+                                        >
+                                          <SelectTrigger
+                                            containerWidth={null}
+                                            dropdownStyle={
+                                              Object {
+                                                "zIndex": 999,
+                                              }
+                                            }
+                                            empty={true}
+                                            getTriggerDOMNode={[Function]}
+                                            popupElement={
+                                              <OptionList
+                                                childrenAsData={true}
+                                                defaultActiveFirstOption={true}
+                                                flattenOptions={Array []}
+                                                height={200}
+                                                id="developerId"
+                                                itemHeight={20}
+                                                multiple={true}
+                                                notFoundContent="Not Found"
+                                                onActiveValue={[Function]}
+                                                onSelect={[Function]}
+                                                onToggleOpen={[Function]}
+                                                options={Array []}
+                                                prefixCls="rc-select"
+                                                searchValue=""
+                                                values={
+                                                  Set {
+                                                    "developerId",
+                                                  }
+                                                }
+                                                virtual={true}
+                                              />
+                                            }
+                                            prefixCls="rc-select"
+                                          >
+                                            <Trigger
+                                              action={Array []}
+                                              afterPopupVisibleChange={[Function]}
+                                              autoDestroy={false}
+                                              blurDelay={0.15}
+                                              builtinPlacements={
+                                                Object {
+                                                  "bottomLeft": Object {
+                                                    "offset": Array [
+                                                      0,
+                                                      4,
+                                                    ],
+                                                    "overflow": Object {
+                                                      "adjustX": 0,
+                                                      "adjustY": 1,
+                                                    },
+                                                    "points": Array [
+                                                      "tl",
+                                                      "bl",
+                                                    ],
+                                                  },
+                                                  "bottomRight": Object {
+                                                    "offset": Array [
+                                                      0,
+                                                      4,
+                                                    ],
+                                                    "overflow": Object {
+                                                      "adjustX": 0,
+                                                      "adjustY": 1,
+                                                    },
+                                                    "points": Array [
+                                                      "tr",
+                                                      "br",
+                                                    ],
+                                                  },
+                                                  "topLeft": Object {
+                                                    "offset": Array [
+                                                      0,
+                                                      -4,
+                                                    ],
+                                                    "overflow": Object {
+                                                      "adjustX": 0,
+                                                      "adjustY": 1,
+                                                    },
+                                                    "points": Array [
+                                                      "bl",
+                                                      "tl",
+                                                    ],
+                                                  },
+                                                  "topRight": Object {
+                                                    "offset": Array [
+                                                      0,
+                                                      -4,
+                                                    ],
+                                                    "overflow": Object {
+                                                      "adjustX": 0,
+                                                      "adjustY": 1,
+                                                    },
+                                                    "points": Array [
+                                                      "br",
+                                                      "tr",
+                                                    ],
+                                                  },
+                                                }
+                                              }
+                                              defaultPopupVisible={false}
+                                              destroyPopupOnHide={false}
+                                              focusDelay={0}
+                                              getDocument={[Function]}
+                                              getPopupClassNameFromAlign={[Function]}
+                                              getTriggerDOMNode={[Function]}
+                                              hideAction={Array []}
+                                              mask={false}
+                                              maskClosable={true}
+                                              mouseEnterDelay={0}
+                                              mouseLeaveDelay={0.1}
+                                              onPopupAlign={[Function]}
+                                              onPopupVisibleChange={[Function]}
+                                              popup={
+                                                <div>
+                                                  <OptionList
+                                                    childrenAsData={true}
+                                                    defaultActiveFirstOption={true}
+                                                    flattenOptions={Array []}
+                                                    height={200}
+                                                    id="developerId"
+                                                    itemHeight={20}
+                                                    multiple={true}
+                                                    notFoundContent="Not Found"
+                                                    onActiveValue={[Function]}
+                                                    onSelect={[Function]}
+                                                    onToggleOpen={[Function]}
+                                                    options={Array []}
+                                                    prefixCls="rc-select"
+                                                    searchValue=""
+                                                    values={
+                                                      Set {
+                                                        "developerId",
+                                                      }
+                                                    }
+                                                    virtual={true}
+                                                  />
+                                                </div>
+                                              }
+                                              popupAlign={Object {}}
+                                              popupClassName="rc-select-dropdown-empty"
+                                              popupPlacement="bottomLeft"
+                                              popupStyle={
+                                                Object {
+                                                  "minWidth": null,
+                                                  "width": null,
+                                                  "zIndex": 999,
+                                                }
+                                              }
+                                              prefixCls="rc-select-dropdown"
+                                              showAction={Array []}
+                                            >
+                                              <Selector
+                                                accessibilityIndex={0}
+                                                activeValue={null}
+                                                className="is-primary input"
+                                                domRef={
+                                                  Object {
+                                                    "current": <div
+                                                      class="rc-select-selector"
+                                                    >
+                                                      <span>
+                                                        <div
+                                                          class="custom-tag tags has-addons"
+                                                        >
+                                                          <span
+                                                            class="tag is-light"
+                                                          >
+                                                            developerId
+                                                          </span>
+                                                          <a
+                                                            class="tag is-light is-delete"
+                                                            href=""
+                                                          />
+                                                        </div>
+                                                      </span>
+                                                      <span
+                                                        class="rc-select-selection-search"
+                                                        style="width: 0px;"
+                                                      >
+                                                        <input
+                                                          aria-activedescendant="developerId_list_0"
+                                                          aria-autocomplete="list"
+                                                          aria-controls="developerId_list"
+                                                          aria-haspopup="listbox"
+                                                          aria-owns="developerId_list"
+                                                          autocomplete="off"
+                                                          class="rc-select-selection-search-input"
+                                                          id="developerId"
+                                                          readonly=""
+                                                          role="combobox"
+                                                          style="opacity: 0;"
+                                                          unselectable="on"
+                                                          value=""
+                                                        />
+                                                        <span
+                                                          aria-hidden="true"
+                                                          class="rc-select-selection-search-mirror"
+                                                        >
+                                                          
+                                                           
+                                                        </span>
+                                                      </span>
+                                                    </div>,
+                                                  }
+                                                }
+                                                dropdownStyle={
+                                                  Object {
+                                                    "zIndex": 999,
+                                                  }
+                                                }
+                                                id="developerId"
+                                                inputElement={null}
+                                                key="trigger"
+                                                mode="multiple"
+                                                multiple={true}
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onSearch={[Function]}
+                                                onSelect={[Function]}
+                                                onToggleOpen={[Function]}
+                                                placeholder="Please select"
+                                                prefixCls="rc-select"
+                                                searchValue=""
+                                                showSearch={true}
+                                                tagRender={[Function]}
+                                                value="developerId"
+                                                values={
+                                                  Array [
+                                                    Object {
+                                                      "disabled": undefined,
+                                                      "key": "developerId",
+                                                      "label": "developerId",
+                                                      "value": "developerId",
+                                                    },
+                                                  ]
+                                                }
+                                              >
+                                                <div
+                                                  className="rc-select-selector"
+                                                  onClick={[Function]}
+                                                  onMouseDown={[Function]}
+                                                >
+                                                  <SelectSelector
+                                                    accessibilityIndex={0}
+                                                    activeValue={null}
+                                                    className="is-primary input"
+                                                    domRef={
+                                                      Object {
+                                                        "current": <div
+                                                          class="rc-select-selector"
+                                                        >
+                                                          <span>
+                                                            <div
+                                                              class="custom-tag tags has-addons"
+                                                            >
+                                                              <span
+                                                                class="tag is-light"
+                                                              >
+                                                                developerId
+                                                              </span>
+                                                              <a
+                                                                class="tag is-light is-delete"
+                                                                href=""
+                                                              />
+                                                            </div>
+                                                          </span>
+                                                          <span
+                                                            class="rc-select-selection-search"
+                                                            style="width: 0px;"
+                                                          >
+                                                            <input
+                                                              aria-activedescendant="developerId_list_0"
+                                                              aria-autocomplete="list"
+                                                              aria-controls="developerId_list"
+                                                              aria-haspopup="listbox"
+                                                              aria-owns="developerId_list"
+                                                              autocomplete="off"
+                                                              class="rc-select-selection-search-input"
+                                                              id="developerId"
+                                                              readonly=""
+                                                              role="combobox"
+                                                              style="opacity: 0;"
+                                                              unselectable="on"
+                                                              value=""
+                                                            />
+                                                            <span
+                                                              aria-hidden="true"
+                                                              class="rc-select-selection-search-mirror"
+                                                            >
+                                                              
+                                                               
+                                                            </span>
+                                                          </span>
+                                                        </div>,
+                                                      }
+                                                    }
+                                                    dropdownStyle={
+                                                      Object {
+                                                        "zIndex": 999,
+                                                      }
+                                                    }
+                                                    id="developerId"
+                                                    inputElement={null}
+                                                    inputRef={
+                                                      Object {
+                                                        "current": <input
+                                                          aria-activedescendant="developerId_list_0"
+                                                          aria-autocomplete="list"
+                                                          aria-controls="developerId_list"
+                                                          aria-haspopup="listbox"
+                                                          aria-owns="developerId_list"
+                                                          autocomplete="off"
+                                                          class="rc-select-selection-search-input"
+                                                          id="developerId"
+                                                          readonly=""
+                                                          role="combobox"
+                                                          style="opacity: 0;"
+                                                          unselectable="on"
+                                                          value=""
+                                                        />,
+                                                      }
+                                                    }
+                                                    mode="multiple"
+                                                    multiple={true}
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onInputChange={[Function]}
+                                                    onInputKeyDown={[Function]}
+                                                    onInputMouseDown={[Function]}
+                                                    onInputPaste={[Function]}
+                                                    onSearch={[Function]}
+                                                    onSelect={[Function]}
+                                                    onToggleOpen={[Function]}
+                                                    placeholder="Please select"
+                                                    prefixCls="rc-select"
+                                                    searchValue=""
+                                                    showSearch={true}
+                                                    tagRender={[Function]}
+                                                    value="developerId"
+                                                    values={
+                                                      Array [
+                                                        Object {
+                                                          "disabled": undefined,
+                                                          "key": "developerId",
+                                                          "label": "developerId",
+                                                          "value": "developerId",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <CSSMotionList
+                                                      component={false}
+                                                      keys={
+                                                        Array [
+                                                          Object {
+                                                            "disabled": undefined,
+                                                            "key": "developerId",
+                                                            "label": "developerId",
+                                                            "value": "developerId",
+                                                          },
+                                                        ]
+                                                      }
+                                                      motionAppear={true}
+                                                    >
+                                                      <ForwardRef
+                                                        eventProps={
+                                                          Object {
+                                                            "disabled": undefined,
+                                                            "key": "developerId",
+                                                            "label": "developerId",
+                                                            "value": "developerId",
+                                                          }
+                                                        }
+                                                        key="developerId"
+                                                        motionAppear={true}
+                                                        onLeaveEnd={[Function]}
+                                                        visible={true}
+                                                      >
+                                                        <CSSMotion
+                                                          eventProps={
+                                                            Object {
+                                                              "disabled": undefined,
+                                                              "key": "developerId",
+                                                              "label": "developerId",
+                                                              "value": "developerId",
+                                                            }
+                                                          }
+                                                          internalRef={null}
+                                                          motionAppear={true}
+                                                          motionEnter={true}
+                                                          motionLeave={true}
+                                                          onLeaveEnd={[Function]}
+                                                          removeOnLeave={true}
+                                                          visible={true}
+                                                        >
+                                                          <span
+                                                            key="developerId"
+                                                            onMouseDown={[Function]}
+                                                          >
+                                                            <Component
+                                                              description="developerId"
+                                                              label="developerId"
+                                                              link=""
+                                                              onClose={[Function]}
+                                                            >
+                                                              <ForwardRef(Tooltip)
+                                                                overlay={
+                                                                  <span
+                                                                    className="reapit-tooltip-content"
+                                                                  >
+                                                                    developerId
+                                                                    . 
+                                                                    
+                                                                  </span>
+                                                                }
+                                                                placement="bottomLeft"
+                                                                prefixCls="reapit-tooltip"
+                                                              >
+                                                                <Trigger
+                                                                  action={
+                                                                    Array [
+                                                                      "hover",
+                                                                    ]
+                                                                  }
+                                                                  afterPopupVisibleChange={[Function]}
+                                                                  autoDestroy={false}
+                                                                  blurDelay={0.15}
+                                                                  builtinPlacements={
+                                                                    Object {
+                                                                      "bottom": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "tc",
+                                                                          "bc",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "bottomLeft": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "tl",
+                                                                          "bl",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "bottomRight": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "tr",
+                                                                          "br",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "left": Object {
+                                                                        "offset": Array [
+                                                                          -4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "cr",
+                                                                          "cl",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "leftBottom": Object {
+                                                                        "offset": Array [
+                                                                          -4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "br",
+                                                                          "bl",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "leftTop": Object {
+                                                                        "offset": Array [
+                                                                          -4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "tr",
+                                                                          "tl",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "right": Object {
+                                                                        "offset": Array [
+                                                                          4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "cl",
+                                                                          "cr",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "rightBottom": Object {
+                                                                        "offset": Array [
+                                                                          4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "bl",
+                                                                          "br",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "rightTop": Object {
+                                                                        "offset": Array [
+                                                                          4,
+                                                                          0,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "tl",
+                                                                          "tr",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "top": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          -4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "bc",
+                                                                          "tc",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "topLeft": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          -4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "bl",
+                                                                          "tl",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                      "topRight": Object {
+                                                                        "offset": Array [
+                                                                          0,
+                                                                          -4,
+                                                                        ],
+                                                                        "overflow": Object {
+                                                                          "adjustX": 1,
+                                                                          "adjustY": 1,
+                                                                        },
+                                                                        "points": Array [
+                                                                          "br",
+                                                                          "tr",
+                                                                        ],
+                                                                        "targetOffset": Array [
+                                                                          0,
+                                                                          0,
+                                                                        ],
+                                                                      },
+                                                                    }
+                                                                  }
+                                                                  defaultPopupVisible={false}
+                                                                  destroyPopupOnHide={false}
+                                                                  focusDelay={0}
+                                                                  getDocument={[Function]}
+                                                                  getPopupClassNameFromAlign={[Function]}
+                                                                  hideAction={Array []}
+                                                                  mask={false}
+                                                                  maskClosable={true}
+                                                                  mouseEnterDelay={0}
+                                                                  mouseLeaveDelay={0.1}
+                                                                  onPopupAlign={[Function]}
+                                                                  onPopupVisibleChange={[Function]}
+                                                                  overlay={
+                                                                    <span
+                                                                      className="reapit-tooltip-content"
+                                                                    >
+                                                                      developerId
+                                                                      . 
+                                                                      
+                                                                    </span>
+                                                                  }
+                                                                  popup={[Function]}
+                                                                  popupAlign={Object {}}
+                                                                  popupClassName=""
+                                                                  popupPlacement="bottomLeft"
+                                                                  popupStyle={Object {}}
+                                                                  prefixCls="reapit-tooltip"
+                                                                  showAction={Array []}
+                                                                >
+                                                                  <div
+                                                                    className="custom-tag tags has-addons"
+                                                                    key="trigger"
+                                                                    onMouseEnter={[Function]}
+                                                                    onMouseLeave={[Function]}
+                                                                  >
+                                                                    <span
+                                                                      className="tag is-light"
+                                                                    >
+                                                                      developerId
+                                                                    </span>
+                                                                    <a
+                                                                      className="tag is-light is-delete"
+                                                                      href=""
+                                                                      onClick={[Function]}
+                                                                    />
+                                                                  </div>
+                                                                </Trigger>
+                                                              </ForwardRef(Tooltip)>
+                                                            </Component>
+                                                          </span>
+                                                        </CSSMotion>
+                                                      </ForwardRef>
+                                                    </CSSMotionList>
+                                                    <span
+                                                      className="rc-select-selection-search"
+                                                      style={
+                                                        Object {
+                                                          "width": 0,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Input
+                                                        accessibilityIndex={0}
+                                                        attrs={Object {}}
+                                                        id="developerId"
+                                                        inputElement={null}
+                                                        onChange={[Function]}
+                                                        onKeyDown={[Function]}
+                                                        onMouseDown={[Function]}
+                                                        onPaste={[Function]}
+                                                        prefixCls="rc-select"
+                                                        value=""
+                                                      >
+                                                        <input
+                                                          aria-activedescendant="developerId_list_0"
+                                                          aria-autocomplete="list"
+                                                          aria-controls="developerId_list"
+                                                          aria-haspopup="listbox"
+                                                          aria-owns="developerId_list"
+                                                          autoComplete="off"
+                                                          className="rc-select-selection-search-input"
+                                                          id="developerId"
+                                                          onChange={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          onMouseDown={[Function]}
+                                                          onPaste={[Function]}
+                                                          readOnly={true}
+                                                          role="combobox"
+                                                          style={
+                                                            Object {
+                                                              "opacity": 0,
+                                                            }
+                                                          }
+                                                          unselectable="on"
+                                                          value=""
+                                                        />
+                                                      </Input>
+                                                      <span
+                                                        aria-hidden={true}
+                                                        className="rc-select-selection-search-mirror"
+                                                      >
+                                                         
+                                                      </span>
+                                                    </span>
+                                                  </SelectSelector>
+                                                </div>
+                                              </Selector>
+                                            </Trigger>
+                                          </SelectTrigger>
+                                        </div>
+                                      </ForwardRef(Select)>
+                                    </Select>
+                                  </div>
+                                </Field>
+                              </div>
+                            </div>
+                            <div />
+                          </Component>
+                        </div>
+                      </Component>
+                      <Component
+                        className="mt-4"
+                      >
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component
+                            type="submit"
+                            variant="primary"
+                          >
+                            <button
+                              className="button  is-primary  "
+                              data-test=""
+                              disabled={false}
+                              type="submit"
+                            >
+                              Search
+                            </button>
+                          </Component>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </form>
+          </Form>
+        </Formik>
+      </SubscriptionsFilterForm>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

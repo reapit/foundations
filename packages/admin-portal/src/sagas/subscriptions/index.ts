@@ -11,7 +11,7 @@ import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { extractNetworkErrString, errorMessages } from '@reapit/utils'
-import { fetchSubscriptionsList, cancelSubscription } from '@/services/subscriptions'
+import { fetchSubscriptionListApi, cancelSubscriptionApi } from '@/services/subscriptions'
 
 export const fetchSubscriptionListHandler = function*({ data: { page, queryString } }) {
   try {
@@ -19,7 +19,7 @@ export const fetchSubscriptionListHandler = function*({ data: { page, queryStrin
     const type = queryParams.get('type') || ''
     const developerId = queryParams.get('developerId') || ''
 
-    const response = yield call(fetchSubscriptionsList, {
+    const response = yield call(fetchSubscriptionListApi, {
       pageSize: REVISIONS_PER_PAGE,
       pageNumber: page,
       type,
@@ -39,7 +39,7 @@ export const fetchSubscriptionListHandler = function*({ data: { page, queryStrin
 
 export const cancelSubscriptionHandler = function*({ data: { id, callback } }) {
   try {
-    yield call(cancelSubscription, { id })
+    yield call(cancelSubscriptionApi, { id })
     callback(true)
   } catch (err) {
     callback(false)
@@ -51,7 +51,10 @@ export const cancelSubscriptionHandler = function*({ data: { id, callback } }) {
 }
 
 export const fetchSubscriptionListListen = function*() {
-  yield takeLatest<Action<FetchSubscriptionListQuery>>(ActionTypes.FETCH_SUBCRIPTION_LIST, fetchSubscriptionListHandler)
+  yield takeLatest<Action<FetchSubscriptionListQuery>>(
+    ActionTypes.FETCH_SUBSCRIPTION_LIST,
+    fetchSubscriptionListHandler,
+  )
 }
 
 export const cancelSubscriptionListen = function*() {
@@ -59,7 +62,7 @@ export const cancelSubscriptionListen = function*() {
 }
 
 const subscriptionsListSagas = function*() {
-  yield all([fork(fetchSubscriptionListListen)])
+  yield all([fork(fetchSubscriptionListListen), fork(cancelSubscriptionListen)])
 }
 
 export default subscriptionsListSagas

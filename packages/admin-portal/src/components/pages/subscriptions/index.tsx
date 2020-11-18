@@ -33,10 +33,6 @@ export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFi
   return { type, developerId } as SubscriptionsFilterFormValues
 }
 
-export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () => {
-  setModalOpen(isVisible)
-}
-
 export const onPageChangeHandler = (history: History<any>, queryParams: SubscriptionsFilterFormValues) => (
   page: number,
 ) => {
@@ -66,7 +62,7 @@ export const onSearchHandler = (history: History<any>) => (
   }
 }
 
-export const Subscriptions: React.FC = () => {
+const Subscriptions: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
