@@ -18,7 +18,7 @@
     "serverless-webpack": "^5.3.5"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "serverless-http": "^2.6.0",
     "serverless-webpack": "^5.3.5",
     "snyk": "^1.385.0",
