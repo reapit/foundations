@@ -38,7 +38,7 @@ export const prepareDevelopersOptions: (data: DeveloperData[]) => SelectOption[]
     } as SelectOption
   })
 
-export const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValues, onSearch }) => {
+const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValues, onSearch }) => {
   React.useEffect(() => {
     store.dispatch(fetchDeveloperList({ queryString: '?page=1' } as fetchDeveloperListValues))
   }, [])

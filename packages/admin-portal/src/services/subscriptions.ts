@@ -14,7 +14,7 @@ export interface CancelSubscriptionParams {
   id: string
 }
 
-export const fetchSubscriptionsList = async (
+export const fetchSubscriptionListApi = async (
   params: FetchSubscriptionsListParams,
 ): Promise<SubscriptionModelPagedResult> => {
   try {
@@ -31,7 +31,7 @@ export const fetchSubscriptionsList = async (
   }
 }
 
-export const cancelSubscription = async (params: CancelSubscriptionParams) => {
+export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) => {
   try {
     const { id } = params
     const response = await fetcher({
