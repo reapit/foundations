@@ -17,7 +17,6 @@ export interface DropdownSelectProps extends SelectProps {
   // fixed to current node
   fixedPosition?: boolean
   hasLabel?: boolean
-  // multiple?: boolean
 }
 
 export interface SelectOption {
@@ -38,7 +37,6 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   mode = 'tags',
   fixedPosition = false,
   hasLabel = true,
-  // multiple = true,
   ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
