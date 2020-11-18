@@ -43,7 +43,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
       }
     >
       <>
-        <Helper variant="info">Please agree the Reapit Developer Terms and Conditions to proceed</Helper>
+        <Helper variant="info">Please agree to the Reapit Developer Terms and Conditions to proceed</Helper>
         <p>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
           incorporate the Registration Details, to the exclusion of all other terms.
