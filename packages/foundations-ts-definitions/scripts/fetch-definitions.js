@@ -4,9 +4,10 @@ const fs = require('fs')
 const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
-
-const { FOUNDATION_TYPES_FOLDER } = require('./constants')
-const { MARKETPLACE_API_BASE_URL, MARKETPLACE_API_KEY } = require(path.resolve(__dirname, '..', 'config.json'))
+const { FOUNDATIONS_TYPES_FOLDER, PLATFORM_API_BASE_URL } = require('./constants')
+const { existsSync, mkdirSync } = require('fs')
+const createIndexFile = require('./create-index-file')
+const { sync: rimraf } = require('rimraf')
 
 // Fetch definitions for a given schema
 const fetchDefinitionsForSchema = async schemaConfig => {
@@ -28,39 +29,51 @@ const fetchDefinitionsForSchema = async schemaConfig => {
     const formatDefinitions = prettifyCode(cookedDefinitions)
 
     // Write interfaces to file
+    fs.writeFileSync(
+      definitionFile,
+      formatDefinitions,
 
-    fs.writeFileSync(definitionFile, formatDefinitions, { flag: 'a+' }, error => {
-      if (error) {
-        console.error(`Failed to write type definitions for: ${endpoint}`)
-        throw error
-      } else {
-        console.log(`Successfully wrote type definitions for: ${endpoint}`)
-      }
-    })
+      { flag: 'a+' },
+      error => {
+        if (error) {
+          console.error(`Failed to write type definitions for: ${endpoint}`)
+          throw error
+        } else {
+          console.log(`Successfully wrote type definitions for: ${endpoint}`)
+        }
+      },
+    )
   } else {
     throw new Error(`Failed to fetch type definitions for: ${endpoint}`)
   }
 }
 
 // Fetch definitions for all schemas
-module.exports = async apiVersion => {
+const fetchSchema = async apiVersion => {
+  if (existsSync(FOUNDATIONS_TYPES_FOLDER)) {
+    rimraf(FOUNDATIONS_TYPES_FOLDER)
+  }
+
+  mkdirSync(FOUNDATIONS_TYPES_FOLDER)
+
   const apiSchema = [
     {
-      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './marketplace-api-schema.ts'),
-      endpoint: `${MARKETPLACE_API_BASE_URL}/swagger/v1/swagger.json`,
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './platform-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/docs`,
       headers: {
-        'X-Api-Key': MARKETPLACE_API_KEY,
         'api-version': apiVersion,
       },
     },
     {
-      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './marketplace-traffic-event-schema.ts'),
-      endpoint: `${MARKETPLACE_API_BASE_URL}/trafficevents/swagger/v2/swagger.json`,
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './marketplace-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/marketplace/swagger/v1/swagger.json`,
       headers: {
-        'X-Api-Key': MARKETPLACE_API_KEY,
         'api-version': apiVersion,
       },
     },
   ]
+
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 }
+
+fetchSchema().then(createIndexFile)

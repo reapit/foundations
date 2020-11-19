@@ -1,9 +1,13 @@
-name: Check for Typescript definition update
+name: Publish TS Definitions
+
+# on:
+#   schedule:
+#     # * is a special character in YAML so you have to quote this string
+#     - cron: '0 0 1-31 * *'
 
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: '0 0 1-31 * *'
+  pull_request:
+    types: ['opened', 'synchronize']
 
 jobs:
   check:
@@ -29,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Integrate Git credential
+      - name: Integrate Git credentials
         uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -37,14 +41,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Fetch config
-        run: |
-          yarn fetch-config --name production
+      - name: Fetch latest definitions
+        run: yarn workspace @reapit/foundations-ts-definitions fetch-definitions
 
-      - name: Fetch latest definition
-        run: yarn workspace @reapit/foundations-ts-definitions fetch-definition
-
-      - name: If definition is changed then bump minor npm package, publish and push commit to master
+      - name: Publish changed definitions
         run: yarn workspace @reapit/foundations-ts-definitions handle-cron-job
 
 env:
