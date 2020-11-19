@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import Select from 'rc-select'
 import {
   Input,
   Button,

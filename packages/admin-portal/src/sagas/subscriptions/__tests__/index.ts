@@ -10,7 +10,6 @@ import {
   fetchSubscriptionListSuccess,
   fetchSubscriptionListFailed,
   CancelSubscriptionActionParams,
-  cancelSubscription,
   cancelSubscriptionSuccess,
   cancelSubscriptionFailed,
 } from '@/actions/subscriptions'
