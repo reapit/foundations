@@ -4,6 +4,7 @@ import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import apps from '@/reducers/apps'
 import developers from '@/reducers/developers'
+import subscriptions from '@/reducers/subscriptions'
 import customers from '@/reducers/customers'
 
 import { appDetailSagas, revisionDetailSagas, appDeleteSagas, appsManagementSagas } from '@/sagas/apps'
@@ -11,6 +12,7 @@ import { statisticsSagas } from '@/sagas/statistics'
 import { approvalsSagas } from '@/sagas/approvals'
 import { devsManagementSagas, developerSetStatusSagas } from '@/sagas/developers'
 import { customersListSagas } from '@/sagas/customers'
+import subscriptionsListSagas from '@/sagas/subscriptions'
 
 import { injectSwitchModeToWindow } from '@reapit/elements'
 
@@ -33,6 +35,7 @@ export class Store {
     developers,
     apps,
     customers,
+    subscriptions,
   })
 
   static sagas = function*() {
@@ -46,6 +49,7 @@ export class Store {
       fork(appsManagementSagas),
       fork(statisticsSagas),
       fork(customersListSagas),
+      fork(subscriptionsListSagas),
     ])
   }
 

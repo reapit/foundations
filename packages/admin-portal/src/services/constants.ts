@@ -10,4 +10,5 @@ export const URLS = {
   categories: '/marketplace/categories',
   customers: '/marketplace/customers',
   desktopIntegrationTypes: '/marketplace/DesktopIntegrationTypes',
+  subscriptions: '/marketplace/subscriptions',
 }

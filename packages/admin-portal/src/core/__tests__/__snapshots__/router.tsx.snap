@@ -115,6 +115,18 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/customers"
             />
+            <Component
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              path="/subscriptions"
+            />
             <Route
               render={[Function]}
             />

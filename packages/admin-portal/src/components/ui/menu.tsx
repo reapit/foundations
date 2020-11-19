@@ -4,7 +4,7 @@ import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
 import { FaCheck, FaSignOutAlt, FaClipboardList, FaPortrait, FaTable, FaFileInvoice } from 'react-icons/fa'
-import { BsFillPersonLinesFill } from 'react-icons/bs'
+import { BsFillPersonLinesFill, BsCardChecklist } from 'react-icons/bs'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -58,6 +58,13 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         key: 'CUSTOMERS',
         url: Routes.CUSTOMERS,
         icon: <BsFillPersonLinesFill className="nav-item-icon" />,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Subs',
+        key: 'SUBSCRIPTIONS',
+        url: Routes.SUBSCRIPTIONS,
+        icon: <BsCardChecklist className="nav-item-icon" />,
         type: 'PRIMARY',
       },
       {
