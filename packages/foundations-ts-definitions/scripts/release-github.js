@@ -20,6 +20,7 @@ module.exports = async () => {
      * husky is throwing output to stderr
      * even the command runs cool
      */
+    execSync('git pull origin master')
     execSync(`git commit -m 'chore: update TypeScript definition - time stamp: ${getCurrentTimeStamp()}'`)
     execSync('git push -u sshOrigin HEAD:master')
 

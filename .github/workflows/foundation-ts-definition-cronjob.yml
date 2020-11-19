@@ -41,10 +41,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Fetch latest definition
+      - name: Fetch latest definitions
         run: yarn workspace @reapit/foundations-ts-definitions fetch-definitions
 
-      - name: If definition is changed then bump minor npm package, publish and push commit to master
+      - name: Publish changed definitions
         run: yarn workspace @reapit/foundations-ts-definitions handle-cron-job
 
 env:
