@@ -61,7 +61,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         type: 'PRIMARY',
       },
       {
-        title: 'Subscriptions',
+        title: 'Subs',
         key: 'SUBSCRIPTIONS',
         url: Routes.SUBSCRIPTIONS,
         icon: <BsCardChecklist className="nav-item-icon" />,

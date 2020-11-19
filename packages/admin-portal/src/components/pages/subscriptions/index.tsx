@@ -142,9 +142,7 @@ const Subscriptions: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section className="mb-0">
-        <H3>Subscriptions</H3>
-      </Section>
+      <H3 isHeadingSection>Subscriptions</H3>
       <SubscriptionsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {isLoading || !data ? (
         <Loader />
