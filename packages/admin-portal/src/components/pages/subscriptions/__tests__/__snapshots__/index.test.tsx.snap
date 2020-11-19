@@ -58,21 +58,14 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
       <Subscriptions>
         <ErrorBoundary>
           <Component
-            className="mb-0"
+            isHeadingSection={true}
           >
-            <section
+            <h3
               className=""
-              data-test=""
+              id=""
             >
-              <Component>
-                <h3
-                  className=""
-                  id=""
-                >
-                  Subscriptions
-                </h3>
-              </Component>
-            </section>
+              Subscriptions
+            </h3>
           </Component>
           <SubscriptionsFilterForm
             filterValues={
@@ -671,6 +664,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             totalCount={0}
           />
           <Component
+            isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}
@@ -765,21 +759,14 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
       <Subscriptions>
         <ErrorBoundary>
           <Component
-            className="mb-0"
+            isHeadingSection={true}
           >
-            <section
+            <h3
               className=""
-              data-test=""
+              id=""
             >
-              <Component>
-                <h3
-                  className=""
-                  id=""
-                >
-                  Subscriptions
-                </h3>
-              </Component>
-            </section>
+              Subscriptions
+            </h3>
           </Component>
           <SubscriptionsFilterForm
             filterValues={
@@ -1378,6 +1365,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             totalCount={0}
           />
           <Component
+            isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}
@@ -1472,21 +1460,14 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
       <Subscriptions>
         <ErrorBoundary>
           <Component
-            className="mb-0"
+            isHeadingSection={true}
           >
-            <section
+            <h3
               className=""
-              data-test=""
+              id=""
             >
-              <Component>
-                <h3
-                  className=""
-                  id=""
-                >
-                  Subscriptions
-                </h3>
-              </Component>
-            </section>
+              Subscriptions
+            </h3>
           </Component>
           <SubscriptionsFilterForm
             filterValues={
@@ -2085,6 +2066,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
             totalCount={0}
           />
           <Component
+            isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}

@@ -10,6 +10,9 @@ import {
   fetchSubscriptionListSuccess,
   fetchSubscriptionListFailed,
   CancelSubscriptionActionParams,
+  cancelSubscription,
+  cancelSubscriptionSuccess,
+  cancelSubscriptionFailed,
 } from '@/actions/subscriptions'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -63,10 +66,10 @@ describe('fetchSubscriptionListHandler ', () => {
   })
 })
 
-describe('cancelSubscriptionHandler ', () => {
+describe('disableMemberSagas', () => {
   const params: Action<CancelSubscriptionActionParams> = {
     data: {
-      id: '1de28f85-0239-497b-b20f-a855b79527e4',
+      id: '123',
     },
     type: ActionTypes.DISABLE_MEMBER as ActionType,
   }
@@ -75,13 +78,16 @@ describe('cancelSubscriptionHandler ', () => {
 
   it('api call success', () => {
     const clone = gen.clone()
+    expect(clone.next(true).value).toEqual(put(cancelSubscriptionSuccess()))
     expect(clone.next().done).toEqual(true)
   })
 
   it('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      clone.throw()
+      expect(clone.throw({ description: errorMessages.DEFAULT_SERVER_ERROR }).value).toEqual(
+        put(cancelSubscriptionFailed()),
+      )
       expect(clone.next().value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
