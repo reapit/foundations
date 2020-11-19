@@ -29,7 +29,7 @@ module.exports = async () => {
     let tagName = `foundations-ts-definitions_v${packageJson.version}`
 
     execSync(`git tag ${tagName}`)
-    execSync('git push --tags sshOrigin HEAD:master')
+    execSync(`git push --tags sshOrigin ${branchName}`)
 
     const octokit = new Octokit({
       auth: GITHUB_TOKEN,
