@@ -1,14 +1,13 @@
 {
   "name": "@reapit/foundations-ts-definitions",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "license": "MIT",
   "files": [
     "types/*"
   ],
   "main": "./types/index.ts",
   "scripts": {
-    "fetch-config": "yarn config-manager --namespace cloud --entity foundations-ts-definitions --name local --mode fetch",
-    "fetch-definition": "yarn fetch-config && node './scripts/fetch-definition.js'",
+    "fetch-definitions": "node './scripts/fetch-definitions.js'",
     "handle-cron-job": "node './scripts/handle-cronjob.js'",
     "build:prod": "echo 'not implmented'"
   },

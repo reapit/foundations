@@ -4,9 +4,10 @@ const fs = require('fs')
 const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
-
-const { FOUNDATION_TYPES_FOLDER } = require('./constants')
-const { PLATFORM_API_BASE_URL } = require(path.resolve(__dirname, '..', 'config.json'))
+const { FOUNDATIONS_TYPES_FOLDER, PLATFORM_API_BASE_URL } = require('./constants')
+const { existsSync, mkdirSync } = require('fs')
+const createIndexFile = require('./create-index-file')
+const { sync: rimraf } = require('rimraf')
 
 // Fetch definitions for a given schema
 const fetchDefinitionsForSchema = async schemaConfig => {
@@ -48,11 +49,31 @@ const fetchDefinitionsForSchema = async schemaConfig => {
 }
 
 // Fetch definitions for all schemas
-module.exports = async apiVersion => {
+const fetchSchema = async apiVersion => {
+  if (existsSync(FOUNDATIONS_TYPES_FOLDER)) {
+    rimraf(FOUNDATIONS_TYPES_FOLDER)
+  }
+
+  mkdirSync(FOUNDATIONS_TYPES_FOLDER)
+
   const apiSchema = [
     {
-      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './platform-schema.ts'),
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './platform-schema.ts'),
       endpoint: `${PLATFORM_API_BASE_URL}/docs`,
+      headers: {
+        'api-version': apiVersion,
+      },
+    },
+    {
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './marketplace-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/marketplace/swagger/v1/swagger.json`,
+      headers: {
+        'api-version': apiVersion,
+      },
+    },
+    {
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './marketplace-traffic-event-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/trafficevents/swagger/v2/swagger.json`,
       headers: {
         'api-version': apiVersion,
       },
@@ -61,3 +82,5 @@ module.exports = async apiVersion => {
 
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 }
+
+fetchSchema().then(createIndexFile)
