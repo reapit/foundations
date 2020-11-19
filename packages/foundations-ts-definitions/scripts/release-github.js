@@ -20,8 +20,8 @@ module.exports = async () => {
      * husky is throwing output to stderr
      * even the command runs cool
      */
-    execSync('git pull origin master')
-    execSync(`git commit -m 'chore: update TypeScript definition - time stamp: ${getCurrentTimeStamp()}'`)
+    execSync('git pull origin master --rebase')
+    execSync(`git commit -m 'chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}'`)
     execSync('git push -u sshOrigin HEAD:master')
 
     const packageJson = JSON.parse(fs.readFileSync(path.resolve(FOUNDATIONS_ROOT_FOLDER, './package.json')).toString())
