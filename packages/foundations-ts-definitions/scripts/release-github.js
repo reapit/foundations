@@ -41,7 +41,7 @@ module.exports = async () => {
     await octokit.pulls.create({
       owner: ownerName,
       repo: repositoryName,
-      title: branchName,
+      title: `chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}`,
       head: branchName,
       base: 'master',
     })
