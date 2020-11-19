@@ -13,14 +13,15 @@ module.exports = async () => {
     runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
     runCommand('git', ['config', '--global', 'user.email', '"wmcvay@reapit.com"'])
     runCommand('git', ['config', '--global', 'user.name', '"Will McVay"'])
-
-    runCommand('git', ['add', '.'])
     /**
      * have to use execSync instead
      * husky is throwing output to stderr
      * even the command runs cool
      */
+    execSync('git stash')
     execSync('git pull origin master --rebase')
+    execSync('git stash pop')
+    runCommand('git', ['add', '.'])
     execSync(`git commit -m 'chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}'`)
     execSync('git push -u sshOrigin HEAD:master')
 
