@@ -51,6 +51,7 @@ export * from './components/UploadProgress'
 export * from './components/DropdownSelect'
 export * from './components/BreadcrumbV2'
 export * from './components/ImageCropperV2'
+export * from './components/CardInputGroup'
 export * from './helpers/fade-in'
 
 // Utils
