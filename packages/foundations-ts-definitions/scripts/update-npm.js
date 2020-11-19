@@ -2,8 +2,8 @@ const semver = require('semver')
 const { runCommand } = require('../../../scripts/release/utils')
 const fs = require('fs')
 const path = require('path')
-const { FOUNDATION_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')
-const packageJsonPath = path.resolve(FOUNDATION_ROOT_FOLDER, './package.json')
+const { FOUNDATIONS_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')
+const packageJsonPath = path.resolve(FOUNDATIONS_ROOT_FOLDER, './package.json')
 
 module.exports = async () => {
   const remotePackageVersionStdOut = runCommand('yarn', [

@@ -1,12 +1,12 @@
 const fs = require('fs')
 const path = require('path')
-const { FOUNDATION_TYPES_FOLDER } = require('./constants')
+const { FOUNDATIONS_TYPES_FOLDER } = require('./constants')
 
 const prettifyCode = require('./format-code')
-const indexFilePath = path.resolve(FOUNDATION_TYPES_FOLDER, './index.ts')
+const indexFilePath = path.resolve(FOUNDATIONS_TYPES_FOLDER, './index.ts')
 
 module.exports = () => {
-  const files = fs.readdirSync(FOUNDATION_TYPES_FOLDER)
+  const files = fs.readdirSync(FOUNDATIONS_TYPES_FOLDER)
   fs.writeFileSync(
     indexFilePath,
     prettifyCode(
