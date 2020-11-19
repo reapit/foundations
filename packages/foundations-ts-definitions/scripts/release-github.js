@@ -23,13 +23,13 @@ module.exports = async () => {
     execSync(`git checkout -b ${branchName}`)
     runCommand('git', ['add', '.'])
     execSync(`git commit -m "chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}"`)
-    execSync(`git push -u sshOrigin ${branchName}`)
+    execSync(`git push -u sshOrigin ${branchName} -f`)
 
     const packageJson = JSON.parse(fs.readFileSync(path.resolve(FOUNDATIONS_ROOT_FOLDER, './package.json')).toString())
     let tagName = `foundations-ts-definitions_v${packageJson.version}`
 
     execSync(`git tag ${tagName}`)
-    execSync(`git push --tags sshOrigin ${branchName}`)
+    execSync(`git push --tags sshOrigin ${branchName} -f`)
 
     const octokit = new Octokit({
       auth: GITHUB_TOKEN,
