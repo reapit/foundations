@@ -4,6 +4,8 @@ import {
   fetchSubscriptionListFailed,
   FetchSubscriptionListQuery,
   CancelSubscriptionActionParams,
+  cancelSubscriptionSuccess,
+  cancelSubscriptionFailed,
 } from '@/actions/subscriptions'
 
 import { notification } from '@reapit/elements'
@@ -37,16 +39,24 @@ export const fetchSubscriptionListHandler = function*({ data: { page, queryStrin
   }
 }
 
-export const cancelSubscriptionHandler = function*({ data: { id, callback } }) {
+export const cancelSubscriptionHandler = function*({ data: { id } }) {
   try {
-    yield call(cancelSubscriptionApi, { id })
-    callback(true)
+    const response = yield call(cancelSubscriptionApi, { id })
+    if (response) {
+      yield put(cancelSubscriptionSuccess())
+    } else {
+      yield put(cancelSubscriptionFailed())
+      notification.error({
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+      })
+    }
   } catch (err) {
-    callback(false)
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       placement: 'bottomRight',
     })
+    yield put(cancelSubscriptionFailed())
   }
 }
 
@@ -58,7 +68,7 @@ export const fetchSubscriptionListListen = function*() {
 }
 
 export const cancelSubscriptionListen = function*() {
-  yield takeLatest<Action<CancelSubscriptionActionParams>>(ActionTypes.DISABLE_MEMBER, cancelSubscriptionHandler)
+  yield takeLatest<Action<CancelSubscriptionActionParams>>(ActionTypes.CANCEL_SUBSCRIPTION, cancelSubscriptionHandler)
 }
 
 const subscriptionsListSagas = function*() {

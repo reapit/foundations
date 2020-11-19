@@ -67,7 +67,6 @@ describe('cancelSubscriptionHandler ', () => {
   const params: Action<CancelSubscriptionActionParams> = {
     data: {
       id: '1de28f85-0239-497b-b20f-a855b79527e4',
-      callback: jest.fn(),
     },
     type: ActionTypes.DISABLE_MEMBER as ActionType,
   }

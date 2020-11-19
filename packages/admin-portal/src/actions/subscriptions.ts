@@ -8,7 +8,7 @@ export interface FetchSubscriptionListQuery {
   queryString: string
 }
 
-export type CancelSubscriptionActionParams = CancelSubscriptionParams & { callback: (isSuccess: boolean) => void }
+export type CancelSubscriptionActionParams = CancelSubscriptionParams
 
 export const fetchSubscriptionList = actionCreator<FetchSubscriptionListQuery>(ActionTypes.FETCH_SUBSCRIPTION_LIST)
 
@@ -19,3 +19,7 @@ export const fetchSubscriptionListSuccess = actionCreator<SubscriptionModelPaged
 export const fetchSubscriptionListFailed = actionCreator<string>(ActionTypes.FETCH_SUBSCRIPTION_LIST_FAILED)
 
 export const cancelSubscription = actionCreator<CancelSubscriptionParams>(ActionTypes.CANCEL_SUBSCRIPTION)
+
+export const cancelSubscriptionSuccess = actionCreator<void>(ActionTypes.CANCEL_SUBSCRIPTION_SUCCESS)
+
+export const cancelSubscriptionFailed = actionCreator<void>(ActionTypes.CANCEL_SUBSCRIPTION_FAILED)

@@ -88,7 +88,6 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
                     onBlur={handleFieldTouched(form, field)}
                     getPopupContainer={getPopupContainer}
                     dropdownStyle={{ zIndex: 999 }}
-                    // multiple={false}
                     {...restProps}
                   >
                     {options?.map((option: SelectOption) => (

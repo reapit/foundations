@@ -14,6 +14,7 @@ import {
   Section,
   Alert,
   Button,
+  notification,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import SubscriptionsFilterForm, {
@@ -22,8 +23,12 @@ import SubscriptionsFilterForm, {
 import CancelConfirmModal from '@/components/ui/subscriptions/subscription-cancel-confirm'
 import MemberNameCell from '@/components/ui/subscriptions/subscription-member-name-cell'
 import { selectSubscriptionListState } from '@/selector/admin'
-import { cleanObject } from '@reapit/utils'
-import { fetchSubscriptionList, FetchSubscriptionListQuery, cancelSubscription } from '@/actions/subscriptions'
+import { cleanObject, errorMessages } from '@reapit/utils'
+import {
+  fetchSubscriptionList,
+  FetchSubscriptionListQuery,
+  cancelSubscription as cancelSubscriptionAc,
+} from '@/actions/subscriptions'
 import { CancelSubscriptionParams } from '@/services/subscriptions'
 import store from '../../../core/store'
 
@@ -49,12 +54,20 @@ export const onSearchHandler = (history: History<any>) => (
   { setStatus },
 ) => {
   const cleanedValues = cleanObject(queryParams)
+  const { developerId } = cleanedValues
+  if (developerId?.length > 1) {
+    return notification.error({
+      message: errorMessages.SUBSCRIPTION_MULTIPLE_DEVELOPER,
+      placement: 'bottomRight',
+    })
+  }
 
   if (isEmptyObject(cleanedValues)) {
     setStatus('Please enter at least one search criteria')
     return
   }
 
+  setStatus(null)
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
@@ -83,10 +96,14 @@ const Subscriptions: React.FC = () => {
   const [cancelSubId, setCancelSubId] = React.useState<string>('')
 
   const onCancelSubscription = () => {
-    store.dispatch(cancelSubscription({ id: cancelSubId } as CancelSubscriptionParams))
+    store.dispatch(
+      cancelSubscriptionAc({
+        id: cancelSubId,
+      } as CancelSubscriptionParams),
+    )
   }
 
-  const { data, totalCount, pageSize, pageNumber = 1, isLoading } = SubscriptionsListState
+  const { data, totalCount, pageSize, pageNumber = 1, isLoading, cancelSubscription } = SubscriptionsListState
 
   const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
 
@@ -141,6 +158,7 @@ const Subscriptions: React.FC = () => {
         onConfirm={onCancelSubscription}
         isShowConfirmModal={cancelSubId !== ''}
         setCancelSubId={setCancelSubId}
+        isCanceling={cancelSubscription.isLoading}
       />
     </ErrorBoundary>
   )

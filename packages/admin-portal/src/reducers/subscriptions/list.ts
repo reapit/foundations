@@ -4,14 +4,26 @@ import {
   fetchSubscriptionListSuccess,
   fetchSubscriptionListFailed,
   fetchSubscriptionList,
+  cancelSubscription,
+  cancelSubscriptionSuccess,
+  cancelSubscriptionFailed,
 } from '../../actions/subscriptions'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
 export type SubscriptionListState = SubscriptionModelPagedResult &
-  Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
+  Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'> & {
+    cancelSubscription: {
+      isLoading: boolean
+    }
+  }
 
-export const defaultState: SubscriptionListState = getDefaultFetchListValue()
+export const defaultState: SubscriptionListState = {
+  ...getDefaultFetchListValue(),
+  cancelSubscription: {
+    isLoading: false,
+  },
+}
 
 const subscriptionsListReducer = (
   state: SubscriptionListState = defaultState,
@@ -31,6 +43,24 @@ const subscriptionsListReducer = (
 
   if (isType(action, fetchSubscriptionListFailed)) {
     return { ...state, isLoading: false, errorMessage: action.data }
+  }
+
+  if (isType(action, cancelSubscription)) {
+    return {
+      ...state,
+      cancelSubscription: {
+        isLoading: true,
+      },
+    }
+  }
+
+  if (isType(action, cancelSubscriptionSuccess) || isType(action, cancelSubscriptionFailed)) {
+    return {
+      ...state,
+      cancelSubscription: {
+        isLoading: false,
+      },
+    }
   }
 
   return state

@@ -98,25 +98,6 @@ describe('onSearchHandler', () => {
   })
 })
 
-// describe('closeDisableMemberModal', () => {
-// it('should run correctly', () => {
-// const setDisableMemberModalVisible = jest.fn()
-// closeDisableMemberModal(setDisableMemberModalVisible)()
-// expect(setDisableMemberModalVisible).toBeCalledWith(false)
-// })
-// })
-
-// describe('openDisableMemberModal', () => {
-// it('should run correctly', () => {
-// const setSelectedUser = jest.fn()
-// const setDisableMemberModalVisible = jest.fn()
-// const user = {} as MemberModel
-// openDisableMemberModal(setSelectedUser, setDisableMemberModalVisible, user)()
-// expect(setSelectedUser).toBeCalledWith(user)
-// expect(setDisableMemberModalVisible).toBeCalledWith(true)
-// })
-// })
-
 describe('renderResult', () => {
   const columns = [
     { Header: 'Subscription Type', accessor: 'type' },
