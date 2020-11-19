@@ -1,6 +1,6 @@
 // @ts-ignore
 export * from './marketplace-schema'
 // @ts-ignore
-export * from './platform-schema'
+export * from './marketplace-traffic-event-schema'
 // @ts-ignore
-export * from './taffic-event-schema'
+export * from './platform-schema'

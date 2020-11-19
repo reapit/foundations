@@ -71,6 +71,13 @@ const fetchSchema = async apiVersion => {
         'api-version': apiVersion,
       },
     },
+    {
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './marketplace-traffic-event-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/trafficevents/swagger/v2/swagger.json`,
+      headers: {
+        'api-version': apiVersion,
+      },
+    },
   ]
 
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
