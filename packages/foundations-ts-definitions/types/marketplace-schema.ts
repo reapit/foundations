@@ -1242,6 +1242,10 @@ export interface MemberModel {
    * A flag specifying if the member has access to agency cloud
    */
   agencyCloudAccess?: boolean
+  /**
+   * A flag to determine whether an access token issued to this developer user will resolve to customer data (rather than sandbox)
+   */
+  useCustomerData?: boolean
 }
 /**
  * Model to handle paged data and information
@@ -1534,4 +1538,8 @@ export interface UpdateMemberModel {
    * The members role (admin/user)
    */
   role?: string
+  /**
+   * A flag to determine whether an access token issued to this developer user will resolve to customer data (rather than sandbox)
+   */
+  useCustomerData?: boolean
 }

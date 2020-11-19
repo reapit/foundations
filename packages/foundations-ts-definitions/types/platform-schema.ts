@@ -4388,6 +4388,30 @@ export interface CreateLandlordSourceModel {
   type?: string
 }
 /**
+ * Payload to create a metadata record
+ * example:
+ * [object Object]
+ */
+export interface CreateMetadataRequest {
+  /**
+   * The type of the entity that this metadata is related to. This can represent a Foundations inbuilt type (an entity presented in our APIs) or it can be a custom entity type (a dynamic standalone metadata entity that you create).
+   *
+   * Inbuilt types: applicant, appointment, company, contact, conveyancing, identityCheck, landlord, negotiator, offer, office, property, task, vendor, worksOrder
+   */
+  entityType: string
+  /**
+   * The unique identifier of the entity that this metadata is related to.
+   * For custom entities, this can be left blank and an id will be generated for you.
+   */
+  entityId?: string
+  /**
+   * The JSON document to store
+   */
+  metadata: {
+    [name: string]: any
+  }
+}
+/**
  * Request body used to create a new negotiator
  * example:
  * [object Object]
@@ -5524,14 +5548,6 @@ export interface CreateWorksOrderModel {
  * Representation of a department
  */
 export interface DepartmentModel {
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
   /**
    * The unique identifier of the department
    */
@@ -5580,75 +5596,13 @@ export interface DepartmentModel {
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
-}
-export interface DepartmentModelPagedResult {
-  _embedded?: {
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-    /**
-     * The unique identifier of the department
-     */
-    id?: string
-    /**
-     * The date and time when the department was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the department was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The name of the department
-     */
-    name?: string
-    /**
-     * A collection of property type values that will be accepted by other services
-     */
-    typeOptions?: string[]
-    /**
-     * A collection of property style values that will be accepted by other services
-     */
-    styleOptions?: string[]
-    /**
-     * A collection of property situation values that will be accepted by other services
-     */
-    situationOptions?: string[]
-    /**
-     * A collection of property parking values that will be accepted by other services
-     */
-    parkingOptions?: string[]
-    /**
-     * A collection of property age values that will be accepted by other services
-     */
-    ageOptions?: string[]
-    /**
-     * A collection of property locality values that will be accepted by other services
-     */
-    localityOptions?: string[]
-    /**
-     * The ETag for the current version of the department. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
+  readonly _links?: {
     [name: string]: {
       href?: string
     }
+  }
+  readonly _embedded?: {
+    [name: string]: any
   }
 }
 export interface Departments {
@@ -6414,6 +6368,7 @@ export interface JournalEntries {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+  embed?: ('property' | 'negotiator' | 'type')[]
   associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
   associatedId?: string[]
   negotiatorId?: string[]
@@ -7076,6 +7031,81 @@ export interface ListItemModel {
    * The textual value for the list item
    */
   value?: string
+}
+export interface Metadata {
+  pageSize?: number
+  pageNumber?: number
+  entityType?: string
+  id?: string[]
+  entityId?: string[]
+  filter?: string[]
+}
+/**
+ * Model representing the state of a metadata record for a given entity
+ */
+export interface MetadataModel {
+  /**
+   * The unique identifier of this metadata record
+   */
+  id?: string
+  /**
+   * The date and time of when this metadata record was last updated
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The name of the entity type that this metadata record is associated to
+   */
+  entityType?: string
+  /**
+   * The unique identifier of the the entity that this metadata is associated to
+   */
+  entityId?: string
+  /**
+   * The JSON document content
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+export interface MetadataModelPagedResult {
+  _embedded?: {
+    /**
+     * The unique identifier of this metadata record
+     */
+    id?: string
+    /**
+     * The date and time of when this metadata record was last updated
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The name of the entity type that this metadata record is associated to
+     */
+    entityType?: string
+    /**
+     * The unique identifier of the the entity that this metadata is associated to
+     */
+    entityId?: string
+    /**
+     * The JSON document content
+     */
+    metadata?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of a negotiator
@@ -7940,6 +7970,88 @@ export interface Offices {
   address?: string
   name?: string
   metadata?: string[]
+}
+/**
+ * example:
+ * [object Object]
+ */
+export interface Operation {
+  operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+  path?: string
+  op?: string
+  from?: string
+  value?: any
+}
+export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+export interface PagedResultDepartmentModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the department
+     */
+    id?: string
+    /**
+     * The date and time when the department was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the department was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The name of the department
+     */
+    name?: string
+    /**
+     * A collection of property type values that will be accepted by other services
+     */
+    typeOptions?: string[]
+    /**
+     * A collection of property style values that will be accepted by other services
+     */
+    styleOptions?: string[]
+    /**
+     * A collection of property situation values that will be accepted by other services
+     */
+    situationOptions?: string[]
+    /**
+     * A collection of property parking values that will be accepted by other services
+     */
+    parkingOptions?: string[]
+    /**
+     * A collection of property age values that will be accepted by other services
+     */
+    ageOptions?: string[]
+    /**
+     * A collection of property locality values that will be accepted by other services
+     */
+    localityOptions?: string[]
+    /**
+     * The ETag for the current version of the department. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 export interface PagingLinkModel {
   href?: string
@@ -11457,6 +11569,19 @@ export interface UpdateLandlordSourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Payload to update a metadata record
+ * example:
+ * [object Object]
+ */
+export interface UpdateMetadataRequest {
+  /**
+   * The updated JSON document to store
+   */
+  metadata: {
+    [name: string]: any
+  }
 }
 /**
  * Request body used to update an existing negotiator
