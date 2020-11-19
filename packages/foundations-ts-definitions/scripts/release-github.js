@@ -10,7 +10,7 @@ const { GITHUB_TOKEN } = process.env
 
 module.exports = async () => {
   try {
-    const branchName = `chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}`
+    const branchName = `chore/ts-definitions-time-stamp-${getCurrentTimeStamp()}`
     runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
     runCommand('git', ['config', '--global', 'user.email', '"wmcvay@reapit.com"'])
     runCommand('git', ['config', '--global', 'user.name', '"Will McVay"'])
@@ -22,7 +22,7 @@ module.exports = async () => {
 
     execSync(`git checkout -b ${branchName}`)
     runCommand('git', ['add', '.'])
-    execSync(`git commit -m '${branchName}`)
+    execSync(`git commit -m "chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}"`)
     execSync(`git push -u sshOrigin ${branchName}`)
 
     const packageJson = JSON.parse(fs.readFileSync(path.resolve(FOUNDATIONS_ROOT_FOLDER, './package.json')).toString())
