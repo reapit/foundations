@@ -40,7 +40,7 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
-    "check:ci": "lerna run check:ci --parallel --stream --since master --include-dependencies --",
+    "check:ci": "lerna run check:ci --parallel --stream --since origin/master --include-dependencies --",
     "check:precommit": "lerna run check:fix --parallel --stream --since master --include-dependencies --",
     "check:all": "lerna run check:fix --parallel --stream --include-dependencies --",
     "release:development": "lerna run release:development --parallel",
