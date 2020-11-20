@@ -3,7 +3,7 @@ import { forgotPasswordTemplate, confirmRegistrationTemplate, adminUserInviteTem
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID && event.triggerSource === 'CustomMessage_ForgotPassword') {
-    event.response.emailSubject = 'Forgotten Password'
+    event.response.emailSubject = 'Reapit Connect - Forgotten Password'
     const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
     event.response.emailMessage = await forgotPasswordTemplate({
       verificationCode: event.request.codeParameter as string,

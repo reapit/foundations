@@ -55,7 +55,7 @@ describe('customMailer', () => {
 
       await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
       expect(event.response).toEqual({
-        emailSubject: 'Forgotten Password',
+        emailSubject: 'Reapit Connect - Forgotten Password',
         emailMessage: await forgotPasswordTemplate({
           verificationCode: event.request?.codeParameter as string,
           userName: event.request?.userAttributes.email as string,
