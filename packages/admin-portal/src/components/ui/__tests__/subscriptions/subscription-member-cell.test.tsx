@@ -23,13 +23,13 @@ const initProps = (): MemberNameCellProps => ({
   cell: { value: '123' },
 })
 
-describe('SubscriptionsFilterForm', () => {
+describe('MemberNameCell', () => {
   let store, mockStore
   beforeEach(() => {
     mockStore = configureStore()
   })
 
-  it('should render developer filter form', () => {
+  it('should render MemberNameCell', () => {
     store = mockStore(
       createStore(false, {
         data: [
@@ -41,7 +41,7 @@ describe('SubscriptionsFilterForm', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptions' }]}>
             <MemberNameCell {...initProps()} />
           </MemoryRouter>
         </ReactRedux.Provider>,

@@ -7,7 +7,10 @@ import appState from '@/reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
 import Routes from '@/constants/routes'
 
-import SubscriptionsFilterForm, { SubscriptionsFormProps } from '../../subscriptions/subscriptions-filter-form'
+import SubscriptionsFilterForm, {
+  SubscriptionsFormProps,
+  prepareDevelopersOptions,
+} from '../../subscriptions/subscriptions-filter-form'
 
 const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
   return {
@@ -51,5 +54,19 @@ describe('SubscriptionsFilterForm', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+})
+
+describe('prepareDevelopersOptions', () => {
+  it('prepareDevelopersOptions should return true result', () => {
+    const data = [
+      { id: '123', name: 'Alice' },
+      { id: '456', name: 'Bob' },
+    ]
+    const expected = [
+      { label: 'Alice', value: '123' },
+      { label: 'Bob', value: '456' },
+    ]
+    expect(prepareDevelopersOptions(data)).toEqual(expected)
   })
 })

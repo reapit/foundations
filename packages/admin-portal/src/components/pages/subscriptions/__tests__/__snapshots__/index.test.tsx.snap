@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
+exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
 <Provider
   store={
     Object {
@@ -17,8 +17,8 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
+          "key": "subscriptionsRoute",
+          "pathname": "/subscriptions",
         },
       ]
     }
@@ -33,8 +33,8 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
+              "key": "subscriptionsRoute",
+              "pathname": "/subscriptions",
               "search": "",
             },
           ],
@@ -46,8 +46,8 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
+            "key": "subscriptionsRoute",
+            "pathname": "/subscriptions",
             "search": "",
           },
           "push": [Function],
@@ -701,7 +701,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
 </Provider>
 `;
 
-exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
+exports[`Subscriptions should render blank Info when data is empty 1`] = `
 <Provider
   store={
     Object {
@@ -718,8 +718,8 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
+          "key": "subscriptionsRoute",
+          "pathname": "/subscriptions",
         },
       ]
     }
@@ -734,8 +734,8 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
+              "key": "subscriptionsRoute",
+              "pathname": "/subscriptions",
               "search": "",
             },
           ],
@@ -747,8 +747,8 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
+            "key": "subscriptionsRoute",
+            "pathname": "/subscriptions",
             "search": "",
           },
           "push": [Function],
@@ -1402,7 +1402,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 </Provider>
 `;
 
-exports[`AdminDevManagement should show loader when LOADING true 1`] = `
+exports[`Subscriptions should show loader when LOADING true 1`] = `
 <Provider
   store={
     Object {
@@ -1419,8 +1419,8 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
+          "key": "subscriptionsRoute",
+          "pathname": "/subscriptions",
         },
       ]
     }
@@ -1435,8 +1435,8 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
+              "key": "subscriptionsRoute",
+              "pathname": "/subscriptions",
               "search": "",
             },
           ],
@@ -1448,8 +1448,8 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
+            "key": "subscriptionsRoute",
+            "pathname": "/subscriptions",
             "search": "",
           },
           "push": [Function],

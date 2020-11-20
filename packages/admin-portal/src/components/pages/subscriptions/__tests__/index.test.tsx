@@ -7,20 +7,20 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { SubscriptionsFilterFormValues } from '@/components/ui/subscriptions/subscriptions-filter-form'
 
-const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
+const createStore = (loading: boolean, data?: SubscriptionModelPagedResult) => {
   return {
     ...appState,
-    adminDevManagement: {
+    list: {
       loading,
       ...(data ? { data } : {}),
     },
   }
 }
 
-describe('AdminDevManagement', () => {
+describe('Subscriptions', () => {
   let store, mockStore
   beforeEach(() => {
     mockStore = configureStore()
@@ -30,7 +30,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -43,7 +43,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -56,7 +56,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,
