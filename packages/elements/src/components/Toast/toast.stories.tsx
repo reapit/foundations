@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
 
 import { storiesOf } from '@storybook/react'
-import { Toast } from '.'
+import { ErrorData, Toast } from '.'
 import { Button } from '../Button'
 import { Section } from '@/components/Layout'
 
 const DEFAULT_SERVER_ERROR = {
   type: 'SERVER',
   message: 'Something went wrong fetching data',
-}
+} as ErrorData
 const DEFAULT_COMPONENT_ERROR = {
   type: 'COMPONENT',
   message: 'Something went wrong with this component',
-}
+} as ErrorData
 
 const stories = storiesOf('Toast', module)
 
 const Usage = () => {
-  const [serverError, setErrorServer] = useState()
-  const [componentError, setErrorComponent] = useState()
+  const [serverError, setErrorServer] = useState<ErrorData | null>(null)
+  const [componentError, setErrorComponent] = useState<ErrorData | null>(null)
 
   const errorClearedComponent = () => {
     setErrorComponent(null)

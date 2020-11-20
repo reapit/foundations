@@ -96,7 +96,7 @@ export const FileInput = ({
             const file = e.target.files[0]
             setFileName(file.name)
 
-            let reader = new FileReader()
+            const reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onload = function() {
               const base64 = reader.result

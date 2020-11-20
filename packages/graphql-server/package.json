@@ -9,8 +9,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,js src\"",
-    "lint:fix": "prettier \"src/**/*.{graphql,gql}\" --write && eslint --cache --ext=ts,js src --fix",
+    "check": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "check:fix": "concurrently \"prettier src/**/*.{graphql,gql} --write \" \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
     "release:development": "yarn build:schema && serverless deploy --stage dev",
     "release:production": "yarn build:schema && serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",

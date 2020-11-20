@@ -374,6 +374,7 @@ export const renderMap = ({
   onDrawingPolygonComplete,
   mapContainerStyles,
   ...restProps
+  // eslint-disable-next-line react/display-name
 }) => (googleMaps, error) => {
   if (googleMaps && !error) {
     return (

@@ -43,7 +43,7 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputType>(
 
       const castedInputElement = inputElement as HTMLInputElement
 
-      let oldStart = castedInputElement.selectionStart
+      const oldStart = castedInputElement.selectionStart
       const textFieldValue = e.target.value
 
       const splitTextFieldValue = textFieldValue.split('').filter(char => char !== '/')

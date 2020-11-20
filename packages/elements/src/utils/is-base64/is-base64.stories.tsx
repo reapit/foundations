@@ -10,7 +10,7 @@ import { isBase64 } from '.'
 
 const validate = values => {
   const { pattern } = values
-  let errors = { pattern: '' }
+  const errors = { pattern: '' }
   if (!isBase64(pattern)) {
     errors.pattern = 'Pattern does not match base64'
   }

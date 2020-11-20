@@ -11,7 +11,7 @@ export interface PaginationProps {
 export const generatePagination = (currentPage: number, pageCount: number) => {
   const delta = 2
 
-  let range: (number | string)[] = []
+  const range: (number | string)[] = []
   for (let i = Math.max(2, currentPage - delta); i <= Math.min(pageCount - 1, currentPage + delta); i++) {
     range.push(i)
   }

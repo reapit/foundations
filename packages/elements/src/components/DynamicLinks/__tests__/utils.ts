@@ -13,7 +13,7 @@ jest.mock('../../../utils/local-storage/local-storage-check', () => ({
   storageAvailable: jest.fn(() => true),
 }))
 ;(global as any).console = { log: jest.fn() }
-let oldWindow = (global as any).window
+const oldWindow = (global as any).window
 
 beforeAll(() => {
   ;(global as any).window = undefined

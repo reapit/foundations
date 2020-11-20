@@ -21,8 +21,8 @@
     "remove:development": "serverless remove --stage dev",
     "remove:production": "serverless remove --stage dev",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "check": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
     "fetch-config": "yarn config-manager --namespace cloud --entity aml-checklist --name local --mode fetch",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"

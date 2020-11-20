@@ -10,7 +10,7 @@ interface Person {
 }
 
 export const randomChar = () => {
-  let r = Math.random()
+  const r = Math.random()
     .toString(36)
     .substring(7)
   return r
