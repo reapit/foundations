@@ -55,7 +55,7 @@ describe('customMailer', () => {
 
       await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
       expect(event.response).toEqual({
-        emailSubject: 'Reapit Foundations: Forgotten Password',
+        emailSubject: 'Forgotten Password',
         emailMessage: await forgotPasswordTemplate({
           verificationCode: event.request?.codeParameter as string,
           userName: event.request?.userAttributes.email as string,
@@ -84,7 +84,7 @@ describe('customMailer', () => {
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
     expect(event.response).toEqual({
-      emailSubject: 'Welcome to Reapit Foundations',
+      emailSubject: 'Welcome to Reapit Connect',
       emailMessage: await confirmRegistrationTemplate({
         userName: event.request?.userAttributes.email as string,
         url: 'SOME_URL/register/confirm',
@@ -111,7 +111,7 @@ describe('customMailer', () => {
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
     expect(event.response).toEqual({
-      emailSubject: 'Welcome to Reapit Foundations',
+      emailSubject: 'Welcome to Reapit Connect',
       emailMessage: await adminUserInviteTemplate({
         userName: event.request?.userAttributes.email as string,
         url: 'SOME_URL/login',
