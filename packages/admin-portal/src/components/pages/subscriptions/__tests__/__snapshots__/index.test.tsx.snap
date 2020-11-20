@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
+exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
 <Provider
   store={
     Object {
@@ -701,7 +701,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
 </Provider>
 `;
 
-exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
+exports[`Subscriptions should render blank Info when data is empty 1`] = `
 <Provider
   store={
     Object {
@@ -1402,7 +1402,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 </Provider>
 `;
 
-exports[`AdminDevManagement should show loader when LOADING true 1`] = `
+exports[`Subscriptions should show loader when LOADING true 1`] = `
 <Provider
   store={
     Object {
