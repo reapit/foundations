@@ -40,8 +40,9 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
-    "lint": "lerna run lint --parallel --stream",
-    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies --",
+    "check:ci": "lerna run check:ci --parallel --stream --since origin/master --include-dependencies --",
+    "check:precommit": "lerna run check:fix --parallel --stream --since master --include-dependencies --",
+    "check:all": "lerna run check:fix --parallel --stream --include-dependencies --",
     "release:development": "lerna run release:development --parallel",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
@@ -52,7 +53,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn scan-secrets && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
+      "pre-commit": "yarn scan-secrets && yarn check:precommit && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

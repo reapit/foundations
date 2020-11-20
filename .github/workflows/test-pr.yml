@@ -43,7 +43,13 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      
+      - name: Lint & Type Check
+        run: |
+          yarn check:ci
 
       - name: Test
         run: |
           yarn test --since origin/master --include-dependencies
+
+      

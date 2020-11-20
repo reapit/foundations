@@ -1,10 +1,5 @@
 import { isNumberOnly } from '../validate-number'
 
-interface ValueTypes {
-  validEmail: string
-  invalidEmail: string
-}
-
 describe('validate-number', () => {
   describe('isNumber', () => {
     it('should return true', () => {

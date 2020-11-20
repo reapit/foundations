@@ -197,7 +197,7 @@ export const validatedDataGenerate = (data: Cell[][], validateFunction?: Validat
  * Calculate number of invalid rows, using invalidIndies
  */
 export const calculateNumberOfInvalidRows = (invalidIndies: InvalidIndies): number => {
-  let hashMap = {}
+  const hashMap = {}
   invalidIndies.forEach(({ row }) => {
     if (hashMap[row]) {
       hashMap[row]++
@@ -215,9 +215,9 @@ export const createDataWithInvalidRowsRemoved = (
   data: Cell[][],
   validateMatrix: ValidateValue[][],
 ): { dataWithInvalidRowsRemoved: Cell[][]; invalidIndies: InvalidIndies } => {
-  let dataWithInvalidRowsRemoved: Cell[][] = []
+  const dataWithInvalidRowsRemoved: Cell[][] = []
   // store row, col, cell of invalid rows
-  let invalidIndies: InvalidIndies = []
+  const invalidIndies: InvalidIndies = []
   // loop through, check validate each cell
   // if invalid cell, push into invalidIndies
   // only push into dataWithInvalidRowsRemoved if all cells in that row are valid

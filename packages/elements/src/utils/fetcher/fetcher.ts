@@ -33,7 +33,8 @@ export const fetcherWithRawUrl = async <T, B>({
   } as RequestInit)
 
   if (res.status < 400) {
-    return res.json()
+    const jsonRes = await res.json()
+    return jsonRes as T
   }
 
   const error = new FetchError(`ERROR FETCHING ${method} ${url} ${JSON.stringify(res)}`, res)
@@ -49,7 +50,7 @@ export const fetcherWithRawUrl = async <T, B>({
 /**
  * return headers of responose
  */
-export const fetcherWithReturnHeader = async <T, B>({
+export const fetcherWithReturnHeader = async <B>({
   api,
   url,
   method,
@@ -78,7 +79,7 @@ export const fetcherWithReturnHeader = async <T, B>({
   throw error
 }
 
-export const fetcherWithBlob = async <T, B>({
+export const fetcherWithBlob = async <B>({
   api,
   url,
   method,

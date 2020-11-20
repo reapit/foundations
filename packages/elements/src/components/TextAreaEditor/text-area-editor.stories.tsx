@@ -8,7 +8,7 @@ import { Button } from '../Button'
 import { Section } from '@/components/Layout'
 
 const validate = values => {
-  let errors = { description: '', text: '' }
+  const errors = { description: '', text: '' }
 
   if (!values.description) {
     errors.description = 'Required'

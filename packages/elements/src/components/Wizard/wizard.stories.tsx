@@ -81,7 +81,7 @@ const WorkWithFormElements = () => {
           )}
           initialValue={{ firstName: formData.firstName }}
           validate={values => {
-            let errors = {} as { firstName: string }
+            const errors = {} as { firstName: string }
             if (!values.firstName) {
               errors.firstName = 'required'
             }
@@ -171,7 +171,7 @@ const CustomFooterNavigation = () => {
           )}
           initialValue={{ formItem: '' }}
           validate={values => {
-            let errors = {} as { formItem: string }
+            const errors = {} as { formItem: string }
             if (!values.formItem) {
               errors.formItem = 'required'
             }

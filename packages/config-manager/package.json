@@ -17,8 +17,8 @@
     "config-manager": "./src/index.js"
   },
   "scripts": {
-    "lint": "eslint --cache --ext=js src",
-    "lint:fix": "eslint --cache --ext=js src --fix"
+    "check:ci": "eslint --cache --ext=js src",
+    "check:fix": "eslint --cache --ext=js src --fix"
   },
   "dependencies": {
     "aws-sdk": "^2.582.0",

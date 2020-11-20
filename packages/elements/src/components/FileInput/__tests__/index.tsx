@@ -72,7 +72,7 @@ describe('FileInput', () => {
     let submitForm
 
     // formik submit function was asynchronous
-    let onSubmit = values => {
+    const onSubmit = values => {
       waitUntilFormSubmittedResolver(values)
     }
 
