@@ -17,7 +17,7 @@
     "config-manager": "./src/index.js"
   },
   "scripts": {
-    "check": "eslint --cache --ext=js src",
+    "check:ci": "eslint --cache --ext=js src",
     "check:fix": "eslint --cache --ext=js src --fix"
   },
   "dependencies": {

@@ -69,7 +69,7 @@
     "start:dev": "node ./scripts/start-dev.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "check": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
     "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
     "svelte:check": "npx svelte-check",
     "fetch-config": "yarn config-manager --namespace cloud --entity web-components --name local --mode fetch",
