@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CancelConfirmModal should render developer filter form 1`] = `
+exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
 <Component
   isCanceling={false}
   isShowConfirmModal={true}

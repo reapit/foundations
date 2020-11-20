@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
+exports[`MemberNameCell should render MemberNameCell 1`] = `
 <Provider
   store={
     Object {
@@ -17,7 +17,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "adminDevManagementRoute",
+          "key": "subscriptions",
           "pathname": "/subscriptions",
         },
       ]
@@ -33,7 +33,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "adminDevManagementRoute",
+              "key": "subscriptions",
               "pathname": "/subscriptions",
               "search": "",
             },
@@ -46,7 +46,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "adminDevManagementRoute",
+            "key": "subscriptions",
             "pathname": "/subscriptions",
             "search": "",
           },

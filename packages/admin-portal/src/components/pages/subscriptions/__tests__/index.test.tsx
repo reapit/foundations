@@ -30,7 +30,7 @@ describe('Subscriptions', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -43,7 +43,7 @@ describe('Subscriptions', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -56,7 +56,7 @@ describe('Subscriptions', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SUBSCRIPTIONS, key: 'subscriptionsRoute' }]}>
             <Subscriptions />
           </MemoryRouter>
         </ReactRedux.Provider>,

@@ -11,7 +11,7 @@ const initProps = (): CancelConfirmModalProps => ({
 })
 
 describe('CancelConfirmModal', () => {
-  it('should render developer filter form', () => {
+  it('should render CancelConfirmModal', () => {
     expect(mount(<CancelConfirmModal {...initProps()} />)).toMatchSnapshot()
   })
 })
