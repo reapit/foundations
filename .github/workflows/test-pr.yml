@@ -46,7 +46,7 @@ jobs:
       
       - name: Lint & Type Check
         run: |
-          yarn check
+          yarn check:ci
 
       - name: Test
         run: |
