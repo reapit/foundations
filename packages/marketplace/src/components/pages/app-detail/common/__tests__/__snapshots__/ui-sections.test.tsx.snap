@@ -120,16 +120,9 @@ exports[`DesktopIntegrationSection should match a snapshot where desktopIntegrat
 </Component>
 `;
 
-exports[`DeveloperAboutSection should match a snapshot 1`] = `
-<Component
-  headerText="About Developer"
-  isSidebar={true}
-/>
-`;
-
 exports[`DeveloperSection should match a snapshot 1`] = `
 <Component
-  headerText="Developer"
+  headerText="Developer Links"
   isSidebar={true}
 >
   Developer Name

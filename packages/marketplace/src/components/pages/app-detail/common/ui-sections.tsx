@@ -176,14 +176,8 @@ export const InstallationsTableSection: React.FC<InstallationsTableSectionProps>
 }
 
 export const DeveloperSection: React.FC<DeveloperSectionProps> = ({ isSidebar = false, developer }) => (
-  <AppDetailSection headerText="Developer" isSidebar={isSidebar}>
+  <AppDetailSection headerText="Developer Links" isSidebar={isSidebar}>
     {developer}
-  </AppDetailSection>
-)
-
-export const DeveloperAboutSection: React.FC<IsSidebar> = ({ isSidebar = false, children }) => (
-  <AppDetailSection headerText="About Developer" isSidebar={isSidebar}>
-    {children}
   </AppDetailSection>
 )
 

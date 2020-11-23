@@ -165,15 +165,6 @@ exports[`DeveloperAboutSection should match a snapshot 1`] = `
 />
 `;
 
-exports[`DeveloperSection should match a snapshot 1`] = `
-<Component
-  headerText="Developer"
-  isSidebar={true}
->
-  Developer Name
-</Component>
-`;
-
 exports[`DirectApiSection should match a snapshot where isDirectApi false and not sidebar 1`] = `
 <Component
   headerText="Direct API"

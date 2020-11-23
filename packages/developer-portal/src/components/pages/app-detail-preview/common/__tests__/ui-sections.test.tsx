@@ -10,7 +10,6 @@ import {
   ListingPreviewSection,
   AuthenticationSection,
   SummarySection,
-  DeveloperSection,
   DeveloperAboutSection,
   AdditionalImagesSection,
 } from '../ui-sections'
@@ -148,12 +147,6 @@ describe('InstallationsTableSection', () => {
     const wrapper = mount(<InstallationsTableSection data={[]} columns={[]} />)
     expect(wrapper.find('[data-test="render-installations-table-empty-text"]').length).toBe(1)
     expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('DeveloperSection', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<DeveloperSection developer="Developer Name" isSidebar />)).toMatchSnapshot()
   })
 })
 
