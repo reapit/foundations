@@ -14,8 +14,6 @@ export const Login: React.FC = () => {
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
-        <p className="pb-8">Welcome to geo-diary</p>
-
         <Level>
           <Button fullWidth type="submit" variant="primary" onClick={handleLogin}>
             Login
