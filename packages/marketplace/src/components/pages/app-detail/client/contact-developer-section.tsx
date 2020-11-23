@@ -1,6 +1,7 @@
 import React from 'react'
 import { H5, Grid, GridItem, Content } from '@reapit/elements'
-import { link } from '@/styles/elements/link'
+import * as linkStyles from '@/core/__styles__/elements'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export type ContactDeveloperSectionType = {
   contact: {
@@ -12,17 +13,11 @@ export type ContactDeveloperSectionType = {
   hasGutter?: boolean
 }
 
-export const openContactModal = (setVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setVisible(true)
-}
-
-export const closeContactModal = (setVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setVisible(false)
-}
-
 export const ContactDeveloperSection = ({
   contact: { developer, telephone, supportEmail, homePage },
 }: ContactDeveloperSectionType) => {
+  const isDesktop = getMarketplaceGlobalsByKey()
+
   return (
     <>
       <Content>
@@ -40,25 +35,42 @@ export const ContactDeveloperSection = ({
         <Grid>
           <GridItem>
             <p>
-              <a className={link} target="_blank" rel="noopener noreferrer" href={`mailto:${supportEmail}`}>
-                Support
-              </a>
+              {isDesktop ? (
+                <a className={linkStyles.link} href={`agencycloud://process/email?address=${supportEmail}`}>
+                  Support
+                </a>
+              ) : (
+                <a
+                  className={linkStyles.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`mailto:${supportEmail}`}
+                >
+                  Support
+                </a>
+              )}
             </p>
           </GridItem>
         </Grid>
         <Grid>
           <GridItem>
             <p>
-              <a className={link} href={homePage} target="_blank" rel="noopener noreferrer">
-                Website
-              </a>
+              {isDesktop ? (
+                <a className={linkStyles.link} href={`agencycloud://process/webpage?url=${homePage}`}>
+                  Website
+                </a>
+              ) : (
+                <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
+                  Website
+                </a>
+              )}
             </p>
           </GridItem>
         </Grid>
         <Grid>
           <GridItem>
             <p>
-              <a className={link} href={'#'}>
+              <a className={linkStyles.link} href={'#'}>
                 Privacy Policy
               </a>
             </p>
@@ -67,7 +79,7 @@ export const ContactDeveloperSection = ({
         <Grid>
           <GridItem>
             <p>
-              <a className={link} href={'#'}>
+              <a className={linkStyles.link} href={'#'}>
                 Terms of Service
               </a>
             </p>

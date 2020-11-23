@@ -9,7 +9,6 @@ import {
   BackToAppsSection,
   ListingPreviewSection,
   SummarySection,
-  DeveloperSection,
   AdditionalImagesSection,
 } from '../ui-sections'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -133,12 +132,6 @@ describe('InstallationsTableSection', () => {
     const wrapper = mount(<InstallationsTableSection data={[]} columns={[]} />)
     expect(wrapper.find('[data-test="render-installations-table-empty-text"]').length).toBe(1)
     expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('DeveloperSection', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<DeveloperSection developer="Developer Name" isSidebar />)).toMatchSnapshot()
   })
 })
 
