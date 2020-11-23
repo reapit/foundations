@@ -9,6 +9,8 @@ type Field =
   | 'iconImageUrl'
   | 'homePage'
   | 'description'
+  | 'termsConditions'
+  | 'privacyPolicy'
   | 'summary'
   | 'screen1ImageUrl'
   | 'screen2ImageUrl'
@@ -69,8 +71,17 @@ export const formFields: Record<Field, FormFieldInfo> = {
     name: 'description',
     label: 'Description',
     placeHolder:
-      // eslint-disable-next-line max-len
       'A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count',
+  },
+  termsConditions: {
+    name: 'termsConditions',
+    label: 'Terms and Conditions',
+    placeHolder: 'URL to link to your Terms and Conditions',
+  },
+  privacyPolicy: {
+    name: 'privacyPolicy',
+    label: 'Privacy Policy',
+    placeHolder: 'URL to link to your Privacy Policy',
   },
   authFlow: {
     name: 'authFlow',

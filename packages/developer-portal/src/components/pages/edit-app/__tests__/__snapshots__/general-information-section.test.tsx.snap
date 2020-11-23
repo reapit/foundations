@@ -555,6 +555,109 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   </Component>
                 </div>
               </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-terms-conditions"
+                        id="termsConditions"
+                        labelText="Terms and Conditions"
+                        name="termsConditions"
+                        placeholder="URL to link to your Terms and Conditions"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="termsConditions"
+                          validate={null}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="termsConditions"
+                              >
+                                Terms and Conditions
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-terms-conditions"
+                                disabled={false}
+                                id="termsConditions"
+                                name="termsConditions"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Terms and Conditions"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-privacy-policy"
+                        id="privacyPolicy"
+                        labelText="Privacy Policy"
+                        name="privacyPolicy"
+                        placeholder="URL to link to your Privacy Policy"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="privacyPolicy"
+                          validate={null}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="privacyPolicy"
+                              >
+                                Privacy Policy
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-privacy-policy"
+                                disabled={false}
+                                id="privacyPolicy"
+                                name="privacyPolicy"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Privacy Policy"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
             </div>
           </Component>
         </GeneralInformationSection>
@@ -1113,6 +1216,109 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </Component>
                           </div>
                         </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-terms-conditions"
+                        id="termsConditions"
+                        labelText="Terms and Conditions"
+                        name="termsConditions"
+                        placeholder="URL to link to your Terms and Conditions"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="termsConditions"
+                          validate={[Function]}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="termsConditions"
+                              >
+                                Terms and Conditions
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-terms-conditions"
+                                disabled={false}
+                                id="termsConditions"
+                                name="termsConditions"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Terms and Conditions"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-privacy-policy"
+                        id="privacyPolicy"
+                        labelText="Privacy Policy"
+                        name="privacyPolicy"
+                        placeholder="URL to link to your Privacy Policy"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="privacyPolicy"
+                          validate={[Function]}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="privacyPolicy"
+                              >
+                                Privacy Policy
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-privacy-policy"
+                                disabled={false}
+                                id="privacyPolicy"
+                                name="privacyPolicy"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Privacy Policy"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
                       </Component>
                     </div>
                   </Component>

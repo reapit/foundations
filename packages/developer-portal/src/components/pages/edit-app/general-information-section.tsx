@@ -21,7 +21,18 @@ import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from './form-schema/form-fields'
 import { checkbox, editor } from './__styles__/styles'
 
-const { name, categoryId, supportEmail, telephone, homePage, launchUri, summary, description } = formFields
+const {
+  name,
+  categoryId,
+  supportEmail,
+  telephone,
+  homePage,
+  launchUri,
+  summary,
+  description,
+  termsConditions,
+  privacyPolicy,
+} = formFields
 
 export type GeneralInformationSectionProps = {
   isListed: boolean
@@ -38,6 +49,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
   const categories = useSelector(selectCategories)
 
   const categoryOptions: SelectBoxOptions[] = prepareCategoryOptions(categories)
+  const isProd = window.reapit.config.appEnv === 'production'
 
   return (
     <FormSection data-test="submit-app-form">
@@ -177,9 +189,32 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
           />
         </GridItem>
       </Grid>
-      {/* <Grid>
-        <GridItem className="is-half-desktop"></GridItem>
-      </Grid> */}
+      {!isProd && (
+        <Grid>
+          <GridItem>
+            <Input
+              dataTest="submit-app-terms-conditions"
+              type="text"
+              labelText={termsConditions.label as string}
+              id={termsConditions.name}
+              name={termsConditions.name}
+              placeholder={termsConditions.placeHolder}
+              required={isListed}
+            />
+          </GridItem>
+          <GridItem>
+            <Input
+              dataTest="submit-app-privacy-policy"
+              type="text"
+              labelText={privacyPolicy.label as string}
+              id={privacyPolicy.name}
+              name={privacyPolicy.name}
+              placeholder={privacyPolicy.placeHolder}
+              required={isListed}
+            />
+          </GridItem>
+        </Grid>
+      )}
     </FormSection>
   )
 }
