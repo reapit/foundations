@@ -63,10 +63,6 @@ interface InstallationsTableSectionProps extends IsSidebar {
   columns: any[]
 }
 
-interface DeveloperSectionProps extends IsSidebar {
-  developer: string
-}
-
 interface AdditionalImagesSectionProps {
   images: MediaModel[]
   splitIndex: number
@@ -174,12 +170,6 @@ export const InstallationsTableSection: React.FC<InstallationsTableSectionProps>
     </AppDetailSection>
   )
 }
-
-export const DeveloperSection: React.FC<DeveloperSectionProps> = ({ isSidebar = false, developer }) => (
-  <AppDetailSection headerText="Developer" isSidebar={isSidebar}>
-    {developer}
-  </AppDetailSection>
-)
 
 export const DeveloperAboutSection: React.FC<IsSidebar> = ({ isSidebar = false, children }) => (
   <AppDetailSection headerText="About Developer" isSidebar={isSidebar}>

@@ -11,9 +11,6 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
     isSidebar={true}
   />
   <Component
-    isSidebar={true}
-  />
-  <Component
     desktopIntegrationTypes={
       Array [
         Object {

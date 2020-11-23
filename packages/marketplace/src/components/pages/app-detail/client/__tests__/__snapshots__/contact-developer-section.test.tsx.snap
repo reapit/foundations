@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      className="mb-2"
+    >
+      Developer Links
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          Reapit Ltd
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          0777 777 777
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="mailto:reapit@reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Support
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Website
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
+            Privacy Policy
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
+            Terms of Service
+          </a>
+        </p>
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;
+
+exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      className="mb-2"
+    >
+      Developer Links
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          Reapit Ltd
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          0777 777 777
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="mailto:reapit@reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Support
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Website
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
+            Privacy Policy
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
+            Terms of Service
+          </a>
+        </p>
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;
