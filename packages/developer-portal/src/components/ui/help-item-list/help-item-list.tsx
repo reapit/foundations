@@ -15,8 +15,8 @@ export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
   <GridFourCol>
     {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
       <GridThreeColItem key={header}>
-        <FadeIn>
-          <Section isFullHeight isFlex>
+        <Section isFullHeight isFlex>
+          <FadeIn>
             <Section className={wrapBoxContent} isFlex isFlexColumn>
               <Section className="flex-shrink-0">
                 <img src={imgSrc} alt={header} />
@@ -37,8 +37,8 @@ export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
                 </Button>
               </LevelRight>
             </Section>
-          </Section>
-        </FadeIn>
+          </FadeIn>
+        </Section>
       </GridThreeColItem>
     ))}
   </GridFourCol>

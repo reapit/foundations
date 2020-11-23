@@ -4,7 +4,7 @@ export const mapContainer = css`
   overflow: hidden;
   position: absolute;
   left: calc(390px + 4.1rem);
-  width: calc(100vw - 28rem);
+  width: calc(100vw - 28.5rem);
   top: 0;
   height: 100%;
 `

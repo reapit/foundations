@@ -88,15 +88,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -170,9 +170,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
           <Component
@@ -182,15 +182,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -264,9 +264,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
           <Component
@@ -276,15 +276,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -357,9 +357,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
           <Component
@@ -369,15 +369,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -451,9 +451,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
           <Component
@@ -463,15 +463,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -544,9 +544,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
           <Component
@@ -556,15 +556,15 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               className=""
               data-test=""
             >
-              <mock-styled.div>
-                <Component
-                  isFlex={true}
-                  isFullHeight={true}
+              <Component
+                isFlex={true}
+                isFullHeight={true}
+              >
+                <section
+                  className=""
+                  data-test=""
                 >
-                  <section
-                    className=""
-                    data-test=""
-                  >
+                  <mock-styled.div>
                     <Component
                       className=""
                       isFlex={true}
@@ -638,9 +638,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         </Component>
                       </section>
                     </Component>
-                  </section>
-                </Component>
-              </mock-styled.div>
+                  </mock-styled.div>
+                </section>
+              </Component>
             </div>
           </Component>
         </div>

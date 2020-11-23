@@ -5,11 +5,11 @@ exports[`HelpItemList should match a snapshot 1`] = `
   <Component
     key="Welcome Guide"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -50,17 +50,17 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
   <Component
     key="Request a Feature"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -101,17 +101,17 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
   <Component
     key="Report a Bug"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -151,17 +151,17 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
   <Component
     key="Roadmap"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -202,17 +202,17 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
   <Component
     key="Need Help?"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -252,17 +252,17 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
   <Component
     key="What’s New"
   >
-    <mock-styled.div>
-      <Component
-        isFlex={true}
-        isFullHeight={true}
-      >
+    <Component
+      isFlex={true}
+      isFullHeight={true}
+    >
+      <mock-styled.div>
         <Component
           className=""
           isFlex={true}
@@ -303,8 +303,8 @@ exports[`HelpItemList should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Component>
-    </mock-styled.div>
+      </mock-styled.div>
+    </Component>
   </Component>
 </Component>
 `;
