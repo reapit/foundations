@@ -17,7 +17,7 @@ export const ContactDeveloperSection = ({
   contact: { developer, telephone, supportEmail, homePage },
 }: ContactDeveloperSectionType) => {
   const isDesktop = getMarketplaceGlobalsByKey()
-
+  const isProd = window.reapit.config.appEnv === 'production'
   return (
     <>
       <Content>
@@ -67,24 +67,28 @@ export const ContactDeveloperSection = ({
             </p>
           </GridItem>
         </Grid>
-        <Grid>
-          <GridItem>
-            <p>
-              <a className={linkStyles.link} href={'#'}>
-                Privacy Policy
-              </a>
-            </p>
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem>
-            <p>
-              <a className={linkStyles.link} href={'#'}>
-                Terms of Service
-              </a>
-            </p>
-          </GridItem>
-        </Grid>
+        {!isProd && (
+          <>
+            <Grid>
+              <GridItem>
+                <p>
+                  <a className={linkStyles.link} href={'#'}>
+                    Privacy Policy
+                  </a>
+                </p>
+              </GridItem>
+            </Grid>
+            <Grid>
+              <GridItem>
+                <p>
+                  <a className={linkStyles.link} href={'#'}>
+                    Terms of Service
+                  </a>
+                </p>
+              </GridItem>
+            </Grid>
+          </>
+        )}
       </Content>
     </>
   )

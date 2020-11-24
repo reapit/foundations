@@ -642,6 +642,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               "telephone": "0113 288 2900",
             }
           }
+          isDesktopMode={false}
           onSuccessAlertButtonClick={[Function]}
           visible={false}
         >
@@ -901,7 +902,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 <p
                                   class="mb-5"
                                 >
-                                  To launch, please use 
+                                  To launch, please use
+                                   
                                   <a />
                                 </p>
                                 <p>
@@ -1109,7 +1111,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                         <p
                                           className="mb-5"
                                         >
-                                          To launch, please use 
+                                          To launch, please use
+                                           
                                           <a />
                                         </p>
                                         <p>
