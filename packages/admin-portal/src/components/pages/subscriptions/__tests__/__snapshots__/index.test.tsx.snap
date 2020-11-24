@@ -128,7 +128,22 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                 id="type"
                                 labelText="Type"
                                 name="type"
-                                type="text"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Application Listing",
+                                      "value": "applicationListing",
+                                    },
+                                    Object {
+                                      "label": "Developer Registration",
+                                      "value": "developerRegistration",
+                                    },
+                                    Object {
+                                      "label": "Developer Edition",
+                                      "value": "developerEdition",
+                                    },
+                                  ]
+                                }
                               >
                                 <Field
                                   name="type"
@@ -138,26 +153,48 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                     className=""
                                   >
                                     <div
-                                      className="control "
+                                      className="control"
                                     >
                                       <label
-                                        className="label inline-block "
+                                        className="label "
                                         htmlFor="type"
                                       >
                                         Type
                                       </label>
-                                      <input
-                                        className=""
+                                      <select
+                                        className="input is-primary "
                                         data-test=""
-                                        disabled={false}
-                                        id="type"
                                         name="type"
                                         onBlur={[Function]}
                                         onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
                                         value=""
-                                      />
+                                      >
+                                        <option
+                                          key="applicationListing"
+                                          value="applicationListing"
+                                        >
+                                          Application Listing
+                                        </option>
+                                        <option
+                                          key="developerRegistration"
+                                          value="developerRegistration"
+                                        >
+                                          Developer Registration
+                                        </option>
+                                        <option
+                                          key="developerEdition"
+                                          value="developerEdition"
+                                        >
+                                          Developer Edition
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
                                     </div>
                                   </div>
                                 </Field>
@@ -171,7 +208,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                             >
                               <Component
                                 id="developerId"
-                                labelText="Dropdown Select"
+                                labelText="Developer Name"
                                 mode="multiple"
                                 name="developerId"
                                 options={Array []}
@@ -193,7 +230,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                         <label
                                           className="label "
                                         >
-                                          Dropdown Select
+                                          Developer Name
                                         </label>
                                         <Select
                                           className="is-primary input"
@@ -829,7 +866,22 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                 id="type"
                                 labelText="Type"
                                 name="type"
-                                type="text"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Application Listing",
+                                      "value": "applicationListing",
+                                    },
+                                    Object {
+                                      "label": "Developer Registration",
+                                      "value": "developerRegistration",
+                                    },
+                                    Object {
+                                      "label": "Developer Edition",
+                                      "value": "developerEdition",
+                                    },
+                                  ]
+                                }
                               >
                                 <Field
                                   name="type"
@@ -839,26 +891,48 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                     className=""
                                   >
                                     <div
-                                      className="control "
+                                      className="control"
                                     >
                                       <label
-                                        className="label inline-block "
+                                        className="label "
                                         htmlFor="type"
                                       >
                                         Type
                                       </label>
-                                      <input
-                                        className=""
+                                      <select
+                                        className="input is-primary "
                                         data-test=""
-                                        disabled={false}
-                                        id="type"
                                         name="type"
                                         onBlur={[Function]}
                                         onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
                                         value=""
-                                      />
+                                      >
+                                        <option
+                                          key="applicationListing"
+                                          value="applicationListing"
+                                        >
+                                          Application Listing
+                                        </option>
+                                        <option
+                                          key="developerRegistration"
+                                          value="developerRegistration"
+                                        >
+                                          Developer Registration
+                                        </option>
+                                        <option
+                                          key="developerEdition"
+                                          value="developerEdition"
+                                        >
+                                          Developer Edition
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
                                     </div>
                                   </div>
                                 </Field>
@@ -872,7 +946,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                             >
                               <Component
                                 id="developerId"
-                                labelText="Dropdown Select"
+                                labelText="Developer Name"
                                 mode="multiple"
                                 name="developerId"
                                 options={Array []}
@@ -894,7 +968,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                         <label
                                           className="label "
                                         >
-                                          Dropdown Select
+                                          Developer Name
                                         </label>
                                         <Select
                                           className="is-primary input"
@@ -1530,7 +1604,22 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                 id="type"
                                 labelText="Type"
                                 name="type"
-                                type="text"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "Application Listing",
+                                      "value": "applicationListing",
+                                    },
+                                    Object {
+                                      "label": "Developer Registration",
+                                      "value": "developerRegistration",
+                                    },
+                                    Object {
+                                      "label": "Developer Edition",
+                                      "value": "developerEdition",
+                                    },
+                                  ]
+                                }
                               >
                                 <Field
                                   name="type"
@@ -1540,26 +1629,48 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                     className=""
                                   >
                                     <div
-                                      className="control "
+                                      className="control"
                                     >
                                       <label
-                                        className="label inline-block "
+                                        className="label "
                                         htmlFor="type"
                                       >
                                         Type
                                       </label>
-                                      <input
-                                        className=""
+                                      <select
+                                        className="input is-primary "
                                         data-test=""
-                                        disabled={false}
-                                        id="type"
                                         name="type"
                                         onBlur={[Function]}
                                         onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
                                         value=""
-                                      />
+                                      >
+                                        <option
+                                          key="applicationListing"
+                                          value="applicationListing"
+                                        >
+                                          Application Listing
+                                        </option>
+                                        <option
+                                          key="developerRegistration"
+                                          value="developerRegistration"
+                                        >
+                                          Developer Registration
+                                        </option>
+                                        <option
+                                          key="developerEdition"
+                                          value="developerEdition"
+                                        >
+                                          Developer Edition
+                                        </option>
+                                        <option
+                                          disabled={true}
+                                          hidden={true}
+                                          value=""
+                                        >
+                                          Please select
+                                        </option>
+                                      </select>
                                     </div>
                                   </div>
                                 </Field>
@@ -1573,7 +1684,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                             >
                               <Component
                                 id="developerId"
-                                labelText="Dropdown Select"
+                                labelText="Developer Name"
                                 mode="multiple"
                                 name="developerId"
                                 options={Array []}
@@ -1595,7 +1706,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                         <label
                                           className="label "
                                         >
-                                          Dropdown Select
+                                          Developer Name
                                         </label>
                                         <Select
                                           className="is-primary input"

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import {
-  Input,
   Button,
   Grid,
   GridItem,
@@ -12,11 +11,13 @@ import {
   Form,
   DropdownSelect,
   SelectOption,
+  SelectBox,
 } from '@reapit/elements'
 import store from '../../../core/store'
 import { fetchDeveloperList, fetchDeveloperListValues } from '@/actions/devs-management'
 import { selectDeveloperListState } from '@/selector/admin'
 import { DeveloperData } from '@/reducers/developers/list'
+import { subscriptionTypes } from '../../../constants/subscriptionTypes'
 
 export interface SubscriptionsFilterFormValues {
   type: string
@@ -57,7 +58,7 @@ const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValue
               <FormSubHeading>Filter the result by type and developer</FormSubHeading>
               <Grid className="items-center">
                 <GridItem>
-                  <Input type="text" labelText="Type" id="type" name="type" />
+                  <SelectBox name="type" options={subscriptionTypes} labelText="Type" id="type" />
                 </GridItem>
                 <GridItem>
                   <DropdownSelect
@@ -65,7 +66,7 @@ const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValue
                     id="developerId"
                     placeholder="Please select"
                     name="developerId"
-                    labelText="Dropdown Select"
+                    labelText="Developer Name"
                     options={developers}
                   />
                 </GridItem>

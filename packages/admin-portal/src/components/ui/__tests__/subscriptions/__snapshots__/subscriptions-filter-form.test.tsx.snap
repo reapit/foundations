@@ -116,7 +116,22 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                             id="type"
                             labelText="Type"
                             name="type"
-                            type="text"
+                            options={
+                              Array [
+                                Object {
+                                  "label": "Application Listing",
+                                  "value": "applicationListing",
+                                },
+                                Object {
+                                  "label": "Developer Registration",
+                                  "value": "developerRegistration",
+                                },
+                                Object {
+                                  "label": "Developer Edition",
+                                  "value": "developerEdition",
+                                },
+                              ]
+                            }
                           >
                             <Field
                               name="type"
@@ -126,26 +141,48 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                                 className=""
                               >
                                 <div
-                                  className="control "
+                                  className="control"
                                 >
                                   <label
-                                    className="label inline-block "
+                                    className="label "
                                     htmlFor="type"
                                   >
                                     Type
                                   </label>
-                                  <input
-                                    className=""
+                                  <select
+                                    className="input is-primary "
                                     data-test=""
-                                    disabled={false}
-                                    id="type"
                                     name="type"
                                     onBlur={[Function]}
                                     onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
                                     value="type"
-                                  />
+                                  >
+                                    <option
+                                      key="applicationListing"
+                                      value="applicationListing"
+                                    >
+                                      Application Listing
+                                    </option>
+                                    <option
+                                      key="developerRegistration"
+                                      value="developerRegistration"
+                                    >
+                                      Developer Registration
+                                    </option>
+                                    <option
+                                      key="developerEdition"
+                                      value="developerEdition"
+                                    >
+                                      Developer Edition
+                                    </option>
+                                    <option
+                                      disabled={true}
+                                      hidden={true}
+                                      value=""
+                                    >
+                                      Please select
+                                    </option>
+                                  </select>
                                 </div>
                               </div>
                             </Field>
@@ -159,7 +196,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                         >
                           <Component
                             id="developerId"
-                            labelText="Dropdown Select"
+                            labelText="Developer Name"
                             mode="multiple"
                             name="developerId"
                             options={Array []}
@@ -181,7 +218,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                                     <label
                                       className="label "
                                     >
-                                      Dropdown Select
+                                      Developer Name
                                     </label>
                                     <Select
                                       className="is-primary input"
