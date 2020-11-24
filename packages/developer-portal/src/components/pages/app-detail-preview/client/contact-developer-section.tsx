@@ -15,6 +15,7 @@ export type ContactDeveloperSectionType = {
 export const ContactDeveloperSection = ({
   contact: { developer, telephone, supportEmail, homePage },
 }: ContactDeveloperSectionType) => {
+  const isProd = window.reapit.config.appEnv === 'production'
   return (
     <>
       <Content>
@@ -47,24 +48,28 @@ export const ContactDeveloperSection = ({
             </p>
           </GridItem>
         </Grid>
-        <Grid>
-          <GridItem>
-            <p>
-              <a className={link} href={'#'}>
-                Privacy Policy
-              </a>
-            </p>
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem>
-            <p>
-              <a className={link} href={'#'}>
-                Terms of Service
-              </a>
-            </p>
-          </GridItem>
-        </Grid>
+        {!isProd && (
+          <>
+            <Grid>
+              <GridItem>
+                <p>
+                  <a className={link} href={'#'}>
+                    Privacy Policy
+                  </a>
+                </p>
+              </GridItem>
+            </Grid>
+            <Grid>
+              <GridItem>
+                <p>
+                  <a className={link} href={'#'}>
+                    Terms of Service
+                  </a>
+                </p>
+              </GridItem>
+            </Grid>
+          </>
+        )}
       </Content>
     </>
   )

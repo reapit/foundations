@@ -286,6 +286,7 @@ exports[`AppDetail should match a snapshot 1`] = `
               <Component
                 afterClose={[Function]}
                 appDetailData={Object {}}
+                isDesktopMode={false}
                 onSuccessAlertButtonClick={[Function]}
                 visible={false}
               >
@@ -746,6 +747,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
               <Component
                 afterClose={[Function]}
                 appDetailData={Object {}}
+                isDesktopMode={false}
                 onSuccessAlertButtonClick={[Function]}
                 visible={false}
               >
@@ -1206,6 +1208,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
               <Component
                 afterClose={[Function]}
                 appDetailData={Object {}}
+                isDesktopMode={false}
                 onSuccessAlertButtonClick={[Function]}
                 visible={false}
               >

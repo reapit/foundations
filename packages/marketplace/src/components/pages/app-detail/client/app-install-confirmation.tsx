@@ -78,7 +78,10 @@ export const handleSuccessAlertMessageAfterClose = (
 }
 
 export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> &
-  Pick<AppInstallConfirmationProps, 'appDetailData'> & { onSuccessAlertButtonClick: () => void }
+  Pick<AppInstallConfirmationProps, 'appDetailData'> & {
+    onSuccessAlertButtonClick: () => void
+    isDesktopMode?: boolean
+  }
 
 export const InstallNonDirectApiAppSucesfullyModal = ({
   afterClose,
@@ -108,6 +111,7 @@ export const InstallDirectApiAppSucesfullyModal = ({
   appDetailData,
   onSuccessAlertButtonClick,
   visible,
+  isDesktopMode,
 }: InstallAppSucesfullyModalParams) => {
   const { name, launchUri, developer } = appDetailData || {}
   return (
@@ -123,7 +127,8 @@ export const InstallDirectApiAppSucesfullyModal = ({
         <p className="mb-5">{name} has been successfully installed.</p>
 
         <p className="mb-5">
-          To launch, please use <a href={launchUri}>{launchUri}</a>
+          To launch, please use{' '}
+          <a href={isDesktopMode ? `agencycloud://process/webpage?url=${launchUri}` : launchUri}>{launchUri}</a>
         </p>
 
         <p>
@@ -223,6 +228,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
         appDetailData={appDetailData}
         onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+        isDesktopMode={connectIsDesktop}
       />
 
       <InstallNonDirectApiAppSucesfullyModal
