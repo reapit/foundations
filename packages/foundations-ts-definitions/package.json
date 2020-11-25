@@ -10,8 +10,8 @@
     "fetch-definitions": "node './scripts/fetch-definitions.js'",
     "handle-cron-job": "node './scripts/handle-cronjob.js'",
     "build:prod": "echo 'not implmented'",
-    "test:ci": "echo 'not implmented",
-    "check:ci": "echo 'not implmented"
+    "test:ci": "echo 'not implmented'",
+    "check:ci": "echo 'not implmented'"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
