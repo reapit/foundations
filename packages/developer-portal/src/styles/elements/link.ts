@@ -10,3 +10,6 @@ export const hyperlinked = css`
   text-decoration: underline;
   font-weight: bold;
 `
+export const linkNormal = css`
+  font-weight: normal;
+`
