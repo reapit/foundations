@@ -5,13 +5,10 @@ import { GridThreeColItem, Grid, H3 } from '@reapit/elements'
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
 import comingSoonImageYourkeys from '@/assets/images/coming-soon/1Yourkeys.jpg'
-import comingSoonImageStarberry from '@/assets/images/coming-soon/2Starberry.jpg'
-import comingSoonImageVyomm from '@/assets/images/coming-soon/5Vyomm.jpg'
 import comingSoonImageSpectre from '@/assets/images/coming-soon/6Spectre.jpg'
 import comingSoonImageTwentyCiVMC from '@/assets/images/coming-soon/TwentyCiVMC.jpg'
 import comingSoonImageTwentyci from '@/assets/images/coming-soon/TwentyCiProspect.jpg'
 import comingSoonImageZero from '@/assets/images/coming-soon/8Zero.jpg'
-import comingSoonImageYomdel from '@/assets/images/coming-soon/9Yomdel.jpg'
 import comingSoonImageIntegrated from '@/assets/images/coming-soon/12Integrated.jpg'
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
@@ -24,6 +21,20 @@ import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.j
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
 import comingSoonHomeSearch from '@/assets/images/coming-soon/Homesearch.jpg'
 import comingSoonDataWarehouse from '@/assets/images/coming-soon/DataWarehouse.jpg'
+import comingSoonNotify from '@/assets/images/coming-soon/Notify.jpg'
+import comingSoonSignatureSense from '@/assets/images/coming-soon/Signature.jpg'
+import comingSoonFCCParagon from '@/assets/images/coming-soon/FCCParagon.jpg'
+import comingSoonPropoly from '@/assets/images/coming-soon/Propoly.jpg'
+import comingSoonHomeHero from '@/assets/images/coming-soon/Homehero.jpg'
+import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
+import comingSoonNicheCom from '@/assets/images/coming-soon/Nichecom.jpg'
+import comingSoonCoadjute from '@/assets/images/coming-soon/Coadjute.jpg'
+import comingSoonSMSWorks from '@/assets/images/coming-soon/SMSWorks.jpg'
+import comingSoonLeadPro from '@/assets/images/coming-soon/Leadpro.jpg'
+import comingSoonSpinify from '@/assets/images/coming-soon/Spinify.jpg'
+import comingSoonCanopy from '@/assets/images/coming-soon/Canopy.jpg'
+import comingSoonData8 from '@/assets/images/coming-soon/Data8.jpg'
+import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -42,9 +53,6 @@ export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
 const comingSoonImagesMap = {
   comingSoonImageZoopla,
   comingSoonImageYourkeys,
-  comingSoonImageVyomm,
-  comingSoonImageStarberry,
-  comingSoonImageYomdel,
   comingSoonImageIntegrated,
   comingSoonImageTwentyci,
   comingSoonImageZero,
@@ -61,6 +69,20 @@ const comingSoonImagesMap = {
   comingSoonRightMove,
   comingSoonHomeSearch,
   comingSoonDataWarehouse,
+  comingSoonNotify,
+  comingSoonSignatureSense,
+  comingSoonFCCParagon,
+  comingSoonPropoly,
+  comingSoonHomeHero,
+  comingSoonBarbuck,
+  comingSoonNicheCom,
+  comingSoonCoadjute,
+  comingSoonSMSWorks,
+  comingSoonLeadPro,
+  comingSoonSpinify,
+  comingSoonCanopy,
+  comingSoonData8,
+  comingSoonFacebook,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
