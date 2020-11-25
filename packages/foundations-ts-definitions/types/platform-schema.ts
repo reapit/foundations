@@ -5548,6 +5548,14 @@ export interface CreateWorksOrderModel {
  * Representation of a department
  */
 export interface DepartmentModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
   /**
    * The unique identifier of the department
    */
@@ -5596,13 +5604,75 @@ export interface DepartmentModel {
    * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
-  readonly _links?: {
+}
+export interface DepartmentModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the department
+     */
+    id?: string
+    /**
+     * The date and time when the department was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the department was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The name of the department
+     */
+    name?: string
+    /**
+     * A collection of property type values that will be accepted by other services
+     */
+    typeOptions?: string[]
+    /**
+     * A collection of property style values that will be accepted by other services
+     */
+    styleOptions?: string[]
+    /**
+     * A collection of property situation values that will be accepted by other services
+     */
+    situationOptions?: string[]
+    /**
+     * A collection of property parking values that will be accepted by other services
+     */
+    parkingOptions?: string[]
+    /**
+     * A collection of property age values that will be accepted by other services
+     */
+    ageOptions?: string[]
+    /**
+     * A collection of property locality values that will be accepted by other services
+     */
+    localityOptions?: string[]
+    /**
+     * The ETag for the current version of the department. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
     [name: string]: {
       href?: string
     }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 export interface Departments {
@@ -7983,76 +8053,6 @@ export interface Operation {
   value?: any
 }
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
-export interface PagedResultDepartmentModel_ {
-  _embedded?: {
-    /**
-     * The unique identifier of the department
-     */
-    id?: string
-    /**
-     * The date and time when the department was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the department was last modified
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    modified?: string // date-time
-    /**
-     * The name of the department
-     */
-    name?: string
-    /**
-     * A collection of property type values that will be accepted by other services
-     */
-    typeOptions?: string[]
-    /**
-     * A collection of property style values that will be accepted by other services
-     */
-    styleOptions?: string[]
-    /**
-     * A collection of property situation values that will be accepted by other services
-     */
-    situationOptions?: string[]
-    /**
-     * A collection of property parking values that will be accepted by other services
-     */
-    parkingOptions?: string[]
-    /**
-     * A collection of property age values that will be accepted by other services
-     */
-    ageOptions?: string[]
-    /**
-     * A collection of property locality values that will be accepted by other services
-     */
-    localityOptions?: string[]
-    /**
-     * The ETag for the current version of the department. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalPageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
 export interface PagingLinkModel {
   href?: string
 }
