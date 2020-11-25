@@ -144,9 +144,7 @@ const AppDetail: React.FC = () => {
                   }
                 />
               </FadeIn>
-              <FadeIn>
-                <AppContent appDetailData={appDetailData} />
-              </FadeIn>
+              <AppContent appDetailData={appDetailData} />
               {!isMobile && (
                 <FadeIn>
                   <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />

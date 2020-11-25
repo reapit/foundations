@@ -10,6 +10,7 @@ import { selectIsAdmin, selectClientId, selectSandboxDeveloper } from '@/selecto
 import { useReapitConnect } from '@reapit/connect-session'
 import domvsLogo from '@/assets/images/Domvs.jpg'
 import { menuItemOverflow } from './__styles__/menu'
+import { history } from '../../core/router'
 
 // This is a really naff hack to hardcode our first client logo into the menu. Remove when we have a
 // logo upload and API
@@ -37,6 +38,7 @@ export const generateMenuConfig = (
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
         type: 'LOGO',
+        callback: () => history.push(Routes.APPS),
       },
       {
         title: 'Browse',

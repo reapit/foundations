@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Section } from '@reapit/elements'
+import { FadeIn, Section } from '@reapit/elements'
 import {
   SummarySection,
   AdditionalImagesSection,
@@ -18,12 +18,14 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
 
   return (
     <Section isFlex isFlexColumn hasPadding={false} hasMargin={false}>
-      <SummarySection summary={summary} />
-      <AdditionalImagesSection images={media} splitIndex={1} numberImages={2} />
-      <DescriptionSection description={description} />
-      <AdditionalImagesSection images={media} splitIndex={3} numberImages={2} />
-      {developerAbout && <DeveloperAboutSection>{developerAbout}</DeveloperAboutSection>}
-      <PermissionsSection permissions={scopes} />
+      <FadeIn>
+        <SummarySection summary={summary} />
+        <AdditionalImagesSection images={media} splitIndex={1} numberImages={2} />
+        <DescriptionSection description={description} />
+        <AdditionalImagesSection images={media} splitIndex={3} numberImages={2} />
+        {developerAbout && <DeveloperAboutSection>{developerAbout}</DeveloperAboutSection>}
+        <PermissionsSection permissions={scopes} />
+      </FadeIn>
     </Section>
   )
 }
