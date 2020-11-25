@@ -1,76 +1,516 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAside ClientAside - should match snapshot 1`] = `
-<Component
-  flexColumn={true}
-  hasBackground={true}
-  hasPadding={true}
-  isFullHeight={true}
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <Component
-    isSidebar={true}
-  />
-  <Component
-    desktopIntegrationTypes={
+  <MemoryRouter
+    initialEntries={
       Array [
         Object {
-          "description": "Replaces the standard ID check screen",
-          "id": "IdCheck",
-          "name": "Identity Check",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#id-check",
-        },
-        Object {
-          "description": "Replaces the standard property marketing screen",
-          "id": "PrpMarketing",
-          "name": "Property Marketing Information",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-marketing-information",
-        },
-        Object {
-          "description": "Replaces the vendor marketing report",
-          "id": "VendorMarketing",
-          "name": "Vendor Marketing Report",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#vendor-marketing-report",
-        },
-        Object {
-          "description": "Replaces the functionality to generate property particulars",
-          "id": "PrintWizard",
-          "name": "Property Details Generation",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-detail-generation",
-        },
-        Object {
-          "description": "Provides ability to export a saved applicant to third party system",
-          "id": "AppExport",
-          "name": "Applicant Export",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant-export",
-        },
-        Object {
-          "description": "Launchable from the property screen",
-          "id": "Property",
-          "name": "Property",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-1",
-        },
-        Object {
-          "description": "Launchable from the applicant scree",
-          "id": "Applicant",
-          "name": "Applicant",
-          "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant",
+          "key": "developerAppPreviewRoute",
+          "pathname": "/apps/:appId/preview",
         },
       ]
     }
-    isSidebar={true}
-  />
-  <Component
-    isSidebar={true}
-  />
-  <Component
-    contact={
-      Object {
-        "developer": undefined,
-        "homePage": undefined,
-        "supportEmail": undefined,
-        "telephone": undefined,
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "developerAppPreviewRoute",
+              "pathname": "/apps/:appId/preview",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "developerAppPreviewRoute",
+            "pathname": "/apps/:appId/preview",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
       }
-    }
-  />
-</Component>
+    >
+      <Component
+        appDetailData={
+          Object {
+            "data": Object {
+              "category": Object {
+                "description": "General purpose tools",
+                "id": "6",
+                "name": "Tools",
+              },
+              "description": "enim facilisis",
+              "developer": "Pete's Proptech World Ltd",
+              "homePage": "http://myawesomeproptechproduct.io",
+              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "media": Array [
+                Object {
+                  "description": "Application Icon",
+                  "type": "icon",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                },
+              ],
+              "name": "Peter's Properties",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "vitae elementum curabitur vitae",
+              "supportEmail": "support@reapit.com",
+              "telephone": "0113 288 2900",
+            },
+            "errorMessage": "",
+            "isLoading": false,
+          }
+        }
+        desktopIntegrationTypes={
+          Array [
+            Object {
+              "description": "Replaces the standard ID check screen",
+              "id": "IdCheck",
+              "name": "Identity Check",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#id-check",
+            },
+            Object {
+              "description": "Replaces the standard property marketing screen",
+              "id": "PrpMarketing",
+              "name": "Property Marketing Information",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-marketing-information",
+            },
+            Object {
+              "description": "Replaces the vendor marketing report",
+              "id": "VendorMarketing",
+              "name": "Vendor Marketing Report",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#vendor-marketing-report",
+            },
+            Object {
+              "description": "Replaces the functionality to generate property particulars",
+              "id": "PrintWizard",
+              "name": "Property Details Generation",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-detail-generation",
+            },
+            Object {
+              "description": "Provides ability to export a saved applicant to third party system",
+              "id": "AppExport",
+              "name": "Applicant Export",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant-export",
+            },
+            Object {
+              "description": "Launchable from the property screen",
+              "id": "Property",
+              "name": "Property",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-1",
+            },
+            Object {
+              "description": "Launchable from the applicant scree",
+              "id": "Applicant",
+              "name": "Applicant",
+              "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant",
+            },
+          ]
+        }
+      >
+        <Component
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
+          isFullHeight={true}
+        >
+          <div
+            className=""
+          >
+            <Component
+              className=""
+              isSidebar={true}
+            >
+              <Component
+                headerText="Category"
+                isSidebar={true}
+              >
+                <Component
+                  dataTest=""
+                >
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component
+                      className="mb-2"
+                    >
+                      <h5
+                        className=""
+                        id=""
+                      >
+                        Category
+                      </h5>
+                    </Component>
+                    <p>
+                      None
+                    </p>
+                  </div>
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              desktopIntegrationTypes={
+                Array [
+                  Object {
+                    "description": "Replaces the standard ID check screen",
+                    "id": "IdCheck",
+                    "name": "Identity Check",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#id-check",
+                  },
+                  Object {
+                    "description": "Replaces the standard property marketing screen",
+                    "id": "PrpMarketing",
+                    "name": "Property Marketing Information",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-marketing-information",
+                  },
+                  Object {
+                    "description": "Replaces the vendor marketing report",
+                    "id": "VendorMarketing",
+                    "name": "Vendor Marketing Report",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#vendor-marketing-report",
+                  },
+                  Object {
+                    "description": "Replaces the functionality to generate property particulars",
+                    "id": "PrintWizard",
+                    "name": "Property Details Generation",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-detail-generation",
+                  },
+                  Object {
+                    "description": "Provides ability to export a saved applicant to third party system",
+                    "id": "AppExport",
+                    "name": "Applicant Export",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant-export",
+                  },
+                  Object {
+                    "description": "Launchable from the property screen",
+                    "id": "Property",
+                    "name": "Property",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#property-1",
+                  },
+                  Object {
+                    "description": "Launchable from the applicant scree",
+                    "id": "Applicant",
+                    "name": "Applicant",
+                    "url": "https://foundations-documentation.reapit.cloud/api/desktop-api#applicant",
+                  },
+                ]
+              }
+              isSidebar={true}
+            >
+              <Component
+                headerText="Desktop Integration"
+                isSidebar={true}
+              >
+                <Component
+                  dataTest=""
+                >
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component
+                      className="mb-2"
+                    >
+                      <h5
+                        className=""
+                        id=""
+                      >
+                        Desktop Integration
+                      </h5>
+                    </Component>
+                    <Component
+                      key="Identity Check"
+                    >
+                      <div
+                        className=""
+                      >
+                        Identity Check
+                      </div>
+                    </Component>
+                    <Component
+                      key="Property Marketing Information"
+                    >
+                      <div
+                        className=""
+                      >
+                        Property Marketing Information
+                      </div>
+                    </Component>
+                    <Component
+                      key="Vendor Marketing Report"
+                    >
+                      <div
+                        className=""
+                      >
+                        Vendor Marketing Report
+                      </div>
+                    </Component>
+                    <Component
+                      key="Property Details Generation"
+                    >
+                      <div
+                        className=""
+                      >
+                        Property Details Generation
+                      </div>
+                    </Component>
+                    <Component
+                      key="Applicant Export"
+                    >
+                      <div
+                        className=""
+                      >
+                        Applicant Export
+                      </div>
+                    </Component>
+                    <Component
+                      key="Property"
+                    >
+                      <div
+                        className=""
+                      >
+                        Property
+                      </div>
+                    </Component>
+                    <Component
+                      key="Applicant"
+                    >
+                      <div
+                        className=""
+                      >
+                        Applicant
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              isSidebar={true}
+            >
+              <Component
+                headerText="Direct API"
+                isSidebar={true}
+              >
+                <Component
+                  dataTest=""
+                >
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component
+                      className="mb-2"
+                    >
+                      <h5
+                        className=""
+                        id=""
+                      >
+                        Direct API
+                      </h5>
+                    </Component>
+                    No
+                  </div>
+                </Component>
+              </Component>
+            </Component>
+            <Component
+              contact={
+                Object {
+                  "developer": undefined,
+                  "homePage": undefined,
+                  "supportEmail": undefined,
+                  "telephone": undefined,
+                }
+              }
+            >
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component
+                    className="mb-2"
+                  >
+                    <h5
+                      className=""
+                      id=""
+                    >
+                      Developer Links
+                    </h5>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p />
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p />
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p>
+                            <a
+                              className=""
+                              href="mailto:undefined"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Support
+                            </a>
+                          </p>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p>
+                            <a
+                              className=""
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Website
+                            </a>
+                          </p>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p>
+                            <a
+                              className=""
+                              href="#"
+                            >
+                              Privacy Policy
+                            </a>
+                          </p>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p>
+                            <a
+                              className=""
+                              href="#"
+                            >
+                              Terms of Service
+                            </a>
+                          </p>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </Component>
+          </div>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;

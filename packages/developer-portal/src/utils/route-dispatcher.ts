@@ -20,6 +20,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+  const appPreviewId = params && params.appId ? params.appId : ''
   switch (route) {
     case Routes.APPS:
       store.dispatch(fetchAppList({ page }))
@@ -63,6 +64,10 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchCurrentMember())
       break
     case Routes.APP_PREVIEW:
+      if (appPreviewId) {
+        const clientId = await getClientId()
+        store.dispatch(fetchAppDetail({ id: appPreviewId, clientId }))
+      }
       store.dispatch(fetchDesktopIntegrationTypeList())
       break
     case Routes.SETTINGS_PROFILE_TAB: {

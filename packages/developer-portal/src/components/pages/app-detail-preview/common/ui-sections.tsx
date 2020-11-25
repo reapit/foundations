@@ -30,6 +30,7 @@ interface IsSidebar {
 
 interface CategorySectionProps extends IsSidebar {
   category: CategoryModel | undefined
+  className?: string
 }
 
 interface DesktopIntegrationSectionProps extends IsSidebar {
@@ -85,9 +86,9 @@ interface DescriptionSectionProps {
   description: string
 }
 
-export const CategorySection: React.FC<CategorySectionProps> = ({ category, isSidebar = false }) => (
+export const CategorySection: React.FC<CategorySectionProps> = ({ category, isSidebar = false, className }) => (
   <AppDetailSection headerText="Category" isSidebar={isSidebar}>
-    {category ? <Tag>{category.name}</Tag> : <p>None</p>}
+    {category ? <Tag className={className}>{category.name}</Tag> : <p>None</p>}
   </AppDetailSection>
 )
 

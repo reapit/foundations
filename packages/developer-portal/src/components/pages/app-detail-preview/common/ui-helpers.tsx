@@ -1,4 +1,5 @@
 import React from 'react'
+import { cx } from 'linaria'
 import { tag } from '../__styles__/app-detail'
 
 import { H5, Content } from '@reapit/elements'
@@ -26,7 +27,9 @@ export const AppDetailSection: React.FC<AppDetailSectionProps> = ({
   </Content>
 )
 
-export const Tag: React.FC = ({ children }) => <div className={tag}>{children}</div>
+export const Tag: React.FC<{ className?: string }> = ({ children, className }) => (
+  <div className={cx(tag, className)}>{children}</div>
+)
 
 export const ImageSection: React.FC<ImageSectionProps> = ({ uri, alt = '' }) => {
   return uri ? (

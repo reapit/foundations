@@ -59,6 +59,11 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
         appDetailState={
           Object {
             "data": Object {
+              "category": Object {
+                "description": "General purpose tools",
+                "id": "6",
+                "name": "Tools",
+              },
               "description": "enim facilisis",
               "developer": "Pete's Proptech World Ltd",
               "homePage": "http://myawesomeproptechproduct.io",
@@ -219,7 +224,7 @@ Get
             </h4>
             <DiffViewer
               changedString=""
-              currentString=""
+              currentString="Tools"
               type="words"
             >
               <div
@@ -228,7 +233,9 @@ Get
                 <span
                   className=""
                   key="0"
-                />
+                >
+                  Tools
+                </span>
               </div>
             </DiffViewer>
           </div>
