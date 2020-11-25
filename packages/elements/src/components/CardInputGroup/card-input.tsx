@@ -10,7 +10,7 @@ export type CardInputProps = Pick<
   InputProps,
   'name' | 'labelText' | 'id' | 'dataTest' | 'required' | 'disabled' | 'className'
 > & {
-  whiteListTestCard?: string
+  whiteListTestCards?: string[]
   setCardType?: Dispatch<SetStateAction<CardType>>
   cardType?: CardType
 }
@@ -23,11 +23,11 @@ export const CardInput = ({
   required = true,
   disabled = false,
   className = '',
-  whiteListTestCard = '',
+  whiteListTestCards = [],
   cardType = 'unknown',
   setCardType,
 }: CardInputProps) => (
-  <Field name={name} validate={required ? handleValidateCard(whiteListTestCard) : null}>
+  <Field name={name} validate={required ? handleValidateCard(whiteListTestCards) : null}>
     {({ field, meta }: FieldProps<string | number>) => {
       const hasError = checkError(meta)
       const inputClassName = hasError ? 'input is-danger' : 'input is-primary'

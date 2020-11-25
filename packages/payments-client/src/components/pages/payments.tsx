@@ -131,7 +131,7 @@ export const PaymentsPage: React.FC = () => {
         >
           {() => (
             <Form className="form">
-              <CardInputGroup hasBillingAddress whiteListTestCard="4929000000006" />
+              <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
               <Section>
                 <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
                 <LevelRight>

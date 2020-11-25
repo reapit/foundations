@@ -27,7 +27,11 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
     >
       <Component
         hasBillingAddress={true}
-        whiteListTestCard="444444444444"
+        whiteListTestCards={
+          Array [
+            "444444444444",
+          ]
+        }
       >
         <Component>
           <section
@@ -2872,7 +2876,11 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                       labelText="Card Number"
                       name="cardNumber"
                       setCardType={[Function]}
-                      whiteListTestCard="444444444444"
+                      whiteListTestCards={
+                        Array [
+                          "444444444444",
+                        ]
+                      }
                     >
                       <Field
                         name="cardNumber"
@@ -3133,7 +3141,11 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
     >
       <Component
         hasBillingAddress={false}
-        whiteListTestCard="444444444444"
+        whiteListTestCards={
+          Array [
+            "444444444444",
+          ]
+        }
       >
         <Component>
           <section
@@ -3164,7 +3176,11 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                       labelText="Card Number"
                       name="cardNumber"
                       setCardType={[Function]}
-                      whiteListTestCard="444444444444"
+                      whiteListTestCards={
+                        Array [
+                          "444444444444",
+                        ]
+                      }
                     >
                       <Field
                         name="cardNumber"

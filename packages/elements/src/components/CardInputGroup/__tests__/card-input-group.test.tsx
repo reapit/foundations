@@ -5,7 +5,7 @@ import { CardInputGroup, CardInputGroupProps } from '../card-input-group'
 
 const props: CardInputGroupProps = {
   hasBillingAddress: true,
-  whiteListTestCard: '444444444444',
+  whiteListTestCards: ['444444444444'],
 }
 
 describe('CardInputGroup', () => {

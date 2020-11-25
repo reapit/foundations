@@ -79,7 +79,7 @@ storiesOf('CardInputGroup', module)
         {() => (
           <Form>
             <div className="column is-half-desktop">
-              <CardInputGroup hasBillingAddress={false} whiteListTestCard="4929000000006" />
+              <CardInputGroup hasBillingAddress={false} whiteListTestCards={['4929000000006']} />
               <H6 isHeadingSection>Test Card is: 4929000000006</H6>
             </div>
           </Form>

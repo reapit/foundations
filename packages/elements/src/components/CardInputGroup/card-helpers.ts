@@ -84,11 +84,11 @@ export const unformatCardExpires = (formattedCard: string) =>
     .join('')
     .replace(/\//g, '')
 
-export const validateCard = (value: string, whiteListTestCard: string) => {
+export const validateCard = (value: string, whiteListTestCards: string[]) => {
   const requiredError = fieldValidateRequire(value)
   const cardType = getCardType(value)
-  const cardLength =
-    whiteListTestCard.length && value === whiteListTestCard ? whiteListTestCard.length : cardType === 'amex' ? 15 : 16
+  const whiteListTestCard = whiteListTestCards.find(card => card === value)
+  const cardLength = whiteListTestCard ? whiteListTestCard.length : cardType === 'amex' ? 15 : 16
   const unformattedCard = unformatCard(value)
 
   if (requiredError) {
@@ -146,7 +146,7 @@ export const validateCardExpires = (value: string) => {
   return null
 }
 
-export const handleValidateCard = (whiteListTestCard: string) => (value: string) =>
-  validateCard(value, whiteListTestCard)
+export const handleValidateCard = (whiteListTestCards: string[]) => (value: string) =>
+  validateCard(value, whiteListTestCards)
 
 export const handleValidateSecureCode = (cardType: CardType) => (value: string) => validateSecureCode(value, cardType)

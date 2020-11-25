@@ -7,10 +7,10 @@ import { CardInput } from './card-input'
 
 export interface CardInputGroupProps {
   hasBillingAddress: boolean
-  whiteListTestCard?: string
+  whiteListTestCards?: string[]
 }
 
-export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddress, whiteListTestCard }) => {
+export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddress, whiteListTestCards }) => {
   const [cardType, setCardType] = useState<CardType>('unknown')
   return (
     <>
@@ -81,7 +81,7 @@ export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddres
               labelText="Card Number"
               cardType={cardType}
               setCardType={setCardType}
-              whiteListTestCard={whiteListTestCard}
+              whiteListTestCards={whiteListTestCards}
             />
           </GridItem>
           <GridItem>

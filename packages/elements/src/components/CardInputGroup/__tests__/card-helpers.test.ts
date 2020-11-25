@@ -122,27 +122,27 @@ describe('unformatCardExpires', () => {
 
 describe('validateCard', () => {
   it('should validate as required', () => {
-    expect(validateCard('', '')).toEqual('Required')
+    expect(validateCard('', [])).toEqual('Required')
   })
 
   it('should validate as not a number', () => {
-    expect(validateCard('0000 abcd 0000 0000', '')).toEqual('Card number should be numeric characters only')
+    expect(validateCard('0000 abcd 0000 0000', [])).toEqual('Card number should be numeric characters only')
   })
 
   it('should validate as wrong length for amex', () => {
-    expect(validateCard('3400 0000 0000', '')).toEqual('Card number needs to be 15 numbers to be valid')
+    expect(validateCard('3400 0000 0000', [])).toEqual('Card number needs to be 15 numbers to be valid')
   })
 
   it('should validate as wrong length for non amex', () => {
-    expect(validateCard('4000 0000 0000', '')).toEqual('Card number needs to be 16 numbers to be valid')
+    expect(validateCard('4000 0000 0000', [])).toEqual('Card number needs to be 16 numbers to be valid')
   })
 
   it('should allow a whiteListTestCard if matches', () => {
-    expect(validateCard('0000 0000 0000 0000', mockWhitelistCard)).toBeNull()
+    expect(validateCard('0000 0000 0000 0000', [mockWhitelistCard])).toBeNull()
   })
 
   it('should allow a valid card', () => {
-    expect(validateCard(mockVisa, '')).toBeNull()
+    expect(validateCard(mockVisa, [])).toBeNull()
   })
 })
 
