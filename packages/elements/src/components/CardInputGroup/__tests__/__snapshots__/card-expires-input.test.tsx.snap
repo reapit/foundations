@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardExpiresInput should match a snapshot for amex 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "expiryDate": "",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Form>
+    <form
+      action="#"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <Component
+        cardType="amex"
+        className="some-class"
+        disabled={false}
+        id="expiryDate"
+        labelText="Card Expires"
+        name="expiryDate"
+        required={true}
+      >
+        <Field
+          name="expiryDate"
+          validate={[Function]}
+        >
+          <div
+            className=""
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="label inline-block required-label"
+                htmlFor="expiryDate"
+              >
+                Card Expires
+              </label>
+              <input
+                autoComplete="expiryDate"
+                className=""
+                data-test=""
+                disabled={false}
+                id="expiryDate"
+                inputMode="numeric"
+                maxLength={7}
+                name="expiryDate"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="MM / YY"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </Field>
+      </Component>
+    </form>
+  </Form>
+</Formik>
+`;
+
+exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "expiryDate": "",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Form>
+    <form
+      action="#"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <Component
+        className="some-class"
+        disabled={false}
+        id="expiryDate"
+        labelText="Card Expires"
+        name="expiryDate"
+        required={true}
+      >
+        <Field
+          name="expiryDate"
+          validate={[Function]}
+        >
+          <div
+            className=""
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="label inline-block required-label"
+                htmlFor="expiryDate"
+              >
+                Card Expires
+              </label>
+              <input
+                autoComplete="expiryDate"
+                className=""
+                data-test=""
+                disabled={false}
+                id="expiryDate"
+                inputMode="numeric"
+                maxLength={7}
+                name="expiryDate"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="MM / YY"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </Field>
+      </Component>
+    </form>
+  </Form>
+</Formik>
+`;
+
+exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "expiryDate": "",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Form>
+    <form
+      action="#"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <Component
+        cardType="mastercard"
+        className="some-class"
+        disabled={false}
+        id="expiryDate"
+        labelText="Card Expires"
+        name="expiryDate"
+        required={true}
+      >
+        <Field
+          name="expiryDate"
+          validate={[Function]}
+        >
+          <div
+            className=""
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="label inline-block required-label"
+                htmlFor="expiryDate"
+              >
+                Card Expires
+              </label>
+              <input
+                autoComplete="expiryDate"
+                className=""
+                data-test=""
+                disabled={false}
+                id="expiryDate"
+                inputMode="numeric"
+                maxLength={7}
+                name="expiryDate"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="MM / YY"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </Field>
+      </Component>
+    </form>
+  </Form>
+</Formik>
+`;
+
+exports[`CardExpiresInput should match a snapshot for visa 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "expiryDate": "",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Form>
+    <form
+      action="#"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <Component
+        cardType="visa"
+        className="some-class"
+        disabled={false}
+        id="expiryDate"
+        labelText="Card Expires"
+        name="expiryDate"
+        required={true}
+      >
+        <Field
+          name="expiryDate"
+          validate={[Function]}
+        >
+          <div
+            className=""
+          >
+            <div
+              className="control"
+            >
+              <label
+                className="label inline-block required-label"
+                htmlFor="expiryDate"
+              >
+                Card Expires
+              </label>
+              <input
+                autoComplete="expiryDate"
+                className=""
+                data-test=""
+                disabled={false}
+                id="expiryDate"
+                inputMode="numeric"
+                maxLength={7}
+                name="expiryDate"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="MM / YY"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </Field>
+      </Component>
+    </form>
+  </Form>
+</Formik>
+`;
