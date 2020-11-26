@@ -1,6 +1,7 @@
 import React from 'react'
 import { H5, Grid, GridItem, Content } from '@reapit/elements'
-import { link } from '@/styles/elements/link'
+import { link, linkNormal } from '@/styles/elements/link'
+import { cx } from 'linaria'
 
 export type ContactDeveloperSectionType = {
   contact: {
@@ -33,7 +34,12 @@ export const ContactDeveloperSection = ({
         <Grid>
           <GridItem>
             <p>
-              <a className={link} target="_blank" rel="noopener noreferrer" href={`mailto:${supportEmail}`}>
+              <a
+                className={cx(link, linkNormal)}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`mailto:${supportEmail}`}
+              >
                 Support
               </a>
             </p>
@@ -42,7 +48,7 @@ export const ContactDeveloperSection = ({
         <Grid>
           <GridItem>
             <p>
-              <a className={link} href={homePage} target="_blank" rel="noopener noreferrer">
+              <a className={cx(link, linkNormal)} href={homePage} target="_blank" rel="noopener noreferrer">
                 Website
               </a>
             </p>
@@ -53,7 +59,7 @@ export const ContactDeveloperSection = ({
             <Grid>
               <GridItem>
                 <p>
-                  <a className={link} href={'#'}>
+                  <a className={cx(link, linkNormal)} href={'#'}>
                     Privacy Policy
                   </a>
                 </p>
@@ -62,7 +68,7 @@ export const ContactDeveloperSection = ({
             <Grid>
               <GridItem>
                 <p>
-                  <a className={link} href={'#'}>
+                  <a className={cx(link, linkNormal)} href={'#'}>
                     Terms of Service
                   </a>
                 </p>

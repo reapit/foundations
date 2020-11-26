@@ -1,7 +1,8 @@
 import React from 'react'
 import { H5, Grid, GridItem, Content } from '@reapit/elements'
-import * as linkStyles from '@/core/__styles__/elements'
+import { link, linkNormal } from '@/core/__styles__/elements'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import { cx } from 'linaria'
 
 export type ContactDeveloperSectionType = {
   contact: {
@@ -36,12 +37,12 @@ export const ContactDeveloperSection = ({
           <GridItem>
             <p>
               {isDesktop ? (
-                <a className={linkStyles.link} href={`agencycloud://process/email?address=${supportEmail}`}>
+                <a className={cx(link, linkNormal)} href={`agencycloud://process/email?address=${supportEmail}`}>
                   Support
                 </a>
               ) : (
                 <a
-                  className={linkStyles.link}
+                  className={cx(link, linkNormal)}
                   target="_blank"
                   rel="noopener noreferrer"
                   href={`mailto:${supportEmail}`}
@@ -56,11 +57,11 @@ export const ContactDeveloperSection = ({
           <GridItem>
             <p>
               {isDesktop ? (
-                <a className={linkStyles.link} href={`agencycloud://process/webpage?url=${homePage}`}>
+                <a className={cx(link, linkNormal)} href={`agencycloud://process/webpage?url=${homePage}`}>
                   Website
                 </a>
               ) : (
-                <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
+                <a className={cx(link, linkNormal)} href={homePage} target="_blank" rel="noopener noreferrer">
                   Website
                 </a>
               )}
@@ -72,7 +73,7 @@ export const ContactDeveloperSection = ({
             <Grid>
               <GridItem>
                 <p>
-                  <a className={linkStyles.link} href={'#'}>
+                  <a className={cx(link, linkNormal)} href={'#'}>
                     Privacy Policy
                   </a>
                 </p>
@@ -81,7 +82,7 @@ export const ContactDeveloperSection = ({
             <Grid>
               <GridItem>
                 <p>
-                  <a className={linkStyles.link} href={'#'}>
+                  <a className={cx(link, linkNormal)} href={'#'}>
                     Terms of Service
                   </a>
                 </p>

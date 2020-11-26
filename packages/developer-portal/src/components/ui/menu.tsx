@@ -7,6 +7,7 @@ import { FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop, FaStoreAlt } f
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase } from 'react-icons/go'
 import { menuItemOverflow } from './__styles__/menu'
+import { history } from '../../core/router'
 
 export const generateMenuConfig = (location: Location<any>): MenuConfig => {
   return {
@@ -17,6 +18,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
         type: 'LOGO',
+        callback: () => history.push(Routes.APPS),
       },
       {
         title: 'Apps',
