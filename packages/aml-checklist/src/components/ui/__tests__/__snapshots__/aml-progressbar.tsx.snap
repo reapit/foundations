@@ -6,20 +6,29 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
     <Component>
       <Component>
         <Component>
-          <Component>
+          <Component
+            hasMargin={false}
+            hasPadding={false}
+            isFlex={true}
+            isFlexColumn={true}
+          >
             <Component
-              dynamicLinkParams={
-                Object {
-                  "appMode": "WEB",
-                  "entityCode": "AYL19000001",
-                  "entityType": "contacts",
-                }
-              }
+              className="mb-5"
             >
-              Mrs H Phillips
+              <Component
+                dynamicLinkParams={
+                  Object {
+                    "appMode": "WEB",
+                    "entityCode": "AYL19000001",
+                    "entityType": "contacts",
+                  }
+                }
+              >
+                Mrs H Phillips
+              </Component>
             </Component>
+            <Component />
           </Component>
-          <Component />
         </Component>
       </Component>
       <Component>

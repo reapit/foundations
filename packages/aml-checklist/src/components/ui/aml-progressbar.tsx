@@ -50,18 +50,20 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
         <Level>
           <LevelLeft>
             <LevelItem>
-              <H3>
-                <AcLink
-                  dynamicLinkParams={{
-                    appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
-                    entityType: EntityType.CONTACT,
-                    entityCode: id,
-                  }}
-                >
-                  {name}
-                </AcLink>
-              </H3>
-              <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+              <Section isFlex isFlexColumn hasPadding={false} hasMargin={false}>
+                <H3 className="mb-5">
+                  <AcLink
+                    dynamicLinkParams={{
+                      appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
+                      entityType: EntityType.CONTACT,
+                      entityCode: id,
+                    }}
+                  >
+                    {name}
+                  </AcLink>
+                </H3>
+                <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+              </Section>
             </LevelItem>
           </LevelLeft>
           <LevelRight>
