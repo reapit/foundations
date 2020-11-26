@@ -59,7 +59,6 @@ describe('routeDispatcher', () => {
         pageNumber: 1,
         pageSize: INSTALLED_APPS_PERPAGE,
         onlyInstalled: true,
-        isDirectApi: false,
         developerId: undefined,
       }),
     )
