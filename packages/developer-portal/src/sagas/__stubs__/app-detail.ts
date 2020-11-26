@@ -32,6 +32,11 @@ export const appDetailDataStub: AppDetailState = {
       },
     ],
     scopes: appPermissionStub,
+    category: {
+      description: 'General purpose tools',
+      id: '6',
+      name: 'Tools',
+    },
   },
 }
 

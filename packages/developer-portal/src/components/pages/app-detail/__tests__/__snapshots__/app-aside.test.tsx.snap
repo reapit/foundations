@@ -8,6 +8,13 @@ exports[`DeveloperAside should match snapshot 1`] = `
   isFullHeight={true}
 >
   <Component
+    category={
+      Object {
+        "description": "General purpose tools",
+        "id": "6",
+        "name": "Tools",
+      }
+    }
     isSidebar={true}
   />
   <Component
@@ -69,6 +76,11 @@ exports[`DeveloperAside should match snapshot 1`] = `
   <Component
     appDetail={
       Object {
+        "category": Object {
+          "description": "General purpose tools",
+          "id": "6",
+          "name": "Tools",
+        },
         "description": "enim facilisis",
         "developer": "Pete's Proptech World Ltd",
         "homePage": "http://myawesomeproptechproduct.io",
@@ -112,6 +124,11 @@ exports[`DeveloperAside should match snapshot 1`] = `
     appDetailState={
       Object {
         "data": Object {
+          "category": Object {
+            "description": "General purpose tools",
+            "id": "6",
+            "name": "Tools",
+          },
           "description": "enim facilisis",
           "developer": "Pete's Proptech World Ltd",
           "homePage": "http://myawesomeproptechproduct.io",

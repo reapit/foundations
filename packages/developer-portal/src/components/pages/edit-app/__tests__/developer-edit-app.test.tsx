@@ -237,7 +237,7 @@ describe('DeveloperSubmitApp', () => {
       const result = generateInitialValues(appDetailDataStub.data, 'testid')
       expect(result).toEqual({
         authFlow: undefined,
-        categoryId: '',
+        categoryId: '6',
         description: 'enim facilisis',
         desktopIntegrationTypeIds: [],
         developerId: undefined,

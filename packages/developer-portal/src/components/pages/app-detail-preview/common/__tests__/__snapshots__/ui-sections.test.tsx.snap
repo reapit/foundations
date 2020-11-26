@@ -81,9 +81,9 @@ exports[`CategorySection should match a snapshot where category is defined and i
   headerText="Category"
   isSidebar={true}
 >
-  <p>
-    None
-  </p>
+  <Component>
+    Tools
+  </Component>
 </Component>
 `;
 

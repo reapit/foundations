@@ -35,6 +35,11 @@ exports[`StatusSection should match a snapshot where isListed false and not side
   <Component
     appDetail={
       Object {
+        "category": Object {
+          "description": "General purpose tools",
+          "id": "6",
+          "name": "Tools",
+        },
         "description": "enim facilisis",
         "developer": "Pete's Proptech World Ltd",
         "homePage": "http://myawesomeproptechproduct.io",
@@ -111,6 +116,11 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
   <Component
     appDetail={
       Object {
+        "category": Object {
+          "description": "General purpose tools",
+          "id": "6",
+          "name": "Tools",
+        },
         "description": "enim facilisis",
         "developer": "Pete's Proptech World Ltd",
         "homePage": "http://myawesomeproptechproduct.io",
