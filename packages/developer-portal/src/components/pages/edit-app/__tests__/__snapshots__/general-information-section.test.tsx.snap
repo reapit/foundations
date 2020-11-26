@@ -505,7 +505,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         required={false}
                       >
                         <div
-                          className="field pb-2"
+                          className="field"
                         >
                           <div
                             className="control"
@@ -1171,7 +1171,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         required={true}
                       >
                         <div
-                          className="field pb-2"
+                          className="field"
                         >
                           <div
                             className="control"

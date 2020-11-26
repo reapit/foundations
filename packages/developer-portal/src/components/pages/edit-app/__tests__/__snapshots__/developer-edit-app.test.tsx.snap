@@ -1280,7 +1280,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               required={false}
                             >
                               <div
-                                className="field pb-2"
+                                className="field"
                               >
                                 <div
                                   className="control"

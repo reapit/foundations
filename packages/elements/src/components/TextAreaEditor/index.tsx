@@ -60,7 +60,7 @@ export const TextAreaEditor = ({
 
   return (
     <>
-      <div className="field pb-2">
+      <div className="field">
         <div className="control">
           <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
             {labelText}
