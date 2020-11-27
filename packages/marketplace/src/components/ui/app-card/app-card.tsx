@@ -47,7 +47,7 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
         subHeading={
           <>
             {app.developer}
-            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Integration)</span> : ''}
           </>
         }
         image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}

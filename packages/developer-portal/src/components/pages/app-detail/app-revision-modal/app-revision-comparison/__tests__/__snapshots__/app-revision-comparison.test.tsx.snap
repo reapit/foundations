@@ -770,7 +770,7 @@ Get
               className="mb-2"
               data-test="chkIsDirectApi"
             >
-              Is Direct API
+              Is Integration
             </h4>
             <DiffCheckbox
               changedChecked={false}

@@ -143,7 +143,7 @@ export const formFields: Record<Field, FormFieldInfo> = {
   },
   isDirectApi: {
     name: 'isDirectApi',
-    label: 'Direct API',
+    label: 'Integration',
   },
   isPrivateApp: {
     name: 'isPrivateApp',

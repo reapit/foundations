@@ -103,7 +103,7 @@ export const PrivateAppSection: React.FC<PrivateAppSectionProps> = ({ limitToCli
 )
 
 export const DirectApiSection: React.FC<DirectApiSectionProps> = ({ isDirectApi, isSidebar = false }) => (
-  <AppDetailSection headerText="Direct API" isSidebar={isSidebar}>
+  <AppDetailSection headerText="Integration" isSidebar={isSidebar}>
     {convertBooleanToYesNoString(Boolean(isDirectApi))}
   </AppDetailSection>
 )

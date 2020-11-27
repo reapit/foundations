@@ -333,7 +333,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
               isSidebar={true}
             >
               <Component
-                headerText="Direct API"
+                headerText="Integration"
                 isSidebar={true}
               >
                 <Component
@@ -350,7 +350,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                         className=""
                         id=""
                       >
-                        Direct API
+                        Integration
                       </h5>
                     </Component>
                     No
