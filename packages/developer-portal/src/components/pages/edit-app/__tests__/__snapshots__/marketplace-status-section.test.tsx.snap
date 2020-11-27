@@ -6,13 +6,13 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
     Marketplace Status
   </Component>
   <Component>
-    This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Direct API”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Direct API”.
+    This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Integration”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Integration”.
   </Component>
   <Component>
     <Component>
       <Component
         id="isDirectApi"
-        labelText="Direct API"
+        labelText="Integration"
         name="isDirectApi"
       />
     </Component>

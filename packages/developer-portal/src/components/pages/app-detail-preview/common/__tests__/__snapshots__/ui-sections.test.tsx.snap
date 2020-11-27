@@ -167,7 +167,7 @@ exports[`DeveloperAboutSection should match a snapshot 1`] = `
 
 exports[`DirectApiSection should match a snapshot where isDirectApi false and not sidebar 1`] = `
 <Component
-  headerText="Direct API"
+  headerText="Integration"
   isSidebar={false}
 >
   No
@@ -176,7 +176,7 @@ exports[`DirectApiSection should match a snapshot where isDirectApi false and no
 
 exports[`DirectApiSection should match a snapshot where isDirectApi true and is sidebar 1`] = `
 <Component
-  headerText="Direct API"
+  headerText="Integration"
   isSidebar={true}
 >
   Yes

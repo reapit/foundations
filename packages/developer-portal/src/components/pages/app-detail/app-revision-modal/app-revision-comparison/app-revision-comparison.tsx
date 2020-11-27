@@ -199,7 +199,7 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
       </div>
       <div className="mb-3">
         <h4 data-test="chkIsDirectApi" className="mb-2">
-          Is Direct API
+          Is Integration
         </h4>
         <DiffCheckbox
           currentChecked={Boolean(app.isDirectApi)}

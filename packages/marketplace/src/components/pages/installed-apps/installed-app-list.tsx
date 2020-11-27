@@ -40,9 +40,7 @@ export const ListMobileScreen = ({
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.contentIsLoading)}>
     {list.map(app => (
-      <FadeIn key={app.id}>
-        <InstalledAppCard app={app} onClick={onClickHandler(onCardClick, app)} />
-      </FadeIn>
+      <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
     ))}
   </div>
 )
@@ -70,13 +68,14 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   infoType,
   pagination,
 }) => {
+  const isMobileView = isMobile()
   return (
     <>
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}
         </Helper>
-      ) : isMobile() ? (
+      ) : isMobileView ? (
         <ListMobileScreen list={list} loading={loading} onCardClick={onCardClick} />
       ) : (
         <ListDesktopScreen list={list} loading={loading} onCardClick={onCardClick} />

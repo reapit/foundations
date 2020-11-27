@@ -73,9 +73,9 @@ export const AppSidebar: React.FC = () => {
   const location = useLocation()
   const categories: CategoryModel[] = useSelector(selectCategories)
 
-  // currently, this will make the "Direct Api" option behave like a category,
+  // currently, this will make the "Integration" option behave like a category,
   // not a checkbox filter, so future ticket may refer back to this.
-  const categoriesWithDirectApiOption = [...categories, { id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }]
+  const categoriesWithDirectApiOption = [...categories, { id: 'DIRECT_API_APPS_FILTER', name: 'Integration' }]
   return (
     <div className={styles.sidebar}>
       <FlexContainerBasic flexColumn hasPadding>

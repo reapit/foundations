@@ -45,7 +45,7 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
         </div>
       )}
       <Tile
-        onClick={onClick as () => void}
+        onClick={!app.isDirectApi ? (onClick as () => void) : undefined}
         heading={app.name || ''}
         subHeading={app.developer || ''}
         image={<img className="image" src={app.iconUri || defaultAppIcon} alt={app.name} onError={onImageError} />}

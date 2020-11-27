@@ -66,7 +66,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           pageNumber: page,
           pageSize: INSTALLED_APPS_PERPAGE,
           onlyInstalled: true,
-          isDirectApi: false,
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
         }),
       )

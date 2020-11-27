@@ -13,10 +13,10 @@ const MarketplaceStatusSection: React.FC<MarketplaceStatusSectionProps> = () => 
       <FormSubHeading>
         This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is
         just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select,
-        &ldquo;Direct API&rdquo;. Your app will still need to be listed in the Marketplace and installed by clients so
+        &ldquo;Integration&rdquo;. Your app will still need to be listed in the Marketplace and installed by clients so
         they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is
         a hard requirement that launchable apps conform closely to our &ldquo;Elements&rdquo;, brand guidelines so if
-        your app does not, please also select &ldquo;Direct API&rdquo;.
+        your app does not, please also select &ldquo;Integration&rdquo;.
       </FormSubHeading>
       <Grid>
         <GridItem>

@@ -157,7 +157,7 @@ exports[`AppSidebar should match a snapshot 1`] = `
             },
             Object {
               "id": "DIRECT_API_APPS_FILTER",
-              "name": "Direct API",
+              "name": "Integration",
             },
           ]
         }
