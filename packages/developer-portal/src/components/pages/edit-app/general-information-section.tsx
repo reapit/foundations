@@ -32,10 +32,13 @@ const {
   description,
   termsConditions,
   privacyPolicy,
+  pricingInfo,
+  isFree,
 } = formFields
 
 export type GeneralInformationSectionProps = {
   isListed: boolean
+  isFreeVal: boolean
 }
 
 export const prepareCategoryOptions = (categories: CategoryModel[]) => {
@@ -45,7 +48,7 @@ export const prepareCategoryOptions = (categories: CategoryModel[]) => {
   }))
 }
 
-const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ isListed }) => {
+const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ isListed, isFreeVal }) => {
   const categories = useSelector(selectCategories)
 
   const categoryOptions: SelectBoxOptions[] = prepareCategoryOptions(categories)
@@ -190,30 +193,51 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
         </GridItem>
       </Grid>
       {!isProd && (
-        <Grid>
-          <GridItem>
-            <Input
-              dataTest="submit-app-terms-conditions"
-              type="text"
-              labelText={termsConditions.label as string}
-              id={termsConditions.name}
-              name={termsConditions.name}
-              placeholder={termsConditions.placeHolder}
-              required={isListed}
-            />
-          </GridItem>
-          <GridItem>
-            <Input
-              dataTest="submit-app-privacy-policy"
-              type="text"
-              labelText={privacyPolicy.label as string}
-              id={privacyPolicy.name}
-              name={privacyPolicy.name}
-              placeholder={privacyPolicy.placeHolder}
-              required={isListed}
-            />
-          </GridItem>
-        </Grid>
+        <>
+          <Grid>
+            <GridItem>
+              <Input
+                dataTest="submit-app-terms-conditions"
+                type="text"
+                labelText={termsConditions.label as string}
+                id={termsConditions.name}
+                name={termsConditions.name}
+                placeholder={termsConditions.placeHolder}
+                required={isListed}
+              />
+            </GridItem>
+            <GridItem>
+              <Input
+                dataTest="submit-app-privacy-policy"
+                type="text"
+                labelText={privacyPolicy.label as string}
+                id={privacyPolicy.name}
+                name={privacyPolicy.name}
+                placeholder={privacyPolicy.placeHolder}
+                required={isListed}
+              />
+            </GridItem>
+          </Grid>
+          <Grid>
+            <GridItem>
+              <Input
+                dataTest="submit-app-terms-conditions"
+                type="text"
+                labelText={pricingInfo.label as string}
+                id={pricingInfo.name}
+                name={pricingInfo.name}
+                placeholder={pricingInfo.placeHolder}
+                required={isListed}
+                disabled={isFreeVal}
+              />
+            </GridItem>
+
+            <GridItem>
+              <label className={'label inline-block'}>&nbsp;</label>
+              <Checkbox name={isFree.name} id="isFree" labelText="This application is free" />
+            </GridItem>
+          </Grid>
+        </>
       )}
     </FormSection>
   )

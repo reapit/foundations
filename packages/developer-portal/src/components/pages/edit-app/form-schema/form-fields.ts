@@ -11,6 +11,8 @@ type Field =
   | 'description'
   | 'termsConditions'
   | 'privacyPolicy'
+  | 'pricingInfo'
+  | 'isFree'
   | 'summary'
   | 'screen1ImageUrl'
   | 'screen2ImageUrl'
@@ -82,6 +84,15 @@ export const formFields: Record<Field, FormFieldInfo> = {
     name: 'privacyPolicy',
     label: 'Privacy Policy',
     placeHolder: 'URL to link to your Privacy Policy',
+  },
+  pricingInfo: {
+    name: 'pricingInfo',
+    label: 'Pricing Info',
+    placeHolder: 'URL to link to your Pricing Info',
+  },
+  isFree: {
+    name: 'isFree',
+    label: 'This application is free',
   },
   authFlow: {
     name: 'authFlow',

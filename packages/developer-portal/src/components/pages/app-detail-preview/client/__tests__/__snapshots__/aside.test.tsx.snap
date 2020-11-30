@@ -475,6 +475,28 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                               className=""
                               href="#"
                             >
+                              Pricing
+                            </a>
+                          </p>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <p>
+                            <a
+                              className=""
+                              href="#"
+                            >
                               Privacy Policy
                             </a>
                           </p>

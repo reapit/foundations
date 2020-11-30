@@ -57,6 +57,18 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
             className=""
             href="#"
           >
+            Pricing
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
             Privacy Policy
           </a>
         </p>
@@ -124,6 +136,18 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
             target="_blank"
           >
             Website
+          </a>
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component>
+        <p>
+          <a
+            className=""
+            href="#"
+          >
+            Pricing
           </a>
         </p>
       </Component>

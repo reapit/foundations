@@ -41,6 +41,7 @@ export type CustomCreateRevisionModal = CreateAppRevisionModel & {
   redirectUris?: string
   signoutUris?: string
   authFlow?: string
+  isFree: false
 }
 
 export const labelTextOfField = {
@@ -450,7 +451,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           const isListed = values.isListed
           return (
             <Form noValidate={true}>
-              <GeneralInformationSection isListed={!!isListed} />
+              <GeneralInformationSection isListed={!!isListed} isFreeVal={values.isFree} />
               <AgencyCloudIntegrationSection />
               {/* Section not required right now - eventually we will remove but
                testing with users first to see if it causes confusion */}
