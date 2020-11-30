@@ -2,7 +2,8 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { css } from 'linaria'
+import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import * as appPermissionContentStyles from '../__styles__/app-permission-content'
 import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { installApp } from '@/actions/installations'
@@ -16,6 +17,7 @@ import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { handleLaunchApp } from '@/utils/launch-app'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -80,25 +82,49 @@ export const handleSuccessAlertMessageAfterClose = (
 export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> &
   Pick<AppInstallConfirmationProps, 'appDetailData'> & {
     onSuccessAlertButtonClick: () => void
-    isDesktopMode?: boolean
+    isDesktopMode: Boolean
   }
+
+const btnGroup = css`
+  margin-top: 20px;
+`
 
 export const InstallNonDirectApiAppSucesfullyModal = ({
   afterClose,
   appDetailData,
   onSuccessAlertButtonClick,
   visible,
+  isDesktopMode,
 }: InstallAppSucesfullyModalParams) => {
   const { name } = appDetailData || {}
+
   return (
     <ModalV2 isCentered hasHeader={false} isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
       <CallToAction
         title="Success"
-        buttonText="Back to List"
-        dataTest="installations-success-message"
-        buttonDataTest="installations-success-button"
+        buttonDataTest="installations-success-button-back"
         onButtonClick={onSuccessAlertButtonClick}
         isCenter
+        footerItems={
+          <div className={btnGroup}>
+            <Button
+              dataTest="installations-success-message"
+              variant="primary"
+              type="button"
+              onClick={onSuccessAlertButtonClick as () => void}
+            >
+              Back To List
+            </Button>
+            <Button
+              dataTest="installations-success-message-launch"
+              variant="primary"
+              type="button"
+              onClick={() => handleLaunchApp(appDetailData as AppSummaryModel, isDesktopMode)}
+            >
+              Launch App
+            </Button>
+          </div>
+        }
       >
         {name} has been successfully installed
       </CallToAction>
@@ -236,6 +262,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
         appDetailData={appDetailData}
         onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+        isDesktopMode={connectIsDesktop}
       />
     </>
   )

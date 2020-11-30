@@ -33,6 +33,7 @@ describe('InstallNonDirectApiAppSucesfullyModal', () => {
       onSuccessAlertButtonClick: jest.fn(),
       afterClose: jest.fn(),
       appDetailData: appDetailDataStub.data,
+      isDesktopMode: true,
     }
 
     expect(mount(<InstallNonDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
@@ -46,6 +47,7 @@ describe('InstallDirectApiAppSucesfullyModal', () => {
       onSuccessAlertButtonClick: jest.fn(),
       afterClose: jest.fn(),
       appDetailData: appDetailDataStub.data,
+      isDesktopMode: true,
     }
 
     expect(mount(<InstallDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
