@@ -70,7 +70,7 @@ export const InstalledApps: React.FC = () => {
               onChange: handleOnChange(history),
             }}
           />
-          {!isMobileView && isAdmin && (
+          {!isMobileView && isAdmin && directApiApps.length ? (
             <Section>
               <i className={helperText}>
                 You currently have {directApiApps.length} {directApiApps.length > 1 ? 'integrations' : 'integration'}{' '}
@@ -79,7 +79,7 @@ export const InstalledApps: React.FC = () => {
                 <Link to={Routes.MY_APPS}>here.</Link>
               </i>
             </Section>
-          )}
+          ) : null}
         </Content>
       )}
     </ErrorBoundary>
