@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, generateMenuConfig } from '../menu'
+import { Menu, generateMenuConfig, XmasLogo } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
@@ -43,6 +43,12 @@ describe('Menu', () => {
       }
       const result = generateMenuConfig(location)
       expect(result).toBeDefined()
+    })
+  })
+
+  describe('XmasLogo', () => {
+    it('should match a snapshot', () => {
+      expect(shallow(<XmasLogo />)).toMatchSnapshot()
     })
   })
 })
