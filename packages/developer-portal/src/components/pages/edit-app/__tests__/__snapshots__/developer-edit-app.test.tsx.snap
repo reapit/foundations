@@ -109,12 +109,16 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "_exclusive": Object {},
               "_mutate": undefined,
               "_nodes": Array [
+                "isFree",
+                "pricingUrl",
+                "isListed",
+                "privacyPolicyUrl",
+                "termsAndConditionsUrl",
                 "limitToClientIds",
                 "authFlow",
                 "signoutUris",
                 "redirectUris",
                 "scopes",
-                "isListed",
                 "summary",
                 "description",
                 "homePage",
@@ -456,6 +460,104 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   ],
                   "type": "string",
                 },
+                "pricingUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isFree",
+                          "map": undefined,
+                          "path": "isFree",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isFree",
+                  ],
+                  "_exclusive": Object {
+                    "isValidPricingUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+                "privacyPolicyUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isListed",
+                          "map": undefined,
+                          "path": "isListed",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isListed",
+                  ],
+                  "_exclusive": Object {
+                    "isValidPrivacyPolicyUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "type": "string",
+                },
                 "redirectUris": StringSchema {
                   "_blacklist": RefSet {
                     "list": Set {},
@@ -780,6 +882,55 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     [Function],
                   ],
                   "transforms": Array [
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+                "termsAndConditionsUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isListed",
+                          "map": undefined,
+                          "path": "isListed",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isListed",
+                  ],
+                  "_exclusive": Object {
+                    "isValidTermsAndConditionsUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
                     [Function],
                   ],
                   "type": "string",
@@ -1453,7 +1604,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               labelText="Pricing Info"
                               name="pricingUrl"
                               placeholder="URL to link to your Pricing Info"
-                              required={false}
                               type="text"
                             >
                               <Field

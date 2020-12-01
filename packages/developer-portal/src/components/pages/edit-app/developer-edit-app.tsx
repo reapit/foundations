@@ -59,9 +59,9 @@ export const labelTextOfField = {
   scopes: 'Permissions',
   authFlow: 'Authentication flow',
   limitToClientIds: 'Private Apps',
-  privacyPolicy: 'Privacy policy',
-  termsConditions: 'Terms & Conditions',
-  pricingInfo: 'Pricing Info',
+  privacyPolicyUrl: 'Privacy Policy',
+  termsAndConditionsUrl: 'Terms & Conditions',
+  pricingUrl: 'Pricing Info',
 }
 
 export const renderErrors = (errors: Record<string, string | string[]>) => {

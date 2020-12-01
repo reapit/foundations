@@ -10,6 +10,7 @@ import {
   isValidLimitToClientIds,
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
+  isValidHttpsUrl,
 } from '@reapit/utils'
 
 const { USER_SESSION, CLIENT_SECRET } = authFlows
@@ -31,6 +32,10 @@ const {
   signoutUris,
   limitToClientIds,
   isListed,
+  termsAndConditionsUrl,
+  privacyPolicyUrl,
+  pricingUrl,
+  isFree,
 } = formFields
 
 export const validationSchemaSubmitRevision = Yup.object().shape({
@@ -185,6 +190,60 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
         return true
       },
       message: limitToClientIds.errorMessage,
+    }),
+
+  [termsAndConditionsUrl.name]: Yup.string()
+    .trim()
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
+    .test({
+      name: 'isValidTermsAndConditionsUrl',
+      message: termsAndConditionsUrl.errorMessage,
+      test: value => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
+    }),
+
+  [privacyPolicyUrl.name]: Yup.string()
+    .trim()
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
+    .test({
+      name: 'isValidPrivacyPolicyUrl',
+      message: privacyPolicyUrl.errorMessage,
+      test: value => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
+    }),
+
+  [pricingUrl.name]: Yup.string()
+    .trim()
+    .when(isFree.name, (isFree, schema) => {
+      console.log(isFree)
+      if (!isFree) {
+        return schema.required('Required if not free')
+      }
+      return schema
+    })
+    .test({
+      name: 'isValidPricingUrl',
+      message: pricingUrl.errorMessage,
+      test: value => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
     }),
 })
 

@@ -676,7 +676,6 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         labelText="Pricing Info"
                         name="pricingUrl"
                         placeholder="URL to link to your Pricing Info"
-                        required={false}
                         type="text"
                       >
                         <Field
@@ -1449,12 +1448,11 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                         labelText="Pricing Info"
                         name="pricingUrl"
                         placeholder="URL to link to your Pricing Info"
-                        required={true}
                         type="text"
                       >
                         <Field
                           name="pricingUrl"
-                          validate={[Function]}
+                          validate={null}
                         >
                           <div
                             className=""
@@ -1463,7 +1461,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control "
                             >
                               <label
-                                className="label inline-block required-label"
+                                className="label inline-block "
                                 htmlFor="pricingUrl"
                               >
                                 Pricing Info

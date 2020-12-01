@@ -227,7 +227,6 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
                 id={pricingUrl.name}
                 name={pricingUrl.name}
                 placeholder={pricingUrl.placeHolder}
-                required={isListed && !isFreeVal}
                 disabled={isFreeVal}
               />
             </GridItem>

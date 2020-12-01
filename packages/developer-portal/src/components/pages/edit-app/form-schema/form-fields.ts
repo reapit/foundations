@@ -79,16 +79,19 @@ export const formFields: Record<Field, FormFieldInfo> = {
     name: 'termsAndConditionsUrl',
     label: 'Terms and Conditions',
     placeHolder: 'URL to link to your Terms and Conditions',
+    errorMessage: 'Invalid URL - has to be https://',
   },
   privacyPolicyUrl: {
     name: 'privacyPolicyUrl',
     label: 'Privacy Policy',
     placeHolder: 'URL to link to your Privacy Policy',
+    errorMessage: 'Invalid URL - has to be https://',
   },
   pricingUrl: {
     name: 'pricingUrl',
     label: 'Pricing Info',
     placeHolder: 'URL to link to your Pricing Info',
+    errorMessage: 'Invalid URL - has to be https://',
   },
   isFree: {
     name: 'isFree',
