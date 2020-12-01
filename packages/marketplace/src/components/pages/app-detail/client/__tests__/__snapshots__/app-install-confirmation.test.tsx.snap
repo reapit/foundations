@@ -716,6 +716,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               "telephone": "0113 288 2900",
             }
           }
+          isDesktopMode={false}
           onSuccessAlertButtonClick={[Function]}
           visible={false}
         >
@@ -796,6 +797,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
       "telephone": "0113 288 2900",
     }
   }
+  isDesktopMode={true}
   onSuccessAlertButtonClick={[MockFunction]}
   visible={true}
 >
@@ -904,7 +906,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 >
                                   To launch, please use
                                    
-                                  <a />
+                                  <a
+                                    href="agencycloud://process/webpage?url=undefined"
+                                  />
                                 </p>
                                 <p>
                                   If there are any additional setup requirements, a member of 
@@ -1113,7 +1117,9 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                         >
                                           To launch, please use
                                            
-                                          <a />
+                                          <a
+                                            href="agencycloud://process/webpage?url=undefined"
+                                          />
                                         </p>
                                         <p>
                                           If there are any additional setup requirements, a member of 
@@ -1218,6 +1224,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
       "telephone": "0113 288 2900",
     }
   }
+  isDesktopMode={true}
   onSuccessAlertButtonClick={[MockFunction]}
   visible={true}
 >
@@ -1302,7 +1309,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                         >
                           <div
                             class=""
-                            data-test="installations-success-message"
+                            data-test=""
                           >
                             <div
                               class="notification is-success mb-0"
@@ -1321,13 +1328,24 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               <div
                                 class="has-text-right"
                               >
-                                <button
-                                  class="button  is-primary  "
-                                  data-test="installations-success-button"
-                                  type="button"
+                                <div
+                                  class=""
                                 >
-                                  Back to List
-                                </button>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test="installations-success-message"
+                                    type="button"
+                                  >
+                                    Back To List
+                                  </button>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test="installations-success-message-launch"
+                                    type="button"
+                                  >
+                                    Launch App
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1475,16 +1493,36 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               className="rc-dialog-body"
                             >
                               <CallToAction
-                                buttonDataTest="installations-success-button"
-                                buttonText="Back to List"
-                                dataTest="installations-success-message"
+                                buttonDataTest="installations-success-button-back"
+                                footerItems={
+                                  <div
+                                    className=""
+                                  >
+                                    <Unknown
+                                      dataTest="installations-success-message"
+                                      onClick={[MockFunction]}
+                                      type="button"
+                                      variant="primary"
+                                    >
+                                      Back To List
+                                    </Unknown>
+                                    <Unknown
+                                      dataTest="installations-success-message-launch"
+                                      onClick={[Function]}
+                                      type="button"
+                                      variant="primary"
+                                    >
+                                      Launch App
+                                    </Unknown>
+                                  </div>
+                                }
                                 isCenter={true}
                                 onButtonClick={[MockFunction]}
                                 title="Success"
                               >
                                 <div
                                   className=""
-                                  data-test="installations-success-message"
+                                  data-test=""
                                 >
                                   <Component
                                     className="mb-0"
@@ -1514,22 +1552,42 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       <div
                                         className="has-text-right"
                                       >
-                                        <Component
-                                          dataTest="installations-success-button"
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="primary"
+                                        <div
+                                          className=""
                                         >
-                                          <button
-                                            className="button  is-primary  "
-                                            data-test="installations-success-button"
-                                            disabled={false}
+                                          <Component
+                                            dataTest="installations-success-message"
                                             onClick={[MockFunction]}
                                             type="button"
+                                            variant="primary"
                                           >
-                                            Back to List
-                                          </button>
-                                        </Component>
+                                            <button
+                                              className="button  is-primary  "
+                                              data-test="installations-success-message"
+                                              disabled={false}
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                            >
+                                              Back To List
+                                            </button>
+                                          </Component>
+                                          <Component
+                                            dataTest="installations-success-message-launch"
+                                            onClick={[Function]}
+                                            type="button"
+                                            variant="primary"
+                                          >
+                                            <button
+                                              className="button  is-primary  "
+                                              data-test="installations-success-message-launch"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                            >
+                                              Launch App
+                                            </button>
+                                          </Component>
+                                        </div>
                                       </div>
                                     </div>
                                   </Component>

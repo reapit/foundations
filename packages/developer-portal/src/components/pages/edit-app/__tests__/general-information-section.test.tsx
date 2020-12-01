@@ -21,7 +21,7 @@ describe('GeneralInformationSection', () => {
         <ReactRedux.Provider store={store}>
           <Formik initialValues={{}} onSubmit={() => {}}>
             <Form>
-              <GeneralInformationSection isListed={true} />
+              <GeneralInformationSection isListed={true} isFreeVal={false} />
             </Form>
           </Formik>
         </ReactRedux.Provider>,
@@ -35,7 +35,7 @@ describe('GeneralInformationSection', () => {
         <ReactRedux.Provider store={store}>
           <Formik initialValues={{}} onSubmit={() => {}}>
             <Form>
-              <GeneralInformationSection isListed={false} />
+              <GeneralInformationSection isListed={false} isFreeVal={false} />
             </Form>
           </Formik>
         </ReactRedux.Provider>,

@@ -60,6 +60,15 @@ export const ContactDeveloperSection = ({
               <GridItem>
                 <p>
                   <a className={cx(link, linkNormal)} href={'#'}>
+                    Pricing
+                  </a>
+                </p>
+              </GridItem>
+            </Grid>
+            <Grid>
+              <GridItem>
+                <p>
+                  <a className={cx(link, linkNormal)} href={'#'}>
                     Privacy Policy
                   </a>
                 </p>

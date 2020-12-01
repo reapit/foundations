@@ -24,6 +24,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
         onSubmit={[Function]}
       >
         <GeneralInformationSection
+          isFreeVal={false}
           isListed={false}
         >
           <Component
@@ -658,6 +659,112 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                   </Component>
                 </div>
               </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-terms-conditions"
+                        disabled={false}
+                        id="pricingInfo"
+                        labelText="Pricing Info"
+                        name="pricingInfo"
+                        placeholder="URL to link to your Pricing Info"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="pricingInfo"
+                          validate={null}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="pricingInfo"
+                              >
+                                Pricing Info
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-terms-conditions"
+                                disabled={false}
+                                id="pricingInfo"
+                                name="pricingInfo"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Pricing Info"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <label
+                        className="label inline-block"
+                      >
+                         
+                      </label>
+                      <Component
+                        id="isFree"
+                        labelText="This application is free"
+                        name="isFree"
+                      >
+                        <div
+                          className="field "
+                        >
+                          <div
+                            className="control"
+                          >
+                            <Field
+                              name="isFree"
+                              type="checkbox"
+                            >
+                              <div
+                                className="field field-checkbox"
+                              >
+                                <input
+                                  checked={false}
+                                  className="checkbox"
+                                  data-test=""
+                                  id="isFree"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <label
+                                  className="label"
+                                  htmlFor="isFree"
+                                >
+                                  This application is free
+                                </label>
+                              </div>
+                            </Field>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
             </div>
           </Component>
         </GeneralInformationSection>
@@ -691,6 +798,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
         onSubmit={[Function]}
       >
         <GeneralInformationSection
+          isFreeVal={false}
           isListed={true}
         >
           <Component
@@ -1319,6 +1427,112 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-terms-conditions"
+                        disabled={false}
+                        id="pricingInfo"
+                        labelText="Pricing Info"
+                        name="pricingInfo"
+                        placeholder="URL to link to your Pricing Info"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="pricingInfo"
+                          validate={[Function]}
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="pricingInfo"
+                              >
+                                Pricing Info
+                              </label>
+                              <input
+                                className=""
+                                data-test="submit-app-terms-conditions"
+                                disabled={false}
+                                id="pricingInfo"
+                                name="pricingInfo"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="URL to link to your Pricing Info"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <label
+                        className="label inline-block"
+                      >
+                         
+                      </label>
+                      <Component
+                        id="isFree"
+                        labelText="This application is free"
+                        name="isFree"
+                      >
+                        <div
+                          className="field "
+                        >
+                          <div
+                            className="control"
+                          >
+                            <Field
+                              name="isFree"
+                              type="checkbox"
+                            >
+                              <div
+                                className="field field-checkbox"
+                              >
+                                <input
+                                  checked={false}
+                                  className="checkbox"
+                                  data-test=""
+                                  id="isFree"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <label
+                                  className="label"
+                                  htmlFor="isFree"
+                                >
+                                  This application is free
+                                </label>
+                              </div>
+                            </Field>
+                          </div>
+                        </div>
                       </Component>
                     </div>
                   </Component>
