@@ -77,11 +77,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "homePage": undefined,
               "iconImageUrl": "",
               "isDirectApi": undefined,
+              "isFree": undefined,
               "isListed": undefined,
               "isPrivateApp": "no",
               "launchUri": undefined,
               "limitToClientIds": "",
               "name": undefined,
+              "pricingUrl": undefined,
+              "privacyPolicyUrl": undefined,
               "redirectUris": "",
               "scopes": Array [],
               "screen1ImageUrl": "",
@@ -89,6 +92,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "summary": undefined,
               "supportEmail": undefined,
               "telephone": undefined,
+              "termsAndConditionsUrl": undefined,
             }
           }
           onSubmit={[Function]}
@@ -105,12 +109,16 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "_exclusive": Object {},
               "_mutate": undefined,
               "_nodes": Array [
+                "isFree",
+                "pricingUrl",
+                "isListed",
+                "privacyPolicyUrl",
+                "termsAndConditionsUrl",
                 "limitToClientIds",
                 "authFlow",
                 "signoutUris",
                 "redirectUris",
                 "scopes",
-                "isListed",
                 "summary",
                 "description",
                 "homePage",
@@ -452,6 +460,104 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   ],
                   "type": "string",
                 },
+                "pricingUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isFree",
+                          "map": undefined,
+                          "path": "isFree",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isFree",
+                  ],
+                  "_exclusive": Object {
+                    "isValidPricingUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+                "privacyPolicyUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isListed",
+                          "map": undefined,
+                          "path": "isListed",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isListed",
+                  ],
+                  "_exclusive": Object {
+                    "isValidPrivacyPolicyUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "type": "string",
+                },
                 "redirectUris": StringSchema {
                   "_blacklist": RefSet {
                     "list": Set {},
@@ -776,6 +882,55 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     [Function],
                   ],
                   "transforms": Array [
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+                "termsAndConditionsUrl": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [
+                    Condition {
+                      "fn": [Function],
+                      "refs": Array [
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isListed",
+                          "map": undefined,
+                          "path": "isListed",
+                        },
+                      ],
+                    },
+                  ],
+                  "_deps": Array [
+                    "isListed",
+                  ],
+                  "_exclusive": Object {
+                    "isValidTermsAndConditionsUrl": false,
+                    "trim": false,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
                     [Function],
                   ],
                   "type": "string",
@@ -1342,15 +1497,15 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <Component
                               dataTest="submit-app-terms-conditions"
-                              id="termsConditions"
+                              id="termsAndConditionsUrl"
                               labelText="Terms and Conditions"
-                              name="termsConditions"
+                              name="termsAndConditionsUrl"
                               placeholder="URL to link to your Terms and Conditions"
                               required={false}
                               type="text"
                             >
                               <Field
-                                name="termsConditions"
+                                name="termsAndConditionsUrl"
                                 validate={null}
                               >
                                 <div
@@ -1361,7 +1516,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   >
                                     <label
                                       className="label inline-block "
-                                      htmlFor="termsConditions"
+                                      htmlFor="termsAndConditionsUrl"
                                     >
                                       Terms and Conditions
                                     </label>
@@ -1369,8 +1524,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       className=""
                                       data-test="submit-app-terms-conditions"
                                       disabled={false}
-                                      id="termsConditions"
-                                      name="termsConditions"
+                                      id="termsAndConditionsUrl"
+                                      name="termsAndConditionsUrl"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       placeholder="URL to link to your Terms and Conditions"
@@ -1390,15 +1545,15 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <Component
                               dataTest="submit-app-privacy-policy"
-                              id="privacyPolicy"
+                              id="privacyPolicyUrl"
                               labelText="Privacy Policy"
-                              name="privacyPolicy"
+                              name="privacyPolicyUrl"
                               placeholder="URL to link to your Privacy Policy"
                               required={false}
                               type="text"
                             >
                               <Field
-                                name="privacyPolicy"
+                                name="privacyPolicyUrl"
                                 validate={null}
                               >
                                 <div
@@ -1409,7 +1564,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   >
                                     <label
                                       className="label inline-block "
-                                      htmlFor="privacyPolicy"
+                                      htmlFor="privacyPolicyUrl"
                                     >
                                       Privacy Policy
                                     </label>
@@ -1417,8 +1572,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       className=""
                                       data-test="submit-app-privacy-policy"
                                       disabled={false}
-                                      id="privacyPolicy"
-                                      name="privacyPolicy"
+                                      id="privacyPolicyUrl"
+                                      name="privacyPolicyUrl"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       placeholder="URL to link to your Privacy Policy"
@@ -1445,15 +1600,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <Component
                               dataTest="submit-app-terms-conditions"
-                              id="pricingInfo"
+                              id="pricingUrl"
                               labelText="Pricing Info"
-                              name="pricingInfo"
+                              name="pricingUrl"
                               placeholder="URL to link to your Pricing Info"
-                              required={false}
                               type="text"
                             >
                               <Field
-                                name="pricingInfo"
+                                name="pricingUrl"
                                 validate={null}
                               >
                                 <div
@@ -1464,7 +1618,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   >
                                     <label
                                       className="label inline-block "
-                                      htmlFor="pricingInfo"
+                                      htmlFor="pricingUrl"
                                     >
                                       Pricing Info
                                     </label>
@@ -1472,8 +1626,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       className=""
                                       data-test="submit-app-terms-conditions"
                                       disabled={false}
-                                      id="pricingInfo"
-                                      name="pricingInfo"
+                                      id="pricingUrl"
+                                      name="pricingUrl"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       placeholder="URL to link to your Pricing Info"

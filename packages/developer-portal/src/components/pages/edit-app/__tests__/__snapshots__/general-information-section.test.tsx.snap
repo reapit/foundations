@@ -568,15 +568,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     >
                       <Component
                         dataTest="submit-app-terms-conditions"
-                        id="termsConditions"
+                        id="termsAndConditionsUrl"
                         labelText="Terms and Conditions"
-                        name="termsConditions"
+                        name="termsAndConditionsUrl"
                         placeholder="URL to link to your Terms and Conditions"
                         required={false}
                         type="text"
                       >
                         <Field
-                          name="termsConditions"
+                          name="termsAndConditionsUrl"
                           validate={null}
                         >
                           <div
@@ -587,7 +587,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               <label
                                 className="label inline-block "
-                                htmlFor="termsConditions"
+                                htmlFor="termsAndConditionsUrl"
                               >
                                 Terms and Conditions
                               </label>
@@ -595,8 +595,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
-                                id="termsConditions"
-                                name="termsConditions"
+                                id="termsAndConditionsUrl"
+                                name="termsAndConditionsUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Terms and Conditions"
@@ -616,15 +616,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     >
                       <Component
                         dataTest="submit-app-privacy-policy"
-                        id="privacyPolicy"
+                        id="privacyPolicyUrl"
                         labelText="Privacy Policy"
-                        name="privacyPolicy"
+                        name="privacyPolicyUrl"
                         placeholder="URL to link to your Privacy Policy"
                         required={false}
                         type="text"
                       >
                         <Field
-                          name="privacyPolicy"
+                          name="privacyPolicyUrl"
                           validate={null}
                         >
                           <div
@@ -635,7 +635,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               <label
                                 className="label inline-block "
-                                htmlFor="privacyPolicy"
+                                htmlFor="privacyPolicyUrl"
                               >
                                 Privacy Policy
                               </label>
@@ -643,8 +643,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-privacy-policy"
                                 disabled={false}
-                                id="privacyPolicy"
-                                name="privacyPolicy"
+                                id="privacyPolicyUrl"
+                                name="privacyPolicyUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Privacy Policy"
@@ -672,15 +672,14 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       <Component
                         dataTest="submit-app-terms-conditions"
                         disabled={false}
-                        id="pricingInfo"
+                        id="pricingUrl"
                         labelText="Pricing Info"
-                        name="pricingInfo"
+                        name="pricingUrl"
                         placeholder="URL to link to your Pricing Info"
-                        required={false}
                         type="text"
                       >
                         <Field
-                          name="pricingInfo"
+                          name="pricingUrl"
                           validate={null}
                         >
                           <div
@@ -691,7 +690,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               <label
                                 className="label inline-block "
-                                htmlFor="pricingInfo"
+                                htmlFor="pricingUrl"
                               >
                                 Pricing Info
                               </label>
@@ -699,8 +698,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
-                                id="pricingInfo"
-                                name="pricingInfo"
+                                id="pricingUrl"
+                                name="pricingUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Pricing Info"
@@ -1341,15 +1340,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     >
                       <Component
                         dataTest="submit-app-terms-conditions"
-                        id="termsConditions"
+                        id="termsAndConditionsUrl"
                         labelText="Terms and Conditions"
-                        name="termsConditions"
+                        name="termsAndConditionsUrl"
                         placeholder="URL to link to your Terms and Conditions"
                         required={true}
                         type="text"
                       >
                         <Field
-                          name="termsConditions"
+                          name="termsAndConditionsUrl"
                           validate={[Function]}
                         >
                           <div
@@ -1360,7 +1359,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               <label
                                 className="label inline-block required-label"
-                                htmlFor="termsConditions"
+                                htmlFor="termsAndConditionsUrl"
                               >
                                 Terms and Conditions
                               </label>
@@ -1368,8 +1367,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
-                                id="termsConditions"
-                                name="termsConditions"
+                                id="termsAndConditionsUrl"
+                                name="termsAndConditionsUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Terms and Conditions"
@@ -1389,15 +1388,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     >
                       <Component
                         dataTest="submit-app-privacy-policy"
-                        id="privacyPolicy"
+                        id="privacyPolicyUrl"
                         labelText="Privacy Policy"
-                        name="privacyPolicy"
+                        name="privacyPolicyUrl"
                         placeholder="URL to link to your Privacy Policy"
                         required={true}
                         type="text"
                       >
                         <Field
-                          name="privacyPolicy"
+                          name="privacyPolicyUrl"
                           validate={[Function]}
                         >
                           <div
@@ -1408,7 +1407,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               <label
                                 className="label inline-block required-label"
-                                htmlFor="privacyPolicy"
+                                htmlFor="privacyPolicyUrl"
                               >
                                 Privacy Policy
                               </label>
@@ -1416,8 +1415,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-privacy-policy"
                                 disabled={false}
-                                id="privacyPolicy"
-                                name="privacyPolicy"
+                                id="privacyPolicyUrl"
+                                name="privacyPolicyUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Privacy Policy"
@@ -1445,16 +1444,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       <Component
                         dataTest="submit-app-terms-conditions"
                         disabled={false}
-                        id="pricingInfo"
+                        id="pricingUrl"
                         labelText="Pricing Info"
-                        name="pricingInfo"
+                        name="pricingUrl"
                         placeholder="URL to link to your Pricing Info"
-                        required={true}
                         type="text"
                       >
                         <Field
-                          name="pricingInfo"
-                          validate={[Function]}
+                          name="pricingUrl"
+                          validate={null}
                         >
                           <div
                             className=""
@@ -1463,8 +1461,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control "
                             >
                               <label
-                                className="label inline-block required-label"
-                                htmlFor="pricingInfo"
+                                className="label inline-block "
+                                htmlFor="pricingUrl"
                               >
                                 Pricing Info
                               </label>
@@ -1472,8 +1470,8 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 className=""
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
-                                id="pricingInfo"
-                                name="pricingInfo"
+                                id="pricingUrl"
+                                name="pricingUrl"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="URL to link to your Pricing Info"

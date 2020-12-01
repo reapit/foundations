@@ -173,6 +173,22 @@ export interface AppDetailModel {
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
+  /**
+   * Gets the location url of the terms and conditions associated to the app
+   */
+  termsAndConditionsUrl?: string
+  /**
+   * Gets the location url of the privacy policy associated to the app
+   */
+  privacyPolicyUrl?: string
+  /**
+   * Gets the location url of the pricing document associated to the app
+   */
+  pricingUrl?: string
+  /**
+   * Gets a flag to determine if the app is free to use
+   */
+  isFree?: boolean
   category?: CategoryModel
   /**
    * Gets the collection of scopes against the app
@@ -259,6 +275,22 @@ export interface AppRevisionModel {
    * Gets the desktop integration type ids of this revision
    */
   desktopIntegrationTypeIds?: string[]
+  /**
+   * Gets the location url of the terms and conditions associated to the app
+   */
+  termsAndConditionsUrl?: string
+  /**
+   * Gets the location url of the privacy policy associated to the app
+   */
+  privacyPolicyUrl?: string
+  /**
+   * Gets the location url of the pricing document associated to the app
+   */
+  pricingUrl?: string
+  /**
+   * Gets a flag to determine if the app is free to use
+   */
+  isFree?: boolean
   category?: CategoryModel
   /**
    * Gets the scopes that have been associated to this revision
@@ -737,6 +769,22 @@ export interface CreateAppRevisionModel {
    * Sets the list of scope keys required for this app revision
    */
   scopes?: string[]
+  /**
+   * Sets the location url of the terms and conditions associated to the app
+   */
+  termsAndConditionsUrl?: string
+  /**
+   * Sets the location url of the privacy policy associated to the app
+   */
+  privacyPolicyUrl?: string
+  /**
+   * Sets the location url of the pricing document associated to the app
+   */
+  pricingUrl?: string
+  /**
+   * Sets a flag to determine if the app is free to use
+   */
+  isFree?: boolean
 }
 /**
  * The model responsible for creation of a category

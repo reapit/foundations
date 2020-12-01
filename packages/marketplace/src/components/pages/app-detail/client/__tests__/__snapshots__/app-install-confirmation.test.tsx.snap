@@ -1338,13 +1338,17 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                   >
                                     Back To List
                                   </button>
-                                  <button
-                                    class="button  is-primary  "
-                                    data-test="installations-success-message-launch"
-                                    type="button"
+                                  <a
+                                    href="agencycloud://process/webpage?url=undefined"
                                   >
-                                    Launch App
-                                  </button>
+                                    <button
+                                      class="button  is-primary  "
+                                      data-test="installations-success-message-launch"
+                                      type="button"
+                                    >
+                                      Launch App
+                                    </button>
+                                  </a>
                                 </div>
                               </div>
                             </div>
@@ -1506,14 +1510,17 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     >
                                       Back To List
                                     </Unknown>
-                                    <Unknown
-                                      dataTest="installations-success-message-launch"
-                                      onClick={[Function]}
-                                      type="button"
-                                      variant="primary"
+                                    <a
+                                      href="agencycloud://process/webpage?url=undefined"
                                     >
-                                      Launch App
-                                    </Unknown>
+                                      <Unknown
+                                        dataTest="installations-success-message-launch"
+                                        type="button"
+                                        variant="primary"
+                                      >
+                                        Launch App
+                                      </Unknown>
+                                    </a>
                                   </div>
                                 }
                                 isCenter={true}
@@ -1571,22 +1578,24 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                               Back To List
                                             </button>
                                           </Component>
-                                          <Component
-                                            dataTest="installations-success-message-launch"
-                                            onClick={[Function]}
-                                            type="button"
-                                            variant="primary"
+                                          <a
+                                            href="agencycloud://process/webpage?url=undefined"
                                           >
-                                            <button
-                                              className="button  is-primary  "
-                                              data-test="installations-success-message-launch"
-                                              disabled={false}
-                                              onClick={[Function]}
+                                            <Component
+                                              dataTest="installations-success-message-launch"
                                               type="button"
+                                              variant="primary"
                                             >
-                                              Launch App
-                                            </button>
-                                          </Component>
+                                              <button
+                                                className="button  is-primary  "
+                                                data-test="installations-success-message-launch"
+                                                disabled={false}
+                                                type="button"
+                                              >
+                                                Launch App
+                                              </button>
+                                            </Component>
+                                          </a>
                                         </div>
                                       </div>
                                     </div>

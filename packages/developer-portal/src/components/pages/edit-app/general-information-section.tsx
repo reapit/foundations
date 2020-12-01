@@ -30,9 +30,9 @@ const {
   launchUri,
   summary,
   description,
-  termsConditions,
-  privacyPolicy,
-  pricingInfo,
+  termsAndConditionsUrl,
+  privacyPolicyUrl,
+  pricingUrl,
   isFree,
 } = formFields
 
@@ -199,10 +199,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
               <Input
                 dataTest="submit-app-terms-conditions"
                 type="text"
-                labelText={termsConditions.label as string}
-                id={termsConditions.name}
-                name={termsConditions.name}
-                placeholder={termsConditions.placeHolder}
+                labelText={termsAndConditionsUrl.label as string}
+                id={termsAndConditionsUrl.name}
+                name={termsAndConditionsUrl.name}
+                placeholder={termsAndConditionsUrl.placeHolder}
                 required={isListed}
               />
             </GridItem>
@@ -210,10 +210,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
               <Input
                 dataTest="submit-app-privacy-policy"
                 type="text"
-                labelText={privacyPolicy.label as string}
-                id={privacyPolicy.name}
-                name={privacyPolicy.name}
-                placeholder={privacyPolicy.placeHolder}
+                labelText={privacyPolicyUrl.label as string}
+                id={privacyPolicyUrl.name}
+                name={privacyPolicyUrl.name}
+                placeholder={privacyPolicyUrl.placeHolder}
                 required={isListed}
               />
             </GridItem>
@@ -223,11 +223,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ i
               <Input
                 dataTest="submit-app-terms-conditions"
                 type="text"
-                labelText={pricingInfo.label as string}
-                id={pricingInfo.name}
-                name={pricingInfo.name}
-                placeholder={pricingInfo.placeHolder}
-                required={isListed}
+                labelText={pricingUrl.label as string}
+                id={pricingUrl.name}
+                name={pricingUrl.name}
+                placeholder={pricingUrl.placeHolder}
                 disabled={isFreeVal}
               />
             </GridItem>

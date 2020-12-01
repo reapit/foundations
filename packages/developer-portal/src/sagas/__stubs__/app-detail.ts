@@ -37,6 +37,10 @@ export const appDetailDataStub: AppDetailState = {
       id: '6',
       name: 'Tools',
     },
+    isFree: true,
+    privacyPolicyUrl: 'https://reapit.com',
+    pricingUrl: 'https://reapit.com',
+    termsAndConditionsUrl: 'https://reapit.com',
   },
 }
 

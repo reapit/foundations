@@ -8,6 +8,10 @@ const props: ContactDeveloperSectionType = {
     telephone: '0777 777 777',
     supportEmail: 'reapit@reapit.com',
     homePage: 'https://reapit.com',
+    isFree: true,
+    privacyPolicyUrl: 'https://reapit.com',
+    pricingUrl: 'https://reapit.com',
+    termsAndConditionsUrl: 'https://reapit.com',
   },
 }
 

@@ -5213,6 +5213,21 @@ export interface CreatePropertyTenureModel {
   expiry?: string // date
 }
 /**
+ * Payload to create a JSON schema for metadata validation
+ * example:
+ * [object Object]
+ */
+export interface CreateSchemaRequest {
+  /**
+   * The name of the entity type that this schema is related to
+   */
+  entityType: string
+  /**
+   * The JSON schema used to validate entities of this type
+   */
+  schema: string
+}
+/**
  * Request body used to create a new source of business
  * example:
  * [object Object]
@@ -7109,6 +7124,11 @@ export interface Metadata {
   id?: string[]
   entityId?: string[]
   filter?: string[]
+}
+export interface MetadataMetadataSchema {
+  pageSize?: number
+  pageNumber?: number
+  entityType?: string
 }
 /**
  * Model representing the state of a metadata record for a given entity
@@ -9309,6 +9329,53 @@ export interface RecurrenceModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   until?: string // date-time
+}
+/**
+ * Model representing a JSON schema used to validate a specific entity type
+ */
+export interface SchemaModel {
+  /**
+   * The unique identifier of this JSON schema
+   */
+  id?: string
+  /**
+   * The date and time of when this JSON schema was last updated
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The JSON schema document
+   */
+  schema?: string
+}
+export interface SchemaModelPagedResult {
+  _embedded?: {
+    /**
+     * The unique identifier of this JSON schema
+     */
+    id?: string
+    /**
+     * The date and time of when this JSON schema was last updated
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The JSON schema document
+     */
+    schema?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of a source of business
@@ -12321,6 +12388,17 @@ export interface UpdatePropertyTenureModel {
    * 2019-08-14
    */
   expiry?: string // date
+}
+/**
+ * Payload to update a JSON schema
+ * example:
+ * [object Object]
+ */
+export interface UpdateSchemaRequest {
+  /**
+   * The updated JSON schema to store
+   */
+  schema: string
 }
 /**
  * Request body used to update an existing source of business

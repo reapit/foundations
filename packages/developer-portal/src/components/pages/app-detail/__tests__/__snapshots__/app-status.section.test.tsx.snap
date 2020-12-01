@@ -44,6 +44,7 @@ exports[`StatusSection should match a snapshot where isListed false and not side
         "developer": "Pete's Proptech World Ltd",
         "homePage": "http://myawesomeproptechproduct.io",
         "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+        "isFree": true,
         "media": Array [
           Object {
             "description": "Application Icon",
@@ -62,6 +63,8 @@ exports[`StatusSection should match a snapshot where isListed false and not side
           },
         ],
         "name": "Peter's Properties",
+        "pricingUrl": "https://reapit.com",
+        "privacyPolicyUrl": "https://reapit.com",
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -75,6 +78,7 @@ exports[`StatusSection should match a snapshot where isListed false and not side
         "summary": "vitae elementum curabitur vitae",
         "supportEmail": "support@reapit.com",
         "telephone": "0113 288 2900",
+        "termsAndConditionsUrl": "https://reapit.com",
       }
     }
   />
@@ -126,6 +130,7 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
         "homePage": "http://myawesomeproptechproduct.io",
         "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
         "installationId": "foobar",
+        "isFree": true,
         "isListed": true,
         "media": Array [
           Object {
@@ -145,6 +150,8 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
           },
         ],
         "name": "Peter's Properties",
+        "pricingUrl": "https://reapit.com",
+        "privacyPolicyUrl": "https://reapit.com",
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -158,6 +165,7 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
         "summary": "vitae elementum curabitur vitae",
         "supportEmail": "support@reapit.com",
         "telephone": "0113 288 2900",
+        "termsAndConditionsUrl": "https://reapit.com",
       }
     }
     isSidebar={true}

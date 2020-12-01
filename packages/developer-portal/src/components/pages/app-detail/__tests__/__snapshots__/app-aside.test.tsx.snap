@@ -85,6 +85,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
         "developer": "Pete's Proptech World Ltd",
         "homePage": "http://myawesomeproptechproduct.io",
         "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+        "isFree": true,
         "media": Array [
           Object {
             "description": "Application Icon",
@@ -103,6 +104,8 @@ exports[`DeveloperAside should match snapshot 1`] = `
           },
         ],
         "name": "Peter's Properties",
+        "pricingUrl": "https://reapit.com",
+        "privacyPolicyUrl": "https://reapit.com",
         "scopes": Array [
           Object {
             "description": "Read data about developers",
@@ -116,6 +119,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
         "summary": "vitae elementum curabitur vitae",
         "supportEmail": "support@reapit.com",
         "telephone": "0113 288 2900",
+        "termsAndConditionsUrl": "https://reapit.com",
       }
     }
     isSidebar={true}
@@ -133,6 +137,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
           "developer": "Pete's Proptech World Ltd",
           "homePage": "http://myawesomeproptechproduct.io",
           "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+          "isFree": true,
           "media": Array [
             Object {
               "description": "Application Icon",
@@ -151,6 +156,8 @@ exports[`DeveloperAside should match snapshot 1`] = `
             },
           ],
           "name": "Peter's Properties",
+          "pricingUrl": "https://reapit.com",
+          "privacyPolicyUrl": "https://reapit.com",
           "scopes": Array [
             Object {
               "description": "Read data about developers",
@@ -164,6 +171,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
           "summary": "vitae elementum curabitur vitae",
           "supportEmail": "support@reapit.com",
           "telephone": "0113 288 2900",
+          "termsAndConditionsUrl": "https://reapit.com",
         },
         "errorMessage": "",
         "isLoading": false,
