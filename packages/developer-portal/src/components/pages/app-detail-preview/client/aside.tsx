@@ -23,7 +23,18 @@ export const onBackToAppsButtonClick = (history: History) => {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  const { category, developer, telephone, supportEmail, homePage, isDirectApi } = appDetailData
+  const {
+    category,
+    developer,
+    telephone,
+    supportEmail,
+    homePage,
+    isDirectApi,
+    isFree,
+    privacyPolicyUrl,
+    pricingUrl,
+    termsAndConditionsUrl,
+  } = appDetailData
 
   const { isMobile } = useReactResponsive()
   const history = useHistory()
@@ -47,6 +58,10 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
           telephone,
           supportEmail,
           homePage,
+          isFree,
+          privacyPolicyUrl,
+          pricingUrl,
+          termsAndConditionsUrl,
         }}
       />
       {isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}

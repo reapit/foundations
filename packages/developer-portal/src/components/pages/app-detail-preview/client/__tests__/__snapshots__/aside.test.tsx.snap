@@ -68,6 +68,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
               "developer": "Pete's Proptech World Ltd",
               "homePage": "http://myawesomeproptechproduct.io",
               "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "isFree": true,
               "media": Array [
                 Object {
                   "description": "Application Icon",
@@ -86,6 +87,8 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                 },
               ],
               "name": "Peter's Properties",
+              "pricingUrl": "https://reapit.com",
+              "privacyPolicyUrl": "https://reapit.com",
               "scopes": Array [
                 Object {
                   "description": "Read data about developers",
@@ -99,6 +102,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
               "summary": "vitae elementum curabitur vitae",
               "supportEmail": "support@reapit.com",
               "telephone": "0113 288 2900",
+              "termsAndConditionsUrl": "https://reapit.com",
             },
             "errorMessage": "",
             "isLoading": false,
@@ -363,8 +367,12 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                 Object {
                   "developer": undefined,
                   "homePage": undefined,
+                  "isFree": undefined,
+                  "pricingUrl": undefined,
+                  "privacyPolicyUrl": undefined,
                   "supportEmail": undefined,
                   "telephone": undefined,
+                  "termsAndConditionsUrl": undefined,
                 }
               }
             >
@@ -394,134 +402,6 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                           data-test=""
                         >
                           <p />
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p />
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p>
-                            <a
-                              className=""
-                              href="mailto:undefined"
-                              rel="noopener noreferrer"
-                              target="_blank"
-                            >
-                              Support
-                            </a>
-                          </p>
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p>
-                            <a
-                              className=""
-                              rel="noopener noreferrer"
-                              target="_blank"
-                            >
-                              Website
-                            </a>
-                          </p>
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p>
-                            <a
-                              className=""
-                              href="#"
-                            >
-                              Pricing
-                            </a>
-                          </p>
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p>
-                            <a
-                              className=""
-                              href="#"
-                            >
-                              Privacy Policy
-                            </a>
-                          </p>
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className=""
-                      data-test=""
-                    >
-                      <Component>
-                        <div
-                          className=""
-                          data-test=""
-                        >
-                          <p>
-                            <a
-                              className=""
-                              href="#"
-                            >
-                              Terms of Service
-                            </a>
-                          </p>
                         </div>
                       </Component>
                     </div>

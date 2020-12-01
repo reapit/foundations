@@ -67,8 +67,12 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
       Object {
         "developer": undefined,
         "homePage": undefined,
+        "isFree": undefined,
+        "pricingUrl": undefined,
+        "privacyPolicyUrl": undefined,
         "supportEmail": undefined,
         "telephone": undefined,
+        "termsAndConditionsUrl": undefined,
       }
     }
   />

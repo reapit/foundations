@@ -59,6 +59,9 @@ export const labelTextOfField = {
   scopes: 'Permissions',
   authFlow: 'Authentication flow',
   limitToClientIds: 'Private Apps',
+  privacyPolicy: 'Privacy policy',
+  termsConditions: 'Terms & Conditions',
+  pricingInfo: 'Pricing Info',
 }
 
 export const renderErrors = (errors: Record<string, string | string[]>) => {
@@ -118,6 +121,10 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isListed,
       isDirectApi,
       scopes: appScopes,
+      isFree,
+      privacyPolicyUrl,
+      pricingUrl,
+      termsAndConditionsUrl,
       redirectUris = [],
       signoutUris = [],
       limitToClientIds = [],
@@ -146,6 +153,10 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       iconImageUrl,
       isListed,
       isDirectApi,
+      isFree,
+      privacyPolicyUrl,
+      pricingUrl,
+      termsAndConditionsUrl,
       scopes: appScopes ? appScopes.map(item => item.name) : [],
       redirectUris: redirectUris.join(','),
       signoutUris: signoutUris.join(','),
@@ -177,6 +188,10 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       signoutUris: '',
       limitToClientIds: '',
       desktopIntegrationTypeIds: '',
+      isFree: false,
+      privacyPolicyUrl: '',
+      pricingUrl: '',
+      termsAndConditionsUrl: '',
     }
   }
 

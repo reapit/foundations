@@ -231,6 +231,10 @@ describe('DeveloperSubmitApp', () => {
         signoutUris: '',
         limitToClientIds: '',
         desktopIntegrationTypeIds: '',
+        isFree: false,
+        privacyPolicyUrl: '',
+        pricingUrl: '',
+        termsAndConditionsUrl: '',
       })
     })
     it('should run correctly in case appDetail is existed', () => {
@@ -259,6 +263,10 @@ describe('DeveloperSubmitApp', () => {
         summary: 'vitae elementum curabitur vitae',
         supportEmail: 'support@reapit.com',
         telephone: '0113 288 2900',
+        isFree: true,
+        privacyPolicyUrl: 'https://reapit.com',
+        pricingUrl: 'https://reapit.com',
+        termsAndConditionsUrl: 'https://reapit.com',
       })
     })
   })

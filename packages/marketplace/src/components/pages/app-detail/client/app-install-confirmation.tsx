@@ -3,7 +3,7 @@ import { useHistory } from 'react-router'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { css } from 'linaria'
-import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import * as appPermissionContentStyles from '../__styles__/app-permission-content'
 import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { installApp } from '@/actions/installations'
@@ -17,7 +17,6 @@ import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { handleLaunchApp } from '@/utils/launch-app'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -115,14 +114,20 @@ export const InstallNonDirectApiAppSucesfullyModal = ({
             >
               Back To List
             </Button>
-            <Button
-              dataTest="installations-success-message-launch"
-              variant="primary"
-              type="button"
-              onClick={() => handleLaunchApp(appDetailData as AppSummaryModel, isDesktopMode)}
-            >
-              Launch App
-            </Button>
+
+            {isDesktopMode ? (
+              <a href={`agencycloud://process/webpage?url=${appDetailData?.launchUri}`}>
+                <Button dataTest="installations-success-message-launch" variant="primary" type="button">
+                  Launch App
+                </Button>
+              </a>
+            ) : (
+              <a href={appDetailData?.launchUri} target="_blank" rel="noopener noreferrer">
+                <Button dataTest="installations-success-message-launch" variant="primary" type="button">
+                  Launch App
+                </Button>
+              </a>
+            )}
           </div>
         }
       >

@@ -55,19 +55,9 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         <p>
           <a
             className=""
-            href="#"
-          >
-            Pricing
-          </a>
-        </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
-        <p>
-          <a
-            className=""
-            href="#"
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Privacy Policy
           </a>
@@ -79,7 +69,9 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         <p>
           <a
             className=""
-            href="#"
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Terms of Service
           </a>
@@ -145,19 +137,9 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         <p>
           <a
             className=""
-            href="#"
-          >
-            Pricing
-          </a>
-        </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
-        <p>
-          <a
-            className=""
-            href="#"
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Privacy Policy
           </a>
@@ -169,7 +151,9 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         <p>
           <a
             className=""
-            href="#"
+            href="https://reapit.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Terms of Service
           </a>
