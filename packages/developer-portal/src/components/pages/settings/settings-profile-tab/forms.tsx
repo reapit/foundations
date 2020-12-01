@@ -8,6 +8,7 @@ import { changePassword } from '@/actions/settings'
 import { selectCurrentMemberIsLoading } from '@/selector/current-member'
 
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import ToggleCustomerDataForm from './toggle-customer-data-form'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -42,6 +43,7 @@ export const Forms: React.FC = () => {
       </Section>
       <Section hasPadding={false} hasBackground={false}>
         <EnhanceContactInformation />
+        <ToggleCustomerDataForm />
         <ChangePasswordForm changePassword={changePassword} />
       </Section>
     </>

@@ -43,7 +43,7 @@
     "swagger-ui-react": "^3.34.0"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "1.0.0",
+    "@reapit/foundations-ts-definitions": "1.1.2",
     "@types/nanoid": "^2.1.0",
     "redux-mock-store": "^1.5.4"
   },

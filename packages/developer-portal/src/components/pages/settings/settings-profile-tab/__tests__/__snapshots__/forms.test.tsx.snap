@@ -331,6 +331,7 @@ exports[`ProfileTab should match snapshot 1`] = `
             </Component>
           </Formik>
         </Component>
+        <Component />
         <Component
           changePassword={[Function]}
         >
