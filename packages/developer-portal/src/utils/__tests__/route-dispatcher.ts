@@ -10,6 +10,7 @@ import { fetchCurrentMember } from '@/actions/current-member'
 import { fetchAppDetail } from '@/actions/apps'
 import { fetchCategoryList } from '@/actions/categories'
 import { fetchDesktopIntegrationTypeList } from '@/actions/desktop-integration-types'
+import { fetchScopeList } from '../../actions/scopes'
 
 jest.mock('@reapit/elements')
 jest.mock('../../core/store')
@@ -55,5 +56,6 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypeList())
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
     expect(store.dispatch).toHaveBeenCalledWith(fetchCurrentMember())
+    expect(store.dispatch).toHaveBeenCalledWith(fetchScopeList())
   })
 })
