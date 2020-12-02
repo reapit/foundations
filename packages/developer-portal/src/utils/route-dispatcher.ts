@@ -62,6 +62,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchDesktopIntegrationTypeList())
       store.dispatch(requestDeveloperData())
       store.dispatch(fetchCurrentMember())
+      store.dispatch(fetchScopeList())
       break
     case Routes.APP_PREVIEW:
       if (appPreviewId) {
