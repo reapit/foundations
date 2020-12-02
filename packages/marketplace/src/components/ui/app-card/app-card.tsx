@@ -5,6 +5,7 @@ import * as appCardStyles from './__styles__'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 import Fade from '@/components/ui/fade'
 import { cx } from 'linaria'
+import { IsFree } from './__styles__'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -30,16 +31,13 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
   const clickAction = (app.installedOn && onSettingsClick ? onSettingsClick : onClick) as () => void
 
   const content = (
-    <div
-      className={cx(!app.isListed && appCardStyles.bannerWrap)}
-      data-test-app-id={app.id}
-      data-test-app-name={app.name}
-    >
+    <div className={cx(appCardStyles.bannerWrap)} data-test-app-id={app.id} data-test-app-name={app.name}>
       {!app.isListed && (
         <div className={appCardStyles.bannerOuter}>
           <div className={appCardStyles.bannerInner}>In Development</div>
         </div>
       )}
+      {app.isFree && <IsFree>FREE</IsFree>}
       <Tile
         onClick={clickAction}
         dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}

@@ -41,6 +41,9 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   signoutUris: 'Signout URIs',
   limitToClientIds: 'Private Apps',
   desktopIntegrationTypeIds: 'Integration Type',
+  privacyPolicyUrl: 'Privacy Policy',
+  termsAndConditionsUrl: 'Terms & Conditions',
+  pricingUrl: 'Pricing Info',
 }
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
@@ -195,6 +198,16 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
           currentChecked={Boolean(app.isListed)}
           changedChecked={Boolean(revisionDetail.isListed)}
           dataTest="revision-diff-isListed"
+        />
+      </div>
+      <div className="mb-3">
+        <h4 data-test="chkIsFree" className="mb-2">
+          Is Free
+        </h4>
+        <DiffCheckbox
+          currentChecked={Boolean(app.isFree)}
+          changedChecked={Boolean(revisionDetail.isFree)}
+          dataTest="revision-diff-isFree"
         />
       </div>
       <div className="mb-3">

@@ -1,5 +1,6 @@
 import { css } from 'linaria'
-import { black } from '@/core/__styles__/colors'
+import { styled } from 'linaria/react'
+import { black, reapitLightblue, white } from '@/core/__styles__/colors'
 
 export const content = css`
   display: -webkit-box;
@@ -68,4 +69,17 @@ export const bannerInnerSmall = css`
   width: 185px;
   background-color: #0061a8;
   color: #fff;
+`
+
+export const IsFree = styled.div`
+  position: absolute;
+  z-index: 50;
+  color: ${white};
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background: ${reapitLightblue};
+  top: 6rem;
+  left: 1.7rem;
 `

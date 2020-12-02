@@ -197,6 +197,51 @@ Get
   </div>
   <div
     className="mb-3"
+    key="privacyPolicyUrl"
+  >
+    <h4
+      className="mb-2"
+    >
+      Privacy Policy
+    </h4>
+    <Component
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
+    key="termsAndConditionsUrl"
+  >
+    <h4
+      className="mb-2"
+    >
+      Terms & Conditions
+    </h4>
+    <Component
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
+    key="pricingUrl"
+  >
+    <h4
+      className="mb-2"
+    >
+      Pricing Info
+    </h4>
+    <Component
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
     key="Marketplace/developers.read"
   >
     <h4
@@ -243,9 +288,24 @@ Get
   >
     <h4
       className="mb-2"
+      data-test="chkIsFree"
+    >
+      Is Free
+    </h4>
+    <Component
+      changedChecked={false}
+      currentChecked={false}
+      dataTest="revision-diff-isFree"
+    />
+  </div>
+  <div
+    className="mb-3"
+  >
+    <h4
+      className="mb-2"
       data-test="chkIsDirectApi"
     >
-      Is Direct API
+      Is Integration
     </h4>
     <Component
       changedChecked={false}
