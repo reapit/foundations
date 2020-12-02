@@ -4,10 +4,6 @@
 
 * {
   box-sizing: border-box !important;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 html {

@@ -110,8 +110,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               "_mutate": undefined,
               "_nodes": Array [
                 "isFree",
-                "pricingUrl",
                 "isListed",
+                "pricingUrl",
                 "privacyPolicyUrl",
                 "termsAndConditionsUrl",
                 "limitToClientIds",
@@ -478,11 +478,21 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           "map": undefined,
                           "path": "isFree",
                         },
+                        Reference {
+                          "getter": [Function],
+                          "isContext": false,
+                          "isSibling": true,
+                          "isValue": false,
+                          "key": "isListed",
+                          "map": undefined,
+                          "path": "isListed",
+                        },
                       ],
                     },
                   ],
                   "_deps": Array [
                     "isFree",
+                    "isListed",
                   ],
                   "_exclusive": Object {
                     "isValidPricingUrl": false,

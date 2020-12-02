@@ -78,7 +78,7 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
                   <GridItem>
                     <Checkbox
                       dataTest="useCustomerData"
-                      labelText={`Use ${orgName} (${clientId}) data`}
+                      labelText={`Use ${orgName} data`}
                       id="useCustomerData"
                       name="useCustomerData"
                     />

@@ -46,6 +46,8 @@ export const currentMemberUpdate = function*({ data }) {
       throw new Error('Can not get developer ID or member ID')
     }
 
+    const useCustomerDataUpdate = data.useCustomerData !== undefined
+
     yield call(updateOrganisationMemberById, {
       id: developerId,
       memberId: memberId,
@@ -54,7 +56,11 @@ export const currentMemberUpdate = function*({ data }) {
     })
     yield put(updateCurrentMemberSuccess())
     notification.success({
-      message: messages.CHANGE_SAVE_SUCCESSFULLY,
+      message: useCustomerDataUpdate
+        ? `You have updated to use ${
+            data.useCustomerData ? 'your organisation' : 'sandbox'
+          } data. You will need to log out and back in again for the changes to take effect.`
+        : messages.CHANGE_SAVE_SUCCESSFULLY,
       placement: 'bottomRight',
     })
   } catch (error) {

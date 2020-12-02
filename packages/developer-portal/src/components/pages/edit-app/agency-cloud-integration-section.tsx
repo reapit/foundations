@@ -16,12 +16,19 @@ import { link } from '@/styles/elements/link'
 export type AgencyCloudIntegrationSectionProps = {}
 
 export const prepareIntegrationTypeOptions = (integrationTypes: DesktopIntegrationTypeModel[]) => {
-  return integrationTypes.map(integrationType => ({
-    value: integrationType.id || '',
-    label: integrationType.name || '',
-    description: integrationType.description || '',
-    link: integrationType.url || '',
-  }))
+  return integrationTypes
+    .map(integrationType => {
+      // Removing payment as only an internal replacement screen option
+      if (integrationType.id !== 'Payment') {
+        return {
+          value: integrationType.id || '',
+          label: integrationType.name || '',
+          description: integrationType.description || '',
+          link: integrationType.url || '',
+        }
+      }
+    })
+    .filter(option => Boolean(option)) as SelectOption[]
 }
 
 const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps> = () => {
