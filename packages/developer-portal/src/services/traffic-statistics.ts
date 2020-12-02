@@ -38,14 +38,10 @@ export type TrafficEventsStatisticsSummaryModel = {
 export const fetchTrafficStatistics = async (
   params: FetchTrafficStatisticsParams,
 ): Promise<TrafficEventsStatisticsSummaryModel> => {
-  const api =
-    window.reapit.config.appEnv === 'production'
-      ? window.reapit.config.platformApiUrl
-      : window.reapit.config.platformApiUrl
   try {
     const response = await fetcher({
       url: `${URLS.trafficEventStatistics}?${setQueryParams(params)}`,
-      api,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: await generateHeaders(),
     })

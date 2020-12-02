@@ -107,6 +107,16 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             >
               <Unknown
                 className=""
+                dataTest="disagree-btn"
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Unknown>
+              <Unknown
+                className=""
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -114,16 +124,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                 variant="primary"
               >
                 Confirm
-              </Unknown>
-              <Unknown
-                className=""
-                dataTest="disagree-btn"
-                disabled={false}
-                onClick={[MockFunction]}
-                type="button"
-                variant="danger"
-              >
-                Cancel
               </Unknown>
             </div>
           }
@@ -147,6 +147,16 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               >
                 <Unknown
                   className=""
+                  dataTest="disagree-btn"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="secondary"
+                >
+                  Cancel
+                </Unknown>
+                <Unknown
+                  className=""
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -154,16 +164,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                   variant="primary"
                 >
                   Confirm
-                </Unknown>
-                <Unknown
-                  className=""
-                  dataTest="disagree-btn"
-                  disabled={false}
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="danger"
-                >
-                  Cancel
                 </Unknown>
               </div>
             }
@@ -249,13 +249,27 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     </b>
                                      members of your organisation.
                                   </p>
+                                  <h5
+                                    class=""
+                                    id=""
+                                  >
+                                    Pricing Information
+                                  </h5>
+                                  <p>
+                                    There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+                                    Pete's Proptech World Ltd
+                                    . Please contact 
+                                    Pete's Proptech World Ltd
+                                     directly for information about pricing.
+                                  </p>
+                                  <h5
+                                    class=""
+                                    id=""
+                                  >
+                                    Data Permissions
+                                  </h5>
                                   <p>
                                     By installing this app, you are granting the following permissions to your data:
-                                  </p>
-                                  <p>
-                                    <b>
-                                      Data Permissions
-                                    </b>
                                   </p>
                                   <p>
                                     Information about your organisation and the names/email addresses of your users
@@ -286,18 +300,18 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                   class="flex"
                                 >
                                   <button
+                                    class="button  is-secondary  "
+                                    data-test="disagree-btn"
+                                    type="button"
+                                  >
+                                    Cancel
+                                  </button>
+                                  <button
                                     class="button  is-primary  "
                                     data-test="agree-btn"
                                     type="button"
                                   >
                                     Confirm
-                                  </button>
-                                  <button
-                                    class="button  is-danger  "
-                                    data-test="disagree-btn"
-                                    type="button"
-                                  >
-                                    Cancel
                                   </button>
                                 </div>
                               </div>
@@ -330,6 +344,16 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                       >
                         <Unknown
                           className=""
+                          dataTest="disagree-btn"
+                          disabled={false}
+                          onClick={[MockFunction]}
+                          type="button"
+                          variant="secondary"
+                        >
+                          Cancel
+                        </Unknown>
+                        <Unknown
+                          className=""
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -337,16 +361,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                           variant="primary"
                         >
                           Confirm
-                        </Unknown>
-                        <Unknown
-                          className=""
-                          dataTest="disagree-btn"
-                          disabled={false}
-                          onClick={[MockFunction]}
-                          type="button"
-                          variant="danger"
-                        >
-                          Cancel
                         </Unknown>
                       </div>
                     }
@@ -489,13 +503,35 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           </b>
                                            members of your organisation.
                                         </p>
+                                        <Component
+                                          className="mb-2"
+                                        >
+                                          <h5
+                                            className=""
+                                            id=""
+                                          >
+                                            Pricing Information
+                                          </h5>
+                                        </Component>
+                                        <p>
+                                          There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+                                          Pete's Proptech World Ltd
+                                          . Please contact 
+                                          Pete's Proptech World Ltd
+                                           directly for information about pricing.
+                                        </p>
+                                        <Component
+                                          className="mb-2"
+                                        >
+                                          <h5
+                                            className=""
+                                            id=""
+                                          >
+                                            Data Permissions
+                                          </h5>
+                                        </Component>
                                         <p>
                                           By installing this app, you are granting the following permissions to your data:
-                                        </p>
-                                        <p>
-                                          <b>
-                                            Data Permissions
-                                          </b>
                                         </p>
                                         <p>
                                           Information about your organisation and the names/email addresses of your users
@@ -538,6 +574,24 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     >
                                       <Component
                                         className=""
+                                        dataTest="disagree-btn"
+                                        disabled={false}
+                                        onClick={[MockFunction]}
+                                        type="button"
+                                        variant="secondary"
+                                      >
+                                        <button
+                                          className="button  is-secondary  "
+                                          data-test="disagree-btn"
+                                          disabled={false}
+                                          onClick={[MockFunction]}
+                                          type="button"
+                                        >
+                                          Cancel
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        className=""
                                         dataTest="agree-btn"
                                         loading={false}
                                         onClick={[Function]}
@@ -552,24 +606,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           type="button"
                                         >
                                           Confirm
-                                        </button>
-                                      </Component>
-                                      <Component
-                                        className=""
-                                        dataTest="disagree-btn"
-                                        disabled={false}
-                                        onClick={[MockFunction]}
-                                        type="button"
-                                        variant="danger"
-                                      >
-                                        <button
-                                          className="button  is-danger  "
-                                          data-test="disagree-btn"
-                                          disabled={false}
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                        >
-                                          Cancel
                                         </button>
                                       </Component>
                                     </div>

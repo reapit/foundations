@@ -102,11 +102,21 @@ export const renderUninstallConfirmationModalFooter = (
   return (
     <div className="flex">
       <Button
+        dataTest="disagree-btn"
+        disabled={false}
+        className={appPermissionContentStyles.installButton}
+        type="button"
+        variant="secondary"
+        onClick={closeUninstallConfirmationModal}
+      >
+        Cancel
+      </Button>
+      <Button
         dataTest="agree-btn"
         loading={isSubmitting}
         className={appPermissionContentStyles.installButton}
         type="button"
-        variant="primary"
+        variant="danger"
         onClick={onUninstallButtonClick(
           id,
           clientId,
@@ -118,16 +128,6 @@ export const renderUninstallConfirmationModalFooter = (
         )}
       >
         Confirm
-      </Button>
-      <Button
-        dataTest="disagree-btn"
-        disabled={false}
-        className={appPermissionContentStyles.installButton}
-        type="button"
-        variant="danger"
-        onClick={closeUninstallConfirmationModal}
-      >
-        Cancel
       </Button>
     </div>
   )

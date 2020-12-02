@@ -65,7 +65,10 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
       api,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: {
+        ...(await generateHeaders()),
+        'api-version': '2',
+      },
     })
     return response
   } catch (error) {
@@ -84,7 +87,10 @@ export const fetchBillingsByMonth = async (
       url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(rest)}`,
       api,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: {
+        ...(await generateHeaders()),
+        'api-version': '2',
+      },
     })
     return response
   } catch (error) {

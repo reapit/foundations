@@ -4339,10 +4339,10 @@
     react-transition-group "^4.4.0"
     snyk "^1.338.0"
 
-"@reapit/foundations-ts-definitions@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-1.0.0.tgz#0c5f4794b1197c0272a95a23df1d03223cca6acc"
-  integrity sha512-2vimJ7dwmmcBXepyIK0p25ori+oT0qsP2yBOT+fog7vny2321qnb4/ElkFGOPwUY2aAaN7Lj7csEK38rwyPSPQ==
+"@reapit/foundations-ts-definitions@1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-1.1.3.tgz#b13cd77b571b974b173683262930bf50409a6356"
+  integrity sha512-s8Gybk4rCg/E492kLmyFFBGzo58llRcgqjCbeb9Lisp3cjqRBzObF4vP9c32xlEvjDxtzwlru02EiLHIUwQtxA==
 
 "@reapit/foundations-ts-definitions@2020-02-13":
   version "0.0.68"
@@ -25174,6 +25174,16 @@ react-responsive@8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-8.1.0.tgz#afcc2293c46a37b1e7926ff7fef66bcb147e7cba"
   integrity sha512-U8Nv2/ZWACIw/fAE9XNPbc2Xo33X5q1bcCASc2SufvJ9ifB+o/rokfogfznSVcvS22hN1rafGi0uZD6GiVFEHw==
+  dependencies:
+    hyphenate-style-name "^1.0.0"
+    matchmediaquery "^0.3.0"
+    prop-types "^15.6.1"
+    shallow-equal "^1.1.0"
+
+react-responsive@8.1.1:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-8.1.1.tgz#e4b1bd677798deecb4f1c3cff35a020ca0abdb27"
+  integrity sha512-kvgOGU4m64ALsDiNKgImW6xtbdx/aSuw8sTCHC8RsBlkXsDA/gMoZkYboZuk4V9DhX6bCFh4gBH2UqlYVPLvcA==
   dependencies:
     hyphenate-style-name "^1.0.0"
     matchmediaquery "^0.3.0"

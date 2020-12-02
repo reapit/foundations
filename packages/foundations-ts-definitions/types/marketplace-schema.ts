@@ -371,6 +371,10 @@ export interface AppSummaryModel {
    */
   isDirectApi?: boolean
   /**
+   * Gets a flag to determine if the app is free to use
+   */
+  isFree?: boolean
+  /**
    * Gets the public Url for accessing this app's icon
    */
   iconUri?: string

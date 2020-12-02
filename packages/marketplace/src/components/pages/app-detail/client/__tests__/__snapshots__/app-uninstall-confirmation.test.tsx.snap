@@ -393,23 +393,23 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
   >
     <Component
       className=""
-      dataTest="agree-btn"
-      loading={false}
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Confirm
-    </Component>
-    <Component
-      className=""
       dataTest="disagree-btn"
       disabled={false}
       onClick={[MockFunction]}
       type="button"
-      variant="danger"
+      variant="secondary"
     >
       Cancel
+    </Component>
+    <Component
+      className=""
+      dataTest="agree-btn"
+      loading={false}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Confirm
     </Component>
   </div>
 </div>
@@ -523,23 +523,23 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             >
               <Unknown
                 className=""
-                dataTest="agree-btn"
-                loading={false}
-                onClick={[Function]}
-                type="button"
-                variant="primary"
-              >
-                Confirm
-              </Unknown>
-              <Unknown
-                className=""
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
                 type="button"
-                variant="danger"
+                variant="secondary"
               >
                 Cancel
+              </Unknown>
+              <Unknown
+                className=""
+                dataTest="agree-btn"
+                loading={false}
+                onClick={[Function]}
+                type="button"
+                variant="danger"
+              >
+                Confirm
               </Unknown>
             </div>
           }
@@ -563,23 +563,23 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               >
                 <Unknown
                   className=""
-                  dataTest="agree-btn"
-                  loading={false}
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  Confirm
-                </Unknown>
-                <Unknown
-                  className=""
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
                   type="button"
-                  variant="danger"
+                  variant="secondary"
                 >
                   Cancel
+                </Unknown>
+                <Unknown
+                  className=""
+                  dataTest="agree-btn"
+                  loading={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="danger"
+                >
+                  Confirm
                 </Unknown>
               </div>
             }
@@ -666,18 +666,18 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                   class="flex"
                                 >
                                   <button
-                                    class="button  is-primary  "
-                                    data-test="agree-btn"
-                                    type="button"
-                                  >
-                                    Confirm
-                                  </button>
-                                  <button
-                                    class="button  is-danger  "
+                                    class="button  is-secondary  "
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
+                                  </button>
+                                  <button
+                                    class="button  is-danger  "
+                                    data-test="agree-btn"
+                                    type="button"
+                                  >
+                                    Confirm
                                   </button>
                                 </div>
                               </div>
@@ -711,23 +711,23 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                       >
                         <Unknown
                           className=""
-                          dataTest="agree-btn"
-                          loading={false}
-                          onClick={[Function]}
-                          type="button"
-                          variant="primary"
-                        >
-                          Confirm
-                        </Unknown>
-                        <Unknown
-                          className=""
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
                           type="button"
-                          variant="danger"
+                          variant="secondary"
                         >
                           Cancel
+                        </Unknown>
+                        <Unknown
+                          className=""
+                          dataTest="agree-btn"
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="danger"
+                        >
+                          Confirm
                         </Unknown>
                       </div>
                     }
@@ -871,38 +871,38 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                     >
                                       <Component
                                         className=""
-                                        dataTest="agree-btn"
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="primary"
-                                      >
-                                        <button
-                                          className="button  is-primary  "
-                                          data-test="agree-btn"
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Confirm
-                                        </button>
-                                      </Component>
-                                      <Component
-                                        className=""
                                         dataTest="disagree-btn"
                                         disabled={false}
                                         onClick={[MockFunction]}
                                         type="button"
-                                        variant="danger"
+                                        variant="secondary"
                                       >
                                         <button
-                                          className="button  is-danger  "
+                                          className="button  is-secondary  "
                                           data-test="disagree-btn"
                                           disabled={false}
                                           onClick={[MockFunction]}
                                           type="button"
                                         >
                                           Cancel
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        className=""
+                                        dataTest="agree-btn"
+                                        loading={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="danger"
+                                      >
+                                        <button
+                                          className="button  is-danger  "
+                                          data-test="agree-btn"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Confirm
                                         </button>
                                       </Component>
                                     </div>
