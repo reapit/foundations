@@ -230,9 +230,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
 
   [pricingUrl.name]: Yup.string()
     .trim()
-    .when(isFree.name, (isFree, schema) => {
-      console.log(isFree)
-      if (!isFree) {
+    .when([isFree.name, isListed.name], (isFree, isListed, schema) => {
+      if (!isFree && isListed) {
         return schema.required('Required if not free')
       }
       return schema
