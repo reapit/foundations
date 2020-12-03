@@ -4,8 +4,9 @@ import store from '@/core/store'
 import Routes from '@/constants/routes'
 import { RouteValue } from '@/types/core'
 import { fetchAppDetail, fetchApps, fetchDeveloperApps, fetchFeatureApps } from '@/actions/apps'
-import { APPS_PER_PAGE, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { APPS_PER_PAGE, GET_ALL_PAGE_SIZE, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { fetchDesktopIntegrationTypes } from '../../actions/desktop-integration-types'
+import { fetchInstallationsList } from '../../actions/installations/installations'
 
 jest.mock('@reapit/elements')
 
@@ -72,6 +73,18 @@ describe('routeDispatcher', () => {
         pageSize: APPS_PER_PAGE,
         onlyInstalled: true,
         developerId: undefined,
+      }),
+    )
+  })
+
+  it('should correctly dispatch for the SETTINGS route', async () => {
+    await routeDispatcher(Routes.SETTINGS as RouteValue)
+    expect(store.dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+    expect(store.dispatch).toHaveBeenCalledWith(
+      fetchInstallationsList({
+        pageNumber: 1,
+        pageSize: GET_ALL_PAGE_SIZE,
+        clientId: ['SOME_CLIENT_ID'],
       }),
     )
   })

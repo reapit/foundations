@@ -8,8 +8,9 @@ import { selectClientId, selectDeveloperId, selectSandboxDeveloper } from '@/sel
 import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 // Needed for filtering but commented out for now
 // import { fetchCategories } from '@/actions/categories'
-import { APPS_PER_PAGE, FEATURED_APPS, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { APPS_PER_PAGE, FEATURED_APPS, GET_ALL_PAGE_SIZE, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { getNumberOfItems } from './browse-app'
+import { fetchInstallationsList } from '../actions/installations'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -77,6 +78,16 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
+        }),
+      )
+      break
+    case Routes.SETTINGS:
+      store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+      store.dispatch(
+        fetchInstallationsList({
+          pageNumber: 1,
+          pageSize: GET_ALL_PAGE_SIZE,
+          clientId: [clientId],
         }),
       )
       break
