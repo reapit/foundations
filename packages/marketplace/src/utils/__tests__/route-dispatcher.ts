@@ -22,6 +22,7 @@ jest.mock('@reapit/connect-session', () => ({
       loginIdentity: {
         developerId: 'SOME_ID',
         clientId: 'SOME_CLIENT_ID',
+        groups: ['ReapitUserAdmin'],
       },
     }),
   })),

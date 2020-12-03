@@ -4,7 +4,7 @@ import store from '@/core/store'
 import { fetchFeatureApps, fetchAppDetail, fetchDeveloperApps } from '@/actions/apps'
 import { fetchApps } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientId, selectDeveloperId, selectSandboxDeveloper } from '@/selector/auth'
+import { selectClientId, selectDeveloperId, selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
 import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 // Needed for filtering but commented out for now
 // import { fetchCategories } from '@/actions/categories'
@@ -22,6 +22,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const clientId = selectClientId(connectSession)
   const developerId = selectDeveloperId(connectSession)
   const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
+  const isAdmin = isDesktopAdmin || Boolean(isSandboxDeveloper)
 
   switch (route) {
     case Routes.APPS: {
@@ -82,14 +84,16 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       )
       break
     case Routes.SETTINGS:
-      store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
-      store.dispatch(
-        fetchInstallationsList({
-          pageNumber: 1,
-          pageSize: GET_ALL_PAGE_SIZE,
-          clientId: [clientId],
-        }),
-      )
+      if (isAdmin) {
+        store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+        store.dispatch(
+          fetchInstallationsList({
+            pageNumber: 1,
+            pageSize: GET_ALL_PAGE_SIZE,
+            clientId: [clientId],
+          }),
+        )
+      }
       break
     default:
       console.error('Route not found, nothing to fetch')
