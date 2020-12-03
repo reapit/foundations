@@ -20,5 +20,5 @@ export const appoinmentContainer = css`
   overflow: scroll;
 `
 export const buttonPaddingSmall = css`
-  padding: 0.7rem;
+  padding: 0.7rem !important;
 `
