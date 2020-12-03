@@ -38,7 +38,7 @@ exports[`InstallationsTable should match a snapshot 1`] = `
                 },
                 Object {
                   "Header": "Installed By",
-                  "accessor": "",
+                  "accessor": "installedBy",
                 },
                 Object {
                   "Header": "Date of Installation",
@@ -46,7 +46,7 @@ exports[`InstallationsTable should match a snapshot 1`] = `
                 },
                 Object {
                   "Header": "Uninstalled By",
-                  "accessor": "",
+                  "accessor": "uninstalledBy",
                 },
                 Object {
                   "Header": "Date of Uninstallation",
@@ -84,7 +84,7 @@ exports[`InstallationsTable should match a snapshot 1`] = `
                     </th>
                     <th
                       colSpan={1}
-                      key="header_Installed By"
+                      key="header_installedBy"
                       role="columnheader"
                     >
                       Installed By
@@ -98,7 +98,7 @@ exports[`InstallationsTable should match a snapshot 1`] = `
                     </th>
                     <th
                       colSpan={1}
-                      key="header_Uninstalled By"
+                      key="header_uninstalledBy"
                       role="columnheader"
                     >
                       Uninstalled By

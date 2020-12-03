@@ -10,7 +10,6 @@ import {
   selectLoggedUserEmail,
   selectLoggedUserName,
   selectLoggedUserCompanyName,
-  selectSandboxDeveloper,
   selectIsAdmin,
 } from '@/selector/auth'
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
@@ -70,9 +69,7 @@ export const Settings: React.FC = () => {
   const name = selectLoggedUserName(connectSession)
   const companyName = selectLoggedUserCompanyName(connectSession)
   const role = getCompanyRoles(connectSession?.loginIdentity)
-  const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isAdmin = isDesktopAdmin || Boolean(isSandboxDeveloper)
 
   return (
     <>
@@ -142,7 +139,7 @@ export const Settings: React.FC = () => {
         </Grid>
       </Section>
       {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
-      {isAdmin && <InstallationsTable />}
+      {isDesktopAdmin && <InstallationsTable />}
     </>
   )
 }

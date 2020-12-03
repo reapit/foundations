@@ -23,7 +23,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const developerId = selectDeveloperId(connectSession)
   const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isAdmin = isDesktopAdmin || Boolean(isSandboxDeveloper)
 
   switch (route) {
     case Routes.APPS: {
@@ -84,7 +83,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       )
       break
     case Routes.SETTINGS:
-      if (isAdmin) {
+      if (isDesktopAdmin) {
         store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
         store.dispatch(
           fetchInstallationsList({

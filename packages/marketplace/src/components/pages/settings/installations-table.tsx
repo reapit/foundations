@@ -41,7 +41,7 @@ export const installationTableColumns: InstallationRowType[] = [
   { Header: 'App Name', accessor: 'appName' },
   {
     Header: 'Installed By',
-    accessor: '',
+    accessor: 'installedBy',
   },
   {
     Header: 'Date of Installation',
@@ -51,7 +51,7 @@ export const installationTableColumns: InstallationRowType[] = [
   },
   {
     Header: 'Uninstalled By',
-    accessor: '',
+    accessor: 'uninstalledBy',
   },
   {
     Header: 'Date of Uninstallation',
