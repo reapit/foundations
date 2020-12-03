@@ -11,7 +11,7 @@ import installations from '@/reducers/installations'
 import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
 import cognitoIdentity from '@/reducers/cognito-identity'
 
-import { installationsSagas } from '@/sagas/installations'
+import { installationsListSagas, installationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
 import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
 import { categoriesSagas } from '@/sagas/categories'
@@ -48,6 +48,7 @@ export class Store {
     yield all([
       fork(appsSagas),
       fork(installationsSagas),
+      fork(installationsListSagas),
       fork(webComponentSagas),
       fork(negotiatorsSagas),
       fork(categoriesSagas),

@@ -5,6 +5,8 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 import { fetchDestinationInformation } from './api'
+import { cx } from 'linaria'
+import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
 
 export type Duration = { text: string; value: number }
 
@@ -62,7 +64,7 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ appointment, queryParams }
     return null
   }
   return (
-    <a href={href} className="button is-info is-centered mb-2" data-test="eta-button">
+    <a href={href} className={cx(buttonPaddingSmall, 'button is-info is-centered mr-0 mb-2')} data-test="eta-button">
       ETA Text
     </a>
   )

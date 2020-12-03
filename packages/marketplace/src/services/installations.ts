@@ -1,5 +1,9 @@
-import { CreateInstallationModel, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
-import { fetcher } from '@reapit/elements'
+import {
+  CreateInstallationModel,
+  InstallationModelPagedResult,
+  TerminateInstallationModel,
+} from '@reapit/foundations-ts-definitions'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
@@ -72,6 +76,23 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: rest,
+      headers: await generateHeaders(),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const fetchInstallationsList = async (
+  params: FetchInstallationsListParams,
+): Promise<InstallationModelPagedResult> => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.installations}?${setQueryParams(params)}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'GET',
       headers: await generateHeaders(),
     })
     return response

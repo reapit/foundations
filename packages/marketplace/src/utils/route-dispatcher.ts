@@ -4,12 +4,13 @@ import store from '@/core/store'
 import { fetchFeatureApps, fetchAppDetail, fetchDeveloperApps } from '@/actions/apps'
 import { fetchApps } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientId, selectDeveloperId, selectSandboxDeveloper } from '@/selector/auth'
+import { selectClientId, selectDeveloperId, selectIsAdmin, selectSandboxDeveloper } from '@/selector/auth'
 import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 // Needed for filtering but commented out for now
 // import { fetchCategories } from '@/actions/categories'
-import { APPS_PER_PAGE, FEATURED_APPS, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { APPS_PER_PAGE, FEATURED_APPS, GET_ALL_PAGE_SIZE, INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { getNumberOfItems } from './browse-app'
+import { fetchInstallationsList } from '../actions/installations'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -21,6 +22,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const clientId = selectClientId(connectSession)
   const developerId = selectDeveloperId(connectSession)
   const isSandboxDeveloper = selectSandboxDeveloper(connectSession)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
 
   switch (route) {
     case Routes.APPS: {
@@ -79,6 +81,18 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
         }),
       )
+      break
+    case Routes.SETTINGS:
+      if (isDesktopAdmin) {
+        store.dispatch(fetchApps({ pageNumber: 1, pageSize: GET_ALL_PAGE_SIZE, clientId: '' }))
+        store.dispatch(
+          fetchInstallationsList({
+            pageNumber: 1,
+            pageSize: GET_ALL_PAGE_SIZE,
+            clientId: [clientId],
+          }),
+        )
+      }
       break
     default:
       console.error('Route not found, nothing to fetch')
