@@ -247,7 +247,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     <b>
                                       all
                                     </b>
-                                     members of your organisation.
+                                     Users and Offices within your Organisation.
                                   </p>
                                   <h5
                                     class=""
@@ -501,7 +501,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           <b>
                                             all
                                           </b>
-                                           members of your organisation.
+                                           Users and Offices within your Organisation.
                                         </p>
                                         <Component
                                           className="mb-2"

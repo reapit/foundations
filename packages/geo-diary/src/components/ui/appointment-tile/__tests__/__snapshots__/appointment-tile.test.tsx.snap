@@ -8,7 +8,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
         Array [
           <div>
             <Unknown
-              className="is-centered mr-2 mb-2"
+              className=""
               disabled={false}
               fullWidth={false}
               loading={false}
@@ -19,7 +19,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               Details
             </Unknown>
             <Unknown
-              className="is-centered mr-2 mb-2"
+              className=""
               disabled={false}
               fullWidth={false}
               loading={false}
@@ -453,7 +453,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
 exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
 <div>
   <Component
-    className="is-centered mr-2 mb-2"
+    className=""
     disabled={false}
     fullWidth={false}
     key="viewDetails"
@@ -465,7 +465,7 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     Details
   </Component>
   <Component
-    className="is-centered mr-2 mb-2"
+    className=""
     disabled={false}
     fullWidth={false}
     key="viewDirection"
