@@ -26,7 +26,7 @@ export const appsListReducer = (state: AppsListState = defaultAppsListState, act
   if (isType(action, fetchApps)) {
     return {
       ...state,
-      data: action.data.isInfinite ? state.data : [],
+      data: action.data.isInfinite && action.data.pageNumber && action.data.pageNumber > 1 ? state.data : [],
       isLoading: true,
       errorMessage: '',
     }
