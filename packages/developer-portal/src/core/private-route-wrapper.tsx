@@ -65,7 +65,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }, [memberUpdateState, showTermsModal, setShowTermsModal, connectLoginRedirect])
 
   useEffect(() => {
-    if (connectSession && connectSession.loginIdentity) {
+    if (connectSession && connectSession.loginIdentity && connectSession.loginIdentity.developerId) {
       if (!currentMember.id) {
         dispatch(fetchCurrentMember())
       }
