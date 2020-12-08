@@ -242,7 +242,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
       >
         <Content>
           <p>
-            You are about to install ‘{name}’ for <b>all</b> members of your organisation.
+            You are about to install ‘{name}’ for <b>all</b> Users and Offices within your Organisation.
           </p>
           {userDesktopIntegrationTypes.length ? (
             <>

@@ -21,6 +21,10 @@ const appState: ReduxState = {
       isLoading: false,
       errorMessage: '',
     },
+    list: {
+      isLoading: false,
+      list: {},
+    },
   },
   negotiators: {
     list: {

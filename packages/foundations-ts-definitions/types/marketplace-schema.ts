@@ -1156,6 +1156,14 @@ export interface InstallationModel {
    * Gets the name of the customer that has granted access to the app (or revoked it)
    */
   customerName?: string
+  /**
+   * Gets the email address of the user who installed the app
+   */
+  installedBy?: string
+  /**
+   * Gets the email address of the user who uninstalled the app
+   */
+  uninstalledBy?: string
   customerAddress?: AddressModel
 }
 /**

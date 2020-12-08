@@ -10,11 +10,13 @@ import {
   selectLoggedUserEmail,
   selectLoggedUserName,
   selectLoggedUserCompanyName,
+  selectIsAdmin,
 } from '@/selector/auth'
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import * as styles from './__styles__'
+import InstallationsTable from './installations-table'
 
 export type CreateDispatchersReturn = {
   changePassword: (values: ChangePasswordValues) => void
@@ -67,6 +69,7 @@ export const Settings: React.FC = () => {
   const name = selectLoggedUserName(connectSession)
   const companyName = selectLoggedUserCompanyName(connectSession)
   const role = getCompanyRoles(connectSession?.loginIdentity)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
 
   return (
     <>
@@ -136,6 +139,7 @@ export const Settings: React.FC = () => {
         </Grid>
       </Section>
       {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
+      {isDesktopAdmin && <InstallationsTable />}
     </>
   )
 }

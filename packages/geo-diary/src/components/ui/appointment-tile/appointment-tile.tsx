@@ -9,6 +9,8 @@ import { ROUTES } from '@/core/router'
 import AppointmentDetailModal from '../appointment-detail-modal'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { ETAButton } from '../eta-button/eta-button'
+import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
+import { cx } from 'linaria'
 
 export type RenderIconItemsParams = {
   appointment: ExtendedAppointmentModel
@@ -84,7 +86,7 @@ export const renderFooterItems = ({
   const lng = appointment?.property?.address?.geolocation?.longitude
   const buttons = [
     <Button
-      className="is-centered mr-2 mb-2"
+      className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
       variant="info"
       key="viewDetails"
       type="submit"
@@ -99,7 +101,7 @@ export const renderFooterItems = ({
   if (!!lat && !!lng) {
     buttons.push(
       <Button
-        className="is-centered mr-2 mb-2"
+        className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
         variant="info"
         key="viewDirection"
         type="submit"

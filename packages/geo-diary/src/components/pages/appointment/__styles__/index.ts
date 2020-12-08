@@ -3,8 +3,8 @@ import { css } from 'linaria'
 export const mapContainer = css`
   overflow: hidden;
   position: absolute;
-  left: calc(390px + 4.1rem);
-  width: calc(100vw - 28.5rem);
+  left: calc(390px + 4.6rem);
+  width: calc(100vw - 29rem);
   top: 0;
   height: 100%;
 `
@@ -14,8 +14,11 @@ export const appoinmentContainer = css`
   position: absolute;
   background: #f5f7f9;
   height: 100%;
-  width: 24.5rem;
+  width: 25rem;
   left: 4.2rem;
   top: 0;
   overflow: scroll;
+`
+export const buttonPaddingSmall = css`
+  padding: 0.7rem !important;
 `
