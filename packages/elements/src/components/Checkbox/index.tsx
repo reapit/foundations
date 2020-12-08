@@ -47,6 +47,7 @@ export const Checkbox = ({ name, labelText, id, dataTest = '', value = '', class
                   checked={Array.isArray(field.value) ? field.value.includes(value) : field.checked}
                   value={value}
                   onChange={handleOnCheckboxChange({ field, value })}
+                  // onChange={() => console.log('afdsf')}
                 />
                 <label className="label" htmlFor={id}>
                   {labelText}

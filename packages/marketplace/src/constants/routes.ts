@@ -6,6 +6,7 @@ const Routes = {
   MY_APPS: '/manage',
   MY_APPS_PAGINATE: '/manage/:page',
   APP_DETAIL_MANAGE: '/apps/:appid/manage',
+  PAYMENTS: '/payments',
   SETTINGS: '/settings',
   HELP: '/help',
   LOGIN: '/login',
