@@ -23,6 +23,19 @@ describe('appList reducer', () => {
     expect(newState).toEqual(expected)
   })
 
+  it('should set state correctly when fetchDeveloperApps', () => {
+    const newState = appsListReducer(undefined, {
+      type: ActionTypes.FETCH_DEVELOPER_APPS as ActionType,
+      data: appsDataStub,
+    })
+    const expected = {
+      ...defaultAppsListState,
+      isLoadingDeveloper: true,
+      errorMessage: '',
+    }
+    expect(newState).toEqual(expected)
+  })
+
   it('should set state correctly when fetchAppsFailed', () => {
     const newState = appsListReducer(undefined, {
       type: ActionTypes.FETCH_APPS_FAILED as ActionType,
