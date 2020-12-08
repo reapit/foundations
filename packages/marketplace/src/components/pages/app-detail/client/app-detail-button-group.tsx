@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Button } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { selectSandboxDeveloper } from '@/selector/auth'
+import { selectClientId, selectSandboxDeveloper } from '@/selector/auth'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -16,11 +16,14 @@ export const AppDetailButtonGroup: React.FC<AppDetailButtonGroupProps> = ({
   onInstallConfirmationModal,
   onUninstallConfirmationModal,
 }) => {
-  const { developerId, installedOn } = appDetailData
+  const { developerId, installedOn, isListed } = appDetailData
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const sandboxDeveloper = selectSandboxDeveloper(connectSession)
+  const clientId = selectClientId(connectSession)
+  const notListedSandbox = !isListed && clientId !== 'SBOX'
+  const notSandboxDevsApp = Boolean(sandboxDeveloper) && sandboxDeveloper !== developerId
 
-  if (sandboxDeveloper && sandboxDeveloper !== developerId) {
+  if (notListedSandbox || notSandboxDevsApp) {
     return null
   }
 

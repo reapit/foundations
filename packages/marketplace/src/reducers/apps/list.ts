@@ -1,12 +1,19 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchApps, fetchAppsSuccess, fetchAppsFailed, fetchAppsInfiniteSuccess } from '@/actions/apps'
+import {
+  fetchApps,
+  fetchAppsSuccess,
+  fetchAppsFailed,
+  fetchAppsInfiniteSuccess,
+  fetchDeveloperApps,
+} from '@/actions/apps'
 import { AppSummaryModelPagedResult, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { mergeAppsWithoutDuplicateId } from '@/utils/browse-app'
 import { fetchDeveloperAppsSuccess } from '../../actions/apps/apps'
 
 export type AppsListState = AppSummaryModelPagedResult & {
   isLoading: boolean
+  isLoadingDeveloper: boolean
   errorMessage: string
   developerApps: AppSummaryModel[]
 }
@@ -18,6 +25,7 @@ export const defaultAppsListState: AppsListState = {
   pageCount: 0,
   totalCount: 0,
   isLoading: false,
+  isLoadingDeveloper: false,
   errorMessage: '',
   developerApps: [],
 }
@@ -29,6 +37,14 @@ export const appsListReducer = (state: AppsListState = defaultAppsListState, act
       data: action.data.isInfinite && action.data.pageNumber && action.data.pageNumber > 1 ? state.data : [],
       isLoading: true,
       errorMessage: '',
+    }
+  }
+
+  if (isType(action, fetchDeveloperApps)) {
+    return {
+      ...state,
+      errorMessage: '',
+      isLoadingDeveloper: true,
     }
   }
 
@@ -60,7 +76,7 @@ export const appsListReducer = (state: AppsListState = defaultAppsListState, act
     return {
       ...state,
       data: uniqueAppsList,
-      isLoading: false,
+      isLoadingDeveloper: false,
       developerApps: action.data.data || [],
     }
   }

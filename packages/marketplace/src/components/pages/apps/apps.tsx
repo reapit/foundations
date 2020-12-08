@@ -71,7 +71,7 @@ export const Apps: React.FunctionComponent = () => {
   const numOfItemsPerPage = getNumberOfItems()
   const totalPage = totalCount / numOfItemsPerPage
 
-  const loading = appsListState.isLoading || featureAppsListState.isLoading
+  const loading = appsListState.isLoading || featureAppsListState.isLoading || appsListState.isLoadingDeveloper
   /**
    * When apps is empty or when loading app set hasMore = false to prevent trigger load more
    * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage

@@ -46,6 +46,7 @@ const appState: ReduxState = {
       pageCount: 1,
       totalCount: 0,
       isLoading: false,
+      isLoadingDeveloper: false,
       errorMessage: '',
       developerApps: [],
     },
