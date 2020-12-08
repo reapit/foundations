@@ -33,7 +33,8 @@ export type ServerContext = Context<{ traceId: string; authorization: string; da
 const typeDefs = importSchema('./src/schema.graphql')
 
 export const handleContext = ({ event, context }) => {
-  const traceId = uuidv4()
+  const reapitCustomer = event.headers['reapit-customer'] ?? 'UNKNOWN-CUSTOMER'
+  const traceId = `${reapitCustomer}-${uuidv4()}`
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('handleContext', { traceId, event })

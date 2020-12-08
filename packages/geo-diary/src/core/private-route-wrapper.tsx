@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer } from '@reapit/elements'
+import { Loader, AppNavContainer, Helper } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -16,7 +16,6 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
-  const accessToken = connectSession?.accessToken || ''
 
   if (!connectSession) {
     return (
@@ -26,12 +25,24 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
     )
   }
 
+  if (!connectSession?.loginIdentity?.userCode) {
+    return (
+      <AppNavContainer>
+        <Menu />
+        <Helper variant="info">
+          We could not detect that your are a negotiator for your organisation from your login. Try logging out and then
+          back in again. If this does not work, please contact your Reapit administrator.
+        </Helper>
+      </AppNavContainer>
+    )
+  }
+
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
 
   return (
-    <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
+    <ApolloProvider client={getClient(connectSession, window.reapit.config.graphqlUri)}>
       <AppNavContainer>
         <Menu />
         <Suspense fallback={<Loader body />}>
