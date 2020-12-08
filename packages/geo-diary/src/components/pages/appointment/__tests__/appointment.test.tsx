@@ -1,11 +1,10 @@
 import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
-import { mount } from 'enzyme'
-import { Appointment, handleUseEffect, sortAppoinmentsByStartTime } from '../appointment'
+import { shallow } from 'enzyme'
+import { Appointment, sortAppoinmentsByStartTime } from '../appointment'
 import GET_APPOINTMENTS from '../get-appointments.graphql'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { appointmentsQueryData } from '../__mocks__/appointments-query'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
@@ -17,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 describe('appointment', () => {
   describe('Apppointment', () => {
     it('should match snapshot', () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <MockedProvider mocks={[]} addTypename={false}>
           <Appointment />
         </MockedProvider>,
@@ -41,7 +40,7 @@ describe('appointment', () => {
           result: appointmentsQueryData,
         },
       ]
-      const wrapper = mount(
+      const wrapper = shallow(
         <MockedProvider mocks={mocks} addTypename={false}>
           <Appointment />
         </MockedProvider>,
@@ -58,17 +57,6 @@ describe('appointment', () => {
       const result = fn()
       const startDatesOfResultSortAppoinmentsByStartTime = result.map(appoinment => appoinment.start)
       expect(startDatesOfResultSortAppoinmentsByStartTime).toEqual(outputStartDates)
-    })
-  })
-  describe('handleUseEffect', () => {
-    it('should run correctly', () => {
-      const mockProps = {
-        queryParams: {},
-        history: getMockRouterProps({ params: '', search: '' }).history,
-      }
-      const fn = handleUseEffect(mockProps)
-      fn()
-      expect(mockProps.history.push).not.toBeCalled()
     })
   })
 })

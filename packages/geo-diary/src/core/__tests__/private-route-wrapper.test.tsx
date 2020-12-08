@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
+import { handleUseEffect, PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
 
 jest.mock('@reapit/connect-session', () => ({
@@ -49,5 +49,17 @@ describe('PrivateRouter', () => {
       </PrivateRouteWrapper>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('handleUseEffect', () => {
+    it('should run correctly', () => {
+      const mockProps = {
+        queryParams: {},
+        history: getMockRouterProps({ params: '', search: '' }).history,
+      }
+      const fn = handleUseEffect(mockProps)
+      fn()
+      expect(mockProps.history.push).not.toBeCalled()
+    })
   })
 })
