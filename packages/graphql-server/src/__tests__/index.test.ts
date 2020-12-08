@@ -41,7 +41,7 @@ describe('index.js', () => {
       } as any
       const result = handleContext(mockParams)
       expect(result).toEqual({
-        traceId: 'mockUUID',
+        traceId: 'UNKNOWN-CUSTOMER-mockUUID',
         authorization: 'Mock Authorization',
         functionName: 'Mock Function Name',
         headers: {

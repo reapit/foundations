@@ -2,13 +2,13 @@ import { Operation, IdGetterObj } from 'apollo-boost'
 import { ErrorResponse } from 'apollo-link-error'
 import { GraphQLError } from 'graphql'
 import { getClient, generateRequest, onError, dataIdFromObject } from '@/graphql/client'
+import { mockBrowserSession } from '../__mocks__/session'
 
 describe('client', () => {
   describe('getClient', () => {
     it('should run correctly', () => {
-      const mockAccessToken = 'mockAccessToken'
       const mockClientUri = 'mockUri'
-      const result = getClient(mockAccessToken, mockClientUri)
+      const result = getClient(mockBrowserSession, mockClientUri)
       expect(result).toBeDefined()
     })
   })
@@ -18,7 +18,7 @@ describe('client', () => {
       const mockOperation = {
         setContext: jest.fn(),
       } as Operation
-      generateRequest('mockToken')(mockOperation)
+      generateRequest(mockBrowserSession)(mockOperation)
       setTimeout(() => {
         expect(mockOperation.setContext).toBeCalled()
         done()
