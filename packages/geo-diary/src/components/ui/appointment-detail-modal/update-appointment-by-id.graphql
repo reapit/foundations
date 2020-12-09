@@ -16,9 +16,6 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
     negotiators {
       ...NegotiatorModel
     }
-    offices {
-      ...OfficeModel
-    }
     followUp {
       ...AppointmentModelFollowUp
     }
@@ -30,6 +27,11 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
     }
     appointmentType {
       ...ListItemModel
+    }
+    _embedded {
+      offices {
+        ...OfficeModel
+      }
     }
   }
 }

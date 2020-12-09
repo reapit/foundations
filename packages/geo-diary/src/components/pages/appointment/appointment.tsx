@@ -31,6 +31,7 @@ export type AppointmentListQueryVariables = {
   end: string
   includeCancelled: boolean
   includeConfirm: boolean
+  embed: string
 }
 
 export const startAndEndTime = {
@@ -99,6 +100,7 @@ export const Appointment: React.FC<AppointmentProps> = () => {
       end: end,
       includeCancelled: true,
       includeConfirm: true,
+      embed: 'offices',
     },
     skip: !userCode,
   })
