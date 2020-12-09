@@ -34,7 +34,24 @@ export const statisticsDataFetch = function*({ data }) {
 
     const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
-    yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
+    if (area === 'INSTALLATIONS') {
+      const apps = yield call(servicesToCall['APPS'], {
+        pageSize: GET_ALL_PAGE_SIZE,
+      })
+      const installationsWithAppName =
+        response?.data?.map(installation => {
+          const appName = apps.data?.find(app => app.id === installation.appId)?.name ?? ''
+
+          return {
+            ...installation,
+            appName,
+          }
+        }) || []
+
+      yield put(fetchStatisticsSucces({ data: installationsWithAppName, totalCount: response.totalCount }))
+    } else {
+      yield put(fetchStatisticsSucces({ data: response.data, totalCount: response.totalCount }))
+    }
   } catch (err) {
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {

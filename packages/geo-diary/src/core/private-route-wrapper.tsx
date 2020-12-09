@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Helper } from '@reapit/elements'
+import { Loader, AppNavContainer, Helper, Section } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useHistory, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -54,14 +54,16 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
     )
   }
 
-  if (!connectSession?.loginIdentity?.userCode) {
+  if (connectSession?.loginIdentity?.userCode) {
     return (
       <AppNavContainer>
         <Menu />
-        <Helper variant="info">
-          We could not detect that your are a negotiator for your organisation from your login. Try logging out and then
-          back in again. If this does not work, please contact your Reapit administrator.
-        </Helper>
+        <Section>
+          <Helper variant="info">
+            We could not detect that your are a negotiator for your organisation from your login. Try logging out and
+            then back in again. If this does not work, please contact your Reapit administrator.
+          </Helper>
+        </Section>
       </AppNavContainer>
     )
   }

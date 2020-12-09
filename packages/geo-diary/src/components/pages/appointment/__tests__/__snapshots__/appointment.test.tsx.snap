@@ -265,7 +265,7 @@ exports[`appointment Apppointment should match snapshot 2`] = `
       "link": MockLink {
         "addTypename": false,
         "mockedResponsesByKey": Object {
-          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      offices {\\\\n        ...OfficeModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+          "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
             Object {
               "request": Object {
                 "query": Object {
@@ -351,6 +351,20 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "includeUnconfirmed",
+                                    },
+                                  },
+                                },
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "embed",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "embed",
                                     },
                                   },
                                 },
@@ -478,28 +492,6 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                                           "kind": "Field",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "offices",
-                                          },
-                                          "selectionSet": Object {
-                                            "kind": "SelectionSet",
-                                            "selections": Array [
-                                              Object {
-                                                "directives": Array [],
-                                                "kind": "FragmentSpread",
-                                                "name": Object {
-                                                  "kind": "Name",
-                                                  "value": "OfficeModel",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        Object {
-                                          "arguments": Array [],
-                                          "directives": Array [],
-                                          "kind": "Field",
-                                          "name": Object {
-                                            "kind": "Name",
                                             "value": "followUp",
                                           },
                                           "selectionSet": Object {
@@ -577,6 +569,42 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                                                 "name": Object {
                                                   "kind": "Name",
                                                   "value": "ListItemModel",
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "_embedded",
+                                          },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "arguments": Array [],
+                                                "directives": Array [],
+                                                "kind": "Field",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "offices",
+                                                },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "directives": Array [],
+                                                      "kind": "FragmentSpread",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "OfficeModel",
+                                                      },
+                                                    },
+                                                  ],
                                                 },
                                               },
                                             ],
@@ -690,6 +718,27 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                               "name": Object {
                                 "kind": "Name",
                                 "value": "includeUnconfirmed",
+                              },
+                            },
+                          },
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "ListType",
+                              "type": Object {
+                                "kind": "NamedType",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "AppointmentQueryEmbed",
+                                },
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "embed",
                               },
                             },
                           },
@@ -1184,202 +1233,6 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                         "kind": "FragmentDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "OfficeModel",
-                        },
-                        "selectionSet": Object {
-                          "kind": "SelectionSet",
-                          "selections": Array [
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "id",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "created",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "modified",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "name",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "manager",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "address",
-                              },
-                              "selectionSet": Object {
-                                "kind": "SelectionSet",
-                                "selections": Array [
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "buildingName",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "buildingNumber",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "line1",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "line2",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "line3",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "line4",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "postcode",
-                                    },
-                                  },
-                                  Object {
-                                    "arguments": Array [],
-                                    "directives": Array [],
-                                    "kind": "Field",
-                                    "name": Object {
-                                      "kind": "Name",
-                                      "value": "countryId",
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "workPhone",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "email",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "metadata",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_eTag",
-                              },
-                            },
-                            Object {
-                              "arguments": Array [],
-                              "directives": Array [],
-                              "kind": "Field",
-                              "name": Object {
-                                "kind": "Name",
-                                "value": "_links",
-                              },
-                            },
-                          ],
-                        },
-                        "typeCondition": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "OfficeModel",
-                          },
-                        },
-                      },
-                      Object {
-                        "directives": Array [],
-                        "kind": "FragmentDefinition",
-                        "name": Object {
-                          "kind": "Name",
                           "value": "AppointmentModelFollowUp",
                         },
                         "selectionSet": Object {
@@ -1572,10 +1425,206 @@ exports[`appointment Apppointment should match snapshot 2`] = `
                           },
                         },
                       },
+                      Object {
+                        "directives": Array [],
+                        "kind": "FragmentDefinition",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "OfficeModel",
+                        },
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "id",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "created",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "modified",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "name",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "manager",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "address",
+                              },
+                              "selectionSet": Object {
+                                "kind": "SelectionSet",
+                                "selections": Array [
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "buildingName",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "buildingNumber",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "line1",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "line2",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "line3",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "line4",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "postcode",
+                                    },
+                                  },
+                                  Object {
+                                    "arguments": Array [],
+                                    "directives": Array [],
+                                    "kind": "Field",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "countryId",
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "workPhone",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "email",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "metadata",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "_eTag",
+                              },
+                            },
+                            Object {
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "_links",
+                              },
+                            },
+                          ],
+                        },
+                        "typeCondition": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "OfficeModel",
+                          },
+                        },
+                      },
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 1332,
+                      "end": 1412,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/appointment-attendee-model.graphql\\"
 #import \\"../../../graphql/fragments/appointment-contact-model.graphql\\"
@@ -1587,8 +1636,8 @@ exports[`appointment Apppointment should match snapshot 2`] = `
 #import \\"../../../graphql/fragments/property-model.graphql\\"
 
 
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {
+query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
+  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
     pageNumber
     pageSize
     pageCount
@@ -1602,9 +1651,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       negotiators {
         ...NegotiatorModel
       }
-      offices {
-        ...OfficeModel
-      }
       followUp {
         ...AppointmentModelFollowUp
       }
@@ -1616,6 +1662,11 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
       appointmentType {
         ...ListItemModel
+      }
+      _embedded {
+        offices {
+          ...OfficeModel
+        }
       }
     }
   }
@@ -1710,6 +1761,20 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                   "name": Object {
                                     "kind": "Name",
                                     "value": "includeUnconfirmed",
+                                  },
+                                },
+                              },
+                              Object {
+                                "kind": "Argument",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "embed",
+                                },
+                                "value": Object {
+                                  "kind": "Variable",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "embed",
                                   },
                                 },
                               },
@@ -1837,28 +1902,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                         "kind": "Field",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "offices",
-                                        },
-                                        "selectionSet": Object {
-                                          "kind": "SelectionSet",
-                                          "selections": Array [
-                                            Object {
-                                              "directives": Array [],
-                                              "kind": "FragmentSpread",
-                                              "name": Object {
-                                                "kind": "Name",
-                                                "value": "OfficeModel",
-                                              },
-                                            },
-                                          ],
-                                        },
-                                      },
-                                      Object {
-                                        "arguments": Array [],
-                                        "directives": Array [],
-                                        "kind": "Field",
-                                        "name": Object {
-                                          "kind": "Name",
                                           "value": "followUp",
                                         },
                                         "selectionSet": Object {
@@ -1936,6 +1979,42 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                               "name": Object {
                                                 "kind": "Name",
                                                 "value": "ListItemModel",
+                                              },
+                                            },
+                                          ],
+                                        },
+                                      },
+                                      Object {
+                                        "arguments": Array [],
+                                        "directives": Array [],
+                                        "kind": "Field",
+                                        "name": Object {
+                                          "kind": "Name",
+                                          "value": "_embedded",
+                                        },
+                                        "selectionSet": Object {
+                                          "kind": "SelectionSet",
+                                          "selections": Array [
+                                            Object {
+                                              "arguments": Array [],
+                                              "directives": Array [],
+                                              "kind": "Field",
+                                              "name": Object {
+                                                "kind": "Name",
+                                                "value": "offices",
+                                              },
+                                              "selectionSet": Object {
+                                                "kind": "SelectionSet",
+                                                "selections": Array [
+                                                  Object {
+                                                    "directives": Array [],
+                                                    "kind": "FragmentSpread",
+                                                    "name": Object {
+                                                      "kind": "Name",
+                                                      "value": "OfficeModel",
+                                                    },
+                                                  },
+                                                ],
                                               },
                                             },
                                           ],
@@ -2049,6 +2128,27 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                             "name": Object {
                               "kind": "Name",
                               "value": "includeUnconfirmed",
+                            },
+                          },
+                        },
+                        Object {
+                          "directives": Array [],
+                          "kind": "VariableDefinition",
+                          "type": Object {
+                            "kind": "ListType",
+                            "type": Object {
+                              "kind": "NamedType",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "AppointmentQueryEmbed",
+                              },
+                            },
+                          },
+                          "variable": Object {
+                            "kind": "Variable",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "embed",
                             },
                           },
                         },
@@ -2934,7 +3034,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 1332,
+                    "end": 1412,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/appointment-attendee-model.graphql\\"
 #import \\"../../../graphql/fragments/appointment-contact-model.graphql\\"
@@ -2946,8 +3046,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 #import \\"../../../graphql/fragments/property-model.graphql\\"
 
 
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {
+query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
+  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
     pageNumber
     pageSize
     pageCount
@@ -2961,9 +3061,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       negotiators {
         ...NegotiatorModel
       }
-      offices {
-        ...OfficeModel
-      }
       followUp {
         ...AppointmentModelFollowUp
       }
@@ -2975,6 +3072,11 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
       appointmentType {
         ...ListItemModel
+      }
+      _embedded {
+        offices {
+          ...OfficeModel
+        }
       }
     }
   }
@@ -4079,7 +4181,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
         "link": MockLink {
           "addTypename": false,
           "mockedResponsesByKey": Object {
-            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      offices {\\\\n        ...OfficeModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
+            "{\\"query\\":\\"query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {\\\\n  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n    _embedded {\\\\n      ...AppointmentModel\\\\n      property {\\\\n        ...PropertyModel\\\\n      }\\\\n      negotiators {\\\\n        ...NegotiatorModel\\\\n      }\\\\n      followUp {\\\\n        ...AppointmentModelFollowUp\\\\n      }\\\\n      attendee {\\\\n        ...AppointmentAttendeeModel\\\\n        contacts {\\\\n          ...AppointmentContactModel\\\\n        }\\\\n      }\\\\n      appointmentType {\\\\n        ...ListItemModel\\\\n      }\\\\n      _embedded {\\\\n        offices {\\\\n          ...OfficeModel\\\\n        }\\\\n      }\\\\n    }\\\\n  }\\\\n}\\\\n\\\\nfragment AppointmentAttendeeModel on AppointmentAttendeeModel {\\\\n  id\\\\n  type\\\\n}\\\\n\\\\nfragment AppointmentContactModel on AppointmentContactModel {\\\\n  id\\\\n  name\\\\n  homePhone\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n}\\\\n\\\\nfragment AppointmentModelFollowUp on AppointmentModelFollowUp {\\\\n  due\\\\n  responseId\\\\n  notes\\\\n}\\\\n\\\\nfragment AppointmentModel on AppointmentModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  start\\\\n  end\\\\n  typeId\\\\n  description\\\\n  recurring\\\\n  cancelled\\\\n  propertyId\\\\n  organiserId\\\\n  negotiatorIds\\\\n  officeIds\\\\n  accompanied\\\\n  negotiatorConfirmed\\\\n  attendeeConfirmed\\\\n  propertyConfirmed\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment ListItemModel on ListItemModel {\\\\n  id\\\\n  value\\\\n}\\\\n\\\\nfragment NegotiatorModel on NegotiatorModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  jobTitle\\\\n  active\\\\n  officeId\\\\n  workPhone\\\\n  mobilePhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment OfficeModel on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n}\\\\n\\\\nfragment PropertyModel on PropertyModel {\\\\n  id\\\\n  address {\\\\n    buildingName\\\\n    buildingNumber\\\\n    line1\\\\n    line2\\\\n    line3\\\\n    line4\\\\n    postcode\\\\n    countryId\\\\n    geolocation {\\\\n      latitude\\\\n      longitude\\\\n    }\\\\n  }\\\\n}\\\\n\\"}": Array [
               Object {
                 "request": Object {
                   "query": Object {
@@ -4165,6 +4267,20 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "includeUnconfirmed",
+                                      },
+                                    },
+                                  },
+                                  Object {
+                                    "kind": "Argument",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "embed",
+                                    },
+                                    "value": Object {
+                                      "kind": "Variable",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "embed",
                                       },
                                     },
                                   },
@@ -4292,28 +4408,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                             "kind": "Field",
                                             "name": Object {
                                               "kind": "Name",
-                                              "value": "offices",
-                                            },
-                                            "selectionSet": Object {
-                                              "kind": "SelectionSet",
-                                              "selections": Array [
-                                                Object {
-                                                  "directives": Array [],
-                                                  "kind": "FragmentSpread",
-                                                  "name": Object {
-                                                    "kind": "Name",
-                                                    "value": "OfficeModel",
-                                                  },
-                                                },
-                                              ],
-                                            },
-                                          },
-                                          Object {
-                                            "arguments": Array [],
-                                            "directives": Array [],
-                                            "kind": "Field",
-                                            "name": Object {
-                                              "kind": "Name",
                                               "value": "followUp",
                                             },
                                             "selectionSet": Object {
@@ -4391,6 +4485,42 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                                   "name": Object {
                                                     "kind": "Name",
                                                     "value": "ListItemModel",
+                                                  },
+                                                },
+                                              ],
+                                            },
+                                          },
+                                          Object {
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "_embedded",
+                                            },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "offices",
+                                                  },
+                                                  "selectionSet": Object {
+                                                    "kind": "SelectionSet",
+                                                    "selections": Array [
+                                                      Object {
+                                                        "directives": Array [],
+                                                        "kind": "FragmentSpread",
+                                                        "name": Object {
+                                                          "kind": "Name",
+                                                          "value": "OfficeModel",
+                                                        },
+                                                      },
+                                                    ],
                                                   },
                                                 },
                                               ],
@@ -4504,6 +4634,27 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                 "name": Object {
                                   "kind": "Name",
                                   "value": "includeUnconfirmed",
+                                },
+                              },
+                            },
+                            Object {
+                              "directives": Array [],
+                              "kind": "VariableDefinition",
+                              "type": Object {
+                                "kind": "ListType",
+                                "type": Object {
+                                  "kind": "NamedType",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "AppointmentQueryEmbed",
+                                  },
+                                },
+                              },
+                              "variable": Object {
+                                "kind": "Variable",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "embed",
                                 },
                               },
                             },
@@ -4998,202 +5149,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                           "kind": "FragmentDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "OfficeModel",
-                          },
-                          "selectionSet": Object {
-                            "kind": "SelectionSet",
-                            "selections": Array [
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "id",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "created",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "modified",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "name",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "manager",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "address",
-                                },
-                                "selectionSet": Object {
-                                  "kind": "SelectionSet",
-                                  "selections": Array [
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "buildingName",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "buildingNumber",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "line1",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "line2",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "line3",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "line4",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "postcode",
-                                      },
-                                    },
-                                    Object {
-                                      "arguments": Array [],
-                                      "directives": Array [],
-                                      "kind": "Field",
-                                      "name": Object {
-                                        "kind": "Name",
-                                        "value": "countryId",
-                                      },
-                                    },
-                                  ],
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "workPhone",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "email",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "metadata",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_eTag",
-                                },
-                              },
-                              Object {
-                                "arguments": Array [],
-                                "directives": Array [],
-                                "kind": "Field",
-                                "name": Object {
-                                  "kind": "Name",
-                                  "value": "_links",
-                                },
-                              },
-                            ],
-                          },
-                          "typeCondition": Object {
-                            "kind": "NamedType",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "OfficeModel",
-                            },
-                          },
-                        },
-                        Object {
-                          "directives": Array [],
-                          "kind": "FragmentDefinition",
-                          "name": Object {
-                            "kind": "Name",
                             "value": "AppointmentModelFollowUp",
                           },
                           "selectionSet": Object {
@@ -5386,10 +5341,206 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                             },
                           },
                         },
+                        Object {
+                          "directives": Array [],
+                          "kind": "FragmentDefinition",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "OfficeModel",
+                          },
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "id",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "created",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "modified",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "name",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "manager",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "address",
+                                },
+                                "selectionSet": Object {
+                                  "kind": "SelectionSet",
+                                  "selections": Array [
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "buildingName",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "buildingNumber",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "line1",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "line2",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "line3",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "line4",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "postcode",
+                                      },
+                                    },
+                                    Object {
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "countryId",
+                                      },
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "workPhone",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "email",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "metadata",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "_eTag",
+                                },
+                              },
+                              Object {
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "_links",
+                                },
+                              },
+                            ],
+                          },
+                          "typeCondition": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "OfficeModel",
+                            },
+                          },
+                        },
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 1332,
+                        "end": 1412,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/appointment-attendee-model.graphql\\"
 #import \\"../../../graphql/fragments/appointment-contact-model.graphql\\"
@@ -5401,8 +5552,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 #import \\"../../../graphql/fragments/property-model.graphql\\"
 
 
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {
+query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
+  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
     pageNumber
     pageSize
     pageCount
@@ -5416,9 +5567,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       negotiators {
         ...NegotiatorModel
       }
-      offices {
-        ...OfficeModel
-      }
       followUp {
         ...AppointmentModelFollowUp
       }
@@ -5430,6 +5578,11 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
       appointmentType {
         ...ListItemModel
+      }
+      _embedded {
+        offices {
+          ...OfficeModel
+        }
       }
     }
   }
@@ -5524,6 +5677,20 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                     "name": Object {
                                       "kind": "Name",
                                       "value": "includeUnconfirmed",
+                                    },
+                                  },
+                                },
+                                Object {
+                                  "kind": "Argument",
+                                  "name": Object {
+                                    "kind": "Name",
+                                    "value": "embed",
+                                  },
+                                  "value": Object {
+                                    "kind": "Variable",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "embed",
                                     },
                                   },
                                 },
@@ -5651,28 +5818,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                           "kind": "Field",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "offices",
-                                          },
-                                          "selectionSet": Object {
-                                            "kind": "SelectionSet",
-                                            "selections": Array [
-                                              Object {
-                                                "directives": Array [],
-                                                "kind": "FragmentSpread",
-                                                "name": Object {
-                                                  "kind": "Name",
-                                                  "value": "OfficeModel",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        Object {
-                                          "arguments": Array [],
-                                          "directives": Array [],
-                                          "kind": "Field",
-                                          "name": Object {
-                                            "kind": "Name",
                                             "value": "followUp",
                                           },
                                           "selectionSet": Object {
@@ -5750,6 +5895,42 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                                                 "name": Object {
                                                   "kind": "Name",
                                                   "value": "ListItemModel",
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                        Object {
+                                          "arguments": Array [],
+                                          "directives": Array [],
+                                          "kind": "Field",
+                                          "name": Object {
+                                            "kind": "Name",
+                                            "value": "_embedded",
+                                          },
+                                          "selectionSet": Object {
+                                            "kind": "SelectionSet",
+                                            "selections": Array [
+                                              Object {
+                                                "arguments": Array [],
+                                                "directives": Array [],
+                                                "kind": "Field",
+                                                "name": Object {
+                                                  "kind": "Name",
+                                                  "value": "offices",
+                                                },
+                                                "selectionSet": Object {
+                                                  "kind": "SelectionSet",
+                                                  "selections": Array [
+                                                    Object {
+                                                      "directives": Array [],
+                                                      "kind": "FragmentSpread",
+                                                      "name": Object {
+                                                        "kind": "Name",
+                                                        "value": "OfficeModel",
+                                                      },
+                                                    },
+                                                  ],
                                                 },
                                               },
                                             ],
@@ -5863,6 +6044,27 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                               "name": Object {
                                 "kind": "Name",
                                 "value": "includeUnconfirmed",
+                              },
+                            },
+                          },
+                          Object {
+                            "directives": Array [],
+                            "kind": "VariableDefinition",
+                            "type": Object {
+                              "kind": "ListType",
+                              "type": Object {
+                                "kind": "NamedType",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "AppointmentQueryEmbed",
+                                },
+                              },
+                            },
+                            "variable": Object {
+                              "kind": "Variable",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "embed",
                               },
                             },
                           },
@@ -6748,7 +6950,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 1332,
+                      "end": 1412,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/appointment-attendee-model.graphql\\"
 #import \\"../../../graphql/fragments/appointment-contact-model.graphql\\"
@@ -6760,8 +6962,8 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 #import \\"../../../graphql/fragments/property-model.graphql\\"
 
 
-query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {
-  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {
+query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean, $embed: [AppointmentQueryEmbed]) {
+  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed, embed: $embed) {
     pageNumber
     pageSize
     pageCount
@@ -6775,9 +6977,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       negotiators {
         ...NegotiatorModel
       }
-      offices {
-        ...OfficeModel
-      }
       followUp {
         ...AppointmentModelFollowUp
       }
@@ -6789,6 +6988,11 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
       }
       appointmentType {
         ...ListItemModel
+      }
+      _embedded {
+        offices {
+          ...OfficeModel
+        }
       }
     }
   }

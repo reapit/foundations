@@ -235,19 +235,22 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
         </Grid>
       </GridItem>
       <GridItem>
-        {offices.map((office: OfficeModel, index: number) => (
-          <div key={index}>
-            <AcLink
-              dynamicLinkParams={{
-                appMode: loginMode,
-                entityType: EntityType.CONTACT,
-                entityCode: office.id,
-              }}
-            >
-              {office.name}
-            </AcLink>
-          </div>
-        ))}
+        {offices.map((office: OfficeModel, index: number) => {
+          if (!office) return null
+          return (
+            <div key={index}>
+              <AcLink
+                dynamicLinkParams={{
+                  appMode: loginMode,
+                  entityType: EntityType.CONTACT,
+                  entityCode: office.id,
+                }}
+              >
+                {office.name}
+              </AcLink>
+            </div>
+          )
+        })}
       </GridItem>
     </Grid>
   )
@@ -414,7 +417,7 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
     >
       {renderDateTime(appointment)}
       {renderNegotiators(appointment?.negotiators || [])}
-      {renderOffices(appointment?.offices || [], loginMode)}
+      {renderOffices(appointment?._embedded?.offices || [], loginMode)}
       {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
       {renderAddress(appointment?.property || {}, loginMode)}
       {renderNotes(appointment.description)}

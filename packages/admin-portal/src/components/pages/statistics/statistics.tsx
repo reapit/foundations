@@ -1,24 +1,77 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import { H3, ButtonGroup, Button, H6, Loader, Section } from '@reapit/elements'
+import { H3, ButtonGroup, Button, H6, Loader, Section, H5 } from '@reapit/elements'
 import { StatisticsRequestParams, fetchStatistics } from '@/actions/statistics'
-import { Line } from 'react-chartjs-2'
-import { getChartData, getChartConfig, getRangeName } from '@/utils/statistics'
+import { getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'
+import Papa from 'papaparse'
+import { AppSummaryModel, DeveloperModel, InstallationModel } from '@reapit/foundations-ts-definitions'
+import FileSaver from 'file-saver'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
 
+export interface InstallationModelWithAppName extends InstallationModel {
+  appName: string
+}
+
 export const handleLoadStats = (dispatch: Dispatch) => (params: StatisticsRequestParams) => {
   dispatch(fetchStatistics(params))
+}
+
+export const handleSaveFile = (csv: string, filename: string) => {
+  const blob = new Blob([csv], { type: 'data:text/csv;charset=utf-8,' })
+  FileSaver.saveAs(blob, filename)
+}
+
+const downloadCSV = (area: Area, data: AppSummaryModel[] | DeveloperModel[] | InstallationModelWithAppName[]) => {
+  if (area === 'APPS') {
+    const apps = data as AppSummaryModel[]
+    const csv = Papa.unparse({
+      fields: ['App Name', 'Developer', 'Created', 'Summary', 'Is Listed', 'Is Integration', 'Free App', 'Auth Flow'],
+      data: apps.map((item: AppSummaryModel) => {
+        const { name, developer, created, summary, isListed, isDirectApi, isFree, authFlow } = item
+        return [name, developer, created, summary, isListed, isDirectApi, isFree, authFlow]
+      }),
+    })
+
+    return handleSaveFile(csv, 'apps.csv')
+  }
+
+  if (area === 'INSTALLATIONS') {
+    const installs = data as InstallationModelWithAppName[]
+    const csv = Papa.unparse({
+      fields: ['App Name', 'Client', 'Customer Name', 'Created On', 'Uninstalled On', 'Status'],
+      data: installs.map((item: InstallationModelWithAppName) => {
+        const { appName, client, customerName, created, terminatesOn, status } = item
+        return [appName, client, customerName, created, terminatesOn, status]
+      }),
+    })
+
+    return handleSaveFile(csv, 'installs.csv')
+  }
+
+  if (area === 'DEVELOPERS') {
+    const developers = data as DeveloperModel[]
+
+    const csv = Papa.unparse({
+      fields: ['Name', 'Company', 'Created', 'Job Title', 'Email', 'Telephone', 'Is Inactive', 'Status'],
+      data: developers.map((item: DeveloperModel) => {
+        const { name, company, created, jobTitle, email, telephone, isInactive, status } = item
+        return [name, company, created, jobTitle, email, telephone, isInactive, status]
+      }),
+    })
+
+    return handleSaveFile(csv, 'developers.csv')
+  }
 }
 
 export const Statistics: React.FC = () => {
   const dispatch = useDispatch()
   const adminStats = useSelector(selectStatistics)
 
-  const { isLoading, data = [], totalCount } = adminStats
+  const { isLoading, data = [] } = adminStats
 
   const loadStats = handleLoadStats(dispatch)
 
@@ -28,26 +81,6 @@ export const Statistics: React.FC = () => {
   useEffect(() => {
     loadStats({ area, range })
   }, [area, range])
-
-  const chartConfig = useMemo(() => {
-    let chartData = { labels: [] as Array<string>, data: [] as Array<any> }
-    if (range !== 'ALL') {
-      chartData = getChartData(data, range)
-    }
-    return getChartConfig(chartData.labels, chartData.data, area)
-  }, [range, area, data, getChartConfig, getChartData])
-
-  const renderResult = () => {
-    if (isLoading) return <Loader />
-    if (range === 'ALL') {
-      return <H6>Total: {totalCount}</H6>
-    }
-    return (
-      <Section>
-        <Line data={chartConfig} />
-      </Section>
-    )
-  }
 
   return (
     <>
@@ -113,8 +146,16 @@ export const Statistics: React.FC = () => {
           Showing results for ‘{area}’ and ‘{getRangeName(range)}’
         </H6>
       </Section>
-
-      {renderResult()}
+      <Section>
+        <H5>Download as CSV</H5>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Button type="button" variant="primary" onClick={() => downloadCSV(area, data)}>
+            Download
+          </Button>
+        )}
+      </Section>
     </>
   )
 }
