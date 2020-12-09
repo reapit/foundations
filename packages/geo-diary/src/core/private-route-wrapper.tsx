@@ -54,7 +54,7 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
     )
   }
 
-  if (connectSession?.loginIdentity?.userCode) {
+  if (!connectSession?.loginIdentity?.userCode) {
     return (
       <AppNavContainer>
         <Menu />
