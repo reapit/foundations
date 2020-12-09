@@ -101,10 +101,7 @@ export const getCurrentLocation = ({ googleMaps, position, map }) => {
           infoWindow.open(map, currentLocation)
         })
       } else {
-        notification.error({
-          message: 'Current address request failed due to: ' + status,
-          placement: 'bottomRight',
-        })
+        console.error('Current address request failed due to: ' + status)
       }
     })
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { H5, SubTitleH5, combineAddress } from '@reapit/elements'
 import Gmaps from './gmaps'
-import { CoordinateProps } from '@reapit/elements/src/components/Map'
+import { CoordinateProps } from '@reapit/elements'
 import { useLocation } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'

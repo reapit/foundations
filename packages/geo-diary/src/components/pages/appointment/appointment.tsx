@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import qs from 'query-string'
-import { Loader, isMobile } from '@reapit/elements'
+import { isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from './get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
@@ -106,13 +106,11 @@ export const Appointment: React.FC<AppointmentProps> = () => {
   const appointmentSorted = React.useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
     data?.GetAppointments?._embedded,
   ])
-  if (loading) {
-    return <Loader />
-  }
+
   if (isMobileView) {
-    return <MobileLayout appointments={appointmentSorted} />
+    return <MobileLayout appointments={appointmentSorted} loading={loading} />
   }
-  return <DesktopLayout appointments={appointmentSorted} />
+  return <DesktopLayout appointments={appointmentSorted} loading={loading} />
 }
 
 export default memo(Appointment)

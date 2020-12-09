@@ -24,12 +24,15 @@ export type HandleUseEffectParams = {
 export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      const queryString = qs.stringify({
+      const newQuery = qs.stringify({
         ...queryParams,
         currentLat: position.coords.latitude,
         currentLng: position.coords.longitude,
       })
-      history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+      const oldQuery = qs.stringify(queryParams)
+      if (newQuery !== oldQuery) {
+        history.push(`${ROUTES.APPOINTMENT}?${newQuery}`)
+      }
     })
   }
 }
