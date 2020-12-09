@@ -8,7 +8,7 @@ import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { mapContainer, appoinmentContainer } from './__styles__'
-import { Section } from '@reapit/elements'
+import { FadeIn, Loader, Section } from '@reapit/elements'
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
@@ -17,9 +17,10 @@ export type GenerateTabConfigParams = {
 
 export type DesktopLayoutProps = {
   appointments: ExtendedAppointmentModel[]
+  loading: boolean
 }
 
-export const DesktopLayout: React.FC<DesktopLayoutProps> = ({ appointments }) => {
+export const DesktopLayout: React.FC<DesktopLayoutProps> = ({ appointments, loading }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
@@ -30,7 +31,13 @@ export const DesktopLayout: React.FC<DesktopLayoutProps> = ({ appointments }) =>
           <AppointmentTime queryParams={queryParams} history={history} />
           <TravelMode queryParams={queryParams} history={history} />
         </Section>
-        <AppointmentList appointments={appointments} />
+        {loading ? (
+          <Loader />
+        ) : (
+          <FadeIn>
+            <AppointmentList appointments={appointments} />
+          </FadeIn>
+        )}
       </div>
       <div className={mapContainer}>
         <AppointmentMap appointments={appointments} />

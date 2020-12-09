@@ -13,7 +13,7 @@ import {
   Map,
 } from '../gmaps'
 import createGoogleMapsMock from './__mocks__/create-google-map'
-import { notification } from '@reapit/elements/src'
+import { notification } from '@reapit/elements'
 jest.mock('@reapit/elements')
 
 describe('Map', () => {
