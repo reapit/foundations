@@ -28,7 +28,7 @@ exports[`Menu should match a snapshot 1`] = `
         "key": "PAYMENTS",
         "title": "Payments",
         "type": "PRIMARY",
-        "url": "/payment",
+        "url": "/payments/:paymentId",
       },
       Object {
         "callback": [Function],

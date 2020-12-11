@@ -25,7 +25,9 @@
     "test:dev": "cross-env TZ=UTC jest --watch --silent",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
-  "dependencies": {},
+  "dependencies": {
+    "swr": "^0.3.9"
+  },
   "devDependencies": {
     "ts-jest": "^26.4.3"
   }

@@ -3,13 +3,11 @@ import { Button, Section, ModalV2, H5, Content } from '@reapit/elements'
 export type PaymentRequestModalProps = {
   isShowConfirmModal: boolean
   setRequestPaymentId: React.Dispatch<React.SetStateAction<string>>
-  requestPaymentId: string
 }
 
 export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
   isShowConfirmModal,
   setRequestPaymentId,
-  requestPaymentId,
 }) => {
   const handleOnClose = () => setRequestPaymentId('')
   return (

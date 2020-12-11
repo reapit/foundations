@@ -162,39 +162,7 @@ const Payments: React.FC = () => {
     },
     { Header: 'Amount', accessor: 'netAmount' },
     {
-      Header: () => {
-        return (
-          <div className={'field'}>
-            <div className="control">
-              <Field type="checkbox">
-                {() => {
-                  const isChecked = values.selectedPayment.length === data.length
-                  return (
-                    <div className="field field-checkbox">
-                      <input
-                        id="selectAll"
-                        className="checkbox"
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => {
-                          if (!isChecked) {
-                            setFieldValue('selectedPayment', data)
-                          } else {
-                            setFieldValue('selectedPayment', [])
-                          }
-                        }}
-                      />
-                      <label className="label" htmlFor="selectAll">
-                        Select All
-                      </label>
-                    </div>
-                  )
-                }}
-              </Field>
-            </div>
-          </div>
-        )
-      },
+      Header: <SelectAllHeader values={values} setFieldValue={setFieldValue} data={data} />,
       Cell: SelectPayment,
       id: uuidv4(),
     },
@@ -213,12 +181,46 @@ const Payments: React.FC = () => {
       ) : (
         <PaymentsContent data={data} generateColumns={generateColumns} onPageChange={onPageChange} />
       )}
-      <PaymentRequestModal
-        isShowConfirmModal={requestPaymentId !== ''}
-        setRequestPaymentId={setRequestPaymentId}
-        requestPaymentId={requestPaymentId}
-      />
+      <PaymentRequestModal isShowConfirmModal={requestPaymentId !== ''} setRequestPaymentId={setRequestPaymentId} />
     </ErrorBoundary>
+  )
+}
+
+const SelectAllHeader: React.FC<{ values: any; setFieldValue: Function; data: Array<Payment> }> = ({
+  values,
+  setFieldValue,
+  data,
+}) => {
+  return (
+    <div className={'field'}>
+      <div className="control">
+        <Field type="checkbox">
+          {() => {
+            const isChecked = values.selectedPayment.length === data.length
+            return (
+              <div className="field field-checkbox">
+                <input
+                  id="selectAll"
+                  className="checkbox"
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={() => {
+                    if (!isChecked) {
+                      setFieldValue('selectedPayment', data)
+                    } else {
+                      setFieldValue('selectedPayment', [])
+                    }
+                  }}
+                />
+                <label className="label" htmlFor="selectAll">
+                  Select All
+                </label>
+              </div>
+            )
+          }}
+        </Field>
+      </div>
+    </div>
   )
 }
 
