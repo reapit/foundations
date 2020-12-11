@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { MobileLayout } from '../mobile-layout'
+import { DesktopLayout } from '../desktop-layout'
 import { appointment } from '@/graphql/__mocks__/appointment'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
@@ -11,13 +11,13 @@ jest.mock('react-router-dom', () => ({
 }))
 
 describe('mobile-layout', () => {
-  describe('MobileLayout', () => {
+  describe('DesktopLayout', () => {
     it('should render correctly', () => {
       const mockProps = {
         appointments: [appointment],
         loading: false,
       }
-      const wrapper = shallow(<MobileLayout {...mockProps} />)
+      const wrapper = shallow(<DesktopLayout {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

@@ -8,7 +8,7 @@ import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
 import ListAndMapTab from '@/components/ui/list-and-map-tab'
-import { Section } from '@reapit/elements'
+import { Loader, Section } from '@reapit/elements'
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
@@ -17,9 +17,10 @@ export type GenerateTabConfigParams = {
 
 export type MobileLayoutProps = {
   appointments: ExtendedAppointmentModel[]
+  loading: boolean
 }
 
-export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
+export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments, loading }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
@@ -43,7 +44,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
         <TravelMode queryParams={queryParams} history={history} />
       </Section>
       <Section isFlex isFlexColumn hasBackground={false}>
-        <AppointmentList appointments={appointments} />
+        {loading ? <Loader /> : <AppointmentList appointments={appointments} />}
       </Section>
     </>
   )

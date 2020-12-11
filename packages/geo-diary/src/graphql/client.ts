@@ -4,11 +4,14 @@ import { ApolloCache } from 'apollo-cache'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 import { notification } from '@reapit/elements'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
-export const generateRequest = (accessToken: string) => async (operation: Operation) => {
+export const generateRequest = (session: ReapitConnectSession) => async (operation: Operation) => {
+  const { loginIdentity, accessToken } = session
   operation.setContext({
     headers: {
       authorization: accessToken,
+      'reapit-customer': `${loginIdentity.clientId}-${loginIdentity.userCode}`,
     },
   })
 }
@@ -56,12 +59,12 @@ const clientState = {
   typeDefs,
 }
 
-export const getClient = (accessToken: string, uri: string) =>
+export const getClient = (session: ReapitConnectSession, uri: string) =>
   new ApolloClient({
     uri,
     onError,
     cache,
-    request: generateRequest(accessToken),
+    request: generateRequest(session),
     clientState,
   })
 
