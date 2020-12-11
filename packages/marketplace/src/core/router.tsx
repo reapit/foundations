@@ -22,7 +22,6 @@ const HandleLegacyAdminRoutesModal = React.lazy(() =>
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
-const Payments = React.lazy(() => catchChunkError(() => import('../components/pages/payments')))
 
 const Router = () => {
   return (
@@ -61,7 +60,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                <PrivateRoute path={Routes.PAYMENTS} exact component={Payments} />
                 <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>

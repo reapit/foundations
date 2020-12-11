@@ -1,7 +1,8 @@
 const Routes = {
   HOME: '/',
   LOGIN: '/login',
-  PAYMENT: '/payment',
+  PAYMENTS: '/payments',
+  PAYMENT: '/payments/:paymentId',
   RENTALS: '/rentals',
 }
 

@@ -14,30 +14,32 @@ import {
   DatePicker,
 } from '@reapit/elements'
 import { formFields } from './form-schema/payment-filter-fields'
+import { columnRelative, searchBtn } from '../../../styles/ui/payment-filter-form'
 
 export interface PaymentsFilterFormValues {
-  requestedFrom: string
+  createdFrom: string
+  createdTo: string
   customers: string
   properties: string
   description: string
 }
 
-export interface SubscriptionsFormProps {
+export interface PaymentsFormProps {
   filterValues: PaymentsFilterFormValues
   onSearch: any
 }
 
-const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValues, onSearch }) => {
+const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearch }) => {
   const { customers, properties, description } = formFields
   return (
     <Formik initialValues={filterValues} onSubmit={onSearch}>
-      {({ values: { requestedFrom }, status }) => {
+      {({ values: { createdFrom }, status }) => {
         return (
           <Form noValidate={true}>
             <FormSection>
-              <FormHeading>Subscriptions Filter Form</FormHeading>
-              <FormSubHeading>Filter the result by type and developer</FormSubHeading>
-              <Grid className="items-center">
+              <FormHeading>Payments Filter Form</FormHeading>
+              <FormSubHeading>Filter the result by:</FormSubHeading>
+              <Grid>
                 <GridItem>
                   <Input type="text" labelText={customers.label} id={customers.name} name={customers.name} />
                   <Input type="text" labelText={properties.label} id={properties.name} name={properties.name} />
@@ -79,27 +81,27 @@ const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValue
                     options={[]}
                   />
                 </GridItem>
-                <GridItem className="mt-4">
+                <GridItem>
                   <DatePicker
-                    name="requestedFrom"
-                    labelText="Requested From"
-                    id="requestedFrom"
+                    name="createdFrom"
+                    labelText="Created From"
+                    id="createdFrom"
                     reactDatePickerProps={{
                       maxDate: dayjs().toDate(),
                     }}
                   />
                 </GridItem>
-                <GridItem>
+                <GridItem className={columnRelative}>
                   <DatePicker
-                    name="requestedTo"
-                    labelText="Requested To"
-                    id="requestedTo"
+                    name="createdTo"
+                    labelText="Created To"
+                    id="createdTo"
                     reactDatePickerProps={{
-                      minDate: dayjs(requestedFrom).toDate(),
+                      minDate: dayjs(createdFrom).toDate(),
                       maxDate: dayjs().toDate(),
                     }}
                   />
-                  <Button type="submit" variant="primary">
+                  <Button type="submit" variant="primary" className={searchBtn}>
                     Search
                   </Button>
                 </GridItem>
@@ -113,4 +115,4 @@ const SubscriptionsFilterForm: React.FC<SubscriptionsFormProps> = ({ filterValue
   )
 }
 
-export default SubscriptionsFilterForm
+export default PaymentsFilterForm
