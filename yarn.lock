@@ -4339,11 +4339,6 @@
     react-transition-group "^4.4.0"
     snyk "^1.338.0"
 
-"@reapit/foundations-ts-definitions@1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-1.1.3.tgz#b13cd77b571b974b173683262930bf50409a6356"
-  integrity sha512-s8Gybk4rCg/E492kLmyFFBGzo58llRcgqjCbeb9Lisp3cjqRBzObF4vP9c32xlEvjDxtzwlru02EiLHIUwQtxA==
-
 "@reapit/foundations-ts-definitions@1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-1.1.4.tgz#74b6efa3ea0962a7d190274aa8159f8d56c78cc8"

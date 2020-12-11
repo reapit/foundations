@@ -653,6 +653,10 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                     "accessor": [Function],
                                   },
                                   Object {
+                                    "Header": "Installed By",
+                                    "accessor": "installedBy",
+                                  },
+                                  Object {
                                     "Cell": [Function],
                                     "Header": "Uninstall",
                                   },

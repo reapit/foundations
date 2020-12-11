@@ -113,6 +113,10 @@ export const generateInstallationTableColumns = (
       accessor: d => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
     },
     {
+      Header: 'Installed By',
+      accessor: 'installedBy',
+    },
+    {
       Header: 'Uninstall',
       Cell: UninstallCell,
     },

@@ -223,6 +223,10 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                 "accessor": [Function],
               },
               Object {
+                "Header": "Installed By",
+                "accessor": "installedBy",
+              },
+              Object {
                 "Cell": [Function],
                 "Header": "Uninstall",
               },

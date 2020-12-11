@@ -55,32 +55,7 @@ exports[`Authentication should match a snapshot 1`] = `
         }
       }
     >
-      <Authentication>
-        <Component
-          footerItems={
-            <React.Fragment>
-              <Unknown
-                onClick={[Function]}
-              >
-                Register
-              </Unknown>
-              <Unknown
-                onClick={[Function]}
-              >
-                Marketplace
-              </Unknown>
-              <Unknown
-                onClick={[Function]}
-              >
-                Logout
-              </Unknown>
-            </React.Fragment>
-          }
-          tapOutsideToDissmiss={false}
-          title="Register as a Developer?"
-          visible={true}
-        />
-      </Authentication>
+      <Authentication />
     </Router>
   </MemoryRouter>
 </Provider>
