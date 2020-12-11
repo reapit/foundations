@@ -63,7 +63,7 @@ interface Payment {
   landlordId: string
   ledger: string
   modified: '2020-12-02T17:45:58.0000000Z'
-  netAmount: number
+  amount: number
   propertyId: string
   status: string
   tenancyId: null
@@ -160,7 +160,7 @@ const Payments: React.FC = () => {
       accessor: 'created',
       Cell: RequestedCell,
     },
-    { Header: 'Amount', accessor: 'netAmount' },
+    { Header: 'Amount', accessor: 'amount' },
     {
       Header: <SelectAllHeader values={values} setFieldValue={setFieldValue} data={data} />,
       Cell: SelectPayment,
@@ -238,7 +238,7 @@ const PaymentsContent: React.FC<{ data: any; generateColumns: Function; onPageCh
   )
 }
 
-const reducerTotal = (accumulator: number, currentValue: Payment) => accumulator + currentValue.netAmount
+const reducerTotal = (accumulator: number, currentValue: Payment) => accumulator + currentValue.amount
 
 const getTotal = (arr: Array<Payment>) => {
   const totalCount = arr.reduce(reducerTotal, 0)
