@@ -11,6 +11,8 @@ module.exports = () => {
     indexFilePath,
     prettifyCode(
       '// @ts-ignore\n' +
+        'export * from "../traffic-schema/marketplace-traffic-event-schema"' +
+        '// @ts-ignore\n' +
         files
           .filter(file => file !== 'index.ts')
           .map(file => file.replace('.ts', ''))
