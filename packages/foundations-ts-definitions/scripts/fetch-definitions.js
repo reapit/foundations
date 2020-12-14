@@ -17,7 +17,6 @@ const fetchDefinitionsForSchema = async schemaConfig => {
   })
   if (response.status < 400) {
     const definitions = await response.json()
-
     // Convert definitions to TypeScript interfaces
     const convertedDefinitions = await sw2dts.convert(definitions, {
       withQuery: true,
@@ -72,8 +71,8 @@ const fetchSchema = async apiVersion => {
       },
     },
     {
-      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './marketplace-traffic-event-schema.ts'),
-      endpoint: `${PLATFORM_API_BASE_URL}/trafficevents/swagger/v2/swagger.json`,
+      definitionFile: path.resolve(FOUNDATIONS_TYPES_FOLDER, './payments-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/payments/swagger/latest/swagger.json`,
       headers: {
         'api-version': apiVersion,
       },
