@@ -14,7 +14,7 @@ export const generatePropertyImageBatchLoaderFn = (context: ServerContext) => as
   try {
     const propertyImagesResult = (await getPropertyImages({ id: keys }, context)) as PagedResultPropertyImageModel_
     const result = keys.map((key: string) => {
-      return propertyImagesResult?._embedded?.find((property: PropertyImageModel) => property.id === key)
+      return (propertyImagesResult?._embedded ?? []).find((property: PropertyImageModel) => property.id === key)
     })
     return result
   } catch (err) {

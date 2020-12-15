@@ -14,7 +14,7 @@ export const generateNegotiatorBatchLoaderFn = (context: ServerContext) => async
   try {
     const negotiatorsResult = (await getNegotiators({ id: keys }, context)) as PagedResultNegotiatorModel_
     const result = keys.map((key: string) => {
-      return negotiatorsResult?._embedded?.find((negotiator: NegotiatorModel) => negotiator.id === key)
+      return (negotiatorsResult?._embedded ?? []).find((negotiator: NegotiatorModel) => negotiator.id === key)
     })
     return result
   } catch (err) {

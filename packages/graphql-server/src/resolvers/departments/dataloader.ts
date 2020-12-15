@@ -14,7 +14,7 @@ export const generateDepartmentBatchLoaderFn = (context: ServerContext) => async
   try {
     const departmentsResult = (await getDepartments({ id: keys }, context)) as PagedResultDepartmentModel_
     const result = keys.map((key: string) => {
-      return departmentsResult?._embedded?.find((department: DepartmentModel) => department.id === key)
+      return (departmentsResult?._embedded ?? []).find((department: DepartmentModel) => department.id === key)
     })
     return result
   } catch (err) {
