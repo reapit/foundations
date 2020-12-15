@@ -20,9 +20,9 @@ import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-k
 import { opayoCreateTransactionService } from '../../opayo-api/transactions'
 // import * as Yup from 'yup'
 
-export const PaymentsPage: React.FC = () => {
+export const PaymentPage: React.FC = () => {
   const { paymentId } = useParams<{ paymentId: string }>()
-  const { data }: any = useSWR(`${URLS.PAYMENTS}/${paymentId}`)
+  const { data } = useSWR(`${URLS.PAYMENTS}/${paymentId}`)
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey>()
 
@@ -156,4 +156,4 @@ export const PaymentsPage: React.FC = () => {
   )
 }
 
-export default PaymentsPage
+export default PaymentPage
