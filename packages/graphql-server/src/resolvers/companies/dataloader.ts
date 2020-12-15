@@ -14,7 +14,7 @@ export const generateCompanyBatchLoaderFn = (context: ServerContext) => async (k
   try {
     const companiesResult = (await getCompanies({ id: keys }, context)) as PagedResultCompanyModel_
     const result = keys.map((key: string) => {
-      return companiesResult?._embedded?.find((company: CompanyModel) => company.id === key)
+      return (companiesResult?._embedded ?? []).find((company: CompanyModel) => company.id === key)
     })
     return result
   } catch (err) {

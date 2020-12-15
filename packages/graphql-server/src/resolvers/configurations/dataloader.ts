@@ -14,7 +14,7 @@ export const generateConfigurationBatchLoaderFn = (context: ServerContext) => as
   try {
     const appointmentTypes = await getConfigurationsByType({ type: 'appointmentTypes' as ConfigurationType }, context)
     const result = keys.map((key: string) => {
-      return appointmentTypes?.find(appointmentType => appointmentType.id === key)
+      return (appointmentTypes ?? []).find(appointmentType => appointmentType.id === key)
     })
     return result
   } catch (err) {

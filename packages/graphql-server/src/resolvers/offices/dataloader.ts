@@ -14,7 +14,7 @@ export const generateOfficeBatchLoaderFn = (context: ServerContext) => async (ke
   try {
     const officesResult = (await getOffices({ id: keys }, context)) as PagedResultOfficeModel_
     const result = keys.map((key: string) => {
-      return officesResult?._embedded?.find((office: OfficeModel) => office.id === key)
+      return (officesResult?._embedded ?? []).find((office: OfficeModel) => office.id === key)
     })
     return result
   } catch (err) {

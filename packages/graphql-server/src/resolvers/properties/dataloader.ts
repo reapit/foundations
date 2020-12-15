@@ -14,7 +14,7 @@ export const generatePropertyBatchLoaderFn = (context: ServerContext) => async (
   try {
     const propertiesResult = (await getProperties({ id: keys }, context)) as PagedResultPropertyModel_
     const result = keys.map((key: string) => {
-      return propertiesResult?._embedded?.find((property: PropertyModel) => property.id === key)
+      return (propertiesResult?._embedded ?? []).find((property: PropertyModel) => property.id === key)
     })
     return result
   } catch (err) {
