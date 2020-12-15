@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import { SWRConfig } from 'swr'
+
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
+import { fetcher } from '../utils/fetcher'
 
 export const history = createBrowserHistory()
 
@@ -29,7 +32,8 @@ export const catchChunkError = (
 }
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments')))
+const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments/index')))
+const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +42,15 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.PAYMENT} component={PaymentsPage} />
+            <SWRConfig
+              value={{
+                revalidateOnFocus: false,
+                fetcher,
+              }}
+            >
+              <Route path={Routes.PAYMENT} component={PaymentPage} exact />
+              <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
+            </SWRConfig>
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

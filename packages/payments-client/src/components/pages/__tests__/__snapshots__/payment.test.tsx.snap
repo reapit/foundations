@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Payments should match a snapshot 1`] = `
+exports[`Payment should match a snapshot 1`] = `
 <Fragment>
   <Component
     isHeadingSection={true}

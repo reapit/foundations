@@ -36,7 +36,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (window.location.pathname === '/') {
-    return <Redirect to={Routes.PAYMENT} />
+    return <Redirect to={Routes.PAYMENTS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
