@@ -14,7 +14,7 @@ export const generateConveyancingBatchLoaderFn = (context: ServerContext) => asy
   try {
     const conveyancingResult = (await getConveyancing({ id: keys }, context)) as PagedResultConveyancingModel_
     const result = keys.map((key: string) => {
-      return conveyancingResult?._embedded?.find((conveyancing: ConveyancingModel) => conveyancing.id === key)
+      return (conveyancingResult?._embedded ?? []).find((conveyancing: ConveyancingModel) => conveyancing.id === key)
     })
     return result
   } catch (err) {
