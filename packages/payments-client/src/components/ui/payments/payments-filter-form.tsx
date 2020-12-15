@@ -12,9 +12,11 @@ import {
   DropdownSelect,
   Input,
   DatePicker,
+  DATE_TIME_FORMAT,
 } from '@reapit/elements'
 import { formFields } from './form-schema/payment-filter-fields'
 import { columnRelative, searchBtn } from '../../../styles/ui/payment-filter-form'
+import { statusOptions, typeOptions } from '../../../constants/filterOption'
 
 export interface PaymentsFilterFormValues {
   createdFrom: string
@@ -22,6 +24,8 @@ export interface PaymentsFilterFormValues {
   customers: string
   properties: string
   description: string
+  type: string[]
+  status: string[]
 }
 
 export interface PaymentsFormProps {
@@ -33,7 +37,7 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
   const { customers, properties, description } = formFields
   return (
     <Formik initialValues={filterValues} onSubmit={onSearch}>
-      {({ values: { createdFrom }, status }) => {
+      {({ values: { createdFrom } }) => {
         return (
           <Form noValidate={true}>
             <FormSection>
@@ -48,35 +52,35 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                 <GridItem>
                   <DropdownSelect
                     mode="multiple"
-                    id="developerId"
+                    id="type"
                     placeholder="Please select"
-                    name="developerId"
+                    name="type"
                     labelText="Payment Type"
-                    options={[]}
+                    options={typeOptions}
                   />
                   <DropdownSelect
                     mode="multiple"
-                    id="developerId"
+                    id="status"
                     placeholder="Please select"
-                    name="developerId"
+                    name="status"
                     labelText="Status"
-                    options={[]}
+                    options={statusOptions}
                   />
                 </GridItem>
                 <GridItem>
                   <DropdownSelect
                     mode="multiple"
-                    id="developerId"
+                    id="customer"
                     placeholder="Please select"
-                    name="developerId"
+                    name="customer"
                     labelText="Customer"
                     options={[]}
                   />
                   <DropdownSelect
                     mode="multiple"
-                    id="developerId"
+                    id="clientAccount"
                     placeholder="Please select"
-                    name="developerId"
+                    name="clientAccount"
                     labelText="Client Account"
                     options={[]}
                   />
@@ -97,8 +101,8 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                     labelText="Created To"
                     id="createdTo"
                     reactDatePickerProps={{
-                      minDate: dayjs(createdFrom).toDate(),
-                      maxDate: dayjs().toDate(),
+                      minDate: dayjs(createdFrom).format(DATE_TIME_FORMAT.RFC3339),
+                      maxDate: dayjs().format(DATE_TIME_FORMAT.RFC3339),
                     }}
                   />
                   <Button type="submit" variant="primary" className={searchBtn}>
@@ -106,7 +110,6 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                   </Button>
                 </GridItem>
               </Grid>
-              {status && <p className="has-text-danger">{status}</p>}
             </FormSection>
           </Form>
         )

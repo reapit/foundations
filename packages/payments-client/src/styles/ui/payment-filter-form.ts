@@ -7,4 +7,5 @@ export const columnRelative = css`
 export const searchBtn = css`
   position: absolute;
   bottom: 1.25rem;
+  right: 0.5rem;
 `

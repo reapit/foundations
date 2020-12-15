@@ -1,6 +1,6 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
-import useSWR, { mutate } from 'swr'
+import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { Field } from 'formik'
 import { History } from 'history'
@@ -35,7 +35,9 @@ export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterF
   const description = queryParams.get('description') || ''
   const createdFrom = queryParams.get('createdFrom') || ''
   const createdTo = queryParams.get('createdTo') || ''
-  return { customers, properties, description, createdFrom, createdTo } as PaymentsFilterFormValues
+  const status = queryParams.getAll('status') || []
+  const type = queryParams.getAll('type') || []
+  return { customers, properties, description, createdFrom, createdTo, status, type } as PaymentsFilterFormValues
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: PaymentsFilterFormValues) => (page: number) => {
@@ -47,7 +49,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: Payments
   return history.push(`${Routes.PAYMENTS}${queryString}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (queryParams: PaymentsFilterFormValues, { setStatus }) => {
+export const onSearchHandler = (history: History<any>) => (queryParams: PaymentsFilterFormValues) => {
   const cleanedValues = cleanObject(queryParams)
   const { developerId } = cleanedValues
   if (developerId?.length > 1) {
@@ -58,16 +60,14 @@ export const onSearchHandler = (history: History<any>) => (queryParams: Payments
   }
 
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criteria')
+    history.push(`${Routes.PAYMENTS}`)
     return
   }
 
-  setStatus(null)
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
     history.push(`${Routes.PAYMENTS}${queryString}`)
-    mutate(`${URLS.PAYMENTS}/${queryString}`)
   }
 }
 
@@ -82,7 +82,7 @@ const Payments: React.FC = () => {
 
   const [requestPaymentId, setRequestPaymentId] = React.useState<string>('')
 
-  const { data }: any = useSWR(URLS.PAYMENTS)
+  const { data }: any = useSWR(`${URLS.PAYMENTS}/${search}`)
 
   const handleTakePayment = (id: string) => {
     return history.push(`${Routes.PAYMENTS}/${id}`)
