@@ -52,7 +52,7 @@ const Authentication: React.FC = () => {
   }
 
   if (developerCreateState === 'SUCCESS') {
-    return <Redirect to={Routes.SETTINGS_ORGANISATION_TAB} />
+    window.location.href = `${window.reapit.config.connectOAuthUrl}/authorize?response_type=code&client_id=${window.reapit.config.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_ORGANISATION_TAB}`
   }
 
   if (developerCreateState === 'ERROR') {
@@ -84,7 +84,7 @@ const Authentication: React.FC = () => {
     >
       <p>
         {isUserAdmin
-          ? `To continue using the Developers Portal, you will first need to setup your profile information for your organisation ‘${orgName}’. Please click ‘Continue’ to procced, where you will be redirected to setup your organisation's profile.`
+          ? `To continue using the Developers Portal, you will first need to setup your profile information for your organisation ‘${orgName}’. Please click ‘Continue’ to proceed, where you will be redirected to setup your organisation's profile.`
           : `As you are a part of the ‘${orgName}’ group, you will need to be invited to join this Developer organisation by an Administrator. Please contact an Administrator within your organisation to request an invitation.`}
       </p>
     </Modal>
