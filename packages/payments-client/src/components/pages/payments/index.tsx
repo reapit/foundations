@@ -27,49 +27,7 @@ import Routes from '@/constants/routes'
 import PaymentsFilterForm, { PaymentsFilterFormValues } from '@/components/ui/payments/payments-filter-form'
 import PaymentRequestModal from '@/components/ui/payments/payment-request-modal'
 import { URLS } from '../../../constants/api'
-
-interface CustomerAddress {
-  buildingName: string
-  buildingNumber: string
-  countryId: string
-  line1: string
-  line2: string
-  line3: string
-  line4: string
-  postcode: string
-}
-
-interface Customer {
-  email: string
-  forename: string
-  homePhone: string
-  id: string
-  mobilePhone: string
-  name: string
-  primaryAddress: CustomerAddress
-  surname: string
-  title: string
-  type: string
-}
-
-interface Payment {
-  clientAccountName: string
-  companyId: string
-  created: '2020-11-13T12:17:38.0000000Z'
-  customer: Customer
-  description: string
-  externalReference: string
-  id: string
-  landlordId: string
-  ledger: string
-  modified: '2020-12-02T17:45:58.0000000Z'
-  amount: number
-  propertyId: string
-  status: string
-  tenancyId: null
-  type: string
-  vatAmount: number
-}
+import { PaymentModelPagedResult, PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterFormValues => {
   const customers = queryParams.get('customers') || ''
@@ -149,7 +107,7 @@ const Payments: React.FC = () => {
     </div>
   )
 
-  const generateColumns = (values: any, setFieldValue: Function, data: Array<Payment>) => [
+  const generateColumns = (values: any, setFieldValue: Function, listPayment: PaymentModel[]) => [
     { Header: 'Property', accessor: 'propertyId' },
     { Header: 'Customer', accessor: 'customer.name' },
     { Header: 'Description', accessor: 'description' },
@@ -162,7 +120,7 @@ const Payments: React.FC = () => {
     },
     { Header: 'Amount', accessor: 'amount' },
     {
-      Header: <SelectAllHeader values={values} setFieldValue={setFieldValue} data={data} />,
+      Header: <SelectAllHeader values={values} setFieldValue={setFieldValue} data={listPayment} />,
       Cell: SelectPayment,
       id: uuidv4(),
     },
@@ -186,7 +144,7 @@ const Payments: React.FC = () => {
   )
 }
 
-const SelectAllHeader: React.FC<{ values: any; setFieldValue: Function; data: Array<Payment> }> = ({
+const SelectAllHeader: React.FC<{ values: any; setFieldValue: Function; data: Array<PaymentModel> }> = ({
   values,
   setFieldValue,
   data,
@@ -224,29 +182,32 @@ const SelectAllHeader: React.FC<{ values: any; setFieldValue: Function; data: Ar
   )
 }
 
-const PaymentsContent: React.FC<{ data: any; generateColumns: Function; onPageChange: (page: number) => void }> = ({
-  data,
-  generateColumns,
-  onPageChange,
-}) => {
+const PaymentsContent: React.FC<{
+  data: PaymentModelPagedResult
+  generateColumns: Function
+  onPageChange: (page: number) => void
+}> = ({ data, generateColumns, onPageChange }) => {
   const { _embedded: listPayment, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      {renderResult(listPayment, generateColumns, totalCount)}
+      {renderResult(generateColumns, listPayment, totalCount)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )
 }
 
-const reducerTotal = (accumulator: number, currentValue: Payment) => accumulator + currentValue.amount
+const reducerTotal = (accumulator: number, currentValue: PaymentModel): number => {
+  const amount: number = currentValue.amount || 0
+  return accumulator + amount
+}
 
-const getTotal = (arr: Array<Payment>) => {
+const getTotal = (arr: PaymentModel[]) => {
   const totalCount = arr.reduce(reducerTotal, 0)
   return totalCount
 }
 
-export const renderResult = (data: Array<Payment>, generateColumns: Function, totalCount: number) => {
-  if (data?.length === 0) {
+export const renderResult = (generateColumns: Function, listPayment?: PaymentModel[], totalCount?: number) => {
+  if (listPayment?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
 
@@ -263,8 +224,8 @@ export const renderResult = (data: Array<Payment>, generateColumns: Function, to
               <Table
                 expandable
                 scrollable={true}
-                data={data || []}
-                columns={generateColumns(values, setFieldValue, data)}
+                data={listPayment || []}
+                columns={generateColumns(values, setFieldValue, listPayment)}
               />
             </Section>
             <Section>

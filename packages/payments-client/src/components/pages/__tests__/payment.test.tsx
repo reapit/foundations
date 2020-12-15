@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import Payments from '../payments'
+import Payment from '../payment'
 
 const locationMock = { pathname: '/payments' }
 
@@ -9,8 +9,8 @@ jest.mock('react-router', () => ({
   useLocation: jest.fn(() => locationMock),
 }))
 
-describe('Payments', () => {
+describe('Payment', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Payments />)).toMatchSnapshot()
+    expect(shallow(<Payment />)).toMatchSnapshot()
   })
 })
