@@ -1,16 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Payment should match a snapshot 1`] = `
-<Fragment>
-  <Component
-    isHeadingSection={true}
-  >
-    Reapit Payments
-  </Component>
-  <Component
-    variant="info"
-  >
-    Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please talk to your administrator to set this up for you.
-  </Component>
-</Fragment>
-`;
+exports[`Payment should match a snapshot 1`] = `<Component />`;

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import useSWR from 'swr'
 import {
   Section,
   H3,
@@ -13,11 +15,14 @@ import {
   unformatCard,
   unformatCardExpires,
 } from '@reapit/elements'
+import { URLS } from '../../constants/api'
 import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-key'
 import { opayoCreateTransactionService } from '../../opayo-api/transactions'
 // import * as Yup from 'yup'
 
 export const PaymentsPage: React.FC = () => {
+  const { paymentId } = useParams<{ paymentId: string }>()
+  const { data }: any = useSWR(`${URLS.PAYMENTS}/${paymentId}`)
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey>()
 
@@ -35,9 +40,12 @@ export const PaymentsPage: React.FC = () => {
     setLoading(true)
   }, [setMerchantKey])
 
-  if (loading) {
+  if (!data || loading) {
     return <Loader />
   }
+
+  const { forename, surname, primaryAddress } = data.customer
+  const { buildingName, buildingNumber, line1, line3, line4, postcode, countryId } = primaryAddress
 
   return (
     <>
@@ -51,12 +59,12 @@ export const PaymentsPage: React.FC = () => {
       {merchantKey && (
         <Formik
           initialValues={{
-            customerFirstName: '',
-            customerLastName: '',
-            address1: '',
-            city: '',
-            postalCode: '',
-            country: '',
+            customerFirstName: forename,
+            customerLastName: surname,
+            address1: buildingName || buildingNumber + line1,
+            city: line3 || line4,
+            postalCode: postcode,
+            country: countryId,
             cardholderName: '',
             cardNumber: '',
             expiryDate: '',
