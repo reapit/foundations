@@ -8,8 +8,8 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/send-email', async function(_, res) {
-  sendEmail('windytran.06@gmail.com', 'Hey! Welcome', 'This is the body of email')
+app.post('/payments/request/:id', async function(_, res) {
+  sendEmail('longtr268@gmail.com', 'Hey! Welcome', 'This is the body of email')
   res.send('Email is sent!')
 })
 

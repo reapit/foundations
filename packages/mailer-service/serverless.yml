@@ -1,23 +1,12 @@
-service: mailer-service
-
-provider:
-  name: aws
-  runtime: nodejs12.x
-  stage: ${opt:stage, 'dev'}
-  region: eu-west-2
-
-functions:
-  app:
-    handler: src/index.handler
-    events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+service: cloud-mailer-service
 
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-deployment-bucket
 
 custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -27,4 +16,19 @@ custom:
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
 
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+    blockPublicAccess: false
 
+functions:
+  app:
+    handler: src/index.handler
+    events:
+      - http: 
+          path: /payments/request/{id}
+          method: post
