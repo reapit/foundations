@@ -85,8 +85,8 @@
 .rc-select-multiple .rc-select-selector {
   display: flex;
   flex-wrap: wrap;
-  padding: 1px;
   cursor: text;
+
   .rc-select-selection-item {
     flex: none;
     background: #f5f5f5;
@@ -355,7 +355,7 @@
   color: white;
 }
 
-.reapit-tooltip-content  a {
+.reapit-tooltip-content a {
   text-decoration: underline;
   margin-left: 2px;
   color: white;
