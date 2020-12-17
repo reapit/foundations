@@ -25,6 +25,21 @@
       border: 1px solid $grey;
     }
 
+    & + label.beforeBox:before {
+      display: none;
+    }
+
+    & + label.beforeBox:after {
+      content: '';
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: white;
+      border: 1px solid $grey;
+    }
+
     // Box hover
     &:hover + label:before {
       background: $reapit-teal;

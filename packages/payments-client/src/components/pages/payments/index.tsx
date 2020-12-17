@@ -170,7 +170,7 @@ const SelectAllHeader: React.FC<{ values: any; setFieldValue: Function; data: Ar
                     }
                   }}
                 />
-                <label className="label" htmlFor="selectAll">
+                <label className="label beforeBox" htmlFor="selectAll">
                   Select All
                 </label>
               </div>
