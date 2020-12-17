@@ -30,7 +30,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (window.location.pathname === '/') {
-    return <Redirect to={Routes.ACCOUNTS} />
+    return <Redirect to={Routes.SUBSCRIPTIONS} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

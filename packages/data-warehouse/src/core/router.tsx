@@ -30,6 +30,9 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts/accounts')))
+const SubsctiptionsPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/subscriptions/subscriptions')),
+)
 const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
 const HealthPage = React.lazy(() => catchChunkError(() => import('../components/pages/health')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
@@ -42,6 +45,7 @@ const Router = () => (
         <PrivateRouteWrapper>
           <Switch>
             <Route path={Routes.ACCOUNTS} component={AccountsPage} />
+            <Route path={Routes.SUBSCRIPTIONS} component={SubsctiptionsPage} />
             <Route path={Routes.DATA} component={DataPage} />
             <Route path={Routes.HEALTH} component={HealthPage} />
             <Route path={Routes.SETTINGS} component={SettingsPage} />
