@@ -22,14 +22,14 @@ exports[`Accounts should match a snapshot 1`] = `
           </h3>
         </Component>
         <Component
-          disabled={false}
+          disabled={true}
           loading={false}
           onClick={[Function]}
         >
           <button
             className="button  is-primary  "
             data-test=""
-            disabled={false}
+            disabled={true}
             onClick={[Function]}
             type="button"
           >
@@ -51,32 +51,17 @@ exports[`Accounts should match a snapshot 1`] = `
         </AccountProvisionModal>
       </section>
     </Component>
-    <Component>
-      <section
-        className=""
-        data-test=""
+    <mock-styled.div>
+      <Component
+        variant="info"
       >
-        <Component>
-          <h5
-            className=""
-            id=""
-          >
-            Account Details
-          </h5>
-        </Component>
-        <Component>
-          <div
-            className="loader-spinner body"
-            data-test=""
-          >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
-      </section>
-    </Component>
+        <div
+          className="notification helper-wrap helper-info"
+        >
+          You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
+        </div>
+      </Component>
+    </mock-styled.div>
   </Component>
 </Component>
 `;

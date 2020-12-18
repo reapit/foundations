@@ -1,62 +1,12 @@
-import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader, Helper } from '@reapit/elements'
 import { PricingTile } from './__styles__/pricing-tile'
-import {
-  createSubscriptionsService,
-  deleteSubscriptionsService,
-  getSubscriptionsService,
-} from '../../../services/subscriptions'
-import { MessageContext, MessageState } from '../../../context/message-context'
-import { SubscriptionModel, SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { getSubscriptionsService } from '../../../services/subscriptions'
+import { MessageContext } from '../../../context/message-context'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
-
-export const handleSubscriptionToggle = (
-  currentSubscription: SubscriptionModel | null,
-  loginIdentity: LoginIdentity,
-  setMessageState: Dispatch<SetStateAction<MessageState>>,
-  setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
-) => async () => {
-  const { developerId, clientId, email } = loginIdentity
-
-  if (!developerId || !clientId || !email) return
-
-  if (currentSubscription && currentSubscription.id) {
-    const deleted = await deleteSubscriptionsService(currentSubscription.id)
-
-    if (deleted) {
-      const subscriptions = await getSubscriptionsService()
-      if (subscriptions) {
-        setSubscriptions(subscriptions)
-      }
-      return setMessageState({ infoMessage: 'Successfully unsubscribed' })
-    }
-
-    return setMessageState({ errorMessage: 'Something went wrong unsubscribing' })
-  }
-
-  const created = createSubscriptionsService({
-    developerId,
-    applicationId: '',
-    user: email,
-    customerId: clientId,
-    type: 'dataWarehouse',
-  })
-
-  if (created) {
-    // Required to avoid a race condition where a fetch on subscriptions does not return
-    // the subscription immediately after it has been created. Delay the fetch by 500ms
-    // to allow the endpoint to catch up!
-    setTimeout(async () => {
-      const subscriptions = await getSubscriptionsService()
-      if (subscriptions) {
-        setSubscriptions(subscriptions)
-      }
-    }, 500)
-    return setMessageState({ infoMessage: 'Successfully subscribed' })
-  }
-  return setMessageState({ errorMessage: 'Something went wrong subscribing' })
-}
+import { useReapitConnect } from '@reapit/connect-session'
+import { getCurrentSubscription, handleSubscriptionToggle } from './subscriptions-handlers'
 
 export const SubscriptionsContent: React.FC = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
@@ -65,12 +15,7 @@ export const SubscriptionsContent: React.FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = connectSession?.loginIdentity ?? null
   const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const currentSubscription =
-    subscriptions?.data?.length && Boolean(developerId)
-      ? subscriptions?.data.find(
-          sub => sub.developerId === developerId && sub.type === 'dataWarehouse' && !sub.cancelled,
-        ) ?? null
-      : null
+  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
 
   useEffect(() => {
     const getSubscriptions = async () => {
@@ -80,10 +25,12 @@ export const SubscriptionsContent: React.FC = () => {
       if (subscriptions) {
         return setSubscriptions(subscriptions)
       }
-      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
+      return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
     }
-    getSubscriptions()
-  }, [setSubscriptions, setSubscriptionsLoading])
+    if (developerId) {
+      getSubscriptions()
+    }
+  }, [setSubscriptions, setSubscriptionsLoading, developerId])
 
   return (
     <FadeIn>

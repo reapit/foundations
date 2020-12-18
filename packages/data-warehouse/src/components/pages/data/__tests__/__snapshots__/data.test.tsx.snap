@@ -18,58 +18,17 @@ exports[`Data should match a snapshot 1`] = `
             Data
           </h3>
         </Component>
-        <Component>
-          <section
-            className=""
-            data-test=""
+        <mock-styled.div>
+          <Component
+            variant="info"
           >
-            <Component>
-              <h5
-                className=""
-                id=""
-              >
-                Available Data
-              </h5>
-            </Component>
-            <Component>
-              <div
-                className="loader-spinner body"
-                data-test=""
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </Component>
-          </section>
-        </Component>
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component>
-              <h5
-                className=""
-                id=""
-              >
-                Data Shares
-              </h5>
-            </Component>
-            <Component>
-              <div
-                className="loader-spinner body"
-                data-test=""
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </Component>
-          </section>
-        </Component>
+            <div
+              className="notification helper-wrap helper-info"
+            >
+              You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
+            </div>
+          </Component>
+        </mock-styled.div>
       </div>
     </Component>
   </Component>

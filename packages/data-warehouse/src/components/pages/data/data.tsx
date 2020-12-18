@@ -11,18 +11,43 @@ import DataSetsTable from './data-sets-table'
 import SharesTable from './shares-table'
 import { AccountModel } from '../../../types/accounts'
 import { getAccountsService } from '../../../services/accounts'
+import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { getSubscriptionsService } from '../../../services/subscriptions'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { getCurrentSubscription } from '../subscriptions/subscriptions-handlers'
 
 export type DataProps = {}
 
 export const Data: React.FC<DataProps> = () => {
+  const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
+  const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const [accounts, setAccounts] = useState<PagedApiResponse<AccountModel>>()
   const [accountsLoading, setAccountsLoading] = useState<boolean>(false)
   const [dataSets, setDataSets] = useState<PagedApiResponse<DataSetModel>>()
   const [dataSetsLoading, setDataSetsLoading] = useState<boolean>(false)
   const [shares, setShares] = useState<PagedApiResponse<SharesModel>>()
   const [sharesLoading, setSharesLoading] = useState<boolean>(false)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = connectSession?.loginIdentity?.developerId ?? null
+  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
 
   const { setMessageState } = useContext(MessageContext)
+
+  useEffect(() => {
+    const getSubscriptions = async () => {
+      setSubscriptionsLoading(true)
+      const subscriptions = await getSubscriptionsService()
+      setSubscriptionsLoading(false)
+      if (subscriptions) {
+        return setSubscriptions(subscriptions)
+      }
+      return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
+    }
+    if (developerId) {
+      getSubscriptions()
+    }
+  }, [setSubscriptions, setSubscriptionsLoading, developerId])
 
   useEffect(() => {
     const getAccounts = async () => {
@@ -34,8 +59,10 @@ export const Data: React.FC<DataProps> = () => {
       }
       return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
     }
-    getAccounts()
-  }, [setAccounts, setAccountsLoading])
+    if (currentSubscription) {
+      getAccounts()
+    }
+  }, [setAccounts, setAccountsLoading, currentSubscription])
 
   useEffect(() => {
     const getDataSets = async () => {
@@ -47,8 +74,10 @@ export const Data: React.FC<DataProps> = () => {
       }
       return setMessageState({ errorMessage: 'Something went wrong fetching data sets, please try again' })
     }
-    getDataSets()
-  }, [setDataSets, setDataSetsLoading])
+    if (currentSubscription) {
+      getDataSets()
+    }
+  }, [setDataSets, setDataSetsLoading, currentSubscription])
 
   useEffect(() => {
     const getShares = async () => {
@@ -60,51 +89,65 @@ export const Data: React.FC<DataProps> = () => {
       }
       return setMessageState({ errorMessage: 'Something went wrong fetching data shares, please try again' })
     }
-    getShares()
-  }, [setShares, setSharesLoading])
+    if (currentSubscription) {
+      getShares()
+    }
+  }, [setShares, setSharesLoading, currentSubscription])
 
   return (
     <>
       <Content>
         <H3 isHeadingSection>Data</H3>
-        <Section>
-          <H5>Available Data</H5>
-          {dataSetsLoading ? (
-            <Loader />
-          ) : dataSets?._embedded.length ? (
-            <FadeIn>
-              <DataSetsTable
-                dataSets={dataSets._embedded}
-                setShares={setShares}
-                hasAccount={Boolean(accounts?._embedded.length)}
-              />
-            </FadeIn>
-          ) : (
-            <FadeIn>
-              <Helper variant="info">No datasets available for your organisation</Helper>
-            </FadeIn>
-          )}
-        </Section>
-        <Section>
-          <H5>Data Shares</H5>
-          {sharesLoading || accountsLoading ? (
-            <Loader />
-          ) : !accounts?._embedded.length ? (
-            <FadeIn>
-              <Helper variant="info">
-                You will need to provision an account from the Accounts page before you can share data
-              </Helper>
-            </FadeIn>
-          ) : shares?._embedded.length ? (
-            <FadeIn>
-              <SharesTable shares={shares._embedded} setShares={setShares} />
-            </FadeIn>
-          ) : (
-            <FadeIn>
-              <Helper variant="info">No data shares available for your organisation</Helper>
-            </FadeIn>
-          )}
-        </Section>
+        {subscriptionsLoading ? (
+          <Loader />
+        ) : currentSubscription ? (
+          <>
+            <Section>
+              <H5>Available Data</H5>
+              {dataSetsLoading ? (
+                <Loader />
+              ) : dataSets?._embedded.length ? (
+                <FadeIn>
+                  <DataSetsTable
+                    dataSets={dataSets._embedded}
+                    setShares={setShares}
+                    hasAccount={Boolean(accounts?._embedded.length)}
+                  />
+                </FadeIn>
+              ) : (
+                <FadeIn>
+                  <Helper variant="info">No datasets available for your organisation</Helper>
+                </FadeIn>
+              )}
+            </Section>
+            <Section>
+              <H5>Data Shares</H5>
+              {sharesLoading || accountsLoading ? (
+                <Loader />
+              ) : !accounts?._embedded.length ? (
+                <FadeIn>
+                  <Helper variant="info">
+                    You will need to provision an account from the Accounts page before you can share data
+                  </Helper>
+                </FadeIn>
+              ) : shares?._embedded.length ? (
+                <FadeIn>
+                  <SharesTable shares={shares._embedded} setShares={setShares} />
+                </FadeIn>
+              ) : (
+                <FadeIn>
+                  <Helper variant="info">No data shares available for your organisation</Helper>
+                </FadeIn>
+              )}
+            </Section>
+          </>
+        ) : (
+          <FadeIn>
+            <Helper variant="info">
+              You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
+            </Helper>
+          </FadeIn>
+        )}
       </Content>
     </>
   )
