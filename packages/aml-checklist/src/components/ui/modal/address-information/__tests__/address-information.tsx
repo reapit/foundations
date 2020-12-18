@@ -28,7 +28,7 @@ describe('AddressInformation', () => {
   describe('renderYearOptions', () => {
     it('should run correctly', () => {
       const result = renderYearOptions()
-      expect(result).toHaveLength(100)
+      expect(result).toHaveLength(101)
     })
   })
 
