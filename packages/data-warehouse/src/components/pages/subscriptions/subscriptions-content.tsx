@@ -9,16 +9,17 @@ import {
 import { MessageContext, MessageState } from '../../../context/message-context'
 import { SubscriptionModel, SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { useReapitConnect } from '@reapit/connect-session'
+import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 
 export const handleSubscriptionToggle = (
   currentSubscription: SubscriptionModel | null,
-  developerId: string | null,
-  email: string | null,
+  loginIdentity: LoginIdentity,
   setMessageState: Dispatch<SetStateAction<MessageState>>,
   setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
 ) => async () => {
-  if (!developerId) return
+  const { developerId, clientId, email } = loginIdentity
+
+  if (!developerId || !clientId || !email) return
 
   if (currentSubscription && currentSubscription.id) {
     const deleted = await deleteSubscriptionsService(currentSubscription.id)
@@ -34,25 +35,27 @@ export const handleSubscriptionToggle = (
     return setMessageState({ errorMessage: 'Something went wrong unsubscribing' })
   }
 
-  if (developerId && email) {
-    const created = createSubscriptionsService({
-      developerId,
-      applicationId: '',
-      user: email,
-      type: 'developerEdition',
-    })
+  const created = createSubscriptionsService({
+    developerId,
+    applicationId: '',
+    user: email,
+    customerId: clientId,
+    type: 'dataWarehouse',
+  })
 
-    if (created) {
+  if (created) {
+    // Required to avoid a race condition where a fetch on subscriptions does not return
+    // the subscription immediately after it has been created. Delay the fetch by 500ms
+    // to allow the endpoint to catch up!
+    setTimeout(async () => {
       const subscriptions = await getSubscriptionsService()
       if (subscriptions) {
         setSubscriptions(subscriptions)
       }
-
-      return setMessageState({ infoMessage: 'Successfully subscribed' })
-    }
-
-    return setMessageState({ errorMessage: 'Something went wrong subscribing' })
+    }, 500)
+    return setMessageState({ infoMessage: 'Successfully subscribed' })
   }
+  return setMessageState({ errorMessage: 'Something went wrong subscribing' })
 }
 
 export const SubscriptionsContent: React.FC = () => {
@@ -60,12 +63,12 @@ export const SubscriptionsContent: React.FC = () => {
   const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const { setMessageState } = useContext(MessageContext)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = connectSession?.loginIdentity ?? null
   const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const email = connectSession?.loginIdentity?.email ?? null
   const currentSubscription =
     subscriptions?.data?.length && Boolean(developerId)
       ? subscriptions?.data.find(
-          sub => sub.developerId === developerId && sub.type === 'developerEdition' && !sub.cancelled,
+          sub => sub.developerId === developerId && sub.type === 'dataWarehouse' && !sub.cancelled,
         ) ?? null
       : null
 
@@ -131,23 +134,24 @@ export const SubscriptionsContent: React.FC = () => {
                           as a developer visit <a href={window.reapit.config.developersUrl}>here</a>.
                         </Helper>
                       )}
-                      <Section hasMargin={false}>
-                        <Button
-                          type="button"
-                          variant="primary"
-                          fullWidth
-                          disabled={!developerId}
-                          onClick={handleSubscriptionToggle(
-                            currentSubscription,
-                            developerId,
-                            email,
-                            setMessageState,
-                            setSubscriptions,
-                          )}
-                        >
-                          {currentSubscription ? 'Unsubscribe' : 'Subscribe'} now
-                        </Button>
-                      </Section>
+                      {loginIdentity && (
+                        <Section hasMargin={false}>
+                          <Button
+                            type="button"
+                            variant="primary"
+                            fullWidth
+                            disabled={!developerId}
+                            onClick={handleSubscriptionToggle(
+                              currentSubscription,
+                              loginIdentity,
+                              setMessageState,
+                              setSubscriptions,
+                            )}
+                          >
+                            {currentSubscription ? 'Unsubscribe' : 'Subscribe'} now
+                          </Button>
+                        </Section>
+                      )}
                     </>
                   )}
                 </div>
