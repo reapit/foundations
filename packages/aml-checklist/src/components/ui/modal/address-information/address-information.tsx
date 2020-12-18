@@ -26,7 +26,7 @@ const optionsMonth = [
   { label: '12', value: '12' },
 ] as SelectBoxOptions[]
 
-const MIN_NUMBER_OF_YEARS = 1
+const MIN_NUMBER_OF_YEARS = 0
 const MAX_NUMBER_OF_YEARS = 100
 
 export const renderYearOptions = () => {

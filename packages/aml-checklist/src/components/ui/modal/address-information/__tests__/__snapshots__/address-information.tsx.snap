@@ -62,6 +62,10 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     options={
       Array [
         Object {
+          "label": "0",
+          "value": "0",
+        },
+        Object {
           "label": "1",
           "value": "1",
         },
@@ -666,6 +670,10 @@ exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = 
     name="metadata.secondaryAddress[year]"
     options={
       Array [
+        Object {
+          "label": "0",
+          "value": "0",
+        },
         Object {
           "label": "1",
           "value": "1",
