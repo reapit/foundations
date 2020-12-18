@@ -12,5 +12,29 @@ exports[`Payment should match a snapshot 1`] = `
   >
     Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please talk to your administrator to set this up for you.
   </Component>
+  <Component />
 </Fragment>
+`;
+
+exports[`PaymentForm should match a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "address1": "Flat 5 Hans Crescent",
+      "cardIdentifier": "",
+      "cardNumber": "",
+      "cardholderName": "",
+      "city": "London",
+      "country": "GB",
+      "customerFirstName": "Max",
+      "customerLastName": "Atkinson",
+      "expiryDate": "",
+      "postalCode": "SW1X 0LG",
+      "securityCode": "",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Component />
+</Formik>
 `;
