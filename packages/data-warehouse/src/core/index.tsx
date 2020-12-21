@@ -17,6 +17,7 @@ window.reapit = {
     connectOAuthUrl: '',
     platformApiUrl: '',
     marketplaceUrl: '',
+    developersUrl: '',
   },
 }
 

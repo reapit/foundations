@@ -19,56 +19,15 @@ exports[`Data should match a snapshot 1`] = `
           </h3>
         </Component>
         <Component>
-          <section
-            className=""
+          <div
+            className="loader-spinner body"
             data-test=""
           >
-            <Component>
-              <h5
-                className=""
-                id=""
-              >
-                Available Data
-              </h5>
-            </Component>
-            <Component>
-              <div
-                className="loader-spinner body"
-                data-test=""
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </Component>
-          </section>
-        </Component>
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component>
-              <h5
-                className=""
-                id=""
-              >
-                Data Shares
-              </h5>
-            </Component>
-            <Component>
-              <div
-                className="loader-spinner body"
-                data-test=""
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </Component>
-          </section>
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
         </Component>
       </div>
     </Component>
