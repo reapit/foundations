@@ -4006,6 +4006,12 @@ export interface CreateDocumentModel {
    * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    */
   fileData: string
+  /**
+   * App specific metadata to set against the document
+   */
+  metadata?: {
+    [name: string]: any
+  }
 }
 /**
  * Request body for associating this offer to another one below it in the chain
@@ -5741,6 +5747,12 @@ export interface DocumentModel {
    */
   name?: string
   /**
+   * App specific metadata that has been set against the document
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the document. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -5787,6 +5799,12 @@ export interface DocumentModelPagedResult {
      * The filename of the document
      */
     name?: string
+    /**
+     * App specific metadata that has been set against the document
+     */
+    metadata?: {
+      [name: string]: any
+    }
     /**
      * The ETag for the current version of the document. Used for managing update concurrency
      */
@@ -11477,6 +11495,12 @@ export interface UpdateDocumentModel {
    * The filename of the document
    */
   name?: string
+  /**
+   * App specific metadata to set against the document
+   */
+  metadata?: {
+    [name: string]: any
+  }
 }
 /**
  * Request body used to update an exist contact identity check
