@@ -53,7 +53,7 @@ export const createSubscriptionsService = async (
     if (response) {
       return response
     }
-    throw new Error('Failed to delete subscription')
+    throw new Error('Failed to create subscription')
   } catch (err) {
     console.error('Error', err.message)
   }

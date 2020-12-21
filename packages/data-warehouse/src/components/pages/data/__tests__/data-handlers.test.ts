@@ -1,10 +1,23 @@
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
+import { getDataSetsService } from '../../../../services/data-sets'
 import { createRequestService } from '../../../../services/requests'
 import { deleteSharesService, getSharesService } from '../../../../services/shares'
-import { createRequest, deleteShare, handleMouseLeave, handleCopyCode } from '../data-handlers'
+import {
+  createRequest,
+  deleteShare,
+  handleMouseLeave,
+  handleCopyCode,
+  handleGetDataSets,
+  handleGetShares,
+} from '../data-handlers'
 
 jest.mock('../../../../services/shares', () => ({
   getSharesService: jest.fn(() => ({})),
   deleteSharesService: jest.fn(() => true),
+}))
+
+jest.mock('../../../../services/data-sets', () => ({
+  getDataSetsService: jest.fn(() => ({})),
 }))
 
 jest.mock('../../../../services/requests', () => ({
@@ -117,6 +130,86 @@ describe('data handlers', () => {
       handleCopyCode(mockHandler)()
 
       expect(mockHandler).toHaveBeenCalledWith(mockMessage)
+    })
+  })
+})
+
+describe('handleGetDataSets', () => {
+  it('should get and set data sets if there is a current subscription', async () => {
+    const mockSetDataSets = jest.fn()
+    const mockSetDataSetsLoading = jest.fn()
+    const mockSetMessageState = jest.fn()
+    const mockCurrentSubscription = {} as SubscriptionModel
+    const curried = handleGetDataSets(
+      mockSetDataSets,
+      mockSetDataSetsLoading,
+      mockSetMessageState,
+      mockCurrentSubscription,
+    )
+
+    await curried()
+
+    expect(mockSetDataSetsLoading).toHaveBeenCalledWith(true)
+    expect(mockSetDataSets).toHaveBeenCalledWith({})
+    expect(mockSetDataSetsLoading).toHaveBeenLastCalledWith(false)
+    expect(mockSetMessageState).not.toHaveBeenCalled()
+  })
+
+  it('should show an error message if fetching fails', async () => {
+    const mockSetDataSets = jest.fn()
+    const mockSetDataSetsLoading = jest.fn()
+    const mockSetMessageState = jest.fn()
+    const mockCurrentSubscription = {} as SubscriptionModel
+    ;(getDataSetsService as jest.Mock).mockReturnValueOnce(undefined)
+    const curried = handleGetDataSets(
+      mockSetDataSets,
+      mockSetDataSetsLoading,
+      mockSetMessageState,
+      mockCurrentSubscription,
+    )
+
+    await curried()
+
+    expect(mockSetDataSetsLoading).toHaveBeenCalledWith(true)
+    expect(mockSetDataSets).not.toHaveBeenCalled()
+    expect(mockSetDataSetsLoading).toHaveBeenLastCalledWith(false)
+    expect(mockSetMessageState).toHaveBeenCalledWith({
+      errorMessage: 'Something went wrong fetching data sets, please try again',
+    })
+  })
+})
+
+describe('handleGetShares', () => {
+  it('should get and set shares if there is a current subscription', async () => {
+    const mockSetShares = jest.fn()
+    const mockSetSharesLoading = jest.fn()
+    const mockSetMessageState = jest.fn()
+    const mockCurrentSubscription = {} as SubscriptionModel
+    const curried = handleGetShares(mockSetShares, mockSetSharesLoading, mockSetMessageState, mockCurrentSubscription)
+
+    await curried()
+
+    expect(mockSetSharesLoading).toHaveBeenCalledWith(true)
+    expect(mockSetShares).toHaveBeenCalledWith({})
+    expect(mockSetSharesLoading).toHaveBeenLastCalledWith(false)
+    expect(mockSetMessageState).not.toHaveBeenCalled()
+  })
+
+  it('should show an error message if fetching fails', async () => {
+    const mockSetShares = jest.fn()
+    const mockSetSharesLoading = jest.fn()
+    const mockSetMessageState = jest.fn()
+    const mockCurrentSubscription = {} as SubscriptionModel
+    ;(getSharesService as jest.Mock).mockReturnValueOnce(undefined)
+    const curried = handleGetShares(mockSetShares, mockSetSharesLoading, mockSetMessageState, mockCurrentSubscription)
+
+    await curried()
+
+    expect(mockSetSharesLoading).toHaveBeenCalledWith(true)
+    expect(mockSetShares).not.toHaveBeenCalled()
+    expect(mockSetSharesLoading).toHaveBeenLastCalledWith(false)
+    expect(mockSetMessageState).toHaveBeenCalledWith({
+      errorMessage: 'Something went wrong fetching data shares, please try again',
     })
   })
 })

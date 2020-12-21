@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Button, H3, H5, Section, Helper, Loader } from '@reapit/elements'
-import { getAccountsService } from '../../../services/accounts'
 import { PagedApiResponse } from '../../../types/core'
 import { AccountModel } from '../../../types/accounts'
 import AccountsTable from './accounts-table'
@@ -11,8 +10,8 @@ import FadeIn from '../../../styles/fade-in'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { getSubscriptionsService } from '../../../services/subscriptions'
-import { getCurrentSubscription } from '../subscriptions/subscriptions-handlers'
+import { getCurrentSubscription, handleGetSubscriptions } from '../subscriptions/subscriptions-handlers'
+import { handleGetAccounts } from './account-handlers'
 
 export const Accounts: React.FC = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
@@ -29,35 +28,18 @@ export const Accounts: React.FC = () => {
   const handleModalClose = () => setModalVisible(false)
   const handleModalOpen = () => setModalVisible(true)
 
-  useEffect(() => {
-    const getSubscriptions = async () => {
-      setSubscriptionsLoading(true)
-      const subscriptions = await getSubscriptionsService()
-      setSubscriptionsLoading(false)
-      if (subscriptions) {
-        return setSubscriptions(subscriptions)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
-    }
-    if (developerId) {
-      getSubscriptions()
-    }
-  }, [setSubscriptions, setSubscriptionsLoading, developerId])
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+    setSubscriptions,
+    setSubscriptionsLoading,
+    developerId,
+  ])
 
-  useEffect(() => {
-    const getAccounts = async () => {
-      setAccountsLoading(true)
-      const accounts = await getAccountsService()
-      setAccountsLoading(false)
-      if (accounts) {
-        return setAccounts(accounts)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
-    }
-    if (currentSubscription) {
-      getAccounts()
-    }
-  }, [setAccounts, setAccountsLoading, currentSubscription])
+  useEffect(handleGetAccounts(setAccounts, setAccountsLoading, setMessageState, currentSubscription), [
+    setAccounts,
+    setAccountsLoading,
+    setMessageState,
+    currentSubscription,
+  ])
 
   return (
     <>

@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader, Helper } from '@reapit/elements'
 import { PricingTile } from './__styles__/pricing-tile'
-import { getSubscriptionsService } from '../../../services/subscriptions'
 import { MessageContext } from '../../../context/message-context'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { getCurrentSubscription, handleSubscriptionToggle } from './subscriptions-handlers'
+import { getCurrentSubscription, handleGetSubscriptions, handleSubscriptionToggle } from './subscriptions-handlers'
 
-export const SubscriptionsContent: React.FC = () => {
+const SubscriptionsContent: React.FC = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
   const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const { setMessageState } = useContext(MessageContext)
@@ -17,20 +16,11 @@ export const SubscriptionsContent: React.FC = () => {
   const developerId = connectSession?.loginIdentity?.developerId ?? null
   const currentSubscription = getCurrentSubscription(subscriptions, developerId)
 
-  useEffect(() => {
-    const getSubscriptions = async () => {
-      setSubscriptionsLoading(true)
-      const subscriptions = await getSubscriptionsService()
-      setSubscriptionsLoading(false)
-      if (subscriptions) {
-        return setSubscriptions(subscriptions)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
-    }
-    if (developerId) {
-      getSubscriptions()
-    }
-  }, [setSubscriptions, setSubscriptionsLoading, developerId])
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+    setSubscriptions,
+    setSubscriptionsLoading,
+    developerId,
+  ])
 
   return (
     <FadeIn>
@@ -110,3 +100,5 @@ export const SubscriptionsContent: React.FC = () => {
     </FadeIn>
   )
 }
+
+export default SubscriptionsContent

@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscriptions should match a snapshot 1`] = `
+<Component>
+  <Component>
+    <Component
+      isHeadingSection={true}
+    >
+      <h3
+        className=""
+        id=""
+      >
+        Data Warehouse Account
+      </h3>
+    </Component>
+    <mock-styled.div>
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <div
+              className=""
+              data-test=""
+            >
+              <Component>
+                <h5
+                  className=""
+                  id=""
+                >
+                  How It Works
+                </h5>
+              </Component>
+              <p>
+                Reapit's data warehouse is a premium service that provides your organisation's data in an analytics focussed format. Our cloud-based warehouse technology is supported by all major business intelligence applications to allow you to extract new value and insights from your data.
+              </p>
+              <p>
+                This application can provision a dedicated virtual data warehouse and allow you to manage which users and applications have access to it. The analytics area allows you to track live usage statistics and set limits on your monthly spend. For usage instructions, click here.
+              </p>
+              <p>
+                Access requires a subcription and usage is billed based on your warehouses uptime. Your organisations virtual data warehouse will become active when you issue queries against it and suspend itself when not in use.
+              </p>
+            </div>
+          </Component>
+        </section>
+      </Component>
+    </mock-styled.div>
+    <SubscriptionsContent>
+      <mock-styled.div>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <h5
+                            className=""
+                            id=""
+                          >
+                            Pricing
+                          </h5>
+                        </Component>
+                        <p>
+                          Access is licensed by monthly subscription at a cost of £150 per month, inclusive of two hours of warehouse uptime for each month. Warehouse uptime beyond 2 hours is billed at cost of £6.99 per hour.
+                        </p>
+                        <p>
+                          The below table represents the estimated cost of running a typical sales activity report for a given frequency over the course of a month:
+                        </p>
+                        <p>
+                          Actual cost will vary depending on database size, report complexity and number of concurrent users.
+                        </p>
+                        <p>
+                          Price estimations exclusive of VAT. For more information on data warehouse pricing, please click here.
+                        </p>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <mock-styled.div>
+                          <div
+                            className="desktop-inner-container"
+                          >
+                            <div
+                              className="modal-card-head"
+                            >
+                              <Component
+                                className="mb-0"
+                                isCentered={true}
+                              >
+                                <h5
+                                  className=""
+                                  id=""
+                                >
+                                  Data Warehouse Service
+                                </h5>
+                              </Component>
+                            </div>
+                            <div
+                              className="justify-center items-center is-flex py-2"
+                            >
+                              <span
+                                className="desktop-price"
+                              >
+                                £150 / Month
+                              </span>
+                               
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Includes 2 hours per month warehouse uptime
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Only pay for the uptime you need after that
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Track your usage and set spending limits
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Dedicated virtual warehouse for your organisation
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Supports all major BI products
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Enterprise grade encryption in transit and at rest
+                            </div>
+                            <div
+                              className="text-center px-2 py-1"
+                            >
+                              Data kept up to date at 15 minute intervals
+                            </div>
+                            <Component>
+                              <div
+                                className="notification helper-wrap helper-info"
+                              >
+                                You need to be a registered Reapit Developer to subscribe to the Data Warehouse. To register as a developer visit 
+                                <a>
+                                  here
+                                </a>
+                                .
+                              </div>
+                            </Component>
+                          </div>
+                        </mock-styled.div>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+              </div>
+            </Component>
+          </section>
+        </Component>
+      </mock-styled.div>
+    </SubscriptionsContent>
+  </Component>
+</Component>
+`;

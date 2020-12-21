@@ -4,18 +4,16 @@ import { MessageContext } from '../../../context/message-context'
 import { PagedApiResponse } from '../../../types/core'
 import { DataSetModel } from '../../../types/data-sets'
 import { SharesModel } from '../../../types/shares'
-import { getSharesService } from '../../../services/shares'
-import { getDataSetsService } from '../../../services/data-sets'
 import FadeIn from '../../../styles/fade-in'
 import DataSetsTable from './data-sets-table'
 import SharesTable from './shares-table'
 import { AccountModel } from '../../../types/accounts'
-import { getAccountsService } from '../../../services/accounts'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { getSubscriptionsService } from '../../../services/subscriptions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { getCurrentSubscription } from '../subscriptions/subscriptions-handlers'
+import { getCurrentSubscription, handleGetSubscriptions } from '../subscriptions/subscriptions-handlers'
+import { handleGetAccounts } from '../accounts/account-handlers'
+import { handleGetDataSets, handleGetShares } from './data-handlers'
 
 export type DataProps = {}
 
@@ -34,65 +32,30 @@ export const Data: React.FC<DataProps> = () => {
 
   const { setMessageState } = useContext(MessageContext)
 
-  useEffect(() => {
-    const getSubscriptions = async () => {
-      setSubscriptionsLoading(true)
-      const subscriptions = await getSubscriptionsService()
-      setSubscriptionsLoading(false)
-      if (subscriptions) {
-        return setSubscriptions(subscriptions)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
-    }
-    if (developerId) {
-      getSubscriptions()
-    }
-  }, [setSubscriptions, setSubscriptionsLoading, developerId])
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+    setSubscriptions,
+    setSubscriptionsLoading,
+    developerId,
+  ])
 
-  useEffect(() => {
-    const getAccounts = async () => {
-      setAccountsLoading(true)
-      const accounts = await getAccountsService()
-      setAccountsLoading(false)
-      if (accounts) {
-        return setAccounts(accounts)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
-    }
-    if (currentSubscription) {
-      getAccounts()
-    }
-  }, [setAccounts, setAccountsLoading, currentSubscription])
+  useEffect(handleGetAccounts(setAccounts, setAccountsLoading, setMessageState, currentSubscription), [
+    setAccounts,
+    setAccountsLoading,
+    setMessageState,
+    currentSubscription,
+  ])
 
-  useEffect(() => {
-    const getDataSets = async () => {
-      setDataSetsLoading(true)
-      const dataSetsFetched = await getDataSetsService()
-      setDataSetsLoading(false)
-      if (dataSetsFetched) {
-        return setDataSets(dataSetsFetched)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching data sets, please try again' })
-    }
-    if (currentSubscription) {
-      getDataSets()
-    }
-  }, [setDataSets, setDataSetsLoading, currentSubscription])
+  useEffect(handleGetDataSets(setDataSets, setDataSetsLoading, setMessageState, currentSubscription), [
+    setDataSets,
+    setDataSetsLoading,
+    currentSubscription,
+  ])
 
-  useEffect(() => {
-    const getShares = async () => {
-      setSharesLoading(true)
-      const sharesFetched = await getSharesService()
-      setSharesLoading(false)
-      if (sharesFetched) {
-        return setShares(sharesFetched)
-      }
-      return setMessageState({ errorMessage: 'Something went wrong fetching data shares, please try again' })
-    }
-    if (currentSubscription) {
-      getShares()
-    }
-  }, [setShares, setSharesLoading, currentSubscription])
+  useEffect(handleGetShares(setShares, setSharesLoading, setMessageState, currentSubscription), [
+    setShares,
+    setSharesLoading,
+    currentSubscription,
+  ])
 
   return (
     <>

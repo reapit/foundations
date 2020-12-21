@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubscriptionsContent should match a snapshot 1`] = `
+<Component>
+  <SubscriptionsContent>
+    <mock-styled.div>
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <div
+              className=""
+              data-test=""
+            >
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <h5
+                          className=""
+                          id=""
+                        >
+                          Pricing
+                        </h5>
+                      </Component>
+                      <p>
+                        Access is licensed by monthly subscription at a cost of £150 per month, inclusive of two hours of warehouse uptime for each month. Warehouse uptime beyond 2 hours is billed at cost of £6.99 per hour.
+                      </p>
+                      <p>
+                        The below table represents the estimated cost of running a typical sales activity report for a given frequency over the course of a month:
+                      </p>
+                      <p>
+                        Actual cost will vary depending on database size, report complexity and number of concurrent users.
+                      </p>
+                      <p>
+                        Price estimations exclusive of VAT. For more information on data warehouse pricing, please click here.
+                      </p>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <mock-styled.div>
+                        <div
+                          className="desktop-inner-container"
+                        >
+                          <div
+                            className="modal-card-head"
+                          >
+                            <Component
+                              className="mb-0"
+                              isCentered={true}
+                            >
+                              <h5
+                                className=""
+                                id=""
+                              >
+                                Data Warehouse Service
+                              </h5>
+                            </Component>
+                          </div>
+                          <Component>
+                            <div
+                              className="loader-spinner body"
+                              data-test=""
+                            >
+                              <div />
+                              <div />
+                              <div />
+                              <div />
+                            </div>
+                          </Component>
+                        </div>
+                      </mock-styled.div>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </div>
+          </Component>
+        </section>
+      </Component>
+    </mock-styled.div>
+  </SubscriptionsContent>
+</Component>
+`;

@@ -18,17 +18,17 @@ exports[`Data should match a snapshot 1`] = `
             Data
           </h3>
         </Component>
-        <mock-styled.div>
-          <Component
-            variant="info"
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
           >
-            <div
-              className="notification helper-wrap helper-info"
-            >
-              You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
-            </div>
-          </Component>
-        </mock-styled.div>
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
       </div>
     </Component>
   </Component>

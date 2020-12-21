@@ -78,3 +78,23 @@ export const getCurrentSubscription = (
       ) ?? null
     : null
 }
+
+export const handleGetSubscriptions = (
+  setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
+  setSubscriptionsLoading: Dispatch<SetStateAction<boolean>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  developerId: string | null,
+) => () => {
+  const getSubscriptions = async () => {
+    setSubscriptionsLoading(true)
+    const subscriptions = await getSubscriptionsService()
+    setSubscriptionsLoading(false)
+    if (subscriptions) {
+      return setSubscriptions(subscriptions)
+    }
+    return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
+  }
+  if (developerId) {
+    getSubscriptions()
+  }
+}

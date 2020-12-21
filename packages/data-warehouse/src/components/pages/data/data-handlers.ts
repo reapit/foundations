@@ -1,8 +1,11 @@
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { SetStateAction, Dispatch } from 'react'
 import { MessageState } from '../../../context/message-context'
+import { getDataSetsService } from '../../../services/data-sets'
 import { createRequestService } from '../../../services/requests'
 import { deleteSharesService, getSharesService } from '../../../services/shares'
 import { PagedApiResponse } from '../../../types/core'
+import { DataSetModel } from '../../../types/data-sets'
 import { SharesModel } from '../../../types/shares'
 
 export const createRequest = (
@@ -65,5 +68,45 @@ export const handleMouseLeave = (setTooltipMessage: Dispatch<SetStateAction<stri
 export const handleCopyCode = (setTooltipMessage: Dispatch<SetStateAction<string>>) => {
   return () => {
     setTooltipMessage('Copied')
+  }
+}
+
+export const handleGetDataSets = (
+  setDataSets: Dispatch<SetStateAction<PagedApiResponse<DataSetModel> | undefined>>,
+  setDataSetsLoading: Dispatch<SetStateAction<boolean>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  currentSubscription: SubscriptionModel | null,
+) => () => {
+  const getDataSets = async () => {
+    setDataSetsLoading(true)
+    const dataSetsFetched = await getDataSetsService()
+    setDataSetsLoading(false)
+    if (dataSetsFetched) {
+      return setDataSets(dataSetsFetched)
+    }
+    return setMessageState({ errorMessage: 'Something went wrong fetching data sets, please try again' })
+  }
+  if (currentSubscription) {
+    getDataSets()
+  }
+}
+
+export const handleGetShares = (
+  setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>,
+  setSharesLoading: Dispatch<SetStateAction<boolean>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  currentSubscription: SubscriptionModel | null,
+) => () => {
+  const getShares = async () => {
+    setSharesLoading(true)
+    const sharesFetched = await getSharesService()
+    setSharesLoading(false)
+    if (sharesFetched) {
+      return setShares(sharesFetched)
+    }
+    return setMessageState({ errorMessage: 'Something went wrong fetching data shares, please try again' })
+  }
+  if (currentSubscription) {
+    getShares()
   }
 }
