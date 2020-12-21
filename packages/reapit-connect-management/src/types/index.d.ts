@@ -3,7 +3,7 @@
  */
 
 declare namespace yargs {
-  export type Arguments<T> = any
+  export type Arguments<T> = any // eslint-disable-line
 }
 
 declare module '*.css'

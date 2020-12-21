@@ -14,10 +14,10 @@ module.exports = {
   coveragePathIgnorePatterns: ['<rootDir>/src/services', '<rootDir>/src/tests'],
   coverageThreshold: {
     global: {
-      branches: 63,
-      functions: 70,
-      lines: 88,
-      statements: 87,
+      branches: 25,
+      functions: 43,
+      lines: 66,
+      statements: 65,
     },
   },
 }

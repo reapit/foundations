@@ -20,6 +20,7 @@
       "packages/payments-client",
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
+      "packages/reapit-connect-management",
       "packages/utils"
     ],
     "nohoist": [
