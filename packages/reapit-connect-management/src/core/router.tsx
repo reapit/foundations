@@ -3,6 +3,7 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
+import PrivateRoute from './private-route'
 
 export const history = createBrowserHistory()
 
@@ -29,7 +30,8 @@ export const catchChunkError = (
 }
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const Offices = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
+const Users = React.lazy(() => catchChunkError(() => import('../components/pages/users')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +40,8 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
+            <PrivateRoute path={Routes.OFFICES} component={Offices} />
+            <PrivateRoute path={Routes.USERS} component={Users} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

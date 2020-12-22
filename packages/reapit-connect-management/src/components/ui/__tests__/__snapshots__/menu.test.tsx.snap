@@ -13,13 +13,22 @@ exports[`Menu should match a snapshot 1`] = `
         "type": "LOGO",
       },
       Object {
-        "callback": [Function],
-        "icon": <FaCloud
+        "icon": <FaHome
           className="nav-item-icon"
         />,
-        "key": "APPS",
-        "title": "Apps",
+        "key": "OFFICES",
+        "title": "Offices",
         "type": "PRIMARY",
+        "url": "/offices",
+      },
+      Object {
+        "icon": <FaUser
+          className="nav-item-icon"
+        />,
+        "key": "USERS",
+        "title": "Users",
+        "type": "PRIMARY",
+        "url": "/users",
       },
       Object {
         "callback": [Function],
