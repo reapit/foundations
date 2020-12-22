@@ -904,6 +904,10 @@ export interface CreateSubscriptionModel {
    */
   developerId?: string // uuid
   /**
+   * The id of the customer to create the subscription for
+   */
+  customerId?: string
+  /**
    * The id of the application to create the subscription against
    */
   applicationId?: string // uuid
@@ -1390,6 +1394,10 @@ export interface SubscriptionModel {
    * The GUID of the developer associated to the subscription
    */
   developerId?: string // uuid
+  /**
+   * The unique identifier of the customer associated to the subscription
+   */
+  customerId?: string
   /**
    * The GUID of the application associated to the subscription
    */

@@ -1,6 +1,7 @@
 const Routes = {
   HOME: '/',
-  ACCOUNTS: '/accounts',
+  ACCOUNTS: '/user-accounts',
+  SUBSCRIPTIONS: '/account',
   HEALTH: '/health',
   DATA: '/data',
   SETTINGS: '/settings',

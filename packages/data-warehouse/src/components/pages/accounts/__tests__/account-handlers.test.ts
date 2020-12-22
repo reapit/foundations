@@ -1,3 +1,4 @@
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import {
   createAccountsService,
   disableAccountsService,
@@ -6,7 +7,7 @@ import {
   getAccountService,
 } from '../../../../services/accounts'
 import { AccountCreateModel } from '../../../../types/accounts'
-import { createAccount, disableAccount, handlePolling, updateAccount } from '../account-handlers'
+import { createAccount, disableAccount, handleGetAccounts, handlePolling, updateAccount } from '../account-handlers'
 
 jest.mock('../../../../services/accounts', () => ({
   getAccountService: jest.fn(() => ({ status: 'User is active' })),
@@ -201,6 +202,51 @@ describe('account handlers', () => {
       expect(mockSetDisabling).toHaveBeenCalledWith('SOME_ID')
       expect(mockSetDisabling).toHaveBeenLastCalledWith('')
       expect(mockSetMessageState).toHaveBeenLastCalledWith({
+        errorMessage: 'Something went wrong fetching accounts, please try again',
+      })
+    })
+  })
+
+  describe('handleGetAccounts', () => {
+    it('should get and set accounts if there is a curentSubscription', async () => {
+      const mockSetAccounts = jest.fn()
+      const mockSetAccountsLoading = jest.fn()
+      const mockSetMessageState = jest.fn()
+      const mockCurrentSubscription = {} as SubscriptionModel
+      const curried = handleGetAccounts(
+        mockSetAccounts,
+        mockSetAccountsLoading,
+        mockSetMessageState,
+        mockCurrentSubscription,
+      )
+
+      await curried()
+
+      expect(mockSetAccountsLoading).toHaveBeenCalledWith(true)
+      expect(mockSetAccounts).toHaveBeenCalledWith({})
+      expect(mockSetAccountsLoading).toHaveBeenLastCalledWith(false)
+      expect(mockSetMessageState).not.toHaveBeenCalled()
+    })
+
+    it('should show an error message if fetching fails', async () => {
+      const mockSetAccounts = jest.fn()
+      const mockSetAccountsLoading = jest.fn()
+      const mockSetMessageState = jest.fn()
+      const mockCurrentSubscription = {} as SubscriptionModel
+      ;(getAccountsService as jest.Mock).mockReturnValueOnce(undefined)
+      const curried = handleGetAccounts(
+        mockSetAccounts,
+        mockSetAccountsLoading,
+        mockSetMessageState,
+        mockCurrentSubscription,
+      )
+
+      await curried()
+
+      expect(mockSetAccountsLoading).toHaveBeenCalledWith(true)
+      expect(mockSetAccounts).not.toHaveBeenCalled()
+      expect(mockSetAccountsLoading).toHaveBeenLastCalledWith(false)
+      expect(mockSetMessageState).toHaveBeenCalledWith({
         errorMessage: 'Something went wrong fetching accounts, please try again',
       })
     })

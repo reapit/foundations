@@ -9,6 +9,7 @@ import {
 import { PagedApiResponse } from '../../../types/core'
 import { MessageState } from '../../../context/message-context'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 
 export const handlePolling = (accountUri: string): Promise<{ provisioned: boolean; interval: number }> => {
   const accountId = accountUri.split('/').slice(-1)[0]
@@ -107,4 +108,24 @@ export const disableAccount = (
   }
 
   return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
+}
+
+export const handleGetAccounts = (
+  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>,
+  setAccountsLoading: Dispatch<SetStateAction<boolean>>,
+  setMessageState: Dispatch<React.SetStateAction<MessageState>>,
+  currentSubscription: SubscriptionModel | null,
+) => () => {
+  const getAccounts = async () => {
+    setAccountsLoading(true)
+    const accounts = await getAccountsService()
+    setAccountsLoading(false)
+    if (accounts) {
+      return setAccounts(accounts)
+    }
+    return setMessageState({ errorMessage: 'Something went wrong fetching accounts, please try again' })
+  }
+  if (currentSubscription) {
+    getAccounts()
+  }
 }

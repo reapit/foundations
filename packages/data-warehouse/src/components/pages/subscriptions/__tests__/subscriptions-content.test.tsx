@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import Accounts from '../accounts'
+import SubscriptionsContent from '../subscriptions-content'
 import { MessageProvider } from '../../../../context/message-context'
 
 jest.mock('@reapit/connect-session', () => ({
@@ -14,12 +14,12 @@ jest.mock('@reapit/connect-session', () => ({
   }),
 }))
 
-describe('Accounts', () => {
+describe('SubscriptionsContent', () => {
   it('should match a snapshot', () => {
     expect(
       mount(
         <MessageProvider>
-          <Accounts />
+          <SubscriptionsContent />
         </MessageProvider>,
       ),
     ).toMatchSnapshot()
