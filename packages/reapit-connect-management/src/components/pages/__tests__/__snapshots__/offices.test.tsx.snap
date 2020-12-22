@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficesPage should match a snapshot 1`] = `
+<Fragment>
+  <Component>
+    <Component
+      isHeadingSection={true}
+    >
+      Manage Offices
+    </Component>
+    <Component>
+      <Component
+        tabConfigs={
+          Array [
+            Object {
+              "active": true,
+              "displayText": "Offices",
+              "onTabClick": [Function],
+              "tabIdentifier": "/offices",
+            },
+            Object {
+              "active": false,
+              "displayText": "Groups",
+              "onTabClick": [Function],
+              "tabIdentifier": "/offices/groups",
+            },
+          ]
+        }
+      />
+      <Component
+        component={[Function]}
+        exact={true}
+        path="/offices"
+      />
+      <Component
+        component={[Function]}
+        exact={true}
+        path="/offices/groups"
+      />
+    </Component>
+  </Component>
+</Fragment>
+`;
