@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud, FaDatabase, FaUsers } from 'react-icons/fa'
+import { FaSignOutAlt, FaCloud, FaChartBar, FaDatabase, FaUsers } from 'react-icons/fa'
 import { MdAccountBalance /*, MdSettings */ } from 'react-icons/md'
 // import { GiHealthNormal } from 'react-icons/gi'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -44,6 +44,13 @@ export const generateMenuConfig = (
         icon: <FaDatabase className="nav-item-icon" />,
         url: Routes.DATA,
         type: 'PRIMARY',
+      },
+      {
+        title: 'Analytics',
+        key: 'ANALYTICS',
+        url: Routes.ANALYTICS,
+        type: 'PRIMARY',
+        icon: <FaChartBar className="nav-item-icon" />,
       },
       // {
       //   title: 'Health',
