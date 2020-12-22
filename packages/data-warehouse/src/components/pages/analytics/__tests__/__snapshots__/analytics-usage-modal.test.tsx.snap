@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticsUsageModal should match a snapshot 1`] = `
+<Component>
+  <AnalyticsUsageModal
+    handleClose={[MockFunction]}
+    visible={true}
+  >
+    <Component
+      afterClose={[MockFunction]}
+      title="Data Warehouse Usage Cap"
+      visible={true}
+    />
+  </AnalyticsUsageModal>
+</Component>
+`;

@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
+<Component>
+  <Component>
+    <ErrorBoundary>
+      <Component
+        hasMargin={false}
+      >
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <h5
+              className=""
+              id=""
+            >
+              Usage By Day
+            </h5>
+          </Component>
+          <Formik
+            initialValues={
+              Object {
+                "month": 2019-10-10T22:39:51.389Z,
+              }
+            }
+            onSubmit={[Function]}
+          >
+            <Form>
+              <form
+                action="#"
+                onReset={[Function]}
+                onSubmit={[Function]}
+              >
+                <Component
+                  id="month"
+                  name="month"
+                  reactDatePickerProps={
+                    Object {
+                      "dateFormat": "MMMM YYYY",
+                      "maxDate": 2019-10-10T22:39:51.389Z,
+                      "minDate": 2020-12-01T00:00:00.000Z,
+                      "showMonthDropdown": true,
+                      "showMonthYearPicker": true,
+                    }
+                  }
+                  useCustomInput={false}
+                >
+                  <Field
+                    name="month"
+                    validate={null}
+                  >
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="control"
+                      >
+                        <o
+                          allowSameDay={false}
+                          className="input is-primary"
+                          customInput={false}
+                          customTimeInput={null}
+                          dateFormat="MMMM YYYY"
+                          dateFormatCalendar="LLLL yyyy"
+                          disabled={false}
+                          disabledKeyboardNavigation={false}
+                          dropdownMode="scroll"
+                          enableTabLoop={true}
+                          excludeScrollbar={true}
+                          id="month"
+                          inlineFocusSelectedMonth={false}
+                          maxDate={2019-10-10T22:39:51.389Z}
+                          minDate={2020-12-01T00:00:00.000Z}
+                          monthsShown={1}
+                          name="month"
+                          nextMonthButtonLabel="Next Month"
+                          nextYearButtonLabel="Next Year"
+                          onBlur={[Function]}
+                          onCalendarClose={[Function]}
+                          onCalendarOpen={[Function]}
+                          onChange={[Function]}
+                          onClickOutside={[Function]}
+                          onFocus={[Function]}
+                          onInputClick={[Function]}
+                          onInputError={[Function]}
+                          onKeyDown={[Function]}
+                          onMonthChange={[Function]}
+                          onSelect={[Function]}
+                          onYearChange={[Function]}
+                          popperPlacement="top"
+                          preventOpenOnFocus={false}
+                          previousMonthButtonLabel="Previous Month"
+                          previousYearButtonLabel="Previous Year"
+                          readOnly={false}
+                          renderDayContents={[Function]}
+                          selected={2019-10-10T00:00:00.000Z}
+                          shouldCloseOnSelect={true}
+                          showFullMonthYearPicker={false}
+                          showMonthDropdown={true}
+                          showMonthYearPicker={true}
+                          showPopperArrow={true}
+                          showPreviousMonths={false}
+                          showQuarterYearPicker={false}
+                          showTimeInput={false}
+                          showTimeSelect={false}
+                          showYearPicker={false}
+                          strictParsing={false}
+                          timeCaption="Time"
+                          timeInputLabel="Time"
+                          timeIntervals={30}
+                          value="October 2019"
+                          withPortal={false}
+                        >
+                          <a
+                            enableTabLoop={true}
+                            hidePopper={true}
+                            popperComponent={null}
+                            popperModifiers={
+                              Object {
+                                "preventOverflow": Object {
+                                  "boundariesElement": "viewport",
+                                  "enabled": true,
+                                  "escapeWithReference": true,
+                                },
+                              }
+                            }
+                            popperOnKeyDown={[Function]}
+                            popperPlacement="top"
+                            popperProps={Object {}}
+                            targetComponent={
+                              <div
+                                className="react-datepicker__input-container"
+                              >
+                                <input
+                                  className="input is-primary"
+                                  disabled={false}
+                                  id="month"
+                                  name="month"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  readOnly={false}
+                                  type="text"
+                                  value="October 2019"
+                                />
+                              </div>
+                            }
+                          >
+                            <Manager
+                              className="react-datepicker-manager"
+                            >
+                              <Reference>
+                                <InnerReference
+                                  setReferenceNode={[Function]}
+                                >
+                                  <div
+                                    className="react-datepicker-wrapper"
+                                  >
+                                    <div
+                                      className="react-datepicker__input-container"
+                                    >
+                                      <input
+                                        className="input is-primary"
+                                        disabled={false}
+                                        id="month"
+                                        name="month"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onKeyDown={[Function]}
+                                        readOnly={false}
+                                        type="text"
+                                        value="October 2019"
+                                      />
+                                    </div>
+                                  </div>
+                                </InnerReference>
+                              </Reference>
+                            </Manager>
+                          </a>
+                        </o>
+                      </div>
+                    </div>
+                  </Field>
+                </Component>
+                <FormikConnect(Function)
+                  onSave={[Function]}
+                >
+                  <Component
+                    formik={
+                      Object {
+                        "dirty": false,
+                        "errors": Object {},
+                        "getFieldHelpers": [Function],
+                        "getFieldMeta": [Function],
+                        "getFieldProps": [Function],
+                        "handleBlur": [Function],
+                        "handleChange": [Function],
+                        "handleReset": [Function],
+                        "handleSubmit": [Function],
+                        "initialErrors": Object {},
+                        "initialStatus": undefined,
+                        "initialTouched": Object {},
+                        "initialValues": Object {
+                          "month": 2019-10-10T22:39:51.389Z,
+                        },
+                        "isSubmitting": false,
+                        "isValid": true,
+                        "isValidating": false,
+                        "registerField": [Function],
+                        "resetForm": [Function],
+                        "setErrors": [Function],
+                        "setFieldError": [Function],
+                        "setFieldTouched": [Function],
+                        "setFieldValue": [Function],
+                        "setFormikState": [Function],
+                        "setStatus": [Function],
+                        "setSubmitting": [Function],
+                        "setTouched": [Function],
+                        "setValues": [Function],
+                        "status": undefined,
+                        "submitCount": 0,
+                        "submitForm": [Function],
+                        "touched": Object {},
+                        "unregisterField": [Function],
+                        "validateField": [Function],
+                        "validateForm": [Function],
+                        "validateOnBlur": true,
+                        "validateOnChange": true,
+                        "validateOnMount": false,
+                        "values": Object {
+                          "month": 2019-10-10T22:39:51.389Z,
+                        },
+                      }
+                    }
+                    onSave={[Function]}
+                  />
+                </FormikConnect(Function)>
+              </form>
+            </Form>
+          </Formik>
+          <mock-styled.div>
+            <mock-styled.div>
+              <Component>
+                <div
+                  className="loader-spinner body"
+                  data-test=""
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+              </Component>
+            </mock-styled.div>
+          </mock-styled.div>
+        </section>
+      </Component>
+    </ErrorBoundary>
+  </Component>
+</Component>
+`;

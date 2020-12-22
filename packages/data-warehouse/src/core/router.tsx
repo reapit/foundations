@@ -36,6 +36,7 @@ const SubsctiptionsPage = React.lazy(() =>
 const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
 const HealthPage = React.lazy(() => catchChunkError(() => import('../components/pages/health')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
+const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/pages/analytics/analytics')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -49,6 +50,7 @@ const Router = () => (
             <Route path={Routes.DATA} component={DataPage} />
             <Route path={Routes.HEALTH} component={HealthPage} />
             <Route path={Routes.SETTINGS} component={SettingsPage} />
+            <Route path={Routes.ANALYTICS} component={AnalyticsPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
+<Component>
+  <Component>
+    <Component
+      hasMargin={false}
+    >
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <h5
+            className=""
+            id=""
+          >
+            Monthly Usage
+          </h5>
+        </Component>
+        <mock-styled.div>
+          <mock-styled.div>
+            <Component>
+              <div
+                className="loader-spinner body"
+                data-test=""
+              >
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+            </Component>
+          </mock-styled.div>
+        </mock-styled.div>
+      </section>
+    </Component>
+  </Component>
+</Component>
+`;

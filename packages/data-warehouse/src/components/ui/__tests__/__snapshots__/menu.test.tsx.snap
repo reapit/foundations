@@ -62,6 +62,15 @@ exports[`Menu should match a snapshot 1`] = `
             "url": "/data",
           },
           Object {
+            "icon": <FaChartBar
+              className="nav-item-icon"
+            />,
+            "key": "ANALYTICS",
+            "title": "Analytics",
+            "type": "PRIMARY",
+            "url": "/analytics",
+          },
+          Object {
             "callback": [Function],
             "icon": <FaCloud
               className="nav-item-icon"
@@ -392,6 +401,83 @@ exports[`Menu should match a snapshot 1`] = `
                       className="nav-item-title"
                     >
                       Data
+                    </div>
+                  </li>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </Component>
+          <Component
+            item={
+              Object {
+                "icon": <FaChartBar
+                  className="nav-item-icon"
+                />,
+                "key": "ANALYTICS",
+                "title": "Analytics",
+                "type": "PRIMARY",
+                "url": "/analytics",
+              }
+            }
+            key="ANALYTICS"
+          >
+            <Link
+              className="nav-item-link is-primary"
+              to="/analytics"
+            >
+              <LinkAnchor
+                className="nav-item-link is-primary"
+                href="/analytics"
+                navigate={[Function]}
+              >
+                <a
+                  className="nav-item-link is-primary"
+                  href="/analytics"
+                  onClick={[Function]}
+                >
+                  <li
+                    className="nav-item "
+                    onClick={[Function]}
+                  >
+                    <div>
+                      <FaChartBar
+                        className="nav-item-icon"
+                      >
+                        <IconBase
+                          attr={
+                            Object {
+                              "viewBox": "0 0 512 512",
+                            }
+                          }
+                          className="nav-item-icon"
+                        >
+                          <svg
+                            className="nav-item-icon"
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            strokeWidth="0"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }
+                            viewBox="0 0 512 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
+                              key="0"
+                            />
+                          </svg>
+                        </IconBase>
+                      </FaChartBar>
+                    </div>
+                    <div
+                      className="nav-item-title"
+                    >
+                      Analytics
                     </div>
                   </li>
                 </a>
