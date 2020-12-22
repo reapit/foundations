@@ -916,7 +916,7 @@ export interface CreateSubscriptionModel {
    */
   user?: string
   /**
-   * The type of subscription (applicationListing/developerRegistration/developerEdition)
+   * The type of subscription (applicationListing/developerRegistration/developerEdition/dataWarehouse)
    */
   type?: string
 }
@@ -1407,7 +1407,7 @@ export interface SubscriptionModel {
    */
   user?: string
   /**
-   * The type of subscription (applicationListing/developerRegistration/developerEdition)
+   * The type of subscription (applicationListing/developerRegistration/developerEdition/dataWarehouse)
    */
   type?: string
   /**
