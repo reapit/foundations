@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
+import { FaSignOutAlt, FaHome, FaUser } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
+import Routes from '../../constants/routes'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -22,11 +23,18 @@ export const generateMenuConfig = (
         type: 'LOGO',
       },
       {
-        title: 'Apps',
-        key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
-        callback: callbackAppClick,
+        title: 'Offices',
+        key: 'OFFICES',
+        url: Routes.OFFICES,
         type: 'PRIMARY',
+        icon: <FaHome className="nav-item-icon" />,
+      },
+      {
+        title: 'Users',
+        key: 'USERS',
+        url: Routes.USERS,
+        type: 'PRIMARY',
+        icon: <FaUser className="nav-item-icon" />,
       },
       {
         title: 'Logout',
@@ -38,12 +46,6 @@ export const generateMenuConfig = (
     ],
   }
 }
-
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
-      : 'https://marketplace.reapit.cloud/installed')
 
 export type MenuProps = RouteComponentProps
 

@@ -1,7 +1,43 @@
-import * as React from 'react'
+import React from 'react'
+import { useHistory, useLocation } from 'react-router'
+import { H3, Section, Content, Tabs, TabConfig } from '@reapit/elements'
+import { Route } from 'react-router-dom'
+import Routes from '../../constants/routes'
+import OfficesTab from '../ui/offices/officesTab'
+import OfficesGroupsTab from '../ui/offices/officesGroupsTab'
 
-export const Offices: React.FC = () => {
-  return <>OFFICES</>
+const tabConfigs = ({ pathname, handleChangeTab }: any): TabConfig[] => [
+  {
+    tabIdentifier: Routes.OFFICES,
+    displayText: 'Offices',
+    onTabClick: handleChangeTab,
+    active: pathname === Routes.OFFICES,
+  },
+  {
+    tabIdentifier: Routes.OFFICES_GROUPS,
+    displayText: 'Groups',
+    onTabClick: handleChangeTab,
+    active: pathname === Routes.OFFICES_GROUPS,
+  },
+]
+
+const OfficesPage: React.FC = () => {
+  const history = useHistory()
+  const location = useLocation()
+  const { pathname } = location
+  const handleChangeTab = (url: string) => history.push(url)
+  return (
+    <>
+      <Content>
+        <H3 isHeadingSection>Manage Offices</H3>
+        <Section>
+          <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
+          <Route path={Routes.OFFICES} component={OfficesTab} exact />
+          <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
+        </Section>
+      </Content>
+    </>
+  )
 }
 
-export default Offices
+export default OfficesPage

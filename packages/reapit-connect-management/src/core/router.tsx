@@ -31,9 +31,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Offices = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
-const OfficesGroups = React.lazy(() => catchChunkError(() => import('../components/pages/officesGroups')))
 const Users = React.lazy(() => catchChunkError(() => import('../components/pages/users')))
-const UsersGroups = React.lazy(() => catchChunkError(() => import('../components/pages/usersGroups')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -42,10 +40,8 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <PrivateRoute path={Routes.OFFICES} component={Offices} exact />
-            <PrivateRoute path={Routes.OFFICES_GROUPS} component={OfficesGroups} exact />
-            <PrivateRoute path={Routes.USERS} component={Users} exact />
-            <PrivateRoute path={Routes.USERS_GROUPS} component={UsersGroups} exact />
+            <PrivateRoute path={Routes.OFFICES} component={Offices} />
+            <PrivateRoute path={Routes.USERS} component={Users} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
