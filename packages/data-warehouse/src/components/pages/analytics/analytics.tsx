@@ -18,15 +18,14 @@ export const AnalyticsPage: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setMessageState } = useContext(MessageContext)
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
+  const currentSubscription = getCurrentSubscription(subscriptions)
   const handleModalClose = () => setModalVisible(false)
   const handleModalOpen = () => setModalVisible(true)
 
-  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
-    developerId,
+    connectSession,
   ])
 
   return (

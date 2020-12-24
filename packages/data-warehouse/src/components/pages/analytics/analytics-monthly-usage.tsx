@@ -13,12 +13,12 @@ export const AnalyticsMonthlyUsage: React.FC = () => {
   const [billingLoading, setBillingLoading] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setMessageState } = useContext(MessageContext)
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
+  const orgId = connectSession?.loginIdentity?.orgId ?? null
   const dateFrom = new Date('2020-12-01')
   const dateTo = new Date()
-  const datasets = billing ? mapServiceChartDataSet(billing) : null
+  const datasets = mapServiceChartDataSet(billing ?? null)
 
-  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, dateFrom, dateTo), [developerId])
+  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, dateFrom, dateTo), [orgId])
 
   return (
     <Section hasMargin={false}>

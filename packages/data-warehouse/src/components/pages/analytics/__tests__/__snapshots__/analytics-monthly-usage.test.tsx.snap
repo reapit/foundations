@@ -20,17 +20,31 @@ exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
         </Component>
         <mock-styled.div>
           <mock-styled.div>
-            <Component>
-              <div
-                className="loader-spinner body"
-                data-test=""
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-            </Component>
+            <Bar
+              data={
+                Object {
+                  "datasets": Array [],
+                  "labels": Array [],
+                }
+              }
+              height={50}
+              options={
+                Object {
+                  "maintainAspectRatio": false,
+                  "scales": Object {
+                    "yAxes": Array [
+                      Object {
+                        "scaleLabel": Object {
+                          "display": true,
+                          "labelString": "Total Cost ( £ )",
+                        },
+                      },
+                    ],
+                  },
+                }
+              }
+              width={50}
+            />
           </mock-styled.div>
         </mock-styled.div>
       </section>

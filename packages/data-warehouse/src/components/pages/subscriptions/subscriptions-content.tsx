@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader, Helper } from '@reapit/elements'
+import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements'
 import { PricingTile } from './__styles__/pricing-tile'
 import { MessageContext } from '../../../context/message-context'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -13,13 +13,13 @@ const SubscriptionsContent: React.FC = () => {
   const { setMessageState } = useContext(MessageContext)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = connectSession?.loginIdentity ?? null
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
+  const clientId = connectSession?.loginIdentity?.clientId ?? null
+  const currentSubscription = getCurrentSubscription(subscriptions)
 
-  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
-    developerId,
+    connectSession,
   ])
 
   return (
@@ -65,19 +65,13 @@ const SubscriptionsContent: React.FC = () => {
                       <div className="text-center px-2 py-1">Supports all major BI products</div>
                       <div className="text-center px-2 py-1">Enterprise grade encryption in transit and at rest</div>
                       <div className="text-center px-2 py-1">Data kept up to date at 15 minute intervals</div>
-                      {!developerId && (
-                        <Helper>
-                          You need to be a registered Reapit Developer to subscribe to the Data Warehouse. To register
-                          as a developer visit <a href={window.reapit.config.developersUrl}>here</a>.
-                        </Helper>
-                      )}
                       {loginIdentity && (
                         <Section hasMargin={false}>
                           <Button
                             type="button"
                             variant="primary"
                             fullWidth
-                            disabled={!developerId}
+                            disabled={!clientId}
                             onClick={handleSubscriptionToggle(
                               currentSubscription,
                               loginIdentity,

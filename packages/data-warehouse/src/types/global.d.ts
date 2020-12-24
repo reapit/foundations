@@ -7,7 +7,6 @@ export type Config = {
   connectOAuthUrl: string
   platformApiUrl: string
   marketplaceUrl: string
-  developersUrl: string
 }
 
 declare global {

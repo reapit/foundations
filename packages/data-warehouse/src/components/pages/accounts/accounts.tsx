@@ -23,15 +23,14 @@ export const Accounts: React.FC = () => {
   const [percentageComplete, setPercentageComplete] = useState(0)
   const { setMessageState } = useContext(MessageContext)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
+  const currentSubscription = getCurrentSubscription(subscriptions)
   const handleModalClose = () => setModalVisible(false)
   const handleModalOpen = () => setModalVisible(true)
 
-  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
-    developerId,
+    connectSession,
   ])
 
   useEffect(handleGetAccounts(setAccounts, setAccountsLoading, setMessageState, currentSubscription), [

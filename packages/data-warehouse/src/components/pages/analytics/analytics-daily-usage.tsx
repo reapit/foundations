@@ -8,33 +8,30 @@ import {
   getDailyChartConfig,
   getDailyChartOptions,
   handleAutoSave,
-  handleGetStatsByPeriod,
+  handleGetBillingByPeriod,
   handleOnSave,
-  RequestByDateModel,
 } from './analytics-handlers'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { MessageContext } from '../../../context/message-context'
 import { StatsContainer } from './__styles__/analytics'
 import FormikAutoSave from '../../hocs/formik-auto-save'
-import { TrafficEventsStatisticsSummaryModel } from '../../../types/traffic'
+import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 
 export const AnalyticsDailyUsage: React.FC = () => {
-  const [stats, setStats] = useState<TrafficEventsStatisticsSummaryModel>()
-  const [statsLoading, setStatsLoading] = useState<boolean>(false)
+  const [billing, setBilling] = useState<BillingOverviewForPeriodV2Model>()
+  const [billingLoading, setBillingLoading] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setMessageState } = useContext(MessageContext)
   const [month, setMonth] = useState<Date>(new Date())
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
+  const orgId = connectSession?.loginIdentity?.orgId ?? null
   const onSave = useCallback(handleOnSave(setMonth), [])
-  const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(
-    (stats?.requestsByDate as RequestByDateModel[]) ?? [],
-  )
+  const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(billing?.periods ?? [])
   const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
   const chartData = getDailyChartConfig(labels, data)
   const chartOptions = getDailyChartOptions(chartDataStats)
 
-  useEffect(handleGetStatsByPeriod(setStats, setStatsLoading, setMessageState, month), [developerId, month])
+  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, month, month), [orgId])
 
   return (
     <ErrorBoundary>
@@ -59,7 +56,7 @@ export const AnalyticsDailyUsage: React.FC = () => {
         </Formik>
         <FadeIn>
           <StatsContainer>
-            {statsLoading ? <Loader /> : <Line data={chartData} options={chartOptions} />}
+            {billingLoading ? <Loader /> : <Line data={chartData} options={chartOptions} />}
           </StatsContainer>
         </FadeIn>
       </Section>

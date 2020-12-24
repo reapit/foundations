@@ -246,17 +246,28 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
           </Formik>
           <mock-styled.div>
             <mock-styled.div>
-              <Component>
-                <div
-                  className="loader-spinner body"
-                  data-test=""
-                >
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-              </Component>
+              <Line
+                data={
+                  Object {
+                    "datasets": Array [],
+                    "labels": Array [],
+                  }
+                }
+                options={
+                  Object {
+                    "height": 50,
+                    "legend": null,
+                    "maintainAspectRatio": true,
+                    "tooltips": Object {
+                      "callbacks": Object {
+                        "label": [Function],
+                      },
+                      "mode": "label",
+                    },
+                    "width": 100,
+                  }
+                }
+              />
             </mock-styled.div>
           </mock-styled.div>
         </section>
