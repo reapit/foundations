@@ -1,11 +1,10 @@
-import { httpTrafficPerDayStub, monthlyBillingData, subBilling, tableData } from '../__stubs__/analytics'
+import { monthlyBillingData, subBilling, tableData } from '../__stubs__/analytics'
 import {
   handleAutoSave,
   handleDownloadCSV,
   handleGetBilling,
   handleGetBillingByPeriod,
   handleGetSettings,
-  handleGetStatsByPeriod,
   handleOnSave,
   handleUpdateSettings,
   prepareTableColumns,
@@ -22,11 +21,7 @@ import {
   prepareTableData,
 } from '../analytics-handlers'
 import { saveAs } from 'file-saver'
-import {
-  getBillingByDatesService,
-  getBillingByMonthService,
-  getStatsByDatesService,
-} from '../../../../services/billing'
+import { getBillingByDatesService, getBillingByMonthService } from '../../../../services/billing'
 import { getSettingsService, updateSettingsService } from '../../../../services/settings'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
@@ -40,7 +35,6 @@ jest.mock('../../../../services/settings', () => ({
 jest.mock('../../../../services/billing', () => ({
   getBillingByMonthService: jest.fn(() => ({})),
   getBillingByDatesService: jest.fn(() => ({})),
-  getStatsByDatesService: jest.fn(() => ({})),
 }))
 
 describe('prepareTableData', () => {
@@ -240,26 +234,26 @@ describe('flattenCostTableRows', () => {
 })
 
 describe('getAppHttpTrafficPerDayChartData', () => {
-  const data = getAppHttpTrafficPerDayChartData(httpTrafficPerDayStub.requestsByDate || [])
+  const data = getAppHttpTrafficPerDayChartData(subBilling.periods || [])
+
   expect(data).toEqual({
-    labels: ['2020-04-04', '2020-04-05'],
-    data: [4, 65],
+    labels: ['2019-11', '2019-12', '2020-01', '2020-02', '2020-03', '2020-04', '2020-05'],
+    data: [0, 0, 0, 0, 0, 0.3, 0.5],
     chartDataStats: [
-      {
-        date: '2020-04-04',
-        requestCount: 4,
-      },
-      {
-        date: '2020-04-05',
-        requestCount: 65,
-      },
+      { date: '2019-11', requestCount: 0 },
+      { date: '2019-12', requestCount: 0 },
+      { date: '2020-01', requestCount: 0 },
+      { date: '2020-02', requestCount: 0 },
+      { date: '2020-03', requestCount: 0 },
+      { date: '2020-04', requestCount: 0.3 },
+      { date: '2020-05', requestCount: 0.5 },
     ],
   })
 })
 
 describe('getDailyChartOptions', () => {
   it('should return correctly', () => {
-    const result = getAppHttpTrafficPerDayChartData(httpTrafficPerDayStub.requestsByDate || [])
+    const result = getAppHttpTrafficPerDayChartData(subBilling.periods || [])
     const options = getDailyChartOptions(result?.chartDataStats)
     expect(options.tooltips).not.toBeNull()
   })
@@ -267,7 +261,7 @@ describe('getDailyChartOptions', () => {
 
 describe('getDailyChartConfig', () => {
   it('should return correctly', () => {
-    const result = getAppHttpTrafficPerDayChartData(httpTrafficPerDayStub.requestsByDate || [])
+    const result = getAppHttpTrafficPerDayChartData(subBilling.periods || [])
     const configs = getDailyChartConfig(result?.labels, result?.data)
     expect(configs).not.toBeNull()
   })
@@ -288,7 +282,7 @@ describe('mapServiceChartDataSet', () => {
       ],
       datasets: [
         {
-          label: 'API Calls',
+          label: 'Data Warehouse',
           backgroundColor: 'rgba(255,99,132,0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
@@ -384,12 +378,14 @@ describe('handleGetBillingByPeriod', () => {
     const mockSetBilling = jest.fn()
     const mockSetBillingLoading = jest.fn()
     const mockSetMessageState = jest.fn()
+    const mockOrgId = 'SOME_ID'
     const mockDateFrom = new Date('2020-12-01')
     const mockDateTo = new Date('2020-12-31')
     const curried = handleGetBillingByPeriod(
       mockSetBilling,
       mockSetBillingLoading,
       mockSetMessageState,
+      mockOrgId,
       mockDateFrom,
       mockDateTo,
     )
@@ -406,6 +402,7 @@ describe('handleGetBillingByPeriod', () => {
     const mockSetBilling = jest.fn()
     const mockSetBillingLoading = jest.fn()
     const mockSetMessageState = jest.fn()
+    const mockOrgId = 'SOME_ID'
     const mockDateFrom = new Date('2020-12-01')
     const mockDateTo = new Date('2020-12-31')
     ;(getBillingByDatesService as jest.Mock).mockReturnValueOnce(undefined)
@@ -414,6 +411,7 @@ describe('handleGetBillingByPeriod', () => {
       mockSetBilling,
       mockSetBillingLoading,
       mockSetMessageState,
+      mockOrgId,
       mockDateFrom,
       mockDateTo,
     )
@@ -425,42 +423,6 @@ describe('handleGetBillingByPeriod', () => {
     expect(mockSetBillingLoading).toHaveBeenLastCalledWith(false)
     expect(mockSetMessageState).toHaveBeenCalledWith({
       errorMessage: 'Something went wrong fetching billing, please try again',
-    })
-  })
-})
-
-describe('handleGetStatsByPeriod', () => {
-  it('should get and set stats if there is a month value', async () => {
-    const mockSetStats = jest.fn()
-    const mockSetStatsLoading = jest.fn()
-    const mockSetMessageState = jest.fn()
-    const mockMonth = new Date('2020-12-01')
-    const curried = handleGetStatsByPeriod(mockSetStats, mockSetStatsLoading, mockSetMessageState, mockMonth)
-
-    await curried()
-
-    expect(mockSetStatsLoading).toHaveBeenCalledWith(true)
-    expect(mockSetStats).toHaveBeenCalledWith({})
-    expect(mockSetStatsLoading).toHaveBeenLastCalledWith(false)
-    expect(mockSetMessageState).not.toHaveBeenCalled()
-  })
-
-  it('should show an error message if fetching fails', async () => {
-    const mockSetStats = jest.fn()
-    const mockSetStatsLoading = jest.fn()
-    const mockSetMessageState = jest.fn()
-    const mockMonth = new Date('2020-12-01')
-    ;(getStatsByDatesService as jest.Mock).mockReturnValueOnce(undefined)
-
-    const curried = handleGetStatsByPeriod(mockSetStats, mockSetStatsLoading, mockSetMessageState, mockMonth)
-
-    await curried()
-
-    expect(mockSetStatsLoading).toHaveBeenCalledWith(true)
-    expect(mockSetStats).not.toHaveBeenCalledWith({})
-    expect(mockSetStatsLoading).toHaveBeenLastCalledWith(false)
-    expect(mockSetMessageState).toHaveBeenCalledWith({
-      errorMessage: 'Something went wrong fetching stats, please try again',
     })
   })
 })

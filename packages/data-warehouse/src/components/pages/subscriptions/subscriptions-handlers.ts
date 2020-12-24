@@ -1,4 +1,4 @@
-import { LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity, ReapitConnectSession } from '@reapit/connect-session'
 import { Dispatch, SetStateAction } from 'react'
 import {
   createSubscriptionsService,
@@ -13,11 +13,9 @@ export const createSubscription = async (
   setMessageState: Dispatch<SetStateAction<MessageState>>,
   setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
 ) => {
-  const { developerId, clientId, email } = loginIdentity
-  if (!developerId || !clientId || !email) return
+  const { clientId, email } = loginIdentity
+  if (!clientId || !email) return
   const created = await createSubscriptionsService({
-    developerId,
-    applicationId: '',
     user: email,
     customerId: clientId,
     type: 'dataWarehouse',
@@ -68,14 +66,9 @@ export const handleSubscriptionToggle = (
   return createSubscription(loginIdentity, setMessageState, setSubscriptions)
 }
 
-export const getCurrentSubscription = (
-  subscriptions: SubscriptionModelPagedResult | undefined,
-  developerId: string | null,
-) => {
-  return subscriptions?.data?.length && Boolean(developerId)
-    ? subscriptions?.data.find(
-        sub => sub.developerId === developerId && sub.type === 'dataWarehouse' && !sub.cancelled,
-      ) ?? null
+export const getCurrentSubscription = (subscriptions: SubscriptionModelPagedResult | undefined) => {
+  return subscriptions?.data?.length
+    ? subscriptions?.data.find(sub => sub.type === 'dataWarehouse' && !sub.cancelled) ?? null
     : null
 }
 
@@ -83,7 +76,7 @@ export const handleGetSubscriptions = (
   setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
   setSubscriptionsLoading: Dispatch<SetStateAction<boolean>>,
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
-  developerId: string | null,
+  connectSession: ReapitConnectSession | null,
 ) => () => {
   const getSubscriptions = async () => {
     setSubscriptionsLoading(true)
@@ -94,7 +87,7 @@ export const handleGetSubscriptions = (
     }
     return setMessageState({ errorMessage: 'Something went wrong fetching subscriptions, please try again' })
   }
-  if (developerId) {
+  if (connectSession) {
     getSubscriptions()
   }
 }

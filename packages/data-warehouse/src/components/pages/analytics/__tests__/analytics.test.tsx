@@ -6,11 +6,7 @@ import { MessageProvider } from '../../../../context/message-context'
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
-    connectSession: {
-      loginIdentity: {
-        developerId: 'SOME_ID',
-      },
-    },
+    connectSession: null,
   }),
 }))
 

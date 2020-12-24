@@ -11,7 +11,7 @@ export const getSubscriptionsService = async (): Promise<SubscriptionModelPagedR
 
     const response: SubscriptionModelPagedResult | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: `${URLS.SUBSCRIPTIONS}/?developerId=${session.loginIdentity.developerId}`,
+      url: `${URLS.SUBSCRIPTIONS}/?customerId=${session.loginIdentity.clientId}`,
       method: 'GET',
       headers: {
         ...BASE_HEADERS,

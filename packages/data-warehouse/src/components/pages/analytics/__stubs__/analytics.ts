@@ -1,38 +1,5 @@
 import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 
-export const httpTrafficPerDayStub = {
-  from: '2020-02-17',
-  to: '2020-04-05',
-  totalRequestCount: 178,
-  totalEndpointCount: 2,
-  requestsByEndpoint: [
-    {
-      endpoint: 'properties',
-      requestCount: 90,
-    },
-    {
-      endpoint: 'propertyImages',
-      requestCount: 88,
-    },
-  ],
-  requestsByDate: [
-    {
-      date: '2020-04-04',
-      requestCount: 4,
-    },
-    {
-      date: '2020-04-05',
-      requestCount: 65,
-    },
-  ],
-  requestsByCustomer: [
-    {
-      customerId: 'DXX',
-      requestCount: 178,
-    },
-  ],
-}
-
 export const monthlyBillingData: BillingBreakdownForMonthV2Model = {
   period: '2020-06',
   services: [
@@ -69,7 +36,7 @@ export const subBilling = {
       cost: 0.0,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 1,
         },
         {
@@ -90,7 +57,7 @@ export const subBilling = {
       cost: 0.0,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.0,
         },
       ],
@@ -103,7 +70,7 @@ export const subBilling = {
       cost: 0.0,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.0,
         },
       ],
@@ -116,7 +83,7 @@ export const subBilling = {
       cost: 0.0,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.0,
         },
       ],
@@ -129,7 +96,7 @@ export const subBilling = {
       cost: 0.0,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.0,
         },
       ],
@@ -142,7 +109,7 @@ export const subBilling = {
       cost: 0.3,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.3,
         },
       ],
@@ -155,7 +122,7 @@ export const subBilling = {
       cost: 0.5,
       services: [
         {
-          name: 'API Requests',
+          name: 'Data Warehouse',
           cost: 0.5,
         },
       ],
