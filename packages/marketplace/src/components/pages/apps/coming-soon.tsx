@@ -35,6 +35,9 @@ import comingSoonSpinify from '@/assets/images/coming-soon/Spinify.jpg'
 import comingSoonCanopy from '@/assets/images/coming-soon/Canopy.jpg'
 import comingSoonData8 from '@/assets/images/coming-soon/Data8.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
+import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
+import comingSoonAddland from '@/assets/images/coming-soon/Addland.jpg'
+import comingSoonBYM from '@/assets/images/coming-soon/BYM.jpg'
 
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -83,6 +86,9 @@ const comingSoonImagesMap = {
   comingSoonCanopy,
   comingSoonData8,
   comingSoonFacebook,
+  comingSoonOffr,
+  comingSoonAddland,
+  comingSoonBYM,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
