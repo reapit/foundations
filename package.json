@@ -17,6 +17,7 @@
       "packages/geo-diary",
       "packages/graphql-server",
       "packages/marketplace",
+      "packages/event-status-service",
       "packages/payments-client",
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
