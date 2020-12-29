@@ -4,11 +4,9 @@ import { Router } from 'express'
 const router = Router()
 
 router.get('/', (req: any, res: any) => {
-  console.log(req)
   return res.send('event-status-service OK')
 })
 router.get('/test', (req: any, res: any) => {
-  console.log(req)
   res.send('event-status-service test endpoint OK')
 })
 
