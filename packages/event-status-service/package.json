@@ -1,0 +1,47 @@
+{
+  "name": "event-status-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Service to maintain statuses of events sent to users",
+  "repository": "git@github.com:reapit/event-status-service.git",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
+    "fetch-config": "yarn config-manager --namespace cloud --entity event-status-service --name local --mode fetch",
+    "release:development": "serverless deploy --stage dev",
+    "release:production": "serverless deploy --stage prod",
+    "remove:development": "serverless remove --stage dev",
+    "remove:production": "serverless remove --stage prod",
+    "start:dev": "serverless offline --stage local --printOutput",
+    "test:ci:skipped": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@sentry/node": "^5.24.2",
+    "aws-lambda": "^1.0.6",
+    "aws-sdk": "^2.750.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "morgan": "^1.10.0",
+    "serialize-error": "^7.0.1",
+    "serverless-http": "^2.5.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "^2.0.8",
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.9",
+    "@types/morgan": "^1.9.1",
+    "@types/uuid": "^8.3.0",
+    "serverless-deployment-bucket": "^1.1.2",
+    "serverless-offline": "^6.7.0",
+    "serverless-webpack": "^5.3.5"
+  }
+}

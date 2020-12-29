@@ -1,0 +1,55 @@
+service: event-status-service
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+    blockPublicAccess: false
+
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    CLIENT_URL: ${self:custom.env.CLIENT_URL}
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
+
+functions:
+  test-endpoint:
+    handler: src/index.app
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
