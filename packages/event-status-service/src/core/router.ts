@@ -9,5 +9,8 @@ router.get('/', (req: any, res: any) => {
 router.get('/test', (req: any, res: any) => {
   res.send('event-status-service test endpoint OK')
 })
+router.post('/test', (req: any, res: any) => {
+  res.send('event-status-service test POST endpoint OK')
+})
 
 export default router
