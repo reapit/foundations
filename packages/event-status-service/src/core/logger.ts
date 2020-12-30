@@ -13,7 +13,7 @@ export const levels = {
 
 export const logger = winston.createLogger({
   format: winston.format.combine(winston.format.json()),
-  defaultMeta: { service: 'graphql-server' },
+  defaultMeta: { service: 'event-status-service' },
   exitOnError: false,
   transports: [
     new winston.transports.Console({
