@@ -1,16 +1,15 @@
 import { Router } from 'express'
-// import { AppRequest, AppResponse } from './logger'
+import { AppRequest, AppResponse } from '@reapit/utils'
+import { getStatusById } from '../controllers/event-status/get'
+import { listStatuses } from '../controllers/event-status/list'
+import { createEventStatus } from '../controllers/event-status/create'
+import { updateStatusById } from '../controllers/event-status/update'
 
 const router = Router()
 
-router.get('/', (req: any, res: any) => {
-  return res.send('event-status-service OK')
-})
-router.get('/test', (req: any, res: any) => {
-  res.send('event-status-service test endpoint OK')
-})
-router.post('/test', (req: any, res: any) => {
-  res.send('event-status-service test POST endpoint OK')
-})
+router.get('/event-status/:statusId', (req: AppRequest, res: AppResponse) => getStatusById(req, res))
+router.get('/event-status', (req: AppRequest, res: AppResponse) => listStatuses(req, res))
+router.post('/event-status', (req: AppRequest, res: AppResponse) => createEventStatus(req, res))
+router.put('/event-status/:statusId', (req: AppRequest, res: AppResponse) => updateStatusById(req, res))
 
 export default router

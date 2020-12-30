@@ -38,6 +38,8 @@
       "**/react-app-scaffolder/**",
       "**/svelte",
       "**/svelte/**",
+      "**/event-status-service",
+      "**/event-status-service/**",
       "**/graphql-server",
       "**/graphql-server/**"
     ]
