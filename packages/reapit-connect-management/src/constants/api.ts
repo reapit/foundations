@@ -5,4 +5,7 @@ export const BASE_HEADERS = {
 
 export const URLS = {
   CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
+  OFFICES: '/offices',
+  ORGANISATIONS: '/organisations/Organisations',
+  OFFICES_GROUPS: '/officeGroups',
 }

@@ -3,8 +3,8 @@ import { useHistory, useLocation } from 'react-router'
 import { H3, Section, Content, Tabs, TabConfig } from '@reapit/elements'
 import { Route } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import OfficesTab from '../ui/offices/officesTab'
-import OfficesGroupsTab from '../ui/offices/officesGroupsTab'
+import OfficesTab from '../ui/offices/offices-tab'
+import OfficesGroupsTab from '../ui/offices/offices-groups-tab'
 
 const tabConfigs = ({ pathname, handleChangeTab }: any): TabConfig[] => [
   {
