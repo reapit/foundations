@@ -29,6 +29,11 @@ custom:
       migrate: true
       seed: true
       convertEmptyValues: true
+    seed:
+      localSeed:
+        sources:
+          - table: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+            sources: [./seed/event-status.json]
 
 provider:
   name: aws
@@ -45,19 +50,24 @@ provider:
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
+    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
 
 resources:
   Resources:
     eventStatusesTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: Cloud_Event_Statuses
+        TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: eventId
+            AttributeType: S
+          - AttributeName: statusCreatedAt
             AttributeType: S
         KeySchema:
           - AttributeName: eventId
             KeyType: HASH
+          - AttributeName: statusCreatedAt
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

@@ -1,8 +1,7 @@
 import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations'
+import { DYNAMO_DB } from '../core/constants'
 
-const TABLE_NAME = 'Cloud_Event_Statuses' // TODO: this needs to be common across this and the serverless.yaml
-
-@table(TABLE_NAME)
+@table(DYNAMO_DB.tableName)
 export class EventStatus {
   @hashKey()
   eventId: string
@@ -10,8 +9,8 @@ export class EventStatus {
   @attribute()
   clientCode: string
 
-  @attribute()
-  status: string
+  @attribute({ defaultProvider: () => 'outstanding' })
+  status: 'outstanding' | 'actioned' | 'dismissed'
 
   @attribute()
   eventCreatedAt: string
@@ -19,7 +18,7 @@ export class EventStatus {
   @attribute()
   statusCreatedAt: string
 
-  @attribute()
+  @attribute({ defaultProvider: () => new Date().toISOString() })
   statusUpdatedAt: string
 }
 

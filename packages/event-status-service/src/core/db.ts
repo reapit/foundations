@@ -1,5 +1,6 @@
 import DynamoDB from 'aws-sdk/clients/dynamodb'
 import { DataMapper, DataMapperConfiguration } from '@aws/dynamodb-data-mapper'
+import { DYNAMO_DB } from '../core/constants'
 
 type paramsT = {
   region: string
@@ -7,11 +8,11 @@ type paramsT = {
 }
 
 const params: paramsT = {
-  region: process.env.DYNAMO_DB_REGION,
+  region: DYNAMO_DB.region,
 }
 
-if (process.env.DYNAMO_DB_ENDPOINT) {
-  params.endpoint = process.env.DYNAMO_DB_ENDPOINT
+if (DYNAMO_DB.endpoint) {
+  params.endpoint = DYNAMO_DB.endpoint
 }
 
 const dynamoDBClient = new DynamoDB(params)

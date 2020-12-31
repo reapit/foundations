@@ -1,23 +1,20 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/utils'
-
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import { db } from '../../core/db'
-import { generateStatusItem } from '../../schemas/event-status.schema'
-
-type payloadT = {
-  eventId: string
-}
+import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
 
 export const createEventStatus = async (req: AppRequest, res: Response) => {
-  const payload = req.body as payloadT
+  const payload = req.body as EventStatus
   const { traceId } = req
 
   try {
     logger.info('Create new status...', { traceId, payload })
 
-    const itemToCreate = generateStatusItem(payload)
+    const now = new Date().toISOString()
+    const itemToCreate = generateStatusItem({ ...payload, statusCreatedAt: now, statusUpdatedAt: now })
+
     const result = await db.put(itemToCreate, {
       condition: {
         type: 'And',
