@@ -22,7 +22,7 @@ import {
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import OfficesFilterForm, { OfficesFilterFormValues } from '@/components/ui/offices/offices-tab-filter'
-import { tabTopContent, tableTitle } from '../__styles__/offices'
+import { tabTopContent, tableTitle } from '../__styles__'
 
 export const buildFilterValues = (queryParams: URLSearchParams): OfficesFilterFormValues => {
   const name = queryParams.get('name') || []

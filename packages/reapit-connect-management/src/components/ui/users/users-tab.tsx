@@ -2,31 +2,20 @@ import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
-import { OfficeGroupModelPagedResult, OfficeGroupModel } from '@reapit/foundations-ts-definitions'
+import { UserModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Pagination,
-  Table,
-  Loader,
-  Section,
-  Alert,
-  Formik,
-  Form,
-  toLocalTime,
-  DATE_TIME_FORMAT,
-} from '@reapit/elements'
+import { Pagination, Table, Loader, Section, Alert, Formik, Form } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import OfficeListCell from './office-list-cell'
 import { tabTopContent, tableTitle } from '../__styles__'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.OFFICES}${queryString}`)
+  return history.push(`${Routes.USERS}${queryString}`)
 }
 
-const OfficesGroupsTab: React.FC = () => {
+const UsersTab: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
@@ -46,18 +35,20 @@ const OfficesGroupsTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data }: any = useSWR(
-    !orgId
-      ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+  const { data }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+
+  const UserGroupCell = ({ cell: { value } }) => (
+    <span>
+      {value.map((group: string) => (
+        <div key={group}>{group}</div>
+      ))}
+    </span>
   )
 
-  const LastUpdatedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
-
   const columns = [
-    { Header: 'Group Name', accessor: 'name' },
-    { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
-    { Header: 'Last Updated', accessor: 'description', Cell: LastUpdatedCell },
+    { Header: 'Name', accessor: 'name' },
+    { Header: 'Email', accessor: 'email' },
+    { Header: 'User Groups', accessor: 'groups', Cell: UserGroupCell },
     { Header: 'Edit', Cell: <div>Edit</div> },
   ]
 
@@ -68,29 +59,29 @@ const OfficesGroupsTab: React.FC = () => {
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
           designs.
         </p>
-        <div className={tableTitle}>Existing office groups</div>
+        <div className={tableTitle}>Existing users</div>
       </div>
-      {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
+      {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
   )
 }
 
-const OfficeGroupsContent: React.FC<{
-  data: OfficeGroupModelPagedResult
+const UsersContent: React.FC<{
+  data: UserModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void
 }> = ({ data, columns, onPageChange }) => {
-  const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = data
+  const { _embedded: listUser, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      {renderResult(columns, listGroup)}
+      {renderResult(columns, listUser)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )
 }
 
-export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => {
-  if (listGroup?.length === 0) {
+export const renderResult = (columns: any[], listUser?: UserModel[]) => {
+  if (listUser?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
 
@@ -98,11 +89,11 @@ export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => 
     <Formik initialValues={{ selectedGroup: [] }} onSubmit={values => console.log(values)}>
       <Form>
         <Section>
-          <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
+          <Table expandable scrollable={true} data={listUser || []} columns={columns} />
         </Section>
       </Form>
     </Formik>
   )
 }
 
-export default OfficesGroupsTab
+export default UsersTab

@@ -2,31 +2,20 @@ import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
-import { OfficeGroupModelPagedResult, OfficeGroupModel } from '@reapit/foundations-ts-definitions'
+import { GroupModelPagedResult, GroupModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Pagination,
-  Table,
-  Loader,
-  Section,
-  Alert,
-  Formik,
-  Form,
-  toLocalTime,
-  DATE_TIME_FORMAT,
-} from '@reapit/elements'
+import { Pagination, Table, Loader, Section, Alert, Formik, Form } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import OfficeListCell from './office-list-cell'
 import { tabTopContent, tableTitle } from '../__styles__'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.OFFICES}${queryString}`)
+  return history.push(`${Routes.USERS_GROUPS}${queryString}`)
 }
 
-const OfficesGroupsTab: React.FC = () => {
+const UserGroupsTab: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
@@ -46,19 +35,12 @@ const OfficesGroupsTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data }: any = useSWR(
-    !orgId
-      ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`,
-  )
-
-  const LastUpdatedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+  const { data }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
 
   const columns = [
-    { Header: 'Group Name', accessor: 'name' },
-    { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
-    { Header: 'Last Updated', accessor: 'description', Cell: LastUpdatedCell },
-    { Header: 'Edit', Cell: <div>Edit</div> },
+    { Header: 'Group Name', accessor: 'id' },
+    { Header: 'Members', accessor: '' },
+    { Header: 'Manage', Cell: <div>Manage</div> },
   ]
 
   return (
@@ -68,15 +50,15 @@ const OfficesGroupsTab: React.FC = () => {
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
           designs.
         </p>
-        <div className={tableTitle}>Existing office groups</div>
+        <div className={tableTitle}>Existing user groups</div>
       </div>
-      {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
+      {!data ? <Loader /> : <UserGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
   )
 }
 
-const OfficeGroupsContent: React.FC<{
-  data: OfficeGroupModelPagedResult
+const UserGroupsContent: React.FC<{
+  data: GroupModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void
 }> = ({ data, columns, onPageChange }) => {
@@ -89,7 +71,7 @@ const OfficeGroupsContent: React.FC<{
   )
 }
 
-export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => {
+export const renderResult = (columns: any[], listGroup?: GroupModel[]) => {
   if (listGroup?.length === 0) {
     return <Alert message="No Results " type="info" />
   }
@@ -105,4 +87,4 @@ export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => 
   )
 }
 
-export default OfficesGroupsTab
+export default UserGroupsTab

@@ -8,4 +8,6 @@ export const URLS = {
   OFFICES: '/offices',
   ORGANISATIONS: '/organisations/Organisations',
   OFFICES_GROUPS: '/officeGroups',
+  USERS: '/organisations/users',
+  USERS_GROUPS: '/organisations/groups',
 }

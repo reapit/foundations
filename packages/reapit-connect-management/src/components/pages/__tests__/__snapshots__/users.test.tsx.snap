@@ -1,43 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UsersPage should match a snapshot 1`] = `
-<Fragment>
+<div>
+  <Component
+    isHeadingSection={true}
+  >
+    Manage Users
+  </Component>
   <Component>
     <Component
-      isHeadingSection={true}
-    >
-      Manage Users
-    </Component>
-    <Component>
-      <Component
-        tabConfigs={
-          Array [
-            Object {
-              "active": true,
-              "displayText": "Users",
-              "onTabClick": [Function],
-              "tabIdentifier": "/users",
-            },
-            Object {
-              "active": false,
-              "displayText": "Groups",
-              "onTabClick": [Function],
-              "tabIdentifier": "/users/groups",
-            },
-          ]
-        }
-      />
-      <Component
-        component={[Function]}
-        exact={true}
-        path="/users"
-      />
-      <Component
-        component={[Function]}
-        exact={true}
-        path="/users/groups"
-      />
-    </Component>
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "Users",
+            "onTabClick": [Function],
+            "tabIdentifier": "/users",
+          },
+          Object {
+            "active": false,
+            "displayText": "Groups",
+            "onTabClick": [Function],
+            "tabIdentifier": "/users/groups",
+          },
+        ]
+      }
+    />
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/users"
+    />
+    <Component
+      component={[Function]}
+      exact={true}
+      path="/users/groups"
+    />
   </Component>
-</Fragment>
+</div>
 `;
