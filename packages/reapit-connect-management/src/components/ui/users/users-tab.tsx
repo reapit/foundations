@@ -4,11 +4,12 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, Alert, Formik, Form } from '@reapit/elements'
+import { Pagination, Table, Loader, Section, Alert, Formik, Form, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { tabTopContent, tableTitle } from '../__styles__'
+import EditUserModal from './edit-user'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -20,6 +21,7 @@ const UsersTab: React.FC = () => {
   const location = useLocation()
   const search = location.search
   const onPageChange = React.useCallback(onPageChangeHandler(history), [history])
+  const [editingUser, setEditingUser] = useState<UserModel>()
 
   const [orgId, setOrgId] = useState<string | null>(null)
   useEffect(() => {
@@ -35,7 +37,9 @@ const UsersTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+  const { data, mutate }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+
+  const onRefetchData = React.useCallback(mutate(), [])
 
   const UserGroupCell = ({ cell: { value } }) => (
     <span>
@@ -45,11 +49,21 @@ const UsersTab: React.FC = () => {
     </span>
   )
 
+  const EditButton = ({
+    cell: {
+      row: { original },
+    },
+  }) => (
+    <Button type="button" variant="info" onClick={() => setEditingUser(original)}>
+      Edit
+    </Button>
+  )
+
   const columns = [
     { Header: 'Name', accessor: 'name' },
     { Header: 'Email', accessor: 'email' },
     { Header: 'User Groups', accessor: 'groups', Cell: UserGroupCell },
-    { Header: 'Edit', Cell: <div>Edit</div> },
+    { Header: 'Edit', Cell: EditButton },
   ]
 
   return (
@@ -62,6 +76,7 @@ const UsersTab: React.FC = () => {
         <div className={tableTitle}>Existing users</div>
       </div>
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
+      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={onRefetchData} />
     </ErrorBoundary>
   )
 }

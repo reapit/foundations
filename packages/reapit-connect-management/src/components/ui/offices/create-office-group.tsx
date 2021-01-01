@@ -45,8 +45,8 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
 }
 
 export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = data =>
-  data.map(developer => {
-    const { id, name } = developer
+  data.map((office: OfficeModel) => {
+    const { id, name } = office
 
     return {
       label: name,
@@ -101,7 +101,7 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                 <Input type="text" labelText={name.label} id={name.name} name={name.name} />
                 <DropdownSelect
                   mode="multiple"
-                  id="developerId"
+                  id={officeIds.name}
                   placeholder="Please select"
                   name={officeIds.name}
                   labelText={officeIds.label}

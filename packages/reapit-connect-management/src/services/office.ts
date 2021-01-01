@@ -1,7 +1,5 @@
-// import { fetcherWithReturnHeader } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS, BASE_HEADERS } from '../constants/api'
-// import { errorMessages } from '../constants/errorMessages'
 
 interface CreateOfficeGroupParams {
   name: string
