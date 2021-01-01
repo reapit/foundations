@@ -7,15 +7,15 @@ export const OfficeName: React.FC<{ id: string; isLast: boolean }> = ({ id, isLa
   const { data }: any = useSWR(id && `${URLS.OFFICES}/${id}`)
   if (!data) return <Loader body={false} />
   const { name } = data
-  return <span>{name ? `${name}${isLast ? '' : ','}` : ''}</span>
+  return <span>{name ? `${name}${isLast ? '' : ', '}` : ''}</span>
 }
 
 const OfficeListCell = ({ cell: { value } }) => {
-  const officeArr = value.split(', ')
+  const officeArr = value.split(',')
   return (
     <>
       {officeArr.map((id: string, index: number) => (
-        <OfficeName id={id} isLast={index === officeArr.length - 1} key={id} />
+        <OfficeName id={id.trim()} isLast={index === officeArr.length - 1} key={id} />
       ))}
     </>
   )

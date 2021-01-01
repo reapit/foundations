@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -14,12 +14,15 @@ import {
   Form,
   toLocalTime,
   DATE_TIME_FORMAT,
+  Button,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import OfficeListCell from './office-list-cell'
 import { tabTopContent, tableTitle } from '../__styles__'
+import CreateOfficeGroupModal from './create-office-group'
+import EditOfficeGroupModal from './edit-office-group'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -30,7 +33,11 @@ const OfficesGroupsTab: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
-  const onPageChange = React.useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+
+  const [isOpenCreateGroupModal, setOpenCreateGroupModal] = React.useState<boolean>(false)
+  const onOpenCreateModel = () => setOpenCreateGroupModal(true)
+  const [editingGroup, setEditingGroup] = useState<OfficeGroupModel>()
 
   const [orgId, setOrgId] = useState<string | null>(null)
   useEffect(() => {
@@ -46,19 +53,30 @@ const OfficesGroupsTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data }: any = useSWR(
+  const { data, mutate }: any = useSWR(
     !orgId
       ? null
       : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
+  const onRefetchData = React.useCallback(mutate(), [])
 
   const LastUpdatedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+
+  const EditButton = ({
+    cell: {
+      row: { original },
+    },
+  }) => (
+    <Button type="button" variant="info" onClick={() => setEditingGroup(original)}>
+      Edit
+    </Button>
+  )
 
   const columns = [
     { Header: 'Group Name', accessor: 'name' },
     { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
     { Header: 'Last Updated', accessor: 'description', Cell: LastUpdatedCell },
-    { Header: 'Edit', Cell: <div>Edit</div> },
+    { Header: 'Edit', Cell: EditButton },
   ]
 
   return (
@@ -68,7 +86,26 @@ const OfficesGroupsTab: React.FC = () => {
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
           designs.
         </p>
-        <div className={tableTitle}>Existing office groups</div>
+        <div className={tableTitle}>
+          <span>Existing office groups</span>
+          <Button onClick={onOpenCreateModel}>Create office group</Button>
+        </div>
+        {orgId && (
+          <>
+            <CreateOfficeGroupModal
+              visible={isOpenCreateGroupModal}
+              setOpenCreateGroupModal={setOpenCreateGroupModal}
+              orgId={orgId}
+              onRefetchData={onRefetchData}
+            />
+            <EditOfficeGroupModal
+              setEditingGroup={setEditingGroup}
+              orgId={orgId}
+              editingGroup={editingGroup}
+              onRefetchData={onRefetchData}
+            />
+          </>
+        )}
       </div>
       {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
