@@ -61,13 +61,9 @@ resources:
         AttributeDefinitions:
           - AttributeName: eventId
             AttributeType: S
-          - AttributeName: statusCreatedAt
-            AttributeType: S
         KeySchema:
           - AttributeName: eventId
             KeyType: HASH
-          - AttributeName: statusCreatedAt
-            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

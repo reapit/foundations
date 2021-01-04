@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/utils'
+import { AppRequest, stringifyError } from '@reapit/node-utils'
 
 export const updateStatusById = async (req: AppRequest, res: Response) => {
   const statusId = req.params.statusId as string | undefined

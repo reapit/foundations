@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/utils'
+import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { db } from '../../core/db'
 import { EventStatus } from '../../schemas/event-status.schema'
 import { between } from '@aws/dynamodb-expressions'

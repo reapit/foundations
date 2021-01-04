@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { AppRequest, AppResponse } from '@reapit/utils'
+import { AppRequest, AppResponse } from '@reapit/node-utils'
 import { getStatusById } from '../controllers/event-status/get'
 import { listStatuses } from '../controllers/event-status/list'
 import { createEventStatus } from '../controllers/event-status/create'
