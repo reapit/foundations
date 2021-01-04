@@ -37,7 +37,7 @@ const FormSearchEffect = ({ debounceMs }) => {
   return null
 }
 
-const PaymentsFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearch }) => {
+const OfficeTabFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearch }) => {
   const { name } = formFields
   return (
     <Formik initialValues={filterValues} onSubmit={onSearch}>
@@ -57,4 +57,4 @@ const PaymentsFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearch
   )
 }
 
-export default PaymentsFilterForm
+export default OfficeTabFilterForm

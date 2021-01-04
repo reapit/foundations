@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGroupsContent should match a snapshot 1`] = `
+<Fragment>
+  <Formik
+    initialValues={
+      Object {
+        "selectedGroup": Array [],
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Form>
+      <Component>
+        <Component
+          columns={
+            Array [
+              Object {
+                "Header": "Name",
+                "accessor": "name",
+              },
+              Object {
+                "Header": "Email",
+                "accessor": "email",
+              },
+              Object {
+                "Header": "User Groups",
+                "accessor": "groups",
+              },
+              Object {
+                "Header": "Edit",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "agencyCloudCustomerId": "string",
+                "agencyCloudNegotiatorId": "string",
+                "created": "2019-08-14T12:30:02.0000000Z",
+                "email": "string",
+                "groups": Array [
+                  "string",
+                ],
+                "id": "string",
+                "inactive": true,
+                "jobTitle": "string",
+                "landline": "string",
+                "marketplaceDeveloperId": "string",
+                "mobile": "string",
+                "modified": "2019-08-14T12:30:02.0000000Z",
+                "name": "string",
+                "organisationId": "string",
+                "organisationName": "string",
+              },
+            ]
+          }
+          expandable={true}
+          scrollable={true}
+        />
+      </Component>
+    </Form>
+  </Formik>
+  <Component
+    onChange={[Function]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
+</Fragment>
+`;
+
+exports[`UserGroupsTab should match a snapshot 1`] = `
+<ErrorBoundary>
+  <div
+    className=""
+  >
+    <p>
+      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+    </p>
+    <div
+      className=""
+    >
+      Existing user groups
+    </div>
+  </div>
+  <Component
+    columns={
+      Array [
+        Object {
+          "Header": "Group Name",
+          "accessor": "id",
+        },
+        Object {
+          "Header": "Members",
+          "accessor": "",
+        },
+        Object {
+          "Cell": <div>
+            Manage
+          </div>,
+          "Header": "Manage",
+        },
+      ]
+    }
+    data={
+      Object {
+        "_embedded": Array [
+          Object {
+            "agencyCloudCustomerId": "string",
+            "agencyCloudNegotiatorId": "string",
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "email": "string",
+            "groups": Array [
+              "string",
+            ],
+            "id": "string",
+            "inactive": true,
+            "jobTitle": "string",
+            "landline": "string",
+            "marketplaceDeveloperId": "string",
+            "mobile": "string",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+            "name": "string",
+            "organisationId": "string",
+            "organisationName": "string",
+          },
+        ],
+        "_links": Object {
+          "additionalProp1": Object {
+            "href": "string",
+          },
+          "additionalProp2": Object {
+            "href": "string",
+          },
+          "additionalProp3": Object {
+            "href": "string",
+          },
+        },
+        "pageCount": 0,
+        "pageNumber": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "totalPageCount": 0,
+      }
+    }
+    onPageChange={[Function]}
+  />
+</ErrorBoundary>
+`;

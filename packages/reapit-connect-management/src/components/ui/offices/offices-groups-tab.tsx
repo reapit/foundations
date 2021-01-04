@@ -26,7 +26,7 @@ import EditOfficeGroupModal from './edit-office-group'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
-  return history.push(`${Routes.OFFICES}${queryString}`)
+  return history.push(`${Routes.OFFICES_GROUPS}${queryString}`)
 }
 
 const OfficesGroupsTab: React.FC = () => {
@@ -112,7 +112,7 @@ const OfficesGroupsTab: React.FC = () => {
   )
 }
 
-const OfficeGroupsContent: React.FC<{
+export const OfficeGroupsContent: React.FC<{
   data: OfficeGroupModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void

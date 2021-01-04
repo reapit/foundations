@@ -68,7 +68,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
 
     if (!updateUserRes) {
       notification.success({
-        message: errorMessages.EDIT_OFFICE_GROUP_SUCCESS,
+        message: errorMessages.EDIT_USER_SUCCESS,
         placement: 'bottomRight',
       })
       handleOnClose()
@@ -76,7 +76,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
     }
 
     return notification.error({
-      message: updateUserRes.description || errorMessages.FAILED_TO_EDIT_OFFICE_GROUP,
+      message: updateUserRes.description || errorMessages.FAILED_TO_EDIT_USER,
       placement: 'bottomRight',
     })
   }

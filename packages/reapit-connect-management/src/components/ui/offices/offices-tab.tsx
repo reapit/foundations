@@ -88,7 +88,7 @@ const OfficesTab: React.FC = () => {
   )
 }
 
-const OfficesContent: React.FC<{
+export const OfficesContent: React.FC<{
   data: OfficeModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void

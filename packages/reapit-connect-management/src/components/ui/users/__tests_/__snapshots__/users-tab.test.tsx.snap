@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersContent  should match a snapshot 1`] = `
+<Fragment>
+  <Formik
+    initialValues={
+      Object {
+        "selectedGroup": Array [],
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Form>
+      <Component>
+        <Component
+          columns={
+            Array [
+              Object {
+                "Header": "Group Name",
+                "accessor": "id",
+              },
+              Object {
+                "Header": "Members",
+                "accessor": "",
+              },
+              Object {
+                "Cell": <div>
+                  Manage
+                </div>,
+                "Header": "Manage",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "created": "2019-08-14T12:30:02.0000000Z",
+                "description": "string",
+                "id": "string",
+                "modified": "2019-08-14T12:30:02.0000000Z",
+              },
+            ]
+          }
+          expandable={true}
+          scrollable={true}
+        />
+      </Component>
+    </Form>
+  </Formik>
+  <Component
+    onChange={[Function]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
+</Fragment>
+`;
+
+exports[`UsersTab should match a snapshot 1`] = `
+<ErrorBoundary>
+  <div
+    className=""
+  >
+    <p>
+      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+    </p>
+    <div
+      className=""
+    >
+      Existing users
+    </div>
+  </div>
+  <Component
+    columns={
+      Array [
+        Object {
+          "Header": "Name",
+          "accessor": "name",
+        },
+        Object {
+          "Header": "Email",
+          "accessor": "email",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "User Groups",
+          "accessor": "groups",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "Edit",
+        },
+      ]
+    }
+    data={
+      Object {
+        "_embedded": Array [
+          Object {
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "description": "string",
+            "id": "string",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+          },
+        ],
+        "_links": Object {
+          "additionalProp1": Object {
+            "href": "string",
+          },
+          "additionalProp2": Object {
+            "href": "string",
+          },
+          "additionalProp3": Object {
+            "href": "string",
+          },
+        },
+        "pageCount": 0,
+        "pageNumber": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "totalPageCount": 0,
+      }
+    }
+    onPageChange={[Function]}
+  />
+  <Component
+    onRefetchData={[MockFunction]}
+    setEditingUser={[Function]}
+  />
+</ErrorBoundary>
+`;

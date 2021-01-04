@@ -57,7 +57,7 @@ const UserGroupsTab: React.FC = () => {
   )
 }
 
-const UserGroupsContent: React.FC<{
+export const UserGroupsContent: React.FC<{
   data: GroupModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void

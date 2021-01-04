@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficeListCell should match a snapshot 1`] = `
+<Fragment>
+  <Component
+    id="ID1"
+    isLast={false}
+    key="ID1"
+  />
+  <Component
+    id="ID2"
+    isLast={true}
+    key=" ID2"
+  />
+</Fragment>
+`;
+
+exports[`OfficeName lol should match a snapshot 1`] = `
+<span>
+  Reapit, 
+</span>
+`;
+
+exports[`OfficeName should match a snapshot 1`] = `
+<span>
+  Reapit, 
+</span>
+`;

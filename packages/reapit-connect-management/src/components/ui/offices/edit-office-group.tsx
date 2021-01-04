@@ -12,13 +12,12 @@ import {
   Input,
   DropdownSelect,
   Loader,
-  SelectOption,
   notification,
 } from '@reapit/elements'
-import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
 import { errorMessages } from '../../../constants/errorMessages'
+import { prepareOfficeOptions } from '../../../utils/prepareOptions'
 
 export interface UpdateOfficeGroupModalProps {
   editingGroup: OfficeGroupModel | undefined
@@ -44,16 +43,6 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
     label: 'Offices',
   },
 }
-
-export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = data =>
-  data.map((office: OfficeModel) => {
-    const { id, name } = office
-
-    return {
-      label: name,
-      value: id,
-    } as SelectOption
-  })
 
 export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   editingGroup,

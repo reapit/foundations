@@ -81,7 +81,7 @@ const UsersTab: React.FC = () => {
   )
 }
 
-const UsersContent: React.FC<{
+export const UsersContent: React.FC<{
   data: UserModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void
