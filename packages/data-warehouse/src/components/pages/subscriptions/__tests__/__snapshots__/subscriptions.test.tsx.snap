@@ -159,17 +159,6 @@ exports[`Subscriptions should match a snapshot 1`] = `
                             >
                               Data kept up to date at 15 minute intervals
                             </div>
-                            <Component>
-                              <div
-                                className="notification helper-wrap helper-info"
-                              >
-                                You need to be a registered Reapit Developer to subscribe to the Data Warehouse. To register as a developer visit 
-                                <a>
-                                  here
-                                </a>
-                                .
-                              </div>
-                            </Component>
                           </div>
                         </mock-styled.div>
                       </div>

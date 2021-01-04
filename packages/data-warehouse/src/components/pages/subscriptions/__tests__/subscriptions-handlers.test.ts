@@ -10,7 +10,7 @@ import {
   deleteSubscriptionsService,
   getSubscriptionsService,
 } from '../../../../services/subscriptions'
-import { LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity, ReapitConnectSession } from '@reapit/connect-session'
 
 jest.mock('../../../../services/subscriptions', () => ({
   createSubscriptionsService: jest.fn(() => 'https://some-url/SOME_ID'),
@@ -33,7 +33,6 @@ describe('createSubscription', () => {
     const mockSetMessageState = jest.fn()
     const mockSetSubsctiptions = jest.fn()
     const mockLoginIdentity = {
-      developerId: 'SOME_ID',
       clientId: 'SOME_CLIENT_ID',
       email: 'mail@mail.com',
     } as LoginIdentity
@@ -41,8 +40,6 @@ describe('createSubscription', () => {
     await createSubscription(mockLoginIdentity, mockSetMessageState, mockSetSubsctiptions)
 
     expect(createSubscriptionsService).toHaveBeenCalledWith({
-      developerId: mockLoginIdentity.developerId,
-      applicationId: '',
       user: mockLoginIdentity.email,
       customerId: mockLoginIdentity.clientId,
       type: 'dataWarehouse',
@@ -57,7 +54,6 @@ describe('createSubscription', () => {
     const mockSetMessageState = jest.fn()
     const mockSetSubsctiptions = jest.fn()
     const mockLoginIdentity = {
-      developerId: 'SOME_ID',
       clientId: 'SOME_CLIENT_ID',
       email: 'mail@mail.com',
     } as LoginIdentity
@@ -66,8 +62,6 @@ describe('createSubscription', () => {
     await createSubscription(mockLoginIdentity, mockSetMessageState, mockSetSubsctiptions)
 
     expect(createSubscriptionsService).toHaveBeenCalledWith({
-      developerId: mockLoginIdentity.developerId,
-      applicationId: '',
       user: mockLoginIdentity.email,
       customerId: mockLoginIdentity.clientId,
       type: 'dataWarehouse',
@@ -159,7 +153,6 @@ describe('handleSubscriptionToggle', () => {
     const mockSetSubsctiptions = jest.fn()
     const mockCurrentSubscription = null
     const mockLoginIdentity = {
-      developerId: 'SOME_ID',
       clientId: 'SOME_CLIENT_ID',
       email: 'mail@mail.com',
     } as LoginIdentity
@@ -173,8 +166,6 @@ describe('handleSubscriptionToggle', () => {
     curried()
 
     expect(createSubscriptionsService).toHaveBeenCalledWith({
-      developerId: mockLoginIdentity.developerId,
-      applicationId: '',
       user: mockLoginIdentity.email,
       customerId: mockLoginIdentity.clientId,
       type: 'dataWarehouse',
@@ -187,10 +178,6 @@ describe('getCurrentSubscription', () => {
     const mockCurrentSubscriptions = {
       data: [
         {
-          developerId: 'SOME_INVALID_ID',
-          type: 'dataWarehouse',
-        },
-        {
           developerId: 'SOME_ID',
           type: 'dataWarehouse',
           cancelled: 'CANCELLED',
@@ -201,19 +188,17 @@ describe('getCurrentSubscription', () => {
         },
       ],
     }
-    const mockDeveloperId = 'SOME_ID'
 
-    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions, mockDeveloperId)
-    expect(curentSubscription).toEqual(mockCurrentSubscriptions.data[2])
+    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions)
+    expect(curentSubscription).toEqual(mockCurrentSubscriptions.data[1])
   })
 
   it('should return null if no subscriptions', () => {
     const mockCurrentSubscriptions = {
       data: [],
     }
-    const mockDeveloperId = 'SOME_ID'
 
-    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions, mockDeveloperId)
+    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions)
     expect(curentSubscription).toBeNull()
   })
 
@@ -221,34 +206,13 @@ describe('getCurrentSubscription', () => {
     const mockCurrentSubscriptions = {
       data: [
         {
-          developerId: 'SOME_INVALID_ID',
-          type: 'dataWarehouse',
-        },
-        {
-          developerId: 'SOME_ID',
           type: 'dataWarehouse',
           cancelled: 'CANCELLED',
         },
       ],
     }
-    const mockDeveloperId = 'SOME_ID'
 
-    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions, mockDeveloperId)
-    expect(curentSubscription).toBeNull()
-  })
-
-  it('should return null if no developerId', () => {
-    const mockCurrentSubscriptions = {
-      data: [
-        {
-          developerId: 'SOME_ID',
-          type: 'dataWarehouse',
-        },
-      ],
-    }
-    const mockDeveloperId = ''
-
-    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions, mockDeveloperId)
+    const curentSubscription = getCurrentSubscription(mockCurrentSubscriptions)
     expect(curentSubscription).toBeNull()
   })
 })
@@ -258,12 +222,12 @@ describe('handleGetSubscriptions', () => {
     const mockSetSubscriptions = jest.fn()
     const mockSetSubscriptionsLoading = jest.fn()
     const mockSetMessageState = jest.fn()
-    const mockDeveloperId = 'SOME_ID'
+    const mockSession = {} as ReapitConnectSession
     const curried = handleGetSubscriptions(
       mockSetSubscriptions,
       mockSetSubscriptionsLoading,
       mockSetMessageState,
-      mockDeveloperId,
+      mockSession,
     )
 
     await curried()
@@ -278,13 +242,13 @@ describe('handleGetSubscriptions', () => {
     const mockSetSubscriptions = jest.fn()
     const mockSetSubscriptionsLoading = jest.fn()
     const mockSetMessageState = jest.fn()
-    const mockDeveloperId = 'SOME_ID'
+    const mockSession = {} as ReapitConnectSession
     ;(getSubscriptionsService as jest.Mock).mockReturnValueOnce(undefined)
     const curried = handleGetSubscriptions(
       mockSetSubscriptions,
       mockSetSubscriptionsLoading,
       mockSetMessageState,
-      mockDeveloperId,
+      mockSession,
     )
 
     await curried()

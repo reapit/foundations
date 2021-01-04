@@ -27,15 +27,14 @@ export const Data: React.FC<DataProps> = () => {
   const [shares, setShares] = useState<PagedApiResponse<SharesModel>>()
   const [sharesLoading, setSharesLoading] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const developerId = connectSession?.loginIdentity?.developerId ?? null
-  const currentSubscription = getCurrentSubscription(subscriptions, developerId)
+  const currentSubscription = getCurrentSubscription(subscriptions)
 
   const { setMessageState } = useContext(MessageContext)
 
-  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, developerId), [
+  useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
-    developerId,
+    connectSession,
   ])
 
   useEffect(handleGetAccounts(setAccounts, setAccountsLoading, setMessageState, currentSubscription), [

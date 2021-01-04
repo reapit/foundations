@@ -48,15 +48,13 @@ exports[`Analytics should match a snapshot 1`] = `
           </AnalyticsUsageModal>
         </section>
       </Component>
-      <Component>
+      <Component
+        variant="info"
+      >
         <div
-          className="loader-spinner body"
-          data-test=""
+          className="notification helper-wrap helper-info"
         >
-          <div />
-          <div />
-          <div />
-          <div />
+          You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
         </div>
       </Component>
     </ErrorBoundary>
