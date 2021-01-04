@@ -43,7 +43,6 @@ provider:
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
     blockPublicAccess: false
-
   environment:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
@@ -51,6 +50,16 @@ provider:
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
     DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
 
 resources:
   Resources:
