@@ -95,8 +95,6 @@ package:
 
 functions:
   expressServer:
-    environment:
-      SLS_DEBUG: true
     handler: src/index.app
     events:
       - http: ANY /
