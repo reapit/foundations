@@ -1,0 +1,103 @@
+service: cloud-payments-service
+plugins:
+  - serverless-webpack
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-deployment-bucket
+
+custom:
+  s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+  dynamodb:
+    # Configuration on how to run DynamoDB in the local environment only
+    # run the yarn command `install-db` first to ensure DynamoDB Local is installed on your machine
+    stages:
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
+    seed:
+      localSeed:
+        sources:
+          - table: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+            sources: [./seed/api-keys.json]
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: ${self:custom.s3CloudFormBucket}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
+    DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
+    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
+
+resources:
+  Resources:
+    eventStatusesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: apiKey
+            AttributeType: S
+        KeySchema:
+          - AttributeName: apiKey
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
+
+functions:
+  expressServer:
+    environment:
+      SLS_DEBUG: true
+    handler: src/index.app
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
