@@ -77,12 +77,6 @@ const fetchSchema = async apiVersion => {
         'api-version': apiVersion,
       },
     },
-    {
-      endpoint: `${PLATFORM_API_BASE_URL}/organisations/swagger/latest/swagger.json`,
-      headers: {
-        'api-version': apiVersion,
-      },
-    },
   ]
 
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
