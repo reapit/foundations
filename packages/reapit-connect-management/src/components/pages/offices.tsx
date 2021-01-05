@@ -1,10 +1,10 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { H3, Section, Content, Tabs, TabConfig } from '@reapit/elements'
+import { H3, Section, Tabs, TabConfig } from '@reapit/elements'
 import { Route } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import OfficesTab from '../ui/offices/officesTab'
-import OfficesGroupsTab from '../ui/offices/officesGroupsTab'
+import OfficesTab from '../ui/offices/offices-tab'
+import OfficesGroupsTab from '../ui/offices/offices-groups-tab'
 
 const tabConfigs = ({ pathname, handleChangeTab }: any): TabConfig[] => [
   {
@@ -27,16 +27,14 @@ const OfficesPage: React.FC = () => {
   const { pathname } = location
   const handleChangeTab = (url: string) => history.push(url)
   return (
-    <>
-      <Content>
-        <H3 isHeadingSection>Manage Offices</H3>
-        <Section>
-          <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-          <Route path={Routes.OFFICES} component={OfficesTab} exact />
-          <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
-        </Section>
-      </Content>
-    </>
+    <div>
+      <H3 isHeadingSection>Manage Offices</H3>
+      <Section>
+        <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
+        <Route path={Routes.OFFICES} component={OfficesTab} exact />
+        <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
+      </Section>
+    </div>
   )
 }
 

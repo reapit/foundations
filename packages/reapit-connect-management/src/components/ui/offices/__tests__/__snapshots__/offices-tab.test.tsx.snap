@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficesContent should match a snapshot 1`] = `
+<Fragment>
+  <Formik
+    initialValues={
+      Object {
+        "selectedOffice": Array [],
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Form>
+      <Component>
+        <Component
+          columns={
+            Array [
+              Object {
+                "Header": "Office Name",
+                "accessor": "name",
+              },
+              Object {
+                "Header": "Address",
+                "accessor": "address",
+              },
+              Object {
+                "Header": "Last Updated",
+                "accessor": "description",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "address": Object {
+                  "buildingName": "",
+                  "buildingNumber": "15",
+                  "countryId": "GB",
+                  "line1": "Example street",
+                  "line2": "Solihull",
+                  "line3": "West Midlands",
+                  "line4": "",
+                  "postcode": "B91 2XX",
+                },
+                "created": "2018-12-12T12:30:23.0000000Z",
+                "email": "example@email.com",
+                "id": "OXF",
+                "manager": "Mr John Smith",
+                "metadata": Object {
+                  "CustomField1": "CustomValue1",
+                  "CustomField2": true,
+                },
+                "modified": "2019-01-08T12:30:34.0000000Z",
+                "name": "Reapit",
+                "workPhone": "01234 567890",
+              },
+            ]
+          }
+          expandable={true}
+          scrollable={true}
+        />
+      </Component>
+    </Form>
+  </Formik>
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={1}
+    totalCount={25}
+  />
+</Fragment>
+`;
+
+exports[`OfficesTab should match a snapshot 1`] = `
+<ErrorBoundary>
+  <div
+    className=""
+  >
+    <p>
+      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+    </p>
+    <OfficeTabFilterForm
+      filterValues={
+        Object {
+          "name": Array [],
+        }
+      }
+      onSearch={[Function]}
+    />
+    <div
+      className=""
+    >
+      Existing offices
+    </div>
+  </div>
+  <Component
+    columns={
+      Array [
+        Object {
+          "Header": "Office Name",
+          "accessor": "name",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "Address",
+          "accessor": "address",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": "Last Updated",
+          "accessor": "description",
+        },
+      ]
+    }
+    data={
+      Object {
+        "_embedded": Array [
+          Object {
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "15",
+              "countryId": "GB",
+              "line1": "Example street",
+              "line2": "Solihull",
+              "line3": "West Midlands",
+              "line4": "",
+              "postcode": "B91 2XX",
+            },
+            "created": "2018-12-12T12:30:23.0000000Z",
+            "email": "example@email.com",
+            "id": "OXF",
+            "manager": "Mr John Smith",
+            "metadata": Object {
+              "CustomField1": "CustomValue1",
+              "CustomField2": true,
+            },
+            "modified": "2019-01-08T12:30:34.0000000Z",
+            "name": "Reapit",
+            "workPhone": "01234 567890",
+          },
+        ],
+        "_links": Object {
+          "first": Object {
+            "href": "/offices/?PageNumber=1&PageSize=1",
+          },
+          "last": Object {
+            "href": "/offices/?PageNumber=25&PageSize=1",
+          },
+          "next": Object {
+            "href": "/offices/?PageNumber=2&PageSize=1",
+          },
+          "self": Object {
+            "href": "/offices/?PageNumber=1&PageSize=1",
+          },
+        },
+        "pageCount": 1,
+        "pageNumber": 1,
+        "pageSize": 1,
+        "totalCount": 25,
+        "totalPageCount": 1,
+      }
+    }
+    onPageChange={[Function]}
+  />
+</ErrorBoundary>
+`;
