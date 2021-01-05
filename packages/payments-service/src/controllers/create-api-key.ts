@@ -1,8 +1,8 @@
 import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { Response } from 'express'
-import { db } from '../../core/db'
-import { logger } from '../../core/logger'
-import { generateApiKey } from '../../core/schema'
+import { db } from '../core/db'
+import { logger } from '../core/logger'
+import { generateApiKey } from '../core/schema'
 import uuid from 'uuid/v4'
 
 export const createApiKey = async (req: AppRequest, res: Response) => {
