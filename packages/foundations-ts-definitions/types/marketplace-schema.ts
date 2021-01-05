@@ -402,6 +402,10 @@ export interface AppSummaryModel {
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
+  /**
+   * Gets a flag to determing if the app is marked as hidden
+   */
+  isHidden?: boolean
 }
 /**
  * Model to handle paged data and information
@@ -679,6 +683,19 @@ export interface CreateAppModel {
    * Sets the location url of the fifth (optional) app screenshot image
    */
   screen5ImageUrl?: string
+}
+/**
+ * The model responsible for creation of an app restriction
+ */
+export interface CreateAppRestrictionModel {
+  /**
+   * Sets the unique identifier of the app the restriciton is for
+   */
+  appId?: string // uuid
+  /**
+   * Sets a status to determine whether or not to include the app (include/exclude)
+   */
+  status?: string
 }
 /**
  * The model responsible for creation of an app revision
