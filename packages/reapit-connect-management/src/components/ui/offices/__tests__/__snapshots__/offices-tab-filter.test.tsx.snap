@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfficeTabFilterForm should match a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "name": "Office Name",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Component />
+</Formik>
+`;

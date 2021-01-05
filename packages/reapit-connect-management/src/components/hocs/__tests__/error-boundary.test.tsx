@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { ErrorBoundary } from '../error-boundary'
 
 const Component: React.FC = () => <div>I am a component!</div>
@@ -20,6 +20,19 @@ describe('ErrorBoundary', () => {
       hasFailed: true,
     })
     expect(component).toMatchSnapshot()
+  })
+
+  it('should catch an error when a component throws', () => {
+    const DangerousComponent = () => {
+      throw new Error('Some Error')
+    }
+    const component = mount(
+      <ErrorBoundary {...props}>
+        <DangerousComponent></DangerousComponent>
+      </ErrorBoundary>,
+    )
+
+    expect(component.state()).toEqual({ hasFailed: true })
   })
 
   afterEach(() => {

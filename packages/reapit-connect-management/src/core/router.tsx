@@ -4,6 +4,8 @@ import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import PrivateRoute from './private-route'
+import { SWRConfig } from 'swr'
+import { fetcher } from '../utils/fetcher'
 
 export const history = createBrowserHistory()
 
@@ -39,10 +41,18 @@ const Router = () => (
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
-          <Switch>
-            <PrivateRoute path={Routes.OFFICES} component={Offices} />
-            <PrivateRoute path={Routes.USERS} component={Users} />
-          </Switch>
+          <SWRConfig
+            value={{
+              revalidateOnFocus: false,
+              fetcher,
+            }}
+          >
+            {' '}
+            <Switch>
+              <PrivateRoute path={Routes.OFFICES} component={Offices} />
+              <PrivateRoute path={Routes.USERS} component={Users} />
+            </Switch>
+          </SWRConfig>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
       </Switch>

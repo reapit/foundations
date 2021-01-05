@@ -1,12 +1,17 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { H3, Section, Content, Tabs, TabConfig } from '@reapit/elements'
+import { H3, Section, Tabs, TabConfig } from '@reapit/elements'
 import { Route } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import UsersTab from '../ui/users/usersTab'
-import UsersGroupsTab from '../ui/users/usersGroupsTab'
+import UsersTab from '../ui/users/users-tab'
+import UsersGroupsTab from '../ui/users/user-groups-tab'
 
-const tabConfigs = ({ pathname, handleChangeTab }: any): TabConfig[] => [
+interface TabConfigsParams {
+  pathname: string
+  handleChangeTab: (url: string) => void
+}
+
+const tabConfigs = ({ pathname, handleChangeTab }: TabConfigsParams): TabConfig[] => [
   {
     tabIdentifier: Routes.USERS,
     displayText: 'Users',
@@ -27,16 +32,14 @@ export const UsersPage: React.FC = () => {
   const { pathname } = location
   const handleChangeTab = (url: string) => history.push(url)
   return (
-    <>
-      <Content>
-        <H3 isHeadingSection>Manage Users</H3>
-        <Section>
-          <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-          <Route path={Routes.USERS} component={UsersTab} exact />
-          <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
-        </Section>
-      </Content>
-    </>
+    <div>
+      <H3 isHeadingSection>Manage Users</H3>
+      <Section>
+        <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
+        <Route path={Routes.USERS} component={UsersTab} exact />
+        <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
+      </Section>
+    </div>
   )
 }
 
