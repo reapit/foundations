@@ -24,6 +24,7 @@ export const getStatusById = async (req: AppRequest, res: Response) => {
     })
   } catch (error) {
     logger.error('Error retrieving status', stringifyError(error))
+
     if (error.name === 'ItemNotFoundException') {
       res.status(200)
       return res.json({

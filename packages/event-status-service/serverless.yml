@@ -67,15 +67,31 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
         AttributeDefinitions:
           - AttributeName: eventId
+            AttributeType: S
+          - AttributeName: clientCode
+            AttributeType: S
+          - AttributeName: eventCreatedAt
             AttributeType: S
         KeySchema:
           - AttributeName: eventId
             KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+        GlobalSecondaryIndexes:
+          - IndexName: EventStatusesByClientCodeAndEventCreatedDate
+            KeySchema:
+              - AttributeName: clientCode
+                KeyType: HASH
+              - AttributeName: eventCreatedAt
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
 
 package:
   individually: true
