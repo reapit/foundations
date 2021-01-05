@@ -16,13 +16,13 @@ import {
 import { URLS } from '../../../constants/api'
 import { createOfficeGroup } from '../../../services/office'
 import { errorMessages } from '../../../constants/errorMessages'
-import { prepareOfficeOptions } from '../../../utils/prepareOptions'
+import { prepareOfficeOptions } from '../../../utils/prepare-options'
 
 export interface CreateOfficeGroupModalProps {
   visible: boolean
   setOpenCreateGroupModal: React.Dispatch<React.SetStateAction<boolean>>
   orgId: string
-  onRefetchData: Function
+  onRefetchData: () => void
 }
 
 export interface CreateOfficeGroupModel {
@@ -43,6 +43,28 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
 }
 
+export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, orgId: string) => async (
+  params: CreateOfficeGroupModel,
+) => {
+  const { name, officeIds: listId } = params
+  const officeIds = listId.toString()
+  const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
+  if (!createdOffice) {
+    notification.success({
+      message: errorMessages.CREATE_OFFICE_GROUP_SUCCESS,
+      placement: 'bottomRight',
+    })
+    handleOnClose()
+    onRefetchData()
+    return
+  }
+
+  notification.error({
+    message: createdOffice.description || errorMessages.FAILED_TO_CREATE_OFFICE_GROUP,
+    placement: 'bottomRight',
+  })
+}
+
 export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   visible,
   setOpenCreateGroupModal,
@@ -56,25 +78,7 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   if (!data) return <Loader />
   const { _embedded: listOffice } = data
   const officeOptions = prepareOfficeOptions(listOffice)
-
-  const onSubmit = async (params: CreateOfficeGroupModel) => {
-    const { name, officeIds: listId } = params
-    const officeIds = listId.toString()
-    const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
-    if (!createdOffice) {
-      notification.success({
-        message: errorMessages.CREATE_OFFICE_GROUP_SUCCESS,
-        placement: 'bottomRight',
-      })
-      handleOnClose()
-      return onRefetchData()
-    }
-
-    return notification.error({
-      message: createdOffice.description || errorMessages.FAILED_TO_CREATE_OFFICE_GROUP,
-      placement: 'bottomRight',
-    })
-  }
+  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
 
   return (
     <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Manage Offices" zIndex={90}>

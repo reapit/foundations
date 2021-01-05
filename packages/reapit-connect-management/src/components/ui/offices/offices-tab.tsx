@@ -12,7 +12,8 @@ import {
   setQueryParams,
   isEmptyObject,
   Section,
-  Alert,
+  FadeIn,
+  Helper,
   Formik,
   Form,
   combineAddress,
@@ -104,7 +105,11 @@ export const OfficesContent: React.FC<{
 
 export const renderResult = (columns: any[], listOffice?: OfficeModel[]) => {
   if (listOffice?.length === 0) {
-    return <Alert message="No Results " type="info" />
+    return (
+      <FadeIn>
+        <Helper variant="info">No Results</Helper>
+      </FadeIn>
+    )
   }
 
   return (

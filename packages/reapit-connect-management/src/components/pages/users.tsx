@@ -6,7 +6,12 @@ import Routes from '../../constants/routes'
 import UsersTab from '../ui/users/users-tab'
 import UsersGroupsTab from '../ui/users/user-groups-tab'
 
-const tabConfigs = ({ pathname, handleChangeTab }: any): TabConfig[] => [
+interface TabConfigsParams {
+  pathname: string
+  handleChangeTab: (url: string) => void
+}
+
+const tabConfigs = ({ pathname, handleChangeTab }: TabConfigsParams): TabConfig[] => [
   {
     tabIdentifier: Routes.USERS,
     displayText: 'Users',

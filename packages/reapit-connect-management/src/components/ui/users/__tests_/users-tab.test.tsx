@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import UsersTab, { UsersContent, onPageChangeHandler } from '../users-tab'
+import { data } from '../__stubs__/users'
 
 const locationMock = { pathname: '/users' }
 
@@ -10,33 +11,6 @@ jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
   useLocation: jest.fn(() => locationMock),
 }))
-
-const data = {
-  _embedded: [
-    {
-      id: 'string',
-      modified: '2019-08-14T12:30:02.0000000Z',
-      created: '2019-08-14T12:30:02.0000000Z',
-      description: 'string',
-    },
-  ],
-  pageNumber: 0,
-  pageSize: 0,
-  pageCount: 0,
-  totalPageCount: 0,
-  totalCount: 0,
-  _links: {
-    additionalProp1: {
-      href: 'string',
-    },
-    additionalProp2: {
-      href: 'string',
-    },
-    additionalProp3: {
-      href: 'string',
-    },
-  },
-}
 
 jest.mock('swr', () =>
   jest.fn(() => ({

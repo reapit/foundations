@@ -1,7 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
-import { OfficeGroupModel } from '@reapit/foundations-ts-definitions'
+import { OfficeGroupModel } from '../../../types/organisations-schema'
 import {
   Button,
   Section,
@@ -17,21 +17,21 @@ import {
 import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
 import { errorMessages } from '../../../constants/errorMessages'
-import { prepareOfficeOptions } from '../../../utils/prepareOptions'
+import { prepareOfficeOptions } from '../../../utils/prepare-options'
 
 export interface UpdateOfficeGroupModalProps {
   editingGroup: OfficeGroupModel | undefined
   setEditingGroup: React.Dispatch<React.SetStateAction<OfficeGroupModel | undefined>>
   orgId: string
-  onRefetchData: Function
+  onRefetchData: () => void
 }
 
-export interface UpdateOfficeGroupModel {
+interface UpdateOfficeGroupModel {
   name: string
   officeIds: string[]
 }
 
-export type FieldType = 'name' | 'officeIds'
+type FieldType = 'name' | 'officeIds'
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -42,6 +42,35 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
     name: 'officeIds',
     label: 'Offices',
   },
+}
+export const onHandleSubmit = (
+  handleOnClose: () => void,
+  onRefetchData: () => void,
+  editingGroup: OfficeGroupModel,
+  orgId: string,
+) => async (params: UpdateOfficeGroupModel) => {
+  const { name, officeIds: listId } = params
+  const officeIds = listId.toString()
+  const updateOffice = await updateOfficeGroup(
+    { name, officeIds, status: editingGroup?.status || '' },
+    orgId,
+    editingGroup?.id || '',
+  )
+
+  if (!updateOffice) {
+    notification.success({
+      message: errorMessages.EDIT_OFFICE_GROUP_SUCCESS,
+      placement: 'bottomRight',
+    })
+    handleOnClose()
+    onRefetchData()
+    return
+  }
+
+  notification.error({
+    message: updateOffice.description || errorMessages.FAILED_TO_EDIT_OFFICE_GROUP,
+    placement: 'bottomRight',
+  })
 }
 
 export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
@@ -58,31 +87,8 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   const { _embedded: listOffice } = data
   const officeOptions = prepareOfficeOptions(listOffice)
 
-  const onSubmit = async (params: UpdateOfficeGroupModel) => {
-    const { name, officeIds: listId } = params
-    const officeIds = listId.toString()
-    const updateOffice = await updateOfficeGroup(
-      { name, officeIds, status: editingGroup?.status || '' },
-      orgId,
-      editingGroup?.id || '',
-    )
-
-    if (!updateOffice) {
-      notification.success({
-        message: errorMessages.EDIT_OFFICE_GROUP_SUCCESS,
-        placement: 'bottomRight',
-      })
-      handleOnClose()
-      return onRefetchData()
-    }
-
-    return notification.error({
-      message: updateOffice.description || errorMessages.FAILED_TO_EDIT_OFFICE_GROUP,
-      placement: 'bottomRight',
-    })
-  }
-
   if (!editingGroup) return null
+  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   return (
     <ModalV2 visible={!!editingGroup} destroyOnClose={true} onClose={handleOnClose} title="Manage Offices" zIndex={90}>

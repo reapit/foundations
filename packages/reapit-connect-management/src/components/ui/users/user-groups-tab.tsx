@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
-import { GroupModelPagedResult, GroupModel } from '@reapit/foundations-ts-definitions'
+import { GroupModelPagedResult, GroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, Alert, Formik, Form } from '@reapit/elements'
+import { Pagination, Table, Loader, Section, FadeIn, Helper, Formik, Form } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -73,7 +73,11 @@ export const UserGroupsContent: React.FC<{
 
 export const renderResult = (columns: any[], listGroup?: GroupModel[]) => {
   if (listGroup?.length === 0) {
-    return <Alert message="No Results " type="info" />
+    return (
+      <FadeIn>
+        <Helper variant="info">No Results</Helper>
+      </FadeIn>
+    )
   }
 
   return (

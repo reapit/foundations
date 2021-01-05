@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import OfficesGroupsTab, { OfficeGroupsContent, onPageChangeHandler } from '../offices-groups-tab'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
+import { data } from '../__stubs__/office-groups'
 
 const locationMock = { pathname: '/offices/groups' }
 
@@ -10,37 +11,6 @@ jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
   useLocation: jest.fn(() => locationMock),
 }))
-
-const data = {
-  _embedded: [
-    {
-      id: 'string',
-      created: '2019-08-14T12:30:02.0000000Z',
-      modified: '2019-08-14T12:30:02.0000000Z',
-      organisationId: 'string',
-      name: 'string',
-      tag: 'string',
-      officeIds: 'string',
-      status: 'string',
-    },
-  ],
-  pageNumber: 0,
-  pageSize: 0,
-  pageCount: 0,
-  totalPageCount: 0,
-  totalCount: 0,
-  _links: {
-    additionalProp1: {
-      href: 'string',
-    },
-    additionalProp2: {
-      href: 'string',
-    },
-    additionalProp3: {
-      href: 'string',
-    },
-  },
-}
 
 jest.mock('swr', () =>
   jest.fn(() => ({
@@ -75,6 +45,6 @@ describe('onPageChangeHandler', () => {
     expect(onPageChangeHandlerFn).toBeDefined()
 
     onPageChangeHandlerFn(2)
-    expect(history.push).toHaveBeenLastCalledWith(`${Routes.OFFICES_GROUPS}?pageNumber=2`)
+    expect(history.push).toHaveBeenCalledWith(`${Routes.OFFICES_GROUPS}?pageNumber=2`)
   })
 })

@@ -2,14 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
-import { OfficeGroupModelPagedResult, OfficeGroupModel } from '@reapit/foundations-ts-definitions'
+import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
   Table,
   Loader,
   Section,
-  Alert,
+  FadeIn,
+  Helper,
   Formik,
   Form,
   toLocalTime,
@@ -128,7 +129,11 @@ export const OfficeGroupsContent: React.FC<{
 
 export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => {
   if (listGroup?.length === 0) {
-    return <Alert message="No Results " type="info" />
+    return (
+      <FadeIn>
+        <Helper variant="info">No Results</Helper>
+      </FadeIn>
+    )
   }
 
   return (

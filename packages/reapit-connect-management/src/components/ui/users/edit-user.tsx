@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import {
@@ -14,7 +14,7 @@ import {
   SelectOption,
   notification,
 } from '@reapit/elements'
-import { UserModel, GroupModel } from '@reapit/foundations-ts-definitions'
+import { UserModel, GroupModel } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { updateUser } from '../../../services/user'
 import { errorMessages } from '../../../constants/errorMessages'
@@ -22,15 +22,15 @@ import { errorMessages } from '../../../constants/errorMessages'
 export interface UpdateUserModalProps {
   editingUser: UserModel | undefined
   setEditingUser: React.Dispatch<React.SetStateAction<UserModel | undefined>>
-  onRefetchData: Function
+  onRefetchData: () => void
 }
 
-export interface UpdateUserModel {
+interface UpdateUserModel {
   name: string
   groupIds: string[]
 }
 
-export type FieldType = 'name' | 'groupIds'
+type FieldType = 'name' | 'groupIds'
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -53,6 +53,27 @@ export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data 
     } as SelectOption
   })
 
+export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) => async (
+  params: UpdateUserModel,
+) => {
+  const { name, groupIds } = params
+  const updateUserRes = await updateUser({ name, groupIds }, editingUser?.id || '')
+
+  if (!updateUserRes) {
+    notification.success({
+      message: errorMessages.EDIT_USER_SUCCESS,
+      placement: 'bottomRight',
+    })
+    handleOnClose()
+    return onRefetchData()
+  }
+
+  return notification.error({
+    message: updateUserRes.description || errorMessages.FAILED_TO_EDIT_USER,
+    placement: 'bottomRight',
+  })
+}
+
 export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, setEditingUser, onRefetchData }) => {
   const handleOnClose = () => setEditingUser(undefined)
   const { name, groupIds } = formFields
@@ -62,24 +83,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
   const { _embedded: listUserGroup } = data
   const userGroupOptions = prepareGroupOptions(listUserGroup)
 
-  const onSubmit = async (params: UpdateUserModel) => {
-    const { name, groupIds } = params
-    const updateUserRes = await updateUser({ name, groupIds }, editingUser?.id || '')
-
-    if (!updateUserRes) {
-      notification.success({
-        message: errorMessages.EDIT_USER_SUCCESS,
-        placement: 'bottomRight',
-      })
-      handleOnClose()
-      return onRefetchData()
-    }
-
-    return notification.error({
-      message: updateUserRes.description || errorMessages.FAILED_TO_EDIT_USER,
-      placement: 'bottomRight',
-    })
-  }
+  const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
 
   if (!editingUser) return null
 

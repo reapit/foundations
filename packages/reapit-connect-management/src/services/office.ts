@@ -30,7 +30,7 @@ export const createOfficeGroup = async (
         'api-version': '2020-01-31',
       },
       body: JSON.stringify(officeGroup),
-    }).then(response => response.json())
+    }).then(res => res.json())
     return response
   } catch (err) {
     console.error('Error', err.message)
@@ -59,7 +59,7 @@ export const updateOfficeGroup = async (
         'api-version': '2020-01-31',
       },
       body: JSON.stringify(officeGroup),
-    }).then(response => response.json())
+    }).then(res => res.json())
     return response
   } catch (err) {
     console.error('Error', err.message)

@@ -34,10 +34,23 @@ exports[`UsersContent  should match a snapshot 1`] = `
           data={
             Array [
               Object {
+                "agencyCloudCustomerId": "string",
+                "agencyCloudNegotiatorId": "string",
                 "created": "2019-08-14T12:30:02.0000000Z",
-                "description": "string",
+                "email": "string",
+                "groups": Array [
+                  "string",
+                ],
                 "id": "string",
+                "inactive": true,
+                "jobTitle": "string",
+                "landline": "string",
+                "marketplaceDeveloperId": "string",
+                "mobile": "string",
                 "modified": "2019-08-14T12:30:02.0000000Z",
+                "name": "string",
+                "organisationId": "string",
+                "organisationName": "string",
               },
             ]
           }
@@ -96,10 +109,23 @@ exports[`UsersTab should match a snapshot 1`] = `
       Object {
         "_embedded": Array [
           Object {
+            "agencyCloudCustomerId": "string",
+            "agencyCloudNegotiatorId": "string",
             "created": "2019-08-14T12:30:02.0000000Z",
-            "description": "string",
+            "email": "string",
+            "groups": Array [
+              "string",
+            ],
             "id": "string",
+            "inactive": true,
+            "jobTitle": "string",
+            "landline": "string",
+            "marketplaceDeveloperId": "string",
+            "mobile": "string",
             "modified": "2019-08-14T12:30:02.0000000Z",
+            "name": "string",
+            "organisationId": "string",
+            "organisationName": "string",
           },
         ],
         "_links": Object {

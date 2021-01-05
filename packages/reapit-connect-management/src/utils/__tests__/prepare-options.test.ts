@@ -1,4 +1,4 @@
-import { prepareOfficeOptions } from '../prepareOptions'
+import { prepareOfficeOptions } from '../prepare-options'
 
 describe('prepareOfficeOptions', () => {
   it('prepareOfficeOptions should return true result', () => {
