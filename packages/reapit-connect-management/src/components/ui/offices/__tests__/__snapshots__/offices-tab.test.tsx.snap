@@ -2,66 +2,62 @@
 
 exports[`OfficesContent should match a snapshot 1`] = `
 <Fragment>
-  <Formik
-    initialValues={
-      Object {
-        "selectedOffice": Array [],
-      }
-    }
-    onSubmit={[Function]}
-  >
-    <Form>
-      <Component>
-        <Component
-          columns={
-            Array [
-              Object {
-                "Header": "Office Name",
-                "accessor": "name",
+  <Component>
+    <Component
+      className=""
+    >
+      Existing offices
+    </Component>
+    <mock-styled.div>
+      <Component
+        columns={
+          Array [
+            Object {
+              "Header": "Office Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "Address",
+              "accessor": "address",
+            },
+            Object {
+              "Header": "Last Updated",
+              "accessor": "description",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "15",
+                "countryId": "GB",
+                "line1": "Example street",
+                "line2": "Solihull",
+                "line3": "West Midlands",
+                "line4": "",
+                "postcode": "B91 2XX",
               },
-              Object {
-                "Header": "Address",
-                "accessor": "address",
+              "created": "2018-12-12T12:30:23.0000000Z",
+              "email": "example@email.com",
+              "id": "OXF",
+              "manager": "Mr John Smith",
+              "metadata": Object {
+                "CustomField1": "CustomValue1",
+                "CustomField2": true,
               },
-              Object {
-                "Header": "Last Updated",
-                "accessor": "description",
-              },
-            ]
-          }
-          data={
-            Array [
-              Object {
-                "address": Object {
-                  "buildingName": "",
-                  "buildingNumber": "15",
-                  "countryId": "GB",
-                  "line1": "Example street",
-                  "line2": "Solihull",
-                  "line3": "West Midlands",
-                  "line4": "",
-                  "postcode": "B91 2XX",
-                },
-                "created": "2018-12-12T12:30:23.0000000Z",
-                "email": "example@email.com",
-                "id": "OXF",
-                "manager": "Mr John Smith",
-                "metadata": Object {
-                  "CustomField1": "CustomValue1",
-                  "CustomField2": true,
-                },
-                "modified": "2019-01-08T12:30:34.0000000Z",
-                "name": "Reapit",
-                "workPhone": "01234 567890",
-              },
-            ]
-          }
-          expandable={true}
-          scrollable={true}
-        />
-      </Component>
-    </Form>
-  </Formik>
+              "modified": "2019-01-08T12:30:34.0000000Z",
+              "name": "Reapit",
+              "workPhone": "01234 567890",
+            },
+          ]
+        }
+        expandable={true}
+        scrollable={true}
+      />
+    </mock-styled.div>
+  </Component>
   <Component
     onChange={[Function]}
     pageNumber={1}
@@ -73,26 +69,23 @@ exports[`OfficesContent should match a snapshot 1`] = `
 
 exports[`OfficesTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <div
-    className=""
-  >
-    <p>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-    </p>
-    <OfficeTabFilterForm
-      filterValues={
-        Object {
-          "name": Array [],
-        }
-      }
-      onSearch={[Function]}
-    />
+  <Component>
     <div
       className=""
     >
-      Existing offices
+      <p>
+        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      </p>
+      <OfficeTabFilterForm
+        filterValues={
+          Object {
+            "name": Array [],
+          }
+        }
+        onSearch={[Function]}
+      />
     </div>
-  </div>
+  </Component>
   <Component
     columns={
       Array [

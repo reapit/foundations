@@ -79,11 +79,11 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
   const { name, groupIds } = formFields
 
   const { data }: any = useSWR(`${URLS.USERS_GROUPS}`)
+  const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
+
   if (!data) return <Loader />
   const { _embedded: listUserGroup } = data
   const userGroupOptions = prepareGroupOptions(listUserGroup)
-
-  const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
 
   if (!editingUser) return null
 

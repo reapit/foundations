@@ -26,16 +26,16 @@ exports[`UsersPage should match a snapshot 1`] = `
         ]
       }
     />
-    <Component
-      component={[Function]}
-      exact={true}
-      path="/users"
-    />
-    <Component
-      component={[Function]}
-      exact={true}
-      path="/users/groups"
-    />
   </Component>
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/users"
+  />
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/users/groups"
+  />
 </div>
 `;

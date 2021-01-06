@@ -33,7 +33,9 @@ describe('OfficeGroupsContent', () => {
       { Header: 'Last Updated', accessor: 'description' },
       { Header: 'Edit' },
     ]
-    expect(shallow(<OfficeGroupsContent data={data} columns={columns} onPageChange={jest.fn} />)).toMatchSnapshot()
+    expect(
+      shallow(<OfficeGroupsContent data={data} columns={columns} onPageChange={jest.fn} onOpenCreateModel={jest.fn} />),
+    ).toMatchSnapshot()
   })
 })
 

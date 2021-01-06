@@ -2,15 +2,13 @@
 
 exports[`UsersContent  should match a snapshot 1`] = `
 <Fragment>
-  <Formik
-    initialValues={
-      Object {
-        "selectedGroup": Array [],
-      }
-    }
-    onSubmit={[Function]}
-  >
-    <Form>
+  <Component>
+    <Component
+      className=""
+    >
+      Existing users
+    </Component>
+    <mock-styled.div>
       <Component>
         <Component
           columns={
@@ -58,8 +56,8 @@ exports[`UsersContent  should match a snapshot 1`] = `
           scrollable={true}
         />
       </Component>
-    </Form>
-  </Formik>
+    </mock-styled.div>
+  </Component>
   <Component
     onChange={[Function]}
     pageNumber={0}
@@ -71,18 +69,15 @@ exports[`UsersContent  should match a snapshot 1`] = `
 
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <div
-    className=""
-  >
-    <p>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-    </p>
+  <Component>
     <div
       className=""
     >
-      Existing users
+      <p>
+        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      </p>
     </div>
-  </div>
+  </Component>
   <Component
     columns={
       Array [
