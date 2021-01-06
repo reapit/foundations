@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import useSWR from 'swr'
+import { useFormikContext } from 'formik'
+import debounce from 'just-debounce-it'
 import { FormFieldInfo } from '@reapit/utils'
 import {
   Button,
@@ -10,8 +12,8 @@ import {
   Form,
   Input,
   DropdownSelect,
-  Loader,
   notification,
+  SelectOption,
 } from '@reapit/elements'
 import { URLS } from '../../../constants/api'
 import { createOfficeGroup } from '../../../services/office'
@@ -31,6 +33,13 @@ export interface CreateOfficeGroupModel {
 }
 
 export type FieldType = 'name' | 'officeIds'
+
+type SelectOptions = SelectOption[]
+
+interface FormChangeEffectProps {
+  setSelectedOffice: (options: SelectOptions) => void
+  options: SelectOptions
+}
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -65,20 +74,47 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   })
 }
 
+const FormChangeEffect: React.FC<FormChangeEffectProps> = ({ setSelectedOffice, options }) => {
+  const formik: { values: { officeIds: string[] } } = useFormikContext()
+  const { officeIds } = formik.values
+
+  useEffect(() => {
+    setSelectedOffice(options.filter((item: any) => formik.values.officeIds.indexOf(item.value) !== -1))
+  }, [officeIds])
+
+  return null
+}
+
 export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   visible,
   setOpenCreateGroupModal,
   orgId,
   onRefetchData,
 }) => {
+  const [selectedOffice, setSelectedOffice] = useState<SelectOptions>([])
+  const [options, setOptions] = useState<SelectOptions>([])
+  const [searchString, setSearchString] = useState<string>('')
   const handleOnClose = () => setOpenCreateGroupModal(false)
   const { name, officeIds } = formFields
 
-  const { data }: any = useSWR(`${URLS.OFFICES}`)
-  if (!data) return <Loader />
-  const { _embedded: listOffice } = data
-  const officeOptions = prepareOfficeOptions(listOffice)
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
+  const debounceMs = 500
+
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearchString(value), debounceMs),
+    [debounceMs],
+  )
+
+  const { data }: any = useSWR(
+    `${URLS.OFFICES}/${searchString ? `?name=${searchString}` + '&pageSize=12' : '?pageSize=12'}`,
+  )
+  useEffect(() => {
+    if (data) {
+      const { _embedded: listOffice } = data
+      const officeOptions = prepareOfficeOptions(listOffice)
+      setOptions([...selectedOffice, ...officeOptions])
+    }
+  }, [data])
 
   return (
     <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Manage Offices" zIndex={90}>
@@ -98,8 +134,10 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                   placeholder="Please select"
                   name={officeIds.name}
                   labelText={officeIds.label}
-                  options={officeOptions}
+                  options={options}
+                  onSearch={(value: string) => debouncedSearch(value)}
                 />
+                <FormChangeEffect setSelectedOffice={setSelectedOffice} options={options} />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
                 <Button variant="info" disabled={false} onClick={handleOnClose} type="button">

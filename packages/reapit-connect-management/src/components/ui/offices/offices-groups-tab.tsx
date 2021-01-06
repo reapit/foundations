@@ -11,11 +11,10 @@ import {
   Section,
   FadeIn,
   Helper,
-  Formik,
-  Form,
   toLocalTime,
   DATE_TIME_FORMAT,
   Button,
+  H5,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
@@ -82,32 +81,34 @@ const OfficesGroupsTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className={tabTopContent}>
-        <p>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-          designs.
-        </p>
-        <div className={tableTitle}>
-          <span>Existing office groups</span>
-          <Button onClick={onOpenCreateModel}>Create office group</Button>
+      <Section>
+        <div className={tabTopContent}>
+          <div className={tableTitle}>
+            <H5>Existing office groups</H5>
+            <Button onClick={onOpenCreateModel}>Create office group</Button>
+          </div>
+          <p>
+            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+            designs.
+          </p>
+          {orgId && (
+            <>
+              <CreateOfficeGroupModal
+                visible={isOpenCreateGroupModal}
+                setOpenCreateGroupModal={setOpenCreateGroupModal}
+                orgId={orgId}
+                onRefetchData={onRefetchData}
+              />
+              <EditOfficeGroupModal
+                setEditingGroup={setEditingGroup}
+                orgId={orgId}
+                editingGroup={editingGroup}
+                onRefetchData={onRefetchData}
+              />
+            </>
+          )}
         </div>
-        {orgId && (
-          <>
-            <CreateOfficeGroupModal
-              visible={isOpenCreateGroupModal}
-              setOpenCreateGroupModal={setOpenCreateGroupModal}
-              orgId={orgId}
-              onRefetchData={onRefetchData}
-            />
-            <EditOfficeGroupModal
-              setEditingGroup={setEditingGroup}
-              orgId={orgId}
-              editingGroup={editingGroup}
-              onRefetchData={onRefetchData}
-            />
-          </>
-        )}
-      </div>
+      </Section>
       {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
   )
@@ -121,8 +122,10 @@ export const OfficeGroupsContent: React.FC<{
   const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      {renderResult(columns, listGroup)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      <Section>{renderResult(columns, listGroup)}</Section>
+      <Section>
+        <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      </Section>
     </>
   )
 }
@@ -137,13 +140,9 @@ export const renderResult = (columns: any[], listGroup?: OfficeGroupModel[]) => 
   }
 
   return (
-    <Formik initialValues={{ selectedGroup: [] }} onSubmit={values => console.log(values)}>
-      <Form>
-        <Section>
-          <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
-        </Section>
-      </Form>
-    </Formik>
+    <FadeIn>
+      <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
+    </FadeIn>
   )
 }
 

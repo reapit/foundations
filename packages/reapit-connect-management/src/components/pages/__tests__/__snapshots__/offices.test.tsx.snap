@@ -26,16 +26,16 @@ exports[`OfficesPage should match a snapshot 1`] = `
         ]
       }
     />
-    <Component
-      component={[Function]}
-      exact={true}
-      path="/offices"
-    />
-    <Component
-      component={[Function]}
-      exact={true}
-      path="/offices/groups"
-    />
   </Component>
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/offices"
+  />
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/offices/groups"
+  />
 </div>
 `;
