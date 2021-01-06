@@ -2,18 +2,7 @@ import React from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import {
-  Button,
-  Section,
-  ModalV2,
-  H5,
-  Formik,
-  Form,
-  Input,
-  DropdownSelect,
-  Loader,
-  notification,
-} from '@reapit/elements'
+import { Button, Section, ModalV2, H5, Formik, Form, Input, DropdownSelect, notification } from '@reapit/elements'
 import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
 import { errorMessages } from '../../../constants/errorMessages'
@@ -83,7 +72,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   const { name, officeIds } = formFields
 
   const { data }: any = useSWR(`${URLS.OFFICES}`)
-  if (!data) return <Loader />
+  if (!data) return null
   const { _embedded: listOffice } = data
   const officeOptions = prepareOfficeOptions(listOffice)
 

@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateOfficeGroupModal should match a snapshot 1`] = `<Component />`;
+exports[`CreateOfficeGroupModal should match a snapshot 1`] = `
+<Component
+  destroyOnClose={true}
+  onClose={[Function]}
+  title="Manage Offices"
+  visible={true}
+  zIndex={90}
+>
+  <Component>
+    Create Office Group
+  </Component>
+  <p>
+    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+  </p>
+  <Formik
+    initialValues={
+      Object {
+        "name": "",
+        "officeIds": Array [],
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
+</Component>
+`;

@@ -36,9 +36,9 @@ export const UsersPage: React.FC = () => {
       <H3 isHeadingSection>Manage Users</H3>
       <Section>
         <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-        <Route path={Routes.USERS} component={UsersTab} exact />
-        <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
       </Section>
+      <Route path={Routes.USERS} component={UsersTab} exact />
+      <Route path={Routes.USERS_GROUPS} component={UsersGroupsTab} exact />
     </div>
   )
 }

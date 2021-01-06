@@ -2,86 +2,81 @@
 
 exports[`OfficeGroupsContent should match a snapshot 1`] = `
 <Fragment>
-  <Formik
-    initialValues={
-      Object {
-        "selectedGroup": Array [],
-      }
-    }
-    onSubmit={[Function]}
-  >
-    <Form>
-      <Component>
-        <Component
-          columns={
-            Array [
-              Object {
-                "Header": "Group Name",
-                "accessor": "name",
-              },
-              Object {
-                "Header": "Office List",
-                "accessor": "officeIds",
-              },
-              Object {
-                "Header": "Last Updated",
-                "accessor": "description",
-              },
-              Object {
-                "Header": "Edit",
-              },
-            ]
-          }
-          data={
-            Array [
-              Object {
-                "created": "2019-08-14T12:30:02.0000000Z",
-                "id": "string",
-                "modified": "2019-08-14T12:30:02.0000000Z",
-                "name": "string",
-                "officeIds": "string",
-                "organisationId": "string",
-                "status": "string",
-                "tag": "string",
-              },
-            ]
-          }
-          expandable={true}
-          scrollable={true}
-        />
-      </Component>
-    </Form>
-  </Formik>
-  <Component
-    onChange={[Function]}
-    pageNumber={0}
-    pageSize={0}
-    totalCount={0}
-  />
+  <Component>
+    <mock-styled.div>
+      <Component
+        columns={
+          Array [
+            Object {
+              "Header": "Group Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "Office List",
+              "accessor": "officeIds",
+            },
+            Object {
+              "Header": "Last Updated",
+              "accessor": "description",
+            },
+            Object {
+              "Header": "Edit",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "created": "2019-08-14T12:30:02.0000000Z",
+              "id": "string",
+              "modified": "2019-08-14T12:30:02.0000000Z",
+              "name": "string",
+              "officeIds": "string",
+              "organisationId": "string",
+              "status": "string",
+              "tag": "string",
+            },
+          ]
+        }
+        expandable={true}
+        scrollable={true}
+      />
+    </mock-styled.div>
+  </Component>
+  <Component>
+    <Component
+      onChange={[Function]}
+      pageNumber={0}
+      pageSize={0}
+      totalCount={0}
+    />
+  </Component>
 </Fragment>
 `;
 
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <div
-    className=""
-  >
-    <p>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-    </p>
+  <Component>
     <div
       className=""
     >
-      <span>
-        Existing office groups
-      </span>
-      <Component
-        onClick={[Function]}
+      <div
+        className=""
       >
-        Create office group
-      </Component>
+        <Component>
+          Existing office groups
+        </Component>
+        <Component
+          onClick={[Function]}
+        >
+          Create office group
+        </Component>
+      </div>
+      <p>
+        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      </p>
     </div>
-  </div>
+  </Component>
   <Component
     columns={
       Array [

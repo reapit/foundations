@@ -14,11 +14,12 @@ import {
   Section,
   FadeIn,
   Helper,
-  Formik,
-  Form,
   combineAddress,
   toLocalTime,
   DATE_TIME_FORMAT,
+  H5,
+  Grid,
+  GridItem,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
@@ -76,14 +77,21 @@ const OfficesTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className={tabTopContent}>
-        <p>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-          designs.
-        </p>
-        <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
-        <div className={tableTitle}>Existing offices</div>
-      </div>
+      <Section>
+        <div className={tabTopContent}>
+          <H5 className={tableTitle}>Existing offices</H5>
+          <p>
+            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+            designs.
+          </p>
+          <Grid className="items-center">
+            <GridItem>
+              <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
+            </GridItem>
+            <GridItem />
+          </Grid>
+        </div>
+      </Section>
       {!data ? <Loader /> : <OfficesContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
   )
@@ -97,7 +105,7 @@ export const OfficesContent: React.FC<{
   const { _embedded: listOffice, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      {renderResult(columns, listOffice)}
+      <Section>{renderResult(columns, listOffice)}</Section>
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )
@@ -113,13 +121,9 @@ export const renderResult = (columns: any[], listOffice?: OfficeModel[]) => {
   }
 
   return (
-    <Formik initialValues={{ selectedOffice: [] }} onSubmit={values => console.log(values)}>
-      <Form>
-        <Section>
-          <Table expandable scrollable={true} data={listOffice || []} columns={columns} />
-        </Section>
-      </Form>
-    </Formik>
+    <FadeIn>
+      <Table expandable scrollable={true} data={listOffice || []} columns={columns} />
+    </FadeIn>
   )
 }
 

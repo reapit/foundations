@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, FadeIn, Helper, Formik, Form, Button } from '@reapit/elements'
+import { Pagination, Table, Loader, Section, FadeIn, Helper, Button, H5 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -68,13 +68,15 @@ const UsersTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className={tabTopContent}>
-        <p>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-          designs.
-        </p>
-        <div className={tableTitle}>Existing users</div>
-      </div>
+      <Section>
+        <div className={tabTopContent}>
+          <H5 className={tableTitle}>Existing users</H5>
+          <p>
+            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+            designs.
+          </p>
+        </div>
+      </Section>
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
       <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={onRefetchData} />
     </ErrorBoundary>
@@ -89,7 +91,7 @@ export const UsersContent: React.FC<{
   const { _embedded: listUser, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      {renderResult(columns, listUser)}
+      <Section>{renderResult(columns, listUser)}</Section>
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )
@@ -105,13 +107,11 @@ export const renderResult = (columns: any[], listUser?: UserModel[]) => {
   }
 
   return (
-    <Formik initialValues={{ selectedGroup: [] }} onSubmit={values => console.log(values)}>
-      <Form>
-        <Section>
-          <Table expandable scrollable={true} data={listUser || []} columns={columns} />
-        </Section>
-      </Form>
-    </Formik>
+    <FadeIn>
+      <Section>
+        <Table expandable scrollable={true} data={listUser || []} columns={columns} />
+      </Section>
+    </FadeIn>
   )
 }
 

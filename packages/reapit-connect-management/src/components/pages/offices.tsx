@@ -31,9 +31,9 @@ const OfficesPage: React.FC = () => {
       <H3 isHeadingSection>Manage Offices</H3>
       <Section>
         <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-        <Route path={Routes.OFFICES} component={OfficesTab} exact />
-        <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
       </Section>
+      <Route path={Routes.OFFICES} component={OfficesTab} exact />
+      <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
     </div>
   )
 }
