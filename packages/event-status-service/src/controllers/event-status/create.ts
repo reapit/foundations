@@ -3,17 +3,26 @@ import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import { db } from '../../core/db'
-import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
+import { generateStatusItem } from '../../schemas/event-status.schema'
+
+type payload = {
+  eventId: string
+  clientCode: string
+  status: 'outstanding' | 'actioned' | 'dismissed'
+  eventCreatedAt: Date
+}
 
 export const createEventStatus = async (req: AppRequest, res: Response) => {
-  const payload = req.body as EventStatus
+  const payload = req.body as payload
   const { traceId } = req
 
   try {
     logger.info('Create new status...', { traceId, payload })
 
     const now = new Date().toISOString()
-    const itemToCreate = generateStatusItem({ ...payload, statusCreatedAt: now, statusUpdatedAt: now })
+    const eventCreatedAt = payload.eventCreatedAt.toISOString()
+
+    const itemToCreate = generateStatusItem({ ...payload, eventCreatedAt, statusCreatedAt: now, statusUpdatedAt: now })
 
     const result = await db.put(itemToCreate, {
       condition: {
@@ -24,12 +33,9 @@ export const createEventStatus = async (req: AppRequest, res: Response) => {
 
     logger.info('Created event status successfully', { traceId, result })
 
-    res.status(200)
+    res.status(201)
     res.json({
-      status: {
-        payload,
-        traceId,
-      },
+      result,
     })
   } catch (error) {
     logger.error('Error creating status', stringifyError(error))

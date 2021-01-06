@@ -31,6 +31,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "express-validator": "^6.9.2",
     "morgan": "^1.10.0",
     "serialize-error": "^7.0.1",
     "serverless": "^2.17.0",
