@@ -5,14 +5,14 @@ import { logger } from '../core/logger'
 import { generateApiKey } from '../core/schema'
 import uuid from 'uuid/v4'
 
-export const createApiKey = async (req: AppRequest, res: Response) => {
+export const createApiKey = async (req: AppRequest, res: Response, apiKey = uuid()) => {
   const { clientCode, paymentId, keyExpiresAt } = req.body
   const { traceId } = req
-  const apiKey = uuid()
 
-  if (!clientCode || !paymentId || !keyExpiresAt)
-    throw new Error('clientCode, paymentId, entityType and keyExpiresAt are required')
   try {
+    if (!clientCode || !paymentId || !keyExpiresAt)
+      throw new Error('clientCode, paymentId, entityType and keyExpiresAt are required')
+
     const apiKeyObject = generateApiKey({
       apiKey,
       clientCode,

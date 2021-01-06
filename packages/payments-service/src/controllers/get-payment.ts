@@ -7,9 +7,9 @@ import { validateApiKey } from '../core/validators'
 import { getPlatformPayment } from '../services/get-payment'
 
 export const getPayment = async (req: AppRequest, res: Response) => {
-  const apiKey = req.headers['x-api-key'] as string | undefined
-  const clientCode = req.headers['reapit-customer'] as string | undefined
-  const apiVersion = req.headers['api-version'] as string | undefined
+  const apiKey: string | undefined = req.headers['x-api-key']
+  const clientCode: string | undefined = req.headers['reapit-customer']
+  const apiVersion: string | undefined = req.headers['api-version']
   const { paymentId } = req.params
   const { traceId } = req
 

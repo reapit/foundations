@@ -7,11 +7,11 @@ import { validateApiKey, validatePaymentUpdate } from '../core/validators'
 import { updatePlatformPayment } from '../services/update-payment'
 
 export const updatePayment = async (req: AppRequest, res: Response) => {
-  const apiKey = req.headers['x-api-key'] as string | undefined
-  const clientCode = req.headers['reapit-customer'] as string | undefined
-  const apiVersion = req.headers['api-version'] as string | undefined
-  const eTag = req.headers['if-match'] as string | undefined
-  console.log(req.headers)
+  const apiKey: string | undefined = req.headers['x-api-key']
+  const clientCode: string | undefined = req.headers['reapit-customer']
+  const apiVersion: string | undefined = req.headers['api-version']
+  const eTag: string | undefined = req.headers['if-match']
+
   const { paymentId } = req.params
   const { traceId } = req
 

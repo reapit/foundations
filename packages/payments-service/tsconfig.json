@@ -14,8 +14,7 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"],
     "paths": {
-      "@reapit/node-utils": ["../utils/src/node/index.ts"],
-      "@reapit/connect-session": ["../connect-session/src/*"]
+      "@reapit/node-utils": ["../utils/src/node/index.ts"]
     }
   },
   "include": ["./src/**/*"],
