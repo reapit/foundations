@@ -3,11 +3,6 @@
 exports[`UsersContent  should match a snapshot 1`] = `
 <Fragment>
   <Component>
-    <Component
-      className=""
-    >
-      Existing users
-    </Component>
     <mock-styled.div>
       <Component>
         <Component
@@ -73,6 +68,11 @@ exports[`UsersTab should match a snapshot 1`] = `
     <div
       className=""
     >
+      <Component
+        className=""
+      >
+        Existing users
+      </Component>
       <p>
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>

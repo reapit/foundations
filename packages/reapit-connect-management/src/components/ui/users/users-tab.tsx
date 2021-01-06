@@ -70,6 +70,7 @@ const UsersTab: React.FC = () => {
     <ErrorBoundary>
       <Section>
         <div className={tabTopContent}>
+          <H5 className={tableTitle}>Existing users</H5>
           <p>
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
@@ -90,10 +91,7 @@ export const UsersContent: React.FC<{
   const { _embedded: listUser, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      <Section>
-        <H5 className={tableTitle}>Existing users</H5>
-        {renderResult(columns, listUser)}
-      </Section>
+      <Section>{renderResult(columns, listUser)}</Section>
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )

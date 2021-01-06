@@ -2,6 +2,10 @@ import { css } from 'linaria'
 
 export const tabTopContent = css`
   margin: 1rem;
+  p {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
 `
 
 export const tableTitle = css`

@@ -3,18 +3,6 @@
 exports[`OfficeGroupsContent should match a snapshot 1`] = `
 <Fragment>
   <Component>
-    <div
-      className=""
-    >
-      <Component>
-        Existing office groups
-      </Component>
-      <Component
-        onClick={[Function]}
-      >
-        Create office group
-      </Component>
-    </div>
     <mock-styled.div>
       <Component
         columns={
@@ -72,6 +60,18 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
     <div
       className=""
     >
+      <div
+        className=""
+      >
+        <Component>
+          Existing office groups
+        </Component>
+        <Component
+          onClick={[Function]}
+        >
+          Create office group
+        </Component>
+      </div>
       <p>
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
@@ -132,7 +132,6 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         "totalPageCount": 0,
       }
     }
-    onOpenCreateModel={[Function]}
     onPageChange={[Function]}
   />
 </ErrorBoundary>

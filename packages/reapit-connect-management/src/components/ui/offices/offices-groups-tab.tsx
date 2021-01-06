@@ -83,6 +83,10 @@ const OfficesGroupsTab: React.FC = () => {
     <ErrorBoundary>
       <Section>
         <div className={tabTopContent}>
+          <div className={tableTitle}>
+            <H5>Existing office groups</H5>
+            <Button onClick={onOpenCreateModel}>Create office group</Button>
+          </div>
           <p>
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
@@ -105,16 +109,7 @@ const OfficesGroupsTab: React.FC = () => {
           )}
         </div>
       </Section>
-      {!data ? (
-        <Loader />
-      ) : (
-        <OfficeGroupsContent
-          data={data}
-          columns={columns}
-          onPageChange={onPageChange}
-          onOpenCreateModel={onOpenCreateModel}
-        />
-      )}
+      {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
   )
 }
@@ -123,18 +118,11 @@ export const OfficeGroupsContent: React.FC<{
   data: OfficeGroupModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void
-  onOpenCreateModel: () => void
-}> = ({ data, columns, onPageChange, onOpenCreateModel }) => {
+}> = ({ data, columns, onPageChange }) => {
   const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      <Section>
-        <div className={tableTitle}>
-          <H5>Existing office groups</H5>
-          <Button onClick={onOpenCreateModel}>Create office group</Button>
-        </div>
-        {renderResult(columns, listGroup)}
-      </Section>
+      <Section>{renderResult(columns, listGroup)}</Section>
       <Section>
         <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
       </Section>

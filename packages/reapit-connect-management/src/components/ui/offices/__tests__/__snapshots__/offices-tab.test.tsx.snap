@@ -3,11 +3,6 @@
 exports[`OfficesContent should match a snapshot 1`] = `
 <Fragment>
   <Component>
-    <Component
-      className=""
-    >
-      Existing offices
-    </Component>
     <mock-styled.div>
       <Component
         columns={
@@ -73,17 +68,29 @@ exports[`OfficesTab should match a snapshot 1`] = `
     <div
       className=""
     >
+      <Component
+        className=""
+      >
+        Existing offices
+      </Component>
       <p>
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
-      <OfficeTabFilterForm
-        filterValues={
-          Object {
-            "name": Array [],
-          }
-        }
-        onSearch={[Function]}
-      />
+      <Component
+        className="items-center"
+      >
+        <Component>
+          <OfficeTabFilterForm
+            filterValues={
+              Object {
+                "name": Array [],
+              }
+            }
+            onSearch={[Function]}
+          />
+        </Component>
+        <Component />
+      </Component>
     </div>
   </Component>
   <Component
