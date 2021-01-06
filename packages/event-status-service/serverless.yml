@@ -45,8 +45,6 @@ provider:
     blockPublicAccess: false
   environment:
     NODE_ENV: ${self:custom.env.NODE_ENV}
-    APP_ENV: ${self:custom.env.APP_ENV}
-    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
     DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
@@ -59,7 +57,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}*'
 
 resources:
   Resources:
@@ -115,5 +113,8 @@ functions:
   expressServer:
     handler: src/index.app
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          method: any
+          path: /{proxy+}
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
