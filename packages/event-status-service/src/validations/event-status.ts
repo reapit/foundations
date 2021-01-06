@@ -40,6 +40,16 @@ const create = {
   },
 } as Schema
 
+const update = {
+  status: {
+    in: ['body'],
+    isIn: {
+      options: [['outstanding', 'actioned', 'dismissed']],
+      errorMessage: 'status should be one of outstanding, actioned, dismissed',
+    },
+  },
+} as Schema
+
 const list = {
   clientCode: {
     in: ['query'],
@@ -84,4 +94,4 @@ const list = {
   },
 } as Schema
 
-export { create, list }
+export { create, list, update }

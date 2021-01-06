@@ -17,7 +17,7 @@ export const getStatusById = async (req: AppRequest, res: Response) => {
     res.status(200)
     res.json({
       request: {
-        id: eventId,
+        eventId,
         traceId,
       },
       result,
