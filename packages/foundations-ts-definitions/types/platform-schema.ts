@@ -6475,6 +6475,7 @@ export interface JournalEntries {
   associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
   associatedId?: string[]
   negotiatorId?: string[]
+  propertyId?: string[]
   typeId?: string[]
   createdFrom?: string
   createdTo?: string
