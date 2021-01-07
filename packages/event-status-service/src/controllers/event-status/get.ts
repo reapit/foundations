@@ -21,14 +21,7 @@ export const getStatusById = async (req: AppRequest, res: Response) => {
       })
     }
 
-    res.status(200)
-    res.json({
-      request: {
-        eventId,
-        traceId,
-      },
-      result,
-    })
+    return res.status(200).json(result)
   } catch (error) {
     logger.error('Error retrieving status', stringifyError(error))
 

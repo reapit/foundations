@@ -27,14 +27,7 @@ export const updateStatusById = async (req: AppRequest, res: Response) => {
 
     const result = await db.update(itemToUpdate, { onMissing: 'skip' })
 
-    res.status(200)
-    res.json({
-      request: {
-        eventId,
-        traceId,
-      },
-      result,
-    })
+    return res.status(200).json(result)
   } catch (error) {
     logger.error('Error updating status', stringifyError(error))
 

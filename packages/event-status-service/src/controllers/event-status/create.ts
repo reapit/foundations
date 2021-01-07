@@ -39,10 +39,7 @@ export const createEventStatus = async (req: AppRequest, res: Response) => {
 
     logger.info('Created event status successfully', { traceId, result })
 
-    res.status(201)
-    res.json({
-      result,
-    })
+    return res.status(201).json(result)
   } catch (error) {
     logger.error('Error creating status', stringifyError(error))
 

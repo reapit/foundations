@@ -44,17 +44,7 @@ export const listStatuses = async (req: AppRequest, res: Response) => {
       responeRecords.push(record)
     }
 
-    res.status(200)
-    return res.json({
-      request: {
-        dateFrom,
-        dateTo,
-        clientCode,
-        status,
-        traceId,
-      },
-      responeRecords,
-    })
+    return res.status(200).json(responeRecords)
   } catch (error) {
     logger.error('Error retrieving statuses', stringifyError(error))
 
