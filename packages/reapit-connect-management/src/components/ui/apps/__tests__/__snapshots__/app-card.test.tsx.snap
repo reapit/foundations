@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCard should match a snapshot 1`] = `
+<AppCard
+  app={
+    Object {
+      "developer": "APP_DEVELOPER",
+      "name": "APP_NAME",
+    }
+  }
+>
+  <Component
+    heading="APP_NAME"
+    image={
+      <img
+        alt="APP_NAME"
+        className="image"
+        onError={[Function]}
+        src=""
+      />
+    }
+    subHeading="APP_DEVELOPER"
+  >
+    <div
+      className="card  "
+      data-test=""
+    >
+      <div
+        className="card-content"
+      >
+        <div
+          className="media"
+        >
+          <div
+            className="media-left"
+          >
+            <div
+              className="media-image"
+            >
+              <img
+                alt="APP_NAME"
+                className="image"
+                onError={[Function]}
+                src=""
+              />
+            </div>
+          </div>
+          <div
+            className="media-content"
+          >
+            <Component
+              className="text-ellipsis-7"
+            >
+              <h4
+                className=""
+                id=""
+              >
+                APP_NAME
+              </h4>
+            </Component>
+            <Component
+              className="text-ellipsis-5 mb-3"
+            >
+              <h6
+                className=""
+                id=""
+              >
+                APP_DEVELOPER
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <div
+                  className="field field-checkbox mb-0 control"
+                >
+                  <input
+                    checked={false}
+                    className="checkbox"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <label
+                    className="label"
+                  >
+                    Visible
+                  </label>
+                </div>
+              </div>
+            </Component>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Component>
+</AppCard>
+`;

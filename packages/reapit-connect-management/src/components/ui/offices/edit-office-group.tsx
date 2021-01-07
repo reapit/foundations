@@ -2,10 +2,10 @@ import React from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import { Button, Section, ModalV2, H5, Formik, Form, Input, DropdownSelect, notification } from '@reapit/elements'
+import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification } from '@reapit/elements'
 import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
-import { errorMessages } from '../../../constants/errorMessages'
+import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 
 export interface UpdateOfficeGroupModalProps {
@@ -48,7 +48,7 @@ export const onHandleSubmit = (
 
   if (!updateOffice) {
     notification.success({
-      message: errorMessages.EDIT_OFFICE_GROUP_SUCCESS,
+      message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
     })
     handleOnClose()
@@ -57,7 +57,7 @@ export const onHandleSubmit = (
   }
 
   notification.error({
-    message: updateOffice.description || errorMessages.FAILED_TO_EDIT_OFFICE_GROUP,
+    message: updateOffice.description || toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
     placement: 'bottomRight',
   })
 }
@@ -80,9 +80,14 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   return (
-    <ModalV2 visible={!!editingGroup} destroyOnClose={true} onClose={handleOnClose} title="Manage Offices" zIndex={90}>
-      <H5>{`Editing ${editingGroup.name}`}</H5>
-      <p>
+    <ModalV2
+      visible={!!editingGroup}
+      destroyOnClose={true}
+      onClose={handleOnClose}
+      title={`Editing ${editingGroup.name}`}
+      zIndex={90}
+    >
+      <p className="helper-text">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
       <Formik
@@ -112,7 +117,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                   Cancel
                 </Button>
                 <Button variant="info" loading={false} type="submit">
-                  Edit
+                  Save
                 </Button>
               </Section>
             </Form>

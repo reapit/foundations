@@ -4,41 +4,39 @@ exports[`UserGroupsContent should match a snapshot 1`] = `
 <Fragment>
   <Component>
     <mock-styled.div>
-      <Component>
-        <Component
-          columns={
-            Array [
-              Object {
-                "Header": "Name",
-                "accessor": "name",
-              },
-              Object {
-                "Header": "Email",
-                "accessor": "email",
-              },
-              Object {
-                "Header": "User Groups",
-                "accessor": "groups",
-              },
-              Object {
-                "Header": "Edit",
-              },
-            ]
-          }
-          data={
-            Array [
-              Object {
-                "created": "2019-08-14T12:30:02.0000000Z",
-                "description": "string",
-                "id": "string",
-                "modified": "2019-08-14T12:30:02.0000000Z",
-              },
-            ]
-          }
-          expandable={true}
-          scrollable={true}
-        />
-      </Component>
+      <Component
+        columns={
+          Array [
+            Object {
+              "Header": "Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "Email",
+              "accessor": "email",
+            },
+            Object {
+              "Header": "User Groups",
+              "accessor": "groups",
+            },
+            Object {
+              "Header": "Edit",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "created": "2019-08-14T12:30:02.0000000Z",
+              "description": "string",
+              "id": "string",
+              "modified": "2019-08-14T12:30:02.0000000Z",
+            },
+          ]
+        }
+        expandable={true}
+        scrollable={true}
+      />
     </mock-styled.div>
   </Component>
   <Component
@@ -59,9 +57,11 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
       <Component
         className=""
       >
-        Existing user groups
+        User groups
       </Component>
-      <p>
+      <p
+        className="helper-text"
+      >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
     </div>
@@ -71,16 +71,18 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
       Array [
         Object {
           "Header": "Group Name",
-          "accessor": "name",
+          "accessor": "id",
         },
         Object {
           "Header": "Members",
           "accessor": "",
         },
         Object {
-          "Cell": <div>
-            Manage
-          </div>,
+          "Header": "Description",
+          "accessor": "description",
+        },
+        Object {
+          "Cell": [Function],
           "Header": "Manage",
         },
       ]

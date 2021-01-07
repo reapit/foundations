@@ -64,7 +64,7 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         className=""
       >
         <Component>
-          Existing office groups
+          Office groups
         </Component>
         <Component
           onClick={[Function]}
@@ -72,7 +72,9 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
           Create office group
         </Component>
       </div>
-      <p>
+      <p
+        className="helper-text"
+      >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
     </div>
@@ -92,7 +94,6 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         Object {
           "Cell": [Function],
           "Header": "Last Updated",
-          "accessor": "description",
         },
         Object {
           "Cell": [Function],

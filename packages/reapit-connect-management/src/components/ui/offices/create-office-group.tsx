@@ -2,12 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react'
 import useSWR from 'swr'
 import { useFormikContext } from 'formik'
 import debounce from 'just-debounce-it'
-import { FormFieldInfo } from '@reapit/utils'
 import {
   Button,
   Section,
   ModalV2,
-  H5,
   Formik,
   Form,
   Input,
@@ -17,8 +15,10 @@ import {
 } from '@reapit/elements'
 import { URLS } from '../../../constants/api'
 import { createOfficeGroup } from '../../../services/office'
-import { errorMessages } from '../../../constants/errorMessages'
+import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
+import { validationSchema } from './validation-schema'
+import { formFields } from './form-fields'
 
 export interface CreateOfficeGroupModalProps {
   visible: boolean
@@ -32,24 +32,11 @@ export interface CreateOfficeGroupModel {
   officeIds: string[]
 }
 
-export type FieldType = 'name' | 'officeIds'
-
 type SelectOptions = SelectOption[]
 
 interface FormChangeEffectProps {
   setSelectedOffice: (options: SelectOptions) => void
   options: SelectOptions
-}
-
-export const formFields: Record<FieldType, FormFieldInfo> = {
-  name: {
-    name: 'name',
-    label: 'Name',
-  },
-  officeIds: {
-    name: 'officeIds',
-    label: 'Offices',
-  },
 }
 
 export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, orgId: string) => async (
@@ -60,7 +47,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
   if (!createdOffice) {
     notification.success({
-      message: errorMessages.CREATE_OFFICE_GROUP_SUCCESS,
+      message: toastMessages.CREATE_OFFICE_GROUP_SUCCESS,
       placement: 'bottomRight',
     })
     handleOnClose()
@@ -69,7 +56,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   }
 
   notification.error({
-    message: createdOffice.description || errorMessages.FAILED_TO_CREATE_OFFICE_GROUP,
+    message: createdOffice.description || toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
     placement: 'bottomRight',
   })
 }
@@ -105,9 +92,7 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
     [debounceMs],
   )
 
-  const { data }: any = useSWR(
-    `${URLS.OFFICES}/${searchString ? `?name=${searchString}` + '&pageSize=12' : '?pageSize=12'}`,
-  )
+  const { data }: any = useSWR(`${URLS.OFFICES}/${searchString ? `?name=${searchString}` : ''}`)
   useEffect(() => {
     if (data) {
       const { _embedded: listOffice } = data
@@ -117,17 +102,16 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   }, [data])
 
   return (
-    <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Manage Offices" zIndex={90}>
-      <H5>Create Office Group</H5>
-      <p>
+    <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Create Office Group" zIndex={90}>
+      <p className="helper-text">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
-      <Formik initialValues={{ name: '', officeIds: [] }} onSubmit={onSubmit}>
+      <Formik initialValues={{ name: '', officeIds: [] }} onSubmit={onSubmit} validationSchema={validationSchema}>
         {() => {
           return (
             <Form noValidate={true}>
               <Section hasPadding={false} hasMargin={false}>
-                <Input type="text" labelText={name.label} id={name.name} name={name.name} />
+                <Input type="text" labelText={name.label} id={name.name} name={name.name} required />
                 <DropdownSelect
                   mode="multiple"
                   id={officeIds.name}
@@ -136,6 +120,7 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                   labelText={officeIds.label}
                   options={options}
                   onSearch={(value: string) => debouncedSearch(value)}
+                  required
                 />
                 <FormChangeEffect setSelectedOffice={setSelectedOffice} options={options} />
               </Section>

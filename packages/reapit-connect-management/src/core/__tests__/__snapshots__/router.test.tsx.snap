@@ -48,7 +48,7 @@ exports[`Router should match a snapshot 1`] = `
         >
            
           <Switch>
-            <Component
+            <Route
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -59,7 +59,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               path="/offices"
             />
-            <Component
+            <Route
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -69,6 +69,17 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               path="/users"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/marketplace-apps"
             />
           </Switch>
         </ContextProvider>

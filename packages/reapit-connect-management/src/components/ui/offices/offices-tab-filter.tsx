@@ -1,9 +1,7 @@
 import React from 'react'
-import { useFormikContext } from 'formik'
-import debounce from 'just-debounce-it'
 
 import { FormFieldInfo } from '@reapit/utils'
-import { Grid, GridItem, Formik, Form, Input } from '@reapit/elements'
+import { Grid, GridItem, Formik, Form, Input, Button } from '@reapit/elements'
 
 type FieldType = 'name'
 
@@ -23,20 +21,6 @@ export interface OfficesFormProps {
   onSearch: any
 }
 
-const FormSearchEffect = ({ debounceMs }) => {
-  const formik = useFormikContext()
-  const debouncedSubmit = React.useCallback(
-    debounce(() => formik.submitForm(), debounceMs),
-    [debounceMs, formik.submitForm],
-  )
-
-  React.useEffect(() => {
-    debouncedSubmit()
-  }, [debouncedSubmit, formik.values])
-
-  return null
-}
-
 const OfficeTabFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearch }) => {
   const { name } = formFields
   return (
@@ -44,10 +28,14 @@ const OfficeTabFilterForm: React.FC<OfficesFormProps> = ({ filterValues, onSearc
       {() => {
         return (
           <Form noValidate={true}>
-            <Grid>
+            <Grid className="items-center">
               <GridItem>
                 <Input type="text" labelText={name.label} id={name.name} name={name.name} />
-                <FormSearchEffect debounceMs={500} />
+              </GridItem>
+              <GridItem className="mt-4">
+                <Button type="submit" variant="primary">
+                  Search
+                </Button>
               </GridItem>
             </Grid>
           </Form>
