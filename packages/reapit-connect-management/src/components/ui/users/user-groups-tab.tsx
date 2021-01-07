@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { GroupModelPagedResult, GroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, FadeIn, Helper, H5 } from '@reapit/elements'
+import { Pagination, Table, Loader, Section, FadeIn, Helper, H5, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -35,20 +35,31 @@ const UserGroupsTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+  const { data }: any = useSWR(`${URLS.USERS_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+
+  const ManageButton = ({
+    cell: {
+      row: { original },
+    },
+  }) => (
+    <Button type="button" variant="info" onClick={() => original}>
+      Manage
+    </Button>
+  )
 
   const columns = [
-    { Header: 'Group Name', accessor: 'name' },
+    { Header: 'Group Name', accessor: 'id' },
     { Header: 'Members', accessor: '' },
-    { Header: 'Manage', Cell: <div>Manage</div> },
+    { Header: 'Description', accessor: 'description' },
+    { Header: 'Manage', Cell: ManageButton },
   ]
 
   return (
     <ErrorBoundary>
       <Section>
         <div className={tabTopContent}>
-          <H5 className={tableTitle}>Existing user groups</H5>
-          <p>
+          <H5 className={tableTitle}>User groups</H5>
+          <p className="helper-text">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
           </p>
@@ -84,9 +95,7 @@ export const renderResult = (columns: any[], listGroup?: GroupModel[]) => {
 
   return (
     <FadeIn>
-      <Section>
-        <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
-      </Section>
+      <Table expandable scrollable={true} data={listGroup || []} columns={columns} />
     </FadeIn>
   )
 }

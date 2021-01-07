@@ -71,7 +71,7 @@ const UsersTab: React.FC = () => {
       <Section>
         <div className={tabTopContent}>
           <H5 className={tableTitle}>Existing users</H5>
-          <p>
+          <p className="helper-text">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
           </p>
@@ -108,9 +108,7 @@ export const renderResult = (columns: any[], listUser?: UserModel[]) => {
 
   return (
     <FadeIn>
-      <Section>
-        <Table expandable scrollable={true} data={listUser || []} columns={columns} />
-      </Section>
+      <Table expandable scrollable={true} data={listUser || []} columns={columns} />
     </FadeIn>
   )
 }

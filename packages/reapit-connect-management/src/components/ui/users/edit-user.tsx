@@ -5,7 +5,6 @@ import {
   Button,
   Section,
   ModalV2,
-  H5,
   Formik,
   Form,
   Input,
@@ -17,7 +16,7 @@ import {
 import { UserModel, GroupModel } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { updateUser } from '../../../services/user'
-import { errorMessages } from '../../../constants/errorMessages'
+import { toastMessages } from '../../../constants/toast-messages'
 
 export interface UpdateUserModalProps {
   editingUser: UserModel | undefined
@@ -61,7 +60,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
 
   if (!updateUserRes) {
     notification.success({
-      message: errorMessages.EDIT_USER_SUCCESS,
+      message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
     })
     handleOnClose()
@@ -69,7 +68,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   }
 
   return notification.error({
-    message: updateUserRes.description || errorMessages.FAILED_TO_EDIT_USER,
+    message: updateUserRes.description || toastMessages.FAILED_TO_EDIT_USER,
     placement: 'bottomRight',
   })
 }
@@ -88,9 +87,14 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
   if (!editingUser) return null
 
   return (
-    <ModalV2 visible={!!editingUser} destroyOnClose={true} onClose={handleOnClose} title="Manage User" zIndex={90}>
-      <H5>{`Editing ${editingUser.name}`}</H5>
-      <p>
+    <ModalV2
+      visible={!!editingUser}
+      destroyOnClose={true}
+      onClose={handleOnClose}
+      title={`Editing ${editingUser.name}`}
+      zIndex={90}
+    >
+      <p className="helper-text">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
       <Formik

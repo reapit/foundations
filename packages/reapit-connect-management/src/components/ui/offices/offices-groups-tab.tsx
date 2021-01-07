@@ -60,7 +60,11 @@ const OfficesGroupsTab: React.FC = () => {
   )
   const onRefetchData = React.useCallback(mutate(), [])
 
-  const LastUpdatedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+  const LastUpdatedCell = ({
+    cell: {
+      row: { original },
+    },
+  }) => <p>{toLocalTime(original.modified || original.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
 
   const EditButton = ({
     cell: {
@@ -75,7 +79,7 @@ const OfficesGroupsTab: React.FC = () => {
   const columns = [
     { Header: 'Group Name', accessor: 'name' },
     { Header: 'Office List', accessor: 'officeIds', Cell: OfficeListCell },
-    { Header: 'Last Updated', accessor: 'description', Cell: LastUpdatedCell },
+    { Header: 'Last Updated', Cell: LastUpdatedCell },
     { Header: 'Edit', Cell: EditButton },
   ]
 
@@ -84,10 +88,10 @@ const OfficesGroupsTab: React.FC = () => {
       <Section>
         <div className={tabTopContent}>
           <div className={tableTitle}>
-            <H5>Existing office groups</H5>
+            <H5>Office groups</H5>
             <Button onClick={onOpenCreateModel}>Create office group</Button>
           </div>
-          <p>
+          <p className="helper-text">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
           </p>

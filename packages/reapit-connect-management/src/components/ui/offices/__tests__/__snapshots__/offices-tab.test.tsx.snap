@@ -73,24 +73,19 @@ exports[`OfficesTab should match a snapshot 1`] = `
       >
         Existing offices
       </Component>
-      <p>
+      <p
+        className="helper-text"
+      >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
-      <Component
-        className="items-center"
-      >
-        <Component>
-          <OfficeTabFilterForm
-            filterValues={
-              Object {
-                "name": Array [],
-              }
-            }
-            onSearch={[Function]}
-          />
-        </Component>
-        <Component />
-      </Component>
+      <OfficeTabFilterForm
+        filterValues={
+          Object {
+            "name": Array [],
+          }
+        }
+        onSearch={[Function]}
+      />
     </div>
   </Component>
   <Component
@@ -108,7 +103,6 @@ exports[`OfficesTab should match a snapshot 1`] = `
         Object {
           "Cell": [Function],
           "Header": "Last Updated",
-          "accessor": "description",
         },
       ]
     }
