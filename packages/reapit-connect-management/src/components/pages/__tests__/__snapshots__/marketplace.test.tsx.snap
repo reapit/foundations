@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketplacePage should match a snapshot 1`] = `
+<MarketplacePage>
+  <Component
+    isHeadingSection={true}
+  >
+    <h3
+      className=""
+      id=""
+    >
+      Marketplace Apps
+    </h3>
+  </Component>
+  <Component>
+    <section
+      className=""
+      data-test=""
+    >
+      <Component>
+        <h5
+          className=""
+          id=""
+        >
+          Application Visibility
+        </h5>
+      </Component>
+      <i>
+        By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
+      </i>
+    </section>
+  </Component>
+  <Component>
+    <div
+      className="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </Component>
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={0}
+    totalCount={0}
+  />
+</MarketplacePage>
+`;

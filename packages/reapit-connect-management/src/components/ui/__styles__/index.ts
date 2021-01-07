@@ -13,3 +13,7 @@ export const tableTitle = css`
   display: flex;
   justify-content: space-between;
 `
+
+export const menuItemOverflow = css`
+  margin-left: -5px;
+`

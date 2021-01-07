@@ -1,11 +1,18 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaHome, FaUser } from 'react-icons/fa'
+import { FaSignOutAlt, FaHome, FaUser, FaStoreAlt, FaCloud } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
 import Routes from '../../constants/routes'
+import { menuItemOverflow } from './__styles__'
+
+export const callbackAppClick = () =>
+  (window.location.href =
+    window.location.href.includes('dev') || window.location.href.includes('localhost')
+      ? 'https://marketplace.dev.paas.reapit.cloud/installed'
+      : 'https://marketplace.reapit.cloud/installed')
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -35,6 +42,20 @@ export const generateMenuConfig = (
         url: Routes.USERS,
         type: 'PRIMARY',
         icon: <FaUser className="nav-item-icon" />,
+      },
+      {
+        title: <div className={menuItemOverflow}>Marketplace</div>,
+        key: 'MARKETPLACE',
+        icon: <FaStoreAlt className="nav-item-icon" />,
+        url: Routes.MARKETPLACE,
+        type: 'PRIMARY',
+      },
+      {
+        title: 'Apps',
+        key: 'APPS',
+        icon: <FaCloud className="nav-item-icon" />,
+        callback: callbackAppClick,
+        type: 'PRIMARY',
       },
       {
         title: 'Logout',
