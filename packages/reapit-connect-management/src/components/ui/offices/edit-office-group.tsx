@@ -87,7 +87,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
       title={`Editing ${editingGroup.name}`}
       zIndex={90}
     >
-      <p className="hepler-text">
+      <p className="helper-text">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
       <Formik

@@ -60,7 +60,7 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
         User groups
       </Component>
       <p
-        className="hepler-text"
+        className="helper-text"
       >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>

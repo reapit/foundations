@@ -82,7 +82,7 @@ const OfficesTab: React.FC = () => {
       <Section>
         <div className={tabTopContent}>
           <H5 className={tableTitle}>Existing offices</H5>
-          <p className="hepler-text">
+          <p className="helper-text">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
           </p>

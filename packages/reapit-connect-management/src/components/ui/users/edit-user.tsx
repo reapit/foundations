@@ -94,7 +94,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
       title={`Editing ${editingUser.name}`}
       zIndex={90}
     >
-      <p className="hepler-text">
+      <p className="helper-text">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
       <Formik
