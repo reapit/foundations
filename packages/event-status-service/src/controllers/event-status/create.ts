@@ -19,9 +19,15 @@ export const createEventStatus = async (req: AppRequest, res: Response) => {
   try {
     logger.info('Create new status...', { traceId, payload })
 
+    if (req.user.clientCode !== payload.clientCode) {
+      return res.status(401).json({
+        error: 'Unauthorized',
+        code: 401,
+      })
+    }
+
     const now = new Date().toISOString()
     const eventCreatedAt = payload.eventCreatedAt.toISOString()
-
     const itemToCreate = generateStatusItem({ ...payload, eventCreatedAt, statusCreatedAt: now, statusUpdatedAt: now })
 
     const result = await db.put(itemToCreate, {

@@ -14,6 +14,13 @@ export const getStatusById = async (req: AppRequest, res: Response) => {
     const itemToGet = generateStatusItem({ eventId })
     const result = await db.get(itemToGet)
 
+    if (result.clientCode !== req.user.clientCode) {
+      return res.status(401).json({
+        error: 'Unauthorized',
+        code: 401,
+      })
+    }
+
     res.status(200)
     res.json({
       request: {

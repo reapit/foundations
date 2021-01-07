@@ -1,9 +1,8 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/node-utils'
-import { EventStatus } from '../../schemas/event-status.schema'
+import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
 import { db } from '../../core/db'
-import { generateStatusItem } from '../../schemas/event-status.schema'
 
 export const updateStatusById = async (req: AppRequest, res: Response) => {
   const eventId = req.params.eventId as string | undefined
@@ -12,6 +11,16 @@ export const updateStatusById = async (req: AppRequest, res: Response) => {
 
   try {
     logger.info('Updating status by statusId...', { traceId, eventId })
+
+    const itemToGet = generateStatusItem({ eventId })
+    const retrievedItem = await db.get(itemToGet)
+
+    if (retrievedItem.clientCode !== req.user.clientCode) {
+      return res.status(401).json({
+        error: 'Unauthorized',
+        code: 401,
+      })
+    }
 
     const now = new Date().toISOString()
     const itemToUpdate = generateStatusItem({ eventId, status: newStatus, statusUpdatedAt: now })

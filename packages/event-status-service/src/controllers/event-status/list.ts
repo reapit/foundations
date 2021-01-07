@@ -15,6 +15,13 @@ export const listStatuses = async (req: AppRequest, res: Response) => {
   try {
     logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
+    if (req.user.clientCode !== clientCode) {
+      return res.status(401).json({
+        error: 'Unauthorized',
+        code: 401,
+      })
+    }
+
     const keyCondition = {
       clientCode,
       eventCreatedAt: between(dateFrom, dateTo),
@@ -31,11 +38,8 @@ export const listStatuses = async (req: AppRequest, res: Response) => {
         ...equals(status),
       }
 
-    // attempt to retrieve from DB
     const iterator = db.query(EventStatus, keyCondition, queryConditons)
-
     const responeRecords = []
-
     for await (const record of iterator) {
       responeRecords.push(record)
     }
