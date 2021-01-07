@@ -4,53 +4,51 @@ exports[`UsersContent  should match a snapshot 1`] = `
 <Fragment>
   <Component>
     <mock-styled.div>
-      <Component>
-        <Component
-          columns={
-            Array [
-              Object {
-                "Header": "Group Name",
-                "accessor": "id",
-              },
-              Object {
-                "Header": "Members",
-                "accessor": "",
-              },
-              Object {
-                "Cell": <div>
-                  Manage
-                </div>,
-                "Header": "Manage",
-              },
-            ]
-          }
-          data={
-            Array [
-              Object {
-                "agencyCloudCustomerId": "string",
-                "agencyCloudNegotiatorId": "string",
-                "created": "2019-08-14T12:30:02.0000000Z",
-                "email": "string",
-                "groups": Array [
-                  "string",
-                ],
-                "id": "string",
-                "inactive": true,
-                "jobTitle": "string",
-                "landline": "string",
-                "marketplaceDeveloperId": "string",
-                "mobile": "string",
-                "modified": "2019-08-14T12:30:02.0000000Z",
-                "name": "string",
-                "organisationId": "string",
-                "organisationName": "string",
-              },
-            ]
-          }
-          expandable={true}
-          scrollable={true}
-        />
-      </Component>
+      <Component
+        columns={
+          Array [
+            Object {
+              "Header": "Group Name",
+              "accessor": "id",
+            },
+            Object {
+              "Header": "Members",
+              "accessor": "",
+            },
+            Object {
+              "Cell": <div>
+                Manage
+              </div>,
+              "Header": "Manage",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "agencyCloudCustomerId": "string",
+              "agencyCloudNegotiatorId": "string",
+              "created": "2019-08-14T12:30:02.0000000Z",
+              "email": "string",
+              "groups": Array [
+                "string",
+              ],
+              "id": "string",
+              "inactive": true,
+              "jobTitle": "string",
+              "landline": "string",
+              "marketplaceDeveloperId": "string",
+              "mobile": "string",
+              "modified": "2019-08-14T12:30:02.0000000Z",
+              "name": "string",
+              "organisationId": "string",
+              "organisationName": "string",
+            },
+          ]
+        }
+        expandable={true}
+        scrollable={true}
+      />
     </mock-styled.div>
   </Component>
   <Component
@@ -73,7 +71,9 @@ exports[`UsersTab should match a snapshot 1`] = `
       >
         Existing users
       </Component>
-      <p>
+      <p
+        className="hepler-text"
+      >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
       </p>
     </div>

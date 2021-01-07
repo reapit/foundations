@@ -7,44 +7,38 @@ import {
   ModalV2,
   Formik,
   Form,
-  Input,
   DropdownSelect,
   Loader,
   SelectOption,
   notification,
 } from '@reapit/elements'
-import { UserModel, GroupModel } from '../../../types/organisations-schema'
+import { GroupModel } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
-import { updateUser } from '../../../services/user'
+import { updateUserGroup } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'
 
-export interface UpdateUserModalProps {
-  editingUser: UserModel | undefined
-  setEditingUser: React.Dispatch<React.SetStateAction<UserModel | undefined>>
+export interface UpdateUserGroupModalProps {
+  editingUserGroup: GroupModel | undefined
+  setEditingUserGroup: React.Dispatch<React.SetStateAction<GroupModel | undefined>>
   onRefetchData: () => void
 }
 
-interface UpdateUserModel {
-  name: string
-  groupIds: string[]
+interface UpdateUserGroupModel {
+  description: string
 }
 
-type FieldType = 'name' | 'groupIds'
+type FieldType = 'groupIds'
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
-  name: {
-    name: 'name',
-    label: 'Name',
-  },
   groupIds: {
     name: 'groupIds',
-    label: 'User Groups',
+    label: 'UserGroup Groups',
   },
 }
 
 export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data =>
-  data.map((userGroup: GroupModel) => {
-    const { id } = userGroup
+  data.map((UserGroupGroup: GroupModel) => {
+    const { id } = UserGroupGroup
 
     return {
       label: id,
@@ -52,13 +46,15 @@ export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data 
     } as SelectOption
   })
 
-export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) => async (
-  params: UpdateUserModel,
-) => {
-  const { name, groupIds } = params
-  const updateUserRes = await updateUser({ name, groupIds }, editingUser?.id || '')
+export const onHandleSubmit = (
+  handleOnClose: () => void,
+  onRefetchData: () => void,
+  editingUserGroup?: GroupModel,
+) => async (params: UpdateUserGroupModel) => {
+  const { description } = params
+  const updateUserGroupRes = await updateUserGroup({ description }, editingUserGroup?.id || '')
 
-  if (!updateUserRes) {
+  if (!updateUserGroupRes) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
@@ -68,30 +64,34 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   }
 
   return notification.error({
-    message: updateUserRes.description || toastMessages.FAILED_TO_EDIT_USER,
+    message: updateUserGroupRes.description || toastMessages.FAILED_TO_EDIT_USER_GROUP,
     placement: 'bottomRight',
   })
 }
 
-export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, setEditingUser, onRefetchData }) => {
-  const handleOnClose = () => setEditingUser(undefined)
-  const { name, groupIds } = formFields
+export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
+  editingUserGroup,
+  setEditingUserGroup,
+  onRefetchData,
+}) => {
+  const handleOnClose = () => setEditingUserGroup(undefined)
+  const { groupIds } = formFields
 
-  const { data }: any = useSWR(`${URLS.USERS_GROUPS}`)
-  const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
+  const { data }: any = useSWR(`${URLS.USERS}`)
+  const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUserGroup), [editingUserGroup])
 
   if (!data) return <Loader />
-  const { _embedded: listUserGroup } = data
-  const userGroupOptions = prepareGroupOptions(listUserGroup)
+  const { _embedded: listUserGroupGroup } = data
+  const UserGroupGroupOptions = prepareGroupOptions(listUserGroupGroup)
 
-  if (!editingUser) return null
+  if (!editingUserGroup) return null
 
   return (
     <ModalV2
-      visible={!!editingUser}
+      visible={!!editingUserGroup}
       destroyOnClose={true}
       onClose={handleOnClose}
-      title={`Editing ${editingUser.name}`}
+      title={`Editing ${editingUserGroup.id}`}
       zIndex={90}
     >
       <p className="hepler-text">
@@ -99,8 +99,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
       </p>
       <Formik
         initialValues={{
-          name: editingUser.name || '',
-          groupIds: editingUser.groups || [],
+          description: editingUserGroup.description || '',
         }}
         onSubmit={onSubmit}
       >
@@ -108,14 +107,13 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
           return (
             <Form noValidate={true}>
               <Section hasPadding={false} hasMargin={false}>
-                <Input type="text" labelText={name.label} id={name.name} name={name.name} />
                 <DropdownSelect
                   mode="multiple"
                   id={groupIds.name}
                   placeholder="Please select"
                   name={groupIds.name}
                   labelText={groupIds.label}
-                  options={userGroupOptions}
+                  options={UserGroupGroupOptions}
                 />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
@@ -134,4 +132,4 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
   )
 }
 
-export default UpdateUserModal
+export default UpdateUserGroupModal

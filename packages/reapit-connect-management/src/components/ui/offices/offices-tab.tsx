@@ -18,8 +18,6 @@ import {
   toLocalTime,
   DATE_TIME_FORMAT,
   H5,
-  Grid,
-  GridItem,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
@@ -67,12 +65,16 @@ const OfficesTab: React.FC = () => {
   const { data }: any = useSWR(`${URLS.OFFICES}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
 
   const AddressCell = ({ cell: { value } }) => <p>{combineAddress(value)}</p>
-  const LastUpdatedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
+  const LastUpdatedCell = ({
+    cell: {
+      row: { original },
+    },
+  }) => <p>{toLocalTime(original.modified || original.created, DATE_TIME_FORMAT.DATE_TIME_FORMAT)}</p>
 
   const columns = [
     { Header: 'Office Name', accessor: 'name' },
     { Header: 'Address', accessor: 'address', Cell: AddressCell },
-    { Header: 'Last Updated', accessor: 'description', Cell: LastUpdatedCell },
+    { Header: 'Last Updated', Cell: LastUpdatedCell },
   ]
 
   return (
@@ -80,16 +82,11 @@ const OfficesTab: React.FC = () => {
       <Section>
         <div className={tabTopContent}>
           <H5 className={tableTitle}>Existing offices</H5>
-          <p>
+          <p className="hepler-text">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
             designs.
           </p>
-          <Grid className="items-center">
-            <GridItem>
-              <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
-            </GridItem>
-            <GridItem />
-          </Grid>
+          <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
         </div>
       </Section>
       {!data ? <Loader /> : <OfficesContent data={data} columns={columns} onPageChange={onPageChange} />}
