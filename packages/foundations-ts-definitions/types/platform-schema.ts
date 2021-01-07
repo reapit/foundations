@@ -8078,6 +8078,10 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 /**
