@@ -28,7 +28,7 @@ export const createApiKey = async (req: AppRequest, res: Response, apiKey = uuid
 
     res.status(201)
     res.json({
-      apiKey: apiKey,
+      apiKey,
     })
   } catch (error) {
     logger.error('Error creating API Key', stringifyError(error))
