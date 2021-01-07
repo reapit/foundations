@@ -1,5 +1,6 @@
-# reapit-connect-management
+# Reapit Connect Management
 
-reapit-connect-management an app built for Reapit Marketplace.
+![lines](./src/tests/badges/badge-lines.svg) ![functions](./src/tests/badges/badge-functions.svg) ![branches](./src/tests/badges/badge-branches.svg) ![statements](./src/tests/badges/badge-statements.svg)
 
-Initial scaffold using the steps from [here](https://foundations-documentation.reapit.cloud/developer-portal), using [Reapit React App Scaffolder](https://www.npmjs.com/package/@reapit/generator-react-app-scaffolder)
+Permissions and groups management app for the Reapit Marketplace
+

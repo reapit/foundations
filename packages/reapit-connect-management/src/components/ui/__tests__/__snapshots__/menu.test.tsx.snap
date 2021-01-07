@@ -31,6 +31,28 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/users",
       },
       Object {
+        "icon": <FaStoreAlt
+          className="nav-item-icon"
+        />,
+        "key": "MARKETPLACE",
+        "title": <div
+          className=""
+        >
+          Marketplace
+        </div>,
+        "type": "PRIMARY",
+        "url": "/marketplace-apps",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
         "callback": [Function],
         "icon": <FaSignOutAlt
           className="nav-item-icon"

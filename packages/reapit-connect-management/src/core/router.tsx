@@ -3,7 +3,6 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import PrivateRoute from './private-route'
 import { SWRConfig } from 'swr'
 import { fetcher } from '../utils/fetcher'
 
@@ -34,6 +33,7 @@ export const catchChunkError = (
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Offices = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
 const Users = React.lazy(() => catchChunkError(() => import('../components/pages/users')))
+const Marketplace = React.lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -49,8 +49,9 @@ const Router = () => (
           >
             {' '}
             <Switch>
-              <PrivateRoute path={Routes.OFFICES} component={Offices} />
-              <PrivateRoute path={Routes.USERS} component={Users} />
+              <Route path={Routes.OFFICES} component={Offices} />
+              <Route path={Routes.USERS} component={Users} />
+              <Route path={Routes.MARKETPLACE} component={Marketplace} />
             </Switch>
           </SWRConfig>
         </PrivateRouteWrapper>
