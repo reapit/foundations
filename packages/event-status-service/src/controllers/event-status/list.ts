@@ -5,7 +5,7 @@ import { db } from '../../core/db'
 import { EventStatus } from '../../schemas/event-status.schema'
 import { between, equals } from '@aws/dynamodb-expressions'
 
-export const listStatuses = async (req: AppRequest, res: Response) => {
+export default async (req: AppRequest, res: Response) => {
   const dateFrom = req.query.dateFrom as string | undefined
   const dateTo = req.query.dateTo as string | undefined
   const clientCode = req.query.clientCode as string | undefined
@@ -16,7 +16,8 @@ export const listStatuses = async (req: AppRequest, res: Response) => {
     logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
     if (req.user.clientCode !== clientCode) {
-      return res.status(401).json({
+      res.status(401)
+      return res.json({
         error: 'Unauthorized',
         code: 401,
       })
@@ -44,7 +45,8 @@ export const listStatuses = async (req: AppRequest, res: Response) => {
       responeRecords.push(record)
     }
 
-    return res.status(200).json(responeRecords)
+    res.status(200)
+    return res.json(responeRecords)
   } catch (error) {
     logger.error('Error retrieving statuses', stringifyError(error))
 

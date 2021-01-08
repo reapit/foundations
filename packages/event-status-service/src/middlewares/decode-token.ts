@@ -22,6 +22,7 @@ export default (req: AppRequest, res: Response, next: NextFunction) => {
 
     next()
   } catch (error) {
-    return res.status(401).send()
+    res.status(401)
+    return res.send()
   }
 }

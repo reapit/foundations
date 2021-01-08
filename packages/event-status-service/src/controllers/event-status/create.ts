@@ -12,7 +12,7 @@ type payload = {
   eventCreatedAt: Date
 }
 
-export const createEventStatus = async (req: AppRequest, res: Response) => {
+export default async (req: AppRequest, res: Response) => {
   const payload = req.body as payload
   const { traceId } = req
 
@@ -20,7 +20,8 @@ export const createEventStatus = async (req: AppRequest, res: Response) => {
     logger.info('Create new status...', { traceId, payload })
 
     if (req.user.clientCode !== payload.clientCode) {
-      return res.status(401).json({
+      res.status(401)
+      return res.json({
         error: 'Unauthorized',
         code: 401,
       })
@@ -39,7 +40,8 @@ export const createEventStatus = async (req: AppRequest, res: Response) => {
 
     logger.info('Created event status successfully', { traceId, result })
 
-    return res.status(201).json(result)
+    res.status(201)
+    return res.json(result)
   } catch (error) {
     logger.error('Error creating status', stringifyError(error))
 

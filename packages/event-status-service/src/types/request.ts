@@ -1,7 +1,7 @@
 import { Request } from 'express'
 
 export interface AppRequest extends Request {
-  user: {
+  user?: {
     sub: string
     clientCode: string
     userCode: string

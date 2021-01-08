@@ -4,7 +4,7 @@ import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
 import { db } from '../../core/db'
 
-export const updateStatusById = async (req: AppRequest, res: Response) => {
+export default async (req: AppRequest, res: Response) => {
   const eventId = req.params.eventId as string | undefined
   const newStatus = req.body.status as EventStatus['status']
   const { traceId } = req
@@ -16,7 +16,8 @@ export const updateStatusById = async (req: AppRequest, res: Response) => {
     const retrievedItem = await db.get(itemToGet)
 
     if (retrievedItem.clientCode !== req.user.clientCode) {
-      return res.status(401).json({
+      res.status(401)
+      return res.json({
         error: 'Unauthorized',
         code: 401,
       })
@@ -27,7 +28,8 @@ export const updateStatusById = async (req: AppRequest, res: Response) => {
 
     const result = await db.update(itemToUpdate, { onMissing: 'skip' })
 
-    return res.status(200).json(result)
+    res.status(200)
+    return res.json(result)
   } catch (error) {
     logger.error('Error updating status', stringifyError(error))
 
