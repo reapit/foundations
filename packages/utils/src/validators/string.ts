@@ -31,11 +31,11 @@ export const checkValidCustomScheme = (url: string): boolean => {
 }
 
 export const isValidLimitToClientIds = (clientIds: string): boolean => {
-  // Only allow strings with 3 characters seperated by a comma
+  // Only allow strings with 15 characters seperated by a comma
   return clientIds
     .replace(/\s/g, '')
     .split(',')
-    .every(clientId => /^.{3}$/.test(clientId))
+    .every(clientId => clientId.length >= 3 && clientId.length <= 15)
 }
 
 export const isValidHttpsUrl = (url: string) => {

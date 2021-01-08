@@ -29,6 +29,7 @@ jest.mock('@reapit/elements', () => ({
     error: jest.fn(),
     success: jest.fn(),
   },
+  injectSwitchModeToWindow: jest.fn(),
 }))
 
 describe('currentMemberFetch', () => {

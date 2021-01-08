@@ -14,6 +14,8 @@ import { generateHeaders } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { stringify } from 'query-string'
+import Routes from '../constants/routes'
+import { history } from '@/core/router'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -121,7 +123,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
 
 export const fetchOrganisationMembers = async (
   params: FetchOrganisationMembersParams,
-): Promise<MemberModelPagedResult> => {
+): Promise<MemberModelPagedResult | undefined> => {
   try {
     const { id, ...restParams } = params
     const response = await fetcher({
@@ -132,8 +134,12 @@ export const fetchOrganisationMembers = async (
     })
     return response
   } catch (error) {
-    logger(error)
-    throw error?.response
+    if (error.response.statusCode === 403) {
+      history.push(`${Routes.AUTHENTICATION}/developer`)
+    } else {
+      logger(error)
+      throw error?.response
+    }
   }
 }
 

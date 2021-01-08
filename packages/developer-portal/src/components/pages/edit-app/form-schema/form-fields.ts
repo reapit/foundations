@@ -144,7 +144,7 @@ export const formFields: Record<Field, FormFieldInfo> = {
   limitToClientIds: {
     name: 'limitToClientIds',
     placeHolder: 'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma',
-    errorMessage: 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.',
+    errorMessage: 'Invalid Customer ID(s). Each Customer ID should be between 3 and 15 characters.',
   },
   desktopIntegrationTypeIds: {
     name: 'desktopIntegrationTypeIds',
