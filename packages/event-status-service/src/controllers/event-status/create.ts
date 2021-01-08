@@ -5,7 +5,7 @@ import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import { db } from '../../core/db'
 import { generateStatusItem } from '../../schemas/event-status.schema'
 
-type payload = {
+type Payload = {
   eventId: string
   clientCode: string
   status: 'outstanding' | 'actioned' | 'dismissed'
@@ -13,7 +13,7 @@ type payload = {
 }
 
 export default async (req: AppRequest, res: Response) => {
-  const payload = req.body as payload
+  const payload = req.body as Payload
   const { traceId } = req
 
   try {

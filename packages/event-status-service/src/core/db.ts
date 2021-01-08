@@ -2,12 +2,12 @@ import DynamoDB from 'aws-sdk/clients/dynamodb'
 import { DataMapper, DataMapperConfiguration } from '@aws/dynamodb-data-mapper'
 import { DYNAMO_DB } from '../core/constants'
 
-type paramsT = {
+type Params = {
   region: string
   endpoint?: string
 }
 
-const params: paramsT = {
+const params: Params = {
   region: DYNAMO_DB.region,
 }
 
