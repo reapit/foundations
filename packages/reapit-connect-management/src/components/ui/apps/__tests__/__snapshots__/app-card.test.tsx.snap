@@ -19,7 +19,12 @@ exports[`AppCard should match a snapshot 1`] = `
         src=""
       />
     }
-    subHeading="APP_DEVELOPER"
+    subHeading={
+      <React.Fragment>
+        APP_DEVELOPER
+        
+      </React.Fragment>
+    }
   >
     <div
       className="card  "

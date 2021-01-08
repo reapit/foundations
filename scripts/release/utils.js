@@ -193,6 +193,7 @@ const WEB_APPS = [
   'reapit-connect',
   'payments-client',
   'data-warehouse',
+  'reapit-connect-management',
 ]
 
 const WEB_COMPONENTS_SERVERLESS_APPS = ['search-widget', 'appointment-planner-component']
@@ -202,7 +203,7 @@ const SERVERLESS_APPS = [
   'deploy-slack-bot',
   'graphql-server',
   'web-components-config-server',
-  'payments-server',
+  'payments-service',
   ...WEB_COMPONENTS_SERVERLESS_APPS,
 ]
 
