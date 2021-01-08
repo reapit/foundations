@@ -34,7 +34,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response)
+    await createApiKey(mockReq, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -57,7 +57,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response)
+    await createApiKey(mockReq, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -80,7 +80,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response)
+    await createApiKey(mockReq, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -101,7 +101,7 @@ describe('createApiKey', () => {
 
     const mockApiKey = 'SOME_API_KEY'
 
-    await createApiKey(mockReq, mockRes as Response, mockApiKey)
+    await createApiKey(mockReq, mockRes as Response, jest.fn(), mockApiKey)
 
     expect(db.put).toHaveBeenCalledWith({
       apiKey: mockApiKey,
