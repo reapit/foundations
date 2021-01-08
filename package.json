@@ -17,6 +17,7 @@
       "packages/geo-diary",
       "packages/graphql-server",
       "packages/marketplace",
+      "packages/event-status-service",
       "packages/payments-client",
       "packages/payments-service",
       "packages/react-app-scaffolder",
@@ -37,6 +38,8 @@
       "**/react-app-scaffolder/**",
       "**/svelte",
       "**/svelte/**",
+      "**/event-status-service",
+      "**/event-status-service/**",
       "**/graphql-server",
       "**/graphql-server/**"
     ]
