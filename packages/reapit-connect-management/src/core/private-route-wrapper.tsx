@@ -27,7 +27,18 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     )
   }
 
-  if (window.location.pathname === '/') {
+  const { pathname } = window.location
+
+  if (window.reapit.config.appEnv === 'production') {
+    if (pathname === '/' || pathname === Routes.OFFICES) {
+      return <Redirect to={Routes.OFFICES_GROUPS} />
+    }
+    if (pathname === Routes.USERS) {
+      return <Redirect to={Routes.USERS_GROUPS} />
+    }
+  }
+
+  if (pathname === '/') {
     return <Redirect to={Routes.OFFICES} />
   }
 
