@@ -4,6 +4,7 @@ import { LevelRight, notification, Tile } from '@reapit/elements'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import { AppRestriction } from '../../../types/app-restrictions'
 import { updateAppRestrictionsService } from '../../../services/apps'
+import { directAPI } from '../__styles__'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -44,7 +45,12 @@ const AppCard: React.FC<AppCardProps> = ({ app, restriction }: AppCardProps) => 
   return (
     <Tile
       heading={app.name || ''}
-      subHeading={app.developer || ''}
+      subHeading={
+        <>
+          {app.developer || ''}
+          {app.isDirectApi ? <span className={directAPI}>(Integration)</span> : ''}
+        </>
+      }
       image={<img className="image" src={app.iconUri || defaultAppIcon} alt={app.name} onError={onImageError} />}
     >
       <LevelRight>
