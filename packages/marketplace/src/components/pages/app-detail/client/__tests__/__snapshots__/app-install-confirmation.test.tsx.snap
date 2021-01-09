@@ -938,11 +938,12 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                    has been successfully installed.
                                 </p>
                                 <p
-                                  class="mb-5"
+                                  class="mb-5 flex v-align-middle"
                                 >
                                   To launch, please use
                                    
                                   <a
+                                    class=""
                                     href="agencycloud://process/webpage?url=undefined"
                                   />
                                 </p>
@@ -1149,11 +1150,12 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                            has been successfully installed.
                                         </p>
                                         <p
-                                          className="mb-5"
+                                          className="mb-5 flex v-align-middle"
                                         >
                                           To launch, please use
                                            
                                           <a
+                                            className=""
                                             href="agencycloud://process/webpage?url=undefined"
                                           />
                                         </p>
