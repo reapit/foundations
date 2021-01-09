@@ -19,6 +19,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDesktopIntegrationTypes } from '../../../../utils/get-desktop-integration-types'
 import { selectDesktopIntegrationTypes } from '../../../../selector/desktop-integration-types'
+import { truncate } from '../__styles__/app-install-confirmation'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -159,9 +160,11 @@ export const InstallDirectApiAppSucesfullyModal = ({
       >
         <p className="mb-5">{name} has been successfully installed.</p>
 
-        <p className="mb-5">
+        <p className="mb-5 flex v-align-middle">
           To launch, please use{' '}
-          <a href={isDesktopMode ? `agencycloud://process/webpage?url=${launchUri}` : launchUri}>{launchUri}</a>
+          <a className={truncate} href={isDesktopMode ? `agencycloud://process/webpage?url=${launchUri}` : launchUri}>
+            {launchUri}
+          </a>
         </p>
 
         <p>
