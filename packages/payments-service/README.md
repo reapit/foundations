@@ -108,6 +108,15 @@ api-version: 2020-01-31
 if-match: "12DCB538D33214CD8FA665629DE6E016"
 ```
 
+- Body
+
+```json
+{
+  "status": "posted",
+  "externalReference": "SOME_POSTED_REF"
+}
+```
+
 - Response 204
 
 ```
