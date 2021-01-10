@@ -6,6 +6,12 @@ Microservice proxy to platform Payments API, to allow authenticated simple sessi
 
 POST /api-key
 
+- Headers
+
+```
+Authorization: <<ConnectIdToken>>
+```
+
 - Body
 
 ```json
