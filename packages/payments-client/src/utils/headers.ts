@@ -3,9 +3,10 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const genPlatformHeaders = async () => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
+  if (!connectSession) throw new Error('User is not logged in')
   return {
     ...API_HEADERS,
-    Authorization: (connectSession && (connectSession?.accessToken as string)) ?? '',
+    Authorization: `Bearer ${connectSession?.accessToken}`,
   }
 }
 

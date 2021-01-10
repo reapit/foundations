@@ -103,5 +103,8 @@ functions:
   expressServer:
     handler: src/index.app
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          method: any
+          path: /{proxy+}
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}

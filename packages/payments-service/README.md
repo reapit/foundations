@@ -6,6 +6,12 @@ Microservice proxy to platform Payments API, to allow authenticated simple sessi
 
 POST /api-key
 
+- Headers
+
+```
+Authorization: <<ConnectIdToken>>
+```
+
 - Body
 
 ```json
@@ -100,6 +106,15 @@ reapit-customer: SBOX
 x-api-key: 86fe34a8-604d-4fed-825d-6888f43f3b2f
 api-version: 2020-01-31
 if-match: "12DCB538D33214CD8FA665629DE6E016"
+```
+
+- Body
+
+```json
+{
+  "status": "posted",
+  "externalReference": "SOME_POSTED_REF"
+}
 ```
 
 - Response 204

@@ -60,7 +60,7 @@ export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ childr
         <Menu />
         <Section>
           <Helper variant="info">
-            We could not detect that your are a negotiator for your organisation from your login. Try logging out and
+            We could not detect that you are a negotiator for your organisation from your login. Try logging out and
             then back in again. If this does not work, please contact your Reapit administrator.
           </Helper>
         </Section>
