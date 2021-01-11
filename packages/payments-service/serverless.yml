@@ -104,7 +104,16 @@ functions:
     handler: src/index.app
     events:
       - http:
-          method: any
-          path: /{proxy+}
+          method: post
+          path: /api-key
+          cors: true
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+      - http:
+          method: get
+          path: /payments/{paymentId}
+          cors: true
+      - http:
+          method: patch
+          path: /payments/{paymentId}
+          cors: true
