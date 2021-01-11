@@ -16,6 +16,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { fetchDeveloperAppsSuccess } from '../../actions/apps/apps'
+import { filterOrgAdminRestrictedApps } from '../../utils/browse-app'
 
 export const fetchApps = function*({ data }) {
   try {
@@ -29,12 +30,14 @@ export const fetchApps = function*({ data }) {
       ...data,
     })
 
+    const filtered = filterOrgAdminRestrictedApps(response, connectSession)
+
     if (isInfinite) {
-      yield put(fetchAppsInfiniteSuccess(response))
+      yield put(fetchAppsInfiniteSuccess(filtered))
       return
     }
 
-    yield put(fetchAppsSuccess(response))
+    yield put(fetchAppsSuccess(filtered))
   } catch (err) {
     yield put(fetchAppsFailed(err.description))
     notification.error({

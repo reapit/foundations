@@ -46,6 +46,7 @@ const roles = {
   ReapitEmployee: 'Reapit Employee',
   ReapitUser: 'User',
   FoundationsAdmin: 'User Admin',
+  OrganisationAdmin: 'Organisation Admin',
 }
 
 const getCompanyRoles = (loginIdentity?: LoginIdentity): string => {
