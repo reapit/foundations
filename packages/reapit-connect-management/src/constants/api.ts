@@ -13,3 +13,5 @@ export const URLS = {
   APPS: '/marketplace/apps',
   CUSTOMERS: '/marketplace/customers',
 }
+
+export const GLOSSARY_USER_ROLES_URL = 'https://marketplace-documentation.reapit.cloud/glossary#user-roles'

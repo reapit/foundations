@@ -13,8 +13,7 @@ export type Config = {
   platformApiUrl: string
   webComponentConfigApiUrl: string
   developerPortalUrl: string
-  previewExternalAppIds: string[]
-  previewFeaturedExternalAppIds: string[]
+  orgAdminRestrictedAppIds: string[]
   comingSoonApps: {
     agencyCloud: ComingSoonApp[]
     thirdParty: ComingSoonApp[]

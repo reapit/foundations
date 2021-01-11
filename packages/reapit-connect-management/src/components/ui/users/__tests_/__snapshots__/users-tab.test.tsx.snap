@@ -63,20 +63,20 @@ exports[`UsersContent  should match a snapshot 1`] = `
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component>
-    <div
-      className=""
-    >
-      <Component
-        className=""
+    <Component>
+      Existing users
+    </Component>
+    <i>
+      The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
+       
+      <a
+        href="https://marketplace-documentation.reapit.cloud/glossary#user-roles"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Existing users
-      </Component>
-      <p
-        className="helper-text"
-      >
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-      </p>
-    </div>
+        here.
+      </a>
+    </i>
   </Component>
   <Component
     columns={
@@ -144,7 +144,7 @@ exports[`UsersTab should match a snapshot 1`] = `
     onPageChange={[Function]}
   />
   <Component
-    onRefetchData={[MockFunction]}
+    onRefetchData={[Function]}
     setEditingUser={[Function]}
   />
 </ErrorBoundary>

@@ -4,11 +4,20 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, FadeIn, Helper, Button, H5 } from '@reapit/elements'
+import {
+  Pagination,
+  Table,
+  Loader,
+  Section,
+  FadeIn,
+  Helper,
+  Button,
+  H5,
+  getMarketplaceGlobalsByKey,
+} from '@reapit/elements'
 import Routes from '@/constants/routes'
-import { URLS } from '../../../constants/api'
+import { GLOSSARY_USER_ROLES_URL, URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { tabTopContent, tableTitle } from '../__styles__'
 import EditUserModal from './edit-user'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
@@ -22,6 +31,7 @@ const UsersTab: React.FC = () => {
   const search = location.search
   const onPageChange = React.useCallback(onPageChangeHandler(history), [history])
   const [editingUser, setEditingUser] = useState<UserModel>()
+  const isDesktop = getMarketplaceGlobalsByKey()
 
   const [orgId, setOrgId] = useState<string | null>(null)
   useEffect(() => {
@@ -37,9 +47,13 @@ const UsersTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data, mutate }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
-
-  const onRefetchData = React.useCallback(mutate(), [])
+  const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
+    orgId
+      ? `${URLS.USERS}/${
+          search ? `${search}&pageSize=12&organisationId=${orgId}` : `?pageSize=12&organisationId=${orgId}`
+        }`
+      : null,
+  )
 
   const UserGroupCell = ({ cell: { value } }) => (
     <span>
@@ -69,16 +83,21 @@ const UsersTab: React.FC = () => {
   return (
     <ErrorBoundary>
       <Section>
-        <div className={tabTopContent}>
-          <H5 className={tableTitle}>Existing users</H5>
-          <p className="helper-text">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-            designs.
-          </p>
-        </div>
+        <H5>Existing users</H5>
+        <i>
+          The list below contains all &lsquo;Users&rsquo; within your organisation. You can search and edit users to
+          manage the groups an individual user belongs to. For more information on ‘Groups’, please click{' '}
+          {isDesktop ? (
+            <a href={`agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`}>here.</a>
+          ) : (
+            <a target="_blank" rel="noopener noreferrer" href={GLOSSARY_USER_ROLES_URL}>
+              here.
+            </a>
+          )}
+        </i>
       </Section>
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
-      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={onRefetchData} />
+      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} />
     </ErrorBoundary>
   )
 }

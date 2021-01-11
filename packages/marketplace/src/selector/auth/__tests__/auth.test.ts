@@ -8,6 +8,7 @@ import {
   selectLoggedUserName,
   selectLoggedUserCompanyName,
   selectIsUser,
+  selectIsOffGrouping,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
 
@@ -20,12 +21,28 @@ describe('auth', () => {
   describe('selectIsAdmin', () => {
     it('should return correctly', () => {
       expect(
-        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'] } }),
+        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['FoundationsAdmin'] } }),
+      ).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(
+        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['OrganisationAdmin'] } }),
       ).toBeTruthy()
     })
 
     it('should return correctly', () => {
       expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
+    })
+  })
+
+  describe('selectIsOffGrouping', () => {
+    it('should return correctly', () => {
+      expect(selectIsOffGrouping({ ...auth, loginIdentity: { ...auth.loginIdentity, offGrouping: true } })).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(selectIsOffGrouping({ ...auth, loginIdentity: { ...auth.loginIdentity, offGrouping: false } })).toBeFalsy()
     })
   })
 

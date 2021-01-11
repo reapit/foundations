@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { MemoryRouter } from 'react-router'
@@ -13,6 +13,7 @@ import AppInstallConfirmation, {
   InstallDirectApiAppSucesfullyModal,
   InstallAppSucesfullyModalParams,
   InstallNonDirectApiAppSucesfullyModal,
+  InstallForGroupHeading,
 } from '../app-install-confirmation'
 import { installApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
@@ -134,5 +135,37 @@ describe('ClientAppInstallConfirmation', () => {
     const fn = handleSuccessAlertButtonClick(history)
     fn()
     expect(history.replace).toBeCalledWith(routes.APPS)
+  })
+
+  describe('InstallForGroupHeading', () => {
+    const baseProps = {
+      clientId: 'SBOX',
+      name: 'App Name',
+      setClientIdToInstall: jest.fn(),
+      clientIdToInstall: 'SBOX',
+      isOrgAdmin: true,
+      isFoundationsAdmin: true,
+      isOffGrouping: true,
+    }
+    it('should match a snapshot where is orgAdmin and offGrouping', () => {
+      expect(shallow(<InstallForGroupHeading {...baseProps} />)).toMatchSnapshot()
+    })
+
+    it('should match a snapshot where is not orgAdmin is offGrouping and foundations admin', () => {
+      const updatedProps = {
+        ...baseProps,
+        isOrgAdmin: false,
+      }
+      expect(shallow(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
+    })
+
+    it('should match a snapshot where is not orgAdmin not offGrouping and foundations admin', () => {
+      const updatedProps = {
+        ...baseProps,
+        isOrgAdmin: false,
+        isOffGrouping: false,
+      }
+      expect(shallow(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
+    })
   })
 })

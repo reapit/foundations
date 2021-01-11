@@ -13,7 +13,11 @@ jest.mock('react-router', () => ({
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
-    connectSession: {},
+    connectSession: {
+      loginIdentity: {
+        groups: ['OrganisationAdmin'],
+      },
+    },
     connectInternalRedirect: '',
   }),
 }))

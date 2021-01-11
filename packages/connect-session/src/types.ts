@@ -29,6 +29,10 @@ export interface LoginIdentity {
   groups: string[]
   orgName: string | null
   orgId: string | null
+  offGroupIds: string | null
+  offGrouping: boolean
+  offGroupName: string | null
+  officeId: string | null
 }
 
 export interface CoginitoSession {

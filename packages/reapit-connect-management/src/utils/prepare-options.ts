@@ -8,5 +8,6 @@ export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = dat
     return {
       label: name,
       value: id,
+      description: name,
     } as SelectOption
   })

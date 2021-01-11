@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -22,7 +22,6 @@ import {
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import OfficesFilterForm, { OfficesFilterFormValues } from '@/components/ui/offices/offices-tab-filter'
-import { tabTopContent, tableTitle } from '../__styles__'
 
 export const buildFilterValues = (queryParams: URLSearchParams): OfficesFilterFormValues => {
   const name = queryParams.get('name') || []
@@ -59,8 +58,8 @@ const OfficesTab: React.FC = () => {
   const search = location.search
   const queryParams = new URLSearchParams(search)
   const filterValues = buildFilterValues(queryParams)
-  const onSearch = React.useCallback(onSearchHandler(history), [history])
-  const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
+  const onSearch = useCallback(onSearchHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
 
   const { data }: any = useSWR(`${URLS.OFFICES}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
 
@@ -80,14 +79,14 @@ const OfficesTab: React.FC = () => {
   return (
     <ErrorBoundary>
       <Section>
-        <div className={tabTopContent}>
-          <H5 className={tableTitle}>Existing offices</H5>
-          <p className="helper-text">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-            designs.
-          </p>
-          <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
-        </div>
+        <H5>Existing offices</H5>
+        <p className="mb-4">
+          <i>
+            The list below contains all ‘Offices’ within your organisation. To create or manage an Office Group, please
+            visit the ‘Groups’ page.
+          </i>
+        </p>
+        <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
       </Section>
       {!data ? <Loader /> : <OfficesContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>

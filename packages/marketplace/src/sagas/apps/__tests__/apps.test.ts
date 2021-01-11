@@ -40,6 +40,7 @@ describe('apps', () => {
     expect(gen.next(auth).value).toEqual(call(selectClientId, auth))
 
     it('api call success', () => {
+      window.reapit.config.orgAdminRestrictedAppIds = []
       const clone = gen.clone()
       expect(clone.next(auth.loginIdentity.clientId).value).toEqual(
         call(fetchAppsApi, {

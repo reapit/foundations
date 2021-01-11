@@ -17,8 +17,7 @@ window.reapit = {
     platformApiUrl: '',
     webComponentConfigApiUrl: '',
     developerPortalUrl: '',
-    previewExternalAppIds: [],
-    previewFeaturedExternalAppIds: [],
+    orgAdminRestrictedAppIds: [],
     comingSoonApps: {
       agencyCloud: [],
       thirdParty: [],

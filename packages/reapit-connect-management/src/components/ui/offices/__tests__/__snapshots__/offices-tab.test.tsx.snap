@@ -65,28 +65,24 @@ exports[`OfficesContent should match a snapshot 1`] = `
 exports[`OfficesTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component>
-    <div
-      className=""
+    <Component>
+      Existing offices
+    </Component>
+    <p
+      className="mb-4"
     >
-      <Component
-        className=""
-      >
-        Existing offices
-      </Component>
-      <p
-        className="helper-text"
-      >
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-      </p>
-      <OfficeTabFilterForm
-        filterValues={
-          Object {
-            "name": Array [],
-          }
+      <i>
+        The list below contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.
+      </i>
+    </p>
+    <OfficeTabFilterForm
+      filterValues={
+        Object {
+          "name": Array [],
         }
-        onSearch={[Function]}
-      />
-    </div>
+      }
+      onSearch={[Function]}
+    />
   </Component>
   <Component
     columns={

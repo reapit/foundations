@@ -43,14 +43,12 @@ exports[`OfficeGroupsContent should match a snapshot 1`] = `
       />
     </mock-styled.div>
   </Component>
-  <Component>
-    <Component
-      onChange={[Function]}
-      pageNumber={0}
-      pageSize={0}
-      totalCount={0}
-    />
-  </Component>
+  <Component
+    onChange={[Function]}
+    pageNumber={0}
+    pageSize={0}
+    totalCount={0}
+  />
 </Fragment>
 `;
 
@@ -58,26 +56,22 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component>
     <div
-      className=""
+      className="flex justify-between items-center mb-4"
     >
-      <div
-        className=""
+      <Component
+        className="mb-0"
       >
-        <Component>
-          Office groups
-        </Component>
-        <Component
-          onClick={[Function]}
-        >
-          Create office group
-        </Component>
-      </div>
-      <p
-        className="helper-text"
+        Office groups
+      </Component>
+      <Component
+        onClick={[Function]}
       >
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-      </p>
+        Create office group
+      </Component>
     </div>
+    <i>
+      The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.
+    </i>
   </Component>
   <Component
     columns={

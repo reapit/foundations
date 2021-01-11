@@ -5,6 +5,7 @@ const Routes = {
   USERS_GROUPS: '/users/groups',
   LOGIN: '/login',
   MARKETPLACE: '/marketplace-apps',
+  ACCESS_DENIED: '/access-denied',
 }
 
 export default Routes

@@ -88,7 +88,10 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
       zIndex={90}
     >
       <p className="helper-text">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+        <i>
+          To manage members associated to this group, you can search and select users from the ‘Groups Members’ section
+          below:
+        </i>
       </p>
       <Formik
         initialValues={{

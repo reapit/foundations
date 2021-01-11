@@ -1,14 +1,35 @@
 import { ReapitConnectSession, LoginIdentity } from '@reapit/connect-session'
-import { COGNITO_GROUP_DEVELOPER_EDITION, COGNITO_GROUP_ADMIN_USERS, COGNITO_GROUP_USERS } from '@/constants/api'
+import {
+  COGNITO_GROUP_DEVELOPER_EDITION,
+  COGNITO_GROUP_ADMIN_USERS,
+  COGNITO_GROUP_USERS,
+  COGNITO_GROUP_ORGANISATION_ADMIN,
+} from '@/constants/api'
 
 export const selectLoginIdentity = (state: ReapitConnectSession | null): LoginIdentity | undefined => {
   return state?.loginIdentity
 }
 
 export const selectIsAdmin = (state: ReapitConnectSession | null): boolean => {
+  return selectIsOrgAdmin(state) || selectIsFoundationsAdmin(state)
+}
+
+export const selectIsOrgAdmin = (state: ReapitConnectSession | null): boolean => {
+  const loginIdentity = selectLoginIdentity(state)
+
+  return Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ORGANISATION_ADMIN))
+}
+
+export const selectIsFoundationsAdmin = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
 
   return Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS))
+}
+
+export const selectIsOffGrouping = (state: ReapitConnectSession | null): boolean => {
+  const loginIdentity = selectLoginIdentity(state)
+
+  return Boolean(loginIdentity?.offGrouping)
 }
 
 export const selectIsUser = (state: ReapitConnectSession | null): boolean => {
