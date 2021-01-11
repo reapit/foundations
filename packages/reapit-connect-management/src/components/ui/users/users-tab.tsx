@@ -8,7 +8,6 @@ import { Pagination, Table, Loader, Section, FadeIn, Helper, Button, H5 } from '
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { tabTopContent, tableTitle } from '../__styles__'
 import EditUserModal from './edit-user'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
@@ -37,9 +36,13 @@ const UsersTab: React.FC = () => {
     setOrgId(session.loginIdentity.orgId)
   }
 
-  const { data, mutate }: any = useSWR(`${URLS.USERS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
-
-  const onRefetchData = React.useCallback(mutate(), [])
+  const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
+    orgId
+      ? `${URLS.USERS}/${
+          search ? `${search}&pageSize=12&organisationId=${orgId}` : `?pageSize=12&organisationId=${orgId}`
+        }`
+      : null,
+  )
 
   const UserGroupCell = ({ cell: { value } }) => (
     <span>
@@ -69,16 +72,14 @@ const UsersTab: React.FC = () => {
   return (
     <ErrorBoundary>
       <Section>
-        <div className={tabTopContent}>
-          <H5 className={tableTitle}>Existing users</H5>
-          <p className="helper-text">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-            designs.
-          </p>
-        </div>
+        <H5>Existing users</H5>
+        <i>
+          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+          designs.
+        </i>
       </Section>
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
-      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={onRefetchData} />
+      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} />
     </ErrorBoundary>
   )
 }

@@ -51,20 +51,12 @@ exports[`UserGroupsContent should match a snapshot 1`] = `
 exports[`UserGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component>
-    <div
-      className=""
-    >
-      <Component
-        className=""
-      >
-        User groups
-      </Component>
-      <p
-        className="helper-text"
-      >
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
-      </p>
-    </div>
+    <Component>
+      User groups
+    </Component>
+    <i>
+      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+    </i>
   </Component>
   <Component
     columns={
@@ -74,12 +66,12 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
           "accessor": "id",
         },
         Object {
-          "Header": "Members",
-          "accessor": "",
-        },
-        Object {
           "Header": "Description",
           "accessor": "description",
+        },
+        Object {
+          "Header": "Members",
+          "accessor": "",
         },
         Object {
           "Cell": [Function],

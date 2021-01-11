@@ -20,7 +20,6 @@ import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import OfficeListCell from './office-list-cell'
-import { tabTopContent, tableTitle } from '../__styles__'
 import CreateOfficeGroupModal from './create-office-group'
 import EditOfficeGroupModal from './edit-office-group'
 
@@ -86,32 +85,30 @@ const OfficesGroupsTab: React.FC = () => {
   return (
     <ErrorBoundary>
       <Section>
-        <div className={tabTopContent}>
-          <div className={tableTitle}>
-            <H5>Office groups</H5>
-            <Button onClick={onOpenCreateModel}>Create office group</Button>
-          </div>
-          <p className="helper-text">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-            designs.
-          </p>
-          {orgId && (
-            <>
-              <CreateOfficeGroupModal
-                visible={isOpenCreateGroupModal}
-                setOpenCreateGroupModal={setOpenCreateGroupModal}
-                orgId={orgId}
-                onRefetchData={onRefetchData}
-              />
-              <EditOfficeGroupModal
-                setEditingGroup={setEditingGroup}
-                orgId={orgId}
-                editingGroup={editingGroup}
-                onRefetchData={onRefetchData}
-              />
-            </>
-          )}
+        <div className="flex justify-between items-center mb-4">
+          <H5 className="mb-0">Office groups</H5>
+          <Button onClick={onOpenCreateModel}>Create office group</Button>
         </div>
+        <i>
+          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+          designs.
+        </i>
+        {orgId && (
+          <>
+            <CreateOfficeGroupModal
+              visible={isOpenCreateGroupModal}
+              setOpenCreateGroupModal={setOpenCreateGroupModal}
+              orgId={orgId}
+              onRefetchData={onRefetchData}
+            />
+            <EditOfficeGroupModal
+              setEditingGroup={setEditingGroup}
+              orgId={orgId}
+              editingGroup={editingGroup}
+              onRefetchData={onRefetchData}
+            />
+          </>
+        )}
       </Section>
       {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
     </ErrorBoundary>
@@ -127,9 +124,7 @@ export const OfficeGroupsContent: React.FC<{
   return (
     <>
       <Section>{renderResult(columns, listGroup)}</Section>
-      <Section>
-        <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-      </Section>
+      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )
 }
