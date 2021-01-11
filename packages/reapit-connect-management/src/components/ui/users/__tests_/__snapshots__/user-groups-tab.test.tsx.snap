@@ -55,7 +55,7 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
       User groups
     </Component>
     <i>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting ‘Manage’.
     </i>
   </Component>
   <Component

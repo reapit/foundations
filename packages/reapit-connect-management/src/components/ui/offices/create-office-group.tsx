@@ -104,7 +104,10 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   return (
     <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Create Office Group" zIndex={90}>
       <p className="helper-text">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+        <i>
+          To create a new office group, please provide a group ‘Name’ and search and select an Office(s). You will need
+          a minimum of 1 office to create a new group.
+        </i>
       </p>
       <Formik initialValues={{ name: '', officeIds: [] }} onSubmit={onSubmit} validationSchema={validationSchema}>
         {() => {

@@ -45,11 +45,12 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
 
 export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data =>
   data.map((userGroup: GroupModel) => {
-    const { id } = userGroup
+    const { id, description } = userGroup
 
     return {
       label: id,
       value: id,
+      description,
     } as SelectOption
   })
 
@@ -97,8 +98,8 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
       title={`Editing ${editingUser.name}`}
       zIndex={90}
     >
-      <p className="helper-text">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      <p className="mb-4">
+        <i>Please use the ‘Users Group’ section below to manage which groups this user belongs to:</i>
       </p>
       <Formik
         initialValues={{

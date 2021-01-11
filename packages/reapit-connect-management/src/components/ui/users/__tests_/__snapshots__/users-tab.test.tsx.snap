@@ -67,7 +67,15 @@ exports[`UsersTab should match a snapshot 1`] = `
       Existing users
     </Component>
     <i>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
+       
+      <a
+        href="https://marketplace-documentation.reapit.cloud/glossary#user-roles"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        here.
+      </a>
     </i>
   </Component>
   <Component

@@ -7,8 +7,8 @@ describe('prepareOfficeOptions', () => {
       { id: '456', name: 'Bob' },
     ]
     const expected = [
-      { label: 'Alice', value: '123' },
-      { label: 'Bob', value: '456' },
+      { label: 'Alice', value: '123', description: 'Alice' },
+      { label: 'Bob', value: '456', description: 'Bob' },
     ]
     expect(prepareOfficeOptions(data)).toEqual(expected)
   })

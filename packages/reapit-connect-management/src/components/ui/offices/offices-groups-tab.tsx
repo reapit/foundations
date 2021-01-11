@@ -90,8 +90,9 @@ const OfficesGroupsTab: React.FC = () => {
           <Button onClick={onOpenCreateModel}>Create office group</Button>
         </div>
         <i>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-          designs.
+          The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new
+          office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
+          ‘Edit’ on the associated group.
         </i>
         {orgId && (
           <>

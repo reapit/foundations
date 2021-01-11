@@ -46,8 +46,8 @@ const UserGroupsTab: React.FC = () => {
       <Section>
         <H5>User groups</H5>
         <i>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
-          designs.
+          The list below contains all available member groups for your organisation. You can manage users associated to
+          each group by selecting ‘Manage’.
         </i>
       </Section>
       {!data ? <Loader /> : <UserGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
