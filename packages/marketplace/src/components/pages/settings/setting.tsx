@@ -45,7 +45,7 @@ const roles = {
   FoundationsDeveloperAdmin: 'Developer Admin',
   ReapitEmployee: 'Reapit Employee',
   ReapitUser: 'User',
-  ReapitUserAdmin: 'User Admin',
+  FoundationsAdmin: 'User Admin',
 }
 
 const getCompanyRoles = (loginIdentity?: LoginIdentity): string => {

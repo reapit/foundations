@@ -7,5 +7,5 @@ export const COGNITO_HEADERS = {
 export const SANDBOX_CLIENT_ID = 'SBOX'
 
 export const COGNITO_GROUP_DEVELOPER_EDITION = 'AgencyCloudDeveloperEdition'
-export const COGNITO_GROUP_ADMIN_USERS = 'ReapitUserAdmin'
+export const COGNITO_GROUP_ADMIN_USERS = 'FoundationsAdmin'
 export const COGNITO_GROUP_USERS = 'ReapitUser'

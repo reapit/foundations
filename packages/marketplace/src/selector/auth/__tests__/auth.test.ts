@@ -20,7 +20,7 @@ describe('auth', () => {
   describe('selectIsAdmin', () => {
     it('should return correctly', () => {
       expect(
-        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'] } }),
+        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['FoundationsAdmin'] } }),
       ).toBeTruthy()
     })
 

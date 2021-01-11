@@ -1,6 +1,6 @@
 import { ReapitConnectSession, LoginIdentity } from '@reapit/connect-session'
 
-export const COGNITO_GROUP_ADMIN_USERS = 'ReapitUserAdmin'
+export const COGNITO_GROUP_ADMIN_USERS = 'FoundationsAdmin'
 export const COGNITO_GROUP_USERS = 'ReapitUser'
 
 export const selectIsAdmin = (connectSession: ReapitConnectSession | null) => {
