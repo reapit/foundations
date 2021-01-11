@@ -14,6 +14,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
+  const hasAccess = connectSession?.loginIdentity?.groups.includes('OrganisationAdmin')
 
   if (!connectSession) {
     return (
@@ -28,6 +29,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   const { pathname } = window.location
+
+  if (!hasAccess && pathname !== Routes.ACCESS_DENIED) {
+    return <Redirect to={Routes.ACCESS_DENIED} />
+  }
 
   if (window.reapit.config.appEnv === 'production') {
     if (pathname === '/' || pathname === Routes.OFFICES) {

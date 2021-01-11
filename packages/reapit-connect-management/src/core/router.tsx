@@ -34,6 +34,7 @@ const LoginPage = React.lazy(() => catchChunkError(() => import('../components/p
 const Offices = React.lazy(() => catchChunkError(() => import('../components/pages/offices')))
 const Users = React.lazy(() => catchChunkError(() => import('../components/pages/users')))
 const Marketplace = React.lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
+const AccessDenied = React.lazy(() => catchChunkError(() => import('../components/pages/access-denied')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -52,6 +53,7 @@ const Router = () => (
               <Route path={Routes.OFFICES} component={Offices} />
               <Route path={Routes.USERS} component={Users} />
               <Route path={Routes.MARKETPLACE} component={Marketplace} />
+              <Route path={Routes.ACCESS_DENIED} component={AccessDenied} />
             </Switch>
           </SWRConfig>
         </PrivateRouteWrapper>

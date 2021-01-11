@@ -81,6 +81,17 @@ exports[`Router should match a snapshot 1`] = `
               }
               path="/marketplace-apps"
             />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/access-denied"
+            />
           </Switch>
         </ContextProvider>
       </Component>
