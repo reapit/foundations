@@ -120,6 +120,10 @@ export const connectSessionVerifyDecodeIdToken = async (
       groups: claim['cognito:groups'] || [],
       orgName: claim['custom:reapit:orgName'] || null,
       orgId: claim['custom:reapit:orgId'] || null,
+      offGroupIds: claim['custom:reapit:offGroupIds'] || null,
+      offGrouping: claim['custom:reapit:offGrouping'] && claim['custom:reapit:offGrouping'] === 'true' ? true : false,
+      offGroupName: claim['custom:reapit:offGroupName'] || null,
+      officeId: claim['custom:reapit:officeId'] || null,
     }
   } catch (error) {
     console.error('Reapit Connect Session error:', error.message)

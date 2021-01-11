@@ -94,7 +94,7 @@ describe('installations', () => {
           pageNumber: 1,
           pageSize: GET_ALL_PAGE_SIZE,
           isInstalled: true,
-          developerId: '123',
+          developerId: 'name@mail.com',
           appId: undefined,
         } as any),
       )

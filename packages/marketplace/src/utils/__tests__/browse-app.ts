@@ -1,5 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../../constants/api'
 import { filterOrgAdminRestrictedApps, getNumberOfItems, mergeAppsWithoutDuplicateId } from '../browse-app'
 
 describe('Browse apps', () => {
@@ -355,7 +356,7 @@ describe('filterOrgAdminRestrictedApps', () => {
     }
     const stubSession = {
       loginIdentity: {
-        groups: ['OrganisationAdmin'] as string[],
+        groups: [COGNITO_GROUP_ORGANISATION_ADMIN] as string[],
       },
     } as ReapitConnectSession
     const result = filterOrgAdminRestrictedApps(stubApps, stubSession) as AppSummaryModelPagedResult

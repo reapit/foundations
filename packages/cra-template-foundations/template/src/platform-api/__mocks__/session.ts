@@ -9,9 +9,12 @@ export const mockLoginIdentity = {
   userCode: 'SOME_USER_ID',
   orgName: 'SOME_ORG_NAME',
   orgId: 'SOME_ORG_ID',
-  groups: [],
+  groups: ['AgencyCloudDeveloperEdition', 'OrganisationAdmin', 'ReapitUser', 'ReapitDeveloper', 'ReapitDeveloperAdmin'],
+  offGroupIds: 'MKV',
+  offGrouping: true,
+  offGroupName: 'Cool Office Group',
+  officeId: 'MVK',
 }
-
 export const mockBrowserSession: ReapitConnectSession = {
   accessToken: JSON.stringify({
     exp: Math.round(new Date().getTime() / 1000) + 360, // time now + 6mins - we refresh session if expiry within 5mins

@@ -1,5 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../constants/api'
 
 export const HEADER_HEIGHT = 68
 export const FEATURED_APP_HEIGHT = 200
@@ -29,7 +30,7 @@ export const filterOrgAdminRestrictedApps = (
   appsResponse: AppSummaryModelPagedResult,
   connectSession: ReapitConnectSession,
 ) => {
-  const isOrgAdmin = connectSession.loginIdentity.groups.includes('OrganisationAdmin')
+  const isOrgAdmin = connectSession.loginIdentity.groups.includes(COGNITO_GROUP_ORGANISATION_ADMIN)
   if (isOrgAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
   const filtered = appsResponse.data.filter(
     app => !window.reapit.config.orgAdminRestrictedAppIds.includes(app.id as string),
