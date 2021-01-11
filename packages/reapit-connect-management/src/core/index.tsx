@@ -16,8 +16,8 @@ window.reapit = {
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
     platformApiUrl: '',
-    graphqlUri: '',
     marketplaceUrl: '',
+    groupIdsWhitelist: [],
   },
 }
 

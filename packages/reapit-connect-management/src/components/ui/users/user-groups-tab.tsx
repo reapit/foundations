@@ -7,6 +7,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Pagination, Table, Loader, Section, FadeIn, Helper, H5, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
+import qs from 'query-string'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -18,8 +19,10 @@ const UserGroupsTab: React.FC = () => {
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
-
-  const { data }: any = useSWR(`${URLS.USERS_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+  const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
+  const { data } = useSWR<GroupModelPagedResult | undefined>(
+    `${URLS.USERS_GROUPS}/${search ? `${search}&${groupIds}&pageSize=12` : `?${groupIds}&pageSize=12`}`,
+  )
 
   const ManageButton = ({
     cell: {

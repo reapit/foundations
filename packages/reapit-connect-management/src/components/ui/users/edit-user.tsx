@@ -13,10 +13,11 @@ import {
   SelectOption,
   notification,
 } from '@reapit/elements'
-import { UserModel, GroupModel } from '../../../types/organisations-schema'
+import { UserModel, GroupModel, GroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { updateUser } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'
+import qs from 'query-string'
 
 export interface UpdateUserModalProps {
   editingUser: UserModel | undefined
@@ -77,12 +78,14 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
   const handleOnClose = () => setEditingUser(undefined)
   const { name, groupIds } = formFields
 
-  const { data }: any = useSWR(`${URLS.USERS_GROUPS}`)
+  const groupIdQuery = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
+  const { data } = useSWR<GroupModelPagedResult | undefined>(`${URLS.USERS_GROUPS}/?${groupIdQuery}&pageSize=999`)
+
   const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
 
   if (!data) return <Loader />
   const { _embedded: listUserGroup } = data
-  const userGroupOptions = prepareGroupOptions(listUserGroup)
+  const userGroupOptions = prepareGroupOptions(listUserGroup ?? [])
 
   if (!editingUser) return null
 
