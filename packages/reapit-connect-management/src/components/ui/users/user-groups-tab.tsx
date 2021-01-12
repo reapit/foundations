@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -8,6 +8,8 @@ import { Pagination, Table, Loader, Section, FadeIn, Helper, H5, Button } from '
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
+import EditUserGroupModal from './edit-user-group'
+import GroupMembersCell from './group-members-cell'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -19,8 +21,10 @@ const UserGroupsTab: React.FC = () => {
   const location = useLocation()
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const [editingUserGroup, setEditingUserGroup] = useState<GroupModel>()
+
   const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
-  const { data } = useSWR<GroupModelPagedResult | undefined>(
+  const { data, mutate } = useSWR<GroupModelPagedResult | undefined>(
     `${URLS.USERS_GROUPS}/${search ? `${search}&${groupIds}&pageSize=12` : `?${groupIds}&pageSize=12`}`,
   )
 
@@ -29,7 +33,7 @@ const UserGroupsTab: React.FC = () => {
       row: { original },
     },
   }) => (
-    <Button type="button" variant="info" onClick={() => original}>
+    <Button type="button" variant="info" onClick={() => setEditingUserGroup(original)}>
       Manage
     </Button>
   )
@@ -37,7 +41,7 @@ const UserGroupsTab: React.FC = () => {
   const columns = [
     { Header: 'Group Name', accessor: 'id' },
     { Header: 'Description', accessor: 'description' },
-    { Header: 'Members', accessor: '' },
+    { Header: 'Members', Cell: GroupMembersCell },
     { Header: 'Manage', Cell: ManageButton },
   ]
 
@@ -50,7 +54,18 @@ const UserGroupsTab: React.FC = () => {
           each group by selecting ‘Manage’.
         </i>
       </Section>
-      {!data ? <Loader /> : <UserGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
+      {!data ? (
+        <Loader />
+      ) : (
+        <>
+          <UserGroupsContent data={data} columns={columns} onPageChange={onPageChange} />
+          <EditUserGroupModal
+            setEditingUserGroup={setEditingUserGroup}
+            editingUserGroup={editingUserGroup}
+            onRefetchData={mutate}
+          />
+        </>
+      )}
     </ErrorBoundary>
   )
 }

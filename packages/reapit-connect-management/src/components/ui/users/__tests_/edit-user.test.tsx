@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import UpdateUserModal, { UpdateUserModalProps, onHandleSubmit } from '../edit-user'
+import { updateUser } from '../../../../services/user'
 
 const filterProps = (): UpdateUserModalProps => ({
   editingUser: { id: 'GR1', name: 'User Name', groups: ['OF1', 'OF2'] },
@@ -10,11 +11,10 @@ const filterProps = (): UpdateUserModalProps => ({
 })
 
 jest.mock('../../../../core/connect-session')
-const mockResponse = 'success'
+jest.mock('../../../../services/user')
 
-const mockFetchPromise = Promise.resolve({
-  json: () => mockResponse,
-})
+jest.spyOn(notification, 'error')
+jest.spyOn(notification, 'success')
 
 describe('UpdateUserModal', () => {
   it('should match a snapshot', () => {
@@ -31,18 +31,19 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingUser)
 
   it('should show notification error', async () => {
-    window.fetch = jest.fn().mockImplementation(() => mockFetchPromise)
-    jest.spyOn(notification, 'error')
     await onSubmit({ name, groupIds })
-
-    expect(notification.error).toHaveBeenCalled()
+    expect(notification.success).toHaveBeenCalled()
+    expect(notification.error).not.toHaveBeenCalled()
   })
 
   it('should show notification success', async () => {
-    window.fetch = jest.fn().mockImplementation(() => undefined as any)
-    jest.spyOn(notification, 'success')
+    ;(updateUser as jest.Mock).mockReturnValueOnce(false)
     await onSubmit({ name, groupIds })
+    expect(notification.success).not.toHaveBeenCalled()
+    expect(notification.error).toHaveBeenCalled()
+  })
 
-    expect(notification.success).toHaveBeenCalled()
+  afterEach(() => {
+    jest.resetAllMocks()
   })
 })

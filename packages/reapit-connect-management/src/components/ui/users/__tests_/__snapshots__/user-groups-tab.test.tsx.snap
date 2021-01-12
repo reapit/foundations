@@ -70,8 +70,8 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
           "accessor": "description",
         },
         Object {
+          "Cell": [Function],
           "Header": "Members",
-          "accessor": "",
         },
         Object {
           "Cell": [Function],
@@ -108,6 +108,10 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
       }
     }
     onPageChange={[Function]}
+  />
+  <Component
+    onRefetchData={[Function]}
+    setEditingUserGroup={[Function]}
   />
 </ErrorBoundary>
 `;
