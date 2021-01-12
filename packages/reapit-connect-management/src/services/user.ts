@@ -1,5 +1,6 @@
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS, BASE_HEADERS } from '../constants/api'
+import { fetcher } from '@reapit/elements'
 
 interface UpdateUserParams {
   name: string
@@ -17,20 +18,22 @@ export const updateUser = async (user: UpdateUserParams, userId: string): Promis
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const api = window.reapit.config.platformApiUrl
-    const url = `${URLS.USERS}/${userId}`
-    const path = `${api}${url}`
-
-    const response = await fetch(path, {
+    const response = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url: `${URLS.USERS}/${userId}`,
       method: 'PUT',
       headers: {
         ...BASE_HEADERS,
         Authorization: `Bearer ${session.accessToken}`,
-        'api-version': '2020-01-31',
       },
-      body: JSON.stringify(user),
-    }).then(response => response.json())
-    return response
+      body: user,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Failed to update user')
   } catch (err) {
     console.error('Error', err.message)
   }
@@ -42,20 +45,22 @@ export const addMemberToGroup = async (group: UpdateUserGroupParams): Promise<an
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const api = window.reapit.config.platformApiUrl
-    const url = `${URLS.USERS_GROUPS}/${group.id}/members`
-    const path = `${api}${url}`
-
-    const response = await fetch(path, {
+    const response = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url: `${URLS.USERS_GROUPS}/${group.id}/members`,
       method: 'POST',
       headers: {
         ...BASE_HEADERS,
         Authorization: `Bearer ${session.accessToken}`,
-        'api-version': '2020-01-31',
       },
-      body: JSON.stringify(group),
-    }).then(response => response.json())
-    return response
+      body: group,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Adding member to group failed')
   } catch (err) {
     console.error('Error', err.message)
   }
@@ -67,20 +72,22 @@ export const removeMemberFromGroup = async (group: UpdateUserGroupParams): Promi
 
     if (!session) throw new Error('No Reapit Connect Session is present')
 
-    const api = window.reapit.config.platformApiUrl
-    const url = `${URLS.USERS_GROUPS}/${group.id}/members/${group.userId}`
-    const path = `${api}${url}`
-
-    const response = await fetch(path, {
+    const response = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url: `${URLS.USERS_GROUPS}/${group.id}/members/${group.userId}`,
       method: 'DELETE',
       headers: {
         ...BASE_HEADERS,
         Authorization: `Bearer ${session.accessToken}`,
-        'api-version': '2020-01-31',
       },
-      body: JSON.stringify(group),
-    }).then(response => response.json())
-    return response
+      body: group,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Removing member from group failed')
   } catch (err) {
     console.error('Error', err.message)
   }

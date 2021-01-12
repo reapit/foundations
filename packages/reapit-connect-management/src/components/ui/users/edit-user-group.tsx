@@ -1,6 +1,5 @@
 import React from 'react'
 import useSWR from 'swr'
-import difference from 'lodash.difference'
 import { FormFieldInfo } from '@reapit/utils'
 import {
   Button,
@@ -13,7 +12,12 @@ import {
   SelectOption,
   notification,
 } from '@reapit/elements'
-import { GroupModel, UserModel } from '../../../types/organisations-schema'
+import {
+  GroupMembershipModelPagedResult,
+  GroupModel,
+  UserModel,
+  UserModelPagedResult,
+} from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'
@@ -37,13 +41,14 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
 }
 
-export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data =>
-  data.map((UserGroupGroup: UserModel) => {
-    const { id, name } = UserGroupGroup
+export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = (data: UserModel[]) =>
+  data.map((userGroupGroup: UserModel) => {
+    const { id, name } = userGroupGroup
 
     return {
       label: name,
       value: id,
+      description: userGroupGroup.name,
     } as SelectOption
   })
 
@@ -66,8 +71,9 @@ export const onHandleSubmit = (
 ) => async (params: UpdateUserGroupModel) => {
   const id = editingUserGroup?.id || ''
   const userId = params.userId
-  const newUserIds = difference(userId, initMembers)
-  const removeUser = difference(initMembers, userId)
+  const members = initMembers ?? []
+  const newUserIds: string[] = userId.filter((item: string) => !members.includes(item))
+  const removeUser: string[] = members.filter((item: string) => !userId.includes(item))
 
   for (const user of newUserIds) {
     const addUserRes = await addUserToGroup(id, user)
@@ -107,19 +113,21 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   const handleOnClose = () => setEditingUserGroup(undefined)
   const { groupIds } = formFields
 
-  const { data }: any = useSWR(`${URLS.USERS}`)
+  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}`)
 
-  const { data: groupMembers, mutate }: any = useSWR(id ? `${URLS.USERS_GROUPS}/${id}/members` : null)
+  const { data: groupMembers, mutate } = useSWR<GroupMembershipModelPagedResult | undefined>(
+    id ? `${URLS.USERS_GROUPS}/${id}/members` : null,
+  )
 
   if (!editingUserGroup) return null
   if (!data) return <Loader />
   if (!groupMembers) return <Loader />
   const { _embedded: listUserGroup } = data
   const { _embedded: listUserGroupMember } = groupMembers
-  const initMembers = listUserGroupMember.map((member: UserModel) => member.id)
+  const initMembers = listUserGroupMember?.map((member: UserModel) => member.id).filter(member => !!member) as string[]
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, mutate, editingUserGroup, initMembers)
 
-  const UserGroupGroupOptions = prepareGroupOptions(listUserGroup)
+  const UserGroupGroupOptions = prepareGroupOptions(listUserGroup ?? [])
 
   return (
     <ModalV2
@@ -129,8 +137,11 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
       title={`Editing ${editingUserGroup.id}`}
       zIndex={90}
     >
-      <p className="hepler-text">
-        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+      <p>
+        <i>
+          The list below contains all available member groups for your organisation. You can manage users associated to
+          each group by selecting ‘Manage’
+        </i>
       </p>
       <Formik
         initialValues={{
