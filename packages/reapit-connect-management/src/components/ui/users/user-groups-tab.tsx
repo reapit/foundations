@@ -9,7 +9,6 @@ import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
 import EditUserGroupModal from './edit-user-group'
-import GroupMembersCell from './group-members-cell'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -41,7 +40,7 @@ const UserGroupsTab: React.FC = () => {
   const columns = [
     { Header: 'Group Name', accessor: 'id' },
     { Header: 'Description', accessor: 'description' },
-    { Header: 'Members', Cell: GroupMembersCell },
+    { Header: 'Members', accessor: 'memberCount' },
     { Header: 'Manage', Cell: ManageButton },
   ]
 

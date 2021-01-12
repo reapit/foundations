@@ -96,6 +96,7 @@ describe('ClientAppInstallConfirmation', () => {
       expect(spyDispatch).toBeCalledWith(
         installApp({
           appId,
+          clientId,
           callback: expect.any(Function),
         }),
       )

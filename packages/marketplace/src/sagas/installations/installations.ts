@@ -10,15 +10,13 @@ import {
   RemoveAccessToAppByIdParams,
 } from '@/services/installations'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientId } from '@/selector/auth'
 import { notification } from '@reapit/elements'
 
 export const installSagas = function*({ data }) {
   try {
-    const { callback, ...restParams } = data
+    const { callback, clientId, ...restParams } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const email = yield call(selectLoggedUserEmail, connectSession)
-    const clientId = yield call(selectClientId, connectSession)
 
     if (!clientId) {
       return

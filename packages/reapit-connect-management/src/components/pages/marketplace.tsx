@@ -4,28 +4,12 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { getAppRestrictionsService, getAppsService } from '../../services/apps'
+import { getAppsService } from '../../services/apps'
 import AppCard from '../ui/apps/app-card'
-import { AppRestrictionPaged } from '../../types/app-restrictions'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}&pageSize=12`
   return history.push(`${Routes.MARKETPLACE}${queryString}`)
-}
-
-export const handleFetchRestrictions = (
-  setRestrictions: Dispatch<SetStateAction<AppRestrictionPaged | undefined>>,
-  setRestrictionsLoading: Dispatch<SetStateAction<boolean>>,
-) => () => {
-  const fetchRestrictions = async () => {
-    setRestrictionsLoading(true)
-    const fetchedAppRestrictions = await getAppRestrictionsService()
-    if (fetchedAppRestrictions) {
-      setRestrictions(fetchedAppRestrictions)
-    }
-    setRestrictionsLoading(false)
-  }
-  fetchRestrictions()
 }
 
 export const handleFetchApps = (
@@ -50,13 +34,10 @@ const MarketplacePage: React.FC = () => {
   const location = useLocation()
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [apps, setApps] = useState<AppSummaryModelPagedResult>()
-  const [restrictions, setRestrictions] = useState<AppRestrictionPaged>()
   const [appsLoading, setAppsLoading] = useState<boolean>(false)
-  const [restrictionsLoading, setRestrictionsLoading] = useState<boolean>(false)
   const search = location.search
 
   useEffect(handleFetchApps(setApps, setAppsLoading, search), [setApps, search, setAppsLoading])
-  useEffect(handleFetchRestrictions(setRestrictions, setRestrictionsLoading), [setRestrictions, setRestrictionsLoading])
 
   return (
     <>
@@ -69,14 +50,14 @@ const MarketplacePage: React.FC = () => {
           Marketplace to any offices/users inside of your organisation.
         </i>
       </Section>
-      {appsLoading || restrictionsLoading ? (
+      {appsLoading ? (
         <Loader />
       ) : (
         <GridFourCol>
           {apps?.data?.map(app => (
             <GridFourColItem key={app.id}>
               <FadeIn>
-                <AppCard app={app} restriction={restrictions?.data.find(restriction => restriction.appId === app.id)} />
+                <AppCard app={app} />
               </FadeIn>
             </GridFourColItem>
           ))}
