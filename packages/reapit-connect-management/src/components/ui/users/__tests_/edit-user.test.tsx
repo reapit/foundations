@@ -32,15 +32,15 @@ describe('onHandleSubmit', () => {
 
   it('should show notification error', async () => {
     await onSubmit({ name, groupIds })
-    expect(notification.success).not.toHaveBeenCalled()
-    expect(notification.error).toHaveBeenCalled()
+    expect(notification.success).toHaveBeenCalled()
+    expect(notification.error).not.toHaveBeenCalled()
   })
 
   it('should show notification success', async () => {
     ;(updateUser as jest.Mock).mockReturnValueOnce(false)
     await onSubmit({ name, groupIds })
-    expect(notification.success).toHaveBeenCalled()
-    expect(notification.error).not.toHaveBeenCalled()
+    expect(notification.success).not.toHaveBeenCalled()
+    expect(notification.error).toHaveBeenCalled()
   })
 
   afterEach(() => {

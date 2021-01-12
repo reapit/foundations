@@ -60,7 +60,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   const { name, groupIds } = params
   const updateUserRes = await updateUser({ name, groupIds }, editingUser?.id || '')
 
-  if (!updateUserRes) {
+  if (updateUserRes) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
