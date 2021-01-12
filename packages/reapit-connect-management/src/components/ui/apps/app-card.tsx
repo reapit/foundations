@@ -2,13 +2,11 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { LevelRight, notification, Tile } from '@reapit/elements'
 import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
-import { AppRestriction } from '../../../types/app-restrictions'
 import { updateAppRestrictionsService } from '../../../services/apps'
 import { directAPI } from '../__styles__'
 
 export interface AppCardProps {
   app: AppSummaryModel
-  restriction?: AppRestriction
 }
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
@@ -40,8 +38,8 @@ export const handleOnCheckboxChange = (
   setChecked(checked)
 }
 
-const AppCard: React.FC<AppCardProps> = ({ app, restriction }: AppCardProps) => {
-  const [checked, setChecked] = useState(restriction?.status === 'include')
+const AppCard: React.FC<AppCardProps> = ({ app }: AppCardProps) => {
+  const [checked, setChecked] = useState(!app.isHidden)
   return (
     <Tile
       heading={app.name || ''}

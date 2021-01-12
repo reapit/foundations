@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import MarketplacePage, { handleFetchApps, handleFetchRestrictions, onPageChangeHandler } from '../marketplace'
-import { getAppRestrictionsService, getAppsService } from '../../../services/apps'
+import MarketplacePage, { handleFetchApps, onPageChangeHandler } from '../marketplace'
+import { getAppsService } from '../../../services/apps'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 
@@ -34,23 +34,6 @@ jest.mock('react-router', () => ({
 describe('MarketplacePage', () => {
   it('should match a snapshot', () => {
     expect(mount(<MarketplacePage />)).toMatchSnapshot()
-  })
-})
-
-describe('handleFetchRestrictions', () => {
-  beforeEach(() => {
-    jest.resetAllMocks()
-  })
-  it('should fetch restrictions', async () => {
-    const mockSetRestrictions = jest.fn()
-    const mockLoading = jest.fn()
-
-    const curried = handleFetchRestrictions(mockSetRestrictions, mockLoading)
-
-    await curried()
-
-    expect(mockLoading).toHaveBeenCalledTimes(2)
-    expect(getAppRestrictionsService).toHaveBeenCalledTimes(1)
   })
 })
 

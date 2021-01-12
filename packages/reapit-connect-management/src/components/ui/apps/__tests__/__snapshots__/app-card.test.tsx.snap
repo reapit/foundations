@@ -82,7 +82,7 @@ exports[`AppCard should match a snapshot 1`] = `
                   className="field field-checkbox mb-0 control"
                 >
                   <input
-                    checked={false}
+                    checked={true}
                     className="checkbox"
                     onChange={[Function]}
                     type="checkbox"

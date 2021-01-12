@@ -1,4 +1,4 @@
-import { getAppRestrictionsService, getAppsService, updateAppRestrictionsService } from '../apps'
+import { getAppsService, updateAppRestrictionsService } from '../apps'
 import { fetcher } from '@reapit/elements'
 
 jest.mock('@reapit/elements')
@@ -17,20 +17,6 @@ describe('getAppsService', () => {
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getAppsService('?pageNumber=1')
     expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch apps')
-  })
-})
-
-describe('getAppRestrictionsService', () => {
-  it('should return a response from the accounts service', async () => {
-    mockedFetch.mockReturnValueOnce({})
-    expect(await getAppRestrictionsService()).toEqual({})
-  })
-
-  it('should catch an error if no response from accounts service', async () => {
-    const errorSpy = jest.spyOn(console, 'error')
-    mockedFetch.mockReturnValueOnce(undefined as any)
-    await getAppRestrictionsService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch app restrictions')
   })
 })
 

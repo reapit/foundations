@@ -70,8 +70,8 @@ exports[`UserGroupsTab should match a snapshot 1`] = `
           "accessor": "description",
         },
         Object {
-          "Cell": [Function],
           "Header": "Members",
+          "accessor": "memberCount",
         },
         Object {
           "Cell": [Function],
