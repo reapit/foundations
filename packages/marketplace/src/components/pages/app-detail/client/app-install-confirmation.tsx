@@ -266,6 +266,12 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
     desktopIntegrationTypes,
   )
 
+  React.useEffect(() => {
+    if (clientId !== 'SBOX' && clientIdToInstall === 'SBOX') {
+      setClientIdToInstall(clientId)
+    }
+  }, [clientId, clientIdToInstall])
+
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
 
