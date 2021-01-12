@@ -17,7 +17,6 @@ const GroupMembersCell = ({
   if (!data) return <Loader />
 
   const { _embedded: listUserGroupMember } = data
-  console.log(listUserGroupMember)
   return (
     <>
       {listUserGroupMember.map((user: UserModel, index: number) => (
