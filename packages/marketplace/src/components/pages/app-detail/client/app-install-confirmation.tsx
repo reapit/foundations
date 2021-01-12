@@ -63,6 +63,7 @@ export const handleInstallButtonClick = (
   dispatch(
     installApp({
       appId,
+      clientId,
       callback: handleInstallAppSuccessCallback(setIsSuccessAlertVisible, closeInstallConfirmationModal, isDesktopMode),
     }),
   )
@@ -271,7 +272,6 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const isDirectApi = appDetailData?.isDirectApi
   const shouldRenderDirectApiAppInstallSuccessfullyModal = isSuccessAlertVisible && isDirectApi
   const shouldRenderInstallNonDirectApiAppSuccessfullyModal = isSuccessAlertVisible && !isDirectApi
-
   // TODO: WIP: update AppInstallConfirmation to use Modal V2
   return (
     <>
@@ -300,7 +300,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
               variant="primary"
               onClick={handleInstallButtonClick(
                 id,
-                clientId,
+                clientIdToInstall,
                 dispatch,
                 setIsSuccessAlertVisible,
                 closeInstallConfirmationModal,

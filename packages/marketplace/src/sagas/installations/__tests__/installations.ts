@@ -11,13 +11,14 @@ import {
 } from '@/services/installations'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { auth } from '@/selector/auth/__mocks__/auth'
-import { selectClientId, selectLoggedUserEmail } from '@/selector/auth'
+import { selectLoggedUserEmail } from '@/selector/auth'
 import { installAppFailed, installAppSuccess, uninstallAppFailed, uninstallAppSuccess } from '@/actions/installations'
 
 describe('installations', () => {
   const params = {
     data: {
       callback: jest.fn(),
+      clientId: 'SOME_ID',
     },
     type: ActionTypes.INSTALL_APP as string,
   } as Action<CreateInstallationParams>
@@ -26,18 +27,12 @@ describe('installations', () => {
     const gen = cloneableGenerator(installSagas)(params)
     expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
     expect(gen.next(auth).value).toEqual(call(selectLoggedUserEmail, auth))
-    expect(gen.next(auth.loginIdentity.email).value).toEqual(call(selectClientId, auth))
-
-    it('should return', () => {
-      const clone = gen.clone()
-      expect(clone.next().done).toEqual(true)
-    })
 
     it('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next(auth.loginIdentity.clientId).value).toEqual(
+      expect(clone.next(auth.loginIdentity.email).value).toEqual(
         call(createInstallation, {
-          clientId: auth.loginIdentity.clientId,
+          clientId: params.data.clientId,
           approvedBy: auth.loginIdentity.email,
         } as CreateInstallationParams),
       )
