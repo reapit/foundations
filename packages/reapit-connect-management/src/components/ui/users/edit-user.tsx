@@ -1,23 +1,13 @@
 import React, { useCallback } from 'react'
 import useSWR from 'swr'
+import qs from 'query-string'
 import { FormFieldInfo } from '@reapit/utils'
-import {
-  Button,
-  Section,
-  ModalV2,
-  Formik,
-  Form,
-  Input,
-  DropdownSelect,
-  Loader,
-  SelectOption,
-  notification,
-} from '@reapit/elements'
-import { UserModel, GroupModel, GroupModelPagedResult } from '../../../types/organisations-schema'
+import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, Loader, notification } from '@reapit/elements'
+import { UserModel, GroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { updateUser } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'
-import qs from 'query-string'
+import { prepareUserGroupOptions } from '../../../utils/prepare-options'
 
 export interface UpdateUserModalProps {
   editingUser: UserModel | undefined
@@ -42,17 +32,6 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
     label: 'User Groups',
   },
 }
-
-export const prepareGroupOptions: (data: GroupModel[]) => SelectOption[] = data =>
-  data.map((userGroup: GroupModel) => {
-    const { id, description } = userGroup
-
-    return {
-      label: id,
-      value: id,
-      description,
-    } as SelectOption
-  })
 
 export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => void, editingUser?: UserModel) => async (
   params: UpdateUserModel,
@@ -86,7 +65,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
 
   if (!data) return <Loader />
   const { _embedded: listUserGroup } = data
-  const userGroupOptions = prepareGroupOptions(listUserGroup ?? [])
+  const userGroupOptions = prepareUserGroupOptions(listUserGroup ?? [])
 
   if (!editingUser) return null
 
