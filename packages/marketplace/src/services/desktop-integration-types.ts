@@ -1,9 +1,9 @@
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
 import { FetchListCommonParams } from './types'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchDesktopIntegrationTypesParams = FetchListCommonParams
 
@@ -15,7 +15,7 @@ export const fetchDesktopIntegrationTypesApi = async (
       url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

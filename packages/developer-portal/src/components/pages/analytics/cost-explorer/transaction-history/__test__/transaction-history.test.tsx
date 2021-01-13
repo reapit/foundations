@@ -1,7 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { URLS } from '@/services/constants'
-import { generateHeaders } from '@/services/utils'
 import { fetcherWithBlob } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import TransactionHistory, {
@@ -14,6 +13,8 @@ import { developerIdentity } from '@/sagas/__stubs__/developer-identity'
 import { ReduxState } from '@/types/core'
 import FileSaver from 'file-saver'
 import appState from '@/reducers/__stubs__/app-state'
+import { getPlatformHeaders } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../../../../../../core/connect-session'
 
 const mockState: ReduxState = {
   ...appState,
@@ -24,7 +25,7 @@ const mockState: ReduxState = {
   },
 }
 
-jest.mock('@/services/utils')
+jest.mock('@reapit/utils')
 
 jest.mock('@reapit/elements', () => ({
   fetcherWithBlob: jest.fn(
@@ -73,7 +74,7 @@ describe('TransactionHistory', () => {
         url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1&applicationId=2`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
-        headers: await generateHeaders(),
+        headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
       })
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()

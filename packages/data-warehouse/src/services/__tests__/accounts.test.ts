@@ -25,7 +25,7 @@ describe('getAccountsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getAccountsService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch account')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch account')
   })
 })
 
@@ -39,7 +39,7 @@ describe('getAccountService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getAccountService('SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch account')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch account')
   })
 })
 
@@ -53,7 +53,7 @@ describe('disableAccountsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await disableAccountsService('SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to delete account')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to delete account')
   })
 })
 
@@ -68,7 +68,7 @@ describe('createAccountsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetchWithHeaders.mockReturnValueOnce(undefined as any)
     await createAccountsService({} as AccountCreateModel)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to create account')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to create account')
   })
 })
 
@@ -82,6 +82,6 @@ describe('updateAccountService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await updateAccountService({} as AccountCreateModel, 'SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to update account')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to update account')
   })
 })

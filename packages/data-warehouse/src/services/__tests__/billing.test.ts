@@ -16,7 +16,7 @@ describe('getBillingByMonthService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getBillingByMonthService('SOME_MONTH')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch billing')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch billing')
   })
 })
 
@@ -30,6 +30,6 @@ describe('getBillingByDatesService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getBillingByDatesService('SOME_MONTH', 'SOME_MONTH')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch billing')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch billing')
   })
 })

@@ -1,7 +1,7 @@
 import { fetcher } from '@reapit/elements'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { URLS } from './constants'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export interface FetchWebComponentConfigParams {
   customerId: string
@@ -38,7 +38,7 @@ export const fetchWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${applicationId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -56,7 +56,7 @@ export const updateWebComponentConfigApi = async (
       url: `${URLS.webComponentConfig}/${customerId}/${appId}`,
       api: window.reapit.config.webComponentConfigApiUrl,
       method: 'PATCH',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
       body: rest,
     })
     return response

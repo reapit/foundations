@@ -41,7 +41,9 @@ describe('fetcherWithRawUrl', () => {
       expect(err).toBeInstanceOf(FetchError)
     }
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING ${params.method} ${params.url} {"status":400}`)
+    expect(console.error).toHaveBeenCalledWith(
+      `Foundations API error: Status: 400 Method: ${params.method} Path: ${params.url} {"status":400}`,
+    )
   })
 })
 
@@ -84,7 +86,9 @@ describe('fetcherWithReturnHeader', () => {
       expect(err).toBeInstanceOf(FetchError)
     }
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400}`)
+    expect(console.error).toHaveBeenCalledWith(
+      `Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`,
+    )
   })
 })
 
@@ -125,7 +129,9 @@ describe('fetcherWithBob', () => {
       expect(err).toBeInstanceOf(FetchError)
     }
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400}`)
+    expect(console.error).toHaveBeenCalledWith(
+      `Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`,
+    )
   })
 })
 
@@ -166,6 +172,8 @@ describe('fetcher', () => {
       expect(err).toBeInstanceOf(FetchError)
     }
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400}`)
+    expect(console.error).toHaveBeenCalledWith(
+      `Foundations API error: Status: 400 Method: GET Path: ${url} {"status":400}`,
+    )
   })
 })

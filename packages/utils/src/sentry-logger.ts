@@ -12,6 +12,6 @@ export const logger = (error: Error) => {
       Sentry.captureException(error)
     })
   } else {
-    console.error(error)
+    console.error(error.message)
   }
 }

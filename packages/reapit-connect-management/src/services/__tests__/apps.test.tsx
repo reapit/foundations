@@ -16,7 +16,7 @@ describe('getAppsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getAppsService('?pageNumber=1')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch apps')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch apps')
   })
 })
 
@@ -30,6 +30,6 @@ describe('updateAppRestrictionsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await updateAppRestrictionsService({ status: 'include', appId: 'SOME_ID' })
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to update app restrictions')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to update app restrictions')
   })
 })

@@ -1,24 +1,17 @@
 import { fetcher, notification } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { BASE_HEADERS, URLS } from '../constants/api'
+import { URLS } from '../constants/api'
 import { AppRestriction } from '../types/app-restrictions'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 
 export const getAppsService = async (search: string): Promise<AppSummaryModelPagedResult | undefined | void> => {
   try {
-    const session = await reapitConnectBrowserSession.connectSession()
-
-    if (!session) throw new Error('No Reapit Connect Session is present')
-
     const response: AppSummaryModelPagedResult | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=SBOX&showHiddenApps=true`,
       method: 'GET',
-      headers: {
-        ...BASE_HEADERS,
-        'api-version': 'latest',
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
 
     if (response) {
@@ -27,7 +20,7 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
 
     throw new Error('Failed to fetch apps')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
     notification.error({
       message: 'Failed to fetch apps',
       placement: 'bottomRight',
@@ -45,11 +38,7 @@ export const updateAppRestrictionsService = async (restriction: AppRestriction):
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.CUSTOMERS}/${session.loginIdentity.orgId}/appRestrictions`,
       method: 'POST',
-      headers: {
-        ...BASE_HEADERS,
-        'api-version': 'latest',
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
       body: restriction,
     })
 
@@ -59,6 +48,6 @@ export const updateAppRestrictionsService = async (restriction: AppRestriction):
 
     throw new Error('Failed to update app restrictions')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }

@@ -12,10 +12,11 @@ import {
 } from './utils'
 import dayjs, { Dayjs } from 'dayjs'
 import { URLS } from '@/services/constants'
-import { generateHeaders } from '@/services/utils'
 import FileSaver from 'file-saver'
 import { selectAppListState } from '@/selector/apps/app-list'
 import FadeIn from '../../../../../styles/fade-in'
+import { getPlatformHeaders } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../../../../../core/connect-session'
 
 export type TransactionHistoryProps = {}
 
@@ -56,7 +57,7 @@ export const createHandleDownLoadButtonOnClickFn = ({
     url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
     api,
     method: 'GET',
-    headers: await generateHeaders(),
+    headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
   })
   const fileName = `reapit-billing-data-${month}.csv`
   FileSaver.saveAs(blob, fileName)

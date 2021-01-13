@@ -1,8 +1,8 @@
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { NegotiatorModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { URLS, API_VERSION } from './constants'
-import { generateHeaders } from './utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export interface FetchNegotiatorsParams {
   pageNumber?: number
@@ -16,7 +16,7 @@ export interface FetchNegotiatorsParams {
 
 export const fetchNegotiatorsApi = async (params: FetchNegotiatorsParams): Promise<NegotiatorModelPagedResult> => {
   try {
-    const headers = await generateHeaders()
+    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     const response = await fetcher({
       url: `${URLS.negotiators}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,

@@ -1,6 +1,7 @@
 import { fetcher, isBase64 } from '@reapit/elements'
+import { getPlatformHeaders } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
 
 export type ImageUploaderReq = {
   name?: string
@@ -22,7 +23,7 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
     url: URLS.fileUpload,
     api: window.reapit.config.platformApiUrl,
     method: 'POST',
-    headers: await generateHeaders(),
+    headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     body: object,
   })
 }

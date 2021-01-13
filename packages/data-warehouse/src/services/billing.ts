@@ -1,6 +1,7 @@
 import { fetcher } from '@reapit/elements'
 import { BillingBreakdownForMonthV2Model, BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
-import { URLS, BASE_HEADERS } from '../constants/api'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const getBillingByMonthService = async (
@@ -13,13 +14,9 @@ export const getBillingByMonthService = async (
 
     const response: BillingBreakdownForMonthV2Model | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.orgId}&type=dataWarehouse&type=dataWarehouseUsage`,
+      url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.email}&type=dataWarehouse&type=dataWarehouseUsage`,
       method: 'GET',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-        'api-version': '2',
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
     })
 
     if (response) {
@@ -28,7 +25,7 @@ export const getBillingByMonthService = async (
 
     throw new Error('Failed to fetch billing')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }
 
@@ -45,11 +42,7 @@ export const getBillingByDatesService = async (
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.BILLING}?organisationId=${session.loginIdentity.orgId}&dateTo=${dateTo}&dateFrom=${dateFrom}&type=dataWarehouse&type=dataWarehouseUsage`,
       method: 'GET',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-        'api-version': '2',
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
     })
 
     if (response) {
@@ -58,6 +51,6 @@ export const getBillingByDatesService = async (
 
     throw new Error('Failed to fetch billing')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }

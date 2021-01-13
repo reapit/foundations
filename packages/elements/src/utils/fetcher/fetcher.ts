@@ -17,6 +17,23 @@ export class FetchError extends Error {
   }
 }
 
+export const genErr = async (res: Response, { method, url }: Partial<FetcherParams<any>>) => {
+  const genErrResponse = async () => {
+    try {
+      const response = await res.json()
+      return response
+    } catch (err) {
+      return res
+    }
+  }
+
+  const errRes = await genErrResponse()
+  const error = new FetchError(
+    `Foundations API error: Status: ${res.status} Method: ${method} Path: ${url} ${JSON.stringify(errRes)}`,
+  )
+  error.response = errRes
+  return error
+}
 /**
  * allow fetch from raw url string (instead of api - base domal, url - path)
  */
@@ -37,14 +54,8 @@ export const fetcherWithRawUrl = async <T, B>({
     return jsonRes as T
   }
 
-  const error = new FetchError(`ERROR FETCHING ${method} ${url} ${JSON.stringify(res)}`, res)
-  console.error(error.message)
-  try {
-    error.response = await res.json()
-  } catch (err) {
-    error.response = res
-  }
-  throw error
+  const err = await genErr(res, { url, method })
+  throw err
 }
 
 /**
@@ -69,14 +80,8 @@ export const fetcherWithReturnHeader = async <B>({
     return res.headers
   }
 
-  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
-  console.error(error.message)
-  try {
-    error.response = await res.json()
-  } catch (err) {
-    error.response = res
-  }
-  throw error
+  const err = await genErr(res, { url, method })
+  throw err
 }
 
 export const fetcherWithBlob = async <B>({
@@ -105,14 +110,8 @@ export const fetcherWithBlob = async <B>({
     }
   }
 
-  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
-  console.error(error.message)
-  try {
-    error.response = await res.json()
-  } catch (err) {
-    error.response = res
-  }
-  throw error
+  const err = await genErr(res, { url, method })
+  throw err
 }
 
 export const fetcher = async <T, B>({
@@ -139,12 +138,6 @@ export const fetcher = async <T, B>({
     }
   }
 
-  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
-  console.error(error.message)
-  try {
-    error.response = await res.json()
-  } catch (err) {
-    error.response = res
-  }
-  return Promise.reject(error)
+  const err = await genErr(res, { url, method })
+  throw err
 }
