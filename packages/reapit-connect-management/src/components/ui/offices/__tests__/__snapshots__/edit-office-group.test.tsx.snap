@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditOfficeGroupModal should match a snapshot 1`] = `""`;
+exports[`EditOfficeGroupModal should match a snapshot 1`] = `
+<Component
+  destroyOnClose={true}
+  onClose={[Function]}
+  title="Editing Group Name"
+  visible={true}
+  zIndex={90}
+>
+  <p
+    className="helper-text"
+  >
+    <i>
+      To manage members associated to this group, you can search and select users from the ‘Groups Members’ section below:
+    </i>
+  </p>
+  <Formik
+    initialValues={
+      Object {
+        "name": "Group Name",
+        "officeIds": Array [
+          "OF1",
+          " OF2",
+        ],
+        "status": "",
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
+</Component>
+`;

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import OfficesTab, { OfficesContent, onPageChangeHandler } from '../offices-tab'
+import { History } from 'history'
+import OfficesTab, { OfficesContent, onPageChangeHandler, onSearchHandler } from '../offices-tab'
 import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import { data } from '../__stubs__/offices'
@@ -17,6 +18,10 @@ jest.mock('swr', () =>
     data,
   })),
 )
+
+const historyMock = ({
+  push: jest.fn(),
+} as unknown) as History<any>
 
 describe('OfficesTab', () => {
   it('should match a snapshot', () => {
@@ -44,5 +49,18 @@ describe('onPageChangeHandler', () => {
 
     onPageChangeHandlerFn(2)
     expect(history.push).toHaveBeenLastCalledWith(`${Routes.OFFICES}?pageNumber=2&name=reapit`)
+  })
+})
+
+describe('onSearchHandler', () => {
+  const fn = onSearchHandler(historyMock)
+  const spy = jest.spyOn(historyMock, 'push')
+  it('should setStatus when !query', () => {
+    fn({ name: '' })
+    expect(spy).toHaveBeenCalledWith(`${Routes.OFFICES}`)
+  })
+  it('should push history when has query', () => {
+    fn({ name: 'test' })
+    expect(spy).toHaveBeenCalledWith(`${Routes.OFFICES}?page=1&name=test`)
   })
 })

@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UpdateUserModal should match a snapshot 1`] = `<Component />`;
+exports[`UpdateUserModal should match a snapshot 1`] = `
+<Component
+  destroyOnClose={true}
+  onClose={[Function]}
+  title="Editing User Name"
+  visible={true}
+  zIndex={90}
+>
+  <p
+    className="mb-4"
+  >
+    <i>
+      Please use the ‘Users Group’ section below to manage which groups this user belongs to:
+    </i>
+  </p>
+  <Formik
+    initialValues={
+      Object {
+        "groupIds": Array [
+          "OF1",
+          "OF2",
+        ],
+        "name": "User Name",
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
+</Component>
+`;

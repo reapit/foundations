@@ -44,7 +44,7 @@ exports[`OfficeGroupsContent should match a snapshot 1`] = `
     </mock-styled.div>
   </Component>
   <Component
-    onChange={[Function]}
+    onChange={[MockFunction]}
     pageNumber={0}
     pageSize={0}
     totalCount={0}
@@ -130,4 +130,55 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
     onPageChange={[Function]}
   />
 </ErrorBoundary>
+`;
+
+exports[`renderResult should match snapshot when has result data 1`] = `
+<mock-styled.div>
+  <Unknown
+    columns={
+      Array [
+        Object {
+          "Header": "Group Name",
+          "accessor": "name",
+        },
+        Object {
+          "Header": "Office List",
+          "accessor": "officeIds",
+        },
+        Object {
+          "Header": "Last Updated",
+        },
+        Object {
+          "Header": "Edit",
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "created": "2019-08-14T12:30:02.0000000Z",
+          "id": "string",
+          "modified": "2019-08-14T12:30:02.0000000Z",
+          "name": "string",
+          "officeIds": "string",
+          "organisationId": "string",
+          "status": "string",
+          "tag": "string",
+        },
+      ]
+    }
+    expandable={true}
+    scrollable={true}
+  />
+</mock-styled.div>
+`;
+
+exports[`renderResult should match snapshot when no result 1`] = `
+<mock-styled.div>
+  <Unknown
+    variant="info"
+  >
+    No Results
+  </Unknown>
+</mock-styled.div>
 `;
