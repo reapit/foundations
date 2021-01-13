@@ -5858,6 +5858,8 @@ export interface Enquiries {
   enquiryType?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
 }
 /**
  * Representation of the physical address of a building or premise
