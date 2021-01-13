@@ -29,7 +29,7 @@ describe('getPlatformHeaders', () => {
     } as unknown) as ReapitConnectBrowserSession
 
     const result = await getPlatformHeaders(invalidSession, mockApiVersion)
-    expect(result).toBeUndefined()
+    expect(result).toEqual({})
     expect(invalidSession.connectSession).toHaveBeenCalledTimes(1)
     expect(invalidSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
   })
