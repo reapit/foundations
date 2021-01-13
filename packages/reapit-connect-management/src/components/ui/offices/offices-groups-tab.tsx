@@ -37,20 +37,19 @@ const OfficesGroupsTab: React.FC = () => {
   const [isOpenCreateGroupModal, setOpenCreateGroupModal] = React.useState<boolean>(false)
   const onOpenCreateModel = () => setOpenCreateGroupModal(true)
   const [editingGroup, setEditingGroup] = useState<OfficeGroupModel>()
-
   const [orgId, setOrgId] = useState<string | null>(null)
+
+  const getOrgId = async () => {
+    const session = await reapitConnectBrowserSession.connectSession()
+    if (!session) throw new Error('No Reapit Connect Session is present')
+    setOrgId(session.loginIdentity.orgId)
+  }
+
   useEffect(() => {
     if (!orgId) {
       getOrgId()
     }
   }, [])
-
-  const getOrgId = async () => {
-    const session = await reapitConnectBrowserSession.connectSession()
-    if (!session) throw new Error('No Reapit Connect Session is present')
-
-    setOrgId(session.loginIdentity.orgId)
-  }
 
   const { data, mutate }: any = useSWR(
     !orgId

@@ -61,7 +61,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   })
 }
 
-const FormChangeEffect: React.FC<FormChangeEffectProps> = ({ setSelectedOffice, options }) => {
+export const FormChangeEffect: React.FC<FormChangeEffectProps> = ({ setSelectedOffice, options }) => {
   const formik: { values: { officeIds: string[] } } = useFormikContext()
   const { officeIds } = formik.values
 

@@ -15,7 +15,7 @@ exports[`CreateOfficeGroupModal should match a snapshot 1`] = `
       To create a new office group, please provide a group ‘Name’ and search and select an Office(s). You will need a minimum of 1 office to create a new group.
     </i>
   </p>
-  <Formik
+  <Component
     initialValues={
       Object {
         "name": "",
@@ -123,6 +123,8 @@ exports[`CreateOfficeGroupModal should match a snapshot 1`] = `
     }
   >
     <Component />
-  </Formik>
+  </Component>
 </Component>
 `;
+
+exports[`CreateOfficeGroupModal should match a snapshot 2`] = `""`;

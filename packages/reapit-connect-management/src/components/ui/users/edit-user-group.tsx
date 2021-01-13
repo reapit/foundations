@@ -79,7 +79,7 @@ export const onHandleSubmit = (
     const addUserRes = await addUserToGroup(id, user)
     if (!addUserRes) {
       return notification.error({
-        message: addUserRes.description || toastMessages.FAILED_TO_EDIT_USER_GROUP,
+        message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
         placement: 'bottomRight',
       })
     }
@@ -89,7 +89,7 @@ export const onHandleSubmit = (
     const removeUserRes = await removeUserFromGroup(id, user)
     if (!removeUserRes) {
       return notification.error({
-        message: removeUserRes.description || toastMessages.FAILED_TO_EDIT_USER_GROUP,
+        message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
         placement: 'bottomRight',
       })
     }
