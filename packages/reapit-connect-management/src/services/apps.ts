@@ -6,10 +6,16 @@ import { AppRestriction } from '../types/app-restrictions'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 
 export const getAppsService = async (search: string): Promise<AppSummaryModelPagedResult | undefined | void> => {
+  const session = await reapitConnectBrowserSession.connectSession()
+
+  if (!session) throw new Error('No Reapit Connect Session is present')
+
   try {
     const response: AppSummaryModelPagedResult | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=SBOX&showHiddenApps=true`,
+      url: `${URLS.APPS}/${search ? search : '?pageNumber=1&pageSize=12'}&clientId=${
+        session.loginIdentity.clientId
+      }&showHiddenApps=true`,
       method: 'GET',
       headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
