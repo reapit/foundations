@@ -1,7 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type EndpointStatisticsModel = {
   endpoint?: string
@@ -43,7 +43,7 @@ export const fetchTrafficStatistics = async (
       url: `${URLS.trafficEventStatistics}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

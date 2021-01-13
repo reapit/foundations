@@ -9,7 +9,7 @@ exports[`EditOfficeGroupModal should match a snapshot 1`] = `
   zIndex={90}
 >
   <p
-    className="helper-text"
+    className="mb-4"
   >
     <i>
       To manage members associated to this group, you can search and select users from the ‘Groups Members’ section below:

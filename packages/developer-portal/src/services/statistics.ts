@@ -1,7 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchStatisticsListParams = {
   appId?: string[]
@@ -18,7 +18,7 @@ export const fetchStatisticsList = async (params: FetchStatisticsListParams): Pr
       url: `${URLS.statistics}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

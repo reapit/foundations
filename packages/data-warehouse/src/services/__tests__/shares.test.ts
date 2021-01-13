@@ -17,7 +17,7 @@ describe('getSharesService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getSharesService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch shares')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch shares')
   })
 })
 
@@ -31,6 +31,6 @@ describe('deleteSharesService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await deleteSharesService('SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to delete share')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to delete share')
   })
 })

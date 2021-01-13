@@ -17,7 +17,7 @@ describe('getSettingsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getSettingsService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch settings')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch settings')
   })
 })
 
@@ -31,6 +31,6 @@ describe('updateSettingsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await updateSettingsService({ monthlyUsageCap: 1 } as Partial<SettingsModel>)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to update settings')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to update settings')
   })
 })

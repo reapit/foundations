@@ -17,6 +17,6 @@ describe('getDataSetsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getDataSetsService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch datasets')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch datasets')
   })
 })

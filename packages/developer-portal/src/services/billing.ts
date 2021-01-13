@@ -1,9 +1,8 @@
-// import { BillingS } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
-import { generateHeaders } from './utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 // Manual defined Model
 export type BillingSummaryModel = {
@@ -65,10 +64,7 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
       api,
       method: 'GET',
-      headers: {
-        ...(await generateHeaders()),
-        'api-version': '2',
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
     })
     return response
   } catch (error) {
@@ -87,10 +83,7 @@ export const fetchBillingsByMonth = async (
       url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(rest)}`,
       api,
       method: 'GET',
-      headers: {
-        ...(await generateHeaders()),
-        'api-version': '2',
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
     })
     return response
   } catch (error) {

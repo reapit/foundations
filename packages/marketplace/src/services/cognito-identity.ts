@@ -41,7 +41,7 @@ export const changePasswordService = async ({
             logger(new Error(err.message))
             reject(err)
           }
-          resolve(result)
+          resolve(result as string)
         })
       },
       onFailure: err => {

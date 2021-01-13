@@ -18,7 +18,7 @@ describe('getSubscriptionsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await getSubscriptionsService()
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to fetch subscriptions')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to fetch subscriptions')
   })
 })
 
@@ -32,7 +32,7 @@ describe('deleteSubscriptionsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await deleteSubscriptionsService('SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to delete subscription')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to delete subscription')
   })
 })
 
@@ -46,6 +46,6 @@ describe('createSubscriptionsService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined)
     await createSubscriptionsService({} as CreateSubscriptionModel)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to create subscription')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to create subscription')
   })
 })

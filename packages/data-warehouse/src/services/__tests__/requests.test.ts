@@ -16,6 +16,6 @@ describe('createRequestService', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await createRequestService('SOME_ID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to create request')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to create request')
   })
 })

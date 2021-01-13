@@ -1,5 +1,6 @@
 import { fetcher } from '@reapit/elements'
-import { BASE_HEADERS, URLS } from '../constants/api'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { CreateRequestModel } from '../types/requests'
 
@@ -28,10 +29,7 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.REQUESTS}`,
       method: 'POST',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession),
       body: request,
     })
 
@@ -40,6 +38,6 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
     }
     throw new Error('Failed to create request')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }

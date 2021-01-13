@@ -1,4 +1,5 @@
 import { StringMap } from '@reapit/elements'
+import { logger } from '@reapit/utils'
 import { genPlatformHeaders } from './headers'
 
 export const fetcher = async (path: string) =>
@@ -6,4 +7,4 @@ export const fetcher = async (path: string) =>
     headers: (await genPlatformHeaders()) as StringMap,
   })
     .then(res => res.json())
-    .catch(error => console.error(error))
+    .catch(error => logger(error))

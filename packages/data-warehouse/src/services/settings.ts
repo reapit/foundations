@@ -1,5 +1,6 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, BASE_HEADERS } from '../constants/api'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { SettingsModel } from '../types/settings'
 
@@ -13,10 +14,7 @@ export const getSettingsService = async (): Promise<SettingsModel | undefined | 
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.SETTINGS}/${session.loginIdentity.orgId}`,
       method: 'GET',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession),
     })
 
     if (response) {
@@ -25,7 +23,7 @@ export const getSettingsService = async (): Promise<SettingsModel | undefined | 
 
     throw new Error('Failed to fetch settings')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }
 
@@ -39,10 +37,7 @@ export const updateSettingsService = async (settings: Partial<SettingsModel>): P
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.SETTINGS}/${session.loginIdentity.orgId}`,
       method: 'PATCH',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession),
       body: settings,
     })
 
@@ -51,6 +46,6 @@ export const updateSettingsService = async (settings: Partial<SettingsModel>): P
     }
     throw new Error('Failed to update settings')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }

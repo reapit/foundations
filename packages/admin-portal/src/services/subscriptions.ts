@@ -2,8 +2,8 @@ import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { FetchListCommonParams } from './types'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchSubscriptionsListParams = FetchListCommonParams & {
   type: string
@@ -22,7 +22,7 @@ export const fetchSubscriptionListApi = async (
       url: `${URLS.subscriptions}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -38,7 +38,7 @@ export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) =>
       url: `${URLS.subscriptions}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

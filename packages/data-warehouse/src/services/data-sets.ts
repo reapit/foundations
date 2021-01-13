@@ -1,5 +1,6 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, BASE_HEADERS } from '../constants/api'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { URLS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { PagedDatasetsModel } from '../types/data-sets'
 
@@ -13,10 +14,7 @@ export const getDataSetsService = async (): Promise<PagedDatasetsModel | undefin
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.DATASETS}/?organisationId=${session.loginIdentity.orgId}`,
       method: 'GET',
-      headers: {
-        ...BASE_HEADERS,
-        Authorization: `Bearer ${session.accessToken}`,
-      },
+      headers: await getPlatformHeaders(reapitConnectBrowserSession),
     })
 
     if (response) {
@@ -25,6 +23,6 @@ export const getDataSetsService = async (): Promise<PagedDatasetsModel | undefin
 
     throw new Error('Failed to fetch datasets')
   } catch (err) {
-    console.error('Error', err.message)
+    logger(err)
   }
 }

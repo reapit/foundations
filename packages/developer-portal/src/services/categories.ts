@@ -1,9 +1,9 @@
 import { CategoryModelPagedResult, CreateCategoryModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchCategoriesListParams = FetchListCommonParams
 
@@ -19,7 +19,7 @@ export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): P
       url: `${URLS.categories}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -35,7 +35,7 @@ export const createCategory = async (params: CreateCategoryParams) => {
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -51,7 +51,7 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
       url: `${URLS.categories}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -67,7 +67,7 @@ export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
       url: `${URLS.categories}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

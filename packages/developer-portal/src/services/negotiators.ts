@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from './constants'
 
 export interface FetchNegotiatorsParams {
@@ -37,12 +37,11 @@ export type NegotiatorsResult = {
 
 export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<NegotiatorsResult> => {
   try {
-    const headers = await generateHeaders()
     const response = await fetcher({
       url: `${URLS.negotiators}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers,
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

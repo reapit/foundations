@@ -1,8 +1,8 @@
 import { ScopeModel } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const fetchScopeListAPI = async (): Promise<ScopeModel[]> => {
   try {
@@ -10,7 +10,7 @@ export const fetchScopeListAPI = async (): Promise<ScopeModel[]> => {
       url: `${URLS.scopes}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

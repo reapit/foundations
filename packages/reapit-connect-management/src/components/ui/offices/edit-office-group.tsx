@@ -87,7 +87,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
       title={`Editing ${editingGroup.name}`}
       zIndex={90}
     >
-      <p className="helper-text">
+      <p className="mb-4">
         <i>
           To manage members associated to this group, you can search and select users from the ‘Groups Members’ section
           below:

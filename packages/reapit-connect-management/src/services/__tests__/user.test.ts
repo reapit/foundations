@@ -18,7 +18,7 @@ describe('updateUser', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await updateUser(mockGroup, mockOrgId)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Failed to update user')
+    expect(errorSpy).toHaveBeenLastCalledWith('Failed to update user')
   })
 })
 
@@ -33,7 +33,7 @@ describe('addMemberToGroup', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await addMemberToGroup(mocUserGroup)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Adding member to group failed')
+    expect(errorSpy).toHaveBeenLastCalledWith('Adding member to group failed')
   })
 })
 
@@ -48,6 +48,6 @@ describe('removeMemberFromGroup', () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
     await removeMemberFromGroup(mocUserGroup)
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', 'Removing member from group failed')
+    expect(errorSpy).toHaveBeenLastCalledWith('Removing member from group failed')
   })
 })

@@ -31,7 +31,6 @@ jest.mock('../../core/router', () => ({
     replace: jest.fn(),
   },
 }))
-jest.mock('@/services/utils')
 jest.mock('@/services/cognito-identity', () => ({
   changePasswordService: jest.fn().mockResolvedValue('SUCCESS'),
 }))

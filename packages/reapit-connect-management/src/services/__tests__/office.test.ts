@@ -18,7 +18,7 @@ describe('createOfficeGroup', () => {
     const errorSpy = jest.spyOn(console, 'error')
     window.fetch = jest.fn().mockImplementation(() => undefined as any)
     await createOfficeGroup({ name: 'Group Name', officeIds: 'OF1, OF2' }, 'orgId-001')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', "Cannot read property 'then' of undefined")
+    expect(errorSpy).toHaveBeenLastCalledWith("Cannot read property 'then' of undefined")
   })
 })
 
@@ -37,6 +37,6 @@ describe('updateOfficeGroup  ', () => {
     const errorSpy = jest.spyOn(console, 'error')
     window.fetch = jest.fn().mockImplementation(() => undefined as any)
     await updateOfficeGroup({ name: 'Group Name', officeIds: 'OF1, OF2', status: 'active' }, 'orgId-001', 'OGID')
-    expect(errorSpy).toHaveBeenLastCalledWith('Error', "Cannot read property 'then' of undefined")
+    expect(errorSpy).toHaveBeenLastCalledWith("Cannot read property 'then' of undefined")
   })
 })

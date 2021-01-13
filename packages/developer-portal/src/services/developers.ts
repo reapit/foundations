@@ -10,12 +10,12 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 import { stringify } from 'query-string'
 import Routes from '../constants/routes'
 import { history } from '@/core/router'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -61,7 +61,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
       url: `${URLS.developers}?${stringify(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -95,7 +95,7 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
       url: `${URLS.developers}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -112,7 +112,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -130,7 +130,7 @@ export const fetchOrganisationMembers = async (
       url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -160,7 +160,7 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: rest,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -176,7 +176,7 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -230,7 +230,7 @@ export const updateOrganisationMemberById = async (params: UpdateOrganisationMem
       api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -251,7 +251,7 @@ export const disableMemberApi = async (params: DisableMemberParams) => {
       url: `${URLS.developers}/${developerId}/members/${memberId}`,
       api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

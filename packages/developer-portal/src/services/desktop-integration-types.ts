@@ -1,8 +1,8 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type CreateDesktopIntegrationTypeModel = {
   id?: string
@@ -48,7 +48,7 @@ export const fetchDesktopIntegrationTypeListAPI = async (
       url: `${URLS.desktopIntegrationTypes}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -64,7 +64,7 @@ export const createDesktopIntegrationTypes = async (params: CreateDesktopIntegra
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -82,7 +82,7 @@ export const fetchDesktopIntegrationTypesById = async (
       url: `${URLS.desktopIntegrationTypes}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -99,7 +99,7 @@ export const updateDesktopIntegrationTypesById = async (params: UpdateDesktopInt
       api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {

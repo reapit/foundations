@@ -6,9 +6,9 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { stringify } from 'query-string'
 import { URLS } from './constants'
-import { generateHeaders } from './utils'
-import { logger } from '@reapit/utils'
+import { getPlatformHeaders, logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchSubscriptionsListParams = FetchListCommonParams & {
   developerId: string
@@ -27,7 +27,7 @@ export const fetchSubscriptionsList = async (
       url: `${URLS.developerSubscriptions}?${stringify(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response as SubscriptionModelPagedResult
   } catch (error) {
@@ -43,7 +43,7 @@ export const createDeveloperSubscription = async (params: CreateSubscriptionMode
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
@@ -59,7 +59,7 @@ export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
       url: `${URLS.developerSubscriptions}/${id}`,
       api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
-      headers: await generateHeaders(),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
