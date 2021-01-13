@@ -25,14 +25,15 @@ describe('OfficesGroupsTab', () => {
   })
 })
 
+const columns = [
+  { Header: 'Group Name', accessor: 'name' },
+  { Header: 'Office List', accessor: 'officeIds' },
+  { Header: 'Last Updated', accessor: 'description' },
+  { Header: 'Edit' },
+]
+
 describe('OfficeGroupsContent', () => {
   it('should match a snapshot', () => {
-    const columns = [
-      { Header: 'Group Name', accessor: 'name' },
-      { Header: 'Office List', accessor: 'officeIds' },
-      { Header: 'Last Updated', accessor: 'description' },
-      { Header: 'Edit' },
-    ]
     expect(shallow(<OfficeGroupsContent data={data} columns={columns} onPageChange={jest.fn} />)).toMatchSnapshot()
   })
 })

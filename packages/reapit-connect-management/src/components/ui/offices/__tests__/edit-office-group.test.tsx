@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
+import { data } from '../__stubs__/office-groups'
 
 const filterProps = (): UpdateOfficeGroupModalProps => ({
   editingGroup: { id: 'GR1', name: 'Group Name', officeIds: 'OF1, OF2' },
@@ -11,6 +12,13 @@ const filterProps = (): UpdateOfficeGroupModalProps => ({
 })
 
 jest.mock('../../../../core/connect-session')
+jest.mock('swr', () =>
+  jest.fn(() => ({
+    data,
+    mutate: jest.fn,
+  })),
+)
+
 const mockResponse = 'success'
 
 const mockFetchPromise = Promise.resolve({
