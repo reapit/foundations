@@ -27,8 +27,7 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
   const dataTest = ['app-card', app.id]
   !app.pendingRevisions && dataTest.push('isNoPending')
   dataTest.push(app.name)
-
-  const clickAction = (app.installedOn && onSettingsClick ? onSettingsClick : onClick) as () => void
+  const clickAction = (onSettingsClick ? onSettingsClick : onClick) as () => void
 
   const content = (
     <div className={cx(appCardStyles.bannerWrap)} data-test-app-id={app.id} data-test-app-name={app.name}>
