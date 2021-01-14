@@ -16,13 +16,17 @@ exports[`OfficeListCell should match a snapshot 1`] = `
 `;
 
 exports[`OfficeName lol should match a snapshot 1`] = `
-<span>
-  Reapit, 
-</span>
+<mock-styled.div>
+  <span>
+    Reapit, 
+  </span>
+</mock-styled.div>
 `;
 
 exports[`OfficeName should match a snapshot 1`] = `
-<span>
-  Reapit, 
-</span>
+<mock-styled.div>
+  <span>
+    Reapit, 
+  </span>
+</mock-styled.div>
 `;

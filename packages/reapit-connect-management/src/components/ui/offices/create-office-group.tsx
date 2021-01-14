@@ -124,6 +124,8 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                   options={options}
                   onSearch={(value: string) => debouncedSearch(value)}
                   required
+                  filterOption={true}
+                  optionFilterProp="children"
                 />
                 <FormChangeEffect setSelectedOffice={setSelectedOffice} options={options} />
               </Section>

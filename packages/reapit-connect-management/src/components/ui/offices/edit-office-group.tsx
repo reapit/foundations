@@ -113,6 +113,8 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                   name={officeIds.name}
                   labelText={officeIds.label}
                   options={officeOptions}
+                  filterOption={true}
+                  optionFilterProp="children"
                 />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
