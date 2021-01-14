@@ -99,6 +99,8 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, s
                   name={groupIds.name}
                   labelText={groupIds.label}
                   options={userGroupOptions}
+                  filterOption={true}
+                  optionFilterProp="children"
                 />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
