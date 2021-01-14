@@ -45,7 +45,8 @@ const roles = {
   FoundationsDeveloperAdmin: 'Developer Admin',
   ReapitEmployee: 'Reapit Employee',
   ReapitUser: 'User',
-  FoundationsAdmin: 'User Admin',
+  MarketplaceAdmin: 'Marketplace Admin',
+  ReapitUserAdmin: 'User Admin',
   OrganisationAdmin: 'Organisation Admin',
 }
 

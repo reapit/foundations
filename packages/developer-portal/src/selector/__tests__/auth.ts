@@ -1,6 +1,7 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import {
   COGNITO_GROUP_ADMIN_USERS,
+  COGNITO_GROUP_ADMIN_USERS_LEGACY,
   COGNITO_GROUP_USERS,
   selectClientId,
   selectDeveloperId,
@@ -65,6 +66,17 @@ describe('selectIsUserOrUserAdmin', () => {
       loginIdentity: {
         ...auth.loginIdentity,
         groups: [COGNITO_GROUP_ADMIN_USERS],
+      },
+    }
+    expect(selectIsUserOrUserAdmin(authWithUserAdmin)).toBe(true)
+  })
+
+  it('should return true if user admin legacy', () => {
+    const authWithUserAdmin = {
+      ...auth,
+      loginIdentity: {
+        ...auth.loginIdentity,
+        groups: [COGNITO_GROUP_ADMIN_USERS_LEGACY],
       },
     }
     expect(selectIsUserOrUserAdmin(authWithUserAdmin)).toBe(true)

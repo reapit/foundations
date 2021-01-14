@@ -1,6 +1,7 @@
 import { ReapitConnectSession, LoginIdentity } from '@reapit/connect-session'
 
-export const COGNITO_GROUP_ADMIN_USERS = 'FoundationsAdmin'
+export const COGNITO_GROUP_ADMIN_USERS_LEGACY = 'ReapitUserAdmin'
+export const COGNITO_GROUP_ADMIN_USERS = 'MarketplaceAdmin'
 export const COGNITO_GROUP_USERS = 'ReapitUser'
 
 export const selectIsAdmin = (connectSession: ReapitConnectSession | null) => {
@@ -28,6 +29,7 @@ export const selectIsUserOrUserAdmin = (state: ReapitConnectSession | null): boo
 
   return (
     Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS)) ||
-    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_USERS))
+    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_USERS)) ||
+    Boolean(loginIdentity?.groups?.includes(COGNITO_GROUP_ADMIN_USERS_LEGACY))
   )
 }

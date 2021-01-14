@@ -18,6 +18,7 @@ window.reapit = {
     platformApiUrl: '',
     marketplaceUrl: '',
     groupIdsWhitelist: [],
+    appIdsToFilter: [],
   },
 }
 

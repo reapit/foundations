@@ -21,7 +21,12 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
     })
 
     if (response) {
-      return response
+      const apps = response.data?.filter(app => !window.reapit.config.appIdsToFilter.includes(app.id as string))
+
+      return {
+        ...response,
+        data: apps,
+      }
     }
 
     throw new Error('Failed to fetch apps')
