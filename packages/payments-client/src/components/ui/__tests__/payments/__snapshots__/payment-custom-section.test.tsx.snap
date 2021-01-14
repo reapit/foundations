@@ -21,5 +21,9 @@ exports[`PaymentCustomerSection should match a snapshot 1`] = `
   <div>
     A11 2BB
   </div>
+  <div>
+    Email: 
+    example@email.com
+  </div>
 </Component>
 `;

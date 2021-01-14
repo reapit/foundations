@@ -4,7 +4,7 @@ import { PaymentCustomerModel } from '@reapit/foundations-ts-definitions'
 
 const PaymentCustomerSection: React.FC<{ customer: PaymentCustomerModel | undefined }> = ({ customer }) => {
   if (!customer) return <Loader />
-  const { id, name, primaryAddress } = customer
+  const { id, name, primaryAddress, email } = customer
   const { line1, line2, line3, postcode } = primaryAddress || {}
   return (
     <GridItem>
@@ -14,6 +14,7 @@ const PaymentCustomerSection: React.FC<{ customer: PaymentCustomerModel | undefi
       <div>{line2}</div>
       <div>{line3}</div>
       <div>{postcode}</div>
+      <div>Email: {email}</div>
     </GridItem>
   )
 }
