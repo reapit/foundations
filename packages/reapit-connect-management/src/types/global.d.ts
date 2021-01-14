@@ -8,6 +8,7 @@ export type Config = {
   platformApiUrl: string
   marketplaceUrl: string
   groupIdsWhitelist: string[]
+  appIdsToFilter: string[]
 }
 
 declare global {

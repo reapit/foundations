@@ -13,7 +13,7 @@ export const fetchApprovalsList = async (params: FetchApprovalsListParams): Prom
       url: `${URLS.approvals}?${setQueryParams(params)}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
-      headers: await getPlatformHeaders(reapitConnectBrowserSession),
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
     })
     return response
   } catch (error) {
