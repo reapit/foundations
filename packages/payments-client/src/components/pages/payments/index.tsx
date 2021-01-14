@@ -42,7 +42,7 @@ export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterF
 
 export const onPageChangeHandler = (history: History<any>, queryParams: PaymentsFilterFormValues) => (page: number) => {
   const query = setQueryParams(queryParams)
-  let queryString = `?page=${page}`
+  let queryString = `?pageNumber=${page}`
   if (query && query !== '') {
     queryString = queryString.concat(`&${query}`)
   }
@@ -66,7 +66,7 @@ export const onSearchHandler = (history: History<any>) => (queryParams: Payments
 
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
-    const queryString = `?page=1&${query}`
+    const queryString = `?pageNumber=1&${query}`
     history.push(`${Routes.PAYMENTS}${queryString}`)
   }
 }

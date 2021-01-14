@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentRequestModal should match a snapshot 1`] = `
+<Component
+  destroyOnClose={true}
+  onClose={[Function]}
+  visible={true}
+>
+  <Component>
+    <Component>
+      Are you sure you want to request this payment?
+    </Component>
+    <Component
+      hasMargin={false}
+      hasPadding={false}
+      isFlex={true}
+    >
+      <Component
+        onClick={[Function]}
+        type="button"
+        variant="info"
+      >
+        Cancel
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;

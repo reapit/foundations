@@ -14,17 +14,23 @@ import {
   Button,
   unformatCard,
   unformatCardExpires,
+  H5,
+  H6,
+  Grid,
+  GridItem,
 } from '@reapit/elements'
+import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../constants/api'
 import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-key'
 import { opayoCreateTransactionService } from '../../opayo-api/transactions'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import PaymentCustomerSection from '../ui/payments/payment-customer-section'
+import PropertySection from '../ui/payments/property-section'
 
 export const PaymentForm: React.FC<{ data: PaymentModel; merchantKey: MerchantKey }> = ({ data, merchantKey }) => {
   const customer = data.customer || {}
   const { forename = '', surname = '', primaryAddress = {} } = customer
   const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
-  let address1
+  let address1: string
   if (buildingName && line1) {
     address1 = `${buildingName} ${line1}`
   } else if (buildingNumber && line1) {
@@ -72,7 +78,7 @@ export const PaymentForm: React.FC<{ data: PaymentModel; merchantKey: MerchantKe
               expiryDate: unformatCardExpires(expiryDate),
               securityCode,
             },
-            onTokenised: async result => {
+            onTokenised: async (result: any) => {
               if (result.success) {
                 const payment = await opayoCreateTransactionService({
                   transactionType: 'Payment',
@@ -126,7 +132,7 @@ export const PaymentForm: React.FC<{ data: PaymentModel; merchantKey: MerchantKe
 
 const PaymentPage: React.FC = () => {
   const { paymentId } = useParams<{ paymentId: string }>()
-  const { data } = useSWR(`${URLS.PAYMENTS}/${paymentId}`)
+  const { data } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey>()
 
@@ -148,15 +154,29 @@ const PaymentPage: React.FC = () => {
     return <Loader />
   }
 
+  const { customer, amount, description, externalReference, propertyId } = data || {}
   return (
     <>
-      <H3 isHeadingSection>Reapit Payments</H3>
+      <H3 isHeadingSection>Card Payment</H3>
+      <H5 isHeadingSection>Payment For {paymentId}</H5>
       {!merchantKey && (
         <Helper variant="info">
           Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please
           talk to your administrator to set this up for you.
         </Helper>
       )}
+      <Section>
+        <Grid>
+          <PaymentCustomerSection customer={customer} />
+          <PropertySection propertyId={propertyId} />
+          <GridItem>
+            <H5>GBP: {amount}</H5>
+            <H6>Payment description: {description}</H6>
+            <H6>Payment ref: {externalReference}</H6>
+          </GridItem>
+        </Grid>
+        <H6>Payment amount: {amount} GBP</H6>
+      </Section>
       {merchantKey && data ? <PaymentForm data={data} merchantKey={merchantKey} /> : <Loader />}
     </>
   )

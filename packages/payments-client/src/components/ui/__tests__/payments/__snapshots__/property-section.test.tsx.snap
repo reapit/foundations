@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertySection should match a snapshot 1`] = `
+<Component>
+  <div>
+    Property Ref: 
+    propertyId
+  </div>
+  <div />
+  <div>
+    Example street
+  </div>
+  <div>
+    Solihull
+  </div>
+  <div>
+    West Midlands
+  </div>
+  <div>
+    B91 2XX
+  </div>
+</Component>
+`;

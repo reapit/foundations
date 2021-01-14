@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentCustomerSection should match a snapshot 1`] = `
+<Component>
+  <div>
+    Customer Ref: 
+    OXF12300101
+  </div>
+  <div>
+    Mr John Smith
+  </div>
+  <div>
+    Test House
+  </div>
+  <div>
+    Test Lane
+  </div>
+  <div>
+    County of Test
+  </div>
+  <div>
+    A11 2BB
+  </div>
+</Component>
+`;
