@@ -160,6 +160,8 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
                   name={groupIds.name}
                   labelText={groupIds.label}
                   options={UserGroupGroupOptions}
+                  filterOption={true}
+                  optionFilterProp="children"
                 />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
