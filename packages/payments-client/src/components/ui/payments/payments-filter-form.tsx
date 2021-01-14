@@ -19,13 +19,13 @@ import { columnRelative, searchBtn } from '../../../styles/ui/payment-filter-for
 import { statusOptions, typeOptions } from '../../../constants/filterOption'
 
 export interface PaymentsFilterFormValues {
-  createdFrom: string
-  createdTo: string
-  customers: string
-  properties: string
-  description: string
-  type: string[]
-  status: string[]
+  createdFrom?: string
+  createdTo?: string
+  customers?: string
+  properties?: string
+  description?: string
+  type?: string[]
+  status?: string[]
 }
 
 export interface PaymentsFormProps {
