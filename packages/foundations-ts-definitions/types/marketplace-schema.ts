@@ -1178,6 +1178,10 @@ export interface InstallationModel {
    */
   customerName?: string
   /**
+   * Gets or sets the name of the office group that the installation has been created for, where applicable
+   */
+  officeGroupName?: string
+  /**
    * Gets the email address of the user who installed the app
    */
   installedBy?: string
