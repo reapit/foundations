@@ -3,17 +3,44 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
-import { Redirect, useLocation } from 'react-router'
+import { Route, Redirect, useLocation } from 'react-router'
 import Routes from '../constants/routes'
+import { catchChunkError } from './router'
 
 const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
+const PaymentSessionPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment-session')))
+
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location.pathname}${location.search}`
+  const { pathname, search } = location
+  const currentUri = `${pathname}${search}`
+  const queryParams = new URLSearchParams(search)
+  const session = queryParams.get('session')
+
+  if (session) {
+    return (
+      <AppNavContainer>
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive hasPadding flexColumn>
+            <Suspense
+              fallback={
+                <Section>
+                  <Loader />
+                </Section>
+              }
+            >
+              <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
+            </Suspense>
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    )
+  }
+
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
 
   if (!connectSession) {
     return (

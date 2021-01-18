@@ -21,3 +21,13 @@ export const genPaymentsHeaders = async () => {
     Authorization: `Basic ${encoded}`,
   }
 }
+
+export const genPaymentsHeadersSession = async () => {
+  const opayoKeys = window.reapit.config.opayo.SBOX
+  const keys = `${opayoKeys.integrationKey}:${opayoKeys.passKey}`
+  const encoded = btoa(keys)
+  return {
+    ...PAYMENTS_HEADERS,
+    Authorization: `Basic ${encoded}`,
+  }
+}

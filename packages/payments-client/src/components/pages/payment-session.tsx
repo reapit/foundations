@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useLocation } from 'react-router'
 import useSWR from 'swr'
 import {
   Section,
@@ -21,10 +21,11 @@ import {
 } from '@reapit/elements'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../constants/api'
-import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-key'
+import { MerchantKey, opayoSessionMerchantKeyService } from '../../opayo-api/merchant-key'
 import { opayoCreateTransactionService } from '../../opayo-api/transactions'
 import PaymentCustomerSection from '../ui/payments/payment-customer-section'
-import PropertySection from '../ui/payments/property-section'
+// import PropertySection from '../ui/payments/property-section'
+import { localFetcher } from '../../utils/fetcher'
 
 export const PaymentForm: React.FC<{ data: PaymentModel; merchantKey: MerchantKey }> = ({ data, merchantKey }) => {
   const customer = data.customer || {}
@@ -130,17 +131,25 @@ export const PaymentForm: React.FC<{ data: PaymentModel; merchantKey: MerchantKe
   )
 }
 
-const PaymentPage: React.FC = () => {
+const PaymentSessionPage: React.FC = () => {
   const { paymentId } = useParams<{ paymentId: string }>()
+  const location = useLocation()
+  const { search } = location
+  const queryParams = new URLSearchParams(search)
+  const session = queryParams.get('session')
 
-  const { data } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
+  const { data: paymentData } = useSWR<{ payment: PaymentModel }>(
+    [`${URLS.PAYMENTS}/${paymentId}`, session],
+    localFetcher,
+  )
+  const data = paymentData?.payment
 
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey>()
 
   useEffect(() => {
     const fetchmerchantKey = async () => {
-      const fetchedKey = await opayoMerchantKeyService()
+      const fetchedKey = await opayoSessionMerchantKeyService()
       if (fetchedKey) {
         setMerchantKey(fetchedKey)
       }
@@ -170,7 +179,7 @@ const PaymentPage: React.FC = () => {
       <Section>
         <Grid>
           <PaymentCustomerSection customer={customer} />
-          <PropertySection propertyId={propertyId} />
+          {/*          <PropertySection propertyId={propertyId} />*/}
           <GridItem>
             <H5>GBP: {amount}</H5>
             <H6>Payment description: {description}</H6>
@@ -184,4 +193,4 @@ const PaymentPage: React.FC = () => {
   )
 }
 
-export default PaymentPage
+export default PaymentSessionPage

@@ -40,19 +40,19 @@ const Router = () => (
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
-        <PrivateRouteWrapper>
-          <Switch>
-            <SWRConfig
-              value={{
-                revalidateOnFocus: false,
-                fetcher,
-              }}
-            >
+        <SWRConfig
+          value={{
+            revalidateOnFocus: false,
+            fetcher,
+          }}
+        >
+          <PrivateRouteWrapper>
+            <Switch>
               <Route path={Routes.PAYMENT} component={PaymentPage} exact />
               <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
-            </SWRConfig>
-          </Switch>
-        </PrivateRouteWrapper>
+            </Switch>
+          </PrivateRouteWrapper>
+        </SWRConfig>
         <Redirect to={Routes.LOGIN} />
       </Switch>
     </React.Suspense>
