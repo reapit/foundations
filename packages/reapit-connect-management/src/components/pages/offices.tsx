@@ -29,7 +29,7 @@ const OfficesPage: React.FC = () => {
   return (
     <div>
       <H3 isHeadingSection>Manage Offices</H3>
-      {window.reapit.config.appEnv !== 'production' && (
+      {window.reapit.config.appEnv !== 'production' && window.reapit.config.appEnv !== 'development' && (
         <>
           <Section>
             <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
