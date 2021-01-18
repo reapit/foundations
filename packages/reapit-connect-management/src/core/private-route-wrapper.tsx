@@ -34,7 +34,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.ACCESS_DENIED} />
   }
 
-  if (window.reapit.config.appEnv === 'production') {
+  if (window.reapit.config.appEnv === 'production' || window.reapit.config.appEnv === 'development') {
     if (pathname === '/' || pathname === Routes.OFFICES) {
       return <Redirect to={Routes.OFFICES_GROUPS} />
     }

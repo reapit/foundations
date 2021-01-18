@@ -34,7 +34,7 @@ export const UsersPage: React.FC = () => {
   return (
     <div>
       <H3 isHeadingSection>Manage Users</H3>
-      {window.reapit.config.appEnv !== 'production' && (
+      {window.reapit.config.appEnv !== 'production' && window.reapit.config.appEnv !== 'development' && (
         <>
           <Section>
             <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
