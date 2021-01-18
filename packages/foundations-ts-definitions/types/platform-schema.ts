@@ -991,6 +991,8 @@ export interface Applicants {
   bedroomsTo?: number
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   lastCallFrom?: string
   lastCallTo?: string
   nextCallFrom?: string
@@ -1470,6 +1472,10 @@ export interface Appointments {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 /**
@@ -5849,6 +5855,10 @@ export interface Documents {
     | 'worksOrder'
   )[]
   typeId?: string[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 export interface Enquiries {
@@ -7120,6 +7130,8 @@ export interface Landlords {
   name?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 export interface LinkModel {
@@ -7840,6 +7852,10 @@ export interface Offers {
   amountTo?: number
   dateFrom?: string
   dateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 /**
@@ -8435,6 +8451,10 @@ export interface PropertyImages {
   embed?: 'property'[]
   propertyId?: string[]
   type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 /**
@@ -9520,6 +9540,8 @@ export interface Sources {
   type?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
 }
 /**
  * Representation of a task, which can also be an internal message
@@ -13789,6 +13811,8 @@ export interface WorksOrders {
   completedTo?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   requiredFrom?: string
   requiredTo?: string
   metadata?: string[]
