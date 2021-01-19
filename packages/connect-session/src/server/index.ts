@@ -1,5 +1,5 @@
-import 'isomorphic-fetch'
 import jwt from 'jsonwebtoken'
+import axios from 'axios'
 import { CoginitoAccess, ReapitConnectServerSessionInitializers } from '../types'
 
 export class ReapitConnectServerSession {
@@ -38,23 +38,21 @@ export class ReapitConnectServerSession {
   private async connectGetAccessToken(): Promise<string | void> {
     try {
       const base64Encoded = Buffer.from(`${this.connectClientId}:${this.connectClientSecret}`).toString('base64')
-      const response = await fetch(
-        `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Basic ${base64Encoded}`,
-          },
-        } as RequestInit,
-      )
-      const session = await response.json()
-      if (session.error) {
-        throw new Error(session.error)
+      const session = await axios({
+        method: 'post',
+        url: `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Basic ${base64Encoded}`,
+        },
+      })
+
+      if (session.data.error) {
+        throw new Error(session.data.error)
       }
 
-      if (session && session.access_token) {
-        return session.access_token
+      if (session.data && session.data.access_token) {
+        return session.data.access_token
       }
       throw new Error('No access token returned by Reapit Connect')
     } catch (err) {

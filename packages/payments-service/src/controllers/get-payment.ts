@@ -1,4 +1,4 @@
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '@reapit/node-utils'
 import { Response } from 'express'
 import { db } from '../core/db'
 import { logger } from '../core/logger'
@@ -24,8 +24,11 @@ export const getPayment = async (req: AppRequest, res: Response) => {
     const result = await db.get(itemToGet)
     const validated = validateApiKey(result, traceId, clientCode, paymentId)
 
+    logger.info('Payment retrieved from DB', { traceId, validated })
+
     if (validated) {
       const payment = await getPlatformPayment(validated, apiVersion)
+
       if (payment) {
         res.status(200)
         return res.json({
@@ -34,7 +37,7 @@ export const getPayment = async (req: AppRequest, res: Response) => {
       }
     }
   } catch (error) {
-    logger.error('Error retrieving account', stringifyError(error))
+    logger.error('Error retrieving account', error)
 
     if (error.name === 'ItemNotFoundException') {
       res.status(404)

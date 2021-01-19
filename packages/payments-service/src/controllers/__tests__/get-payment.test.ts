@@ -136,7 +136,7 @@ describe('getPayment', () => {
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,
     })
-    expect(logger.info).toHaveBeenCalledTimes(1)
+    expect(logger.info).toHaveBeenCalledTimes(2)
     expect(logger.error).toHaveBeenCalledTimes(0)
     expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.json).toHaveBeenLastCalledWith({
@@ -165,7 +165,7 @@ describe('getPayment', () => {
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,
     })
-    expect(logger.info).toHaveBeenCalledTimes(1)
+    expect(logger.info).toHaveBeenCalledTimes(2)
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(404)
     expect(mockRes.json).toHaveBeenCalledTimes(1)
