@@ -38,14 +38,16 @@ export class ReapitConnectServerSession {
   private async connectGetAccessToken(): Promise<string | void> {
     try {
       const base64Encoded = Buffer.from(`${this.connectClientId}:${this.connectClientSecret}`).toString('base64')
-      const session = await axios({
-        method: 'post',
-        url: `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${base64Encoded}`,
+      const session = await axios.post(
+        `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Basic ${base64Encoded}`,
+          },
         },
-      })
+      )
 
       if (session.data.error) {
         throw new Error(session.data.error)
