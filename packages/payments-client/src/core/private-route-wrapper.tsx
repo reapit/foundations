@@ -1,9 +1,9 @@
 import * as React from 'react'
+import { Route, Redirect, useLocation, Switch } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
-import { Route, Redirect, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 import { catchChunkError } from './router'
 
@@ -32,7 +32,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
                 </Section>
               }
             >
-              <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
+              <Switch>
+                <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
+                <Redirect to={Routes.LOGIN} />
+              </Switch>
             </Suspense>
           </FlexContainerResponsive>
         </FlexContainerBasic>

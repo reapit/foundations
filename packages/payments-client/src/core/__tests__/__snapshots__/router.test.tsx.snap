@@ -37,16 +37,16 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Component>
-        <Switch>
-          <ContextProvider
-            value={
-              Object {
-                "fetcher": [Function],
-                "revalidateOnFocus": false,
-              }
-            }
-          >
+      <ContextProvider
+        value={
+          Object {
+            "fetcher": [Function],
+            "revalidateOnFocus": false,
+          }
+        }
+      >
+        <Component>
+          <Switch>
             <Route
               component={
                 Object {
@@ -71,9 +71,9 @@ exports[`Router should match a snapshot 1`] = `
               exact={true}
               path="/payments"
             />
-          </ContextProvider>
-        </Switch>
-      </Component>
+          </Switch>
+        </Component>
+      </ContextProvider>
       <Redirect
         to="/login"
       />

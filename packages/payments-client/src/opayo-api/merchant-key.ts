@@ -31,14 +31,14 @@ export const opayoMerchantKeyService = async (): Promise<MerchantKey | undefined
   }
 }
 
-export const opayoSessionMerchantKeyService = async (): Promise<MerchantKey | undefined> => {
+export const opayoSessionMerchantKeyService = async (clientCode: string): Promise<MerchantKey | undefined> => {
   const opayoKeys = window.reapit.config.opayo.SBOX
   try {
     const response: MerchantKey | undefined = await fetcher({
       api: window.reapit.config.paymentsApiUrl,
       url: `${URLS.MERCHANT_KEY_API}`,
       method: 'POST',
-      headers: (await genPaymentsHeadersSession()) as StringMap,
+      headers: genPaymentsHeadersSession(clientCode) as StringMap,
       body: { vendorName: opayoKeys.vendorName },
     })
 

@@ -7,7 +7,7 @@ export const fetcher = async (path: string) =>
   }).then(res => res.json())
 
 export const localFetcher = async (path: string, session: string) =>
-  fetch(`http://localhost:3000/local${path}`, {
+  fetch(`${window.reapit.config.paymentApiUrl}${path}`, {
     headers: {
       'reapit-customer': 'SBOX',
       'x-api-key': session,
