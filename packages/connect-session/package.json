@@ -1,6 +1,6 @@
 {
   "name": "@reapit/connect-session",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "OAuth Flow for Reapit Connect",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
@@ -34,6 +34,7 @@
     "test": "snyk test"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "isomorphic-fetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.4",
