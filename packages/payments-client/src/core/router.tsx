@@ -5,7 +5,7 @@ import { SWRConfig } from 'swr'
 
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { fetcher } from '../utils/fetcher'
+import { paymentFetcher } from '../utils/fetcher'
 
 export const history = createBrowserHistory()
 
@@ -43,7 +43,7 @@ const Router = () => (
         <SWRConfig
           value={{
             revalidateOnFocus: false,
-            fetcher,
+            fetcher: paymentFetcher,
           }}
         >
           <PrivateRouteWrapper>

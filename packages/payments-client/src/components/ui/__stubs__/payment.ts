@@ -1,4 +1,5 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { PaymentSessionModel } from '../../pages/payment-session'
 
 export const data: PaymentModel = {
   id: 'PAY20000001',
@@ -49,4 +50,9 @@ export const data: PaymentModel = {
       href: '/properties/PRP200001',
     },
   },
+}
+
+export const dataSession: PaymentSessionModel = {
+  ...data,
+  clientCode: 'clientCode',
 }

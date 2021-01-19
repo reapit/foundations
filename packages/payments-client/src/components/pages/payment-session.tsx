@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useLocation } from 'react-router'
+import { Redirect, useParams, useLocation } from 'react-router'
 import useSWR from 'swr'
 import {
   Section,
@@ -22,6 +22,7 @@ import {
 } from '@reapit/elements'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../constants/api'
+import Routes from '../../constants/routes'
 import { MerchantKey, opayoSessionMerchantKeyService } from '../../opayo-api/merchant-key'
 import { opayoCreateTransactionServiceSession } from '../../opayo-api/transactions'
 import PaymentCustomerSection from '../ui/payments/payment-customer-section'
@@ -45,13 +46,13 @@ export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatu
       })
     }
     return notification.warn({
-      message: result.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
+      message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
       placement: 'bottomRight',
     })
   }
 
   return notification.error({
-    message: updateStatusRes.description || toastMessages.FAILED_TO_UPDATE_PAYMENT_STATUS,
+    message: toastMessages.FAILED_TO_UPDATE_PAYMENT_STATUS,
     placement: 'bottomRight',
   })
 }
@@ -175,7 +176,7 @@ const PaymentSessionPage: React.FC = () => {
   const queryParams = new URLSearchParams(search)
   const session = queryParams.get('session') || ''
 
-  const { data: paymentData } = useSWR<{ payment: PaymentSessionModel }>(
+  const { data: paymentData, error } = useSWR<{ payment: PaymentSessionModel }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session],
     localFetcher,
   )
@@ -200,34 +201,33 @@ const PaymentSessionPage: React.FC = () => {
     }
   }, [setMerchantKey, data])
 
-  const { customer, amount, description, externalReference, propertyId } = data || {}
+  if (error) return <Redirect to={Routes.LOGIN} />
+
+  if (!data) return <Loader />
+  const { customer, amount, description, externalReference } = data || {}
   return (
     <>
       <H3 isHeadingSection>Card Payment</H3>
       <H5 isHeadingSection>Payment For {paymentId}</H5>
-      {data && !merchantKey && !loading && (
+      {!merchantKey && !loading && (
         <Helper variant="info">
           Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please
           talk to your administrator to set this up for you.
         </Helper>
       )}
-      {!loading && data ? (
-        <Section>
-          <Grid>
-            <PaymentCustomerSection customer={customer} />
-            {/*          <PropertySection propertyId={propertyId} />*/}
-            <GridItem>
-              <H5>GBP: {amount}</H5>
-              <H6>Payment description: {description}</H6>
-              <H6>Payment ref: {externalReference}</H6>
-            </GridItem>
-          </Grid>
-          <H6>Payment amount: {amount} GBP</H6>
-        </Section>
-      ) : (
-        <Loader />
-      )}
-      {merchantKey && data ? (
+      <Section>
+        <Grid>
+          <PaymentCustomerSection customer={customer} />
+          {/* <PropertySection propertyId={propertyId} /> */}
+          <GridItem>
+            <H5>GBP: {amount}</H5>
+            <H6>Payment description: {description}</H6>
+            <H6>Payment ref: {externalReference}</H6>
+          </GridItem>
+        </Grid>
+        <H6>Payment amount: {amount} GBP</H6>
+      </Section>
+      {merchantKey ? (
         <PaymentForm data={data} merchantKey={merchantKey} paymentId={paymentId} session={session} />
       ) : (
         <Loader />
