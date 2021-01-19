@@ -1,6 +1,5 @@
 import { API_HEADERS, PAYMENTS_HEADERS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { PaymentSessionModel } from '../components/pages/payment-session'
 
 export const genPlatformHeaders = async () => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
