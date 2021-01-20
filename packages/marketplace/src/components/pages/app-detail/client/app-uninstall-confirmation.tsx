@@ -182,7 +182,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
         visible={visible}
         isCentered
         title={`Confirm ${name} uninstallation`}
-        afterClose={closeUninstallConfirmationModal}
+        afterClose={() => closeUninstallConfirmationModal()}
         footer={renderUninstallConfirmationModalFooter(
           isSubmitting,
           id,
