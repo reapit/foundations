@@ -124,12 +124,12 @@ exports[`AppDetail should match a snapshot 1`] = `
                     visible={false}
                   >
                     <Component
-                      afterClose={[Function]}
                       className=""
                       closeIcon={
                         <span
                           aria-label="close"
                           className="delete"
+                          onClick={[Function]}
                         />
                       }
                       destroyOnClose={true}
@@ -597,12 +597,12 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     visible={false}
                   >
                     <Component
-                      afterClose={[Function]}
                       className=""
                       closeIcon={
                         <span
                           aria-label="close"
                           className="delete"
+                          onClick={[Function]}
                         />
                       }
                       destroyOnClose={true}
@@ -1070,12 +1070,12 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     visible={false}
                   >
                     <Component
-                      afterClose={[Function]}
                       className=""
                       closeIcon={
                         <span
                           aria-label="close"
                           className="delete"
+                          onClick={[Function]}
                         />
                       }
                       destroyOnClose={true}

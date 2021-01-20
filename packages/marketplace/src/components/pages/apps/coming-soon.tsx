@@ -15,7 +15,6 @@ import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMS
 import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
 import comingSoonReapitPayments from '@/assets/images/coming-soon/ReapitPayments.jpg'
 import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
-import comingSoonMovingHub from '@/assets/images/coming-soon/MovingHub.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
@@ -67,7 +66,6 @@ const comingSoonImagesMap = {
   comingSoonIAMProperty,
   comingSoonReapitPayments,
   comingSoonImageMAB,
-  comingSoonMovingHub,
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,

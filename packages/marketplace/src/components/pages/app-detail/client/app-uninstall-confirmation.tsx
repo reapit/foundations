@@ -11,7 +11,7 @@ import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectUninstallAppState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectClientId } from '@/selector/auth'
+import { selectClientId, selectIsFoundationsAdmin, selectIsOffGrouping } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -171,6 +171,8 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectUninstallAppState)
+  const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
+  const isOffGrouping = selectIsOffGrouping(connectSession)
   const isSubmitting = installationFormState?.isLoading
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -182,7 +184,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
         visible={visible}
         isCentered
         title={`Confirm ${name} uninstallation`}
-        afterClose={closeUninstallConfirmationModal}
+        afterClose={() => closeUninstallConfirmationModal()}
         footer={renderUninstallConfirmationModalFooter(
           isSubmitting,
           id,
@@ -194,10 +196,17 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           connectIsDesktop,
         )}
       >
-        <>
-          Are you sure you wish to uninstall {name}? This action will uninstall the app for <b>all</b> members of your
-          organisation.
-        </>
+        {isOffGrouping && isFoundationsAdmin ? (
+          <>
+            Are you sure you wish to uninstall {name}? This action will uninstall the app for your group ‘
+            {connectSession?.loginIdentity.offGroupName}’
+          </>
+        ) : (
+          <>
+            Are you sure you wish to uninstall {name}? This action will uninstall the app for <b>all</b> members of your
+            organisation.
+          </>
+        )}
       </ModalV2>
 
       <UninstallationsSuccessModal
