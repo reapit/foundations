@@ -34,12 +34,14 @@ export const catchChunkError = (
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments/index')))
 const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
+const PaymentSessionPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment-session')))
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
+        <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
         <SWRConfig
           value={{
             revalidateOnFocus: false,

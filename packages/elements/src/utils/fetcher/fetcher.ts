@@ -123,6 +123,7 @@ export const fetcher = async <T, B>({
 }: FetcherParams<B>): Promise<any | FetchError> => {
   const path = `${api}${url}`
 
+  console.log(headers)
   const res = await fetch(path, {
     headers,
     method,

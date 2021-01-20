@@ -11,37 +11,10 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
-const PaymentSessionPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment-session')))
-
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
   const location = useLocation()
   const { pathname, search } = location
   const currentUri = `${pathname}${search}`
-  const queryParams = new URLSearchParams(search)
-  const session = queryParams.get('session')
-
-  if (session) {
-    return (
-      <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <Suspense
-              fallback={
-                <Section>
-                  <Loader />
-                </Section>
-              }
-            >
-              <Switch>
-                <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
-                <Redirect to={Routes.LOGIN} />
-              </Switch>
-            </Suspense>
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
-    )
-  }
 
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
 

@@ -10,8 +10,8 @@ export interface UpdateStatusBody {
 export interface UpdateStatusParams {
   paymentId: string
   session: string
-  clientCode: string
   _eTag: string
+  clientCode?: string
 }
 
 export const updatePaymentStatus = async (
