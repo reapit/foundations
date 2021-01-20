@@ -1,15 +1,30 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import { sendEmail } from './ses-client'
+import session from 'express-session'
+// import memoryStore from 'memorystore'
+import uuid from 'uuid/v4'
+import cors from 'cors'
+import { traceIdMiddleware } from '@reapit/node-utils'
+import router from './router'
+// const MemoryStore = memoryStore(session)
 
 const app = express()
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(cors())
 
-app.post('/payments/request/:id', async function(_, res) {
-  sendEmail('longtr268@gmail.com', 'Hey! Welcome', 'This is the body of email')
-  res.send('Email is sent!')
-})
+app.use(
+  session({
+    secret: uuid(),
+    resave: false,
+    saveUninitialized: true,
+    // store: new MemoryStore({
+    //   checkPeriod: 86400000, // prune expired entries every 24h
+    // }),
+  }),
+)
+
+app.use(traceIdMiddleware)
+app.use(bodyParser.json())
+app.use(router)
 
 export default app

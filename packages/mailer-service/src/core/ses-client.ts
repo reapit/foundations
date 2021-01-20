@@ -1,15 +1,9 @@
 import AWS from 'aws-sdk'
-import config from './config'
-
-AWS.config.update({
-  accessKeyId: config.aws.key,
-  secretAccessKey: config.aws.secret,
-  region: config.aws.ses.region,
-})
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' })
 
-export const sendEmail = (to, subject, message, from) => {
+export const sendEmail = (to: string, subject: string, body: string, message: string, from?: string) => {
+  console.log(from)
   const params = {
     Destination: {
       ToAddresses: [to],
@@ -26,8 +20,10 @@ export const sendEmail = (to, subject, message, from) => {
         Data: subject,
       },
     },
-    ReturnPath: from ? from : config.aws.ses.from.default,
-    Source: from ? from : config.aws.ses.from.default,
+    ReturnPath: 'wmcvay@reapit.com',
+    Source: 'wmcvay@reapit.com',
+    // ReturnPath: from ? from : process.env.CLIENTS['SBOX']['PAYMENT_REQUEST']['FROM'],
+    // Source: from ? from : process.env.CLIENTS['SBOX']['PAYMENT_REQUEST']['FROM'],
   }
 
   const sendPromise = ses.sendEmail(params).promise()

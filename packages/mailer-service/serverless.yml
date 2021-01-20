@@ -7,6 +7,7 @@ plugins:
 
 custom:
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
+  env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -24,11 +25,36 @@ provider:
   deploymentBucket:
     name: ${self:custom.s3CloudFormBucket}
     blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+    AWS_REGION: ${self:custom.env.AWS_REGION}
+    CLIENTS: ${self:custom.env.CLIENTS}
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
 
 functions:
   app:
-    handler: src/index.handler
+    handler: src/index.app
     events:
       - http: 
-          path: /payments/request/{id}
+          path: /payments/request/{paymentId}
           method: post
+          cors: true
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}

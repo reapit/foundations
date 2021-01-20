@@ -1,6 +1,8 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
 const { ContextReplacementPlugin } = require('webpack')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const { PATHS } = require('../../scripts/webpack/constants')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -18,9 +20,11 @@ module.exports = {
     filename: '[name].js',
   },
   plugins: [
-    new ContextReplacementPlugin(/express|encoding/)
+    new ContextReplacementPlugin(/express|encoding/),
+    new ResolveTSPathsToWebpackAlias({
+      tsconfig: PATHS.tsConfig,
+    }),
   ],
-  // externals: [{ 'express': { commonjs: 'express' } }],
   module: {
     rules: [
       {
@@ -43,6 +47,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json']
+    extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json'],
   },
 }
