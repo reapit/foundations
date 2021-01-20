@@ -17,7 +17,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import TermsAndConditionsModal from '../components/ui/terms-and-conditions-modal'
 import { fetchCurrentMember, updateCurrentMember } from '../actions/current-member'
 import dayjs from 'dayjs'
-import { selectCurrentMemberData, selectCurrentMemberUpdateState } from '../selector/current-member'
+import {
+  selectCurrentMemberData,
+  selectCurrentMemberIsLoading,
+  selectCurrentMemberUpdateState,
+} from '../selector/current-member'
 import { Dispatch } from 'redux'
 
 const { Suspense } = React
@@ -51,6 +55,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
   const dispatch = useDispatch()
   const currentMember = useSelector(selectCurrentMemberData)
+  const currentMemberLoading = useSelector(selectCurrentMemberIsLoading)
   const memberUpdateState = useSelector(selectCurrentMemberUpdateState)
   const currentUri = `${location.pathname}${location.search}`
 
@@ -66,11 +71,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   useEffect(() => {
     if (connectSession && connectSession.loginIdentity && connectSession.loginIdentity.developerId) {
-      if (!currentMember.id) {
+      if ((!currentMember || !currentMember.id) && !currentMemberLoading) {
         dispatch(fetchCurrentMember())
       }
 
-      if (currentMember.id && !currentMember.agreedTerms) {
+      if (currentMember && currentMember.id && !currentMember.agreedTerms) {
         setShowTermsModal(true)
       }
     }
