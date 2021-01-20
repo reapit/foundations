@@ -2643,6 +2643,10 @@ export interface Conveyancing {
   propertyId?: string[]
   embed?: ('buyerSolicitor' | 'offer' | 'property' | 'vendor' | 'vendorSolicitor')[]
   metadata?: string[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
 }
 /**
  * Representation of an offers sales progression information
@@ -6405,6 +6409,8 @@ export interface IdentityChecks {
   checkDateTo?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 /**
@@ -9765,6 +9771,8 @@ export interface Tasks {
   activatesTo?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   metadata?: string[]
 }
 export interface Tenancies {
@@ -13313,6 +13321,8 @@ export interface Vendors {
   name?: string
   createdFrom?: string
   createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
   lastCallFrom?: string
   lastCallTo?: string
   nextCallFrom?: string
