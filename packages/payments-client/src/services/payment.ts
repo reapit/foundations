@@ -8,9 +8,9 @@ export interface UpdateStatusBody {
 }
 
 export interface UpdateStatusParams {
-  paymentId: string
-  session: string
   _eTag: string
+  paymentId?: string
+  session?: string
   clientCode?: string
 }
 
@@ -24,7 +24,7 @@ export const updatePaymentStatus = async (
       api: window.reapit.config.paymentApiUrl,
       url: `${URLS.PAYMENTS}/${paymentId}`,
       method: 'PATCH',
-      headers: genPaymentsUpdateStatusHeaders(clientCode, _eTag, session),
+      headers: genPaymentsUpdateStatusHeaders(clientCode || '', _eTag, session || ''),
       body,
     })
 
