@@ -1,4 +1,3 @@
-import serverless from 'serverless-http'
 import express from 'express'
 import bodyParser from 'body-parser'
 import { sendEmail } from './ses-client'
@@ -13,4 +12,4 @@ app.post('/payments/request/:id', async function(_, res) {
   res.send('Email is sent!')
 })
 
-export const handler = serverless(app)
+export default app
