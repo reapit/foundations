@@ -1,1 +1,1 @@
-export const updatePaymentStatus = jest.fn(() => true)
+export const updatePaymentSessionStatus = jest.fn(() => true)

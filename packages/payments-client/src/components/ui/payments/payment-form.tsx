@@ -14,7 +14,12 @@ import {
 import { opayoCreateTransactionServiceSession } from '../../../opayo-api/transactions'
 import { MerchantKey } from '../../../opayo-api/merchant-key'
 import { PaymentSessionModel } from '../../pages/payment-session'
-import { updatePaymentStatus, UpdateStatusBody, UpdateStatusParams } from '../../../services/payment'
+import {
+  updatePaymentStatus,
+  updatePaymentSessionStatus,
+  UpdateStatusBody,
+  UpdateStatusParams,
+} from '../../../services/payment'
 import { toastMessages } from '../../../constants/toast-messages'
 
 export interface CardDetails {
@@ -32,7 +37,10 @@ export interface CardDetails {
 }
 
 export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatusParams, result?: any) => {
-  const updateStatusRes = await updatePaymentStatus(body, params)
+  const { session } = params
+  const updateStatusRes = session
+    ? await updatePaymentSessionStatus(body, params)
+    : await updatePaymentStatus(body, params)
 
   if (updateStatusRes) {
     if (body.status === 'posted') {
@@ -57,7 +65,7 @@ export const handleCreateTransaction = (
   merchantKey: MerchantKey,
   data: PaymentSessionModel,
   cardDetails: CardDetails,
-  paymentId?: string,
+  paymentId: string,
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
@@ -96,7 +104,7 @@ export const handleCreateTransaction = (
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
   data: PaymentSessionModel,
-  paymentId?: string,
+  paymentId: string,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
@@ -118,7 +126,7 @@ export const onHandleSubmit = (
 const PaymentForm: React.FC<{
   data: PaymentSessionModel
   merchantKey: MerchantKey
-  paymentId?: string
+  paymentId: string
   session?: string
 }> = ({ data, merchantKey, paymentId, session }) => {
   const onSubmit = onHandleSubmit(merchantKey, data, paymentId, session)

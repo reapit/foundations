@@ -56,7 +56,7 @@ const PaymentSessionPage: React.FC = () => {
     }
   }, [setMerchantKey, data])
 
-  if (error) return <Helper variant="info">You don't appear to have a valid session</Helper>
+  if (error) return <Helper variant="info">You do not appear to have a valid session</Helper>
 
   if (!data) return <Loader />
   const { customer, amount, description, externalReference, propertyId, property } = data || {}

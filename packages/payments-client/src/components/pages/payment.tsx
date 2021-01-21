@@ -58,7 +58,7 @@ const PaymentPage: React.FC = () => {
         </Grid>
         <H6>Payment amount: {amount} GBP</H6>
       </Section>
-      {merchantKey && data ? <PaymentForm data={data} merchantKey={merchantKey} /> : <Loader />}
+      {merchantKey && data ? <PaymentForm data={data} merchantKey={merchantKey} paymentId={paymentId} /> : <Loader />}
     </>
   )
 }
