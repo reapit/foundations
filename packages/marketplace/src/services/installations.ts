@@ -33,7 +33,7 @@ export type FetchApiKeyInstallationByIdParams = {
 export type RemoveAccessToAppByIdParams = TerminateInstallationModel & {
   installationId: string
   // Callback run after update success
-  callback?: () => void
+  callback?: (hasPermissionError: boolean) => void
 }
 
 export const createInstallation = async (params: CreateInstallationParams) => {

@@ -43,6 +43,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
       "telephone": "0113 288 2900",
     }
   }
+  hasPermissionError={false}
   onSuccessAlertButtonClick={[MockFunction]}
   visible={true}
 >
@@ -303,6 +304,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 isCenter={true}
                                 onButtonClick={[MockFunction]}
                                 title="Success"
+                                type="success"
                               >
                                 <div
                                   className=""
@@ -976,6 +978,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               "telephone": "0113 288 2900",
             }
           }
+          hasPermissionError={false}
           onSuccessAlertButtonClick={[Function]}
           visible={false}
         >

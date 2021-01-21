@@ -29,6 +29,7 @@ const mockUninstallationsSuccessModalProps: UninstallationsSuccessModalParams = 
   appDetailData: appDetailDataStub.data,
   visible: true,
   onSuccessAlertButtonClick: jest.fn(),
+  hasPermissionError: false,
 }
 
 const clientId = '123'
@@ -68,6 +69,7 @@ describe('ClientAppUninstallConfirmation', () => {
         spyDispatch,
         mockFunction,
         mockProps.closeUninstallConfirmationModal,
+        mockFunction,
         false,
       )
       fn()
@@ -85,10 +87,29 @@ describe('ClientAppUninstallConfirmation', () => {
   describe('handleUninstallAppSuccessCallback', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
-      const fn = handleUninstallAppSuccessCallback(mockFunction, mockProps.closeUninstallConfirmationModal, false)
-      fn()
+      const fn = handleUninstallAppSuccessCallback(
+        mockFunction,
+        mockProps.closeUninstallConfirmationModal,
+        mockFunction,
+        false,
+      )
+      fn(false)
       expect(mockProps.closeUninstallConfirmationModal).toBeCalled()
       expect(mockFunction).toBeCalledWith(true)
+    })
+
+    it('should run correctly where has error', () => {
+      const mockFunction = jest.fn()
+      const fn = handleUninstallAppSuccessCallback(
+        mockFunction,
+        mockProps.closeUninstallConfirmationModal,
+        mockFunction,
+        false,
+      )
+      fn(true)
+      expect(mockProps.closeUninstallConfirmationModal).toBeCalled()
+      expect(mockFunction).toBeCalledWith(true)
+      expect(mockFunction).toBeCalledTimes(2)
     })
   })
 
@@ -126,6 +147,7 @@ describe('ClientAppUninstallConfirmation', () => {
             clientId,
             installationId,
             spyDispatch,
+            jest.fn(),
             jest.fn(),
             jest.fn(),
             false,

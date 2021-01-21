@@ -37,8 +37,12 @@ export const uninstallSagas = function*({ data }) {
     const email = yield call(selectLoggedUserEmail, connectSession)
     yield call(removeAccessToAppById, { ...restParams, terminatedBy: email })
     yield put(uninstallAppSuccess())
-    callback && callback()
+    callback && callback(false)
   } catch (err) {
+    const { callback } = data
+    if (err.statusCode === 403 && callback) {
+      return callback(true)
+    }
     yield put(uninstallAppFailed(err.description))
     notification.error({ message: err.description, placement: 'bottomRight' })
   }

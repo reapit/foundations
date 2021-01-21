@@ -43,7 +43,7 @@ describe('onHandleSubmit', () => {
   it('should return a function when executing', async () => {
     window.fetch = jest.fn().mockImplementation(() => mockFetchPromise)
     jest.spyOn(notification, 'error')
-    await onSubmit({ name, officeIds })
+    await onSubmit({ name, officeIds, status: true })
 
     expect(notification.error).toHaveBeenCalled()
   })
@@ -51,7 +51,7 @@ describe('onHandleSubmit', () => {
   it('should return a function when executing', async () => {
     window.fetch = jest.fn().mockImplementation(() => undefined as any)
     jest.spyOn(notification, 'success')
-    await onSubmit({ name, officeIds })
+    await onSubmit({ name, officeIds, status: true })
 
     expect(notification.success).toHaveBeenCalled()
   })

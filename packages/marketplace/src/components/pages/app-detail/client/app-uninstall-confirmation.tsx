@@ -26,11 +26,15 @@ export type AppUninstallConfirmationProps = {
 export const handleUninstallAppSuccessCallback = (
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  setHasPermissionError: (hasPermissionError: boolean) => void,
   isDesktopMode: boolean,
 ) => {
-  return () => {
+  return (hasPermissionError: boolean) => {
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
+    }
+    if (hasPermissionError) {
+      setHasPermissionError(true)
     }
     setIsSuccessAlertVisible(true)
     closeUninstallConfirmationModal()
@@ -44,6 +48,7 @@ export const onUninstallButtonClick = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  setHasPermissionError: (hasPermissionError: boolean) => void,
   isDesktopMode: boolean,
 ) => {
   return () => {
@@ -55,6 +60,7 @@ export const onUninstallButtonClick = (
         callback: handleUninstallAppSuccessCallback(
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          setHasPermissionError,
           isDesktopMode,
         ),
       }),
@@ -97,6 +103,7 @@ export const renderUninstallConfirmationModalFooter = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  setHasPermissionError: (hasPermissionError: boolean) => void,
   isDesktopMode: boolean,
 ) => {
   return (
@@ -124,6 +131,7 @@ export const renderUninstallConfirmationModalFooter = (
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          setHasPermissionError,
           isDesktopMode,
         )}
       >
@@ -136,26 +144,33 @@ export const renderUninstallConfirmationModalFooter = (
 export type UninstallationsSuccessModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> & {
   appDetailData?: AppDetailModel
   onSuccessAlertButtonClick: () => void
+  hasPermissionError: boolean
 }
 
 export const UninstallationsSuccessModal = ({
   afterClose,
   appDetailData,
   onSuccessAlertButtonClick,
+  hasPermissionError,
   visible,
 }: UninstallationsSuccessModalParams) => {
   const { name: appName } = appDetailData || {}
   return (
     <ModalV2 isCentered hasHeader={false} isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
       <CallToAction
-        title="Success"
+        title={hasPermissionError ? `Uninstalling ${appName}` : 'Success'}
         buttonText="Back to List"
+        type={hasPermissionError ? 'danger' : 'success'}
         dataTest="uinstallations-success-message"
         buttonDataTest="uinstallations-success-button"
         onButtonClick={onSuccessAlertButtonClick}
         isCenter
       >
-        {appName} has been successfully uninstalled
+        {hasPermissionError ? (
+          <>Your organisation settings prevent you from uninstalling this app, please contact an Administrator.</>
+        ) : (
+          <>{appName} has been successfully uninstalled</>
+        )}
       </CallToAction>
     </ModalV2>
   )
@@ -167,6 +182,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   closeUninstallConfirmationModal,
 }) => {
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
+  const [hasPermissionError, setHasPermissionError] = React.useState(false)
   const history = useHistory()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
@@ -193,6 +209,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          setHasPermissionError,
           connectIsDesktop,
         )}
       >
@@ -214,6 +231,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
         onSuccessAlertButtonClick={onSuccessAlertButtonClick}
         appDetailData={appDetailData}
+        hasPermissionError={hasPermissionError}
       />
     </>
   )
