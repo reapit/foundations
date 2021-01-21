@@ -33,7 +33,7 @@ export const catchChunkError = (
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments/index')))
-const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
+// const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
 const PaymentSessionPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment-session')))
 
 const Router = () => (
@@ -41,19 +41,18 @@ const Router = () => (
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
-        <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
         <SWRConfig
           value={{
             revalidateOnFocus: false,
             fetcher: paymentFetcher,
           }}
         >
-          <PrivateRouteWrapper>
-            <Switch>
-              <Route path={Routes.PAYMENT} component={PaymentPage} exact />
+          <Switch>
+            <Route path={Routes.PAYMENT} component={PaymentSessionPage} exact />
+            <PrivateRouteWrapper>
               <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
-            </Switch>
-          </PrivateRouteWrapper>
+            </PrivateRouteWrapper>
+          </Switch>
         </SWRConfig>
         <Redirect to={Routes.LOGIN} />
       </Switch>

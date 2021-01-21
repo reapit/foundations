@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Redirect, useParams, useLocation } from 'react-router'
+import { Route, useParams, useLocation } from 'react-router'
 import useSWR from 'swr'
 import { Section, H3, Helper, Loader, H5, H6, Grid, GridItem } from '@reapit/elements'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../constants/api'
 import Routes from '../../constants/routes'
 import { MerchantKey, opayoSessionMerchantKeyService } from '../../opayo-api/merchant-key'
 import PaymentCustomerSection from '../ui/payments/payment-customer-section'
-// import PropertySection from '../ui/payments/property-section'
+import PropertySection from '../ui/payments/property-section'
 import { localFetcher } from '../../utils/fetcher'
+import PrivateRouteWrapper from '../../core/private-route-wrapper'
 import PaymentForm from '../ui/payments/payment-form'
+import PaymentPage from './payment'
 
 export interface PaymentSessionModel extends PaymentModel {
   clientCode: string
+  property: PropertyModel
 }
 
 const PaymentSessionPage: React.FC = () => {
@@ -21,7 +24,12 @@ const PaymentSessionPage: React.FC = () => {
   const { search } = location
   const queryParams = new URLSearchParams(search)
   const session = queryParams.get('session') || ''
-  console.log(session)
+  if (!session)
+    return (
+      <PrivateRouteWrapper>
+        <Route path={Routes.PAYMENT} component={PaymentPage} exact />
+      </PrivateRouteWrapper>
+    )
 
   const { data: paymentData, error } = useSWR<{ payment: PaymentSessionModel }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session],
@@ -48,10 +56,10 @@ const PaymentSessionPage: React.FC = () => {
     }
   }, [setMerchantKey, data])
 
-  if (error) return <Redirect to={Routes.LOGIN} />
+  if (error) return <Helper variant="info">You don't appear to have a valid session</Helper>
 
   if (!data) return <Loader />
-  const { customer, amount, description, externalReference } = data || {}
+  const { customer, amount, description, externalReference, propertyId, property } = data || {}
   return (
     <>
       <H3 isHeadingSection>Card Payment</H3>
@@ -65,7 +73,7 @@ const PaymentSessionPage: React.FC = () => {
       <Section>
         <Grid>
           <PaymentCustomerSection customer={customer} />
-          {/* <PropertySection propertyId={propertyId} /> */}
+          <PropertySection propertyId={propertyId} property={property} />
           <GridItem>
             <H5>GBP: {amount}</H5>
             <H6>Payment description: {description}</H6>

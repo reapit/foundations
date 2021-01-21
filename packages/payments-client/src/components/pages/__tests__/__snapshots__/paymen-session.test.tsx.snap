@@ -1,66 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Payment should match a snapshot 1`] = `
-<Fragment>
-  <mockConstructor
-    isHeadingSection={true}
-  >
-    Card Payment
-  </mockConstructor>
-  <mockConstructor
-    isHeadingSection={true}
-  >
-    Payment For 
-    MKT20000010
-  </mockConstructor>
-  <mockConstructor
-    variant="info"
-  >
-    Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please talk to your administrator to set this up for you.
-  </mockConstructor>
-  <mockConstructor>
-    <mockConstructor>
-      <PaymentCustomerSection />
-      <mockConstructor>
-        <mockConstructor>
-          GBP: 
-        </mockConstructor>
-        <mockConstructor>
-          Payment description: 
-        </mockConstructor>
-        <mockConstructor>
-          Payment ref: 
-        </mockConstructor>
-      </mockConstructor>
-    </mockConstructor>
-    <mockConstructor>
-      Payment amount: 
-       GBP
-    </mockConstructor>
-  </mockConstructor>
-  <mockConstructor />
-</Fragment>
-`;
-
-exports[`PaymentForm should match a snapshot 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "address1": "1 Test House",
-      "cardIdentifier": "",
-      "cardNumber": "",
-      "cardholderName": "",
-      "city": "County of Test",
-      "country": "GB",
-      "customerFirstName": "John",
-      "customerLastName": "Smith",
-      "expiryDate": "",
-      "postalCode": "A11 2BB",
-      "securityCode": "",
-    }
-  }
-  onSubmit={[Function]}
->
-  <Component />
-</Formik>
+<Component>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/payments/:paymentId"
+  />
+</Component>
 `;

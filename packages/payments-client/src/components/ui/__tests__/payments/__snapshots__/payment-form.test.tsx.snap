@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentForm should match a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "address1": "1 Test House",
+      "cardIdentifier": "",
+      "cardNumber": "",
+      "cardholderName": "",
+      "city": "County of Test",
+      "country": "GB",
+      "customerFirstName": "John",
+      "customerLastName": "Smith",
+      "expiryDate": "",
+      "postalCode": "A11 2BB",
+      "securityCode": "",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Component />
+</Formik>
+`;

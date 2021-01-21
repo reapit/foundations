@@ -17,6 +17,20 @@ import { PaymentSessionModel } from '../../pages/payment-session'
 import { updatePaymentStatus, UpdateStatusBody, UpdateStatusParams } from '../../../services/payment'
 import { toastMessages } from '../../../constants/toast-messages'
 
+export interface CardDetails {
+  customerFirstName: string
+  customerLastName: string
+  address1: string
+  city: string
+  postalCode: string
+  country: string
+  cardholderName: string
+  cardNumber: string
+  expiryDate: string
+  securityCode: string
+  cardIdentifier: string
+}
+
 export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatusParams, result?: any) => {
   const updateStatusRes = await updatePaymentStatus(body, params)
 
@@ -39,13 +53,76 @@ export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatu
   })
 }
 
+export const handleCreateTransaction = (
+  merchantKey: MerchantKey,
+  data: PaymentSessionModel,
+  cardDetails: CardDetails,
+  paymentId?: string,
+  session?: string,
+) => async (result: any) => {
+  const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
+  const { amount, description, clientCode, externalReference = '', _eTag = '' } = data
+  if (result.success) {
+    await opayoCreateTransactionServiceSession(clientCode || 'SBOX', {
+      transactionType: 'Payment',
+      paymentMethod: {
+        card: {
+          merchantSessionKey: merchantKey.merchantSessionKey,
+          cardIdentifier: result.cardIdentifier,
+          save: false,
+        },
+      },
+      vendorTxCode: `demotransaction-${Math.floor(Math.random() * 1000)}`,
+      amount: amount || 0,
+      currency: 'GBP',
+      description: description || '',
+      apply3DSecure: 'Disable',
+      customerFirstName,
+      customerLastName,
+      billingAddress: {
+        address1,
+        city,
+        postalCode,
+        country,
+      },
+      entryMethod: 'Ecommerce',
+    })
+    await onUpdateStatus({ status: 'posted', externalReference }, { paymentId, clientCode, _eTag, session })
+  } else {
+    await onUpdateStatus({ status: 'rejected', externalReference }, { paymentId, clientCode, _eTag, session }, result)
+  }
+}
+
+export const onHandleSubmit = (
+  merchantKey: MerchantKey,
+  data: PaymentSessionModel,
+  paymentId?: string,
+  session?: string,
+) => (cardDetails: CardDetails) => {
+  const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
+  window
+    .sagepayOwnForm({
+      merchantSessionKey: merchantKey.merchantSessionKey,
+    })
+    .tokeniseCardDetails({
+      cardDetails: {
+        cardholderName,
+        cardNumber: unformatCard(cardNumber),
+        expiryDate: unformatCardExpires(expiryDate),
+        securityCode,
+      },
+      onTokenised: handleCreateTransaction(merchantKey, data, cardDetails, paymentId, session),
+    })
+}
+
 const PaymentForm: React.FC<{
   data: PaymentSessionModel
   merchantKey: MerchantKey
   paymentId?: string
   session?: string
 }> = ({ data, merchantKey, paymentId, session }) => {
-  const { customer, amount, description, clientCode, externalReference = '', _eTag = '' } = data
+  const onSubmit = onHandleSubmit(merchantKey, data, paymentId, session)
+  const { customer } = data
   const { forename = '', surname = '', primaryAddress = {} } = customer || {}
   const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
   let address1: string
@@ -72,67 +149,7 @@ const PaymentForm: React.FC<{
         securityCode: '',
         cardIdentifier: '',
       }}
-      onSubmit={cardDetails => {
-        const {
-          cardholderName,
-          cardNumber,
-          expiryDate,
-          securityCode,
-          customerFirstName,
-          customerLastName,
-          address1,
-          city,
-          postalCode,
-          country,
-        } = cardDetails
-        window
-          .sagepayOwnForm({
-            merchantSessionKey: merchantKey.merchantSessionKey,
-          })
-          .tokeniseCardDetails({
-            cardDetails: {
-              cardholderName,
-              cardNumber: unformatCard(cardNumber),
-              expiryDate: unformatCardExpires(expiryDate),
-              securityCode,
-            },
-            onTokenised: async (result: any) => {
-              if (result.success) {
-                await opayoCreateTransactionServiceSession(clientCode || 'SBOX', {
-                  transactionType: 'Payment',
-                  paymentMethod: {
-                    card: {
-                      merchantSessionKey: merchantKey.merchantSessionKey,
-                      cardIdentifier: result.cardIdentifier,
-                      save: false,
-                    },
-                  },
-                  vendorTxCode: `demotransaction-${Math.floor(Math.random() * 1000)}`,
-                  amount: amount || 0,
-                  currency: 'GBP',
-                  description: description || '',
-                  apply3DSecure: 'Disable',
-                  customerFirstName,
-                  customerLastName,
-                  billingAddress: {
-                    address1,
-                    city,
-                    postalCode,
-                    country,
-                  },
-                  entryMethod: 'Ecommerce',
-                })
-                onUpdateStatus({ status: 'posted', externalReference }, { paymentId, clientCode, _eTag, session })
-              } else {
-                onUpdateStatus(
-                  { status: 'rejected', externalReference },
-                  { paymentId, clientCode, _eTag, session },
-                  result,
-                )
-              }
-            },
-          })
-      }}
+      onSubmit={onSubmit}
     >
       {() => (
         <Form className="form">

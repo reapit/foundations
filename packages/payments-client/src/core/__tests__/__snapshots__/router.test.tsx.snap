@@ -45,20 +45,20 @@ exports[`Router should match a snapshot 1`] = `
           }
         }
       >
-        <Component>
-          <Switch>
-            <Route
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
+        <Switch>
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
               }
-              exact={true}
-              path="/payments/:paymentId"
-            />
+            }
+            exact={true}
+            path="/payments/:paymentId"
+          />
+          <Component>
             <Route
               component={
                 Object {
@@ -71,8 +71,8 @@ exports[`Router should match a snapshot 1`] = `
               exact={true}
               path="/payments"
             />
-          </Switch>
-        </Component>
+          </Component>
+        </Switch>
       </ContextProvider>
       <Redirect
         to="/login"
