@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Payment should match a snapshot 1`] = `
+<Component>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/payments/:paymentId"
+  />
+</Component>
+`;
