@@ -16,6 +16,7 @@ window.reapit = {
     googleAnalyticsKey: '',
     connectOAuthUrl: '',
     platformApiUrl: '',
+    paymentApiUrl: '',
     graphqlUri: '',
     marketplaceUrl: '',
     paymentsApiUrl: '',

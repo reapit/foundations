@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import PaymentPage, { PaymentForm } from '../payment'
+import PaymentPage from '../payment'
 import { data } from '../../ui/__stubs__/payment'
 
 jest.mock('react-router', () => ({
@@ -19,13 +19,5 @@ jest.mock('swr', () =>
 describe('Payment', () => {
   it('should match a snapshot', () => {
     expect(shallow(<PaymentPage />)).toMatchSnapshot()
-  })
-})
-
-describe('PaymentForm', () => {
-  it('should match a snapshot', () => {
-    expect(
-      shallow(<PaymentForm data={data} merchantKey={{ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' }} />),
-    ).toMatchSnapshot()
   })
 })

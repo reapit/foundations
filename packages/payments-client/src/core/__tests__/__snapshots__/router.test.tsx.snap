@@ -37,28 +37,28 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Component>
+      <ContextProvider
+        value={
+          Object {
+            "fetcher": [Function],
+            "revalidateOnFocus": false,
+          }
+        }
+      >
         <Switch>
-          <ContextProvider
-            value={
+          <Route
+            component={
               Object {
-                "fetcher": [Function],
-                "revalidateOnFocus": false,
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
               }
             }
-          >
-            <Route
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/payments/:paymentId"
-            />
+            exact={true}
+            path="/payments/:paymentId"
+          />
+          <Component>
             <Route
               component={
                 Object {
@@ -71,9 +71,9 @@ exports[`Router should match a snapshot 1`] = `
               exact={true}
               path="/payments"
             />
-          </ContextProvider>
+          </Component>
         </Switch>
-      </Component>
+      </ContextProvider>
       <Redirect
         to="/login"
       />

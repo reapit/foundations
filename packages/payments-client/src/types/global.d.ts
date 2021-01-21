@@ -12,6 +12,7 @@ export type Config = {
   googleAnalyticsKey: string
   connectOAuthUrl: string
   platformApiUrl: string
+  paymentApiUrl: string
   graphqlUri: string
   marketplaceUrl: string
   paymentsApiUrl: string

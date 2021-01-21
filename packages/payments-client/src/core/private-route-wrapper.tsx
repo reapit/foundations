@@ -1,9 +1,9 @@
 import * as React from 'react'
+import { Redirect, useLocation } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
-import { Redirect, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 
 const { Suspense } = React
@@ -11,9 +11,11 @@ const { Suspense } = React
 export type PrivateRouteWrapperProps = {}
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
-  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location.pathname}${location.search}`
+  const { pathname, search } = location
+  const currentUri = `${pathname}${search}`
+
+  const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
 
   if (!connectSession) {
     return (

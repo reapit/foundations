@@ -1,4 +1,6 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { PaymentSessionModel } from '../../pages/payment-session'
+import { CardDetails } from '../payments/payment-form'
 
 export const data: PaymentModel = {
   id: 'PAY20000001',
@@ -49,4 +51,24 @@ export const data: PaymentModel = {
       href: '/properties/PRP200001',
     },
   },
+}
+
+export const dataSession: PaymentSessionModel = {
+  ...data,
+  clientCode: 'clientCode',
+  property: {},
+}
+
+export const cardDetails: CardDetails = {
+  customerFirstName: 'first name',
+  customerLastName: 'last name',
+  address1: '',
+  city: '',
+  postalCode: '',
+  country: '',
+  cardholderName: '',
+  cardNumber: '',
+  expiryDate: '',
+  securityCode: '',
+  cardIdentifier: '',
 }

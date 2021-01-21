@@ -4,11 +4,15 @@ import { Loader, GridItem } from '@reapit/elements'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../../constants/api'
 
-const PropertySection: React.FC<{ propertyId: string | undefined }> = ({ propertyId }) => {
-  const { data } = useSWR<PropertyModel | undefined>(propertyId ? `${URLS.PROPERTIES}/${propertyId}` : null)
+const PropertySection: React.FC<{ propertyId?: string; property?: PropertyModel }> = ({ propertyId, property }) => {
+  const { data: fetchData } = useSWR<PropertyModel>(propertyId && !property ? `${URLS.PROPERTIES}/${propertyId}` : null)
+
+  const data = property || fetchData
+
   if (!data) {
     return <Loader />
   }
+
   const { line1, line2, line3, postcode } = data.address || {}
   return (
     <GridItem>
