@@ -516,7 +516,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         visible={true}
       >
         <Component
-          afterClose={[MockFunction]}
+          afterClose={[Function]}
           footer={
             <div
               className="flex"
@@ -548,12 +548,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           visible={true}
         >
           <Component
-            afterClose={[MockFunction]}
             className=""
             closeIcon={
               <span
                 aria-label="close"
                 className="delete"
+                onClick={[Function]}
               />
             }
             destroyOnClose={true}
@@ -694,13 +694,13 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   }
                 >
                   <Dialog
-                    afterClose={[MockFunction]}
                     className=""
                     closable={true}
                     closeIcon={
                       <span
                         aria-label="close"
                         className="delete"
+                        onClick={[Function]}
                       />
                     }
                     destroyOnClose={true}
@@ -834,6 +834,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                     <span
                                       aria-label="close"
                                       className="delete"
+                                      onClick={[Function]}
                                     />
                                   </button>
                                   <div
