@@ -23,7 +23,7 @@ exports[`EditOfficeGroupModal should match a snapshot 1`] = `
           "OF1",
           " OF2",
         ],
-        "status": "",
+        "status": false,
       }
     }
     onSubmit={[Function]}

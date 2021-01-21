@@ -2,7 +2,7 @@ import React from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification } from '@reapit/elements'
+import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification, Checkbox } from '@reapit/elements'
 import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
@@ -18,9 +18,10 @@ export interface UpdateOfficeGroupModalProps {
 interface UpdateOfficeGroupModel {
   name: string
   officeIds: string[]
+  status: boolean
 }
 
-type FieldType = 'name' | 'officeIds'
+type FieldType = 'name' | 'officeIds' | 'status'
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -31,6 +32,10 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
     name: 'officeIds',
     label: 'Offices',
   },
+  status: {
+    name: 'status',
+    label: 'Active',
+  },
 }
 export const onHandleSubmit = (
   handleOnClose: () => void,
@@ -40,11 +45,8 @@ export const onHandleSubmit = (
 ) => async (params: UpdateOfficeGroupModel) => {
   const { name, officeIds: listId } = params
   const officeIds = listId.toString()
-  const updateOffice = await updateOfficeGroup(
-    { name, officeIds, status: editingGroup?.status || '' },
-    orgId,
-    editingGroup?.id || '',
-  )
+  const status = params.status ? 'active' : 'inactive'
+  const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
 
   if (!updateOffice) {
     notification.success({
@@ -69,7 +71,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   onRefetchData,
 }) => {
   const handleOnClose = () => setEditingGroup(undefined)
-  const { name, officeIds } = formFields
+  const { name, officeIds, status } = formFields
 
   const { data }: any = useSWR(`${URLS.OFFICES}`)
   if (!data) return null
@@ -97,7 +99,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
         initialValues={{
           name: editingGroup.name || '',
           officeIds: editingGroup.officeIds?.split(',') || [],
-          status: editingGroup.status || '',
+          status: editingGroup.status === 'active',
         }}
         onSubmit={onSubmit}
       >
@@ -116,6 +118,7 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                   filterOption={true}
                   optionFilterProp="children"
                 />
+                <Checkbox id={status.name} labelText={status.label as string} name={status.name} />
               </Section>
               <Section isFlex hasPadding={false} hasMargin={false}>
                 <Button variant="info" disabled={false} onClick={handleOnClose} type="button">
