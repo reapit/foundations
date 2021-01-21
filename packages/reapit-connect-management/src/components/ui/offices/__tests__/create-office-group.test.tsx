@@ -1,4 +1,5 @@
 import React from 'react'
+import { fetcher } from '@reapit/elements'
 import { shallow, mount } from 'enzyme'
 import { notification } from '@reapit/elements'
 import CreateOfficeGroupModal, {
@@ -16,7 +17,11 @@ const filterProps = (): CreateOfficeGroupModalProps => ({
   onRefetchData: jest.fn(),
 })
 
+jest.mock('@reapit/elements')
 jest.mock('../../../../core/connect-session')
+const mockResponse = 'success'
+const mockedFetch = fetcher as jest.Mock
+
 jest.mock('swr', () =>
   jest.fn(() => ({
     data,
@@ -27,12 +32,6 @@ jest.mock('../../../../utils/prepare-options')
 jest.mock('formik', () => ({
   useFormikContext: jest.fn(() => ({ values: { officeIds: ['of01', 'of02'] } })),
 }))
-
-const mockResponse = 'success'
-
-const mockFetchPromise = Promise.resolve({
-  json: () => mockResponse,
-})
 
 describe('CreateOfficeGroupModal', () => {
   it('should match a snapshot', () => {
@@ -57,7 +56,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
 
   it('should show notification error', async () => {
-    window.fetch = jest.fn().mockImplementation(() => mockFetchPromise)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds })
 
@@ -65,7 +64,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should show notification success', async () => {
-    window.fetch = jest.fn().mockImplementation(() => undefined as any)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds })
 
