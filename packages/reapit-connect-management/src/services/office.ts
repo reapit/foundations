@@ -1,3 +1,4 @@
+import { fetcher } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { getPlatformHeaders, logger } from '@reapit/utils'
@@ -16,16 +17,21 @@ export const createOfficeGroup = async (
   orgId: string,
 ): Promise<any | undefined> => {
   try {
-    const api = window.reapit.config.platformApiUrl
     const url = `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}`
-    const path = `${api}${url}`
 
-    const response = await fetch(path, {
+    const response = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url,
       method: 'POST',
       headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: JSON.stringify(officeGroup),
-    }).then(res => res.json())
-    return response
+      body: officeGroup,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Create office group failed')
   } catch (err) {
     logger(err)
   }
@@ -37,16 +43,21 @@ export const updateOfficeGroup = async (
   officeGroupId: string,
 ): Promise<any | undefined> => {
   try {
-    const api = window.reapit.config.platformApiUrl
     const url = `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}/${officeGroupId}`
-    const path = `${api}${url}`
 
-    const response = await fetch(path, {
+    const response = await fetcher({
+      api: window.reapit.config.platformApiUrl,
+      url,
       method: 'PUT',
       headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: JSON.stringify(officeGroup),
-    }).then(res => res.json())
-    return response
+      body: officeGroup,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Update office group failed')
   } catch (err) {
     logger(err)
   }

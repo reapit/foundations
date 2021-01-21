@@ -1,8 +1,13 @@
 import React from 'react'
+import { fetcher } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
 import { data } from '../__stubs__/office-groups'
+
+jest.mock('@reapit/elements')
+jest.mock('../../../../core/connect-session')
+const mockedFetch = fetcher as jest.Mock
 
 const filterProps = (): UpdateOfficeGroupModalProps => ({
   editingGroup: { id: 'GR1', name: 'Group Name', officeIds: 'OF1, OF2' },
@@ -21,10 +26,6 @@ jest.mock('swr', () =>
 
 const mockResponse = 'success'
 
-const mockFetchPromise = Promise.resolve({
-  json: () => mockResponse,
-})
-
 describe('EditOfficeGroupModal', () => {
   it('should match a snapshot', () => {
     expect(shallow(<EditOfficeGroupModal {...filterProps()} />)).toMatchSnapshot()
@@ -41,7 +42,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   it('should return a function when executing', async () => {
-    window.fetch = jest.fn().mockImplementation(() => mockFetchPromise)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds, status: true })
 
@@ -49,7 +50,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should return a function when executing', async () => {
-    window.fetch = jest.fn().mockImplementation(() => undefined as any)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds, status: true })
 
