@@ -9,6 +9,7 @@ const filterProps = (): UpdateUserModalProps => ({
   editingUser: { id: 'GR1', name: 'User Name', groups: ['OF1', 'OF2'] },
   setEditingUser: jest.fn,
   onRefetchData: jest.fn,
+  orgId: 'SOME_ID',
 })
 
 jest.mock('../../../../core/connect-session')

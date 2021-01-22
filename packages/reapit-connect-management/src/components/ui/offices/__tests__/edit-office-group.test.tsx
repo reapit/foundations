@@ -14,15 +14,10 @@ const filterProps = (): UpdateOfficeGroupModalProps => ({
   setEditingGroup: jest.fn,
   orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onRefetchData: jest.fn,
+  offices: data,
 })
 
 jest.mock('../../../../core/connect-session')
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data,
-    mutate: jest.fn,
-  })),
-)
 
 const mockResponse = 'success'
 
@@ -42,7 +37,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   it('should return a function when executing', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds, status: true })
 
@@ -50,7 +45,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should return a function when executing', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds, status: true })
 

@@ -61,7 +61,9 @@ const OfficesTab: React.FC = () => {
   const onSearch = useCallback(onSearchHandler(history), [history])
   const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
 
-  const { data }: any = useSWR(`${URLS.OFFICES}/${search ? search + '&pageSize=12' : '?pageSize=12'}`)
+  const { data } = useSWR<OfficeModelPagedResult | undefined>(
+    `${URLS.OFFICES}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+  )
 
   const AddressCell = ({ cell: { value } }) => <p>{combineAddress(value)}</p>
   const LastUpdatedCell = ({

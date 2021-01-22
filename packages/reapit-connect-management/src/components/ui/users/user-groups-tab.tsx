@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -9,6 +9,7 @@ import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
 import EditUserGroupModal from './edit-user-group'
+import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -21,10 +22,17 @@ const UserGroupsTab: React.FC = () => {
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const [editingUserGroup, setEditingUserGroup] = useState<GroupModel>()
+  const [orgId, setOrgId] = useState<string | null>(null)
+
+  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
   const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
   const { data, mutate } = useSWR<GroupModelPagedResult | undefined>(
-    `${URLS.USERS_GROUPS}/${search ? `${search}&${groupIds}&pageSize=12` : `?${groupIds}&pageSize=12`}`,
+    `${URLS.USERS_GROUPS}/${
+      search
+        ? `${search}&${groupIds}&pageSize=12&organisationId=${orgId}`
+        : `?${groupIds}&pageSize=12&organisationId=${orgId}`
+    }`,
   )
 
   const ManageButton = ({
@@ -58,11 +66,14 @@ const UserGroupsTab: React.FC = () => {
       ) : (
         <>
           <UserGroupsContent data={data} columns={columns} onPageChange={onPageChange} />
-          <EditUserGroupModal
-            setEditingUserGroup={setEditingUserGroup}
-            editingUserGroup={editingUserGroup}
-            onRefetchData={mutate}
-          />
+          {orgId && (
+            <EditUserGroupModal
+              setEditingUserGroup={setEditingUserGroup}
+              editingUserGroup={editingUserGroup}
+              onRefetchData={mutate}
+              orgId={orgId}
+            />
+          )}
         </>
       )}
     </ErrorBoundary>

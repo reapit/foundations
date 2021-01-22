@@ -18,10 +18,11 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import OfficeListCell from './office-list-cell'
 import CreateOfficeGroupModal from './create-office-group'
 import EditOfficeGroupModal from './edit-office-group'
+import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -34,29 +35,22 @@ const OfficesGroupsTab: React.FC = () => {
   const search = location.search
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
 
-  const [isOpenCreateGroupModal, setOpenCreateGroupModal] = React.useState<boolean>(false)
-  const onOpenCreateModel = () => setOpenCreateGroupModal(true)
+  const [isOpenCreateGroupModal, setOpenCreateGroupModal] = useState<boolean>(false)
   const [editingGroup, setEditingGroup] = useState<OfficeGroupModel>()
   const [orgId, setOrgId] = useState<string | null>(null)
+  const onOpenCreateModel = () => setOpenCreateGroupModal(true)
 
-  const getOrgId = async () => {
-    const session = await reapitConnectBrowserSession.connectSession()
-    if (!session) throw new Error('No Reapit Connect Session is present')
-    setOrgId(session.loginIdentity.orgId)
-  }
+  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
-  useEffect(() => {
-    if (!orgId) {
-      getOrgId()
-    }
-  }, [])
+  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}`,
+  )
 
-  const { data, mutate }: any = useSWR(
+  const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}/${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
   )
-  const onRefetchData = React.useCallback(mutate(), [])
 
   const LastUpdatedCell = ({
     cell: {
@@ -93,34 +87,40 @@ const OfficesGroupsTab: React.FC = () => {
           office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
           ‘Edit’ on the associated group.
         </i>
-        {orgId && (
+        {orgId && offices && (
           <>
             <CreateOfficeGroupModal
               visible={isOpenCreateGroupModal}
               setOpenCreateGroupModal={setOpenCreateGroupModal}
               orgId={orgId}
-              onRefetchData={onRefetchData}
+              onRefetchData={mutate}
+              offices={offices}
             />
             <EditOfficeGroupModal
               setEditingGroup={setEditingGroup}
               orgId={orgId}
               editingGroup={editingGroup}
-              onRefetchData={onRefetchData}
+              onRefetchData={mutate}
+              offices={offices}
             />
           </>
         )}
       </Section>
-      {!data ? <Loader /> : <OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />}
+      {!officeGroups ? (
+        <Loader />
+      ) : (
+        <OfficeGroupsContent officeGroups={officeGroups} columns={columns} onPageChange={onPageChange} />
+      )}
     </ErrorBoundary>
   )
 }
 
 export const OfficeGroupsContent: React.FC<{
-  data: OfficeGroupModelPagedResult
+  officeGroups: OfficeGroupModelPagedResult
   columns: any[]
   onPageChange: (page: number) => void
-}> = ({ data, columns, onPageChange }) => {
-  const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = data
+}> = ({ officeGroups, columns, onPageChange }) => {
+  const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = officeGroups
   return (
     <>
       <Section>{renderResult(columns, listGroup)}</Section>

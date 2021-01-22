@@ -2,9 +2,10 @@ import React from 'react'
 import useSWR from 'swr'
 import { URLS } from '../../../constants/api'
 import { FadeIn } from '@reapit/elements'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
 
 export const OfficeName: React.FC<{ id: string; isLast: boolean }> = ({ id, isLast }) => {
-  const { data }: any = useSWR(id && `${URLS.OFFICES}/${id}`)
+  const { data } = useSWR<OfficeModel>(id && `${URLS.OFFICES}/${id}`)
   if (!data) return null
   const { name } = data
 
