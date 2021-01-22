@@ -127,7 +127,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   }
   const { groupIds } = formFields
 
-  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999`)
+  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}`)
 
   const { data: groupMembers, mutate } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id ? `${URLS.USERS_GROUPS}/${id}/members` : null,
