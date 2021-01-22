@@ -1,18 +1,18 @@
 import React from 'react'
-import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
 import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification, Checkbox } from '@reapit/elements'
-import { URLS } from '../../../constants/api'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
+import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface UpdateOfficeGroupModalProps {
   editingGroup: OfficeGroupModel | undefined
   setEditingGroup: React.Dispatch<React.SetStateAction<OfficeGroupModel | undefined>>
   orgId: string
   onRefetchData: () => void
+  offices: OfficeModelPagedResult
 }
 
 interface UpdateOfficeGroupModel {
@@ -48,7 +48,7 @@ export const onHandleSubmit = (
   const status = params.status ? 'active' : 'inactive'
   const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
 
-  if (!updateOffice) {
+  if (updateOffice) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
@@ -59,7 +59,7 @@ export const onHandleSubmit = (
   }
 
   notification.error({
-    message: updateOffice.description || toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
+    message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
     placement: 'bottomRight',
   })
 }
@@ -69,14 +69,13 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   setEditingGroup,
   orgId,
   onRefetchData,
+  offices,
 }) => {
   const handleOnClose = () => setEditingGroup(undefined)
   const { name, officeIds, status } = formFields
 
-  const { data }: any = useSWR(`${URLS.OFFICES}`)
-  if (!data) return null
-  const { _embedded: listOffice } = data
-  const officeOptions = prepareOfficeOptions(listOffice)
+  const { _embedded: listOffice } = offices
+  const officeOptions = prepareOfficeOptions(listOffice || [])
 
   if (!editingGroup) return null
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)

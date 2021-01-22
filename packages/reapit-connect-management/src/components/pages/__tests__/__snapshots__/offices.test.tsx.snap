@@ -7,6 +7,31 @@ exports[`OfficesPage should match a snapshot 1`] = `
   >
     Manage Offices
   </Component>
+  <Component>
+    <Component
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "Offices",
+            "onTabClick": [Function],
+            "tabIdentifier": "/offices",
+          },
+          Object {
+            "active": false,
+            "displayText": "Groups",
+            "onTabClick": [Function],
+            "tabIdentifier": "/offices/groups",
+          },
+        ]
+      }
+    />
+  </Component>
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/offices"
+  />
   <Component
     component={[Function]}
     exact={true}

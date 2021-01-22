@@ -95,7 +95,7 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
         },
       ]
     }
-    data={
+    officeGroups={
       Object {
         "_embedded": Array [
           Object {

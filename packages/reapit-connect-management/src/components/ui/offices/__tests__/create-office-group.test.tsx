@@ -15,6 +15,7 @@ const filterProps = (): CreateOfficeGroupModalProps => ({
   setOpenCreateGroupModal: jest.fn(),
   orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onRefetchData: jest.fn(),
+  offices: data,
 })
 
 jest.mock('@reapit/elements')
@@ -22,11 +23,6 @@ jest.mock('../../../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
 
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data,
-  })),
-)
 jest.mock('../../../../utils/prepare-options')
 
 jest.mock('formik', () => ({
@@ -56,7 +52,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
 
   it('should show notification error', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds })
 
@@ -64,7 +60,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should show notification success', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds })
 
