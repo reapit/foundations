@@ -7,15 +7,12 @@ import CreateOfficeGroupModal, {
   onHandleSubmit,
   FormChangeEffect,
 } from '../create-office-group'
-import { data } from '../__stubs__/offices'
-import { prepareOfficeOptions } from '../../../../utils/prepare-options'
 
 const filterProps = (): CreateOfficeGroupModalProps => ({
   visible: true,
   setOpenCreateGroupModal: jest.fn(),
   orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onRefetchData: jest.fn(),
-  offices: data,
 })
 
 jest.mock('@reapit/elements')
@@ -32,14 +29,6 @@ jest.mock('formik', () => ({
 describe('CreateOfficeGroupModal', () => {
   it('should match a snapshot', () => {
     expect(shallow(<CreateOfficeGroupModal {...filterProps()} />)).toMatchSnapshot()
-  })
-  it('useEffect', () => {
-    const Comp = () => {
-      CreateOfficeGroupModal({ ...filterProps() })
-      return <div />
-    }
-    mount(<Comp />)
-    expect(prepareOfficeOptions).toHaveBeenCalled()
   })
 })
 

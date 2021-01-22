@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useFormikContext } from 'formik'
 import {
   Button,
@@ -17,13 +17,15 @@ import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { validationSchema } from './validation-schema'
 import { formFields } from './form-fields'
 import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
 
 export interface CreateOfficeGroupModalProps {
   visible: boolean
   setOpenCreateGroupModal: React.Dispatch<React.SetStateAction<boolean>>
   orgId: string
   onRefetchData: () => void
-  offices: OfficeModelPagedResult
 }
 
 export interface CreateOfficeGroupModel {
@@ -76,13 +78,20 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   setOpenCreateGroupModal,
   orgId,
   onRefetchData,
-  offices,
 }) => {
+  const [searchString, setSearchString] = useState<string>('')
   const [selectedOffice, setSelectedOffice] = useState<SelectOptions>([])
   const [options, setOptions] = useState<SelectOptions>([])
-  const handleOnClose = () => setOpenCreateGroupModal(false)
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearchString(value), 500),
+    [500],
+  )
+  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+  )
   const { name, officeIds } = formFields
 
+  const handleOnClose = () => setOpenCreateGroupModal(false)
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
 
   useEffect(() => {
@@ -114,6 +123,7 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                   name={officeIds.name}
                   labelText={officeIds.label}
                   options={options}
+                  onSearch={(value: string) => debouncedSearch(value)}
                   required
                   filterOption={true}
                   optionFilterProp="children"

@@ -21,7 +21,6 @@ import { URLS } from '../../../constants/api'
 import OfficeListCell from './office-list-cell'
 import CreateOfficeGroupModal from './create-office-group'
 import EditOfficeGroupModal from './edit-office-group'
-import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
@@ -41,10 +40,6 @@ const OfficesGroupsTab: React.FC = () => {
   const onOpenCreateModel = () => setOpenCreateGroupModal(true)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
-
-  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgId ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}`,
-  )
 
   const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
@@ -87,21 +82,19 @@ const OfficesGroupsTab: React.FC = () => {
           office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
           ‘Edit’ on the associated group.
         </i>
-        {orgId && offices && (
+        {orgId && (
           <>
             <CreateOfficeGroupModal
               visible={isOpenCreateGroupModal}
               setOpenCreateGroupModal={setOpenCreateGroupModal}
               orgId={orgId}
               onRefetchData={mutate}
-              offices={offices}
             />
             <EditOfficeGroupModal
               setEditingGroup={setEditingGroup}
               orgId={orgId}
               editingGroup={editingGroup}
               onRefetchData={mutate}
-              offices={offices}
             />
           </>
         )}

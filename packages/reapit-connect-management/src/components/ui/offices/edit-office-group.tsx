@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification, Checkbox } from '@reapit/elements'
+import {
+  Button,
+  Section,
+  ModalV2,
+  Formik,
+  Form,
+  Input,
+  DropdownSelect,
+  notification,
+  Checkbox,
+  SelectOption,
+} from '@reapit/elements'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
-import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
+import qs from 'query-string'
 
 export interface UpdateOfficeGroupModalProps {
   editingGroup: OfficeGroupModel | undefined
   setEditingGroup: React.Dispatch<React.SetStateAction<OfficeGroupModel | undefined>>
   orgId: string
   onRefetchData: () => void
-  offices: OfficeModelPagedResult
 }
 
 interface UpdateOfficeGroupModel {
@@ -22,6 +36,7 @@ interface UpdateOfficeGroupModel {
 }
 
 type FieldType = 'name' | 'officeIds' | 'status'
+type SelectOptions = SelectOption[]
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -30,7 +45,7 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
   officeIds: {
     name: 'officeIds',
-    label: 'Offices',
+    label: 'Offices (Type to search)',
   },
   status: {
     name: 'status',
@@ -69,15 +84,48 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   setEditingGroup,
   orgId,
   onRefetchData,
-  offices,
 }) => {
-  const handleOnClose = () => setEditingGroup(undefined)
+  const [searchString, setSearchString] = useState<string>('')
+  const [initialOfficesSearch, setInitialOfficesSearch] = useState<string>('')
+  const [options, setOptions] = useState<SelectOptions>([])
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearchString(value), 500),
+    [500],
+  )
+  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString
+      ? null
+      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}&name=${searchString}`,
+  )
+
+  const { data: selectedOffices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !initialOfficesSearch
+      ? null
+      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&${initialOfficesSearch}`,
+  )
+
   const { name, officeIds, status } = formFields
 
-  const { _embedded: listOffice } = offices
-  const officeOptions = prepareOfficeOptions(listOffice || [])
+  useEffect(() => {
+    if (editingGroup) {
+      const intitialOfficeIds = editingGroup?.officeIds
+        ? qs.stringify({ id: editingGroup?.officeIds?.split(',') }, { indices: false })
+        : ''
+      setInitialOfficesSearch(intitialOfficeIds)
+    }
+  }, [editingGroup])
+
+  useEffect(() => {
+    if (selectedOffices || offices) {
+      const combinedOffices: OfficeModel[] = [...(selectedOffices?._embedded ?? []), ...(offices?._embedded ?? [])]
+      const officeOptions = prepareOfficeOptions(combinedOffices || [])
+      setOptions([...officeOptions])
+    }
+  }, [offices, selectedOffices])
 
   if (!editingGroup) return null
+
+  const handleOnClose = () => setEditingGroup(undefined)
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   return (
@@ -113,7 +161,8 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                   placeholder="Please select"
                   name={officeIds.name}
                   labelText={officeIds.label}
-                  options={officeOptions}
+                  options={options}
+                  onSearch={(value: string) => debouncedSearch(value)}
                   filterOption={true}
                   optionFilterProp="children"
                 />
