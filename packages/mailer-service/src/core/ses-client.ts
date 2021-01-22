@@ -2,7 +2,7 @@ import AWS from 'aws-sdk'
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' })
 
-export const sendEmail = async (to: string, subject: string, body: string, message: string, from?: string) => {
+export const sendEmail = async (to: string, subject: string, template: string, from?: string) => {
   console.log(from)
   const params = {
     Destination: {
@@ -12,7 +12,7 @@ export const sendEmail = async (to: string, subject: string, body: string, messa
       Body: {
         Html: {
           Charset: 'UTF-8',
-          Data: message,
+          Data: template,
         },
       },
       Subject: {

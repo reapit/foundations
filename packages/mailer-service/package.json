@@ -10,7 +10,7 @@
   "scripts": {
     "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
     "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "release:development": "yarn fetch-config --name development && serverless deploy --stage dev",
+    "release:development": "serverless deploy --stage dev",
     "release:production": "serverless deploy --stage prod",
     "remove:development": "serverless remove --stage dev",
     "remove:production": "serverless remove --stage prod",
@@ -38,6 +38,7 @@
     "@reapit/config-manager": "^2.0.8",
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.7",
+    "@types/ejs": "^3.0.5",
     "@types/express": "^4.17.8",
     "@types/express-session": "^1.17.0",
     "@types/jest": "^25.1.2",
