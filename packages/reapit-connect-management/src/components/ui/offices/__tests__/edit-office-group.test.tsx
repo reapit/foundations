@@ -3,7 +3,6 @@ import { fetcher } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
-import { data } from '../__stubs__/office-groups'
 
 jest.mock('@reapit/elements')
 jest.mock('../../../../core/connect-session')
@@ -14,7 +13,6 @@ const filterProps = (): UpdateOfficeGroupModalProps => ({
   setEditingGroup: jest.fn,
   orgId: '1185e436-3b7e-4f67-a4b7-68f83054ad3c',
   onRefetchData: jest.fn,
-  offices: data,
 })
 
 jest.mock('../../../../core/connect-session')
