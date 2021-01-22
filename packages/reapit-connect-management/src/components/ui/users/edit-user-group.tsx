@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useSWR from 'swr'
 import { FormFieldInfo } from '@reapit/utils'
 import {
@@ -11,12 +11,15 @@ import {
   Loader,
   SelectOption,
   notification,
+  FadeIn,
+  Table,
 } from '@reapit/elements'
 import {
   GroupMembershipModelPagedResult,
   GroupModel,
   UserModel,
   UserModelPagedResult,
+  GroupMembershipModel,
 } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'
@@ -66,32 +69,34 @@ export const onHandleSubmit = (
   handleOnClose: () => void,
   onRefetchData: () => void,
   mutate: () => void,
+  removeUser: string[],
+  listUserGroupMember?: GroupMembershipModel[],
   editingUserGroup?: GroupModel,
-  initMembers?: string[],
 ) => async (params: UpdateUserGroupModel) => {
   const id = editingUserGroup?.id || ''
   const userId = params.userId
-  const members = initMembers ?? []
-  const newUserIds: string[] = userId.filter((item: string) => !members.includes(item))
-  const removeUser: string[] = members.filter((item: string) => !userId.includes(item))
 
-  for (const user of newUserIds) {
-    const addUserRes = await addUserToGroup(id, user)
-    if (!addUserRes) {
-      return notification.error({
-        message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-        placement: 'bottomRight',
-      })
+  for (const user of userId) {
+    if (!listUserGroupMember?.find((userGroup: UserModel) => userGroup.id === user)) {
+      const addUserRes = await addUserToGroup(id, user)
+      if (!addUserRes) {
+        return notification.error({
+          message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
+          placement: 'bottomRight',
+        })
+      }
     }
   }
 
   for (const user of removeUser) {
-    const removeUserRes = await removeUserFromGroup(id, user)
-    if (!removeUserRes) {
-      return notification.error({
-        message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-        placement: 'bottomRight',
-      })
+    if (!userId.find((addUser: string) => addUser === user)) {
+      const removeUserRes = await removeUserFromGroup(id, user)
+      if (!removeUserRes) {
+        return notification.error({
+          message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
+          placement: 'bottomRight',
+        })
+      }
     }
   }
 
@@ -104,16 +109,25 @@ export const onHandleSubmit = (
   return onRefetchData()
 }
 
+export const getUserOptions = (listUserGroup: UserModel[], listUserGroupMember: UserModel[]) =>
+  listUserGroup.filter(
+    (member: UserModel) => !listUserGroupMember.find((userGroup: UserModel) => userGroup.id === member.id),
+  )
+
 export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   editingUserGroup,
   setEditingUserGroup,
   onRefetchData,
 }) => {
+  const [removeUser, setRemoveUser] = useState<string[]>([])
   const id = editingUserGroup?.id
-  const handleOnClose = () => setEditingUserGroup(undefined)
+  const handleOnClose = () => {
+    setEditingUserGroup(undefined)
+    setRemoveUser([])
+  }
   const { groupIds } = formFields
 
-  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}`)
+  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999`)
 
   const { data: groupMembers, mutate } = useSWR<GroupMembershipModelPagedResult | undefined>(
     id ? `${URLS.USERS_GROUPS}/${id}/members` : null,
@@ -124,10 +138,40 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   if (!groupMembers) return <Loader />
   const { _embedded: listUserGroup } = data
   const { _embedded: listUserGroupMember } = groupMembers
-  const initMembers = listUserGroupMember?.map((member: UserModel) => member.id).filter(member => !!member) as string[]
-  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, mutate, editingUserGroup, initMembers)
+  const onSubmit = onHandleSubmit(
+    handleOnClose,
+    onRefetchData,
+    mutate,
+    removeUser,
+    listUserGroupMember,
+    editingUserGroup,
+  )
 
-  const UserGroupGroupOptions = prepareGroupOptions(listUserGroup ?? [])
+  const tableData = listUserGroupMember?.filter((member: UserModel) => removeUser.indexOf(member.id || '') === -1) || []
+  const userGroupGroupOptions = prepareGroupOptions(getUserOptions(listUserGroup || [], tableData))
+
+  const RemoveButton = ({
+    cell: {
+      row: { original },
+    },
+  }) => (
+    <Button
+      type="button"
+      variant="info"
+      onClick={() => {
+        removeUser.push(original.id)
+        setRemoveUser([...removeUser])
+      }}
+    >
+      Remove
+    </Button>
+  )
+
+  const columns = [
+    { Header: 'Name', accessor: 'name' },
+    { Header: 'Email', accessor: 'email' },
+    { Header: 'Action', Cell: RemoveButton },
+  ]
 
   return (
     <ModalV2
@@ -145,7 +189,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
       </p>
       <Formik
         initialValues={{
-          userId: initMembers,
+          userId: [],
         }}
         onSubmit={onSubmit}
       >
@@ -153,13 +197,16 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
           return (
             <Form noValidate={true}>
               <Section hasPadding={false} hasMargin={false}>
+                <FadeIn>
+                  <Table expandable scrollable={true} data={tableData} columns={columns} maxHeight={400} />
+                </FadeIn>
                 <DropdownSelect
                   mode="multiple"
                   id={groupIds.name}
                   placeholder="Please select"
                   name={groupIds.name}
                   labelText={groupIds.label}
-                  options={UserGroupGroupOptions}
+                  options={userGroupGroupOptions}
                   filterOption={true}
                   optionFilterProp="children"
                 />

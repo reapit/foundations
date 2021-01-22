@@ -7,6 +7,31 @@ exports[`UsersPage should match a snapshot 1`] = `
   >
     Manage Users
   </Component>
+  <Component>
+    <Component
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "Users",
+            "onTabClick": [Function],
+            "tabIdentifier": "/users",
+          },
+          Object {
+            "active": false,
+            "displayText": "Groups",
+            "onTabClick": [Function],
+            "tabIdentifier": "/users/groups",
+          },
+        ]
+      }
+    />
+  </Component>
+  <Component
+    component={[Function]}
+    exact={true}
+    path="/users"
+  />
   <Component
     component={[Function]}
     exact={true}

@@ -6,6 +6,6 @@ export const genPlatformHeaders = async () => {
   if (!connectSession || (connectSession && !connectSession.accessToken)) throw new Error('User is not logged in')
   return {
     ...BASE_HEADERS,
-    Authorization: (connectSession && (connectSession?.accessToken as string)) ?? '',
+    Authorization: `Bearer ${connectSession && (connectSession?.accessToken as string)}` || '',
   }
 }
