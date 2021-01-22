@@ -21,6 +21,6 @@ jest.spyOn(reapitConnectBrowserSession, 'connectSession').mockImplementation(
 describe('genPlatformHeaders', () => {
   it('should correctly return', async () => {
     const res = await genPlatformHeaders()
-    expect(res).toEqual({ ...BASE_HEADERS, Authorization: 'accessToken' })
+    expect(res).toEqual({ ...BASE_HEADERS, Authorization: 'Bearer accessToken' })
   })
 })
