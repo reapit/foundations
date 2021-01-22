@@ -2,7 +2,7 @@ import AWS from 'aws-sdk'
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' })
 
-export const sendEmail = (to: string, subject: string, body: string, message: string, from?: string) => {
+export const sendEmail = async (to: string, subject: string, body: string, message: string, from?: string) => {
   console.log(from)
   const params = {
     Destination: {
@@ -31,6 +31,7 @@ export const sendEmail = (to: string, subject: string, body: string, message: st
   sendPromise
     .then(function(data) {
       console.log(data.MessageId)
+      return data
     })
     .catch(function(err) {
       console.error(err, err.stack)
