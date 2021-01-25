@@ -1,7 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import useSWR from 'swr'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useFormikContext } from 'formik'
-import debounce from 'just-debounce-it'
 import {
   Button,
   Section,
@@ -13,12 +11,15 @@ import {
   notification,
   SelectOption,
 } from '@reapit/elements'
-import { URLS } from '../../../constants/api'
 import { createOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
 import { validationSchema } from './validation-schema'
 import { formFields } from './form-fields'
+import { OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
 
 export interface CreateOfficeGroupModalProps {
   visible: boolean
@@ -45,7 +46,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   const { name, officeIds: listId } = params
   const officeIds = listId.toString()
   const createdOffice = await createOfficeGroup({ name, officeIds }, orgId)
-  if (!createdOffice) {
+  if (createdOffice) {
     notification.success({
       message: toastMessages.CREATE_OFFICE_GROUP_SUCCESS,
       placement: 'bottomRight',
@@ -56,7 +57,7 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   }
 
   notification.error({
-    message: createdOffice.description || toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
+    message: toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
     placement: 'bottomRight',
   })
 }
@@ -78,28 +79,28 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   orgId,
   onRefetchData,
 }) => {
+  const [searchString, setSearchString] = useState<string>('')
   const [selectedOffice, setSelectedOffice] = useState<SelectOptions>([])
   const [options, setOptions] = useState<SelectOptions>([])
-  const [searchString, setSearchString] = useState<string>('')
-  const handleOnClose = () => setOpenCreateGroupModal(false)
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearchString(value), 500),
+    [500],
+  )
+  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString ? null : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}`,
+  )
   const { name, officeIds } = formFields
 
+  const handleOnClose = () => setOpenCreateGroupModal(false)
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
-  const debounceMs = 500
 
-  const debouncedSearch = useCallback(
-    debounce((value: string) => setSearchString(value), debounceMs),
-    [debounceMs],
-  )
-
-  const { data }: any = useSWR(`${URLS.OFFICES}/${searchString ? `?name=${searchString}` : ''}`)
   useEffect(() => {
-    if (data) {
-      const { _embedded: listOffice } = data
-      const officeOptions = prepareOfficeOptions(listOffice)
+    if (offices) {
+      const { _embedded: listOffice } = offices
+      const officeOptions = prepareOfficeOptions(listOffice || [])
       setOptions([...selectedOffice, ...officeOptions])
     }
-  }, [data])
+  }, [offices])
 
   return (
     <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Create Office Group" zIndex={90}>

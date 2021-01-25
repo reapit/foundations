@@ -1,12 +1,26 @@
-import React from 'react'
-import useSWR from 'swr'
+import React, { useCallback, useEffect, useState } from 'react'
 import { FormFieldInfo } from '@reapit/utils'
 import { OfficeGroupModel } from '../../../types/organisations-schema'
-import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, notification, Checkbox } from '@reapit/elements'
-import { URLS } from '../../../constants/api'
+import {
+  Button,
+  Section,
+  ModalV2,
+  Formik,
+  Form,
+  Input,
+  DropdownSelect,
+  notification,
+  Checkbox,
+  SelectOption,
+} from '@reapit/elements'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
+import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
+import useSWR from 'swr'
+import { URLS } from '../../../constants/api'
+import qs from 'query-string'
 
 export interface UpdateOfficeGroupModalProps {
   editingGroup: OfficeGroupModel | undefined
@@ -22,6 +36,7 @@ interface UpdateOfficeGroupModel {
 }
 
 type FieldType = 'name' | 'officeIds' | 'status'
+type SelectOptions = SelectOption[]
 
 export const formFields: Record<FieldType, FormFieldInfo> = {
   name: {
@@ -30,7 +45,7 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
   officeIds: {
     name: 'officeIds',
-    label: 'Offices',
+    label: 'Offices (Type to search)',
   },
   status: {
     name: 'status',
@@ -48,7 +63,7 @@ export const onHandleSubmit = (
   const status = params.status ? 'active' : 'inactive'
   const updateOffice = await updateOfficeGroup({ name, officeIds, status }, orgId, editingGroup?.id || '')
 
-  if (!updateOffice) {
+  if (updateOffice) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
       placement: 'bottomRight',
@@ -59,7 +74,7 @@ export const onHandleSubmit = (
   }
 
   notification.error({
-    message: updateOffice.description || toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
+    message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
     placement: 'bottomRight',
   })
 }
@@ -70,15 +85,47 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
   orgId,
   onRefetchData,
 }) => {
-  const handleOnClose = () => setEditingGroup(undefined)
+  const [searchString, setSearchString] = useState<string>('')
+  const [initialOfficesSearch, setInitialOfficesSearch] = useState<string>('')
+  const [options, setOptions] = useState<SelectOptions>([])
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearchString(value), 500),
+    [500],
+  )
+  const { data: offices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !searchString
+      ? null
+      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&name=${searchString}&name=${searchString}`,
+  )
+
+  const { data: selectedOffices } = useSWR<OfficeModelPagedResult | undefined>(
+    !orgId || !initialOfficesSearch
+      ? null
+      : `${URLS.OFFICES}?pageSize=999&organisationId=${orgId}&${initialOfficesSearch}`,
+  )
+
   const { name, officeIds, status } = formFields
 
-  const { data }: any = useSWR(`${URLS.OFFICES}`)
-  if (!data) return null
-  const { _embedded: listOffice } = data
-  const officeOptions = prepareOfficeOptions(listOffice)
+  useEffect(() => {
+    if (editingGroup) {
+      const intitialOfficeIds = editingGroup?.officeIds
+        ? qs.stringify({ id: editingGroup?.officeIds?.split(',') }, { indices: false })
+        : ''
+      setInitialOfficesSearch(intitialOfficeIds)
+    }
+  }, [editingGroup])
+
+  useEffect(() => {
+    if (selectedOffices || offices) {
+      const combinedOffices: OfficeModel[] = [...(selectedOffices?._embedded ?? []), ...(offices?._embedded ?? [])]
+      const officeOptions = prepareOfficeOptions(combinedOffices || [])
+      setOptions([...officeOptions])
+    }
+  }, [offices, selectedOffices])
 
   if (!editingGroup) return null
+
+  const handleOnClose = () => setEditingGroup(undefined)
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   return (
@@ -114,7 +161,8 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                   placeholder="Please select"
                   name={officeIds.name}
                   labelText={officeIds.label}
-                  options={officeOptions}
+                  options={options}
+                  onSearch={(value: string) => debouncedSearch(value)}
                   filterOption={true}
                   optionFilterProp="children"
                 />

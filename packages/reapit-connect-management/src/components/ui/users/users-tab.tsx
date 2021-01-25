@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
@@ -17,8 +17,8 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { GLOSSARY_USER_ROLES_URL, URLS } from '../../../constants/api'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import EditUserModal from './edit-user'
+import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 
 export const onPageChangeHandler = (history: History<any>) => (page: number) => {
   const queryString = `?pageNumber=${page}`
@@ -29,23 +29,12 @@ const UsersTab: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const search = location.search
-  const onPageChange = React.useCallback(onPageChangeHandler(history), [history])
+  const onPageChange = useCallback(onPageChangeHandler(history), [history])
+  const [orgId, setOrgId] = useState<string | null>(null)
   const [editingUser, setEditingUser] = useState<UserModel>()
   const isDesktop = getMarketplaceGlobalsByKey()
 
-  const [orgId, setOrgId] = useState<string | null>(null)
-  useEffect(() => {
-    if (!orgId) {
-      getOrgId()
-    }
-  }, [])
-
-  const getOrgId = async () => {
-    const session = await reapitConnectBrowserSession.connectSession()
-    if (!session) throw new Error('No Reapit Connect Session is present')
-
-    setOrgId(session.loginIdentity.orgId)
-  }
+  useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
   const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
     orgId
@@ -97,7 +86,9 @@ const UsersTab: React.FC = () => {
         </i>
       </Section>
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
-      <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} />
+      {orgId && (
+        <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} orgId={orgId} />
+      )}
     </ErrorBoundary>
   )
 }

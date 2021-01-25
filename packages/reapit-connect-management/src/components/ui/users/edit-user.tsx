@@ -13,6 +13,7 @@ export interface UpdateUserModalProps {
   editingUser: UserModel | undefined
   setEditingUser: React.Dispatch<React.SetStateAction<UserModel | undefined>>
   onRefetchData: () => void
+  orgId: string
 }
 
 interface UpdateUserModel {
@@ -54,12 +55,19 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   })
 }
 
-export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({ editingUser, setEditingUser, onRefetchData }) => {
+export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
+  editingUser,
+  setEditingUser,
+  onRefetchData,
+  orgId,
+}) => {
   const handleOnClose = () => setEditingUser(undefined)
   const { name, groupIds } = formFields
 
   const groupIdQuery = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
-  const { data } = useSWR<GroupModelPagedResult | undefined>(`${URLS.USERS_GROUPS}/?${groupIdQuery}&pageSize=999`)
+  const { data } = useSWR<GroupModelPagedResult | undefined>(
+    `${URLS.USERS_GROUPS}?${groupIdQuery}&pageSize=999&organisationId=${orgId}`,
+  )
 
   const onSubmit = useCallback(onHandleSubmit(handleOnClose, onRefetchData, editingUser), [editingUser])
 

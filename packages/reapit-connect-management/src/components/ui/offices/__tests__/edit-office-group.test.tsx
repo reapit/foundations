@@ -3,7 +3,6 @@ import { fetcher } from '@reapit/elements'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import EditOfficeGroupModal, { UpdateOfficeGroupModalProps, onHandleSubmit } from '../edit-office-group'
-import { data } from '../__stubs__/office-groups'
 
 jest.mock('@reapit/elements')
 jest.mock('../../../../core/connect-session')
@@ -17,12 +16,6 @@ const filterProps = (): UpdateOfficeGroupModalProps => ({
 })
 
 jest.mock('../../../../core/connect-session')
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data,
-    mutate: jest.fn,
-  })),
-)
 
 const mockResponse = 'success'
 
@@ -42,7 +35,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, editingGroup, orgId)
 
   it('should return a function when executing', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds, status: true })
 
@@ -50,7 +43,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should return a function when executing', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds, status: true })
 

@@ -36,7 +36,9 @@ const columns = [
 describe('OfficeGroupsContent', () => {
   const onPageChange = jest.fn()
   it('should match a snapshot', () => {
-    expect(shallow(<OfficeGroupsContent data={data} columns={columns} onPageChange={onPageChange} />)).toMatchSnapshot()
+    expect(
+      shallow(<OfficeGroupsContent officeGroups={data} columns={columns} onPageChange={onPageChange} />),
+    ).toMatchSnapshot()
   })
 })
 

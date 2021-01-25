@@ -29,6 +29,7 @@ export interface UpdateUserGroupModalProps {
   editingUserGroup: GroupModel | undefined
   setEditingUserGroup: React.Dispatch<React.SetStateAction<GroupModel | undefined>>
   onRefetchData: () => void
+  orgId: string
 }
 
 interface UpdateUserGroupModel {
@@ -118,6 +119,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   editingUserGroup,
   setEditingUserGroup,
   onRefetchData,
+  orgId,
 }) => {
   const [removeUser, setRemoveUser] = useState<string[]>([])
   const id = editingUserGroup?.id
@@ -127,10 +129,10 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   }
   const { groupIds } = formFields
 
-  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}`)
+  const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
 
   const { data: groupMembers, mutate } = useSWR<GroupMembershipModelPagedResult | undefined>(
-    id ? `${URLS.USERS_GROUPS}/${id}/members` : null,
+    id ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999` : null,
   )
 
   if (!editingUserGroup) return null

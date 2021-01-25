@@ -7,8 +7,6 @@ import CreateOfficeGroupModal, {
   onHandleSubmit,
   FormChangeEffect,
 } from '../create-office-group'
-import { data } from '../__stubs__/offices'
-import { prepareOfficeOptions } from '../../../../utils/prepare-options'
 
 const filterProps = (): CreateOfficeGroupModalProps => ({
   visible: true,
@@ -22,11 +20,6 @@ jest.mock('../../../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
 
-jest.mock('swr', () =>
-  jest.fn(() => ({
-    data,
-  })),
-)
 jest.mock('../../../../utils/prepare-options')
 
 jest.mock('formik', () => ({
@@ -36,14 +29,6 @@ jest.mock('formik', () => ({
 describe('CreateOfficeGroupModal', () => {
   it('should match a snapshot', () => {
     expect(shallow(<CreateOfficeGroupModal {...filterProps()} />)).toMatchSnapshot()
-  })
-  it('useEffect', () => {
-    const Comp = () => {
-      CreateOfficeGroupModal({ ...filterProps() })
-      return <div />
-    }
-    mount(<Comp />)
-    expect(prepareOfficeOptions).toHaveBeenCalled()
   })
 })
 
@@ -56,7 +41,7 @@ describe('onHandleSubmit', () => {
   const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, orgId)
 
   it('should show notification error', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+    mockedFetch.mockReturnValueOnce(undefined)
     jest.spyOn(notification, 'error')
     await onSubmit({ name, officeIds })
 
@@ -64,7 +49,7 @@ describe('onHandleSubmit', () => {
   })
 
   it('should show notification success', async () => {
-    mockedFetch.mockReturnValueOnce(undefined)
+    mockedFetch.mockReturnValueOnce(mockResponse)
     jest.spyOn(notification, 'success')
     await onSubmit({ name, officeIds })
 

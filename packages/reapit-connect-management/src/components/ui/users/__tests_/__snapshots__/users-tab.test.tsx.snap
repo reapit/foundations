@@ -143,9 +143,5 @@ exports[`UsersTab should match a snapshot 1`] = `
     }
     onPageChange={[Function]}
   />
-  <Component
-    onRefetchData={[Function]}
-    setEditingUser={[Function]}
-  />
 </ErrorBoundary>
 `;

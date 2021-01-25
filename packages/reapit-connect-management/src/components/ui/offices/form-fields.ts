@@ -9,6 +9,6 @@ export const formFields: Record<FieldType, FormFieldInfo> = {
   },
   officeIds: {
     name: 'officeIds',
-    label: 'Offices',
+    label: 'Offices (Type to search)',
   },
 }

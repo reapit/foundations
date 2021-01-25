@@ -9,6 +9,7 @@ const filterProps = (): UpdateUserGroupModalProps => ({
   editingUserGroup: { id: 'Group Name', description: 'Group description' },
   setEditingUserGroup: jest.fn,
   onRefetchData: jest.fn,
+  orgId: 'SOME_ID',
 })
 
 jest.mock('../../../../core/connect-session')

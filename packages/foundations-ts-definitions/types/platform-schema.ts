@@ -1246,6 +1246,10 @@ export interface AppointmentModel {
    */
   accompanied?: boolean
   /**
+   * A flag denoting whether or not the appointment is virtual
+   */
+  virtual?: boolean
+  /**
    * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
   negotiatorConfirmed?: boolean
@@ -1422,6 +1426,10 @@ export interface AppointmentModelPagedResult {
      * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
      */
     accompanied?: boolean
+    /**
+     * A flag denoting whether or not the appointment is virtual
+     */
+    virtual?: boolean
     /**
      * A flag denoting whether or not the main negotiator has confirmed their attendance
      */
@@ -3534,6 +3542,10 @@ export interface CreateAppointmentModel {
    * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
+  /**
+   * A flag denoting whether or not the appointment is virtual
+   */
+  virtual?: boolean
   /**
    * Details of an appointment's recurrence pattern
    */
@@ -10880,6 +10892,10 @@ export interface UpdateAppointmentModel {
    * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
+  /**
+   * A flag denoting whether or not the appointment is virtual
+   */
+  virtual?: boolean
   /**
    * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
