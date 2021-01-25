@@ -21,6 +21,7 @@
     "check:fix": "eslint --cache --ext=js src --fix"
   },
   "dependencies": {
+    "ansi-styles": "^5.1.0",
     "aws-sdk": "^2.582.0",
     "chalk": "^4.1.0",
     "change-case": "^4.1.1",
