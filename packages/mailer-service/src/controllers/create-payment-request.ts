@@ -1,14 +1,32 @@
-import { Response } from 'express'
+import { NextFunction, Response } from 'express'
 import { sendEmail } from '../core/ses-client'
 import { AppRequest } from '@reapit/node-utils'
-import ejs from 'ejs'
-import { ClientConfig, EmailPaymentRequest, EmailPaymentRequestTemplate } from '../types/payments'
-import config from '../../config.json'
+import { ClientConfig, EmailPaymentRequest } from '../types/payments'
+import configJson from '../../config.json'
+import { createPaymentRequestTemplate } from '../core/templates'
 
-export const createPaymentRequestTemplate = async (data: EmailPaymentRequestTemplate) =>
-  ejs.renderFile(`${__dirname}/templates/create-payment-request.ejs`, data)
+export const getValuesFromConfig = (clientCode: string, config = configJson) => {
+  try {
+    const {
+      paymentRequest: { senderEmail, companyName, logoUri },
+    }: ClientConfig = config.clients[clientCode]
 
-export const createPaymentRequest = async (req: AppRequest, res: Response) => {
+    return { senderEmail, companyName, logoUri }
+  } catch (err) {
+    return {
+      senderEmail: null,
+      companyName: null,
+      logoUri: null,
+    }
+  }
+}
+
+export const createPaymentRequest = async (
+  req: AppRequest,
+  res: Response,
+  _next: NextFunction,
+  config = configJson,
+) => {
   try {
     const {
       receipientEmail,
@@ -22,9 +40,7 @@ export const createPaymentRequest = async (req: AppRequest, res: Response) => {
     const clientCode: string | undefined = req.headers['reapit-customer']
     const apiVersion: string | undefined = req.headers['api-version']
     const { paymentId } = req.params
-    const {
-      paymentRequest: { senderEmail, companyName, logoUri },
-    }: ClientConfig = config.clients[clientCode]
+    const { senderEmail, companyName, logoUri } = getValuesFromConfig(clientCode, config)
 
     if (!paymentExpiry || !recipientName || !receipientEmail || !paymentReason || !paymentCurrency || !paymentAmount)
       throw new Error(
@@ -33,7 +49,8 @@ export const createPaymentRequest = async (req: AppRequest, res: Response) => {
     if (!clientCode || !apiKey || !apiVersion)
       throw new Error('reapit-customer, api-version and x-api-key are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
-    if (!senderEmail || !companyName || !logoUri) throw new Error('no client config was present in the service')
+    if (!senderEmail || !companyName || !logoUri)
+      throw new Error('senderEmail, companyName and logoUri are required in config')
 
     const template = await createPaymentRequestTemplate({
       senderEmail,
@@ -47,13 +64,14 @@ export const createPaymentRequest = async (req: AppRequest, res: Response) => {
     })
 
     const mail = await sendEmail(receipientEmail, `Payment Request from ${companyName}`, template, senderEmail)
+
     if (mail) {
-      return res.status(200).end()
+      res.status(200)
+      res.end()
     }
 
     throw new Error('Email failed to send')
   } catch (err) {
-    console.error('Error is ', err.message)
     res.status(400)
     res.send({ errors: err.message })
   }

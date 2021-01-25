@@ -23,29 +23,11 @@ export const sendEmail = async (to: string, subject: string, template: string, f
     Source: from,
   }
 
-  const sendPromise = await ses.sendEmail(params).promise()
+  const sentMail = await ses.sendEmail(params).promise()
 
-  console.log('MessageId is', sendPromise)
-  if (sendPromise) {
-    return true
+  if (sentMail) {
+    return sentMail.MessageId
   }
 
-  return false
-
-  // sendPromise
-  //   .then(function(data) {
-  //     console.log(data.MessageId)
-  //     return data
-  //   })
-  //   .catch(function(err) {
-  //     console.error(err, err.stack)
-  //   })
-
-  // ses.sendEmail(params, (err, data) => {
-  // if (err) {
-  // return console.log(err, err.stack)
-  // } else {
-  // console.log('Email sent.', data)
-  // }
-  // })
+  throw new Error('Email failed to send')
 }
