@@ -10,7 +10,8 @@
     "noImplicitAny": false,
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "outDir": "node_modules/dist",
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"],
     "paths": {
@@ -21,7 +22,7 @@
   "include": ["./src/**/*"],
   "exclude": [
     "./public",
-    "./dist",
+    "node_modules/dist",
     "./node_modules",
     "./src/tests/coverage",
     "./src/**/*.test.ts",

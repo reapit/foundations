@@ -1,18 +1,13 @@
 <article style="font-family: Arial, Helvetica, sans-serif;margin:0px;background-color:white;line-height: 1.5rem;">
-  <img style="width: 100%;" src="https://reapit-s3-policy-test.s3.eu-west-2.amazonaws.com/public/image-20191122-114228.png" />
-  <h1 style="text-align: center;font-size: 34px; font-style: normal;">Welcome to Reapit Connect</h1>
+  <img style="width: 100%;" src=<%= logoUri %> />
+  <h1 style="text-align: center;font-size: 34px; font-style: normal;">Payment Request from <%= companyName %> </h1>
   <div style="padding:0 20px 20px 50px;">
-    <p>Hi <%= userName %>,</p>
-    <br />
-    <p>Welcome to Reapit Connect.</p>
-    <p>Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd.</p>
-    <p>Please see below your username and verification code. When you click the verification link, you will be re-directed to a screen where you will be asked to change your password.</p>
-    <div style="text-align: center;">
-      <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=<%= `${url}?userName=${userName}&verificationCode={####}` %>>VERIFY ACCOUNT</a>
-    </div>
-    <p>Once your account has been verified, you will be redirected to the login page.</p>
-    <br />
-    <p>Best Regards,</p>
-    <p>Reapit Team</p>
+    <p>Dear <%= recipientName %>,</p>
+    <p>You have been requested to make a payment of <%= paymentAmount %> for the below reason by <%= companyName %>.</p>
+    <p><%= paymentReason %></p>
+    <p><a href=<%= url %>>Click here</a> to make this payment. You will be redirected to our payment provider Reapit Ltd. Reapit Payments are powered by Opayo (Sage Pay) for your convenience and security.</p>
+    <p>This payment request is valid until <%= paymentExpiry %>. On completion of the payment, our records will be updated accordingly.</p>
+    <p>Best regards,</p>
+    <p><%= companyName %></p>
   </div>
 </article>

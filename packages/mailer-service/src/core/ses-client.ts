@@ -2,8 +2,7 @@ import AWS from 'aws-sdk'
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' })
 
-export const sendEmail = async (to: string, subject: string, template: string, from?: string) => {
-  console.log(from)
+export const sendEmail = async (to: string, subject: string, template: string, from: string) => {
   const params = {
     Destination: {
       ToAddresses: [to],
@@ -20,22 +19,27 @@ export const sendEmail = async (to: string, subject: string, template: string, f
         Data: subject,
       },
     },
-    ReturnPath: 'wmcvay@reapit.com',
-    Source: 'wmcvay@reapit.com',
-    // ReturnPath: from ? from : process.env.CLIENTS['SBOX']['PAYMENT_REQUEST']['FROM'],
-    // Source: from ? from : process.env.CLIENTS['SBOX']['PAYMENT_REQUEST']['FROM'],
+    ReturnPath: from,
+    Source: from,
   }
 
-  const sendPromise = ses.sendEmail(params).promise()
+  const sendPromise = await ses.sendEmail(params).promise()
 
-  sendPromise
-    .then(function(data) {
-      console.log(data.MessageId)
-      return data
-    })
-    .catch(function(err) {
-      console.error(err, err.stack)
-    })
+  console.log('MessageId is', sendPromise)
+  if (sendPromise) {
+    return true
+  }
+
+  return false
+
+  // sendPromise
+  //   .then(function(data) {
+  //     console.log(data.MessageId)
+  //     return data
+  //   })
+  //   .catch(function(err) {
+  //     console.error(err, err.stack)
+  //   })
 
   // ses.sendEmail(params, (err, data) => {
   // if (err) {

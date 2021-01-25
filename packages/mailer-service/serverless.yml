@@ -31,6 +31,8 @@ provider:
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
     AWS_REGION: ${self:custom.env.AWS_REGION}
     CLIENTS: ${self:custom.env.CLIENTS}
+    PAYMENTS_APP_URI: ${self:custom.env.PAYMENTS_APP_URI}
+    PAYMENTS_SERVICE_URI: ${self:custom.env.PAYMENTS_SERVICE_URI}
 
 package:
   individually: true

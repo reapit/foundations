@@ -3,6 +3,7 @@ const slsw = require('serverless-webpack')
 const { ContextReplacementPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('../../scripts/webpack/constants')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -21,6 +22,7 @@ module.exports = {
   },
   plugins: [
     new ContextReplacementPlugin(/express|encoding/),
+    new CopyPlugin([{ from: './src/templates/**/*', to: './' }]),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
