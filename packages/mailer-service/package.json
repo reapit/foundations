@@ -36,7 +36,6 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@reapit/config-manager": "^2.0.8",
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.7",
     "@types/ejs": "^3.0.5",
