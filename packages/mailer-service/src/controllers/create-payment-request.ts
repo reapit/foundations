@@ -4,6 +4,7 @@ import { AppRequest } from '@reapit/node-utils'
 import { ClientConfig, EmailPaymentRequest } from '../types/payments'
 import configJson from '../../config.json'
 import { createPaymentRequestTemplate } from '../core/templates'
+import logger from '../../../payments-service/src/core/logger'
 
 export const getValuesFromConfig = (clientCode: string, config = configJson) => {
   try {
@@ -36,6 +37,7 @@ export const createPaymentRequest = async (
       paymentAmount,
       paymentExpiry,
     }: EmailPaymentRequest = req.body
+    const { traceId } = req
     const apiKey: string | undefined = req.headers['x-api-key']
     const clientCode: string | undefined = req.headers['reapit-customer']
     const apiVersion: string | undefined = req.headers['api-version']
@@ -52,6 +54,8 @@ export const createPaymentRequest = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
+    logger.info('Email successfully validated', { traceId })
+
     const template = await createPaymentRequestTemplate({
       senderEmail,
       companyName,
@@ -63,15 +67,19 @@ export const createPaymentRequest = async (
       paymentAmount: `${paymentCurrency} ${paymentAmount}`,
     })
 
+    logger.info('Template successfully created', { traceId })
+
     const mail = await sendEmail(receipientEmail, `Payment Request from ${companyName}`, template, senderEmail)
 
     if (mail) {
+      logger.info('Email successfully sent', { traceId })
       res.status(200)
-      res.end()
+      return res.end()
     }
 
     throw new Error('Email failed to send')
   } catch (err) {
+    logger.error('Email successfully sent', { traceId: req.traceId, error: err })
     res.status(400)
     res.send({ errors: err.message })
   }

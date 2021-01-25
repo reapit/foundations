@@ -29,10 +29,14 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
-    AWS_REGION: ${self:custom.env.AWS_REGION}
     CLIENTS: ${self:custom.env.CLIENTS}
     PAYMENTS_APP_URI: ${self:custom.env.PAYMENTS_APP_URI}
     PAYMENTS_SERVICE_URI: ${self:custom.env.PAYMENTS_SERVICE_URI}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+      Resource: 'arn:aws:ses:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:*'
 
 package:
   individually: true
