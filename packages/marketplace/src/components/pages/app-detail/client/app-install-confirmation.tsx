@@ -12,7 +12,13 @@ import { Dispatch } from 'redux'
 import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallAppState } from '@/selector/installations'
-import { selectClientId, selectIsFoundationsAdmin, selectIsOffGrouping, selectIsOrgAdmin } from '@/selector/auth'
+import {
+  selectClientId,
+  selectIsFoundationsAdmin,
+  selectIsOffGrouping,
+  selectIsOrgAdmin,
+  selectOffGroupName,
+} from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -36,6 +42,7 @@ export interface InstallForGroupHeadingProps {
   isOrgAdmin: boolean
   isFoundationsAdmin: boolean
   isOffGrouping: boolean
+  offGroupName: string
 }
 
 export const handleInstallAppSuccessCallback = (
@@ -196,6 +203,7 @@ export const InstallForGroupHeading: React.FC<InstallForGroupHeadingProps> = ({
   isOrgAdmin,
   isFoundationsAdmin,
   isOffGrouping,
+  offGroupName,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const orgClientId = clientId.split('-')[0]
@@ -231,7 +239,7 @@ export const InstallForGroupHeading: React.FC<InstallForGroupHeadingProps> = ({
         </label>
       </div>
     </>
-  ) : isOffGrouping && isFoundationsAdmin ? (
+  ) : offGroupName && isFoundationsAdmin ? (
     <p>
       You are about to install ‘{name}’ for your Office Group {connectSession?.loginIdentity.offGroupName}
     </p>
@@ -254,6 +262,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const isOrgAdmin = selectIsOrgAdmin(connectSession)
   const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
   const isOffGrouping = selectIsOffGrouping(connectSession)
+  const offGroupName = selectOffGroupName(connectSession)
   const [clientIdToInstall, setClientIdToInstall] = React.useState(clientId)
   const installationFormState = useSelector(selectInstallAppState)
   const isLoading = installationFormState?.isLoading
@@ -327,6 +336,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             isOrgAdmin={isOrgAdmin}
             isFoundationsAdmin={isFoundationsAdmin}
             isOffGrouping={isOffGrouping}
+            offGroupName={offGroupName}
           />
           {userDesktopIntegrationTypes.length ? (
             <>

@@ -9,6 +9,7 @@ import {
   selectLoggedUserCompanyName,
   selectIsUser,
   selectIsOffGrouping,
+  selectOffGroupName,
 } from '../auth'
 import { auth } from '../__mocks__/auth'
 
@@ -45,6 +46,16 @@ describe('auth', () => {
   describe('selectIsOffGrouping', () => {
     it('should return correctly', () => {
       expect(selectIsOffGrouping({ ...auth, loginIdentity: { ...auth.loginIdentity, offGrouping: true } })).toBeTruthy()
+    })
+
+    it('should return correctly', () => {
+      expect(selectIsOffGrouping({ ...auth, loginIdentity: { ...auth.loginIdentity, offGrouping: false } })).toBeFalsy()
+    })
+  })
+
+  describe('selectOffGroupName', () => {
+    it('should return correctly', () => {
+      expect(selectOffGroupName({ ...auth, loginIdentity: { ...auth.loginIdentity } })).toEqual('Cool Office Group')
     })
 
     it('should return correctly', () => {

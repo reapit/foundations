@@ -12,11 +12,7 @@ exports[`ClientAppInstallConfirmation InstallForGroupHeading should match a snap
 <p>
   You are about to install ‘
   App Name
-  ’ for 
-  <b>
-    all
-  </b>
-   Users and Offices within your Organisation.
+  ’ for your Office Group 
 </p>
 `;
 
@@ -569,6 +565,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           isOffGrouping={false}
                                           isOrgAdmin={false}
                                           name="Peter's Properties"
+                                          offGroupName=""
                                           setClientIdToInstall={[Function]}
                                         >
                                           <p>

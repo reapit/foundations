@@ -36,6 +36,12 @@ export const selectIsOffGrouping = (state: ReapitConnectSession | null): boolean
   return Boolean(loginIdentity?.offGrouping)
 }
 
+export const selectOffGroupName = (state: ReapitConnectSession | null): string => {
+  const loginIdentity = selectLoginIdentity(state)
+
+  return loginIdentity?.offGroupName || ''
+}
+
 export const selectIsUser = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
 
