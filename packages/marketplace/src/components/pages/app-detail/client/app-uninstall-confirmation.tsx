@@ -11,7 +11,7 @@ import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectUninstallAppState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectClientId, selectIsFoundationsAdmin, selectIsOffGrouping } from '@/selector/auth'
+import { selectClientId, selectIsFoundationsAdmin, selectOffGroupName } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -188,7 +188,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectUninstallAppState)
   const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
-  const isOffGrouping = selectIsOffGrouping(connectSession)
+  const offGroupName = selectOffGroupName(connectSession)
   const isSubmitting = installationFormState?.isLoading
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -213,7 +213,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           connectIsDesktop,
         )}
       >
-        {isOffGrouping && isFoundationsAdmin ? (
+        {offGroupName && isFoundationsAdmin ? (
           <>
             Are you sure you wish to uninstall {name}? This action will uninstall the app for your group ‘
             {connectSession?.loginIdentity.offGroupName}’
