@@ -61,7 +61,7 @@ export const createPaymentRequest = async (
       companyName,
       logoUri,
       paymentReason,
-      url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}`,
+      url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}&clientCode=${clientCode}`,
       recipientName,
       paymentExpiry: new Date(paymentExpiry).toLocaleDateString(),
       paymentAmount: `${paymentCurrency} ${paymentAmount}`,

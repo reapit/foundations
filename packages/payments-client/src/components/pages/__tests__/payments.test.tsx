@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { History } from 'history'
 import Routes from '@/constants/routes'
-import Payments, { onPageChangeHandler, onSearchHandler } from '../../payments'
+import Payments, { onPageChangeHandler, onSearchHandler } from '../payments'
 
 const locationMock = { search: '', pathname: '/test' }
 jest.mock('react-router', () => ({

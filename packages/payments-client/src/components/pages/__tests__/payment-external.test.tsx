@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
-import PaymentSessionPage from '../payment-session'
+import PaymentExternalPage from '../payment-external'
 import { dataSession } from '../../ui/__stubs__/payment'
 
 jest.mock('@reapit/elements')
@@ -31,6 +31,6 @@ jest.spyOn(notification, 'error')
 
 describe('Payment', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<PaymentSessionPage />)).toMatchSnapshot()
+    expect(shallow(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
   })
 })

@@ -1,25 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentsFilterForm should match a snapshot 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "createdFrom": "createdFrom",
-      "createdTo": "createdTo",
-      "customers": "customers",
-      "description": "description",
-      "properties": "properties",
-      "status": Array [
-        "status",
-      ],
-      "type": Array [
-        "type1",
-        "type2",
-      ],
+<Component>
+  <Component>
+    Filter Dashboard
+  </Component>
+  <Formik
+    initialValues={
+      Object {
+        "createdFrom": "createdFrom",
+        "createdTo": "createdTo",
+        "description": "description",
+        "properties": "properties",
+        "status": Array [
+          "status",
+        ],
+        "type": Array [
+          "type1",
+          "type2",
+        ],
+      }
     }
-  }
-  onSubmit={[MockFunction]}
->
-  <Component />
-</Formik>
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
+</Component>
 `;

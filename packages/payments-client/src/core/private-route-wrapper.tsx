@@ -31,10 +31,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (
     window['__REAPIT_MARKETPLACE_GLOBALS__'] &&
-    window['__REAPIT_MARKETPLACE_GLOBALS__'].prpCode &&
-    window.location.pathname !== Routes.RENTALS
+    window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode &&
+    window.location.pathname !== `${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`
   ) {
-    return <Redirect to={Routes.RENTALS} />
+    return <Redirect to={`${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`} />
   }
 
   if (window.location.pathname === '/') {

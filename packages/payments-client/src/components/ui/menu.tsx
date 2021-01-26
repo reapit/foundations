@@ -33,7 +33,7 @@ export const generateMenuConfig = (
         title: 'Payments',
         key: 'PAYMENTS',
         icon: <FaPoundSign className="nav-item-icon" />,
-        url: Routes.PAYMENT,
+        url: Routes.PAYMENTS,
         type: 'PRIMARY',
       },
       {

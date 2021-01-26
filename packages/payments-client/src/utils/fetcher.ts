@@ -1,7 +1,7 @@
 import { fetcher } from '@reapit/elements'
 import { genPlatformHeaders } from '../utils/headers'
 
-export const paymentFetcher = async (path: string) =>
+export const platformFetcher = async (path: string) =>
   fetcher({
     api: window.reapit.config.platformApiUrl,
     url: path,
@@ -9,13 +9,13 @@ export const paymentFetcher = async (path: string) =>
     headers: await genPlatformHeaders(),
   })
 
-export const localFetcher = async (path: string, session: string) =>
+export const sessionFetcher = async (path: string, session: string, clientCode: string) =>
   fetcher({
     api: window.reapit.config.paymentApiUrl,
     url: path,
     method: 'GET',
     headers: {
-      'reapit-customer': 'SBOX',
+      'reapit-customer': clientCode,
       'x-api-key': session,
       'api-version': '2020-01-31',
     },

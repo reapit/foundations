@@ -4,24 +4,22 @@ import {
   Button,
   Grid,
   GridItem,
-  FormSection,
-  FormHeading,
-  FormSubHeading,
   Formik,
   Form,
   DropdownSelect,
   Input,
   DatePicker,
   DATE_TIME_FORMAT,
+  H5,
+  Section,
 } from '@reapit/elements'
 import { formFields } from './form-schema/payment-filter-fields'
 import { columnRelative, searchBtn } from '../../../styles/ui/payment-filter-form'
-import { statusOptions, typeOptions } from '../../../constants/filterOption'
+import { statusOptions, typeOptions } from '../../../constants/filter-options'
 
 export interface PaymentsFilterFormValues {
   createdFrom?: string
   createdTo?: string
-  customers?: string
   properties?: string
   description?: string
   type?: string[]
@@ -34,18 +32,28 @@ export interface PaymentsFormProps {
 }
 
 const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearch }) => {
-  const { customers, properties, description } = formFields
+  const { properties, description } = formFields
   return (
-    <Formik initialValues={filterValues} onSubmit={onSearch}>
-      {({ values: { createdFrom } }) => {
-        return (
-          <Form noValidate={true}>
-            <FormSection>
-              <FormHeading>Payments Filter Form</FormHeading>
-              <FormSubHeading>Filter the result by:</FormSubHeading>
+    <Section>
+      <H5>Filter Dashboard</H5>
+      <Formik
+        initialValues={filterValues}
+        onSubmit={values => {
+          const { createdFrom, createdTo } = values
+          const fomattedCreatedFrom = createdFrom ? dayjs(createdFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD) : createdFrom
+          const fomattedCreatedTo = createdTo ? dayjs(createdTo).format(DATE_TIME_FORMAT.YYYY_MM_DD) : createdTo
+          return onSearch({
+            ...values,
+            createdFrom: fomattedCreatedFrom,
+            createdTo: fomattedCreatedTo,
+          })
+        }}
+      >
+        {({ values: { createdFrom } }) => {
+          return (
+            <Form noValidate={true}>
               <Grid>
                 <GridItem>
-                  <Input type="text" labelText={customers.label} id={customers.name} name={customers.name} />
                   <Input type="text" labelText={properties.label} id={properties.name} name={properties.name} />
                   <Input type="text" labelText={description.label} id={description.name} name={description.name} />
                 </GridItem>
@@ -68,30 +76,12 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                   />
                 </GridItem>
                 <GridItem>
-                  <DropdownSelect
-                    mode="multiple"
-                    id="customer"
-                    placeholder="Please select"
-                    name="customer"
-                    labelText="Customer"
-                    options={[]}
-                  />
-                  <DropdownSelect
-                    mode="multiple"
-                    id="clientAccount"
-                    placeholder="Please select"
-                    name="clientAccount"
-                    labelText="Client Account"
-                    options={[]}
-                  />
-                </GridItem>
-                <GridItem>
                   <DatePicker
                     name="createdFrom"
                     labelText="Created From"
                     id="createdFrom"
                     reactDatePickerProps={{
-                      maxDate: dayjs().toDate(),
+                      maxDate: new Date(),
                     }}
                   />
                 </GridItem>
@@ -101,8 +91,8 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                     labelText="Created To"
                     id="createdTo"
                     reactDatePickerProps={{
-                      minDate: dayjs(createdFrom).format(DATE_TIME_FORMAT.RFC3339),
-                      maxDate: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+                      minDate: new Date(createdFrom ?? ''),
+                      maxDate: new Date(),
                     }}
                   />
                   <Button type="submit" variant="primary" className={searchBtn}>
@@ -110,11 +100,11 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                   </Button>
                 </GridItem>
               </Grid>
-            </FormSection>
-          </Form>
-        )
-      }}
-    </Formik>
+            </Form>
+          )
+        }}
+      </Formik>
+    </Section>
   )
 }
 

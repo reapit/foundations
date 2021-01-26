@@ -16,6 +16,7 @@ export type Config = {
   graphqlUri: string
   marketplaceUrl: string
   paymentsApiUrl: string
+  emailApiUrl: string
   opayo: { [key: string]: OpayoKeys }
 }
 

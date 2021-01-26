@@ -10,19 +10,7 @@ export const genPlatformHeaders = async () => {
   }
 }
 
-export const genPaymentsHeaders = async () => {
-  const connectSession = await reapitConnectBrowserSession.connectSession()
-  if (!connectSession) throw new Error('User is not logged in')
-  const opayoKeys = window.reapit.config.opayo[connectSession.loginIdentity.clientId as string]
-  const keys = `${opayoKeys.integrationKey}:${opayoKeys.passKey}`
-  const encoded = btoa(keys)
-  return {
-    ...PAYMENTS_HEADERS,
-    Authorization: `Basic ${encoded}`,
-  }
-}
-
-export const genPaymentsHeadersSession = (clientCode: string) => {
+export const genPaymentsHeaders = (clientCode: string) => {
   const opayoKeys = window.reapit.config.opayo[clientCode]
   const keys = `${opayoKeys.integrationKey}:${opayoKeys.passKey}`
   const encoded = btoa(keys)

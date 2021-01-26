@@ -11,9 +11,9 @@ import {
   unformatCardExpires,
   notification,
 } from '@reapit/elements'
-import { opayoCreateTransactionServiceSession } from '../../../opayo-api/transactions'
+import { opayoCreateTransactionService } from '../../../opayo-api/transactions'
 import { MerchantKey } from '../../../opayo-api/merchant-key'
-import { PaymentSessionModel } from '../../pages/payment-session'
+import { PaymentWithPropertyModel } from '../../pages/payment-external'
 import {
   updatePaymentStatus,
   updatePaymentSessionStatus,
@@ -63,7 +63,7 @@ export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatu
 
 export const handleCreateTransaction = (
   merchantKey: MerchantKey,
-  data: PaymentSessionModel,
+  data: PaymentWithPropertyModel,
   cardDetails: CardDetails,
   paymentId: string,
   session?: string,
@@ -71,7 +71,7 @@ export const handleCreateTransaction = (
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
   const { amount, description, clientCode, externalReference = '', _eTag = '' } = data
   if (result.success) {
-    await opayoCreateTransactionServiceSession(clientCode || 'SBOX', {
+    await opayoCreateTransactionService(clientCode || 'SBOX', {
       transactionType: 'Payment',
       paymentMethod: {
         card: {
@@ -103,7 +103,7 @@ export const handleCreateTransaction = (
 
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
-  data: PaymentSessionModel,
+  data: PaymentWithPropertyModel,
   paymentId: string,
   session?: string,
 ) => (cardDetails: CardDetails) => {
@@ -124,7 +124,7 @@ export const onHandleSubmit = (
 }
 
 const PaymentForm: React.FC<{
-  data: PaymentSessionModel
+  data: PaymentWithPropertyModel
   merchantKey: MerchantKey
   paymentId: string
   session?: string
