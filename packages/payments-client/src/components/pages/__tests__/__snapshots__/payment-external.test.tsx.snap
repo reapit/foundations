@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Payment should match a snapshot 1`] = `
+<mockConstructor
+  variant="info"
+>
+  There seems to be a problem with account with the payment provider. Please inform your agent of this issue and they will provide you with payment alternatives.
+</mockConstructor>
+`;

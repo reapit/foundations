@@ -5,14 +5,13 @@ exports[`Payments  should match a snapshot 1`] = `
   <Component
     isHeadingSection={true}
   >
-    Payments
+    Payments Dashboard
   </Component>
   <PaymentsFilterForm
     filterValues={
       Object {
         "createdFrom": "",
         "createdTo": "",
-        "customers": "",
         "description": "",
         "properties": "",
         "status": Array [],
@@ -23,8 +22,8 @@ exports[`Payments  should match a snapshot 1`] = `
   />
   <Component />
   <Component
-    isShowConfirmModal={false}
-    setRequestPaymentId={[Function]}
+    payment={null}
+    setSelectedPayment={[Function]}
   />
 </ErrorBoundary>
 `;
