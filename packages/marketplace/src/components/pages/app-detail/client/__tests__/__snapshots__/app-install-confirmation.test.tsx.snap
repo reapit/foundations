@@ -562,7 +562,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           clientId="SBOX"
                                           clientIdToInstall="SBOX"
                                           isFoundationsAdmin={false}
-                                          isOffGrouping={false}
                                           isOrgAdmin={false}
                                           name="Peter's Properties"
                                           offGroupName=""

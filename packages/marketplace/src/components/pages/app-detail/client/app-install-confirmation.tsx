@@ -12,13 +12,7 @@ import { Dispatch } from 'redux'
 import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallAppState } from '@/selector/installations'
-import {
-  selectClientId,
-  selectIsFoundationsAdmin,
-  selectIsOffGrouping,
-  selectIsOrgAdmin,
-  selectOffGroupName,
-} from '@/selector/auth'
+import { selectClientId, selectIsFoundationsAdmin, selectIsOrgAdmin, selectOffGroupName } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -41,7 +35,6 @@ export interface InstallForGroupHeadingProps {
   clientIdToInstall: string
   isOrgAdmin: boolean
   isFoundationsAdmin: boolean
-  isOffGrouping: boolean
   offGroupName: string
 }
 
@@ -202,13 +195,12 @@ export const InstallForGroupHeading: React.FC<InstallForGroupHeadingProps> = ({
   clientIdToInstall,
   isOrgAdmin,
   isFoundationsAdmin,
-  isOffGrouping,
   offGroupName,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const orgClientId = clientId.split('-')[0]
 
-  return isOffGrouping && isOrgAdmin ? (
+  return offGroupName && isOrgAdmin ? (
     <>
       <p>
         You have the option to install ‘{name}’ for either your Office Group or for <b>all</b> Users and Offices within
@@ -261,7 +253,6 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const clientId = selectClientId(connectSession)
   const isOrgAdmin = selectIsOrgAdmin(connectSession)
   const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
-  const isOffGrouping = selectIsOffGrouping(connectSession)
   const offGroupName = selectOffGroupName(connectSession)
   const [clientIdToInstall, setClientIdToInstall] = React.useState(clientId)
   const installationFormState = useSelector(selectInstallAppState)
@@ -335,7 +326,6 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             clientIdToInstall={clientIdToInstall}
             isOrgAdmin={isOrgAdmin}
             isFoundationsAdmin={isFoundationsAdmin}
-            isOffGrouping={isOffGrouping}
             offGroupName={offGroupName}
           />
           {userDesktopIntegrationTypes.length ? (
