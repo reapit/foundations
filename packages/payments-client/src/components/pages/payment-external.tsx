@@ -24,7 +24,7 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
-  const payment = data?.payment
+  const paymentModel = data?.payment
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(null)
 
@@ -48,9 +48,14 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
     )
   }
 
-  if (!payment || loading) return <Loader />
+  if (!paymentModel || loading) return <Loader />
 
-  return <PropertyPageContent payment={payment} merchantKey={merchantKey} />
+  const payment: PaymentWithPropertyModel = {
+    ...paymentModel,
+    clientCode: clientId,
+  }
+
+  return <PropertyPageContent payment={payment} merchantKey={merchantKey} session={session} />
 }
 
 export default PaymentExternalPage

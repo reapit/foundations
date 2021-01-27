@@ -10,8 +10,8 @@ exports[`Payments  should match a snapshot 1`] = `
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "",
-        "createdTo": "",
+        "createdFrom": "2019-09-10",
+        "createdTo": "2019-10-10",
         "description": "",
         "properties": "",
         "status": Array [],

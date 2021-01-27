@@ -40,7 +40,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ paymen
       visible={Boolean(payment)}
       destroyOnClose={true}
       onClose={handleOnClose}
-      title={`Request Payment of £${payment?.amount?.toFixed(2)} for ${payment?.id}`}
+      title={`Request Payment of £${payment?.amount ? (payment?.amount / 100).toFixed(2) : 0} for ${payment?.id}`}
     >
       <Formik
         initialValues={
@@ -50,7 +50,8 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ paymen
             paymentReason: payment?.description ?? 'No Reason Provided',
             paymentAmount: payment?.amount,
             paymentCurrency: 'GBP',
-            keyExpiresAt: new Date(),
+            // default to one week from now
+            keyExpiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
             paymentId: payment?.id as string,
             _eTag: payment?._eTag as string,
           } as PaymentEmailRequestModel
@@ -69,7 +70,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ paymen
             <FormSubHeading>
               The below form will send an email request for payment to your customer with an embedded link to our card
               processing page. You should set an expiry for this payment request and an email address to receive the
-              request.
+              request. The default expiry is a week.
             </FormSubHeading>
             <Input
               id="receipientEmail"
@@ -83,11 +84,12 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ paymen
               labelText="Payment Request Expiry"
               id="keyExpiresAt"
               reactDatePickerProps={{
-                minDate: new Date(),
+                // earliest expiry is 24hrs from now
+                minDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
               }}
             />
             <LevelRight>
-              <Button variant="info" onClick={handleOnClose} type="button">
+              <Button variant="secondary" onClick={handleOnClose} type="button">
                 Cancel
               </Button>
               <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>

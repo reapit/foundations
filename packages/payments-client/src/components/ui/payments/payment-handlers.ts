@@ -4,7 +4,7 @@ import { MerchantKey, opayoMerchantKeyService } from '../../../opayo-api/merchan
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { PaymentEmailRequestModel } from './payment-request-modal'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { generateEmailPaymentRequest, generatePaymentApiKey } from '../../../services/payment'
+import { generateEmailPaymentRequest, generatePaymentApiKey, updatePaymentStatus } from '../../../services/payment'
 import dayjs from 'dayjs'
 
 export const handleMerchantKeyEffect = (
@@ -71,14 +71,14 @@ export const handlePaymentRequestSubmit = (
 
     if (!emailRequest) throw new Error('Email request failed')
 
-    // const paymentStatusUpdate = await updatePaymentStatus(
-    //   {
-    //     status: 'awaitingPosting',
-    //   },
-    //   updateParams,
-    // )
+    const paymentStatusUpdate = await updatePaymentStatus(
+      {
+        status: 'awaitingPosting',
+      },
+      updateParams,
+    )
 
-    // if (!paymentStatusUpdate) throw new Error('Payment status update request failed')
+    if (!paymentStatusUpdate) throw new Error('Payment status update request failed')
 
     notification.success({
       message: 'Payment request was successfully sent by email',
