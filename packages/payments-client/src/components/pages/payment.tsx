@@ -19,7 +19,7 @@ const PaymentPage: React.FC = () => {
       <PaymentExternalPage session={session} paymentId={paymentId} clientId={clientId} />
     )
     return (
-      <FlexContainerBasic flexColumn isScrollable>
+      <FlexContainerBasic flexColumn isScrollable isFullHeight>
         <FlexContainerResponsive hasPadding flexColumn>
           <Route path={Routes.PAYMENT} component={PaymentExternalPageWithProps} exact />
         </FlexContainerResponsive>

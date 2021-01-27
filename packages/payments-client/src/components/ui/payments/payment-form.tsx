@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import {
   Section,
   Formik,
@@ -38,6 +38,7 @@ export interface CardDetails {
 
 export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatusParams, result?: any) => {
   const { session } = params
+
   const updateStatusRes = session
     ? await updatePaymentSessionStatus(body, params)
     : await updatePaymentStatus(body, params)
@@ -66,12 +67,14 @@ export const handleCreateTransaction = (
   data: PaymentWithPropertyModel,
   cardDetails: CardDetails,
   paymentId: string,
+  setIsLoading: Dispatch<SetStateAction<boolean>>,
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
   const { amount, description, clientCode, externalReference = '', _eTag = '' } = data
+  console.log(data)
   if (result.success) {
-    await opayoCreateTransactionService(clientCode || 'SBOX', {
+    await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
       paymentMethod: {
         card: {
@@ -99,15 +102,18 @@ export const handleCreateTransaction = (
   } else {
     await onUpdateStatus({ status: 'rejected', externalReference }, { paymentId, clientCode, _eTag, session }, result)
   }
+  setIsLoading(false)
 }
 
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
   data: PaymentWithPropertyModel,
   paymentId: string,
+  setIsLoading: Dispatch<SetStateAction<boolean>>,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
+  setIsLoading(true)
   window
     .sagepayOwnForm({
       merchantSessionKey: merchantKey.merchantSessionKey,
@@ -119,7 +125,7 @@ export const onHandleSubmit = (
         expiryDate: unformatCardExpires(expiryDate),
         securityCode,
       },
-      onTokenised: handleCreateTransaction(merchantKey, data, cardDetails, paymentId, session),
+      onTokenised: handleCreateTransaction(merchantKey, data, cardDetails, paymentId, setIsLoading, session),
     })
 }
 
@@ -129,18 +135,17 @@ const PaymentForm: React.FC<{
   paymentId: string
   session?: string
 }> = ({ data, merchantKey, paymentId, session }) => {
-  const onSubmit = onHandleSubmit(merchantKey, data, paymentId, session)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const onSubmit = onHandleSubmit(merchantKey, data, paymentId, setIsLoading, session)
   const { customer } = data
   const { forename = '', surname = '', primaryAddress = {} } = customer || {}
   const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
-  let address1: string
-  if (buildingName && line1) {
-    address1 = `${buildingName} ${line1}`
-  } else if (buildingNumber && line1) {
-    address1 = `${buildingNumber} ${line1}`
-  } else {
-    address1 = buildingName || buildingNumber || line1 || ''
-  }
+  const address1 =
+    buildingName && line1
+      ? `${buildingName} ${line1}`
+      : buildingNumber && line1
+      ? `${buildingNumber} ${line1}`
+      : buildingName || buildingNumber || line1 || ''
 
   return (
     <Formik
@@ -163,13 +168,13 @@ const PaymentForm: React.FC<{
         <Form className="form">
           <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
           <Section>
-            <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
             <LevelRight>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>
                 Make Payment
               </Button>
             </LevelRight>
           </Section>
+          <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
         </Form>
       )}
     </Formik>

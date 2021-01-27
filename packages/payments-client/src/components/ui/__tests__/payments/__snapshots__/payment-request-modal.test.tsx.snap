@@ -4,14 +4,14 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
 <Component
   destroyOnClose={true}
   onClose={[Function]}
-  title="Request Payment of £100.00 for PAY20000001"
+  title="Request Payment of £1.00 for PAY20000001"
   visible={true}
 >
   <Formik
     initialValues={
       Object {
         "_eTag": "",
-        "keyExpiresAt": 2019-10-10T22:39:51.389Z,
+        "keyExpiresAt": 2019-10-17T22:39:51.389Z,
         "paymentAmount": 100,
         "paymentCurrency": "GBP",
         "paymentId": "PAY20000001",
@@ -125,7 +125,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           Send request for payment
         </Component>
         <Component>
-          The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request.
+          The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
         </Component>
         <Component
           id="receipientEmail"
@@ -140,7 +140,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           name="keyExpiresAt"
           reactDatePickerProps={
             Object {
-              "minDate": 2019-10-10T22:39:51.389Z,
+              "minDate": 2019-10-11T22:39:51.389Z,
             }
           }
         />
@@ -148,7 +148,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           <Component
             onClick={[Function]}
             type="button"
-            variant="info"
+            variant="secondary"
           >
             Cancel
           </Component>
