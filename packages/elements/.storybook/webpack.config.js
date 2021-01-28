@@ -40,16 +40,6 @@ module.exports = ({ config }) => {
       ],
     },
     {
-      test: /\.stories\.tsx?$/,
-      loaders: [
-        {
-          loader: require.resolve('@storybook/addon-storysource/loader'),
-          options: { parser: 'typescript' }
-        }
-      ],
-      enforce: 'pre'
-    },
-    {
       test: /\.scss$/,
       use: [
         {
@@ -64,21 +54,25 @@ module.exports = ({ config }) => {
             sourceMap: process.env.NODE_ENV !== 'production',
           },
         },
-        'sass-loader'
+        'sass-loader',
       ],
-      include: path.resolve(__dirname, '../')
+      include: path.resolve(__dirname, '../'),
     },
   )
   config.resolve.extensions.push('.ts', '.tsx')
   config.resolve.alias = {
     '@': `${process.cwd()}/src/`,
   }
-  config.plugins.push(new EnvironmentPlugin({
-    ...configEnv,
+  config.plugins.push(
+    new EnvironmentPlugin({
+      ...configEnv,
       APP_VERSION: `${getVersionTag().version}`,
-  }))
-  config.plugins.push(new MiniCssExtractPlugin({
-    filename: 'styles.css',
-  }))
+    }),
+  )
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
+  )
   return config
 }
