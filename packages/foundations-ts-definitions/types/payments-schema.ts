@@ -181,7 +181,7 @@ export interface PaymentModelPagedResult {
  */
 export interface UpdatePaymentModel {
   /**
-   * The status of the payment [posted/rejected]
+   * The status of the payment [awaitingAuthorisation/awaitingPosting/posted/rejected]
    */
   status?: string
   /**
