@@ -26,3 +26,33 @@ export const data: GroupModelPagedResult = {
     },
   },
 }
+
+export const listUserGroup = [
+  {
+    id: 'id1',
+    description: 'description 1',
+  },
+  {
+    id: 'id2',
+    description: 'description 2',
+  },
+  {
+    id: 'id3',
+    description: 'description 3',
+  },
+  {
+    id: 'id4',
+    description: 'description 4',
+  },
+]
+
+export const listUserGroupMember = [
+  {
+    id: 'id1',
+    description: 'description 1',
+  },
+  {
+    id: 'id3',
+    description: 'description 2',
+  },
+]
