@@ -189,6 +189,11 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     </Component>
   </Component>
   <Component
+    isMobileView={false}
+    loginMode="WEB"
+    propertyId=""
+  />
+  <Component
     appointment={
       Object {
         "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -564,6 +569,11 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
       </Component>
     </Component>
   </Component>
+  <Component
+    isMobileView={false}
+    loginMode="WEB"
+    propertyId=""
+  />
   <Component
     appointment={
       Object {

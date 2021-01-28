@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`appointment-detail-property AppointmentDetailProperty should match snapshot 1`] = `<Component />`;
+
+exports[`appointment-detail-property LandlordSection should match snapshot 1`] = `<Component />`;
+
+exports[`appointment-detail-property VendorSection  should match snapshot 1`] = `<Component />`;
