@@ -1,5 +1,5 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
-import { PaymentSessionModel } from '../../pages/payment-session'
+import { PaymentWithPropertyModel } from '../../pages/payment-external'
 import { CardDetails } from '../payments/payment-form'
 
 export const data: PaymentModel = {
@@ -53,7 +53,7 @@ export const data: PaymentModel = {
   },
 }
 
-export const dataSession: PaymentSessionModel = {
+export const dataSession: PaymentWithPropertyModel = {
   ...data,
   clientCode: 'clientCode',
   property: {},

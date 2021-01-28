@@ -147,6 +147,7 @@ describe('ClientAppInstallConfirmation', () => {
       isOrgAdmin: true,
       isFoundationsAdmin: true,
       isOffGrouping: true,
+      offGroupName: 'Cool Office Group',
     }
     it('should match a snapshot where is orgAdmin and offGrouping', () => {
       expect(shallow(<InstallForGroupHeading {...baseProps} />)).toMatchSnapshot()

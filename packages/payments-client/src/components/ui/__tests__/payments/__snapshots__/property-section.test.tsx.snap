@@ -2,22 +2,28 @@
 
 exports[`PropertySection should match a snapshot 1`] = `
 <Component>
-  <div>
-    Property Ref: 
-    propertyId
-  </div>
-  <div />
-  <div>
-    Example street
-  </div>
-  <div>
-    Solihull
-  </div>
-  <div>
-    West Midlands
-  </div>
-  <div>
-    B91 2XX
-  </div>
+  <mock-styled.div>
+    <Component>
+      Property
+    </Component>
+    <Component
+      items={
+        Array [
+          Object {
+            "icon": <FaHome
+              className="icon-list-icon"
+            />,
+            "text": "15 Example street Solihull West Midlands B91 2XX",
+          },
+          Object {
+            "icon": <FaStickyNote
+              className="icon-list-icon"
+            />,
+            "text": "Property ref: OXF200008",
+          },
+        ]
+      }
+    />
+  </mock-styled.div>
 </Component>
 `;

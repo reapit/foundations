@@ -9,7 +9,6 @@ describe('PaymentsFilterForm', () => {
         filterValues={{
           createdFrom: 'createdFrom',
           createdTo: 'createdTo',
-          customers: 'customers',
           properties: 'properties',
           description: 'description',
           type: ['type1', 'type2'],

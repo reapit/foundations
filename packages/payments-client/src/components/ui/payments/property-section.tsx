@@ -1,27 +1,31 @@
 import React from 'react'
-import useSWR from 'swr'
-import { Loader, GridItem } from '@reapit/elements'
+import { combineAddress, FadeIn, GridItem, H5, IconList } from '@reapit/elements'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
-import { URLS } from '../../../constants/api'
+import { FaHome, FaStickyNote } from 'react-icons/fa'
 
-const PropertySection: React.FC<{ propertyId?: string; property?: PropertyModel }> = ({ propertyId, property }) => {
-  const { data: fetchData } = useSWR<PropertyModel>(propertyId && !property ? `${URLS.PROPERTIES}/${propertyId}` : null)
-
-  const data = property || fetchData
-
-  if (!data) {
-    return <Loader />
+const PropertySection: React.FC<{ property: PropertyModel }> = ({ property }) => {
+  if (!property) {
+    return <GridItem />
   }
 
-  const { line1, line2, line3, postcode } = data.address || {}
+  const address = combineAddress(property.address)
   return (
     <GridItem>
-      <div>Property Ref: {propertyId}</div>
-      <div>{name}</div>
-      <div>{line1}</div>
-      <div>{line2}</div>
-      <div>{line3}</div>
-      <div>{postcode}</div>
+      <FadeIn>
+        <H5>Property</H5>
+        <IconList
+          items={[
+            {
+              icon: <FaHome className="icon-list-icon" />,
+              text: address,
+            },
+            {
+              icon: <FaStickyNote className="icon-list-icon" />,
+              text: `Property ref: ${property.id}`,
+            },
+          ]}
+        />
+      </FadeIn>
     </GridItem>
   )
 }

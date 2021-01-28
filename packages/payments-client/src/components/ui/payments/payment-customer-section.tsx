@@ -1,20 +1,40 @@
 import React from 'react'
-import { Loader, GridItem } from '@reapit/elements'
+import { GridItem, combineAddress, IconList, H5, FadeIn } from '@reapit/elements'
 import { PaymentCustomerModel } from '@reapit/foundations-ts-definitions'
+import { FaHome, FaUserAlt, FaEnvelope, FaStickyNote } from 'react-icons/fa'
 
-const PaymentCustomerSection: React.FC<{ customer: PaymentCustomerModel | undefined }> = ({ customer }) => {
-  if (!customer) return <Loader />
+const PaymentCustomerSection: React.FC<{ customer?: PaymentCustomerModel }> = ({ customer }) => {
+  if (!customer) {
+    return <GridItem />
+  }
   const { id, name, primaryAddress, email } = customer
-  const { line1, line2, line3, postcode } = primaryAddress || {}
+  const address = combineAddress(primaryAddress)
+
   return (
     <GridItem>
-      <div>Customer Ref: {id}</div>
-      <div>{name}</div>
-      <div>{line1}</div>
-      <div>{line2}</div>
-      <div>{line3}</div>
-      <div>{postcode}</div>
-      <div>Email: {email}</div>
+      <FadeIn>
+        <H5>Customer</H5>
+        <IconList
+          items={[
+            {
+              icon: <FaUserAlt className="icon-list-icon" />,
+              text: name,
+            },
+            {
+              icon: <FaHome className="icon-list-icon" />,
+              text: address,
+            },
+            {
+              icon: <FaEnvelope className="icon-list-icon" />,
+              text: email,
+            },
+            {
+              icon: <FaStickyNote className="icon-list-icon" />,
+              text: `Customer ref: ${id}`,
+            },
+          ]}
+        />
+      </FadeIn>
     </GridItem>
   )
 }

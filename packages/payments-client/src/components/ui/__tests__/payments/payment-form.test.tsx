@@ -52,7 +52,7 @@ describe('updateStatusRes', () => {
 
 describe('onHandleSubmit', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
-  const onSubmit = onHandleSubmit(merchantKey, dataSession, paymentId, session)
+  const onSubmit = onHandleSubmit(merchantKey, dataSession, paymentId, jest.fn(), session)
 
   it('should show notification error', () => {
     onSubmit(cardDetails)
@@ -63,14 +63,14 @@ describe('onHandleSubmit', () => {
 describe('handleCreateTransaction', () => {
   it('should show notification error', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    const onTokenised = handleCreateTransaction(merchantKey, dataSession, cardDetails, paymentId, session)
+    const onTokenised = handleCreateTransaction(merchantKey, dataSession, cardDetails, paymentId, jest.fn(), session)
     await onTokenised({ success: true })
     expect(notification.success).toHaveBeenCalled()
   })
 
   it('should show notification error', async () => {
     mockedFetch.mockReturnValueOnce(false)
-    const onTokenised = handleCreateTransaction(merchantKey, dataSession, cardDetails, paymentId, session)
+    const onTokenised = handleCreateTransaction(merchantKey, dataSession, cardDetails, paymentId, jest.fn(), session)
     await onTokenised({ success: true })
     expect(notification.error).toHaveBeenCalled()
   })

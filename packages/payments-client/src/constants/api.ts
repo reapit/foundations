@@ -12,4 +12,6 @@ export const URLS = {
   TRANSACTIONS: '/transactions',
   MERCHANT_KEY_API: '/merchant-session-keys',
   PAYMENTS: '/payments',
+  GET_API_KEY: '/api-key',
+  PAYMENT_REQUEST: '/payments/request',
 }

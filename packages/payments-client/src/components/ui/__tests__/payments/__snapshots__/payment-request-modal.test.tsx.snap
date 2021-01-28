@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentRequestModal should match a snapshot 1`] = `
+<Component
+  destroyOnClose={true}
+  onClose={[Function]}
+  title="Request Payment of £1.00 for PAY20000001"
+  visible={true}
+>
+  <Formik
+    initialValues={
+      Object {
+        "_eTag": "",
+        "keyExpiresAt": 2019-10-17T22:39:51.389Z,
+        "paymentAmount": 100,
+        "paymentCurrency": "GBP",
+        "paymentId": "PAY20000001",
+        "paymentReason": "Tenancy Check Fee",
+        "receipientEmail": "example@email.com",
+        "recipientName": "Mr John Smith",
+      }
+    }
+    onSubmit={[Function]}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "keyExpiresAt",
+          "receipientEmail",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "keyExpiresAt": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+          "receipientEmail": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "matches": false,
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+        "type": "object",
+      }
+    }
+  >
+    <Form
+      className="form"
+    >
+      <Component>
+        <Component>
+          Send request for payment
+        </Component>
+        <Component>
+          The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
+        </Component>
+        <Component
+          id="receipientEmail"
+          labelText="Recpient Email Address"
+          name="receipientEmail"
+          placeholder="email@example.com"
+          type="text"
+        />
+        <Component
+          id="keyExpiresAt"
+          labelText="Payment Request Expiry"
+          name="keyExpiresAt"
+          reactDatePickerProps={
+            Object {
+              "minDate": 2019-10-11T22:39:51.389Z,
+            }
+          }
+        />
+        <Component>
+          <Component
+            onClick={[Function]}
+            type="button"
+            variant="secondary"
+          >
+            Cancel
+          </Component>
+          <Component
+            disabled={false}
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Send Payment Request
+          </Component>
+        </Component>
+      </Component>
+    </Form>
+  </Formik>
+</Component>
+`;

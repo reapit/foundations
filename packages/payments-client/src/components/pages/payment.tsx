@@ -1,65 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import useSWR from 'swr'
-import { Section, H3, Helper, Loader, H5, H6, Grid, GridItem } from '@reapit/elements'
-import { PaymentSessionModel } from './payment-session'
-import { URLS } from '../../constants/api'
-import { MerchantKey, opayoMerchantKeyService } from '../../opayo-api/merchant-key'
-import PaymentCustomerSection from '../ui/payments/payment-customer-section'
-import PropertySection from '../ui/payments/property-section'
-import PaymentForm from '../ui/payments/payment-form'
+import React from 'react'
+import { Route, useLocation, useParams } from 'react-router'
+import { FlexContainerBasic, FlexContainerResponsive } from '../../../../elements/src'
+import Routes from '../../constants/routes'
+import PrivateRouteWrapper from '../../core/private-route-wrapper'
+import PaymentExternalPage from './payment-external'
+import PaymentInternalPage from './payment-internal'
 
 const PaymentPage: React.FC = () => {
+  const location = useLocation()
   const { paymentId } = useParams<{ paymentId: string }>()
+  const { search } = location
+  const queryParams = new URLSearchParams(search)
+  const session = queryParams.get('session')
+  const clientId = queryParams.get('clientCode')
 
-  const { data } = useSWR<PaymentSessionModel>(`${URLS.PAYMENTS}/${paymentId}`)
-
-  const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey>()
-
-  useEffect(() => {
-    const fetchmerchantKey = async () => {
-      const fetchedKey = await opayoMerchantKeyService()
-      if (fetchedKey) {
-        setMerchantKey(fetchedKey)
-      }
-      setLoading(false)
-    }
-
-    fetchmerchantKey()
-
-    setLoading(true)
-  }, [setMerchantKey])
-
-  if (loading) {
-    return <Loader />
+  if (session && clientId) {
+    const PaymentExternalPageWithProps: React.FC = () => (
+      <PaymentExternalPage session={session} paymentId={paymentId} clientId={clientId} />
+    )
+    return (
+      <FlexContainerBasic flexColumn isScrollable isFullHeight>
+        <FlexContainerResponsive hasPadding flexColumn>
+          <Route path={Routes.PAYMENT} component={PaymentExternalPageWithProps} exact />
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
+    )
   }
 
-  const { customer, amount, description, externalReference, propertyId } = data || {}
+  const PaymentInternalPageWithProps: React.FC = () => <PaymentInternalPage paymentId={paymentId} />
   return (
-    <>
-      <H3 isHeadingSection>Card Payment</H3>
-      <H5 isHeadingSection>Payment For {paymentId}</H5>
-      {!merchantKey && (
-        <Helper variant="info">
-          Welome to Reapit Payments portal. It seems you dont currently have an account registered with Opayo. Please
-          talk to your administrator to set this up for you.
-        </Helper>
-      )}
-      <Section>
-        <Grid>
-          <PaymentCustomerSection customer={customer} />
-          <PropertySection propertyId={propertyId} />
-          <GridItem>
-            <H5>GBP: {amount}</H5>
-            <H6>Payment description: {description}</H6>
-            <H6>Payment ref: {externalReference}</H6>
-          </GridItem>
-        </Grid>
-        <H6>Payment amount: {amount} GBP</H6>
-      </Section>
-      {merchantKey && data ? <PaymentForm data={data} merchantKey={merchantKey} paymentId={paymentId} /> : <Loader />}
-    </>
+    <PrivateRouteWrapper>
+      <Route path={Routes.PAYMENT} component={PaymentInternalPageWithProps} exact />
+    </PrivateRouteWrapper>
   )
 }
 
