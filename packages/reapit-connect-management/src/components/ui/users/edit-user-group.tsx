@@ -118,7 +118,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   const { data } = useSWR<UserModelPagedResult | undefined>(`${URLS.USERS}?pageSize=999&organisationId=${orgId}`)
 
   const { data: groupMembers, mutate } = useSWR<GroupMembershipModelPagedResult | undefined>(
-    id ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999` : null,
+    id && orgId ? `${URLS.USERS_GROUPS}/${id}/members?pageSize=999&organisationId=${orgId}` : null,
   )
 
   if (!editingUserGroup) return null
@@ -139,7 +139,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
       title={`Editing ${editingUserGroup.id}`}
       zIndex={90}
     >
-      <p>
+      <p className="mb-4">
         <i>
           The list below contains all available member groups for your organisation. You can manage users associated to
           each group by selecting ‘Manage’

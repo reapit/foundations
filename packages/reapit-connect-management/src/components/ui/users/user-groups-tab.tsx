@@ -28,11 +28,13 @@ const UserGroupsTab: React.FC = () => {
 
   const groupIds = qs.stringify({ id: window.reapit.config.groupIdsWhitelist }, { indices: false })
   const { data, mutate } = useSWR<GroupModelPagedResult | undefined>(
-    `${URLS.USERS_GROUPS}/${
-      search
-        ? `${search}&${groupIds}&pageSize=12&organisationId=${orgId}`
-        : `?${groupIds}&pageSize=12&organisationId=${orgId}`
-    }`,
+    !orgId
+      ? null
+      : `${URLS.USERS_GROUPS}/${
+          search
+            ? `${search}&${groupIds}&pageSize=12&organisationId=${orgId}`
+            : `?${groupIds}&pageSize=12&organisationId=${orgId}`
+        }`,
   )
 
   const ManageButton = ({
