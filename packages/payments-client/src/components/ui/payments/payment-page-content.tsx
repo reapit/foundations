@@ -10,12 +10,14 @@ import { FaPoundSign, FaShoppingCart, FaStickyNote } from 'react-icons/fa'
 export interface PropertyPageContentProps {
   payment: PaymentWithPropertyModel
   merchantKey: MerchantKey
+  refetchPayment: () => void
   session?: string
 }
 
 const PropertyPageContent: React.FC<PropertyPageContentProps> = ({
   payment,
   merchantKey,
+  refetchPayment,
   session,
 }: PropertyPageContentProps) => {
   const { customer, amount, description, property, id } = payment
@@ -51,7 +53,13 @@ const PropertyPageContent: React.FC<PropertyPageContentProps> = ({
       </Section>
       {merchantKey && payment ? (
         <FadeIn>
-          <PaymentForm data={payment} merchantKey={merchantKey} paymentId={id as string} session={session} />
+          <PaymentForm
+            payment={payment}
+            merchantKey={merchantKey}
+            paymentId={id as string}
+            session={session}
+            refetchPayment={refetchPayment}
+          />
         </FadeIn>
       ) : (
         <Loader />

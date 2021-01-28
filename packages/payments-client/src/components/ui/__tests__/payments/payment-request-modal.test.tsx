@@ -5,7 +5,9 @@ import { data } from '../../__stubs__/payment'
 
 describe('PaymentRequestModal', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<PaymentRequestModal payment={data} setSelectedPayment={jest.fn()} />)
+    const wrapper = shallow(
+      <PaymentRequestModal payment={data} setSelectedPayment={jest.fn()} refetchPayments={jest.fn()} />,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 })

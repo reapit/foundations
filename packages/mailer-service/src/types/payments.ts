@@ -7,6 +7,14 @@ export interface EmailPaymentRequest {
   paymentExpiry: string
 }
 
+export interface EmailPaymentReceipt {
+  receipientEmail: string
+  recipientName: string
+  paymentReason: string
+  paymentAmount: number
+  paymentCurrency: string
+}
+
 export interface ClientConfig {
   paymentRequest: ConfigPaymentRequest
 }
@@ -23,4 +31,12 @@ export interface EmailPaymentRequestTemplate extends ConfigPaymentRequest {
   recipientName: string
   paymentExpiry: string
   paymentAmount: string
+  paymentCurrency: string
+}
+
+export interface EmailPaymentReceiptTemplate extends ConfigPaymentRequest {
+  paymentReason: string
+  recipientName: string
+  paymentAmount: string
+  paymentCurrency: string
 }
