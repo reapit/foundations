@@ -5,7 +5,7 @@ import { ClientConfig, EmailPaymentReceipt } from '../types/payments'
 import configJson from '../../config.json'
 import { createPaymentReceiptTemplate } from '../core/templates'
 import logger from '../../../payments-service/src/core/logger'
-import { currencySymbolMapper } from '@reapit/utils'
+import { currencySymbolMapper } from '@reapit/utils/src/currency'
 import axios from 'axios'
 
 export const getValuesFromConfig = (clientCode: string, config = configJson) => {
