@@ -89,7 +89,9 @@ const Payments: React.FC = () => {
     onSearch(filterValues)
   }
 
-  const { data: payment } = useSWR<PaymentModelPagedResult | undefined>(search ? `${URLS.PAYMENTS}/${search}` : null)
+  const { data: payment, mutate: refetchPayments } = useSWR<PaymentModelPagedResult | undefined>(
+    search ? `${URLS.PAYMENTS}/${search}` : null,
+  )
 
   const handleTakePayment = (id: string) => {
     return history.push(`${Routes.PAYMENTS}/${id}`)
@@ -150,7 +152,11 @@ const Payments: React.FC = () => {
       <H3 isHeadingSection>Payments Dashboard</H3>
       <PaymentsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {!payment ? <Loader /> : <PaymentsContent payment={payment} columns={columns} onPageChange={onPageChange} />}
-      <PaymentRequestModal payment={selectedPayment} setSelectedPayment={setSelectedPayment} />
+      <PaymentRequestModal
+        payment={selectedPayment}
+        setSelectedPayment={setSelectedPayment}
+        refetchPayments={refetchPayments}
+      />
     </ErrorBoundary>
   )
 }

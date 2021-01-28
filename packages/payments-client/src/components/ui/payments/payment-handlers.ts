@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { DATE_TIME_FORMAT, notification } from '@reapit/elements'
 import { MerchantKey, opayoMerchantKeyService } from '../../../opayo-api/merchant-key'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { PaymentEmailRequestModel } from './payment-request-modal'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { generateEmailPaymentRequest, generatePaymentApiKey, updatePaymentStatus } from '../../../services/payment'
@@ -29,7 +28,7 @@ export const handleMerchantKeyEffect = (
 
 export const handlePaymentRequestSubmit = (
   setIsLoading: Dispatch<SetStateAction<boolean>>,
-  setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>,
+  handleOnClose: () => void,
 ) => async ({
   receipientEmail,
   recipientName,
@@ -84,7 +83,7 @@ export const handlePaymentRequestSubmit = (
       message: 'Payment request was successfully sent by email',
     })
     setIsLoading(false)
-    setSelectedPayment(null)
+    handleOnClose()
   } catch (err) {
     notification.error({
       message: 'Payment email request was unsuccessful',

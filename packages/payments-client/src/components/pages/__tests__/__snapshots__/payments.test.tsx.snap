@@ -23,6 +23,7 @@ exports[`Payments  should match a snapshot 1`] = `
   <Component />
   <Component
     payment={null}
+    refetchPayments={[Function]}
     setSelectedPayment={[Function]}
   />
 </ErrorBoundary>
