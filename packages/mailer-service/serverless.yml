@@ -65,6 +65,12 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
       - http: 
-          path: /payments/receipt/{paymentId}
+          path: /payments/receipt/internal/{paymentId}
+          method: post
+          cors: true
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
+      - http: 
+          path: /payments/receipt/external/{paymentId}
           method: post
           cors: true

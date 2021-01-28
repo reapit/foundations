@@ -1,4 +1,4 @@
-import { createPaymentReceipt } from '../create-payment-receipt'
+import { createPaymentReceiptExternal } from '../create-payment-receipt-external'
 import { Response } from 'express'
 import { createPaymentReceiptTemplate } from '../../core/templates'
 
@@ -52,7 +52,7 @@ const baseMockConfig = {
 
 const mockNext = jest.fn()
 
-describe('createPaymentReceipt', () => {
+describe('createPaymentReceiptExternal', () => {
   const headers = ['x-api-key', 'reapit-customer', 'api-version']
   const bodyParams = ['receipientEmail', 'recipientName', 'paymentReason', 'paymentCurrency', 'paymentAmount']
   const params = ['paymentId']
@@ -71,7 +71,7 @@ describe('createPaymentReceipt', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentReceipt(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentReceiptExternal(mockReq, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -93,7 +93,7 @@ describe('createPaymentReceipt', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentReceipt(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentReceiptExternal(mockReq, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -115,7 +115,7 @@ describe('createPaymentReceipt', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentReceipt(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentReceiptExternal(mockReq, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -145,7 +145,7 @@ describe('createPaymentReceipt', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentReceipt(mockReq, mockRes, mockNext, mockConfig)
+      await createPaymentReceiptExternal(mockReq, mockRes, mockNext, mockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -163,7 +163,7 @@ describe('createPaymentReceipt', () => {
       ...baseMockRes,
     } as Response
 
-    await createPaymentReceipt(mockReq, mockRes, mockNext, baseMockConfig)
+    await createPaymentReceiptExternal(mockReq, mockRes, mockNext, baseMockConfig)
 
     expect(createPaymentReceiptTemplate).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(200)

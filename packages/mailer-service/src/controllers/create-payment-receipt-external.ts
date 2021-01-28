@@ -24,7 +24,7 @@ export const getValuesFromConfig = (clientCode: string, config = configJson) => 
   }
 }
 
-export const createPaymentReceipt = async (
+export const createPaymentReceiptExternal = async (
   req: AppRequest,
   res: Response,
   _next: NextFunction,
