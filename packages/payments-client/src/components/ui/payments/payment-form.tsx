@@ -20,6 +20,8 @@ import {
   updatePaymentSessionStatus,
   UpdateStatusBody,
   UpdateStatusParams,
+  generateEmailPaymentReceiptExternal,
+  generateEmailPaymentReceiptInternal,
 } from '../../../services/payment'
 import { toastMessages } from '../../../constants/toast-messages'
 import Routes from '../../../constants/routes'
@@ -43,6 +45,7 @@ export interface CardDetails {
 export const onUpdateStatus = async (
   body: UpdateStatusBody,
   params: UpdateStatusParams,
+  payment: PaymentWithPropertyModel,
   refetchPayment: () => void,
   result?: any,
 ) => {
@@ -52,30 +55,52 @@ export const onUpdateStatus = async (
     ? await updatePaymentSessionStatus(body, params)
     : await updatePaymentStatus(body, params)
 
-  refetchPayment()
-
   if (updateStatusRes) {
     if (body.status === 'posted') {
-      return notification.success({
+      notification.success({
         message: toastMessages.UPDATE_PAYMENT_STATUS_POSTED,
         placement: 'bottomRight',
       })
+    } else {
+      notification.warn({
+        message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
+        placement: 'bottomRight',
+      })
     }
-    return notification.warn({
-      message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
-      placement: 'bottomRight',
-    })
   }
 
-  return notification.error({
-    message: toastMessages.FAILED_TO_UPDATE_PAYMENT_STATUS,
-    placement: 'bottomRight',
-  })
+  const emailReceiptBody = {
+    receipientEmail: payment?.customer?.email ?? 'willmcvay@pm.me',
+    recipientName: payment?.customer?.name ?? 'Name Unknown',
+    paymentReason: payment?.description ?? 'No Reason Provided',
+    paymentAmount: payment?.amount ?? 0,
+    paymentCurrency: 'GBP',
+  }
+
+  const emailReceiptRes = session
+    ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+    : await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+
+  if (emailReceiptRes) {
+    if (body.status === 'posted') {
+      notification.success({
+        message: toastMessages.UPDATE_PAYMENT_STATUS_POSTED,
+        placement: 'bottomRight',
+      })
+    } else {
+      notification.warn({
+        message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
+        placement: 'bottomRight',
+      })
+    }
+  }
+
+  refetchPayment()
 }
 
 export const handleCreateTransaction = (
   merchantKey: MerchantKey,
-  data: PaymentWithPropertyModel,
+  payment: PaymentWithPropertyModel,
   cardDetails: CardDetails,
   paymentId: string,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
@@ -83,10 +108,9 @@ export const handleCreateTransaction = (
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
-  const { amount, description, clientCode, externalReference = '', _eTag = '' } = data
-  console.log(data)
+  const { amount, description, clientCode, externalReference = '', _eTag = '' } = payment
   if (result.success) {
-    await opayoCreateTransactionService(clientCode, {
+    const transaction = await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
       paymentMethod: {
         card: {
@@ -110,15 +134,28 @@ export const handleCreateTransaction = (
       },
       entryMethod: 'Ecommerce',
     })
-    await onUpdateStatus(
-      { status: 'posted', externalReference },
-      { paymentId, clientCode, _eTag, session },
-      refetchPayment,
-    )
+
+    if (transaction && transaction.retrievalReference) {
+      await onUpdateStatus(
+        { status: 'posted', externalReference: transaction.transactionId },
+        { paymentId, clientCode, _eTag, session },
+        payment,
+        refetchPayment,
+      )
+    } else {
+      await onUpdateStatus(
+        { status: 'rejected', externalReference },
+        { paymentId, clientCode, _eTag, session },
+        payment,
+        refetchPayment,
+        result,
+      )
+    }
   } else {
     await onUpdateStatus(
       { status: 'rejected', externalReference },
       { paymentId, clientCode, _eTag, session },
+      payment,
       refetchPayment,
       result,
     )
@@ -128,7 +165,7 @@ export const handleCreateTransaction = (
 
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
-  data: PaymentWithPropertyModel,
+  payment: PaymentWithPropertyModel,
   paymentId: string,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
   refetchPayment: () => void,
@@ -149,7 +186,7 @@ export const onHandleSubmit = (
       },
       onTokenised: handleCreateTransaction(
         merchantKey,
-        data,
+        payment,
         cardDetails,
         paymentId,
         setIsLoading,

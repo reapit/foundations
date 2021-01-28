@@ -34,6 +34,14 @@ export interface PaymentEmailRequest {
   paymentExpiry: string
 }
 
+export interface PaymentEmailReceipt {
+  receipientEmail: string
+  recipientName: string
+  paymentReason: string
+  paymentAmount: number
+  paymentCurrency: string
+}
+
 export const updatePaymentStatus = async (
   body: UpdateStatusBody,
   params: UpdateStatusParams,
@@ -144,6 +152,73 @@ export const generateEmailPaymentRequest = async (
     }
 
     throw new Error('Failed to generate email payment request')
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
+export const generateEmailPaymentReceiptInternal = async (
+  body: PaymentEmailReceipt,
+  params: UpdateStatusParams,
+): Promise<ApiKeyResponse | undefined> => {
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+
+  const { paymentId, clientCode } = params
+
+  if (!connectSession || !connectSession?.idToken || !clientCode)
+    throw new Error('No Reapit Connect Session is present')
+
+  try {
+    const response = await fetcher({
+      api: window.reapit.config.emailApiUrl,
+      url: `${URLS.PAYMENT_RECEIPT_INTERNAL}/${paymentId}`,
+      method: 'POST',
+      headers: {
+        ...PAYMENTS_HEADERS,
+        'reapit-customer': clientCode,
+        'api-version': '2020-01-31',
+        Authorization: connectSession.idToken,
+      },
+      body,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Failed to generate email payment receipt')
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
+export const generateEmailPaymentReceiptExternal = async (
+  body: PaymentEmailReceipt,
+  params: UpdateStatusParams,
+): Promise<ApiKeyResponse | undefined> => {
+  const { paymentId, clientCode, session } = params
+
+  if (!session || !clientCode || !session) throw new Error('No Session is present')
+
+  try {
+    const response = await fetcher({
+      api: window.reapit.config.emailApiUrl,
+      url: `${URLS.PAYMENT_RECEIPT_INTERNAL}/${paymentId}`,
+      method: 'POST',
+      headers: {
+        ...PAYMENTS_HEADERS,
+        'reapit-customer': clientCode,
+        'x-api-key': session,
+        'api-version': '2020-01-31',
+      },
+      body,
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Failed to generate email payment receipt')
   } catch (err) {
     console.error(err.message)
   }

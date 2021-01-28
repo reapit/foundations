@@ -53,7 +53,7 @@ const baseMockConfig = {
 const mockNext = jest.fn()
 
 describe('createPaymentReceiptInternal', () => {
-  const headers = ['x-api-key', 'reapit-customer', 'api-version']
+  const headers = ['reapit-customer', 'api-version']
   const bodyParams = ['receipientEmail', 'recipientName', 'paymentReason', 'paymentCurrency', 'paymentAmount']
   const params = ['paymentId']
   const config = ['senderEmail', 'companyName', 'logoUri']
@@ -75,7 +75,7 @@ describe('createPaymentReceiptInternal', () => {
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
-        errors: 'reapit-customer, api-version and x-api-key are required headers',
+        errors: 'reapit-customer and api-version are required headers',
       })
     })
   })

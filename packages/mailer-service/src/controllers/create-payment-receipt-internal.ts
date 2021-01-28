@@ -38,7 +38,6 @@ export const createPaymentReceiptInternal = async (
       paymentAmount,
     }: EmailPaymentReceipt = req.body
     const { traceId } = req
-    const apiKey: string | undefined = req.headers['x-api-key']
     const clientCode: string | undefined = req.headers['reapit-customer']
     const apiVersion: string | undefined = req.headers['api-version']
     const { paymentId } = req.params
@@ -48,8 +47,7 @@ export const createPaymentReceiptInternal = async (
       throw new Error(
         'recipientName, paymentCurrency, paymentAmount, receipientEmail and paymentReason are required fields',
       )
-    if (!clientCode || !apiKey || !apiVersion)
-      throw new Error('reapit-customer, api-version and x-api-key are required headers')
+    if (!clientCode || !apiVersion) throw new Error('reapit-customer and api-version are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
