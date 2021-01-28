@@ -38,5 +38,6 @@ export interface EmailPaymentReceiptTemplate extends ConfigPaymentRequest {
   paymentReason: string
   recipientName: string
   paymentAmount: string
+  paymentDate: string
   paymentCurrency: string
 }

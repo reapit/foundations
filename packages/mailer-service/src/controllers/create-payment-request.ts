@@ -55,7 +55,7 @@ export const createPaymentRequest = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
-    logger.info('Email successfully validated', { traceId })
+    logger.info('Request successfully validated', { traceId })
 
     const template = await createPaymentRequestTemplate({
       senderEmail,
@@ -65,7 +65,7 @@ export const createPaymentRequest = async (
       paymentCurrency: currencySymbolMapper(paymentCurrency),
       url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}&clientCode=${clientCode}`,
       recipientName,
-      paymentExpiry: new Date(paymentExpiry).toLocaleDateString(),
+      paymentExpiry: new Date(paymentExpiry).toDateString(),
       paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
     })
 

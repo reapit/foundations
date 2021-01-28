@@ -6,6 +6,7 @@ import configJson from '../../config.json'
 import { createPaymentReceiptTemplate } from '../core/templates'
 import logger from '../../../payments-service/src/core/logger'
 import { currencySymbolMapper } from '@reapit/utils'
+import axios from 'axios'
 
 export const getValuesFromConfig = (clientCode: string, config = configJson) => {
   try {
@@ -23,7 +24,7 @@ export const getValuesFromConfig = (clientCode: string, config = configJson) => 
   }
 }
 
-export const createPaymentReciept = async (
+export const createPaymentReceipt = async (
   req: AppRequest,
   res: Response,
   _next: NextFunction,
@@ -54,6 +55,16 @@ export const createPaymentReciept = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
+    const payment = await axios.get(`${process.env.PAYMENTS_SERVICE_URI}/payments/${paymentId}`, {
+      headers: {
+        ['x-api-key']: apiKey,
+        ['reapit-customer']: clientCode,
+        ['api-version']: apiVersion,
+      },
+    })
+
+    if (!payment) throw new Error('No valid payment found, not sending email')
+
     logger.info('Email successfully validated', { traceId })
 
     const template = await createPaymentReceiptTemplate({
@@ -63,12 +74,13 @@ export const createPaymentReciept = async (
       paymentCurrency: currencySymbolMapper(paymentCurrency),
       paymentReason,
       recipientName,
+      paymentDate: new Date().toDateString(),
       paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
     })
 
     logger.info('Template successfully created', { traceId })
 
-    const mail = await sendEmail(receipientEmail, `Payment Request from ${companyName}`, template, senderEmail)
+    const mail = await sendEmail(receipientEmail, `Payment Confirmation from ${companyName}`, template, senderEmail)
 
     if (mail) {
       logger.info('Email successfully sent', { traceId })
