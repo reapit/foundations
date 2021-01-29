@@ -32,8 +32,9 @@ import { ExtendedAppointmentModel } from '@/types/global'
 import UPDATE_APPOINTMENT_BY_ID from './update-appointment-by-id.graphql'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import AppointmentDetailVendor from './appointment-detail-vendor'
 
-type LoginMode = 'WEB' | 'DESKTOP'
+export type LoginMode = 'WEB' | 'DESKTOP'
 
 export const capitalizeFirstLetter = (value: string) => {
   if (!value) {
@@ -421,6 +422,11 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
       {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
       {renderAddress(appointment?.property || {}, loginMode)}
       {renderNotes(appointment.description)}
+      <AppointmentDetailVendor
+        vendorId={appointment?.property?.selling?.vendorId || ''}
+        loginMode={loginMode}
+        isMobileView={isMobileView}
+      />
       {renderArrangements(appointment?.property?.viewingArrangements || '')}
       <CancelConfirmModal
         isShowConfirmModal={isShowConfirmModal}

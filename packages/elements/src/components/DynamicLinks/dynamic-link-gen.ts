@@ -8,6 +8,7 @@ export enum EntityType {
   TENNANCY = 'tennancies',
   APPLICANT = 'applicants',
   LANDLORD = 'landlords',
+  VENDOR = 'vendor',
   PERSON = 'people',
   COMPANY = 'companies',
   APPS = 'apps',
