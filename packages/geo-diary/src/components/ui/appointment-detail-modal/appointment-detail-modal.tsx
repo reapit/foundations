@@ -32,7 +32,7 @@ import { ExtendedAppointmentModel } from '@/types/global'
 import UPDATE_APPOINTMENT_BY_ID from './update-appointment-by-id.graphql'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import AppointmentDetailProperty from './appointment-detail-property'
+import AppointmentDetailVendor from './appointment-detail-vendor'
 
 export type LoginMode = 'WEB' | 'DESKTOP'
 
@@ -422,8 +422,8 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
       {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
       {renderAddress(appointment?.property || {}, loginMode)}
       {renderNotes(appointment.description)}
-      <AppointmentDetailProperty
-        propertyId={appointment.propertyId || ''}
+      <AppointmentDetailVendor
+        vendorId={appointment?.property?.selling?.vendorId || ''}
         loginMode={loginMode}
         isMobileView={isMobileView}
       />

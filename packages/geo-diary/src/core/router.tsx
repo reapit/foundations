@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { SWRConfig } from 'swr'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { Loader } from '@reapit/elements'
 import { catchChunkError } from '@reapit/utils'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { platformFetcher } from '../utils/fetcher'
 
 export const history = createBrowserHistory()
 
@@ -21,22 +19,15 @@ export const ROUTES = {
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={<Loader />}>
-      <SWRConfig
-        value={{
-          revalidateOnFocus: false,
-          fetcher: platformFetcher,
-        }}
-      >
-        <Switch>
-          <Route path={ROUTES.LOGIN} component={LoginPage} />
-          <PrivateRouteWrapper>
-            <Switch>
-              <PrivateRoute allow="CLIENT" path={ROUTES.APPOINTMENT} component={Appointment} />
-            </Switch>
-          </PrivateRouteWrapper>
-          <Redirect to={ROUTES.LOGIN} />
-        </Switch>
-      </SWRConfig>
+      <Switch>
+        <Route path={ROUTES.LOGIN} component={LoginPage} />
+        <PrivateRouteWrapper>
+          <Switch>
+            <PrivateRoute allow="CLIENT" path={ROUTES.APPOINTMENT} component={Appointment} />
+          </Switch>
+        </PrivateRouteWrapper>
+        <Redirect to={ROUTES.LOGIN} />
+      </Switch>
     </React.Suspense>
   </BrowserRouter>
 )

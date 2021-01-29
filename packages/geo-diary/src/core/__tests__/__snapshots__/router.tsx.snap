@@ -25,47 +25,38 @@ exports[`Router should match a snapshot 1`] = `
   <Suspense
     fallback={<Unknown />}
   >
-    <ContextProvider
-      value={
-        Object {
-          "fetcher": [Function],
-          "revalidateOnFocus": false,
-        }
-      }
-    >
-      <Switch>
-        <Route
-          component={
-            Object {
-              "$$typeof": Symbol(react.lazy),
-              "_ctor": [Function],
-              "_result": null,
-              "_status": -1,
-            }
+    <Switch>
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
           }
-          path="/login"
-        />
-        <Component>
-          <Switch>
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
+        }
+        path="/login"
+      />
+      <Component>
+        <Switch>
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
               }
-              path="/"
-            />
-          </Switch>
-        </Component>
-        <Redirect
-          to="/login"
-        />
-      </Switch>
-    </ContextProvider>
+            }
+            path="/"
+          />
+        </Switch>
+      </Component>
+      <Redirect
+        to="/login"
+      />
+    </Switch>
   </Suspense>
 </Router>
 `;

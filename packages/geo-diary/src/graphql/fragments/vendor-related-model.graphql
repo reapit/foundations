@@ -1,0 +1,9 @@
+fragment VendorRelate on VendorRelate {
+  id
+  name
+  type
+  homePhone
+  workPhone
+  mobilePhone
+  email
+}
