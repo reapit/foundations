@@ -6,39 +6,39 @@ const { getVersionTag } = require('../../../scripts/release/utils')
 
 module.exports = ({ config }) => {
   config.module.rules.push(
-    {
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  useBuiltIns: 'entry',
-                  corejs: '3',
-                  targets: {
-                    esmodules: true,
-                    chrome: '58',
-                    ie: '11',
-                  },
-                },
-              ],
-              'linaria/babel',
-            ],
-          },
-        },
-        {
-          loader: 'linaria/loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
-          },
-        },
-        { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
-        require.resolve('react-docgen-typescript-loader'),
-      ],
-    },
+    // {
+    //   test: /\.(ts|tsx)$/,
+    //   use: [
+    //     {
+    //       loader: 'babel-loader',
+    //       options: {
+    //         presets: [
+    //           [
+    //             '@babel/preset-env',
+    //             {
+    //               useBuiltIns: 'entry',
+    //               corejs: '3',
+    //               targets: {
+    //                 esmodules: true,
+    //                 chrome: '58',
+    //                 ie: '11',
+    //               },
+    //             },
+    //           ],
+    //           'linaria/babel',
+    //         ],
+    //       },
+    //     },
+    //     {
+    //       loader: 'linaria/loader',
+    //       options: {
+    //         sourceMap: process.env.NODE_ENV !== 'production',
+    //       },
+    //     },
+    //     { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+    //     require.resolve('react-docgen-typescript-loader'),
+    //   ],
+    // },
     {
       test: /\.scss$/,
       use: [
@@ -59,7 +59,7 @@ module.exports = ({ config }) => {
       include: path.resolve(__dirname, '../'),
     },
   )
-  config.resolve.extensions.push('.ts', '.tsx')
+  // config.resolve.extensions.push('.ts', '.tsx')
   config.resolve.alias = {
     '@': `${process.cwd()}/src/`,
   }
