@@ -20,7 +20,7 @@ export interface PaymentExternalPageProps {
 }
 
 const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paymentId, clientId }) => {
-  const { data, error } = useSWR<{ payment: PaymentWithPropertyModel }>(
+  const { data, error, mutate: refetchPayment } = useSWR<{ payment: PaymentWithPropertyModel }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
@@ -55,7 +55,14 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
     clientCode: clientId,
   }
 
-  return <PropertyPageContent payment={payment} merchantKey={merchantKey} session={session} />
+  return (
+    <PropertyPageContent
+      payment={payment}
+      merchantKey={merchantKey}
+      session={session}
+      refetchPayment={refetchPayment}
+    />
+  )
 }
 
 export default PaymentExternalPage

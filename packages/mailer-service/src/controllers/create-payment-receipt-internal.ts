@@ -1,9 +1,9 @@
 import { NextFunction, Response } from 'express'
 import { sendEmail } from '../core/ses-client'
 import { AppRequest } from '@reapit/node-utils'
-import { ClientConfig, EmailPaymentRequest } from '../types/payments'
+import { ClientConfig, EmailPaymentReceipt } from '../types/payments'
 import configJson from '../../config.json'
-import { createPaymentRequestTemplate } from '../core/templates'
+import { createPaymentReceiptTemplate } from '../core/templates'
 import logger from '../../../payments-service/src/core/logger'
 import { currencySymbolMapper } from '@reapit/utils/src/currency'
 
@@ -23,7 +23,7 @@ export const getValuesFromConfig = (clientCode: string, config = configJson) => 
   }
 }
 
-export const createPaymentRequest = async (
+export const createPaymentReceiptInternal = async (
   req: AppRequest,
   res: Response,
   _next: NextFunction,
@@ -36,42 +36,38 @@ export const createPaymentRequest = async (
       paymentReason,
       paymentCurrency,
       paymentAmount,
-      paymentExpiry,
-    }: EmailPaymentRequest = req.body
+    }: EmailPaymentReceipt = req.body
     const { traceId } = req
-    const apiKey: string | undefined = req.headers['x-api-key']
     const clientCode: string | undefined = req.headers['reapit-customer']
     const apiVersion: string | undefined = req.headers['api-version']
     const { paymentId } = req.params
     const { senderEmail, companyName, logoUri } = getValuesFromConfig(clientCode, config)
 
-    if (!paymentExpiry || !recipientName || !receipientEmail || !paymentReason || !paymentCurrency || !paymentAmount)
+    if (!recipientName || !receipientEmail || !paymentReason || !paymentCurrency || !paymentAmount)
       throw new Error(
-        'paymentExpiry, recipientName, paymentCurrency, paymentAmount, receipientEmail and paymentReason are required fields',
+        'recipientName, paymentCurrency, paymentAmount, receipientEmail and paymentReason are required fields',
       )
-    if (!clientCode || !apiKey || !apiVersion)
-      throw new Error('reapit-customer, api-version and x-api-key are required headers')
+    if (!clientCode || !apiVersion) throw new Error('reapit-customer and api-version are required headers')
     if (!paymentId) throw new Error('paymentId is a required parameter')
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
-    logger.info('Request successfully validated', { traceId })
+    logger.info('Email successfully validated', { traceId })
 
-    const template = await createPaymentRequestTemplate({
+    const template = await createPaymentReceiptTemplate({
       senderEmail,
       companyName,
       logoUri,
-      paymentReason,
       paymentCurrency: currencySymbolMapper(paymentCurrency),
-      url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}&clientCode=${clientCode}`,
+      paymentReason,
       recipientName,
-      paymentExpiry: new Date(paymentExpiry).toDateString(),
+      paymentDate: new Date().toDateString(),
       paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
     })
 
     logger.info('Template successfully created', { traceId })
 
-    const mail = await sendEmail(receipientEmail, `Payment Request from ${companyName}`, template, senderEmail)
+    const mail = await sendEmail(receipientEmail, `Payment Confirmation from ${companyName}`, template, senderEmail)
 
     if (mail) {
       logger.info('Email successfully sent', { traceId })

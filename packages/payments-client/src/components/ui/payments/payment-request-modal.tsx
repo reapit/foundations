@@ -19,6 +19,7 @@ import { emailRegex } from '@reapit/utils'
 export type PaymentRequestModalProps = {
   payment: PaymentModel | null
   setSelectedPayment: React.Dispatch<React.SetStateAction<PaymentModel | null>>
+  refetchPayments: () => void
 }
 
 export interface PaymentEmailRequestModel {
@@ -32,9 +33,16 @@ export interface PaymentEmailRequestModel {
   _eTag: string
 }
 
-export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ payment, setSelectedPayment }) => {
+export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
+  payment,
+  setSelectedPayment,
+  refetchPayments,
+}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const handleOnClose = () => setSelectedPayment(null)
+  const handleOnClose = () => {
+    setSelectedPayment(null)
+    refetchPayments()
+  }
   return (
     <ModalV2
       visible={Boolean(payment)}
@@ -56,7 +64,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({ paymen
             _eTag: payment?._eTag as string,
           } as PaymentEmailRequestModel
         }
-        onSubmit={handlePaymentRequestSubmit(setIsLoading, setSelectedPayment)}
+        onSubmit={handlePaymentRequestSubmit(setIsLoading, handleOnClose)}
         validationSchema={Yup.object({
           receipientEmail: Yup.string()
             .required('Required')
