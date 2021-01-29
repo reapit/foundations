@@ -26,8 +26,6 @@ export const handleSaveFile = (csv: string, filename: string) => {
 }
 
 const downloadCSV = (area: Area, data: AppSummaryModel[] | DeveloperModel[] | InstallationModelWithAppName[]) => {
-  console.log(area)
-  console.log(data)
   if (area === 'APPS') {
     const apps = data as AppSummaryModel[]
     const csv = Papa.unparse({
