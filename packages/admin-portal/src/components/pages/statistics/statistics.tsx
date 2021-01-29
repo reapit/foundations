@@ -42,10 +42,19 @@ const downloadCSV = (area: Area, data: AppSummaryModel[] | DeveloperModel[] | In
   if (area === 'INSTALLATIONS') {
     const installs = data as InstallationModelWithAppName[]
     const csv = Papa.unparse({
-      fields: ['App Name', 'Client', 'Customer Name', 'Created On', 'Uninstalled On', 'Status'],
+      fields: [
+        'App Name',
+        'Client',
+        'Customer Name',
+        'Created On',
+        'Uninstalled On',
+        'Status',
+        'Installed By',
+        'Uninstalled By',
+      ],
       data: installs.map((item: InstallationModelWithAppName) => {
-        const { appName, client, customerName, created, terminatesOn, status } = item
-        return [appName, client, customerName, created, terminatesOn, status]
+        const { appName, client, customerName, created, terminatesOn, status, installedBy, uninstalledBy } = item
+        return [appName, client, customerName, created, terminatesOn, status, installedBy, uninstalledBy]
       }),
     })
 
