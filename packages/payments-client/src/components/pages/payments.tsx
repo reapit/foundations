@@ -28,6 +28,7 @@ import { URLS } from '../../constants/api'
 import { PaymentModel, PaymentModelPagedResult, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
 import dayjs from 'dayjs'
+import { PaymentLogo } from '../ui/payment-logo'
 
 export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterFormValues => {
   const defaultCreatedFrom = dayjs(new Date())
@@ -149,7 +150,9 @@ const Payments: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3 isHeadingSection>Payments Dashboard</H3>
+      <H3 className="flex justify-between" isHeadingSection>
+        Payments Dashboard <PaymentLogo />
+      </H3>
       <PaymentsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {!payment ? <Loader /> : <PaymentsContent payment={payment} columns={columns} onPageChange={onPageChange} />}
       <PaymentRequestModal

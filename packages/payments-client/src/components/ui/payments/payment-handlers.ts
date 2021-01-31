@@ -81,12 +81,14 @@ export const handlePaymentRequestSubmit = (
 
     notification.success({
       message: 'Payment request was successfully sent by email',
+      placement: 'bottomRight',
     })
     setIsLoading(false)
     handleOnClose()
   } catch (err) {
     notification.error({
       message: 'Payment email request was unsuccessful',
+      placement: 'bottomRight',
     })
   }
 }

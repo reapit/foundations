@@ -1,7 +1,8 @@
 import { PAYMENTS_HEADERS, URLS } from '../constants/api'
-import { fetcher } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements'
 import { genPlatformHeaders, genPaymentsUpdateStatusHeaders } from '../utils/headers'
 import { reapitConnectBrowserSession } from '../core/connect-session'
+import { logger } from '@reapit/utils'
 
 export interface UpdateStatusBody {
   status: string
@@ -65,7 +66,11 @@ export const updatePaymentStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to update the status of the session with the payment provider',
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -90,7 +95,11 @@ export const updatePaymentSessionStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to update the status of the session with the payment provider',
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -117,7 +126,11 @@ export const generatePaymentApiKey = async (body: ApiKeyRequest): Promise<ApiKey
 
     throw new Error('Failed to generate api key')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to connect with the payment provider please try refreshing the page',
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -153,7 +166,11 @@ export const generateEmailPaymentRequest = async (
 
     throw new Error('Failed to generate email payment request')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to semd an email invoice, please try again',
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -188,7 +205,11 @@ export const generateEmailPaymentReceiptInternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to send a receipt for this transaction, please try again',
+      placement: 'bottomRight',
+    })
   }
 }
 
@@ -220,6 +241,10 @@ export const generateEmailPaymentReceiptExternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    console.error(err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to send a receipt for this transaction, please try again',
+      placement: 'bottomRight',
+    })
   }
 }

@@ -3,9 +3,11 @@
 exports[`Payments  should match a snapshot 1`] = `
 <ErrorBoundary>
   <Component
+    className="flex justify-between"
     isHeadingSection={true}
   >
-    Payments Dashboard
+    Payments Dashboard 
+    <Component />
   </Component>
   <PaymentsFilterForm
     filterValues={

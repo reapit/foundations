@@ -9,8 +9,9 @@ import {
   Button,
   unformatCard,
   unformatCardExpires,
-  notification,
   Helper,
+  FadeIn,
+  useFormikContext,
 } from '@reapit/elements'
 import { opayoCreateTransactionService } from '../../../opayo-api/transactions'
 import { MerchantKey } from '../../../opayo-api/merchant-key'
@@ -23,10 +24,8 @@ import {
   generateEmailPaymentReceiptExternal,
   generateEmailPaymentReceiptInternal,
 } from '../../../services/payment'
-import { toastMessages } from '../../../constants/toast-messages'
 import Routes from '../../../constants/routes'
 import { history } from '../../../core/router'
-import FadeIn from '../../../../../data-warehouse/src/styles/fade-in'
 
 export interface CardDetails {
   customerFirstName: string
@@ -40,59 +39,32 @@ export interface CardDetails {
   expiryDate: string
   securityCode: string
   cardIdentifier: string
+  email: string
 }
 
 export const onUpdateStatus = async (
   body: UpdateStatusBody,
   params: UpdateStatusParams,
+  cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
   refetchPayment: () => void,
-  result?: any,
 ) => {
   const { session } = params
-
-  const updateStatusRes = session
-    ? await updatePaymentSessionStatus(body, params)
-    : await updatePaymentStatus(body, params)
-
-  if (updateStatusRes) {
-    if (body.status === 'posted') {
-      notification.success({
-        message: toastMessages.UPDATE_PAYMENT_STATUS_POSTED,
-        placement: 'bottomRight',
-      })
-    } else {
-      notification.warn({
-        message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
-        placement: 'bottomRight',
-      })
-    }
-  }
-
+  const { customerFirstName, customerLastName, email } = cardDetails
   const emailReceiptBody = {
-    receipientEmail: payment?.customer?.email ?? 'willmcvay@pm.me',
-    recipientName: payment?.customer?.name ?? 'Name Unknown',
+    receipientEmail: email,
+    recipientName: `${customerFirstName} ${customerLastName}`,
     paymentReason: payment?.description ?? 'No Reason Provided',
     paymentAmount: payment?.amount ?? 0,
     paymentCurrency: 'GBP',
   }
 
-  const emailReceiptRes = session
-    ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
-    : await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
-
-  if (emailReceiptRes) {
-    if (body.status === 'posted') {
-      notification.success({
-        message: toastMessages.UPDATE_PAYMENT_STATUS_POSTED,
-        placement: 'bottomRight',
-      })
-    } else {
-      notification.warn({
-        message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
-        placement: 'bottomRight',
-      })
-    }
+  if (session) {
+    await updatePaymentSessionStatus(body, params)
+    await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+  } else {
+    await updatePaymentStatus(body, params)
+    await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
   }
 
   refetchPayment()
@@ -108,7 +80,7 @@ export const handleCreateTransaction = (
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
-  const { amount, description, clientCode, externalReference = '', _eTag = '' } = payment
+  const { amount, description, clientCode, _eTag = '' } = payment
   if (result.success) {
     const transaction = await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
@@ -135,31 +107,26 @@ export const handleCreateTransaction = (
       entryMethod: 'Ecommerce',
     })
 
-    if (transaction && transaction.retrievalReference) {
-      await onUpdateStatus(
-        { status: 'posted', externalReference: transaction.transactionId },
-        { paymentId, clientCode, _eTag, session },
-        payment,
-        refetchPayment,
-      )
-    } else {
-      await onUpdateStatus(
-        { status: 'rejected', externalReference },
-        { paymentId, clientCode, _eTag, session },
-        payment,
-        refetchPayment,
-        result,
-      )
-    }
-  } else {
-    await onUpdateStatus(
-      { status: 'rejected', externalReference },
+    const status = transaction && transaction.transactionId ? 'posted' : 'rejected'
+    // TODO - work out the Opayo error code structure
+    const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
+
+    return await onUpdateStatus(
+      { status, externalReference: externalReference },
       { paymentId, clientCode, _eTag, session },
+      cardDetails,
       payment,
       refetchPayment,
-      result,
     )
   }
+
+  return await onUpdateStatus(
+    { status, externalReference: 'rejected' },
+    { paymentId, clientCode, _eTag, session },
+    cardDetails,
+    payment,
+    refetchPayment,
+  )
   setIsLoading(false)
 }
 
@@ -196,6 +163,52 @@ export const onHandleSubmit = (
     })
 }
 
+export interface ResendConfirmButtonProps {
+  payment: PaymentWithPropertyModel
+  session?: string
+}
+
+export const ResendConfirmButton: React.FC<ResendConfirmButtonProps> = ({
+  payment,
+  session,
+}: ResendConfirmButtonProps) => {
+  const {
+    values: { email, customerFirstName, customerLastName },
+  } = useFormikContext<CardDetails>()
+  const [loading, setLoading] = useState<boolean>(false)
+
+  if (!email) return null
+
+  const emailReceiptBody = {
+    receipientEmail: email,
+    recipientName: `${customerFirstName} ${customerLastName}`,
+    paymentReason: payment?.description ?? 'No Reason Provided',
+    paymentAmount: payment?.amount ?? 0,
+    paymentCurrency: 'GBP',
+  }
+
+  const params = {
+    _eTag: payment._eTag,
+    paymentId: payment.id,
+    session,
+    clientCode: payment.clientCode,
+  } as UpdateStatusParams
+
+  const onClick = async () => {
+    setLoading(true)
+    session
+      ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+      : await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+    setLoading(false)
+  }
+
+  return (
+    <Button variant="primary" type="button" onClick={onClick} loading={loading} disabled={loading}>
+      Re-send Confirmation
+    </Button>
+  )
+}
+
 const PaymentForm: React.FC<{
   payment: PaymentWithPropertyModel
   merchantKey: MerchantKey
@@ -206,9 +219,10 @@ const PaymentForm: React.FC<{
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const onSubmit = onHandleSubmit(merchantKey, payment, paymentId, setIsLoading, refetchPayment, session)
   const { customer, status } = payment
-  const { forename = '', surname = '', primaryAddress = {} } = customer || {}
+  const { forename = '', surname = '', email = '', primaryAddress = {} } = customer || {}
   const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
   const redirectToDashboard = () => history.push(Routes.PAYMENTS)
+
   const address1 =
     buildingName && line1
       ? `${buildingName} ${line1}`
@@ -230,6 +244,7 @@ const PaymentForm: React.FC<{
         expiryDate: '',
         securityCode: '',
         cardIdentifier: '',
+        email: email,
       }}
       onSubmit={onSubmit}
     >
@@ -255,9 +270,7 @@ const PaymentForm: React.FC<{
                       Back to dashboard
                     </Button>
                   )}
-                  <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>
-                    Re-send Confirmation
-                  </Button>
+                  <ResendConfirmButton payment={payment} />
                 </LevelRight>
               </Section>
             </FadeIn>

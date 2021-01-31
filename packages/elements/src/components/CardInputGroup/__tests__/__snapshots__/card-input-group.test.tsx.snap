@@ -2845,6 +2845,66 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                 </Component>
               </div>
             </Component>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  >
+                    <Component
+                      id="email"
+                      labelText="Email"
+                      name="email"
+                      placeholder="example@mail.com"
+                      required={true}
+                      type="email"
+                    >
+                      <Field
+                        name="email"
+                        validate={[Function]}
+                      >
+                        <div
+                          className=""
+                        >
+                          <div
+                            className="control "
+                          >
+                            <label
+                              className="label inline-block required-label"
+                              htmlFor="email"
+                            >
+                              Email
+                            </label>
+                            <input
+                              className=""
+                              data-test=""
+                              disabled={false}
+                              id="email"
+                              name="email"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="example@mail.com"
+                              type="email"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </Field>
+                    </Component>
+                  </div>
+                </Component>
+                <Component>
+                  <div
+                    className=""
+                    data-test=""
+                  />
+                </Component>
+              </div>
+            </Component>
           </section>
         </Component>
         <Component>
