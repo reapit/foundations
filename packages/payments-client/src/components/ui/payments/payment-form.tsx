@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import {
   Section,
   Formik,
@@ -9,7 +9,9 @@ import {
   Button,
   unformatCard,
   unformatCardExpires,
-  notification,
+  Helper,
+  FadeIn,
+  useFormikContext,
 } from '@reapit/elements'
 import { opayoCreateTransactionService } from '../../../opayo-api/transactions'
 import { MerchantKey } from '../../../opayo-api/merchant-key'
@@ -19,8 +21,11 @@ import {
   updatePaymentSessionStatus,
   UpdateStatusBody,
   UpdateStatusParams,
+  generateEmailPaymentReceiptExternal,
+  generateEmailPaymentReceiptInternal,
 } from '../../../services/payment'
-import { toastMessages } from '../../../constants/toast-messages'
+import Routes from '../../../constants/routes'
+import { history } from '../../../core/router'
 
 export interface CardDetails {
   customerFirstName: string
@@ -34,44 +39,50 @@ export interface CardDetails {
   expiryDate: string
   securityCode: string
   cardIdentifier: string
+  email: string
 }
 
-export const onUpdateStatus = async (body: UpdateStatusBody, params: UpdateStatusParams, result?: any) => {
+export const onUpdateStatus = async (
+  body: UpdateStatusBody,
+  params: UpdateStatusParams,
+  cardDetails: CardDetails,
+  payment: PaymentWithPropertyModel,
+  refetchPayment: () => void,
+) => {
   const { session } = params
-  const updateStatusRes = session
-    ? await updatePaymentSessionStatus(body, params)
-    : await updatePaymentStatus(body, params)
-
-  if (updateStatusRes) {
-    if (body.status === 'posted') {
-      return notification.success({
-        message: toastMessages.UPDATE_PAYMENT_STATUS_POSTED,
-        placement: 'bottomRight',
-      })
-    }
-    return notification.warn({
-      message: result?.description || toastMessages.UPDATE_PAYMENT_STATUS_REJECTED,
-      placement: 'bottomRight',
-    })
+  const { customerFirstName, customerLastName, email } = cardDetails
+  const emailReceiptBody = {
+    receipientEmail: email,
+    recipientName: `${customerFirstName} ${customerLastName}`,
+    paymentReason: payment?.description ?? 'No Reason Provided',
+    paymentAmount: payment?.amount ?? 0,
+    paymentCurrency: 'GBP',
   }
 
-  return notification.error({
-    message: toastMessages.FAILED_TO_UPDATE_PAYMENT_STATUS,
-    placement: 'bottomRight',
-  })
+  if (session) {
+    await updatePaymentSessionStatus(body, params)
+    await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+  } else {
+    await updatePaymentStatus(body, params)
+    await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+  }
+
+  refetchPayment()
 }
 
 export const handleCreateTransaction = (
   merchantKey: MerchantKey,
-  data: PaymentWithPropertyModel,
+  payment: PaymentWithPropertyModel,
   cardDetails: CardDetails,
   paymentId: string,
+  setIsLoading: Dispatch<SetStateAction<boolean>>,
+  refetchPayment: () => void,
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
-  const { amount, description, clientCode, externalReference = '', _eTag = '' } = data
+  const { amount, description, clientCode, _eTag = '' } = payment
   if (result.success) {
-    await opayoCreateTransactionService(clientCode || 'SBOX', {
+    const transaction = await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
       paymentMethod: {
         card: {
@@ -95,19 +106,40 @@ export const handleCreateTransaction = (
       },
       entryMethod: 'Ecommerce',
     })
-    await onUpdateStatus({ status: 'posted', externalReference }, { paymentId, clientCode, _eTag, session })
-  } else {
-    await onUpdateStatus({ status: 'rejected', externalReference }, { paymentId, clientCode, _eTag, session }, result)
+
+    const status = transaction && transaction.transactionId ? 'posted' : 'rejected'
+    // TODO - work out the Opayo error code structure
+    const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
+
+    return await onUpdateStatus(
+      { status, externalReference: externalReference },
+      { paymentId, clientCode, _eTag, session },
+      cardDetails,
+      payment,
+      refetchPayment,
+    )
   }
+
+  return await onUpdateStatus(
+    { status, externalReference: 'rejected' },
+    { paymentId, clientCode, _eTag, session },
+    cardDetails,
+    payment,
+    refetchPayment,
+  )
+  setIsLoading(false)
 }
 
 export const onHandleSubmit = (
   merchantKey: MerchantKey,
-  data: PaymentWithPropertyModel,
+  payment: PaymentWithPropertyModel,
   paymentId: string,
+  setIsLoading: Dispatch<SetStateAction<boolean>>,
+  refetchPayment: () => void,
   session?: string,
 ) => (cardDetails: CardDetails) => {
   const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails
+  setIsLoading(true)
   window
     .sagepayOwnForm({
       merchantSessionKey: merchantKey.merchantSessionKey,
@@ -119,28 +151,84 @@ export const onHandleSubmit = (
         expiryDate: unformatCardExpires(expiryDate),
         securityCode,
       },
-      onTokenised: handleCreateTransaction(merchantKey, data, cardDetails, paymentId, session),
+      onTokenised: handleCreateTransaction(
+        merchantKey,
+        payment,
+        cardDetails,
+        paymentId,
+        setIsLoading,
+        refetchPayment,
+        session,
+      ),
     })
 }
 
+export interface ResendConfirmButtonProps {
+  payment: PaymentWithPropertyModel
+  session?: string
+}
+
+export const ResendConfirmButton: React.FC<ResendConfirmButtonProps> = ({
+  payment,
+  session,
+}: ResendConfirmButtonProps) => {
+  const {
+    values: { email, customerFirstName, customerLastName },
+  } = useFormikContext<CardDetails>()
+  const [loading, setLoading] = useState<boolean>(false)
+
+  if (!email) return null
+
+  const emailReceiptBody = {
+    receipientEmail: email,
+    recipientName: `${customerFirstName} ${customerLastName}`,
+    paymentReason: payment?.description ?? 'No Reason Provided',
+    paymentAmount: payment?.amount ?? 0,
+    paymentCurrency: 'GBP',
+  }
+
+  const params = {
+    _eTag: payment._eTag,
+    paymentId: payment.id,
+    session,
+    clientCode: payment.clientCode,
+  } as UpdateStatusParams
+
+  const onClick = async () => {
+    setLoading(true)
+    session
+      ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+      : await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+    setLoading(false)
+  }
+
+  return (
+    <Button variant="primary" type="button" onClick={onClick} loading={loading} disabled={loading}>
+      Re-send Confirmation
+    </Button>
+  )
+}
+
 const PaymentForm: React.FC<{
-  data: PaymentWithPropertyModel
+  payment: PaymentWithPropertyModel
   merchantKey: MerchantKey
   paymentId: string
   session?: string
-}> = ({ data, merchantKey, paymentId, session }) => {
-  const onSubmit = onHandleSubmit(merchantKey, data, paymentId, session)
-  const { customer } = data
-  const { forename = '', surname = '', primaryAddress = {} } = customer || {}
+  refetchPayment: () => void
+}> = ({ payment, merchantKey, paymentId, session, refetchPayment }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const onSubmit = onHandleSubmit(merchantKey, payment, paymentId, setIsLoading, refetchPayment, session)
+  const { customer, status } = payment
+  const { forename = '', surname = '', email = '', primaryAddress = {} } = customer || {}
   const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
-  let address1: string
-  if (buildingName && line1) {
-    address1 = `${buildingName} ${line1}`
-  } else if (buildingNumber && line1) {
-    address1 = `${buildingNumber} ${line1}`
-  } else {
-    address1 = buildingName || buildingNumber || line1 || ''
-  }
+  const redirectToDashboard = () => history.push(Routes.PAYMENTS)
+
+  const address1 =
+    buildingName && line1
+      ? `${buildingName} ${line1}`
+      : buildingNumber && line1
+      ? `${buildingNumber} ${line1}`
+      : buildingName || buildingNumber || line1 || ''
 
   return (
     <Formik
@@ -156,20 +244,50 @@ const PaymentForm: React.FC<{
         expiryDate: '',
         securityCode: '',
         cardIdentifier: '',
+        email: email,
       }}
       onSubmit={onSubmit}
     >
       {() => (
         <Form className="form">
-          <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
-          <Section>
-            <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
-            <LevelRight>
-              <Button variant="primary" type="submit">
-                Make Payment
-              </Button>
-            </LevelRight>
-          </Section>
+          {status === 'rejected' && (
+            <FadeIn>
+              <Helper variant="warning">
+                This payment has failed. Please check the details submitted are correct and try again.
+              </Helper>
+            </FadeIn>
+          )}
+          {status === 'posted' && (
+            <FadeIn>
+              <Helper variant="info">
+                This payment has been successfully submitted and confirmation of payment has been emailed to the address
+                supplied. If no email was received, you can send again by clicking the button below.
+              </Helper>
+              <Section>
+                <LevelRight>
+                  {!session && (
+                    <Button variant="secondary" type="button" onClick={redirectToDashboard}>
+                      Back to dashboard
+                    </Button>
+                  )}
+                  <ResendConfirmButton payment={payment} />
+                </LevelRight>
+              </Section>
+            </FadeIn>
+          )}
+          {status !== 'posted' && (
+            <FadeIn>
+              <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
+              <Section>
+                <LevelRight>
+                  <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>
+                    Make Payment
+                  </Button>
+                </LevelRight>
+              </Section>
+              <Input id="cardIdentifier" type="hidden" name="cardIdentifier" />
+            </FadeIn>
+          )}
         </Form>
       )}
     </Formik>

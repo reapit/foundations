@@ -27,12 +27,19 @@ import PaymentRequestModal from '@/components/ui/payments/payment-request-modal'
 import { URLS } from '../../constants/api'
 import { PaymentModel, PaymentModelPagedResult, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
+import dayjs from 'dayjs'
+import { PaymentLogo } from '../ui/payment-logo'
 
 export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterFormValues => {
+  const defaultCreatedFrom = dayjs(new Date())
+    .subtract(1, 'month')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const defaultCreatedTo = dayjs(new Date()).format(DATE_TIME_FORMAT.YYYY_MM_DD)
+
   const properties = queryParams.get('properties') || ''
   const description = queryParams.get('description') || ''
-  const createdFrom = queryParams.get('createdFrom') || ''
-  const createdTo = queryParams.get('createdTo') || ''
+  const createdFrom = queryParams.get('createdFrom') || defaultCreatedFrom
+  const createdTo = queryParams.get('createdTo') || defaultCreatedTo
   const status = queryParams.getAll('status') || []
   const type = queryParams.getAll('type') || []
   return { properties, description, createdFrom, createdTo, status, type } as PaymentsFilterFormValues
@@ -77,10 +84,15 @@ const Payments: React.FC = () => {
   const filterValues = buildFilterValues(queryParams)
   const onSearch = useCallback(onSearchHandler(history), [history])
   const onPageChange = useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
-
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
 
-  const { data: payment } = useSWR<PaymentModelPagedResult | undefined>(`${URLS.PAYMENTS}/${search}`)
+  if (!search) {
+    onSearch(filterValues)
+  }
+
+  const { data: payment, mutate: refetchPayments } = useSWR<PaymentModelPagedResult | undefined>(
+    search ? `${URLS.PAYMENTS}/${search}` : null,
+  )
 
   const handleTakePayment = (id: string) => {
     return history.push(`${Routes.PAYMENTS}/${id}`)
@@ -88,7 +100,7 @@ const Payments: React.FC = () => {
 
   const RequestedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_FORMAT)}</p>
 
-  const AmountCell = ({ cell: { value } }) => <p>{`£${value.toFixed(2)}`}</p>
+  const AmountCell = ({ cell: { value } }) => <p>{`£${value ? (value / 100).toFixed(2) : 0}`}</p>
 
   const StatusCell = ({ cell: { value } }) => {
     const statusText = statusOptions.find(item => item.value === value)?.label ?? 'Other'
@@ -138,10 +150,16 @@ const Payments: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3 isHeadingSection>Payments Dashboard</H3>
+      <H3 className="flex justify-between" isHeadingSection>
+        Payments Dashboard <PaymentLogo />
+      </H3>
       <PaymentsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {!payment ? <Loader /> : <PaymentsContent payment={payment} columns={columns} onPageChange={onPageChange} />}
-      <PaymentRequestModal payment={selectedPayment} setSelectedPayment={setSelectedPayment} />
+      <PaymentRequestModal
+        payment={selectedPayment}
+        setSelectedPayment={setSelectedPayment}
+        refetchPayments={refetchPayments}
+      />
     </ErrorBoundary>
   )
 }

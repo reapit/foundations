@@ -6,17 +6,27 @@ import PaymentForm from './payment-form'
 import PropertySection from './property-section'
 import { MerchantKey } from '../../../opayo-api/merchant-key'
 import { FaPoundSign, FaShoppingCart, FaStickyNote } from 'react-icons/fa'
+import { PaymentLogo } from '../payment-logo'
 
-export interface PropertyPageContentProps {
+export interface PaymentPageContentProps {
   payment: PaymentWithPropertyModel
   merchantKey: MerchantKey
+  refetchPayment: () => void
+  session?: string
 }
 
-const PropertyPageContent: React.FC<PropertyPageContentProps> = ({ payment, merchantKey }) => {
+const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
+  payment,
+  merchantKey,
+  refetchPayment,
+  session,
+}: PaymentPageContentProps) => {
   const { customer, amount, description, property, id } = payment
   return (
     <>
-      <H3 isHeadingSection>Card Payment</H3>
+      <H3 className="flex justify-between" isHeadingSection>
+        Card Payment <PaymentLogo />
+      </H3>
       <Section>
         <Grid>
           <PaymentCustomerSection customer={customer} />
@@ -30,7 +40,7 @@ const PropertyPageContent: React.FC<PropertyPageContentProps> = ({ payment, merc
             items={[
               {
                 icon: <FaPoundSign className="icon-list-icon" />,
-                text: <H6 className="inline-block">{amount?.toFixed(2)}</H6>,
+                text: <H6 className="inline-block">{amount ? (amount / 100).toFixed(2) : 0}</H6>,
               },
               {
                 icon: <FaShoppingCart className="icon-list-icon" />,
@@ -46,7 +56,13 @@ const PropertyPageContent: React.FC<PropertyPageContentProps> = ({ payment, merc
       </Section>
       {merchantKey && payment ? (
         <FadeIn>
-          <PaymentForm data={payment} merchantKey={merchantKey} paymentId={id as string} />
+          <PaymentForm
+            payment={payment}
+            merchantKey={merchantKey}
+            paymentId={id as string}
+            session={session}
+            refetchPayment={refetchPayment}
+          />
         </FadeIn>
       ) : (
         <Loader />
@@ -54,4 +70,4 @@ const PropertyPageContent: React.FC<PropertyPageContentProps> = ({ payment, merc
     </>
   )
 }
-export default PropertyPageContent
+export default PaymentPageContent

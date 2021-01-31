@@ -12,6 +12,7 @@ exports[`PaymentForm should match a snapshot 1`] = `
       "country": "GB",
       "customerFirstName": "John",
       "customerLastName": "Smith",
+      "email": "example@email.com",
       "expiryDate": "",
       "postalCode": "A11 2BB",
       "securityCode": "",

@@ -7,7 +7,7 @@ import { MerchantKey } from '../../opayo-api/merchant-key'
 import { handleMerchantKeyEffect } from '../ui/payments/payment-handlers'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import PropertyPageContent from '../ui/payments/payment-page-content'
+import PaymentPageContent from '../ui/payments/payment-page-content'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 
 export interface PaymentInternalPageProps {
@@ -16,7 +16,7 @@ export interface PaymentInternalPageProps {
 
 const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { data: paymentModel } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
+  const { data: paymentModel, mutate: refetchPayment } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
   const { data: propertyModel } = useSWR<PropertyModel>(
     paymentModel?.propertyId ? `${URLS.PROPERTIES}/${paymentModel?.propertyId}` : null,
   )
@@ -47,7 +47,7 @@ const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId }) 
     property: propertyModel,
   }
 
-  return <PropertyPageContent payment={payment} merchantKey={merchantKey} />
+  return <PaymentPageContent payment={payment} merchantKey={merchantKey} refetchPayment={refetchPayment} />
 }
 
 export default PaymentInternalPage

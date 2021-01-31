@@ -16,6 +16,7 @@ export type Config = {
   connectUserPoolId: string
   graphqlUri: string
   googleMapApiKey: string
+  platformApiUrl: string
 }
 
 declare global {
