@@ -1,4 +1,5 @@
-import { fetcher } from '@reapit/elements'
+import { fetcher, notification } from '@reapit/elements'
+import { logger } from '@reapit/utils'
 import { URLS } from '../constants/api'
 import { genPaymentsHeaders } from '../utils/headers'
 
@@ -24,6 +25,10 @@ export const opayoMerchantKeyService = async (clientCode: string): Promise<Merch
 
     throw new Error('No merchant key returned')
   } catch (err) {
-    console.error('Error fetching properties', err.message)
+    logger(err)
+    notification.error({
+      message: 'Failed to conned to the payment provider, please try again',
+      placement: 'bottomRight',
+    })
   }
 }

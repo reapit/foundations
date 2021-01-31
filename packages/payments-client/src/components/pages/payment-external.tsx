@@ -30,6 +30,10 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
 
   useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, clientId), [setMerchantKey, clientId])
 
+  if (loading || !paymentModel) {
+    return <Loader />
+  }
+
   if (error) {
     return (
       <Helper variant="warning">

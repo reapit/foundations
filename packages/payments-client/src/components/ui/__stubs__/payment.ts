@@ -71,4 +71,5 @@ export const cardDetails: CardDetails = {
   expiryDate: '',
   securityCode: '',
   cardIdentifier: '',
+  email: '',
 }
