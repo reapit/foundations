@@ -224,7 +224,7 @@ export const generateEmailPaymentReceiptExternal = async (
   try {
     const response = await fetcher({
       api: window.reapit.config.emailApiUrl,
-      url: `${URLS.PAYMENT_RECEIPT_INTERNAL}/${paymentId}`,
+      url: `${URLS.PAYMENT_RECEIPT_EXTERNAL}/${paymentId}`,
       method: 'POST',
       headers: {
         ...PAYMENTS_HEADERS,
