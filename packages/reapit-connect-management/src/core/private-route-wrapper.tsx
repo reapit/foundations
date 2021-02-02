@@ -35,9 +35,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (window.reapit.config.appEnv === 'production') {
-    if (pathname === '/' || pathname === Routes.OFFICES) {
-      return <Redirect to={Routes.OFFICES_GROUPS} />
-    }
     if (pathname === Routes.USERS) {
       return <Redirect to={Routes.USERS_GROUPS} />
     }
