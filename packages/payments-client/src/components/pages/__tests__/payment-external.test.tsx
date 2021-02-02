@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import PaymentExternalPage from '../payment-external'
-import { dataSession } from '../../ui/__stubs__/payment'
+import { stubPaymentWithPropertyModel } from '../../ui/__stubs__/payment'
 
 jest.mock('@reapit/elements')
 const session = 'token-of-session'
@@ -19,7 +19,7 @@ jest.mock('swr', () =>
   jest.fn(() => ({
     data: {
       payment: {
-        data: dataSession,
+        data: stubPaymentWithPropertyModel,
       },
     },
   })),

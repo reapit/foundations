@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import { Helper, Loader } from '@reapit/elements'
-import { PaymentWithPropertyModel } from './payment-external'
 import { URLS } from '../../constants/api'
-import { MerchantKey } from '../../opayo-api/merchant-key'
-import { handleMerchantKeyEffect } from '../ui/payments/payment-handlers'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import PaymentPageContent from '../ui/payments/payment-page-content'
+import PaymentPageContent from '../ui/payment-page-content'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { handleMerchantKeyEffect } from '../ui/payment-handlers'
+import { MerchantKey } from '../../types/opayo'
+import { PaymentWithPropertyModel } from '../../types/payment'
 
 export interface PaymentInternalPageProps {
   paymentId: string

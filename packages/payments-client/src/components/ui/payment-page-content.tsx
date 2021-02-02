@@ -1,12 +1,12 @@
 import React from 'react'
 import { Loader, H3, Grid, H5, Section, FadeIn, IconList, H6 } from '@reapit/elements'
-import { PaymentWithPropertyModel } from '../../pages/payment-external'
 import PaymentCustomerSection from './payment-customer-section'
 import PaymentForm from './payment-form'
 import PropertySection from './property-section'
-import { MerchantKey } from '../../../opayo-api/merchant-key'
 import { FaPoundSign, FaShoppingCart, FaStickyNote } from 'react-icons/fa'
-import { PaymentLogo } from '../payment-logo'
+import { PaymentLogo } from './payment-logo'
+import { MerchantKey } from '../../types/opayo'
+import { PaymentWithPropertyModel } from '../../types/payment'
 
 export interface PaymentPageContentProps {
   payment: PaymentWithPropertyModel

@@ -3,45 +3,14 @@ import { fetcher, notification } from '@reapit/elements'
 import { genPlatformHeaders, genPaymentsUpdateStatusHeaders } from '../utils/headers'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { logger } from '@reapit/utils'
-
-export interface UpdateStatusBody {
-  status: string
-  externalReference?: string
-}
-
-export interface UpdateStatusParams {
-  _eTag: string
-  paymentId: string
-  session?: string
-  clientCode?: string
-}
-
-export interface ApiKeyRequest {
-  clientCode: string
-  paymentId: string
-  keyExpiresAt: string
-}
-
-export interface ApiKeyResponse {
-  apiKey: string
-}
-
-export interface PaymentEmailRequest {
-  receipientEmail: string
-  recipientName: string
-  paymentReason: string
-  paymentAmount: number
-  paymentCurrency: string
-  paymentExpiry: string
-}
-
-export interface PaymentEmailReceipt {
-  receipientEmail: string
-  recipientName: string
-  paymentReason: string
-  paymentAmount: number
-  paymentCurrency: string
-}
+import {
+  ApiKeyRequest,
+  ApiKeyResponse,
+  PaymentEmailReceipt,
+  PaymentEmailRequest,
+  UpdateStatusBody,
+  UpdateStatusParams,
+} from '../types/payment'
 
 export const updatePaymentStatus = async (
   body: UpdateStatusBody,

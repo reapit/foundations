@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import PaymentPage from '../payment-internal'
-import { data } from '../../ui/__stubs__/payment'
+import { stubPaymentModel } from '../../ui/__stubs__/payment'
 
 jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
@@ -12,7 +12,7 @@ jest.mock('react-router', () => ({
 
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: stubPaymentModel,
   })),
 )
 

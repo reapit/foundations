@@ -1,35 +1,16 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import { fetcher, notification } from '@reapit/elements'
-import PaymentForm, { onUpdateStatus, onHandleSubmit, handleCreateTransaction } from '../../payments/payment-form'
-import { dataSession, cardDetails } from '../../__stubs__/payment'
-
+import { handleCreateTransaction, onUpdateStatus, onHandleSubmit } from '../payment-handlers'
+import { stubCardDetails, stubPaymentWithPropertyModel } from '../__stubs__/payment'
 jest.mock('@reapit/elements')
 
+const session = '475625c2-af01-4e64-a948-c504992f5e'
+const paymentId = 'MKT20000010'
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
 const merchantKey = {
   merchantSessionKey: 'merchantSessionKey',
   expiry: '2021-08-26T19:00:12.357Z',
 }
-const session = '475625c2-af01-4e64-a948-c504992f5e'
-const paymentId = 'MKT20000010'
-
-describe('PaymentForm', () => {
-  it('should match a snapshot', () => {
-    expect(
-      shallow(
-        <PaymentForm
-          payment={dataSession}
-          merchantKey={{ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' }}
-          paymentId={paymentId}
-          session={session}
-          refetchPayment={jest.fn()}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-})
 
 xdescribe('updateStatusRes', () => {
   const updateStatusParams = { paymentId: 'paymentId', clientCode: 'clientCode', _eTag: '_eTag', session: 'session' }
@@ -39,8 +20,8 @@ xdescribe('updateStatusRes', () => {
     await onUpdateStatus(
       { status: 'posted', externalReference: '' },
       updateStatusParams,
-      cardDetails,
-      dataSession,
+      stubCardDetails,
+      stubPaymentWithPropertyModel,
       jest.fn(),
     )
     expect(notification.success).toHaveBeenCalled()
@@ -50,8 +31,8 @@ xdescribe('updateStatusRes', () => {
     await onUpdateStatus(
       { status: 'rejected', externalReference: '' },
       updateStatusParams,
-      cardDetails,
-      dataSession,
+      stubCardDetails,
+      stubPaymentWithPropertyModel,
       jest.fn(),
     )
     expect(notification.warn).toHaveBeenCalled()
@@ -61,8 +42,8 @@ xdescribe('updateStatusRes', () => {
     await onUpdateStatus(
       { status: 'posted', externalReference: '' },
       updateStatusParams,
-      cardDetails,
-      dataSession,
+      stubCardDetails,
+      stubPaymentWithPropertyModel,
       jest.fn(),
     )
     expect(notification.error).toHaveBeenCalled()
@@ -71,10 +52,10 @@ xdescribe('updateStatusRes', () => {
 
 describe('onHandleSubmit', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
-  const onSubmit = onHandleSubmit(merchantKey, dataSession, paymentId, jest.fn(), jest.fn(), session)
+  const onSubmit = onHandleSubmit(merchantKey, stubPaymentWithPropertyModel, paymentId, jest.fn(), jest.fn(), session)
 
   it('should show notification error', () => {
-    onSubmit(cardDetails)
+    onSubmit(stubCardDetails)
     expect(window.sagepayOwnForm).toHaveBeenCalled()
   })
 })
@@ -84,8 +65,8 @@ describe('handleCreateTransaction', () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
     const onTokenised = handleCreateTransaction(
       merchantKey,
-      dataSession,
-      cardDetails,
+      stubPaymentWithPropertyModel,
+      stubCardDetails,
       paymentId,
       jest.fn(),
       jest.fn(),
@@ -99,8 +80,8 @@ describe('handleCreateTransaction', () => {
     mockedFetch.mockReturnValueOnce(false)
     const onTokenised = handleCreateTransaction(
       merchantKey,
-      dataSession,
-      cardDetails,
+      stubPaymentWithPropertyModel,
+      stubCardDetails,
       paymentId,
       jest.fn(),
       jest.fn(),

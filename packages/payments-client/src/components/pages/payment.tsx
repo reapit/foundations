@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, useLocation, useParams } from 'react-router'
 import { FlexContainerBasic, FlexContainerResponsive } from '../../../../elements/src'
-import Routes from '../../constants/routes'
+import { Routes } from '../../constants/routes'
 import PrivateRouteWrapper from '../../core/private-route-wrapper'
 import PaymentExternalPage from './payment-external'
 import PaymentInternalPage from './payment-internal'

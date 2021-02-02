@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import PaymentsFilterForm from '../../payments/payments-filter-form'
+import PaymentsFilterForm from '../payments-filter-form'
 
 describe('PaymentsFilterForm', () => {
   it('should match a snapshot', () => {

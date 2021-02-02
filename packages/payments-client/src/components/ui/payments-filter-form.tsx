@@ -13,9 +13,9 @@ import {
   H5,
   Section,
 } from '@reapit/elements'
-import { formFields } from './form-schema/payment-filter-fields'
-import { columnRelative, searchBtn } from '../../../styles/ui/payment-filter-form'
-import { statusOptions, typeOptions } from '../../../constants/filter-options'
+import { formFields } from './payment-filter-fields'
+import { columnRelative, searchBtn } from '../../styles/ui/payment-filter-form'
+import { statusOptions, typeOptions } from '../../constants/filter-options'
 
 export interface PaymentsFilterFormValues {
   createdFrom?: string
@@ -32,7 +32,7 @@ export interface PaymentsFormProps {
 }
 
 const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearch }) => {
-  const { properties, description } = formFields
+  const { description } = formFields
   return (
     <Section>
       <H5>Filter Dashboard</H5>
@@ -54,8 +54,24 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
             <Form noValidate={true}>
               <Grid>
                 <GridItem>
-                  <Input type="text" labelText={properties.label} id={properties.name} name={properties.name} />
-                  <Input type="text" labelText={description.label} id={description.name} name={description.name} />
+                  {/**Commenting out for now as needs search capability to make it work */}
+                  {/* <Input type="text" labelText={properties.label} id={properties.name} name={properties.name} /> */}
+                  <DropdownSelect
+                    mode="multiple"
+                    id="status"
+                    placeholder="Please select"
+                    name="status"
+                    labelText="Status"
+                    options={statusOptions}
+                  />
+                  <DatePicker
+                    name="createdFrom"
+                    labelText="Created From"
+                    id="createdFrom"
+                    reactDatePickerProps={{
+                      maxDate: new Date(),
+                    }}
+                  />
                 </GridItem>
                 <GridItem>
                   <DropdownSelect
@@ -66,26 +82,6 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                     labelText="Payment Type"
                     options={typeOptions}
                   />
-                  <DropdownSelect
-                    mode="multiple"
-                    id="status"
-                    placeholder="Please select"
-                    name="status"
-                    labelText="Status"
-                    options={statusOptions}
-                  />
-                </GridItem>
-                <GridItem>
-                  <DatePicker
-                    name="createdFrom"
-                    labelText="Created From"
-                    id="createdFrom"
-                    reactDatePickerProps={{
-                      maxDate: new Date(),
-                    }}
-                  />
-                </GridItem>
-                <GridItem className={columnRelative}>
                   <DatePicker
                     name="createdTo"
                     labelText="Created To"
@@ -95,6 +91,9 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                       maxDate: new Date(),
                     }}
                   />
+                </GridItem>
+                <GridItem className={columnRelative}>
+                  <Input type="text" labelText={description.label} id={description.name} name={description.name} />
                   <Button type="submit" variant="primary" className={searchBtn}>
                     Search
                   </Button>
