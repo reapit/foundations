@@ -41,7 +41,7 @@ type FieldType = 'groupIds'
 export const formFields: Record<FieldType, FormFieldInfo> = {
   groupIds: {
     name: 'userId',
-    label: 'Group Members',
+    label: 'Add Group Members',
   },
 }
 
@@ -157,16 +157,16 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
       row: { original },
     },
   }) => (
-    <Button
-      type="button"
-      variant="info"
-      onClick={() => {
+    <a
+      href="#"
+      onClick={e => {
+        e.preventDefault()
         removeUser.push(original.id)
         setRemoveUser([...removeUser])
       }}
     >
       Remove
-    </Button>
+    </a>
   )
 
   const columns = [
@@ -200,7 +200,9 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
             <Form noValidate={true}>
               <Section hasPadding={false} hasMargin={false}>
                 <FadeIn>
-                  <Table expandable scrollable={true} data={tableData} columns={columns} maxHeight={400} />
+                  <div className="mb-4">
+                    <Table expandable scrollable={true} data={tableData} columns={columns} maxHeight={400} />
+                  </div>
                 </FadeIn>
                 <DropdownSelect
                   mode="multiple"
