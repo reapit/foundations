@@ -80,8 +80,8 @@ export const handleCreateTransaction = (
   session?: string,
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
-  const { amount, description, clientCode, _eTag = '' } = payment
-  if (result.success) {
+  const { amount, description, clientCode, _eTag = '', id } = payment
+  if (result.success && id) {
     const transaction = await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
       paymentMethod: {
@@ -91,7 +91,7 @@ export const handleCreateTransaction = (
           save: false,
         },
       },
-      vendorTxCode: `demotransaction-${Math.floor(Math.random() * 1000)}`,
+      vendorTxCode: id,
       amount: amount || 0,
       currency: 'GBP',
       description: description || '',
@@ -110,7 +110,7 @@ export const handleCreateTransaction = (
     const status = transaction && transaction.transactionId ? 'posted' : 'rejected'
     // TODO - work out the Opayo error code structure
     const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
-
+    setIsLoading(false)
     return await onUpdateStatus(
       { status, externalReference: externalReference },
       { paymentId, clientCode, _eTag, session },
@@ -120,6 +120,8 @@ export const handleCreateTransaction = (
     )
   }
 
+  setIsLoading(false)
+
   return await onUpdateStatus(
     { status, externalReference: 'rejected' },
     { paymentId, clientCode, _eTag, session },
@@ -127,7 +129,6 @@ export const handleCreateTransaction = (
     payment,
     refetchPayment,
   )
-  setIsLoading(false)
 }
 
 export const onHandleSubmit = (
