@@ -65,7 +65,7 @@ const Payments: React.FC = () => {
     onSearch(filterValues)
   }
 
-  const { data: payment, mutate: refetchPayments } = useSWR<PaymentModelPagedResult | undefined>(
+  const { data: payments, mutate: refetchPayments } = useSWR<PaymentModelPagedResult | undefined>(
     search ? `${URLS.PAYMENTS}/${search}` : null,
   )
 
@@ -75,16 +75,16 @@ const Payments: React.FC = () => {
         Payments Dashboard <PaymentLogo />
       </H3>
       <PaymentsFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {!payment ? (
+      {!payments ? (
         <Loader />
-      ) : payment?._embedded?.length ? (
+      ) : payments?._embedded?.length ? (
         <>
           <Section>
             <FadeIn>
               <Table
                 expandable
                 scrollable={true}
-                data={payment._embedded || []}
+                data={payments._embedded || []}
                 columns={[
                   { Header: 'Property', accessor: 'propertyId', Cell: PropertyCell },
                   { Header: 'Amount', accessor: 'amount', Cell: AmountCell },
@@ -99,13 +99,13 @@ const Payments: React.FC = () => {
                   },
                   {
                     Header: 'Email Invoice',
-                    id: Math.floor(Math.random() * 1000),
+                    id: 'customer.id',
                     accessor: 'id',
                     Cell: RequestPaymentCell(setSelectedPayment),
                   },
                   {
                     Header: 'Card Payment',
-                    id: Math.floor(Math.random() * 1000),
+                    id: 'id',
                     accessor: 'id',
                     Cell: TakePaymentCell(handleTakePayment),
                   },
@@ -115,9 +115,9 @@ const Payments: React.FC = () => {
           </Section>
           <Pagination
             onChange={onPageChange}
-            totalCount={payment.totalCount}
-            pageSize={payment.pageSize}
-            pageNumber={payment.pageNumber}
+            totalCount={payments.totalCount}
+            pageSize={payments.pageSize}
+            pageNumber={payments.pageNumber}
           />
         </>
       ) : (

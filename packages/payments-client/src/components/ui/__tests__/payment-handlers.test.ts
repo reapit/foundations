@@ -1,6 +1,20 @@
-import { fetcher, notification } from '@reapit/elements'
-import { handleCreateTransaction, onUpdateStatus, onHandleSubmit } from '../payment-handlers'
+import { fetcher } from '@reapit/elements'
+import {
+  generateEmailPaymentReceiptExternal,
+  generateEmailPaymentReceiptInternal,
+  // generatePaymentApiKey,
+  updatePaymentSessionStatus,
+  updatePaymentStatus,
+} from '../../../services/payment'
+import {
+  handleCreateTransaction,
+  onUpdateStatus,
+  onHandleSubmit,
+  handlePaymentRequestSubmit,
+} from '../payment-handlers'
 import { stubCardDetails, stubPaymentWithPropertyModel } from '../__stubs__/payment'
+import * as Handlers from '../payment-handlers'
+import { PaymentEmailRequestModel } from '../payment-request-modal'
 jest.mock('@reapit/elements')
 
 const session = '475625c2-af01-4e64-a948-c504992f5e'
@@ -12,41 +26,64 @@ const merchantKey = {
   expiry: '2021-08-26T19:00:12.357Z',
 }
 
-xdescribe('updateStatusRes', () => {
-  const updateStatusParams = { paymentId: 'paymentId', clientCode: 'clientCode', _eTag: '_eTag', session: 'session' }
+jest.mock('../../../services/payment', () => ({
+  generateEmailPaymentRequest: jest.fn(() => true),
+  generatePaymentApiKey: jest.fn(() => true),
+  updatePaymentStatus: jest.fn(() => true),
+  updatePaymentSessionStatus: jest.fn(() => true),
+  generateEmailPaymentReceiptExternal: jest.fn(() => true),
+  generateEmailPaymentReceiptInternal: jest.fn(() => true),
+}))
 
-  it('toast message for posted', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
-    await onUpdateStatus(
-      { status: 'posted', externalReference: '' },
-      updateStatusParams,
-      stubCardDetails,
-      stubPaymentWithPropertyModel,
-      jest.fn(),
-    )
-    expect(notification.success).toHaveBeenCalled()
+jest.mock('../../../services/opayo', () => ({
+  opayoMerchantKeyService: jest.fn(() => true),
+  opayoCreateTransactionService: jest.fn(() => true),
+}))
+
+jest.mock('../../../core/connect-session', () => ({
+  reapitConnectBrowserSession: {
+    connectSession: jest.fn(() => ({
+      loginIdentity: {
+        clientId: 'SBOX',
+      },
+    })),
+  },
+}))
+
+describe('onUpdateStatus', () => {
+  const stubUpdateStatusParams = { paymentId: 'paymentId', clientCode: 'clientCode', _eTag: '_eTag' }
+  const stubUpdateStatusParamsWithSession = {
+    ...stubUpdateStatusParams,
+    session: 'session',
+  }
+  const stubEmailBody = {
+    receipientEmail: stubCardDetails.email,
+    recipientName: `${stubCardDetails.customerFirstName} ${stubCardDetails.customerLastName}`,
+    paymentReason: stubPaymentWithPropertyModel?.description,
+    paymentAmount: stubPaymentWithPropertyModel?.amount,
+    paymentCurrency: 'GBP',
+  }
+  const stubBody = { status: 'posted', externalReference: '' }
+  it('it should call update session status and generate email correctly then refetch payment', async () => {
+    const mockedRefetch = jest.fn()
+    await onUpdateStatus(stubBody, stubUpdateStatusParams, stubCardDetails, stubPaymentWithPropertyModel, mockedRefetch)
+    expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams)
+    expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams)
+    expect(mockedRefetch).toHaveBeenCalled()
   })
-  it('toast message for rejected', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
+
+  it('it should call update session status and generate email correctly then refetch payment with a session', async () => {
+    const mockedRefetch = jest.fn()
     await onUpdateStatus(
-      { status: 'rejected', externalReference: '' },
-      updateStatusParams,
+      stubBody,
+      stubUpdateStatusParamsWithSession,
       stubCardDetails,
       stubPaymentWithPropertyModel,
-      jest.fn(),
+      mockedRefetch,
     )
-    expect(notification.warn).toHaveBeenCalled()
-  })
-  xit('toast message for update status failed', async () => {
-    mockedFetch.mockReturnValueOnce(false)
-    await onUpdateStatus(
-      { status: 'posted', externalReference: '' },
-      updateStatusParams,
-      stubCardDetails,
-      stubPaymentWithPropertyModel,
-      jest.fn(),
-    )
-    expect(notification.error).toHaveBeenCalled()
+    expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession)
+    expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParamsWithSession)
+    expect(mockedRefetch).toHaveBeenCalled()
   })
 })
 
@@ -54,14 +91,18 @@ describe('onHandleSubmit', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
   const onSubmit = onHandleSubmit(merchantKey, stubPaymentWithPropertyModel, paymentId, jest.fn(), jest.fn(), session)
 
-  it('should show notification error', () => {
+  it('should correctly call the opayo method', () => {
     onSubmit(stubCardDetails)
     expect(window.sagepayOwnForm).toHaveBeenCalled()
   })
 })
 
 describe('handleCreateTransaction', () => {
-  xit('should show notification error', async () => {
+  beforeEach(() => {
+    jest.resetAllMocks()
+  })
+  it('should correctly call update', async () => {
+    const updateSatusSpy = jest.spyOn(Handlers, 'onUpdateStatus')
     mockedFetch.mockReturnValueOnce(mockResponse)
     const onTokenised = handleCreateTransaction(
       merchantKey,
@@ -73,10 +114,11 @@ describe('handleCreateTransaction', () => {
       session,
     )
     await onTokenised({ success: true })
-    expect(notification.success).toHaveBeenCalled()
+    expect(updateSatusSpy).toHaveBeenCalledTimes(1)
   })
 
-  xit('should show notification error', async () => {
+  it('should correctly call update', async () => {
+    const updateSatusSpy = jest.spyOn(Handlers, 'onUpdateStatus')
     mockedFetch.mockReturnValueOnce(false)
     const onTokenised = handleCreateTransaction(
       merchantKey,
@@ -87,7 +129,18 @@ describe('handleCreateTransaction', () => {
       jest.fn(),
       session,
     )
-    await onTokenised({ success: true })
-    expect(notification.error).toHaveBeenCalled()
+    await onTokenised({ success: false })
+    expect(updateSatusSpy).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handlePaymentRequestSubmit', () => {
+  it('should correctly call email service', async () => {
+    mockedFetch.mockReturnValueOnce(mockResponse)
+    const mockSetLoading = jest.fn()
+    const mockHandleOnClose = jest.fn()
+    const curried = handlePaymentRequestSubmit(mockSetLoading, mockHandleOnClose)
+    await curried({ keyExpiresAt: new Date('2030-01-01') } as PaymentEmailRequestModel)
+    // expect(generatePaymentApiKey).toHaveBeenCalledTimes(1)
   })
 })

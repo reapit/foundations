@@ -12,16 +12,18 @@ import { PaymentWithPropertyModel } from '../../types/payment'
 
 export interface PaymentInternalPageProps {
   paymentId: string
+  // Inject test dependiencies
+  defaultMerchantKey?: MerchantKey | null
 }
 
-const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId }) => {
+const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, defaultMerchantKey = null }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { data: paymentModel, mutate: refetchPayment } = useSWR<PaymentModel>(`${URLS.PAYMENTS}/${paymentId}`)
   const { data: propertyModel } = useSWR<PropertyModel>(
     paymentModel?.propertyId ? `${URLS.PROPERTIES}/${paymentModel?.propertyId}` : null,
   )
   const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(null)
+  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
 
   useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, connectSession?.loginIdentity?.clientId), [
     setMerchantKey,

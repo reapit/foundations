@@ -53,6 +53,7 @@ export const handlePaymentRequestSubmit = (
   try {
     setIsLoading(true)
     const session = await reapitConnectBrowserSession.connectSession()
+
     if (!session || !session.loginIdentity.clientId) throw new Error('No Reapit Connect Session is present')
 
     const formattedKeyExpires = dayjs(keyExpiresAt).format(DATE_TIME_FORMAT.RFC3339)

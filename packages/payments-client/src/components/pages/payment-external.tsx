@@ -12,24 +12,31 @@ export interface PaymentExternalPageProps {
   session: string
   paymentId: string
   clientId: string
+  // Inject test dependiencies
+  defaultMerchantKey?: MerchantKey | null
 }
 
-const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paymentId, clientId }) => {
+const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
+  session,
+  paymentId,
+  clientId,
+  defaultMerchantKey = null,
+}) => {
   const { data, error, mutate: refetchPayment } = useSWR<{ payment: PaymentWithPropertyModel }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
   const paymentModel = data?.payment
   const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(null)
+  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
 
   useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, clientId), [setMerchantKey, clientId])
 
-  if (loading || !paymentModel) {
+  if (loading || !data) {
     return <Loader />
   }
 
-  if (error) {
+  if (error || !paymentModel) {
     return (
       <Helper variant="warning">
         No payment informations was found for this transaction. It is likely that the payment request has expired -
@@ -46,8 +53,6 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
       </Helper>
     )
   }
-
-  if (!paymentModel || loading) return <Loader />
 
   const payment: PaymentWithPropertyModel = {
     ...paymentModel,
