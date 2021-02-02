@@ -4,7 +4,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import Menu from '../components/ui/menu'
 import { reapitConnectBrowserSession } from './connect-session'
-import Routes from '../constants/routes'
+import { Routes } from '../constants/routes'
 
 const { Suspense } = React
 

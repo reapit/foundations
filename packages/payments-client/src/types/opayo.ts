@@ -28,3 +28,56 @@ export interface Card {
   cardIdentifier: string
   save: boolean
 }
+
+export interface MerchantKey {
+  merchantSessionKey: string
+  expiry: string
+}
+
+export interface Transaction {
+  statusCode: string
+  statusDetail: string
+  transactionId: string
+  transactionType: string
+  retrievalReference: number
+  bankResponseCode: string
+  bankAuthorisationCode: string
+  paymentMethod: TransactionPaymentMethod
+  amount: Amount
+  currency: string
+  fiRecipient: FiRecipient
+  status: string
+  avsCvcCheck: AvsCvcCheck
+  '3DSecure': _3DSecure
+}
+
+export interface _3DSecure {
+  status: string
+}
+
+export interface AvsCvcCheck {
+  status: string
+  address: string
+  postalCode: string
+  securityCode: string
+}
+
+export interface FiRecipient {}
+
+export interface Amount {
+  totalAmount: number
+  saleAmount: number
+  surchargeAmount: number
+}
+
+export interface TransactionPaymentMethod {
+  card: PaymentCard
+}
+
+export interface PaymentCard {
+  cardType: string
+  lastFourDigits: string
+  expiryDate: string
+  cardIdentifier: string
+  reusable: boolean
+}
