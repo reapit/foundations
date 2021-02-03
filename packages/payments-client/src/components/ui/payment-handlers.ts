@@ -16,6 +16,7 @@ import { opayoMerchantKeyService } from '../../services/opayo'
 import { opayoCreateTransactionService } from '../../services/opayo'
 import { CardDetails } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
+import uuid from 'uuid/v4'
 
 export const handleMerchantKeyEffect = (
   setLoading: Dispatch<SetStateAction<boolean>>,
@@ -154,7 +155,7 @@ export const handleCreateTransaction = (
           save: false,
         },
       },
-      vendorTxCode: id,
+      vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
       amount: amount || 0,
       currency: 'GBP',
       description: description || '',
