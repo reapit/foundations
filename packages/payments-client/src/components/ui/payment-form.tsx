@@ -32,16 +32,16 @@ const PaymentForm: React.FC<{
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const onSubmit = onHandleSubmit(merchantKey, payment, paymentId, setIsLoading, refetchPayment, session)
   const { customer, status } = payment
-  const { forename = '', surname = '', email = '', primaryAddress = {} } = customer || {}
-  const { buildingName, buildingNumber, line1, line3, line4, postcode = '', countryId = '' } = primaryAddress
+  const { forename = '', surname = '', email = '', primaryAddress } = customer ?? {}
   const redirectToDashboard = () => history.push(Routes.PAYMENTS)
 
-  const address1 =
-    buildingName && line1
-      ? `${buildingName} ${line1}`
-      : buildingNumber && line1
-      ? `${buildingNumber} ${line1}`
-      : buildingName || buildingNumber || line1 || ''
+  const address1 = primaryAddress
+    ? primaryAddress.buildingName && primaryAddress.line1
+      ? `${primaryAddress.buildingName} ${primaryAddress.line1}`
+      : primaryAddress.buildingNumber && primaryAddress.line1
+      ? `${primaryAddress.buildingNumber} ${primaryAddress.line1}`
+      : primaryAddress.buildingName || primaryAddress.buildingNumber || primaryAddress.line1 || ''
+    : ''
 
   return (
     <Formik
@@ -49,9 +49,9 @@ const PaymentForm: React.FC<{
         customerFirstName: forename,
         customerLastName: surname,
         address1,
-        city: line3 || line4 || '',
-        postalCode: postcode,
-        country: countryId,
+        city: primaryAddress?.line3 ?? primaryAddress?.line4 ?? '',
+        postalCode: primaryAddress?.postcode ?? '',
+        country: primaryAddress?.countryId ?? '',
         cardholderName: '',
         cardNumber: '',
         expiryDate: '',
