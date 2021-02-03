@@ -1,8 +1,6 @@
 import addons from '@storybook/addons'
 import { create } from '@storybook/theming'
 
-// import '../src/styles/index.scss'
-
 addons.setConfig({
   theme: create({
     base: 'light',
