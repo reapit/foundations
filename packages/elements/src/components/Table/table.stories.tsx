@@ -1,6 +1,6 @@
 import React from 'react'
-import { Table } from '.'
-import { storiesOf } from '@storybook/react'
+import { Table, TableProps } from '.'
+import { Story } from '@storybook/react/types-6-0'
 
 interface Person {
   firstName: string
@@ -9,14 +9,29 @@ interface Person {
   subRows?: Person[]
 }
 
-export const randomChar = () => {
+const columns = [
+  {
+    Header: 'First Name',
+    accessor: 'firstName',
+  },
+  {
+    Header: 'Middle Name',
+    accessor: 'middleName',
+  },
+  {
+    Header: 'Last Name',
+    accessor: 'lastName',
+  },
+]
+
+const randomChar = () => {
   const r = Math.random()
     .toString(36)
     .substring(7)
   return r
 }
 
-export const newPerson = (): Person => {
+const newPerson = (): Person => {
   return {
     firstName: randomChar(),
     middleName: randomChar(),
@@ -24,7 +39,7 @@ export const newPerson = (): Person => {
   }
 }
 
-export const makeData = (length: number) => {
+const makeData = (length: number) => {
   const data: Person[] = []
   for (let i = 0; i < length; i++) {
     const person = newPerson()
@@ -33,7 +48,7 @@ export const makeData = (length: number) => {
   return data
 }
 
-export const makeDataWithSubRows = (length: number) => {
+const makeDataWithSubRows = (length: number) => {
   const data: Person[] = []
   for (let i = 0; i < length; i++) {
     const person = newPerson()
@@ -49,82 +64,29 @@ export const makeDataWithSubRows = (length: number) => {
   return data
 }
 
-storiesOf('Table', module).add('Primary', () => {
-  const data = makeData(10)
-  const columns = [
-    {
-      Header: 'First Name',
-      accessor: 'firstName',
-    },
-    {
-      Header: 'Middle Name',
-      accessor: 'middleName',
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastName',
-    },
-  ]
+export default {
+  title: 'Rereshed-Docs/Table',
+  component: Table,
+}
 
-  return <Table columns={columns} data={data} loading={false} />
-})
+export const Primary: Story<TableProps> = args => <Table {...args} />
+Primary.args = {
+  columns,
+  data: makeData(10),
+  loading: false,
+}
 
-storiesOf('Table', module).add('Responsive', () => {
-  const data = makeData(10)
-  const columns = [
-    {
-      Header: 'First Name',
-      accessor: 'firstName',
-    },
-    {
-      Header: 'Middle Name',
-      accessor: 'middleName',
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastName',
-    },
-  ]
+export const IsLoading: Story<TableProps> = args => <Table {...args} />
+IsLoading.args = {
+  columns,
+  data: makeData(10),
+  loading: true,
+}
 
-  return <Table scrollable columns={columns} data={data} loading={false} />
-})
-
-storiesOf('Table', module).add('IsLoading', () => {
-  const data = makeData(10)
-  const columns = [
-    {
-      Header: 'First Name',
-      accessor: 'firstName',
-    },
-    {
-      Header: 'Middle Name',
-      accessor: 'middleName',
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastName',
-    },
-  ]
-
-  return <Table columns={columns} data={data} loading />
-})
-
-storiesOf('Table', module).add('Expandable Rows', () => {
-  const data = makeDataWithSubRows(10)
-  const columns = [
-    {
-      Header: 'First Name',
-      accessor: 'firstName',
-    },
-    {
-      Header: 'Middle Name',
-      accessor: 'middleName',
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastName',
-    },
-  ]
-
-  return <Table expandable columns={columns} data={data} />
-})
+export const ExpandableRows: Story<TableProps> = args => <Table {...args} />
+ExpandableRows.args = {
+  columns,
+  data: makeDataWithSubRows(10),
+  loading: false,
+  expandable: true,
+}

@@ -1,28 +1,29 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
 import { Input } from '../../components/Input'
 import { Form, Formik } from 'formik'
 import { Button } from '@/components/Button'
-import { Section } from '@/components/Layout'
 import { isBase64 } from '.'
 
-const validate = values => {
-  const { pattern } = values
-  const errors = { pattern: '' }
-  if (!isBase64(pattern)) {
-    errors.pattern = 'Pattern does not match base64'
-  }
-  return errors
+export default {
+  title: 'Utils/IsBase64',
+  component: <div />,
 }
 
-storiesOf('IsBase64', module).add('Primary', () => {
+export const Usage: Story = () => {
   return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+    <div>
       <Formik
         initialValues={{ pattern: '' }}
-        validate={validate}
+        validate={values => {
+          const { pattern } = values
+          const errors = { pattern: '' }
+          if (!isBase64(pattern)) {
+            errors.pattern = 'Pattern does not match base64'
+          }
+          return errors
+        }}
         onSubmit={values => {
           action('Form Values' + values)
         }}
@@ -37,6 +38,6 @@ storiesOf('IsBase64', module).add('Primary', () => {
           </Form>
         )}
       />
-    </Section>
+    </div>
   )
-})
+}

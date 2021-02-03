@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { Button } from '../../components/Button'
 import { usePortal, PortalProvider } from '.'
 import { Section } from '@/components/Layout'
@@ -26,7 +25,12 @@ const UsePortalComponent = () => {
   )
 }
 
-const BasicUsage = () => {
+export default {
+  title: 'Utils/UsePortal',
+  component: <div />,
+}
+
+export const Usage: Story = () => {
   return (
     <PortalProvider>
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
@@ -35,5 +39,3 @@ const BasicUsage = () => {
     </PortalProvider>
   )
 }
-
-storiesOf('UsePortal', module).add('Usage', () => <BasicUsage />)

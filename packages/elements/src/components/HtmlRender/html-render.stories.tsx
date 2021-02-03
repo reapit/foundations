@@ -1,7 +1,6 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { HTMLRender } from '.'
-import { Section } from '@/components/Layout'
+import { Story } from '@storybook/react/types-6-0'
+import { HTMLRender, HTMLRenderProps } from '.'
 
 const html = `
     <h1>heading h1</h1>
@@ -23,8 +22,12 @@ const html = `
     </div>
 `
 
-storiesOf('HTMLRender', module).add('Usage', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <HTMLRender html={html} />
-  </Section>
-))
+export default {
+  title: 'Rereshed-Docs/HTMLRender',
+  component: HTMLRender,
+}
+
+export const Usage: Story<HTMLRenderProps> = args => <HTMLRender {...args} />
+Usage.args = {
+  html,
+}

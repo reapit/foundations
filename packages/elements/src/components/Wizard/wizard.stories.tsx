@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
+import { Story } from '@storybook/react/types-6-0'
 import { Input } from '../Input'
 import { Button } from '../Button'
-
-import { storiesOf } from '@storybook/react'
-import { Wizard } from '.'
+import { Wizard, WizardProps } from '.'
 import { useWizardContext } from './context'
 import { Section } from '@/components/Layout'
+
+export default {
+  title: 'Rereshed-Docs/Wizard',
+  component: Wizard,
+}
 
 ///////////////////////////////////////////////////////////
 // BASIC USAGE
 //////////////////////////////////////////////////////////
-const BasicUsage = () => {
+export const Basic: Story<WizardProps> = () => {
   const [current, setCurrent] = useState('step-1')
   const [visible, setVisible] = useState(false)
   return (
@@ -59,12 +63,11 @@ const BasicUsage = () => {
     </Section>
   )
 }
-storiesOf('Wizard', module).add('Basic', () => <BasicUsage />)
 
 ///////////////////////////////////////////////////////////
 // WORK WITH FORM ELEMENTS
 //////////////////////////////////////////////////////////
-const WorkWithFormElements = () => {
+export const HasForm: Story<WizardProps> = () => {
   const [formData, setFormData] = useState({ firstName: '', lastName: '' })
   const [visible, setVisible] = useState(false)
 
@@ -112,12 +115,11 @@ const WorkWithFormElements = () => {
     </Section>
   )
 }
-storiesOf('Wizard', module).add('HasForm', () => <WorkWithFormElements />)
 
 ///////////////////////////////////////////////////////////
 // CUSTOM FOOTER NAVIGATION
 //////////////////////////////////////////////////////////
-const CustomFooterNavigation = () => {
+export const CustomNav: Story<WizardProps> = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [visible, setVisible] = useState(false)
   return (
@@ -198,7 +200,6 @@ const CustomFooterNavigation = () => {
     </Section>
   )
 }
-storiesOf('Wizard', module).add('CustomNav', () => <CustomFooterNavigation />)
 
 ///////////////////////////////////////////////////////////
 // ACCESS STATE USING HOOK
@@ -237,7 +238,7 @@ const ComponentFour = () => {
   )
 }
 
-const AccessStateUsingHook = () => {
+export const HasHook: Story<WizardProps> = () => {
   const [visible, setVisible] = useState(false)
   const close = () => setVisible(false)
   return (
@@ -258,4 +259,3 @@ const AccessStateUsingHook = () => {
     </Section>
   )
 }
-storiesOf('Wizard', module).add('HasHook', () => <AccessStateUsingHook />)

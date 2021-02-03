@@ -1,76 +1,46 @@
-import React, { useState } from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { ToastMessage, ToastVariant } from '.'
-import { Button } from '../Button'
-import { Section } from '@/components/Layout'
-
-const stories = storiesOf('ToastMessage', module)
+import React from 'react'
+import { Story } from '@storybook/react/types-6-0'
+import { action } from '@storybook/addon-actions'
+import { ToastMessage, ToastMessageProps } from '.'
 
 const longText =
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint voluptas qui amet architecto, ' +
   'maxime laudantium voluptatibus, laborum beatae explicabo minima voluptatum, doloremque blanditiis ' +
   'ipsum reiciendis quasi fugit eveniet perferendis!'
 
-const Usage = () => {
-  const [visible, setVisible] = useState<boolean>(false)
-  const [variant, setVariant] = useState<ToastVariant>('primary')
-
-  const closeToast = () => {
-    setVisible(false)
-  }
-
-  return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Button
-        variant="primary"
-        type="button"
-        onClick={() => {
-          setVariant('primary')
-          setVisible(true)
-        }}
-      >
-        Primary
-      </Button>
-      <br />
-      <br />
-      <Button
-        variant="primary"
-        type="button"
-        onClick={() => {
-          setVariant('secondary')
-          setVisible(true)
-        }}
-      >
-        Secondary
-      </Button>
-      <br />
-      <br />
-      <Button
-        variant="primary"
-        type="button"
-        onClick={() => {
-          setVariant('danger')
-          setVisible(true)
-        }}
-      >
-        Danger
-      </Button>
-      <br />
-      <br />
-      <Button
-        variant="primary"
-        type="button"
-        onClick={() => {
-          setVariant('info')
-          setVisible(true)
-        }}
-      >
-        Info
-      </Button>
-      <ToastMessage visible={visible} message={longText} variant={variant} onCloseToast={closeToast} />
-    </Section>
-  )
+export default {
+  title: 'Rereshed-Docs/ToastMessage',
+  component: ToastMessage,
 }
 
-stories.add('Default', () => <Usage />)
+export const Primary: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+Primary.args = {
+  visible: true,
+  message: longText,
+  variant: 'primary',
+  onCloseToast: action('ToastMessage closed'),
+}
+
+export const Secondary: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+Secondary.args = {
+  visible: true,
+  message: longText,
+  variant: 'secondary',
+  onCloseToast: action('ToastMessage closed'),
+}
+
+export const Danger: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+Danger.args = {
+  visible: true,
+  message: longText,
+  variant: 'danger',
+  onCloseToast: action('ToastMessage closed'),
+}
+
+export const Info: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+Info.args = {
+  visible: true,
+  message: longText,
+  variant: 'info',
+  onCloseToast: action('ToastMessage closed'),
+}

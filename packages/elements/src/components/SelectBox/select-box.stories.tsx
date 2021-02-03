@@ -1,68 +1,49 @@
 import React from 'react'
+import { Story } from '@storybook/react/types-6-0'
 import { Form, Formik } from 'formik'
-
-import { storiesOf } from '@storybook/react'
-import { SelectBox, SelectBoxOptions } from '.'
+import { SelectBox, SelectBoxProps, SelectBoxOptions } from '.'
 import { action } from '@storybook/addon-actions'
-import { Section } from '@/components/Layout'
 
-storiesOf('SelectBox', module)
-  .add('Primary', () => {
-    const mockedOptions: SelectBoxOptions[] = [
-      { label: 'option1', value: 'a' },
-      { label: 'option2', value: 'b' },
-    ]
+const mockedOptions: SelectBoxOptions[] = [
+  { label: 'option1', value: 'a' },
+  { label: 'option2', value: 'b' },
+]
 
-    return (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Formik
-          initialValues={{ demo: null }}
-          onSubmit={values => {
-            action('Form Values' + values)
-          }}
-        >
-          {() => (
-            <Form>
-              <div className="column is-half-desktop">
-                <SelectBox
-                  helpText="This is helper text"
-                  name="demo"
-                  options={mockedOptions}
-                  labelText="Demo"
-                  id="test"
-                />
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </Section>
-    )
-  })
-  .add('Required', () => {
-    const Parent = () => {
-      const mockedOptions: SelectBoxOptions[] = [
-        { label: 'option1', value: 'a' },
-        { label: 'option2', value: 'b' },
-      ]
-      return (
-        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-          <Formik
-            initialValues={{ demo: '' }}
-            onSubmit={values => {
-              action('Form Values' + values)
-            }}
-          >
-            {() => (
-              <Form>
-                <div className="column is-half-desktop">
-                  <SelectBox required name="demo" options={mockedOptions} labelText="Demo" id="test" />
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </Section>
-      )
-    }
+export default {
+  title: 'Rereshed-Docs/SelectBox',
+  component: SelectBox,
+  decorators: [
+    (Story: Story) => (
+      <Formik
+        initialValues={{ demo: null }}
+        onSubmit={values => {
+          action('Form Values' + values)
+        }}
+      >
+        <Form>
+          <div className="column is-half-desktop">
+            <Story />
+          </div>
+        </Form>
+      </Formik>
+    ),
+  ],
+}
 
-    return <Parent />
-  })
+export const Primary: Story<SelectBoxProps> = args => <SelectBox {...args} />
+Primary.args = {
+  helpText: 'This is helper text',
+  name: 'demo',
+  options: mockedOptions,
+  labelText: 'Demo',
+  id: 'test',
+}
+
+export const Required: Story<SelectBoxProps> = args => <SelectBox {...args} />
+Required.args = {
+  required: true,
+  name: 'demo',
+  options: mockedOptions,
+  labelText: 'Demo',
+  id: 'test',
+}

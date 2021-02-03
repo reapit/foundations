@@ -1,96 +1,54 @@
-import React from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { FileInput } from '.'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
 import { Form, Formik } from 'formik'
+import { action } from '@storybook/addon-actions'
+import { FileInput, FileInputProps } from '.'
 import { Section } from '@/components/Layout'
 
-storiesOf('FileInput', module)
-  .add('Primary', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Formik
-        initialValues={{ fileInput: '' }}
-        onSubmit={values => {
-          action('Form Values' + values)
-        }}
-      >
-        {() => (
+export default {
+  title: 'Rereshed-Docs/FileInput',
+  component: FileInput,
+  // NOTE: this component doesn't work without Formik, so it's purely a react component. How do we want to show the CSS part of it?
+  decorators: [
+    (Story: Story) => (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        <Formik
+          initialValues={{ fileInput: '' }}
+          onSubmit={values => {
+            action('Form Values' + values)
+          }}
+        >
           <Form>
-            <div className="column is-half-desktop">
-              <FileInput id="fileInput" allowClear name="fileInput" labelText="File Input" />
-            </div>
+            <Story />
           </Form>
-        )}
-      </Formik>
-    </Section>
-  ))
-  .add('Required', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Formik
-        initialValues={{ fileInput: '' }}
-        onSubmit={values => {
-          action('Form Values' + values)
-        }}
-      >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <FileInput required id="fileInput" allowClear name="fileInput" labelText="File Input" />
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </Section>
-  ))
-  .add('Disabled', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Formik
-        initialValues={{ fileInput: '' }}
-        onSubmit={values => {
-          action('Form Values' + values)
-        }}
-      >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <FileInput
-                id="fileInput"
-                allowClear
-                name="fileInput"
-                labelText="File Input"
-                inputProps={{ disabled: true }}
-              />
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </Section>
-  ))
-  .add('Click on filename', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Formik
-        initialValues={{ fileInput: 'file-234' }}
-        onSubmit={values => {
-          action('Form Values' + values)
-        }}
-      >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <FileInput
-                id="fileInput"
-                allowClear
-                name="fileInput"
-                labelText="File Input"
-                onFilenameClick={e => {
-                  e.preventDefault()
-                  alert('filename clicked')
-                }}
-              />
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </Section>
-  ))
+        </Formik>
+      </Section>
+    ),
+  ],
+}
+
+export const Primary: Story<FileInputProps> = args => <FileInput {...args} />
+Primary.args = {
+  id: 'fileInput',
+  allowClear: true,
+  name: 'fileInput',
+  labelText: 'File Input',
+}
+
+export const Required: Story<FileInputProps> = args => <FileInput {...args} />
+Required.args = {
+  required: true,
+  id: 'fileInput',
+  allowClear: true,
+  name: 'fileInput',
+  labelText: 'File Input',
+}
+
+export const Disabled: Story<FileInputProps> = args => <FileInput {...args} />
+Disabled.args = {
+  id: 'fileInput',
+  allowClear: true,
+  name: 'fileInput',
+  labelText: 'File Input',
+  inputProps: { disabled: true },
+}

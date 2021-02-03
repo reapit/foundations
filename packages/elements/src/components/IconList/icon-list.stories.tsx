@@ -1,10 +1,9 @@
-import React from 'react'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
 import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
-import { storiesOf } from '@storybook/react'
-import { IconList } from './index'
-import { Section } from '@/components/Layout'
+import { IconList, IcomListProps } from './index'
 
-export const items = [
+const items = [
   {
     icon: <FaClock className="icon-list-icon" />,
     text: '11:00 AM - 12:00 PM',
@@ -19,10 +18,12 @@ export const items = [
   },
 ]
 
-storiesOf('IconList', module).add('Primary', () => {
-  return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <IconList items={items} />
-    </Section>
-  )
-})
+export default {
+  title: 'Rereshed-Docs/IconList',
+  component: IconList,
+}
+
+export const Primary: Story<IcomListProps> = args => <IconList {...args} />
+Primary.args = {
+  items,
+}

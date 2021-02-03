@@ -1,10 +1,13 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import {
   AppNavContainer,
   FlexContainerBasic,
   FlexContainerResponsive,
+  FlexContainerProps,
+  LayoutProps,
   Grid,
+  GridProps,
   GridItem,
   GridFourCol,
   GridThreeColItem,
@@ -14,222 +17,174 @@ import {
   LevelRight,
   LevelItem,
   Section,
+  SectionProps,
   Content,
 } from './index'
 import { Menu } from '../Menu/Menu'
 import { mockMenuProps } from '../Menu/__mocks__/menu-props'
 import { MemoryRouter } from 'react-router'
 
-export const Placeholder = ({ text }) => (
-  <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    {text}
-  </div>
-)
+export default {
+  title: 'Rereshed-Docs/Layout',
+  component: FlexContainerResponsive,
+}
 
-storiesOf('Layout', module)
-  .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
-  .add('AppNavContainer', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <AppNavContainer className="is-full-height">
-        <Menu {...mockMenuProps} />
-        <FlexContainerBasic isFullHeight>
-          <Placeholder text="AppBody FlexContainerBasic NoCenter Padding" />
-        </FlexContainerBasic>
-      </AppNavContainer>
-    </Section>
-  ))
-  .add('FlexContainerBasicRowCenteredPadding', () => (
-    <FlexContainerBasic centerContent hasPadding>
-      <Placeholder text="FlexContainerBasicRow Centered Padding" />
-      <Placeholder text="FlexContainerBasicRow Centered Padding" />
-    </FlexContainerBasic>
-  ))
-  .add('FlexContainerBasicColumnCenteredPadding', () => (
-    <FlexContainerBasic flexColumn centerContent hasPadding>
-      <Placeholder text="FlexContainerBasicColumn Centered Padding" />
-      <Placeholder text="FlexContainerBasicColumn Centered Padding" />
-    </FlexContainerBasic>
-  ))
-  .add('FlexContainerBasicRowNoCenterNoPadding', () => (
-    <FlexContainerBasic>
-      <Placeholder text="FlexContainerBasicRow NoCenter NoPadding" />
-      <Placeholder text="FlexContainerBasicRow NoCenter NoPadding" />
-    </FlexContainerBasic>
-  ))
-  .add('FlexContainerResponsiveRowCenteredPadding', () => (
-    <FlexContainerResponsive centerContent hasPadding>
-      <Placeholder text="FlexContainerResponsiveRow Centered Padding" />
-      <Placeholder text="FlexContainerResponsiveRow Centered Padding" />
-    </FlexContainerResponsive>
-  ))
-  .add('FlexContainerResponsiveColumnCenteredPadding', () => (
-    <FlexContainerResponsive flexColumn centerContent hasPadding>
-      <Placeholder text="FlexContainerResponsiveColumn Centered Padding" />
-      <Placeholder text="FlexContainerResponsiveColumn Centered Padding" />
-    </FlexContainerResponsive>
-  ))
-  .add('FlexContainerResponsiveRowNoCenterNoPadding', () => (
-    <FlexContainerResponsive>
-      <Placeholder text="FlexContainerResponsiveRow NoCenter NoPadding" />
-      <Placeholder text="FlexContainerResponsiveRow NoCenter NoPadding" />
-    </FlexContainerResponsive>
-  ))
-  .add('GridFourColEightItems', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <GridFourCol>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem1" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem2" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem3" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem4" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem5" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem6" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem7" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem8" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem9" />
-        </GridFourColItem>
-        <GridFourColItem>
-          <Placeholder text="GridFourColItem10" />
-        </GridFourColItem>
-      </GridFourCol>
-    </Section>
-  ))
-  .add('GridThreeColsSixItems', () => (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <GridFourCol>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem1" />
-        </GridThreeColItem>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem2" />
-        </GridThreeColItem>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem3" />
-        </GridThreeColItem>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem4" />
-        </GridThreeColItem>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem5" />
-        </GridThreeColItem>
-        <GridThreeColItem>
-          <Placeholder text="GridThreeColItem6" />
-        </GridThreeColItem>
-      </GridFourCol>
-    </Section>
-  ))
-  .add('Grid', () => (
-    <Grid>
-      <GridItem>
-        <Placeholder text="GridItem1" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem2" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem3" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem4" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem5" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem6" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem7" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem8" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem9" />
-      </GridItem>
-      <GridItem>
-        <Placeholder text="GridItem10" />
-      </GridItem>
-    </Grid>
-  ))
-  .add('GridMultiline', () => (
-    <Grid isMultiLine>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem1" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem2" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem3" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem4" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem5" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem6" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem7" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem8" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem9" />
-      </GridItem>
-      <GridItem isMultiLine>
-        <Placeholder text="GridMultiLineItem10" />
-      </GridItem>
-    </Grid>
-  ))
-  .add('Levels', () => (
-    <>
-      <Level>
-        <LevelLeft>
-          <LevelItem>
-            <Placeholder text="LevelItemLevelLeft" />
-          </LevelItem>
-        </LevelLeft>
-        <LevelRight>
-          <LevelItem>
-            <Placeholder text="LevelItemLevelRight" />
-          </LevelItem>
-        </LevelRight>
-      </Level>
-      <Level>
-        <LevelItem>
-          <Placeholder text="LevelItem" />
-        </LevelItem>
-      </Level>
-    </>
-  ))
-  .add('Section', () => (
-    <Section>
-      <Placeholder text="Section" />
-    </Section>
-  ))
-  .add('Content', () => (
-    <Content>
-      <Placeholder text="Content - you can put anything in here and it'll look nice" />
-    </Content>
-  ))
+export const FlexContainerResponsive_: Story<FlexContainerProps> = args => (
+  <FlexContainerResponsive {...args}>
+    <p>Child of FlexContainerResponsive 1</p>
+    <p>Child of FlexContainerResponsive 2</p>
+  </FlexContainerResponsive>
+)
+FlexContainerResponsive_.args = {
+  flexColumn: true,
+  centerContent: true,
+  hasPadding: true,
+}
+
+export const AppNavContainer_: Story<LayoutProps> = args => (
+  <MemoryRouter initialEntries={['/']}>
+    <AppNavContainer {...args}>
+      <Menu {...mockMenuProps} />
+    </AppNavContainer>
+  </MemoryRouter>
+)
+FlexContainerResponsive_.args = {
+  className: 'is-full-height',
+}
+
+export const FlexContainerBasic_: Story<FlexContainerProps> = args => (
+  <FlexContainerBasic {...args}>
+    <p>Child of FlexContainerBasicRow 1</p>
+    <p>Child of FlexContainerBasicRow 2</p>
+  </FlexContainerBasic>
+)
+FlexContainerBasic_.args = {
+  flexColumn: true,
+  centerContent: true,
+  hasPadding: true,
+}
+
+export const GridFourColItem_: Story<LayoutProps> = () => (
+  <GridFourCol>
+    <GridFourColItem>
+      <p>Column item 1</p>
+    </GridFourColItem>
+    <GridFourColItem>
+      <p>Column item 2</p>
+    </GridFourColItem>
+    <GridFourColItem>
+      <p>Column item 3</p>
+    </GridFourColItem>
+    <GridFourColItem>
+      <p>Column item 4</p>
+    </GridFourColItem>
+    <GridFourColItem>
+      <p>Column item 5</p>
+    </GridFourColItem>
+    <GridFourColItem>
+      <p>Column item 6</p>
+    </GridFourColItem>
+  </GridFourCol>
+)
+GridFourColItem_.args = {}
+
+export const GridThreeColItem_: Story<LayoutProps> = () => (
+  <GridFourCol>
+    <GridThreeColItem>
+      <p>Column item 1</p>
+    </GridThreeColItem>
+    <GridThreeColItem>
+      <p>Column item 2</p>
+    </GridThreeColItem>
+    <GridThreeColItem>
+      <p>Column item 3</p>
+    </GridThreeColItem>
+    <GridThreeColItem>
+      <p>Column item 4</p>
+    </GridThreeColItem>
+    <GridThreeColItem>
+      <p>Column item 5</p>
+    </GridThreeColItem>
+    <GridThreeColItem>
+      <p>Column item 6</p>
+    </GridThreeColItem>
+  </GridFourCol>
+)
+GridThreeColItem_.args = {}
+
+export const Grid_: Story<GridProps> = () => (
+  <Grid>
+    <GridItem>
+      <p>Column item 1</p>
+    </GridItem>
+    <GridItem>
+      <p>Column item 2</p>
+    </GridItem>
+    <GridItem>
+      <p>Column item 3</p>
+    </GridItem>
+    <GridItem>
+      <p>Column item 4</p>
+    </GridItem>
+  </Grid>
+)
+Grid_.args = {}
+
+export const GridMultiline: Story<GridProps> = args => (
+  <Grid {...args}>
+    <GridItem isMultiLine>
+      <p>Column item 1</p>
+    </GridItem>
+    <GridItem isMultiLine>
+      <p>Column item 2</p>
+    </GridItem>
+    <GridItem isMultiLine>
+      <p>Column item 3</p>
+    </GridItem>
+    <GridItem isMultiLine>
+      <p>Column item 4</p>
+    </GridItem>
+  </Grid>
+)
+GridMultiline.args = {
+  isMultiLine: true,
+}
+
+export const LevelLeftAndLevelRight: Story<LayoutProps> = () => (
+  <Level>
+    <LevelLeft>
+      <LevelItem>
+        <p>Level left item 1</p>
+      </LevelItem>
+    </LevelLeft>
+    <LevelRight>
+      <LevelItem>
+        <p>Lavel right item 2</p>
+      </LevelItem>
+    </LevelRight>
+  </Level>
+)
+LevelLeftAndLevelRight.args = {}
+
+export const Level_: Story<LayoutProps> = () => (
+  <Level>
+    <LevelItem>
+      <p>Level item</p>
+    </LevelItem>
+  </Level>
+)
+Level_.args = {}
+
+export const Section_: Story<SectionProps> = args => (
+  <Section {...args}>
+    <p>Section content</p>
+  </Section>
+)
+Section_.args = {}
+
+export const Content_: Story<LayoutProps> = () => (
+  <Content>
+    <p>Content - you can put anything in here and it'll look nice</p>
+  </Content>
+)
+Content_.args = {}

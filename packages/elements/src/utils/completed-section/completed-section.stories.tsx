@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 
 import {
   isCompletedAddress,
@@ -13,7 +12,7 @@ import {
 
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
-export const contact: ContactModel = {
+const contact: ContactModel = {
   id: 'AYL19000001',
   created: '2019-10-31T14:19:51.0000000Z',
   modified: '2019-12-31T10:52:29.0000000Z',
@@ -77,7 +76,7 @@ export const contact: ContactModel = {
   metadata: {},
 }
 
-export const idCheck: IdentityCheckModel = {
+const idCheck: IdentityCheckModel = {
   id: 'RPT19000104',
   contactId: 'AYL19000001',
   created: '0001-01-01T00:00:00.0000000',
@@ -115,46 +114,26 @@ export const idCheck: IdentityCheckModel = {
   metadata: {},
 }
 
-storiesOf('CompletedSections', module)
-  .add(
-    'Address',
-    () => {
-      return <div>Result: {isCompletedAddress(contact).toString()}</div>
-    },
-    { notes: 'Function check completed address' },
-  )
-  .add(
-    'PrimaryId',
-    () => {
-      return <div>Result: {isCompletedPrimaryID(idCheck).toString()}</div>
-    },
-    { notes: 'Function check completed Primary ID' },
-  )
-  .add(
-    'SecondaryId',
-    () => {
-      return <div>Result: {isCompletedSecondaryID(idCheck).toString()}</div>
-    },
-    { notes: 'Function check completed Secondary ID' },
-  )
-  .add(
-    'Profile',
-    () => {
-      return <div>Result: {isCompletedProfile(contact).toString()}</div>
-    },
-    { notes: 'Function check completed Profile' },
-  )
-  .add(
-    'DeclarationRisk',
-    () => {
-      return <div>Result: {isCompletedDeclarationRisk(contact).toString()}</div>
-    },
-    { notes: 'Function check completed Declaration and Risk' },
-  )
-  .add(
-    'AgentCheck',
-    () => {
-      return <div>Result: {isCompletedAgentCheck(contact).toString()}</div>
-    },
-    { notes: 'Function check completed Agent Check' },
-  )
+export default {
+  title: 'Utils/CompletedSections',
+  component: <div />,
+}
+
+export const Address: Story = () => {
+  return <div>Result: {isCompletedAddress(contact).toString()}</div>
+}
+export const PrimaryId: Story = () => {
+  return <div>Result: {isCompletedPrimaryID(idCheck).toString()}</div>
+}
+export const SecondaryId: Story = () => {
+  return <div>Result: {isCompletedSecondaryID(idCheck).toString()}</div>
+}
+export const Profile: Story = () => {
+  return <div>Result: {isCompletedProfile(contact).toString()}</div>
+}
+export const DeclarationRisk: Story = () => {
+  return <div>Result: {isCompletedDeclarationRisk(contact).toString()}</div>
+}
+export const AgentCheck: Story = () => {
+  return <div>Result: {isCompletedAgentCheck(contact).toString()}</div>
+}
