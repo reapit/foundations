@@ -114,6 +114,7 @@ export const onUpdateStatus = async (
   refetchPayment: () => void,
 ) => {
   const { session } = params
+  const { externalReference } = body
   const { customerFirstName, customerLastName, email } = cardDetails
   const emailReceiptBody = {
     receipientEmail: email,
@@ -121,6 +122,13 @@ export const onUpdateStatus = async (
     paymentReason: payment?.description ?? 'No Reason Provided',
     paymentAmount: payment?.amount ?? 0,
     paymentCurrency: 'GBP',
+  }
+
+  if (externalReference === 'rejected') {
+    notification.error({
+      message: 'The transaction has been rejected by our payment provider, please check your details and try again.',
+      placement: 'bottomRight',
+    })
   }
 
   if (session) {
@@ -171,8 +179,7 @@ export const handleCreateTransaction = (
       entryMethod: 'Ecommerce',
     })
 
-    const status = transaction && transaction.transactionId ? 'posted' : 'rejected'
-    // TODO - work out the Opayo error code structure
+    const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
     const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
     setIsLoading(false)
     return await onUpdateStatus(

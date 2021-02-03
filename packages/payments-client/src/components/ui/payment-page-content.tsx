@@ -1,5 +1,5 @@
-import React from 'react'
-import { Loader, H3, Grid, H5, Section, FadeIn, IconList, H6 } from '@reapit/elements'
+import React, { useState } from 'react'
+import { Loader, H3, Grid, H5, Section, FadeIn, IconList, H6, Button } from '@reapit/elements'
 import PaymentCustomerSection from './payment-customer-section'
 import PaymentForm from './payment-form'
 import PropertySection from './property-section'
@@ -7,6 +7,8 @@ import { FaPoundSign, FaShoppingCart, FaStickyNote } from 'react-icons/fa'
 import { PaymentLogo } from './payment-logo'
 import { MerchantKey } from '../../types/opayo'
 import { PaymentWithPropertyModel } from '../../types/payment'
+import PaymentRequestModal from './payment-request-modal'
+import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export interface PaymentPageContentProps {
   payment: PaymentWithPropertyModel
@@ -22,6 +24,7 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
   session,
 }: PaymentPageContentProps) => {
   const { customer, amount, description, property, id } = payment
+  const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   return (
     <>
       <H3 className="flex justify-between" isHeadingSection>
@@ -54,6 +57,18 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
           />
         </FadeIn>
       </Section>
+      {!session && payment && payment.status !== 'posted' && (
+        <FadeIn>
+          <H5 className="flex justify-between" isHeadingSection>
+            Request Payment By Email<Button onClick={() => setSelectedPayment(payment)}>Send Email</Button>
+          </H5>
+          <PaymentRequestModal
+            payment={selectedPayment}
+            setSelectedPayment={setSelectedPayment}
+            refetchPayments={refetchPayment}
+          />
+        </FadeIn>
+      )}
       {merchantKey && payment ? (
         <FadeIn>
           <PaymentForm
