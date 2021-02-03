@@ -2,7 +2,7 @@
 
 exports[`AmountCell should match a snapshot 1`] = `
 <p>
-  £100.00
+  £10000.00
 </p>
 `;
 
@@ -24,9 +24,10 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],
@@ -170,9 +171,10 @@ exports[`Payments  should match a snapshot where loading 1`] = `
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],
@@ -201,9 +203,10 @@ exports[`Payments  should match a snapshot where payments list is empty 1`] = `
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],

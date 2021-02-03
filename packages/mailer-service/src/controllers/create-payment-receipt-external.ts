@@ -75,7 +75,7 @@ export const createPaymentReceiptExternal = async (
       paymentReason,
       recipientName,
       paymentDate: new Date().toDateString(),
-      paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
+      paymentAmount: `${paymentAmount.toFixed(2)}`,
     })
 
     logger.info('Template successfully created', { traceId })

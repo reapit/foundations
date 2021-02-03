@@ -4,7 +4,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
 <Component
   destroyOnClose={true}
   onClose={[Function]}
-  title="Request Payment of £1.00 for PAY20000001"
+  title="Request Payment of £100.00 for PAY20000001"
   visible={true}
 >
   <Formik

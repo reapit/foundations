@@ -43,7 +43,7 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
             items={[
               {
                 icon: <FaPoundSign className="icon-list-icon" />,
-                text: <H6 className="inline-block">{amount ? (amount / 100).toFixed(2) : 0}</H6>,
+                text: <H6 className="inline-block">{amount ? amount.toFixed(2) : 0}</H6>,
               },
               {
                 icon: <FaShoppingCart className="icon-list-icon" />,

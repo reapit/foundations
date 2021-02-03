@@ -24,6 +24,7 @@ export interface PaymentsFilterFormValues {
   description?: string
   type?: string[]
   status?: string[]
+  pageSize?: string
 }
 
 export interface PaymentsFormProps {
@@ -88,7 +89,8 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
                     id="createdTo"
                     reactDatePickerProps={{
                       minDate: new Date(createdFrom ?? ''),
-                      maxDate: new Date(),
+                      // a day from now
+                      maxDate: new Date(Date.now() + 24 * 60 * 60 * 1000),
                     }}
                   />
                 </GridItem>

@@ -24,7 +24,7 @@ import { buildFilterValues, handleTakePayment, onPageChangeHandler, onSearchHand
 
 export const RequestedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DATE_TIME_FORMAT.DATE_FORMAT)}</p>
 
-export const AmountCell = ({ cell: { value } }) => <p>{`£${value ? (value / 100).toFixed(2) : 0}`}</p>
+export const AmountCell = ({ cell: { value } }) => <p>{`£${value ? value.toFixed(2) : 0}`}</p>
 
 export const StatusCell = ({ cell: { value } }) => {
   const statusText = statusOptions.find(item => item.value === value)?.label ?? 'Other'
@@ -44,12 +44,20 @@ export const RequestPaymentCell = (setSelectedPayment: (payment: PaymentModel) =
   const { data, value } = cell
   const payment = data?.find(item => item.id === value)
   if (!payment) return null
+  if (payment.status === 'posted') return <b>Paid</b>
   return <a onClick={() => setSelectedPayment(payment)}>Email</a>
 }
 
-export const TakePaymentCell = (handleTakePayment: (value: string) => void) => ({ cell: { value } }) => (
-  <a onClick={() => handleTakePayment(value)}>Card</a>
-)
+export const TakePaymentCell = (handleTakePayment: (value: string) => void) => (cell: {
+  data: PaymentModel[]
+  value: string
+}) => {
+  const { data, value } = cell
+  const payment = data?.find(item => item.id === value)
+  if (!payment) return null
+  if (payment.status === 'posted') return <b>Paid</b>
+  return <a onClick={() => handleTakePayment(value)}>Card</a>
+}
 
 const Payments: React.FC = () => {
   const history = useHistory()

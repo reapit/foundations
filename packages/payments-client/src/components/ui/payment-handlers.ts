@@ -164,7 +164,7 @@ export const handleCreateTransaction = (
         },
       },
       vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
-      amount: amount || 0,
+      amount: amount ? amount * 100 : 0,
       currency: 'GBP',
       description: description || '',
       apply3DSecure: 'Disable',

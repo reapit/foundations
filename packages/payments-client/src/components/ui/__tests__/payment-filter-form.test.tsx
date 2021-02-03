@@ -7,6 +7,7 @@ describe('PaymentsFilterForm', () => {
     const wrapper = shallow(
       <PaymentsFilterForm
         filterValues={{
+          pageSize: '12',
           createdFrom: 'createdFrom',
           createdTo: 'createdTo',
           properties: 'properties',
