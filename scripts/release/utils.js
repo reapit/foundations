@@ -204,6 +204,7 @@ const SERVERLESS_APPS = [
   'graphql-server',
   'web-components-config-server',
   'payments-service',
+  'mailer-service',
   ...WEB_COMPONENTS_SERVERLESS_APPS,
 ]
 
