@@ -184,7 +184,7 @@ Section_.args = {}
 
 export const Content_: Story<LayoutProps> = () => (
   <Content>
-    <p>Content - you can put anything in here and it'll look nice</p>
+    <p>Content - you can put anything in here and it will look nice</p>
   </Content>
 )
 Content_.args = {}

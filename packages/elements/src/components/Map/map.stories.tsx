@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, MapProps } from './index'
+import { Map } from './index'
 
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || ''
 

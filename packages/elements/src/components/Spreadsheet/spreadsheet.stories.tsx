@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react/types-6-0'
-import { Spreadsheet, SpreadsheetProps, Cell } from './index'
+import { Spreadsheet, Cell } from './index'
 import { PortalProvider } from '../../hooks/UsePortal'
 
 export default {

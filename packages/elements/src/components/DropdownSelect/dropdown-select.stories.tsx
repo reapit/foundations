@@ -8,7 +8,8 @@ import { options } from './__stubs__/options'
 export default {
   title: 'Rereshed-Docs/DropdownSelect',
   component: DropdownSelect,
-  // NOTE: this component doesn't work without Formik, so it's purely a react component. How do we want to show the CSS part of it?
+  // NOTE: this component doesn't work without Formik, so it's purely a react component.
+  // How do we want to show the CSS part of it?
   decorators: [
     (Story: Story) => (
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
