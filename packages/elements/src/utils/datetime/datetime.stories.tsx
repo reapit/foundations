@@ -1,16 +1,19 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
 import { Form, Formik } from 'formik'
 import { DatePicker } from '../../components/DatePicker'
 import { getTime, getDate, isSameDay, closestTo } from './datetime'
-import { Section } from '@/components/Layout'
 
-storiesOf('Datetime', module).add('Primary', () => {
-  const arrDates = ['2019-11-1T00:00:00', '2019-11-06T00:00:00', '2019-11-12T00:00:00']
+export default {
+  title: 'Utils/DateTime',
+  component: <div />,
+}
+
+export const Usage: Story = () => {
+  const arrDates = ['2019-11-01T00:00:00', '2019-11-06T00:00:00', '2019-11-12T00:00:00']
   return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+    <div>
       <Formik
         initialValues={{ inputDate: '' }}
         onSubmit={values => {
@@ -24,16 +27,23 @@ storiesOf('Datetime', module).add('Primary', () => {
                   <DatePicker name="inputDate" id="inputDate" labelText="Date" />
                 </div>
               </Form>
-              <p>Result function getTime: {inputDate ? getTime(inputDate) : null}</p>
-              <p>Result function getDay: {inputDate ? getDate(inputDate) : null}</p>
-              <p>Result function isSameDay: {inputDate ? isSameDay(inputDate).toString() : null}</p>
               <p>
-                Date closest to in list [{arrDates.join(', ')}]: {inputDate ? closestTo(inputDate, arrDates) : null}
+                Result function getTime: <strong>{inputDate ? getTime(inputDate) : null}</strong>
+              </p>
+              <p>
+                Result function getDay: <strong>{inputDate ? getDate(inputDate) : null}</strong>
+              </p>
+              <p>
+                Result function isSameDay: <strong>{inputDate ? isSameDay(inputDate).toString() : null}</strong>
+              </p>
+              <p>
+                Date closest to in list [{arrDates.join(', ')}]:
+                <strong>{inputDate ? closestTo(inputDate, arrDates) : null}</strong>
               </p>
             </>
           )
         }}
       />
-    </Section>
+    </div>
   )
-})
+}

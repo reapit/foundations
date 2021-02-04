@@ -5,80 +5,38 @@ const configEnv = require('../config.json')
 const { getVersionTag } = require('../../../scripts/release/utils')
 
 module.exports = ({ config }) => {
-  config.module.rules.push(
-    {
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  useBuiltIns: 'entry',
-                  corejs: '3',
-                  targets: {
-                    esmodules: true,
-                    chrome: '58',
-                    ie: '11',
-                  },
-                },
-              ],
-              'linaria/babel',
-            ],
-          },
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: [
+      {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          hmr: process.env.NODE_ENV !== 'production',
         },
-        {
-          loader: 'linaria/loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
-          },
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: process.env.NODE_ENV !== 'production',
         },
-        { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
-        require.resolve('react-docgen-typescript-loader'),
-      ],
-    },
-    {
-      test: /\.stories\.tsx?$/,
-      loaders: [
-        {
-          loader: require.resolve('@storybook/addon-storysource/loader'),
-          options: { parser: 'typescript' }
-        }
-      ],
-      enforce: 'pre'
-    },
-    {
-      test: /\.scss$/,
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            hmr: process.env.NODE_ENV !== 'production',
-          },
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
-          },
-        },
-        'sass-loader'
-      ],
-      include: path.resolve(__dirname, '../')
-    },
-  )
-  config.resolve.extensions.push('.ts', '.tsx')
+      },
+      'sass-loader',
+    ],
+    include: path.resolve(__dirname, '../'),
+  })
   config.resolve.alias = {
     '@': `${process.cwd()}/src/`,
   }
-  config.plugins.push(new EnvironmentPlugin({
-    ...configEnv,
+  config.plugins.push(
+    new EnvironmentPlugin({
+      ...configEnv,
       APP_VERSION: `${getVersionTag().version}`,
-  }))
-  config.plugins.push(new MiniCssExtractPlugin({
-    filename: 'styles.css',
-  }))
+    }),
+  )
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
+  )
   return config
 }

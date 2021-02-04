@@ -44,6 +44,13 @@ export const Button: React.SFC<ButtonProps> = ({
   )
 }
 
-export const ButtonGroup: React.SFC<{ className?: string }> = ({ className = '', children }) => {
+export interface ButtonGroupProps {
+  className?: string
+}
+/* JB v2 suggestions
+ * the classes `is-centered`, and `has-addons` should be incorporated into the `buttons`
+ * class, because they are always added by default anyway
+ */
+export const ButtonGroup: React.SFC<ButtonGroupProps> = ({ className = '', children }) => {
   return <div className={`is-centered buttons has-addons ${className}`}>{children}</div>
 }

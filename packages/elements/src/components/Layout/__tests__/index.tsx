@@ -2,7 +2,12 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import * as LayoutComponents from '../index'
 import toJson from 'enzyme-to-json'
-import { Placeholder } from '../layout.stories'
+
+const Placeholder = ({ text }) => (
+  <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    {text}
+  </div>
+)
 
 describe('LayoutComponents', () => {
   Object.keys(LayoutComponents).forEach(componentName => {

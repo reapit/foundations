@@ -1,26 +1,31 @@
-import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
-import { ImageInput } from '.'
+import { ImageInput, ImageInputProps } from '.'
 import { Form, Formik } from 'formik'
-import { Section } from '@/components/Layout'
 
-storiesOf('ImageInput', module).add('Primary', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <Formik
-      initialValues={{ imageInput: '' }}
-      onSubmit={values => {
-        action('Form Values' + values)
-      }}
-    >
-      {() => (
-        <Form>
-          <div className="column is-half-desktop">
-            <ImageInput id="imageInput" allowClear name="imageInput" labelText="Image Input" />
-          </div>
-        </Form>
-      )}
-    </Formik>
-  </Section>
-))
+export default {
+  title: 'Rereshed-Docs/ImageInput',
+  component: ImageInput,
+}
+
+export const Primary: Story<ImageInputProps> = args => (
+  <Formik
+    initialValues={{ imageInput: '' }}
+    onSubmit={values => {
+      action('Form Values' + values)
+    }}
+  >
+    <Form>
+      <div className="column is-half-desktop">
+        <ImageInput {...args} />
+      </div>
+    </Form>
+  </Formik>
+)
+Primary.args = {
+  id: 'imageInput',
+  allowClear: true,
+  name: 'imageInput',
+  labelText: 'Image Input',
+}

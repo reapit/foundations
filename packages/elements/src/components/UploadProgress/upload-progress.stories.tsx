@@ -1,8 +1,21 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { UploadProgress } from './index'
+import { Story } from '@storybook/react/types-6-0'
+import { UploadProgress, UploadProgressProps } from './index'
 
-const Demo = () => {
+export default {
+  title: 'Rereshed-Docs/UploadProgress',
+  component: UploadProgress,
+}
+
+export const Default: Story<UploadProgressProps> = args => <UploadProgress {...args} />
+Default.args = {
+  percentage: 52,
+  totalCount: 50,
+  completedCount: 26,
+  visible: true,
+}
+
+export const Animated: Story = () => {
   const [visible, setVisible] = React.useState(false)
   const [percentage, setPercentage] = React.useState(0)
 
@@ -31,5 +44,4 @@ const Demo = () => {
     />
   )
 }
-
-storiesOf('UploadProgress', module).add('Default', () => <Demo />)
+Animated.args = {}

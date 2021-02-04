@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { ErrorData, Toast } from '.'
-import { Button } from '../Button'
-import { Section } from '@/components/Layout'
+import React from 'react'
+import { Story } from '@storybook/react/types-6-0'
+import { ErrorData, Toast, ToastProps } from '.'
+import { action } from '@storybook/addon-actions'
 
 const DEFAULT_SERVER_ERROR = {
   type: 'SERVER',
@@ -14,38 +12,19 @@ const DEFAULT_COMPONENT_ERROR = {
   message: 'Something went wrong with this component',
 } as ErrorData
 
-const stories = storiesOf('Toast', module)
-
-const Usage = () => {
-  const [serverError, setErrorServer] = useState<ErrorData | null>(null)
-  const [componentError, setErrorComponent] = useState<ErrorData | null>(null)
-
-  const errorClearedComponent = () => {
-    setErrorComponent(null)
-  }
-
-  const errorClearedServer = () => {
-    setErrorServer(null)
-  }
-
-  return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <Button variant="primary" type="button" onClick={() => setErrorServer(DEFAULT_SERVER_ERROR)}>
-        Toast error server
-      </Button>
-      <br />
-      <br />
-      <Button variant="primary" type="button" onClick={() => setErrorComponent(DEFAULT_COMPONENT_ERROR)}>
-        Toast error component
-      </Button>
-      <Toast
-        componentError={componentError}
-        serverError={serverError}
-        errorClearedComponent={errorClearedComponent}
-        errorClearedServer={errorClearedServer}
-      />
-    </Section>
-  )
+export default {
+  title: 'Rereshed-Docs/Toast',
+  component: Toast,
 }
 
-stories.add('Error', () => <Usage />)
+export const ComponentError: Story<ToastProps> = args => <Toast {...args} />
+ComponentError.args = {
+  componentError: DEFAULT_COMPONENT_ERROR,
+  errorClearedComponent: action('Component toast cleared'),
+}
+
+export const ServerError: Story<ToastProps> = args => <Toast {...args} />
+ServerError.args = {
+  serverError: DEFAULT_SERVER_ERROR,
+  errorClearedServer: action('Server toast cleared'),
+}

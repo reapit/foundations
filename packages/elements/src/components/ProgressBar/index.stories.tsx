@@ -1,18 +1,34 @@
-import React from 'react'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
+import { ProgressBar, ProgressBarProps } from '.'
 
-import { storiesOf } from '@storybook/react'
-import { ProgressBar } from '.'
+export default {
+  title: 'Rereshed-Docs/ProgressBar',
+  component: ProgressBar,
+}
 
-storiesOf('ProgressBar', module)
-  .add('0%', () => {
-    return <ProgressBar percentage={0} />
-  })
-  .add('50%', () => {
-    return <ProgressBar percentage={50} />
-  })
-  .add('70%', () => {
-    return <ProgressBar percentage={70} />
-  })
-  .add('100%', () => {
-    return <ProgressBar percentage={100} />
-  })
+const Template: Story<ProgressBarProps> = args => <ProgressBar {...args} />
+
+export const Zero = Template.bind({})
+Zero.storyName = '0%'
+Zero.args = {
+  percentage: 0,
+}
+
+export const Fifty = Template.bind({})
+Fifty.storyName = '50%'
+Fifty.args = {
+  percentage: 50,
+}
+
+export const Seventy = Template.bind({})
+Seventy.storyName = '70%'
+Seventy.args = {
+  percentage: 70,
+}
+
+export const Hundred = Template.bind({})
+Hundred.storyName = '100%'
+Hundred.args = {
+  percentage: 100,
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { Map } from './index'
 
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || ''
@@ -30,43 +29,47 @@ const onLoaded = response => {
   console.log(response)
 }
 
-storiesOf('Map', module).add('Map', () => {
-  return (
-    <Map
-      apiKey={GOOGLE_MAPS_API_KEY}
-      libraries="places,drawing"
-      autoFitBounds={true}
-      coordinates={[
-        {
-          id: '123',
-          position: {
-            lat: 10.801147,
-            lng: 106.655838,
-          },
-          address: {
-            buildingName: '',
-            buildingNumber: '65',
-            line1: 'Lindsey Close',
-            line2: 'Great Denham',
-            line3: 'Bedford',
-            line4: 'Bedfordshire',
-            postcode: 'MK40 4GT',
-            country: '',
-            geolocation: {
-              latitude: 52.1284,
-              longitude: -0.507145,
-            },
-          },
+import { Story } from '@storybook/react/types-6-0'
+
+export default {
+  title: 'Rereshed-Docs/Map',
+  component: Map,
+}
+
+export const Default: Story<any> = args => <Map {...args} />
+Default.args = {
+  apiKey: GOOGLE_MAPS_API_KEY,
+  libraries: 'places,drawing',
+  autoFitBounds: true,
+  coordinates: [
+    {
+      id: '123',
+      position: {
+        lat: 10.801147,
+        lng: 106.655838,
+      },
+      address: {
+        buildingName: '',
+        buildingNumber: '65',
+        line1: 'Lindsey Close',
+        line2: 'Great Denham',
+        line3: 'Bedford',
+        line4: 'Bedfordshire',
+        postcode: 'MK40 4GT',
+        country: '',
+        geolocation: {
+          latitude: 52.1284,
+          longitude: -0.507145,
         },
-      ]}
-      onLoaded={onLoaded}
-      onLoadedDirection={onLoadedDirection}
-      onDrawingMarkerComplete={onDrawingMarkerComplete}
-      onDrawingMarkerClick={onDrawingMarkerClick}
-      onDrawingPolygonComplete={onDrawingPolygonComplete}
-      onDrawingPolygonClick={onDrawingPolygonClick}
-      center={{ lat: 10.801147, lng: 106.655838 }}
-      zoom={10}
-    />
-  )
-})
+      },
+    },
+  ],
+  onLoaded: onLoaded,
+  onLoadedDirection: onLoadedDirection,
+  onDrawingMarkerComplete: onDrawingMarkerComplete,
+  onDrawingMarkerClick: onDrawingMarkerClick,
+  onDrawingPolygonComplete: onDrawingPolygonComplete,
+  onDrawingPolygonClick: onDrawingPolygonClick,
+  center: { lat: 10.801147, lng: 106.655838 },
+  zoom: 10,
+}

@@ -1,39 +1,36 @@
-import React, { useState } from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { Tabs, TabConfig } from '.'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
+import { Tabs, TabsProps, TabConfig } from '.'
 import { Section } from '@/components/Layout'
+import { action } from '@storybook/addon-actions'
 
-const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
+const tabConfigs: TabConfig[] = [
   {
     tabIdentifier: 'ITEMONE',
     displayText: 'Item one',
-    onTabClick: handleChangeTab,
-    active: tab === 'ITEMONE',
+    onTabClick: action('Clicked Tab 1'),
+    active: true,
   },
   {
     tabIdentifier: 'ITEMTWO',
     displayText: 'Item two',
-    onTabClick: handleChangeTab,
-    active: tab === 'ITEMTWO',
+    onTabClick: action('Clicked Tab 2'),
+    active: false,
   },
 ]
 
-storiesOf('Tabs', module).add('Primary', () => {
-  function Parent({ children }) {
-    const [tab, handleChangeTab] = useState('ITEMONE')
-    return <div>{children(tab, handleChangeTab)}</div>
-  }
+export default {
+  title: 'Rereshed-Docs/Tabs',
+  component: Tabs,
+}
 
-  return (
-    <Parent>
-      {(tab, handleChangeTab) => (
-        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-          <div className="column is-half-desktop">
-            <Tabs tabConfigs={tabConfigs({ tab, handleChangeTab })} />
-          </div>
-        </Section>
-      )}
-    </Parent>
-  )
-})
+export const Primary: Story<TabsProps> = args => (
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+    <div className="column is-half-desktop">
+      <Tabs {...args} />
+    </div>
+  </Section>
+)
+Primary.args = {
+  tabConfigs,
+}

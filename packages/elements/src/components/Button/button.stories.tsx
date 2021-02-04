@@ -1,172 +1,80 @@
-import React from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { Button } from '.'
+import * as React from 'react'
+import { Story } from '@storybook/react/types-6-0'
+import { Button, ButtonProps } from './index'
 import { action } from '@storybook/addon-actions'
-import { ButtonGroup } from './index'
-import { Section } from '@/components/Layout'
 
-storiesOf('Button', module).add('Primary', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="primary"
-        onClick={action('Clicking Primary')}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Primary
-      </Button>
-    </div>
-  </Section>
-))
+export default {
+  title: 'Rereshed-Docs/Button',
+  component: Button,
+}
 
-storiesOf('Button', module).add('Primary', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="primary"
-        onClick={action('Clicking Primary')}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Primary
-      </Button>
-    </div>
-  </Section>
-))
+export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
+Primary.args = {
+  type: 'submit',
+  variant: 'primary',
+  onClick: action('Clicking Primary Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('Info', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="info"
-        onClick={action('Clicking Secondary')}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Info
-      </Button>
-    </div>
-  </Section>
-))
+export const Secondary: Story<ButtonProps> = args => <Button {...args}>Secondary</Button>
+Secondary.args = {
+  type: 'submit',
+  variant: 'secondary',
+  onClick: action('Clicking Secondary Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('Danger', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="danger"
-        onClick={action('Clicking Danger')}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Danger
-      </Button>
-    </div>
-  </Section>
-))
+export const Danger: Story<ButtonProps> = args => <Button {...args}>Danger</Button>
+Danger.args = {
+  type: 'submit',
+  variant: 'danger',
+  onClick: action('Clicking Danger Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('Disabled', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="primary"
-        onClick={action('Clicking Disabled')}
-        disabled
-        loading={false}
-        fullWidth={false}
-      >
-        Disabled
-      </Button>
-    </div>
-  </Section>
-))
+export const Info: Story<ButtonProps> = args => <Button {...args}>Info</Button>
+Info.args = {
+  type: 'submit',
+  variant: 'info',
+  onClick: action('Clicking Info Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('Loading', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        type="submit"
-        variant="primary"
-        onClick={action('Clicking Loading')}
-        disabled={false}
-        loading
-        fullWidth={false}
-      >
-        Loading
-      </Button>
-    </div>
-  </Section>
-))
+export const Disabled: Story<ButtonProps> = args => <Button {...args}>Disabled</Button>
+Disabled.args = {
+  type: 'submit',
+  variant: 'primary',
+  onClick: action('Clicking Disabled Button'),
+  disabled: true,
+  loading: false,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('IsCentered', () => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <div className="column is-half-desktop">
-      <Button
-        className="is-centered"
-        type="submit"
-        variant="primary"
-        onClick={action('Clicking Loading')}
-        disabled={false}
-        loading={false}
-        fullWidth={false}
-      >
-        Centered
-      </Button>
-    </div>
-  </Section>
-))
+export const Loading: Story<ButtonProps> = args => <Button {...args}>Loading</Button>
+Loading.args = {
+  type: 'submit',
+  variant: 'primary',
+  onClick: action('Clicking Loading Button'),
+  disabled: false,
+  loading: true,
+  fullWidth: false,
+}
 
-storiesOf('Button', module).add('ButtonGroup', () => {
-  const [isActive, setIsActive] = React.useState(0)
-  return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      <div className="column is-half-desktop">
-        <ButtonGroup className="is-block">
-          <Button
-            type="button"
-            className={`${isActive === 0 ? 'is-info' : ''}`}
-            variant="secondary"
-            onClick={() => setIsActive(0)}
-            disabled={false}
-            loading={false}
-            fullWidth={false}
-          >
-            Left
-          </Button>
-          <Button
-            type="button"
-            className={`${isActive === 1 ? 'is-info' : ''}`}
-            variant="secondary"
-            onClick={() => setIsActive(1)}
-            disabled={false}
-            loading={false}
-            fullWidth={false}
-          >
-            Center
-          </Button>
-          <Button
-            type="button"
-            className={`${isActive === 2 ? 'is-info' : ''}`}
-            variant="secondary"
-            onClick={() => setIsActive(2)}
-            disabled={false}
-            loading={false}
-            fullWidth={false}
-          >
-            Right
-          </Button>
-        </ButtonGroup>
-      </div>
-    </Section>
-  )
-})
+export const IsCentered: Story<ButtonProps> = args => <Button {...args}>Centered</Button>
+IsCentered.args = {
+  type: 'submit',
+  variant: 'primary',
+  onClick: action('Clicking Centered Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+  className: 'is-centered',
+}

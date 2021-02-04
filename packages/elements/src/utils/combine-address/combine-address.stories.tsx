@@ -1,9 +1,16 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { combineAddress } from './combine-address'
 
-export const address = {
+export default {
+  title: 'Utils/CombineAddress',
+  component: <div />,
+}
+
+export const Usage: Story = args => {
+  return <div>{combineAddress(args)}</div>
+}
+Usage.args = {
   type: 'primary',
   buildingName: 'Tilbrook Farm',
   buildingNumber: '',
@@ -13,11 +20,3 @@ export const address = {
   line4: 'Buckinghamshire',
   postcode: 'MK17 9JU',
 }
-
-storiesOf('CombineAddress', module).add(
-  'Primary',
-  () => {
-    return <div>Result: {combineAddress(address)}</div>
-  },
-  { notes: 'Funtion combine address' },
-)

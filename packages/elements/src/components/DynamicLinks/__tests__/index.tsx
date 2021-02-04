@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { AcLink, AcButton } from '../index'
 import toJson from 'enzyme-to-json'
-import { dynamicLinkScenarios } from '../dynamic-links.stories'
+import { dynamicLinkScenarios } from '../__stubs__/scenarios'
 import { getDynamicLink } from '../dynamic-link-gen'
 
 const postMessageOrigin = process.env.MARKETPLACE_URL

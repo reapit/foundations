@@ -1,14 +1,17 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { fetcher } from './fetcher'
 import { Form, Formik } from 'formik'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { H1 } from '../../components/Typography'
-import { Section } from '@/components/Layout'
 
-storiesOf('Fetcher', module).add('Primary', () => {
+export default {
+  title: 'Utils/Fetcher',
+  component: <div />,
+}
+
+export const Usage: Story = () => {
   const [repo, setRepo] = React.useState<any[] | null>(null)
   const fetchData = async (values, formikAction) => {
     const { username } = values
@@ -26,7 +29,7 @@ storiesOf('Fetcher', module).add('Primary', () => {
   }
 
   return (
-    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+    <div>
       <H1>Show Github repositories</H1>
       <Formik
         initialValues={{ username: '' }}
@@ -48,6 +51,6 @@ storiesOf('Fetcher', module).add('Primary', () => {
             </li>
           ))}
       </ul>
-    </Section>
+    </div>
   )
-})
+}

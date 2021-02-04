@@ -1,8 +1,6 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { TextAreaEditor } from '.'
-import { Input } from '../Input'
+import { Story } from '@storybook/react/types-6-0'
+import { TextAreaEditor, TextAreaEditorProps } from '.'
 import { Form, Formik } from 'formik'
 import { Button } from '../Button'
 import { Section } from '@/components/Layout'
@@ -20,7 +18,12 @@ const validate = values => {
   return errors
 }
 
-storiesOf('TextAreaEditor', module).add('Sample Form', () => (
+export default {
+  title: 'Rereshed-Docs/TextAreaEditor',
+  component: TextAreaEditor,
+}
+
+export const SampleForm: Story<TextAreaEditorProps> = args => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ description: '', text: '' }}
@@ -29,17 +32,20 @@ storiesOf('TextAreaEditor', module).add('Sample Form', () => (
       }}
       validate={validate}
     >
-      {() => (
-        <Form>
-          <div className="column is-half-desktop">
-            <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
-            <TextAreaEditor id="description" name="description" placeholder="Some text here" labelText="Description" />
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </div>
-        </Form>
-      )}
+      <Form>
+        <div className="column is-half-desktop">
+          <TextAreaEditor {...args} />
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </div>
+      </Form>
     </Formik>
   </Section>
-))
+)
+SampleForm.args = {
+  id: 'description',
+  name: 'description',
+  placeholder: 'Some text here',
+  labelText: 'Description',
+}

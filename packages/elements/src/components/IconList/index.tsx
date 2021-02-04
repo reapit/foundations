@@ -1,5 +1,9 @@
 import * as React from 'react'
 
+/* JB v2 suggestions
+ * IcomListProps is a typo, should be IconListProps
+ */
+
 export interface IcomListProps {
   items: IconListItem[]
   textClassName?: string
