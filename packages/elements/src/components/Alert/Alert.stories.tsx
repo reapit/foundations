@@ -5,23 +5,6 @@ import { Alert, AlertProps } from './index'
 export default {
   title: 'Rereshed-Docs/Alert',
   component: Alert,
-  argTypes: {
-    closable: {
-      table: {
-        disable: true,
-      },
-    },
-    dataTest: {
-      table: {
-        disable: true,
-      },
-    },
-    afterClose: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 }
 
 const Template: Story<AlertProps> = args => <Alert {...args} />

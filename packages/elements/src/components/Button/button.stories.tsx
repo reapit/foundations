@@ -6,13 +6,6 @@ import { action } from '@storybook/addon-actions'
 export default {
   title: 'Rereshed-Docs/Button',
   component: Button,
-  argTypes: {
-    dataTest: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 }
 
 export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
