@@ -72,6 +72,12 @@ export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddres
               <SelectBox id="country" name="country" options={COUNTRY_OPTIONS} labelText="Country" required />
             </GridItem>
           </Grid>
+          <Grid>
+            <GridItem>
+              <Input id="email" type="email" placeholder="example@mail.com" name="email" labelText="Email" required />
+            </GridItem>
+            <GridItem></GridItem>
+          </Grid>
         </Section>
       )}
       <Section>

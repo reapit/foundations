@@ -5,7 +5,7 @@ import { FaSignOutAlt, FaCloud, FaPoundSign } from 'react-icons/fa'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
-import Routes from '../../constants/routes'
+import { Routes } from '../../constants/routes'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentLogo should match a snapshot 1`] = `
+<mock-styled.div>
+  <img
+    src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+  />
+</mock-styled.div>
+`;

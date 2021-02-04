@@ -131,7 +131,7 @@ export const InstallNonDirectApiAppSucesfullyModal = ({
             </Button>
 
             {isDesktopMode ? (
-              <a href={`agencycloud://process/webpage?url=${appDetailData?.launchUri}`}>
+              <a href={`agencycloud://app?id=${appDetailData?.id}&launchUri=${appDetailData?.launchUri}`}>
                 <Button dataTest="installations-success-message-launch" variant="primary" type="button">
                   Launch App
                 </Button>

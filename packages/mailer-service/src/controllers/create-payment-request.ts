@@ -5,6 +5,7 @@ import { ClientConfig, EmailPaymentRequest } from '../types/payments'
 import configJson from '../../config.json'
 import { createPaymentRequestTemplate } from '../core/templates'
 import logger from '../../../payments-service/src/core/logger'
+import { currencySymbolMapper } from '@reapit/utils/src/currency'
 
 export const getValuesFromConfig = (clientCode: string, config = configJson) => {
   try {
@@ -54,17 +55,18 @@ export const createPaymentRequest = async (
     if (!senderEmail || !companyName || !logoUri)
       throw new Error('senderEmail, companyName and logoUri are required in config')
 
-    logger.info('Email successfully validated', { traceId })
+    logger.info('Request successfully validated', { traceId })
 
     const template = await createPaymentRequestTemplate({
       senderEmail,
       companyName,
       logoUri,
       paymentReason,
+      paymentCurrency: currencySymbolMapper(paymentCurrency),
       url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}&clientCode=${clientCode}`,
       recipientName,
-      paymentExpiry: new Date(paymentExpiry).toLocaleDateString(),
-      paymentAmount: `${paymentCurrency} ${paymentAmount}`,
+      paymentExpiry: new Date(paymentExpiry).toDateString(),
+      paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
     })
 
     logger.info('Template successfully created', { traceId })

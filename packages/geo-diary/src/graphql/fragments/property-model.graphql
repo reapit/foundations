@@ -14,4 +14,7 @@ fragment PropertyModel on PropertyModel {
       longitude
     }
   }
+  selling {
+    vendorId
+  }
 }

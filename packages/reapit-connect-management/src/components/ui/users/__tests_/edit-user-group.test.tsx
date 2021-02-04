@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
-import UpdateUserGroupModal, { UpdateUserGroupModalProps, onHandleSubmit } from '../edit-user-group'
+import UpdateUserGroupModal, { UpdateUserGroupModalProps, onHandleSubmit, getUserOptions } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
+import { listUserGroup, listUserGroupMember } from '../__stubs__/user-groups'
 
 const filterProps = (): UpdateUserGroupModalProps => ({
   editingUserGroup: { id: 'Group Name', description: 'Group description' },
@@ -28,9 +29,16 @@ describe('onHandleSubmit', () => {
   const onRefetchData = jest.fn
   const mutate = jest.fn
   const editingUserGroup = { name: 'Group Name', description: 'Group description' }
-  const userId = ['userid2', 'userid3', 'userid4']
-  const initMembers = ['userid1', 'userid2']
-  const onSubmit = onHandleSubmit(handleOnClose, onRefetchData, mutate, editingUserGroup, initMembers)
+  const userId = ['id2', 'id3', 'id4']
+  const removeUser = ['id1']
+  const onSubmit = onHandleSubmit(
+    handleOnClose,
+    onRefetchData,
+    mutate,
+    removeUser,
+    listUserGroupMember,
+    editingUserGroup,
+  )
 
   it('should show notification success', async () => {
     await onSubmit({ userId })
@@ -56,5 +64,21 @@ describe('onHandleSubmit', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('getUserOptions', () => {
+  it('should return right result', () => {
+    const res = getUserOptions(listUserGroup, listUserGroupMember)
+    expect(res).toEqual([
+      {
+        id: 'id2',
+        description: 'description 2',
+      },
+      {
+        id: 'id4',
+        description: 'description 4',
+      },
+    ])
   })
 })

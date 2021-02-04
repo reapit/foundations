@@ -29,14 +29,10 @@ const OfficesPage: React.FC = () => {
   return (
     <div>
       <H3 isHeadingSection>Manage Offices</H3>
-      {window.reapit.config.appEnv !== 'production' && (
-        <>
-          <Section>
-            <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
-          </Section>
-          <Route path={Routes.OFFICES} component={OfficesTab} exact />
-        </>
-      )}
+      <Section>
+        <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
+      </Section>
+      <Route path={Routes.OFFICES} component={OfficesTab} exact />
       <Route path={Routes.OFFICES_GROUPS} component={OfficesGroupsTab} exact />
     </div>
   )

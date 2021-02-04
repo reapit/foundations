@@ -1451,7 +1451,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     Back To List
                                   </button>
                                   <a
-                                    href="agencycloud://process/webpage?url=undefined"
+                                    href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                   >
                                     <button
                                       class="button  is-primary  "
@@ -1623,7 +1623,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       Back To List
                                     </Unknown>
                                     <a
-                                      href="agencycloud://process/webpage?url=undefined"
+                                      href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                     >
                                       <Unknown
                                         dataTest="installations-success-message-launch"
@@ -1691,7 +1691,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             </button>
                                           </Component>
                                           <a
-                                            href="agencycloud://process/webpage?url=undefined"
+                                            href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                           >
                                             <Component
                                               dataTest="installations-success-message-launch"

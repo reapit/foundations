@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import { Helper, Loader } from '@reapit/elements'
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-import { URLS } from '../../constants/api'
-import { MerchantKey } from '../../opayo-api/merchant-key'
 import { sessionFetcher } from '../../utils/fetcher'
-import { handleMerchantKeyEffect } from '../ui/payments/payment-handlers'
-import PropertyPageContent from '../ui/payments/payment-page-content'
-
-export interface PaymentWithPropertyModel extends PaymentModel {
-  clientCode: string
-  property: PropertyModel
-}
+import PropertyPageContent from '../ui/payment-page-content'
+import { MerchantKey } from '../../types/opayo'
+import { URLS } from '../../constants/api'
+import { handleMerchantKeyEffect } from '../ui/payment-handlers'
+import { PaymentWithPropertyModel } from '../../types/payment'
 
 export interface PaymentExternalPageProps {
   session: string
   paymentId: string
   clientId: string
+  // Inject test dependiencies
+  defaultMerchantKey?: MerchantKey | null
 }
 
-const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paymentId, clientId }) => {
-  const { data, error } = useSWR<{ payment: PaymentWithPropertyModel }>(
+const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
+  session,
+  paymentId,
+  clientId,
+  defaultMerchantKey = null,
+}) => {
+  const { data, error, mutate: refetchPayment } = useSWR<{ payment: PaymentWithPropertyModel }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
-  const payment = data?.payment
+  const paymentModel = data?.payment
   const [loading, setLoading] = useState(false)
-  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(null)
+  const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
 
   useEffect(handleMerchantKeyEffect(setLoading, setMerchantKey, clientId), [setMerchantKey, clientId])
 
-  if (error) {
+  if (loading || !data) {
+    return <Loader />
+  }
+
+  if (error || !paymentModel) {
     return (
       <Helper variant="warning">
         No payment informations was found for this transaction. It is likely that the payment request has expired -
@@ -48,9 +54,19 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({ session, paym
     )
   }
 
-  if (!payment || loading) return <Loader />
+  const payment: PaymentWithPropertyModel = {
+    ...paymentModel,
+    clientCode: clientId,
+  }
 
-  return <PropertyPageContent payment={payment} merchantKey={merchantKey} />
+  return (
+    <PropertyPageContent
+      payment={payment}
+      merchantKey={merchantKey}
+      session={session}
+      refetchPayment={refetchPayment}
+    />
+  )
 }
 
 export default PaymentExternalPage

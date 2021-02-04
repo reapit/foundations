@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentPage should match a snapshot when has a session 1`] = `
+<Component
+  flexColumn={true}
+  isFullHeight={true}
+  isScrollable={true}
+>
+  <Component
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/payments/:paymentId"
+    />
+  </Component>
+</Component>
+`;
+
+exports[`PaymentPage should match a snapshot when has no session 1`] = `
+<Component>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/payments/:paymentId"
+  />
+</Component>
+`;

@@ -22,6 +22,7 @@ window.reapit = {
     connectUserPoolId: '',
     graphqlUri: '',
     googleMapApiKey: '',
+    platformApiUrl: '',
   },
 }
 
