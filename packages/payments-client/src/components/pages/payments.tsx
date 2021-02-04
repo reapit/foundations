@@ -79,9 +79,12 @@ const Payments: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3 className="flex justify-between" isHeadingSection>
-        Payments Dashboard <PaymentLogo />
-      </H3>
+      <Section>
+        <div className="justify-between flex items-center">
+          <H3 className="mb-0">Payments Dashboard</H3>
+          <PaymentLogo />
+        </div>
+      </Section>
       <PaymentsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {!payments ? (
         <Loader />
