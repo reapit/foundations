@@ -27,9 +27,12 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   return (
     <>
-      <H3 className="flex justify-between" isHeadingSection>
-        Card Payment <PaymentLogo />
-      </H3>
+      <Section>
+        <div className="justify-between flex items-center">
+          <H3 className="mb-0">Card Payment</H3>
+          <PaymentLogo />
+        </div>
+      </Section>
       <Section>
         <Grid>
           <PaymentCustomerSection customer={customer} />
@@ -43,7 +46,7 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
             items={[
               {
                 icon: <FaPoundSign className="icon-list-icon" />,
-                text: <H6 className="inline-block">{amount ? (amount / 100).toFixed(2) : 0}</H6>,
+                text: <H6 className="inline-block">{amount ? amount.toFixed(2) : 0}</H6>,
               },
               {
                 icon: <FaShoppingCart className="icon-list-icon" />,

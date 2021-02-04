@@ -2,7 +2,7 @@
 
 exports[`AmountCell should match a snapshot 1`] = `
 <p>
-  £100.00
+  £10000.00
 </p>
 `;
 
@@ -14,19 +14,25 @@ exports[`AmountCell should match a snapshot where no value 1`] = `
 
 exports[`Payments  should match a snapshot where has payments list 1`] = `
 <ErrorBoundary>
-  <Component
-    className="flex justify-between"
-    isHeadingSection={true}
-  >
-    Payments Dashboard 
-    <Component />
+  <Component>
+    <div
+      className="justify-between flex items-center"
+    >
+      <Component
+        className="mb-0"
+      >
+        Payments Dashboard
+      </Component>
+      <Component />
+    </div>
   </Component>
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],
@@ -160,19 +166,25 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
 
 exports[`Payments  should match a snapshot where loading 1`] = `
 <ErrorBoundary>
-  <Component
-    className="flex justify-between"
-    isHeadingSection={true}
-  >
-    Payments Dashboard 
-    <Component />
+  <Component>
+    <div
+      className="justify-between flex items-center"
+    >
+      <Component
+        className="mb-0"
+      >
+        Payments Dashboard
+      </Component>
+      <Component />
+    </div>
   </Component>
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],
@@ -191,19 +203,25 @@ exports[`Payments  should match a snapshot where loading 1`] = `
 
 exports[`Payments  should match a snapshot where payments list is empty 1`] = `
 <ErrorBoundary>
-  <Component
-    className="flex justify-between"
-    isHeadingSection={true}
-  >
-    Payments Dashboard 
-    <Component />
+  <Component>
+    <div
+      className="justify-between flex items-center"
+    >
+      <Component
+        className="mb-0"
+      >
+        Payments Dashboard
+      </Component>
+      <Component />
+    </div>
   </Component>
   <PaymentsFilterForm
     filterValues={
       Object {
-        "createdFrom": "2019-09-10",
-        "createdTo": "2019-10-10",
+        "createdFrom": "2019-09-11",
+        "createdTo": "2019-10-11",
         "description": "",
+        "pageSize": "12",
         "properties": "",
         "status": Array [],
         "type": Array [],

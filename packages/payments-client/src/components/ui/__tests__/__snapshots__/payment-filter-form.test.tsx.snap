@@ -11,6 +11,7 @@ exports[`PaymentsFilterForm should match a snapshot 1`] = `
         "createdFrom": "createdFrom",
         "createdTo": "createdTo",
         "description": "description",
+        "pageSize": "12",
         "properties": "properties",
         "status": Array [
           "status",

@@ -87,9 +87,9 @@ export const unformatCardExpires = (formattedCard: string) =>
 export const validateCard = (value: string, whiteListTestCards: string[]) => {
   const requiredError = fieldValidateRequire(value)
   const cardType = getCardType(value)
-  const whiteListTestCard = whiteListTestCards.find(card => card === value)
-  const cardLength = whiteListTestCard ? whiteListTestCard.length : cardType === 'amex' ? 15 : 16
   const unformattedCard = unformatCard(value)
+  const whiteListTestCard = whiteListTestCards.find(card => card === unformattedCard)
+  const cardLength = whiteListTestCard ? whiteListTestCard.length : cardType === 'amex' ? 15 : 16
 
   if (requiredError) {
     return requiredError

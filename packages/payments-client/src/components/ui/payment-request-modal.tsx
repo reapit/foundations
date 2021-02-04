@@ -48,7 +48,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
       visible={Boolean(payment)}
       destroyOnClose={true}
       onClose={handleOnClose}
-      title={`Request Payment of £${payment?.amount ? (payment?.amount / 100).toFixed(2) : 0} for ${payment?.id}`}
+      title={`Request Payment of £${payment?.amount ? payment?.amount.toFixed(2) : 0} for ${payment?.id}`}
     >
       <Formik
         initialValues={

@@ -85,7 +85,7 @@ resources:
         ResponseType: DEFAULT_5XX
         RestApiId:
           Ref: 'ApiGatewayRestApi'
-    eventStatusesTable:
+    paymentServicesTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}

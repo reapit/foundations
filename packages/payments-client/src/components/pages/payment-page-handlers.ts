@@ -9,16 +9,20 @@ import { history } from '../../core/router'
 export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterFormValues => {
   const defaultCreatedFrom = dayjs(new Date())
     .subtract(1, 'month')
+    .add(1, 'day')
     .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const defaultCreatedTo = dayjs(new Date()).format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const defaultCreatedTo = dayjs(new Date())
+    .add(1, 'day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
+  const pageSize = '12'
   const properties = queryParams.get('properties') || ''
   const description = queryParams.get('description') || ''
   const createdFrom = queryParams.get('createdFrom') || defaultCreatedFrom
   const createdTo = queryParams.get('createdTo') || defaultCreatedTo
   const status = queryParams.getAll('status') || []
   const type = queryParams.getAll('type') || []
-  return { properties, description, createdFrom, createdTo, status, type } as PaymentsFilterFormValues
+  return { pageSize, properties, description, createdFrom, createdTo, status, type } as PaymentsFilterFormValues
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: PaymentsFilterFormValues) => (page: number) => {

@@ -66,7 +66,7 @@ export const createPaymentRequest = async (
       url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${apiKey}&clientCode=${clientCode}`,
       recipientName,
       paymentExpiry: new Date(paymentExpiry).toDateString(),
-      paymentAmount: `${(paymentAmount / 100).toFixed(2)}`,
+      paymentAmount: `${paymentAmount.toFixed(2)}`,
     })
 
     logger.info('Template successfully created', { traceId })

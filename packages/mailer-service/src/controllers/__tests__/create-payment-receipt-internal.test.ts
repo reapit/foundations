@@ -20,7 +20,7 @@ const baseMockReq = {
     recipientName: 'TEST_VALUE',
     paymentReason: 'TEST_VALUE',
     paymentCurrency: 'TEST_VALUE',
-    paymentAmount: 'TEST_VALUE',
+    paymentAmount: 100,
   },
   headers: {
     ['x-api-key']: 'TEST_VALUE',

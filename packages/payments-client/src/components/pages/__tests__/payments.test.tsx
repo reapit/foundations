@@ -122,6 +122,6 @@ describe('TakePaymentCell', () => {
   it('should match a snapshot', () => {
     const mockHandleTakePayment = jest.fn()
     const Cell = TakePaymentCell(mockHandleTakePayment)
-    expect(Cell({ cell: { value: 'someId' } })).toMatchSnapshot()
+    expect(Cell({ value: stubPaymentModel.id as string, data: [stubPaymentModel] })).toMatchSnapshot()
   })
 })
