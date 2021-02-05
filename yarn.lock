@@ -5426,16 +5426,6 @@
     jsonwebtoken "^8.5.1"
     snyk "^1.335.0"
 
-"@reapit/connect-session@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-2.0.7.tgz#848be7633af8948a80ddeed7242d1b74560a46be"
-  integrity sha512-6E28yC7TSyCswDceEmm0hJl4/tQUk12QP+57xwf64S75AkH0CLbPU+9f+s4+R/GmrgHiRtWncyML5gGtslbx2Q==
-  dependencies:
-    isomorphic-fetch "^3.0.0"
-    jsonwebtoken "^8.5.1"
-    jwk-to-pem "^2.0.4"
-    snyk "^1.335.0"
-
 "@reapit/connect-session@2.0.9":
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-2.0.9.tgz#82ca3de71b4aa878a883d1ddd33d03ad37e3180e"
@@ -32111,7 +32101,7 @@ tslib@1.11.2:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.2.tgz#9c79d83272c9a7aaf166f73915c9667ecdde3cc9"
   integrity sha512-tTSkux6IGPnUGUd1XAZHcpu85MOkIl5zX49pO+jfsie3eP0B6pyhOlLXm3cAC6T7s+euSDDUUV+Acop5WmtkVg==
 
-tslib@2.1.0:
+tslib@2.1.0, tslib@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
@@ -32125,11 +32115,6 @@ tslib@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
   integrity sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
-
-tslib@^2.0.1:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
-  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tsutils@^3.17.1:
   version "3.17.1"
