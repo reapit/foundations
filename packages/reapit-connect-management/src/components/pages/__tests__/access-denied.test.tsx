@@ -20,7 +20,7 @@ describe('AccessDenied', () => {
     it('should run correctly', () => {
       jest.spyOn(window, 'open')
       onMarketplaceButtonClick()
-      expect(window.open).toBeCalledWith(window.reapit.config.marketplaceUrl, '_self')
+      expect(window.open).toBeCalledWith(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
       ;(window.open as jest.Mock).mockReset()
     })
   })

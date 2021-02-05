@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
+<AppToggleVisibilitySection
+  app={
+    Object {
+      "developer": "APP_DEVELOPER",
+      "name": "APP_NAME",
+    }
+  }
+>
+  <Component>
+    <section
+      className=""
+      data-test=""
+    >
+      <Component>
+        <h5
+          className=""
+          id=""
+        >
+          Application Visibility
+        </h5>
+      </Component>
+      <p
+        className="mb-4"
+      >
+        <i>
+          By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
+        </i>
+      </p>
+      <div
+        className="field field-checkbox mb-0 control"
+      >
+        <input
+          checked={true}
+          className="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="label"
+        >
+          Visible
+        </label>
+      </div>
+    </section>
+  </Component>
+</AppToggleVisibilitySection>
+`;
