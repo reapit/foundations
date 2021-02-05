@@ -23,12 +23,12 @@ jest.mock('@reapit/connect-session', () => ({
 
 jest.mock('react-router', () => ({
   useLocation: jest.fn(() => ({
-    pathname: '/offices',
+    pathname: '/marketplace',
   })),
-
   useHistory: jest.fn(() => ({
     history: () => {},
   })),
+  withRouter: jest.fn(component => component),
 }))
 
 describe('MarketplacePage', () => {

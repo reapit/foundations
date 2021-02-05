@@ -5,6 +5,7 @@ const Routes = {
   USERS_GROUPS: '/users/groups',
   LOGIN: '/login',
   MARKETPLACE: '/marketplace-apps',
+  MARKETPLACE_APP: '/marketplace-apps/:appId',
   ACCESS_DENIED: '/access-denied',
 }
 

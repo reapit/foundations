@@ -19,6 +19,7 @@ exports[`AppCard should match a snapshot 1`] = `
         src=""
       />
     }
+    onClick={[Function]}
     subHeading={
       <React.Fragment>
         APP_DEVELOPER
@@ -27,8 +28,9 @@ exports[`AppCard should match a snapshot 1`] = `
     }
   >
     <div
-      className="card  "
+      className="card  is-clickable"
       data-test=""
+      onClick={[Function]}
     >
       <div
         className="card-content"
@@ -72,28 +74,6 @@ exports[`AppCard should match a snapshot 1`] = `
               >
                 APP_DEVELOPER
               </h6>
-            </Component>
-            <Component>
-              <div
-                className=""
-                data-test=""
-              >
-                <div
-                  className="field field-checkbox mb-0 control"
-                >
-                  <input
-                    checked={true}
-                    className="checkbox"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="label"
-                  >
-                    Visible
-                  </label>
-                </div>
-              </div>
             </Component>
           </div>
         </div>

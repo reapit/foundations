@@ -79,7 +79,19 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
+              exact={true}
               path="/marketplace-apps"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/marketplace-apps/:appId"
             />
             <Route
               component={

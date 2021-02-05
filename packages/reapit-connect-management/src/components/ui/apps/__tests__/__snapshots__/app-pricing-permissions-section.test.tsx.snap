@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = `
+<AppPricingPermissionsSection
+  app={
+    Object {
+      "desktopIntegrationTypeIds": Array [
+        "ID",
+      ],
+      "developer": "APP_DEVELOPER",
+      "name": "APP_NAME",
+    }
+  }
+  desktopIntegrationTypes={
+    Array [
+      Object {
+        "description": "DESCRIPTION",
+        "id": "ID",
+        "name": "NAME",
+      },
+    ]
+  }
+  isDesktop={true}
+>
+  <mock-styled.div>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Desktop Integration
+              </h5>
+            </Component>
+            <p>
+              This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+            </p>
+            <ul
+              className="ml-4"
+            >
+              <li
+                key="NAME"
+              >
+                DESCRIPTION
+              </li>
+            </ul>
+            <p>
+              For more information regarding Desktop Integration types, please
+               
+              <a
+                href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+              >
+                click here
+              </a>
+              .
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Pricing Information
+              </h5>
+            </Component>
+            <p>
+              There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+              APP_DEVELOPER
+              . Please contact 
+              APP_DEVELOPER
+               directly for information about pricing.
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Data Permissions
+              </h5>
+            </Component>
+            <p>
+              By installing this app, you are granting the following permissions to your data:
+            </p>
+            <p>
+              Information about your organisation and the names/email addresses of your users
+            </p>
+            0
+          </div>
+        </Component>
+      </section>
+    </Component>
+  </mock-styled.div>
+</AppPricingPermissionsSection>
+`;
+
+exports[`AppPricingPermissionsSection should match a snapshot for has a pricing uri 1`] = `
+<AppPricingPermissionsSection
+  app={
+    Object {
+      "desktopIntegrationTypeIds": Array [
+        "ID",
+      ],
+      "developer": "APP_DEVELOPER",
+      "name": "APP_NAME",
+      "pricingUrl": "SOME_URL",
+    }
+  }
+  desktopIntegrationTypes={
+    Array [
+      Object {
+        "description": "DESCRIPTION",
+        "id": "ID",
+        "name": "NAME",
+      },
+    ]
+  }
+  isDesktop={true}
+>
+  <mock-styled.div>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Desktop Integration
+              </h5>
+            </Component>
+            <p>
+              This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+            </p>
+            <ul
+              className="ml-4"
+            >
+              <li
+                key="NAME"
+              >
+                DESCRIPTION
+              </li>
+            </ul>
+            <p>
+              For more information regarding Desktop Integration types, please
+               
+              <a
+                href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+              >
+                click here
+              </a>
+              .
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Pricing Information
+              </h5>
+            </Component>
+            <p>
+              APP_DEVELOPER
+               have specified that there is a cost for using this App/Integration, please
+               
+              <a
+                href="agencycloud://process/webpage?url=SOME_URL"
+              >
+                click here
+              </a>
+               
+              to view their pricing information. You will be billed directly by 
+              APP_DEVELOPER
+              .
+            </p>
+            <p>
+              You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Data Permissions
+              </h5>
+            </Component>
+            <p>
+              By installing this app, you are granting the following permissions to your data:
+            </p>
+            <p>
+              Information about your organisation and the names/email addresses of your users
+            </p>
+            0
+          </div>
+        </Component>
+      </section>
+    </Component>
+  </mock-styled.div>
+</AppPricingPermissionsSection>
+`;
+
+exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`] = `
+<AppPricingPermissionsSection
+  app={
+    Object {
+      "desktopIntegrationTypeIds": Array [
+        "ID",
+      ],
+      "developer": "APP_DEVELOPER",
+      "name": "APP_NAME",
+    }
+  }
+  desktopIntegrationTypes={
+    Array [
+      Object {
+        "description": "DESCRIPTION",
+        "id": "ID",
+        "name": "NAME",
+      },
+    ]
+  }
+  isDesktop={false}
+>
+  <mock-styled.div>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Desktop Integration
+              </h5>
+            </Component>
+            <p>
+              This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
+            </p>
+            <ul
+              className="ml-4"
+            >
+              <li
+                key="NAME"
+              >
+                DESCRIPTION
+              </li>
+            </ul>
+            <p>
+              For more information regarding Desktop Integration types, please
+               
+              <a
+                href="https://marketplace-documentation.reapit.cloud/integration-types"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                click here
+              </a>
+              .
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Pricing Information
+              </h5>
+            </Component>
+            <p>
+              There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+              APP_DEVELOPER
+              . Please contact 
+              APP_DEVELOPER
+               directly for information about pricing.
+            </p>
+            <Component
+              className="mb-2"
+            >
+              <h5
+                className=""
+                id=""
+              >
+                Data Permissions
+              </h5>
+            </Component>
+            <p>
+              By installing this app, you are granting the following permissions to your data:
+            </p>
+            <p>
+              Information about your organisation and the names/email addresses of your users
+            </p>
+            0
+          </div>
+        </Component>
+      </section>
+    </Component>
+  </mock-styled.div>
+</AppPricingPermissionsSection>
+`;

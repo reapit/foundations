@@ -43,11 +43,10 @@ const MarketplacePage: React.FC = () => {
     <>
       <H3 isHeadingSection>Marketplace Apps</H3>
       <Section>
-        <H5>Application Visibility</H5>
+        <H5>Marketplace Visibility and Installation Management</H5>
         <i>
-          By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app
-          from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the
-          Marketplace to any offices/users inside of your organisation.
+          To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
+          office groups, please select an app from the list below:
         </i>
       </Section>
       {appsLoading ? (

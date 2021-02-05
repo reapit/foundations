@@ -1,32 +1,8 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import AppCard, { handleOnCheckboxChange } from '../app-card'
-import { updateAppRestrictionsService } from '../../../../services/apps'
-
-jest.mock('../../../../services/apps', () => ({
-  updateAppRestrictionsService: jest.fn(() => true),
-}))
-
-jest.mock('@reapit/connect-session', () => ({
-  ReapitConnectBrowserSession: jest.fn(),
-  useReapitConnect: () => ({
-    connectSession: {
-      loginIdentity: {
-        developerId: 'SOME_ID',
-      },
-    },
-  }),
-}))
-
-jest.mock('react-router', () => ({
-  useLocation: jest.fn(() => ({
-    pathname: '/offices',
-  })),
-
-  useHistory: jest.fn(() => ({
-    history: () => {},
-  })),
-}))
+import AppCard, { handleNavigation } from '../app-card'
+import { history } from '../../../../core/router'
+import Routes from '../../../../constants/routes'
 
 describe('AppCard', () => {
   it('should match a snapshot', () => {
@@ -35,36 +11,13 @@ describe('AppCard', () => {
   })
 })
 
-describe('handleOnCheckboxChange', () => {
-  it('should toggle checked', async () => {
-    const mockSetChecked = jest.fn()
-    const mockAppId = 'SOME_ID'
+describe('handleNavigation', () => {
+  it('should navigate to the app/:id page', () => {
+    const historySpy = jest.spyOn(history, 'push')
+    const stubAppId = 'SOME_ID'
 
-    const curried = handleOnCheckboxChange(mockSetChecked, mockAppId, true)
-
-    await curried()
-
-    expect(mockSetChecked).toHaveBeenCalledWith(false)
-    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
-      appId: mockAppId,
-      status: 'exclude',
-    })
-  })
-
-  it('should show an error message if fetching fails and reset checkbox', async () => {
-    ;(updateAppRestrictionsService as jest.Mock).mockReturnValueOnce(undefined)
-    const mockSetChecked = jest.fn()
-    const mockAppId = 'SOME_ID'
-
-    const curried = handleOnCheckboxChange(mockSetChecked, mockAppId, true)
-
-    await curried()
-
-    expect(mockSetChecked).toHaveBeenCalledWith(false)
-    expect(updateAppRestrictionsService).toHaveBeenLastCalledWith({
-      appId: mockAppId,
-      status: 'exclude',
-    })
-    expect(mockSetChecked).toHaveBeenLastCalledWith(true)
+    const curried = handleNavigation(stubAppId)
+    curried()
+    expect(historySpy).toHaveBeenCalledWith(`${Routes.MARKETPLACE}/${stubAppId}`)
   })
 })

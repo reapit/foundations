@@ -3,7 +3,7 @@ import { ModalV2, Button, Section } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const onMarketplaceButtonClick = () => {
-  window.open(window.reapit.config.marketplaceUrl, '_self')
+  window.open(`${window.reapit.config.marketplaceUrl}/installed`, '_self')
 }
 
 export const onLogoutButtonClick = () => {

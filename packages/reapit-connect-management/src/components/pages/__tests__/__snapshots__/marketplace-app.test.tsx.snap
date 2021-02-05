@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
+<MarketplaceAppPage>
+  <Component
+    variant="warning"
+  >
+    <div
+      className="notification helper-wrap helper-warning"
+    >
+      Something went wrong fetching the app details. Please refresh this page.
+    </div>
+  </Component>
+</MarketplaceAppPage>
+`;
+
+exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
+<MarketplaceAppPage>
+  <mock-styled.div>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <div
+          className="justify-between flex items-center"
+        >
+          <Component
+            className="mb-0"
+          >
+            <h3
+              className=""
+              id=""
+            />
+          </Component>
+          <Component
+            onClick={[Function]}
+            type="button"
+          >
+            <button
+              className="button  is-primary  "
+              data-test=""
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              View Marketplace Listing
+            </button>
+          </Component>
+        </div>
+      </section>
+    </Component>
+    <AppPricingPermissionsSection
+      app={Object {}}
+      desktopIntegrationTypes={Array []}
+      isDesktop={false}
+    >
+      <mock-styled.div>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component
+                  className="mb-2"
+                >
+                  <h5
+                    className=""
+                    id=""
+                  >
+                    Pricing Information
+                  </h5>
+                </Component>
+                <p>
+                  There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+                  . Please contact 
+                   directly for information about pricing.
+                </p>
+                <Component
+                  className="mb-2"
+                >
+                  <h5
+                    className=""
+                    id=""
+                  >
+                    Data Permissions
+                  </h5>
+                </Component>
+                <p>
+                  By installing this app, you are granting the following permissions to your data:
+                </p>
+                <p>
+                  Information about your organisation and the names/email addresses of your users
+                </p>
+                0
+              </div>
+            </Component>
+          </section>
+        </Component>
+      </mock-styled.div>
+    </AppPricingPermissionsSection>
+    <AppToggleVisibilitySection
+      app={Object {}}
+    >
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <h5
+              className=""
+              id=""
+            >
+              Application Visibility
+            </h5>
+          </Component>
+          <p
+            className="mb-4"
+          >
+            <i>
+              By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
+            </i>
+          </p>
+          <div
+            className="field field-checkbox mb-0 control"
+          >
+            <input
+              checked={true}
+              className="checkbox"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="label"
+            >
+              Visible
+            </label>
+          </div>
+        </section>
+      </Component>
+    </AppToggleVisibilitySection>
+  </mock-styled.div>
+</MarketplaceAppPage>
+`;
+
+exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
+<MarketplaceAppPage>
+  <Component>
+    <div
+      className="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </Component>
+</MarketplaceAppPage>
+`;
