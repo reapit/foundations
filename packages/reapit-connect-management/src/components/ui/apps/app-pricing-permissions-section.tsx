@@ -13,7 +13,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
   isDesktop,
   desktopIntegrationTypes,
 }) => {
-  const { scopes = [], isFree, pricingUrl, developer, desktopIntegrationTypeIds } = app || {}
+  const { scopes = [], isFree, pricingUrl, developer, desktopIntegrationTypeIds } = app
   const userDesktopIntegrationTypes = desktopIntegrationTypes.filter(desktopIntegrationType =>
     desktopIntegrationTypeIds?.includes(desktopIntegrationType.id ?? ''),
   )
