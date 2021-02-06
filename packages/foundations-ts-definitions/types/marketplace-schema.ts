@@ -476,6 +476,27 @@ export interface ApproveModel {
   email?: string
 }
 /**
+ * The model responsible for batch updating installations
+ */
+export interface BatchUpdateInstallationsModel {
+  /**
+   * Sets the unique identifier of the app the installation updates are for
+   */
+  appId?: string // uuid
+  /**
+   * Sets the email address of the user performing the action
+   */
+  actionedBy?: string
+  /**
+   * Sets the list of customers to install the app for
+   */
+  installFor?: string[]
+  /**
+   * Sets the list of customers to uninstall the app for
+   */
+  uninstallFor?: string[]
+}
+/**
  * Model to expose category info
  */
 export interface CategoryModel {
