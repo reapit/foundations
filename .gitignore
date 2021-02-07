@@ -2,8 +2,6 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
 /packages/*/node_modules
 
 # testing
@@ -81,9 +79,12 @@ scripts/jest/.jest-cache
 
 # credentials file to load
 credentials.json
-# Locally I have had to add these because of: https://github.com/yarnpkg/yarn/issues/7807
-# May need to include globally if other people experienece installing issues
-.yarnrc
-.yarn
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 
 .docz/

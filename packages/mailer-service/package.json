@@ -17,7 +17,7 @@
     "start:dev": "yarn serverless offline start --stage local --printOutput",
     "test:dev": "cross-env TZ=UTC jest --watch",
     "install-db": "serverless dynamodb install",
-    "fetch-config": "yarn config-manager --namespace cloud --entity mailer-service --name local --mode fetch",
+    "fetch-config": "config-manager --namespace cloud --entity mailer-service --name local --mode fetch",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
@@ -37,6 +37,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "@reapit/config-manager": "^2.0.8",
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.7",
     "@types/ejs": "^3.0.5",
@@ -45,6 +46,8 @@
     "@types/jest": "^25.1.2",
     "@types/morgan": "^1.9.1",
     "@types/uuid": "^8.3.0",
+    "concurrently": "^5.3.0",
+    "eslint": "7.11.0",
     "jest": "^25.1.0",
     "serverless": "^2.17.0",
     "serverless-deployment-bucket": "^1.1.2",

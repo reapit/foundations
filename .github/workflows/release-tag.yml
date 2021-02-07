@@ -51,7 +51,7 @@ jobs:
           yarn config set workspaces-experimental true
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Configure AWS credentials to Production
         uses: aws-actions/configure-aws-credentials@v1

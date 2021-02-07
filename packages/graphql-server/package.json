@@ -49,6 +49,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@reapit/config-manager": "workspace:packages/config-manager",
     "@types/graphql-depth-limit": "^1.1.2",
     "@types/graphql-type-json": "^0.3.2",
     "@types/jest": "^25.1.2",
@@ -57,7 +58,9 @@
     "babel-loader": "^8.0.6",
     "babel-runtime": "^6.26.0",
     "bufferutil": "^4.0.1",
+    "concurrently": "^5.3.0",
     "copy-webpack-plugin": "5.1.1",
+    "eslint": "7.11.0",
     "jest": "^25.1.0",
     "serverless-offline": "^6.1.4",
     "serverless-webpack": "^5.3.2",

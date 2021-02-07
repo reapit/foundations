@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Make Request To Prod
         run: yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=production,PACKAGE_NAME=all

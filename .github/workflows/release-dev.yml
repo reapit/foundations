@@ -50,7 +50,7 @@ jobs:
           yarn config set workspaces-experimental true
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Fetch config
         run: |
