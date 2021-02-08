@@ -168,14 +168,14 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                 </h5>
               </Component>
               <Component
-                disabled={false}
+                disabled={true}
                 loading={false}
                 variant="primary"
               >
                 <button
                   className="button  is-primary  "
                   data-test=""
-                  disabled={false}
+                  disabled={true}
                   type="button"
                 >
                   Submit
@@ -194,7 +194,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
             className="field field-checkbox mb-0 control"
           >
             <input
-              checked={true}
+              checked={false}
               className="checkbox"
               id="undefined-WHOLE_ORG"
               onChange={[Function]}
@@ -218,7 +218,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
             className="field field-checkbox mb-0 control"
           >
             <input
-              checked={false}
+              checked={true}
               className="checkbox"
               id="undefined-SPECIFIC_OFFICE_GROUPS"
               onChange={[Function]}
@@ -238,6 +238,79 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               </i>
             </div>
           </div>
+          <AppInstallationPerOfficeGroup
+            installations={Object {}}
+            officeGroupsToAdd={Array []}
+            officeGroupsToRemove={Array []}
+            setOfficeGroupsToAdd={[Function]}
+            setOfficeGroupsToRemove={[Function]}
+          >
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <mock-styled.div>
+                  <Component
+                    columns={
+                      Array [
+                        Object {
+                          "Header": "Group Name",
+                          "accessor": "name",
+                        },
+                        Object {
+                          "Cell": [Function],
+                          "Header": "Office List",
+                          "accessor": "officeIds",
+                        },
+                        Object {
+                          "Cell": [Function],
+                          "Header": "Edit",
+                          "accessor": "customerId",
+                        },
+                      ]
+                    }
+                    data={Array []}
+                  >
+                    <table
+                      className="table is-striped is-fullwidth "
+                      role="table"
+                    >
+                      <thead>
+                        <tr
+                          key="headerGroup_0"
+                          role="row"
+                        >
+                          <th
+                            colSpan={1}
+                            key="header_name"
+                            role="columnheader"
+                          >
+                            Group Name
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_officeIds"
+                            role="columnheader"
+                          >
+                            Office List
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_customerId"
+                            role="columnheader"
+                          >
+                            Edit
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody />
+                    </table>
+                  </Component>
+                </mock-styled.div>
+              </section>
+            </Component>
+          </AppInstallationPerOfficeGroup>
         </section>
       </Component>
     </AppInstallationManager>

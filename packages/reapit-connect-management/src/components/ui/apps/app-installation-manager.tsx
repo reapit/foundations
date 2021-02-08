@@ -10,25 +10,38 @@ export interface AppInstallationManagerProps {
   app: AppSummaryModel
 }
 
-export const handleOnCheckboxChange = (
-  setAppInstallationType: Dispatch<SetStateAction<string>>,
-  appInstallationType: string,
-) => async () => {
-  setAppInstallationType(appInstallationType)
-}
+const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
+const WHOLE_ORG = 'WHOLE_ORG'
 
 const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: AppInstallationManagerProps) => {
-  const [appInstallationType, setAppInstallationType] = useState<string>('WHOLE_ORG')
+  const [appInstallationType, setAppInstallationType] = useState<string>(SPECIFIC_OFFICE_GROUPS)
+  const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
+  const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
 
   const { data: installations, isValidating: installationsValidating } = useSWR<InstallationModelPagedResult>(
     `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true`,
   )
 
+  const initialAppInstallationType = SPECIFIC_OFFICE_GROUPS
+  const submitButtonEnabled =
+    appInstallationType !== initialAppInstallationType || !!officeGroupsToAdd.length || !!officeGroupsToRemove.length
+
+  const handleOnCheckboxChange = (
+    setAppInstallationType: Dispatch<SetStateAction<string>>,
+    appInstallationType: string,
+  ) => async () => {
+    setAppInstallationType(appInstallationType)
+    if (appInstallationType === WHOLE_ORG) {
+      setOfficeGroupsToAdd([])
+      setOfficeGroupsToRemove([])
+    }
+  }
+
   return (
     <Section>
       <FlexContainerBasic className={styles.flexContainerSpaceBettwen}>
         <H5>Installation</H5>
-        <Button variant="primary" disabled={false} loading={false}>
+        <Button variant="primary" disabled={!submitButtonEnabled} loading={false}>
           Submit
         </Button>
       </FlexContainerBasic>
@@ -39,11 +52,11 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         <input
           className="checkbox"
           type="radio"
-          id={`${app.id}-WHOLE_ORG`}
-          checked={appInstallationType === 'WHOLE_ORG'}
-          onChange={handleOnCheckboxChange(setAppInstallationType, 'WHOLE_ORG')}
+          id={`${app.id}-${WHOLE_ORG}`}
+          checked={appInstallationType === WHOLE_ORG}
+          onChange={handleOnCheckboxChange(setAppInstallationType, WHOLE_ORG)}
         />
-        <label className="label" htmlFor={`${app.id}-WHOLE_ORG`}>
+        <label className="label" htmlFor={`${app.id}-${WHOLE_ORG}`}>
           Install for the whole of your organisation
         </label>
         <div className="form-subheading mb-4">
@@ -54,11 +67,11 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         <input
           className="checkbox"
           type="radio"
-          id={`${app.id}-SPECIFIC_OFFICE_GROUPS`}
-          checked={appInstallationType === 'SPECIFIC_OFFICE_GROUPS'}
-          onChange={handleOnCheckboxChange(setAppInstallationType, 'SPECIFIC_OFFICE_GROUPS')}
+          id={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}
+          checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
+          onChange={handleOnCheckboxChange(setAppInstallationType, SPECIFIC_OFFICE_GROUPS)}
         />
-        <label className="label" htmlFor={`${app.id}-SPECIFIC_OFFICE_GROUPS`}>
+        <label className="label" htmlFor={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}>
           Install for specific office groups
         </label>
         <div className="form-subheading mb-4">
@@ -66,8 +79,14 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         </div>
       </div>
 
-      {appInstallationType === 'SPECIFIC_OFFICE_GROUPS' && !installationsValidating && (
-        <AppInstallationPerOfficeGroup installations={installations} />
+      {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
+        <AppInstallationPerOfficeGroup
+          installations={installations}
+          officeGroupsToAdd={officeGroupsToAdd}
+          officeGroupsToRemove={officeGroupsToRemove}
+          setOfficeGroupsToAdd={setOfficeGroupsToAdd}
+          setOfficeGroupsToRemove={setOfficeGroupsToRemove}
+        />
       )}
     </Section>
   )

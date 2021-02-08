@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
@@ -9,14 +9,20 @@ import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
 
 export interface AppInstallationPerOfficeGroupProps {
   installations: InstallationModelPagedResult | undefined
+  officeGroupsToAdd: string[]
+  setOfficeGroupsToAdd: Dispatch<SetStateAction<string[]>>
+  officeGroupsToRemove: string[]
+  setOfficeGroupsToRemove: Dispatch<SetStateAction<string[]>>
 }
 
 const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps> = ({
   installations,
+  officeGroupsToAdd,
+  setOfficeGroupsToAdd,
+  officeGroupsToRemove,
+  setOfficeGroupsToRemove,
 }: AppInstallationPerOfficeGroupProps) => {
   const [officeGroupsTableData, setOfficeGroupsTableData] = useState<OfficeGroupModel[] | undefined>([])
-  const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
-  const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
   const [orgId, setOrgId] = useState<string | null>(null)
 
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
