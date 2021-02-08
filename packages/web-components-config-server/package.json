@@ -26,6 +26,7 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "async": "^3.2.0",
     "aws-sdk": "^2.682.0",
     "axios": "^0.21.0",
@@ -45,7 +46,6 @@
     "stack-trace": "^0.0.10",
     "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "@reapit/foundations-ts-definitions": "2020-03-04"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

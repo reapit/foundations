@@ -24,13 +24,13 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/elements": "^1.0.3",
+    "@reapit/elements": "workspace:packages/elements",
     "@reapit/cognito-auth": "^2.1.7",
-    "@reapit/utils": "^0.0.1",
+    "@reapit/utils": "workspace:packages/utils",
     "snyk": "^1.341.1"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
   },
   "snyk": true
 }

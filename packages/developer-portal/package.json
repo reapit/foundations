@@ -28,27 +28,37 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/connect-session": "^2.0.7",
-    "@reapit/elements": "^1.0.3",
-    "@reapit/utils": "^0.0.1",
+    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/elements": "workspace:packages/elements",
+    "@reapit/utils": "workspace:packages/utils",
     "chart.js": "^2.9.3",
+    "dayjs": "^1.10.4",
     "diff": "^4.0.1",
     "file-saver": "^2.0.2",
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "papaparse": "^5.1.1",
+    "react": "^16.12.0",
     "react-chartjs-2": "^2.8.0",
+    "react-dom": "^16.12.0",
     "react-responsive": "8.2.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "snyk": "^1.341.1",
     "swagger-ui-react": "^3.34.0"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/foundations-ts-definitions": "^1.1.5",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@snowpack/plugin-babel": "^2.1.6",
     "@types/nanoid": "^2.1.0",
     "concurrently": "^5.3.0",
     "eslint": "7.11.0",
-    "redux-mock-store": "^1.5.4"
+    "redux-mock-store": "^1.5.4",
+    "rimraf": "^3.0.2",
+    "serverless": "^2.23.0",
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "3.11.0"
   },
   "husky": {
     "hooks": {

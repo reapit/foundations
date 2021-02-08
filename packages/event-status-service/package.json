@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@reapit/utils": "0.0.1",
+    "@reapit/utils": "workspace:packages/utils",
     "@sentry/node": "^5.24.2",
     "@types/jest": "^26.0.20",
     "aws-lambda": "^1.0.6",

@@ -8,6 +8,8 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('../release/utils')
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -20,20 +22,6 @@ const tagName = getVersionTag()
 const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
-
-const babelLoaderOptions = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        useBuiltIns: 'entry',
-        corejs: '3',
-        targets: '> 0.5%, not IE 11, chrome 79',
-      },
-    ],
-    'linaria/babel',
-  ],
-}
 
 const webpackConfig = {
   mode: 'production',
@@ -57,24 +45,34 @@ const webpackConfig = {
       },
       chunks: 'all',
     },
+    minimize: true,
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        target: 'es2015',
+      }),
+    ],
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: generateRegexExcludePackages(),
-        use: {
-          loader: 'babel-loader',
-          options: babelLoaderOptions,
-        },
-      },
       {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
         use: [
           {
             loader: 'babel-loader',
-            options: babelLoaderOptions,
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'entry',
+                    corejs: '3',
+                    targets: '> 0.5%, not IE 11, chrome 69',
+                  },
+                ],
+                'linaria/babel',
+              ],
+            },
           },
           {
             loader: 'linaria/loader',
@@ -82,7 +80,13 @@ const webpackConfig = {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
-          { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'tsx',
+              target: 'esnext',
+            },
+          },
         ],
       },
       {
@@ -178,6 +182,12 @@ const webpackConfig = {
     modules: false,
   },
   plugins: [
+    new ESBuildPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
+    }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),

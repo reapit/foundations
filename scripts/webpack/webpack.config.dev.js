@@ -6,14 +6,9 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const AutoDllPlugin = require('autodll-webpack-plugin')
-
-const ESLintPLugin = new ESLintWebpackPlugin({
-  extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'],
-  lintDirtyModulesOnly: true,
-})
-
+const { ESBuildPlugin } = require('esbuild-loader')
 const EXCLUDE_PACKAGES = ['linaria']
 
 const generateRegexExcludePackages = () => {
@@ -23,32 +18,24 @@ const generateRegexExcludePackages = () => {
 
 const tagName = getVersionTag()
 
-const babelLoaderOptions = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        useBuiltIns: 'entry',
-        corejs: '3',
-        targets: '> 0.5%, not IE 11, chrome 79',
-      },
-    ],
-    'linaria/babel',
-  ],
-}
-
 const webpackConfig = {
   mode: 'development',
   bail: true,
   devtool: 'inline-source-map',
   context: process.cwd(),
-  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
+  entry: [PATHS.entryWeb],
   output: {
     pathinfo: false,
     path: PATHS.output,
     filename: '[name].[hash].js',
   },
   plugins: [
+    new ESBuildPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
+    }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
@@ -80,7 +67,6 @@ const webpackConfig = {
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
-    ESLintPLugin,
     new AutoDllPlugin({
       inject: true,
       filename: '[name].dll.js',
@@ -136,28 +122,14 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: generateRegexExcludePackages(),
-        use: [
-          {
-            loader: 'babel-loader',
-            options: babelLoaderOptions,
-          },
-          {
-            loader: 'linaria/loader',
-            options: {
-              sourceMap: process.env.NODE_ENV !== 'production',
-            },
-          },
-        ],
-      },
-      {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
         use: [
           {
             loader: 'babel-loader',
-            options: babelLoaderOptions,
+            options: {
+              presets: ['linaria/babel'],
+            },
           },
           {
             loader: 'linaria/loader',
@@ -165,7 +137,13 @@ const webpackConfig = {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
-          { loader: 'ts-loader' },
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'tsx',
+              target: 'es2019',
+            },
+          },
         ],
       },
       {

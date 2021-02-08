@@ -41,6 +41,7 @@
     "chrome 69"
   ],
   "dependencies": {
+    "babel-loader": "^8.2.2",
     "bulma": "^0.9.0",
     "file-saver": "^2.0.2",
     "formik": "^2.0.4",
@@ -50,7 +51,6 @@
     "linaria": "^1.4.0-beta.10",
     "papaparse": "^5.1.1",
     "pell": "^1.0.6",
-    "prop-types": "^15.7.2",
     "rc-dialog": "^8.0.1",
     "rc-notification": "^4.0.0",
     "rc-select": "^10.1.8",
@@ -63,13 +63,15 @@
     "react-image-crop": "8.6.6",
     "react-table": "^7.3.0",
     "react-transition-group": "^4.4.0",
-    "snyk": "^1.338.0"
+    "snyk": "^1.338.0",
+    "webpack": "^4.41.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.13",
     "@babel/plugin-transform-runtime": "7.10.1",
     "@babel/runtime": "7.10.2",
     "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@rollup/plugin-babel": "^5.0.3",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
@@ -88,10 +90,12 @@
     "concurrently": "^5.3.0",
     "dashify": "2.0.0",
     "eslint": "7.11.0",
+    "jest": "^26.6.1",
     "react-is": "^16.13.1",
     "rollup": "1.27.13",
     "rollup-plugin-scss": "^1.0.2",
-    "rollup-plugin-typescript2": "^0.27.1"
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^4.0.3"
   },
   "peerDependencies": {
     "dayjs": "^1.8.19",

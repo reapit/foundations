@@ -27,8 +27,8 @@
     "grapesjs-preset-webpage": "^0.1.11"
   },
   "devDependencies": {
-    "@reapit/elements": "^0.5.60",
+    "@reapit/elements": "workspace:packages/elements",
     "@reapit/cognito-auth": "^2.1.7",
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
   }
 }

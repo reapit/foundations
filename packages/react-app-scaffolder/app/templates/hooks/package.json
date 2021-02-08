@@ -22,7 +22,7 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
   },
   "devDependencies": {}
 }

@@ -25,10 +25,10 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@reapit/connect-session": "^2.0.7",
+    "@reapit/connect-session": "^2.0.9",
     "@sentry/node": "^5.24.2",
     "aws-lambda": "^1.0.6",
-    "aws-sdk": "^2.750.0",
+    "aws-sdk": "^2.839.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -37,6 +37,8 @@
     "express-session": "^1.17.1",
     "memorystore": "^1.6.4",
     "morgan": "^1.10.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "serialize-error": "^7.0.1",
     "serverless-http": "^2.5.0",
     "uuid": "^8.3.0"
@@ -57,6 +59,7 @@
     "serverless-deployment-bucket": "^1.1.2",
     "serverless-dynamodb-local": "^0.2.39",
     "serverless-offline": "^6.7.0",
-    "serverless-webpack": "^5.3.5"
+    "serverless-webpack": "^5.3.5",
+    "webpack": "^4.41.5"
   }
 }
