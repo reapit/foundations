@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "isomorphic-fetch": "^3.0.0",
     "query-string": "^6.13.7",
-    "serverless-http": "^2.6.0"
+    "serverless-http": "^2.6.1"
   },
   "devDependencies": {
     "@reapit/config-manager": "^2.0.8",
