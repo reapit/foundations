@@ -13,6 +13,7 @@ export const URLS = {
   USERS_GROUPS: '/organisations/groups',
   APPS: '/marketplace/apps',
   CUSTOMERS: '/marketplace/customers',
+  INSTALLATIONS: '/marketplace/installations',
 }
 
 export const GLOSSARY_USER_ROLES_URL = 'https://marketplace-documentation.reapit.cloud/glossary#user-roles'

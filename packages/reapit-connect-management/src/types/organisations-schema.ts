@@ -273,6 +273,10 @@ export interface OfficeGroupModel {
    */
   tag?: string
   /**
+   * Gets the customerId of the office group
+   */
+  customerId?: string
+  /**
    * Gets the office ids associated to the group
    */
   officeIds?: string

@@ -145,6 +145,102 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
         </section>
       </Component>
     </AppToggleVisibilitySection>
+    <AppInstallationManager
+      app={Object {}}
+    >
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component
+            className=""
+          >
+            <div
+              className=""
+            >
+              <Component>
+                <h5
+                  className=""
+                  id=""
+                >
+                  Installation
+                </h5>
+              </Component>
+              <Component
+                disabled={false}
+                loading={false}
+                variant="primary"
+              >
+                <button
+                  className="button  is-primary  "
+                  data-test=""
+                  disabled={false}
+                  type="button"
+                >
+                  Submit
+                </button>
+              </Component>
+            </div>
+          </Component>
+          <p
+            className="mb-4"
+          >
+            <i>
+              Please select the type of installation you require for this app:
+            </i>
+          </p>
+          <div
+            className="field field-checkbox mb-0 control"
+          >
+            <input
+              checked={true}
+              className="checkbox"
+              id="undefined-WHOLE_ORG"
+              onChange={[Function]}
+              type="radio"
+            />
+            <label
+              className="label"
+              htmlFor="undefined-WHOLE_ORG"
+            >
+              Install for the whole of your organisation
+            </label>
+            <div
+              className="form-subheading mb-4"
+            >
+              <i>
+                This will grant the app access to all data for all users and offices across your organisation
+              </i>
+            </div>
+          </div>
+          <div
+            className="field field-checkbox mb-0 control"
+          >
+            <input
+              checked={false}
+              className="checkbox"
+              id="undefined-SPECIFIC_OFFICE_GROUPS"
+              onChange={[Function]}
+              type="radio"
+            />
+            <label
+              className="label"
+              htmlFor="undefined-SPECIFIC_OFFICE_GROUPS"
+            >
+              Install for specific office groups
+            </label>
+            <div
+              className="form-subheading mb-4"
+            >
+              <i>
+                This will grant the app access to only data for the specific offices inside of each office group
+              </i>
+            </div>
+          </div>
+        </section>
+      </Component>
+    </AppInstallationManager>
   </mock-styled.div>
 </MarketplaceAppPage>
 `;
