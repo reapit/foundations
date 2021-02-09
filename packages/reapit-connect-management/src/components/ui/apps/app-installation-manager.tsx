@@ -68,8 +68,15 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
 
     try {
       if (appInstallationType === WHOLE_ORG) {
+        const installsToRemove = installations?.data
+          ? (installations?.data
+              ?.filter(installation => installation?.client?.startsWith(`${clientIdFirstPart}-`))
+              .map(installation => installation.client)
+              .filter(client => !!client) as string[])
+          : []
+
         // install for the whole org
-        await bulkInstall([clientIdFirstPart], [], app.id)
+        await bulkInstall([clientIdFirstPart], installsToRemove, app.id)
         // update the initialAppInstallationType - ensures the button is re-disabled
         setInitialAppInstallationType(WHOLE_ORG)
       } else if (appInstallationType === SPECIFIC_OFFICE_GROUPS) {
