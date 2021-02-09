@@ -138,19 +138,6 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
       - http:
-          method: post
-          path: /api-key/{paymentId}/invalidate
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-      - http:
           method: get
           path: /payments/{paymentId}
           cors:
