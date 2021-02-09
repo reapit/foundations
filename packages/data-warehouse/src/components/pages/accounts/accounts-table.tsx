@@ -40,7 +40,7 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
         disabled={isDisabled}
         loading={isDisabled}
       >
-        Delete
+        Deactivate
       </Button>
     )
   }
@@ -55,13 +55,17 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
       accessor: 'username',
     },
     {
+      Header: 'Status',
+      accessor: 'status',
+    },
+    {
       Header: 'Update Password',
       accessor: 'id',
       id: 'created',
       Cell: UpdatePasswordButton,
     },
     {
-      Header: 'Delete Account',
+      Header: 'Deactivate User Account',
       accessor: 'id',
       Cell: DeleteButton,
     },

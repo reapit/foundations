@@ -18,7 +18,7 @@ exports[`Accounts should match a snapshot 1`] = `
             className=""
             id=""
           >
-            Accounts
+            Users
           </h3>
         </Component>
         <Component
@@ -33,7 +33,7 @@ exports[`Accounts should match a snapshot 1`] = `
             onClick={[Function]}
             type="button"
           >
-            Provision Account
+            Provision User Account
           </button>
         </Component>
         <AccountProvisionModal
