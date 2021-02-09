@@ -1,30 +1,56 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements'
 import useSWR from 'swr'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
+import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
 import * as styles from '../__styles__'
 import { URLS } from '../../../constants/api'
+import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
+import { bulkInstall } from '../../../services/installation'
+import { notification } from '@reapit/elements'
 
 export interface AppInstallationManagerProps {
   app: AppSummaryModel
 }
 
-const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
-const WHOLE_ORG = 'WHOLE_ORG'
+export const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
+export const WHOLE_ORG = 'WHOLE_ORG'
 
 const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: AppInstallationManagerProps) => {
-  const [appInstallationType, setAppInstallationType] = useState<string>(SPECIFIC_OFFICE_GROUPS)
+  const [initialAppInstallationType, setInitialAppInstallationType] = useState<string>('')
+  const [appInstallationType, setAppInstallationType] = useState<string>('')
   const [officeGroupsToAdd, setOfficeGroupsToAdd] = useState<string[]>([])
   const [officeGroupsToRemove, setOfficeGroupsToRemove] = useState<string[]>([])
+  const [clientId, setClientId] = useState<string | null>(null)
+  const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false)
 
-  const { data: installations, isValidating: installationsValidating } = useSWR<InstallationModelPagedResult>(
-    `${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true`,
-  )
+  useEffect(clientIdEffectHandler(clientId, setClientId), [])
 
-  const initialAppInstallationType = SPECIFIC_OFFICE_GROUPS
+  const { data: installations, isValidating: installationsValidating, revalidate: revalidateInstallations } = useSWR<
+    InstallationModelPagedResult
+  >(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true`)
+
+  if (clientId && installations?.data && !initialAppInstallationType) {
+    const clientIdFirstPart = clientId.split('-')[0]
+    const installedForWholeOrg = installations.data.some(installation => installation.client === clientIdFirstPart)
+    const installedForOfficeGroups = installations.data.some(installation =>
+      installation?.client?.startsWith(`${clientIdFirstPart}-`),
+    )
+
+    if (installedForWholeOrg) {
+      setInitialAppInstallationType(WHOLE_ORG)
+      setAppInstallationType(WHOLE_ORG)
+    } else if (installedForOfficeGroups) {
+      setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
+      setAppInstallationType(SPECIFIC_OFFICE_GROUPS)
+    }
+  }
+
   const submitButtonEnabled =
-    appInstallationType !== initialAppInstallationType || !!officeGroupsToAdd.length || !!officeGroupsToRemove.length
+    appInstallationType === SPECIFIC_OFFICE_GROUPS
+      ? !!officeGroupsToAdd.length || !!officeGroupsToRemove.length
+      : appInstallationType !== initialAppInstallationType
 
   const handleOnCheckboxChange = (
     setAppInstallationType: Dispatch<SetStateAction<string>>,
@@ -37,11 +63,51 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
     }
   }
 
+  const handleInstallConfirmation = async () => {
+    const clientIdFirstPart = clientId ? clientId.split('-')[0] : ''
+
+    try {
+      if (appInstallationType === WHOLE_ORG) {
+        // install for the whole org
+        await bulkInstall([clientIdFirstPart], [], app.id)
+        // update the initialAppInstallationType - ensures the button is re-disabled
+        setInitialAppInstallationType(WHOLE_ORG)
+      } else if (appInstallationType === SPECIFIC_OFFICE_GROUPS) {
+        // if the app is currently installed for the whole org, ensure it becomes uninstalled for the whole org
+        const uninstallFor = [...officeGroupsToRemove]
+        if (initialAppInstallationType === WHOLE_ORG) uninstallFor.push(clientIdFirstPart)
+        // use the bulk install/uninstall endpoint
+        await bulkInstall(officeGroupsToAdd, uninstallFor, app.id)
+        // update the initialAppInstallationType and clear the changes made - ensures the button is re-disabled
+        setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
+        setOfficeGroupsToAdd([])
+        setOfficeGroupsToRemove([])
+      }
+
+      // refetch the installations endpoint, so the office groups table is to date
+      revalidateInstallations()
+
+      // show the toast
+      notification.success({
+        message: 'Changes have been saved successfully',
+        placement: 'bottomRight',
+      })
+    } finally {
+      // close the confirmation modal
+      setShowConfirmModal(false)
+    }
+  }
+
   return (
     <Section>
       <FlexContainerBasic className={styles.flexContainerSpaceBettwen}>
         <H5>Installation</H5>
-        <Button variant="primary" disabled={!submitButtonEnabled} loading={false}>
+        <Button
+          variant="primary"
+          disabled={!submitButtonEnabled}
+          loading={false}
+          onClick={() => setShowConfirmModal(true)}
+        >
           Submit
         </Button>
       </FlexContainerBasic>
@@ -88,6 +154,16 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
           setOfficeGroupsToRemove={setOfficeGroupsToRemove}
         />
       )}
+
+      <AppInstallationConfirmationModal
+        app={app}
+        visible={showConfirmModal}
+        installFor={officeGroupsToAdd}
+        uninstallFor={officeGroupsToRemove}
+        appInstallationType={appInstallationType}
+        onConfirm={handleInstallConfirmation}
+        onClose={() => setShowConfirmModal(false)}
+      />
     </Section>
   )
 }

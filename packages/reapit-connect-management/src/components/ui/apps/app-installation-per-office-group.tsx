@@ -58,7 +58,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
 
   const ToggleOfficeGroupSelectionCell = ({ cell: { value } }) => {
     const previouslyInstalledForOfficeGroup =
-      installations && installations.data && !!installations.data.find(i => i.customerId === value)
+      installations && installations.data && !!installations.data.find(i => i.client === value)
     const checked =
       (previouslyInstalledForOfficeGroup && !officeGroupsToRemove.includes(value)) ||
       (!previouslyInstalledForOfficeGroup && officeGroupsToAdd.includes(value))
@@ -75,7 +75,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
           }}
         />
         <label className="label" htmlFor={value}>
-          Installed - ({value})
+          Installed
         </label>
       </div>
     )
