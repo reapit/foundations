@@ -62,7 +62,7 @@ exports[`SharesTable should match a snapshot 1`] = `
         },
         Object {
           "Cell": [Function],
-          "Header": "Create Data Share",
+          "Header": "Delete Data Share",
           "accessor": "id",
         },
       ]
@@ -163,7 +163,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               key="header_id"
               role="columnheader"
             >
-              Create Data Share
+              Delete Data Share
             </th>
           </tr>
         </thead>
@@ -379,7 +379,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -650,7 +650,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -892,7 +892,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -1196,7 +1196,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -1495,7 +1495,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -1770,7 +1770,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -2043,7 +2043,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -2316,7 +2316,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -2591,7 +2591,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -2868,7 +2868,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -3109,7 +3109,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -3339,7 +3339,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -3612,7 +3612,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -3887,7 +3887,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -4213,7 +4213,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -4488,7 +4488,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -4806,7 +4806,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -5081,7 +5081,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -5398,7 +5398,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -5673,7 +5673,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -5991,7 +5991,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -6266,7 +6266,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -6556,7 +6556,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -6793,7 +6793,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -7064,7 +7064,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -7306,7 +7306,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -7610,7 +7610,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -7909,7 +7909,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -8184,7 +8184,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -8457,7 +8457,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -8730,7 +8730,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -9005,7 +9005,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -9282,7 +9282,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -9523,7 +9523,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -9753,7 +9753,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -10026,7 +10026,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -10301,7 +10301,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -10627,7 +10627,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -10902,7 +10902,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -11220,7 +11220,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -11495,7 +11495,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -11812,7 +11812,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -12087,7 +12087,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -12405,7 +12405,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -12680,7 +12680,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -12970,7 +12970,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -13207,7 +13207,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -13478,7 +13478,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -13720,7 +13720,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -14024,7 +14024,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -14323,7 +14323,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -14598,7 +14598,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -14871,7 +14871,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -15144,7 +15144,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -15419,7 +15419,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -15696,7 +15696,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -15937,7 +15937,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -16167,7 +16167,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -16440,7 +16440,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -16715,7 +16715,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -17041,7 +17041,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -17316,7 +17316,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -17634,7 +17634,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -17909,7 +17909,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -18226,7 +18226,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -18501,7 +18501,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -18819,7 +18819,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -19094,7 +19094,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -19384,7 +19384,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -19621,7 +19621,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -19892,7 +19892,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -20134,7 +20134,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -20438,7 +20438,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -20737,7 +20737,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -21012,7 +21012,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -21285,7 +21285,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -21558,7 +21558,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -21833,7 +21833,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -22110,7 +22110,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -22351,7 +22351,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -22581,7 +22581,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -22854,7 +22854,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -23129,7 +23129,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -23455,7 +23455,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -23730,7 +23730,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -24048,7 +24048,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -24323,7 +24323,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -24640,7 +24640,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -24915,7 +24915,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -25233,7 +25233,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -25508,7 +25508,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -25798,7 +25798,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -26035,7 +26035,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -26306,7 +26306,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -26548,7 +26548,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -26852,7 +26852,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -27151,7 +27151,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -27426,7 +27426,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -27699,7 +27699,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -27972,7 +27972,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -28247,7 +28247,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -28524,7 +28524,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -28765,7 +28765,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -28995,7 +28995,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -29268,7 +29268,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -29543,7 +29543,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -29869,7 +29869,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -30144,7 +30144,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -30462,7 +30462,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -30737,7 +30737,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -31054,7 +31054,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -31329,7 +31329,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -31647,7 +31647,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -31922,7 +31922,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -32212,7 +32212,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -32449,7 +32449,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -32720,7 +32720,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -32962,7 +32962,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -33266,7 +33266,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -33565,7 +33565,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -33840,7 +33840,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -34113,7 +34113,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -34386,7 +34386,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -34661,7 +34661,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -34938,7 +34938,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -35179,7 +35179,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -35409,7 +35409,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -35682,7 +35682,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -35957,7 +35957,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -36283,7 +36283,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -36558,7 +36558,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -36876,7 +36876,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -37151,7 +37151,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -37468,7 +37468,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -37743,7 +37743,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -38061,7 +38061,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -38336,7 +38336,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -38626,7 +38626,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -38912,7 +38912,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -39183,7 +39183,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -39425,7 +39425,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -39729,7 +39729,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -40028,7 +40028,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -40303,7 +40303,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -40576,7 +40576,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -40849,7 +40849,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -41124,7 +41124,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -41401,7 +41401,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -41642,7 +41642,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -41872,7 +41872,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -42145,7 +42145,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -42420,7 +42420,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -42746,7 +42746,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -43021,7 +43021,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -43339,7 +43339,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -43614,7 +43614,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -43931,7 +43931,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -44206,7 +44206,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -44524,7 +44524,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -44799,7 +44799,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -45089,7 +45089,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -45375,7 +45375,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -45408,7 +45408,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     "column": Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -45965,7 +45965,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   Object {
                     "Cell": [Function],
                     "Footer": [Function],
-                    "Header": "Create Data Share",
+                    "Header": "Delete Data Share",
                     "accessor": [Function],
                     "canResize": true,
                     "depth": 0,
@@ -46192,7 +46192,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -46491,7 +46491,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -46766,7 +46766,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -47039,7 +47039,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -47312,7 +47312,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -47587,7 +47587,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -47864,7 +47864,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -48105,7 +48105,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -48335,7 +48335,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,
@@ -48608,7 +48608,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -48883,7 +48883,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -49209,7 +49209,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -49484,7 +49484,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -49802,7 +49802,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -50077,7 +50077,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                         "column": Object {
                           "Cell": [Function],
                           "Footer": [Function],
-                          "Header": "Create Data Share",
+                          "Header": "Delete Data Share",
                           "accessor": [Function],
                           "canResize": true,
                           "depth": 0,
@@ -50394,7 +50394,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -50669,7 +50669,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -50987,7 +50987,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -51262,7 +51262,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                           "column": Object {
                             "Cell": [Function],
                             "Footer": [Function],
-                            "Header": "Create Data Share",
+                            "Header": "Delete Data Share",
                             "accessor": [Function],
                             "canResize": true,
                             "depth": 0,
@@ -51552,7 +51552,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                     Object {
                       "Cell": [Function],
                       "Footer": [Function],
-                      "Header": "Create Data Share",
+                      "Header": "Delete Data Share",
                       "accessor": [Function],
                       "canResize": true,
                       "depth": 0,

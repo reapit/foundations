@@ -18,12 +18,19 @@ export const Subscriptions: React.FC = () => {
             <p>
               This application can provision a dedicated virtual data warehouse and allow you to manage which users and
               applications have access to it. The analytics area allows you to track live usage statistics and set
-              limits on your monthly spend. For usage instructions, click here.
+              limits on your monthly spend. For usage instructions,{' '}
+              <a
+                href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                click here.
+              </a>
             </p>
             <p>
-              Access requires a subcription and usage is billed based on your warehouses uptime. Your organisations
-              virtual data warehouse will become active when you issue queries against it and suspend itself when not in
-              use.
+              Access requires a subscription and usage is billed based on your warehouse&#39;s uptime. Your
+              organisation&#39;s virtual data warehouse will become active when you issue queries against it and suspend
+              itself when not in use.
             </p>
           </Content>
         </Section>

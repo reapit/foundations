@@ -95,7 +95,7 @@ export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) =
       Cell: DSNComponent,
     },
     {
-      Header: 'Create Data Share',
+      Header: 'Delete Data Share',
       accessor: 'id',
       Cell: DeleteShareComponent,
     },

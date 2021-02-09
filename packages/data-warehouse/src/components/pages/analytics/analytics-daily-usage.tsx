@@ -31,7 +31,10 @@ export const AnalyticsDailyUsage: React.FC = () => {
   const chartData = getDailyChartConfig(labels, data)
   const chartOptions = getDailyChartOptions(chartDataStats)
 
-  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, month, month), [orgId])
+  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, month, month), [
+    orgId,
+    month,
+  ])
 
   return (
     <ErrorBoundary>

@@ -12,11 +12,10 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
 
     const { orgId, developerId, email, name, clientId } = session.loginIdentity
 
-    if (!orgId || !developerId) throw new Error('Organisation and developer must be supplied to make a request')
+    if (!orgId) throw new Error('OrganisationId must be supplied to make a request')
 
     const request: CreateRequestModel = {
       organisationId: orgId,
-      developerId: developerId,
       requesterEmail: email,
       requesterName: name,
       requestMessage: 'Please can I access this data',
@@ -25,12 +24,14 @@ export const createRequestService = async (datasetId: string): Promise<boolean |
       devMode: false,
     }
 
+    const modelWitDeveloper: CreateRequestModel = developerId ? { developerId, ...request } : request
+
     const response: boolean | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
       url: `${URLS.REQUESTS}`,
       method: 'POST',
       headers: await getPlatformHeaders(reapitConnectBrowserSession),
-      body: request,
+      body: modelWitDeveloper,
     })
 
     if (response) {

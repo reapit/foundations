@@ -39,7 +39,7 @@ const AnalyticsCostExplorer: React.FC = () => {
   const [month, setMonth] = useState<Date>(new Date())
   const onSave = useCallback(handleOnSave(setMonth), [])
 
-  useEffect(handleGetBilling(setBilling, setBillingLoading, setMessageState, month), [developerId])
+  useEffect(handleGetBilling(setBilling, setBillingLoading, setMessageState, month), [developerId, month])
 
   const totalCost = billing?.totalCost || 0
   const columns = prepareTableColumns(billing)
@@ -56,8 +56,8 @@ const AnalyticsCostExplorer: React.FC = () => {
             <Formik initialValues={{ month }} onSubmit={() => {}}>
               <Form>
                 <DatePicker
-                  id="createdMonth"
-                  name="createdMonth"
+                  id="month"
+                  name="month"
                   useCustomInput={false}
                   reactDatePickerProps={{
                     showMonthYearPicker: true,
