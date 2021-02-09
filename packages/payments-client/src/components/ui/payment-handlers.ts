@@ -107,14 +107,15 @@ export const handlePaymentRequestSubmit = (
 }
 
 export const onUpdateStatus = async (
-  body: UpdateStatusBody,
-  params: UpdateStatusParams,
+  updateStatusBody: UpdateStatusBody,
+  updateStatusParams: UpdateStatusParams,
   cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
   refetchPayment: () => void,
+  setIsLoading: Dispatch<SetStateAction<boolean>>,
 ) => {
-  const { session } = params
-  const { externalReference } = body
+  const { session } = updateStatusParams
+  const { externalReference } = updateStatusBody
   const { customerFirstName, customerLastName, email } = cardDetails
   const emailReceiptBody = {
     receipientEmail: email,
@@ -132,13 +133,14 @@ export const onUpdateStatus = async (
   }
 
   if (session) {
-    await updatePaymentSessionStatus(body, params)
-    await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
+    await updatePaymentSessionStatus(updateStatusBody, updateStatusParams)
+    await generateEmailPaymentReceiptExternal(emailReceiptBody, updateStatusParams)
   } else {
-    await updatePaymentStatus(body, params)
-    await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+    await updatePaymentStatus(updateStatusBody, updateStatusParams)
+    await generateEmailPaymentReceiptInternal(emailReceiptBody, updateStatusParams)
   }
 
+  setIsLoading(false)
   refetchPayment()
 }
 
@@ -153,6 +155,8 @@ export const handleCreateTransaction = (
 ) => async (result: any) => {
   const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
   const { amount, description, clientCode, _eTag = '', id } = payment
+  const updateStatusParams = { paymentId, clientCode, _eTag, session }
+
   if (result.success && id) {
     const transaction = await opayoCreateTransactionService(clientCode, {
       transactionType: 'Payment',
@@ -181,25 +185,21 @@ export const handleCreateTransaction = (
 
     const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
     const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
-    setIsLoading(false)
+    const updateStatusBody = { status, externalReference: externalReference }
+
     return await onUpdateStatus(
-      { status, externalReference: externalReference },
-      { paymentId, clientCode, _eTag, session },
+      updateStatusBody,
+      updateStatusParams,
       cardDetails,
       payment,
       refetchPayment,
+      setIsLoading,
     )
   }
 
-  setIsLoading(false)
+  const updateStatusBody = { status, externalReference: 'rejected' }
 
-  return await onUpdateStatus(
-    { status, externalReference: 'rejected' },
-    { paymentId, clientCode, _eTag, session },
-    cardDetails,
-    payment,
-    refetchPayment,
-  )
+  return await onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, refetchPayment, setIsLoading)
 }
 
 export const onHandleSubmit = (

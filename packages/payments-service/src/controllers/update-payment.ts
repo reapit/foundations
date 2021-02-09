@@ -31,13 +31,22 @@ export const updatePayment = async (req: AppRequest, res: Response) => {
 
     if (validated) {
       const payment = await updatePlatformPayment(validated, validatedPayment, apiVersion, eTag)
+      if (validatedPayment.status === 'posted') {
+        // If the payment posted I want to invalidate the session in 5 mins to prevent the user re-using the token
+        const itemToUpdate = generateApiKey({
+          ...validated,
+          keyExpiresAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
+        })
+        const updated = await db.put(itemToUpdate)
+        logger.info('Successfully invalidated API key', { traceId, updated })
+      }
       if (payment) {
         res.status(204)
         return res.end()
       }
     }
   } catch (error) {
-    logger.error('Error retrieving account', error)
+    logger.error('Error updating account', { traceId, error })
 
     if (error.name === 'ItemNotFoundException') {
       res.status(404)

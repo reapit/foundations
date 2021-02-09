@@ -22,11 +22,12 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   clientId,
   defaultMerchantKey = null,
 }) => {
-  const { data, error, mutate: refetchPayment } = useSWR<{ payment: PaymentWithPropertyModel }>(
+  const { data, error, mutate: refetchPayment } = useSWR<{ payment?: PaymentWithPropertyModel; error?: string }>(
     [`${URLS.PAYMENTS}/${paymentId}`, session, clientId],
     sessionFetcher,
   )
-  const paymentModel = data?.payment
+  const paymentModel = data?.payment as PaymentWithPropertyModel
+  const hasError = data?.error
   const [loading, setLoading] = useState(false)
   const [merchantKey, setMerchantKey] = useState<MerchantKey | null>(defaultMerchantKey)
 
@@ -36,10 +37,11 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
     return <Loader />
   }
 
-  if (error || !paymentModel) {
+  if (error || hasError) {
     return (
       <Helper variant="warning">
-        No payment informations was found for this transaction. It is likely that the payment request has expired -
+        No valid session was found for this transaction. It is likely that the payment request has expired (refer to
+        your email), or the payment has been made successfully. If you think you are seeing this message in error,
         please contact your agent so they can re-issue the payment request.
       </Helper>
     )
