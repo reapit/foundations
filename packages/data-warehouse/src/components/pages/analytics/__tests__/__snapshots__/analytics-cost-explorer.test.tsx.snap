@@ -46,8 +46,8 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                         onSubmit={[Function]}
                       >
                         <Component
-                          id="createdMonth"
-                          name="createdMonth"
+                          id="month"
+                          name="month"
                           reactDatePickerProps={
                             Object {
                               "dateFormat": "MMMM YYYY",
@@ -60,7 +60,7 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                           useCustomInput={false}
                         >
                           <Field
-                            name="createdMonth"
+                            name="month"
                             validate={null}
                           >
                             <div
@@ -81,12 +81,12 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                                   dropdownMode="scroll"
                                   enableTabLoop={true}
                                   excludeScrollbar={true}
-                                  id="createdMonth"
+                                  id="month"
                                   inlineFocusSelectedMonth={false}
                                   maxDate={2019-10-10T22:39:51.389Z}
                                   minDate={2020-12-01T00:00:00.000Z}
                                   monthsShown={1}
-                                  name="createdMonth"
+                                  name="month"
                                   nextMonthButtonLabel="Next Month"
                                   nextYearButtonLabel="Next Year"
                                   onBlur={[Function]}
@@ -148,8 +148,8 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                                         <input
                                           className="input is-primary"
                                           disabled={false}
-                                          id="createdMonth"
-                                          name="createdMonth"
+                                          id="month"
+                                          name="month"
                                           onBlur={[Function]}
                                           onChange={[Function]}
                                           onClick={[Function]}
@@ -178,8 +178,8 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                                               <input
                                                 className="input is-primary"
                                                 disabled={false}
-                                                id="createdMonth"
-                                                name="createdMonth"
+                                                id="month"
+                                                name="month"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onClick={[Function]}

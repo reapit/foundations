@@ -43,13 +43,13 @@ export const Accounts: React.FC = () => {
   return (
     <>
       <Section className="justify-between items-center" isFlex>
-        <H3 className="mb-0">Accounts</H3>
+        <H3 className="mb-0">Users</H3>
         <Button
           onClick={handleModalOpen}
           loading={provisionInProgress && percentageComplete < 100}
           disabled={(provisionInProgress && percentageComplete < 100) || !currentSubscription}
         >
-          Provision Account
+          Provision User Account
         </Button>
         <AccountProvisionModal
           visible={modalVisible}
@@ -67,7 +67,7 @@ export const Accounts: React.FC = () => {
             <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
           )}
           <Section>
-            <H5>Account Details</H5>
+            <H5>User Account Details</H5>
             {accountsLoading ? (
               <Loader />
             ) : accounts?._embedded.length ? (

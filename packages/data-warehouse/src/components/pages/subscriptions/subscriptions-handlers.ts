@@ -14,7 +14,7 @@ export const createSubscription = async (
   setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
 ) => {
   const { clientId, email } = loginIdentity
-  if (!clientId || !email) return
+  if (!clientId || !email) return setMessageState({ errorMessage: 'The identity associated with this user is invalid' })
   const created = await createSubscriptionsService({
     user: email,
     customerId: clientId,
@@ -55,9 +55,9 @@ export const handleSubscriptionToggle = (
   setMessageState: Dispatch<SetStateAction<MessageState>>,
   setSubscriptions: Dispatch<SetStateAction<SubscriptionModelPagedResult | undefined>>,
 ) => () => {
-  const { developerId, clientId, email } = loginIdentity
+  const { clientId, email } = loginIdentity
 
-  if (!developerId || !clientId || !email) return
+  if (!clientId || !email) return setMessageState({ errorMessage: 'The identity associated with this user is invalid' })
 
   if (currentSubscription && currentSubscription.id) {
     return deleteSubscription(currentSubscription, setMessageState, setSubscriptions)

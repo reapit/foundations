@@ -1,6 +1,6 @@
 export interface CreateRequestModel {
   organisationId: string
-  developerId: string
+  developerId?: string
   requesterEmail: string
   requesterName: string
   requestMessage: string

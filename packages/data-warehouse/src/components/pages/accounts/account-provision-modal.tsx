@@ -85,7 +85,7 @@ const AccountProvisionModal: React.FC<AccountProvisionModalProps> = ({
         validationSchema={Yup.object({
           username: Yup.string()
             .required('Required')
-            .matches(/^[A-Za-z1-9]{4,20}$/, 'Mixed case alphanumeric characters only. Min 4 chars. Max 20'),
+            .matches(/^[A-Za-z0-9]{4,20}$/, 'Mixed case alphanumeric characters only. Min 4 chars. Max 20'),
           password: Yup.string()
             .required('Required')
             .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),

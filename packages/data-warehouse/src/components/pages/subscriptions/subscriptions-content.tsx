@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements'
+import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader, Table } from '@reapit/elements'
 import { PricingTile } from './__styles__/pricing-tile'
 import { MessageContext } from '../../../context/message-context'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -37,6 +37,40 @@ const SubscriptionsContent: React.FC = () => {
                 The below table represents the estimated cost of running a typical sales activity report for a given
                 frequency over the course of a month:
               </p>
+              <Table
+                columns={[
+                  { Header: 'Report Usage', accessor: 'usage' },
+                  { Header: 'Required Warehouse', accessor: 'warehouse' },
+                  { Header: 'Subscription', accessor: 'subscription' },
+                  { Header: 'Consumption', accessor: 'consumption' },
+                ]}
+                data={[
+                  {
+                    usage: '750 exectutions',
+                    warehouse: '2 hours',
+                    subscription: '£150',
+                    consumption: '£0 (included)',
+                  },
+                  {
+                    usage: '3,750 exectutions',
+                    warehouse: '10 hours',
+                    subscription: '£150',
+                    consumption: '£55.92',
+                  },
+                  {
+                    usage: '15,000 exectutions',
+                    warehouse: '40 hours',
+                    subscription: '£150',
+                    consumption: '£265.62',
+                  },
+                  {
+                    usage: '60,000 exectutions',
+                    warehouse: '160 hours',
+                    subscription: '£150',
+                    consumption: '£1,104.42',
+                  },
+                ]}
+              />
               <p>Actual cost will vary depending on database size, report complexity and number of concurrent users.</p>
               <p>
                 Price estimations exclusive of VAT. For more information on data warehouse pricing, please click here.

@@ -25,7 +25,9 @@ describe('createSubscription', () => {
     const mockLoginIdentity = {} as LoginIdentity
 
     expect(await createSubscription(mockLoginIdentity, mockSetMessageState, mockSetSubsctiptions)).toBeUndefined()
-    expect(mockSetMessageState).not.toHaveBeenCalled()
+    expect(mockSetMessageState).toHaveBeenCalledWith({
+      errorMessage: 'The identity associated with this user is invalid',
+    })
     expect(mockSetSubsctiptions).not.toHaveBeenCalled()
   })
 
