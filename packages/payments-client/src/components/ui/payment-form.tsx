@@ -74,11 +74,14 @@ const PaymentForm: React.FC<{
             <FadeIn>
               <Helper variant="info">
                 This payment has been successfully submitted and confirmation of payment has been emailed to the address
-                supplied. If no email was received, you can send again by clicking the button below.
+                supplied. If no email was received, you can send again by clicking the button below.{' '}
+                {session
+                  ? 'Your user session will expire in 5 minutes and you will not have access to this page again.'
+                  : ''}
               </Helper>
               <Section>
                 <LevelRight>
-                  {!session && (
+                  {!session && !window['__REAPIT_MARKETPLACE_GLOBALS__'] && (
                     <Button variant="secondary" type="button" onClick={redirectToDashboard}>
                       Back to dashboard
                     </Button>
