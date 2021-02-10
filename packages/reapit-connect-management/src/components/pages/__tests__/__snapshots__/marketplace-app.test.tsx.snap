@@ -323,7 +323,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     </Unknown>
                   </React.Fragment>
                 }
-                title="undefined App Confirmation"
+                title="undefined App Install"
                 visible={false}
               />
               <Memo(PortalContainer)

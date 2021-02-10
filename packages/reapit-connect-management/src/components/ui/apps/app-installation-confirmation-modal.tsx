@@ -59,7 +59,7 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
       <Modal
         visible={visible}
         afterClose={onClose}
-        title={`${app.name} App Confirmation`}
+        title={`${app.name} App ${performCompleteUninstall ? 'Uninstall' : 'Install'}`}
         footerItems={
           <>
             <Button variant="secondary" type="button" onClick={onClose}>
@@ -75,11 +75,15 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
           {performCompleteUninstall && uninstallText}
           {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
           {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
-          <p>
-            Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if
-            applicable), Pricing Information and Data Permissions.
-          </p>
-          <p>If you are uncertain, please cancel and take a look at information located on the app listing.</p>
+          {!performCompleteUninstall && (
+            <>
+              <p>
+                Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if
+                applicable), Pricing Information and Data Permissions.
+              </p>
+              <p>If you are uncertain, please cancel and take a look at information located on the app listing.</p>
+            </>
+          )}
         </Content>
       </Modal>
     </PortalProvider>

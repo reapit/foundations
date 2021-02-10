@@ -1,0 +1,399 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppInstallationConfirmationModal should match a snapshot when an uninstallation is requested 1`] = `
+<div
+  className="modal-content modal-medium"
+  data-test="modal-content"
+>
+  <div
+    className="modal-card"
+  >
+    <Component
+      afterClose={[MockFunction]}
+      title="TEST APP App Uninstall"
+    >
+      <header
+        className="modal-card-head"
+      >
+        <h4
+          className="modal-card-title is-4"
+        >
+          TEST APP App Uninstall
+        </h4>
+        <button
+          aria-label="close"
+          className="delete"
+          data-test="modal-close-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </header>
+    </Component>
+    <Component
+      body={
+        <Unknown>
+          <p>
+            Are you sure you wish to uninstall 
+            TEST APP
+            ? This action will uninstall the app for 
+            <b>
+              all
+            </b>
+             members of your organisation, and for all office groups.
+          </p>
+        </Unknown>
+      }
+    >
+      <section
+        className="modal-card-body"
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <p>
+              Are you sure you wish to uninstall 
+              TEST APP
+              ? This action will uninstall the app for 
+              <b>
+                all
+              </b>
+               members of your organisation, and for all office groups.
+            </p>
+          </div>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      footerItems={
+        <React.Fragment>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="secondary"
+          >
+            Cancel
+          </Unknown>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Confirm
+          </Unknown>
+        </React.Fragment>
+      }
+    >
+      <footer
+        className="modal-card-foot"
+      >
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          <button
+            className="button  is-secondary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Cancel
+          </button>
+        </Component>
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button  is-primary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Confirm
+          </button>
+        </Component>
+      </footer>
+    </Component>
+  </div>
+</div>
+`;
+
+exports[`AppInstallationConfirmationModal should match a snapshot when the install type is SPECIFIC_OFFICE_GROUPS 1`] = `
+<div
+  className="modal-content modal-medium"
+  data-test="modal-content"
+>
+  <div
+    className="modal-card"
+  >
+    <Component
+      afterClose={[MockFunction]}
+      title="TEST APP App Install"
+    >
+      <header
+        className="modal-card-head"
+      >
+        <h4
+          className="modal-card-title is-4"
+        >
+          TEST APP App Install
+        </h4>
+        <button
+          aria-label="close"
+          className="delete"
+          data-test="modal-close-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </header>
+    </Component>
+    <Component
+      body={
+        <Unknown>
+          <React.Fragment>
+            <p>
+              Please confirm that you wish to action the following with this app:
+            </p>
+            <p>
+              Installation for 
+              1
+               office
+            </p>
+            <p>
+              Uninstallation for 
+              1
+               office
+            </p>
+          </React.Fragment>
+          <React.Fragment>
+            <p>
+              Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
+            </p>
+            <p>
+              If you are uncertain, please cancel and take a look at information located on the app listing.
+            </p>
+          </React.Fragment>
+        </Unknown>
+      }
+    >
+      <section
+        className="modal-card-body"
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <p>
+              Please confirm that you wish to action the following with this app:
+            </p>
+            <p>
+              Installation for 
+              1
+               office
+            </p>
+            <p>
+              Uninstallation for 
+              1
+               office
+            </p>
+            <p>
+              Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
+            </p>
+            <p>
+              If you are uncertain, please cancel and take a look at information located on the app listing.
+            </p>
+          </div>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      footerItems={
+        <React.Fragment>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="secondary"
+          >
+            Cancel
+          </Unknown>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Confirm
+          </Unknown>
+        </React.Fragment>
+      }
+    >
+      <footer
+        className="modal-card-foot"
+      >
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          <button
+            className="button  is-secondary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Cancel
+          </button>
+        </Component>
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button  is-primary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Confirm
+          </button>
+        </Component>
+      </footer>
+    </Component>
+  </div>
+</div>
+`;
+
+exports[`AppInstallationConfirmationModal should match a snapshot when the install type is WHOLE_ORG 1`] = `
+<div
+  className="modal-content modal-medium"
+  data-test="modal-content"
+>
+  <div
+    className="modal-card"
+  >
+    <Component
+      afterClose={[MockFunction]}
+      title="TEST APP App Install"
+    >
+      <header
+        className="modal-card-head"
+      >
+        <h4
+          className="modal-card-title is-4"
+        >
+          TEST APP App Install
+        </h4>
+        <button
+          aria-label="close"
+          className="delete"
+          data-test="modal-close-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </header>
+    </Component>
+    <Component
+      body={
+        <Unknown>
+          <p>
+            By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the Marketplace.
+          </p>
+          <React.Fragment>
+            <p>
+              Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
+            </p>
+            <p>
+              If you are uncertain, please cancel and take a look at information located on the app listing.
+            </p>
+          </React.Fragment>
+        </Unknown>
+      }
+    >
+      <section
+        className="modal-card-body"
+      >
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <p>
+              By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the Marketplace.
+            </p>
+            <p>
+              Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
+            </p>
+            <p>
+              If you are uncertain, please cancel and take a look at information located on the app listing.
+            </p>
+          </div>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      footerItems={
+        <React.Fragment>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="secondary"
+          >
+            Cancel
+          </Unknown>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Confirm
+          </Unknown>
+        </React.Fragment>
+      }
+    >
+      <footer
+        className="modal-card-foot"
+      >
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          <button
+            className="button  is-secondary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Cancel
+          </button>
+        </Component>
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button  is-primary  "
+            data-test=""
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Confirm
+          </button>
+        </Component>
+      </footer>
+    </Component>
+  </div>
+</div>
+`;
