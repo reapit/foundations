@@ -3,13 +3,15 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { getPlatformHeaders, logger } from '@reapit/utils'
 
-export const bulkInstall = async (installFor: string[], uninstallFor: string[], appId?: string): Promise<boolean> => {
+export const bulkInstall = async (
+  installFor: (string | undefined)[],
+  uninstallFor: (string | undefined)[],
+  appId?: string,
+): Promise<boolean> => {
   if (!appId) throw new Error('App Id not provided')
 
   const session = await reapitConnectBrowserSession.connectSession()
   if (!session) throw new Error('No Reapit Connect Session is present')
-
-  console.log(session.loginIdentity, installFor, uninstallFor)
 
   try {
     const response = await fetcher({

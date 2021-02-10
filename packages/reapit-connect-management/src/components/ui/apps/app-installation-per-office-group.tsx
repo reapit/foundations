@@ -28,7 +28,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   useEffect(orgIdEffectHandler(orgId, setOrgId), [])
 
   const { data: officeGroups, isValidating: officeGroupsValidating } = useSWR<OfficeGroupModelPagedResult>(
-    !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=100`,
+    !orgId ? null : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}?pageSize=999`,
   )
 
   useEffect(() => {

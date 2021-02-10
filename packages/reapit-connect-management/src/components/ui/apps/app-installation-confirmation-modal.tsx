@@ -1,16 +1,17 @@
 import React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Modal, Button, PortalProvider, Content } from '@reapit/elements'
-import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS } from './app-installation-manager'
+import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 
 export interface AppInstallationConfirmationModalProps {
   app: AppSummaryModel
   visible: boolean
   installFor: string[]
   uninstallFor: string[]
-  appInstallationType: string
+  appInstallationType: InstallTypes
   onConfirm: () => void
   onClose: () => void
+  performCompleteUninstall: boolean
 }
 
 const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModalProps> = ({
@@ -21,8 +22,16 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
   appInstallationType,
   onConfirm,
   onClose,
+  performCompleteUninstall,
 }: AppInstallationConfirmationModalProps) => {
-  const wholeOrgText = (
+  const uninstallText = (
+    <p>
+      Are you sure you wish to uninstall {app.name}? This action will uninstall the app for <b>all</b> members of your
+      organisation, and for all office groups.
+    </p>
+  )
+
+  const wholeOrgInstallText = (
     <p>
       By confirming this installation, you are granting this app access to all data inside of your organisation and all
       users and offices will have access to this app inside of the Marketplace.
@@ -63,8 +72,9 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
         }
       >
         <Content>
-          {appInstallationType === WHOLE_ORG && wholeOrgText}
-          {appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
+          {performCompleteUninstall && uninstallText}
+          {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
+          {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
           <p>
             Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if
             applicable), Pricing Information and Data Permissions.
