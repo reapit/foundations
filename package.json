@@ -30,7 +30,7 @@
     ]
   },
   "scripts": {
-    "build": "yarn workspaces foreach --parallel run build:prod",
+    "build": "yarn workspaces foreach --parallel --verbose run build",
     "fetch-config": "yarn workspaces foreach --parallel run fetch-config --",
     "check:ci": "yarn workspaces foreach run check:ci --parallel --since origin/master --include-dependencies --",
     "check:precommit": "yarn workspaces foreach run check:fix --parallel --since HEAD",

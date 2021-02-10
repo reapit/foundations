@@ -13020,9 +13020,12 @@ __metadata:
     "@types/nanoid": ^2.1.0
     chart.js: ^2.9.3
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.1
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
     react: ^16.12.0
@@ -13032,7 +13035,12 @@ __metadata:
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     redux-mock-store: ^1.5.4
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
     snyk: ^1.341.1
+    typescript: ^4.0.3
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -13268,14 +13276,21 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     react: ^16.12.0
     react-dom: ^16.12.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     react-to-print: ^2.4.0
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
     snyk: ^1.341.1
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -19134,9 +19149,15 @@ __metadata:
   resolution: "data-warehouse@workspace:packages/data-warehouse"
   dependencies:
     "@reapit/config-manager": ^2.0.8
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -19898,10 +19919,13 @@ __metadata:
     "@types/nanoid": ^2.1.0
     chart.js: ^2.9.3
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.1
     eslint: 7.11.0
     file-saver: ^2.0.2
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
     papaparse: ^5.1.1
@@ -19917,7 +19941,7 @@ __metadata:
     snyk: ^1.341.1
     swagger-ui-react: ^3.34.0
     webpack: ^4.41.5
-    webpack-dev-server: 3.11.0
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -24086,13 +24110,20 @@ fsevents@~2.3.1:
     "@reapit/utils": "workspace:packages/utils"
     "@types/googlemaps": ^3.39.3
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     little-loader: ^0.2.0
     react: ^16.12.0
     react-dom: ^16.12.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -30263,19 +30294,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"jest@npm:26.6.1, jest@npm:^26.6.1":
-  version: 26.6.1
-  resolution: "jest@npm:26.6.1"
-  dependencies:
-    "@jest/core": ^26.6.1
-    import-local: ^3.0.2
-    jest-cli: ^26.6.1
-  bin:
-    jest: bin/jest.js
-  checksum: 52c44268c745c9ebca7d924b096a9e3c0382f61f00602b42148a65519a280b600e3ab4e35b760ffe10c1316d7a6271608a68064034dc4b8821c2a5a7a33b47b8
-  languageName: node
-  linkType: hard
-
 "jest@npm:^24.8.0":
   version: 24.9.0
   resolution: "jest@npm:24.9.0"
@@ -30311,6 +30329,19 @@ fsevents@~2.3.1:
   bin:
     jest: bin/jest.js
   checksum: ede5edbfa183057b4bb1bd4f4c43c402844e6f5b7871fd1f266c3a318839bc8cd07bc77024d680da9c6f7a47c548e67c809a478e49673bd5307d4a2b752b33c1
+  languageName: node
+  linkType: hard
+
+"jest@npm:^26.6.1":
+  version: 26.6.1
+  resolution: "jest@npm:26.6.1"
+  dependencies:
+    "@jest/core": ^26.6.1
+    import-local: ^3.0.2
+    jest-cli: ^26.6.1
+  bin:
+    jest: bin/jest.js
+  checksum: 52c44268c745c9ebca7d924b096a9e3c0382f61f00602b42148a65519a280b600e3ab4e35b760ffe10c1316d7a6271608a68064034dc4b8821c2a5a7a33b47b8
   languageName: node
   linkType: hard
 
@@ -32538,9 +32569,12 @@ fsevents@~2.3.1:
     "@types/nanoid": ^2.1.0
     chart.js: ^2.9.3
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.1
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
     react: ^16.12.0
@@ -32552,7 +32586,11 @@ fsevents@~2.3.1:
     react-router-dom: ^5.1.2
     react-transition-group: ^4.4.1
     redux-mock-store: ^1.5.4
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
     snyk: ^1.341.1
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -35938,12 +35976,18 @@ fsevents@~2.3.1:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     eslint: 7.11.0
-    jest: 26.6.1
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     react: 16.12.0
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
     swr: ^0.3.9
     ts-jest: ^26.4.3
     typescript: 4.0.3
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -38614,8 +38658,15 @@ fsevents@~2.3.1:
     "@reapit/config-manager": ^2.0.8
     "@types/just-debounce-it": ^1.1.0
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     just-debounce-it: ^1.1.0
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -38627,13 +38678,20 @@ fsevents@~2.3.1:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     concurrently: ^5.3.0
+    cross-env: ^6.0.3
     dayjs: ^1.10.4
     eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
     react: ^16.12.0
     react-dom: ^16.12.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
     snyk: ^1.341.1
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
   languageName: unknown
   linkType: soft
 
@@ -46281,7 +46339,7 @@ resolve@^1.18.1:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:3.11.0, webpack-dev-server@npm:^3.11.0":
+"webpack-dev-server@npm:^3.11.0":
   version: 3.11.0
   resolution: "webpack-dev-server@npm:3.11.0"
   dependencies:
