@@ -10,3 +10,7 @@ export const directAPI = css`
   margin-left: 5px;
   white-space: nowrap;
 `
+
+export const flexContainerSpaceBettwen = css`
+  justify-content: space-between;
+`

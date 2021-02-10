@@ -8,6 +8,7 @@ import { useParams } from 'react-router'
 import useSWR from 'swr'
 import { URLS } from '../../constants/api'
 import AppPricingPermissionsSection from '../ui/apps/app-pricing-permissions-section'
+import AppInstallationManager from '../ui/apps/app-installation-manager'
 
 export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () => {
   const appListingUri = `${window.reapit.config.marketplaceUrl}/apps/${appId}`
@@ -49,6 +50,7 @@ const MarketplaceAppPage: React.FC = () => {
         isDesktop={connectIsDesktop}
       />
       <AppToggleVisibilitySection app={app} />
+      <AppInstallationManager app={app} />
     </FadeIn>
   )
 }
