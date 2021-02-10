@@ -7406,6 +7406,7 @@ export interface Negotiators {
   embed?: 'office'[]
   id?: string[]
   officeId?: string[]
+  email?: string
   name?: string
   createdFrom?: string
   createdTo?: string
