@@ -4,7 +4,6 @@ import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements'
 import useSWR from 'swr'
 import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
 import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
-import * as styles from '../__styles__'
 import { URLS } from '../../../constants/api'
 import { clientIdEffectHandler } from '../../../utils/client-id-effect-handler'
 import { bulkInstall } from '../../../services/installation'
@@ -29,7 +28,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
 
   const { data: installations, isValidating: installationsValidating, revalidate: revalidateInstallations } = useSWR<
     InstallationModelPagedResult
-  >(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true`)
+  >(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
 
   if (clientId && installations?.data && !initialAppInstallationType) {
     const clientIdFirstPart = clientId.split('-')[0]
@@ -106,72 +105,101 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
   }
 
   return (
-    <Section>
-      <FlexContainerBasic className={styles.flexContainerSpaceBettwen}>
-        <H5>Installation</H5>
-        <Button
-          variant="primary"
-          disabled={!submitButtonEnabled}
-          loading={false}
-          onClick={() => setShowConfirmModal(true)}
-        >
-          Submit
-        </Button>
-      </FlexContainerBasic>
-      <p className="mb-4">
-        <i>Please select the type of installation you require for this app:</i>
-      </p>
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="radio"
-          id={`${app.id}-${WHOLE_ORG}`}
-          checked={appInstallationType === WHOLE_ORG}
-          onChange={handleOnCheckboxChange(setAppInstallationType, WHOLE_ORG)}
-        />
-        <label className="label" htmlFor={`${app.id}-${WHOLE_ORG}`}>
-          Install for the whole of your organisation
-        </label>
-        <div className="form-subheading mb-4">
-          <i>This will grant the app access to all data for all users and offices across your organisation</i>
+    <>
+      <Section>
+        <FlexContainerBasic className="justify-between items-center mb-4">
+          <H5>Current Installations</H5>
+          {/**Only render button if existing installations - in this case the action should
+           * fire the existing confirmation modal and uninstall all current installations */}
+          <Button
+            variant="primary"
+            disabled={!submitButtonEnabled}
+            loading={false}
+            onClick={() => setShowConfirmModal(true)}
+          >
+            Uninstall
+          </Button>
+        </FlexContainerBasic>
+        <p className="mb-4">
+          {/** text if has installs - please can you add the logic to manage the number of groups */}
+          <i>
+            This app is currently installed for 2 groups / your whole orgainsation. By clicking this button you will
+            uninstall for all users and offices.
+          </i>
+          {/** text if has no installs  */}
+          <i>
+            This app is not currently installed. You can either install for your organisation or specific office groups
+            in the section below.
+          </i>
+        </p>
+      </Section>
+      <Section>
+        <FlexContainerBasic className="justify-between items-center mb-4">
+          <H5>Installation</H5>
+          <Button
+            variant="primary"
+            disabled={!submitButtonEnabled}
+            loading={false}
+            onClick={() => setShowConfirmModal(true)}
+          >
+            Install
+          </Button>
+        </FlexContainerBasic>
+        <p className="mb-4">
+          <i>Please select the type of installation you require for this app:</i>
+        </p>
+        <div className="field field-checkbox mb-0 control">
+          <input
+            className="checkbox"
+            type="radio"
+            id={`${app.id}-${WHOLE_ORG}`}
+            checked={appInstallationType === WHOLE_ORG}
+            onChange={handleOnCheckboxChange(setAppInstallationType, WHOLE_ORG)}
+          />
+          <label className="label" htmlFor={`${app.id}-${WHOLE_ORG}`}>
+            Install for the whole of your organisation
+          </label>
+          <div className="form-subheading mb-4">
+            <i>This will grant the app access to all data for all users and offices across your organisation</i>
+          </div>
         </div>
-      </div>
-      <div className="field field-checkbox mb-0 control">
-        <input
-          className="checkbox"
-          type="radio"
-          id={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}
-          checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
-          onChange={handleOnCheckboxChange(setAppInstallationType, SPECIFIC_OFFICE_GROUPS)}
-        />
-        <label className="label" htmlFor={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}>
-          Install for specific office groups
-        </label>
-        <div className="form-subheading mb-4">
-          <i>This will grant the app access to only data for the specific offices inside of each office group</i>
+        <div className="field field-checkbox mb-0 control">
+          <input
+            className="checkbox"
+            type="radio"
+            id={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}
+            checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
+            onChange={handleOnCheckboxChange(setAppInstallationType, SPECIFIC_OFFICE_GROUPS)}
+          />
+          <label className="label" htmlFor={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}>
+            Install for specific office groups
+          </label>
+          <div className="form-subheading mb-4">
+            <i>This will grant the app access to only data for the specific offices inside of each office group</i>
+          </div>
         </div>
-      </div>
 
-      {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
-        <AppInstallationPerOfficeGroup
-          installations={installations}
-          officeGroupsToAdd={officeGroupsToAdd}
-          officeGroupsToRemove={officeGroupsToRemove}
-          setOfficeGroupsToAdd={setOfficeGroupsToAdd}
-          setOfficeGroupsToRemove={setOfficeGroupsToRemove}
+        {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
+          <AppInstallationPerOfficeGroup
+            installations={installations}
+            officeGroupsToAdd={officeGroupsToAdd}
+            officeGroupsToRemove={officeGroupsToRemove}
+            setOfficeGroupsToAdd={setOfficeGroupsToAdd}
+            setOfficeGroupsToRemove={setOfficeGroupsToRemove}
+          />
+        )}
+
+        <AppInstallationConfirmationModal
+          app={app}
+          visible={showConfirmModal}
+          installFor={officeGroupsToAdd}
+          uninstallFor={officeGroupsToRemove}
+          appInstallationType={appInstallationType}
+          onConfirm={handleInstallConfirmation}
+          onClose={() => setShowConfirmModal(false)}
         />
-      )}
-
-      <AppInstallationConfirmationModal
-        app={app}
-        visible={showConfirmModal}
-        installFor={officeGroupsToAdd}
-        uninstallFor={officeGroupsToRemove}
-        appInstallationType={appInstallationType}
-        onConfirm={handleInstallConfirmation}
-        onClose={() => setShowConfirmModal(false)}
-      />
-    </Section>
+      </Section>
+    </>
   )
 }
 
