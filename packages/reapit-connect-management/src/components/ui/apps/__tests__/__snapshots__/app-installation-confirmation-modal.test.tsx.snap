@@ -163,12 +163,12 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
             <p>
               Installation for 
               1
-               office
+               office group
             </p>
             <p>
               Uninstallation for 
               1
-               office
+               office group
             </p>
           </React.Fragment>
           <React.Fragment>
@@ -196,12 +196,12 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
             <p>
               Installation for 
               1
-               office
+               office group
             </p>
             <p>
               Uninstallation for 
               1
-               office
+               office group
             </p>
             <p>
               Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.

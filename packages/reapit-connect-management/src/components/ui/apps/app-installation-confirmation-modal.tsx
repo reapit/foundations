@@ -43,12 +43,12 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
       <p>Please confirm that you wish to action the following with this app:</p>
       {!!installFor.length && (
         <p>
-          Installation for {installFor.length} office{installFor.length > 1 && 's'}
+          Installation for {installFor.length} office group{installFor.length > 1 && 's'}
         </p>
       )}
       {!!uninstallFor.length && (
         <p>
-          Uninstallation for {uninstallFor.length} office{uninstallFor.length > 1 && 's'}
+          Uninstallation for {uninstallFor.length} office group{uninstallFor.length > 1 && 's'}
         </p>
       )}
     </>
