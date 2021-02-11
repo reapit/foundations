@@ -1,8 +1,7 @@
-import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Section, H5, FlexContainerBasic, Button } from '@reapit/elements'
 import useSWR from 'swr'
-import AppInstallationPerOfficeGroup from './app-installation-per-office-group'
+import AppInstallationSection from './app-installation-section'
 import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
 import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
@@ -16,19 +15,7 @@ export interface AppInstallationManagerProps {
 
 export const SPECIFIC_OFFICE_GROUPS = 'SPECIFIC_OFFICE_GROUPS'
 export const WHOLE_ORG = 'WHOLE_ORG'
-
 export type InstallTypes = 'SPECIFIC_OFFICE_GROUPS' | 'WHOLE_ORG' | '' | null
-
-export const allowSubmit = (
-  appInstallationType: InstallTypes,
-  officeGroupsToAdd: string[],
-  officeGroupsToRemove: string[],
-  initialAppInstallationType: InstallTypes,
-): boolean => {
-  return appInstallationType === SPECIFIC_OFFICE_GROUPS
-    ? !!officeGroupsToAdd.length || !!officeGroupsToRemove.length
-    : appInstallationType !== initialAppInstallationType
-}
 
 export const getInstallationsForWholeOrg = (
   installations: InstallationModelPagedResult | undefined,
@@ -73,15 +60,13 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
 
   if (clientId && installations?.data && initialAppInstallationType === null) {
     const clientIdFirstPart = getClientIdFirstPart(clientId)
-    const installedForWholeOrg = installations.data.some(installation => installation.client === clientIdFirstPart)
-    const installedForOfficeGroups = installations.data.some(installation =>
-      installation?.client?.startsWith(`${clientIdFirstPart}-`),
-    )
+    const installedForWholeOrg = getInstallationsForWholeOrg(installations, clientIdFirstPart).length > 0
+    const installedForGroups = getInstallationsForOfficeGroups(installations, clientIdFirstPart).length > 0
 
     if (installedForWholeOrg) {
       setInitialAppInstallationType(WHOLE_ORG)
       setAppInstallationType(WHOLE_ORG)
-    } else if (installedForOfficeGroups) {
+    } else if (installedForGroups) {
       setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
       setAppInstallationType(SPECIFIC_OFFICE_GROUPS)
     } else {
@@ -90,17 +75,7 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
     }
   }
 
-  const submitButtonEnabled = allowSubmit(
-    appInstallationType,
-    officeGroupsToAdd,
-    officeGroupsToRemove,
-    initialAppInstallationType,
-  )
-
-  const handleOnCheckboxChange = (
-    setAppInstallationType: Dispatch<SetStateAction<InstallTypes>>,
-    appInstallationType: InstallTypes,
-  ) => async () => {
+  const handleOnCheckboxChange = (appInstallationType: InstallTypes) => {
     setAppInstallationType(appInstallationType)
     if (appInstallationType === WHOLE_ORG) {
       setOfficeGroupsToAdd([])
@@ -165,68 +140,28 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
         setShowConfirmModal={setShowConfirmModal}
         setPerformCompleteUninstall={setPerformCompleteUninstall}
       />
-      <Section>
-        <FlexContainerBasic className="justify-between items-center mb-4">
-          <H5>Installation</H5>
-          <Button variant="primary" disabled={!submitButtonEnabled} onClick={() => setShowConfirmModal(true)}>
-            Install
-          </Button>
-        </FlexContainerBasic>
-        <p className="mb-4">
-          <i>Please select the type of installation you require for this app:</i>
-        </p>
-        <div className="field field-checkbox mb-0 control">
-          <input
-            className="checkbox"
-            type="checkbox"
-            id={`${app.id}-${WHOLE_ORG}`}
-            checked={appInstallationType === WHOLE_ORG}
-            onChange={handleOnCheckboxChange(setAppInstallationType, WHOLE_ORG)}
-          />
-          <label className="label" htmlFor={`${app.id}-${WHOLE_ORG}`}>
-            Install for the whole of your organisation
-          </label>
-          <div className="form-subheading mb-4">
-            <i>This will grant the app access to all data for all users and offices across your organisation</i>
-          </div>
-        </div>
-        <div className="field field-checkbox mb-0 control">
-          <input
-            className="checkbox"
-            type="checkbox"
-            id={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}
-            checked={appInstallationType === SPECIFIC_OFFICE_GROUPS}
-            onChange={handleOnCheckboxChange(setAppInstallationType, SPECIFIC_OFFICE_GROUPS)}
-          />
-          <label className="label" htmlFor={`${app.id}-${SPECIFIC_OFFICE_GROUPS}`}>
-            Install for specific office groups
-          </label>
-          <div className="form-subheading mb-4">
-            <i>This will grant the app access to only data for the specific offices inside of each office group</i>
-          </div>
-        </div>
-
-        {appInstallationType === SPECIFIC_OFFICE_GROUPS && !installationsValidating && (
-          <AppInstallationPerOfficeGroup
-            installations={installations}
-            officeGroupsToAdd={officeGroupsToAdd}
-            officeGroupsToRemove={officeGroupsToRemove}
-            setOfficeGroupsToAdd={setOfficeGroupsToAdd}
-            setOfficeGroupsToRemove={setOfficeGroupsToRemove}
-          />
-        )}
-
-        <AppInstallationConfirmationModal
-          app={app}
-          visible={showConfirmModal}
-          installFor={officeGroupsToAdd}
-          uninstallFor={officeGroupsToRemove}
-          appInstallationType={appInstallationType}
-          onConfirm={handleModalConfirmation}
-          onClose={() => setShowConfirmModal(false)}
-          performCompleteUninstall={performCompleteUninstall}
-        />
-      </Section>
+      <AppInstallationSection
+        initialAppInstallationType={initialAppInstallationType}
+        appInstallationType={appInstallationType}
+        onCheckboxChange={handleOnCheckboxChange}
+        installations={installations}
+        officeGroupsToAdd={officeGroupsToAdd}
+        officeGroupsToRemove={officeGroupsToRemove}
+        setOfficeGroupsToAdd={setOfficeGroupsToAdd}
+        setOfficeGroupsToRemove={setOfficeGroupsToRemove}
+        installationsValidating={installationsValidating}
+        setShowConfirmModal={setShowConfirmModal}
+      />
+      <AppInstallationConfirmationModal
+        app={app}
+        visible={showConfirmModal}
+        installFor={officeGroupsToAdd}
+        uninstallFor={officeGroupsToRemove}
+        appInstallationType={appInstallationType}
+        onConfirm={handleModalConfirmation}
+        onClose={() => setShowConfirmModal(false)}
+        performCompleteUninstall={performCompleteUninstall}
+      />
     </>
   )
 }

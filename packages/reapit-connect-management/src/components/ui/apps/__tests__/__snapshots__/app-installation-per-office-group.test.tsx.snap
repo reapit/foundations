@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
+<AppInstallationPerOfficeGroup
+  installations={
+    Object {
+      "data": Array [],
+    }
+  }
+  officeGroupsToAdd={Array []}
+  officeGroupsToRemove={Array []}
+  setOfficeGroupsToAdd={[MockFunction]}
+  setOfficeGroupsToRemove={[MockFunction]}
+>
+  <Component>
+    <section
+      className=""
+      data-test=""
+    >
+      <mock-styled.div>
+        <Component
+          columns={
+            Array [
+              Object {
+                "Header": "Group Name",
+                "accessor": "name",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Office List",
+                "accessor": "officeIds",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Edit",
+                "accessor": "customerId",
+              },
+            ]
+          }
+          data={Array []}
+        >
+          <table
+            className="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                key="headerGroup_0"
+                role="row"
+              >
+                <th
+                  colSpan={1}
+                  key="header_name"
+                  role="columnheader"
+                >
+                  Group Name
+                </th>
+                <th
+                  colSpan={1}
+                  key="header_officeIds"
+                  role="columnheader"
+                >
+                  Office List
+                </th>
+                <th
+                  colSpan={1}
+                  key="header_customerId"
+                  role="columnheader"
+                >
+                  Edit
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </Component>
+      </mock-styled.div>
+    </section>
+  </Component>
+</AppInstallationPerOfficeGroup>
+`;
