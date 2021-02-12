@@ -20,11 +20,14 @@ export const handleLoadAppListing = (isDesktop: boolean, appId: string) => () =>
 }
 
 const MarketplaceAppPage: React.FC = () => {
-  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const parms = useParams<{ appId: string }>()
   const { appId } = parms
+  const clientId = connectSession?.loginIdentity?.clientId
 
-  const { data: app, error: appsError } = useSWR<AppDetailModel | undefined>(`${URLS.APPS}/${appId}`)
+  const { data: app, error: appsError } = useSWR<AppDetailModel | undefined>(
+    clientId ? `${URLS.APPS}/${appId}?clientId=${clientId}` : null,
+  )
   const { data: desktopIntegrationTypes, error: typesError } = useSWR<
     DesktopIntegrationTypeModelPagedResult | undefined
   >(`${URLS.DESKTOP_INTEGRATION_TYPES}`)
