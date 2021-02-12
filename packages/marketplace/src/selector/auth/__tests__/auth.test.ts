@@ -20,25 +20,61 @@ describe('auth', () => {
     })
   })
   describe('selectIsAdmin', () => {
-    it('should return correctly', () => {
+    it('should return correctly if ReapitUserAdmin and off grouping false', () => {
       expect(
-        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'] } }),
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'], offGrouping: false },
+        }),
       ).toBeTruthy()
     })
 
-    it('should return correctly', () => {
+    it('should return correctly if ReapitUserAdmin and off grouping true', () => {
       expect(
-        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['MarketplaceAdmin'] } }),
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['ReapitUserAdmin'], offGrouping: true },
+        }),
+      ).toBeFalsy()
+    })
+
+    it('should return correctly if MarketplaceAdmin and off grouping false', () => {
+      expect(
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['MarketplaceAdmin'], offGrouping: false },
+        }),
       ).toBeTruthy()
     })
 
-    it('should return correctly', () => {
+    it('should return correctly if MarketplaceAdmin and off grouping true', () => {
       expect(
-        selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: ['OrganisationAdmin'] } }),
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['MarketplaceAdmin'], offGrouping: false },
+        }),
       ).toBeTruthy()
     })
 
-    it('should return correctly', () => {
+    it('should return correctly if an org admin and has offGrouping', () => {
+      expect(
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['OrganisationAdmin'], offGrouping: true },
+        }),
+      ).toBeTruthy()
+    })
+
+    it('should return correctly if an org admin and has no offGrouping', () => {
+      expect(
+        selectIsAdmin({
+          ...auth,
+          loginIdentity: { ...auth.loginIdentity, groups: ['OrganisationAdmin'], offGrouping: false },
+        }),
+      ).toBeFalsy()
+    })
+
+    it('should return correctly if no admin permissions', () => {
       expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, groups: [] } })).toBeFalsy()
     })
   })

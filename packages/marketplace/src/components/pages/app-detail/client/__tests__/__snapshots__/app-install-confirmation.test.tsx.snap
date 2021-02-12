@@ -5,6 +5,7 @@ exports[`ClientAppInstallConfirmation InstallForGroupHeading should match a snap
   You are about to install ‘
   App Name
   ’ for your Office Group 
+  Cool Office Group
 </p>
 `;
 
@@ -12,56 +13,29 @@ exports[`ClientAppInstallConfirmation InstallForGroupHeading should match a snap
 <p>
   You are about to install ‘
   App Name
-  ’ for your Office Group 
+  ’ for 
+  <b>
+    all
+  </b>
+   Users and Offices within your Organisation.
 </p>
 `;
 
 exports[`ClientAppInstallConfirmation InstallForGroupHeading should match a snapshot where is orgAdmin and offGrouping 1`] = `
-<Fragment>
-  <p>
-    You have the option to install ‘
-    App Name
-    ’ for either your Office Group or for 
-    <b>
-      all
-    </b>
-     Users and Offices within your Organisation.
-  </p>
-  <div
-    className="field field-checkbox mb-4 control"
-  >
-    <input
-      checked={true}
-      className="checkbox"
-      id="group"
-      onChange={[Function]}
-      type="radio"
-    />
-    <label
-      className="label"
-      htmlFor="group"
-    >
-      Install for my office group 
-    </label>
-  </div>
-  <div
-    className="field field-checkbox mb-4 control"
-  >
-    <input
-      checked={true}
-      className="checkbox"
-      id="org"
-      onChange={[Function]}
-      type="radio"
-    />
-    <label
-      className="label"
-      htmlFor="org"
-    >
-      Install for the whole organisation
-    </label>
-  </div>
-</Fragment>
+<p>
+  As an organisation admin, you have control over installation of ‘
+  App Name
+  ’ for either your Office Group or for
+   
+  <b>
+    all
+  </b>
+   Users and Offices within your Organisation. To do this, you need to visit the
+   
+  <a>
+    Reapit Connect Management App.
+  </a>
+</p>
 `;
 
 exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
@@ -559,13 +533,12 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                         data-test=""
                                       >
                                         <Component
-                                          clientId="SBOX"
-                                          clientIdToInstall="SBOX"
-                                          isFoundationsAdmin={false}
+                                          isDesktopMode={false}
+                                          isMarketplaceAdmin={false}
+                                          isOffGrouping={false}
                                           isOrgAdmin={false}
                                           name="Peter's Properties"
                                           offGroupName=""
-                                          setClientIdToInstall={[Function]}
                                         >
                                           <p>
                                             You are about to install ‘

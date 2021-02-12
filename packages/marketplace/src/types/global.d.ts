@@ -14,6 +14,7 @@ export type Config = {
   webComponentConfigApiUrl: string
   developerPortalUrl: string
   orgAdminRestrictedAppIds: string[]
+  reapitConnectManagementUri: string
   comingSoonApps: {
     agencyCloud: ComingSoonApp[]
     thirdParty: ComingSoonApp[]

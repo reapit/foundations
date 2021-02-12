@@ -140,14 +140,12 @@ describe('ClientAppInstallConfirmation', () => {
 
   describe('InstallForGroupHeading', () => {
     const baseProps = {
-      clientId: 'SBOX',
       name: 'App Name',
-      setClientIdToInstall: jest.fn(),
-      clientIdToInstall: 'SBOX',
       isOrgAdmin: true,
-      isFoundationsAdmin: true,
+      isMarketplaceAdmin: true,
       isOffGrouping: true,
       offGroupName: 'Cool Office Group',
+      isDesktopMode: false,
     }
     it('should match a snapshot where is orgAdmin and offGrouping', () => {
       expect(shallow(<InstallForGroupHeading {...baseProps} />)).toMatchSnapshot()
