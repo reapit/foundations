@@ -30,20 +30,14 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach --parallel --verbose run build",
-    "fetch-config": "yarn workspaces foreach --parallel run fetch-config --",
-    "check:ci": "yarn workspaces foreach run check:ci --parallel --since origin/master --include-dependencies --",
-    "check:precommit": "yarn workspaces foreach run check:fix --parallel --since HEAD",
-    "check:all": "yarn workspaces foreach run check:fix --parallel --include-dependencies --",
-    "release:development": "yarn workspaces foreach run release:development --parallel",
-    "upload-artifact": "node ./scripts/release/upload-artifact.js",
-    "release": "node ./scripts/release/release.js",
-    "fetch-artifact": "node ./scripts/release/fetch-artifact.js",
-    "test": "yarn workspaces foreach run test:ci ",
+    "test": "yarn workspaces foreach --parallel --verbose run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
+    "config": "yarn workspaces foreach --parallel run config",
+    "lint": "yarn workspaces foreach run lint --parallel --verbose",
     "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn scan-secrets && yarn check:precommit && yarn workspaces foreach run test:update-badges --stream --parallel --since HEAD && git add ."
+      "pre-commit": "yarn scan-secrets && yarn changed foreach run commit --parallel --verbose"
     }
   },
   "dependencies": {

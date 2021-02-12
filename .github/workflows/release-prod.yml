@@ -1,0 +1,61 @@
+name: Build Release Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_PROD}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_PROD}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+  IS_RELEASE: true
+
+jobs:
+  release-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get Release Tag
+        uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "(?<package>.*)_(?<version>.*)" 
+
+      - name: Set Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install
+        run: yarn
+
+      - name: Fetch config
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} config --name production
+      
+      - name: Lint
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} lint
+    
+      - name: Test
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
+
+      - name: Build
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} build
+
+      - name: Release
+        run: |
+          yarn workspace ${{ steps.tagName.outputs.package }} release --stage prod
+

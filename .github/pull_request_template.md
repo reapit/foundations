@@ -4,5 +4,4 @@
 
 fixes: #
 
-**Any additional notes for reviewer (optional):**
 

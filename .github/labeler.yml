@@ -1,20 +1,45 @@
-smb-onboarder:
-  - packages/smb-onboarder/**
+archive:
+  - archive/**/*
 
-graphql-server:
-  - packages/graphql-server/**
+infra:
+  - .github/**/*
+  - scripts/**/*
 
-lifetime-legal:
-  - packages/lifetime-legal/**
+admin-portal:
+  - packages/admin-portal/**
+
+aml-checklist:
+  - packages/aml-checklist/**
+
+cloud-alert:
+  - packages/cloud-alert/**
+
+cognito-custom-mail-lambda:
+  - packages/cognito-custom-mail-lambda/**
 
 config-manager:
   - packages/config-manager/**
 
-cognito-auth:
-  - packages/cognito-auth/**
+connect-session:
+  - packages/connect-session/**
 
-marketplace:
-  - packages/marketplace/**
+cra-template-foundations:
+  - packages/cra-template-foundations/**
+
+data-warehouse:
+  - packages/data-warehouse/**
+
+demo-site:
+  - packages/demo-site/**
+
+developer-portal:
+  - packages/developer-portal/**
+
+elements:
+  - packages/elements/**
+
+event-status-service:
+  - packages/event-status-service/**
 
 foundations-ts-definitons:
   - packages/foundations-ts-definitons/**
@@ -22,45 +47,41 @@ foundations-ts-definitons:
 geo-diary:
   - packages/geo-diary/**
 
-aml-checklist:
-  - packages/aml-checklist/**
+graphql-server:
+  - packages/graphql-server/**
 
-elements:
-  - packages/elements/**
-  - packages/elements-next/**
+mailer-service:
+  - packages/mailer-service/**
 
-demo-site:
-  - packages/demo-site/**
+marketplace:
+  - packages/marketplace/**
+
+payments-client:
+  - packages/payments-client/**
+
+payments-service:
+  - packages/payments-service/**
+
+property-projector:
+  -packages/property-projector/**
+
+react-app-scaffolder:
+  - packages/react-app-scaffolder/**
+
+reapit-connect:
+  - packages/reapit-connect/**
+
+reapit-connect-management:
+  - packages/reapit-connect-management/**
+
+smb-onboarder:
+  - packages/smb-onboarder/**
+
+utils:
+  - packages/utils/**
 
 web-components:
   - packages/web-components/**
 
 web-components-config-server:
   - packages/web-components-config-server/**
-
-cognito-custom-mail-lambda:
-  - packages/cognito-custom-mail-lambda/**
-
-react-app-scaffolder:
-  - packages/react-app-scaffolder/**
-
-admin-portal:
-  - packages/admin-portal/**
-
-developer-portal:
-  - packages/developer-portal/**
-
-connect-session:
-  - packages/connect-session/**
-
-reapit-connect-welcome:
-  - packages/reapit-connect/**
-
-data-warehouse:
-  - packages/data-warehouse/**
-
-payments-server:
-  - packages/payments-server/**
-
-payments-client:
-  - packages/payments-client/**
