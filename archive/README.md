@@ -10,6 +10,10 @@ For future maintainers, there is a brief description of each package below to se
 
 NPM module used to authenticate against Reapit Connect using the AWS SDK. Deprecated and replaced by Connect Session in the main packages directory.
 
+### Deploy Slack Bot
+
+Bot to post release information to Slack From pipeline. Nice idea, needlessly over complicated for our needs.
+
 ### Elements Next
 
 Experimental repo to re-build Elements StoryBook using Docz library. Discontinued development due to performace issues with the library and because we can better manage versioning of Elements from the main package.

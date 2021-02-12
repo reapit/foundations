@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noEmit": false,
+    "outDir": "../../archive/deploy-slack-bot/dist",
+    "sourceRoot": "/"
+  },
+  "include": ["../../archive/deploy-slack-bot/src"]
+}
