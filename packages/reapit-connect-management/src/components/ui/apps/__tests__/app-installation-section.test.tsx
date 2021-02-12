@@ -55,9 +55,9 @@ describe('AppInstallationSection', () => {
         setShowConfirmModal={confirmModalSpy}
       />,
     )
-    expect(wrapper.find(Button).prop('disabled')).toBe(true)
+    expect(wrapper.findWhere(n => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(true)
     wrapper.setProps({ appInstallationType: WHOLE_ORG })
-    expect(wrapper.find(Button).prop('disabled')).toBe(false)
+    expect(wrapper.findWhere(n => n.type() === Button && n.prop('variant') === 'primary').prop('disabled')).toBe(false)
   })
 
   it('should show the AppInstallationPerOfficeGroup component when required', () => {
