@@ -12,7 +12,13 @@ import { Dispatch } from 'redux'
 import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallAppState } from '@/selector/installations'
-import { selectClientId, selectIsFoundationsAdmin, selectIsOrgAdmin, selectOffGroupName } from '@/selector/auth'
+import {
+  selectClientId,
+  selectIsMarketplaceAdmin,
+  selectIsOffGrouping,
+  selectIsOrgAdmin,
+  selectOffGroupName,
+} from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -20,7 +26,6 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDesktopIntegrationTypes } from '../../../../utils/get-desktop-integration-types'
 import { selectDesktopIntegrationTypes } from '../../../../selector/desktop-integration-types'
 import { truncate } from '../__styles__/app-install-confirmation'
-import { SetStateAction } from 'react'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -30,12 +35,11 @@ export type AppInstallConfirmationProps = {
 
 export interface InstallForGroupHeadingProps {
   name: string
-  clientId: string
-  setClientIdToInstall: React.Dispatch<SetStateAction<string>>
-  clientIdToInstall: string
   isOrgAdmin: boolean
-  isFoundationsAdmin: boolean
+  isMarketplaceAdmin: boolean
   offGroupName: string
+  isOffGrouping: boolean
+  isDesktopMode: boolean
 }
 
 export const handleInstallAppSuccessCallback = (
@@ -189,51 +193,30 @@ export const InstallDirectApiAppSucesfullyModal = ({
 }
 
 export const InstallForGroupHeading: React.FC<InstallForGroupHeadingProps> = ({
-  clientId,
   name,
-  setClientIdToInstall,
-  clientIdToInstall,
   isOrgAdmin,
-  isFoundationsAdmin,
+  isMarketplaceAdmin,
   offGroupName,
+  isOffGrouping,
+  isDesktopMode,
 }) => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const orgClientId = clientId.split('-')[0]
-
-  return offGroupName && isOrgAdmin ? (
-    <>
-      <p>
-        You have the option to install ‘{name}’ for either your Office Group or for <b>all</b> Users and Offices within
-        your Organisation.
-      </p>
-      <div className="field field-checkbox mb-4 control">
-        <input
-          className="checkbox"
-          type="radio"
-          id="group"
-          checked={clientId === clientIdToInstall}
-          onChange={() => setClientIdToInstall(clientId)}
-        />
-        <label className="label" htmlFor="group">
-          Install for my office group {connectSession?.loginIdentity.offGroupName}
-        </label>
-      </div>
-      <div className="field field-checkbox mb-4 control">
-        <input
-          className="checkbox"
-          type="radio"
-          id="org"
-          checked={orgClientId === clientIdToInstall}
-          onChange={() => setClientIdToInstall(orgClientId)}
-        />
-        <label className="label" htmlFor="org">
-          Install for the whole organisation
-        </label>
-      </div>
-    </>
-  ) : offGroupName && isFoundationsAdmin ? (
+  return isOffGrouping && isOrgAdmin ? (
     <p>
-      You are about to install ‘{name}’ for your Office Group {connectSession?.loginIdentity.offGroupName}
+      As an organisation admin, you have control over installation of ‘{name}’ for either your Office Group or for{' '}
+      <b>all</b> Users and Offices within your Organisation. To do this, you need to visit the{' '}
+      <a
+        href={
+          isDesktopMode
+            ? `agencycloud://process/webpage?url=${window.reapit.config.reapitConnectManagementUri}`
+            : window.reapit.config.reapitConnectManagementUri
+        }
+      >
+        Reapit Connect Management App.
+      </a>
+    </p>
+  ) : isOffGrouping && isMarketplaceAdmin ? (
+    <p>
+      You are about to install ‘{name}’ for your Office Group {offGroupName}
     </p>
   ) : (
     <p>
@@ -252,8 +235,9 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const isOrgAdmin = selectIsOrgAdmin(connectSession)
-  const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
+  const isMarketplaceAdmin = selectIsMarketplaceAdmin(connectSession)
   const offGroupName = selectOffGroupName(connectSession)
+  const isOffGrouping = selectIsOffGrouping(connectSession)
   const [clientIdToInstall, setClientIdToInstall] = React.useState(clientId)
   const installationFormState = useSelector(selectInstallAppState)
   const isLoading = installationFormState?.isLoading
@@ -321,12 +305,11 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         <Content>
           <InstallForGroupHeading
             name={name ?? ''}
-            clientId={clientId}
-            setClientIdToInstall={setClientIdToInstall}
-            clientIdToInstall={clientIdToInstall}
             isOrgAdmin={isOrgAdmin}
-            isFoundationsAdmin={isFoundationsAdmin}
+            isMarketplaceAdmin={isMarketplaceAdmin}
             offGroupName={offGroupName}
+            isOffGrouping={isOffGrouping}
+            isDesktopMode={connectIsDesktop}
           />
           {userDesktopIntegrationTypes.length ? (
             <>

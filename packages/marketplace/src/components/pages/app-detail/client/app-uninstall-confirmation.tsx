@@ -11,7 +11,7 @@ import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectUninstallAppState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectClientId, selectIsFoundationsAdmin, selectOffGroupName } from '@/selector/auth'
+import { selectClientId, selectIsOffGroupingAdmin } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -43,7 +43,6 @@ export const handleUninstallAppSuccessCallback = (
 
 export const onUninstallButtonClick = (
   appId: string,
-  clientId: string,
   installationId: string,
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
@@ -98,7 +97,6 @@ export const handleSuccessAlertMessageAfterClose = (
 export const renderUninstallConfirmationModalFooter = (
   isSubmitting: boolean,
   id: string,
-  clientId: string,
   installationId: string,
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
@@ -126,7 +124,6 @@ export const renderUninstallConfirmationModalFooter = (
         variant="danger"
         onClick={onUninstallButtonClick(
           id,
-          clientId,
           installationId,
           dispatch,
           setIsSuccessAlertVisible,
@@ -187,8 +184,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectUninstallAppState)
-  const isFoundationsAdmin = selectIsFoundationsAdmin(connectSession)
-  const offGroupName = selectOffGroupName(connectSession)
+  const isOffGroupingAdmin = selectIsOffGroupingAdmin(connectSession)
   const isSubmitting = installationFormState?.isLoading
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -204,7 +200,6 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
         footer={renderUninstallConfirmationModalFooter(
           isSubmitting,
           id,
-          clientId,
           installationId,
           dispatch,
           setIsSuccessAlertVisible,
@@ -213,7 +208,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           connectIsDesktop,
         )}
       >
-        {offGroupName && isFoundationsAdmin ? (
+        {isOffGroupingAdmin ? (
           <>
             Are you sure you wish to uninstall {name}? This action will uninstall the app for your group ‘
             {connectSession?.loginIdentity.offGroupName}’

@@ -64,7 +64,6 @@ describe('ClientAppUninstallConfirmation', () => {
       const mockFunction = jest.fn()
       const fn = onUninstallButtonClick(
         appId,
-        clientId,
         installationId,
         spyDispatch,
         mockFunction,
@@ -144,7 +143,6 @@ describe('ClientAppUninstallConfirmation', () => {
           {renderUninstallConfirmationModalFooter(
             false,
             appId,
-            clientId,
             installationId,
             spyDispatch,
             jest.fn(),
