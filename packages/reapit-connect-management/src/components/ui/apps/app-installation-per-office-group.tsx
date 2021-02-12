@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
-import { FadeIn, Loader, Section, Table } from '@reapit/elements'
+import { FadeIn, Loader, Section, Table, Button, FlexContainerBasic } from '@reapit/elements'
 import OfficeListCell from '../offices/office-list-cell'
 import { URLS } from '../../../constants/api'
 import { orgIdEffectHandler } from '../../../utils/org-id-effect-handler'
@@ -45,6 +45,34 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
 
   if (officeGroupsValidating) return <Loader />
 
+  const toggleAllOfficeGroups = desiredState => {
+    if (!officeGroupsTableData) return false
+
+    const removeList = [] as string[]
+    const addList = [] as string[]
+
+    officeGroupsTableData.forEach(({ customerId }) => {
+      if (!customerId) return false
+      const previouslyInstalled = isPreviouslyInstalled(installations, customerId)
+
+      if (desiredState === true && !previouslyInstalled && !officeGroupsToAdd.includes(customerId))
+        addList.push(customerId)
+      if (desiredState === false && previouslyInstalled && !officeGroupsToRemove.includes(customerId))
+        removeList.push(customerId)
+    })
+
+    if (desiredState === true) {
+      setOfficeGroupsToAdd([...officeGroupsToAdd, ...addList])
+      setOfficeGroupsToRemove([])
+    } else {
+      setOfficeGroupsToAdd([])
+      setOfficeGroupsToRemove([...officeGroupsToRemove, ...removeList])
+    }
+  }
+
+  const isPreviouslyInstalled = (installations, client) =>
+    installations && installations.data && !!installations.data.find(i => i.client === client)
+
   const toggleOfficeGroupsToAdd = (customerId: string) => {
     officeGroupsToAdd.includes(customerId)
       ? setOfficeGroupsToAdd(officeGroupsToAdd.filter(item => item !== customerId))
@@ -57,8 +85,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   }
 
   const ToggleOfficeGroupSelectionCell = ({ cell: { value } }) => {
-    const previouslyInstalledForOfficeGroup =
-      installations && installations.data && !!installations.data.find(i => i.client === value)
+    const previouslyInstalledForOfficeGroup = isPreviouslyInstalled(installations, value)
     const checked =
       (previouslyInstalledForOfficeGroup && !officeGroupsToRemove.includes(value)) ||
       (!previouslyInstalledForOfficeGroup && officeGroupsToAdd.includes(value))
@@ -83,6 +110,14 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
 
   return (
     <Section>
+      <FlexContainerBasic className="justify-end">
+        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(true)}>
+          Select all
+        </Button>
+        <Button variant="secondary" onClick={() => toggleAllOfficeGroups(false)}>
+          Deselect all
+        </Button>
+      </FlexContainerBasic>
       <FadeIn>
         <Table
           data={officeGroupsTableData ? officeGroupsTableData : []}

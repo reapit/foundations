@@ -17,6 +17,42 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
       className=""
       data-test=""
     >
+      <Component
+        className="justify-end"
+      >
+        <div
+          className=""
+        >
+          <Component
+            onClick={[Function]}
+            variant="secondary"
+          >
+            <button
+              className="button  is-secondary  "
+              data-test=""
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Select all
+            </button>
+          </Component>
+          <Component
+            onClick={[Function]}
+            variant="secondary"
+          >
+            <button
+              className="button  is-secondary  "
+              data-test=""
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Deselect all
+            </button>
+          </Component>
+        </div>
+      </Component>
       <mock-styled.div>
         <Component
           columns={
