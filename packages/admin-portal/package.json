@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js && serverless deploy",
+    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js && serverless deploy",
     "start:dev": "webpack-dev-server --hot --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",

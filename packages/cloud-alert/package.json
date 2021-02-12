@@ -20,6 +20,8 @@
     "babel-loader": "^8.2.2",
     "concurrently": "^5.3.0",
     "cypress": "^6.4.0",
+    "cypress-file-upload": "^3.5.1",
+    "cypress-plugin-retries": "^1.5.2",
     "cypress-plugin-snapshots": "^1.4.3",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.11.0",

@@ -7,8 +7,8 @@ const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const AutoDllPlugin = require('autodll-webpack-plugin')
 const { ESBuildPlugin } = require('esbuild-loader')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const EXCLUDE_PACKAGES = ['linaria']
 
 const generateRegexExcludePackages = () => {
@@ -31,6 +31,7 @@ const webpackConfig = {
   },
   plugins: [
     new ESBuildPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
         files: './src/**/*.{ts,tsx,js,jsx}',
@@ -59,7 +60,7 @@ const webpackConfig = {
         appleStartup: true,
         coast: false,
         favicons: true,
-        firefox: true,
+        firefox: false,
         opengraph: false,
         twitter: false,
         yandex: false,
@@ -67,57 +68,6 @@ const webpackConfig = {
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
-    new AutoDllPlugin({
-      inject: true,
-      filename: '[name].dll.js',
-      context: process.cwd(),
-      entry: {
-        vendor: [
-          'hardtack',
-          'himalaya',
-          'jsonwebtoken',
-          'linaria',
-          'pell',
-          'prop-types',
-          'papaparse',
-          'react',
-          'react-dom',
-          'file-saver',
-          'dayjs',
-          'react-ga',
-          'react-redux',
-          'react-router',
-          'react-router-dom',
-          'redux',
-          'redux-saga',
-          'formik',
-          'yup',
-          'chart.js',
-          'diff',
-          'react-chartjs-2',
-          'react-responsive',
-          'swagger-ui-react',
-          'lodash.isequal',
-          'lodash.orderby',
-          'rc-dialog',
-          'rc-notification',
-          'rc-select',
-          'rc-tooltip',
-          'react-datasheet',
-          'react-datepicker',
-          'react-google-map',
-          'react-google-maps-loader',
-          'react-icons',
-          'react-image-crop',
-          'react-table',
-          'react-to-print',
-          'jwk-to-pem',
-          'isomorphic-fetch',
-          'little-loader',
-          'react-infinite-scroll-component',
-        ],
-      },
-    }),
   ],
   module: {
     rules: [
@@ -129,6 +79,7 @@ const webpackConfig = {
             loader: 'babel-loader',
             options: {
               presets: ['linaria/babel'],
+              plugins: [require.resolve('react-refresh/babel')],
             },
           },
           {
@@ -168,7 +119,6 @@ const webpackConfig = {
                   localsConvention: 'camelCase',
                 },
               },
-              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {
@@ -186,7 +136,6 @@ const webpackConfig = {
               {
                 loader: 'css-loader',
               },
-              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {
