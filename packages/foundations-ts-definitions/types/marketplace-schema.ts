@@ -189,6 +189,10 @@ export interface AppDetailModel {
    * Gets a flag to determine if the app is free to use
    */
   isFree?: boolean
+  /**
+   * Gets a flag to determing if the app is marked as hidden
+   */
+  isHidden?: boolean
   category?: CategoryModel
   /**
    * Gets the collection of scopes against the app
