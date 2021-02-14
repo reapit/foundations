@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements'
 import MockDate from 'mockdate'
 import { idCheck } from '@/sagas/__stubs__/id-check'
@@ -21,11 +20,11 @@ describe('daytime', () => {
         checkDate: '1-01-01T00:00:00+00:00',
         identityDocument1: {
           ...identityDocument1,
-          expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+          expiry: toLocalTime(identityDocument1?.expiry as string, DATE_TIME_FORMAT.RFC3339),
         },
         identityDocument2: {
           ...identityDocument2,
-          expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+          expiry: toLocalTime(identityDocument2?.expiry as string, DATE_TIME_FORMAT.RFC3339),
         },
       })
     })
@@ -44,11 +43,11 @@ describe('daytime', () => {
         checkDate: '1-01-01',
         identityDocument1: {
           ...identityDocument1,
-          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+          expiry: toUTCTime(identityDocument1?.expiry as string, DATE_TIME_FORMAT.YYYY_MM_DD),
         },
         identityDocument2: {
           ...identityDocument2,
-          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+          expiry: toUTCTime(identityDocument2?.expiry as string, DATE_TIME_FORMAT.YYYY_MM_DD),
         },
       })
     })

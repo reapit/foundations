@@ -2,11 +2,17 @@
   "name": "cloud-alert",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Duong Pham <duongph@reapit.cloud>",
+  "author": "Reapit Ltd",
   "license": "MIT",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:ci": "cypress run"
+    "start": "cypress open",
+    "test": "cypress run",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "echo '...skipping...'"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

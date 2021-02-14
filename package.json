@@ -31,13 +31,13 @@
   "scripts": {
     "build": "yarn workspaces foreach --parallel --verbose run build",
     "test": "yarn workspaces foreach --parallel --verbose run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
-    "config": "yarn workspaces foreach --parallel run config",
+    "conf": "yarn workspaces foreach --parallel --verbose run conf",
     "lint": "yarn workspaces foreach run lint --parallel --verbose",
-    "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
+    "secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn scan-secrets && yarn changed foreach run commit --parallel --verbose"
+      "pre-commit": "yarn secrets && yarn changed foreach run commit --parallel --verbose"
     }
   },
   "dependencies": {

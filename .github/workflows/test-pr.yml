@@ -12,7 +12,7 @@ env:
   CI: true
 
 jobs:
-  test:
+  test-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

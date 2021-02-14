@@ -1,5 +1,5 @@
 const { runCommand } = require('../../../scripts/release/utils')
-const updateNPM = require('./update-npm')
+// const updateNPM = require('./update-npm')
 const releaseGithub = require('./release-github')
 
 const gitStatus = runCommand('git', ['status', '-s'])
@@ -11,5 +11,5 @@ if (!gitStatus) {
   return
 }
 
-updateNPM()
+// updateNPM()
 releaseGithub()

@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
-const { getVersionTag, getRef } = require('../release/utils')
+const { getVersionTag, getRef } = require('./utils')
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
@@ -39,7 +39,7 @@ const webpackConfig = {
     minimize: true,
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'es2015',
+        target: 'es2019',
       }),
     ],
   },
@@ -92,57 +92,6 @@ const webpackConfig = {
           },
           'postcss-loader',
         ],
-      },
-      {
-        test: /\.(sass|scss)$/,
-        oneOf: [
-          {
-            resourceQuery: /\?mod$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  modules: {
-                    localIdentName: '[hash:base64:5]',
-                  },
-                  localsConvention: 'camelCase',
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-          {
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,

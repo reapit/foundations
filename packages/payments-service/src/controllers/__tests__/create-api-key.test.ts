@@ -2,6 +2,7 @@ import { createApiKey } from '../create-api-key'
 import { logger } from '../../core/logger'
 import { db } from '../../core/db'
 import { Response } from 'express'
+import { AppRequest } from '@reapit/node-utils'
 
 jest.mock('../../core/logger')
 jest.mock('../../core/db')
@@ -22,7 +23,7 @@ const baseMockRes = {
 
 describe('createApiKey', () => {
   it('should throw and catch if no clientCode is in the body', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       body: {
         ...baseMockReq.body,
@@ -34,7 +35,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response, jest.fn())
+    await createApiKey(mockReq as AppRequest, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -45,7 +46,7 @@ describe('createApiKey', () => {
   })
 
   it('should throw and catch if no paymentId is in the body', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       body: {
         ...baseMockReq.body,
@@ -57,7 +58,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response, jest.fn())
+    await createApiKey(mockReq as AppRequest, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -68,7 +69,7 @@ describe('createApiKey', () => {
   })
 
   it('should throw and catch if no keyExpiresAt is in the body', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       body: {
         ...baseMockReq.body,
@@ -80,7 +81,7 @@ describe('createApiKey', () => {
       ...baseMockRes,
     }
 
-    await createApiKey(mockReq, mockRes as Response, jest.fn())
+    await createApiKey(mockReq as AppRequest, mockRes as Response, jest.fn())
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -91,7 +92,7 @@ describe('createApiKey', () => {
   })
 
   it('should create an api key and return a 201 to the user on success', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
     }
 
@@ -101,7 +102,7 @@ describe('createApiKey', () => {
 
     const mockApiKey = 'SOME_API_KEY'
 
-    await createApiKey(mockReq, mockRes as Response, jest.fn(), mockApiKey)
+    await createApiKey(mockReq as AppRequest, mockRes as Response, jest.fn(), mockApiKey)
 
     expect(db.put).toHaveBeenCalledWith({
       apiKey: mockApiKey,

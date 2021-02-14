@@ -16,11 +16,11 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Install dependencies
+      - name: Install
         run: yarn
 
-      - name: Make Request To Prod
-        run: yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=production,PACKAGE_NAME=all
+      - name: Healthcheck
+        run: yarn workspace cloud-alert test --env ENVIRONMENT=production,PACKAGE_NAME=all
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}

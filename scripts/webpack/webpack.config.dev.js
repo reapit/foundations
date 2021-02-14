@@ -4,7 +4,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
-const { getVersionTag } = require('../release/utils')
+const { getVersionTag } = require('./utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { ESBuildPlugin } = require('esbuild-loader')
@@ -100,57 +100,6 @@ const webpackConfig = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.(sass|scss)$/,
-        oneOf: [
-          {
-            resourceQuery: /\?mod$/,
-            use: [
-              {
-                loader: 'style-loader',
-              },
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: {
-                    localIdentName: '[name]-[local]-[hash:base64:5]',
-                  },
-                  localsConvention: 'camelCase',
-                },
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules'],
-                },
-              },
-            ],
-          },
-          {
-            use: [
-              {
-                loader: 'style-loader',
-              },
-              {
-                loader: 'css-loader',
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules'],
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,

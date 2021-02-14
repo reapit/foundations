@@ -7,12 +7,12 @@ import {
   SearchParams,
   resultSetSearchParams,
 } from '../actions/result'
-import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
+import { ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface ResultState {
   loading: boolean
   search: SearchParams | null
-  contacts: PagedResultContactModel_ | null
+  contacts: ContactModelPagedResult | null
 }
 
 export const defaultState: ResultState = {

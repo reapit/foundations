@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
+import { ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   Result,
   ResultProps,
@@ -16,7 +16,7 @@ import { contacts } from '@/sagas/__stubs__/contacts'
 import { ReduxState } from '@/types/core'
 import { SearchParams } from '@/actions/result'
 
-const props = (search: SearchParams, contacts: PagedResultContactModel_ | null): ResultProps => ({
+const props = (search: SearchParams, contacts: ContactModelPagedResult | null): ResultProps => ({
   resultState: {
     loading: false,
     search: search,

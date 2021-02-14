@@ -14,7 +14,7 @@ env:
   CI: true
 
 jobs:
-  release_dev:
+  release-dev:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

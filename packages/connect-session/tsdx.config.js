@@ -8,6 +8,8 @@ module.exports = {
           ...config.output.globals,
           'isomorphic-fetch': 'isomorphic-fetch',
           jsonwebtoken: 'jsonwebtoken',
+          'jwk-to-pem': 'jwk-to-pem',
+          axios: 'axios',
         },
       },
     }

@@ -9,18 +9,18 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
   const { identityDocument1, identityDocument2 } = identityChecks
   const newIdentity = {
     ...identityChecks,
-    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+    checkDate: toLocalTime(identityChecks.checkDate as string, DATE_TIME_FORMAT.RFC3339),
   }
   if (identityDocument1) {
     newIdentity.identityDocument1 = {
       ...identityDocument1,
-      expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+      expiry: toLocalTime(identityDocument1?.expiry as string, DATE_TIME_FORMAT.RFC3339),
     }
   }
   if (identityDocument2) {
     newIdentity.identityDocument2 = {
       ...identityDocument2,
-      expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+      expiry: toLocalTime(identityDocument2?.expiry as string, DATE_TIME_FORMAT.RFC3339),
     }
   }
   return newIdentity
@@ -34,18 +34,18 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
   const { identityDocument1, identityDocument2 } = identityChecks
   const newIdentity = {
     ...identityChecks,
-    checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+    checkDate: toUTCTime(identityChecks.checkDate as string, DATE_TIME_FORMAT.YYYY_MM_DD),
   }
   if (identityDocument1) {
     newIdentity.identityDocument1 = {
       ...identityDocument1,
-      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+      expiry: toUTCTime(identityDocument1?.expiry as string, DATE_TIME_FORMAT.YYYY_MM_DD),
     }
   }
   if (identityDocument2) {
     newIdentity.identityDocument2 = {
       ...identityDocument2,
-      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+      expiry: toUTCTime(identityDocument2?.expiry as string, DATE_TIME_FORMAT.YYYY_MM_DD),
     }
   }
   return newIdentity
