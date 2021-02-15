@@ -1,4 +1,4 @@
-const { runCommand } = require('../../../scripts/release/utils')
+const { runCommand } = require('../../../scripts/webpack/utils')
 // const updateNPM = require('./update-npm')
 const releaseGithub = require('./release-github')
 

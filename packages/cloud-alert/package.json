@@ -5,8 +5,8 @@
   "author": "Reapit Ltd",
   "license": "MIT",
   "scripts": {
-    "start": "cypress open",
-    "test": "cypress run",
+    "start": "cypress run",
+    "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",
     "release": "echo '...skipping...'",

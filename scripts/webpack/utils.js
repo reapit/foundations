@@ -43,5 +43,6 @@ const getVersionTag = () => {
 
 module.exports = {
   getVersionTag,
+  runCommand,
   getRef,
 }

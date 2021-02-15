@@ -1,6 +1,6 @@
 const Octokit = require('@octokit/rest')
 const getCurrentTimeStamp = require('./get-current-time-stamp-string')
-const { runCommand } = require('../../../scripts/release/utils')
+const { runCommand } = require('../../../scripts/webpack/utils')
 const { execSync } = require('child_process')
 
 const { GITHUB_TOKEN } = process.env

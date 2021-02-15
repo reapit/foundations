@@ -28,9 +28,6 @@ jobs:
       - name: Fetch Definitions
         run: yarn workspace @reapit/foundations-ts-definitions start
 
-      - name: Raise PR
-        run: yarn workspace @reapit/foundations-ts-definitions build
-
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

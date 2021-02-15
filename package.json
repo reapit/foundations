@@ -29,10 +29,10 @@
     ]
   },
   "scripts": {
-    "build": "yarn workspaces foreach --parallel --verbose run build",
-    "test": "yarn workspaces foreach --parallel --verbose run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
-    "conf": "yarn workspaces foreach --parallel --verbose run conf",
-    "lint": "yarn workspaces foreach --parallel --verbose run lint",
+    "build-all": "yarn workspaces foreach --parallel --verbose run build",
+    "test-all": "yarn workspaces foreach --parallel --verbose run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
+    "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
+    "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
     "secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {

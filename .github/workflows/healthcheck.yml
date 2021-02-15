@@ -20,7 +20,7 @@ jobs:
         run: yarn
 
       - name: Healthcheck
-        run: yarn workspace cloud-alert test --env ENVIRONMENT=production,PACKAGE_NAME=all
+        run: yarn workspace cloud-alert start --env ENVIRONMENT=production,PACKAGE_NAME=all
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
