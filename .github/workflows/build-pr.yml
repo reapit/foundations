@@ -1,4 +1,4 @@
-name: Test PR
+name: Build PR
 
 on:
   pull_request:
@@ -31,11 +31,9 @@ jobs:
       - name: Fetch config
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
+
+      - name: Build
+        run: |
+          yarn changed foreach --parallel --verbose --git-range origin/master run build
+
       
-      - name: Lint
-        run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run lint
-    
-      - name: Test
-        run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
