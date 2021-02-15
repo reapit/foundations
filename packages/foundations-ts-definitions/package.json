@@ -7,17 +7,14 @@
   ],
   "main": "./types/index.ts",
   "scripts": {
-    "fetch-definitions": "node './scripts/fetch-definitions.js'",
-    "handle-cron-job": "node './scripts/handle-cronjob.js'",
-    "build:prod": "echo '...skipping...'",
-    "test:ci": "echo '...skipping...'",
-    "check:ci": "echo '...skipping...'"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "start": "node './scripts/fetch-definitions.js'",
+    "test": "echo '...skipping...'",
+    "build": "node './scripts/handle-cronjob.js'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "yarn npm publish",
+    "conf": "echo '...skipping...'",
+    "commit": "echo '...skipping...'"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",

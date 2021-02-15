@@ -32,7 +32,7 @@ export const callGetTenancyByIdAPI = async (args: GetTenancyByIdArgs, context: S
   logger.info('callGetTenancyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetTenancyByIdReturn>(
       `${URLS.tenancies}/${id}?${params}`,
       {
@@ -53,7 +53,7 @@ export const callGetTenanciesAPI = async (args: GetTenanciesArgs, context: Serve
   const traceId = context.traceId
   logger.info('callGetTenanciesAPI', { args, traceId })
   try {
-    const params = qs.stringify(args)
+    const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetTenanciesReturn>(`${URLS.tenancies}?${params}`, {
       headers: {
         Authorization: context.authorization,
@@ -74,7 +74,7 @@ export const callGetTenancyRelationshipsAPI = async (
   logger.info('callGetTenancyRelationshipsAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
-    const params = qs.stringify(paramsObj)
+    const params = qs.stringify(paramsObj as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetTenancyRelationshipsReturn>(
       `${URLS.tenancies}/${id}/relationships?${params}`,
       {
@@ -98,7 +98,7 @@ export const callGetTenancyChecksAPI = async (
   logger.info('callGetTenancyChecksAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
-    const params = qs.stringify(paramsObj)
+    const params = qs.stringify(paramsObj as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetTenancyChecksReturn>(
       `${URLS.tenancies}/${id}/checks?${params}`,
       {

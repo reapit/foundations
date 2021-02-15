@@ -989,6 +989,7 @@ export interface Applicants {
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   bedroomsFrom?: number
   bedroomsTo?: number
+  active?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string

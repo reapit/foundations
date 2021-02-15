@@ -11,25 +11,27 @@
   "author": "Author",
   "main": "./src/index.ts",
   "scripts": {
-    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "fetch-config": "yarn config-manager --namespace cloud --entity reapit-connect-management --name local --mode fetch",
-    "start:dev": "webpack-dev-server --hot --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
-    "start:prod": "serve public/dist -s -l 8080",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "start": "webpack-dev-server --hot --color --mode development",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "rimraf public/dist && NODE_ENV=production webpack",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity reapit-connect-management --name local --mode fetch",
+    "commit": "concurrently \"yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
-    "just-debounce-it": "^1.1.0"
+    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/elements": "workspace:packages/elements",
+    "dayjs": "^1.10.4",
+    "just-debounce-it": "^1.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@reapit/config-manager": "^2.0.8",
+    "@reapit/config-manager": "workspace:packages/config-manager",
     "@types/just-debounce-it": "^1.1.0",
     "concurrently": "^5.3.0",
     "cross-env": "^6.0.3",

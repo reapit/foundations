@@ -5270,7 +5270,46 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/elements@^1.0.10, @reapit/elements@workspace:packages/elements":
+"@reapit/elements@npm:^0.5.60":
+  version: 0.5.63
+  resolution: "@reapit/elements@npm:0.5.63"
+  dependencies:
+    "@storybook/theming": ^5.2.8
+    "@types/rc-select": ^5.9.34
+    bulma: ^0.9.0
+    formik: ^2.0.4
+    gh-pages: ^2.2.0
+    hardtack: ^4.1.0
+    himalaya: ^1.1.0
+    jsonwebtoken: ^8.5.1
+    linaria: ^1.4.0-beta.10
+    papaparse: ^5.1.1
+    pell: ^1.0.6
+    prop-types: ^15.7.2
+    rc-dialog: ^8.0.1
+    rc-notification: ^4.0.0
+    rc-select: ^10.1.8
+    rc-tooltip: ^4.0.3
+    react-datasheet: ^1.4.0
+    react-datepicker: ^2.9.6
+    react-google-map: ^3.1.1
+    react-google-maps-loader: 4.2.5
+    react-icons: ^3.7.0
+    react-image-crop: 8.6.4
+    react-table: 7.2.2
+    react-transition-group: ^4.4.0
+    snyk: ^1.338.0
+  peerDependencies:
+    dayjs: ^1.8.19
+    react: ^16.11.0
+    react-dom: ^16.11.0
+    react-router: ^5.1.2
+    react-router-dom: ^5.1.2
+  checksum: 7f23b724bb4d248c4a824754617265eb1e857c986813b48385b2039d8910298f060f1435f470e01097ace9dd1dbe0e3a27a8635e8748dd56f3ab53e256d58721
+  languageName: node
+  linkType: hard
+
+"@reapit/elements@workspace:packages/elements":
   version: 0.0.0-use.local
   resolution: "@reapit/elements@workspace:packages/elements"
   dependencies:
@@ -5344,45 +5383,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/elements@npm:^0.5.60":
-  version: 0.5.63
-  resolution: "@reapit/elements@npm:0.5.63"
-  dependencies:
-    "@storybook/theming": ^5.2.8
-    "@types/rc-select": ^5.9.34
-    bulma: ^0.9.0
-    formik: ^2.0.4
-    gh-pages: ^2.2.0
-    hardtack: ^4.1.0
-    himalaya: ^1.1.0
-    jsonwebtoken: ^8.5.1
-    linaria: ^1.4.0-beta.10
-    papaparse: ^5.1.1
-    pell: ^1.0.6
-    prop-types: ^15.7.2
-    rc-dialog: ^8.0.1
-    rc-notification: ^4.0.0
-    rc-select: ^10.1.8
-    rc-tooltip: ^4.0.3
-    react-datasheet: ^1.4.0
-    react-datepicker: ^2.9.6
-    react-google-map: ^3.1.1
-    react-google-maps-loader: 4.2.5
-    react-icons: ^3.7.0
-    react-image-crop: 8.6.4
-    react-table: 7.2.2
-    react-transition-group: ^4.4.0
-    snyk: ^1.338.0
-  peerDependencies:
-    dayjs: ^1.8.19
-    react: ^16.11.0
-    react-dom: ^16.11.0
-    react-router: ^5.1.2
-    react-router-dom: ^5.1.2
-  checksum: 7f23b724bb4d248c4a824754617265eb1e857c986813b48385b2039d8910298f060f1435f470e01097ace9dd1dbe0e3a27a8635e8748dd56f3ab53e256d58721
-  languageName: node
-  linkType: hard
-
 "@reapit/foundations-ts-definitions@workspace:packages/foundations-ts-definitions":
   version: 0.0.0-use.local
   resolution: "@reapit/foundations-ts-definitions@workspace:packages/foundations-ts-definitions"
@@ -5413,8 +5413,11 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     concurrently: ^5.3.0
+    cross-env: ^7.0.3
     error-polyfill: ^0.1.2
     eslint: 7.11.0
+    jest: ^26.6.3
+    jest-coverage-badges: ^1.1.2
   languageName: unknown
   linkType: soft
 
@@ -14495,15 +14498,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "data-warehouse@workspace:packages/data-warehouse"
   dependencies:
-    "@reapit/config-manager": ^2.0.8
-    "@reapit/connect-session": ^2.0.9
-    "@reapit/elements": ^1.0.10
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     diff: ^4.0.1
     eslint: 7.11.0
-    jest: ^26.6.1
+    jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     react: ^16.12.0
     react-dom: ^16.12.0
@@ -17022,6 +17025,7 @@ __metadata:
   dependencies:
     "@aws/dynamodb-data-mapper": ^0.7.3
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/node": ^5.24.2
     "@types/body-parser": ^1.19.0
@@ -17032,19 +17036,23 @@ __metadata:
     aws-lambda: ^1.0.6
     aws-sdk: ^2.750.0
     body-parser: ^1.19.0
+    concurrently: ^5.3.0
     cors: ^2.8.5
+    cross-env: ^7.0.3
+    eslint: ^7.20.0
     express: ^4.17.1
     express-validator: ^6.9.2
     jest: ^26.6.3
     jwt-decode: ^3.1.2
     morgan: ^1.10.0
     serialize-error: ^7.0.1
-    serverless: ^2.17.0
+    serverless: ^2.23.0
     serverless-deployment-bucket: ^1.1.2
     serverless-dynamodb-local: ^0.2.39
     serverless-http: ^2.5.0
     serverless-offline: ^6.7.0
     serverless-webpack: ^5.3.5
+    webpack: ^4.41.5
   languageName: unknown
   linkType: soft
 
@@ -19629,17 +19637,20 @@ __metadata:
     concurrently: ^5.3.0
     cookie: 0.4.1
     copy-webpack-plugin: 5.1.1
+    cross-env: ^7.0.3
     dataloader: ^2.0.0
     dayjs: ^1.10.4
     eslint: 7.11.0
-    graphql: ^14.5.8
+    graphql: 14.5.8
     graphql-depth-limit: ^1.1.0
     graphql-import: ^0.7.1
     graphql-type-json: ^0.3.1
     https-proxy-agent: 5.0.0
     jest: ^25.1.0
+    jest-coverage-badges: ^1.1.2
     lodash.merge: ^4.6.2
     merge-graphql-schemas: ^1.7.6
+    prettier: ^2.2.1
     query-string: ^6.13.0
     react: ^16.12.0
     react-dom: ^16.12.0
@@ -19657,7 +19668,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"graphql-tag@npm:^2.10.1, graphql-tag@npm:^2.4.2, graphql-tag@npm:^2.9.2":
+"graphql-tag@npm:^2.10.1":
+  version: 2.12.1
+  resolution: "graphql-tag@npm:2.12.1"
+  dependencies:
+    tslib: ^1.14.1
+  peerDependencies:
+    graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+  checksum: 24598a32799130942d6a86346794798fd3b4533fbc9c2f76af3546ea099778803387ead881c8099db76c6607d3064c970b3e59607d057554d14f82627a536d22
+  languageName: node
+  linkType: hard
+
+"graphql-tag@npm:^2.4.2, graphql-tag@npm:^2.9.2":
   version: 2.11.0
   resolution: "graphql-tag@npm:2.11.0"
   peerDependencies:
@@ -19722,12 +19744,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^14.5.3, graphql@npm:^14.5.8":
+"graphql@npm:14.5.8":
+  version: 14.5.8
+  resolution: "graphql@npm:14.5.8"
+  dependencies:
+    iterall: ^1.2.2
+  checksum: 37cab777badcdc31fc59595300d44ffe51f08ab47cc61dca5de31fc17a4021edb2153b58d8345e15c0d6769bd3023970b0b422efc666a185f23b912f41543e86
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^14.5.3":
   version: 14.6.0
   resolution: "graphql@npm:14.6.0"
   dependencies:
     iterall: ^1.2.2
   checksum: 24cab2758cea2ce592c59af28cac0fc80d2f2eac2f2441ce0152ce3c5a3a2416394aadf71b2d8db58f46c44ca3d20747eb168f58502f6eadafab0f11dea13791
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^14.5.8":
+  version: 14.7.0
+  resolution: "graphql@npm:14.7.0"
+  dependencies:
+    iterall: ^1.2.2
+  checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
   languageName: node
   linkType: hard
 
@@ -25270,7 +25310,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mailer-service@workspace:packages/mailer-service"
   dependencies:
-    "@reapit/config-manager": ^2.0.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@sentry/node": ^5.24.2
     "@types/body-parser": ^1.19.0
     "@types/cors": ^2.8.7
@@ -25285,11 +25325,13 @@ __metadata:
     body-parser: ^1.19.0
     concurrently: ^5.3.0
     cors: ^2.8.5
+    cross-env: ^7.0.3
     ejs: ^3.1.5
     eslint: 7.11.0
     express: ^4.17.1
     express-session: ^1.17.1
     jest: ^25.1.0
+    jest-coverage-badges: ^1.1.2
     memorystore: ^1.6.4
     morgan: ^1.10.0
     serialize-error: ^7.0.1
@@ -25299,6 +25341,7 @@ __metadata:
     serverless-offline: ^6.7.0
     serverless-webpack: ^5.3.5
     uuid: ^8.3.0
+    webpack: ^4.41.5
   languageName: unknown
   linkType: soft
 
@@ -28549,14 +28592,21 @@ __metadata:
   resolution: "payments-client@workspace:packages/payments-client"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
     concurrently: ^5.3.0
     cross-env: ^6.0.3
+    dayjs: ^1.10.4
     eslint: 7.11.0
     jest: ^26.6.1
     jest-coverage-badges: ^1.1.2
-    react: 16.12.0
+    react: ^16.12.0
+    react-dom: ^16.12.0
+    react-router: ^5.1.2
+    react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    snyk: ^1.341.1
     swr: ^0.3.9
     ts-jest: ^26.4.3
     typescript: 4.0.3
@@ -28571,7 +28621,7 @@ __metadata:
   dependencies:
     "@aws/dynamodb-data-mapper": ^0.7.3
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
-    "@reapit/config-manager": ^2.0.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": ^2.0.9
     "@sentry/node": ^5.24.2
     "@types/body-parser": ^1.19.0
@@ -30733,17 +30783,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:16.12.0":
-  version: 16.12.0
-  resolution: "react@npm:16.12.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-  checksum: b6feaa411a4280e0da177df18095da85508fd0285cfbd389109365a818cec10631dbed63123a5137734f84321bab0d35d508bf7f1fc4f9011ea822f6c1508be8
-  languageName: node
-  linkType: hard
-
 "react@npm:^16.12.0":
   version: 16.13.1
   resolution: "react@npm:16.13.1"
@@ -31042,14 +31081,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "reapit-connect-management@workspace:packages/reapit-connect-management"
   dependencies:
-    "@reapit/config-manager": ^2.0.8
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
     "@types/just-debounce-it": ^1.1.0
     concurrently: ^5.3.0
     cross-env: ^6.0.3
+    dayjs: ^1.10.4
     eslint: 7.11.0
     jest: ^26.6.1
     jest-coverage-badges: ^1.1.2
     just-debounce-it: ^1.1.0
+    react: ^16.12.0
+    react-dom: ^16.12.0
+    react-router: ^5.1.2
+    react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
     webpack: ^4.41.5
@@ -36176,6 +36222,13 @@ resolve@1.15.1:
   version: 1.13.0
   resolution: "tslib@npm:1.13.0"
   checksum: 5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^1.14.1":
+  version: 1.14.1
+  resolution: "tslib@npm:1.14.1"
+  checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17
   languageName: node
   linkType: hard
 

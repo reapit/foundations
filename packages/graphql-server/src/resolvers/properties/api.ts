@@ -25,7 +25,7 @@ export const callGetPropertyByIdAPI = async (
   logger.info('callGetPropertyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetPropertyByIdReturn>(
       `${URLS.properties}/${id}?${params}`,
       {

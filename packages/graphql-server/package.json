@@ -8,21 +8,14 @@
   "author": "reapit global",
   "main": "dist/index.js",
   "scripts": {
-    "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"prettier src/**/*.{graphql,gql} --write \" \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "release:development": "yarn build:schema && serverless deploy --stage dev",
-    "release:production": "yarn build:schema && serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "start:dev": "yarn build:schema && serverless offline --stage local --printOutput",
-    "start:prod": "node ./dist/app.js",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "fetch-ts-definitions": "node scripts/fetch-ts-definitions.js",
-    "fetch-config": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "start": "yarn build && yarn serverless offline start --stage local --printOutput",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
+    "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
+    "commit": "concurrently \"yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.1.7",
@@ -34,7 +27,7 @@
     "cookie": "0.4.1",
     "dataloader": "^2.0.0",
     "dayjs": "^1.10.4",
-    "graphql": "^14.5.8",
+    "graphql": "14.5.8",
     "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^0.7.1",
     "graphql-type-json": "^0.3.1",
@@ -65,13 +58,19 @@
     "bufferutil": "^4.0.1",
     "concurrently": "^5.3.0",
     "copy-webpack-plugin": "5.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "7.11.0",
     "jest": "^25.1.0",
+    "jest-coverage-badges": "^1.1.2",
+    "prettier": "^2.2.1",
     "serverless": "^2.23.0",
     "serverless-offline": "^6.1.4",
     "serverless-webpack": "^5.3.2",
     "webpack": "^4.41.5",
     "webpack-node-externals": "^1.7.2"
+  },
+  "resolutions": {
+    "graphql": "14.5.8"
   },
   "snyk": true
 }

@@ -32,7 +32,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn changed foreach --parallel --verbose --git-range HEAD~1 config --name development
+          yarn changed foreach --parallel --verbose --git-range HEAD~1 conf --name development
 
       - name: Build
         run: |

@@ -69,7 +69,7 @@ describe('callGetVendorByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: vendorStub })),
     })
-    const args = { id: vendorStub.id }
+    const args = { id: vendorStub.id } as any
     const result = await callGetVendorByIdAPI(args, mockContext)
     expect(result).toEqual(vendorStub)
   })
@@ -78,7 +78,7 @@ describe('callGetVendorByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: vendorStub.id }
+    const args = { id: vendorStub.id } as any
     const result = await callGetVendorByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })

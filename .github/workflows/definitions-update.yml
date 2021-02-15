@@ -26,10 +26,10 @@ jobs:
         run: yarn
 
       - name: Fetch Definitions
-        run: yarn workspace @reapit/foundations-ts-definitions fetch-definitions
+        run: yarn workspace @reapit/foundations-ts-definitions start
 
       - name: Raise PR
-        run: yarn workspace @reapit/foundations-ts-definitions handle-cron-job
+        run: yarn workspace @reapit/foundations-ts-definitions build
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}

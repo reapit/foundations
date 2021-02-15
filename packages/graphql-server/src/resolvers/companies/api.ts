@@ -24,7 +24,7 @@ export const callGetCompanyByIdAPI = async (args: GetCompanyByIdArgs, context: S
   logger.info('callGetCompanyByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetCompanyByIdReturn>(
       `${URLS.companies}/${id}?${params}`,
       {

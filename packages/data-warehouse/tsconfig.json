@@ -2,29 +2,13 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
+    "sourceRoot": "/",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@reapit/connect-session": [
-        "../connect-session/src"
-      ],
-      "@reapit/elements": [
-        "../elements/src"
-      ],
-      "@reapit/elements/*": [
-        "../elements/src/*"
-      ]
+      "@/*": ["src/*"],
+      "@reapit/connect-session": ["../connect-session/src"],
+      "@reapit/elements": ["../elements/src"]
     }
   },
-  "include": [
-    "src", "src/components/pages/.tsx"
-  ],
-  "exclude": [
-    "public",
-    "dist",
-    "./webpack.config.js",
-    "node_modules",
-    "src/tests/coverage"
-  ]
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
 }

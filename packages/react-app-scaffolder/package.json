@@ -20,7 +20,14 @@
   ],
   "main": "index.js",
   "scripts": {
-    "scaffold": "yo ./app --force"
+    "start": "yo ./app --force",
+    "test": "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "echo '...skipping...'"
   },
   "dependencies": {
     "yeoman-generator": "^4.11.0",

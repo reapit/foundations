@@ -8,24 +8,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
-    "start:dev": "webpack-dev-server --hot --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
-    "start:prod": "serve public/dist -s -l 8080",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "test-e2e:dev": "cypress open --project './src/tests'",
-    "cypress:ci": "cypress run --project \"./src/tests\"",
-    "test-e2e:ci": "start-server-and-test start:prod http://localhost:8080 cypress:ci",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "fetch-config": "yarn config-manager --namespace cloud --entity marketplace --name local --mode fetch",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "start": "webpack-dev-server --hot --color --mode development",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "rimraf public/dist && NODE_ENV=production webpack",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity marketplace --name local --mode fetch",
+    "commit": "concurrently \"yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@react-hook/resize-observer": "^1.1.0",
@@ -61,18 +51,6 @@
     "serverless": "^2.23.0",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.11.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test --ci --no-color"
-    }
-  },
-  "lint-staged": {
-    "!(**/cypress/**/*.{ts,tsx})/**/src/**/*.{ts,tsx}": [
-      "yarn lint:src",
-      "git add"
-    ]
   },
   "browserslist": [
     "> 0.5%",

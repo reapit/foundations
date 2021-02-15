@@ -64,23 +64,14 @@
     "winston": "^3.3.3"
   },
   "scripts": {
-    "build:prod": "node ./scripts/build-prod.js --stage dev",
-    "start:server": "serverless offline --out public/dist --stage local",
-    "start:dev": "node ./scripts/start-dev.js",
-    "test:dev": "cross-env TZ=UTC jest --watch --color",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "svelte:check": "npx svelte-check",
-    "fetch-config": "yarn config-manager --namespace cloud --entity web-components --name local --mode fetch",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod",
-    "release:serverless:development": "node ./scripts/release-serverless.js --stage dev",
-    "release:serverless:production": "node ./scripts/release-serverless.js --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "start": "node ./scripts/start-dev.js",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "node ./scripts/build-prod.js --stage dev",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "node ./scripts/release-serverless.js",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity web-components --name local --mode fetch",
+    "commit": "concurrently \"yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "snyk": true
 }

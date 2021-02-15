@@ -35,7 +35,7 @@ const baseMockRes = {
 
 describe('listStatuses', () => {
   it('should return a 401 if the clientCode doesnt match', async () => {
-    const mockReq = {
+    const mockReq: any = {
       ...baseMockReq,
       query: {
         ...baseMockReq.query,

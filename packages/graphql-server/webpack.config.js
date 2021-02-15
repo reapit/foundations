@@ -33,7 +33,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [['@babel/preset-env', { targets: { node: '12' }, useBuiltIns: 'usage', corejs: 3 }]],
+              presets: [['@babel/preset-env', { targets: { node: '14' }, useBuiltIns: 'usage', corejs: 3 }]],
             },
           },
         ],

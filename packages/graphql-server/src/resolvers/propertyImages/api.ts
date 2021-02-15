@@ -27,7 +27,7 @@ export const callGetPropertyImageByIdAPI = async (
   logger.info('callGetPropertyImageByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetPropertyImageByIdReturn>(
       `${URLS.propertyImages}/${id}?${params}`,
       {

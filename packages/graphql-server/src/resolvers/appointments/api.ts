@@ -25,7 +25,7 @@ export const callGetAppointmentByIdAPI = async (
   logger.info('callGetAppointmentByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetAppointmentByIdReturn>(
       `${URLS.appointments}/${id}?${params}`,
       {

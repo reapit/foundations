@@ -2,7 +2,7 @@
   "name": "geo-diary",
   "version": "0.0.1",
   "private": true,
-  "description": "This is geo-diary using graphql",
+  "description": "Reapit Geo Diary App",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:reapit/app-name.git"
@@ -11,19 +11,14 @@
   "author": "Reapit",
   "main": "./src/index.ts",
   "scripts": {
-    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.pwa.prod.js",
-    "fetch-config": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "start:dev": "webpack-dev-server --hot --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
-    "start:prod": "serve public/dist -s -l 8080",
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "start": "webpack-dev-server --hot --color --mode development",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "rimraf public/dist && NODE_ENV=production webpack",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
+    "commit": "concurrently \"yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",

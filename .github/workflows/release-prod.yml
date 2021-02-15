@@ -41,7 +41,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} config --name production
+          yarn workspace ${{ steps.tagName.outputs.package }} conf --name production
       
       - name: Lint
         run: |

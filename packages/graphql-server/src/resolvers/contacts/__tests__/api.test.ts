@@ -59,7 +59,7 @@ describe('callGetContactByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: contactMock })),
     })
-    const args = { id: contactMock.id }
+    const args = { id: contactMock.id } as any
     const result = await callGetContactByIdAPI(args, mockContext)
     expect(result).toEqual(contactMock)
   })
@@ -68,7 +68,7 @@ describe('callGetContactByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: contactMock.id }
+    const args = { id: contactMock.id } as any
     const result = await callGetContactByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })

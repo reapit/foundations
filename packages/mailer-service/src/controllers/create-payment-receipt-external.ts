@@ -39,9 +39,9 @@ export const createPaymentReceiptExternal = async (
       paymentAmount,
     }: EmailPaymentReceipt = req.body
     const { traceId } = req
-    const apiKey: string | undefined = req.headers['x-api-key']
-    const clientCode: string | undefined = req.headers['reapit-customer']
-    const apiVersion: string | undefined = req.headers['api-version']
+    const apiKey: string | undefined = req.headers['x-api-key'] as string
+    const clientCode: string | undefined = req.headers['reapit-customer'] as string
+    const apiVersion: string | undefined = req.headers['api-version'] as string
     const { paymentId } = req.params
     const { senderEmail, companyName, logoUri } = getValuesFromConfig(clientCode, config)
 
