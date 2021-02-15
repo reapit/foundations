@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn secrets && yarn changed foreach --git-range origin/master --parallel --verbose run commit && git add ."
+      "pre-commit": "yarn secrets && yarn changed foreach --git-range HEAD~1 --parallel --verbose run commit && git add ."
     }
   },
   "dependencies": {

@@ -41,25 +41,25 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} conf --name production
+          yarn workspace ${{ steps.tagName.outputs.package }} run conf --name production
       
       - name: Lint
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} lint
+          yarn workspace ${{ steps.tagName.outputs.package }} run lint
     
       - name: Test
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
+          yarn workspace ${{ steps.tagName.outputs.package }} run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
 
       - name: Build
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} build
+          yarn workspace ${{ steps.tagName.outputs.package }} run build
 
       - name: Release
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} release --stage prod
+          yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
       
       - name: Publish
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} publish --tag ${{ steps.tagName.outputs.version}}
+          yarn workspace ${{ steps.tagName.outputs.package }} run publish --tag ${{ steps.tagName.outputs.version}}
 
