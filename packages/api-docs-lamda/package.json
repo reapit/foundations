@@ -38,6 +38,6 @@
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
-    "commit": "yarn test --no-cache --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "commit": "yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   }
 }
