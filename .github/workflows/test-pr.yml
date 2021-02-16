@@ -38,4 +38,4 @@ jobs:
     
       - name: Test
         run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand
+          yarn changed foreach --parallel --verbose --git-range origin/master run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand --maxWorkers=4
