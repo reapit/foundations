@@ -1,0 +1,17 @@
+// NB.
+// Leave these out for now so they aren't duplicated in the v2 and the v3.
+// When v3 becomes master, we may want to add these back in.
+
+// Global Styles - normalize then apply a base
+// @import './vendor/normalize.scss';
+// @import './base/global.scss';
+
+// Vendor and Bulma styles
+// @import './vendor/bulma.scss';
+// @import './vendor/bulma-overrides.scss';
+
+// Components
+@import './components/button.scss';
+
+// Utility Classes
+@import './base/utilities.scss';
