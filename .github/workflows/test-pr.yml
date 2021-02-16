@@ -27,6 +27,10 @@ jobs:
 
       - name: Install
         run: yarn
+
+      - name: Fetch config
+        run: |
+          yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
       
       - name: Lint
         run: |
