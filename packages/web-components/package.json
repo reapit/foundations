@@ -71,7 +71,7 @@
     "release": "node ./scripts/release-serverless.js",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity web-components --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "snyk": true
 }
