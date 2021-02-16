@@ -302,7 +302,7 @@ describe('prepareTableColumns', () => {
   it('should return correctly', () => {
     const actual = JSON.stringify(prepareTableColumns(monthlyBillingData))
     const expected =
-      '[{"Header":"Services","accessor":"name","columnProps":{"width":200},"Footer":"Total"},{"Header":"Endpoints"},{"Header":"Amount"},{"Header":"Cost","Footer":"£9.57"}]'
+      '[{"Header":"Services","accessor":"name","columnProps":{"width":200},"Footer":"Total"},{"Header":"Hours"},{"Header":"Cost","Footer":"£9.57"}]'
 
     expect(actual).toEqual(expected)
   })
@@ -461,10 +461,12 @@ describe('handleGetSettings', () => {
 describe('handleUpdateSettings', () => {
   it('should get and set settings if there is a month value', async () => {
     const mockSetMessageState = jest.fn()
+    const mockSettings = jest.fn()
     const mockSettingsLoading = jest.fn()
     const mockHandleClose = jest.fn()
+    ;(getSettingsService as jest.Mock).mockReturnValueOnce({})
 
-    const curried = handleUpdateSettings(mockSettingsLoading, mockSetMessageState, mockHandleClose)
+    const curried = handleUpdateSettings(mockSettingsLoading, mockSettings, mockSetMessageState, mockHandleClose)
 
     await curried({ monthlyUsageCap: 0 })
 
@@ -477,11 +479,12 @@ describe('handleUpdateSettings', () => {
 
   it('should set default settings if fetching fails', async () => {
     const mockSetMessageState = jest.fn()
+    const mockSettings = jest.fn()
     const mockSettingsLoading = jest.fn()
     const mockHandleClose = jest.fn()
     ;(updateSettingsService as jest.Mock).mockReturnValueOnce(undefined)
 
-    const curried = handleUpdateSettings(mockSettingsLoading, mockSetMessageState, mockHandleClose)
+    const curried = handleUpdateSettings(mockSettingsLoading, mockSettings, mockSetMessageState, mockHandleClose)
 
     await curried({ monthlyUsageCap: 0 })
 

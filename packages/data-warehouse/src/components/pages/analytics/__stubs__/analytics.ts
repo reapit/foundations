@@ -29,7 +29,7 @@ export const subBilling = {
   to: '2020-06',
   periods: [
     {
-      period: '2019-11',
+      name: '2019-11',
       periodStart: '2019-11-01',
       periodEnd: '2019-11-30',
       periodName: 'November 2019',
@@ -50,7 +50,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2019-12',
+      name: '2019-12',
       periodStart: '2019-12-01',
       periodEnd: '2019-12-31',
       periodName: 'December 2019',
@@ -63,7 +63,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2020-01',
+      name: '2020-01',
       periodStart: '2020-01-01',
       periodEnd: '2020-01-31',
       periodName: 'January 2020',
@@ -76,7 +76,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2020-02',
+      name: '2020-02',
       periodStart: '2020-02-01',
       periodEnd: '2020-02-29',
       periodName: 'February 2020',
@@ -89,7 +89,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2020-03',
+      name: '2020-03',
       periodStart: '2020-03-01',
       periodEnd: '2020-03-31',
       periodName: 'March 2020',
@@ -102,7 +102,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2020-04',
+      name: '2020-04',
       periodStart: '2020-04-01',
       periodEnd: '2020-04-30',
       periodName: 'April 2020',
@@ -115,7 +115,7 @@ export const subBilling = {
       ],
     },
     {
-      period: '2020-05',
+      name: '2020-05',
       periodStart: '2020-05-01',
       periodEnd: '2020-05-31',
       periodName: 'May 2020',
