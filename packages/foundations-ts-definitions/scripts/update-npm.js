@@ -1,5 +1,5 @@
 const semver = require('semver')
-const { runCommand } = require('../../../scripts/release/utils')
+const { runCommand } = require('../../../scripts/webpack/utils')
 const fs = require('fs')
 const path = require('path')
 const { FOUNDATIONS_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')

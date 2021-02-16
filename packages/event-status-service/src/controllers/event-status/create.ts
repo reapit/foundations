@@ -19,7 +19,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Create new status...', { traceId, payload })
 
-    if (req.user.clientCode !== payload.clientCode) {
+    if ((req as any).user.clientCode !== payload.clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

@@ -25,7 +25,7 @@ export const callGetNegotiatorByIdAPI = async (
   logger.info('callGetNegotiatorByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetNegotiatorByIdReturn>(
       `${URLS.negotiators}/${id}?${params}`,
       {

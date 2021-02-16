@@ -1,0 +1,36 @@
+name: TS Definitions Update
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 0 1-31 * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v2
+
+      - name: Setup Node Environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Integrate Git credentials
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install
+        run: yarn
+
+      - name: Fetch Definitions
+        run: yarn workspace @reapit/foundations-ts-definitions start
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_PROD}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_PROD}}
+  AWS_REGION: ${{secrets.AWS_REGION}}

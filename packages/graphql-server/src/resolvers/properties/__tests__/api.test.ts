@@ -59,7 +59,7 @@ describe('callGetPropertyByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: propertyMock })),
     })
-    const args = { id: propertyMock.id }
+    const args = { id: propertyMock.id } as any
     const result = await callGetPropertyByIdAPI(args, mockContext)
     expect(result).toEqual(propertyMock)
   })
@@ -68,7 +68,7 @@ describe('callGetPropertyByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: propertyMock.id }
+    const args = { id: propertyMock.id } as any
     const result = await callGetPropertyByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })

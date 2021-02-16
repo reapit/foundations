@@ -6,11 +6,9 @@ const CopyPlugin = require('copy-webpack-plugin')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
-const { getVersionTag, getRef } = require('../release/utils')
-const ESLintWebpackPlugin = require('eslint-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-
-const ESLintPLugin = new ESLintWebpackPlugin({ extensions: ['js', 'jsx', 'ts', 'tsx', 'svelte'] })
+const { getVersionTag, getRef } = require('./utils')
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -23,20 +21,6 @@ const tagName = getVersionTag()
 const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
-
-const babelLoaderOptions = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        useBuiltIns: 'entry',
-        corejs: '3',
-        targets: '> 0.5%, not IE 11, chrome 79',
-      },
-    ],
-    'linaria/babel',
-  ],
-}
 
 const webpackConfig = {
   mode: 'production',
@@ -52,24 +36,34 @@ const webpackConfig = {
     splitChunks: {
       chunks: 'all',
     },
+    minimize: true,
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        target: 'es2019',
+      }),
+    ],
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: generateRegexExcludePackages(),
-        use: {
-          loader: 'babel-loader',
-          options: babelLoaderOptions,
-        },
-      },
       {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
         use: [
           {
             loader: 'babel-loader',
-            options: babelLoaderOptions,
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'entry',
+                    corejs: '3',
+                    targets: '> 0.5%, not IE 11, chrome 69',
+                  },
+                ],
+                'linaria/babel',
+              ],
+            },
           },
           {
             loader: 'linaria/loader',
@@ -77,7 +71,13 @@ const webpackConfig = {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
-          { loader: 'ts-loader' },
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'tsx',
+              target: 'esnext',
+            },
+          },
         ],
       },
       {
@@ -92,57 +92,6 @@ const webpackConfig = {
           },
           'postcss-loader',
         ],
-      },
-      {
-        test: /\.(sass|scss)$/,
-        oneOf: [
-          {
-            resourceQuery: /\?mod$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  modules: {
-                    localIdentName: '[hash:base64:5]',
-                  },
-                  localsConvention: 'camelCase',
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-          {
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
@@ -173,6 +122,12 @@ const webpackConfig = {
     modules: false,
   },
   plugins: [
+    new ESBuildPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
+    }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
@@ -224,8 +179,6 @@ const webpackConfig = {
       APP_VERSION: APP_VERSION,
     }),
     new HashedModuleIdsPlugin(),
-    new FriendlyErrorsWebpackPlugin(),
-    ESLintPLugin,
   ],
 }
 

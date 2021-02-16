@@ -1,0 +1,28 @@
+{
+  "name": "deploy-slack-bot",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Duong Pham",
+  "license": "MIT",
+  "scripts": {
+    "fetch-config": "yarn config-manager --namespace cloud --entity deploy-slack-bot --name local --mode fetch",
+    "build:prod": "rimraf dist && tsc --p tsconfig.json",
+    "release:dev": "rimraf dist && tsc --p tsconfig.json && serverless deploy --stage dev"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.5",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0",
+    "query-string": "^6.13.7",
+    "serverless": "^2.23.0",
+    "serverless-http": "^2.6.1"
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "^2.0.8",
+    "rimraf": "^3.0.2",
+    "serverless-deployment-bucket": "^1.2.0",
+    "serverless-offline": "^6.8.0"
+  }
+}

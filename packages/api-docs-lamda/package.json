@@ -13,20 +13,31 @@
     "url": "git+https://github.com/reapit/foundations.git"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^26.6.3",
+    "jest-coverage-badges": "^1.1.2",
+    "rimraf": "^3.0.2",
     "serverless-deployment-bucket": "^1.2.0",
     "serverless-offline": "^5.12.1",
-    "serverless-webpack": "^5.3.5"
+    "serverless-webpack": "^5.3.5",
+    "webpack": "^4.41.5"
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "serverless": "^2.23.0",
     "serverless-http": "^2.6.1",
     "serverless-webpack": "^5.3.5",
     "snyk": "^1.425.4",
-    "typescript": "~3.9.3"
+    "typescript": "^4.0.3"
   },
   "scripts": {
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "start:dev": "NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
-    "release": " serverless deploy"
+    "start": "NODE_ENV=development SLS_DEBUG=* serverless offline",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'",
+    "commit": "yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   }
 }

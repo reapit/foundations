@@ -15,7 +15,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
-    if (req.user.clientCode !== clientCode) {
+    if ((req as any).clientCode !== clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

@@ -1,6 +1,7 @@
 import { createPaymentRequest } from '../create-payment-request'
 import { Response } from 'express'
 import { createPaymentRequestTemplate } from '../../core/templates'
+import { AppRequest } from '@reapit/node-utils'
 
 jest.mock('../../core/ses-client', () => ({
   sendEmail: jest.fn(() => true),
@@ -64,7 +65,7 @@ describe('createPaymentRequest', () => {
 
   headers.forEach(header => {
     it(`should validate ${header} header is present`, async () => {
-      const mockReq = {
+      const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
         headers: {
           ...baseMockReq.headers,
@@ -75,7 +76,7 @@ describe('createPaymentRequest', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentRequest(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentRequest(mockReq as AppRequest, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -86,7 +87,7 @@ describe('createPaymentRequest', () => {
 
   bodyParams.forEach(param => {
     it(`should validate ${param} body param is present`, async () => {
-      const mockReq = {
+      const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
         body: {
           ...baseMockReq.body,
@@ -97,7 +98,7 @@ describe('createPaymentRequest', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentRequest(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentRequest(mockReq as AppRequest, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -109,7 +110,7 @@ describe('createPaymentRequest', () => {
 
   params.forEach(param => {
     it(`should validate ${param} param is present`, async () => {
-      const mockReq = {
+      const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
         params: {
           ...baseMockReq.params,
@@ -120,7 +121,7 @@ describe('createPaymentRequest', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentRequest(mockReq, mockRes, mockNext, baseMockConfig)
+      await createPaymentRequest(mockReq as AppRequest, mockRes, mockNext, baseMockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -142,7 +143,7 @@ describe('createPaymentRequest', () => {
         },
       } as any
 
-      const mockReq = {
+      const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
       }
 
@@ -150,7 +151,7 @@ describe('createPaymentRequest', () => {
         ...baseMockRes,
       } as Response
 
-      await createPaymentRequest(mockReq, mockRes, mockNext, mockConfig)
+      await createPaymentRequest(mockReq as AppRequest, mockRes, mockNext, mockConfig)
 
       expect(mockRes.status).toHaveBeenCalledWith(400)
       expect(mockRes.send).toHaveBeenCalledWith({
@@ -160,7 +161,7 @@ describe('createPaymentRequest', () => {
   })
 
   it('should correctly return a 200 error if email is successfully sent', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
     }
 
@@ -168,7 +169,7 @@ describe('createPaymentRequest', () => {
       ...baseMockRes,
     } as Response
 
-    await createPaymentRequest(mockReq, mockRes, mockNext, baseMockConfig)
+    await createPaymentRequest(mockReq as AppRequest, mockRes, mockNext, baseMockConfig)
 
     expect(createPaymentRequestTemplate).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(200)

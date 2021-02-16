@@ -1,10 +1,10 @@
 import React from 'react'
 import { ConsumptionCostMethodologyTable } from '../../terms-and-conditions-modal/consumption-cost-methodology-table'
-import { render } from '@testing-library/react'
+import { shallow } from 'enzyme'
 
 describe('ConsumptionCostMethodologyTable', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(<ConsumptionCostMethodologyTable />)
+    const wrapper = shallow(<ConsumptionCostMethodologyTable />)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -18,7 +18,7 @@ export const callGetJournalEntriesAPI = async (
   const traceId = context.traceId
   logger.info('callGetJournalEntriesAPI', { args, traceId })
   try {
-    const params = qs.stringify(args)
+    const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetJournalEntriesReturn>(
       `${URLS.journalEntries}?${params}`,
       {

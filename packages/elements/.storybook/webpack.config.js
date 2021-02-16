@@ -2,7 +2,7 @@ const { EnvironmentPlugin } = require('webpack')
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const configEnv = require('../config.json')
-const { getVersionTag } = require('../../../scripts/release/utils')
+const { getVersionTag } = require('../../../scripts/webpack/utils')
 
 module.exports = ({ config }) => {
   config.module.rules.push({

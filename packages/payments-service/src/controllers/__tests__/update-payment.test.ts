@@ -4,6 +4,7 @@ import { db } from '../../core/db'
 import { Response } from 'express'
 import { updatePlatformPayment } from '../../services/update-payment'
 import { validateApiKey, validatePaymentUpdate } from '../../core/validators'
+import { AppRequest } from '@reapit/node-utils'
 
 jest.mock('../../services/update-payment', () => ({
   updatePlatformPayment: jest.fn(),
@@ -32,7 +33,7 @@ const baseMockRes = {
 
 describe('updatePayment', () => {
   it('should throw and catch if no clientCode is in the headers', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       headers: {
         ...baseMockReq.headers,
@@ -44,7 +45,7 @@ describe('updatePayment', () => {
       ...baseMockRes,
     }
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -55,7 +56,7 @@ describe('updatePayment', () => {
   })
 
   it('should throw and catch if no api-version is in the headers', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       headers: {
         ...baseMockReq.headers,
@@ -67,7 +68,7 @@ describe('updatePayment', () => {
       ...baseMockRes,
     }
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -78,7 +79,7 @@ describe('updatePayment', () => {
   })
 
   it('should throw and catch if no x-api-key is in the headers', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       headers: {
         ...baseMockReq.headers,
@@ -90,7 +91,7 @@ describe('updatePayment', () => {
       ...baseMockRes,
     }
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -101,7 +102,7 @@ describe('updatePayment', () => {
   })
 
   it('should throw and catch if no if-match is in the headers', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       headers: {
         ...baseMockReq.headers,
@@ -113,7 +114,7 @@ describe('updatePayment', () => {
       ...baseMockRes,
     }
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -124,7 +125,7 @@ describe('updatePayment', () => {
   })
 
   it('should throw and catch if no paymentId is in the parms', async () => {
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
       params: {},
     }
@@ -133,7 +134,7 @@ describe('updatePayment', () => {
       ...baseMockRes,
     }
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(logger.error).toHaveBeenCalledTimes(1)
     expect(mockRes.status).toHaveBeenCalledWith(400)
@@ -148,7 +149,7 @@ describe('updatePayment', () => {
     ;(validatePaymentUpdate as jest.Mock).mockReturnValueOnce({})
     ;(updatePlatformPayment as jest.Mock).mockReturnValueOnce({})
 
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
     }
     const mockRes: Partial<Response> = {
@@ -156,7 +157,7 @@ describe('updatePayment', () => {
     }
     const mockApiKey = 'SOME_API_KEY'
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,
@@ -173,7 +174,7 @@ describe('updatePayment', () => {
       throw err
     })
 
-    const mockReq = {
+    const mockReq: Partial<AppRequest> = {
       ...baseMockReq,
     }
     const mockRes: Partial<Response> = {
@@ -181,7 +182,7 @@ describe('updatePayment', () => {
     }
     const mockApiKey = 'SOME_API_KEY'
 
-    await updatePayment(mockReq, mockRes as Response)
+    await updatePayment(mockReq as AppRequest, mockRes as Response)
 
     expect(db.get).toHaveBeenCalledWith({
       apiKey: mockApiKey,

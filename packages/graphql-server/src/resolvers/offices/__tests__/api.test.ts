@@ -59,7 +59,7 @@ describe('callGetOfficeByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.resolve({ data: officeMock })),
     })
-    const args = { id: officeMock.id }
+    const args = { id: officeMock.id } as any
     const result = await callGetOfficeByIdAPI(args, mockContext)
     expect(result).toEqual(officeMock)
   })
@@ -68,7 +68,7 @@ describe('callGetOfficeByIdAPI', () => {
     ;(createPlatformAxiosInstance as jest.Mocked<any>).mockReturnValueOnce({
       get: jest.fn(() => Promise.reject('error caught')),
     })
-    const args = { id: officeMock.id }
+    const args = { id: officeMock.id } as any
     const result = await callGetOfficeByIdAPI(args, mockContext)
     expect(result).toEqual('caught error')
   })

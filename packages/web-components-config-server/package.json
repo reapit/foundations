@@ -8,24 +8,19 @@
   "author": "reapit global",
   "main": "dist/index.js",
   "scripts": {
-    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:dev": "cross-env TZ=UTC jest --watch --silent",
-    "start:dev": "yarn build:credentials && NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
-    "build:serverless": "yarn build:credentials && serverless webpack --out dist --stage dev",
-    "release:development": "yarn build:credentials && serverless deploy --stage dev",
-    "release:production": "yarn build:credentials && serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage dev",
-    "fetch-config": "yarn config-manager --namespace cloud --entity web-components-config-server --name local --mode fetch",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
-    "build:credentials": "node ./scripts/load-credentials.js"
+    "start": "serverless dynamodb install && yarn serverless offline start --stage local --printOutput",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity web-components-config-server --name local --mode fetch",
+    "commit": "concurrently \"yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "async": "^3.2.0",
     "aws-sdk": "^2.682.0",
     "axios": "^0.21.0",
@@ -44,8 +39,7 @@
     "snyk": "^1.341.1",
     "stack-trace": "^0.0.10",
     "uuid": "^3.3.3",
-    "winston": "^3.2.1",
-    "@reapit/foundations-ts-definitions": "2020-03-04"
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

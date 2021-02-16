@@ -34,7 +34,7 @@ export const callGetApplicantByIdAPI = async (
   logger.info('callGetApplicantByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetApplicantByIdReturn>(
       `${URLS.applicants}/${id}?${params}`,
       {

@@ -13,12 +13,16 @@
   "license": "MIT",
   "author": "wmcvay@reapit.com",
   "main": "./src/index.js",
-  "bin": {
-    "config-manager": "./src/index.js"
-  },
+  "bin": "./src/index.js",
   "scripts": {
-    "check:ci": "eslint --cache --ext=js src",
-    "check:fix": "eslint --cache --ext=js src --fix"
+    "start": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=js src --fix",
+    "release": "echo '...skipping...'",
+    "publish": "yarn npm publish",
+    "conf": "echo '...skipping...'",
+    "commit": "yarn lint"
   },
   "dependencies": {
     "ansi-styles": "^5.1.0",
@@ -28,5 +32,10 @@
     "prettier": "^1.19.1",
     "prompts": "^2.3.2",
     "yargs": "^16.0.0"
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "^2.0.8",
+    "concurrently": "^5.3.0",
+    "eslint": "7.11.0"
   }
 }

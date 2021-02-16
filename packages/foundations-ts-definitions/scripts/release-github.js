@@ -1,9 +1,6 @@
 const Octokit = require('@octokit/rest')
-const fs = require('fs')
-const path = require('path')
 const getCurrentTimeStamp = require('./get-current-time-stamp-string')
-const { FOUNDATIONS_ROOT_FOLDER } = require('./constants')
-const { runCommand } = require('../../../scripts/release/utils')
+const { runCommand } = require('../../../scripts/webpack/utils')
 const { execSync } = require('child_process')
 
 const { GITHUB_TOKEN } = process.env
@@ -22,14 +19,8 @@ module.exports = async () => {
 
     execSync(`git checkout -b ${branchName}`)
     runCommand('git', ['add', '.'])
-    execSync(`git commit -m "chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}"`)
+    execSync('git commit -m "chore: update ts definitions"')
     execSync(`git push -u sshOrigin ${branchName} -f`)
-
-    const packageJson = JSON.parse(fs.readFileSync(path.resolve(FOUNDATIONS_ROOT_FOLDER, './package.json')).toString())
-    let tagName = `foundations-ts-definitions_v${packageJson.version}`
-
-    execSync(`git tag ${tagName}`)
-    execSync(`git push --tags sshOrigin ${branchName} -f`)
 
     const octokit = new Octokit({
       auth: GITHUB_TOKEN,
@@ -41,18 +32,9 @@ module.exports = async () => {
     await octokit.pulls.create({
       owner: ownerName,
       repo: repositoryName,
-      title: `chore: update ts definitions - time stamp: ${getCurrentTimeStamp()}`,
+      title: 'chore: update ts definitions',
       head: branchName,
       base: 'master',
-    })
-
-    // // create new release based on tag
-    await octokit.repos.createRelease({
-      owner: ownerName,
-      repo: repositoryName,
-      tag_name: tagName,
-      name: tagName,
-      target_commitish: branchName,
     })
   } catch (err) {
     console.log(err)

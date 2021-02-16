@@ -5010,7 +5010,7 @@ export interface PagedResultCompanyModel_ {
     }
   }
 }
-export interface PagedResultContactModel_ {
+export interface ContactModelPagedResult {
   _embedded?: {
     /**
      * Gets the unique identifier

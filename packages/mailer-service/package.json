@@ -8,18 +8,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "check:ci": "concurrently \"eslint --cache --ext=ts,tsx src\"",
-    "check:fix": "concurrently \"eslint --cache --ext=ts,tsx src --fix\"",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod",
-    "remove:development": "serverless remove --stage dev",
-    "remove:production": "serverless remove --stage prod",
-    "start:dev": "yarn serverless offline start --stage local --printOutput",
-    "test:dev": "cross-env TZ=UTC jest --watch",
-    "install-db": "serverless dynamodb install",
-    "fetch-config": "yarn config-manager --namespace cloud --entity mailer-service --name local --mode fetch",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "start": "yarn serverless offline start --stage local --printOutput",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity mailer-service --name local --mode fetch",
+    "commit": "concurrently \"yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@sentry/node": "^5.24.2",
@@ -37,6 +33,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "@reapit/config-manager": "workspace:packages/config-manager",
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.7",
     "@types/ejs": "^3.0.5",
@@ -45,10 +42,15 @@
     "@types/jest": "^25.1.2",
     "@types/morgan": "^1.9.1",
     "@types/uuid": "^8.3.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "7.11.0",
     "jest": "^25.1.0",
+    "jest-coverage-badges": "^1.1.2",
     "serverless": "^2.17.0",
     "serverless-deployment-bucket": "^1.1.2",
     "serverless-offline": "^6.7.0",
-    "serverless-webpack": "^5.3.5"
+    "serverless-webpack": "^5.3.5",
+    "webpack": "^4.41.5"
   }
 }

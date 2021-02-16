@@ -1,0 +1,51 @@
+{
+  "name": "@reapit/cognito-auth",
+  "version": "3.0.0",
+  "description": "Simple wrapper around AWS Cognito for basic authentication flow",
+  "keywords": [],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "dist",
+    "src/tests/badges"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/cognito-auth.umd.production.js",
+  "module": "dist/cognito-auth.esm.js",
+  "typings": "dist/cognito-auth/src/index.d.ts",
+  "types": "dist/cognito-auth/src/index.d.ts",
+  "scripts": {
+    "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --silent",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "check:ci": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "check:fix": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src --fix\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "@reapit/elements": "workspace:packages/elements",
+    "amazon-cognito-identity-js": "~3.0.13",
+    "cors": "^2.8.5",
+    "hardtack": "^4.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "snyk": "^1.335.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jsonwebtoken": "^8.3.5",
+    "compare-versions": "^3.5.1",
+    "rollup-plugin-scss": "^1.0.2"
+  },
+  "snyk": true
+}

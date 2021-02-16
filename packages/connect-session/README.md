@@ -26,7 +26,7 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   // The client id of your application, obtained from Reapit Developer Portal
   connectClientId: 'SOME_CLIENT_ID',
   // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
-  connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+  connectOAuthUrl: 'https://connect.reapit.cloud',
   // OAuth UserPoolId - refer to the foundations documentation to obtain this for the correct environment
   connectUserPoolId: 'SOME_USER_POOL_ID',
   // The relative path you want to re-direct in your application after a successful login. You will have supplied this when you registered your app.
@@ -153,7 +153,7 @@ The below example shows how to embed on any static or dynamic page with a single
   const connectHasSessionCallback = (reapitConnectBrowserSession) => {
     reapitConnectBrowserSession.connectSession().then(session => {
       console.log('Session is', session)
-      fetch('https://dev.platform.reapit.cloud/appointments', {
+      fetch('https://platform.reapit.cloud/appointments', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.accessToken}`,
@@ -168,7 +168,7 @@ The below example shows how to embed on any static or dynamic page with a single
   ReapitConnectComponent && new ReapitConnectComponent({
     connectClientId: '<<clientId here>>>',
     connectUserPoolId: '<<user pool id here>>>,
-    connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+    connectOAuthUrl: 'https://connect.reapit.cloud',
     connectLoginRedirectPath: '',
     connectLogoutRedirectPath: '/login',
     connectContainerId: '#reapit-connect-component',

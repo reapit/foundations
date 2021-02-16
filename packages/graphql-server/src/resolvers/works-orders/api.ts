@@ -222,7 +222,7 @@ export const callGetWorksOrdersAPI = async (args: GetWorksOrdersArgs, context: S
   const traceId = context.traceId
   logger.info('callGetWorksOrdersAPI', { traceId, args })
   try {
-    const params = qs.stringify(args)
+    const params = qs.stringify(args as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(`${URLS.worksOrders}?${params}`, {
       headers: {
         Authorization: context.authorization,
@@ -245,7 +245,7 @@ export const callGetWorksOrderByIdAPI = async (
   logger.info('callGetWorksOrderByIdAPI', { traceId, args })
 
   const { id, ...paramsObj } = args
-  const params = qs.stringify(paramsObj)
+  const params = qs.stringify(paramsObj as Record<string, string>)
 
   try {
     const response = await createPlatformAxiosInstance().get<GetWorksOrdersReturn>(

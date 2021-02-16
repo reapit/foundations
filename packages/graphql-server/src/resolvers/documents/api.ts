@@ -28,7 +28,7 @@ export const callGetDocumentByIdAPI = async (
   logger.info('callGetDocumentByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetDocumentByIdReturn>(
       `${URLS.documents}/${id}?${params}`,
       {

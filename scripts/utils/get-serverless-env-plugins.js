@@ -1,6 +1,6 @@
 const { EnvironmentPlugin } = require('webpack')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const { getVersionTag } = require('../../scripts/release/utils')
+const { getVersionTag } = require('../../scripts/webpack/utils')
 
 module.exports = () => {
   const tagName = getVersionTag()

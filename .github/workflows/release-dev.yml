@@ -12,55 +12,33 @@ env:
   AWS_REGION: ${{secrets.AWS_REGION}}
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   CI: true
-  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
-  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
 
 jobs:
-  release_dev:
+  release-dev:
     runs-on: ubuntu-latest
     steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Setup Node Environment
+      - name: Set Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
 
-      - name: Get yarn cache location
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Get yarn cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install Global Dependencies
-        run: |
-          yarn global add aws-cli serverless@1.59.3
-
-      - name: Set up workspace experimental
-        run: |
-          yarn config set workspaces-experimental true
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install
+        run: yarn
 
       - name: Fetch config
         run: |
-          yarn fetch-config --name development --since HEAD~1 --include-dependencies
+          yarn changed foreach --parallel --verbose --git-range HEAD~1 run conf --name development
 
       - name: Build
         run: |
-          yarn build --since HEAD~1 --include-dependencies
+          yarn changed foreach --parallel --verbose --git-range HEAD~1 run build
 
-      - name: Release Develop
+      - name: Release
         run: |
-          yarn release:development --since HEAD~1 --include-dependencies
+          yarn changed foreach --parallel --verbose --git-range HEAD~1 run release
 

@@ -33,7 +33,7 @@ export const callGetLandlordByIdAPI = async (
   logger.info('callGetLandlordByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetLandlordByIdReturn>(
       `${URLS.landlords}/${id}?${params}`,
       {
@@ -75,7 +75,7 @@ export const callGetLandlordRelationshipsAPI = async (
   logger.info('callGetLandlordRelationshipsAPI', { args, traceId })
   try {
     const { id, ...paramsObj } = args
-    const params = qs.stringify(paramsObj)
+    const params = qs.stringify(paramsObj as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetLandlordRelationshipsReturn>(
       `${URLS.landlords}/${id}/relationships?${params}`,
       {

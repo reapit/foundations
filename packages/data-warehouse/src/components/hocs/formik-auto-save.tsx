@@ -42,4 +42,4 @@ export const FormikAutoSave: React.FC<FormikAutoSaveProps> = ({ formik: { values
   return null
 }
 
-export default connect<OwnProps, any>(FormikAutoSave)
+export default connect<OwnProps, any>(FormikAutoSave as any)

@@ -22,7 +22,7 @@ export const callGetOfferByIdAPI = async (args: GetOfferByIdArgs, context: Serve
   logger.info('callGetOfferByIdAPI', { traceId, args })
   try {
     const { id, ...rest } = args
-    const params = qs.stringify(rest)
+    const params = qs.stringify(rest as Record<string, string>)
     const response = await createPlatformAxiosInstance().get<GetOfferByIdReturn>(`${URLS.offers}/${id}?${params}`, {
       headers: {
         Authorization: context.authorization,

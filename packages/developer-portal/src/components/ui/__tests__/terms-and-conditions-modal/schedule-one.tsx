@@ -1,10 +1,10 @@
 import React from 'react'
 import { ScheduleOne } from '../../terms-and-conditions-modal/schedule-one'
-import { render } from '@testing-library/react'
+import { shallow } from 'enzyme'
 
 describe('Schedule One', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(<ScheduleOne />)
+    const wrapper = shallow(<ScheduleOne />)
     expect(wrapper).toMatchSnapshot()
   })
 })

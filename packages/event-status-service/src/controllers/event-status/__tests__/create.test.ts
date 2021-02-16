@@ -25,7 +25,7 @@ const baseMockRes = {
 
 describe('createEventStatus', () => {
   it('should return a 401 if the clientCode doesnt match', async () => {
-    const mockReq = {
+    const mockReq: any = {
       ...baseMockReq,
       body: {
         ...baseMockReq.body,
@@ -46,7 +46,7 @@ describe('createEventStatus', () => {
   })
 
   it('should create a new event status', async () => {
-    const mockReq = {
+    const mockReq: any = {
       ...baseMockReq,
     }
     const mockRes: Partial<Response> = {

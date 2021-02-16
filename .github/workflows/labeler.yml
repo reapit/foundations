@@ -6,7 +6,7 @@ on:
     types: [opened, 'synchronize']
 
 jobs:
-  triage:
+  label:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v2
