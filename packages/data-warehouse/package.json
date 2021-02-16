@@ -37,6 +37,9 @@
     "jest-coverage-badges": "^1.1.2",
     "rimraf": "^3.0.2",
     "serverless": "^2.23.0",
+    "serverless-s3-deploy": "^0.10.0",
+    "serverless-s3-remover": "^0.6.0",
+    "serverless-single-page-app-plugin": "^1.0.2",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.11.0"
   }

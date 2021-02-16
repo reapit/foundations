@@ -3,7 +3,6 @@ service: cloud-elements
 
 plugins:
   - serverless-single-page-app-plugin
-  - serverless-plugin-ifelse
   - serverless-deployment-bucket
   - serverless-s3-remover
   - serverless-s3-deploy
