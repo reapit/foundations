@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Grid, GridItem, H3, Helper, Loader, Section } from '@reapit/elements'
+import { Button, FadeIn, Grid, GridItem, H3, Helper, Loader, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import AnalyticsCostExplorer from './analytics-cost-explorer'
 import AnalyticsDailyUsage from './analytics-daily-usage'
@@ -45,6 +45,15 @@ export const AnalyticsPage: React.FC = () => {
         </Helper>
       ) : (
         <>
+          <FadeIn>
+            <Helper variant="info">
+              Billing is based on consumption and is calculated based on the number of hours of warehouse uptime in a
+              given month. Your warehouse will become active and available when queries are issued against it. You will
+              be billed by the minute while your warehouse is active and serving data. After a short period of
+              inactivity, the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is
+              sleeping and your subscription includes 2 hours of warehouse uptime per month.{' '}
+            </Helper>
+          </FadeIn>
           <Grid isMultiLine>
             <GridItem className="is-half">
               <AnalyticsDailyUsage />

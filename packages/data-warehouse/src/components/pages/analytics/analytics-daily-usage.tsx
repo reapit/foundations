@@ -8,7 +8,7 @@ import {
   getDailyChartConfig,
   getDailyChartOptions,
   handleAutoSave,
-  handleGetBillingByPeriod,
+  handleGetBilling,
   handleOnSave,
 } from './analytics-handlers'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -16,25 +16,24 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { MessageContext } from '../../../context/message-context'
 import { StatsContainer } from './__styles__/analytics'
 import FormikAutoSave from '../../hocs/formik-auto-save'
-import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
+import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 
 export const AnalyticsDailyUsage: React.FC = () => {
-  const [billing, setBilling] = useState<BillingOverviewForPeriodV2Model>()
+  const [billing, setBilling] = useState<BillingBreakdownForMonthV2Model>()
   const [billingLoading, setBillingLoading] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setMessageState } = useContext(MessageContext)
   const [month, setMonth] = useState<Date>(new Date())
-  const orgId = connectSession?.loginIdentity?.orgId ?? null
+  const developerId = connectSession?.loginIdentity?.developerId ?? null
   const onSave = useCallback(handleOnSave(setMonth), [])
-  const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(billing?.periods ?? [])
+  const services = billing?.services ?? []
+  const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData((services[0] && services[0].items) ?? [])
+
   const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
   const chartData = getDailyChartConfig(labels, data)
   const chartOptions = getDailyChartOptions(chartDataStats)
 
-  useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, month, month), [
-    orgId,
-    month,
-  ])
+  useEffect(handleGetBilling(setBilling, setBillingLoading, setMessageState, month), [developerId, month])
 
   return (
     <ErrorBoundary>

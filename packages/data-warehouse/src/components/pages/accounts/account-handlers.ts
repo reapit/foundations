@@ -25,7 +25,7 @@ export const handlePolling = (accountUri: string): Promise<{ provisioned: boolea
       if (account && account.status === 'An error was encountered when creating this account') {
         resolve({ provisioned: false, interval })
       }
-    }, 3000)
+    }, 4500)
   })
 }
 
