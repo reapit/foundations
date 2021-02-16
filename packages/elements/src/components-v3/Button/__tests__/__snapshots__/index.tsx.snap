@@ -2,7 +2,7 @@
 
 exports[`Button should match a snapshot 1`] = `
 <button
-  className="button  is-primary  "
+  className="el3-button button  is-primary  "
   data-test="some-selector"
   disabled={false}
   onClick={[MockFunction]}

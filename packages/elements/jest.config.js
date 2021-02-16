@@ -11,7 +11,7 @@ module.exports = {
     'index.ts',
     'v2.ts'
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|v3|dist)[/\\\\]'],
   transform: {
     '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js'
   },
