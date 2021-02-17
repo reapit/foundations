@@ -19795,7 +19795,7 @@ __metadata:
     dataloader: ^2.0.0
     dayjs: ^1.10.4
     eslint: 7.11.0
-    graphql: 14.5.8
+    graphql: 14.7.0
     graphql-depth-limit: ^1.1.0
     graphql-import: ^0.7.1
     graphql-type-json: ^0.3.1
@@ -19899,12 +19899,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:14.5.8":
-  version: 14.5.8
-  resolution: "graphql@npm:14.5.8"
+"graphql@npm:14.7.0":
+  version: 14.7.0
+  resolution: "graphql@npm:14.7.0"
   dependencies:
     iterall: ^1.2.2
-  checksum: 37cab777badcdc31fc59595300d44ffe51f08ab47cc61dca5de31fc17a4021edb2153b58d8345e15c0d6769bd3023970b0b422efc666a185f23b912f41543e86
+  checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
   languageName: node
   linkType: hard
 
@@ -19914,15 +19914,6 @@ __metadata:
   dependencies:
     iterall: ^1.2.2
   checksum: 24cab2758cea2ce592c59af28cac0fc80d2f2eac2f2441ce0152ce3c5a3a2416394aadf71b2d8db58f46c44ca3d20747eb168f58502f6eadafab0f11dea13791
-  languageName: node
-  linkType: hard
-
-"graphql@npm:^14.5.8":
-  version: 14.7.0
-  resolution: "graphql@npm:14.7.0"
-  dependencies:
-    iterall: ^1.2.2
-  checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
   languageName: node
   linkType: hard
 
@@ -32520,7 +32511,7 @@ resolve@1.15.1:
     file-loader: ^3.0.1
     fork-ts-checker-webpack-plugin: ^6.1.0
     friendly-errors-webpack-plugin: ^1.7.0
-    graphql: ^14.5.8
+    graphql: 14.7.0
     graphql-tag: ^2.10.1
     html-webpack-plugin: ^3.2.0
     husky: ^4.3.5
