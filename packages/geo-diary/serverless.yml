@@ -1,7 +1,6 @@
 service: cloud-geo-diary
 plugins:
   - serverless-single-page-app-plugin
-  - serverless-plugin-ifelse
   - serverless-deployment-bucket
   - serverless-s3-remover
   - serverless-s3-deploy
@@ -83,13 +82,6 @@ resources:
               # S3OriginConfig:
               #   OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
           Enabled: 'true'
-          ## Uncomment the following section in case you are using a custom domain
-          # Aliases:
-          #   If: '"${opt:stage, 'dev'}" == "dev"'
-          #   Set:
-          #     - dev.geo-diary.reapit.cloud
-          #   ElseSet:
-          #     - geo-diary.reapit.cloud
           DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404

@@ -14,7 +14,7 @@ export const getBillingByMonthService = async (
 
     const response: BillingBreakdownForMonthV2Model | undefined = await fetcher({
       api: window.reapit.config.platformApiUrl,
-      url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.orgId}&type=dataWarehouse&type=dataWarehouseUsage`,
+      url: `${URLS.BILLING}/${month}?organisationId=${session.loginIdentity.orgId}&type=dataWarehouse&type=dataWarehouseUsage&type=dataWarehouse`,
       method: 'GET',
       headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),
     })

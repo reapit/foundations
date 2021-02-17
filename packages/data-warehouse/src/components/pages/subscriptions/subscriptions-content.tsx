@@ -46,34 +46,34 @@ const SubscriptionsContent: React.FC = () => {
                 ]}
                 data={[
                   {
-                    usage: '750 exectutions',
+                    usage: '750 executions',
                     warehouse: '2 hours',
                     subscription: '£150',
                     consumption: '£0 (included)',
                   },
                   {
-                    usage: '3,750 exectutions',
+                    usage: '3,750 executions',
                     warehouse: '10 hours',
                     subscription: '£150',
                     consumption: '£55.92',
                   },
                   {
-                    usage: '15,000 exectutions',
+                    usage: '15,000 executions',
                     warehouse: '40 hours',
                     subscription: '£150',
                     consumption: '£265.62',
                   },
                   {
-                    usage: '60,000 exectutions',
+                    usage: '60,000 executions',
                     warehouse: '160 hours',
                     subscription: '£150',
                     consumption: '£1,104.42',
                   },
                 ]}
               />
-              <p>Actual cost will vary depending on database size, report complexity and number of concurrent users.</p>
               <p>
-                Price estimations exclusive of VAT. For more information on data warehouse pricing, please click here.
+                * Actual cost will vary depending on database size, report complexity and number of concurrent users.
+                Price estimations are exclusive of VAT.
               </p>
             </GridItem>
             <GridItem>

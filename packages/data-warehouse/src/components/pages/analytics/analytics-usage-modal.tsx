@@ -6,6 +6,7 @@ import {
   Formik,
   FormSection,
   FormSubHeading,
+  Helper,
   Input,
   LevelRight,
   Loader,
@@ -31,8 +32,12 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
 
   useEffect(handleGetSettings(setSettingsLoading, setSettings, connectSession), [connectSession])
 
-  const onSubmit = useCallback(handleUpdateSettings(setSettingsLoading, setMessageState, handleClose), [])
+  const onSubmit = useCallback(handleUpdateSettings(setSettingsLoading, setSettings, setMessageState, handleClose), [])
 
+  const chargeableUsage =
+    settings?.monthlyUsageCap && !isNaN(Number(settings.monthlyUsageCap)) && Number(settings?.monthlyUsageCap) - 2 > 0
+      ? Number(settings?.monthlyUsageCap) - 2
+      : 0
   return (
     <Modal visible={visible} title="Data Warehouse Usage Cap" afterClose={handleClose}>
       {settingsLoading ? (
@@ -45,25 +50,45 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
             } as Partial<SettingsModel>
           }
           onSubmit={(settings: Partial<SettingsModel>) => {
-            onSubmit(settings)
+            const monthlyUsageCap =
+              settings.monthlyUsageCap && !isNaN(Number(settings.monthlyUsageCap))
+                ? Number(settings.monthlyUsageCap)
+                : 0
+            onSubmit({
+              ...settings,
+              monthlyUsageCap,
+            })
           }}
           validationSchema={Yup.object({
-            monthlyUsageCap: Yup.number()
-              .min(0, 'Usage number can be a min of 0 hours per month')
-              .max(672, 'Usage number can be a max of 24hrs per day, 28 days a month'),
+            monthlyUsageCap: Yup.string()
+              .required('Required')
+              .test('is-nan', 'Only numbers permitted', value => !isNaN(Number(value)))
+              .test('is-iteger', 'Only integers permitted', value => Boolean(/^\+?(0|[1-9]\d*)$/.test(value as string)))
+              .test('is-0-or-above', 'Usage number can be a min of 0 hours per month', value => Number(value) >= 0)
+              .test(
+                'is-0-or-above',
+                'Usage number can be a max of 24hrs per day, 28 days a month',
+                value => Number(value) <= 672,
+              ),
           })}
         >
           <Form className="form">
+            <Helper variant="info">
+              You are able to control your organisations monthly spend by applying limits to the uptime of your data
+              warehouse. Your monthly subscription includes two hours per month of usage
+            </Helper>
             <FormSection>
               <FormHeading>Usage Cap</FormHeading>
               <FormSubHeading>{`Your current usage cap is set at ${settings?.monthlyUsageCap ??
-                0} hours per calendar month. You can adjust the usage limit with the form below.`}</FormSubHeading>
+                0} hours per calendar month, current cost £${(chargeableUsage * 6.99).toFixed(
+                2,
+              )} per month. You can adjust the usage limit with the form below.`}</FormSubHeading>
               <Input
                 id="monthlyUsageCap"
                 type="text"
                 placeholder="Usage Cap"
                 name="monthlyUsageCap"
-                labelText="Usage Cap"
+                labelText="Usage Hours"
               />
               <LevelRight>
                 <Button variant="secondary" type="button" onClick={handleClose}>
