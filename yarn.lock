@@ -25780,6 +25780,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"marketplace-management@workspace:packages/marketplace-management":
+  version: 0.0.0-use.local
+  resolution: "marketplace-management@workspace:packages/marketplace-management"
+  dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
+    "@types/just-debounce-it": ^1.1.0
+    concurrently: ^5.3.0
+    cross-env: ^6.0.3
+    dayjs: ^1.10.4
+    eslint: 7.11.0
+    jest: ^26.6.1
+    jest-coverage-badges: ^1.1.2
+    just-debounce-it: ^1.1.0
+    react: ^16.12.0
+    react-dom: ^16.12.0
+    react-router: ^5.1.2
+    react-router-dom: ^5.1.2
+    rimraf: ^3.0.2
+    serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
+    webpack: ^4.41.5
+    webpack-dev-server: ^3.11.0
+  languageName: unknown
+  linkType: soft
+
 "marketplace@workspace:packages/marketplace":
   version: 0.0.0-use.local
   resolution: "marketplace@workspace:packages/marketplace"
@@ -31382,35 +31411,6 @@ __metadata:
   checksum: 808efda909def3b5ef195f4bc7bbf4813b8b5f3cad37d89664bd9c28475d69a3f4d3751adf7980403b55522acf537cce825d8a9ba9f994e9354107ab7f257583
   languageName: node
   linkType: hard
-
-"reapit-connect-management@workspace:packages/reapit-connect-management":
-  version: 0.0.0-use.local
-  resolution: "reapit-connect-management@workspace:packages/reapit-connect-management"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/elements": "workspace:packages/elements"
-    "@types/just-debounce-it": ^1.1.0
-    concurrently: ^5.3.0
-    cross-env: ^6.0.3
-    dayjs: ^1.10.4
-    eslint: 7.11.0
-    jest: ^26.6.1
-    jest-coverage-badges: ^1.1.2
-    just-debounce-it: ^1.1.0
-    react: ^16.12.0
-    react-dom: ^16.12.0
-    react-router: ^5.1.2
-    react-router-dom: ^5.1.2
-    rimraf: ^3.0.2
-    serverless: ^2.23.0
-    serverless-s3-deploy: ^0.10.0
-    serverless-s3-remover: ^0.6.0
-    serverless-single-page-app-plugin: ^1.0.2
-    webpack: ^4.41.5
-    webpack-dev-server: ^3.11.0
-  languageName: unknown
-  linkType: soft
 
 "reapit-connect@workspace:packages/reapit-connect":
   version: 0.0.0-use.local

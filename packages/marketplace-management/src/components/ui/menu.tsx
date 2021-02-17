@@ -19,7 +19,7 @@ export const generateMenuConfig = (
   location: Location<any>,
   mode: Pick<MenuConfig, 'mode'>['mode'],
 ): any => {
-  return {
+  const config = {
     defaultActiveKey: 'LOGO',
     mode,
     location,
@@ -50,22 +50,32 @@ export const generateMenuConfig = (
         url: Routes.MARKETPLACE,
         type: 'PRIMARY',
       },
-      {
-        title: 'Apps',
-        key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
-        callback: callbackAppClick,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Logout',
-        key: 'LOGOUT',
-        callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY',
-      },
     ],
   }
+  if (mode === 'WEB') {
+    return {
+      ...config,
+      menu: [
+        ...config.menu,
+        {
+          title: 'Apps',
+          key: 'APPS',
+          icon: <FaCloud className="nav-item-icon" />,
+          callback: callbackAppClick,
+          type: 'PRIMARY',
+        },
+        {
+          title: 'Logout',
+          key: 'LOGOUT',
+          callback: logoutCallback,
+          icon: <FaSignOutAlt className="nav-item-icon" />,
+          type: 'SECONDARY',
+        },
+      ],
+    }
+  }
+
+  return config
 }
 
 export type MenuProps = RouteComponentProps
