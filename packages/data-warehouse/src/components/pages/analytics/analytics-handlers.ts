@@ -331,7 +331,7 @@ export const handleUpdateSettings = (
       if (settingsRefetch) {
         setSettings(settingsRefetch)
       }
-      handleClose()
+      return handleClose()
     }
     setMessageState({ errorMessage: 'Something went wrong updating usage cap' })
   }
