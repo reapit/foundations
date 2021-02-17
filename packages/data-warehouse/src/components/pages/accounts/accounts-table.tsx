@@ -14,6 +14,7 @@ export interface AccountsTableProps {
 
 export interface TableCellProps<T> {
   cell: { value: T }
+  data: AccountModel[]
 }
 
 export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
@@ -29,24 +30,34 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
     setSelectedAccountId(accountId)
   }
 
-  const DeleteButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
+  const DeleteButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
     const { setMessageState } = useContext(MessageContext)
-    const isDisabled = Boolean(disabling && disabling === value)
+    const { value } = cell
+    const account = data.find(account => account.id === value)
+    const isDisabling = Boolean(disabling && disabling === value)
+    const isDisabled = Boolean(account && account.status !== 'User is active')
 
     return (
       <Button
         variant="danger"
         onClick={disableAccount(setMessageState, setAccounts, setDisabling, value)}
-        disabled={isDisabled}
-        loading={isDisabled}
+        disabled={isDisabled || isDisabling}
+        loading={isDisabling}
       >
         Deactivate
       </Button>
     )
   }
 
-  const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    return <Button onClick={handleModalOpen(value)}>Update</Button>
+  const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
+    const { value } = cell
+    const account = data.find(account => account.id === value)
+    const isDisabled = Boolean(account && account.status !== 'User is active')
+    return (
+      <Button onClick={handleModalOpen(value)} disabled={isDisabled}>
+        Update
+      </Button>
+    )
   }
 
   const columns = [

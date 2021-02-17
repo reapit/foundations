@@ -80,14 +80,14 @@ const AnalyticsCostExplorer: React.FC = () => {
         <Grid>
           <GridItem>
             {billingLoading ? <Loader /> : <Table bordered scrollable expandable columns={columns} data={tableData} />}
-            <p className="mt-5">
-              *All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and
+            <p className="mt-4">
+              * All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and
               you will be automatically invoiced at the end of each billing period.
             </p>
-            <p className="mt-5">
-              ** As our charges are calculated in fractions of pence per transaction, very occasionally you may see a
-              rounding discrepancy of more than £0.01 in the Cost Explorer.
+            <p className="mt-4">
+              ** Costs adjusted to include 2 free hours of warehouse uptime (included in monthly subscription)
             </p>
+            <p className="mt-4">*** Partially used hours are rounded upwards for the purposes of billing</p>
           </GridItem>
         </Grid>
       </FadeIn>

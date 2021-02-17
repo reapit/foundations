@@ -4944,6 +4944,10 @@ export interface CreatePropertyModel {
    */
   videoCaption?: string
   /**
+   * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
+   */
+  notes?: string
+  /**
    * Request body used to set the EPC statistic of a new property
    */
   epc?: {
@@ -8700,6 +8704,10 @@ export interface PropertyModel {
    */
   videoCaption?: string
   /**
+   * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
+   */
+  notes?: string
+  /**
    * Representation of the external land area of a property
    */
   externalArea?: {
@@ -9063,6 +9071,10 @@ export interface PropertyModelPagedResult {
      * The caption for the video url associated with this property
      */
     videoCaption?: string
+    /**
+     * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
+     */
+    notes?: string
     /**
      * Representation of the external land area of a property
      */
@@ -12208,6 +12220,10 @@ export interface UpdatePropertyModel {
    * The caption for the video url associated with this property
    */
   videoCaption?: string
+  /**
+   * Any general notes regarding the property. These are not usually exposed to end users and may contain sensitive information about a sale
+   */
+  notes?: string
   /**
    * Request body used to update the EPC statistics of an existing property
    */

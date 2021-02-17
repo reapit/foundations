@@ -1,7 +1,7 @@
 import {
   BillingBreakdownForMonthV2Model,
   BillingOverviewForPeriodV2Model,
-  MonthlyBillingDetailsV2Model,
+  // MonthlyBillingDetailsV2Model,
   ServiceItemBillingV2Model,
 } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
@@ -88,13 +88,7 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
       Footer: 'Total',
     },
     {
-      Header: 'Endpoints',
-      accessor: row => {
-        return row.itemCount && formatNumber(row.itemCount)
-      },
-    },
-    {
-      Header: 'Amount',
+      Header: 'Hours',
       accessor: row => {
         return row.amount && formatNumber(row.amount)
       },
@@ -128,16 +122,16 @@ export const convertTableDataToArray = (tableData: TableData, columns: any[], to
   return [titleRow, ...bodyRows, totalRow]
 }
 
-export const getAppHttpTrafficPerDayChartData = (stats: MonthlyBillingDetailsV2Model[]) => {
+export const getAppHttpTrafficPerDayChartData = (stats: ServiceItemBillingV2Model[]) => {
   const chartDataStats: ChartDataModel[] = []
   const labels: string[] = []
   const data: number[] = []
 
   stats.map(item => {
-    labels.push(item.period as string)
+    labels.push(item.name as string)
     data.push(item.cost as number)
     chartDataStats.push({
-      date: item.period as string,
+      date: item.name as string,
       requestCount: item.cost as number,
     })
   })
@@ -323,6 +317,7 @@ export const handleGetSettings = (
 
 export const handleUpdateSettings = (
   setSettingsLoading: Dispatch<SetStateAction<boolean>>,
+  setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   handleClose: () => void,
 ) => (settings: Partial<SettingsModel>) => {
@@ -332,6 +327,10 @@ export const handleUpdateSettings = (
     setSettingsLoading(false)
     if (updated) {
       setMessageState({ infoMessage: 'Usage cap successfully updated' })
+      const settingsRefetch = await getSettingsService()
+      if (settingsRefetch) {
+        setSettings(settingsRefetch)
+      }
       return handleClose()
     }
     setMessageState({ errorMessage: 'Something went wrong updating usage cap' })

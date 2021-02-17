@@ -313,14 +313,19 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                     </div>
                   </Component>
                   <p
-                    className="mt-5"
+                    className="mt-4"
                   >
-                    *All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and you will be automatically invoiced at the end of each billing period.
+                    * All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and you will be automatically invoiced at the end of each billing period.
                   </p>
                   <p
-                    className="mt-5"
+                    className="mt-4"
                   >
-                    ** As our charges are calculated in fractions of pence per transaction, very occasionally you may see a rounding discrepancy of more than £0.01 in the Cost Explorer.
+                    ** Costs adjusted to include 2 free hours of warehouse uptime (included in monthly subscription)
+                  </p>
+                  <p
+                    className="mt-4"
+                  >
+                    *** Partially used hours are rounded upwards for the purposes of billing
                   </p>
                 </div>
               </Component>

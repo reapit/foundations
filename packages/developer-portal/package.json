@@ -15,7 +15,7 @@
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity developer-portal --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
@@ -50,6 +50,9 @@
     "redux-mock-store": "^1.5.4",
     "rimraf": "^3.0.2",
     "serverless": "^2.23.0",
+    "serverless-s3-deploy": "^0.10.0",
+    "serverless-s3-remover": "^0.6.0",
+    "serverless-single-page-app-plugin": "^1.0.2",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.11.0"
   },

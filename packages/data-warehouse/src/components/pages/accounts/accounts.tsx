@@ -59,6 +59,7 @@ export const Accounts: React.FC = () => {
           setPercentageComplete={setPercentageComplete}
         />
       </Section>
+
       {subscriptionsLoading ? (
         <Loader />
       ) : currentSubscription ? (
@@ -66,6 +67,13 @@ export const Accounts: React.FC = () => {
           {provisionInProgress && (
             <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
           )}
+          <FadeIn>
+            <Helper variant="info">
+              You are able to manage the credentials used to access your data warehouse. There is no limit on the number
+              of user accounts you&apos;re able to add and we recommend that each individual user/application is
+              provided with their own credentials.
+            </Helper>
+          </FadeIn>
           <Section>
             <H5>User Account Details</H5>
             {accountsLoading ? (

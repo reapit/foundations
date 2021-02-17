@@ -60,10 +60,26 @@ export const Data: React.FC<DataProps> = () => {
     <>
       <Content>
         <H3 isHeadingSection>Data</H3>
+
         {subscriptionsLoading ? (
           <Loader />
         ) : currentSubscription ? (
           <>
+            <FadeIn>
+              <Helper variant="info">
+                Our data warehouse solution can provide access to your data in a number of different formats. To get
+                immediate access to your data in a particular format, click &lsquo;Create Share&rsquo;. Connectivity
+                information will then be presented to you. Please see our{' '}
+                <a
+                  href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  usage instructions
+                </a>{' '}
+                for further information on how to use these details to connect a number of popular BI applications.
+              </Helper>
+            </FadeIn>
             <Section>
               <H5>Available Data</H5>
               {dataSetsLoading ? (

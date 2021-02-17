@@ -1,4 +1,3 @@
-const path = require('path')
 const slsw = require('serverless-webpack')
 const { ContextReplacementPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
@@ -23,7 +22,7 @@ module.exports = {
   devtool: 'inline-cheap-module-source-map',
   output: {
     libraryTarget: 'commonjs',
-    path: path.resolve(__dirname, 'dist'),
+    path: `${process.cwd()}/dist`,
     filename: '[name].js',
   },
   plugins: [

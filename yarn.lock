@@ -5370,6 +5370,10 @@ __metadata:
     rollup: 1.27.13
     rollup-plugin-scss: ^1.0.2
     rollup-plugin-typescript2: ^0.27.1
+    serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.338.0
     tsdx: ^0.12.3
     typescript: ^4.0.3
@@ -9206,6 +9210,9 @@ __metadata:
     redux-mock-store: ^1.5.4
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     typescript: ^4.0.3
     webpack: ^4.41.5
@@ -9411,6 +9418,9 @@ __metadata:
     react-to-print: ^2.4.0
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
@@ -14649,6 +14659,9 @@ __metadata:
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
@@ -15252,6 +15265,9 @@ __metadata:
     redux-mock-store: ^1.5.4
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     swagger-ui-react: ^3.34.0
     webpack: ^4.41.5
@@ -18894,6 +18910,9 @@ __metadata:
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
   languageName: unknown
@@ -19186,7 +19205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-all@npm:^3.1.0":
+"glob-all@npm:^3.1.0, glob-all@npm:^3.2.1":
   version: 3.2.1
   resolution: "glob-all@npm:3.2.1"
   dependencies:
@@ -19792,6 +19811,7 @@ __metadata:
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     serverless: ^2.23.0
+    serverless-deployment-bucket: ^1.3.0
     serverless-offline: ^6.1.4
     serverless-webpack: ^5.3.2
     snyk: ^1.341.1
@@ -25801,6 +25821,9 @@ __metadata:
     redux-mock-store: ^1.5.4
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
@@ -28895,6 +28918,9 @@ __metadata:
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     swr: ^0.3.9
     ts-jest: ^26.4.3
@@ -31387,6 +31413,9 @@ __metadata:
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
   languageName: unknown
@@ -31411,6 +31440,9 @@ __metadata:
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
     serverless: ^2.23.0
+    serverless-s3-deploy: ^0.10.0
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
@@ -33113,7 +33145,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"serverless-deployment-bucket@npm:^1.1.2, serverless-deployment-bucket@npm:^1.2.0":
+"serverless-deployment-bucket@npm:^1.1.2, serverless-deployment-bucket@npm:^1.2.0, serverless-deployment-bucket@npm:^1.3.0":
   version: 1.3.0
   resolution: "serverless-deployment-bucket@npm:1.3.0"
   dependencies:
@@ -33213,6 +33245,17 @@ resolve@1.15.1:
   version: 1.0.5
   resolution: "serverless-plugin-ifelse@npm:1.0.5"
   checksum: eff243f0d54bb2b68d8861e402110e5d51a4f5435f6965c74e0f56fc6943449f450717731c4163088c166ee17ac498d5002f7fa10e984b24f73fee8a5923cec1
+  languageName: node
+  linkType: hard
+
+"serverless-s3-deploy@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "serverless-s3-deploy@npm:0.10.0"
+  dependencies:
+    bluebird: ^3.7.2
+    glob-all: ^3.2.1
+    mime-types: ^2.1.27
+  checksum: 66cc193387bf1d12a5acd214d59e8f6b5b0921de9a62db1a97891f18b664e6813ab6ed665fe5644ee256e1999443598e21cf94536345c9a4296a7ca250b60337
   languageName: node
   linkType: hard
 
