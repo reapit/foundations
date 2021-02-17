@@ -1,5 +1,5 @@
 {
-  "name": "reapit-connect-management",
+  "name": "marketplace-management",
   "version": "0.0.1",
   "private": true,
   "description": "Description",
@@ -17,7 +17,7 @@
     "lint": "eslint --cache --ext=ts,tsx src --fix",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity reapit-connect-management --name local --mode fetch",
+    "conf": "yarn config-manager --namespace cloud --entity marketplace-management --name local --mode fetch",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-service: cloud-reapit-connect-management
+service: cloud-marketplace-management
 plugins:
   - serverless-single-page-app-plugin
   - serverless-deployment-bucket
@@ -6,7 +6,7 @@ plugins:
   - serverless-s3-deploy
 
 custom:
-  s3WebAppBucket: cloud-reapit-connect-management-web-app-${opt:stage, 'dev'}
+  s3WebAppBucket: cloud-marketplace-management-web-app-${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   remover:
      buckets:
@@ -86,9 +86,9 @@ resources:
           # Aliases:
           #   If: '"${opt:stage, 'dev'}" == "dev"'
           #   Set:
-          #     - dev.reapit-connect-management.reapit.cloud
+          #     - dev.marketplace-management.reapit.cloud
           #   ElseSet:
-          #     - reapit-connect-management.reapit.cloud
+          #     - marketplace-management.reapit.cloud
           DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404

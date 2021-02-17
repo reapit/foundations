@@ -13,15 +13,6 @@ exports[`Menu should match a snapshot 1`] = `
         "type": "LOGO",
       },
       Object {
-        "callback": [Function],
-        "icon": <FaCloud
-          className="nav-item-icon"
-        />,
-        "key": "APPS",
-        "title": "Apps",
-        "type": "PRIMARY",
-      },
-      Object {
         "icon": <FaPoundSign
           className="nav-item-icon"
         />,
@@ -29,6 +20,15 @@ exports[`Menu should match a snapshot 1`] = `
         "title": "Payments",
         "type": "PRIMARY",
         "url": "/payments",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
       },
       Object {
         "callback": [Function],
