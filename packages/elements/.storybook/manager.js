@@ -1,5 +1,6 @@
 import addons from '@storybook/addons'
 import { create } from '@storybook/theming'
+import { version } from '../package.json'
 
 addons.setConfig({
   theme: create({
@@ -33,8 +34,7 @@ addons.setConfig({
     inputTextColor: '#12263f',
     inputBorderRadius: 0,
 
-    brandTitle: `Elements ${process.env.APP_VERSION}`,
-    brandUrl: process.env.ELEMENTS_DOCUMENT_URL,
+    brandTitle: `Elements ${version}`,
     brandImage: '',
   }),
 })

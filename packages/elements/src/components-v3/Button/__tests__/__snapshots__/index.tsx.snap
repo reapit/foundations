@@ -2,7 +2,7 @@
 
 exports[`Button should match a snapshot 1`] = `
 <button
-  className="el3-button button  is-primary  "
+  className=""
   data-test="some-selector"
   disabled={false}
   onClick={[MockFunction]}
@@ -10,33 +10,4 @@ exports[`Button should match a snapshot 1`] = `
 >
   button text
 </button>
-`;
-
-exports[`ButtonGroup should match a snapshot 1`] = `
-<div
-  className="is-centered buttons has-addons "
->
-  <Component
-    dataTest="some-selector"
-    disabled={false}
-    fullWidth={false}
-    loading={false}
-    onClick={[MockFunction]}
-    type="submit"
-    variant="primary"
-  >
-    button text
-  </Component>
-  <Component
-    dataTest="some-selector"
-    disabled={false}
-    fullWidth={false}
-    loading={false}
-    onClick={[MockFunction]}
-    type="submit"
-    variant="primary"
-  >
-    button text
-  </Component>
-</div>
 `;

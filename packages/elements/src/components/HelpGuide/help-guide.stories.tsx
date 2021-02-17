@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import { HelpGuide } from '.'
 import { useHelpGuideContext } from './context'
 import { Button } from '../Button'
@@ -65,44 +65,47 @@ const ComponentC = () => {
   )
 }
 
-storiesOf('HelpGuide', module).add('Primary', () => {
-  return (
-    <HelpGuide>
-      <HelpGuide.Step
-        id="step-1"
-        component={ComponentA}
-        heading="Heading-1"
-        subHeading="SubHeading-1"
-        graphic={<img width="200px" src={imageUrl} />}
-      />
-      <HelpGuide.Step
-        id="step-2"
-        component={ComponentB}
-        heading="Heading-2"
-        subHeading="SubHeading-2"
-        graphic={<img width="200px" src={imageUrl} />}
-      />
-      <HelpGuide.Step
-        id="step-3"
-        component={ComponentB}
-        heading="Heading-3"
-        subHeading="SubHeading-3"
-        graphic={<img width="200px" src={imageUrl} />}
-      />
-      <HelpGuide.Step
-        id="step-4"
-        component={ComponentB}
-        heading="Heading-4"
-        subHeading="SubHeading-4"
-        graphic={<img width="200px" src={imageUrl} />}
-      />
-      <HelpGuide.Step
-        id="step-5"
-        component={ComponentC}
-        heading="Heading-5"
-        subHeading="SubHeading-5"
-        graphic={<img width="200px" src={imageUrl} />}
-      />
-    </HelpGuide>
-  )
-})
+export default {
+  title: 'Rereshed-Docs/HelpGuide',
+  component: HelpGuide,
+}
+
+export const BasicUsage: Story = () => (
+  <HelpGuide>
+    <HelpGuide.Step
+      id="step-1"
+      component={ComponentA}
+      heading="Heading-1"
+      subHeading="SubHeading-1"
+      graphic={<img width="200px" src={imageUrl} />}
+    />
+    <HelpGuide.Step
+      id="step-2"
+      component={ComponentB}
+      heading="Heading-2"
+      subHeading="SubHeading-2"
+      graphic={<img width="200px" src={imageUrl} />}
+    />
+    <HelpGuide.Step
+      id="step-3"
+      component={ComponentB}
+      heading="Heading-3"
+      subHeading="SubHeading-3"
+      graphic={<img width="200px" src={imageUrl} />}
+    />
+    <HelpGuide.Step
+      id="step-4"
+      component={ComponentB}
+      heading="Heading-4"
+      subHeading="SubHeading-4"
+      graphic={<img width="200px" src={imageUrl} />}
+    />
+    <HelpGuide.Step
+      id="step-5"
+      component={ComponentC}
+      heading="Heading-5"
+      subHeading="SubHeading-5"
+      graphic={<img width="200px" src={imageUrl} />}
+    />
+  </HelpGuide>
+)

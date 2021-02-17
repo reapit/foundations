@@ -1,8 +1,11 @@
 import * as React from 'react'
+import { cx } from 'linaria'
+import { elIntentPrimary, elIntentInfo, elIntentSuccess, elIntentDanger } from '../../styles-v3/base/intent'
+import * as styles from './__styles__'
 
 export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
-  variant?: 'primary' | 'secondary' | 'danger' | 'info'
+  intent?: 'primary' | 'success' | 'danger' | 'info'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
@@ -11,9 +14,9 @@ export interface ButtonProps {
   dataTest?: string
 }
 
-export const Button: React.SFC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   type = 'button',
-  variant = 'primary',
+  intent,
   className = '',
   disabled = false,
   loading = false,
@@ -22,37 +25,41 @@ export const Button: React.SFC<ButtonProps> = ({
   onClick,
   dataTest = '',
 }) => {
-  const theme =
-    variant === 'primary'
-      ? 'is-primary'
-      : variant === 'secondary'
-      ? 'is-secondary'
-      : variant === 'info'
-      ? 'is-info'
-      : 'is-danger'
+  let theme = ''
+  switch (intent) {
+    case 'primary':
+      {
+        theme = elIntentPrimary
+      }
+      break
+    case 'success':
+      {
+        theme = elIntentSuccess
+      }
+      break
+    case 'info':
+      {
+        theme = elIntentInfo
+      }
+      break
+    case 'danger':
+      {
+        theme = elIntentDanger
+      }
+      break
+  }
+
+  const combinedClassName = cx(
+    styles.elButton,
+    theme,
+    className,
+    fullWidth && styles.elIsFullWidth,
+    loading && styles.elIsLoading,
+  )
 
   return (
-    <button
-      type={type}
-      className={`el3-button button ${className} ${theme} ${fullWidth ? 'is-fullwidth' : ''} ${
-        loading ? 'is-loading' : ''
-      }`}
-      disabled={disabled}
-      onClick={onClick}
-      data-test={dataTest}
-    >
+    <button type={type} className={combinedClassName} disabled={disabled} onClick={onClick} data-test={dataTest}>
       {children}
     </button>
   )
-}
-
-export interface ButtonGroupProps {
-  className?: string
-}
-/* JB v2 suggestions
- * the classes `is-centered`, and `has-addons` should be incorporated into the `buttons`
- * class, because they are always added by default anyway
- */
-export const ButtonGroup: React.SFC<ButtonGroupProps> = ({ className = '', children }) => {
-  return <div className={`is-centered buttons has-addons ${className}`}>{children}</div>
 }

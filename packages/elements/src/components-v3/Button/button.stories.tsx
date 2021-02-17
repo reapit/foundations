@@ -4,24 +4,33 @@ import { Button, ButtonProps } from './index'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Rereshed-Docs/Button',
+  title: 'V3/Button',
   component: Button,
 }
 
-export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
-Primary.args = {
+export const Default: Story<ButtonProps> = args => <Button {...args}>Default</Button>
+Default.args = {
   type: 'submit',
-  variant: 'primary',
   onClick: action('Clicking Primary Button'),
   disabled: false,
   loading: false,
   fullWidth: false,
 }
 
-export const Secondary: Story<ButtonProps> = args => <Button {...args}>Secondary</Button>
-Secondary.args = {
+export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
+Primary.args = {
   type: 'submit',
-  variant: 'secondary',
+  intent: 'primary',
+  onClick: action('Clicking Primary Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
+
+export const Success: Story<ButtonProps> = args => <Button {...args}>Success</Button>
+Success.args = {
+  type: 'submit',
+  intent: 'success',
   onClick: action('Clicking Secondary Button'),
   disabled: false,
   loading: false,
@@ -31,7 +40,7 @@ Secondary.args = {
 export const Danger: Story<ButtonProps> = args => <Button {...args}>Danger</Button>
 Danger.args = {
   type: 'submit',
-  variant: 'danger',
+  intent: 'danger',
   onClick: action('Clicking Danger Button'),
   disabled: false,
   loading: false,
@@ -41,7 +50,7 @@ Danger.args = {
 export const Info: Story<ButtonProps> = args => <Button {...args}>Info</Button>
 Info.args = {
   type: 'submit',
-  variant: 'info',
+  intent: 'info',
   onClick: action('Clicking Info Button'),
   disabled: false,
   loading: false,
@@ -51,7 +60,7 @@ Info.args = {
 export const Disabled: Story<ButtonProps> = args => <Button {...args}>Disabled</Button>
 Disabled.args = {
   type: 'submit',
-  variant: 'primary',
+  intent: 'primary',
   onClick: action('Clicking Disabled Button'),
   disabled: true,
   loading: false,
@@ -61,7 +70,7 @@ Disabled.args = {
 export const Loading: Story<ButtonProps> = args => <Button {...args}>Loading</Button>
 Loading.args = {
   type: 'submit',
-  variant: 'primary',
+  intent: 'primary',
   onClick: action('Clicking Loading Button'),
   disabled: false,
   loading: true,
@@ -71,7 +80,7 @@ Loading.args = {
 export const IsCentered: Story<ButtonProps> = args => <Button {...args}>Centered</Button>
 IsCentered.args = {
   type: 'submit',
-  variant: 'primary',
+  intent: 'primary',
   onClick: action('Clicking Centered Button'),
   disabled: false,
   loading: false,
