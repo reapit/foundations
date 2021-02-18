@@ -12,7 +12,7 @@ export const generateMenuConfig = (
   location: Location<any>,
   mode: Pick<MenuConfig, 'mode'>['mode'],
 ): any => {
-  return {
+  const config = {
     defaultActiveKey: 'PAYMENTS',
     mode,
     location,
@@ -23,28 +23,39 @@ export const generateMenuConfig = (
         type: 'LOGO',
       },
       {
-        title: 'Apps',
-        key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
-        callback: callbackAppClick,
-        type: 'PRIMARY',
-      },
-      {
         title: 'Payments',
         key: 'PAYMENTS',
         icon: <FaPoundSign className="nav-item-icon" />,
         url: Routes.PAYMENTS,
         type: 'PRIMARY',
       },
-      {
-        title: 'Logout',
-        key: 'LOGOUT',
-        callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY',
-      },
     ],
   }
+
+  if (mode === 'WEB') {
+    return {
+      ...config,
+      menu: [
+        ...config.menu,
+        {
+          title: 'Apps',
+          key: 'APPS',
+          icon: <FaCloud className="nav-item-icon" />,
+          callback: callbackAppClick,
+          type: 'PRIMARY',
+        },
+        {
+          title: 'Logout',
+          key: 'LOGOUT',
+          callback: logoutCallback,
+          icon: <FaSignOutAlt className="nav-item-icon" />,
+          type: 'SECONDARY',
+        },
+      ],
+    }
+  }
+
+  return config
 }
 
 export const callbackAppClick = () =>

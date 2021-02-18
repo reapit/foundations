@@ -56,6 +56,9 @@ mailer-service:
 marketplace:
   - packages/marketplace/**
 
+marketplace-management:
+  - packages/marketplace-management/**
+
 payments-client:
   - packages/payments-client/**
 
@@ -70,9 +73,6 @@ react-app-scaffolder:
 
 reapit-connect:
   - packages/reapit-connect/**
-
-reapit-connect-management:
-  - packages/reapit-connect-management/**
 
 smb-onboarder:
   - packages/smb-onboarder/**

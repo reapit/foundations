@@ -27,7 +27,7 @@
     "cookie": "0.4.1",
     "dataloader": "^2.0.0",
     "dayjs": "^1.10.4",
-    "graphql": "14.5.8",
+    "graphql": "14.7.0",
     "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^0.7.1",
     "graphql-type-json": "^0.3.1",
@@ -71,7 +71,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "resolutions": {
-    "graphql": "14.5.8"
+    "graphql": "14.7.0"
   },
   "snyk": true
 }
