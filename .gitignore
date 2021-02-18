@@ -11,6 +11,7 @@
 # production
 /packages/*/build
 /packages/*/dist
+/packages/elements/v3
 /packages/*/public/service
 /packages/*/public/dist
 /packages/*/.serverless

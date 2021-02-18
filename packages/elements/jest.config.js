@@ -9,21 +9,21 @@ module.exports = {
     '.stories.tsx',
     'src/index.tsx',
     'index.ts',
-    'v2.ts'
+    'src/styles-v3',
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|v3|dist)[/\\\\]'],
   transform: {
-    '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js'
+    '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js',
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js'
+    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js',
   },
   coverageThreshold: {
     global: {
       branches: 70,
       functions: 92,
       lines: 93,
-      statements: 93
-    }
-  }
+      statements: 93,
+    },
+  },
 }
