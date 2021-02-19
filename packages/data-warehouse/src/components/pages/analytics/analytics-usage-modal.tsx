@@ -11,17 +11,42 @@ import {
   LevelRight,
   Loader,
   Modal,
+  useFormikContext,
 } from '@reapit/elements'
 import * as Yup from 'yup'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { MessageContext } from '../../../context/message-context'
 import { SettingsModel } from '../../../types/settings'
-import { handleGetSettings, handleUpdateSettings } from './analytics-handlers'
+import { getChargableUsageString, handleGetSettings, handleUpdateSettings } from './analytics-handlers'
 
 export interface AnalyticsUsageModalProps {
   visible: boolean
   handleClose: () => void
+}
+
+export interface AnalyticsUsageNewProps {
+  currentSettings?: Partial<SettingsModel>
+}
+
+export const NewUsageComponent: React.FC<AnalyticsUsageNewProps> = ({ currentSettings }) => {
+  const { values } = useFormikContext<Partial<SettingsModel>>()
+
+  if (!currentSettings) return null
+
+  if (!Number(values.monthlyUsageCap) && currentSettings.monthlyUsageCap)
+    return <p>Setting the monthly usage at 0 will mean charges are limited only by hours in a calendar month.</p>
+
+  if (values.monthlyUsageCap !== currentSettings.monthlyUsageCap) {
+    const newChargableUsage = getChargableUsageString(values)
+    return (
+      <p>
+        Setting your usage cap to {values.monthlyUsageCap} hours will cap maximum monthly charges at {newChargableUsage}
+      </p>
+    )
+  }
+
+  return null
 }
 
 const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, handleClose }) => {
@@ -34,10 +59,6 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
 
   const onSubmit = useCallback(handleUpdateSettings(setSettingsLoading, setSettings, setMessageState, handleClose), [])
 
-  const chargeableUsage =
-    settings?.monthlyUsageCap && !isNaN(Number(settings.monthlyUsageCap)) && Number(settings?.monthlyUsageCap) - 2 > 0
-      ? Number(settings?.monthlyUsageCap) - 2
-      : 0
   return (
     <Modal visible={visible} title="Data Warehouse Usage Cap" afterClose={handleClose}>
       {settingsLoading ? (
@@ -79,10 +100,17 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
             </Helper>
             <FormSection>
               <FormHeading>Usage Cap</FormHeading>
-              <FormSubHeading>{`Your current usage cap is set at ${settings?.monthlyUsageCap ??
-                0} hours per calendar month, current cost £${(chargeableUsage * 6.99).toFixed(
-                2,
-              )} per month. You can adjust the usage limit with the form below.`}</FormSubHeading>
+              <FormSubHeading>
+                {settings?.monthlyUsageCap
+                  ? `Your current usage cap is set at ${settings?.monthlyUsageCap ??
+                      0} hours per calendar month, current cost ${getChargableUsageString(
+                      settings,
+                    )} per month. You can adjust the usage limit with the form below.`
+                  : 'No usage cap is currently set.'}
+              </FormSubHeading>
+              <FormSubHeading>
+                <NewUsageComponent currentSettings={settings} />
+              </FormSubHeading>
               <Input
                 id="monthlyUsageCap"
                 type="text"

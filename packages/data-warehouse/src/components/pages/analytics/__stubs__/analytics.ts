@@ -18,9 +18,9 @@ export const tableData = [
   {
     amount: 638,
     cost: 7.975,
-    itemCount: 7,
+    itemCount: null,
     name: 'API Requests',
-    subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2, subRows: [] }],
+    subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: null, subRows: [] }],
   },
 ]
 

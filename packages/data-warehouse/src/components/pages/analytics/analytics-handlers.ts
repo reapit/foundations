@@ -1,6 +1,7 @@
 import {
   BillingBreakdownForMonthV2Model,
   BillingOverviewForPeriodV2Model,
+  MonthlyBillingDetailsV2Model,
   // MonthlyBillingDetailsV2Model,
   ServiceItemBillingV2Model,
 } from '@reapit/foundations-ts-definitions'
@@ -41,13 +42,11 @@ export interface FilterMonth {
 export const prepareTableData = (data: ServiceItemBillingV2Model[], serviceName?: string): TableData => {
   if (!data || !data.length) return []
 
-  return data.map(({ items = [], itemCount, ...row }) => {
+  return data.map(({ items = [], ...row }) => {
     const service = serviceName || row.name
-    const isApiRequests = service === 'API Requests'
-
     const rowData = {
       ...row,
-      itemCount: isApiRequests && itemCount ? itemCount : null,
+      itemCount: null,
       subRows: prepareTableData(items, service),
     }
     return rowData
@@ -88,12 +87,6 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
       Footer: 'Total',
     },
     {
-      Header: 'Hours',
-      accessor: row => {
-        return row.amount && formatNumber(row.amount)
-      },
-    },
-    {
       Header: 'Cost',
       accessor: row => {
         return row.cost && formatCurrency(row.cost)
@@ -104,21 +97,18 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
 }
 
 export const flattenCostTableRows = (tableData: TableData): any[][] => {
-  const result = tableData.reduce((accumulator, { subRows, name: services, amount, cost, itemCount: endpoint }) => {
-    accumulator.push([services, endpoint, amount, cost])
-    if (subRows.length > 0) {
-      accumulator.push(...flattenCostTableRows(subRows))
-    }
+  const result = tableData.reduce((accumulator, { name: services, cost }) => {
+    accumulator.push([services, cost])
     return accumulator
   }, [] as any[][])
 
   return result
 }
 
-export const convertTableDataToArray = (tableData: TableData, columns: any[], totalCost: number): any[][] => {
-  const titleRow = columns.map(({ Header }) => Header)
+export const convertTableDataToArray = (tableData: TableData, totalCost: number): any[][] => {
+  const titleRow = ['Services', 'Cost Item (GBP)']
   const bodyRows = flattenCostTableRows(tableData)
-  const totalRow = ['Total', null, null, totalCost]
+  const totalRow = ['Total Cost (GBP)', totalCost]
   return [titleRow, ...bodyRows, totalRow]
 }
 
@@ -157,6 +147,16 @@ export const getDailyChartOptions = (data: ChartDataModel[]) => {
         },
       },
     },
+    scales: {
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: 'Usage Cost ( £ )',
+          },
+        },
+      ],
+    },
   }
 }
 
@@ -189,8 +189,6 @@ export const getDailyChartConfig = (labels: string[], data: number[]) => ({
 })
 
 export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model | null) => {
-  const API_CALL_INDEX = 0
-
   const datasets = [
     {
       label: 'Data Warehouse',
@@ -199,6 +197,16 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [] as number[],
+      totalCost: 0,
+    },
+    {
+      label: 'Data Warehouse Subscriptions',
+      backgroundColor: 'rgba(81, 74, 177,0.2)',
+      borderColor: 'rgba(81, 74, 177,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(81, 74, 177,0.4)',
+      hoverBorderColor: 'rgba(81, 74, 177,1)',
       data: [] as number[],
       totalCost: 0,
     },
@@ -212,14 +220,17 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     }
   }
 
-  billing.periods.forEach(period => {
+  billing.periods.forEach((period: MonthlyBillingDetailsV2Model) => {
     labels.push(period?.periodName || '')
     const services = period?.services || []
-    const apiCallsData = services.find(service => service.name === 'Data Warehouse')?.cost || 0
+    const dwUsageData = services.find(service => service.name === 'Data Warehouse')?.cost || 0
+    const dwSubsData = services.find(service => service.name === 'Data Warehouse Subscription')?.cost || 0
 
     if (datasets) {
-      datasets[API_CALL_INDEX].totalCost += apiCallsData
-      datasets[API_CALL_INDEX].data.push(apiCallsData)
+      datasets[0].totalCost += dwUsageData
+      datasets[0].data.push(dwUsageData)
+      datasets[1].totalCost += dwSubsData
+      datasets[1].data.push(dwSubsData)
     }
   })
 
@@ -337,4 +348,16 @@ export const handleUpdateSettings = (
   }
 
   updateSettings()
+}
+
+export const getChargableUsageString = (currentSettings?: Partial<SettingsModel>): string => {
+  if (!currentSettings) return '£0'
+
+  const { monthlyUsageCap } = currentSettings
+  const monthlyUsageCapNumber = Number(monthlyUsageCap)
+
+  if (!monthlyUsageCap || isNaN(monthlyUsageCapNumber)) return '£0'
+
+  const monthlyUsageCapBillable = monthlyUsageCapNumber - 2 > 0 ? monthlyUsageCapNumber - 2 : 0
+  return monthlyUsageCapBillable ? `£${(monthlyUsageCapBillable * 6.99).toFixed(2)}` : '£0'
 }

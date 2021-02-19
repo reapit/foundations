@@ -68,8 +68,9 @@ export const Data: React.FC<DataProps> = () => {
             <FadeIn>
               <Helper variant="info">
                 Our data warehouse solution can provide access to your data in a number of different formats. To get
-                immediate access to your data in a particular format, click &lsquo;Create Share&rsquo;. Connectivity
-                information will then be presented to you. Please see our{' '}
+                immediate access to your data in a particular format, click &lsquo;Create Share&rsquo;. The data will be
+                published into your data warehouse and connectivity information will then be presented to you. Please
+                see our{' '}
                 <a
                   href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
                   target="_blank"
@@ -78,6 +79,8 @@ export const Data: React.FC<DataProps> = () => {
                   usage instructions
                 </a>{' '}
                 for further information on how to use these details to connect a number of popular BI applications.
+                Please note that generating a data share is a long running process and can take 30 seconds or more to
+                complete.
               </Helper>
             </FadeIn>
             <Section>

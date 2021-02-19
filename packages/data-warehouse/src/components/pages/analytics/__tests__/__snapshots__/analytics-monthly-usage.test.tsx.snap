@@ -15,9 +15,16 @@ exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
             className=""
             id=""
           >
-            Monthly Usage
+            Monthly Cost
           </h5>
         </Component>
+        <p
+          className="mb-4"
+        >
+          <i>
+            * Includes 2hrs free monthly usage
+          </i>
+        </p>
         <mock-styled.div>
           <mock-styled.div>
             <Bar

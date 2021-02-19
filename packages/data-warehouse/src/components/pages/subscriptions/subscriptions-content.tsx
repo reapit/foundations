@@ -30,8 +30,15 @@ const SubscriptionsContent: React.FC = () => {
             <GridItem>
               <H5>Pricing</H5>
               <p>
-                Access is licensed by monthly subscription at a cost of £150 per month, inclusive of two hours of
-                warehouse uptime for each month. Warehouse uptime beyond 2 hours is billed at cost of £6.99 per hour.
+                A subscription to access the data warehouse for your organisation costs £150 per month. Additional costs
+                are calculated based on the number of hours of warehouse usage in a given month, charged at £6.99 per
+                hour.
+              </p>
+              <p>
+                Your warehouse will become active when queries are issued against it. You will be billed by the minute
+                while your warehouse is in an active state and ready to serve data. After a short period of inactivity,
+                the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping. Your
+                subscription includes 2 hours of warehouse uptime per month.
               </p>
               <p>
                 The below table represents the estimated cost of running a typical sales activity report for a given
@@ -40,33 +47,28 @@ const SubscriptionsContent: React.FC = () => {
               <Table
                 columns={[
                   { Header: 'Report Usage', accessor: 'usage' },
-                  { Header: 'Required Warehouse', accessor: 'warehouse' },
-                  { Header: 'Subscription', accessor: 'subscription' },
+                  { Header: 'Required Warehouse Uptime', accessor: 'warehouse' },
                   { Header: 'Consumption', accessor: 'consumption' },
                 ]}
                 data={[
                   {
                     usage: '750 executions',
                     warehouse: '2 hours',
-                    subscription: '£150',
                     consumption: '£0 (included)',
                   },
                   {
                     usage: '3,750 executions',
                     warehouse: '10 hours',
-                    subscription: '£150',
                     consumption: '£55.92',
                   },
                   {
                     usage: '15,000 executions',
                     warehouse: '40 hours',
-                    subscription: '£150',
                     consumption: '£265.62',
                   },
                   {
                     usage: '60,000 executions',
                     warehouse: '160 hours',
-                    subscription: '£150',
                     consumption: '£1,104.42',
                   },
                 ]}
@@ -92,13 +94,15 @@ const SubscriptionsContent: React.FC = () => {
                         <span className="desktop-price">{currentSubscription ? 'Subscribed' : '£150 / Month'}</span>
                         &nbsp;
                       </div>
-                      <div className="text-center px-2 py-1">Includes 2 hours per month warehouse uptime</div>
-                      <div className="text-center px-2 py-1">Only pay for the uptime you need after that</div>
-                      <div className="text-center px-2 py-1">Track your usage and set spending limits</div>
-                      <div className="text-center px-2 py-1">Dedicated virtual warehouse for your organisation</div>
-                      <div className="text-center px-2 py-1">Supports all major BI products</div>
-                      <div className="text-center px-2 py-1">Enterprise grade encryption in transit and at rest</div>
-                      <div className="text-center px-2 py-1">Data kept up to date at 15 minute intervals</div>
+                      <ul>
+                        <li className="text-center px-2 py-1">Includes 2 hours per month warehouse uptime</li>
+                        <li className="text-center px-2 py-1">Only pay for the uptime you need after that</li>
+                        <li className="text-center px-2 py-1">Track your usage and set spending limits</li>
+                        <li className="text-center px-2 py-1">Dedicated virtual warehouse for your organisation</li>
+                        <li className="text-center px-2 py-1">Supports all major BI products</li>
+                        <li className="text-center px-2 py-1">Enterprise grade encryption in transit and at rest</li>
+                        <li className="text-center px-2 py-1">Data kept up to date at 15 minute intervals</li>
+                      </ul>
                       {loginIdentity && (
                         <Section hasMargin={false}>
                           <Button
