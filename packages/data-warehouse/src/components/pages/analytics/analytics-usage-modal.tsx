@@ -34,6 +34,9 @@ export const NewUsageComponent: React.FC<AnalyticsUsageNewProps> = ({ currentSet
 
   if (!currentSettings) return null
 
+  if (!Number(values.monthlyUsageCap) && currentSettings.monthlyUsageCap)
+    return <p>Setting the monthly usage at 0 will mean charges are limited only by hours in a calendar month.</p>
+
   if (values.monthlyUsageCap !== currentSettings.monthlyUsageCap) {
     const newChargableUsage = getChargableUsageString(values)
     return (
@@ -97,10 +100,14 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
             </Helper>
             <FormSection>
               <FormHeading>Usage Cap</FormHeading>
-              <FormSubHeading>{`Your current usage cap is set at ${settings?.monthlyUsageCap ??
-                0} hours per calendar month, current cost ${getChargableUsageString(
-                settings,
-              )} per month. You can adjust the usage limit with the form below.`}</FormSubHeading>
+              <FormSubHeading>
+                {settings?.monthlyUsageCap
+                  ? `Your current usage cap is set at ${settings?.monthlyUsageCap ??
+                      0} hours per calendar month, current cost ${getChargableUsageString(
+                      settings,
+                    )} per month. You can adjust the usage limit with the form below.`
+                  : 'No usage cap is currently set.'}
+              </FormSubHeading>
               <FormSubHeading>
                 <NewUsageComponent currentSettings={settings} />
               </FormSubHeading>
