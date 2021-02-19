@@ -14,3 +14,30 @@ exports[`AnalyticsUsageModal should match a snapshot 1`] = `
   </AnalyticsUsageModal>
 </Component>
 `;
+
+exports[`NewUsageComponent should match a snapshot for a non-updated usage 1`] = `
+<Component
+  currentSettings={
+    Object {
+      "monthlyUsageCap": 5,
+    }
+  }
+/>
+`;
+
+exports[`NewUsageComponent should match a snapshot for an updated usage 1`] = `
+<Component
+  currentSettings={
+    Object {
+      "monthlyUsageCap": 2,
+    }
+  }
+>
+  <p>
+    Setting your usage cap to 
+    5
+     hours will cap maximum monthly charges at 
+    £20.97
+  </p>
+</Component>
+`;

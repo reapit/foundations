@@ -60,9 +60,9 @@ describe('prepareTableData', () => {
       {
         amount: 638,
         cost: 7.975,
-        itemCount: 7,
+        itemCount: null,
         name: 'API Requests',
-        subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2, subRows: [] }],
+        subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: null, subRows: [] }],
       },
       {
         cost: 7.975,
@@ -141,31 +141,15 @@ describe('convertTableDataToArray', () => {
         ],
       },
     ]
-    const columns = [
-      {
-        Header: 'Services',
-      },
-      {
-        Header: 'Endpoints',
-      },
-      {
-        Header: 'Amount',
-      },
-      {
-        Header: 'Cost',
-      },
-    ]
 
-    const result = convertTableDataToArray(tableData, columns, 3949)
+    const result = convertTableDataToArray(tableData, 3949)
     const expected = [
-      ['Services', 'Endpoints', 'Amount', 'Cost'],
-      ['API Requests', null, 0, 0],
-      ['Reapit Connect', null, 0, 0],
-      ['Application Listing', null, 1, 49.5],
-      ['Application listing for TestApp', null, 1, 49.5],
-      ['Developer Edition', null, 22, 3900],
-      ['Developer edition license for cbryan@reapit.com', null, 22, 3900],
-      ['Total', null, null, 3949],
+      ['Services', 'Cost Item (GBP)'],
+      ['API Requests', 0],
+      ['Reapit Connect', 0],
+      ['Application Listing', 49.5],
+      ['Developer Edition', 3900],
+      ['Total Cost (GBP)', 3949],
     ]
     expect(result).toEqual(expected)
   })
@@ -193,41 +177,23 @@ describe('flattenCostTableRows', () => {
         amount: 1,
         cost: 49.5,
         itemCount: null,
-        subRows: [
-          {
-            name: 'Application listing for TestApp',
-            amount: 1,
-            cost: 49.5,
-            itemCount: null,
-            subRows: [],
-          },
-        ],
+        subRows: [],
       },
       {
         name: 'Developer Edition',
         amount: 22,
         cost: 3900,
         itemCount: null,
-        subRows: [
-          {
-            name: 'Developer edition license for cbryan@reapit.com',
-            amount: 22,
-            cost: 3900,
-            itemCount: null,
-            subRows: [],
-          },
-        ],
+        subRows: [],
       },
     ]
 
     const result = flattenCostTableRows(tableData)
     const expected = [
-      ['API Requests', null, 0, 0],
-      ['Reapit Connect', null, 0, 0],
-      ['Application Listing', null, 1, 49.5],
-      ['Application listing for TestApp', null, 1, 49.5],
-      ['Developer Edition', null, 22, 3900],
-      ['Developer edition license for cbryan@reapit.com', null, 22, 3900],
+      ['API Requests', 0],
+      ['Reapit Connect', 0],
+      ['Application Listing', 49.5],
+      ['Developer Edition', 3900],
     ]
     expect(result).toEqual(expected)
   })
@@ -302,7 +268,7 @@ describe('prepareTableColumns', () => {
   it('should return correctly', () => {
     const actual = JSON.stringify(prepareTableColumns(monthlyBillingData))
     const expected =
-      '[{"Header":"Services","accessor":"name","columnProps":{"width":200},"Footer":"Total"},{"Header":"Hours"},{"Header":"Cost","Footer":"£9.57"}]'
+      '[{"Header":"Services","accessor":"name","columnProps":{"width":200},"Footer":"Total"},{"Header":"Cost","Footer":"£9.57"}]'
 
     expect(actual).toEqual(expected)
   })

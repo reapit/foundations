@@ -202,7 +202,7 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
         <mock-styled.div
           key="6"
         >
-          Nearly there, final checks...
+          Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
         </mock-styled.div>
       </ProgressMessage>
     </section>

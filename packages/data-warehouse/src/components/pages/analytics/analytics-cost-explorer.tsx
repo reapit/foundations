@@ -44,12 +44,15 @@ const AnalyticsCostExplorer: React.FC = () => {
   const totalCost = billing?.totalCost || 0
   const columns = prepareTableColumns(billing)
   const tableData = prepareTableData(billing?.services ?? [])
-  const parsableData = convertTableDataToArray(tableData, columns, totalCost)
+  const parsableData = convertTableDataToArray(tableData, totalCost)
   const csvData = unparse(parsableData)
 
   return (
     <Section hasMargin={false}>
       <H5>Cost Explorer</H5>
+      <p className="mb-4">
+        <i>* Includes 2hrs free monthly usage</i>
+      </p>
       <FadeIn>
         <Grid>
           <GridItem className="is-half-desktop">

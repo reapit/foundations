@@ -26,4 +26,8 @@ export const PricingTile = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
   }
+
+  li {
+    list-style-position: inside;
+  }
 `
