@@ -18,7 +18,6 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.1.7",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils": "workspace:packages/utils",
     "apollo-server-core": "^2.18.2",
