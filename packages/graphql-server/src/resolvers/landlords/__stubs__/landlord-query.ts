@@ -1,11 +1,11 @@
 import {
-  PagedResultLandlordModel_,
+  LandlordModelPagedResult,
   LandlordModel,
-  PagedResultLandlordContactRelationshipModel_,
+  LandlordContactRelationshipModelPagedResult,
   LandlordContactRelationshipModel,
-} from '../../../types'
+} from '@reapit/foundations-ts-definitions'
 
-export const landlordsListMock: PagedResultLandlordModel_ = {
+export const landlordsListMock: LandlordModelPagedResult = {
   _embedded: [
     {
       id: 'OXF180001',
@@ -159,7 +159,7 @@ export const landlordMock: LandlordModel = {
   _embedded: null,
 }
 
-export const landlordRelationshipsListMock: PagedResultLandlordContactRelationshipModel_ = {
+export const landlordRelationshipsListMock: LandlordContactRelationshipModelPagedResult = {
   pageNumber: 1,
   _embedded: [
     {

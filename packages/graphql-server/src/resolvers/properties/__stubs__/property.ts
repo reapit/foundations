@@ -1,4 +1,4 @@
-import { PropertyModel } from '../../../types'
+import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
 export const propertyMock: PropertyModel = {
   id: 'RPT200014',

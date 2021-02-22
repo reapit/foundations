@@ -8,7 +8,7 @@
   "author": "reapit global",
   "main": "dist/index.js",
   "scripts": {
-    "start": "yarn build && yarn serverless offline start --stage local --printOutput",
+    "start": "yarn build && yarn serverless offline start --runtime nodejs12.x --stage local",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
     "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src --fix\"",
@@ -18,7 +18,6 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.1.7",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils": "workspace:packages/utils",
     "apollo-server-core": "^2.18.2",
@@ -68,7 +67,7 @@
     "serverless-offline": "^6.1.4",
     "serverless-webpack": "^5.3.2",
     "webpack": "^4.41.5",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^2.5.2"
   },
   "resolutions": {
     "graphql": "14.7.0"

@@ -46,6 +46,11 @@ const webpackConfig = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      },
+      {
         test: /.tsx?$/,
         exclude: generateRegexExcludePackages(),
         use: [
@@ -108,7 +113,7 @@ const webpackConfig = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.mjs'],
     alias: {
       '@': `${PATHS.src}/`,
     },

@@ -1,6 +1,6 @@
-import { PagedResultConveyancingModel_ } from '../../../types'
+import { ConveyancingModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const conveyancingMock: PagedResultConveyancingModel_ = {
+export const conveyancingMock: ConveyancingModelPagedResult = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,

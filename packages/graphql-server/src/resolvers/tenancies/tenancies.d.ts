@@ -1,15 +1,15 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
-  PagedResultTenancyModel_,
-  PagedResultTenancyContactRelationshipModel_,
-  PagedResultTenancyCheckModel_,
+  TenancyModelPagedResult,
+  TenancyContactRelationshipModelPagedResult,
+  TenancyCheckModelPagedResult,
   TenancyModel,
   TenancyCheckModel,
   CreateTenancyModel,
   CreateTenancyCheckModel,
   UpdateTenancyCheckModel,
   Tenancies,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type GetTenanciesArgs = Tenancies
 export type GetTenancyByIdArgs = { id: string }
@@ -23,10 +23,10 @@ export type DeleteTenancyCheckArgs = { id: string; checkId: string }
 export type UpdateTenancyCheckArgs = { id: string; checkId: string; _eTag: string } & UpdateTenancyCheckModel
 
 // api return type
-export type GetTenanciesReturn = Promise<PagedResultTenancyModel_ | UserInputError>
+export type GetTenanciesReturn = Promise<TenancyModelPagedResult | UserInputError>
 export type GetTenancyByIdReturn = Promise<TenancyModel | UserInputError>
-export type GetTenancyRelationshipsReturn = Promise<PagedResultTenancyContactRelationshipModel_ | UserInputError>
-export type GetTenancyChecksReturn = Promise<PagedResultTenancyCheckModel_ | UserInputError>
+export type GetTenancyRelationshipsReturn = Promise<TenancyContactRelationshipModelPagedResult | UserInputError>
+export type GetTenancyChecksReturn = Promise<TenancyCheckModelPagedResult | UserInputError>
 export type GetTenancyCheckByIdReturn = Promise<TenancyCheckModel | UserInputError>
 
 export type CreateTenancyReturn = Promise<TenancyModel | UserInputError>

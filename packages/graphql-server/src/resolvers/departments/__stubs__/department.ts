@@ -1,4 +1,4 @@
-import { DepartmentModel } from '../../../types'
+import { DepartmentModel } from '@reapit/foundations-ts-definitions'
 
 export const departmentMock: DepartmentModel = {
   id: 'G',

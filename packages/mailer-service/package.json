@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn serverless offline start --stage local --printOutput",
+    "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx src --fix",

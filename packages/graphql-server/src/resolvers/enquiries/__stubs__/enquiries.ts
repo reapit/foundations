@@ -1,6 +1,6 @@
-import { PagedResultEnquiryModel_ } from '../../../types'
+import { EnquiryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const enquiriesMock: PagedResultEnquiryModel_ = {
+export const enquiriesMock: EnquiryModelPagedResult = {
   _embedded: [
     {
       id: 45,

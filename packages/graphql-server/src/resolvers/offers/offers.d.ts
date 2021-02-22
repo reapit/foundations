@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { OfferModel, CreateOfferModel, UpdateOfferModel, PagedResultOfferModel_ } from '../../types'
+import {
+  OfferModel,
+  CreateOfferModel,
+  UpdateOfferModel,
+  OfferModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateOfferArgs = CreateOfferModel
 
@@ -32,7 +37,7 @@ export type GetOffersArgs = {
 
 // api return type
 export type GetOfferByIdReturn = Promise<OfferModel | UserInputError>
-export type GetOffersReturn = Promise<PagedResultOfferModel_ | UserInputError>
+export type GetOffersReturn = Promise<OfferModelPagedResult | UserInputError>
 export type CreateOfferReturn = Promise<OfferModel | UserInputError>
 export type UpdateOfferReturn = Promise<OfferModel | UserInputError>
 

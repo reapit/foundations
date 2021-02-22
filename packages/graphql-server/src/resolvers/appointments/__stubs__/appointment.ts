@@ -1,4 +1,4 @@
-import { AppointmentModel } from '../../../types'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export const appointmentMock: AppointmentModel = {
   id: 'BCK1600026',

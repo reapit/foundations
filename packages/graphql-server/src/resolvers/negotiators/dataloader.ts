@@ -3,7 +3,7 @@ import { getNegotiators } from './services'
 import { ServerContext } from '@/index'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
-import { PagedResultNegotiatorModel_, NegotiatorModel } from '@/types'
+import { NegotiatorModelPagedResult, NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
 export const generateNegotiatorBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
   if (keys.length < 1) {
@@ -12,7 +12,7 @@ export const generateNegotiatorBatchLoaderFn = (context: ServerContext) => async
   const traceId = context.traceId
   logger.info('generateNegotiatorBatchLoaderFn', { traceId })
   try {
-    const negotiatorsResult = (await getNegotiators({ id: keys }, context)) as PagedResultNegotiatorModel_
+    const negotiatorsResult = (await getNegotiators({ id: keys }, context)) as NegotiatorModelPagedResult
     const result = keys.map((key: string) => {
       return (negotiatorsResult?._embedded ?? []).find((negotiator: NegotiatorModel) => negotiator.id === key)
     })

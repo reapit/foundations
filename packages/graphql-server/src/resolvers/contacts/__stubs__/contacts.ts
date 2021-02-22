@@ -1,6 +1,6 @@
-import { PagedResultContactModel_ } from '../../../types'
+import { ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const contactsMock: PagedResultContactModel_ = {
+export const contactsMock: ContactModelPagedResult = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,

@@ -1,4 +1,4 @@
-import { DocumentModel } from '../../../types'
+import { DocumentModel } from '@reapit/foundations-ts-definitions'
 
 export const documentMock: DocumentModel = {
   id: 'OXF20000060',

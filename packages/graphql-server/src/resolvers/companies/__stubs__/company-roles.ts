@@ -1,6 +1,6 @@
-import { PagedResultCompanyRoleModel_ } from '../../../types'
+import { CompanyRoleModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const companyRolesMock: PagedResultCompanyRoleModel_ = {
+export const companyRolesMock: CompanyRoleModelPagedResult = {
   pageNumber: 1,
   pageSize: 1,
   pageCount: 1,

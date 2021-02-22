@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { DepartmentModel, PagedResultDepartmentModel_ } from '../../types'
+import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export type GetDepartmentByIdArgs = {
   id: string
@@ -37,7 +37,7 @@ export type GetDepartmentsArgs = {
 
 // api return type
 export type GetDepartmentByIdReturn = Promise<DepartmentModel | UserInputError>
-export type GetDepartmentsReturn = Promise<PagedResultDepartmentModel_ | UserInputError>
+export type GetDepartmentsReturn = Promise<DepartmentModelPagedResult | UserInputError>
 
 // resolver type
 export type QueryGetDepartmentByIdReturn = AuthenticationError | GetDepartmentByIdReturn

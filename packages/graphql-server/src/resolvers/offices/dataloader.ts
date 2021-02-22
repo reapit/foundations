@@ -3,7 +3,7 @@ import { getOffices } from './services'
 import { ServerContext } from '@/index'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
-import { PagedResultOfficeModel_, OfficeModel } from '@/types'
+import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 
 export const generateOfficeBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
   if (keys.length < 1) {
@@ -12,7 +12,7 @@ export const generateOfficeBatchLoaderFn = (context: ServerContext) => async (ke
   const traceId = context.traceId
   logger.info('generateOfficeBatchLoaderFn', { traceId })
   try {
-    const officesResult = (await getOffices({ id: keys }, context)) as PagedResultOfficeModel_
+    const officesResult = (await getOffices({ id: keys }, context)) as OfficeModelPagedResult
     const result = keys.map((key: string) => {
       return (officesResult?._embedded ?? []).find((office: OfficeModel) => office.id === key)
     })

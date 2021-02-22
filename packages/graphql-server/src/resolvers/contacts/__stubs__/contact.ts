@@ -1,4 +1,4 @@
-import { ContactModel } from '../../../types'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const contactMock: ContactModel = {
   id: 'RPT20000017',

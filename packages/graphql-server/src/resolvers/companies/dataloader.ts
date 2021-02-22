@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getCompanies } from './services'
 import { ServerContext } from '@/index'
-import { CompanyModel, PagedResultCompanyModel_ } from '@/types'
+import { CompanyModel, CompanyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 
@@ -12,7 +12,7 @@ export const generateCompanyBatchLoaderFn = (context: ServerContext) => async (k
   const traceId = context.traceId
   logger.info('generateCompanyBatchLoaderFn', { traceId })
   try {
-    const companiesResult = (await getCompanies({ id: keys }, context)) as PagedResultCompanyModel_
+    const companiesResult = (await getCompanies({ id: keys }, context)) as CompanyModelPagedResult
     const result = keys.map((key: string) => {
       return (companiesResult?._embedded ?? []).find((company: CompanyModel) => company.id === key)
     })

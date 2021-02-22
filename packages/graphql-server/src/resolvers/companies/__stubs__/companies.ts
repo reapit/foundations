@@ -1,6 +1,6 @@
-import { PagedResultCompanyModel_ } from '../../../types'
+import { CompanyModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const companiesMock: PagedResultCompanyModel_ = {
+export const companiesMock: CompanyModelPagedResult = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,

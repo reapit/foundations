@@ -1,14 +1,17 @@
-import { PagedResultWorksOrderModel_, CreateWorksOrderItemModel } from '../../types'
+import { WorksOrderModelPagedResult, CreateWorksOrderItemModel } from '@reapit/foundations-ts-definitions'
 import { UserInputError, AuthenticationError } from 'apollo-server-lambda'
 
 import {
   WorksOrderModel,
   UpdateWorksOrderModel,
-  PagedResultWorksOrderItemModel_,
+  WorksOrderItemModelPagedResult,
   WorksOrderItemModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
-export { CreateWorksOrderModel as CreateWorksOrderArgs, WorksOrders as GetWorksOrdersArgs } from '../../types'
+export {
+  CreateWorksOrderModel as CreateWorksOrderArgs,
+  WorksOrders as GetWorksOrdersArgs,
+} from '@reapit/foundations-ts-definitions'
 
 export type UpdateWorksOrderArgs = { id: string; _eTag: string } & UpdateWorksOrderModel
 
@@ -35,12 +38,12 @@ export type UpdateWorksOrderItemArgs = CreateWorksOrderItemArgs & { itemId: stri
 export type DeleteWorksOrderItemArgs = GetWorksOrderItembyIdArgs
 
 // api return types
-export type GetWorksOrderItemsReturn = Promise<PagedResultWorksOrderItemModel_ | UserInputError>
+export type GetWorksOrderItemsReturn = Promise<WorksOrderItemModelPagedResult | UserInputError>
 export type GetWorksOrderItemByIdReturn = Promise<WorksOrderItemModel | UserInputError>
 export type CreateWorksOrderItemReturn = GetWorksOrderItemByIdReturn
 export type UpdateWorksOrderItemReturn = GetWorksOrderItemByIdReturn
 
-export type GetWorksOrdersReturn = Promise<PagedResultWorksOrderModel_ | UserInputError>
+export type GetWorksOrdersReturn = Promise<WorksOrderModelPagedResult | UserInputError>
 export type GetWorksOrderByIdReturn = Promise<WorksOrderModel | UserInputError>
 export type CreateWorksOrderReturn = GetWorksOrderByIdReturn
 export type UpdateWorksOrderReturn = GetWorksOrderByIdReturn

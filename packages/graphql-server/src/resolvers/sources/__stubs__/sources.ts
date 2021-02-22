@@ -1,6 +1,6 @@
-import { PagedResultSourceModel_ } from '../../../types'
+import { SourceModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const sourcesMock: PagedResultSourceModel_ = {
+export const sourcesMock: SourceModelPagedResult = {
   _embedded: [
     {
       id: 'ADV',

@@ -1,4 +1,4 @@
-import { CompanyModel } from '../../../types'
+import { CompanyModel } from '@reapit/foundations-ts-definitions'
 
 export const companyMock: CompanyModel = {
   id: 'RPT20000141',

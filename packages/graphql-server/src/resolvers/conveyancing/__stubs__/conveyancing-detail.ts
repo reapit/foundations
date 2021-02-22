@@ -1,4 +1,4 @@
-import { ConveyancingModel } from '../../../types'
+import { ConveyancingModel } from '@reapit/foundations-ts-definitions'
 
 export const conveyancingDetailMock: ConveyancingModel = {
   id: 'RPT20000141',

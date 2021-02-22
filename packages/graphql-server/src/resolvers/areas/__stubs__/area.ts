@@ -1,4 +1,4 @@
-import { AreaModel } from '../../../types'
+import { AreaModel } from '@reapit/foundations-ts-definitions'
 
 export const areaMock: AreaModel = {
   id: 'BHM',

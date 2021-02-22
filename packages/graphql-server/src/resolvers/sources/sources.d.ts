@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { SourceModel, PagedResultSourceModel_, CreateSourceModel, UpdateSourceModel } from '../../types'
+import {
+  SourceModel,
+  SourceModelPagedResult,
+  CreateSourceModel,
+  UpdateSourceModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateSourceArgs = CreateSourceModel
 
@@ -26,7 +31,7 @@ export type GetSourcesArgs = {
 
 // api return type
 export type GetSourceByIdReturn = Promise<SourceModel | UserInputError>
-export type GetSourcesReturn = Promise<PagedResultSourceModel_ | UserInputError>
+export type GetSourcesReturn = Promise<SourceModelPagedResult | UserInputError>
 export type CreateSourceReturn = Promise<SourceModel | UserInputError>
 export type UpdateSourceReturn = Promise<SourceModel | UserInputError>
 

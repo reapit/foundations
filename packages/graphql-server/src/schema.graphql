@@ -213,8 +213,8 @@ type Query {
     createdFrom: String
     createdTo: String
     metadata: [String!]
-  ): PagedResultCompanyModel_!
-  GetCompanyRoles(id: String!, pageSize: Int, pageNumber: Int): PagedResultCompanyRoleModel_!
+  ): CompanyModelPagedResult!
+  GetCompanyRoles(id: String!, pageSize: Int, pageNumber: Int): CompanyRoleModelPagedResult!
   GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
   GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
   GetContacts(
@@ -242,10 +242,10 @@ type Query {
     propertyId: [String!]
     embed: [ConveyancingQueryEmbed]
     metadata: [String!]
-  ): PagedResultConveyancingModel_!
+  ): ConveyancingModelPagedResult!
   GetConveyancingById(id: String!, embed: [ConveyancingQueryEmbed]): ConveyancingModel!
-  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
-  GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
+  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): ConveyancingModelPagedResult!
+  GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): DepartmentModelPagedResult!
   GetDepartmentById(id: String!): DepartmentModel!
   GetDocuments(
     pageSize: Int
@@ -293,7 +293,7 @@ type Query {
     typeId: [String!]
     createdFrom: String
     createdTo: String
-  ): PagedResultJournalEntryModel_!
+  ): JournalEntryModelPagedResult!
   GetLandlordById(id: String!, embed: [LandlordQueryEmbed]): LandlordModel!
   GetLandlords(
     pageSize: Int
@@ -1282,7 +1282,7 @@ type CompanyModel_address {
   country: String
 }
 
-type PagedResultCompanyModel_ {
+type CompanyModelPagedResult {
   _embedded: [CompanyModel!]
   pageNumber: Int
   pageSize: Int
@@ -1292,7 +1292,7 @@ type PagedResultCompanyModel_ {
   _links: JSON
 }
 
-type PagedResultCompanyRoleModel_ {
+type CompanyRoleModelPagedResult {
   _embedded: [CompanyRoleModel!]
   pageNumber: Int
   pageSize: Int
@@ -1501,7 +1501,7 @@ type EmbeddedConveyancingModel {
   vendorSolicitor: CompanyModel
 }
 
-type PagedResultConveyancingModel_ {
+type ConveyancingModelPagedResult {
   _embedded: [ConveyancingModel!]
   pageNumber: Int
   pageSize: Int
@@ -1535,7 +1535,7 @@ type DepartmentModel {
   _embedded: JSON
 }
 
-type PagedResultDepartmentModel_ {
+type DepartmentModelPagedResult {
   _embedded: [DepartmentModel!]
   pageNumber: Int
   pageSize: Int
@@ -1703,7 +1703,7 @@ type JournalEntryModel {
   _embedded: JSON
 }
 
-type PagedResultJournalEntryModel_ {
+type JournalEntryModelPagedResult {
   _embedded: [JournalEntryModel!]
   pageNumber: Int
   pageSize: Int

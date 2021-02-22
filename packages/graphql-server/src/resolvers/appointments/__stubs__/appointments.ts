@@ -1,6 +1,6 @@
-import { PagedResultAppointmentModel_ } from '../../../types'
+import { AppointmentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const appointmentsMock: PagedResultAppointmentModel_ = {
+export const appointmentsMock: AppointmentModelPagedResult = {
   _embedded: [
     {
       id: 'BCK1600026',

@@ -1,4 +1,4 @@
-import { OfficeModel } from '../../../types'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
 
 export const officeMock: OfficeModel = {
   id: 'TCM',

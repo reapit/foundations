@@ -1,6 +1,6 @@
-import { PagedResultNegotiatorModel_ } from '../../../types'
+import { NegotiatorModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const negotiatorsMock: PagedResultNegotiatorModel_ = {
+export const negotiatorsMock: NegotiatorModelPagedResult = {
   _embedded: [
     {
       id: 'HCJK',

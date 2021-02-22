@@ -1,6 +1,6 @@
-import { PagedResultVendorModel_ } from '../../../types'
+import { VendorModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const vendorsStub: PagedResultVendorModel_ = {
+export const vendorsStub: VendorModelPagedResult = {
   _embedded: [
     {
       id: 'OXF200001',

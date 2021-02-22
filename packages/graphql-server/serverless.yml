@@ -18,7 +18,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: ${opt:runtime, 'nodejs14.x' }
   stage: ${opt:stage, 'dev'}
   endpointType: REGIONAL
   region: eu-west-2
@@ -31,6 +31,27 @@ provider:
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
+
+resources:
+  Resources:
+    GatewayResponseDefault4XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,api-version,if-match'"
+        ResponseType: DEFAULT_4XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+    GatewayResponseDefault5XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,reapit-customer,api-version,if-match'"
+        ResponseType: DEFAULT_5XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
 
 package:
   individually: true
@@ -57,8 +78,30 @@ functions:
       - http:
           path: graphql
           method: post
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match
       - http:
           path: graphql
           method: get
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match

@@ -1,4 +1,4 @@
-import { VendorContactRelationshipModel } from '../../../types'
+import { VendorContactRelationshipModel } from '@reapit/foundations-ts-definitions'
 
 export const vendorRelationshipStub: VendorContactRelationshipModel = {
   id: 'OXF20002002',

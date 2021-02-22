@@ -61,7 +61,7 @@ type EmbeddedConveyancingModel {
   vendorSolicitor: CompanyModel
 }
 
-type PagedResultConveyancingModel_ {
+type ConveyancingModelPagedResult {
   _embedded: [ConveyancingModel!]
   pageNumber: Int
   pageSize: Int
@@ -88,9 +88,9 @@ type Query {
     propertyId: [String!]
     embed: [ConveyancingQueryEmbed]
     metadata: [String!]
-  ): PagedResultConveyancingModel_!
+  ): ConveyancingModelPagedResult!
   GetConveyancingById(id: String!, embed: [ConveyancingQueryEmbed]): ConveyancingModel!
-  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): PagedResultConveyancingModel_!
+  GetConveyancingChain(id: String!, pageSize: Int, pageNumber: Int, sortBy: String): ConveyancingModelPagedResult!
 }
 
 type Mutation {

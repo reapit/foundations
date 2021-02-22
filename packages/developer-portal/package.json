@@ -21,6 +21,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils": "workspace:packages/utils",
+    "amazon-cognito-identity-js": "^4.5.11",
     "chart.js": "^2.9.3",
     "dayjs": "^1.10.4",
     "diff": "^4.0.1",

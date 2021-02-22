@@ -1,6 +1,6 @@
-import { PagedResultPropertyImageModel_ } from '../../../types'
+import { PropertyImageModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const propertyImagesMock: PagedResultPropertyImageModel_ = {
+export const propertyImagesMock: PropertyImageModelPagedResult = {
   _embedded: [
     {
       id: 'NPG060245_17.png',

@@ -31,7 +31,7 @@
     "typescript": "^4.0.3"
   },
   "scripts": {
-    "start": "NODE_ENV=development SLS_DEBUG=* serverless offline",
+    "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",

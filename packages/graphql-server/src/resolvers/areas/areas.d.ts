@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { AreaModel, PagedResultAreaModel_, CreateAreaModel, UpdateAreaModel } from '../../types'
+import { AreaModel, AreaModelPagedResult, CreateAreaModel, UpdateAreaModel } from '@reapit/foundations-ts-definitions'
 
 export type CreateAreaArgs = CreateAreaModel
 
@@ -22,7 +22,7 @@ export type GetAreasArgs = {
 
 // api return type
 export type GetAreaByIdReturn = Promise<AreaModel | UserInputError>
-export type GetAreasReturn = Promise<PagedResultAreaModel_ | UserInputError>
+export type GetAreasReturn = Promise<AreaModelPagedResult | UserInputError>
 export type CreateAreaReturn = Promise<AreaModel | UserInputError>
 export type UpdateAreaReturn = Promise<AreaModel | UserInputError>
 

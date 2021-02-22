@@ -1,6 +1,6 @@
-import { PagedResultConveyancingModel_ } from '../../../types'
+import { ConveyancingModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const conveyancingChainMock: PagedResultConveyancingModel_ = {
+export const conveyancingChainMock: ConveyancingModelPagedResult = {
   _embedded: [
     {
       id: 'RPT200031',

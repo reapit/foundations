@@ -25,7 +25,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-utils'
 export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   // The client id of your application, obtained from Reapit Developer Portal
   connectClientId: 'SOME_CLIENT_ID',
-  // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
+  // The url to the Reapit Connect instance.
   connectOAuthUrl: 'https://connect.reapit.cloud',
   // OAuth UserPoolId - refer to the foundations documentation to obtain this for the correct environment
   connectUserPoolId: 'SOME_USER_POOL_ID',
@@ -61,6 +61,12 @@ interface ReapitConnectSession {
     adminId: string | null
     userCode: string | null
     groups: string[]
+    orgName: string | null
+    orgId: string | null
+    offGroupIds: string | null
+    offGrouping: boolean
+    offGroupName: string | null
+    officeId: string | null
   }
 }
 
@@ -147,7 +153,7 @@ The below example shows how to embed on any static or dynamic page with a single
 
 ```html
 <div id="reapit-connect-component"></div>
-<script src="https://web-components.reapit.cloud/reapit-connect-component.js"></script>
+<script src="https://web-components.prod.paas.reapit.cloud/reapit-connect-component.js"></script>
 <script>
 
   const connectHasSessionCallback = (reapitConnectBrowserSession) => {

@@ -1,9 +1,9 @@
 import {
-  PagedResultWorksOrderModel_,
+  WorksOrderModelPagedResult,
   WorksOrderModel,
-  PagedResultWorksOrderItemModel_,
+  WorksOrderItemModelPagedResult,
   WorksOrderItemModel,
-} from '../../../types'
+} from '@reapit/foundations-ts-definitions'
 import { GetWorksOrdersByIdArgs, GetWorksOrderItemsArgs, GetWorksOrderItembyIdArgs } from '../works-orders'
 
 export const getWorksOrderItemsArgsStub: GetWorksOrderItemsArgs = {
@@ -39,7 +39,7 @@ export const worksOrderItemStub: WorksOrderItemModel = {
   _embedded: null,
 }
 
-export const worksOrderItemListStub: PagedResultWorksOrderItemModel_ = {
+export const worksOrderItemListStub: WorksOrderItemModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000038',
@@ -164,7 +164,7 @@ export const worksOrderStub: WorksOrderModel = {
   },
 }
 
-export const worksOrderListStub: PagedResultWorksOrderModel_ = {
+export const worksOrderListStub: WorksOrderModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000017',
