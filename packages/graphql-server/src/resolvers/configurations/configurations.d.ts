@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { ListItemModel } from '../../types'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type ConfigurationType =
   | '​​appointmentTypes'

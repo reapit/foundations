@@ -1,6 +1,6 @@
-import { PagedResultDocumentModel_ } from '../../../types'
+import { DocumentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const documentsMock: PagedResultDocumentModel_ = {
+export const documentsMock: DocumentModelPagedResult = {
   _embedded: [
     {
       id: 'OXF20000060',

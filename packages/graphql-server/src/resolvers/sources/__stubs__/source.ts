@@ -1,4 +1,4 @@
-import { SourceModel } from '../../../types'
+import { SourceModel } from '@reapit/foundations-ts-definitions'
 
 export const sourceMock: SourceModel = {
   id: 'ADV',

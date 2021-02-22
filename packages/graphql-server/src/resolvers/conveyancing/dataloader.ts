@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getConveyancing } from './services'
 import { ServerContext } from '@/index'
-import { ConveyancingModel, PagedResultConveyancingModel_ } from '@/types'
+import { ConveyancingModel, ConveyancingModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 
@@ -12,7 +12,7 @@ export const generateConveyancingBatchLoaderFn = (context: ServerContext) => asy
   const traceId = context.traceId
   logger.info('generateConveyancingBatchLoaderFn', { traceId })
   try {
-    const conveyancingResult = (await getConveyancing({ id: keys }, context)) as PagedResultConveyancingModel_
+    const conveyancingResult = (await getConveyancing({ id: keys }, context)) as ConveyancingModelPagedResult
     const result = keys.map((key: string) => {
       return (conveyancingResult?._embedded ?? []).find((conveyancing: ConveyancingModel) => conveyancing.id === key)
     })

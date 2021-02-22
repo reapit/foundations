@@ -1,4 +1,4 @@
-import { NegotiatorModel } from '../../../types'
+import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
 export const negotiatorMock: NegotiatorModel = {
   id: 'HCJK',

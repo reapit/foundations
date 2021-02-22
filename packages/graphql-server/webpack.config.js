@@ -4,6 +4,7 @@ const { PATHS } = require('../../scripts/webpack/constants')
 const slsw = require('serverless-webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const getServerlessEnvPlugins = require('../../scripts/utils/get-serverless-env-plugins')
+const nodeExternals = require('webpack-node-externals')
 
 const isLocal = slsw.lib.webpack.isLocal
 module.exports = {
@@ -12,6 +13,7 @@ module.exports = {
   stats: 'minimal',
   mode: isLocal ? 'development' : 'production',
   node: false,
+  externals: [nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') })],
   optimization: {
     minimize: true,
   },
@@ -31,7 +33,9 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [['@babel/preset-env', { targets: { node: '14' }, useBuiltIns: 'usage', corejs: 3 }]],
+              presets: [
+                ['@babel/preset-env', { targets: { node: isLocal ? '12' : '14' }, useBuiltIns: 'usage', corejs: 3 }],
+              ],
             },
           },
         ],

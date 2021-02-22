@@ -1,12 +1,12 @@
 import {
-  PagedResultTenancyModel_,
+  TenancyModelPagedResult,
   TenancyModel,
-  PagedResultTenancyContactRelationshipModel_,
-  PagedResultTenancyCheckModel_,
+  TenancyContactRelationshipModelPagedResult,
+  TenancyCheckModelPagedResult,
   TenancyCheckModel,
-} from '../../../types'
+} from '@reapit/foundations-ts-definitions'
 
-export const tenanciesListMock: PagedResultTenancyModel_ = {
+export const tenanciesListMock: TenancyModelPagedResult = {
   _embedded: [
     {
       id: 'RPT200113',
@@ -491,7 +491,7 @@ export const tenancyMock: TenancyModel = {
   _embedded: null,
 }
 
-export const tenancyRelationshipsListMock: PagedResultTenancyContactRelationshipModel_ = {
+export const tenancyRelationshipsListMock: TenancyContactRelationshipModelPagedResult = {
   _embedded: [
     {
       id: 'OXF20002002',
@@ -532,7 +532,7 @@ export const tenancyRelationshipsListMock: PagedResultTenancyContactRelationship
   },
 }
 
-export const tenancyChecksListMock: PagedResultTenancyCheckModel_ = {
+export const tenancyChecksListMock: TenancyCheckModelPagedResult = {
   _embedded: [
     {
       id: 'RPT20000517',

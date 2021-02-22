@@ -6087,30 +6087,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@snyk/cli-interface@npm:2.9.1":
-  version: 2.9.1
-  resolution: "@snyk/cli-interface@npm:2.9.1"
-  dependencies:
-    "@snyk/dep-graph": 1.19.4
-    "@types/graphlib": ^2.1.7
-    tslib: ^1.9.3
-  checksum: 817ef05ab920d4e04d118e2a588d8b9f8b5d8e5b4aa706c03750a09aadb2465c6ecc1915ef445506239fd64fcf7bb2256eb3ebc10168e6519afd4634b4fed32a
-  languageName: node
-  linkType: hard
-
-"@snyk/cocoapods-lockfile-parser@npm:3.5.2":
-  version: 3.5.2
-  resolution: "@snyk/cocoapods-lockfile-parser@npm:3.5.2"
-  dependencies:
-    "@snyk/dep-graph": 1.19.4
-    "@types/js-yaml": ^3.12.1
-    js-yaml: ^3.13.1
-    source-map-support: ^0.5.7
-    tslib: ^1.10.0
-  checksum: 900c8fdff40112a540f6d735dd9abe061bc5cb43e9c7ef5d0843f8000ac9c977fdd2adfd89346e97d45ae4ea98929fd5744e3b68b07ab62356c1303f4893fa4f
-  languageName: node
-  linkType: hard
-
 "@snyk/cocoapods-lockfile-parser@npm:3.6.2":
   version: 3.6.2
   resolution: "@snyk/cocoapods-lockfile-parser@npm:3.6.2"
@@ -6135,34 +6111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@snyk/dep-graph@npm:1.19.4":
-  version: 1.19.4
-  resolution: "@snyk/dep-graph@npm:1.19.4"
-  dependencies:
-    graphlib: ^2.1.8
-    lodash.isequal: ^4.5.0
-    object-hash: ^2.0.3
-    semver: ^6.0.0
-    source-map-support: ^0.5.19
-    tslib: ^1.13.0
-  checksum: 43ae2dd8edb46659ed04ff1230508e5406f871e268161dac8c4b38311beae2c457940890d68e2f4f76b545185f94eb09c912403a5eb3dbb6e5e8d7f3ffa931b0
-  languageName: node
-  linkType: hard
-
-"@snyk/dep-graph@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@snyk/dep-graph@npm:1.21.0"
-  dependencies:
-    graphlib: ^2.1.8
-    lodash.isequal: ^4.5.0
-    object-hash: ^2.0.3
-    semver: ^6.0.0
-    tslib: ^1.13.0
-  checksum: 76a028cfab40948f2afd3572f9e4c009684a54b4bcc19cb32a5fb1e486aac648acd322d27f26a989df534eae6247fd0beb1e6a02735e7f5035ffa7698708fc92
-  languageName: node
-  linkType: hard
-
-"@snyk/dep-graph@npm:1.23.1, @snyk/dep-graph@npm:^1.23.1":
+"@snyk/dep-graph@npm:1.23.1, @snyk/dep-graph@npm:^1.19.3, @snyk/dep-graph@npm:^1.21.0, @snyk/dep-graph@npm:^1.23.0, @snyk/dep-graph@npm:^1.23.1":
   version: 1.23.1
   resolution: "@snyk/dep-graph@npm:1.23.1"
   dependencies:
@@ -6186,19 +6135,6 @@ __metadata:
     semver: ^6.0.0
     tslib: ^1.13.0
   checksum: 003c753e32880d85f94fead8f129c8cf4268cc1ae31a56f1dc6d1b8eb3876013ad6c36515a0c26991321fa6255aadd58c2573e7bf08adc919717cd20ab97db59
-  languageName: node
-  linkType: hard
-
-"@snyk/dep-graph@npm:^1.19.3, @snyk/dep-graph@npm:^1.19.4, @snyk/dep-graph@npm:^1.21.0, @snyk/dep-graph@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "@snyk/dep-graph@npm:1.23.0"
-  dependencies:
-    graphlib: ^2.1.8
-    lodash.isequal: ^4.5.0
-    object-hash: ^2.0.3
-    semver: ^6.0.0
-    tslib: ^1.13.0
-  checksum: dac61ddc034031d56856e2bacef34bdf51a7c6fbcdf908007d0351c57b37917ea0d13f8bdf2d1814e9dc9aca1d4b9e0793b112384d43f179f4816ecfda895ced
   languageName: node
   linkType: hard
 
@@ -6282,48 +6218,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@snyk/java-call-graph-builder@npm:1.17.0":
-  version: 1.17.0
-  resolution: "@snyk/java-call-graph-builder@npm:1.17.0"
-  dependencies:
-    ci-info: ^2.0.0
-    debug: ^4.1.1
-    glob: ^7.1.6
-    graphlib: ^2.1.8
-    jszip: ^3.2.2
-    needle: ^2.3.3
-    progress: ^2.0.3
-    snyk-config: ^4.0.0-rc.2
-    source-map-support: ^0.5.7
-    temp-dir: ^2.0.0
-    tmp: ^0.2.1
-    tslib: ^1.9.3
-    xml-js: ^1.6.11
-  checksum: d5bdf6c02c16d15b7fc44320f1c4348edadefcaa108426d554db5cb95a41923b0a9709c03cb85456dd9f5c91130867668784e05c61a9b5262ee81c3c137461ee
-  languageName: node
-  linkType: hard
-
-"@snyk/java-call-graph-builder@npm:1.19.0":
-  version: 1.19.0
-  resolution: "@snyk/java-call-graph-builder@npm:1.19.0"
-  dependencies:
-    ci-info: ^2.0.0
-    debug: ^4.1.1
-    glob: ^7.1.6
-    graphlib: ^2.1.8
-    jszip: ^3.2.2
-    needle: ^2.3.3
-    progress: ^2.0.3
-    snyk-config: ^4.0.0-rc.2
-    source-map-support: ^0.5.7
-    temp-dir: ^2.0.0
-    tmp: ^0.2.1
-    tslib: ^1.9.3
-    xml-js: ^1.6.11
-  checksum: 0478fe883a566c8c1aa6e1265c852d981f936f5a19ceacd6bda60c2fc3f219d93a6967741fba24b2b46290503730695441e7f47f1f3d7467cd80ff375c7a991e
-  languageName: node
-  linkType: hard
-
 "@snyk/java-call-graph-builder@npm:1.19.1":
   version: 1.19.1
   resolution: "@snyk/java-call-graph-builder@npm:1.19.1"
@@ -6351,19 +6245,6 @@ __metadata:
   dependencies:
     event-loop-spinner: ^2.0.0
   checksum: 999f7631cb93a4f283a2fa4bf7ca0448d72f2f876aaade5af5b506c4ae703be94fb67d85440a9384f6ac2e4484361f65674f0678bafb9bfd20c2ede6f9b81bf3
-  languageName: node
-  linkType: hard
-
-"@snyk/snyk-cocoapods-plugin@npm:2.5.1":
-  version: 2.5.1
-  resolution: "@snyk/snyk-cocoapods-plugin@npm:2.5.1"
-  dependencies:
-    "@snyk/cli-interface": ^2.9.2
-    "@snyk/cocoapods-lockfile-parser": 3.5.2
-    "@snyk/dep-graph": ^1.19.4
-    source-map-support: ^0.5.7
-    tslib: ^2.0.0
-  checksum: 8ed638463ec075abdd3748149c7bb64e02ca3fa839bbd49466b2f03af2e2be1fd6a07e314758f5534420dce942f930fb2511be3cb7fce0a4b12c1e1187c200c2
   languageName: node
   linkType: hard
 
@@ -7617,7 +7498,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/graphlib@npm:^2, @types/graphlib@npm:^2.1.7":
+"@types/graphlib@npm:^2":
   version: 2.1.7
   resolution: "@types/graphlib@npm:2.1.7"
   checksum: 3c4e4fce249d610eb0c371a9511b96ec038fdd2a5a319e311316452763d4e750428146569d4bbf52fd510b1ab01124422be435e9fa1878ab7b561c8829048e03
@@ -19588,7 +19469,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphlib@npm:2.1.8, graphlib@npm:^2.1.7, graphlib@npm:^2.1.8":
+"graphlib@npm:^2.1.7, graphlib@npm:^2.1.8":
   version: 2.1.8
   resolution: "graphlib@npm:2.1.8"
   dependencies:
@@ -19683,12 +19564,12 @@ fsevents@^1.2.7:
     tslib: 2.1.0
     uuid: ^3.3.3
     webpack: ^4.41.5
-    webpack-node-externals: ^1.7.2
+    webpack-node-externals: ^2.5.2
     winston: ^3.2.1
   languageName: unknown
   linkType: soft
 
-"graphql-tag@npm:^2.10.1":
+"graphql-tag@npm:^2.10.1, graphql-tag@npm:^2.4.2, graphql-tag@npm:^2.9.2":
   version: 2.12.1
   resolution: "graphql-tag@npm:2.12.1"
   dependencies:
@@ -19696,15 +19577,6 @@ fsevents@^1.2.7:
   peerDependencies:
     graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
   checksum: 24598a32799130942d6a86346794798fd3b4533fbc9c2f76af3546ea099778803387ead881c8099db76c6607d3064c970b3e59607d057554d14f82627a536d22
-  languageName: node
-  linkType: hard
-
-"graphql-tag@npm:^2.4.2, graphql-tag@npm:^2.9.2":
-  version: 2.11.0
-  resolution: "graphql-tag@npm:2.11.0"
-  peerDependencies:
-    graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 400355590180cce2f39df5c599cad20ee982bb7e4a63ad70857aa0fe2e82e3ef6233a4db2b80a03e6dfa84bf3ecb13dc2947936eaf31753c94876e22be45ea78
   languageName: node
   linkType: hard
 
@@ -19770,15 +19642,6 @@ fsevents@^1.2.7:
   dependencies:
     iterall: ^1.2.2
   checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
-  languageName: node
-  linkType: hard
-
-"graphql@npm:^14.5.3":
-  version: 14.6.0
-  resolution: "graphql@npm:14.6.0"
-  dependencies:
-    iterall: ^1.2.2
-  checksum: 24cab2758cea2ce592c59af28cac0fc80d2f2eac2f2441ce0152ce3c5a3a2416394aadf71b2d8db58f46c44ca3d20747eb168f58502f6eadafab0f11dea13791
   languageName: node
   linkType: hard
 
@@ -25992,28 +25855,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"meow@npm:^7.0.0":
-  version: 7.0.1
-  resolution: "meow@npm:7.0.1"
-  dependencies:
-    "@types/minimist": ^1.2.0
-    arrify: ^2.0.1
-    camelcase: ^6.0.0
-    camelcase-keys: ^6.2.2
-    decamelize-keys: ^1.1.0
-    hard-rejection: ^2.1.0
-    minimist-options: ^4.0.2
-    normalize-package-data: ^2.5.0
-    read-pkg-up: ^7.0.1
-    redent: ^3.0.0
-    trim-newlines: ^3.0.0
-    type-fest: ^0.13.1
-    yargs-parser: ^18.1.3
-  checksum: a14153d1ac9e5d10e59e4d75b117261fa216ffbdfeaecc9b4f96a56d32de2b426f774dc53e8a079e21816b834c6c41969a78f15711b627d13fed0fdd1b9f8906
-  languageName: node
-  linkType: hard
-
-"meow@npm:^7.0.1":
+"meow@npm:^7.0.0, meow@npm:^7.0.1":
   version: 7.1.1
   resolution: "meow@npm:7.1.1"
   dependencies:
@@ -26288,7 +26130,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"minimist-options@npm:4.1.0, minimist-options@npm:^4.0.2":
+"minimist-options@npm:4.1.0":
   version: 4.1.0
   resolution: "minimist-options@npm:4.1.0"
   dependencies:
@@ -30438,21 +30280,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^1.15.0":
+"react-docgen-typescript@npm:^1.15.0, react-docgen-typescript@npm:^1.20.5":
   version: 1.21.0
   resolution: "react-docgen-typescript@npm:1.21.0"
   peerDependencies:
     typescript: ">= 3.x"
   checksum: 084031f3e85f9fe98a5f4fcef9b02ca088d10f1e8b60db01639294a7670cfed147e91c9297eb1dbc186a93def3850699b1450eaded1aec13ed20eb6e38de9507
-  languageName: node
-  linkType: hard
-
-"react-docgen-typescript@npm:^1.20.5":
-  version: 1.20.5
-  resolution: "react-docgen-typescript@npm:1.20.5"
-  peerDependencies:
-    typescript: ">= 3.x"
-  checksum: 10e55a318345d6739caee4511c0701d4f3203b2c8e8bda8f4adee0f5e9e032b8f0bdc77d8fbe2c440badd02f5cac8832e34dd01d0a8e1fbd86ed357719020edc
   languageName: node
   linkType: hard
 
@@ -33645,31 +33478,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk-docker-plugin@npm:4.16.0":
-  version: 4.16.0
-  resolution: "snyk-docker-plugin@npm:4.16.0"
-  dependencies:
-    "@snyk/dep-graph": ^1.21.0
-    "@snyk/rpm-parser": ^2.0.0
-    "@snyk/snyk-docker-pull": 3.2.3
-    chalk: ^2.4.2
-    debug: ^4.1.1
-    docker-modem: 2.1.3
-    dockerfile-ast: 0.1.0
-    elfy: ^1.0.0
-    event-loop-spinner: ^2.0.0
-    gunzip-maybe: ^1.4.2
-    mkdirp: ^1.0.4
-    semver: ^6.1.0
-    snyk-nodejs-lockfile-parser: 1.30.1
-    tar-stream: ^2.1.0
-    tmp: ^0.2.1
-    tslib: ^1
-    uuid: ^8.2.0
-  checksum: 0aaf4d3e21dda218a1267e0da8c79133102091946bcd73bb605dba3e43dd41e1a9ab0884e064a8a8767f17adf22805886b2d0c23b01be551bef64a8ea219bf93
-  languageName: node
-  linkType: hard
-
 "snyk-docker-plugin@npm:4.17.2":
   version: 4.17.2
   resolution: "snyk-docker-plugin@npm:4.17.2"
@@ -33705,20 +33513,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk-go-plugin@npm:1.16.4":
-  version: 1.16.4
-  resolution: "snyk-go-plugin@npm:1.16.4"
-  dependencies:
-    "@snyk/dep-graph": ^1.21.0
-    debug: ^4.1.1
-    graphlib: 2.1.8
-    snyk-go-parser: 1.4.1
-    tmp: 0.2.1
-    tslib: ^1.10.0
-  checksum: fb5f0ba1a6ee27de3021c26e3d3b83ffb48588ee0c30054a44e6ca9eda0494b4b7c1e850e3fbcf7a3d61d453b6eb6e6cecdd8413ed5979793cdaa2020bfbc858
-  languageName: node
-  linkType: hard
-
 "snyk-go-plugin@npm:1.16.5":
   version: 1.16.5
   resolution: "snyk-go-plugin@npm:1.16.5"
@@ -33730,22 +33524,6 @@ resolve@1.15.1:
     tmp: 0.2.1
     tslib: ^1.10.0
   checksum: ae4157ba632c6ee71446920da1ad598431681efdaf31c0710f07e892b1f75ba6a11749bbd957cae17134005e27bab2badcbee64f85ab69861de7556f4d3b3698
-  languageName: node
-  linkType: hard
-
-"snyk-gradle-plugin@npm:3.12.3":
-  version: 3.12.3
-  resolution: "snyk-gradle-plugin@npm:3.12.3"
-  dependencies:
-    "@snyk/cli-interface": 2.9.1
-    "@snyk/dep-graph": ^1.19.4
-    "@snyk/java-call-graph-builder": 1.19.0
-    "@types/debug": ^4.1.4
-    chalk: ^3.0.0
-    debug: ^4.1.1
-    tmp: 0.2.1
-    tslib: ^2.0.0
-  checksum: a3f146692bafc3cbb2882f36cc47eff94974c0f9ab14d4abf7a1b4985bf6b16cd97fc8eff707cdec7dda8bceb3cc5d319c345871c6d4012bf4e96c1f2eb7be85
   languageName: node
   linkType: hard
 
@@ -33787,21 +33565,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk-mvn-plugin@npm:2.25.1":
-  version: 2.25.1
-  resolution: "snyk-mvn-plugin@npm:2.25.1"
-  dependencies:
-    "@snyk/cli-interface": 2.9.1
-    "@snyk/java-call-graph-builder": 1.17.0
-    debug: ^4.1.1
-    glob: ^7.1.6
-    needle: ^2.5.0
-    tmp: ^0.1.0
-    tslib: 1.11.1
-  checksum: 80dba275c808c6003cd53982da20ca5daf2391b9dfbf02d8bc87a287081d62961e65a75feb0049b7041abc27cbe9efbf1788d90db8847f9e2481e75f3626c978
-  languageName: node
-  linkType: hard
-
 "snyk-mvn-plugin@npm:2.25.3":
   version: 2.25.3
   resolution: "snyk-mvn-plugin@npm:2.25.3"
@@ -33815,30 +33578,6 @@ resolve@1.15.1:
     tmp: ^0.1.0
     tslib: 1.11.1
   checksum: 14f39d65d2eb9c0761ff45ca065b9e03f5f6f08d0bf19957f5d6ab378acaa700d2dc01d49176aa3c05587e58dbc12ace286f62832d79f88172cb695e057d425c
-  languageName: node
-  linkType: hard
-
-"snyk-nodejs-lockfile-parser@npm:1.30.1":
-  version: 1.30.1
-  resolution: "snyk-nodejs-lockfile-parser@npm:1.30.1"
-  dependencies:
-    "@yarnpkg/lockfile": ^1.1.0
-    event-loop-spinner: ^2.0.0
-    got: 11.4.0
-    graphlib: 2.1.8
-    lodash.clonedeep: ^4.5.0
-    lodash.flatmap: ^4.5.0
-    lodash.isempty: ^4.4.0
-    lodash.set: ^4.3.2
-    lodash.topairs: ^4.3.0
-    p-map: 2.1.0
-    snyk-config: ^4.0.0-rc.2
-    tslib: ^1.9.3
-    uuid: ^8.3.0
-    yaml: ^1.9.2
-  bin:
-    parse-nodejs-lockfile: bin/index.js
-  checksum: 3405658a0b6f37bef82dc010b73b7d87ff004ba250c9e9f6e3842ce3f8bf261e812c260cde4d59c3fbfd04c3c6cd9e6aaf30a01c903958709aecf923669034da
   languageName: node
   linkType: hard
 
@@ -33863,21 +33602,6 @@ resolve@1.15.1:
   bin:
     parse-nodejs-lockfile: bin/index.js
   checksum: 0f09ef6679bd6b371ef07a8089931c2200a558049005bc50ced22960f011d19a4a8bdd7d8e6c6e24fd6f292ea19e9615b1424d55c48bdb73af9dbe399bba05e7
-  languageName: node
-  linkType: hard
-
-"snyk-nuget-plugin@npm:1.20.0":
-  version: 1.20.0
-  resolution: "snyk-nuget-plugin@npm:1.20.0"
-  dependencies:
-    debug: ^4.1.1
-    dotnet-deps-parser: 5.0.0
-    jszip: 3.4.0
-    lodash: ^4.17.20
-    snyk-paket-parser: 1.6.0
-    tslib: ^1.11.2
-    xml2js: ^0.4.17
-  checksum: 05a2a8a47a891a7fb97b8fe9f542cce974f7969b6c09db1e40bf4f00346e30ae9d56e615cd2f8babc5c3446539a34dc5830194f6036afacb2110048f61dbb7e5
   languageName: node
   linkType: hard
 
@@ -33915,19 +33639,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk-poetry-lockfile-parser@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "snyk-poetry-lockfile-parser@npm:1.1.2"
-  dependencies:
-    "@snyk/cli-interface": ^2.9.2
-    "@snyk/dep-graph": ^1.23.0
-    debug: ^4.2.0
-    toml: ^3.0.0
-    tslib: ^2.0.0
-  checksum: dea78063e8c211ebc371039a60d9e49d5746cc5c3656d9be048a6251a6af025abcad597c14645201258af5a11313c2510a4859968fd8a03448d30bacca02a456
-  languageName: node
-  linkType: hard
-
 "snyk-poetry-lockfile-parser@npm:^1.1.5":
   version: 1.1.5
   resolution: "snyk-poetry-lockfile-parser@npm:1.1.5"
@@ -33955,17 +33666,6 @@ resolve@1.15.1:
     snyk-try-require: ^1.3.1
     then-fs: ^2.0.0
   checksum: 9f8b4b0f04b1cc91aa6fca2456f412922111d0397433c037e46228a018dbea4b102d74b1498e63f96d5d115803f00111e602e0509cd16bc59aa9040e136bc076
-  languageName: node
-  linkType: hard
-
-"snyk-python-plugin@npm:1.19.2":
-  version: 1.19.2
-  resolution: "snyk-python-plugin@npm:1.19.2"
-  dependencies:
-    "@snyk/cli-interface": ^2.0.3
-    snyk-poetry-lockfile-parser: ^1.1.2
-    tmp: 0.0.33
-  checksum: 90d96b1f350506abaa7e8c7bec8ecf5407eaf357e8182b0e5711604c38541deb8eebf5400cdf56139b4a4f82c651df1c5109cb274187f19462b532c17cd332ce
   languageName: node
   linkType: hard
 
@@ -34049,63 +33749,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk@npm:^1.305.1, snyk@npm:^1.335.0, snyk@npm:^1.338.0, snyk@npm:^1.341.1, snyk@npm:^1.425.4":
-  version: 1.447.0
-  resolution: "snyk@npm:1.447.0"
-  dependencies:
-    "@open-policy-agent/opa-wasm": ^1.2.0
-    "@snyk/cli-interface": 2.11.0
-    "@snyk/dep-graph": 1.21.0
-    "@snyk/gemfile": 1.2.0
-    "@snyk/snyk-cocoapods-plugin": 2.5.1
-    abbrev: ^1.1.1
-    ansi-escapes: 3.2.0
-    chalk: ^2.4.2
-    cli-spinner: 0.2.10
-    configstore: ^5.0.1
-    debug: ^4.1.1
-    diff: ^4.0.1
-    graphlib: ^2.1.8
-    inquirer: ^7.3.3
-    lodash: ^4.17.20
-    micromatch: 4.0.2
-    needle: 2.5.0
-    open: ^7.0.3
-    os-name: ^3.0.0
-    promise-queue: ^2.2.5
-    proxy-agent: ^3.1.1
-    proxy-from-env: ^1.0.0
-    semver: ^6.0.0
-    snyk-config: 4.0.0-rc.2
-    snyk-cpp-plugin: 2.2.1
-    snyk-docker-plugin: 4.16.0
-    snyk-go-plugin: 1.16.4
-    snyk-gradle-plugin: 3.12.3
-    snyk-module: 3.1.0
-    snyk-mvn-plugin: 2.25.1
-    snyk-nodejs-lockfile-parser: 1.30.1
-    snyk-nuget-plugin: 1.20.0
-    snyk-php-plugin: 1.9.2
-    snyk-policy: 1.14.1
-    snyk-python-plugin: 1.19.2
-    snyk-resolve: 1.0.1
-    snyk-resolve-deps: 4.7.2
-    snyk-sbt-plugin: 2.11.0
-    snyk-tree: ^1.0.0
-    snyk-try-require: 1.3.1
-    source-map-support: ^0.5.11
-    strip-ansi: ^5.2.0
-    tempfile: ^2.0.0
-    update-notifier: ^4.1.0
-    uuid: ^3.3.2
-    wrap-ansi: ^5.1.0
-  bin:
-    snyk: dist/cli/index.js
-  checksum: 5f1f7261bd4e7d2e731de8775bda214e07f2040a1c6160a119331529a77c175155d36cb5e4eab1225abadc06cbe2dddf873457b7c1921394e96b7b5fe1f62a8e
-  languageName: node
-  linkType: hard
-
-"snyk@npm:^1.455.0":
+"snyk@npm:^1.305.1, snyk@npm:^1.335.0, snyk@npm:^1.338.0, snyk@npm:^1.341.1, snyk@npm:^1.425.4, snyk@npm:^1.455.0":
   version: 1.455.0
   resolution: "snyk@npm:1.455.0"
   dependencies:
@@ -36591,14 +36235,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1, tslib@npm:^1.10.0, tslib@npm:^1.11.1, tslib@npm:^1.11.2, tslib@npm:^1.13.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
-  version: 1.13.0
-  resolution: "tslib@npm:1.13.0"
-  checksum: 5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^1.14.1":
+"tslib@npm:^1, tslib@npm:^1.10.0, tslib@npm:^1.11.1, tslib@npm:^1.11.2, tslib@npm:^1.13.0, tslib@npm:^1.14.1, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17
@@ -36916,14 +36553,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"unfetch@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "unfetch@npm:4.1.0"
-  checksum: 22b729e6e6db8ce58fb64f5063bd72f91fb5badd34f6ae8aaa489bec11ecb189b6654105e1cdfeaecf25841ceb83b4be1b9b4c7ed529287ad2d79e9620d03033
-  languageName: node
-  linkType: hard
-
-"unfetch@npm:^4.2.0":
+"unfetch@npm:^4.1.0, unfetch@npm:^4.2.0":
   version: 4.2.0
   resolution: "unfetch@npm:4.2.0"
   checksum: a1ec2f1d0fd6e0e9d46d659b6639dac490eefde4dcb5d9a060b78e380a543182bbdf395c7772685a023fb76c8e5d2c8b843f199d727c5f3af3cced88b3dcc741
@@ -38094,10 +37724,10 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"webpack-node-externals@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "webpack-node-externals@npm:1.7.2"
-  checksum: 2ae03f05618ffc2cdafbbfd9ba2efb723629e4a3def722801bffc8c386f9c27d46e224849781951e64d9a540623f9db5cfcb96669b4a45d66e6679f59c03302f
+"webpack-node-externals@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "webpack-node-externals@npm:2.5.2"
+  checksum: 79faea373738549ea3a8ce8f0d136629ad1a6f539e154f73f8dfb4f658ad8d24f5e393c03d88dd5821b9b38f493716a1fda581992083e710c41eb956c3d1a028
   languageName: node
   linkType: hard
 

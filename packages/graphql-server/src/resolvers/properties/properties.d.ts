@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { PropertyModel, PagedResultPropertyModel_, CreatePropertyModel, UpdatePropertyModel } from '../../types'
+import {
+  PropertyModel,
+  PropertyModelPagedResult,
+  CreatePropertyModel,
+  UpdatePropertyModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreatePropertyArgs = CreatePropertyModel
 
@@ -41,7 +46,7 @@ export type GetPropertiesArgs = {
 
 // api return type
 export type GetPropertyByIdReturn = Promise<PropertyModel | UserInputError>
-export type GetPropertiesReturn = Promise<PagedResultPropertyModel_ | UserInputError>
+export type GetPropertiesReturn = Promise<PropertyModelPagedResult | UserInputError>
 export type CreatePropertyReturn = Promise<PropertyModel | UserInputError>
 export type UpdatePropertyReturn = Promise<PropertyModel | UserInputError>
 

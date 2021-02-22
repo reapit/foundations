@@ -37,7 +37,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: ${opt:runtime, 'nodejs14.x' }
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:

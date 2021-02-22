@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { OfficeModel, PagedResultOfficeModel_, CreateOfficeModel, UpdateOfficeModel } from '../../types'
+import {
+  OfficeModel,
+  OfficeModelPagedResult,
+  CreateOfficeModel,
+  UpdateOfficeModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateOfficeArgs = CreateOfficeModel
 
@@ -22,7 +27,7 @@ export type GetOfficesArgs = {
 
 // api return type
 export type GetOfficeByIdReturn = Promise<OfficeModel | UserInputError>
-export type GetOfficesReturn = Promise<PagedResultOfficeModel_ | UserInputError>
+export type GetOfficesReturn = Promise<OfficeModelPagedResult | UserInputError>
 export type CreateOfficeReturn = Promise<OfficeModel | UserInputError>
 export type UpdateOfficeReturn = Promise<OfficeModel | UserInputError>
 

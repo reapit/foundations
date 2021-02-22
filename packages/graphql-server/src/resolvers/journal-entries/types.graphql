@@ -12,7 +12,7 @@ type JournalEntryModel {
   _embedded: JSON
 }
 
-type PagedResultJournalEntryModel_ {
+type JournalEntryModelPagedResult {
   _embedded: [JournalEntryModel!]
   pageNumber: Int
   pageSize: Int
@@ -33,7 +33,7 @@ type Query {
     typeId: [String!]
     createdFrom: String
     createdTo: String
-  ): PagedResultJournalEntryModel_!
+  ): JournalEntryModelPagedResult!
 }
 
 type Mutation {

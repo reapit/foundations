@@ -18,7 +18,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: ${opt:runtime, 'nodejs14.x' }
   stage: ${opt:stage, 'dev'}
   endpointType: REGIONAL
   region: eu-west-2

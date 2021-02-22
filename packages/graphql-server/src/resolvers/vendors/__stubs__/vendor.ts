@@ -1,4 +1,4 @@
-import { VendorModel } from '../../../types'
+import { VendorModel } from '@reapit/foundations-ts-definitions'
 
 export const vendorStub: VendorModel = {
   id: 'OXF200001',

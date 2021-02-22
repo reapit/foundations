@@ -1,6 +1,6 @@
-import { PagedResultPropertyModel_ } from '../../../types'
+import { PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const propertiesMock: PagedResultPropertyModel_ = {
+export const propertiesMock: PropertyModelPagedResult = {
   _embedded: [
     {
       id: 'RPT200015',

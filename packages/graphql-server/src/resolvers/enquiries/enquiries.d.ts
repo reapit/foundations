@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { EnquiryModel, PagedResultEnquiryModel_, CreateEnquiryModel } from '../../types'
+import { EnquiryModel, EnquiryModelPagedResult, CreateEnquiryModel } from '@reapit/foundations-ts-definitions'
 
 export type CreateEnquiryArgs = CreateEnquiryModel
 
@@ -18,7 +18,7 @@ export type GetEnquiriesArgs = {
 
 // api return type
 export type GetEnquiryByIdReturn = Promise<EnquiryModel | UserInputError>
-export type GetEnquiriesReturn = Promise<PagedResultEnquiryModel_ | UserInputError>
+export type GetEnquiriesReturn = Promise<EnquiryModelPagedResult | UserInputError>
 export type CreateEnquiryReturn = Promise<EnquiryModel | UserInputError>
 
 // resolver type

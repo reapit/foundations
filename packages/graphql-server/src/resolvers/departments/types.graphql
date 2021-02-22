@@ -16,7 +16,7 @@ type DepartmentModel {
   _embedded: JSON
 }
 
-type PagedResultDepartmentModel_ {
+type DepartmentModelPagedResult {
   _embedded: [DepartmentModel!]
   pageNumber: Int
   pageSize: Int
@@ -27,6 +27,6 @@ type PagedResultDepartmentModel_ {
 }
 
 type Query {
-  GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): PagedResultDepartmentModel_!
+  GetDepartments(pageSize: Int, pageNumber: Int, id: [String!], name: String): DepartmentModelPagedResult!
   GetDepartmentById(id: String!): DepartmentModel!
 }

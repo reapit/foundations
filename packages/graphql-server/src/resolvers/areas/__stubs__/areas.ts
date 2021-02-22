@@ -1,6 +1,6 @@
-import { PagedResultAreaModel_ } from '../../../types'
+import { AreaModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const areasMock: PagedResultAreaModel_ = {
+export const areasMock: AreaModelPagedResult = {
   _embedded: [
     {
       id: 'BHM',

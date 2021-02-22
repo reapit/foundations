@@ -1,13 +1,13 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
-  PagedResultLandlordModel_,
-  PagedResultLandlordContactRelationshipModel_,
+  LandlordModelPagedResult,
+  LandlordContactRelationshipModelPagedResult,
   LandlordModel,
   CreateLandlordModel,
   UpdateLandlordModel,
   LandlordContactRelationshipModel,
   CreateLandlordContactRelationshipModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type GetLandlordsArgs = {
   pageSize?: number
@@ -32,13 +32,13 @@ export type UpdateLandlordArgs = { id: string; _eTag: string } & UpdateLandlordM
 export type DeleteLandlordRelationshipArgs = { id: string; relationshipId: string }
 
 // api return type
-export type GetLandlordsReturn = Promise<PagedResultLandlordModel_ | UserInputError>
+export type GetLandlordsReturn = Promise<LandlordModelPagedResult | UserInputError>
 export type GetLandlordByIdReturn = Promise<LandlordModel | UserInputError>
-export type GetLandlordRelationshipsReturn = Promise<PagedResultLandlordContactRelationshipModel_ | UserInputError>
+export type GetLandlordRelationshipsReturn = Promise<LandlordContactRelationshipModelPagedResult | UserInputError>
 export type GetLandlordRelationshipByIdReturn = Promise<LandlordContactRelationshipModel | UserInputError>
 
 export type CreateLandlordReturn = Promise<LandlordModel | UserInputError>
-export type CreateLandlordRelationshipReturn = Promise<PagedResultLandlordContactRelationshipModel_ | UserInputError>
+export type CreateLandlordRelationshipReturn = Promise<LandlordContactRelationshipModelPagedResult | UserInputError>
 export type DeleteLandlordRelationshipReturn = Promise<string | UserInputError>
 export type UpdateLandlordReturn = Promise<LandlordModel | UserInputError>
 

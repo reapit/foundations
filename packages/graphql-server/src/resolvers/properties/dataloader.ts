@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getProperties } from './services'
 import { ServerContext } from '@/index'
-import { PropertyModel, PagedResultPropertyModel_ } from '@/types'
+import { PropertyModel, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import logger from '@/logger'
 import handleError from '@/utils/handle-error'
 
@@ -12,7 +12,7 @@ export const generatePropertyBatchLoaderFn = (context: ServerContext) => async (
   const traceId = context.traceId
   logger.info('generatePropertyBatchLoaderFn', { traceId })
   try {
-    const propertiesResult = (await getProperties({ id: keys }, context)) as PagedResultPropertyModel_
+    const propertiesResult = (await getProperties({ id: keys }, context)) as PropertyModelPagedResult
     const result = keys.map((key: string) => {
       return (propertiesResult?._embedded ?? []).find((property: PropertyModel) => property.id === key)
     })

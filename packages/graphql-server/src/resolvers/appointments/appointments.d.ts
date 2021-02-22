@@ -1,10 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   AppointmentModel,
-  PagedResultAppointmentModel_,
+  AppointmentModelPagedResult,
   CreateAppointmentModel,
   UpdateAppointmentModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateAppointmentArgs = CreateAppointmentModel
 
@@ -33,7 +33,7 @@ export type GetAppointmentsArgs = {
 
 // api return type
 export type GetAppointmentByIdReturn = Promise<AppointmentModel | UserInputError>
-export type GetAppointmentsReturn = Promise<PagedResultAppointmentModel_ | UserInputError>
+export type GetAppointmentsReturn = Promise<AppointmentModelPagedResult | UserInputError>
 export type CreateAppointmentReturn = Promise<AppointmentModel | UserInputError>
 export type UpdateAppointmentReturn = Promise<AppointmentModel | UserInputError>
 

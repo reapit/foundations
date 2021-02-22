@@ -1,10 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   IdentityCheckModel,
-  PagedResultIdentityCheckModel_,
+  IdentityCheckModelPagedResult,
   CreateIdentityCheckModel,
   UpdateIdentityCheckModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateIdentityCheckArgs = CreateIdentityCheckModel
 
@@ -30,7 +30,7 @@ export type GetIdentityChecksArgs = {
 
 // api return type
 export type GetIdentityCheckByIdReturn = Promise<IdentityCheckModel | UserInputError>
-export type GetIdentityChecksReturn = Promise<PagedResultIdentityCheckModel_ | UserInputError>
+export type GetIdentityChecksReturn = Promise<IdentityCheckModelPagedResult | UserInputError>
 export type CreateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 export type UpdateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 

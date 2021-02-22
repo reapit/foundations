@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { NegotiatorModel, PagedResultNegotiatorModel_, CreateNegotiatorModel, UpdateNegotiatorModel } from '../../types'
+import {
+  NegotiatorModel,
+  NegotiatorModelPagedResult,
+  CreateNegotiatorModel,
+  UpdateNegotiatorModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateNegotiatorArgs = CreateNegotiatorModel
 
@@ -23,7 +28,7 @@ export type GetNegotiatorsArgs = {
 
 // api return type
 export type GetNegotiatorByIdReturn = Promise<NegotiatorModel | UserInputError>
-export type GetNegotiatorsReturn = Promise<PagedResultNegotiatorModel_ | UserInputError>
+export type GetNegotiatorsReturn = Promise<NegotiatorModelPagedResult | UserInputError>
 export type CreateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 export type UpdateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 

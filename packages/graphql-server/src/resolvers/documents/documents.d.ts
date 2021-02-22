@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { DocumentModel, CreateDocumentModel, PagedResultDocumentModel_, UpdateDocumentModel } from '../../types'
+import {
+  DocumentModel,
+  CreateDocumentModel,
+  DocumentModelPagedResult,
+  UpdateDocumentModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type DocumentEmbed = 'documentType'
 
@@ -52,7 +57,7 @@ export type GetDocumentDownloadArgs = {
 
 // api type
 export type GetDocumentByIdReturn = Promise<DocumentModel | UserInputError>
-export type GetDocumentsReturn = Promise<PagedResultDocumentModel_ | UserInputError>
+export type GetDocumentsReturn = Promise<DocumentModelPagedResult | UserInputError>
 export type CreateDocumentReturn = Promise<DocumentModel | UserInputError>
 export type UpdateDocumentReturn = Promise<DocumentModel | UserInputError>
 export type DeleteDocumentReturn = Promise<string | UserInputError>

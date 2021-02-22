@@ -1,11 +1,11 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   ConveyancingModel,
-  PagedResultConveyancingModel_,
+  ConveyancingModelPagedResult,
   UpdateConveyancingModel,
   CreateDownwardLinkModel,
   CreateUpwardLinkModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type UpdateConveyancingArgs = { id: string; _eTag: string } & UpdateConveyancingModel
 
@@ -41,8 +41,8 @@ export type DeleteDownwardLinkModelArgs = { id: string }
 
 // api return type
 export type GetConveyancingByIdReturn = Promise<ConveyancingModel | UserInputError>
-export type GetConveyancingReturn = Promise<PagedResultConveyancingModel_ | UserInputError>
-export type GetConveyancingChainReturn = Promise<PagedResultConveyancingModel_ | UserInputError>
+export type GetConveyancingReturn = Promise<ConveyancingModelPagedResult | UserInputError>
+export type GetConveyancingChainReturn = Promise<ConveyancingModelPagedResult | UserInputError>
 export type UpdateConveyancingReturn = Promise<ConveyancingModel | UserInputError>
 export type CreateUpwardLinkModelReturn = Promise<ConveyancingModel | UserInputError>
 export type DeleteUpwardLinkModelReturn = Promise<String | UserInputError>

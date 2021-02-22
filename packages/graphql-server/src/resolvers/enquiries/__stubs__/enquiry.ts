@@ -1,4 +1,4 @@
-import { EnquiryModel } from '../../../types'
+import { EnquiryModel } from '@reapit/foundations-ts-definitions'
 
 export const enquiryMock: EnquiryModel = {
   id: 45,

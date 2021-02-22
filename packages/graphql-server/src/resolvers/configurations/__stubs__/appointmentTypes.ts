@@ -1,4 +1,4 @@
-import { ListItemModel } from '../../../types'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export const appointmentTypeMock: ListItemModel = {
   id: 'AP',

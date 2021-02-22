@@ -3,10 +3,10 @@ import {
   ApplicantContactRelationshipModel,
   ApplicantModel,
   CreateApplicantModel,
-  PagedResultApplicantContactRelationshipModel_,
-  PagedResultApplicantModel_,
+  ApplicantContactRelationshipModelPagedResult,
+  ApplicantModelPagedResult,
   UpdateApplicantModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type GetApplicantByIdArgs = {
   id: string
@@ -98,7 +98,7 @@ export type UpdateApplicantArgs = { id: string; _eTag: string } & UpdateApplican
 
 // api type
 export type GetApplicantByIdReturn = Promise<ApplicantModel | UserInputError>
-export type GetApplicantsReturn = Promise<PagedResultApplicantModel_ | UserInputError>
+export type GetApplicantsReturn = Promise<ApplicantModelPagedResult | UserInputError>
 export type CreateApplicantReturn = Promise<ApplicantModel | UserInputError>
 export type UpdateApplicantReturn = Promise<ApplicantModel | UserInputError>
 
@@ -132,7 +132,7 @@ export type DeleteApplicantRelationshipArgs = {
 }
 
 export type GetApplicantRelationshipsByIdReturn = Promise<ApplicantContactRelationshipModel | UserInputError>
-export type GetApplicantRelationshipsReturn = Promise<PagedResultApplicantContactRelationshipModel_ | UserInputError>
+export type GetApplicantRelationshipsReturn = Promise<ApplicantContactRelationshipModelPagedResult | UserInputError>
 export type CreateApplicantRelationshipReturn = Promise<ApplicantModel | UserInputError>
 export type DeleteApplicantRelationshipReturn = Promise<string | UserInputError>
 

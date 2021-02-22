@@ -1,11 +1,11 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   CompanyModel,
-  PagedResultCompanyModel_,
+  CompanyModelPagedResult,
   CreateCompanyModel,
   UpdateCompanyModel,
-  PagedResultCompanyRoleModel_,
-} from '../../types'
+  CompanyRoleModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateCompanyArgs = CreateCompanyModel
 
@@ -37,8 +37,8 @@ export type GetCompanyRolesArgs = {
 
 // api return type
 export type GetCompanyByIdReturn = Promise<CompanyModel | UserInputError>
-export type GetCompaniesReturn = Promise<PagedResultCompanyModel_ | UserInputError>
-export type GetCompanyRolesReturn = Promise<PagedResultCompanyRoleModel_ | UserInputError>
+export type GetCompaniesReturn = Promise<CompanyModelPagedResult | UserInputError>
+export type GetCompanyRolesReturn = Promise<CompanyRoleModelPagedResult | UserInputError>
 export type CreateCompanyReturn = Promise<CompanyModel | UserInputError>
 export type UpdateCompanyReturn = Promise<CompanyModel | UserInputError>
 

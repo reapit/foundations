@@ -1,6 +1,6 @@
-import { PagedResultDepartmentModel_ } from '../../../types'
+import { DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const departmentsMock: PagedResultDepartmentModel_ = {
+export const departmentsMock: DepartmentModelPagedResult = {
   _embedded: [
     {
       id: 'G',

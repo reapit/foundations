@@ -1,5 +1,10 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
-import { ContactModel, PagedResultContactModel_, CreateContactModel, UpdateContactModel } from '../../types'
+import {
+  ContactModel,
+  ContactModelPagedResult,
+  CreateContactModel,
+  UpdateContactModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type CreateContactArgs = CreateContactModel
 
@@ -29,7 +34,7 @@ export type GetContactsArgs = {
 
 // api return type
 export type GetContactByIdReturn = Promise<ContactModel | UserInputError>
-export type GetContactsReturn = Promise<PagedResultContactModel_ | UserInputError>
+export type GetContactsReturn = Promise<ContactModelPagedResult | UserInputError>
 export type CreateContactReturn = Promise<ContactModel | UserInputError>
 export type UpdateContactReturn = Promise<ContactModel | UserInputError>
 

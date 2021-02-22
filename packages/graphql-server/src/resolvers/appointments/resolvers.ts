@@ -13,7 +13,7 @@ import {
   MutationCreateAppointmentReturn,
   MutationUpdateAppointmentReturn,
 } from './appointments'
-import { AppointmentModel } from '@/types'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export const queryGetAppointmentById = (
   _: any,

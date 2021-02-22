@@ -1,11 +1,11 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import {
   VendorModel,
-  PagedResultVendorModel_,
-  PagedResultVendorContactRelationshipModel_,
+  VendorModelPagedResult,
+  VendorContactRelationshipModelPagedResult,
   UpdateVendorModel,
   VendorContactRelationshipModel,
-} from '../../types'
+} from '@reapit/foundations-ts-definitions'
 
 export type UpdateVendorArgs = { id: string; _eTag: string } & UpdateVendorModel
 
@@ -58,10 +58,10 @@ export type CreateVendorRelationshipArgs = {
 
 // api return type
 export type GetVendorByIdReturn = Promise<VendorModel | UserInputError>
-export type GetVendorsReturn = Promise<PagedResultVendorModel_ | UserInputError>
+export type GetVendorsReturn = Promise<VendorModelPagedResult | UserInputError>
 export type UpdateVendorReturn = Promise<VendorModel | UserInputError>
 export type GetVendorRelationshipByIdReturn = Promise<VendorContactRelationshipModel | UserInputError>
-export type GetVendorRelationshipsReturn = Promise<PagedResultVendorContactRelationshipModel_ | UserInputError>
+export type GetVendorRelationshipsReturn = Promise<VendorContactRelationshipModelPagedResult | UserInputError>
 export type CreateVendorRelationshipReturn = Promise<boolean | UserInputError>
 export type DeleteVendorRelationshipReturn = Promise<boolean | UserInputError>
 

@@ -1,6 +1,6 @@
-import { PagedResultJournalEntryModel_ } from '../../../types'
+import { JournalEntryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const journalEntriesMock: PagedResultJournalEntryModel_ = {
+export const journalEntriesMock: JournalEntryModelPagedResult = {
   _embedded: [
     {
       created: '2020-08-18T06:57:08.0000000Z',

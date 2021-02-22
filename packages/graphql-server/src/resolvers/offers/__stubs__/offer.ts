@@ -1,4 +1,4 @@
-import { OfferModel } from '../../../types'
+import { OfferModel } from '@reapit/foundations-ts-definitions'
 
 export const offerMock: OfferModel = {
   id: 'BCK1600026',
