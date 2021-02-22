@@ -113,7 +113,7 @@ const webpackConfig = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
+    extensions: ['.tsx', '.mjs', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       react: require.resolve('react'),
