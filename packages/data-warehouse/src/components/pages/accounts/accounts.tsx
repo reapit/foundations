@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Button, H3, H5, Section, Helper, Loader } from '@reapit/elements'
+import { Button, H3, H5, Section, Helper, Loader, Content } from '@reapit/elements'
 import { PagedApiResponse } from '../../../types/core'
 import { AccountModel } from '../../../types/accounts'
 import AccountsTable from './accounts-table'
@@ -67,13 +67,26 @@ export const Accounts: React.FC = () => {
           {provisionInProgress && (
             <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
           )}
-          <FadeIn>
-            <Helper variant="info">
-              You are able to manage the credentials used to access your data warehouse. There is no limit on the number
-              of user accounts you&apos;re able to add and we recommend that each individual user/application is
-              provided with their own credentials.
-            </Helper>
-          </FadeIn>
+          <Section>
+            <FadeIn>
+              <Content>
+                <p>
+                  <i>
+                    In order to access your organisations data warehouse, you must first create the user accounts to
+                    access it. You are to manage and create as many user accounts as you wish without any additional
+                    costs. We recommend that each individual user or application is provided with a unique set of
+                    credentials.
+                  </i>
+                </p>
+                <p>
+                  <i>
+                    Please note that creating the first user account is a long running process and can take several
+                    minutes to complete.
+                  </i>
+                </p>
+              </Content>
+            </FadeIn>
+          </Section>
           <Section>
             <H5>User Account Details</H5>
             {accountsLoading ? (

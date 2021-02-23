@@ -17,7 +17,7 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 
 export interface ChartDataModel {
   date: string
-  requestCount: number
+  requestCount: number | string
 }
 
 export interface RequestByDateModel {
@@ -28,7 +28,7 @@ export interface RequestByDateModel {
 export type TableDataRow = {
   name?: string
   amount?: number
-  cost?: number
+  cost?: string | number
   itemCount: number | null
   subRows: TableDataRow[]
 }
@@ -89,7 +89,15 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
     {
       Header: 'Cost',
       accessor: row => {
-        return row.cost && formatCurrency(row.cost)
+        if (!row.cost) return formatCurrency(0)
+        const formatted = formatCurrency(row.cost)
+        const cost =
+          row.name === 'Data Warehouse Subscription'
+            ? `${formatted} (Includes 2 hours warehouse uptime per month`
+            : row.name === 'Data Warehouse'
+            ? `${formatted} (${Number(row.cost || 0) / 6.99} hour(s) additional uptime)`
+            : formatted
+        return cost
       },
       Footer: formatCurrency(totalCost),
     },
@@ -122,7 +130,7 @@ export const getAppHttpTrafficPerDayChartData = (stats: ServiceItemBillingV2Mode
     data.push(item.cost as number)
     chartDataStats.push({
       date: item.name as string,
-      requestCount: item.cost as number,
+      requestCount: `£${(item.cost || 0).toFixed(2)} (${((item.cost || 0) / 6.99).toFixed(2)} hrs)`,
     })
   })
 

@@ -13,7 +13,8 @@ export const Subscriptions: React.FC = () => {
             <p>
               Reapit&#39;s data warehouse is a premium service that provides your organisation&#39;s data in an
               analytics focused format. Our cloud-based warehouse technology is supported by all major business
-              intelligence applications to allow you to extract new value and insights from your data.
+              intelligence applications such as Microsoft Power BI and Tableau, to allow you to extract new value and
+              insights from your data.
             </p>
             <p>
               This application can provision a dedicated virtual data warehouse and allow you to manage which users and
@@ -27,7 +28,6 @@ export const Subscriptions: React.FC = () => {
                 click here.
               </a>
             </p>
-            <p>Access requires a subscription and usage is billed based on your warehouse consumption.</p>
           </Content>
         </Section>
       </FadeIn>

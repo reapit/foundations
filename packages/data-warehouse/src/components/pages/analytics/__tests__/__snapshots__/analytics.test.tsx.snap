@@ -5,7 +5,7 @@ exports[`Analytics should match a snapshot 1`] = `
   <Component>
     <ErrorBoundary>
       <Component
-        className="justify-between items-center"
+        className=""
         isFlex={true}
       >
         <section
@@ -13,7 +13,7 @@ exports[`Analytics should match a snapshot 1`] = `
           data-test=""
         >
           <Component
-            className="mb-0"
+            className=""
           >
             <h3
               className=""
@@ -21,20 +21,6 @@ exports[`Analytics should match a snapshot 1`] = `
             >
               Analytics
             </h3>
-          </Component>
-          <Component
-            disabled={true}
-            onClick={[Function]}
-          >
-            <button
-              className="button  is-primary  "
-              data-test=""
-              disabled={true}
-              onClick={[Function]}
-              type="button"
-            >
-              Usage Limits
-            </button>
           </Component>
           <AnalyticsUsageModal
             handleClose={[Function]}

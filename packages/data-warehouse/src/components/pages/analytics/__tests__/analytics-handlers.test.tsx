@@ -206,13 +206,13 @@ describe('getAppHttpTrafficPerDayChartData', () => {
     labels: ['2019-11', '2019-12', '2020-01', '2020-02', '2020-03', '2020-04', '2020-05'],
     data: [0, 0, 0, 0, 0, 0.3, 0.5],
     chartDataStats: [
-      { date: '2019-11', requestCount: 0 },
-      { date: '2019-12', requestCount: 0 },
-      { date: '2020-01', requestCount: 0 },
-      { date: '2020-02', requestCount: 0 },
-      { date: '2020-03', requestCount: 0 },
-      { date: '2020-04', requestCount: 0.3 },
-      { date: '2020-05', requestCount: 0.5 },
+      { date: '2019-11', requestCount: '£0.00 (0.00 hrs)' },
+      { date: '2019-12', requestCount: '£0.00 (0.00 hrs)' },
+      { date: '2020-01', requestCount: '£0.00 (0.00 hrs)' },
+      { date: '2020-02', requestCount: '£0.00 (0.00 hrs)' },
+      { date: '2020-03', requestCount: '£0.00 (0.00 hrs)' },
+      { date: '2020-04', requestCount: '£0.30 (0.04 hrs)' },
+      { date: '2020-05', requestCount: '£0.50 (0.07 hrs)' },
     ],
   })
 })
