@@ -327,12 +327,12 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                   <p
                     className="mt-4"
                   >
-                    ** Costs adjusted to include 2 free hours of warehouse uptime (included in monthly subscription)
+                    ** Data warehouse uptime costs may take upwards of an hour to appear in the Cost Explorer
                   </p>
                   <p
                     className="mt-4"
                   >
-                    *** Partially used hours are rounded upwards for the purposes of billing
+                    *** Partially used hours are rounded upwards for the purposes of billing 
                   </p>
                 </div>
               </Component>

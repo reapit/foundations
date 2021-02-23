@@ -88,9 +88,9 @@ const AnalyticsCostExplorer: React.FC = () => {
               you will be automatically invoiced at the end of each billing period.
             </p>
             <p className="mt-4">
-              ** Costs adjusted to include 2 free hours of warehouse uptime (included in monthly subscription)
+              ** Data warehouse uptime costs may take upwards of an hour to appear in the Cost Explorer
             </p>
-            <p className="mt-4">*** Partially used hours are rounded upwards for the purposes of billing</p>
+            <p className="mt-4">*** Partially used hours are rounded upwards for the purposes of billing </p>
           </GridItem>
         </Grid>
       </FadeIn>

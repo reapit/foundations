@@ -30,15 +30,18 @@ const SubscriptionsContent: React.FC = () => {
             <GridItem>
               <H5>Pricing</H5>
               <p>
-                A subscription to access the data warehouse for your organisation costs £150 per month. Additional costs
-                are calculated based on the number of hours of warehouse usage in a given month, charged at £6.99 per
-                hour.
+                Access requires a subscription plus usage costs based on your warehouse consumption. You can cancel your
+                subscription at any time.
+              </p>
+              <p>
+                A subscription for your organisation costs £150 per month. Additional costs are calculated based on the
+                number of hours of that your warehouse is active in a given month, charged at £6.99 per hour. Your
+                subscription includes 2 hours of warehouse uptime per month.
               </p>
               <p>
                 Your warehouse will become active when queries are issued against it. You will be billed by the minute
                 while your warehouse is in an active state and ready to serve data. After a short period of inactivity,
-                the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping. Your
-                subscription includes 2 hours of warehouse uptime per month.
+                the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.{' '}
               </p>
               <p>
                 The below table represents the estimated cost of running a typical sales activity report for a given
@@ -73,10 +76,7 @@ const SubscriptionsContent: React.FC = () => {
                   },
                 ]}
               />
-              <p>
-                * Actual cost will vary depending on database size, report complexity and number of concurrent users.
-                Price estimations are exclusive of VAT.
-              </p>
+              <p>* All charges are subject to VAT</p>
             </GridItem>
             <GridItem>
               <PricingTile>
@@ -101,7 +101,8 @@ const SubscriptionsContent: React.FC = () => {
                         <li className="text-center px-2 py-1">Dedicated virtual warehouse for your organisation</li>
                         <li className="text-center px-2 py-1">Supports all major BI products</li>
                         <li className="text-center px-2 py-1">Enterprise grade encryption in transit and at rest</li>
-                        <li className="text-center px-2 py-1">Data kept up to date at 15 minute intervals</li>
+                        <li className="text-center px-2 py-1">Data kept up to date at 30-minute intervals</li>
+                        <li className="text-center px-2 py-1">Cancel your subscription at any time</li>
                       </ul>
                       {loginIdentity && (
                         <Section hasMargin={false}>
