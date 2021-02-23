@@ -13,7 +13,7 @@ module.exports = {
   stats: 'minimal',
   mode: isLocal ? 'development' : 'production',
   node: false,
-  externals: [nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') })],
+  externals: isLocal ? [nodeExternals({ modulesDir: path.resolve(__dirname, '../..', 'node_modules') })] : undefined,
   optimization: {
     minimize: true,
   },
