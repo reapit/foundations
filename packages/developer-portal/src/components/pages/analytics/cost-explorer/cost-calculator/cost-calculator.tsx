@@ -3,6 +3,7 @@ import { H5, GridItem, Grid, Section } from '@reapit/elements'
 import CostCalculatorForm, { CostCalculatorFormValues } from './cost-calculator-form'
 import TotalCostTable from './total-cost-table'
 import FadeIn from '../../../../../styles/fade-in'
+import developerEditionPricing from '@/assets/files/foundation-pricing-2021.pdf'
 
 export type CostCalculatorProps = {}
 
@@ -52,11 +53,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
             <p className="is-italic">
               You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of
               endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click{' '}
-              <a
-                href="https://developers.reapit.cloud/api-docs/developer-terms-and-conditions#schedule-2-fees"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={developerEditionPricing} target="_blank" rel="noopener noreferrer">
                 here
               </a>
             </p>

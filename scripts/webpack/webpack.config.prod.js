@@ -187,7 +187,7 @@ const webpackConfig = {
   ],
 }
 
-if (process.env.IS_RELEASE === 'true') {
+if (process.env.IS_RELEASE) {
   webpackConfig.plugins.push(
     new SentryWebpackPlugin({
       release: APP_VERSION,
