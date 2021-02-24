@@ -1634,6 +1634,7 @@ export interface Companies {
   branch?: string
   name?: string
   typeId?: string
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -1745,6 +1746,16 @@ export interface CompanyModel {
    * The email address of the company
    */
   email?: string
+  /**
+   * The date and time the company was archived
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  archivedOn?: string // date-time
+  /**
+   * A flag determining whether or not the company is archived
+   */
+  fromArchive?: boolean
   /**
    * Representation of the physical address of a building or premise
    */
@@ -1860,6 +1871,16 @@ export interface CompanyModelPagedResult {
      */
     email?: string
     /**
+     * The date and time the company was archived
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    archivedOn?: string // date-time
+    /**
+     * A flag determining whether or not the company is archived
+     */
+    fromArchive?: boolean
+    /**
      * Representation of the physical address of a building or premise
      */
     address?: {
@@ -1958,6 +1979,10 @@ export interface CompanyRoleModel {
    * The unique identifier of the related entity
    */
   associatedId?: string
+  /**
+   * Flag to determine if this role on the system is now archived
+   */
+  fromArchive?: boolean
 }
 export interface CompanyRoleModelPagedResult {
   _embedded?: {
@@ -1997,6 +2022,10 @@ export interface CompanyRoleModelPagedResult {
      * The unique identifier of the related entity
      */
     associatedId?: string
+    /**
+     * Flag to determine if this role on the system is now archived
+     */
+    fromArchive?: boolean
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -2140,6 +2169,16 @@ export interface ContactModel {
    * The email address of the contact
    */
   email?: string
+  /**
+   * The date and time the contact was archived
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  archivedOn?: string // date-time
+  /**
+   * A flag determining whether or not the contact is archived
+   */
+  fromArchive?: boolean
   /**
    * Representation of the physical address of a building or premise
    */
@@ -2368,6 +2407,16 @@ export interface ContactModelPagedResult {
      */
     email?: string
     /**
+     * The date and time the contact was archived
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    archivedOn?: string // date-time
+    /**
+     * A flag determining whether or not the contact is archived
+     */
+    fromArchive?: boolean
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -2560,6 +2609,10 @@ export interface ContactRoleModel {
    * The unique identifier of the related entity
    */
   associatedId?: string
+  /**
+   * Flag to determine if this role on the system is now archived
+   */
+  fromArchive?: boolean
 }
 export interface ContactRoleModelPagedResult {
   _embedded?: {
@@ -2599,6 +2652,10 @@ export interface ContactRoleModelPagedResult {
      * The unique identifier of the related entity
      */
     associatedId?: string
+    /**
+     * Flag to determine if this role on the system is now archived
+     */
+    fromArchive?: boolean
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -2638,6 +2695,7 @@ export interface Contacts {
   name?: string
   marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
+  fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -3699,15 +3757,15 @@ export interface CreateCompanyModel {
    */
   supplierTypeId?: string
   /**
-   * The work phone number of the company. (Required when no other contact or address details are provided)
+   * The work phone number of the company. (Required when no other company or address details are provided)
    */
   workPhone?: string
   /**
-   * The mobile phone number of the company. (Required when no other contact or address details are provided)
+   * The mobile phone number of the company. (Required when no other company or address details are provided)
    */
   mobilePhone?: string
   /**
-   * The email address of the company. (Required when no other contact or address details are provided)
+   * The email address of the company. (Required when no other company or address details are provided)
    */
   email?: string
   /**
@@ -4861,6 +4919,10 @@ export interface CreatePropertyModel {
    * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
+  /**
+   * An optional alternative identifier specified for this property
+   */
+  alternateId?: string
   /**
    * Request body used to set the address of a new property
    */
@@ -8598,6 +8660,10 @@ export interface PropertyModel {
    */
   currency?: string
   /**
+   * An optional alternative identifier specified for this property
+   */
+  alternateId?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -8965,6 +9031,10 @@ export interface PropertyModelPagedResult {
      * The currency that applies to monetary amounts exposed in the model
      */
     currency?: string
+    /**
+     * An optional alternative identifier specified for this property
+     */
+    alternateId?: string
     /**
      * Representation of the physical address of a building or premise
      */
@@ -12138,6 +12208,10 @@ export interface UpdatePropertyModel {
    * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
+  /**
+   * An optional alternative identifier specified for this property
+   */
+  alternateId?: string
   /**
    * Request body used to update the address of an existing property
    */
