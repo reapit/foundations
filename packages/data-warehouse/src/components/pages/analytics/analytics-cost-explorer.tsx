@@ -50,9 +50,6 @@ const AnalyticsCostExplorer: React.FC = () => {
   return (
     <Section hasMargin={false}>
       <H5>Cost Explorer</H5>
-      <p className="mb-4">
-        <i>* Includes 2hrs free monthly usage</i>
-      </p>
       <FadeIn>
         <Grid>
           <GridItem className="is-half-desktop">
