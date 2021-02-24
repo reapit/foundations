@@ -15,7 +15,7 @@ Cypress.on('fail', (error, runnable) => {
 
 describe('Node Services Dev', () => {
   nodeServicesDev.forEach(app => {
-    it(`Heathcheck for Dev ${app.appName} ${app.url}`, () => {
+    it(`Heathcheck for Dev ${app.appName} ${app.url}/ok`, () => {
       cy.request({
         url: `${app.url}/ok`,
         method: 'GET',
@@ -30,9 +30,7 @@ describe('Node Services Dev', () => {
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
         expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal({
-          message: 'Ok',
-        })
+        expect(response.body).to.deep.equal('ok')
       })
     })
   })
@@ -40,7 +38,7 @@ describe('Node Services Dev', () => {
 
 describe('Node Services Prod', () => {
   nodeServicesProd.forEach(app => {
-    it.skip(`Heathcheck for Prod ${app.appName} ${app.url}`, () => {
+    it.skip(`Heathcheck for Prod ${app.appName} ${app.url}/ok`, () => {
       cy.request({
         url: `${app.url}/ok`,
         method: 'GET',
@@ -55,9 +53,7 @@ describe('Node Services Prod', () => {
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
         expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal({
-          message: 'Ok',
-        })
+        expect(response.body).to.deep.equal('ok')
       })
     })
   })

@@ -42,15 +42,7 @@ module.exports = {
       {
         test: /.ts?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'tsx',
-              target: 'es2019',
-            },
-          },
-        ],
+        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
       },
     ],
   },
