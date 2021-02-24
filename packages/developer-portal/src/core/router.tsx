@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 import { PortalProvider } from '@reapit/elements'
 import { RedirectToSettingsProfilePage } from '@/components/pages/settings/settings'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
@@ -46,6 +47,7 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <PortalProvider>
           <Switch>
+            <Route path={Routes.OK} exact render={() => <OkayPage />} />
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />

@@ -5,6 +5,7 @@ import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { SWRConfig } from 'swr'
 import { fetcher } from '../utils/fetcher'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 
@@ -41,6 +42,7 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
+        <Route path={Routes.OK} exact render={() => <OkayPage />} />
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <SWRConfig

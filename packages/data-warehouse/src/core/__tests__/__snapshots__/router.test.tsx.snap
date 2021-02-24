@@ -40,6 +40,11 @@ exports[`Router should match a snapshot 1`] = `
       <Component>
         <Switch>
           <Route
+            exact={true}
+            path="/ok"
+            render={[Function]}
+          />
+          <Route
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),

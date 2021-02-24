@@ -9,6 +9,7 @@ const Routes = {
   AUTHENTICATION: '/authentication',
   SUBSCRIPTIONS: '/subscriptions',
   FOUR_O_FOUR: '/404',
+  OK: '/ok',
 }
 
 export default Routes

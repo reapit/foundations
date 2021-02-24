@@ -5,6 +5,7 @@ import { Loader } from '@reapit/elements'
 import { catchChunkError } from '@reapit/utils'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 
@@ -14,12 +15,14 @@ const Appointment = React.lazy(() => catchChunkError(() => import('../components
 export const ROUTES = {
   APPOINTMENT: '/',
   LOGIN: '/login',
+  OK: '/ok',
 }
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={<Loader />}>
       <Switch>
+        <Route path={ROUTES.OK} exact render={() => <OkayPage />} />
         <Route path={ROUTES.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>

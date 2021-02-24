@@ -7,6 +7,7 @@ const Routes = {
   SETTINGS: '/settings',
   LOGIN: '/login',
   ANALYTICS: '/analytics',
+  OK: '/ok',
 }
 
 export default Routes

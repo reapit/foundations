@@ -11,6 +11,7 @@ const Routes = {
   LOGIN: '/login',
   REGISTER: '/register',
   FOUR_O_FOUR: '/404',
+  OK: '/ok',
 }
 
 export const developerRoutes = {
