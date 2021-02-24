@@ -2,7 +2,7 @@
 name: Back end (internal)
 about: 'Issues for back end '
 title: ''
-labels: feature, back-end
+labels: back-end, feature
 assignees: ''
 
 ---
