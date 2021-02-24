@@ -2,7 +2,7 @@
 name: Question
 about: General questions regarding usage of any aspect of the platform or web applications
 title: ''
-labels: question, needs-triage
+labels: needs-triage, question
 assignees: ''
 
 ---
