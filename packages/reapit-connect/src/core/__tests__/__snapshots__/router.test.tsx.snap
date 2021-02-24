@@ -5,11 +5,6 @@ exports[`Router should match snapshot 1`] = `
   <BrowserRouter>
     <Switch>
       <Route
-        exact={true}
-        path="/ok"
-        render={[Function]}
-      />
-      <Route
         component={[Function]}
         exact={true}
         path="/welcome"

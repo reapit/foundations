@@ -30,9 +30,7 @@ describe('Node Services Dev', () => {
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
         expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal({
-          message: 'Ok',
-        })
+        expect(response.body).to.deep.equal('ok')
       })
     })
   })
@@ -55,9 +53,7 @@ describe('Node Services Prod', () => {
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
         expect(response.body).not.to.be.undefined
-        expect(response.body).to.deep.equal({
-          message: 'Ok',
-        })
+        expect(response.body).to.deep.equal('ok')
       })
     })
   })

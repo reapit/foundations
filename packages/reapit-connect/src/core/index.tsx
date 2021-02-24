@@ -3,6 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
 import { logger } from '@reapit/utils'
+import { OkayPage } from '@reapit/utils'
 
 // Init global config
 window.reapit = {
@@ -18,6 +19,10 @@ window.reapit = {
 
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
+
+  if (rootElement && window.location.pathname === '/ok') {
+    return render(<OkayPage />, rootElement)
+  }
 
   if (rootElement) {
     render(<Component />, rootElement)
