@@ -15,7 +15,7 @@ Cypress.on('fail', (error, runnable) => {
 
 describe('Node Services Dev', () => {
   nodeServicesDev.forEach(app => {
-    test(`Heathcheck for Dev ${app.appName} ${app.url}`, () => {
+    it(`Heathcheck for Dev ${app.appName} ${app.url}`, () => {
       cy.request({
         url: `${app.url}/ok`,
         method: 'GET',
@@ -40,7 +40,7 @@ describe('Node Services Dev', () => {
 
 describe('Node Services Prod', () => {
   nodeServicesProd.forEach(app => {
-    test.skip(`Heathcheck for Prod ${app.appName} ${app.url}`, () => {
+    it.skip(`Heathcheck for Prod ${app.appName} ${app.url}`, () => {
       cy.request({
         url: `${app.url}/ok`,
         method: 'GET',

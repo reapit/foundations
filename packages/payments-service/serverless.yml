@@ -122,6 +122,21 @@ functions:
     handler: src/index.app
     events:
       - http:
+          method: get
+          path: /ok
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match
+      - http:
           method: post
           path: /api-key
           cors:
