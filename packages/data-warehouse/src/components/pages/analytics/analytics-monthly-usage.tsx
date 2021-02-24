@@ -23,9 +23,6 @@ export const AnalyticsMonthlyUsage: React.FC = () => {
   return (
     <Section hasMargin={false}>
       <H5>Monthly Cost</H5>
-      <p className="mb-4">
-        <i>* Includes 2hrs free monthly usage</i>
-      </p>
       <FadeIn>
         <ChartContainer>
           {billingLoading ? (
