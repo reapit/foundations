@@ -125,3 +125,18 @@ functions:
               - X-Amz-User-Agent
               - reapit-customer
               - api-version
+      - http:
+          method: get
+          path: /ok
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match

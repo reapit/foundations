@@ -1,5 +1,5 @@
 export const webAppsDev = [
-  { appName: 'Admin Portal', url: 'https://admin-portal.dev.paas.reapit.cloud' },
+  { appName: 'Admin Portal', url: 'https://developer-admin.dev.paas.reapit.cloud' },
   { appName: 'Aml Checklist', url: 'https://aml-app.dev.paas.reapit.cloud' },
   { appName: 'Data Warehouse', url: 'https://data-warehouse-app.dev.paas.reapit.cloud' },
   { appName: 'Developer Portal', url: 'https://developers.dev.paas.reapit.cloud' },
@@ -11,14 +11,14 @@ export const webAppsDev = [
 ]
 
 export const webAppsProd = [
-  { appName: 'Admin Portal', url: 'https://admin-portal.reapit.cloud' },
+  { appName: 'Admin Portal', url: 'https://developer-admin.reapit.cloud' },
   { appName: 'Aml Checklist', url: 'https://aml-app.reapit.cloud' },
   { appName: 'Data Warehouse', url: 'https://data-warehouse-app.reapit.cloud' },
   { appName: 'Developer Portal', url: 'https://developers.reapit.cloud' },
   { appName: 'Geo Diary', url: 'https://geo-diary-app.reapit.cloud' },
   { appName: 'Marketplace', url: 'https://marketplace.reapit.cloud' },
   { appName: 'Marketplace Management', url: 'https://marketplace-management.reapit.cloud' },
-  { appName: 'Payments Client', url: 'https://payments.reapit.cloud' },
+  { appName: 'Payments Client', url: 'https://payments.prod.paas.reapit.cloud' },
   { appName: 'Reapit Connect Welcome', url: 'https://reapit-connect.reapit.cloud' },
 ]
 
