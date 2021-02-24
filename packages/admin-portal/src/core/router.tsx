@@ -6,6 +6,7 @@ import PrivateRoute from './private-route'
 import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 import { PortalProvider } from '@reapit/elements'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 
@@ -25,6 +26,7 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <PortalProvider>
           <Switch>
+            <Route path={Routes.OK} exact render={() => <OkayPage />} />
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <PrivateRouteWrapper>

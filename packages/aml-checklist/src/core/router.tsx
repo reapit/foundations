@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history'
 import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 
@@ -17,6 +18,7 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
+        <Route path={Routes.OK} exact render={() => <OkayPage />} />
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <PrivateRouteWrapper>
           <Switch>

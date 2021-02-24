@@ -3,6 +3,7 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
+import { OkayPage } from '@reapit/utils'
 
 export const history = createBrowserHistory()
 
@@ -45,6 +46,7 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
+            <Route path={Routes.OK} exact render={() => <OkayPage />} />
             <Route path={Routes.ACCOUNTS} component={AccountsPage} />
             <Route path={Routes.SUBSCRIPTIONS} component={SubsctiptionsPage} />
             <Route path={Routes.DATA} component={DataPage} />
