@@ -1,3 +1,5 @@
+import { nodeServicesDev, nodeServicesProd } from '../support/constants'
+
 Cypress.on('fail', (error, runnable) => {
   fetch(Cypress.env('SLACK_WEB_HOOK_URL'), {
     method: 'POST',
@@ -5,48 +7,58 @@ Cypress.on('fail', (error, runnable) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      text: `Failed on ${runnable.title}`,
+      text: `${runnable.title} failed - you should investigate this service is live and functioning correctly`,
     }),
   })
   throw error
 })
 
-if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'appointment-planner-component') {
-  const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
-  describe('appointment-planner-component API', () => {
-    it.skip('user should able to call appointment-planner-component API /ping', () => {
+describe('Node Services Dev', () => {
+  nodeServicesDev.forEach(app => {
+    test(`Heathcheck for Dev ${app.appName} ${app.url}`, () => {
       cy.request({
-        url: `${WEB_COMPONENTS_API_URL}/ping`,
+        url: `${app.url}/ok`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
         },
-      }).as('appointmentSlots')
-      cy.get('@appointmentSlots').should((response: any) => {
+      }).as(`healthCheckResponse${app.url}`)
+
+      cy.get(`@healthCheckResponse${app.url}`).should((response: any) => {
         expect(response).to.have.property('headers')
         expect(response).to.have.property('body')
         expect(response).to.have.property('status')
         expect(response.status).to.equal(200)
         expect(response.body).not.to.be.undefined
-      })
-    })
-    it.skip('user should able to call appointment-planner-component API /appointment-slots', () => {
-      cy.request({
-        url: `${WEB_COMPONENTS_API_URL}/appointment-slots`,
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
-        },
-      }).as('appointmentSlots')
-      cy.get('@appointmentSlots').should((response: any) => {
-        expect(response).to.have.property('headers')
-        expect(response).to.have.property('body')
-        expect(response).to.have.property('status')
-        expect(response.status).to.equal(200)
-        expect(response.body).not.to.be.undefined
+        expect(response.body).to.deep.equal({
+          message: 'Ok',
+        })
       })
     })
   })
-}
+})
+
+describe('Node Services Prod', () => {
+  nodeServicesProd.forEach(app => {
+    test.skip(`Heathcheck for Prod ${app.appName} ${app.url}`, () => {
+      cy.request({
+        url: `${app.url}/ok`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).as(`healthCheckResponse${app.url}`)
+
+      cy.get(`@healthCheckResponse${app.url}`).should((response: any) => {
+        expect(response).to.have.property('headers')
+        expect(response).to.have.property('body')
+        expect(response).to.have.property('status')
+        expect(response.status).to.equal(200)
+        expect(response.body).not.to.be.undefined
+        expect(response.body).to.deep.equal({
+          message: 'Ok',
+        })
+      })
+    })
+  })
+})

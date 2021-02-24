@@ -29,6 +29,11 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
+          path="/ok"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
           path="/login"
           render={[Function]}
         />

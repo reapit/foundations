@@ -7,11 +7,13 @@ jest.mock('../router', () => ({
 jest.mock('express', () => () => ({
   use: jest.fn(),
   post: jest.fn(),
+  get: jest.fn(),
   Router: jest.fn(),
 }))
 
 describe('app', () => {
   it('should correctly set up middleware', () => {
     expect(app.use).toHaveBeenCalledTimes(5)
+    expect(app.get).toHaveBeenCalledTimes(1)
   })
 })

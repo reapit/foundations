@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader, Table } from '@reapit/elements'
+import { H5, Grid, GridItem, Content, Section, Button, FadeIn, Loader } from '@reapit/elements'
 import { PricingTile } from './__styles__/pricing-tile'
 import { MessageContext } from '../../../context/message-context'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -47,35 +47,6 @@ const SubscriptionsContent: React.FC = () => {
                 The below table represents the estimated cost of running a typical sales activity report for a given
                 frequency over the course of a month:
               </p>
-              <Table
-                columns={[
-                  { Header: 'Report Usage', accessor: 'usage' },
-                  { Header: 'Required Warehouse Uptime', accessor: 'warehouse' },
-                  { Header: 'Consumption', accessor: 'consumption' },
-                ]}
-                data={[
-                  {
-                    usage: '750 executions',
-                    warehouse: '2 hours',
-                    consumption: '£0 (included)',
-                  },
-                  {
-                    usage: '3,750 executions',
-                    warehouse: '10 hours',
-                    consumption: '£55.92',
-                  },
-                  {
-                    usage: '15,000 executions',
-                    warehouse: '40 hours',
-                    consumption: '£265.62',
-                  },
-                  {
-                    usage: '60,000 executions',
-                    warehouse: '160 hours',
-                    consumption: '£1,104.42',
-                  },
-                ]}
-              />
               <p>* All charges are subject to VAT</p>
             </GridItem>
             <GridItem>

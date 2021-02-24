@@ -11,6 +11,12 @@ app.use(cors())
 app.use(decodeToken)
 app.use(traceIdMiddleware)
 app.use(bodyParser.json())
+app.get('/ok', (_req, res) => {
+  res
+    .status(200)
+    .send('ok')
+    .end()
+})
 app.use(router)
 
 export default app
