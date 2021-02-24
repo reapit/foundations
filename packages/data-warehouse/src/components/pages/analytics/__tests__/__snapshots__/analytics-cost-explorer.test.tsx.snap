@@ -18,13 +18,6 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
             Cost Explorer
           </h5>
         </Component>
-        <p
-          className="mb-4"
-        >
-          <i>
-            * Includes 2hrs free monthly usage
-          </i>
-        </p>
         <mock-styled.div>
           <Component>
             <div
