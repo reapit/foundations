@@ -50,6 +50,9 @@ geo-diary:
 graphql-server:
   - packages/graphql-server/**
 
+login-with-reapit:
+  - packages/login-with-reapit/**
+
 mailer-service:
   - packages/mailer-service/**
 
