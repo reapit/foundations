@@ -1,12 +1,14 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
   "include": ["src/**/*"],
   "exclude": ["node_modules/*", "public/*"],
   "compilerOptions": {
     "types": ["svelte", "jest", "node"],
+    "module": "esNext",
+    "target": "esnext",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src/types"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "remove",
     "baseUrl": ".",
     "paths": {
       "@reapit/connect-session": ["../connect-session/src"]

@@ -58,7 +58,6 @@
   }
 </style>
 
-<svelte:options accessors={true} />
 <div class="reapit-connect-component" on:click={clickHandler}>
   {#if !isFetching}
     {#if hasSession}

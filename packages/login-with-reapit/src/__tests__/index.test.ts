@@ -1,9 +1,9 @@
-import { ReapitConnectComponent } from '../index'
+import { reapitConnectComponent } from '../index'
 
-describe('ReapitConnectComponent', () => {
+describe('reapitConnectComponent', () => {
   it('should match a snapshot', () => {
     expect(
-      ReapitConnectComponent({
+      reapitConnectComponent({
         connectClientId: 'clientId',
         connectUserPoolId: 'userpoolId',
         connectOAuthUrl: 'https://some-url.com',

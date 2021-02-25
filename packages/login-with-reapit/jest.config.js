@@ -5,13 +5,12 @@ module.exports = {
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
-      tsConfig: {
+      tsconfig: {
         ...compilerOptions,
         allowJs: true,
       },
     },
   },
-  setupFiles: ['<rootDir>/scripts/jest-setup.js'],
   testPathIgnorePatterns: ['<rootDir>/scripts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
   coverageDirectory: './tests/coverage',
@@ -31,10 +30,10 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
     global: {
-      branches: 56,
-      functions: 80,
-      lines: 88,
-      statements: 84,
+      branches: 60,
+      functions: 90,
+      lines: 71,
+      statements: 74,
     },
   },
   transform: {
@@ -43,5 +42,4 @@ module.exports = {
     '^.+\\.js$': 'ts-jest',
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
-  snapshotSerializers: ['jest-emotion'],
 }
