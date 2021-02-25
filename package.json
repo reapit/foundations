@@ -18,6 +18,7 @@
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",
+      "packages/login-with-reapit",
       "packages/marketplace-management",
       "packages/marketplace",
       "packages/mailer-service",
