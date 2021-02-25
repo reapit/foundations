@@ -1,4 +1,4 @@
-import ReapitConnectButtonComponent from './reapit-connect-component.svelte'
+import ReapitConnectButtonComponent from './components/reapit-connect-component.svelte'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 export interface ReapitConnectInitializers {
@@ -11,7 +11,7 @@ export interface ReapitConnectInitializers {
   connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
 }
 
-export const ReapitConnectComponent = ({
+export const reapitConnectComponent = ({
   connectClientId,
   connectOAuthUrl,
   connectUserPoolId,
@@ -28,7 +28,7 @@ export const ReapitConnectComponent = ({
     connectLogoutRedirectPath,
   })
 
-  return new ReapitConnectButtonComponent({
+  new ReapitConnectButtonComponent({
     target: document.querySelector(connectContainerId) || document.body,
     props: {
       reapitConnectBrowserSession,
@@ -37,6 +37,6 @@ export const ReapitConnectComponent = ({
   })
 }
 
-Object.defineProperty(window, 'ReapitConnectComponent', {
-  value: ReapitConnectComponent,
+Object.defineProperty(window, 'reapitConnectComponent', {
+  value: reapitConnectComponent,
 })

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>DEMO</title>
+    <meta charset="UTF-8" />
+    <title></title>
   </head>
-
   <body>
     <div id="reapit-connect-component"></div>
-    <script src="./dist/reapit-connect-component.js"></script>
+    <script src="./login-with-reapit.js"></script>
     <script>
-
       const connectHasSessionCallback = (reapitConnectBrowserSession) => {
         reapitConnectBrowserSession.connectSession().then(session => {
           console.log('Session is', session)
         })
       }
 
-      ReapitConnectComponent && new ReapitConnectComponent({
+      reapitConnectComponent && reapitConnectComponent({
         connectClientId: '',
         connectOAuthUrl: 'https://dev.connect.reapit.cloud',
         connectLoginRedirectPath: '',
@@ -24,5 +23,6 @@
         connectHasSessionCallback
       })
     </script>
+  </body>
   </body>
 </html>
