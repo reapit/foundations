@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack -w\" \"sirv public/dist --dev -s --port 8080\"",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "build": "echo '...skipping...",
+    "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx src --fix",
     "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
