@@ -6,7 +6,7 @@ import { extractNetworkErrString } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
 import { notification } from '@reapit/elements'
 
-export const approvalsDataFetch = function*({ data: page }) {
+export const approvalsDataFetch = function* ({ data: page }) {
   try {
     const response = yield call(fetchApprovalsList, { pageNumber: page })
     if (response) {
@@ -24,11 +24,11 @@ export const approvalsDataFetch = function*({ data: page }) {
   }
 }
 
-export const approvalsDataListen = function*() {
+export const approvalsDataListen = function* () {
   yield takeLatest<Action<number>>(ActionTypes.FETCH_APPROVAL_LIST, approvalsDataFetch)
 }
 
-const approvalsSagas = function*() {
+const approvalsSagas = function* () {
   yield all([fork(approvalsDataListen)])
 }
 

@@ -46,7 +46,7 @@ describe('HelpGuide', () => {
       currentStep: 0,
       setIsExit: jest.fn(),
     } as NavigationProps
-    it('should run correctly', done => {
+    it('should run correctly', (done) => {
       handleGoTo({ ...mockProps })(2)
       expect(mockProps.setIsExit).toBeCalledWith(true)
       setTimeout(() => {
@@ -64,7 +64,7 @@ describe('HelpGuide', () => {
       setIsExit: jest.fn(),
     } as NavigationProps
 
-    it('should run correctly when isLast false', done => {
+    it('should run correctly when isLast false', (done) => {
       handleGoNext({ ...mockProps })()
       expect(mockProps.setIsExit).toBeCalledWith(true)
       setTimeout(() => {
@@ -95,7 +95,7 @@ describe('HelpGuide', () => {
       setIsExit: jest.fn(),
     } as NavigationProps
 
-    it('should run correctly when isFirst false', done => {
+    it('should run correctly when isFirst false', (done) => {
       handleGoPrev({ ...mockProps })()
       setTimeout(() => {
         expect(mockProps.setCurrentStep).toBeCalledWith((mockProps.currentStep as number) - 1)

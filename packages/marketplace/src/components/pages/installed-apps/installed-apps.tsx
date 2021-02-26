@@ -18,7 +18,7 @@ import { helperText } from './__styles__/installed-app-list'
 import { selectIsAdmin, selectSandboxDeveloper } from '../../../selector/auth'
 import { Link } from 'react-router-dom'
 
-export const handleOnChange = history => (page: number) => history.push(`${routes.INSTALLED_APPS}?page=${page}`)
+export const handleOnChange = (history) => (page: number) => history.push(`${routes.INSTALLED_APPS}?page=${page}`)
 
 export const handleOnCardClick = (connectIsDesktop: Boolean) => (app: AppSummaryModel) =>
   handleLaunchApp(app, connectIsDesktop)
@@ -38,8 +38,8 @@ export const InstalledApps: React.FC = () => {
   const { totalCount, pageSize } = installedAppsState || {}
   const { code, state } = getParamsFromPath(history.location.search)
   const isMobileView = isMobile()
-  const directApiApps = useMemo(() => list.filter(item => item.isDirectApi), [list])
-  const agencyCloudApps = useMemo(() => list.filter(item => !item.isDirectApi), [list])
+  const directApiApps = useMemo(() => list.filter((item) => item.isDirectApi), [list])
+  const agencyCloudApps = useMemo(() => list.filter((item) => !item.isDirectApi), [list])
   const isDesktopAdmin = selectIsAdmin(connectSession)
   const sandboxDeveloper = Boolean(selectSandboxDeveloper(connectSession))
   const isAdmin = isDesktopAdmin || sandboxDeveloper

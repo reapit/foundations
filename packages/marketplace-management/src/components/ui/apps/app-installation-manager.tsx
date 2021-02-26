@@ -23,9 +23,9 @@ export const getInstallationsForWholeOrg = (
 ): (string | undefined)[] => {
   if (!installations?.data) return []
   return installations.data
-    .filter(installation => installation?.client === clientIdFirstPart)
-    .map(installation => installation.client)
-    .filter(client => !!client)
+    .filter((installation) => installation?.client === clientIdFirstPart)
+    .map((installation) => installation.client)
+    .filter((client) => !!client)
 }
 
 export const getInstallationsForOfficeGroups = (
@@ -34,9 +34,9 @@ export const getInstallationsForOfficeGroups = (
 ): (string | undefined)[] => {
   if (!installations?.data) return []
   return installations.data
-    .filter(installation => installation?.client?.startsWith(`${clientIdFirstPart}-`))
-    .map(installation => installation.client)
-    .filter(client => !!client)
+    .filter((installation) => installation?.client?.startsWith(`${clientIdFirstPart}-`))
+    .map((installation) => installation.client)
+    .filter((client) => !!client)
 }
 
 export const getClientIdFirstPart = (clientId: string | null) => {
@@ -54,9 +54,11 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
 
   useEffect(clientIdEffectHandler(clientId, setClientId), [])
 
-  const { data: installations, isValidating: installationsValidating, revalidate: revalidateInstallations } = useSWR<
-    InstallationModelPagedResult
-  >(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
+  const {
+    data: installations,
+    isValidating: installationsValidating,
+    revalidate: revalidateInstallations,
+  } = useSWR<InstallationModelPagedResult>(`${URLS.INSTALLATIONS}/?AppId=${app.id}&IsInstalled=true&pageSize=999`)
 
   if (clientId && installations?.data && initialAppInstallationType === null) {
     const clientIdFirstPart = getClientIdFirstPart(clientId)

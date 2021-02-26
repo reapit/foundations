@@ -50,9 +50,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
   [telephone.name]: Yup.string()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .matches(telephoneRegex, telephone.errorMessage)
@@ -62,9 +60,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
@@ -73,9 +69,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .test({
@@ -103,15 +97,13 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .test({
       name: 'isValidHomePage',
       message: homePage.errorMessage,
-      test: value => {
+      test: (value) => {
         if (!value) return true
         return whiteListLocalhostAndIsValidUrl(value) || isValidHttpUrl(value)
       },
@@ -121,9 +113,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
@@ -133,18 +123,13 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
     .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
 
-  [authFlow.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED)
-    .oneOf([USER_SESSION, CLIENT_SECRET]),
+  [authFlow.name]: Yup.string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),
 
   [scopes.name]: Yup.array().when(authFlow.name, (authFlow, schema) => {
     if (authFlow === CLIENT_SECRET) {
@@ -183,7 +168,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .test({
       name: 'isValidLimitToClientIds',
-      test: value => {
+      test: (value) => {
         if (value) {
           return isValidLimitToClientIds(value)
         }
@@ -196,15 +181,13 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .test({
       name: 'isValidTermsAndConditionsUrl',
       message: termsAndConditionsUrl.errorMessage,
-      test: value => {
+      test: (value) => {
         if (!value) return true
         return isValidHttpsUrl(value)
       },
@@ -214,15 +197,13 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .trim()
     .when(isListed.name, {
       is: true,
-      then: Yup.string()
-        .trim()
-        .required(FIELD_REQUIRED),
+      then: Yup.string().trim().required(FIELD_REQUIRED),
       otherwise: Yup.string().notRequired(),
     })
     .test({
       name: 'isValidPrivacyPolicyUrl',
       message: privacyPolicyUrl.errorMessage,
-      test: value => {
+      test: (value) => {
         if (!value) return true
         return isValidHttpsUrl(value)
       },
@@ -239,7 +220,7 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .test({
       name: 'isValidPricingUrl',
       message: pricingUrl.errorMessage,
-      test: value => {
+      test: (value) => {
         if (!value) return true
         return isValidHttpsUrl(value)
       },

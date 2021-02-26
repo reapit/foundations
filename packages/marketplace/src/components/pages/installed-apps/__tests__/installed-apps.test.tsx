@@ -13,7 +13,7 @@ import appState from '@/reducers/__stubs__/app-state'
 
 jest.mock('@/utils/launch-app')
 
-const createState = loading => {
+const createState = (loading) => {
   return {
     ...appState,
     installedApps: {

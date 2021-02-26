@@ -41,7 +41,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
     const { value, onClose } = props
-    const option = options.find(option => option.value === value) as SelectOption
+    const option = options.find((option) => option.value === value) as SelectOption
     const optionResult = option ?? { value, label: value, description: value, link: '' }
     return (
       <CustomTag
@@ -53,7 +53,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
     )
   }
 
-  const handleChangeOption = field => value => {
+  const handleChangeOption = (field) => (value) => {
     field.onChange({ target: { value: value, name: field.name } })
   }
 

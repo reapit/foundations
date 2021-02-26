@@ -18,7 +18,7 @@ import {
 import { getDeveloperId } from '@/utils/session'
 import { notification } from '@reapit/elements'
 
-export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
+export const developerFetchSubcriptionsList = function* ({ data }: Action<FetchSubscriptionsListParams>) {
   try {
     const { developerId } = data
     if (!developerId) {
@@ -34,7 +34,7 @@ export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSu
   }
 }
 
-export const developerCreateSubscription = function*({ data }: Action<CreateSubscriptionParams>) {
+export const developerCreateSubscription = function* ({ data }: Action<CreateSubscriptionParams>) {
   try {
     const response = yield call(createDeveloperSubscription, data.params)
     if (response) {
@@ -48,7 +48,7 @@ export const developerCreateSubscription = function*({ data }: Action<CreateSubs
   }
 }
 
-export const developerDeleteSubcription = function*({ data: id }: Action<string>) {
+export const developerDeleteSubcription = function* ({ data: id }: Action<string>) {
   try {
     yield call(deleteSubscription, { id })
     const developerId = yield call(getDeveloperId)
@@ -61,25 +61,25 @@ export const developerDeleteSubcription = function*({ data: id }: Action<string>
   }
 }
 
-export const developerFetchSubcriptionsListListen = function*() {
+export const developerFetchSubcriptionsListListen = function* () {
   yield takeLatest<Action<FetchSubscriptionsListParams>>(
     ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS,
     developerFetchSubcriptionsList,
   )
 }
 
-export const developerCreateSubcriptionListen = function*() {
+export const developerCreateSubcriptionListen = function* () {
   yield takeLatest<Action<CreateSubscriptionParams>>(
     ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE,
     developerCreateSubscription,
   )
 }
 
-export const developerDeleteSubcriptionListen = function*() {
+export const developerDeleteSubcriptionListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.DEVELOPER_DELETE_SUBSCRIPTION, developerDeleteSubcription)
 }
 
-export const developerSubcriptionsListSagas = function*() {
+export const developerSubcriptionsListSagas = function* () {
   yield all([
     fork(developerFetchSubcriptionsListListen),
     fork(developerCreateSubcriptionListen),

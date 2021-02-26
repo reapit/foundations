@@ -15,7 +15,7 @@ import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { extractNetworkErrString, errorMessages } from '@reapit/utils'
 import { fetchSubscriptionListApi, cancelSubscriptionApi } from '@/services/subscriptions'
 
-export const fetchSubscriptionListHandler = function*({ data: { page, queryString } }) {
+export const fetchSubscriptionListHandler = function* ({ data: { page, queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
     const type = queryParams.get('type') || ''
@@ -39,7 +39,7 @@ export const fetchSubscriptionListHandler = function*({ data: { page, queryStrin
   }
 }
 
-export const cancelSubscriptionHandler = function*({ data: { id } }) {
+export const cancelSubscriptionHandler = function* ({ data: { id } }) {
   try {
     const response = yield call(cancelSubscriptionApi, { id })
     if (response) {
@@ -60,18 +60,18 @@ export const cancelSubscriptionHandler = function*({ data: { id } }) {
   }
 }
 
-export const fetchSubscriptionListListen = function*() {
+export const fetchSubscriptionListListen = function* () {
   yield takeLatest<Action<FetchSubscriptionListQuery>>(
     ActionTypes.FETCH_SUBSCRIPTION_LIST,
     fetchSubscriptionListHandler,
   )
 }
 
-export const cancelSubscriptionListen = function*() {
+export const cancelSubscriptionListen = function* () {
   yield takeLatest<Action<CancelSubscriptionActionParams>>(ActionTypes.CANCEL_SUBSCRIPTION, cancelSubscriptionHandler)
 }
 
-const subscriptionsListSagas = function*() {
+const subscriptionsListSagas = function* () {
   yield all([fork(fetchSubscriptionListListen), fork(cancelSubscriptionListen)])
 }
 

@@ -23,8 +23,8 @@ export const handleMapAppNameToInstallation = (
   installationsAppDataArray: InstallationModel[] = [],
   developerDataArray: AppSummaryModel[] = [],
 ) => (): InstallationModelWithAppName[] => {
-  return installationsAppDataArray.map(installation => {
-    const app = developerDataArray.find(app => app.id === installation.appId)
+  return installationsAppDataArray.map((installation) => {
+    const app = developerDataArray.find((app) => app.id === installation.appId)
     return {
       ...installation,
       appName: app?.name,
@@ -43,7 +43,7 @@ export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) =>
   }
 }
 
-export const handleFetchAppUsageStatsDataUseCallback = dispatch => {
+export const handleFetchAppUsageStatsDataUseCallback = (dispatch) => {
   return () => {
     const { defaultParams } = prepareDefaultFilterDateParams()
 

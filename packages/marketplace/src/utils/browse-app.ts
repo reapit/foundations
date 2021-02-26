@@ -18,10 +18,10 @@ export const mergeAppsWithoutDuplicateId = (
   oldApps: AppSummaryModel[] | undefined = [],
   newApps: AppSummaryModel[] | undefined = [],
 ): AppSummaryModel[] => {
-  const newAppIds = newApps.map(app => app.id)
-  const developerAppIds = developerApps.map(app => app.id)
-  const filteredOldApps = oldApps.filter(app => !newAppIds.includes(app.id) && !developerAppIds.includes(app.id))
-  const filteredNewApps = newApps.filter(app => !developerAppIds.includes(app.id))
+  const newAppIds = newApps.map((app) => app.id)
+  const developerAppIds = developerApps.map((app) => app.id)
+  const filteredOldApps = oldApps.filter((app) => !newAppIds.includes(app.id) && !developerAppIds.includes(app.id))
+  const filteredNewApps = newApps.filter((app) => !developerAppIds.includes(app.id))
 
   return [...developerApps, ...filteredOldApps, ...filteredNewApps]
 }
@@ -33,7 +33,7 @@ export const filterOrgAdminRestrictedApps = (
   const isOrgAdmin = connectSession.loginIdentity.groups.includes(COGNITO_GROUP_ORGANISATION_ADMIN)
   if (isOrgAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
   const filtered = appsResponse.data.filter(
-    app => !window.reapit.config.orgAdminRestrictedAppIds.includes(app.id as string),
+    (app) => !window.reapit.config.orgAdminRestrictedAppIds.includes(app.id as string),
   )
   return {
     ...appsResponse,

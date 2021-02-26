@@ -43,7 +43,7 @@ export class Store {
     identityTypes,
   }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
-  static sagas = function*() {
+  static sagas = function* () {
     yield all([fork(checklistDetailSagas), fork(resultSagas), fork(identityTypesSagas)])
   }
 

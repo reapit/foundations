@@ -26,10 +26,7 @@ app.use(
 app.use(traceIdMiddleware)
 app.use(bodyParser.json())
 app.get('/ok', (_req, res) => {
-  res
-    .status(200)
-    .send('ok')
-    .end()
+  res.status(200).send('ok').end()
 })
 app.use(router)
 

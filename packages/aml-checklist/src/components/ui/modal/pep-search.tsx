@@ -113,7 +113,7 @@ export type DispatchProps = {
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    handleSubmit: values => {
+    handleSubmit: (values) => {
       dispatch(checklistDetailSearchPep(values.name))
     },
     onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),

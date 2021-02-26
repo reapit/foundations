@@ -12,8 +12,8 @@ export const isValidUrlWithCustomScheme = (urls: string): boolean => {
   return urls
     .replace(/\s/g, '')
     .split(',')
-    .filter(url => url)
-    .every(url => checkValidCustomScheme(url))
+    .filter((url) => url)
+    .every((url) => checkValidCustomScheme(url))
 }
 
 export const checkValidCustomScheme = (url: string): boolean => {
@@ -35,7 +35,7 @@ export const isValidLimitToClientIds = (clientIds: string): boolean => {
   return clientIds
     .replace(/\s/g, '')
     .split(',')
-    .every(clientId => clientId.length >= 3 && clientId.length <= 15)
+    .every((clientId) => clientId.length >= 3 && clientId.length <= 15)
 }
 
 export const isValidHttpsUrl = (url: string) => {

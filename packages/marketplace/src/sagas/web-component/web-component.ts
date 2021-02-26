@@ -15,7 +15,7 @@ import {
   updateWebComponentConfigSuccess,
 } from '@/actions/web-component'
 
-export const fetchWebComponentConfigSaga = function*({ data }: Action<FetchWebComponentConfigParams>) {
+export const fetchWebComponentConfigSaga = function* ({ data }: Action<FetchWebComponentConfigParams>) {
   try {
     const response = yield call(fetchWebComponentConfigApi, { ...data })
     yield put(fetchWebComponentConfigSuccess(response))
@@ -28,7 +28,7 @@ export const fetchWebComponentConfigSaga = function*({ data }: Action<FetchWebCo
   }
 }
 
-export const updateWebComponentConfigSaga = function*({ data }: Action<UpdateWebComponentConfigParams>) {
+export const updateWebComponentConfigSaga = function* ({ data }: Action<UpdateWebComponentConfigParams>) {
   try {
     const { callback, ...restParams } = data
     const response = yield call(updateWebComponentConfigApi, restParams)
@@ -44,7 +44,7 @@ export const updateWebComponentConfigSaga = function*({ data }: Action<UpdateWeb
   }
 }
 
-export const webComponentSagasListen = function*() {
+export const webComponentSagasListen = function* () {
   yield takeLatest<Action<FetchWebComponentConfigParams>>(
     ActionTypes.FETCH_WEB_COMPONENT_CONFIG,
     fetchWebComponentConfigSaga,
@@ -55,7 +55,7 @@ export const webComponentSagasListen = function*() {
   )
 }
 
-export const webComponentSagas = function*() {
+export const webComponentSagas = function* () {
   yield all([fork(webComponentSagasListen)])
 }
 

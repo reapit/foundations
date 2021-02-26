@@ -55,7 +55,7 @@ export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
   }
 }
 
-export const renderTabContent = currentTab => {
+export const renderTabContent = (currentTab) => {
   switch (currentTab) {
     case AnalyticsTab.DETAILED:
       return <DetailedTab />

@@ -25,9 +25,7 @@ const columns = [
 ]
 
 const randomChar = () => {
-  const r = Math.random()
-    .toString(36)
-    .substring(7)
+  const r = Math.random().toString(36).substring(7)
   return r
 }
 
@@ -69,21 +67,21 @@ export default {
   component: Table,
 }
 
-export const Primary: Story<TableProps> = args => <Table {...args} />
+export const Primary: Story<TableProps> = (args) => <Table {...args} />
 Primary.args = {
   columns,
   data: makeData(10),
   loading: false,
 }
 
-export const IsLoading: Story<TableProps> = args => <Table {...args} />
+export const IsLoading: Story<TableProps> = (args) => <Table {...args} />
 IsLoading.args = {
   columns,
   data: makeData(10),
   loading: true,
 }
 
-export const ExpandableRows: Story<TableProps> = args => <Table {...args} />
+export const ExpandableRows: Story<TableProps> = (args) => <Table {...args} />
 ExpandableRows.args = {
   columns,
   data: makeDataWithSubRows(10),

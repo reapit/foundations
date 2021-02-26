@@ -44,7 +44,7 @@ export class Store {
     cognitoIdentity,
   })
 
-  static sagas = function*() {
+  static sagas = function* () {
     yield all([
       fork(appsSagas),
       fork(installationsSagas),

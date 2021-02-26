@@ -68,7 +68,7 @@ export const handleSubscriptionToggle = (
 
 export const getCurrentSubscription = (subscriptions: SubscriptionModelPagedResult | undefined) => {
   return subscriptions?.data?.length
-    ? subscriptions?.data.find(sub => sub.type === 'dataWarehouse' && !sub.cancelled) ?? null
+    ? subscriptions?.data.find((sub) => sub.type === 'dataWarehouse' && !sub.cancelled) ?? null
     : null
 }
 

@@ -23,7 +23,7 @@ export default {
   component: IconList,
 }
 
-export const Primary: Story<IcomListProps> = args => <IconList {...args} />
+export const Primary: Story<IcomListProps> = (args) => <IconList {...args} />
 Primary.args = {
   items,
 }

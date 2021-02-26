@@ -30,7 +30,7 @@ jest.mock('@reapit/utils')
 jest.mock('@reapit/elements', () => ({
   fetcherWithBlob: jest.fn(
     () =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         resolve(new Blob())
       }),
   ),

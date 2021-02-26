@@ -21,7 +21,7 @@ import { selectClientId } from '@/selector/auth'
 import { notification } from '@reapit/elements'
 import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 
-export const installSagas = function*({ data }) {
+export const installSagas = function* ({ data }) {
   try {
     const { callback, appId, ...restParams } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
@@ -49,7 +49,7 @@ export const installSagas = function*({ data }) {
   }
 }
 
-export const uninstallSagas = function*({ data }) {
+export const uninstallSagas = function* ({ data }) {
   try {
     const { callback, appId, ...restParams } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
@@ -73,12 +73,12 @@ export const uninstallSagas = function*({ data }) {
   }
 }
 
-export const appInstallationsListen = function*() {
+export const appInstallationsListen = function* () {
   yield takeLatest<Action<RemoveAccessToAppByIdParams>>(ActionTypes.UNINSTALL_APP, uninstallSagas)
   yield takeLatest<Action<CreateInstallationParams>>(ActionTypes.INSTALL_APP, installSagas)
 }
 
-export const installationsSagas = function*() {
+export const installationsSagas = function* () {
   yield all([fork(appInstallationsListen)])
 }
 

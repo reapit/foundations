@@ -35,7 +35,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
     })
     const newResponse = {
       ...response,
-      _embedded: response?._embedded.map(identityCheck => {
+      _embedded: response?._embedded.map((identityCheck) => {
         return changeTimeZoneLocalForIdentityCheck(identityCheck)
       }),
     }

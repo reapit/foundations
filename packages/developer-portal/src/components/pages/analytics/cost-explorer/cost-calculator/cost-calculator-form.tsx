@@ -16,13 +16,13 @@ export type CostCalculatorFormValues = {
 }
 
 export const renderEndpointsUsedOptions = (endpointsUsedRange: EndpointsUsedRange) => {
-  const endpointsUsed = Object.keys(endpointsUsedRange).map(key => ({ value: key, label: endpointsUsedRange[key] }))
+  const endpointsUsed = Object.keys(endpointsUsedRange).map((key) => ({ value: key, label: endpointsUsedRange[key] }))
   return [
     {
       label: 'Please select',
       value: '',
     },
-    ...endpointsUsed.map(item => {
+    ...endpointsUsed.map((item) => {
       return {
         value: item.value,
         label: item.label,

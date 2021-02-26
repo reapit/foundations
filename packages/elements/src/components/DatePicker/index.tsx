@@ -33,7 +33,7 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputType>(
     const [isBackspaceKeyPressed, setIsBackspaceKeyPressed] = useState(false)
 
     // COOKED https://stackoverflow.com/questions/12578507/implement-an-input-with-a-mask
-    const _onChange = e => {
+    const _onChange = (e) => {
       const inputElement = e.target
       const mask = '__/__/____'
 
@@ -46,11 +46,11 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputType>(
       const oldStart = castedInputElement.selectionStart
       const textFieldValue = e.target.value
 
-      const splitTextFieldValue = textFieldValue.split('').filter(char => char !== '/')
+      const splitTextFieldValue = textFieldValue.split('').filter((char) => char !== '/')
 
       const transformedTextFieldValue = mask
         .split('')
-        .map(maskChar => {
+        .map((maskChar) => {
           if (maskChar !== '_') {
             return maskChar
           }
@@ -102,7 +102,7 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputType>(
       }, 1)
     }
 
-    const onKeyUp = e => {
+    const onKeyUp = (e) => {
       const inputChar = String.fromCharCode(e.keyCode)
 
       // Allow: cmd + anything, ctrl + anything (copy, paste, select all... etc)
@@ -121,7 +121,7 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputType>(
       }
     }
 
-    const _onBlur = e => {
+    const _onBlur = (e) => {
       setInputValue(value)
       onBlur(e)
     }
@@ -201,13 +201,13 @@ export const DatePicker = ({
                 {...field}
                 value={fieldValue}
                 selected={parseDate}
-                onChange={value => {
+                onChange={(value) => {
                   if (!value) {
                     return
                   }
                   field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
                 }}
-                onSelect={value => {
+                onSelect={(value) => {
                   if (!value) {
                     return
                   }

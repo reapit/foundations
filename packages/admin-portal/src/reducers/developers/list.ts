@@ -47,7 +47,7 @@ const developerListReducer = (state: DeveloperListState = defaultState, action: 
       }
     }
 
-    const developerToAddMembers = state.data.find(developer => developer.id === firstMember.developerId)
+    const developerToAddMembers = state.data.find((developer) => developer.id === firstMember.developerId)
 
     if (!developerToAddMembers) {
       return {
@@ -57,7 +57,7 @@ const developerListReducer = (state: DeveloperListState = defaultState, action: 
 
     const developerWithMembers = {
       ...developerToAddMembers,
-      subRows: members?.map(member => ({ ...member, isMember: true })),
+      subRows: members?.map((member) => ({ ...member, isMember: true })),
     }
 
     const newDevelopers = [...state.data] as DeveloperData[]

@@ -8,7 +8,7 @@ export const checkAtLeastOneKeyHasValueIsNotEmpty = <T,>({ object, keys }: Check
     return false
   }
 
-  return keys.some(key => {
+  return keys.some((key) => {
     if ((object[key] as any) === 0) {
       return true
     }
@@ -22,7 +22,7 @@ export const checkAllKeysHasValueNotEmpty = <T,>({ object, keys }: CheckObjectFi
     return false
   }
 
-  return keys.every(key => {
+  return keys.every((key) => {
     if ((object[key] as any) === 0) {
       return true
     }

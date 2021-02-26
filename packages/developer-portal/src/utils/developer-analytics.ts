@@ -31,11 +31,9 @@ export type GrouppedAppsByDate = {
  */
 export const groupInstalledAppsByDate = (apps: InstallationModelWithAppName[]): GrouppedAppsByDate => {
   const grouppedApps: GrouppedAppsByDate = {}
-  const formatedApps: InstallationModelWithDateObject[] = apps.map(app => ({
+  const formatedApps: InstallationModelWithDateObject[] = apps.map((app) => ({
     ...app,
-    createdDate: dayjs(app.created)
-      .startOf('day')
-      .toDate(),
+    createdDate: dayjs(app.created).startOf('day').toDate(),
   }))
 
   const orderedApps: InstallationModelWithDateObject[] = orderBy(formatedApps, ['createdDate'], ['asc'])
@@ -61,9 +59,7 @@ export const groupInstalledAppsByDate = (apps: InstallationModelWithAppName[]): 
     } else {
       grouppedApps[tmpLabel] = tmpgrouppedApps[tmpLabel]
     }
-    tmpDate = dayjs(tmpDate)
-      .add(1, 'day')
-      .toDate()
+    tmpDate = dayjs(tmpDate).add(1, 'day').toDate()
   }
 
   return grouppedApps
@@ -75,7 +71,7 @@ export const groupInstalledAppsByDate = (apps: InstallationModelWithAppName[]): 
  * @param grouppedApp groupped installed apps
  */
 export const getChartData = (grouppedApp: GrouppedAppsByDate): Array<number> =>
-  Object.values(grouppedApp).map(item => item.length)
+  Object.values(grouppedApp).map((item) => item.length)
 
 export type GrouppedAppsByNameAndCount = {
   [key: string]: { name: string; count: number }

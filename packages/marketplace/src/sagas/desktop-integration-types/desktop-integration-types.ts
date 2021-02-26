@@ -11,7 +11,7 @@ import {
   FetchDesktopIntegrationTypesParams,
 } from '@/services/desktop-integration-types'
 
-export const fetchDesktopIntegrationTypes = function*({ data }: Action<FetchDesktopIntegrationTypesParams>) {
+export const fetchDesktopIntegrationTypes = function* ({ data }: Action<FetchDesktopIntegrationTypesParams>) {
   try {
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypesApi, { ...data })
     yield put(fetchDesktopIntegrationTypesSuccess(desktopIntegrationTypes))
@@ -24,13 +24,13 @@ export const fetchDesktopIntegrationTypes = function*({ data }: Action<FetchDesk
   }
 }
 
-export const fetchDesktopIntegrationTypesListen = function*() {
+export const fetchDesktopIntegrationTypesListen = function* () {
   yield takeLatest<Action<FetchDesktopIntegrationTypesParams>>(
     ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES,
     fetchDesktopIntegrationTypes,
   )
 }
 
-export const desktopIntegrationTypesSagas = function*() {
+export const desktopIntegrationTypesSagas = function* () {
   yield all([fork(fetchDesktopIntegrationTypesListen)])
 }

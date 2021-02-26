@@ -120,10 +120,7 @@ describe('AppUninstallationSection', () => {
       />,
     )
 
-    wrapper
-      .find(Button)
-      .first()
-      .simulate('click')
+    wrapper.find(Button).first().simulate('click')
 
     expect(stubShowModal).toHaveBeenCalledTimes(1)
     expect(stubSetPerformCompleteUninstall).toHaveBeenCalledTimes(1)

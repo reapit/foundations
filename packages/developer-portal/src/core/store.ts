@@ -80,7 +80,7 @@ export class Store {
     currentMember: currentMemberReducer,
   })
 
-  static sagas = function*() {
+  static sagas = function* () {
     yield all([
       fork(developerSagas),
       fork(appDetailSagas),

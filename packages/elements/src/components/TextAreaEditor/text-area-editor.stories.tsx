@@ -5,7 +5,7 @@ import { Form, Formik } from 'formik'
 import { Button } from '../Button'
 import { Section } from '@/components/Layout'
 
-const validate = values => {
+const validate = (values) => {
   const errors = { description: '', text: '' }
 
   if (!values.description) {
@@ -23,11 +23,11 @@ export default {
   component: TextAreaEditor,
 }
 
-export const SampleForm: Story<TextAreaEditorProps> = args => (
+export const SampleForm: Story<TextAreaEditorProps> = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ description: '', text: '' }}
-      onSubmit={values => {
+      onSubmit={(values) => {
         console.log('Form Values', values)
       }}
       validate={validate}

@@ -38,7 +38,7 @@ export const Alert: React.SFC<AlertProps> = ({
           type="button"
           className="close"
           aria-label="Close"
-          onClick={event => {
+          onClick={(event) => {
             if (typeof afterClose !== 'function') {
               console.error('Prop afterClose must be a function')
               return

@@ -55,7 +55,7 @@ describe('appointment', () => {
       const outputStartDates = ['2019-05-11T17:30:00']
       const fn = sortAppoinmentsByStartTime(inputs)
       const result = fn()
-      const startDatesOfResultSortAppoinmentsByStartTime = result.map(appoinment => appoinment.start)
+      const startDatesOfResultSortAppoinmentsByStartTime = result.map((appoinment) => appoinment.start)
       expect(startDatesOfResultSortAppoinmentsByStartTime).toEqual(outputStartDates)
     })
   })

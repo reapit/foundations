@@ -5,7 +5,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { fetchAppSecretByIdAPI } from '@/services/apps'
 
-export const requestAuthCode = function*({ data: id }: Action<string>) {
+export const requestAuthCode = function* ({ data: id }: Action<string>) {
   try {
     const response = yield call(fetchAppSecretByIdAPI, { id })
     yield put(fetchtAppAuthenticationSuccess(response))
@@ -18,11 +18,11 @@ export const requestAuthCode = function*({ data: id }: Action<string>) {
   }
 }
 
-export const requestAuthenticationCodeListen = function*() {
+export const requestAuthenticationCodeListen = function* () {
   yield takeLatest<Action<string>>(fetchtAppAuthentication.type, requestAuthCode)
 }
 
-const appAuthenticationSagas = function*() {
+const appAuthenticationSagas = function* () {
   yield all([fork(requestAuthenticationCodeListen)])
 }
 

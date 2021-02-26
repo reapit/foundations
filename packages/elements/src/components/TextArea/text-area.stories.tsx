@@ -19,10 +19,10 @@ export default {
   ],
 }
 
-export const Primary: Story<TextAreaProps> = args => (
+export const Primary: Story<TextAreaProps> = (args) => (
   <Formik
     initialValues={{ primary: '', isDanger: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >

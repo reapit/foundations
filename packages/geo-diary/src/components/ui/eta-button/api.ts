@@ -7,7 +7,7 @@ export type FetchDestinationInformation = {
 }
 
 export const fetchDestinationInformation = ({ queryParams, appointment }: FetchDestinationInformation) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (window.google) {
       const origins = [new google.maps.LatLng(queryParams.currentLat, queryParams.currentLng)]
       const destinations = [
@@ -24,7 +24,7 @@ export const fetchDestinationInformation = ({ queryParams, appointment }: FetchD
           destinations,
           travelMode: queryParams.travelMode || google.maps.TravelMode.DRIVING,
         },
-        response => {
+        (response) => {
           resolve(response)
         },
       )

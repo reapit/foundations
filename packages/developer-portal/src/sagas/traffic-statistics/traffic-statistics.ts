@@ -12,7 +12,7 @@ import { fetchTrafficStatistics, FetchTrafficStatisticsParams } from '@/services
 
 const { FETCH_TRAFFIC_STATISTICS } = ActionTypes
 
-export const apphttpTrafficEventSaga = function*({ data }: Action<FetchTrafficStatisticsParams>) {
+export const apphttpTrafficEventSaga = function* ({ data }: Action<FetchTrafficStatisticsParams>) {
   try {
     const response = yield call(fetchTrafficStatistics, data)
     yield put(fetchTrafficStatisticsSuccess(response))
@@ -25,10 +25,10 @@ export const apphttpTrafficEventSaga = function*({ data }: Action<FetchTrafficSt
   }
 }
 
-export const appHttpTrafficEventListen = function*() {
+export const appHttpTrafficEventListen = function* () {
   yield takeLatest<Action<HttpTrafficPerDayParams>>(FETCH_TRAFFIC_STATISTICS, apphttpTrafficEventSaga)
 }
 
-export const trafficStatisticsSagas = function*() {
+export const trafficStatisticsSagas = function* () {
   yield all([fork(appHttpTrafficEventListen)])
 }

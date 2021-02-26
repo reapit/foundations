@@ -12,11 +12,11 @@ export default {
   component: CameraImageInput,
 }
 
-export const Default: Story<FileInputProps> = args => (
+export const Default: Story<FileInputProps> = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ imageInput: '' }}
-      onSubmit={values => {
+      onSubmit={(values) => {
         action('Form Values' + values)
       }}
     >

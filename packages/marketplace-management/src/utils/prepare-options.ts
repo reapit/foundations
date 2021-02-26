@@ -2,7 +2,7 @@ import { SelectOption } from '@reapit/elements'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
 import { GroupModel } from '../types/organisations-schema'
 
-export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = data =>
+export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = (data) =>
   data.map((office: OfficeModel) => {
     const { id, name } = office
 
@@ -13,7 +13,7 @@ export const prepareOfficeOptions: (data: OfficeModel[]) => SelectOption[] = dat
     } as SelectOption
   })
 
-export const prepareUserGroupOptions: (data: GroupModel[]) => SelectOption[] = data =>
+export const prepareUserGroupOptions: (data: GroupModel[]) => SelectOption[] = (data) =>
   data.map((userGroup: GroupModel) => {
     const { id, description } = userGroup
 

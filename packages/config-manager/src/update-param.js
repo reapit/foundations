@@ -28,7 +28,7 @@ const getBase = (paramName, format) => {
   })
 }
 
-const updateParam = async cliArgs => {
+const updateParam = async (cliArgs) => {
   try {
     const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
@@ -53,7 +53,7 @@ const updateParam = async cliArgs => {
         Overwrite: true,
         Type: 'SecureString',
       }
-      ssm.putParameter(options, err => {
+      ssm.putParameter(options, (err) => {
         if (err) {
           return reject(new Error(`Something went wrong when updating your param ${paramName} ${err.code}`))
         }

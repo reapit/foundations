@@ -25,7 +25,7 @@ export class ErrorBoundary extends React.Component<{}, ErrorState> {
     notification.error({ message: errorMessages.DEFAULT_COMPONENT_ERROR, placement: 'bottomRight' })
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
-      Sentry.withScope(scope => {
+      Sentry.withScope((scope) => {
         scope.setExtras(info)
         Sentry.captureException(error)
       })

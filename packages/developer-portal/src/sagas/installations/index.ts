@@ -4,7 +4,7 @@ import fetchInstallationsFilterListSagas from './filter-list'
 import managementInstallationsSagas from './management'
 import installationsSagasModule from './installations'
 
-export const installationsSagas = function*() {
+export const installationsSagas = function* () {
   yield all([
     fork(fetchInstallationsListSagas),
     fork(fetchInstallationsFilterListSagas),

@@ -60,7 +60,7 @@ export const HorizontalTimeline = ({ total, currentIndex, onSelect }) => {
     <ul className="horizontal-timeline">
       <div ref={circleRef} className="circle-active"></div>
       <div ref={lineRef} className="line-active"></div>
-      {numbers.map(item => (
+      {numbers.map((item) => (
         <li
           key={item}
           ref={currentIndex === item ? activeRef : null}

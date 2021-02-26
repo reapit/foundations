@@ -38,7 +38,7 @@
     "@types/ejs": "^2.7.0",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
-    "eslint": "7.11.0",
+    "eslint": "7.20.0",
     "jest": "^26.6.3",
     "jest-coverage-badges": "^1.1.2",
     "ncp": "^2.0.0",

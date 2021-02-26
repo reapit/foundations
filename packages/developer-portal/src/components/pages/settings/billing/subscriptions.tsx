@@ -40,7 +40,7 @@ export const columns = [
   },
   {
     Header: 'Cost',
-    accessor: row => formatCurrency(row.cost),
+    accessor: (row) => formatCurrency(row.cost),
   },
   {
     Header: 'Status',
@@ -56,7 +56,7 @@ export const columns = [
 ]
 
 export const genarateTableData = (subscriptions: SubscriptionModel[] = [], onCancel) => {
-  return subscriptions.map(subscription => ({
+  return subscriptions.map((subscription) => ({
     ...subscription,
     cancel: !subscription.cancelled && (
       <a className={hyperlinked} data-test="button-cancel" onClick={() => onCancel(subscription.id)}>
@@ -83,7 +83,7 @@ export const handleOpenConfirmModal = (
   setSubscriptionIdToCancel(id)
 }
 
-export const handleCloseConfirmModal = setIsConfirmModalOpen => () => {
+export const handleCloseConfirmModal = (setIsConfirmModalOpen) => () => {
   setIsConfirmModalOpen(false)
 }
 

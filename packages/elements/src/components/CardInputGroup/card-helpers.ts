@@ -78,17 +78,13 @@ export const formatCardExpires = (cardNumber: string, input: MutableRefObject<nu
     .join('')
 }
 
-export const unformatCardExpires = (formattedCard: string) =>
-  formattedCard
-    .split(' ')
-    .join('')
-    .replace(/\//g, '')
+export const unformatCardExpires = (formattedCard: string) => formattedCard.split(' ').join('').replace(/\//g, '')
 
 export const validateCard = (value: string, whiteListTestCards: string[]) => {
   const requiredError = fieldValidateRequire(value)
   const cardType = getCardType(value)
   const unformattedCard = unformatCard(value)
-  const whiteListTestCard = whiteListTestCards.find(card => card === unformattedCard)
+  const whiteListTestCard = whiteListTestCards.find((card) => card === unformattedCard)
   const cardLength = whiteListTestCard ? whiteListTestCard.length : cardType === 'amex' ? 15 : 16
 
   if (requiredError) {

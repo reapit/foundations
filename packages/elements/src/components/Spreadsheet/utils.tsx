@@ -2,7 +2,7 @@ import * as React from 'react'
 import Papa from 'papaparse'
 import { Cell, SetData, ValidateFunction, ChangedCells, InvalidIndies, ValidateValue } from './types'
 
-export const usePrevious = value => {
+export const usePrevious = (value) => {
   const ref = React.useRef()
   /* istanbul ignore next */
   React.useEffect(() => {
@@ -20,7 +20,7 @@ export const getMaxRowAndCol = (data?: Cell[][]): { maxRow: number; maxCol: numb
   /* default to 0 */
   let maxCol = 0
   /* check every row to find max length of column */
-  data.forEach(row => {
+  data.forEach((row) => {
     const numberOfCurrentRowColumn = row.length
     if (maxCol < numberOfCurrentRowColumn) {
       maxCol = numberOfCurrentRowColumn
@@ -36,13 +36,13 @@ export const setCurrentCellValue = (
   col: number,
   setData: SetData,
 ): void => {
-  const newData = data.map(row => row.map(cell => ({ ...cell })))
+  const newData = data.map((row) => row.map((cell) => ({ ...cell })))
   newData[row][col].value = cellData
   setData(newData)
 }
 
 export const parseCsvFile = (file: File): Promise<Papa.ParseResult<any>> =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     Papa.parse(file, {
       complete: (results: Papa.ParseResult<any>) => {
         resolve(results)
@@ -60,14 +60,14 @@ export const unparseDataToCsvString = (parseResult: string[][]): string => Papa.
  */
 export const convertToCompatibleData = (parsedResult): Cell[][] =>
   parsedResult.data
-    .filter(rowArray => !rowArray.every(value => !value)) // filter rows which have all cells are empty
-    .map(rowArray => rowArray.map(value => ({ value })))
+    .filter((rowArray) => !rowArray.every((value) => !value)) // filter rows which have all cells are empty
+    .map((rowArray) => rowArray.map((value) => ({ value })))
 
 /**
  * Convert back from Cell[][] to string[][]
  */
 export const convertDataToCsv = (data: Cell[][]): string[][] =>
-  data.map(rowArray => rowArray.map(({ value }) => value)) as string[][]
+  data.map((rowArray) => rowArray.map(({ value }) => value)) as string[][]
 
 // Diffing algorithm to find differences between data array
 export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): ChangedCells => {
@@ -138,7 +138,7 @@ export interface generateDataWithReadOnlyParams {
 export const generateDataWithReadOnly = ({ data, invalidatedRowIndexSet }: generateDataWithReadOnlyParams) =>
   data.map((row, rowIndex) => {
     const isInvalidatedRow = invalidatedRowIndexSet.has(rowIndex)
-    return row.map(cell => {
+    return row.map((cell) => {
       // ignore header row
       const isHeaderRow = rowIndex === 0
       if (isHeaderRow || cell.fixedReadOnly) {
@@ -168,9 +168,9 @@ export const generateDataWithReadOnly = ({ data, invalidatedRowIndexSet }: gener
  * to be used together with allowOnlyOneValidationErrorPerRow option
  * This set will contain invalidated row
  */
-export const generateInvalidatedRowIndexSet: (data: Cell[][]) => Set<number> = data =>
+export const generateInvalidatedRowIndexSet: (data: Cell[][]) => Set<number> = (data) =>
   data.reduce((isInvalidatedRowSet, row, rowIndex) => {
-    row.forEach(cell => {
+    row.forEach((cell) => {
       if (cell?.isValidated === false) {
         isInvalidatedRowSet.add(rowIndex)
       }
@@ -190,7 +190,7 @@ export const validatedDataGenerate = (data: Cell[][], validateFunction?: Validat
       })
     }) as Cell[][]
   }
-  return data.map(row => row.map(cell => ({ ...cell, isValidated: true })))
+  return data.map((row) => row.map((cell) => ({ ...cell, isValidated: true })))
 }
 
 /**

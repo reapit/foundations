@@ -122,7 +122,7 @@ export const DevsManagement: React.FC = () => {
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = DeveloperListState
 
-  const resetModal = succeed => () => {
+  const resetModal = (succeed) => () => {
     setIsSetStatusModalOpen(false)
     setDeveloper({})
     if (succeed) {

@@ -88,7 +88,7 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
     },
     {
       Header: 'Cost',
-      accessor: row => {
+      accessor: (row) => {
         if (!row.cost) return formatCurrency(0)
         const formatted = formatCurrency(row.cost)
         const cost =
@@ -125,7 +125,7 @@ export const getAppHttpTrafficPerDayChartData = (stats: ServiceItemBillingV2Mode
   const labels: string[] = []
   const data: number[] = []
 
-  stats.map(item => {
+  stats.map((item) => {
     labels.push(item.name as string)
     data.push(item.cost as number)
     chartDataStats.push({
@@ -150,8 +150,8 @@ export const getDailyChartOptions = (data: ChartDataModel[]) => {
     tooltips: {
       mode: 'label',
       callbacks: {
-        label: tooltipItem => {
-          return data.find(x => x.date === tooltipItem.label)?.requestCount
+        label: (tooltipItem) => {
+          return data.find((x) => x.date === tooltipItem.label)?.requestCount
         },
       },
     },
@@ -231,8 +231,8 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
   billing.periods.forEach((period: MonthlyBillingDetailsV2Model) => {
     labels.push(period?.periodName || '')
     const services = period?.services || []
-    const dwUsageData = services.find(service => service.name === 'Data Warehouse')?.cost || 0
-    const dwSubsData = services.find(service => service.name === 'Data Warehouse Subscription')?.cost || 0
+    const dwUsageData = services.find((service) => service.name === 'Data Warehouse')?.cost || 0
+    const dwSubsData = services.find((service) => service.name === 'Data Warehouse Subscription')?.cost || 0
 
     if (datasets) {
       datasets[0].totalCost += dwUsageData
@@ -242,7 +242,7 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     }
   })
 
-  const sevicesHasCost = datasets.filter(dataset => dataset.totalCost)
+  const sevicesHasCost = datasets.filter((dataset) => dataset.totalCost)
 
   return {
     labels,
@@ -272,11 +272,7 @@ export const handleGetBilling = (
 ) => () => {
   const getBilling = async () => {
     setBillingLoading(true)
-    const billing = await getBillingByMonthService(
-      dayjs(month)
-        .startOf('month')
-        .format(DATE_TIME_FORMAT.YYYY_MM),
-    )
+    const billing = await getBillingByMonthService(dayjs(month).startOf('month').format(DATE_TIME_FORMAT.YYYY_MM))
     setBillingLoading(false)
     if (billing) {
       return setBilling(billing)

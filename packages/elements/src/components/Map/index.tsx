@@ -97,8 +97,8 @@ export const handleRequestDirectionServiceResponse = ({
     }
     if (destinationAddress) {
       if (response && response.routes) {
-        response.routes.forEach(route => {
-          route.legs.forEach(leg => {
+        response.routes.forEach((route) => {
+          route.legs.forEach((leg) => {
             leg.end_address = destinationAddress
           })
         })
@@ -165,7 +165,7 @@ export const setZoomAndCenter = ({ googleMaps, bounds, center, zoom, map, marker
     map.setZoom(DEFAULT_ZOOM)
     return
   }
-  markers.forEach(marker => bounds.extend(marker.getPosition()))
+  markers.forEach((marker) => bounds.extend(marker.getPosition()))
   map.fitBounds(bounds)
   map.setCenter(bounds.getCenter())
   return
@@ -230,8 +230,8 @@ export const renderDirectionAndMarkers = ({
   }
 }
 
-export const onMarkerClick = onDrawingMarkerClick => {
-  return marker => {
+export const onMarkerClick = (onDrawingMarkerClick) => {
+  return (marker) => {
     if (onDrawingMarkerClick) {
       onDrawingMarkerClick(marker)
     }
@@ -239,7 +239,7 @@ export const onMarkerClick = onDrawingMarkerClick => {
 }
 
 export const onMarkerComplete = (onDrawingMarkerComplete, onDrawingMarkerClick) => {
-  return marker => {
+  return (marker) => {
     if (onDrawingMarkerComplete) {
       onDrawingMarkerComplete(marker)
     }
@@ -248,7 +248,7 @@ export const onMarkerComplete = (onDrawingMarkerComplete, onDrawingMarkerClick) 
 }
 
 export const onPolygonClick = (googleMaps, onDrawingPolygonClick) => {
-  return polygon => {
+  return (polygon) => {
     if (onDrawingPolygonClick) {
       onDrawingPolygonClick(googleMaps, polygon)
     }
@@ -256,7 +256,7 @@ export const onPolygonClick = (googleMaps, onDrawingPolygonClick) => {
 }
 
 export const onPolygonComplete = (googleMaps, onDrawingPolygonComplete, onDrawingPolygonClick) => {
-  return polygon => {
+  return (polygon) => {
     if (onDrawingPolygonComplete) {
       onDrawingPolygonComplete(googleMaps, polygon)
     }
@@ -419,7 +419,7 @@ export const clearMap = ({ directionsRendererRef, markersRef }) => () => {
   }
   if (markersRef && markersRef.current) {
     // @ts-ignore
-    markersRef.current.forEach(marker => marker.setMap(null))
+    markersRef.current.forEach((marker) => marker.setMap(null))
   }
 }
 

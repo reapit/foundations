@@ -36,6 +36,6 @@ export const offerMock: OfferModel = {
   _embedded: null,
 }
 
-export const offersWithId = id => {
+export const offersWithId = (id) => {
   return { ...offerMock, id }
 }

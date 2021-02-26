@@ -47,7 +47,7 @@ export const prepareData = (
   setEditStatusModalVisible,
   setReInviteModalVisible,
 ) => {
-  return data.map(user => {
+  return data.map((user) => {
     const ableToSetAdmin = user.role === 'user' && user.status === 'active'
     const ableToReInvite = ['inactive', 'rejected', 'pending'].includes(user.status)
     const ableToDisable = user.status === 'active'

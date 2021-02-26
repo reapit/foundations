@@ -24,7 +24,7 @@ export default {
   component: Tabs,
 }
 
-export const Primary: Story<TabsProps> = args => (
+export const Primary: Story<TabsProps> = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Tabs {...args} />

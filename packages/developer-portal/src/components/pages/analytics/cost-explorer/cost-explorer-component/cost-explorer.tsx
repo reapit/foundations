@@ -60,19 +60,19 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
     },
     {
       Header: 'Endpoints',
-      accessor: row => {
+      accessor: (row) => {
         return row.itemCount && formatNumber(row.itemCount)
       },
     },
     {
       Header: 'Amount',
-      accessor: row => {
+      accessor: (row) => {
         return row.amount && formatNumber(row.amount)
       },
     },
     {
       Header: 'Cost',
-      accessor: row => {
+      accessor: (row) => {
         return row.cost && formatCurrency(row.cost)
       },
       Footer: formatCurrency(totalCost),

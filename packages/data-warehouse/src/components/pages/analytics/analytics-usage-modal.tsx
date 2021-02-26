@@ -83,13 +83,15 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
           validationSchema={Yup.object({
             monthlyUsageCap: Yup.string()
               .required('Required')
-              .test('is-nan', 'Only numbers permitted', value => !isNaN(Number(value)))
-              .test('is-iteger', 'Only integers permitted', value => Boolean(/^\+?(0|[1-9]\d*)$/.test(value as string)))
-              .test('is-0-or-above', 'Usage number can be a min of 0 hours per month', value => Number(value) >= 0)
+              .test('is-nan', 'Only numbers permitted', (value) => !isNaN(Number(value)))
+              .test('is-iteger', 'Only integers permitted', (value) =>
+                Boolean(/^\+?(0|[1-9]\d*)$/.test(value as string)),
+              )
+              .test('is-0-or-above', 'Usage number can be a min of 0 hours per month', (value) => Number(value) >= 0)
               .test(
                 'is-0-or-above',
                 'Usage number can be a max of 24hrs per day, 28 days a month',
-                value => Number(value) <= 672,
+                (value) => Number(value) <= 672,
               ),
           })}
         >
@@ -102,8 +104,9 @@ const AnalyticsUsageModal: React.FC<AnalyticsUsageModalProps> = ({ visible, hand
               <FormHeading>Usage Cap</FormHeading>
               <FormSubHeading>
                 {settings?.monthlyUsageCap
-                  ? `Your current usage cap is set at ${settings?.monthlyUsageCap ??
-                      0} hours per calendar month, current cost ${getChargableUsageString(
+                  ? `Your current usage cap is set at ${
+                      settings?.monthlyUsageCap ?? 0
+                    } hours per calendar month, current cost ${getChargableUsageString(
                       settings,
                     )} per month. You can adjust the usage limit with the form below.`
                   : 'No usage cap is currently set.'}

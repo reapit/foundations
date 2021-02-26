@@ -11,7 +11,7 @@ type AccountStatusSectionProps = {
   hasReapitAccountsRef: string
 }
 
-export const capitalizeFirstLetter: (str: string) => string = str => {
+export const capitalizeFirstLetter: (str: string) => string = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 

@@ -40,10 +40,7 @@ describe('Pagination behavior test', () => {
   it('Previous/Next button should work as expected', () => {
     const wrapper = mount(<PaginatorBehaviorTest />)
     expect(wrapper.find('[aria-label="Goto page 1"]').hasClass('is-current')).toBeTruthy()
-    wrapper
-      .find('.pagination-next')
-      .simulate('click')
-      .simulate('click')
+    wrapper.find('.pagination-next').simulate('click').simulate('click')
     expect(wrapper.find('[aria-label="Goto page 3"]').hasClass('is-current')).toBeTruthy()
     wrapper.find('.pagination-previous').simulate('click')
     expect(wrapper.find('[aria-label="Goto page 2"]').hasClass('is-current')).toBeTruthy()

@@ -17,7 +17,7 @@ jest.mock('apollo-server-lambda', () => {
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => {
     return {
-      get: jest.fn().mockImplementation(values => {
+      get: jest.fn().mockImplementation((values) => {
         if (values === `${URLS.departments}/${departmentMock.id}`) {
           return {
             data: departmentMock,

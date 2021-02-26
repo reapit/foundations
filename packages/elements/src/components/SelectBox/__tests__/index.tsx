@@ -38,7 +38,7 @@ const ErrorFomrikComponent = () => {
   return (
     <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
-        validate={values => {
+        validate={(values) => {
           const errors: FormikErrors<any> = {
             demo: '',
           }

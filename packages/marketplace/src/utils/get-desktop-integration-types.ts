@@ -4,6 +4,6 @@ export const getDesktopIntegrationTypes = (
   desktopIntegrationTypeIds: string[],
   desktopIntegrationTypes: DesktopIntegrationTypeModel[],
 ) =>
-  desktopIntegrationTypes.filter(desktopIntegrationType =>
+  desktopIntegrationTypes.filter((desktopIntegrationType) =>
     desktopIntegrationTypeIds.includes(desktopIntegrationType.id || ''),
   )

@@ -19,7 +19,7 @@ const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
       <li className={cx(styles.categoryItem, selected && styles.categoryItemActive)}>
         <a
           href="#"
-          onClick={event => {
+          onClick={(event) => {
             event.preventDefault()
             onSelectCategory('')
           }}
@@ -35,7 +35,7 @@ const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
       <a
         data-test-category-id={category?.id}
         href="#"
-        onClick={event => {
+        onClick={(event) => {
           event.preventDefault()
           onSelectCategory(category?.id)
         }}

@@ -14,11 +14,11 @@ export const stringifyError = (err: any) => JSON.stringify(serializeError(err))
  */
 
 export type WistonLoggerErrorFn = (caller: string, { error: AxiosError, traceId: string, headers: any }) => void
-export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn = loggerError => (
+export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn = (loggerError) => (
   caller,
   { error, traceId, headers },
 ) =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     loggerError(caller, { traceId, error: error })
     console.log({ traceId }, JSON.stringify(error, null, 2))
 
@@ -26,7 +26,7 @@ export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => Wisto
       resolve()
     }
 
-    Sentry.withScope(scope => {
+    Sentry.withScope((scope) => {
       scope.setExtra(
         'Error',
         cleanObject({
@@ -39,7 +39,7 @@ export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => Wisto
       Sentry.captureException(error)
       Sentry.flush(2000)
         .then(resolve)
-        .catch(err => {
+        .catch((err) => {
           loggerError('logger.error', { error: err, traceId })
         })
     })

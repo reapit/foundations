@@ -13,7 +13,7 @@ export default {
   component: ToastMessage,
 }
 
-export const Primary: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+export const Primary: Story<ToastMessageProps> = (args) => <ToastMessage {...args} />
 Primary.args = {
   visible: true,
   message: longText,
@@ -21,7 +21,7 @@ Primary.args = {
   onCloseToast: action('ToastMessage closed'),
 }
 
-export const Secondary: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+export const Secondary: Story<ToastMessageProps> = (args) => <ToastMessage {...args} />
 Secondary.args = {
   visible: true,
   message: longText,
@@ -29,7 +29,7 @@ Secondary.args = {
   onCloseToast: action('ToastMessage closed'),
 }
 
-export const Danger: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+export const Danger: Story<ToastMessageProps> = (args) => <ToastMessage {...args} />
 Danger.args = {
   visible: true,
   message: longText,
@@ -37,7 +37,7 @@ Danger.args = {
   onCloseToast: action('ToastMessage closed'),
 }
 
-export const Info: Story<ToastMessageProps> = args => <ToastMessage {...args} />
+export const Info: Story<ToastMessageProps> = (args) => <ToastMessage {...args} />
 Info.args = {
   visible: true,
   message: longText,

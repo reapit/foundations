@@ -7,7 +7,7 @@ import { fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { notification } from '@reapit/elements'
 
-export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
+export const appDetailDataFetch = function* ({ data }: Action<AppDetailParams>) {
   try {
     const { id, clientId } = data
     const appDetailResponse = yield call(fetchAppById, {
@@ -31,11 +31,11 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   }
 }
 
-export const appDetailDataListen = function*() {
+export const appDetailDataListen = function* () {
   yield takeLatest<Action<AppDetailParams>>(ActionTypes.FETCH_APP_DETAIL, appDetailDataFetch)
 }
 
-const appDetailSagas = function*() {
+const appDetailSagas = function* () {
   yield all([fork(appDetailDataListen)])
 }
 

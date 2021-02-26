@@ -15,7 +15,7 @@ export default {
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ checked: 0 }}
-          onSubmit={values => {
+          onSubmit={(values) => {
             action('Form Values' + values)
           }}
         >
@@ -30,14 +30,14 @@ export default {
   ],
 }
 
-export const Primary: Story<CheckboxProps> = args => <Checkbox {...args} />
+export const Primary: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 Primary.args = {
   id: 'checked',
   name: 'checked',
   labelText: 'Checkbox',
 }
 
-export const UseAsGroup: Story<CheckboxProps> = args => (
+export const UseAsGroup: Story<CheckboxProps> = (args) => (
   <>
     <Checkbox {...args} id="checkboxA" labelText="Checkbox A" value="checkboxA" />
     <Checkbox {...args} id="checkboxB" labelText="Checkbox B" value="checkboxB" />

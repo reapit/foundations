@@ -33,7 +33,7 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
   const DeleteButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
     const { setMessageState } = useContext(MessageContext)
     const { value } = cell
-    const account = data.find(account => account.id === value)
+    const account = data.find((account) => account.id === value)
     const isDisabling = Boolean(disabling && disabling === value)
     const isDisabled = Boolean(account && account.status !== 'User is active')
 
@@ -51,7 +51,7 @@ export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccou
 
   const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
     const { value } = cell
-    const account = data.find(account => account.id === value)
+    const account = data.find((account) => account.id === value)
     const isDisabled = Boolean(account && account.status !== 'User is active')
     return (
       <Button onClick={handleModalOpen(value)} disabled={isDisabled}>

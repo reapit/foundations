@@ -27,7 +27,7 @@ jest.mock('../../../utils/handle-error', () => ({
 jest.mock('../../../logger')
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => ({
-    get: jest.fn().mockImplementation(value => {
+    get: jest.fn().mockImplementation((value) => {
       if (value === `${URLS.sources}/id`) {
         return {
           data: sourceMock,

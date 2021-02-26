@@ -17,13 +17,13 @@ export default {
   component: Toast,
 }
 
-export const ComponentError: Story<ToastProps> = args => <Toast {...args} />
+export const ComponentError: Story<ToastProps> = (args) => <Toast {...args} />
 ComponentError.args = {
   componentError: DEFAULT_COMPONENT_ERROR,
   errorClearedComponent: action('Component toast cleared'),
 }
 
-export const ServerError: Story<ToastProps> = args => <Toast {...args} />
+export const ServerError: Story<ToastProps> = (args) => <Toast {...args} />
 ServerError.args = {
   serverError: DEFAULT_SERVER_ERROR,
   errorClearedServer: action('Server toast cleared'),

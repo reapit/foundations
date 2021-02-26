@@ -14,7 +14,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
   desktopIntegrationTypes,
 }) => {
   const { scopes = [], isFree, pricingUrl, developer, desktopIntegrationTypeIds } = app
-  const userDesktopIntegrationTypes = desktopIntegrationTypes.filter(desktopIntegrationType =>
+  const userDesktopIntegrationTypes = desktopIntegrationTypes.filter((desktopIntegrationType) =>
     desktopIntegrationTypeIds?.includes(desktopIntegrationType.id ?? ''),
   )
 
@@ -30,7 +30,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
                 certain behaviours within Agency Cloud.
               </p>
               <ul className="ml-4">
-                {userDesktopIntegrationTypes.map(integration => (
+                {userDesktopIntegrationTypes.map((integration) => (
                   <li key={integration.name}>{integration?.description ?? ''}</li>
                 ))}
               </ul>
@@ -89,7 +89,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
             <p>Information about your organisation and the names/email addresses of your users</p>
             {scopes.length && (
               <GridFourCol>
-                {scopes.map(scope => (
+                {scopes.map((scope) => (
                   <GridFourColItem key={scope.name}>{scope?.description ?? ''}</GridFourColItem>
                 ))}
               </GridFourCol>

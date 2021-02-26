@@ -8,7 +8,7 @@ export default {
   component: Button,
 }
 
-export const Default: Story<ButtonProps> = args => <Button {...args}>Default</Button>
+export const Default: Story<ButtonProps> = (args) => <Button {...args}>Default</Button>
 Default.args = {
   type: 'submit',
   onClick: action('Clicking Primary Button'),
@@ -17,7 +17,7 @@ Default.args = {
   fullWidth: false,
 }
 
-export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
+export const Primary: Story<ButtonProps> = (args) => <Button {...args}>Primary</Button>
 Primary.args = {
   type: 'submit',
   intent: 'primary',
@@ -27,7 +27,7 @@ Primary.args = {
   fullWidth: false,
 }
 
-export const Success: Story<ButtonProps> = args => <Button {...args}>Success</Button>
+export const Success: Story<ButtonProps> = (args) => <Button {...args}>Success</Button>
 Success.args = {
   type: 'submit',
   intent: 'success',
@@ -37,7 +37,7 @@ Success.args = {
   fullWidth: false,
 }
 
-export const Danger: Story<ButtonProps> = args => <Button {...args}>Danger</Button>
+export const Danger: Story<ButtonProps> = (args) => <Button {...args}>Danger</Button>
 Danger.args = {
   type: 'submit',
   intent: 'danger',
@@ -47,7 +47,7 @@ Danger.args = {
   fullWidth: false,
 }
 
-export const Info: Story<ButtonProps> = args => <Button {...args}>Info</Button>
+export const Info: Story<ButtonProps> = (args) => <Button {...args}>Info</Button>
 Info.args = {
   type: 'submit',
   intent: 'info',
@@ -57,7 +57,7 @@ Info.args = {
   fullWidth: false,
 }
 
-export const Disabled: Story<ButtonProps> = args => <Button {...args}>Disabled</Button>
+export const Disabled: Story<ButtonProps> = (args) => <Button {...args}>Disabled</Button>
 Disabled.args = {
   type: 'submit',
   intent: 'primary',
@@ -67,7 +67,7 @@ Disabled.args = {
   fullWidth: false,
 }
 
-export const Loading: Story<ButtonProps> = args => <Button {...args}>Loading</Button>
+export const Loading: Story<ButtonProps> = (args) => <Button {...args}>Loading</Button>
 Loading.args = {
   type: 'submit',
   intent: 'primary',
@@ -77,7 +77,7 @@ Loading.args = {
   fullWidth: false,
 }
 
-export const IsCentered: Story<ButtonProps> = args => <Button {...args}>Centered</Button>
+export const IsCentered: Story<ButtonProps> = (args) => <Button {...args}>Centered</Button>
 IsCentered.args = {
   type: 'submit',
   intent: 'primary',

@@ -10,7 +10,7 @@ import {
 import { fetchWebhooksSubscriptionsListApi, FetchWebhooksSubscriptionsListParams } from '@/services/webhooks'
 import { notification } from '@reapit/elements'
 
-export const webhooksSubscriptionsFetch = function*({ data }: Action<FetchWebhooksSubscriptionsListParams>) {
+export const webhooksSubscriptionsFetch = function* ({ data }: Action<FetchWebhooksSubscriptionsListParams>) {
   try {
     yield put(setApplicationId(data?.applicationId?.[0] as string))
     const response = yield call(fetchWebhooksSubscriptionsListApi, data)
@@ -24,13 +24,13 @@ export const webhooksSubscriptionsFetch = function*({ data }: Action<FetchWebhoo
   }
 }
 
-export const webhooksSubscriptionsListen = function*() {
+export const webhooksSubscriptionsListen = function* () {
   yield takeLatest<Action<FetchWebhooksSubscriptionsListParams>>(
     ActionTypes.FETCH_WEBHOOKS_SUBSCRIPTIONS,
     webhooksSubscriptionsFetch,
   )
 }
 
-export const webhooksSubscriptionsSagas = function*() {
+export const webhooksSubscriptionsSagas = function* () {
   yield all([fork(webhooksSubscriptionsListen)])
 }

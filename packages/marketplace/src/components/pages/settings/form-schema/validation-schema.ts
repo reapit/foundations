@@ -8,14 +8,9 @@ const { FIELD_REQUIRED } = errorMessages
 const { passwordField, confirmPasswordField, currentPasswordField } = formFieldsChangePassword
 
 export const validationSchemaChangePassword = Yup.object().shape({
-  [currentPasswordField.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED),
+  [currentPasswordField.name]: Yup.string().trim().required(FIELD_REQUIRED),
 
-  [passwordField.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED)
-    .matches(passwordRegex, passwordField.errorMessage),
+  [passwordField.name]: Yup.string().trim().required(FIELD_REQUIRED).matches(passwordRegex, passwordField.errorMessage),
 
   [confirmPasswordField.name]: Yup.string()
     .trim()

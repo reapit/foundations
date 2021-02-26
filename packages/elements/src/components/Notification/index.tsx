@@ -104,7 +104,7 @@ function getNotificationInstance(
   const cacheKey = `${outerPrefixCls}-${placement}`
   const cacheInstance = notificationInstance[cacheKey]
   if (cacheInstance) {
-    Promise.resolve(cacheInstance).then(instance => {
+    Promise.resolve(cacheInstance).then((instance) => {
       callback({ prefixCls, instance })
     })
     return
@@ -112,7 +112,7 @@ function getNotificationInstance(
 
   const closeIconToRender = <span>{closeIcon || <button className="delete is-small" />}</span>
 
-  notificationInstance[cacheKey] = new Promise(resolve => {
+  notificationInstance[cacheKey] = new Promise((resolve) => {
     Notification.newInstance(
       {
         prefixCls: outerPrefixCls,
@@ -121,7 +121,7 @@ function getNotificationInstance(
         getContainer,
         closeIcon: closeIconToRender,
       },
-      notification => {
+      (notification) => {
         resolve(notification)
         callback({
           prefixCls,
@@ -179,16 +179,16 @@ const notification = {
     })
   },
   close(key: string) {
-    Object.keys(notificationInstance).forEach(cacheKey =>
-      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+    Object.keys(notificationInstance).forEach((cacheKey) =>
+      Promise.resolve(notificationInstance[cacheKey]).then((instance) => {
         instance.removeNotice(key)
       }),
     )
   },
   config: setNotificationConfig,
   destroy() {
-    Object.keys(notificationInstance).forEach(cacheKey => {
-      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+    Object.keys(notificationInstance).forEach((cacheKey) => {
+      Promise.resolve(notificationInstance[cacheKey]).then((instance) => {
         instance.destroy()
       })
       delete notificationInstance[cacheKey]
@@ -196,7 +196,7 @@ const notification = {
   },
   useNotification: createUseNotification(getNotificationInstance, getRCNoticeProps),
 }
-;['success', 'info', 'error', 'warn'].forEach(type => {
+;['success', 'info', 'error', 'warn'].forEach((type) => {
   notification[type] = (args: ArgsProps) =>
     notification.open({
       ...args,

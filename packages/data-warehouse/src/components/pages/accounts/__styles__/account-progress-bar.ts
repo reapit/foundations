@@ -2,7 +2,7 @@ import { styled } from 'linaria/react'
 import { grey, reapitDarkblueDarkened, reapitLightestblue } from '../../../../styles/colors'
 
 export const ProgressBar = styled.div<{ width: number }>`
-  width: ${props => props.width}%;
+  width: ${(props) => props.width}%;
   background-color: ${reapitDarkblueDarkened};
   color: ${reapitLightestblue};
   transition: 0.5s linear width;

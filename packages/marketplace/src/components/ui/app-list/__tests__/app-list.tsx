@@ -31,10 +31,7 @@ describe('AppList', () => {
 
   it('should respond to a card click event', () => {
     const wrapper = shallow(<AppList {...props} />)
-    wrapper
-      .find(AppCard)
-      .first()
-      .simulate('click', { stopPropagation: jest.fn() })
+    wrapper.find(AppCard).first().simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
     expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.[0])
   })

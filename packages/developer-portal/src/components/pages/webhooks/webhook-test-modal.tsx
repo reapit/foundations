@@ -29,7 +29,7 @@ export interface GenerateTopicOptions {
   subcriptionTopicIds: string[]
 }
 export const generateTopicOptions = ({ topics, subcriptionTopicIds }: GenerateTopicOptions): SelectOption[] => {
-  return subcriptionTopicIds.map(topicId => {
+  return subcriptionTopicIds.map((topicId) => {
     const topicData: TopicItem | undefined = topics.find((topic: TopicItem) => topic.id === topicId)
     return {
       value: topicData?.id,
@@ -48,7 +48,7 @@ export interface HandleSubmitForm {
   webhookId: string | undefined
 }
 
-export const handleSubmitForm = ({ dispatch, webhookId }: HandleSubmitForm) => values => {
+export const handleSubmitForm = ({ dispatch, webhookId }: HandleSubmitForm) => (values) => {
   const { topicId } = values
   if (!webhookId || !topicId) return
   const params: PingWebhooksByIdParams = {

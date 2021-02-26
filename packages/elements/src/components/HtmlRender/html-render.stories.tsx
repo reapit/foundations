@@ -27,7 +27,7 @@ export default {
   component: HTMLRender,
 }
 
-export const Usage: Story<HTMLRenderProps> = args => <HTMLRender {...args} />
+export const Usage: Story<HTMLRenderProps> = (args) => <HTMLRender {...args} />
 Usage.args = {
   html,
 }

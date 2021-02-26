@@ -24,7 +24,7 @@ import useReactResponsive from '../../hooks/use-react-responsive'
 const DEFAULT_SCROLL_THRESHOLD = 0.5
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
-export const handleOnChange = history => (page: number) => {
+export const handleOnChange = (history) => (page: number) => {
   history.push(addQuery({ page }))
 }
 

@@ -7,7 +7,7 @@ export default {
   component: Info,
 }
 
-const Template: Story<InfoProps> = args => <Info {...args} />
+const Template: Story<InfoProps> = (args) => <Info {...args} />
 
 export const Four04 = Template.bind({})
 Four04.args = {

@@ -23,7 +23,7 @@ export default {
   ],
 }
 
-export const ModeTags: Story<DropdownSelectProps> = args => <DropdownSelect {...args} />
+export const ModeTags: Story<DropdownSelectProps> = (args) => <DropdownSelect {...args} />
 ModeTags.args = {
   mode: 'tags',
   id: 'desktopTypes',
@@ -40,7 +40,7 @@ ModeTags.parameters = {
   },
 }
 
-export const ModeMultiple: Story<DropdownSelectProps> = args => <DropdownSelect {...args} />
+export const ModeMultiple: Story<DropdownSelectProps> = (args) => <DropdownSelect {...args} />
 ModeMultiple.args = {
   mode: 'multiple',
   id: 'desktopTypes',

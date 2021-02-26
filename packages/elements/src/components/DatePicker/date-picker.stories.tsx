@@ -19,10 +19,10 @@ export default {
   ],
 }
 
-export const Primary: Story<DatePickerProps> = args => (
+export const Primary: Story<DatePickerProps> = (args) => (
   <Formik
     initialValues={{ demo: new Date() }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >
@@ -41,10 +41,10 @@ Primary.args = {
 }
 
 // NOTE: in this story the component doesn't actually change at all, the only change is with the way Formik is set up
-export const Empty: Story<DatePickerProps> = args => (
+export const Empty: Story<DatePickerProps> = (args) => (
   <Formik
     initialValues={{ demo: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >
@@ -65,10 +65,10 @@ Empty.args = {
 }
 
 // NOTE: this story also doesn't demonstrate the DatePicker component, it demos the Formik wrapper
-export const Error: Story<DatePickerProps> = args => (
+export const Error: Story<DatePickerProps> = (args) => (
   <Formik
     initialValues={{ demo: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >

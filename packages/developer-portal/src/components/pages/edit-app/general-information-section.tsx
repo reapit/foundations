@@ -42,7 +42,7 @@ export type GeneralInformationSectionProps = {
 }
 
 export const prepareCategoryOptions = (categories: CategoryModel[]) => {
-  return categories.map(category => ({
+  return categories.map((category) => ({
     value: category.id as string,
     label: category.name as string,
   }))

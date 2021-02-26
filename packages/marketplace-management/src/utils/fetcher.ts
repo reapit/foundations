@@ -6,5 +6,5 @@ export const fetcher = async (path: string) =>
   fetch(`${window.reapit.config.platformApiUrl}${path}`, {
     headers: (await genPlatformHeaders()) as StringMap,
   })
-    .then(res => res.json())
-    .catch(error => logger(error))
+    .then((res) => res.json())
+    .catch((error) => logger(error))

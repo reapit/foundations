@@ -7,7 +7,7 @@ const WizardWrapper = ({ defaultVisible = false }) => {
   const [visible, setVisible] = useState(defaultVisible)
   return (
     <div style={{ padding: 20 }}>
-      {[1, 2, 3, 4].map(index => (
+      {[1, 2, 3, 4].map((index) => (
         <button
           type="button"
           key={index}
@@ -44,31 +44,19 @@ const WizardWrapper = ({ defaultVisible = false }) => {
 describe('Wizard', () => {
   it('should be visible when trigger open button click and close when click on cross icon', () => {
     const wrapper = mount(<WizardWrapper />)
-    wrapper
-      .find('.open-wizard-button-1')
-      .first()
-      .simulate('click')
+    wrapper.find('.open-wizard-button-1').first().simulate('click')
     expect(wrapper.find('.modal').hasClass('is-active')).toBeTruthy()
-    wrapper
-      .find('.wizard-close')
-      .first()
-      .simulate('click')
+    wrapper.find('.wizard-close').first().simulate('click')
     expect(wrapper.find('.modal').hasClass('is-active')).not.toBeTruthy()
   })
 
   it('can open nth step pane when open', () => {
     const wrapper = mount(<WizardWrapper />)
-    Array.from({ length: 4 }, (v, k) => k).forEach(i => {
+    Array.from({ length: 4 }, (v, k) => k).forEach((i) => {
       const index = i + 1
-      wrapper
-        .find(`.open-wizard-button-${index}`)
-        .first()
-        .simulate('click')
+      wrapper.find(`.open-wizard-button-${index}`).first().simulate('click')
       expect(wrapper.find(`.step-${index}`)).toHaveLength(1)
-      wrapper
-        .find('.wizard-close')
-        .first()
-        .simulate('click')
+      wrapper.find('.wizard-close').first().simulate('click')
     })
   })
 
@@ -78,25 +66,16 @@ describe('Wizard', () => {
     expect(wrapper.find('[data-test="wizard-save-btn"]')).toHaveLength(1)
     expect(wrapper.find('[data-test="wizard-next-btn"]')).toHaveLength(1)
 
-    wrapper
-      .find('[data-test="wizard-next-btn"]')
-      .first()
-      .simulate('click')
+    wrapper.find('[data-test="wizard-next-btn"]').first().simulate('click')
 
     expect(wrapper.find('.step-2')).toHaveLength(1)
 
-    wrapper
-      .find('[data-test="wizard-next-btn"]')
-      .first()
-      .simulate('click')
+    wrapper.find('[data-test="wizard-next-btn"]').first().simulate('click')
 
     expect(wrapper.find('.step-2')).toHaveLength(0)
     expect(wrapper.find('.step-3')).toHaveLength(1)
 
-    wrapper
-      .find('[data-test="wizard-next-btn"]')
-      .first()
-      .simulate('click')
+    wrapper.find('[data-test="wizard-next-btn"]').first().simulate('click')
 
     expect(wrapper.find('.step-4')).toHaveLength(1)
     expect(wrapper.find('[data-test="wizard-prev-btn"]')).toHaveLength(1)
@@ -104,18 +83,9 @@ describe('Wizard', () => {
     expect(wrapper.find('[data-test="wizard-next-btn"]')).toHaveLength(0)
     expect(wrapper.find('[data-test="wizard-finish-btn"]')).toHaveLength(1)
 
-    wrapper
-      .find('[data-test="wizard-prev-btn"]')
-      .first()
-      .simulate('click')
-    wrapper
-      .find('[data-test="wizard-prev-btn"]')
-      .first()
-      .simulate('click')
-    wrapper
-      .find('[data-test="wizard-prev-btn"]')
-      .first()
-      .simulate('click')
+    wrapper.find('[data-test="wizard-prev-btn"]').first().simulate('click')
+    wrapper.find('[data-test="wizard-prev-btn"]').first().simulate('click')
+    wrapper.find('[data-test="wizard-prev-btn"]').first().simulate('click')
     expect(wrapper.find('.step-1')).toHaveLength(1)
   })
 

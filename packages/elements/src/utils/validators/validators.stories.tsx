@@ -23,7 +23,7 @@ export const Usage: Story = () => (
   <div>
     <Formik
       initialValues={{ name: '', email: '', uri: '' }}
-      validate={values => {
+      validate={(values) => {
         let errors = {}
 
         errors = validateRequire({ values, currentErrors: errors, keys: ['name'] })
@@ -35,7 +35,7 @@ export const Usage: Story = () => (
 
         return errors
       }}
-      onSubmit={values => {
+      onSubmit={(values) => {
         action('Form Values' + values)
       }}
       render={() => {

@@ -9,7 +9,7 @@ import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { notification } from '@reapit/elements'
 
-export const appsManagementFetch = function*({ data }) {
+export const appsManagementFetch = function* ({ data }) {
   try {
     const response = yield call(fetchAppsList, { ...data, pageSize: APPS_PER_PAGE, pageNumber: data.page })
 
@@ -24,7 +24,7 @@ export const appsManagementFetch = function*({ data }) {
   }
 }
 
-export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
+export const appsManagementFeatured = function* ({ data: { id, isFeatured } }) {
   const { data, ...rest } = yield select(selectAppsData)
   try {
     const featuredCount = data.filter((item: AppDetailModel) => item.isFeatured).length
@@ -33,7 +33,7 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
     }
 
     // update store first after changing isFeatured field
-    const newData = data.map(d => ({ ...d, isFeatured: d.id === id ? isFeatured : d.isFeatured }))
+    const newData = data.map((d) => ({ ...d, isFeatured: d.id === id ? isFeatured : d.isFeatured }))
     yield put(fetchAppListSuccess({ ...rest, data: newData }))
 
     if (isFeatured) {
@@ -53,12 +53,12 @@ export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
   }
 }
 
-export const appsManagementListen = function*() {
+export const appsManagementListen = function* () {
   yield takeLatest<Action<void>>(ActionTypes.FETCH_APP_LIST, appsManagementFetch)
   yield takeLatest<Action<AppsFeaturedParams>>(ActionTypes.REQUEST_MARK_APP_AS_FEATURED, appsManagementFeatured)
 }
 
-const appsManagementSagas = function*() {
+const appsManagementSagas = function* () {
   yield all([fork(appsManagementListen)])
 }
 

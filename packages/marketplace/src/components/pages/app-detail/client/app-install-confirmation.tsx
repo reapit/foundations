@@ -319,7 +319,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
                 certain behaviours within Agency Cloud.
               </p>
               <ul className="ml-4">
-                {userDesktopIntegrationTypes.map(integration => (
+                {userDesktopIntegrationTypes.map((integration) => (
                   <li key={integration.name}>{integration?.description ?? ''}</li>
                 ))}
               </ul>
@@ -378,7 +378,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             <p>Information about your organisation and the names/email addresses of your users</p>
             {scopes.length && (
               <GridFourCol>
-                {scopes.map(scope => (
+                {scopes.map((scope) => (
                   <GridFourColItem key={scope.name}>{scope?.description ?? ''}</GridFourColItem>
                 ))}
               </GridFourCol>

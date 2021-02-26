@@ -10,7 +10,7 @@ jest.mock('../../core/connect-session', () => ({
 jest.mock('axios', () => ({
   patch: jest.fn(
     () =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         resolve({
           status: 204,
         })

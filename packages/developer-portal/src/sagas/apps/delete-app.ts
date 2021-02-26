@@ -5,7 +5,7 @@ import { deleteAppById, DeleteAppByIdParams } from '@/services/apps'
 import { deleteAppSuccess, deleteAppFailed, deleteApp } from '@/actions/apps'
 import { notification } from '@reapit/elements'
 
-export const deleteAppSaga = function*({ data: { successCallback, id } }: Action<DeleteAppByIdParams>) {
+export const deleteAppSaga = function* ({ data: { successCallback, id } }: Action<DeleteAppByIdParams>) {
   try {
     yield call(deleteAppById, { id })
     yield put(deleteAppSuccess())
@@ -21,11 +21,11 @@ export const deleteAppSaga = function*({ data: { successCallback, id } }: Action
   }
 }
 
-export const deleteAppSagaListen = function*() {
+export const deleteAppSagaListen = function* () {
   yield takeLatest<Action<DeleteAppByIdParams>>(deleteApp.type, deleteAppSaga)
 }
 
-export const deleteAppSagas = function*() {
+export const deleteAppSagas = function* () {
   yield all([fork(deleteAppSagaListen)])
 }
 

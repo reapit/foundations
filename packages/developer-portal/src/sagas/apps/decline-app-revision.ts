@@ -5,7 +5,7 @@ import { rejectAppRevisionById, RejectAppRevisionByIdParams } from '@/services/a
 import { declineAppRevisionSuccess, declineAppRevisionFailed, declineAppRevision } from '@/actions/apps'
 import { notification } from '@reapit/elements'
 
-export const declineAppRevisionSaga = function*({
+export const declineAppRevisionSaga = function* ({
   data: { successCallback, ...body },
 }: Action<RejectAppRevisionByIdParams>) {
   try {
@@ -23,11 +23,11 @@ export const declineAppRevisionSaga = function*({
   }
 }
 
-export const declineAppRevisionSagaListen = function*() {
+export const declineAppRevisionSagaListen = function* () {
   yield takeLatest<Action<RejectAppRevisionByIdParams>>(declineAppRevision.type, declineAppRevisionSaga)
 }
 
-export const declineAppRevisionSagas = function*() {
+export const declineAppRevisionSagas = function* () {
   yield all([fork(declineAppRevisionSagaListen)])
 }
 

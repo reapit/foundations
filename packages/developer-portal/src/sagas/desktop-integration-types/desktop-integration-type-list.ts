@@ -9,7 +9,7 @@ import { Action } from '@/types/core'
 import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { notification } from '@reapit/elements'
 
-export const fetchDesktopIntegrationTypeListSaga = function*() {
+export const fetchDesktopIntegrationTypeListSaga = function* () {
   try {
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypeListAPI, {})
     yield put(fetchDesktopIntegrationTypeListSuccess(desktopIntegrationTypes))
@@ -22,11 +22,11 @@ export const fetchDesktopIntegrationTypeListSaga = function*() {
   }
 }
 
-export const fetchDesktopIntegrationTypeListListen = function*() {
+export const fetchDesktopIntegrationTypeListListen = function* () {
   yield takeLatest<Action<void>>(fetchDesktopIntegrationTypeList.type, fetchDesktopIntegrationTypeListSaga)
 }
 
-const DesktopIntegrationTypeListSagas = function*() {
+const DesktopIntegrationTypeListSagas = function* () {
   yield all([fork(fetchDesktopIntegrationTypeListListen)])
 }
 

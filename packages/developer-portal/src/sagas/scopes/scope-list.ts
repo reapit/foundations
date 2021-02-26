@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import { fetchScopeListAPI } from '@/services/scopes'
 import { notification } from '@reapit/elements'
 
-export const fetchScopeListSaga = function*() {
+export const fetchScopeListSaga = function* () {
   try {
     const scopes = yield call(fetchScopeListAPI)
     yield put(fetchScopeListSuccess(scopes))
@@ -18,11 +18,11 @@ export const fetchScopeListSaga = function*() {
   }
 }
 
-export const fetchScopeListListen = function*() {
+export const fetchScopeListListen = function* () {
   yield takeLatest<Action<void>>(fetchScopeList.type, fetchScopeListSaga)
 }
 
-const scopeListSagas = function*() {
+const scopeListSagas = function* () {
   yield all([fork(fetchScopeListListen)])
 }
 

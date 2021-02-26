@@ -11,7 +11,7 @@ import { ReduxState } from '@/types/core'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-const createStore = loading => {
+const createStore = (loading) => {
   return {
     ...appState,
     apps: {

@@ -21,7 +21,7 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
     })
 
     if (response) {
-      const apps = response.data?.filter(app => !window.reapit.config.appIdsToFilter.includes(app.id as string))
+      const apps = response.data?.filter((app) => !window.reapit.config.appIdsToFilter.includes(app.id as string))
 
       return {
         ...response,

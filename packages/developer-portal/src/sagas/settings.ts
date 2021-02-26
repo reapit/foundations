@@ -15,7 +15,7 @@ import { changePasswordService } from '@/services/cognito-identity'
 import { selectDeveloperEmail } from '@/selector'
 import { notification } from '@reapit/elements'
 
-export const developerInformationFetch = function*() {
+export const developerInformationFetch = function* () {
   yield put(settingShowLoading(true))
   try {
     const developerId = yield call(getDeveloperId)
@@ -41,7 +41,7 @@ export type UpdateDeveloperInfoParams = {
   values: UpdateDeveloperModel
 }
 
-export const developerInfomationChange = function*({ data }: Action<UpdateDeveloperModel>) {
+export const developerInfomationChange = function* ({ data }: Action<UpdateDeveloperModel>) {
   yield put(settingShowLoading(true))
   try {
     const developerId = yield call(getDeveloperId)
@@ -84,7 +84,7 @@ export type CallChangePasswordParams = {
   email: string
 }
 
-export const developerPasswordChange = function*({ data }: Action<ChangePasswordParams>) {
+export const developerPasswordChange = function* ({ data }: Action<ChangePasswordParams>) {
   yield put(settingShowLoading(true))
   try {
     const email = yield select(selectDeveloperEmail)
@@ -113,19 +113,19 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
   }
 }
 
-export const developerInformationFetchListen = function*() {
+export const developerInformationFetchListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.SETTING_FETCH_DEVELOPER_INFO, developerInformationFetch)
 }
 
-export const developerInformationChangeListen = function*() {
+export const developerInformationChangeListen = function* () {
   yield takeLatest<Action<UpdateDeveloperModel>>(ActionTypes.SETTING_UPDATE_DEVELOPER, developerInfomationChange)
 }
 
-export const developerPasswordChangeListen = function*() {
+export const developerPasswordChangeListen = function* () {
   yield takeLatest<Action<ChangePasswordParams>>(ActionTypes.CHANGE_PASSWORD, developerPasswordChange)
 }
 
-export const settingsSagas = function*() {
+export const settingsSagas = function* () {
   yield all([
     fork(developerInformationFetchListen),
     fork(developerInformationChangeListen),

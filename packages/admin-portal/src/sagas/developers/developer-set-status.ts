@@ -12,7 +12,7 @@ import { updateDeveloperById } from '@/services/developers'
 import { notification } from '@reapit/elements'
 
 export const DEVELOPER_ID_NOT_EXIST = 'developerId is not exist'
-export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
+export const setRequestDeveloperStatusFormStateSaga = function* ({ data: dev }) {
   const { callback } = dev
   try {
     if (!dev.id) {
@@ -36,7 +36,7 @@ export const setRequestDeveloperStatusFormStateSaga = function*({ data: dev }) {
   }
 }
 
-export const setRequestDeveloperStatusFormStateListen = function*() {
+export const setRequestDeveloperStatusFormStateListen = function* () {
   yield takeLatest<Action<DeveloperModel>>(
     ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE,
     setRequestDeveloperStatusFormStateSaga,
