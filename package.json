@@ -15,6 +15,7 @@
       "packages/developer-portal",
       "packages/elements",
       "packages/event-status-service",
+      "packages/automations-service",
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",
