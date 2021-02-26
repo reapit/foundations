@@ -2,7 +2,7 @@ require('isomorphic-fetch')
 const spawnSync = require('child_process').spawnSync
 const path = require('path')
 
-const removeUnuseChar = value => {
+const removeUnuseChar = (value) => {
   if (!value) {
     return ''
   }
@@ -21,7 +21,6 @@ const runCommand = (cmd, args) => {
     console.error(stderr.toString().trim())
     return stderr.toString().trim()
   }
-  console.info(stdout.toString().trim())
   return stdout.toString().trim()
 }
 

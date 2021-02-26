@@ -1,4 +1,4 @@
-module.exports = {
+const svgTransform = {
   process() {
     return 'module.exports = {};'
   },
@@ -7,3 +7,5 @@ module.exports = {
     return 'svgTransform'
   },
 }
+
+module.exports = svgTransform

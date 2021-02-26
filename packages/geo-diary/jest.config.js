@@ -1,15 +1,12 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const baseConfig = require('../../scripts/jest/jest.config')
+const { jestGlobalConfig } = require('@reapit/ts-scripts')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
-  ...baseConfig,
-  transform: {
-    "\\.(gql|graphql)$": "jest-transform-graphql"
-  },
+  ...jestGlobalConfig,
   coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'index.ts', 'api.ts', 'service-worker.ts'],
   moduleNameMapper: {
-    ...baseConfig.moduleNameMapper,
+    ...jestGlobalConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),

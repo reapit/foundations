@@ -22,7 +22,7 @@ const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
 
-const webpackConfig = {
+const webpackConfigProd = {
   mode: 'production',
   bail: true,
   context: process.cwd(),
@@ -188,7 +188,7 @@ const webpackConfig = {
 }
 
 if (process.env.IS_RELEASE) {
-  webpackConfig.plugins.push(
+  webpackConfigProd.plugins.push(
     new SentryWebpackPlugin({
       release: APP_VERSION,
       include: './public/dist/',
@@ -202,4 +202,4 @@ if (process.env.IS_RELEASE) {
   )
 }
 
-module.exports = webpackConfig
+module.exports = { webpackConfigProd }

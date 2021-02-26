@@ -18,7 +18,7 @@ const generateRegexExcludePackages = () => {
 
 const tagName = getVersionTag()
 
-const webpackConfig = {
+const webpackConfigDev = {
   mode: 'development',
   bail: true,
   devtool: 'inline-source-map',
@@ -146,4 +146,4 @@ const webpackConfig = {
   },
 }
 
-module.exports = webpackConfig
+module.exports = { webpackConfigDev }

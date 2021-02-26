@@ -1,10 +1,8 @@
-const devConfig = require('../../scripts/webpack/webpack.config.dev')
-const prodConfig = require('../../scripts/webpack/webpack.config.prod')
-const { sassDev, sassProd, graphql } = require('../../scripts/webpack/rules')
+const { webpackConfigProd, webpackConfigDev, sassProd, sassDev, graphql } = require('@reapit/ts-scripts')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
-const config = isProd ? prodConfig : devConfig
+const config = isProd ? webpackConfigProd : webpackConfigDev
 const sassRules = isProd ? sassProd : sassDev
 
 config.module.rules.push(sassRules)

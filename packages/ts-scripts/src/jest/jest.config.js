@@ -1,10 +1,9 @@
 const path = require('path')
 const { defaults } = require('jest-config')
-
-module.exports = {
+const jestGlobalConfig = {
   preset: 'ts-jest',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
-  setupFiles: ['<rootDir>/../../scripts/jest/jest-setup.js'],
+  setupFiles: [path.join(__dirname, './jest-setup')],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx', '!<rootDir>/src/**/*.worker.ts'],
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
@@ -14,16 +13,17 @@ module.exports = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
-    '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': '<rootDir>/../../scripts/jest/css-stub.js',
+    '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
-    '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
+    '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
+    '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
-  globalSetup: '<rootDir>/../../scripts/jest/jest-global.js',
+  globalSetup: path.join(__dirname, './jest-global.js'),
   coverageThreshold: {
     global: {
       branches: 90,
@@ -33,5 +33,7 @@ module.exports = {
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
-  cacheDirectory: path.join(__dirname, '.jest-cache'),
+  // cacheDirectory: path.join(__dirname, '.jest-cache'),
 }
+
+module.exports = { jestGlobalConfig }

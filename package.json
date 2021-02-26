@@ -34,12 +34,11 @@
     "build-all": "yarn workspaces foreach --parallel --verbose run build",
     "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
-    "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
-    "secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
+    "lint-all": "yarn workspaces foreach --parallel --verbose run lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn secrets && yarn changed foreach --git-range HEAD --parallel --verbose --interlaced run commit && git add ."
+      "pre-commit": "yarn changed foreach --git-range HEAD --parallel --verbose --interlaced run commit && git add ."
     }
   },
   "dependencies": {
