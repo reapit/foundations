@@ -8262,6 +8262,7 @@ export interface Properties {
     | 'withdrawn'
   )[]
   locality?: ('rural' | 'village' | 'townCity')[]
+  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   officeId?: string[]
   parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
   sellingStatus?: (
@@ -8308,7 +8309,6 @@ export interface Properties {
   )[]
   address?: string
   departmentId?: string
-  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   bedroomsFrom?: number
   bedroomsTo?: number
   priceFrom?: number
