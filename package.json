@@ -27,6 +27,7 @@
       "packages/react-app-scaffolder",
       "packages/reapit-connect",
       "packages/ts-scripts",
+      "packages/ts-types",
       "packages/utils"
     ]
   },
@@ -40,70 +41,5 @@
     "hooks": {
       "pre-commit": "yarn changed foreach --git-range HEAD --parallel --verbose --interlaced run commit && git add ."
     }
-  },
-  "dependencies": {
-    "@apollo/react-hooks": "^3.1.3",
-    "apollo-boost": "^0.4.9",
-    "apollo-link-error": "^1.1.13",
-    "dayjs": "^1.8.19",
-    "graphql": "14.7.0",
-    "graphql-tag": "^2.10.1",
-    "query-string": "5.0.0",
-    "react": "^16.12.0",
-    "react-copy-to-clipboard": "^5.0.2",
-    "react-dom": "^16.12.0",
-    "react-ga": "^2.7.0",
-    "react-redux": "^7.1.3",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4",
-    "redux-saga": "^1.1.3",
-    "snyk": "^1.455.0",
-    "svelte": "^3.24.0",
-    "yup": "^0.29.1"
-  },
-  "devDependencies": {
-    "@apollo/react-testing": "^3.1.3",
-    "@octokit/rest": "^16.38.1",
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@redux-saga/testing-utils": "^1.0.5",
-    "@sentry/browser": "^5.11.1",
-    "@sentry/node": "^5.15.5",
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/react-hooks": "^2.0.3",
-    "@types/diff": "^4.0.2",
-    "@types/enzyme": "^3.10.3",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.23",
-    "@types/node": "10.17.13",
-    "@types/papaparse": "^5.0.3",
-    "@types/query-string": "^6.3.0",
-    "@types/react": "^16.9.0",
-    "@types/react-copy-to-clipboard": "^4.3.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.0.9",
-    "@types/react-router": "^5.1.3",
-    "@types/react-router-dom": "^5.1.3",
-    "@types/webpack": "^4.41.6",
-    "@types/yup": "^0.29.2",
-    "serialize-error": "^7.0.1",
-    "serve": "^11.2.0",
-    "serverless": "^2.23.0",
-    "serverless-add-api-key": "^4.1.1",
-    "serverless-deployment-bucket": "^1.1.2",
-    "serverless-plugin-ifelse": "^1.0.5",
-    "serverless-s3-deploy": "^0.9.0",
-    "serverless-s3-remover": "^0.6.0",
-    "serverless-single-page-app-plugin": "^1.0.2",
-    "tsdx": "^0.12.3",
-    "tslib": "^1.10.0",
-    "typescript": "^4.0.3",
-    "yargs": "^15.3.1"
-  },
-  "resolutions": {
-    "graphql": "14.7.0"
-  },
-  "snyk": true
+  }
 }

@@ -23,13 +23,20 @@
   "dependencies": {
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/utils": "workspace:packages/utils",
+    "@sentry/browser": "^5.11.1",
     "dayjs": "^1.10.4",
+    "query-string": "5.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
+    "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-to-print": "^2.4.0",
-    "snyk": "^1.341.1"
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3",
+    "snyk": "^1.341.1",
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
@@ -44,6 +51,7 @@
     "serverless-s3-deploy": "^0.10.0",
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.2",
+    "typescript": "^4.0.3",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.11.0"
   },

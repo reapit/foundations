@@ -23,12 +23,15 @@
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
+    "@sentry/browser": "^5.11.1",
     "dayjs": "^1.10.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "snyk": "^1.341.1"
+    "snyk": "^1.341.1",
+    "yup": "^0.29.1"
   },
   "snyk": true,
   "devDependencies": {
@@ -43,6 +46,7 @@
     "serverless-s3-deploy": "^0.10.0",
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.2",
+    "typescript": "^4.0.3",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.11.0"
   }

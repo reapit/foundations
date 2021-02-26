@@ -4959,8 +4959,6 @@ __metadata:
   resolution: "@reapit/cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@types/aws-lambda": ^8.10.39
-    "@types/ejs": ^2.7.0
     aws-lambda: ^1.0.5
     concurrently: ^5.3.0
     cross-env: ^7.0.3
@@ -4999,8 +4997,7 @@ __metadata:
   resolution: "@reapit/connect-session@workspace:packages/connect-session"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@types/jsonwebtoken": ^8.3.5
-    "@types/jwk-to-pem": ^2.0.0
+    "@testing-library/react-hooks": ^2.0.3
     axios: ^0.21.1
     concurrently: ^5.3.0
     cross-env: ^7.0.3
@@ -5048,12 +5045,6 @@ __metadata:
     "@storybook/cli": ^6.1.18
     "@storybook/react": ^6.1.18
     "@storybook/theming": ^6.1.18
-    "@types/googlemaps": ^3.37.5
-    "@types/jsonwebtoken": ^8.3.5
-    "@types/rc-select": ^5.9.34
-    "@types/react-datepicker": ^3.0.3
-    "@types/react-google-maps-loader": ^4.2.1
-    "@types/react-transition-group": ^4.4.0
     "@whitespace/storybook-addon-html": ^4.2.0
     babel-loader: ^8.2.2
     bulma: ^0.9.0
@@ -5097,6 +5088,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.338.0
     tsdx: ^0.12.3
+    tslib: ^1.10.0
     typescript: ^4.0.3
     webpack: ^4.41.5
   peerDependencies:
@@ -5161,6 +5153,7 @@ __metadata:
     "@babel/polyfill": ^7.12.1
     "@babel/preset-env": ^7.13.5
     "@babel/preset-react": ^7.12.13
+    "@octokit/rest": ^16.38.1
     "@pmmmwh/react-refresh-webpack-plugin": ^0.4.3
     "@sentry/webpack-plugin": ^1.10.0
     "@typescript-eslint/eslint-plugin": ^4.5.0
@@ -5216,8 +5209,6 @@ __metadata:
     webpack-cli: ^3.3.2
     webpack-dev-server: ^3.11.0
     workbox-webpack-plugin: ^5.1.3
-  bin:
-    ts-scripts: ./src/index.js
   languageName: unknown
   linkType: soft
 
@@ -5226,12 +5217,14 @@ __metadata:
   resolution: "@reapit/utils@workspace:packages/utils"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@sentry/node": ^5.15.5
     concurrently: ^5.3.0
     cross-env: ^7.0.3
     error-polyfill: ^0.1.2
     eslint: 7.20.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
+    serialize-error: ^7.0.1
   languageName: unknown
   linkType: soft
 
@@ -5825,13 +5818,6 @@ __metadata:
     uuid: ^8.3.2
     write-file-atomic: ^3.0.3
   checksum: c2f1d74946ac26758d5eaa462b756b55bd9e44475114b8f2d8f4f11a5268edb4c25a9eaaac197dccae07db63a51593befb2c8e85779c2db45de31c4fc0be56c4
-  languageName: node
-  linkType: hard
-
-"@sheerun/mutationobserver-shim@npm:^0.3.2":
-  version: 0.3.3
-  resolution: "@sheerun/mutationobserver-shim@npm:0.3.3"
-  checksum: 95f804bb26b7d8fbe685593f1a73df4ee87e756350b7791abb0d4582abf7292842e6059c88eeb235aec41cab8413df3786632752a0383992a461d1783b728815
   languageName: node
   linkType: hard
 
@@ -6966,21 +6952,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^6.15.0":
-  version: 6.16.0
-  resolution: "@testing-library/dom@npm:6.16.0"
-  dependencies:
-    "@babel/runtime": ^7.8.4
-    "@sheerun/mutationobserver-shim": ^0.3.2
-    "@types/testing-library__dom": ^6.12.1
-    aria-query: ^4.0.2
-    dom-accessibility-api: ^0.3.0
-    pretty-format: ^25.1.0
-    wait-for-expect: ^3.0.2
-  checksum: b5cd7af424709b6d243d560ed0c65bafc568ae88e1b12fea31502cd5c398374cfb9d7c880a158d3ab7010bc12e39f0c1bcf33d7deafd86db4da2967b29491503
-  languageName: node
-  linkType: hard
-
 "@testing-library/dom@npm:^7.0.3":
   version: 7.29.6
   resolution: "@testing-library/dom@npm:7.29.6"
@@ -6997,23 +6968,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.5.0":
-  version: 5.10.1
-  resolution: "@testing-library/jest-dom@npm:5.10.1"
-  dependencies:
-    "@babel/runtime": ^7.9.2
-    "@types/testing-library__jest-dom": ^5.9.1
-    chalk: ^3.0.0
-    css: ^2.2.4
-    css.escape: ^1.5.1
-    jest-diff: ^25.1.0
-    jest-matcher-utils: ^25.1.0
-    lodash: ^4.17.15
-    redent: ^3.0.0
-  checksum: 1ed0cbc29396f87f0615e9fed0eaab644c741908bc85d2915aa13928d5e1545cdbec823c5479a22961ca421467d3bd747740aa2b45b1021d0d759cd89e67785f
-  languageName: node
-  linkType: hard
-
 "@testing-library/react-hooks@npm:^2.0.3":
   version: 2.0.3
   resolution: "@testing-library/react-hooks@npm:2.0.3"
@@ -7024,20 +6978,6 @@ __metadata:
     react: ">=16.9.0"
     react-test-renderer: ">=16.9.0"
   checksum: dbb5b00a9b6243da904770fdb678bdb1e43300db2f1503e0ebb53549c6295366065d5eac51a74167b8ff3f1b716288ac4aa63d77a044751cab6b4d2cbeaa0896
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:^9.5.0":
-  version: 9.5.0
-  resolution: "@testing-library/react@npm:9.5.0"
-  dependencies:
-    "@babel/runtime": ^7.8.4
-    "@testing-library/dom": ^6.15.0
-    "@types/testing-library__react": ^9.1.2
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: b9682ca22c1c78537c1aa884a053b0ee3a4e11ac39b3f8f590d5159dcc2d2ddb1f36a9196c9d280522b99af63d8a89f8ccc0ca9c6a68708f3961ab8b0c94b319
   languageName: node
   linkType: hard
 
@@ -7231,13 +7171,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ejs@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "@types/ejs@npm:3.0.5"
-  checksum: dc656245c4f36f5bcb7d534d4ab71300306ca7bdfbf063859e82458952b39b5c1e1590a856882ae0862f177a4d19af5964a60025e4d0510c137d15ddc0bcc581
-  languageName: node
-  linkType: hard
-
 "@types/enzyme-adapter-react-16@npm:^1.0.5":
   version: 1.0.6
   resolution: "@types/enzyme-adapter-react-16@npm:1.0.6"
@@ -7299,7 +7232,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-session@npm:^1.17.0, @types/express-session@npm:^1.17.3":
+"@types/express-session@npm:^1.17.0":
   version: 1.17.3
   resolution: "@types/express-session@npm:1.17.3"
   dependencies:
@@ -7308,7 +7241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:^4.17.8":
+"@types/express@npm:*":
   version: 4.17.11
   resolution: "@types/express@npm:4.17.11"
   dependencies:
@@ -7367,7 +7300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/googlemaps@npm:*, @types/googlemaps@npm:^3.37.5, @types/googlemaps@npm:^3.39.3":
+"@types/googlemaps@npm:*, @types/googlemaps@npm:^3.39.3":
   version: 3.40.0
   resolution: "@types/googlemaps@npm:3.40.0"
   checksum: e034cc86d1a94218a0eff03997db88b86207c4eb818b76bb86cc9f5a22bc874aa1901666e863237300bc1696e1626bc1636b3b52ed5e93165d8b7a653114524a
@@ -7525,7 +7458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:26.x, @types/jest@npm:^26.0.20":
+"@types/jest@npm:26.x":
   version: 26.0.20
   resolution: "@types/jest@npm:26.0.20"
   dependencies:
@@ -7541,16 +7474,6 @@ __metadata:
   dependencies:
     jest-diff: ^24.3.0
   checksum: 2a950309a2d848c292b0c324aa124e4833f6446ddfcdb1f854c454000738ab918ac45f57ddbd667491381ad55b138a21d7aa049d7fe642b6ea87095990aa054b
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:^25.1.2":
-  version: 25.2.3
-  resolution: "@types/jest@npm:25.2.3"
-  dependencies:
-    jest-diff: ^25.2.1
-    pretty-format: ^25.2.1
-  checksum: fe92624fd7b3b5358ffba8e59108b484de1d01df08dfc66bb597d59d09900db1950717adb8d42ce5f81ba615fa0b8de55fd5446808d92f75b45e08fcbe4cec6e
   languageName: node
   linkType: hard
 
@@ -7766,7 +7689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^13.7.0, @types/node@npm:^13.7.2":
+"@types/node@npm:^13.7.0":
   version: 13.13.12
   resolution: "@types/node@npm:13.13.12"
   checksum: 247f27e0863a4b23c7129b246b5d3a84dcee52ac7d853807fb81058cf9986fef7b82cc386390f8688e7a40f1665ebebde9128f31afa242f7ee7996cfc94af2ea
@@ -7930,7 +7853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:*, @types/react-dom@npm:^16.9.0":
+"@types/react-dom@npm:^16.9.0":
   version: 16.9.8
   resolution: "@types/react-dom@npm:16.9.8"
   dependencies:
@@ -8164,33 +8087,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/testing-library__dom@npm:*":
-  version: 7.0.2
-  resolution: "@types/testing-library__dom@npm:7.0.2"
-  dependencies:
-    pretty-format: ^25.1.0
-  checksum: aa1193d45f9527ca7b04b946e6ea2a497a0eb4102c7e344ad17ce8b6fc632c569670df9436962e09cca6f569af8ca8da601b38e1417d8057968bfe0c9fd34223
-  languageName: node
-  linkType: hard
-
-"@types/testing-library__dom@npm:^6.12.1":
-  version: 6.14.0
-  resolution: "@types/testing-library__dom@npm:6.14.0"
-  dependencies:
-    pretty-format: ^24.3.0
-  checksum: 8c52edd75c929bdbd607d55daad971a6a7a88566b8ac245bd0a2dbf71c54e276375adb0790bc31ced2c56da2f478e07f1259383afcb3958ab81c7acbae9d78a5
-  languageName: node
-  linkType: hard
-
-"@types/testing-library__jest-dom@npm:^5.9.1":
-  version: 5.9.1
-  resolution: "@types/testing-library__jest-dom@npm:5.9.1"
-  dependencies:
-    "@types/jest": "*"
-  checksum: 0c3a0522632762a3e2c1a92e47fc5ab957d4a818d3edded00bcdf57db2ebbd16faccebc7c40cb9330c12ba5625b9e4b9f6172f1b05fdb602be70f0550d6b56cd
-  languageName: node
-  linkType: hard
-
 "@types/testing-library__react-hooks@npm:^2.0.0":
   version: 2.0.0
   resolution: "@types/testing-library__react-hooks@npm:2.0.0"
@@ -8198,17 +8094,6 @@ __metadata:
     "@types/react": "*"
     "@types/react-test-renderer": "*"
   checksum: c5e385399b5e80721b9ab2ee39da965fead82777f10965ccd7172b42327199272cf3e5ab774e62eff9481d0885ee5331286149ab391261e134eb32589f60aea0
-  languageName: node
-  linkType: hard
-
-"@types/testing-library__react@npm:^9.1.2":
-  version: 9.1.3
-  resolution: "@types/testing-library__react@npm:9.1.3"
-  dependencies:
-    "@types/react-dom": "*"
-    "@types/testing-library__dom": "*"
-    pretty-format: ^25.1.0
-  checksum: 4b810c52276d4810a1e85bb767457d0aa661a2c42e95aba3c89a38f294f76cca72c4f867768e29def3b60157df040ead3054805d268a4449eec8aabdfe8ef326
   languageName: node
   linkType: hard
 
@@ -8239,13 +8124,6 @@ __metadata:
   version: 3.4.9
   resolution: "@types/uuid@npm:3.4.9"
   checksum: bc70640658b90c6ed88636f6b181e9cb74d7b13f27d924ac3c52ac73eaeb2e693653ab66a0d7d18e8b1c4022cd369c9cae28694fd586bce8b3b15dd68bea98ad
-  languageName: node
-  linkType: hard
-
-"@types/uuid@npm:^8.3.0":
-  version: 8.3.0
-  resolution: "@types/uuid@npm:8.3.0"
-  checksum: 620985aed8fdb4aed153daca5235f4303457a67a4d181efac0021712eabd9edd7e88895f79730c0e651effde7633b1b61e49a81519ac8d4e75019d2ac9b6412f
   languageName: node
   linkType: hard
 
@@ -8751,13 +8629,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zeit/schemas@npm:2.6.0":
-  version: 2.6.0
-  resolution: "@zeit/schemas@npm:2.6.0"
-  checksum: 0e015fadf7006c8e4d134148321212e6179f8ed94ca41488a10178b3fbe78eb3a13d540f8b19d7438be48315b369ffd0fc6c0e222417b30b412a4409a911cc99
-  languageName: node
-  linkType: hard
-
 "JSONStream@npm:^1.2.1, JSONStream@npm:^1.3.5":
   version: 1.3.5
   resolution: "JSONStream@npm:1.3.5"
@@ -8894,7 +8765,8 @@ __metadata:
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
-    "@types/nanoid": ^2.1.0
+    "@redux-saga/testing-utils": ^1.0.5
+    "@sentry/browser": ^5.11.1
     chart.js: ^2.9.3
     concurrently: ^5.3.0
     cross-env: ^6.0.3
@@ -8905,13 +8777,18 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
+    query-string: 5.0.0
     react: ^16.12.0
     react-chartjs-2: ^2.8.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
+    react-redux: ^7.1.3
     react-responsive: 8.2.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    redux: ^4.0.4
     redux-mock-store: ^1.5.4
+    redux-saga: ^1.1.3
     rimraf: ^3.0.2
     serverless: ^2.23.0
     serverless-s3-deploy: ^0.10.0
@@ -8921,6 +8798,7 @@ __metadata:
     typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -9038,18 +8916,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:6.5.3":
-  version: 6.5.3
-  resolution: "ajv@npm:6.5.3"
-  dependencies:
-    fast-deep-equal: ^2.0.1
-    fast-json-stable-stringify: ^2.0.0
-    json-schema-traverse: ^0.4.1
-    uri-js: ^4.2.2
-  checksum: 8ea3290d534eb2b82cb59f98caef9cb267d3e05e6eb5e7ca9f81d50d490ea427ca8d2b55ba92e0425a2a9e7f61342d48964ba044c3829d3d25b30415132c93cc
-  languageName: node
-  linkType: hard
-
 "ajv@npm:^6.1.0, ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.2, ajv@npm:^6.12.4, ajv@npm:^6.12.5, ajv@npm:^6.12.6, ajv@npm:^6.5.5":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
@@ -9102,25 +8968,33 @@ __metadata:
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
+    "@sentry/browser": ^5.11.1
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     eslint: 7.20.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
+    query-string: 5.0.0
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
+    react-redux: ^7.1.3
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     react-to-print: ^2.4.0
+    redux: ^4.0.4
+    redux-saga: ^1.1.3
     rimraf: ^3.0.2
     serverless: ^2.23.0
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -9661,7 +9535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"arch@npm:^2.1.0, arch@npm:^2.1.2":
+"arch@npm:^2.1.2":
   version: 2.2.0
   resolution: "arch@npm:2.2.0"
   checksum: 4a8d92a9a7ee185fd0f2cbe40f8c3eb6147afa86bf07b03e2cf8c8f024d2f14c42a8cf7ed06a8ce1bbe17d123a19e83d46ebddd77acb49c8ce68194cf99ab711
@@ -9727,13 +9601,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"arg@npm:2.0.0":
-  version: 2.0.0
-  resolution: "arg@npm:2.0.0"
-  checksum: 2601e7335979395180e9cbfbff7512df1e967c8ce7b19cef19d0e2897e18cbacf832aef13b35b337cb94857f3ef45e800955d271363e3652174df87943d63297
-  languageName: node
-  linkType: hard
-
 "arg@npm:^4.1.0":
   version: 4.1.3
   resolution: "arg@npm:4.1.3"
@@ -9767,7 +9634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-query@npm:^4.0.2, aria-query@npm:^4.2.2":
+"aria-query@npm:^4.2.2":
   version: 4.2.2
   resolution: "aria-query@npm:4.2.2"
   dependencies:
@@ -10203,7 +10070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:*, aws-sdk@npm:^2.421.0, aws-sdk@npm:^2.582.0, aws-sdk@npm:^2.624.0, aws-sdk@npm:^2.7.0, aws-sdk@npm:^2.750.0, aws-sdk@npm:^2.839.0":
+"aws-sdk@npm:*, aws-sdk@npm:^2.582.0, aws-sdk@npm:^2.624.0, aws-sdk@npm:^2.7.0, aws-sdk@npm:^2.750.0, aws-sdk@npm:^2.839.0":
   version: 2.839.0
   resolution: "aws-sdk@npm:2.839.0"
   dependencies:
@@ -11283,7 +11150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.3.5, bluebird@npm:^3.4.6, bluebird@npm:^3.5.1, bluebird@npm:^3.5.5, bluebird@npm:^3.7.2":
+"bluebird@npm:^3.3.5, bluebird@npm:^3.4.6, bluebird@npm:^3.5.5, bluebird@npm:^3.7.2":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 4f2288662f3d4eadbb82d4daa4a7d7976a28fa3c7eb4102c9b4033b03e5be4574ba123ac52a7c103cde4cb7b2d2afc1dbe41817ca15a29ff21ecd258d0286047
@@ -11371,7 +11238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"boxen@npm:1.3.0, boxen@npm:^1.2.1":
+"boxen@npm:^1.2.1":
   version: 1.3.0
   resolution: "boxen@npm:1.3.0"
   dependencies:
@@ -12217,17 +12084,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:2.4.1":
-  version: 2.4.1
-  resolution: "chalk@npm:2.4.1"
-  dependencies:
-    ansi-styles: ^3.2.1
-    escape-string-regexp: ^1.0.5
-    supports-color: ^5.3.0
-  checksum: 4622cdba475f17904bf025e38bcdee324e5289a5d677d2d3a8ec57a7ca5d71a1a7d7db633c15ab71bab96cc54607841162ebbae64f7beb4fb07c5df0bb452199
-  languageName: node
-  linkType: hard
-
 "chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.3.0, chalk@npm:^2.3.2, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -12713,16 +12569,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipboardy@npm:1.2.3":
-  version: 1.2.3
-  resolution: "clipboardy@npm:1.2.3"
-  dependencies:
-    arch: ^2.1.0
-    execa: ^0.8.0
-  checksum: 3eb91f63059260a8e4040d5760107355eda2d9213e2ddf05c2dcfdf9a22dcc475d4e21a3045494b11c8cdae949a747c198b7b6cdd5003701c38b2bb420caf756
-  languageName: node
-  linkType: hard
-
 "cliui@npm:^5.0.0":
   version: 5.0.0
   resolution: "cliui@npm:5.0.0"
@@ -13136,27 +12982,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compressible@npm:~2.0.14, compressible@npm:~2.0.16":
+"compressible@npm:~2.0.16":
   version: 2.0.18
   resolution: "compressible@npm:2.0.18"
   dependencies:
     mime-db: ">= 1.43.0 < 2"
   checksum: 8ac178b6ef4f72adc51e495f23f7212a4764395dde24e476046cca1db988859eef96453e11563bcf40d1bf74469cdd7db29539fd4ac553577d9812d3f112fada
-  languageName: node
-  linkType: hard
-
-"compression@npm:1.7.3":
-  version: 1.7.3
-  resolution: "compression@npm:1.7.3"
-  dependencies:
-    accepts: ~1.3.5
-    bytes: 3.0.0
-    compressible: ~2.0.14
-    debug: 2.6.9
-    on-headers: ~1.0.1
-    safe-buffer: 5.1.2
-    vary: ~1.1.2
-  checksum: 20599747a7a6b0855e362428d382d4edcd226cea682d20c6e33a7768fb448b2f8b4974f18c5e27fa6abfbbb193aba1ef0b7db87bd7cea24a7d5f7c216573e1fe
   languageName: node
   linkType: hard
 
@@ -13361,13 +13192,6 @@ __metadata:
   version: 0.1.0
   resolution: "contains-path@npm:0.1.0"
   checksum: 59920a59a0c7d1244235d76b8cfd2b2e7a8dcc463fa578ef9d4d5a5a73eeb14d75dada6b21188e0b35f2474ae9efd10c3698372e674db9c6a904b281998b97d6
-  languageName: node
-  linkType: hard
-
-"content-disposition@npm:0.5.2":
-  version: 0.5.2
-  resolution: "content-disposition@npm:0.5.2"
-  checksum: 5d54ba7c9a6e865d1fea321e43d9e56be091aa20706f4632a236ebe7824ed3cb0eac314b80e76a9db2092d287d69add03efcaf743068ee0be1f71159c14a134c
   languageName: node
   linkType: hard
 
@@ -13929,22 +13753,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css.escape@npm:1.5.1, css.escape@npm:^1.5.1":
+"css.escape@npm:1.5.1":
   version: 1.5.1
   resolution: "css.escape@npm:1.5.1"
   checksum: 44fe5e93fee46fe60dbd0cdd078b14ef75697ee93519a7157f976b655463dd66eba598b0df16c16a897ac884c97845d2a3819cb8d370cbf91bc59bb557ebe826
-  languageName: node
-  linkType: hard
-
-"css@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "css@npm:2.2.4"
-  dependencies:
-    inherits: ^2.0.3
-    source-map: ^0.6.1
-    source-map-resolve: ^0.5.2
-    urix: ^0.1.0
-  checksum: b94365b3c07c35529beab95f679102c66d1027774c2e80f5179a6ee11ccc440046aeb7771df33569334bbdfd8ea753dd132197040dc079fcd881141348a1886f
   languageName: node
   linkType: hard
 
@@ -14208,6 +14020,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@sentry/browser": ^5.11.1
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -14216,7 +14029,9 @@ __metadata:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     react: ^16.12.0
+    react-copy-to-clipboard: ^5.0.2
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
@@ -14225,8 +14040,10 @@ __metadata:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -14258,7 +14075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.10.1, dayjs@npm:^1.10.4, dayjs@npm:^1.8.19, dayjs@npm:^1.9.3":
+"dayjs@npm:^1.10.1, dayjs@npm:^1.10.4, dayjs@npm:^1.9.3":
   version: 1.10.4
   resolution: "dayjs@npm:1.10.4"
   checksum: 3b7bb2232fff808209870bc72d4b2000941a1aa45f0226e2907f9dd1dda306d4b3a1eb9058450fd2c324b01a007a37809ac6f9b525806a86902c55e2934cd5d5
@@ -14790,7 +14607,8 @@ __metadata:
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
-    "@types/nanoid": ^2.1.0
+    "@redux-saga/testing-utils": ^1.0.5
+    "@sentry/browser": ^5.11.1
     amazon-cognito-identity-js: ^4.5.11
     chart.js: ^2.9.3
     concurrently: ^5.3.0
@@ -14804,13 +14622,19 @@ __metadata:
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
     papaparse: ^5.1.1
+    query-string: 5.0.0
     react: ^16.12.0
     react-chartjs-2: ^2.8.0
+    react-copy-to-clipboard: ^5.0.2
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
+    react-redux: ^7.1.3
     react-responsive: 8.2.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    redux: ^4.0.4
     redux-mock-store: ^1.5.4
+    redux-saga: ^1.1.3
     rimraf: ^3.0.2
     serverless: ^2.23.0
     serverless-s3-deploy: ^0.10.0
@@ -14818,8 +14642,10 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
     swagger-ui-react: ^3.34.0
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -15022,13 +14848,6 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: 2eae469bd2889ceee9892083a67340b3622568fe5290edce620e5d5ddab23d644b2a780e9a7c68ad9c8a62716a70c5e484402ac93a398fa78b54b7505592aa7f
-  languageName: node
-  linkType: hard
-
-"dom-accessibility-api@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "dom-accessibility-api@npm:0.3.0"
-  checksum: d6b40ffc70e03bc4878ba354fa590772665b9c948ad81f1fd8f47748280d6e4b3e91f1acc2e5b82f600da95833d31311c2b2a80720ed23d2c5c94e657b35bfd2
   languageName: node
   linkType: hard
 
@@ -16650,11 +16469,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/utils": "workspace:packages/utils"
     "@sentry/node": ^5.24.2
-    "@types/body-parser": ^1.19.0
-    "@types/cors": ^2.8.7
-    "@types/express": 4.17.7
-    "@types/jest": ^26.0.20
-    "@types/morgan": ^1.9.1
     aws-lambda: ^1.0.6
     aws-sdk: ^2.750.0
     body-parser: ^1.19.0
@@ -16796,21 +16610,6 @@ __metadata:
     signal-exit: ^3.0.0
     strip-eof: ^1.0.0
   checksum: 7210f5334e5da185365eccc129bedb2f7dc6e5872fb1f09f36fc603e32790d79bfad61ddc6219d057d7fa65c69c17025cdb51b859e7d5a64e94d261ddbbbf260
-  languageName: node
-  linkType: hard
-
-"execa@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "execa@npm:0.8.0"
-  dependencies:
-    cross-spawn: ^5.0.1
-    get-stream: ^3.0.0
-    is-stream: ^1.1.0
-    npm-run-path: ^2.0.0
-    p-finally: ^1.0.0
-    signal-exit: ^3.0.0
-    strip-eof: ^1.0.0
-  checksum: 1a5fd2f5702b1c47605ed06836acdd8b7dafa1cdd39c517ef1414fc3e94ccc93f605d285edbafc8ad9e36992b27a386f529bfeb5434509f800d03896be2dd09f
   languageName: node
   linkType: hard
 
@@ -17271,15 +17070,6 @@ __metadata:
   version: 2.0.7
   resolution: "fast-safe-stringify@npm:2.0.7"
   checksum: 7bd22543263b707870d70c6f2336b6e8563e34d6807dc388cc0566895e31e0a8273af017a7eb1c9538d0ef54288284e1c0585b557bd856491295a847159fd929
-  languageName: node
-  linkType: hard
-
-"fast-url-parser@npm:1.1.3":
-  version: 1.1.3
-  resolution: "fast-url-parser@npm:1.1.3"
-  dependencies:
-    punycode: ^1.3.2
-  checksum: 8dbc306b736e32963fe4391a581401c422d826497ce5cacf6e7c60525febfbcea477fbc5b012fe3316f6634a20fa00882168c5ed792ff3ef904c5bc6a11a598d
   languageName: node
   linkType: hard
 
@@ -18341,21 +18131,28 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "geo-diary@workspace:packages/geo-diary"
   dependencies:
+    "@apollo/react-hooks": ^3.1.3
+    "@apollo/react-testing": ^3.1.3
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
-    "@types/googlemaps": ^3.39.3
+    "@sentry/browser": ^5.11.1
+    apollo-boost: ^0.4.9
+    apollo-link-error: ^1.1.13
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
     eslint: 7.20.0
+    graphql: 14.7.0
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     little-loader: ^0.2.0
+    query-string: 5.0.0
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
@@ -18363,8 +18160,10 @@ fsevents@^1.2.7:
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -18567,7 +18366,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"glob-all@npm:^3.1.0, glob-all@npm:^3.2.1":
+"glob-all@npm:^3.2.1":
   version: 3.2.1
   resolution: "glob-all@npm:3.2.1"
   dependencies:
@@ -19138,11 +18937,6 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/utils": "workspace:packages/utils"
-    "@types/graphql-depth-limit": ^1.1.2
-    "@types/graphql-type-json": ^0.3.2
-    "@types/jest": ^25.1.2
-    "@types/node": ^13.7.2
-    "@types/uuid": ^3.4.6
     apollo-server-core: ^2.18.2
     apollo-server-lambda: ^2.18.2
     axios: ^0.21.0
@@ -19159,6 +18953,7 @@ fsevents@^1.2.7:
     graphql: 14.7.0
     graphql-depth-limit: ^1.1.0
     graphql-import: ^0.7.1
+    graphql-tag: ^2.10.1
     graphql-type-json: ^0.3.1
     https-proxy-agent: 5.0.0
     jest: ^25.5.4
@@ -19171,6 +18966,7 @@ fsevents@^1.2.7:
     react-dom: ^16.12.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    serialize-error: ^7.0.1
     serverless: ^2.23.0
     serverless-deployment-bucket: ^1.3.0
     serverless-offline: ^6.1.4
@@ -19251,7 +19047,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphql@npm:14.7.0":
+"graphql@npm:14.7.0, graphql@npm:^14.5.3":
   version: 14.7.0
   resolution: "graphql@npm:14.7.0"
   dependencies:
@@ -21801,7 +21597,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^25.1.0, jest-diff@npm:^25.2.1, jest-diff@npm:^25.5.0":
+"jest-diff@npm:^25.5.0":
   version: 25.5.0
   resolution: "jest-diff@npm:25.5.0"
   dependencies:
@@ -22195,7 +21991,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^25.1.0, jest-matcher-utils@npm:^25.5.0":
+"jest-matcher-utils@npm:^25.5.0":
   version: 25.5.0
   resolution: "jest-matcher-utils@npm:25.5.0"
   dependencies:
@@ -24765,14 +24561,6 @@ fsevents@^1.2.7:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@sentry/node": ^5.24.2
-    "@types/body-parser": ^1.19.0
-    "@types/cors": ^2.8.7
-    "@types/ejs": ^3.0.5
-    "@types/express": ^4.17.8
-    "@types/express-session": ^1.17.0
-    "@types/jest": ^25.1.2
-    "@types/morgan": ^1.9.1
-    "@types/uuid": ^8.3.0
     aws-sdk: ^2.750.0
     axios: ^0.21.1
     body-parser: ^1.19.0
@@ -24914,7 +24702,7 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
-    "@types/just-debounce-it": ^1.1.0
+    "@sentry/browser": ^5.11.1
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -24922,8 +24710,10 @@ fsevents@^1.2.7:
     jest: ^26.6.3
     jest-coverage-badges: ^1.1.2
     just-debounce-it: ^1.1.0
+    query-string: 5.0.0
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
@@ -24931,8 +24721,10 @@ fsevents@^1.2.7:
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -24946,7 +24738,8 @@ fsevents@^1.2.7:
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/utils": "workspace:packages/utils"
-    "@types/nanoid": ^2.1.0
+    "@redux-saga/testing-utils": ^1.0.5
+    "@sentry/browser": ^5.11.1
     amazon-cognito-identity-js: ^4.5.11
     chart.js: ^2.9.3
     concurrently: ^5.3.0
@@ -24958,23 +24751,30 @@ fsevents@^1.2.7:
     jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
+    query-string: 5.0.0
     react: ^16.12.0
     react-chartjs-2: ^2.8.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-infinite-scroll-component: ^5.0.5
+    react-redux: ^7.1.3
     react-responsive: 8.2.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     react-transition-group: ^4.4.1
+    redux: ^4.0.4
     redux-mock-store: ^1.5.4
+    redux-saga: ^1.1.3
     rimraf: ^3.0.2
     serverless: ^2.23.0
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -25354,23 +25154,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mime-db@npm:~1.33.0":
-  version: 1.33.0
-  resolution: "mime-db@npm:1.33.0"
-  checksum: f33acedd5b2bfd57fe987aa01c209abd3c6f762c6746c2a1ffefa77f8c10d39a2af9a591bd44f39f8d42a5ee30e43407cfd8535392773f211c2c7d7b6def90d4
-  languageName: node
-  linkType: hard
-
-"mime-types@npm:2.1.18":
-  version: 2.1.18
-  resolution: "mime-types@npm:2.1.18"
-  dependencies:
-    mime-db: ~1.33.0
-  checksum: f1e2fed4f9d04a0d158c48b42f8ac5f1a655b27399674f7bd9f16e6784221ec4c2d30b20f24174f741ee6aa2556170f63b3ec9f51cb4e99e0a04c56799c8317c
-  languageName: node
-  linkType: hard
-
-"mime-types@npm:^2.1.12, mime-types@npm:^2.1.18, mime-types@npm:^2.1.25, mime-types@npm:^2.1.27, mime-types@npm:~2.1.17, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24":
+"mime-types@npm:^2.1.12, mime-types@npm:^2.1.25, mime-types@npm:^2.1.27, mime-types@npm:~2.1.17, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24":
   version: 2.1.28
   resolution: "mime-types@npm:2.1.28"
   dependencies:
@@ -26752,7 +26536,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"on-headers@npm:~1.0.1, on-headers@npm:~1.0.2":
+"on-headers@npm:~1.0.2":
   version: 1.0.2
   resolution: "on-headers@npm:1.0.2"
   checksum: 51e75c80755169e765aa76238722e5ad1623f62b13bbc23544ade20cdbb6950cf0e6aa91de35d02ec956f47dc072ee460d8eef82354e4abf8fa692885cb3f2d8
@@ -27692,7 +27476,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"path-is-inside@npm:1.0.2, path-is-inside@npm:^1.0.1, path-is-inside@npm:^1.0.2":
+"path-is-inside@npm:^1.0.1, path-is-inside@npm:^1.0.2":
   version: 1.0.2
   resolution: "path-is-inside@npm:1.0.2"
   checksum: 9c1841199d18398ee5f6d79f57eaa57f8eb85743353ea97c6d933423f246f044575a10c1847c638c36440b050aef82665b9cb4fc60950866cd239f3d51835ef4
@@ -27734,13 +27518,6 @@ fsevents@^1.2.7:
   version: 0.1.7
   resolution: "path-to-regexp@npm:0.1.7"
   checksum: 342fdb0ca48415d6eccdbe6d4180fd0fa4786ccc96ab3f74fcdf7acfc99e075af25e6077c8086c341dcfb4f5f84401ecd21e6cd7b24e0c3b556fb7ffb2570da7
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:2.2.1":
-  version: 2.2.1
-  resolution: "path-to-regexp@npm:2.2.1"
-  checksum: 1f9be3a4100c23f845892406bcdfcf79d62044ce24c1c50dca28719123ce7d338ac584e98d21d23eef2702754925511812e768523e59916777ec1f444438d9a4
   languageName: node
   linkType: hard
 
@@ -27803,6 +27580,7 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@sentry/browser": ^5.11.1
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -27811,6 +27589,7 @@ fsevents@^1.2.7:
     jest-coverage-badges: ^1.1.2
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
@@ -27821,9 +27600,10 @@ fsevents@^1.2.7:
     snyk: ^1.341.1
     swr: ^0.3.9
     ts-jest: ^26.4.3
-    typescript: 4.0.3
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -27836,13 +27616,6 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": ^2.0.9
     "@sentry/node": ^5.24.2
-    "@types/body-parser": ^1.19.0
-    "@types/cors": ^2.8.7
-    "@types/express": 4.17.7
-    "@types/express-session": ^1.17.3
-    "@types/jest": ^25.1.2
-    "@types/morgan": ^1.9.1
-    "@types/uuid": ^8.3.0
     aws-lambda: ^1.0.6
     aws-sdk: ^2.839.0
     axios: ^0.21.1
@@ -27854,7 +27627,7 @@ fsevents@^1.2.7:
     eslint: 7.20.0
     express: ^4.17.1
     express-session: ^1.17.1
-    jest: ^25.5.4
+    jest: ^26.6.3
     memorystore: ^1.6.4
     morgan: ^1.10.0
     react: ^16.12.0
@@ -28383,7 +28156,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^24.3.0, pretty-format@npm:^24.9.0":
+"pretty-format@npm:^24.9.0":
   version: 24.9.0
   resolution: "pretty-format@npm:24.9.0"
   dependencies:
@@ -28395,7 +28168,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^25.1.0, pretty-format@npm:^25.2.1, pretty-format@npm:^25.5.0":
+"pretty-format@npm:^25.5.0":
   version: 25.5.0
   resolution: "pretty-format@npm:25.5.0"
   dependencies:
@@ -28777,7 +28550,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"punycode@npm:^1.2.4, punycode@npm:^1.3.2":
+"punycode@npm:^1.2.4":
   version: 1.4.1
   resolution: "punycode@npm:1.4.1"
   checksum: 5ce1e044cee2b12f1c65ccd523d7e71d6578f2c77f5c21c2e7a9d588535559c9508571d42638c131dab93cbe9a7b37bce1a7475d43fc8236c99dfe1efc36cfa5
@@ -29019,13 +28792,6 @@ fsevents@^1.2.7:
     randombytes: ^2.0.5
     safe-buffer: ^5.1.0
   checksum: 24658ce99e0a325f27d157fbff9b111f9fa2f56876031ac9a09bcd6c5ae53d3c3f1b124d7e1b813803ee1b09e50dd1561ac7f7a8ba2930319cbcda5e827602ab
-  languageName: node
-  linkType: hard
-
-"range-parser@npm:1.2.0":
-  version: 1.2.0
-  resolution: "range-parser@npm:1.2.0"
-  checksum: 8260023192a5def4c6db4ced82e6546306937f1202417b846f2e8b565426e71697086f509a070f66fd23a57e9f96aba108f08d16d4be23d418c8c68a73b539bd
   languageName: node
   linkType: hard
 
@@ -30154,6 +29920,7 @@ fsevents@^1.2.7:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
+    "@sentry/browser": ^5.11.1
     concurrently: ^5.3.0
     cross-env: ^6.0.3
     dayjs: ^1.10.4
@@ -30162,6 +29929,7 @@ fsevents@^1.2.7:
     jest-coverage-badges: ^1.1.2
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-ga: ^2.7.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
     rimraf: ^3.0.2
@@ -30170,8 +29938,10 @@ fsevents@^1.2.7:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
     snyk: ^1.341.1
+    typescript: ^4.0.3
     webpack: ^4.41.5
     webpack-dev-server: ^3.11.0
+    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -30411,16 +30181,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"registry-auth-token@npm:3.3.2":
-  version: 3.3.2
-  resolution: "registry-auth-token@npm:3.3.2"
-  dependencies:
-    rc: ^1.1.6
-    safe-buffer: ^5.0.1
-  checksum: e23c360fd85760a9fb75bd9deea1dc4bf7d8d0cca995e267db40d748ef9d106ffc79d7dde36d9c29b5b76e49b10de79240748f8a411f75eaee74c10e65607739
-  languageName: node
-  linkType: hard
-
 "registry-auth-token@npm:^3.0.1, registry-auth-token@npm:^3.3.2":
   version: 3.4.0
   resolution: "registry-auth-token@npm:3.4.0"
@@ -30440,7 +30200,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"registry-url@npm:3.1.0, registry-url@npm:^3.0.3, registry-url@npm:^3.1.0":
+"registry-url@npm:^3.0.3, registry-url@npm:^3.1.0":
   version: 3.1.0
   resolution: "registry-url@npm:3.1.0"
   dependencies:
@@ -31175,64 +30935,6 @@ resolve@1.15.1:
 "root@workspace:.":
   version: 0.0.0-use.local
   resolution: "root@workspace:."
-  dependencies:
-    "@apollo/react-hooks": ^3.1.3
-    "@apollo/react-testing": ^3.1.3
-    "@octokit/rest": ^16.38.1
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@redux-saga/testing-utils": ^1.0.5
-    "@sentry/browser": ^5.11.1
-    "@sentry/node": ^5.15.5
-    "@testing-library/jest-dom": ^5.5.0
-    "@testing-library/react": ^9.5.0
-    "@testing-library/react-hooks": ^2.0.3
-    "@types/diff": ^4.0.2
-    "@types/enzyme": ^3.10.3
-    "@types/enzyme-adapter-react-16": ^1.0.5
-    "@types/jest": ^24.0.23
-    "@types/node": 10.17.13
-    "@types/papaparse": ^5.0.3
-    "@types/query-string": ^6.3.0
-    "@types/react": ^16.9.0
-    "@types/react-copy-to-clipboard": ^4.3.0
-    "@types/react-dom": ^16.9.0
-    "@types/react-redux": ^7.0.9
-    "@types/react-router": ^5.1.3
-    "@types/react-router-dom": ^5.1.3
-    "@types/webpack": ^4.41.6
-    "@types/yup": ^0.29.2
-    apollo-boost: ^0.4.9
-    apollo-link-error: ^1.1.13
-    dayjs: ^1.8.19
-    graphql: 14.7.0
-    graphql-tag: ^2.10.1
-    query-string: 5.0.0
-    react: ^16.12.0
-    react-copy-to-clipboard: ^5.0.2
-    react-dom: ^16.12.0
-    react-ga: ^2.7.0
-    react-redux: ^7.1.3
-    react-router: ^5.1.2
-    react-router-dom: ^5.1.2
-    redux: ^4.0.4
-    redux-saga: ^1.1.3
-    serialize-error: ^7.0.1
-    serve: ^11.2.0
-    serverless: ^2.23.0
-    serverless-add-api-key: ^4.1.1
-    serverless-deployment-bucket: ^1.1.2
-    serverless-plugin-ifelse: ^1.0.5
-    serverless-s3-deploy: ^0.9.0
-    serverless-s3-remover: ^0.6.0
-    serverless-single-page-app-plugin: ^1.0.2
-    snyk: ^1.455.0
-    svelte: ^3.24.0
-    tsdx: ^0.12.3
-    tslib: ^1.10.0
-    typescript: ^4.0.3
-    yargs: ^15.3.1
-    yup: ^0.29.1
   languageName: unknown
   linkType: soft
 
@@ -31734,22 +31436,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"serve-handler@npm:6.1.3":
-  version: 6.1.3
-  resolution: "serve-handler@npm:6.1.3"
-  dependencies:
-    bytes: 3.0.0
-    content-disposition: 0.5.2
-    fast-url-parser: 1.1.3
-    mime-types: 2.1.18
-    minimatch: 3.0.4
-    path-is-inside: 1.0.2
-    path-to-regexp: 2.2.1
-    range-parser: 1.2.0
-  checksum: 493e7556ec53bc6c8616ffc58697d93c5ebc8ddeb38de39b5381140a8467bb720fbbd58fbe91de25ea9ccc98ce8b11131ccd7e160ddf891ca5199e7f1437cc18
-  languageName: node
-  linkType: hard
-
 "serve-index@npm:^1.9.1":
   version: 1.9.1
   resolution: "serve-index@npm:1.9.1"
@@ -31774,35 +31460,6 @@ resolve@1.15.1:
     parseurl: ~1.3.3
     send: 0.17.1
   checksum: 97e8c94ec02950d019000ca12a8e0b4fdeaaabb7ae965c1c05557b55b48114716ae92688972a8d9f06a5e2d5957c305253a859ec223bb39a1e0732366d0e2768
-  languageName: node
-  linkType: hard
-
-"serve@npm:^11.2.0":
-  version: 11.3.2
-  resolution: "serve@npm:11.3.2"
-  dependencies:
-    "@zeit/schemas": 2.6.0
-    ajv: 6.5.3
-    arg: 2.0.0
-    boxen: 1.3.0
-    chalk: 2.4.1
-    clipboardy: 1.2.3
-    compression: 1.7.3
-    serve-handler: 6.1.3
-    update-check: 1.5.2
-  bin:
-    serve: bin/serve.js
-  checksum: b455b7e3e895f9b9cb4f1dd7430face76278770cf5dc0fffa89e7eac38ed955e5bc1e3f3f435bc4dd05fa0548a09cc6cdf7af5938da2b1b377af3a3080f9eca7
-  languageName: node
-  linkType: hard
-
-"serverless-add-api-key@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "serverless-add-api-key@npm:4.1.1"
-  dependencies:
-    aws-sdk: ^2.421.0
-    chalk: ^2.4.1
-  checksum: df44ebb680a169d6764450b27fd1ed421e8101119928f06620afff85d92c71c5252cc076dad51eb9fd943575dab2a7d87939df0f9d84dc20a5f6b4a7693f0b03
   languageName: node
   linkType: hard
 
@@ -31902,13 +31559,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"serverless-plugin-ifelse@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "serverless-plugin-ifelse@npm:1.0.5"
-  checksum: eff243f0d54bb2b68d8861e402110e5d51a4f5435f6965c74e0f56fc6943449f450717731c4163088c166ee17ac498d5002f7fa10e984b24f73fee8a5923cec1
-  languageName: node
-  linkType: hard
-
 "serverless-s3-deploy@npm:^0.10.0":
   version: 0.10.0
   resolution: "serverless-s3-deploy@npm:0.10.0"
@@ -31917,17 +31567,6 @@ resolve@1.15.1:
     glob-all: ^3.2.1
     mime-types: ^2.1.27
   checksum: 66cc193387bf1d12a5acd214d59e8f6b5b0921de9a62db1a97891f18b664e6813ab6ed665fe5644ee256e1999443598e21cf94536345c9a4296a7ca250b60337
-  languageName: node
-  linkType: hard
-
-"serverless-s3-deploy@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "serverless-s3-deploy@npm:0.9.0"
-  dependencies:
-    bluebird: ^3.5.1
-    glob-all: ^3.1.0
-    mime-types: ^2.1.18
-  checksum: 2c7908027483bf31c727caaee42d27fb0970ed197a333badfb8e41da620e65c66e42d9bd0b1ef902fb02651d151ccbde0b9f550020e738134a37b92e66b0c3d8
   languageName: node
   linkType: hard
 
@@ -32732,7 +32371,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"snyk@npm:^1.305.1, snyk@npm:^1.335.0, snyk@npm:^1.338.0, snyk@npm:^1.341.1, snyk@npm:^1.425.4, snyk@npm:^1.455.0":
+"snyk@npm:^1.305.1, snyk@npm:^1.335.0, snyk@npm:^1.338.0, snyk@npm:^1.341.1, snyk@npm:^1.425.4":
   version: 1.455.0
   resolution: "snyk@npm:1.455.0"
   dependencies:
@@ -32988,7 +32627,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"source-map-resolve@npm:^0.5.0, source-map-resolve@npm:^0.5.2":
+"source-map-resolve@npm:^0.5.0":
   version: 0.5.3
   resolution: "source-map-resolve@npm:0.5.3"
   dependencies:
@@ -34000,7 +33639,7 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.24.0, svelte@npm:^3.29.7":
+"svelte@npm:^3.29.7":
   version: 3.32.3
   resolution: "svelte@npm:3.32.3"
   checksum: 89c1f404e89a7b87ce5fcb7c9e87b7865f4f67f003d0e26957bd3a443494f009c270c58c1cc9caa5261a02bc5c78832fbe3643d2831c3445f857e5ec7ed3ca3d
@@ -35104,6 +34743,47 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
+"ts-types@workspace:packages/ts-types":
+  version: 0.0.0-use.local
+  resolution: "ts-types@workspace:packages/ts-types"
+  dependencies:
+    "@types/aws-lambda": ^8.10.39
+    "@types/body-parser": ^1.19.0
+    "@types/cors": ^2.8.7
+    "@types/diff": ^4.0.2
+    "@types/ejs": ^2.7.0
+    "@types/enzyme": ^3.10.3
+    "@types/enzyme-adapter-react-16": ^1.0.5
+    "@types/express": 4.17.7
+    "@types/express-session": ^1.17.0
+    "@types/googlemaps": ^3.39.3
+    "@types/graphql-depth-limit": ^1.1.2
+    "@types/graphql-type-json": ^0.3.2
+    "@types/jest": ^24.0.23
+    "@types/jsonwebtoken": ^8.3.5
+    "@types/just-debounce-it": ^1.1.0
+    "@types/jwk-to-pem": ^2.0.0
+    "@types/morgan": ^1.9.1
+    "@types/nanoid": ^2.1.0
+    "@types/node": 10.17.13
+    "@types/papaparse": ^5.0.3
+    "@types/query-string": ^6.3.0
+    "@types/rc-select": ^5.9.34
+    "@types/react": ^16.9.0
+    "@types/react-copy-to-clipboard": ^4.3.0
+    "@types/react-datepicker": ^3.0.3
+    "@types/react-dom": ^16.9.0
+    "@types/react-google-maps-loader": ^4.2.1
+    "@types/react-redux": ^7.0.9
+    "@types/react-router": ^5.1.3
+    "@types/react-router-dom": ^5.1.3
+    "@types/react-transition-group": ^4.4.0
+    "@types/uuid": ^3.4.6
+    "@types/webpack": ^4.41.6
+    "@types/yup": ^0.29.2
+  languageName: unknown
+  linkType: soft
+
 "tsconfig-paths@npm:^3.9.0":
   version: 3.9.0
   resolution: "tsconfig-paths@npm:3.9.0"
@@ -35428,16 +35108,6 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"typescript@4.0.3, typescript@^4.0.3":
-  version: 4.0.3
-  resolution: "typescript@npm:4.0.3"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 5c892e132756a83d22030d7fb38be47cde27613f71d233dbe7faf79e4a92852c5146bfddcaf8c2da1a37d35ae8bf7b8c888fdcd763d5ad184cea6b21e7466838
-  languageName: node
-  linkType: hard
-
 "typescript@^3.7.3, typescript@^3.9.2":
   version: 3.9.5
   resolution: "typescript@npm:3.9.5"
@@ -35448,13 +35118,13 @@ resolve@1.15.1:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.0.3#builtin<compat/typescript>, typescript@patch:typescript@^4.0.3#builtin<compat/typescript>":
+typescript@^4.0.3:
   version: 4.0.3
-  resolution: "typescript@patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=cc6730"
+  resolution: "typescript@npm:4.0.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c92843a6af50170f49158b6eb5726b80c5c22074a337d066eee278a7d08d1109667e435e96207ab1314f63f4629555e89c26645ef55b937ea6baf80d190768f6
+  checksum: 5c892e132756a83d22030d7fb38be47cde27613f71d233dbe7faf79e4a92852c5146bfddcaf8c2da1a37d35ae8bf7b8c888fdcd763d5ad184cea6b21e7466838
   languageName: node
   linkType: hard
 
@@ -35465,6 +35135,16 @@ resolve@1.15.1:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 452cdd20d801630727433a990652c1e65f5eb5586383dda60f178b4fbda5c7951256f9aa31327c73722af9b1b664e3a53d724aabfd8a68866e9b1631818f004c
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.0.3#builtin<compat/typescript>":
+  version: 4.0.3
+  resolution: "typescript@patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=cc6730"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: c92843a6af50170f49158b6eb5726b80c5c22074a337d066eee278a7d08d1109667e435e96207ab1314f63f4629555e89c26645ef55b937ea6baf80d190768f6
   languageName: node
   linkType: hard
 
@@ -35807,16 +35487,6 @@ resolve@1.15.1:
   version: 1.2.0
   resolution: "upath@npm:1.2.0"
   checksum: ecb08ff3e7e3b152e03bceb7089e6f0077bf3494764397a301eb99a7a5cd4c593ea4d0b13a7714195ad8a3ddca9d7a5964037a1c0bc712e1ba7b67a79165a0be
-  languageName: node
-  linkType: hard
-
-"update-check@npm:1.5.2":
-  version: 1.5.2
-  resolution: "update-check@npm:1.5.2"
-  dependencies:
-    registry-auth-token: 3.3.2
-    registry-url: 3.1.0
-  checksum: b2dd841107f79ba6a5fb9c5cfe46ef3485c04fc958e88f6893b9951732fefc4815cfb2e4bb507ad39eaf02c485d9e0f0778c089a220ac510c374b206bee63063
   languageName: node
   linkType: hard
 
@@ -36406,13 +36076,6 @@ resolve@1.15.1:
   dependencies:
     xml-name-validator: ^3.0.0
   checksum: 2327c8a6c7302ed4b685125c193f4b4b859ee12cd6e1938407a02dda9cfcfff7f0c103de387b268444c4b61d7892d5260b5c684eb7519886fb3a07798bd565ba
-  languageName: node
-  linkType: hard
-
-"wait-for-expect@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "wait-for-expect@npm:3.0.2"
-  checksum: 487de701ccb29f9edc2fb2d77b3212c29266266156cd13f51b34556faa1061151f078b7200763c684553fcd67823084cd5f871a965d2b6cce97e3b9224b63bdb
   languageName: node
   linkType: hard
 

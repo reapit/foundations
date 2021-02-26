@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "jsx": "react",
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "target": "es6",
     "noImplicitAny": false,
     "moduleResolution": "node",
@@ -25,7 +25,6 @@
     "./node_modules",
     "./src/tests/coverage",
     "./src/**/*.test.ts",
-    "./src/**/__mocks__",
-    "./src/**/__stubs__"
+    "./src/**/__mocks__"
   ]
 }
