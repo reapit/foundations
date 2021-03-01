@@ -1,5 +1,6 @@
 const path = require('path')
 const { defaults } = require('jest-config')
+
 const jestGlobalConfig = {
   preset: 'ts-jest',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],

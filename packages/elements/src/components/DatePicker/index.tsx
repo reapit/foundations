@@ -205,7 +205,9 @@ export const DatePicker = ({
                   if (!value) {
                     return
                   }
-                  field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
+                  field.onChange({
+                    target: { value: dayjs(value as Date).format('YYYY-MM-DDTHH:mm:ss'), name: field.name },
+                  })
                 }}
                 onSelect={(value) => {
                   if (!value) {

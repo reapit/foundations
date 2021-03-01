@@ -1,8 +1,8 @@
 import React from 'react'
 import Dialog from 'rc-dialog'
 import { cx } from 'linaria'
-import IDialogPropTypes from 'rc-dialog/lib/IDialogPropTypes'
 import { modalContainer, modalCentered, modalNoPadding, modalResponsiveContainer, modalNoHeader } from './__styles__'
+import { IDialogPropTypes } from 'rc-dialog/lib/IDialogPropTypes'
 
 export interface ModalHeaderV2Props {
   children: React.ReactNode
