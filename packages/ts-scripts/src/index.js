@@ -4,7 +4,7 @@ const { webpackConfigNode } = require('./webpack/webpack.config.node')
 const { getVersionTag, runCommand, getRef } = require('./webpack/utils')
 const { sassDev, sassProd, graphql } = require('./webpack/rules')
 const { PATHS } = require('./webpack/constants')
-const { cssStub } = require('./jest/css-stub')
+const cssStub = require('./jest/css-stub')
 const { jestGlobalConfig } = require('./jest/jest.config')
 const svgTransform = require('./jest/svg-transform')
 

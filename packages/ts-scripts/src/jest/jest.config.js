@@ -33,7 +33,6 @@ const jestGlobalConfig = {
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
-  // cacheDirectory: path.join(__dirname, '.jest-cache'),
 }
 
 module.exports = { jestGlobalConfig }

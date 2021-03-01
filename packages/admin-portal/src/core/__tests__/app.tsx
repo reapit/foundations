@@ -16,7 +16,7 @@ describe('App', () => {
     global.window.location = {
       reload: {
         bind: jest.fn(),
-      },
+      } as any,
     }
   })
 

@@ -22,7 +22,6 @@ module.exports = {
   transformIgnorePatterns: ['node_modules/(?!(svelte-routing|svelte-fa)/)'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|poc-archive)[/\\\\]'],
   moduleNameMapper: {
-    '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),
@@ -37,7 +36,6 @@ module.exports = {
     },
   },
   transform: {
-    '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
     '^.+\\.svelte$': ['svelte-jester', { preprocess: true }],
     '^.+\\.js$': 'ts-jest',
   },
