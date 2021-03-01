@@ -28,7 +28,7 @@
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",
     "graphql": "14.7.0",
-    "linaria": "^1.4.1",
+    "linaria": "^2.0.2",
     "little-loader": "^0.2.0",
     "query-string": "5.1.1",
     "react": "^16.14.0",

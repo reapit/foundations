@@ -32,7 +32,7 @@ exports[`StatusSection should match a snapshot where isListed false and not side
     }
   }
 >
-  <Component
+  <StatusSection
     appDetail={
       Object {
         "category": Object {
@@ -117,7 +117,7 @@ exports[`StatusSection should match a snapshot where isListed true, is installed
     }
   }
 >
-  <Component
+  <StatusSection
     appDetail={
       Object {
         "category": Object {

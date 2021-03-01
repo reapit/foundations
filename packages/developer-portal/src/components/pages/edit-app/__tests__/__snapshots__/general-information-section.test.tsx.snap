@@ -27,19 +27,19 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
           isFreeVal={false}
           isListed={false}
         >
-          <Component
+          <FormSection
             data-test="submit-app-form"
           >
             <div
-              className=""
+              className="form-section"
             >
-              <Component>
+              <Helper>
                 <div
                   className="notification helper-wrap helper-info"
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className=""
+                    className="l3gjl5x-link"
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -47,34 +47,34 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     here
                   </a>
                 </div>
-              </Component>
-              <Component>
+              </Helper>
+              <FormHeading>
                 <div
-                  className=""
+                  className="form-heading mb-1"
                 >
                   App Listing
                 </div>
-              </Component>
-              <Component>
+              </FormHeading>
+              <FormSubHeading>
                 <div
-                  className=""
+                  className="form-subheading mb-4"
                 >
                   The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
-              </Component>
-              <Component
+              </FormSubHeading>
+              <Grid
                 isMultiLine={true}
               >
                 <div
-                  className=""
+                  className="columns is-multiline"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-name"
                         id="name"
                         labelText="Name"
@@ -88,7 +88,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -100,7 +100,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Name
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-name"
                                 disabled={false}
                                 id="name"
@@ -114,21 +114,21 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <div
                         className="control"
                       >
                         <div
-                          className=""
+                          className="ctlfpkh-checkbox"
                         >
-                          <Component
+                          <Checkbox
                             id="isListed"
                             labelText="Submit for approval"
                             name="isListed"
@@ -165,24 +165,24 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 </Field>
                               </div>
                             </div>
-                          </Component>
+                          </Checkbox>
                         </div>
                       </div>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <SelectBox
                         id="categoryId"
                         labelText="Category"
                         name="categoryId"
@@ -193,7 +193,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control"
@@ -223,15 +223,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </SelectBox>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-home-page"
                         id="homePage"
                         labelText="Home page"
@@ -245,7 +245,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -257,7 +257,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Home page
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-home-page"
                                 disabled={false}
                                 id="homePage"
@@ -271,22 +271,22 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-support-email"
                         id="supportEmail"
                         labelText="Support email"
@@ -300,7 +300,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -312,7 +312,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Support email
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-support-email"
                                 disabled={false}
                                 id="supportEmail"
@@ -326,15 +326,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-launch-uri"
                         id="launchUri"
                         labelText="Launch URI"
@@ -348,7 +348,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -360,7 +360,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Launch URI
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-launch-uri"
                                 disabled={false}
                                 id="launchUri"
@@ -374,25 +374,25 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <div
                         className="pb-4"
                       >
-                        <Component
+                        <Input
                           dataTest="submit-app-phone"
                           id="telephone"
                           labelText="Telephone"
@@ -406,7 +406,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             validate={null}
                           >
                             <div
-                              className=""
+                              className="field"
                             >
                               <div
                                 className="control "
@@ -418,7 +418,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   Telephone
                                 </label>
                                 <input
-                                  className=""
+                                  className="input is-primary"
                                   data-test="submit-app-phone"
                                   disabled={false}
                                   id="telephone"
@@ -432,9 +432,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               </div>
                             </div>
                           </Field>
-                        </Component>
+                        </Input>
                       </div>
-                      <Component
+                      <TextArea
                         dataTest="submit-app-summary"
                         id="summary"
                         labelText="Summary"
@@ -453,13 +453,13 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control"
                             >
                               <label
-                                className=""
+                                className="label"
                                 htmlFor="summary"
                               >
                                 Summary
                               </label>
                               <textarea
-                                className=""
+                                className="textarea is-primary"
                                 data-test="submit-app-summary"
                                 id="summary"
                                 name="summary"
@@ -470,17 +470,17 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </TextArea>
                     </div>
-                  </Component>
-                  <Component
+                  </GridItem>
+                  <GridItem
                     className="is-half-desktop"
                   >
                     <div
-                      className=""
+                      className="column is-half-desktop"
                       data-test=""
                     >
-                      <Component
+                      <TextAreaEditor
                         actions={
                           Array [
                             "bold",
@@ -497,7 +497,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             },
                           ]
                         }
-                        containerClass=""
+                        containerClass="e1pmlq1f-editor"
                         dataTest="submit-app-description"
                         id="description"
                         labelText="Description"
@@ -517,7 +517,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               Description
                             </label>
-                            <Component
+                            <Editor
                               actions={
                                 Array [
                                   "bold",
@@ -534,7 +534,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   },
                                 ]
                               }
-                              containerClass=""
+                              containerClass="e1pmlq1f-editor"
                               dataTest="submit-app-description"
                               hasError={false}
                               onBlur={[Function]}
@@ -543,30 +543,30 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                             >
                               <div
-                                className="pell false "
+                                className="pell false e1pmlq1f-editor"
                                 data-test="submit-app-description"
                                 onBlur={[Function]}
                                 onPaste={[Function]}
                               />
-                            </Component>
+                            </Editor>
                           </div>
                         </div>
-                      </Component>
+                      </TextAreaEditor>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-terms-conditions"
                         id="termsAndConditionsUrl"
                         labelText="Terms and Conditions"
@@ -580,7 +580,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -592,7 +592,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Terms and Conditions
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
                                 id="termsAndConditionsUrl"
@@ -606,15 +606,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-privacy-policy"
                         id="privacyPolicyUrl"
                         labelText="Privacy Policy"
@@ -628,7 +628,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -640,7 +640,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Privacy Policy
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-privacy-policy"
                                 disabled={false}
                                 id="privacyPolicyUrl"
@@ -654,22 +654,22 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-terms-conditions"
                         disabled={false}
                         id="pricingUrl"
@@ -683,7 +683,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -695,7 +695,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Pricing Info
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
                                 id="pricingUrl"
@@ -709,12 +709,12 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <label
@@ -722,7 +722,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       >
                          
                       </label>
-                      <Component
+                      <Checkbox
                         id="isFree"
                         labelText="This application is free"
                         name="isFree"
@@ -759,13 +759,13 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </Field>
                           </div>
                         </div>
-                      </Component>
+                      </Checkbox>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
+              </Grid>
             </div>
-          </Component>
+          </FormSection>
         </GeneralInformationSection>
       </form>
     </Form>
@@ -800,19 +800,19 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
           isFreeVal={false}
           isListed={true}
         >
-          <Component
+          <FormSection
             data-test="submit-app-form"
           >
             <div
-              className=""
+              className="form-section"
             >
-              <Component>
+              <Helper>
                 <div
                   className="notification helper-wrap helper-info"
                 >
                   For more information on how to complete this form, please view our "Step-by-step" guide 
                   <a
-                    className=""
+                    className="l3gjl5x-link"
                     href="https://foundations-documentation.reapit.cloud/developer-portal"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -820,34 +820,34 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                     here
                   </a>
                 </div>
-              </Component>
-              <Component>
+              </Helper>
+              <FormHeading>
                 <div
-                  className=""
+                  className="form-heading mb-1"
                 >
                   App Listing
                 </div>
-              </Component>
-              <Component>
+              </FormHeading>
+              <FormSubHeading>
                 <div
-                  className=""
+                  className="form-subheading mb-4"
                 >
                   The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
-              </Component>
-              <Component
+              </FormSubHeading>
+              <Grid
                 isMultiLine={true}
               >
                 <div
-                  className=""
+                  className="columns is-multiline"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-name"
                         id="name"
                         labelText="Name"
@@ -861,7 +861,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -873,7 +873,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Name
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-name"
                                 disabled={false}
                                 id="name"
@@ -887,21 +887,21 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <div
                         className="control"
                       >
                         <div
-                          className=""
+                          className="ctlfpkh-checkbox"
                         >
-                          <Component
+                          <Checkbox
                             id="isListed"
                             labelText="Status: Listed"
                             name="isListed"
@@ -938,24 +938,24 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 </Field>
                               </div>
                             </div>
-                          </Component>
+                          </Checkbox>
                         </div>
                       </div>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <SelectBox
                         id="categoryId"
                         labelText="Category"
                         name="categoryId"
@@ -966,7 +966,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control"
@@ -996,15 +996,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </SelectBox>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-home-page"
                         id="homePage"
                         labelText="Home page"
@@ -1018,7 +1018,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1030,7 +1030,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Home page
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-home-page"
                                 disabled={false}
                                 id="homePage"
@@ -1044,22 +1044,22 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-support-email"
                         id="supportEmail"
                         labelText="Support email"
@@ -1073,7 +1073,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1085,7 +1085,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Support email
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-support-email"
                                 disabled={false}
                                 id="supportEmail"
@@ -1099,15 +1099,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-launch-uri"
                         id="launchUri"
                         labelText="Launch URI"
@@ -1121,7 +1121,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1133,7 +1133,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Launch URI
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-launch-uri"
                                 disabled={false}
                                 id="launchUri"
@@ -1147,25 +1147,25 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <div
                         className="pb-4"
                       >
-                        <Component
+                        <Input
                           dataTest="submit-app-phone"
                           id="telephone"
                           labelText="Telephone"
@@ -1179,7 +1179,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             validate={[Function]}
                           >
                             <div
-                              className=""
+                              className="field"
                             >
                               <div
                                 className="control "
@@ -1191,7 +1191,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   Telephone
                                 </label>
                                 <input
-                                  className=""
+                                  className="input is-primary"
                                   data-test="submit-app-phone"
                                   disabled={false}
                                   id="telephone"
@@ -1205,9 +1205,9 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               </div>
                             </div>
                           </Field>
-                        </Component>
+                        </Input>
                       </div>
-                      <Component
+                      <TextArea
                         dataTest="submit-app-summary"
                         id="summary"
                         labelText="Summary"
@@ -1225,13 +1225,13 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control"
                             >
                               <label
-                                className=""
+                                className="label required-label"
                                 htmlFor="summary"
                               >
                                 Summary
                               </label>
                               <textarea
-                                className=""
+                                className="textarea is-primary"
                                 data-test="submit-app-summary"
                                 id="summary"
                                 name="summary"
@@ -1242,17 +1242,17 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </TextArea>
                     </div>
-                  </Component>
-                  <Component
+                  </GridItem>
+                  <GridItem
                     className="is-half-desktop"
                   >
                     <div
-                      className=""
+                      className="column is-half-desktop"
                       data-test=""
                     >
-                      <Component
+                      <TextAreaEditor
                         actions={
                           Array [
                             "bold",
@@ -1269,7 +1269,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             },
                           ]
                         }
-                        containerClass=""
+                        containerClass="e1pmlq1f-editor"
                         dataTest="submit-app-description"
                         id="description"
                         labelText="Description"
@@ -1289,7 +1289,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             >
                               Description
                             </label>
-                            <Component
+                            <Editor
                               actions={
                                 Array [
                                   "bold",
@@ -1306,7 +1306,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   },
                                 ]
                               }
-                              containerClass=""
+                              containerClass="e1pmlq1f-editor"
                               dataTest="submit-app-description"
                               hasError={false}
                               onBlur={[Function]}
@@ -1315,30 +1315,30 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                             >
                               <div
-                                className="pell false "
+                                className="pell false e1pmlq1f-editor"
                                 data-test="submit-app-description"
                                 onBlur={[Function]}
                                 onPaste={[Function]}
                               />
-                            </Component>
+                            </Editor>
                           </div>
                         </div>
-                      </Component>
+                      </TextAreaEditor>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-terms-conditions"
                         id="termsAndConditionsUrl"
                         labelText="Terms and Conditions"
@@ -1352,7 +1352,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1364,7 +1364,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Terms and Conditions
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
                                 id="termsAndConditionsUrl"
@@ -1378,15 +1378,15 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-privacy-policy"
                         id="privacyPolicyUrl"
                         labelText="Privacy Policy"
@@ -1400,7 +1400,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1412,7 +1412,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Privacy Policy
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-privacy-policy"
                                 disabled={false}
                                 id="privacyPolicyUrl"
@@ -1426,22 +1426,22 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
-              <Component>
+              </Grid>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <Input
                         dataTest="submit-app-terms-conditions"
                         disabled={false}
                         id="pricingUrl"
@@ -1455,7 +1455,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -1467,7 +1467,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Pricing Info
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="submit-app-terms-conditions"
                                 disabled={false}
                                 id="pricingUrl"
@@ -1481,12 +1481,12 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
                       <label
@@ -1494,7 +1494,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                       >
                          
                       </label>
-                      <Component
+                      <Checkbox
                         id="isFree"
                         labelText="This application is free"
                         name="isFree"
@@ -1531,13 +1531,13 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             </Field>
                           </div>
                         </div>
-                      </Component>
+                      </Checkbox>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
+              </Grid>
             </div>
-          </Component>
+          </FormSection>
         </GeneralInformationSection>
       </form>
     </Form>

@@ -57,16 +57,16 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Subscriptions
             </h3>
-          </Component>
+          </H3>
           <SubscriptionsFilterForm
             filterValues={
               Object {
@@ -94,37 +94,37 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Subscriptions Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by type and developer
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <SelectBox
                                 id="type"
                                 labelText="Type"
                                 name="type"
@@ -150,7 +150,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -198,15 +198,15 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </SelectBox>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DropdownSelect
                                 id="developerId"
                                 labelText="Developer Name"
                                 mode="multiple"
@@ -649,17 +649,17 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                   </div>
                                 </div>
                                 <div />
-                              </Component>
+                              </DropdownSelect>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -671,18 +671,18 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
           </SubscriptionsFilterForm>
-          <Component
+          <Alert
             message="No Results "
             type="info"
           >
@@ -693,26 +693,26 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <CancelConfirmModal
             isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}
           >
-            <Component
+            <ModalV2
               destroyOnClose={true}
               onClose={[Function]}
               visible={false}
             >
-              <Component
-                className=""
+              <Dialog
+                className="modal-container"
                 closeIcon={
                   <span
                     aria-label="close"
@@ -721,16 +721,12 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                 }
                 destroyOnClose={true}
                 onClose={[Function]}
-                title={<Unknown />}
+                title={<ModalHeaderV2 />}
                 visible={false}
                 wrapClassName=""
-              >
-                <PortalWrapper
-                  visible={false}
-                />
-              </Component>
-            </Component>
-          </Component>
+              />
+            </ModalV2>
+          </CancelConfirmModal>
         </ErrorBoundary>
       </Subscriptions>
     </Router>
@@ -795,16 +791,16 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Subscriptions
             </h3>
-          </Component>
+          </H3>
           <SubscriptionsFilterForm
             filterValues={
               Object {
@@ -832,37 +828,37 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Subscriptions Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by type and developer
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <SelectBox
                                 id="type"
                                 labelText="Type"
                                 name="type"
@@ -888,7 +884,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -936,15 +932,15 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </SelectBox>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DropdownSelect
                                 id="developerId"
                                 labelText="Developer Name"
                                 mode="multiple"
@@ -1387,17 +1383,17 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                   </div>
                                 </div>
                                 <div />
-                              </Component>
+                              </DropdownSelect>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -1409,18 +1405,18 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
           </SubscriptionsFilterForm>
-          <Component
+          <Alert
             message="No Results "
             type="info"
           >
@@ -1431,26 +1427,26 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <CancelConfirmModal
             isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}
           >
-            <Component
+            <ModalV2
               destroyOnClose={true}
               onClose={[Function]}
               visible={false}
             >
-              <Component
-                className=""
+              <Dialog
+                className="modal-container"
                 closeIcon={
                   <span
                     aria-label="close"
@@ -1459,16 +1455,12 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                 }
                 destroyOnClose={true}
                 onClose={[Function]}
-                title={<Unknown />}
+                title={<ModalHeaderV2 />}
                 visible={false}
                 wrapClassName=""
-              >
-                <PortalWrapper
-                  visible={false}
-                />
-              </Component>
-            </Component>
-          </Component>
+              />
+            </ModalV2>
+          </CancelConfirmModal>
         </ErrorBoundary>
       </Subscriptions>
     </Router>
@@ -1533,16 +1525,16 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Subscriptions
             </h3>
-          </Component>
+          </H3>
           <SubscriptionsFilterForm
             filterValues={
               Object {
@@ -1570,37 +1562,37 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Subscriptions Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by type and developer
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <SelectBox
                                 id="type"
                                 labelText="Type"
                                 name="type"
@@ -1626,7 +1618,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -1674,15 +1666,15 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </SelectBox>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DropdownSelect
                                 id="developerId"
                                 labelText="Developer Name"
                                 mode="multiple"
@@ -2125,17 +2117,17 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                   </div>
                                 </div>
                                 <div />
-                              </Component>
+                              </DropdownSelect>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -2147,18 +2139,18 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
           </SubscriptionsFilterForm>
-          <Component
+          <Alert
             message="No Results "
             type="info"
           >
@@ -2169,26 +2161,26 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <CancelConfirmModal
             isCanceling={false}
             isShowConfirmModal={false}
             onConfirm={[Function]}
             setCancelSubId={[Function]}
           >
-            <Component
+            <ModalV2
               destroyOnClose={true}
               onClose={[Function]}
               visible={false}
             >
-              <Component
-                className=""
+              <Dialog
+                className="modal-container"
                 closeIcon={
                   <span
                     aria-label="close"
@@ -2197,16 +2189,12 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                 }
                 destroyOnClose={true}
                 onClose={[Function]}
-                title={<Unknown />}
+                title={<ModalHeaderV2 />}
                 visible={false}
                 wrapClassName=""
-              >
-                <PortalWrapper
-                  visible={false}
-                />
-              </Component>
-            </Component>
-          </Component>
+              />
+            </ModalV2>
+          </CancelConfirmModal>
         </ErrorBoundary>
       </Subscriptions>
     </Router>
@@ -2216,14 +2204,14 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
 
 exports[`renderResult should match snapshot when has result data 1`] = `
 <React.Fragment>
-  <Unknown>
+  <Section>
     <div>
       Total: 
       0
     </div>
-  </Unknown>
-  <Unknown>
-    <Unknown
+  </Section>
+  <Section>
+    <Table
       columns={
         Array [
           Object {
@@ -2292,12 +2280,12 @@ exports[`renderResult should match snapshot when has result data 1`] = `
       loading={false}
       scrollable={true}
     />
-  </Unknown>
+  </Section>
 </React.Fragment>
 `;
 
 exports[`renderResult should match snapshot when no result 1`] = `
-<Unknown
+<Alert
   message="No Results "
   type="info"
 />

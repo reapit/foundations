@@ -32,7 +32,7 @@ exports[`DeclineRevisionModal should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <DeclineRevisionModal
     onDeclineSuccess={[MockFunction]}
     visible={true}
   />

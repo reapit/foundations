@@ -2,13 +2,13 @@
 
 exports[`DiffMedia should match snapshot 1`] = `
 <div
-  className=""
+  className="diff-media-container"
 >
   <div
-    className=""
+    className="diff-block icon-block red-background"
   >
     <div
-      className=""
+      className="image icon-image"
       style={
         Object {
           "backgroundImage": "url(\\"https://media.jpg\\")",
@@ -17,15 +17,15 @@ exports[`DiffMedia should match snapshot 1`] = `
     />
   </div>
   <span
-    className=""
+    className="arrow"
   >
     →
   </span>
   <div
-    className=""
+    className="diff-block icon-block green-background"
   >
     <div
-      className=""
+      className="image icon-image"
       style={
         Object {
           "backgroundImage": "url(\\"https://media-changed.jpg\\")",

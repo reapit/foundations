@@ -9,19 +9,19 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
     }
   }
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component>
+      <H5>
         <h5
-          className=""
+          className="title is-5"
           id=""
         >
           Application Visibility
         </h5>
-      </Component>
+      </H5>
       <p
         className="mb-4"
       >
@@ -45,6 +45,6 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
         </label>
       </div>
     </section>
-  </Component>
+  </Section>
 </AppToggleVisibilitySection>
 `;

@@ -2,81 +2,81 @@
 
 exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
 <Fragment>
-  <Component>
-    <Component>
-      <Component
+  <Grid>
+    <GridItem>
+      <Input
         id="companyName"
         labelText="Company Name*"
         name="companyName"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         id="telephone"
         labelText="Telephone*"
         name="telephone"
         type="text"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         id="website"
         labelText="Website*"
         name="website"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         disabled={true}
         id="email"
         labelText="Office Email"
         name="email"
         type="text"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         disabled={false}
         id="taxNumber"
         labelText="VAT Number*"
         name="taxNumber"
         type="text"
       />
-      <Component
+      <Checkbox
         id="noTaxRegistration"
         labelText="Not VAT Registered"
         name="noTaxRegistration"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         disabled={false}
         id="registrationNumber"
         labelText="Company registration number*"
         name="registrationNumber"
         type="text"
       />
-      <Component
+      <Checkbox
         id="noRegistrationNumber"
         labelText="No Company registration number"
         name="noRegistrationNumber"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <TextArea
         id="about"
         labelText="About*"
         name="about"
       />
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </Fragment>
 `;

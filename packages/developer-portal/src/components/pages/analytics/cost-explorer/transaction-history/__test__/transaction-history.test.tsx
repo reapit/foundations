@@ -27,11 +27,13 @@ const mockState: ReduxState = {
 
 jest.mock('@reapit/utils')
 
+jest.mock('file-saver')
+
 jest.mock('@reapit/elements', () => ({
   fetcherWithBlob: jest.fn(
     () =>
       new Promise((resolve) => {
-        resolve(new Blob())
+        resolve('')
       }),
   ),
   setQueryParams: () => 'applicationId=1&applicationId=2',
@@ -79,7 +81,7 @@ describe('TransactionHistory', () => {
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()
 
-      expect(spySaveAsFunc).toBeCalledWith(new Blob(), 'reapit-billing-data-2020-01.csv')
+      expect(spySaveAsFunc).toBeCalledWith('', 'reapit-billing-data-2020-01.csv')
     })
   })
 

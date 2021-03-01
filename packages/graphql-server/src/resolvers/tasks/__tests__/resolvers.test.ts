@@ -2,11 +2,11 @@ import tasksService from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetTaskById, queryGetTasks, mutationCreateTask, mutationUpdateTask } from '../resolvers'
-import { createTaskArgsMock } from '../__stubs__/create-task'
-import { updateTaskArgsMock } from '../__stubs__/update-task'
-import { taskMock } from '../__stubs__/task'
-import { tasksMock } from '../__stubs__/tasks'
-import { mockContext } from '../../../__stubs__/context'
+import { createTaskArgsMock } from '../__stubs__/mock-create-task'
+import { updateTaskArgsMock } from '../__stubs__/mock-update-task'
+import { taskMock } from '../__stubs__/mock-task'
+import { tasksMock } from '../__stubs__/mock-tasks'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getTaskById: jest.fn(() => taskMock),

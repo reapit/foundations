@@ -55,29 +55,29 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <WebComponentConfig>
+        <AppDetailSection
           headerText="Settings"
           isSidebar={true}
         >
-          <Component
+          <Content
             dataTest=""
           >
             <div
-              className=""
+              className="content"
               data-test=""
             >
-              <Component
+              <H5
                 className="mb-2"
               >
                 <h5
-                  className=""
+                  className="title is-5 mb-2"
                   id=""
                 >
                   Settings
                 </h5>
-              </Component>
-              <Component
+              </H5>
+              <Button
                 fullWidth={true}
                 onClick={[Function]}
                 type="button"
@@ -92,11 +92,11 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
                 >
                   Configuration
                 </button>
-              </Component>
+              </Button>
             </div>
-          </Component>
-        </Component>
-      </Component>
+          </Content>
+        </AppDetailSection>
+      </WebComponentConfig>
     </Router>
   </MemoryRouter>
 </Provider>

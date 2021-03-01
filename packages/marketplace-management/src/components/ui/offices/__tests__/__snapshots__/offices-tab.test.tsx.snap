@@ -2,9 +2,9 @@
 
 exports[`OfficesContent should match a snapshot 1`] = `
 <Fragment>
-  <Component>
-    <mock-styled.div>
-      <Component
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -51,9 +51,9 @@ exports[`OfficesContent should match a snapshot 1`] = `
         expandable={true}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <Component
+    </FadeIn>
+  </Section>
+  <Pagination
     onChange={[Function]}
     pageNumber={1}
     pageSize={1}
@@ -64,10 +64,10 @@ exports[`OfficesContent should match a snapshot 1`] = `
 
 exports[`OfficesTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Component>
-    <Component>
+  <Section>
+    <H5>
       Existing offices
-    </Component>
+    </H5>
     <p
       className="mb-4"
     >
@@ -83,8 +83,8 @@ exports[`OfficesTab should match a snapshot 1`] = `
       }
       onSearch={[Function]}
     />
-  </Component>
-  <Component
+  </Section>
+  <OfficesContent
     columns={
       Array [
         Object {

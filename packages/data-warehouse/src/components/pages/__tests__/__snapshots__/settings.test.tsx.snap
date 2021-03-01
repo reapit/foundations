@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Settings should match a snapshot 1`] = `
-<Component>
-  <Component
+<Content>
+  <H3
     isHeadingSection={true}
   >
     Settings
-  </Component>
-  <Component>
-    <Component>
+  </H3>
+  <Section>
+    <H5>
       Next steps:
-    </Component>
-  </Component>
-</Component>
+    </H5>
+  </Section>
+</Content>
 `;

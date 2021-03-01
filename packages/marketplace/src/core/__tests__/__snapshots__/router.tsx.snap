@@ -25,7 +25,7 @@ exports[`Router should match a snapshot 1`] = `
   <Suspense
     fallback={null}
   >
-    <Component>
+    <PortalProvider>
       <Switch>
         <Route
           exact={true}
@@ -47,12 +47,12 @@ exports[`Router should match a snapshot 1`] = `
           path="/404"
           render={[Function]}
         />
-        <Component
+        <PrivateRouteWrapper
           path="/admin"
           showMenu={false}
         >
           <Switch>
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -64,13 +64,13 @@ exports[`Router should match a snapshot 1`] = `
               path="/*"
             />
           </Switch>
-        </Component>
-        <Component
+        </PrivateRouteWrapper>
+        <PrivateRouteWrapper
           path="/developer"
           showMenu={false}
         >
           <Switch>
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -82,10 +82,10 @@ exports[`Router should match a snapshot 1`] = `
               path="/*"
             />
           </Switch>
-        </Component>
-        <Component>
+        </PrivateRouteWrapper>
+        <PrivateRouteWrapper>
           <Switch>
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -96,7 +96,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               path="/authentication"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -109,7 +109,7 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/installed"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -122,7 +122,7 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/manage"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -135,7 +135,7 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/apps"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -148,7 +148,7 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/apps/:appid"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -161,7 +161,7 @@ exports[`Router should match a snapshot 1`] = `
               fetcher={true}
               path="/apps/:appid/manage"
             />
-            <Component
+            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -178,12 +178,12 @@ exports[`Router should match a snapshot 1`] = `
               render={[Function]}
             />
           </Switch>
-        </Component>
+        </PrivateRouteWrapper>
         <Redirect
           to="/login"
         />
       </Switch>
-    </Component>
+    </PortalProvider>
   </Suspense>
 </Router>
 `;

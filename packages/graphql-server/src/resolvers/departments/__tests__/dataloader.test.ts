@@ -1,7 +1,7 @@
 import { generateDepartmentBatchLoaderFn, generateDepartmentLoader } from '../dataloader'
-import { departmentMock } from '../__stubs__/department'
-import { departmentsMock } from '../__stubs__/departments'
-import { mockContext } from '../../../__stubs__/context'
+import { departmentMock } from '../__stubs__/mock-department'
+import { departmentsMock } from '../__stubs__/mock-departments'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
   return {

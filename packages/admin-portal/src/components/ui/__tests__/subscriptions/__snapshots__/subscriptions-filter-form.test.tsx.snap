@@ -82,37 +82,37 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
               onReset={[Function]}
               onSubmit={[Function]}
             >
-              <Component>
+              <FormSection>
                 <div
-                  className=""
+                  className="form-section"
                 >
-                  <Component>
+                  <FormHeading>
                     <div
-                      className=""
+                      className="form-heading mb-1"
                     >
                       Subscriptions Filter Form
                     </div>
-                  </Component>
-                  <Component>
+                  </FormHeading>
+                  <FormSubHeading>
                     <div
-                      className=""
+                      className="form-subheading mb-4"
                     >
                       Filter the result by type and developer
                     </div>
-                  </Component>
-                  <Component
+                  </FormSubHeading>
+                  <Grid
                     className="items-center"
                   >
                     <div
-                      className=""
+                      className="columns items-center"
                       data-test=""
                     >
-                      <Component>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <SelectBox
                             id="type"
                             labelText="Type"
                             name="type"
@@ -138,7 +138,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control"
@@ -186,15 +186,15 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </SelectBox>
                         </div>
-                      </Component>
-                      <Component>
+                      </GridItem>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <DropdownSelect
                             id="developerId"
                             labelText="Developer Name"
                             mode="multiple"
@@ -658,7 +658,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                                                             key="developerId"
                                                             onMouseDown={[Function]}
                                                           >
-                                                            <Component
+                                                            <CustomTag
                                                               description="developerId"
                                                               label="developerId"
                                                               link=""
@@ -954,7 +954,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                                                                   </div>
                                                                 </Trigger>
                                                               </ForwardRef(Tooltip)>
-                                                            </Component>
+                                                            </CustomTag>
                                                           </span>
                                                         </CSSMotion>
                                                       </ForwardRef>
@@ -1023,17 +1023,17 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                               </div>
                             </div>
                             <div />
-                          </Component>
+                          </DropdownSelect>
                         </div>
-                      </Component>
-                      <Component
+                      </GridItem>
+                      <GridItem
                         className="mt-4"
                       >
                         <div
-                          className=""
+                          className="column mt-4"
                           data-test=""
                         >
-                          <Component
+                          <Button
                             type="submit"
                             variant="primary"
                           >
@@ -1045,13 +1045,13 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                             >
                               Search
                             </button>
-                          </Component>
+                          </Button>
                         </div>
-                      </Component>
+                      </GridItem>
                     </div>
-                  </Component>
+                  </Grid>
                 </div>
-              </Component>
+              </FormSection>
             </form>
           </Form>
         </Formik>

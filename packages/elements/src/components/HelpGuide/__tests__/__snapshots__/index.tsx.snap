@@ -2,23 +2,23 @@
 
 exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <Section
     hasMargin={false}
   >
-    <Component />
-    <Component />
-  </Component>
-  <Component
+    <H3 />
+    <SubTitleH6 />
+  </Section>
+  <Section
     hasMargin={false}
     isFlex={true}
   >
     <component />
-  </Component>
+  </Section>
 </Fragment>
 `;
 
 exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen FALSE 1`] = `
-<Unknown
+<VerticalTimeline
   currentIndex={3}
   onSelect={[MockFunction]}
   total={5}
@@ -26,7 +26,7 @@ exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen FA
 `;
 
 exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen TRUE 1`] = `
-<Unknown
+<HorizontalTimeline
   currentIndex={3}
   onSelect={[MockFunction]}
   total={5}
@@ -46,18 +46,18 @@ exports[`HelpGuide should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
       total={4}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
@@ -66,7 +66,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
         component={[Function]}
         id="step-1"
       />
-    </Component>
-  </Component>
+    </Fade>
+  </Section>
 </ContextProvider>
 `;

@@ -7,11 +7,11 @@ import {
   mutationCreateNegotiator,
   mutationUpdateNegotiator,
 } from '../resolvers'
-import { createNegotiatorArgsMock } from '../__stubs__/create-negotiator'
-import { updateNegotiatorArgsMock } from '../__stubs__/update-negotiator'
-import { negotiatorMock } from '../__stubs__/negotiator'
-import { negotiatorsMock } from '../__stubs__/negotiators'
-import { mockContext } from '../../../__stubs__/context'
+import { createNegotiatorArgsMock } from '../__stubs__/mock-create-negotiator'
+import { updateNegotiatorArgsMock } from '../__stubs__/mock-update-negotiator'
+import { negotiatorMock } from '../__stubs__/mock-negotiator'
+import { negotiatorsMock } from '../__stubs__/mock-negotiators'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getNegotiatorById: jest.fn(() => negotiatorMock),

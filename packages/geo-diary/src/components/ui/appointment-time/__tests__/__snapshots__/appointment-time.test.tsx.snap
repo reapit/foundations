@@ -1,32 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
-<Component
-  className=""
+<ButtonGroup
+  className="time-button-group-container is-narrow"
 >
-  <Component
-    className=""
+  <Button
+    className="is-selected is-info"
     onClick={[Function]}
     type="button"
     variant="secondary"
   >
     TODAY
-  </Component>
-  <Component
+  </Button>
+  <Button
     className=""
     onClick={[Function]}
     type="button"
     variant="secondary"
   >
     TOMORROW
-  </Component>
-  <Component
+  </Button>
+  <Button
     className=""
     onClick={[Function]}
     type="button"
     variant="secondary"
   >
     WEEK VIEW
-  </Component>
-</Component>
+  </Button>
+</ButtonGroup>
 `;

@@ -3,26 +3,26 @@
 exports[`mobile-layout DesktopLayout should render correctly 1`] = `
 <Fragment>
   <div
-    className=""
+    className="appoinment-container"
   >
-    <Component>
-      <Memo()
+    <Section>
+      <Memo(AppointmentTime)
         queryParams={
           Object {
             "state": "CLIENT",
           }
         }
       />
-      <Memo()
+      <Memo(TravelMode)
         queryParams={
           Object {
             "state": "CLIENT",
           }
         }
       />
-    </Component>
-    <mock-styled.div>
-      <Component
+    </Section>
+    <FadeIn>
+      <AppointmentList
         appointments={
           Array [
             Object {
@@ -207,12 +207,12 @@ exports[`mobile-layout DesktopLayout should render correctly 1`] = `
           ]
         }
       />
-    </mock-styled.div>
+    </FadeIn>
   </div>
   <div
-    className=""
+    className="map-container"
   >
-    <Memo()
+    <Memo(AppointmentMap)
       appointments={
         Array [
           Object {

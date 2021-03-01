@@ -58,7 +58,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
     }
   >
     <Route>
-      <Component
+      <PrivateRouteWrapper
         history={
           Object {
             "action": "POP",
@@ -103,21 +103,21 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         <div>
           mock children
         </div>
-      </Component>
+      </PrivateRouteWrapper>
     </Route>
   </ContextProvider>
 </ContextProvider>
 `;
 
 exports[`PrivateRouter should match a snapshot 2`] = `
-<Component>
-  <Component />
-  <Component>
-    <Component
+<AppNavContainer>
+  <Menu />
+  <Section>
+    <Helper
       variant="info"
     >
       We could not detect that you are a negotiator for your organisation from your login. Try logging out and then back in again. If this does not work, please contact your Reapit administrator.
-    </Component>
-  </Component>
-</Component>
+    </Helper>
+  </Section>
+</AppNavContainer>
 `;

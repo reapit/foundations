@@ -46,7 +46,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
       Sentry.withScope((scope) => {
-        scope.setExtras(info)
+        scope.setExtras(info as Record<string, any>)
         Sentry.captureException(error)
       })
     }

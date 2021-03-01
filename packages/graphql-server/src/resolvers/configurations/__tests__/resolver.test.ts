@@ -2,9 +2,9 @@ import configurationService from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetConfigurationsByType, queryGetConfigurationsByTypeAndId } from '../resolver'
-import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/appointmentTypes'
 import { GetConfigurationByTypeAndIdArgs, GetConfigurationByTypeArgs } from '../configurations'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { appointmentTypeMock, appointmentTypesMock } from '../__stubs__/mock-appointment-types'
 
 jest.mock('../services', () => ({
   getConfigurationByTypeAndId: jest.fn(() => appointmentTypeMock),

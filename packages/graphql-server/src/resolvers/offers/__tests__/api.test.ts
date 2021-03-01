@@ -1,10 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetOffersAPI, callCreateOfferAPI, callUpdateOfferAPI, callGetOfferByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { offerMock } from '../__stubs__/offer'
-import { offersMock } from '../__stubs__/offers'
-import { createOfferArgsMock } from '../__stubs__/create-offer'
-import { updateOfferArgsMock } from '../__stubs__/update-offer'
+import { offerMock } from '../__stubs__/mock-offer'
+import { offersMock } from '../__stubs__/mock-offers'
+import { createOfferArgsMock } from '../__stubs__/mock-create-offer'
+import { updateOfferArgsMock } from '../__stubs__/mock-update-offer'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

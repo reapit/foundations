@@ -2,9 +2,9 @@ import journalEntryServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetJournalEntries, mutationCreateJournalEntry } from '../resolvers'
-import { createJournalEntryArgsMock } from '../__stubs__/create-journal-entry'
-import { journalEntriesMock } from '../__stubs__/journal-entries'
-import { mockContext } from '../../../__stubs__/context'
+import { createJournalEntryArgsMock } from '../__stubs__/mock-create-journal-entry'
+import { journalEntriesMock } from '../__stubs__/mock-journal-entries'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getJournalEntries: jest.fn(() => journalEntriesMock),

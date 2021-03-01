@@ -1,10 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetContactByIdAPI, callUpdateContactAPI, callCreateContactAPI, callGetContactsAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { contactMock } from '../__stubs__/contact'
-import { contactsMock } from '../__stubs__/contacts'
-import { createContactArgsMock } from '../__stubs__/create-contact'
-import { updateContactArgsMock } from '../__stubs__/update-contact'
+import { contactMock } from '../__stubs__/mock-contact'
+import { contactsMock } from '../__stubs__/mock-contacts'
+import { createContactArgsMock } from '../__stubs__/mock-create-contact'
+import { updateContactArgsMock } from '../__stubs__/mock-update-contact'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

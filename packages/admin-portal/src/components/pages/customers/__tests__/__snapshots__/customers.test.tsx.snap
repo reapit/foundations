@@ -5,7 +5,7 @@ exports[` 1`] = `
   <div
     className="mb-5"
   >
-    <Component
+    <Table
       columns={
         Array [
           Object {
@@ -127,26 +127,26 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component>
+      <Customers>
         <ErrorBoundary>
-          <Component
+          <Section
             className="mb-0"
           >
             <section
-              className=""
+              className="section has-padding has-margin has-background mb-0"
               data-test=""
             >
-              <Component>
+              <H3>
                 <h3
-                  className=""
+                  className="title is-3"
                   id=""
                 >
                   Customers
                 </h3>
-              </Component>
+              </H3>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <CustomersFilterForm
             filterValues={
               Object {
                 "name": "",
@@ -202,23 +202,23 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="name"
                                 labelText="Company Name"
                                 maxLength={256}
@@ -230,7 +230,7 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -242,7 +242,7 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                         Company Name
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="name"
@@ -257,17 +257,17 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -279,8 +279,8 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
-                              <Component
+                              </Button>
+                              <Button
                                 type="reset"
                                 variant="primary"
                               >
@@ -292,20 +292,20 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                                 >
                                   Refresh
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
-          </Component>
-          <Component>
+          </CustomersFilterForm>
+          <Section>
             <section
-              className=""
+              className="section has-padding has-margin has-background"
               data-test=""
             >
               <div>
@@ -313,8 +313,8 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
                 0
               </div>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <Alert
             message="No Results "
             type="info"
           >
@@ -325,15 +325,15 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
         </ErrorBoundary>
-      </Component>
+      </Customers>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -394,8 +394,8 @@ exports[`Customers should match a snapshot when LOADING true 1`] = `
         }
       }
     >
-      <Component>
-        <Component>
+      <Customers>
+        <Loader>
           <div
             className="loader-spinner body"
             data-test=""
@@ -405,8 +405,8 @@ exports[`Customers should match a snapshot when LOADING true 1`] = `
             <div />
             <div />
           </div>
-        </Component>
-      </Component>
+        </Loader>
+      </Customers>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -467,26 +467,26 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
         }
       }
     >
-      <Component>
+      <Customers>
         <ErrorBoundary>
-          <Component
+          <Section
             className="mb-0"
           >
             <section
-              className=""
+              className="section has-padding has-margin has-background mb-0"
               data-test=""
             >
-              <Component>
+              <H3>
                 <h3
-                  className=""
+                  className="title is-3"
                   id=""
                 >
                   Customers
                 </h3>
-              </Component>
+              </H3>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <CustomersFilterForm
             filterValues={
               Object {
                 "name": "",
@@ -542,23 +542,23 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="name"
                                 labelText="Company Name"
                                 maxLength={256}
@@ -570,7 +570,7 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -582,7 +582,7 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                         Company Name
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="name"
@@ -597,17 +597,17 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -619,8 +619,8 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
-                              <Component
+                              </Button>
+                              <Button
                                 type="reset"
                                 variant="primary"
                               >
@@ -632,20 +632,20 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                                 >
                                   Refresh
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
-          </Component>
-          <Component>
+          </CustomersFilterForm>
+          <Section>
             <section
-              className=""
+              className="section has-padding has-margin has-background"
               data-test=""
             >
               <div>
@@ -653,8 +653,8 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
                 0
               </div>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <Alert
             message="No Results "
             type="info"
           >
@@ -665,15 +665,15 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
         </ErrorBoundary>
-      </Component>
+      </Customers>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -694,10 +694,10 @@ exports[`CustomersFilterForm should match snapshot 1`] = `
 `;
 
 exports[`LogoUploadButtonCell should match snapshot 1`] = `
-<Component
+<Button
   type="button"
   variant="primary"
 >
   LOGO UPLOAD
-</Component>
+</Button>
 `;

@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentCustomerSection should match a snapshot 1`] = `
-<Component>
-  <mock-styled.div>
-    <Component>
+<GridItem>
+  <FadeIn>
+    <H5>
       Customer
-    </Component>
-    <Component
+    </H5>
+    <IconList
       items={
         Array [
           Object {
@@ -36,6 +36,6 @@ exports[`PaymentCustomerSection should match a snapshot 1`] = `
         ]
       }
     />
-  </mock-styled.div>
-</Component>
+  </FadeIn>
+</GridItem>
 `;

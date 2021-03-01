@@ -32,6 +32,6 @@ exports[`OverviewPage should match snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <DetailedTab />
 </ContextProvider>
 `;

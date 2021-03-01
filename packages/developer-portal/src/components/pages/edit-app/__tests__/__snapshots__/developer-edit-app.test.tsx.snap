@@ -55,17 +55,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
         }
       }
     >
-      <Component>
-        <Component
+      <DeveloperEditApp>
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             Edit App
           </h3>
-        </Component>
+        </H3>
         <Formik
           initialValues={
             Object {
@@ -966,19 +966,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               <GeneralInformationSection
                 isListed={false}
               >
-                <Component
+                <FormSection
                   data-test="submit-app-form"
                 >
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <Helper>
                       <div
                         className="notification helper-wrap helper-info"
                       >
                         For more information on how to complete this form, please view our "Step-by-step" guide 
                         <a
-                          className=""
+                          className="l3gjl5x-link"
                           href="https://foundations-documentation.reapit.cloud/developer-portal"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -986,34 +986,34 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           here
                         </a>
                       </div>
-                    </Component>
-                    <Component>
+                    </Helper>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         App Listing
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                       </div>
-                    </Component>
-                    <Component
+                    </FormSubHeading>
+                    <Grid
                       isMultiLine={true}
                     >
                       <div
-                        className=""
+                        className="columns is-multiline"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-name"
                               id="name"
                               labelText="Name"
@@ -1027,7 +1027,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={[Function]}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1039,7 +1039,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Name
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-name"
                                       disabled={false}
                                       id="name"
@@ -1053,21 +1053,21 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <div
                               className="control"
                             >
                               <div
-                                className=""
+                                className="ctlfpkh-checkbox"
                               >
-                                <Component
+                                <Checkbox
                                   id="isListed"
                                   labelText="Submit for approval"
                                   name="isListed"
@@ -1104,24 +1104,24 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </Field>
                                     </div>
                                   </div>
-                                </Component>
+                                </Checkbox>
                               </div>
                             </div>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <SelectBox
                               id="categoryId"
                               labelText="Category"
                               name="categoryId"
@@ -1132,7 +1132,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control"
@@ -1162,15 +1162,15 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </SelectBox>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-home-page"
                               id="homePage"
                               labelText="Home page"
@@ -1184,7 +1184,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1196,7 +1196,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Home page
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-home-page"
                                       disabled={false}
                                       id="homePage"
@@ -1210,22 +1210,22 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-support-email"
                               id="supportEmail"
                               labelText="Support email"
@@ -1239,7 +1239,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1251,7 +1251,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Support email
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-support-email"
                                       disabled={false}
                                       id="supportEmail"
@@ -1265,15 +1265,15 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-launch-uri"
                               id="launchUri"
                               labelText="Launch URI"
@@ -1287,7 +1287,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1299,7 +1299,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Launch URI
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-launch-uri"
                                       disabled={false}
                                       id="launchUri"
@@ -1313,25 +1313,25 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <div
                               className="pb-4"
                             >
-                              <Component
+                              <Input
                                 dataTest="submit-app-phone"
                                 id="telephone"
                                 labelText="Telephone"
@@ -1345,7 +1345,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -1357,7 +1357,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         Telephone
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test="submit-app-phone"
                                         disabled={false}
                                         id="telephone"
@@ -1371,9 +1371,9 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                            <Component
+                            <TextArea
                               dataTest="submit-app-summary"
                               id="summary"
                               labelText="Summary"
@@ -1392,13 +1392,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     className="control"
                                   >
                                     <label
-                                      className=""
+                                      className="label"
                                       htmlFor="summary"
                                     >
                                       Summary
                                     </label>
                                     <textarea
-                                      className=""
+                                      className="textarea is-primary"
                                       data-test="submit-app-summary"
                                       id="summary"
                                       name="summary"
@@ -1409,17 +1409,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </TextArea>
                           </div>
-                        </Component>
-                        <Component
+                        </GridItem>
+                        <GridItem
                           className="is-half-desktop"
                         >
                           <div
-                            className=""
+                            className="column is-half-desktop"
                             data-test=""
                           >
-                            <Component
+                            <TextAreaEditor
                               actions={
                                 Array [
                                   "bold",
@@ -1436,7 +1436,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   },
                                 ]
                               }
-                              containerClass=""
+                              containerClass="e1pmlq1f-editor"
                               dataTest="submit-app-description"
                               id="description"
                               labelText="Description"
@@ -1456,7 +1456,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   >
                                     Description
                                   </label>
-                                  <Component
+                                  <Editor
                                     actions={
                                       Array [
                                         "bold",
@@ -1473,7 +1473,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         },
                                       ]
                                     }
-                                    containerClass=""
+                                    containerClass="e1pmlq1f-editor"
                                     dataTest="submit-app-description"
                                     hasError={false}
                                     onBlur={[Function]}
@@ -1482,30 +1482,30 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     placeholder="A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count"
                                   >
                                     <div
-                                      className="pell false "
+                                      className="pell false e1pmlq1f-editor"
                                       data-test="submit-app-description"
                                       onBlur={[Function]}
                                       onPaste={[Function]}
                                     />
-                                  </Component>
+                                  </Editor>
                                 </div>
                               </div>
-                            </Component>
+                            </TextAreaEditor>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-terms-conditions"
                               id="termsAndConditionsUrl"
                               labelText="Terms and Conditions"
@@ -1519,7 +1519,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1531,7 +1531,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Terms and Conditions
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-terms-conditions"
                                       disabled={false}
                                       id="termsAndConditionsUrl"
@@ -1545,15 +1545,15 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-privacy-policy"
                               id="privacyPolicyUrl"
                               labelText="Privacy Policy"
@@ -1567,7 +1567,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1579,7 +1579,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Privacy Policy
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-privacy-policy"
                                       disabled={false}
                                       id="privacyPolicyUrl"
@@ -1593,22 +1593,22 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="submit-app-terms-conditions"
                               id="pricingUrl"
                               labelText="Pricing Info"
@@ -1621,7 +1621,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -1633,7 +1633,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       Pricing Info
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-terms-conditions"
                                       disabled={false}
                                       id="pricingUrl"
@@ -1647,12 +1647,12 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <label
@@ -1660,7 +1660,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             >
                                
                             </label>
-                            <Component
+                            <Checkbox
                               id="isFree"
                               labelText="This application is free"
                               name="isFree"
@@ -1697,34 +1697,34 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </Field>
                                 </div>
                               </div>
-                            </Component>
+                            </Checkbox>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </FormSection>
               </GeneralInformationSection>
               <AgencyCloudIntegrationSection>
-                <Component>
+                <FormSection>
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         Agency Cloud Integration
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                          
                         <a
-                          className=""
+                          className="l3gjl5x-link"
                           href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
                           rel="noopener noreferrer"
                           target="_blank"
@@ -1732,18 +1732,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           click here
                         </a>
                       </div>
-                    </Component>
-                    <Component>
+                    </FormSubHeading>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <DropdownSelect
                               fixedPosition={true}
                               id="desktopIntegrationTypeIds"
                               labelText="Integration Type"
@@ -2187,49 +2187,49 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 </div>
                               </div>
                               <div />
-                            </Component>
+                            </DropdownSelect>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </FormSection>
               </AgencyCloudIntegrationSection>
               <RedirectUriSection
                 isPrivateApp="no"
                 setFieldValue={[Function]}
               >
-                <Component>
+                <FormSection>
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <FormHeading>
                               <div
-                                className=""
+                                className="form-heading mb-1"
                               >
                                 Redirect URI(s)
                                  
                                 *
                               </div>
-                            </Component>
-                            <Component>
+                            </FormHeading>
+                            <FormSubHeading>
                               <div
-                                className=""
+                                className="form-subheading mb-4"
                               >
                                 Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
                               </div>
-                            </Component>
-                            <Component
+                            </FormSubHeading>
+                            <Input
                               dataTest="submit-app-redirect-uri"
                               disabled={false}
                               id="redirectUris"
@@ -2243,13 +2243,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={[Function]}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
                                   >
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-redirect-uri"
                                       disabled={false}
                                       id="redirectUris"
@@ -2263,38 +2263,38 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <FormHeading>
                               <div
-                                className=""
+                                className="form-heading mb-1"
                               >
                                 Sign Out URI(s)
                                  
                                 *
                               </div>
-                            </Component>
-                            <Component>
+                            </FormHeading>
+                            <FormSubHeading>
                               <div
-                                className=""
+                                className="form-subheading mb-4"
                               >
                                 Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
                               </div>
-                            </Component>
-                            <Component
+                            </FormSubHeading>
+                            <Input
                               dataTest="submit-app-signout-uris"
                               disabled={false}
                               id="signoutUris"
@@ -2308,13 +2308,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={[Function]}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
                                   >
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-signout-uris"
                                       disabled={false}
                                       id="signoutUris"
@@ -2328,36 +2328,36 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <FormHeading>
                               <div
-                                className=""
+                                className="form-heading mb-1"
                               >
                                 Private Apps
                               </div>
-                            </Component>
-                            <Component>
+                            </FormHeading>
+                            <FormSubHeading>
                               <div
-                                className=""
+                                className="form-subheading mb-4"
                               >
                                 If your App is a Private App and you would like it to only be visible to certain customers, please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish to share your app with. If you select ‘No’, your App will be visible to all on the Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC, DEF.
                               </div>
-                            </Component>
-                            <Component
+                            </FormSubHeading>
+                            <RadioSelect
                               id="isPrivateApp"
                               name="isPrivateApp"
                               options={
@@ -2389,20 +2389,20 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       className="label"
                                       htmlFor="isPrivateApp"
                                     />
-                                    <Component
-                                      className=""
+                                    <Grid
+                                      className="is-gapless"
                                       isMultiLine={true}
                                     >
                                       <div
-                                        className=""
+                                        className="columns is-multiline is-gapless"
                                         data-test=""
                                       >
-                                        <Component
-                                          className=""
+                                        <GridItem
+                                          className="is-full"
                                           key="0"
                                         >
                                           <div
-                                            className=""
+                                            className="column is-full"
                                             data-test=""
                                           >
                                             <div
@@ -2426,13 +2426,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               </label>
                                             </div>
                                           </div>
-                                        </Component>
-                                        <Component
-                                          className=""
+                                        </GridItem>
+                                        <GridItem
+                                          className="is-full"
                                           key="1"
                                         >
                                           <div
-                                            className=""
+                                            className="column is-full"
                                             data-test=""
                                           >
                                             <div
@@ -2456,14 +2456,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               </label>
                                             </div>
                                           </div>
-                                        </Component>
+                                        </GridItem>
                                       </div>
-                                    </Component>
+                                    </Grid>
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
-                            <Component
+                            </RadioSelect>
+                            <Input
                               dataTest="submit-app-limited-to-client-ids"
                               disabled={true}
                               id="limitToClientIds"
@@ -2476,13 +2476,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
                                   >
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="submit-app-limited-to-client-ids"
                                       disabled={true}
                                       id="limitToClientIds"
@@ -2496,50 +2496,50 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
-                            <Component>
+                            </Input>
+                            <FormSubHeading>
                               <div
-                                className=""
+                                className="form-subheading mb-4"
                               >
                                 This field is disabled during the beta period. Your app will be private by default as the Marketplace is not yet live. You will have the opportunity to make your app private via an edit before setting it to be "Listed" in the marketplace when we move from beta to production.
                               </div>
-                            </Component>
+                            </FormSubHeading>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </FormSection>
               </RedirectUriSection>
               <UploadImageSection
                 isListed={false}
               >
-                <Component>
+                <FormSection>
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         Images
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         The icon field will appear as the main brand representation of your app in marketplace listings and installed apps pages. You can also select a minimum of one and up to five screenshots of your application, that will appear in a carousel in the details view of your app listing.
                       </div>
-                    </Component>
-                    <Component>
+                    </FormSubHeading>
+                    <GridFourCol>
                       <div
-                        className=""
+                        className="columns is-multiline"
                         data-test=""
                       >
-                        <Component>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -2550,7 +2550,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Icon 
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={1}
                                 dataTest="submit-app-icon"
@@ -2565,7 +2565,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={1}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -2583,7 +2583,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -2594,7 +2594,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       name="iconImageUrl"
                                       required={false}
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -2612,7 +2612,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -2636,17 +2636,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridFourColItem>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -2657,7 +2657,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Feature Image 
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={2.22972972972973}
                                 dataTest="submit-app-screenshot1"
@@ -2672,7 +2672,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={2.22972972972973}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -2690,7 +2690,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -2701,7 +2701,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       name="screen1ImageUrl"
                                       required={false}
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -2719,7 +2719,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -2743,17 +2743,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridFourColItem>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -2764,7 +2764,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Screenshot 1
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={1.3085339168490153}
                                 dataTest="submit-app-screenshot2"
@@ -2778,7 +2778,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={1.3085339168490153}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -2796,7 +2796,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -2806,7 +2806,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       labelText="Upload Image"
                                       name="screen2ImageUrl"
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -2823,7 +2823,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -2847,17 +2847,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridFourColItem>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -2868,7 +2868,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Screenshot 2
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={1.3085339168490153}
                                 dataTest="submit-app-screenshot3"
@@ -2882,7 +2882,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={1.3085339168490153}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -2900,7 +2900,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -2910,7 +2910,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       labelText="Upload Image"
                                       name="screen3ImageUrl"
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -2927,7 +2927,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -2951,17 +2951,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridFourColItem>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -2972,7 +2972,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Screenshot 3
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={1.3085339168490153}
                                 dataTest="submit-app-screenshot4"
@@ -2986,7 +2986,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={1.3085339168490153}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -3004,7 +3004,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -3014,7 +3014,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       labelText="Upload Image"
                                       name="screen4ImageUrl"
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -3031,7 +3031,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -3055,17 +3055,17 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridFourColItem>
+                        <GridFourColItem>
                           <div
-                            className=""
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
                             data-test=""
                           >
                             <div
@@ -3076,7 +3076,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                               >
                                 Screenshot 4
                               </label>
-                              <Component
+                              <ImageCropperWithInput
                                 allowClear={true}
                                 aspect={1.3085339168490153}
                                 dataTest="submit-app-screenshot5"
@@ -3090,7 +3090,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   }
                                 }
                               >
-                                <Component
+                                <ImageCropper
                                   aspect={1.3085339168490153}
                                   croppedImage={null}
                                   onClose={[Function]}
@@ -3108,7 +3108,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   visible={false}
                                 >
                                   <div>
-                                    <Component
+                                    <ImageInput
                                       afterLoadedImage={[Function]}
                                       allowClear={true}
                                       croppedImage={null}
@@ -3118,7 +3118,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       labelText="Upload Image"
                                       name="screen5ImageUrl"
                                     >
-                                      <Component
+                                      <FileInput
                                         accept="image/*"
                                         afterLoadedFile={[Function]}
                                         allowClear={true}
@@ -3135,7 +3135,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="file is-primary  field pb-2"
                                           >
                                             <div
-                                              className=""
+                                              className="control file-input-container is-full-width"
                                             >
                                               <label
                                                 className="file-label"
@@ -3159,49 +3159,49 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             </div>
                                           </div>
                                         </Field>
-                                      </Component>
-                                    </Component>
+                                      </FileInput>
+                                    </ImageInput>
                                   </div>
-                                </Component>
-                              </Component>
+                                </ImageCropper>
+                              </ImageCropperWithInput>
                             </div>
                           </div>
-                        </Component>
+                        </GridFourColItem>
                       </div>
-                    </Component>
+                    </GridFourCol>
                   </div>
-                </Component>
+                </FormSection>
               </UploadImageSection>
               <MarketplaceStatusSection>
-                <Component>
+                <FormSection>
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         Marketplace Status
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Integration”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Integration”.
                       </div>
-                    </Component>
-                    <Component>
+                    </FormSubHeading>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Checkbox
                               id="isDirectApi"
                               labelText="Integration"
                               name="isDirectApi"
@@ -3238,56 +3238,56 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                   </Field>
                                 </div>
                               </div>
-                            </Component>
+                            </Checkbox>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </FormSection>
               </MarketplaceStatusSection>
               <PermissionSection
                 errors={Object {}}
                 scopes={Array []}
               >
-                <Component>
+                <FormSection>
                   <div
-                    className=""
+                    className="form-section"
                   >
-                    <Component>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         Permissions *
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         To access a client's data, you will need to specify the entities you need access to on a read or write basis. You should be familiar with these entities from the sandbox. When the user installs your application, they will have to consent to your usage based on these permissions. If you do not have the correct permissions on an entity basis, your app will receive a 403 error.
                       </div>
-                    </Component>
-                    <Component>
+                    </FormSubHeading>
+                    <GridFourCol>
                       <div
-                        className=""
+                        className="columns is-multiline"
                         data-test=""
                       />
-                    </Component>
+                    </GridFourCol>
                   </div>
-                </Component>
+                </FormSection>
               </PermissionSection>
-              <Component>
+              <Section>
                 <section
-                  className=""
+                  className="section has-padding has-margin has-background"
                   data-test=""
                 >
-                  <Component>
+                  <LevelRight>
                     <div
-                      className=""
+                      className="level-right"
                       data-test=""
                     >
-                      <Component
+                      <Button
                         onClick={[Function]}
                         type="button"
                         variant="primary"
@@ -3301,8 +3301,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         >
                           Preview
                         </button>
-                      </Component>
-                      <Component
+                      </Button>
+                      <Button
                         onClick={[Function]}
                         type="button"
                         variant="primary"
@@ -3316,8 +3316,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         >
                           Back To Apps
                         </button>
-                      </Component>
-                      <Component
+                      </Button>
+                      <Button
                         dataTest="submit-app-button"
                         disabled={false}
                         loading={false}
@@ -3332,12 +3332,12 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                         >
                           Submit App
                         </button>
-                      </Component>
+                      </Button>
                     </div>
-                  </Component>
+                  </LevelRight>
                 </section>
-              </Component>
-              <Component
+              </Section>
+              <Input
                 dataTest="submit-app-developer-id"
                 id="developerId"
                 labelText="Developer ID"
@@ -3349,13 +3349,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   validate={null}
                 >
                   <div
-                    className=""
+                    className="field"
                   >
                     <div
                       className="control "
                     >
                       <input
-                        className=""
+                        className="input is-primary"
                         data-test="submit-app-developer-id"
                         disabled={false}
                         id="developerId"
@@ -3369,18 +3369,18 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     </div>
                   </div>
                 </Field>
-              </Component>
+              </Input>
             </form>
           </Form>
         </Formik>
-        <Component
+        <ModalV2
           footer={
             Array [
-              <Unknown
+              <Button
                 onClick={[Function]}
               >
                 Close
-              </Unknown>,
+              </Button>,
             ]
           }
           isCentered={true}
@@ -3388,8 +3388,8 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
           title="Account Information Required"
           visible={false}
         >
-          <Component
-            className=""
+          <Dialog
+            className="m1s2ncsn-modal-container"
             closeIcon={
               <span
                 aria-label="close"
@@ -3399,28 +3399,24 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
             destroyOnClose={true}
             footer={
               Array [
-                <Unknown
+                <Button
                   onClick={[Function]}
                 >
                   Close
-                </Unknown>,
+                </Button>,
               ]
             }
             onClose={[Function]}
             title={
-              <Unknown>
+              <ModalHeaderV2>
                 Account Information Required
-              </Unknown>
+              </ModalHeaderV2>
             }
             visible={false}
-            wrapClassName=""
-          >
-            <PortalWrapper
-              visible={false}
-            />
-          </Component>
-        </Component>
-      </Component>
+            wrapClassName="m1iljaow-modal-centered"
+          />
+        </ModalV2>
+      </DeveloperEditApp>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -3482,7 +3478,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
         }
       }
     >
-      <Component>
+      <DeveloperEditApp>
         <Redirect
           to="/apps/undefined"
         >
@@ -3492,7 +3488,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
             to="/apps/undefined"
           />
         </Redirect>
-      </Component>
+      </DeveloperEditApp>
     </Router>
   </MemoryRouter>
 </Provider>

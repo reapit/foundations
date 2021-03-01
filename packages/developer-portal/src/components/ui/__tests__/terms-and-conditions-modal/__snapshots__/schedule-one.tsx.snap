@@ -1,86 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Schedule One it matches a snapshot 1`] = `
-<Component>
-  <Component
+<Content>
+  <H5
     className="text-center"
   >
     Schedule 1 - Application User Term Principles
-  </Component>
-  <mock-styled.ol>
-    <mock-styled.li>
-      <Component>
+  </H5>
+  <TermsOl>
+    <TermsLi>
+      <H5>
         General
-      </Component>
-      <mock-styled.ol>
-        <mock-styled.li>
+      </H5>
+      <TermsOl>
+        <TermsLi>
           <span>
             The Developer must not include any terms in the Application User Terms, which conflict with the Developer’s obligations pursuant to this Agreement.
           </span>
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLi>
+        <TermsLi>
           <span>
             The Developer must ensure that the Application:
           </span>
-          <mock-styled.ol>
-            <mock-styled.li>
+          <TermsOl>
+            <TermsLi>
               <span>
                 should access only the minimum data fields which that Application needs to work properly; and
               </span>
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLi>
+            <TermsLi>
               <span>
                 ensure any data is collected, processed, transmitted, maintained and used in accordance with the Application User Terms, all applicable laws and reasonable measures that protect the privacy and security of the relevant end user (including at a minimum those set out below at Paragraph 2).
               </span>
-            </mock-styled.li>
-          </mock-styled.ol>
-        </mock-styled.li>
-        <mock-styled.li>
+            </TermsLi>
+          </TermsOl>
+        </TermsLi>
+        <TermsLi>
           <span>
             Without prejudice to the foregoing, the Application User Terms must contain clear and legally adequate disclosures about the nature of the Application’s integration with the Reapit Software (and any other software) and the User Data collected by the Application, as well as the Developer’s intended use of it.
           </span>
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLi>
+        <TermsLi>
           <span>
             The Application User Terms should include a clear statement that the Application has not been developed by Reapit and that Reapit bears no responsibility or liability for the Application and does not warrant that it does (or will in the future) function and integrate with the Reapit Software.
           </span>
-        </mock-styled.li>
-      </mock-styled.ol>
-    </mock-styled.li>
-    <mock-styled.li>
-      <Component>
+        </TermsLi>
+      </TermsOl>
+    </TermsLi>
+    <TermsLi>
+      <H5>
         Data Protection
-      </Component>
-      <mock-styled.ol>
-        <mock-styled.li>
+      </H5>
+      <TermsOl>
+        <TermsLi>
           <span>
             The Application User Terms must comply with Data Protection Laws.
           </span>
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLi>
+        <TermsLi>
           <span>
             Without prejudice to the generality of the paragraph 2.1, the Developer must clearly notify the end users of the relevant Application as to:
           </span>
-          <mock-styled.ol>
-            <mock-styled.li>
+          <TermsOl>
+            <TermsLi>
               <span>
                 the types of personal data collected or processed by the Developer and the intended processing purposes of that personal data;
               </span>
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLi>
+            <TermsLi>
               <span>
                 where such Personal Data is stored (identity and location of entity maintaining the relevant database); and
               </span>
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLi>
+            <TermsLi>
               <span>
                 whether any third parties are involved as sub-processors of the Personal Data.
               </span>
-            </mock-styled.li>
-          </mock-styled.ol>
-        </mock-styled.li>
-      </mock-styled.ol>
-    </mock-styled.li>
-  </mock-styled.ol>
-</Component>
+            </TermsLi>
+          </TermsOl>
+        </TermsLi>
+      </TermsOl>
+    </TermsLi>
+  </TermsOl>
+</Content>
 `;

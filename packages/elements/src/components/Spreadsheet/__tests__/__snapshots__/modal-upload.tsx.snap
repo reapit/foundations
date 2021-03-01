@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModalUpload should match snapshot with default prop 1`] = `
-<Component
+<Modal
   afterClose={[Function]}
   footerItems={
     <React.Fragment>
-      <Unknown
+      <Button
         onClick={[Function]}
         type="button"
         variant="secondary"
       >
         Close
-      </Unknown>
-      <Unknown
+      </Button>
+      <Button
         onClick={[Function]}
         type="button"
         variant="primary"
       >
         Process valid rows
-      </Unknown>
+      </Button>
     </React.Fragment>
   }
   tapOutsideToDissmiss={false}
@@ -26,35 +26,35 @@ exports[`ModalUpload should match snapshot with default prop 1`] = `
   visible={true}
 >
   <div>
-    <Component
+    <H4
       className="has-text-info"
     >
       All rows are valid!
-    </Component>
+    </H4>
     <ul />
   </div>
-</Component>
+</Modal>
 `;
 
 exports[`ModalUpload should match snapshot with modified props 1`] = `
-<Component
+<Modal
   afterClose={[Function]}
   footerItems={
     <React.Fragment>
-      <Unknown
+      <Button
         onClick={[Function]}
         type="button"
         variant="secondary"
       >
         Close
-      </Unknown>
-      <Unknown
+      </Button>
+      <Button
         onClick={[Function]}
         type="button"
         variant="primary"
       >
         Process valid rows
-      </Unknown>
+      </Button>
     </React.Fragment>
   }
   tapOutsideToDissmiss={false}
@@ -62,11 +62,11 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
   visible={true}
 >
   <div>
-    <Component
+    <H4
       className="has-text-danger"
     >
       Found 2 invalid rows
-    </Component>
+    </H4>
     <ul>
       <li
         key="0"
@@ -158,5 +158,5 @@ exports[`ModalUpload should match snapshot with modified props 1`] = `
       </li>
     </ul>
   </div>
-</Component>
+</Modal>
 `;

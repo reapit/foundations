@@ -28,7 +28,7 @@ exports[`breadcrumb Breadcrumb should match snapshot 2`] = `
     }
   }
 >
-  <Memo()
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="index"
     separator="/"
@@ -38,8 +38,8 @@ exports[`breadcrumb Breadcrumb should match snapshot 2`] = `
     >
       home
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="first"
     separator="/"
@@ -49,8 +49,8 @@ exports[`breadcrumb Breadcrumb should match snapshot 2`] = `
     >
       first
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={true}
     key="second"
     separator="/"
@@ -58,7 +58,7 @@ exports[`breadcrumb Breadcrumb should match snapshot 2`] = `
     <span>
       second
     </span>
-  </Memo()>
+  </Memo(BreadcrumbItem)>
 </div>
 `;
 
@@ -84,7 +84,7 @@ exports[`breadcrumb defaultItemRenderer should run correctly 1`] = `
 
 exports[`breadcrumb genForRoutes should run correctly 1`] = `
 <div>
-  <Memo()
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="index"
     separator="/"
@@ -94,8 +94,8 @@ exports[`breadcrumb genForRoutes should run correctly 1`] = `
     >
       home
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="first"
     separator="/"
@@ -105,24 +105,24 @@ exports[`breadcrumb genForRoutes should run correctly 1`] = `
     >
       first
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={true}
     key="second"
     separator="/"
   >
     <span
-      className=""
+      className="breadcrumb-item"
     >
       second
     </span>
-  </Memo()>
+  </Memo(BreadcrumbItem)>
 </div>
 `;
 
 exports[`breadcrumb genForRoutes should run correctly 2`] = `
 <div>
-  <Memo()
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="index"
     separator="/"
@@ -132,8 +132,8 @@ exports[`breadcrumb genForRoutes should run correctly 2`] = `
     >
       home
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={false}
     key="first"
     separator="/"
@@ -143,8 +143,8 @@ exports[`breadcrumb genForRoutes should run correctly 2`] = `
     >
       first
     </a>
-  </Memo()>
-  <Memo()
+  </Memo(BreadcrumbItem)>
+  <Memo(BreadcrumbItem)
     isLast={true}
     key="second"
     separator="/"
@@ -152,6 +152,6 @@ exports[`breadcrumb genForRoutes should run correctly 2`] = `
     <span>
       second
     </span>
-  </Memo()>
+  </Memo(BreadcrumbItem)>
 </div>
 `;

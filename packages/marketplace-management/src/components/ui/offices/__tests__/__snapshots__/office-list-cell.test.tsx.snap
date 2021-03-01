@@ -2,12 +2,12 @@
 
 exports[`OfficeListCell should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <OfficeName
     id="ID1"
     isLast={false}
     key="ID1"
   />
-  <Component
+  <OfficeName
     id="ID2"
     isLast={true}
     key=" ID2"
@@ -16,17 +16,17 @@ exports[`OfficeListCell should match a snapshot 1`] = `
 `;
 
 exports[`OfficeName lol should match a snapshot 1`] = `
-<mock-styled.div>
+<FadeIn>
   <span>
     Reapit, 
   </span>
-</mock-styled.div>
+</FadeIn>
 `;
 
 exports[`OfficeName should match a snapshot 1`] = `
-<mock-styled.div>
+<FadeIn>
   <span>
     Reapit, 
   </span>
-</mock-styled.div>
+</FadeIn>
 `;

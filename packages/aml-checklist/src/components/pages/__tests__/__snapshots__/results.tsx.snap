@@ -2,29 +2,29 @@
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
 <ErrorBoundary>
-  <Component
+  <Section
     className="justify-between items-center"
     isFlex={true}
   >
-    <Component
+    <H3
       className="mb-0"
     >
       Showing Results for "1"
-    </Component>
+    </H3>
     <Link
       to="/"
     >
-      <Component
+      <Button
         type="button"
         variant="primary"
       >
         New Search
-      </Component>
+      </Button>
     </Link>
-  </Component>
-  <Component>
-    <mock-styled.div>
-      <Component
+  </Section>
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -522,44 +522,44 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
         loading={false}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <mock-styled.div>
-    <Component
+    </FadeIn>
+  </Section>
+  <FadeIn>
+    <Pagination
       onChange={[Function]}
       pageNumber={1}
       pageSize={10}
       totalCount={26}
     />
-  </mock-styled.div>
+  </FadeIn>
 </ErrorBoundary>
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
 <ErrorBoundary>
-  <Component
+  <Section
     className="justify-between items-center"
     isFlex={true}
   >
-    <Component
+    <H3
       className="mb-0"
     >
       Showing Results for ""
-    </Component>
+    </H3>
     <Link
       to="/"
     >
-      <Component
+      <Button
         type="button"
         variant="primary"
       >
         New Search
-      </Component>
+      </Button>
     </Link>
-  </Component>
-  <Component>
-    <mock-styled.div>
-      <Component
+  </Section>
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -596,13 +596,13 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
         loading={false}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <mock-styled.div>
-    <Component
+    </FadeIn>
+  </Section>
+  <FadeIn>
+    <Pagination
       onChange={[Function]}
       pageNumber={1}
     />
-  </mock-styled.div>
+  </FadeIn>
 </ErrorBoundary>
 `;

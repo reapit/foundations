@@ -24,39 +24,39 @@ exports[`AccountUpdateModalForm should match a snapshot 1`] = `
 <Form
   className="form"
 >
-  <Component>
-    <Component>
+  <FormSection>
+    <FormSubHeading>
       Enter new password below
-    </Component>
-    <Component
+    </FormSubHeading>
+    <Input
       id="password"
       labelText="Password"
       name="password"
       placeholder="*********"
       type="password"
     />
-    <Component
+    <Input
       id="passwordConfirm"
       labelText="Confirm Password"
       name="passwordConfirm"
       placeholder="*********"
       type="password"
     />
-    <Component>
-      <Component
+    <LevelRight>
+      <Button
         onClick={[MockFunction]}
         type="button"
         variant="secondary"
       >
         Cancel
-      </Component>
-      <Component
+      </Button>
+      <Button
         type="submit"
         variant="primary"
       >
         Update
-      </Component>
-    </Component>
-  </Component>
+      </Button>
+    </LevelRight>
+  </FormSection>
 </Form>
 `;

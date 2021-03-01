@@ -1,11 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetEnquiriesAPI, callCreateEnquiryAPI, callGetEnquiryByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { enquiriesMock } from '../__stubs__/enquiries'
-import { enquiryMock } from '../__stubs__/enquiry'
+import { enquiriesMock } from '../__stubs__/mock-enquiries'
+import { enquiryMock } from '../__stubs__/mock-enquiry'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
-import { createEnquiryArgsMock } from '../__stubs__/create-enquiry'
-import { URLS } from '../../../constants/api'
+import { createEnquiryArgsMock } from '../__stubs__/mock-create-enquiry'
 
 jest.mock('../../../utils/get-id-from-create-headers', () => ({
   getIdFromCreateHeaders: jest.fn(),
@@ -18,7 +17,7 @@ jest.mock('../../../logger')
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => ({
     get: jest.fn().mockImplementation((value) => {
-      if (value === `${URLS.enquiries}/id`) {
+      if (value === '/enquiries/id') {
         return {
           data: enquiryMock,
         }

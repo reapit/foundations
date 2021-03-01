@@ -19,28 +19,28 @@ exports[`pep-search renderForm should match snapshot 1`] = `
 <div>
   <Form>
     <div>
-      <Component
+      <Input
         id="name"
         labelText="Enter a name"
         name="name"
         type="text"
       />
-      <Component
+      <Button
         className="mt-2"
         type="submit"
         variant="primary"
       >
         Search
-      </Component>
+      </Button>
     </div>
-    <Component>
+    <FlexContainerBasic>
       <FaRegTimesCircle />
       <div>
-        <Component>
+        <H4>
           No Result Found for ‘
           a
           ’.
-        </Component>
+        </H4>
         <p>
           Search conducted for ‘
           a
@@ -48,11 +48,11 @@ exports[`pep-search renderForm should match snapshot 1`] = `
           1
         </p>
       </div>
-    </Component>
+    </FlexContainerBasic>
     <div
       className="flex justify-end"
     >
-      <Component
+      <Button
         className="mr-2"
         dataTest="prev-btn"
         disabled={false}
@@ -61,8 +61,8 @@ exports[`pep-search renderForm should match snapshot 1`] = `
         variant="primary"
       >
         Previous
-      </Component>
-      <Component
+      </Button>
+      <Button
         dataTest="next-btn"
         disabled={false}
         onClick={[MockFunction]}
@@ -70,7 +70,7 @@ exports[`pep-search renderForm should match snapshot 1`] = `
         variant="primary"
       >
         Finish
-      </Component>
+      </Button>
     </div>
   </Form>
 </div>
@@ -79,7 +79,7 @@ exports[`pep-search renderForm should match snapshot 1`] = `
 exports[`pep-search renderLoading should match snapshot 1`] = `
 <div>
   <div>
-    <Component
+    <Loader
       body={false}
     />
   </div>
@@ -88,14 +88,14 @@ exports[`pep-search renderLoading should match snapshot 1`] = `
 
 exports[`pep-search renderNoResult should match snapshot 1`] = `
 <div>
-  <Component>
+  <FlexContainerBasic>
     <FaRegTimesCircle />
     <div>
-      <Component>
+      <H4>
         No Result Found for ‘
         param
         ’.
-      </Component>
+      </H4>
       <p>
         Search conducted for ‘
         param
@@ -103,6 +103,6 @@ exports[`pep-search renderNoResult should match snapshot 1`] = `
         time
       </p>
     </div>
-  </Component>
+  </FlexContainerBasic>
 </div>
 `;

@@ -10,7 +10,7 @@ const clientCode = 'SBOX'
 const mockUseLocation = useLocation as jest.Mock
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useParams: () => ({
     paymentId: 'MKT20000010',
   }),

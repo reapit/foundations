@@ -7,11 +7,11 @@ import {
   mutationCreateIdentityCheck,
   mutationUpdateIdentityCheck,
 } from '../resolvers'
-import { createIdentityCheckArgsMock } from '../__stubs__/create-identity-check'
-import { updateIdentityCheckArgsMock } from '../__stubs__/update-identity-check'
-import { identityCheckMock } from '../__stubs__/identity-check'
-import { identityChecksMock } from '../__stubs__/identity-checks'
-import { mockContext } from '../../../__stubs__/context'
+import { createIdentityCheckArgsMock } from '../__stubs__/mock-create-identity-check'
+import { updateIdentityCheckArgsMock } from '../__stubs__/mock-update-identity-check'
+import { identityCheckMock } from '../__stubs__/mock-identity-check'
+import { identityChecksMock } from '../__stubs__/mock-identity-checks'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getIdentityCheckById: jest.fn(() => identityCheckMock),

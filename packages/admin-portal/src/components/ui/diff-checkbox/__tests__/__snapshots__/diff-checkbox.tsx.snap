@@ -2,11 +2,11 @@
 
 exports[`DiffCheckbox should match snapshot 1`] = `
 <div
-  className=""
+  className="checkbox-container"
   data-test=""
 >
   <span
-    className=""
+    className="checkbox-wrap red-background"
   >
     <input
       checked={true}
@@ -16,12 +16,12 @@ exports[`DiffCheckbox should match snapshot 1`] = `
     />
   </span>
   <span
-    className=""
+    className="arow"
   >
     →
   </span>
   <span
-    className=""
+    className="checkbox-wrap green-background"
   >
     <input
       checked={false}

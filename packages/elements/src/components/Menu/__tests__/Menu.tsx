@@ -7,7 +7,7 @@ import { Location } from 'history'
 import { mockMenuProps } from '../__mocks__/menu-props'
 
 jest.mock('../../DynamicLinks', () => ({
-  ...jest.requireActual('../../DynamicLinks'),
+  ...(jest.requireActual('../../DynamicLinks') as Object),
   getMarketplaceGlobalsByKey: jest.fn(() => ({})),
 }))
 

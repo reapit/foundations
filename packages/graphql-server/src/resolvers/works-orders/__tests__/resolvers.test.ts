@@ -21,15 +21,15 @@ import {
   getWorksOrderItemsArgsStub,
   getWorksOrderItemByIdArgsStub,
   worksOrderItemStub,
-} from '../__stubs__/works-orders-query'
-import { mockContext } from '../../../__stubs__/context'
+} from '../__stubs__/mock-works-orders-query'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   createWorksOrderArgsStub,
   updateWorkOrderArgsStub,
   createWorksOrderItemArgsStub,
   updateWorksOrderItemArgsStub,
   deleteWorksOrderItemArgsStub,
-} from '../__stubs__/works-orders-mutation'
+} from '../__stubs__/mock-works-orders-mutation'
 
 jest.mock('../services', () => ({
   getWorksOrders: jest.fn(() => worksOrderListStub),

@@ -2,43 +2,43 @@
 
 exports[`ErrorContent should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalHeader
     title="Existing Subscription"
   />
-  <Component
+  <ModalBody
     body={
-      <Unknown
+      <SubTitleH6
         className="has-text-weight-normal"
       >
         It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To download, please use the ‘Download Now’ button below. For more information or support using the Developer Edition, please 
         <a
-          className=""
+          className="l3gjl5x-link"
           href=""
           rel="noopener noreferrer"
           target="_blank"
         >
           click here
         </a>
-      </Unknown>
+      </SubTitleH6>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
       <React.Fragment>
-        <Unknown
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
           CLOSE
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           DOWNLOAD NOW
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
   />

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`modal Modal should match snapshot 1`] = `
-<Component
-  className=""
+<Dialog
+  className="modal-container"
   closeIcon={
     <span
       aria-label="close"
@@ -10,14 +10,14 @@ exports[`modal Modal should match snapshot 1`] = `
     />
   }
   destroyOnClose={true}
-  title={<Unknown />}
+  title={<ModalHeaderV2 />}
   visible={true}
   wrapClassName=""
 >
   <div>
     children
   </div>
-</Component>
+</Dialog>
 `;
 
 exports[`modal ModalHeaderV2 should match snapshot 1`] = `

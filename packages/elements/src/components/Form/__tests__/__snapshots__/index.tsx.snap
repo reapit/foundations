@@ -2,7 +2,7 @@
 
 exports[`LayoutComponents FormHeading should match snapshot 1`] = `
 <div
-  className=""
+  className="form-heading mb-1 mockClassName"
 >
   <div>
     mockChildren
@@ -12,7 +12,7 @@ exports[`LayoutComponents FormHeading should match snapshot 1`] = `
 
 exports[`LayoutComponents FormSection should match snapshot 1`] = `
 <div
-  className=""
+  className="form-section mockClassName"
 >
   <div>
     mockChildren
@@ -22,7 +22,7 @@ exports[`LayoutComponents FormSection should match snapshot 1`] = `
 
 exports[`LayoutComponents FormSubHeading should match snapshot 1`] = `
 <div
-  className=""
+  className="form-subheading mb-4 mockClassName"
 >
   <div>
     mockChildren
@@ -31,7 +31,7 @@ exports[`LayoutComponents FormSubHeading should match snapshot 1`] = `
 `;
 
 exports[`LayoutComponents should match a snapshot for an example form 1`] = `
-<Component
+<FlexContainerBasic
   hasBackground={true}
   hasPadding={true}
 >
@@ -48,6 +48,6 @@ exports[`LayoutComponents should match a snapshot for an example form 1`] = `
   >
     <Component />
   </Formik>
-  <Component />
-</Component>
+  <FormSection />
+</FlexContainerBasic>
 `;

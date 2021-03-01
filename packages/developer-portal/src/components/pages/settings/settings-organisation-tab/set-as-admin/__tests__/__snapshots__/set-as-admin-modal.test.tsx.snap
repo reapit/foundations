@@ -13,7 +13,7 @@ exports[`SetAsAdminModal should match snapshot 1`] = `
     }
   }
 >
-  <Component
+  <SetAsAdminModal
     user={
       Object {
         "name": "Jill Hill",
@@ -21,10 +21,10 @@ exports[`SetAsAdminModal should match snapshot 1`] = `
     }
     visible={true}
   >
-    <Component
+    <Modal
       renderChildren={true}
       visible={true}
     />
-  </Component>
+  </SetAsAdminModal>
 </Provider>
 `;

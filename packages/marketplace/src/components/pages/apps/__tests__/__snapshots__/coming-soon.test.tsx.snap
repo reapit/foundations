@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ComingSoonAppComponent should match a snapshot 1`] = `
-<Component
+<GridThreeColItem
   key="sales@yourkeys.com"
 >
   <div
@@ -10,7 +10,7 @@ exports[`ComingSoonAppComponent should match a snapshot 1`] = `
     <div
       className="card-image"
     >
-      <mock-styled.div>
+      <FadeIn>
         <a
           href="mailto:sales@yourkeys.com?subject=Reapit%20Foundations%20Marketplace%20-%20Coming%20Soon&body=Dear%20Reapit%20App%20Developer%2C%20%0A%0AI%20would%20like%20more%20information%20about%20your%20app%20featured%20in%20the%20%E2%80%98Coming%20Soon%E2%80%99%20section%20of%20the%20Reapit%20Marketplace%20%0A%0ARegards"
           rel="noopener noreferrer"
@@ -18,25 +18,25 @@ exports[`ComingSoonAppComponent should match a snapshot 1`] = `
         >
           <ImageComponent />
         </a>
-      </mock-styled.div>
+      </FadeIn>
     </div>
   </div>
-</Component>
+</GridThreeColItem>
 `;
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
 <div
   id="coming-soon-section"
 >
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Agency Cloud Apps
-  </Component>
-  <Component
+  </H3>
+  <Grid
     isMultiLine={true}
   >
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "sales@yourkeys.com",
@@ -46,7 +46,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageYourkeys"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "hello@vyomm.com",
@@ -56,7 +56,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageVyomm"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "support@sms-speedway.com",
@@ -66,7 +66,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonSmsSpeedWayIdVerification"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "support@sms-speedway.com",
@@ -76,7 +76,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonSmsSpeedway"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "hphillips@reapit.com",
@@ -86,7 +86,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonReapitPayments"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "hphillips@reapit.com",
@@ -96,7 +96,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageMAB"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "helpdesk@perfectportal.co.uk",
@@ -106,7 +106,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonPerfectPortal"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "partner@movinghub.co.uk",
@@ -116,19 +116,19 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonMovingHub"
     />
-  </Component>
+  </Grid>
   <div
     className="bb mb-4"
   />
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Third Party Integrations
-  </Component>
-  <Component
+  </H3>
+  <Grid
     isMultiLine={true}
   >
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "hello@starberry.tv",
@@ -138,7 +138,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageStarberry"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "sales@yomdel.com",
@@ -148,7 +148,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageYomdel"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "info@integratedinterest.com",
@@ -158,7 +158,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageIntegrated"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "enquiries@zerodeposit.com",
@@ -168,7 +168,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageZero"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "enquiries@twentyea.co.uk",
@@ -178,7 +178,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageTwentyci"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "enquiries@viewmychain.com",
@@ -188,7 +188,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageTwentyCiVMC"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "app-support@iamproperty.com",
@@ -198,7 +198,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonIAMProperty"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "support@spectre.uk.com",
@@ -208,19 +208,19 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageSpectre"
     />
-  </Component>
+  </Grid>
   <div
     className="bb mb-4"
   />
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Portal Integrations
-  </Component>
-  <Component
+  </H3>
+  <Grid
     isMultiLine={true}
   >
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "",
@@ -230,7 +230,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonImageZoopla"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "",
@@ -240,7 +240,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonOnTheMarket"
     />
-    <Component
+    <ComingSoonAppComponent
       app={
         Object {
           "email": "",
@@ -250,6 +250,6 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
       isDesktop={false}
       key="comingSoonRightMove"
     />
-  </Component>
+  </Grid>
 </div>
 `;

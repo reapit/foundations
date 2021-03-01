@@ -2,31 +2,31 @@
 
 exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKTOP 1`] = `
 <React.Fragment>
-  <Unknown
+  <H3
     isHeadingSection={true}
   >
     Client Search
-  </Unknown>
-  <Unknown>
-    <mock-styled.div>
+  </H3>
+  <Section>
+    <FadeIn>
       <Form
         className="mb-8"
       >
-        <Unknown
+        <Input
           id="name"
           labelText="Search by name"
           name="name"
           placeholder="Firstname or Surname"
           type="text"
         />
-        <Unknown
+        <Input
           id="address"
           labelText="Search by address"
           name="address"
           placeholder="Streetname, Village, Town or Postcode"
           type="text"
         />
-        <Unknown
+        <SelectBox
           id="identityCheck"
           labelText="Search by ID Status"
           name="identityCheck"
@@ -63,14 +63,14 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
             ]
           }
         />
-        <Unknown
+        <Button
           className="is-right"
           type="submit"
           variant="primary"
         >
           Search
-        </Unknown>
-        <Unknown
+        </Button>
+        <AcButton
           buttonProps={
             Object {
               "disabled": true,
@@ -92,40 +92,40 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
           }
         >
           Advanced Search
-        </Unknown>
+        </AcButton>
       </Form>
-    </mock-styled.div>
-  </Unknown>
+    </FadeIn>
+  </Section>
 </React.Fragment>
 `;
 
 exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1`] = `
 <React.Fragment>
-  <Unknown
+  <H3
     isHeadingSection={true}
   >
     Client Search
-  </Unknown>
-  <Unknown>
-    <mock-styled.div>
+  </H3>
+  <Section>
+    <FadeIn>
       <Form
         className="mb-8"
       >
-        <Unknown
+        <Input
           id="name"
           labelText="Search by name"
           name="name"
           placeholder="Firstname or Surname"
           type="text"
         />
-        <Unknown
+        <Input
           id="address"
           labelText="Search by address"
           name="address"
           placeholder="Streetname, Village, Town or Postcode"
           type="text"
         />
-        <Unknown
+        <SelectBox
           id="identityCheck"
           labelText="Search by ID Status"
           name="identityCheck"
@@ -162,16 +162,16 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
             ]
           }
         />
-        <Unknown
+        <Button
           className="is-right"
           type="submit"
           variant="primary"
         >
           Search
-        </Unknown>
+        </Button>
       </Form>
-    </mock-styled.div>
-  </Unknown>
+    </FadeIn>
+  </Section>
 </React.Fragment>
 `;
 

@@ -7,7 +7,7 @@ const mockedUseReapitConnect = (useReapitConnect as unknown) as jest.Mock
 
 jest.mock('@reapit/connect-session')
 
-const session = {
+const mockSession = {
   accessToken: '123',
   accessTokenExpiry: 1583492838,
   idToken: '123',
@@ -34,10 +34,10 @@ describe('isUserWithDevIdOnly', () => {
     expect(isUserWithDevIdOnly(loginIdentitiyWithDeveloperIdOnly)).toBeTruthy()
   })
   test('user with developer id, client id, admin id', () => {
-    expect(isUserWithDevIdOnly(session.loginIdentity as LoginIdentity)).toBeFalsy()
+    expect(isUserWithDevIdOnly(mockSession.loginIdentity as LoginIdentity)).toBeFalsy()
   })
   test('user with clientId = SBOX', () => {
-    expect(isUserWithDevIdOnly(session.loginIdentity as LoginIdentity)).toBeFalsy()
+    expect(isUserWithDevIdOnly(mockSession.loginIdentity as LoginIdentity)).toBeFalsy()
   })
 })
 
@@ -45,7 +45,7 @@ describe('App', () => {
   test('redirect to https://developers.dev.paas.reapit.cloud/apps when isUserWithDevIdOnly is true', () => {
     window.location.href = ''
     mockedUseReapitConnect.mockReturnValueOnce({
-      connectSession: { ...session, loginIdentity: loginIdentitiyWithDeveloperIdOnly },
+      connectSession: { ...mockSession, loginIdentity: loginIdentitiyWithDeveloperIdOnly },
     })
     shallow(<App />)
     expect(location.href).toBe(window.reapit.config.developerPortalUrl)
@@ -54,7 +54,7 @@ describe('App', () => {
   test('redirect to https://developers.dev.paas.reapit.cloud/apps when isUserWithDevIdOnly is false', () => {
     window.location.href = ''
     mockedUseReapitConnect.mockReturnValue({
-      connectSession: session,
+      connectSession: mockSession,
     })
     shallow(<App />)
     expect(location.href).toBe('')
@@ -62,7 +62,7 @@ describe('App', () => {
 
   it('should match snapshot', () => {
     jest.mock('@reapit/connect-session', () => ({
-      connectSession: session,
+      connectSession: mockSession,
     }))
 
     expect(shallow(<App />)).toMatchSnapshot()

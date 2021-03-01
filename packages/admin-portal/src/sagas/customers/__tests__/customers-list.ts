@@ -1,8 +1,4 @@
-import customersListSagas, {
-  fetchCustomersListListen,
-  fetchCustomersListHandler,
-  FETCH_LIST_ERROR_MESSAGE,
-} from '../customers-list'
+import customersListSagas, { fetchCustomersListListen, fetchCustomersListHandler } from '../customers-list'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { customersList } from '../__stubs__/customers-list'
@@ -16,7 +12,7 @@ import { fetchCustomersListFailed, fetchCustomersListSuccess, FetchCustomersList
 jest.mock('@/services/approvals')
 jest.mock('@reapit/elements')
 jest.mock('@reapit/utils', () => ({
-  extractNetworkErrString: jest.fn(() => FETCH_LIST_ERROR_MESSAGE),
+  extractNetworkErrString: jest.fn(() => 'ERROR'),
 }))
 const params = { data: { queryString: '?name=test' } }
 
@@ -39,10 +35,10 @@ describe('fetchCustomersListHandler', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(fetchCustomersListFailed('Can not fetch customers list !')))
+    expect(clone.next(undefined).value).toEqual(put(fetchCustomersListFailed('ERROR')))
     expect(clone.next().value).toEqual(
       call(notification.error, {
-        message: FETCH_LIST_ERROR_MESSAGE,
+        message: 'ERROR',
         placement: 'bottomRight',
       }),
     )

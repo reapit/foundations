@@ -23,7 +23,7 @@
     "@sentry/browser": "^5.30.0",
     "dayjs": "^1.10.4",
     "diff": "^4.0.2",
-    "linaria": "^1.4.1",
+    "linaria": "^2.0.2",
     "react": "^16.14.0",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^16.14.0",

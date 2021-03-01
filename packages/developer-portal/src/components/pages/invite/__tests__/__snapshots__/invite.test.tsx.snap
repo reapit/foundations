@@ -55,7 +55,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <Invite>
         <Formik
           initialValues={
             Object {
@@ -65,10 +65,10 @@ exports[`AcceptedModal should match snapshot 1`] = `
           }
           onSubmit={[Function]}
         >
-          <Component
+          <ModalV2
             closable={false}
             footer={
-              <Unknown
+              <ModalFooter
                 inviteStatus="PENDING"
                 onConfirm={[Function]}
                 onReject={[Function]}
@@ -78,8 +78,8 @@ exports[`AcceptedModal should match snapshot 1`] = `
             title="Reapit Foundations Invitation"
             visible={true}
           >
-            <Component
-              className=""
+            <Dialog
+              className="m1s2ncsn-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -89,24 +89,24 @@ exports[`AcceptedModal should match snapshot 1`] = `
               }
               destroyOnClose={true}
               footer={
-                <Unknown
+                <ModalFooter
                   inviteStatus="PENDING"
                   onConfirm={[Function]}
                   onReject={[Function]}
                 />
               }
               title={
-                <Unknown>
+                <ModalHeaderV2>
                   Reapit Foundations Invitation
-                </Unknown>
+                </ModalHeaderV2>
               }
               visible={true}
-              wrapClassName=""
+              wrapClassName="m1iljaow-modal-centered"
             >
               <PortalWrapper
                 visible={true}
               >
-                <Portal
+                <ForwardRef
                   getContainer={[Function]}
                 >
                   <Portal
@@ -120,12 +120,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap "
+                            class="rc-dialog-wrap m1iljaow-modal-centered"
                             role="dialog"
                             tabindex="-1"
                           >
                             <div
-                              class="rc-dialog "
+                              class="rc-dialog m1s2ncsn-modal-container"
                               role="document"
                             >
                               <div
@@ -154,7 +154,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   class="rc-dialog-body"
                                 >
                                   <div
-                                    class=""
+                                    class="content"
                                     data-test=""
                                   >
                                     <p>
@@ -169,7 +169,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     action="#"
                                   >
                                     <div
-                                      class=""
+                                      class="field"
                                     >
                                       <div
                                         class="control "
@@ -181,7 +181,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                           Name
                                         </label>
                                         <input
-                                          class=""
+                                          class="input is-primary"
                                           data-test=""
                                           id="name"
                                           name="name"
@@ -192,7 +192,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class=""
+                                      class="field"
                                     >
                                       <div
                                         class="control "
@@ -204,7 +204,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                           Job Title
                                         </label>
                                         <input
-                                          class=""
+                                          class="input is-primary"
                                           data-test=""
                                           id="jobTitle"
                                           name="jobTitle"
@@ -216,7 +216,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     </div>
                                   </form>
                                   <div
-                                    class=""
+                                    class="content"
                                     data-test=""
                                   >
                                     <p>
@@ -258,7 +258,8 @@ exports[`AcceptedModal should match snapshot 1`] = `
                     }
                   >
                     <Dialog
-                      className=""
+                      afterClose={[Function]}
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -267,9 +268,8 @@ exports[`AcceptedModal should match snapshot 1`] = `
                         />
                       }
                       destroyOnClose={true}
-                      focusTriggerAfterClose={true}
                       footer={
-                        <Unknown
+                        <ModalFooter
                           inviteStatus="PENDING"
                           onConfirm={[Function]}
                           onReject={[Function]}
@@ -277,80 +277,426 @@ exports[`AcceptedModal should match snapshot 1`] = `
                       }
                       getContainer={[Function]}
                       getOpenCount={[Function]}
-                      keyboard={true}
-                      mask={true}
-                      maskClosable={true}
-                      prefixCls="rc-dialog"
+                      scrollLocker={
+                        ScrollLocker {
+                          "getContainer": [Function],
+                          "lock": [Function],
+                          "lockTarget": 0,
+                          "options": Object {
+                            "container": <body
+                              class="ant-scrolling-effect"
+                              style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                            >
+                              <div>
+                                <div
+                                  class="rc-dialog-root"
+                                >
+                                  <div
+                                    class="rc-dialog-mask"
+                                  />
+                                  <div
+                                    aria-labelledby="rcDialogTitle0"
+                                    class="rc-dialog-wrap m1iljaow-modal-centered"
+                                    role="dialog"
+                                    tabindex="-1"
+                                  >
+                                    <div
+                                      class="rc-dialog m1s2ncsn-modal-container"
+                                      role="document"
+                                    >
+                                      <div
+                                        aria-hidden="true"
+                                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                        tabindex="0"
+                                      />
+                                      <div
+                                        class="rc-dialog-content"
+                                      >
+                                        <div
+                                          class="rc-dialog-header"
+                                        >
+                                          <div
+                                            class="rc-dialog-title"
+                                            id="rcDialogTitle0"
+                                          >
+                                            <h4
+                                              class="modal-card-title is-4 pt-2 pb-2"
+                                            >
+                                              Reapit Foundations Invitation
+                                            </h4>
+                                          </div>
+                                        </div>
+                                        <div
+                                          class="rc-dialog-body"
+                                        >
+                                          <div
+                                            class="content"
+                                            data-test=""
+                                          >
+                                            <p>
+                                              You have been invited to join the '
+                                              ' organisation on Reapit Foundations.
+                                            </p>
+                                            <p>
+                                              Before confirming your account, please ensure your details are correct below.
+                                            </p>
+                                          </div>
+                                          <form
+                                            action="#"
+                                          >
+                                            <div
+                                              class="field"
+                                            >
+                                              <div
+                                                class="control "
+                                              >
+                                                <label
+                                                  class="label inline-block required-label"
+                                                  for="name"
+                                                >
+                                                  Name
+                                                </label>
+                                                <input
+                                                  class="input is-primary"
+                                                  data-test=""
+                                                  id="name"
+                                                  name="name"
+                                                  placeholder=""
+                                                  type="text"
+                                                  value=""
+                                                />
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="field"
+                                            >
+                                              <div
+                                                class="control "
+                                              >
+                                                <label
+                                                  class="label inline-block required-label"
+                                                  for="jobTitle"
+                                                >
+                                                  Job Title
+                                                </label>
+                                                <input
+                                                  class="input is-primary"
+                                                  data-test=""
+                                                  id="jobTitle"
+                                                  name="jobTitle"
+                                                  placeholder=""
+                                                  type="text"
+                                                  value=""
+                                                />
+                                              </div>
+                                            </div>
+                                          </form>
+                                          <div
+                                            class="content"
+                                            data-test=""
+                                          >
+                                            <p>
+                                              <strong>
+                                                Important: 
+                                              </strong>
+                                              If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div
+                                          class="rc-dialog-footer"
+                                        >
+                                          <button
+                                            class="button mr-2 is-danger  "
+                                            data-test=""
+                                            type="button"
+                                          >
+                                            Decline
+                                          </button>
+                                          <button
+                                            class="button  is-primary  "
+                                            data-test=""
+                                            type="submit"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div
+                                        aria-hidden="true"
+                                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                        tabindex="0"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </body>,
+                          },
+                          "reLock": [Function],
+                          "unLock": [Function],
+                        }
+                      }
                       switchScrollingEffect={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Reapit Foundations Invitation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={true}
-                      wrapClassName=""
+                      wrapClassName="m1iljaow-modal-centered"
                     >
                       <div
                         className="rc-dialog-root"
                       >
-                        <LazyRenderBox
-                          className="rc-dialog-mask"
-                          hiddenClassName="rc-dialog-mask-hidden"
-                          key="mask"
-                          style={Object {}}
+                        <Mask
+                          prefixCls="rc-dialog"
+                          style={
+                            Object {
+                              "zIndex": undefined,
+                            }
+                          }
                           visible={true}
                         >
-                          <div
-                            className="rc-dialog-mask"
-                            style={Object {}}
-                          />
-                        </LazyRenderBox>
+                          <CSSMotion
+                            key="mask"
+                            leavedClassName="rc-dialog-mask-hidden"
+                            visible={true}
+                          >
+                            <DomWrapper>
+                              <div
+                                className="rc-dialog-mask"
+                                style={
+                                  Object {
+                                    "zIndex": undefined,
+                                  }
+                                }
+                              />
+                            </DomWrapper>
+                          </CSSMotion>
+                        </Mask>
                         <div
                           aria-labelledby="rcDialogTitle0"
-                          className="rc-dialog-wrap "
+                          className="rc-dialog-wrap m1iljaow-modal-centered"
                           onClick={[Function]}
                           onKeyDown={[Function]}
-                          onMouseUp={[Function]}
                           role="dialog"
                           style={
                             Object {
                               "display": null,
+                              "zIndex": undefined,
                             }
                           }
                           tabIndex={-1}
                         >
-                          <Animate
-                            animation={Object {}}
-                            component=""
-                            componentProps={Object {}}
-                            key="dialog"
-                            onAppear={[Function]}
-                            onEnd={[Function]}
-                            onEnter={[Function]}
-                            onLeave={[Function]}
-                            showProp="visible"
-                            transitionAppear={true}
-                            transitionEnter={true}
-                            transitionLeave={true}
+                          <Content
+                            afterClose={[Function]}
+                            ariaId="rcDialogTitle0"
+                            className="m1s2ncsn-modal-container"
+                            closable={false}
+                            closeIcon={
+                              <span
+                                aria-label="close"
+                                className="delete"
+                              />
+                            }
+                            destroyOnClose={true}
+                            footer={
+                              <ModalFooter
+                                inviteStatus="PENDING"
+                                onConfirm={[Function]}
+                                onReject={[Function]}
+                              />
+                            }
+                            getContainer={[Function]}
+                            getOpenCount={[Function]}
+                            onClose={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseUp={[Function]}
+                            onVisibleChanged={[Function]}
+                            prefixCls="rc-dialog"
+                            scrollLocker={
+                              ScrollLocker {
+                                "getContainer": [Function],
+                                "lock": [Function],
+                                "lockTarget": 0,
+                                "options": Object {
+                                  "container": <body
+                                    class="ant-scrolling-effect"
+                                    style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                                  >
+                                    <div>
+                                      <div
+                                        class="rc-dialog-root"
+                                      >
+                                        <div
+                                          class="rc-dialog-mask"
+                                        />
+                                        <div
+                                          aria-labelledby="rcDialogTitle0"
+                                          class="rc-dialog-wrap m1iljaow-modal-centered"
+                                          role="dialog"
+                                          tabindex="-1"
+                                        >
+                                          <div
+                                            class="rc-dialog m1s2ncsn-modal-container"
+                                            role="document"
+                                          >
+                                            <div
+                                              aria-hidden="true"
+                                              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                              tabindex="0"
+                                            />
+                                            <div
+                                              class="rc-dialog-content"
+                                            >
+                                              <div
+                                                class="rc-dialog-header"
+                                              >
+                                                <div
+                                                  class="rc-dialog-title"
+                                                  id="rcDialogTitle0"
+                                                >
+                                                  <h4
+                                                    class="modal-card-title is-4 pt-2 pb-2"
+                                                  >
+                                                    Reapit Foundations Invitation
+                                                  </h4>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="rc-dialog-body"
+                                              >
+                                                <div
+                                                  class="content"
+                                                  data-test=""
+                                                >
+                                                  <p>
+                                                    You have been invited to join the '
+                                                    ' organisation on Reapit Foundations.
+                                                  </p>
+                                                  <p>
+                                                    Before confirming your account, please ensure your details are correct below.
+                                                  </p>
+                                                </div>
+                                                <form
+                                                  action="#"
+                                                >
+                                                  <div
+                                                    class="field"
+                                                  >
+                                                    <div
+                                                      class="control "
+                                                    >
+                                                      <label
+                                                        class="label inline-block required-label"
+                                                        for="name"
+                                                      >
+                                                        Name
+                                                      </label>
+                                                      <input
+                                                        class="input is-primary"
+                                                        data-test=""
+                                                        id="name"
+                                                        name="name"
+                                                        placeholder=""
+                                                        type="text"
+                                                        value=""
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    class="field"
+                                                  >
+                                                    <div
+                                                      class="control "
+                                                    >
+                                                      <label
+                                                        class="label inline-block required-label"
+                                                        for="jobTitle"
+                                                      >
+                                                        Job Title
+                                                      </label>
+                                                      <input
+                                                        class="input is-primary"
+                                                        data-test=""
+                                                        id="jobTitle"
+                                                        name="jobTitle"
+                                                        placeholder=""
+                                                        type="text"
+                                                        value=""
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                </form>
+                                                <div
+                                                  class="content"
+                                                  data-test=""
+                                                >
+                                                  <p>
+                                                    <strong>
+                                                      Important: 
+                                                    </strong>
+                                                    If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+                                                  </p>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="rc-dialog-footer"
+                                              >
+                                                <button
+                                                  class="button mr-2 is-danger  "
+                                                  data-test=""
+                                                  type="button"
+                                                >
+                                                  Decline
+                                                </button>
+                                                <button
+                                                  class="button  is-primary  "
+                                                  data-test=""
+                                                  type="submit"
+                                                >
+                                                  Confirm
+                                                </button>
+                                              </div>
+                                            </div>
+                                            <div
+                                              aria-hidden="true"
+                                              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                              tabindex="0"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </body>,
+                                },
+                                "reLock": [Function],
+                                "unLock": [Function],
+                              }
+                            }
+                            switchScrollingEffect={[Function]}
+                            title={
+                              <ModalHeaderV2>
+                                Reapit Foundations Invitation
+                              </ModalHeaderV2>
+                            }
+                            visible={true}
+                            wrapClassName="m1iljaow-modal-centered"
                           >
-                            <AnimateChild
-                              animation={Object {}}
-                              key="dialog-element"
-                              transitionAppear={true}
-                              transitionEnter={true}
-                              transitionLeave={true}
+                            <CSSMotion
+                              onAppearPrepare={[Function]}
+                              onEnterPrepare={[Function]}
+                              onVisibleChanged={[Function]}
+                              removeOnLeave={true}
+                              visible={true}
                             >
-                              <LazyRenderBox
-                                className="rc-dialog "
-                                key="dialog-element"
-                                onMouseDown={[Function]}
-                                role="document"
-                                style={Object {}}
-                                visible={true}
-                              >
+                              <DomWrapper>
                                 <div
-                                  className="rc-dialog "
+                                  className="rc-dialog m1s2ncsn-modal-container"
+                                  key="dialog-element"
                                   onMouseDown={[Function]}
+                                  onMouseUp={[Function]}
                                   role="document"
                                   style={Object {}}
                                 >
@@ -366,190 +712,194 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     }
                                     tabIndex={0}
                                   />
-                                  <div
-                                    className="rc-dialog-content"
+                                  <Component
+                                    shouldUpdate={true}
                                   >
                                     <div
-                                      className="rc-dialog-header"
+                                      className="rc-dialog-content"
                                     >
                                       <div
-                                        className="rc-dialog-title"
-                                        id="rcDialogTitle0"
+                                        className="rc-dialog-header"
                                       >
-                                        <Component>
-                                          <h4
-                                            className="modal-card-title is-4 pt-2 pb-2"
-                                          >
-                                            Reapit Foundations Invitation
-                                          </h4>
-                                        </Component>
+                                        <div
+                                          className="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <ModalHeaderV2>
+                                            <h4
+                                              className="modal-card-title is-4 pt-2 pb-2"
+                                            >
+                                              Reapit Foundations Invitation
+                                            </h4>
+                                          </ModalHeaderV2>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div
-                                      className="rc-dialog-body"
-                                    >
-                                      <Component>
-                                        <div
-                                          className=""
-                                          data-test=""
-                                        >
-                                          <p>
-                                            You have been invited to join the '
-                                            ' organisation on Reapit Foundations.
-                                          </p>
-                                          <p>
-                                            Before confirming your account, please ensure your details are correct below.
-                                          </p>
-                                        </div>
-                                      </Component>
-                                      <Form>
-                                        <form
-                                          action="#"
-                                          onReset={[Function]}
-                                          onSubmit={[Function]}
-                                        >
-                                          <Component
-                                            id="name"
-                                            labelText="Name"
-                                            name="name"
-                                            required={true}
-                                            type="text"
-                                          >
-                                            <Field
-                                              name="name"
-                                              validate={[Function]}
-                                            >
-                                              <div
-                                                className=""
-                                              >
-                                                <div
-                                                  className="control "
-                                                >
-                                                  <label
-                                                    className="label inline-block required-label"
-                                                    htmlFor="name"
-                                                  >
-                                                    Name
-                                                  </label>
-                                                  <input
-                                                    className=""
-                                                    data-test=""
-                                                    disabled={false}
-                                                    id="name"
-                                                    name="name"
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    placeholder=""
-                                                    type="text"
-                                                    value=""
-                                                  />
-                                                </div>
-                                              </div>
-                                            </Field>
-                                          </Component>
-                                          <Component
-                                            id="jobTitle"
-                                            labelText="Job Title"
-                                            name="jobTitle"
-                                            required={true}
-                                            type="text"
-                                          >
-                                            <Field
-                                              name="jobTitle"
-                                              validate={[Function]}
-                                            >
-                                              <div
-                                                className=""
-                                              >
-                                                <div
-                                                  className="control "
-                                                >
-                                                  <label
-                                                    className="label inline-block required-label"
-                                                    htmlFor="jobTitle"
-                                                  >
-                                                    Job Title
-                                                  </label>
-                                                  <input
-                                                    className=""
-                                                    data-test=""
-                                                    disabled={false}
-                                                    id="jobTitle"
-                                                    name="jobTitle"
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    placeholder=""
-                                                    type="text"
-                                                    value=""
-                                                  />
-                                                </div>
-                                              </div>
-                                            </Field>
-                                          </Component>
-                                        </form>
-                                      </Form>
-                                      <Component>
-                                        <div
-                                          className=""
-                                          data-test=""
-                                        >
-                                          <p>
-                                            <strong>
-                                              Important: 
-                                            </strong>
-                                            If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-                                          </p>
-                                        </div>
-                                      </Component>
-                                    </div>
-                                    <div
-                                      className="rc-dialog-footer"
-                                    >
-                                      <Component
-                                        inviteStatus="PENDING"
-                                        onConfirm={[Function]}
-                                        onReject={[Function]}
+                                      <div
+                                        className="rc-dialog-body"
                                       >
-                                        <Component
-                                          className="mr-2"
-                                          disabled={false}
-                                          key="close"
-                                          loading={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                          variant="danger"
-                                        >
-                                          <button
-                                            className="button mr-2 is-danger  "
+                                        <Content>
+                                          <div
+                                            className="content"
                                             data-test=""
+                                          >
+                                            <p>
+                                              You have been invited to join the '
+                                              ' organisation on Reapit Foundations.
+                                            </p>
+                                            <p>
+                                              Before confirming your account, please ensure your details are correct below.
+                                            </p>
+                                          </div>
+                                        </Content>
+                                        <Form>
+                                          <form
+                                            action="#"
+                                            onReset={[Function]}
+                                            onSubmit={[Function]}
+                                          >
+                                            <Input
+                                              id="name"
+                                              labelText="Name"
+                                              name="name"
+                                              required={true}
+                                              type="text"
+                                            >
+                                              <Field
+                                                name="name"
+                                                validate={[Function]}
+                                              >
+                                                <div
+                                                  className="field"
+                                                >
+                                                  <div
+                                                    className="control "
+                                                  >
+                                                    <label
+                                                      className="label inline-block required-label"
+                                                      htmlFor="name"
+                                                    >
+                                                      Name
+                                                    </label>
+                                                    <input
+                                                      className="input is-primary"
+                                                      data-test=""
+                                                      disabled={false}
+                                                      id="name"
+                                                      name="name"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder=""
+                                                      type="text"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Input>
+                                            <Input
+                                              id="jobTitle"
+                                              labelText="Job Title"
+                                              name="jobTitle"
+                                              required={true}
+                                              type="text"
+                                            >
+                                              <Field
+                                                name="jobTitle"
+                                                validate={[Function]}
+                                              >
+                                                <div
+                                                  className="field"
+                                                >
+                                                  <div
+                                                    className="control "
+                                                  >
+                                                    <label
+                                                      className="label inline-block required-label"
+                                                      htmlFor="jobTitle"
+                                                    >
+                                                      Job Title
+                                                    </label>
+                                                    <input
+                                                      className="input is-primary"
+                                                      data-test=""
+                                                      disabled={false}
+                                                      id="jobTitle"
+                                                      name="jobTitle"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder=""
+                                                      type="text"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Input>
+                                          </form>
+                                        </Form>
+                                        <Content>
+                                          <div
+                                            className="content"
+                                            data-test=""
+                                          >
+                                            <p>
+                                              <strong>
+                                                Important: 
+                                              </strong>
+                                              If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+                                            </p>
+                                          </div>
+                                        </Content>
+                                      </div>
+                                      <div
+                                        className="rc-dialog-footer"
+                                      >
+                                        <ModalFooter
+                                          inviteStatus="PENDING"
+                                          onConfirm={[Function]}
+                                          onReject={[Function]}
+                                        >
+                                          <Button
+                                            className="mr-2"
                                             disabled={false}
+                                            key="close"
+                                            loading={false}
                                             onClick={[Function]}
                                             type="button"
+                                            variant="danger"
                                           >
-                                            Decline
-                                          </button>
-                                        </Component>
-                                        <Component
-                                          disabled={false}
-                                          key="submit"
-                                          loading={false}
-                                          onClick={[Function]}
-                                          type="submit"
-                                          variant="primary"
-                                        >
-                                          <button
-                                            className="button  is-primary  "
-                                            data-test=""
+                                            <button
+                                              className="button mr-2 is-danger  "
+                                              data-test=""
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                            >
+                                              Decline
+                                            </button>
+                                          </Button>
+                                          <Button
                                             disabled={false}
+                                            key="submit"
+                                            loading={false}
                                             onClick={[Function]}
                                             type="submit"
+                                            variant="primary"
                                           >
-                                            Confirm
-                                          </button>
-                                        </Component>
-                                      </Component>
+                                            <button
+                                              className="button  is-primary  "
+                                              data-test=""
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="submit"
+                                            >
+                                              Confirm
+                                            </button>
+                                          </Button>
+                                        </ModalFooter>
+                                      </div>
                                     </div>
-                                  </div>
+                                  </Component>
                                   <div
                                     aria-hidden="true"
                                     style={
@@ -563,38 +913,38 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     tabIndex={0}
                                   />
                                 </div>
-                              </LazyRenderBox>
-                            </AnimateChild>
-                          </Animate>
+                              </DomWrapper>
+                            </CSSMotion>
+                          </Content>
                         </div>
                       </div>
                     </Dialog>
                   </Portal>
-                </Portal>
+                </ForwardRef>
               </PortalWrapper>
-            </Component>
-          </Component>
+            </Dialog>
+          </ModalV2>
         </Formik>
-        <Component
+        <AcceptedModal
           visible={false}
         >
-          <Component
+          <ModalV2
             closable={false}
             footer={
-              <Unknown
+              <Button
                 className="mr-2"
                 onClick={[Function]}
                 type="button"
               >
                 Login
-              </Unknown>
+              </Button>
             }
             isCentered={true}
             title="Success"
             visible={false}
           >
-            <Component
-              className=""
+            <Dialog
+              className="m1s2ncsn-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -604,39 +954,35 @@ exports[`AcceptedModal should match snapshot 1`] = `
               }
               destroyOnClose={true}
               footer={
-                <Unknown
+                <Button
                   className="mr-2"
                   onClick={[Function]}
                   type="button"
                 >
                   Login
-                </Unknown>
+                </Button>
               }
               title={
-                <Unknown>
+                <ModalHeaderV2>
                   Success
-                </Unknown>
+                </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName=""
-            >
-              <PortalWrapper
-                visible={false}
-              />
-            </Component>
-          </Component>
-        </Component>
-        <Component
+              wrapClassName="m1iljaow-modal-centered"
+            />
+          </ModalV2>
+        </AcceptedModal>
+        <RejectedModal
           visible={false}
         >
-          <Component
+          <ModalV2
             closable={false}
             isCentered={true}
             title="Invitation Declined"
             visible={false}
           >
-            <Component
-              className=""
+            <Dialog
+              className="m1s2ncsn-modal-container"
               closable={false}
               closeIcon={
                 <span
@@ -646,20 +992,16 @@ exports[`AcceptedModal should match snapshot 1`] = `
               }
               destroyOnClose={true}
               title={
-                <Unknown>
+                <ModalHeaderV2>
                   Invitation Declined
-                </Unknown>
+                </ModalHeaderV2>
               }
               visible={false}
-              wrapClassName=""
-            >
-              <PortalWrapper
-                visible={false}
-              />
-            </Component>
-          </Component>
-        </Component>
-      </Component>
+              wrapClassName="m1iljaow-modal-centered"
+            />
+          </ModalV2>
+        </RejectedModal>
+      </Invite>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -667,7 +1009,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
 
 exports[`ModalFooter should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <Button
     className="mr-2"
     disabled={false}
     key="close"
@@ -677,8 +1019,8 @@ exports[`ModalFooter should match snapshot 1`] = `
     variant="danger"
   >
     Decline
-  </Component>
-  <Component
+  </Button>
+  <Button
     disabled={false}
     key="submit"
     loading={false}
@@ -687,6 +1029,6 @@ exports[`ModalFooter should match snapshot 1`] = `
     variant="primary"
   >
     Confirm
-  </Component>
+  </Button>
 </Fragment>
 `;

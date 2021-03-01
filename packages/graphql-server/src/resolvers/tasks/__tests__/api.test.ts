@@ -1,10 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetTasksAPI, callCreateTaskAPI, callUpdateTaskAPI, callGetTaskByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { taskMock } from '../__stubs__/task'
-import { tasksMock } from '../__stubs__/tasks'
-import { createTaskArgsMock } from '../__stubs__/create-task'
-import { updateTaskArgsMock } from '../__stubs__/update-task'
+import { taskMock } from '../__stubs__/mock-task'
+import { tasksMock } from '../__stubs__/mock-tasks'
+import { createTaskArgsMock } from '../__stubs__/mock-create-task'
+import { updateTaskArgsMock } from '../__stubs__/mock-update-task'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

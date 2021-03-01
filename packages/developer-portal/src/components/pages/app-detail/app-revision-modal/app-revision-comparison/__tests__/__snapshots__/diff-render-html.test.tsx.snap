@@ -2,19 +2,19 @@
 
 exports[`DiffRenderHTML should match a snapshot 1`] = `
 <div
-  className=""
+  className="d1hksy8i-diff-render-html-container"
 >
-  <Component
-    className=""
+  <HTMLRender
+    className="dh9he44-diff-render-block rbeetup-red"
     html="abc"
   />
   <span
-    className=""
+    className="a1qyga7q-arrow"
   >
     →
   </span>
-  <Component
-    className=""
+  <HTMLRender
+    className="dh9he44-diff-render-block g1gwscut-green"
     html="<b>axxxxxxxxxxxbc<b>"
   />
 </div>

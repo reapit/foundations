@@ -2,10 +2,10 @@
 
 exports[`App should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Component>
-    <Component>
+  <PortalProvider>
+    <MessageProvider>
       <MockRouter />
-    </Component>
-  </Component>
+    </MessageProvider>
+  </PortalProvider>
 </ErrorBoundary>
 `;

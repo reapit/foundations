@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetVendorsAPI,
   callUpdateVendorAPI,
@@ -9,13 +9,13 @@ import {
   callGetVendorRelationshipByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { vendorStub } from '../__stubs__/vendor'
-import { vendorsStub } from '../__stubs__/vendors'
-import { updateVendorArgsStub } from '../__stubs__/update-vendor'
-import { vendorRelationshipStub } from '../__stubs__/vendor-relationship'
-import { vendorRelationshipsStub } from '../__stubs__/vendor-relationships'
-import { createVendorRelationshipArgsStub } from '../__stubs__/create-vendor-relationships'
-import { deleteVendorRelationshipsArgsStub } from '../__stubs__/delete-vendor-relationships'
+import { vendorStub } from '../__stubs__/mock-vendor'
+import { vendorsStub } from '../__stubs__/mock-vendors'
+import { updateVendorArgsStub } from '../__stubs__/mock-update-vendor'
+import { vendorRelationshipStub } from '../__stubs__/mock-vendor-relationship'
+import { vendorRelationshipsStub } from '../__stubs__/mock-vendor-relationships'
+import { createVendorRelationshipArgsStub } from '../__stubs__/mock-create-vendor-relationships'
+import { deleteVendorRelationshipsArgsStub } from '../__stubs__/mock-delete-vendor-relationships'
 
 jest.mock('apollo-server-lambda', () => {
   return {

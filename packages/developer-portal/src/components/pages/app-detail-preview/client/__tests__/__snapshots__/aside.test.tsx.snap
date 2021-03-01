@@ -55,7 +55,7 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
         }
       }
     >
-      <Component
+      <Aside
         appDetailData={
           Object {
             "data": Object {
@@ -155,48 +155,48 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
           ]
         }
       >
-        <Component
+        <FlexContainerBasic
           flexColumn={true}
           hasBackground={true}
           hasPadding={true}
           isFullHeight={true}
         >
           <div
-            className=""
+            className="container-flex is-full-height is-column has-background has-padding"
           >
-            <Component
+            <CategorySection
               className=""
               isSidebar={true}
             >
-              <Component
+              <AppDetailSection
                 headerText="Category"
                 isSidebar={true}
               >
-                <Component
+                <Content
                   dataTest=""
                 >
                   <div
-                    className=""
+                    className="content"
                     data-test=""
                   >
-                    <Component
+                    <H5
                       className="mb-2"
                     >
                       <h5
-                        className=""
+                        className="title is-5 mb-2"
                         id=""
                       >
                         Category
                       </h5>
-                    </Component>
+                    </H5>
                     <p>
                       None
                     </p>
                   </div>
-                </Component>
-              </Component>
-            </Component>
-            <Component
+                </Content>
+              </AppDetailSection>
+            </CategorySection>
+            <DesktopIntegrationSection
               desktopIntegrationTypes={
                 Array [
                   Object {
@@ -245,124 +245,124 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
               }
               isSidebar={true}
             >
-              <Component
+              <AppDetailSection
                 headerText="Desktop Integration"
                 isSidebar={true}
               >
-                <Component
+                <Content
                   dataTest=""
                 >
                   <div
-                    className=""
+                    className="content"
                     data-test=""
                   >
-                    <Component
+                    <H5
                       className="mb-2"
                     >
                       <h5
-                        className=""
+                        className="title is-5 mb-2"
                         id=""
                       >
                         Desktop Integration
                       </h5>
-                    </Component>
-                    <Component
+                    </H5>
+                    <Tag
                       key="Identity Check"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Identity Check
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Property Marketing Information"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Property Marketing Information
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Vendor Marketing Report"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Vendor Marketing Report
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Property Details Generation"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Property Details Generation
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Applicant Export"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Applicant Export
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Property"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Property
                       </div>
-                    </Component>
-                    <Component
+                    </Tag>
+                    <Tag
                       key="Applicant"
                     >
                       <div
-                        className=""
+                        className="t17cjti2-tag"
                       >
                         Applicant
                       </div>
-                    </Component>
+                    </Tag>
                   </div>
-                </Component>
-              </Component>
-            </Component>
-            <Component
+                </Content>
+              </AppDetailSection>
+            </DesktopIntegrationSection>
+            <DirectApiSection
               isSidebar={true}
             >
-              <Component
+              <AppDetailSection
                 headerText="Integration"
                 isSidebar={true}
               >
-                <Component
+                <Content
                   dataTest=""
                 >
                   <div
-                    className=""
+                    className="content"
                     data-test=""
                   >
-                    <Component
+                    <H5
                       className="mb-2"
                     >
                       <h5
-                        className=""
+                        className="title is-5 mb-2"
                         id=""
                       >
                         Integration
                       </h5>
-                    </Component>
+                    </H5>
                     No
                   </div>
-                </Component>
-              </Component>
-            </Component>
-            <Component
+                </Content>
+              </AppDetailSection>
+            </DirectApiSection>
+            <ContactDeveloperSection
               contact={
                 Object {
                   "developer": undefined,
@@ -376,42 +376,42 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
                 }
               }
             >
-              <Component>
+              <Content>
                 <div
-                  className=""
+                  className="content"
                   data-test=""
                 >
-                  <Component
+                  <H5
                     className="mb-2"
                   >
                     <h5
-                      className=""
+                      className="title is-5 mb-2"
                       id=""
                     >
                       Developer Links
                     </h5>
-                  </Component>
-                  <Component>
+                  </H5>
+                  <Grid>
                     <div
-                      className=""
+                      className="columns"
                       data-test=""
                     >
-                      <Component>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
                           <p />
                         </div>
-                      </Component>
+                      </GridItem>
                     </div>
-                  </Component>
+                  </Grid>
                 </div>
-              </Component>
-            </Component>
+              </Content>
+            </ContactDeveloperSection>
           </div>
-        </Component>
-      </Component>
+        </FlexContainerBasic>
+      </Aside>
     </Router>
   </MemoryRouter>
 </Provider>

@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { greyLight, reapitGreen } from '@/core/__styles__/colors'
+import { greyLight, reapitGreen } from '../../../../core/__styles__/colors'
 import { forMobileOnly, forIEOnly, forTabletAndBelow } from '@/core/__styles__/media'
 
 export const preview = css`

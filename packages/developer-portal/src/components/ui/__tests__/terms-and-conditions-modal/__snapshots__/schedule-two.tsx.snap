@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Schedule Two it matches a snapshot 1`] = `
-<Component>
-  <Component
+<Content>
+  <H5
     className="text-center"
   >
     Schedule 2 - Fees
-  </Component>
-  <Component>
-    <Component />
-  </Component>
-  <Component>
-    <Component />
-  </Component>
-  <Component>
-    <Component />
-  </Component>
-</Component>
+  </H5>
+  <Section>
+    <ConsumptionCostTypesTable />
+  </Section>
+  <Section>
+    <ConsumptionCostMethodologyTable />
+  </Section>
+  <Section>
+    <ConsumptionCostExampleTable />
+  </Section>
+</Content>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HTMLRender should render match to snapshot 1`] = `
-<Component
+<Content
   className="html-render"
 >
   <div
@@ -37,12 +37,12 @@ exports[`HTMLRender should render match to snapshot 1`] = `
       underline
     </u>
   </div>
-  <Component
+  <H4
     key="7"
     style={Object {}}
   >
     heading
-  </Component>
+  </H4>
   <div
     key="9"
     style={Object {}}
@@ -65,7 +65,7 @@ exports[`HTMLRender should render match to snapshot 1`] = `
       </li>
     </ul>
   </div>
-</Component>
+</Content>
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag a 1`] = `
@@ -99,7 +99,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h1 1`] = `
 <h4
-  className=""
+  className="title is-4"
   id=""
 >
   Test Text
@@ -108,7 +108,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h2 1`] = `
 <h5
-  className=""
+  className="title is-5"
   id=""
 >
   Test Text

@@ -13,22 +13,22 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="h1brg7vr-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
     />
-  </Component>
+  </Section>
 </ContextProvider>
 `;
 
@@ -45,22 +45,22 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="h1brg7vr-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
     />
-  </Component>
+  </Section>
 </ContextProvider>
 `;
 
@@ -77,22 +77,22 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="h1brg7vr-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
     />
-  </Component>
+  </Section>
 </ContextProvider>
 `;
 
@@ -109,22 +109,22 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="h1brg7vr-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
     />
-  </Component>
+  </Section>
 </ContextProvider>
 `;
 
@@ -141,27 +141,27 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    className=""
+  <Section
+    className="h1brg7vr-help-guide"
     hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
-    <Component
+    <VerticalTimeline
       currentIndex={0}
       onSelect={[Function]}
     />
-    <Component
+    <Fade
       in={true}
       timeout={300}
       unmountOnExit={true}
     />
-  </Component>
+  </Section>
 </ContextProvider>
 `;
 
 exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
-<Component>
+<HelpGuide>
   <HelpGuideStep
     component={[Function]}
     graphic={
@@ -227,5 +227,5 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
     id="step-5"
     subHeading="We’re here to help."
   />
-</Component>
+</HelpGuide>
 `;

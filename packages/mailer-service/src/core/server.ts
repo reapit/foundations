@@ -6,7 +6,7 @@ import uuid from 'uuid/v4'
 import cors from 'cors'
 import { traceIdMiddleware } from '@reapit/node-utils'
 import router from './router'
-const MemoryStore = memoryStore(session)
+const MemoryStore = memoryStore(session as any)
 
 const app = express()
 

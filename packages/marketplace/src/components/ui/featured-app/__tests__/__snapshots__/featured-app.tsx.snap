@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FeaturedApp should match a snapshot 1`] = `
-<Component
-  className=""
+<GridThreeColItem
+  className="ft5zs0i-featured-app"
   key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
 >
   <div
@@ -15,7 +15,7 @@ exports[`FeaturedApp should match a snapshot 1`] = `
         className="image"
         to="/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027"
       >
-        <mock-styled.div>
+        <FadeIn>
           <img
             alt="test"
             className="image"
@@ -23,9 +23,9 @@ exports[`FeaturedApp should match a snapshot 1`] = `
             onError={[Function]}
             src=""
           />
-        </mock-styled.div>
+        </FadeIn>
       </Link>
     </div>
   </div>
-</Component>
+</GridThreeColItem>
 `;

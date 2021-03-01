@@ -2,13 +2,13 @@
 
 exports[`OfficesPage should match a snapshot 1`] = `
 <div>
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Manage Offices
-  </Component>
-  <Component>
-    <Component
+  </H3>
+  <Section>
+    <Tabs
       tabConfigs={
         Array [
           Object {
@@ -26,7 +26,7 @@ exports[`OfficesPage should match a snapshot 1`] = `
         ]
       }
     />
-  </Component>
+  </Section>
   <Component
     component={[Function]}
     exact={true}

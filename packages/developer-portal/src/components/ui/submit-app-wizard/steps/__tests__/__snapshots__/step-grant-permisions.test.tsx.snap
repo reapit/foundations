@@ -2,17 +2,17 @@
 
 exports[`StepGrantPermissions should match snapshot 1`] = `
 <Fragment>
-  <Component />
-  <Component
+  <ValidateFormikOnMount />
+  <ModalBody
     body={
       <div>
-        <Unknown>
+        <H5>
           What type of data are you interested in?
-        </Unknown>
+        </H5>
         <p>
           Please select specific the entities you need access to on a read or write basis. You can select multiple options below:
         </p>
-        <Unknown
+        <DropdownSelect
           fixedPosition={true}
           id="scopes"
           mode="multiple"
@@ -22,26 +22,26 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
-      <Unknown>
-        <Unknown
+      <FlexContainerBasic>
+        <Button
           className="ml-0"
           disabled={Array []}
           onClick={[Function]}
           variant="secondary"
         >
           Back
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           className="ml-auto"
           disabled={Array []}
           loading={Array []}
           type="submit"
         >
           Next
-        </Unknown>
-      </Unknown>
+        </Button>
+      </FlexContainerBasic>
     }
   />
 </Fragment>

@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Data should match a snapshot 1`] = `
-<Component>
-  <Component>
-    <Component>
+<MessageProvider>
+  <Data>
+    <Content>
       <div
-        className=""
+        className="content"
         data-test=""
       >
-        <Component
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             Data
           </h3>
-        </Component>
-        <Component>
+        </H3>
+        <Loader>
           <div
             className="loader-spinner body"
             data-test=""
@@ -28,9 +28,9 @@ exports[`Data should match a snapshot 1`] = `
             <div />
             <div />
           </div>
-        </Component>
+        </Loader>
       </div>
-    </Component>
-  </Component>
-</Component>
+    </Content>
+  </Data>
+</MessageProvider>
 `;

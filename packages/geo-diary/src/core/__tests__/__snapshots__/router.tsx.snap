@@ -23,7 +23,7 @@ exports[`Router should match a snapshot 1`] = `
   }
 >
   <Suspense
-    fallback={<Unknown />}
+    fallback={<Loader />}
   >
     <Switch>
       <Route
@@ -42,9 +42,9 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Component>
+      <PrivateRouteWrapper>
         <Switch>
-          <Component
+          <PrivateRoute
             allow="CLIENT"
             component={
               Object {
@@ -57,7 +57,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/"
           />
         </Switch>
-      </Component>
+      </PrivateRouteWrapper>
       <Redirect
         to="/login"
       />

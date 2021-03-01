@@ -7,9 +7,8 @@ import authFlows from '@/constants/app-auth-flow'
 
 const { authFlowField } = formFields
 
-const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
 }))
 
 jest.mock('formik', () => ({

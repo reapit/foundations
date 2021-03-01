@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SetAsAdminModal should match snapshot 1`] = `
-<Component
+<ModalV2
   closable={false}
   footer={
-    <Unknown
+    <Button
       className="mr-2"
       type="button"
     >
       Close
-    </Unknown>
+    </Button>
   }
   isCentered={true}
   title="Success"
   visible={true}
 >
-  <Component>
+  <Content>
     <p>
       Admin status for ‘
       <strong>
@@ -23,6 +23,6 @@ exports[`SetAsAdminModal should match snapshot 1`] = `
       </strong>
       ’ has successfully been updated
     </p>
-  </Component>
-</Component>
+  </Content>
+</ModalV2>
 `;

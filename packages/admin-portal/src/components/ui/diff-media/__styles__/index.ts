@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { BLACK, GREY, GREY_LIGHT, RED_LIGHTER, GREEN_LIGHTER } from '@/core/__styles__/colors'
+import { BLACK, GREY, GREY_LIGHT, RED_LIGHTER, GREEN_LIGHTER } from '../../../../core/__styles__/colors'
 
 export const diffMediaContainer = css`
   background-color: ${GREY_LIGHT};

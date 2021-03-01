@@ -57,7 +57,7 @@ export const validationSchema = Yup.object().shape({
       .min(6, MINIMUM_CHARACTER_LENGTH(6))
       .max(6, MAXIMUM_CHARACTER_LENGTH(6))
       .test('reapitReference', internalErrorMessages.REAPIT_REFERENCE_FIELD_WRONG_FORMAT, (value) =>
-        checkReapitReferenceFormat(value),
+        checkReapitReferenceFormat(value as string),
       ),
     otherwise: Yup.string().notRequired(),
   }),

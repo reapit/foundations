@@ -2,7 +2,7 @@
 
 exports[` 1`] = `
 <div>
-  <Component
+  <Input
     className="mt-2"
     id="reapitReference"
     labelText="Reapit Ref"
@@ -26,7 +26,7 @@ exports[`StatusModal should match snapshot 1`] = `
     }
   }
 >
-  <Component
+  <StatusModal
     developer={Object {}}
     resetModal={
       [MockFunction] {
@@ -182,32 +182,32 @@ exports[`StatusModal should match snapshot 1`] = `
         }
       }
     >
-      <Component
+      <ModalV2
         destroyOnClose={true}
         footer={
           Array [
-            <Unknown
+            <Button
               className="mr-2"
               type="button"
               variant="danger"
             >
               CANCEL
-            </Unknown>,
-            <Unknown
+            </Button>,
+            <Button
               loading={false}
               onClick={[Function]}
               type="submit"
               variant="primary"
             >
               SAVE
-            </Unknown>,
+            </Button>,
           ]
         }
         isCentered={true}
         visible={true}
       >
-        <Component
-          className=""
+        <Dialog
+          className="modal-container"
           closeIcon={
             <span
               aria-label="close"
@@ -217,31 +217,31 @@ exports[`StatusModal should match snapshot 1`] = `
           destroyOnClose={true}
           footer={
             Array [
-              <Unknown
+              <Button
                 className="mr-2"
                 type="button"
                 variant="danger"
               >
                 CANCEL
-              </Unknown>,
-              <Unknown
+              </Button>,
+              <Button
                 loading={false}
                 onClick={[Function]}
                 type="submit"
                 variant="primary"
               >
                 SAVE
-              </Unknown>,
+              </Button>,
             ]
           }
-          title={<Unknown />}
+          title={<ModalHeaderV2 />}
           visible={true}
-          wrapClassName=""
+          wrapClassName="modal-centered"
         >
           <PortalWrapper
             visible={true}
           >
-            <Portal
+            <ForwardRef
               getContainer={[Function]}
             >
               <Portal
@@ -255,12 +255,12 @@ exports[`StatusModal should match snapshot 1`] = `
                       />
                       <div
                         aria-labelledby="rcDialogTitle0"
-                        class="rc-dialog-wrap "
+                        class="rc-dialog-wrap modal-centered"
                         role="dialog"
                         tabindex="-1"
                       >
                         <div
-                          class="rc-dialog "
+                          class="rc-dialog modal-container"
                           role="document"
                         >
                           <div
@@ -315,11 +315,11 @@ exports[`StatusModal should match snapshot 1`] = `
                                       for="status"
                                     />
                                     <div
-                                      class=""
+                                      class="columns is-multiline is-gapless"
                                       data-test=""
                                     >
                                       <div
-                                        class=""
+                                        class="column is-full"
                                         data-test=""
                                       >
                                         <div
@@ -340,7 +340,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class=""
+                                        class="column is-full"
                                         data-test=""
                                       >
                                         <div
@@ -361,7 +361,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class=""
+                                        class="column is-full"
                                         data-test=""
                                       >
                                         <div
@@ -382,7 +382,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class=""
+                                        class="column is-full"
                                         data-test=""
                                       >
                                         <div
@@ -403,7 +403,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                         </div>
                                       </div>
                                       <div
-                                        class=""
+                                        class="column is-full"
                                         data-test=""
                                       >
                                         <div
@@ -459,8 +459,8 @@ exports[`StatusModal should match snapshot 1`] = `
                 }
               >
                 <Dialog
-                  className=""
-                  closable={true}
+                  afterClose={[Function]}
+                  className="modal-container"
                   closeIcon={
                     <span
                       aria-label="close"
@@ -468,98 +468,583 @@ exports[`StatusModal should match snapshot 1`] = `
                     />
                   }
                   destroyOnClose={true}
-                  focusTriggerAfterClose={true}
                   footer={
                     Array [
-                      <Unknown
+                      <Button
                         className="mr-2"
                         type="button"
                         variant="danger"
                       >
                         CANCEL
-                      </Unknown>,
-                      <Unknown
+                      </Button>,
+                      <Button
                         loading={false}
                         onClick={[Function]}
                         type="submit"
                         variant="primary"
                       >
                         SAVE
-                      </Unknown>,
+                      </Button>,
                     ]
                   }
                   getContainer={[Function]}
                   getOpenCount={[Function]}
-                  keyboard={true}
-                  mask={true}
-                  maskClosable={true}
-                  prefixCls="rc-dialog"
+                  scrollLocker={
+                    ScrollLocker {
+                      "getContainer": [Function],
+                      "lock": [Function],
+                      "lockTarget": 0,
+                      "options": Object {
+                        "container": <body
+                          class="ant-scrolling-effect"
+                          style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                        >
+                          <div>
+                            <div
+                              class="rc-dialog-root"
+                            >
+                              <div
+                                class="rc-dialog-mask"
+                              />
+                              <div
+                                aria-labelledby="rcDialogTitle0"
+                                class="rc-dialog-wrap modal-centered"
+                                role="dialog"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="rc-dialog modal-container"
+                                  role="document"
+                                >
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                  <div
+                                    class="rc-dialog-content"
+                                  >
+                                    <button
+                                      aria-label="Close"
+                                      class="rc-dialog-close"
+                                      type="button"
+                                    >
+                                      <span
+                                        aria-label="close"
+                                        class="delete"
+                                      />
+                                    </button>
+                                    <div
+                                      class="rc-dialog-header"
+                                    >
+                                      <div
+                                        class="rc-dialog-title"
+                                        id="rcDialogTitle0"
+                                      >
+                                        <h4
+                                          class="modal-card-title is-4 pt-2 pb-2"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="rc-dialog-body"
+                                    >
+                                      <p
+                                        class="label"
+                                      >
+                                        Status
+                                      </p>
+                                      <form
+                                        action="#"
+                                      >
+                                        <div
+                                          class="field pb-2 "
+                                        >
+                                          <div
+                                            class="control"
+                                          >
+                                            <label
+                                              class="label"
+                                              for="status"
+                                            />
+                                            <div
+                                              class="columns is-multiline is-gapless"
+                                              data-test=""
+                                            >
+                                              <div
+                                                class="column is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  class="radio-wrap"
+                                                >
+                                                  <input
+                                                    class="checkbox "
+                                                    id="statusIncomplete"
+                                                    name="status"
+                                                    type="radio"
+                                                    value="incomplete"
+                                                  />
+                                                  <label
+                                                    for="statusIncomplete"
+                                                  >
+                                                    Incomplete
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="column is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  class="radio-wrap"
+                                                >
+                                                  <input
+                                                    class="checkbox "
+                                                    id="statusPending"
+                                                    name="status"
+                                                    type="radio"
+                                                    value="pending"
+                                                  />
+                                                  <label
+                                                    for="statusPending"
+                                                  >
+                                                    Pending
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="column is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  class="radio-wrap"
+                                                >
+                                                  <input
+                                                    class="checkbox "
+                                                    id="statusConfirmed"
+                                                    name="status"
+                                                    type="radio"
+                                                    value="confirmed"
+                                                  />
+                                                  <label
+                                                    for="statusConfirmed"
+                                                  >
+                                                    Confirmed
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="column is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  class="radio-wrap"
+                                                >
+                                                  <input
+                                                    class="checkbox "
+                                                    id="statusUnder Review"
+                                                    name="status"
+                                                    type="radio"
+                                                    value="underReview"
+                                                  />
+                                                  <label
+                                                    for="statusUnder Review"
+                                                  >
+                                                    Under Review
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="column is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  class="radio-wrap"
+                                                >
+                                                  <input
+                                                    class="checkbox "
+                                                    id="statusRemoved"
+                                                    name="status"
+                                                    type="radio"
+                                                    value="removed"
+                                                  />
+                                                  <label
+                                                    for="statusRemoved"
+                                                  >
+                                                    Removed
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div
+                                      class="rc-dialog-footer"
+                                    >
+                                      <button
+                                        class="button mr-2 is-danger  "
+                                        data-test=""
+                                        type="button"
+                                      >
+                                        CANCEL
+                                      </button>
+                                      <button
+                                        class="button  is-primary  "
+                                        data-test=""
+                                        type="submit"
+                                      >
+                                        SAVE
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </body>,
+                      },
+                      "reLock": [Function],
+                      "unLock": [Function],
+                    }
+                  }
                   switchScrollingEffect={[Function]}
-                  title={<Unknown />}
+                  title={<ModalHeaderV2 />}
                   visible={true}
-                  wrapClassName=""
+                  wrapClassName="modal-centered"
                 >
                   <div
                     className="rc-dialog-root"
                   >
-                    <LazyRenderBox
-                      className="rc-dialog-mask"
-                      hiddenClassName="rc-dialog-mask-hidden"
-                      key="mask"
-                      style={Object {}}
+                    <Mask
+                      prefixCls="rc-dialog"
+                      style={
+                        Object {
+                          "zIndex": undefined,
+                        }
+                      }
                       visible={true}
                     >
-                      <div
-                        className="rc-dialog-mask"
-                        style={Object {}}
-                      />
-                    </LazyRenderBox>
+                      <CSSMotion
+                        key="mask"
+                        leavedClassName="rc-dialog-mask-hidden"
+                        visible={true}
+                      >
+                        <DomWrapper>
+                          <div
+                            className="rc-dialog-mask"
+                            style={
+                              Object {
+                                "zIndex": undefined,
+                              }
+                            }
+                          />
+                        </DomWrapper>
+                      </CSSMotion>
+                    </Mask>
                     <div
                       aria-labelledby="rcDialogTitle0"
-                      className="rc-dialog-wrap "
+                      className="rc-dialog-wrap modal-centered"
                       onClick={[Function]}
                       onKeyDown={[Function]}
-                      onMouseUp={[Function]}
                       role="dialog"
                       style={
                         Object {
                           "display": null,
+                          "zIndex": undefined,
                         }
                       }
                       tabIndex={-1}
                     >
-                      <Animate
-                        animation={Object {}}
-                        component=""
-                        componentProps={Object {}}
-                        key="dialog"
-                        onAppear={[Function]}
-                        onEnd={[Function]}
-                        onEnter={[Function]}
-                        onLeave={[Function]}
-                        showProp="visible"
-                        transitionAppear={true}
-                        transitionEnter={true}
-                        transitionLeave={true}
+                      <Content
+                        afterClose={[Function]}
+                        ariaId="rcDialogTitle0"
+                        className="modal-container"
+                        closable={true}
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        footer={
+                          Array [
+                            <Button
+                              className="mr-2"
+                              type="button"
+                              variant="danger"
+                            >
+                              CANCEL
+                            </Button>,
+                            <Button
+                              loading={false}
+                              onClick={[Function]}
+                              type="submit"
+                              variant="primary"
+                            >
+                              SAVE
+                            </Button>,
+                          ]
+                        }
+                        getContainer={[Function]}
+                        getOpenCount={[Function]}
+                        onClose={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onVisibleChanged={[Function]}
+                        prefixCls="rc-dialog"
+                        scrollLocker={
+                          ScrollLocker {
+                            "getContainer": [Function],
+                            "lock": [Function],
+                            "lockTarget": 0,
+                            "options": Object {
+                              "container": <body
+                                class="ant-scrolling-effect"
+                                style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                              >
+                                <div>
+                                  <div
+                                    class="rc-dialog-root"
+                                  >
+                                    <div
+                                      class="rc-dialog-mask"
+                                    />
+                                    <div
+                                      aria-labelledby="rcDialogTitle0"
+                                      class="rc-dialog-wrap modal-centered"
+                                      role="dialog"
+                                      tabindex="-1"
+                                    >
+                                      <div
+                                        class="rc-dialog modal-container"
+                                        role="document"
+                                      >
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                        <div
+                                          class="rc-dialog-content"
+                                        >
+                                          <button
+                                            aria-label="Close"
+                                            class="rc-dialog-close"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-label="close"
+                                              class="delete"
+                                            />
+                                          </button>
+                                          <div
+                                            class="rc-dialog-header"
+                                          >
+                                            <div
+                                              class="rc-dialog-title"
+                                              id="rcDialogTitle0"
+                                            >
+                                              <h4
+                                                class="modal-card-title is-4 pt-2 pb-2"
+                                              />
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="rc-dialog-body"
+                                          >
+                                            <p
+                                              class="label"
+                                            >
+                                              Status
+                                            </p>
+                                            <form
+                                              action="#"
+                                            >
+                                              <div
+                                                class="field pb-2 "
+                                              >
+                                                <div
+                                                  class="control"
+                                                >
+                                                  <label
+                                                    class="label"
+                                                    for="status"
+                                                  />
+                                                  <div
+                                                    class="columns is-multiline is-gapless"
+                                                    data-test=""
+                                                  >
+                                                    <div
+                                                      class="column is-full"
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        class="radio-wrap"
+                                                      >
+                                                        <input
+                                                          class="checkbox "
+                                                          id="statusIncomplete"
+                                                          name="status"
+                                                          type="radio"
+                                                          value="incomplete"
+                                                        />
+                                                        <label
+                                                          for="statusIncomplete"
+                                                        >
+                                                          Incomplete
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="column is-full"
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        class="radio-wrap"
+                                                      >
+                                                        <input
+                                                          class="checkbox "
+                                                          id="statusPending"
+                                                          name="status"
+                                                          type="radio"
+                                                          value="pending"
+                                                        />
+                                                        <label
+                                                          for="statusPending"
+                                                        >
+                                                          Pending
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="column is-full"
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        class="radio-wrap"
+                                                      >
+                                                        <input
+                                                          class="checkbox "
+                                                          id="statusConfirmed"
+                                                          name="status"
+                                                          type="radio"
+                                                          value="confirmed"
+                                                        />
+                                                        <label
+                                                          for="statusConfirmed"
+                                                        >
+                                                          Confirmed
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="column is-full"
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        class="radio-wrap"
+                                                      >
+                                                        <input
+                                                          class="checkbox "
+                                                          id="statusUnder Review"
+                                                          name="status"
+                                                          type="radio"
+                                                          value="underReview"
+                                                        />
+                                                        <label
+                                                          for="statusUnder Review"
+                                                        >
+                                                          Under Review
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="column is-full"
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        class="radio-wrap"
+                                                      >
+                                                        <input
+                                                          class="checkbox "
+                                                          id="statusRemoved"
+                                                          name="status"
+                                                          type="radio"
+                                                          value="removed"
+                                                        />
+                                                        <label
+                                                          for="statusRemoved"
+                                                        >
+                                                          Removed
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                          <div
+                                            class="rc-dialog-footer"
+                                          >
+                                            <button
+                                              class="button mr-2 is-danger  "
+                                              data-test=""
+                                              type="button"
+                                            >
+                                              CANCEL
+                                            </button>
+                                            <button
+                                              class="button  is-primary  "
+                                              data-test=""
+                                              type="submit"
+                                            >
+                                              SAVE
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </body>,
+                            },
+                            "reLock": [Function],
+                            "unLock": [Function],
+                          }
+                        }
+                        switchScrollingEffect={[Function]}
+                        title={<ModalHeaderV2 />}
+                        visible={true}
+                        wrapClassName="modal-centered"
                       >
-                        <AnimateChild
-                          animation={Object {}}
-                          key="dialog-element"
-                          transitionAppear={true}
-                          transitionEnter={true}
-                          transitionLeave={true}
+                        <CSSMotion
+                          onAppearPrepare={[Function]}
+                          onEnterPrepare={[Function]}
+                          onVisibleChanged={[Function]}
+                          removeOnLeave={true}
+                          visible={true}
                         >
-                          <LazyRenderBox
-                            className="rc-dialog "
-                            key="dialog-element"
-                            onMouseDown={[Function]}
-                            role="document"
-                            style={Object {}}
-                            visible={true}
-                          >
+                          <DomWrapper>
                             <div
-                              className="rc-dialog "
+                              className="rc-dialog modal-container"
+                              key="dialog-element"
                               onMouseDown={[Function]}
+                              onMouseUp={[Function]}
                               role="document"
                               style={Object {}}
                             >
@@ -575,296 +1060,300 @@ exports[`StatusModal should match snapshot 1`] = `
                                 }
                                 tabIndex={0}
                               />
-                              <div
-                                className="rc-dialog-content"
+                              <Component
+                                shouldUpdate={true}
                               >
-                                <button
-                                  aria-label="Close"
-                                  className="rc-dialog-close"
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    className="delete"
-                                  />
-                                </button>
                                 <div
-                                  className="rc-dialog-header"
+                                  className="rc-dialog-content"
                                 >
+                                  <button
+                                    aria-label="Close"
+                                    className="rc-dialog-close"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-label="close"
+                                      className="delete"
+                                    />
+                                  </button>
                                   <div
-                                    className="rc-dialog-title"
-                                    id="rcDialogTitle0"
+                                    className="rc-dialog-header"
                                   >
-                                    <Component>
-                                      <h4
-                                        className="modal-card-title is-4 pt-2 pb-2"
-                                      />
-                                    </Component>
-                                  </div>
-                                </div>
-                                <div
-                                  className="rc-dialog-body"
-                                >
-                                  <p
-                                    className="label"
-                                  >
-                                    Status
-                                  </p>
-                                  <Form>
-                                    <form
-                                      action="#"
-                                      onReset={[Function]}
-                                      onSubmit={[Function]}
+                                    <div
+                                      className="rc-dialog-title"
+                                      id="rcDialogTitle0"
                                     >
-                                      <Component
-                                        id="status"
-                                        name="status"
-                                        options={
-                                          Array [
-                                            Object {
-                                              "label": "Incomplete",
-                                              "value": "incomplete",
-                                            },
-                                            Object {
-                                              "label": "Pending",
-                                              "value": "pending",
-                                            },
-                                            Object {
-                                              "additionalField": [Function],
-                                              "label": "Confirmed",
-                                              "value": "confirmed",
-                                            },
-                                            Object {
-                                              "label": "Under Review",
-                                              "value": "underReview",
-                                            },
-                                            Object {
-                                              "label": "Removed",
-                                              "value": "removed",
-                                            },
-                                          ]
-                                        }
-                                        setFieldValue={[Function]}
+                                      <ModalHeaderV2>
+                                        <h4
+                                          className="modal-card-title is-4 pt-2 pb-2"
+                                        />
+                                      </ModalHeaderV2>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-body"
+                                  >
+                                    <p
+                                      className="label"
+                                    >
+                                      Status
+                                    </p>
+                                    <Form>
+                                      <form
+                                        action="#"
+                                        onReset={[Function]}
+                                        onSubmit={[Function]}
                                       >
-                                        <Field
+                                        <RadioSelect
+                                          id="status"
                                           name="status"
-                                          type="radio"
+                                          options={
+                                            Array [
+                                              Object {
+                                                "label": "Incomplete",
+                                                "value": "incomplete",
+                                              },
+                                              Object {
+                                                "label": "Pending",
+                                                "value": "pending",
+                                              },
+                                              Object {
+                                                "additionalField": [Function],
+                                                "label": "Confirmed",
+                                                "value": "confirmed",
+                                              },
+                                              Object {
+                                                "label": "Under Review",
+                                                "value": "underReview",
+                                              },
+                                              Object {
+                                                "label": "Removed",
+                                                "value": "removed",
+                                              },
+                                            ]
+                                          }
+                                          setFieldValue={[Function]}
                                         >
-                                          <div
-                                            className="field pb-2 "
+                                          <Field
+                                            name="status"
+                                            type="radio"
                                           >
                                             <div
-                                              className="control"
+                                              className="field pb-2 "
                                             >
-                                              <label
-                                                className="label"
-                                                htmlFor="status"
-                                              />
-                                              <Component
-                                                className=""
-                                                isMultiLine={true}
+                                              <div
+                                                className="control"
                                               >
-                                                <div
-                                                  className=""
-                                                  data-test=""
+                                                <label
+                                                  className="label"
+                                                  htmlFor="status"
+                                                />
+                                                <Grid
+                                                  className="is-gapless"
+                                                  isMultiLine={true}
                                                 >
-                                                  <Component
-                                                    className=""
-                                                    key="0"
+                                                  <div
+                                                    className="columns is-multiline is-gapless"
+                                                    data-test=""
                                                   >
-                                                    <div
-                                                      className=""
-                                                      data-test=""
+                                                    <GridItem
+                                                      className="is-full"
+                                                      key="0"
                                                     >
                                                       <div
-                                                        className="radio-wrap"
+                                                        className="column is-full"
+                                                        data-test=""
                                                       >
-                                                        <input
-                                                          checked={false}
-                                                          className="checkbox "
-                                                          disabled={false}
-                                                          id="statusIncomplete"
-                                                          key="incomplete"
-                                                          name="status"
-                                                          onChange={[Function]}
-                                                          type="radio"
-                                                          value="incomplete"
-                                                        />
-                                                        <label
-                                                          htmlFor="statusIncomplete"
+                                                        <div
+                                                          className="radio-wrap"
                                                         >
-                                                          Incomplete
-                                                        </label>
+                                                          <input
+                                                            checked={false}
+                                                            className="checkbox "
+                                                            disabled={false}
+                                                            id="statusIncomplete"
+                                                            key="incomplete"
+                                                            name="status"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="incomplete"
+                                                          />
+                                                          <label
+                                                            htmlFor="statusIncomplete"
+                                                          >
+                                                            Incomplete
+                                                          </label>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </Component>
-                                                  <Component
-                                                    className=""
-                                                    key="1"
-                                                  >
-                                                    <div
-                                                      className=""
-                                                      data-test=""
+                                                    </GridItem>
+                                                    <GridItem
+                                                      className="is-full"
+                                                      key="1"
                                                     >
                                                       <div
-                                                        className="radio-wrap"
+                                                        className="column is-full"
+                                                        data-test=""
                                                       >
-                                                        <input
-                                                          checked={false}
-                                                          className="checkbox "
-                                                          disabled={false}
-                                                          id="statusPending"
-                                                          key="pending"
-                                                          name="status"
-                                                          onChange={[Function]}
-                                                          type="radio"
-                                                          value="pending"
-                                                        />
-                                                        <label
-                                                          htmlFor="statusPending"
+                                                        <div
+                                                          className="radio-wrap"
                                                         >
-                                                          Pending
-                                                        </label>
+                                                          <input
+                                                            checked={false}
+                                                            className="checkbox "
+                                                            disabled={false}
+                                                            id="statusPending"
+                                                            key="pending"
+                                                            name="status"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="pending"
+                                                          />
+                                                          <label
+                                                            htmlFor="statusPending"
+                                                          >
+                                                            Pending
+                                                          </label>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </Component>
-                                                  <Component
-                                                    className=""
-                                                    key="2"
-                                                  >
-                                                    <div
-                                                      className=""
-                                                      data-test=""
+                                                    </GridItem>
+                                                    <GridItem
+                                                      className="is-full"
+                                                      key="2"
                                                     >
                                                       <div
-                                                        className="radio-wrap"
+                                                        className="column is-full"
+                                                        data-test=""
                                                       >
-                                                        <input
-                                                          checked={false}
-                                                          className="checkbox "
-                                                          disabled={false}
-                                                          id="statusConfirmed"
-                                                          key="confirmed"
-                                                          name="status"
-                                                          onChange={[Function]}
-                                                          type="radio"
-                                                          value="confirmed"
-                                                        />
-                                                        <label
-                                                          htmlFor="statusConfirmed"
+                                                        <div
+                                                          className="radio-wrap"
                                                         >
-                                                          Confirmed
-                                                        </label>
+                                                          <input
+                                                            checked={false}
+                                                            className="checkbox "
+                                                            disabled={false}
+                                                            id="statusConfirmed"
+                                                            key="confirmed"
+                                                            name="status"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="confirmed"
+                                                          />
+                                                          <label
+                                                            htmlFor="statusConfirmed"
+                                                          >
+                                                            Confirmed
+                                                          </label>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </Component>
-                                                  <Component
-                                                    className=""
-                                                    key="3"
-                                                  >
-                                                    <div
-                                                      className=""
-                                                      data-test=""
+                                                    </GridItem>
+                                                    <GridItem
+                                                      className="is-full"
+                                                      key="3"
                                                     >
                                                       <div
-                                                        className="radio-wrap"
+                                                        className="column is-full"
+                                                        data-test=""
                                                       >
-                                                        <input
-                                                          checked={false}
-                                                          className="checkbox "
-                                                          disabled={false}
-                                                          id="statusUnder Review"
-                                                          key="underReview"
-                                                          name="status"
-                                                          onChange={[Function]}
-                                                          type="radio"
-                                                          value="underReview"
-                                                        />
-                                                        <label
-                                                          htmlFor="statusUnder Review"
+                                                        <div
+                                                          className="radio-wrap"
                                                         >
-                                                          Under Review
-                                                        </label>
+                                                          <input
+                                                            checked={false}
+                                                            className="checkbox "
+                                                            disabled={false}
+                                                            id="statusUnder Review"
+                                                            key="underReview"
+                                                            name="status"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="underReview"
+                                                          />
+                                                          <label
+                                                            htmlFor="statusUnder Review"
+                                                          >
+                                                            Under Review
+                                                          </label>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </Component>
-                                                  <Component
-                                                    className=""
-                                                    key="4"
-                                                  >
-                                                    <div
-                                                      className=""
-                                                      data-test=""
+                                                    </GridItem>
+                                                    <GridItem
+                                                      className="is-full"
+                                                      key="4"
                                                     >
                                                       <div
-                                                        className="radio-wrap"
+                                                        className="column is-full"
+                                                        data-test=""
                                                       >
-                                                        <input
-                                                          checked={false}
-                                                          className="checkbox "
-                                                          disabled={false}
-                                                          id="statusRemoved"
-                                                          key="removed"
-                                                          name="status"
-                                                          onChange={[Function]}
-                                                          type="radio"
-                                                          value="removed"
-                                                        />
-                                                        <label
-                                                          htmlFor="statusRemoved"
+                                                        <div
+                                                          className="radio-wrap"
                                                         >
-                                                          Removed
-                                                        </label>
+                                                          <input
+                                                            checked={false}
+                                                            className="checkbox "
+                                                            disabled={false}
+                                                            id="statusRemoved"
+                                                            key="removed"
+                                                            name="status"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="removed"
+                                                          />
+                                                          <label
+                                                            htmlFor="statusRemoved"
+                                                          >
+                                                            Removed
+                                                          </label>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </Component>
-                                                </div>
-                                              </Component>
+                                                    </GridItem>
+                                                  </div>
+                                                </Grid>
+                                              </div>
                                             </div>
-                                          </div>
-                                        </Field>
-                                      </Component>
-                                    </form>
-                                  </Form>
-                                </div>
-                                <div
-                                  className="rc-dialog-footer"
-                                >
-                                  <Component
-                                    className="mr-2"
-                                    key="close"
-                                    type="button"
-                                    variant="danger"
+                                          </Field>
+                                        </RadioSelect>
+                                      </form>
+                                    </Form>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-footer"
                                   >
-                                    <button
-                                      className="button mr-2 is-danger  "
-                                      data-test=""
-                                      disabled={false}
+                                    <Button
+                                      className="mr-2"
+                                      key="close"
                                       type="button"
+                                      variant="danger"
                                     >
-                                      CANCEL
-                                    </button>
-                                  </Component>
-                                  <Component
-                                    key="submit"
-                                    loading={false}
-                                    onClick={[Function]}
-                                    type="submit"
-                                    variant="primary"
-                                  >
-                                    <button
-                                      className="button  is-primary  "
-                                      data-test=""
-                                      disabled={false}
+                                      <button
+                                        className="button mr-2 is-danger  "
+                                        data-test=""
+                                        disabled={false}
+                                        type="button"
+                                      >
+                                        CANCEL
+                                      </button>
+                                    </Button>
+                                    <Button
+                                      key="submit"
+                                      loading={false}
                                       onClick={[Function]}
                                       type="submit"
+                                      variant="primary"
                                     >
-                                      SAVE
-                                    </button>
-                                  </Component>
+                                      <button
+                                        className="button  is-primary  "
+                                        data-test=""
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        type="submit"
+                                      >
+                                        SAVE
+                                      </button>
+                                    </Button>
+                                  </div>
                                 </div>
-                              </div>
+                              </Component>
                               <div
                                 aria-hidden="true"
                                 style={
@@ -878,18 +1367,18 @@ exports[`StatusModal should match snapshot 1`] = `
                                 tabIndex={0}
                               />
                             </div>
-                          </LazyRenderBox>
-                        </AnimateChild>
-                      </Animate>
+                          </DomWrapper>
+                        </CSSMotion>
+                      </Content>
                     </div>
                   </div>
                 </Dialog>
               </Portal>
-            </Portal>
+            </ForwardRef>
           </PortalWrapper>
-        </Component>
-      </Component>
+        </Dialog>
+      </ModalV2>
     </Formik>
-  </Component>
+  </StatusModal>
 </Provider>
 `;

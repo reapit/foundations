@@ -2,13 +2,13 @@
 
 exports[`appointment-list AppointmentList should match snapshot 1`] = `
 <Fragment>
-  <mock-styled.div
+  <FadeIn
     key="NEP1600290"
   >
     <div
       className="mb-4"
     >
-      <Component
+      <AppointmentTile
         appointment={
           Object {
             "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -192,6 +192,6 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
         }
       />
     </div>
-  </mock-styled.div>
+  </FadeIn>
 </Fragment>
 `;

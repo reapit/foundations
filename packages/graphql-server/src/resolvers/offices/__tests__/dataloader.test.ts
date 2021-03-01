@@ -1,7 +1,7 @@
 import { generateOfficeBatchLoaderFn, generateOfficeLoader } from '../dataloader'
-import { officeMock } from '../__stubs__/office'
-import { officesMock } from '../__stubs__/offices'
-import { mockContext } from '../../../__stubs__/context'
+import { officeMock } from '../__stubs__/mock-office'
+import { officesMock } from '../__stubs__/mock-offices'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
   return {

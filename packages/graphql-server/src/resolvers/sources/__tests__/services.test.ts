@@ -1,10 +1,10 @@
 import { callGetSourceByIdAPI, callGetSourcesAPI, callCreateSourceAPI, callUpdateSourceAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createSourceArgsMock } from '../__stubs__/create-source'
-import { updateSourceArgsMock } from '../__stubs__/update-source'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createSourceArgsMock } from '../__stubs__/mock-create-source'
+import { updateSourceArgsMock } from '../__stubs__/mock-update-source'
 import { getSourceById, getSources, createSource, updateSource } from '../services'
-import { sourceMock } from '../__stubs__/source'
-import { sourcesMock } from '../__stubs__/sources'
+import { sourceMock } from '../__stubs__/mock-source'
+import { sourcesMock } from '../__stubs__/mock-sources'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

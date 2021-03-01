@@ -41,5 +41,8 @@
     "hooks": {
       "pre-commit": "yarn changed foreach --git-range HEAD --parallel --verbose --interlaced run commit && git add ."
     }
+  },
+  "dependencies": {
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
   }
 }

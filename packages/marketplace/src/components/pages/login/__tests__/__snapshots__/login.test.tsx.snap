@@ -55,16 +55,16 @@ exports[`Login should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <Login>
         <div
-          className=""
+          className="c1lyb14a-container"
         >
           <div
-            className=""
+            className="wwd52pe-wrapper"
           >
-            <Component>
+            <Level>
               <div
-                className=""
+                className="level"
                 data-test=""
               >
                 <img
@@ -72,26 +72,26 @@ exports[`Login should match a snapshot 1`] = `
                   src=""
                 />
               </div>
-            </Component>
-            <Component>
+            </Level>
+            <Section>
               <section
-                className=""
+                className="section has-padding has-margin has-background"
                 data-test=""
               >
                 <p>
                   Welcome to Reapit Marketplace
                 </p>
               </section>
-            </Component>
-            <Component
-              className=""
+            </Section>
+            <Level
+              className="r1smfr8s-register-level"
             >
               <div
-                className=""
+                className="level r1smfr8s-register-level"
                 data-test=""
               >
-                <Component
-                  className=""
+                <Button
+                  className="lhhcgt6-login-button"
                   dataTest="login-button"
                   disabled={false}
                   fullWidth={true}
@@ -101,7 +101,7 @@ exports[`Login should match a snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button  is-primary is-fullwidth "
+                    className="button lhhcgt6-login-button is-primary is-fullwidth "
                     data-test="login-button"
                     disabled={false}
                     onClick={[Function]}
@@ -109,20 +109,20 @@ exports[`Login should match a snapshot 1`] = `
                   >
                     Login
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component
+            </Level>
+            <FlexContainerBasic
               centerContent={true}
               className="pt-8"
             >
               <div
-                className=""
+                className="container-flex is-centered pt-8"
               />
-            </Component>
+            </FlexContainerBasic>
           </div>
           <div
-            className=""
+            className="ifr3uqd-image"
           >
             <img
               alt="Reapit Graphic"
@@ -130,7 +130,7 @@ exports[`Login should match a snapshot 1`] = `
             />
           </div>
         </div>
-      </Component>
+      </Login>
     </Router>
   </MemoryRouter>
 </Provider>

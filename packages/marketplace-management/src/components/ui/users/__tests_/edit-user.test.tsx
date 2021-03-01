@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import { notification } from '@reapit/elements'
 import UpdateUserModal, { UpdateUserModalProps, onHandleSubmit } from '../edit-user'
 import { updateUser } from '../../../../services/user'
-import { data } from '../__stubs__/user-groups'
 
 const filterProps = (): UpdateUserModalProps => ({
   editingUser: { id: 'GR1', name: 'User Name', groups: ['OF1', 'OF2'] },
@@ -19,7 +18,7 @@ jest.spyOn(notification, 'error')
 jest.spyOn(notification, 'success')
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: require('../__stubs__/user-groups').data,
   })),
 )
 describe('UpdateUserModal', () => {

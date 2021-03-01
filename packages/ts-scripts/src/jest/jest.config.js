@@ -14,6 +14,7 @@ const jestGlobalConfig = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1',
     '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
@@ -34,6 +35,25 @@ const jestGlobalConfig = {
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
+  globals: {
+    'ts-jest': {
+      babelConfig: {
+        presets: ['@babel/env', '@babel/preset-typescript', '@babel/preset-react', 'linaria/babel'],
+        plugins: [
+          '@babel/plugin-transform-runtime',
+          [
+
+            'module-resolver',
+            {
+              alias: {
+                '@': './src',
+              },
+            },
+          ]
+        ],
+      },
+    },
+  },
 }
 
 module.exports = { jestGlobalConfig }

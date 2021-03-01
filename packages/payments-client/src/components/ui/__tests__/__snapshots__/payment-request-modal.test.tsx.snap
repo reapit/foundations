@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentRequestModal should match a snapshot 1`] = `
-<Component
+<ModalV2
   destroyOnClose={true}
   onClose={[Function]}
   title="Request Payment of £100.00 for PAY20000001"
@@ -120,21 +120,21 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
     <Form
       className="form"
     >
-      <Component>
-        <Component>
+      <FormSection>
+        <FormHeading>
           Send request for payment
-        </Component>
-        <Component>
+        </FormHeading>
+        <FormSubHeading>
           The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
-        </Component>
-        <Component
+        </FormSubHeading>
+        <Input
           id="receipientEmail"
           labelText="Recpient Email Address"
           name="receipientEmail"
           placeholder="email@example.com"
           type="text"
         />
-        <Component
+        <DatePicker
           id="keyExpiresAt"
           labelText="Payment Request Expiry"
           name="keyExpiresAt"
@@ -144,25 +144,25 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
             }
           }
         />
-        <Component>
-          <Component
+        <LevelRight>
+          <Button
             onClick={[Function]}
             type="button"
             variant="secondary"
           >
             Cancel
-          </Component>
-          <Component
+          </Button>
+          <Button
             disabled={false}
             loading={false}
             type="submit"
             variant="primary"
           >
             Send Payment Request
-          </Component>
-        </Component>
-      </Component>
+          </Button>
+        </LevelRight>
+      </FormSection>
     </Form>
   </Formik>
-</Component>
+</ModalV2>
 `;

@@ -13,16 +13,16 @@ exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `
     }
   }
 >
-  <Component
+  <DeveloperEditionModal
     afterClose={[MockFunction]}
     visible={false}
   >
-    <Component
+    <Modal
       afterClose={[Function]}
       renderChildren={true}
       visible={false}
     />
-  </Component>
+  </DeveloperEditionModal>
 </Provider>
 `;
 
@@ -39,15 +39,15 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
     }
   }
 >
-  <Component
+  <DeveloperEditionModal
     afterClose={[MockFunction]}
     visible={true}
   >
-    <Component
+    <Modal
       afterClose={[Function]}
       renderChildren={true}
       visible={true}
     />
-  </Component>
+  </DeveloperEditionModal>
 </Provider>
 `;

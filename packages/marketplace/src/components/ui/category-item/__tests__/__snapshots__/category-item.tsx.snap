@@ -2,7 +2,7 @@
 
 exports[`CategoryItem should match a snapshot 1`] = `
 <li
-  className=""
+  className="c7mfp8v-category-item"
 >
   <a
     data-test-category-id="3"

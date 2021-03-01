@@ -5,7 +5,7 @@ exports[` 1`] = `
   <div
     className="mb-5"
   >
-    <Component
+    <Table
       columns={
         Array [
           Object {
@@ -159,17 +159,17 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <AppsManagement>
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             App Management
           </h3>
-        </Component>
+        </H3>
         <Formik
           initialValues={
             Object {
@@ -186,35 +186,35 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
               onReset={[Function]}
               onSubmit={[Function]}
             >
-              <Component>
+              <FormSection>
                 <div
-                  className=""
+                  className="form-section"
                 >
-                  <Component>
+                  <FormHeading>
                     <div
-                      className=""
+                      className="form-heading mb-1"
                     >
                       Admin Apps Filter Form
                     </div>
-                  </Component>
-                  <Component>
+                  </FormHeading>
+                  <FormSubHeading>
                     <div
-                      className=""
+                      className="form-subheading mb-4"
                     >
                       Filter the result by App, Developer and Company
                     </div>
-                  </Component>
-                  <Component>
+                  </FormSubHeading>
+                  <Grid>
                     <div
-                      className=""
+                      className="columns"
                       data-test=""
                     >
-                      <Component>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <Input
                             id="appName"
                             labelText="App Name"
                             maxLength={256}
@@ -226,7 +226,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control "
@@ -238,7 +238,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                     App Name
                                   </label>
                                   <input
-                                    className=""
+                                    className="input is-primary"
                                     data-test=""
                                     disabled={false}
                                     id="appName"
@@ -253,15 +253,15 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </Input>
                         </div>
-                      </Component>
-                      <Component>
+                      </GridItem>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <Input
                             id="developerName"
                             labelText="Developer Name"
                             maxLength={256}
@@ -273,7 +273,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control "
@@ -285,7 +285,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                     Developer Name
                                   </label>
                                   <input
-                                    className=""
+                                    className="input is-primary"
                                     data-test=""
                                     disabled={false}
                                     id="developerName"
@@ -300,15 +300,15 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </Input>
                         </div>
-                      </Component>
-                      <Component>
+                      </GridItem>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <Input
                             id="companyName"
                             labelText="Company Name"
                             maxLength={256}
@@ -320,7 +320,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control "
@@ -332,7 +332,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                     Company Name
                                   </label>
                                   <input
-                                    className=""
+                                    className="input is-primary"
                                     data-test=""
                                     disabled={false}
                                     id="companyName"
@@ -347,22 +347,22 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </Input>
                         </div>
-                      </Component>
+                      </GridItem>
                     </div>
-                  </Component>
-                  <Component>
+                  </Grid>
+                  <Grid>
                     <div
-                      className=""
+                      className="columns"
                       data-test=""
                     >
-                      <Component>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <DatePicker
                             id="registeredFrom"
                             labelText="Registered From"
                             name="registeredFrom"
@@ -379,7 +379,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control"
@@ -536,15 +536,15 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </DatePicker>
                         </div>
-                      </Component>
-                      <Component>
+                      </GridItem>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <DatePicker
                             id="registeredTo"
                             labelText="Registered To"
                             name="registeredTo"
@@ -562,7 +562,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className=""
+                                className="field"
                               >
                                 <div
                                   className="control"
@@ -720,22 +720,22 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 </div>
                               </div>
                             </Field>
-                          </Component>
+                          </DatePicker>
                         </div>
-                      </Component>
-                      <Component>
+                      </GridItem>
+                      <GridItem>
                         <div
-                          className=""
+                          className="column"
                           data-test=""
                         >
-                          <Component
+                          <LevelRight
                             className="mt-5 pt-2"
                           >
                             <div
-                              className=""
+                              className="level-right mt-5 pt-2"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -747,8 +747,8 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
-                              <Component
+                              </Button>
+                              <Button
                                 type="reset"
                                 variant="primary"
                               >
@@ -760,21 +760,21 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 >
                                   Refresh
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </LevelRight>
                         </div>
-                      </Component>
+                      </GridItem>
                     </div>
-                  </Component>
+                  </Grid>
                 </div>
-              </Component>
+              </FormSection>
             </form>
           </Form>
         </Formik>
-        <Component>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
             <span>
@@ -782,13 +782,13 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
               0
             </span>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component
+            <Alert
               message="No Results "
               type="info"
             >
@@ -799,29 +799,29 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
               >
                 No Results 
               </div>
-            </Component>
+            </Alert>
           </section>
-        </Component>
-        <Component
+        </Section>
+        <Pagination
           onChange={[Function]}
           pageNumber={1}
           pageSize={0}
           totalCount={0}
         />
-        <Component
+        <DeleteAppModal
           afterClose={[Function]}
           appId=""
           appName=""
           onDeleteSuccess={[Function]}
           visible={false}
         >
-          <Component
+          <Modal
             afterClose={[Function]}
             renderChildren={true}
             visible={false}
           />
-        </Component>
-      </Component>
+        </DeleteAppModal>
+      </AppsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -860,7 +860,7 @@ exports[`admin-apps renderCreatedAt should match snapshot 1`] = `
 
 exports[`admin-apps renderDeleteAction should call delete action 1`] = `
 <div>
-  <Component
+  <Button
     onClick={[Function]}
     type="button"
     variant="danger"
@@ -874,63 +874,63 @@ exports[`admin-apps renderDeleteAction should call delete action 1`] = `
     >
       Delete
     </button>
-  </Component>
+  </Button>
 </div>
 `;
 
 exports[`admin-apps renderDeleteAction should render DeleteActions 1`] = `
 <div>
-  <Component
+  <Button
     onClick={[Function]}
     type="button"
     variant="danger"
   >
     Delete
-  </Component>
+  </Button>
 </div>
 `;
 
 exports[`admin-apps renderForm should return correctly 1`] = `
 <Form>
-  <Unknown>
-    <Unknown>
+  <FormSection>
+    <FormHeading>
       Admin Apps Filter Form
-    </Unknown>
-    <Unknown>
+    </FormHeading>
+    <FormSubHeading>
       Filter the result by App, Developer and Company
-    </Unknown>
-    <Unknown>
-      <Unknown>
-        <Unknown
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
           id="appName"
           labelText="App Name"
           maxLength={256}
           name="appName"
           type="text"
         />
-      </Unknown>
-      <Unknown>
-        <Unknown
+      </GridItem>
+      <GridItem>
+        <Input
           id="developerName"
           labelText="Developer Name"
           maxLength={256}
           name="developerName"
           type="text"
         />
-      </Unknown>
-      <Unknown>
-        <Unknown
+      </GridItem>
+      <GridItem>
+        <Input
           id="companyName"
           labelText="Company Name"
           maxLength={256}
           name="companyName"
           type="text"
         />
-      </Unknown>
-    </Unknown>
-    <Unknown>
-      <Unknown>
-        <Unknown
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+        <DatePicker
           id="registeredFrom"
           labelText="Registered From"
           name="registeredFrom"
@@ -942,9 +942,9 @@ exports[`admin-apps renderForm should return correctly 1`] = `
             }
           }
         />
-      </Unknown>
-      <Unknown>
-        <Unknown
+      </GridItem>
+      <GridItem>
+        <DatePicker
           id="registeredTo"
           labelText="Registered To"
           name="registeredTo"
@@ -957,27 +957,27 @@ exports[`admin-apps renderForm should return correctly 1`] = `
             }
           }
         />
-      </Unknown>
-      <Unknown>
-        <Unknown
+      </GridItem>
+      <GridItem>
+        <LevelRight
           className="mt-5 pt-2"
         >
-          <Unknown
+          <Button
             type="submit"
             variant="primary"
           >
             Search
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             type="reset"
             variant="primary"
           >
             Refresh
-          </Unknown>
-        </Unknown>
-      </Unknown>
-    </Unknown>
-  </Unknown>
+          </Button>
+        </LevelRight>
+      </GridItem>
+    </Grid>
+  </FormSection>
 </Form>
 `;
 

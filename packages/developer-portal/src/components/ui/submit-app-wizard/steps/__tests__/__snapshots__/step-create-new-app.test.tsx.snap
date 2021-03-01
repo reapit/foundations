@@ -2,43 +2,43 @@
 
 exports[`StepCreateNewApp should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalBody
     body={
       <div>
-        <Unknown>
+        <H5>
           Do you intend for your app to be launched within Agency Cloud?
-        </Unknown>
+        </H5>
         <p>
           If you want your application to be launched within the Desktop CRM you will need to adhere to our branding guidelines. The easiest way to do this is to use Elements our UI Library or style sheet. You will also be required to use Reapit Connect, our single sign on solution.
         </p>
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
-      <Unknown>
-        <Unknown
+      <FlexContainerBasic>
+        <Button
           className="ml-0"
           onClick={[Function]}
           variant="secondary"
         >
           Back
-        </Unknown>
+        </Button>
         <div
           className="ml-auto"
         >
-          <Unknown
+          <Button
             onClick={[Function]}
           >
             Yes
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             onClick={[Function]}
           >
             No
-          </Unknown>
+          </Button>
         </div>
-      </Unknown>
+      </FlexContainerBasic>
     }
   />
 </Fragment>

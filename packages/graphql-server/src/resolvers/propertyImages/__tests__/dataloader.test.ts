@@ -1,7 +1,7 @@
 import { generatePropertyImageBatchLoaderFn, generatePropertyImageLoader } from '../dataloader'
-import { propertyImageMock } from '../__stubs__/propertyImage'
-import { propertyImagesMock } from '../__stubs__/propertyImages'
-import { mockContext } from '../../../__stubs__/context'
+import { propertyImageMock } from '../__stubs__/mock-property-image'
+import { propertyImagesMock } from '../__stubs__/mock-property-images'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
   return {

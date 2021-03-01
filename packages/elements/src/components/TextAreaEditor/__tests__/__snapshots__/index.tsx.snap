@@ -45,7 +45,7 @@ exports[`TextAreaEditor should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <TextAreaEditor
     id="username"
     labelText="User name"
     name="username"
@@ -99,7 +99,7 @@ exports[`TextAreaEditor should match a snapshot when required 1`] = `
     }
   }
 >
-  <Component
+  <TextAreaEditor
     id="username"
     labelText="User name"
     name="username"

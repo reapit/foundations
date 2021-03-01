@@ -372,11 +372,11 @@ exports[`PaymentInternalPage should match a snapshot when has a merchantKey and 
 `;
 
 exports[`PaymentInternalPage should match a snapshot when has data but no merchantKey 1`] = `
-<Component
+<Helper
   variant="info"
 >
   Welome to Reapit Payments portal. It seems you don't currently have an account registered with Opayo. Please talk to your administrator to set this up for you.
-</Component>
+</Helper>
 `;
 
-exports[`PaymentInternalPage should match a snapshot when loading 1`] = `<Component />`;
+exports[`PaymentInternalPage should match a snapshot when loading 1`] = `<Loader />`;

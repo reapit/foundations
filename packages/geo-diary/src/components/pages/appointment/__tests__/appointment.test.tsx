@@ -9,7 +9,7 @@ import { appointmentsQueryData } from '../__mocks__/appointments-query'
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+  ...(jest.requireActual('react-router-dom') as Object),
   useLocation: jest.fn(() => locationMock),
 }))
 

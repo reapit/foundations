@@ -9,7 +9,7 @@ exports[`AppCard should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <Tile
     heading="APP_NAME"
     image={
       <img
@@ -55,28 +55,28 @@ exports[`AppCard should match a snapshot 1`] = `
           <div
             className="media-content"
           >
-            <Component
+            <H4
               className="text-ellipsis-7"
             >
               <h4
-                className=""
+                className="title is-4 text-ellipsis-7"
                 id=""
               >
                 APP_NAME
               </h4>
-            </Component>
-            <Component
+            </H4>
+            <SubTitleH6
               className="text-ellipsis-5 mb-3"
             >
               <h6
-                className=""
+                className="subtitle is-6 text-ellipsis-5 mb-3"
                 id=""
               >
                 APP_DEVELOPER
               </h6>
-            </Component>
+            </SubTitleH6>
             <span
-              className=""
+              className="install-string installed"
             >
               <FaCheck>
                 <IconBase
@@ -113,6 +113,6 @@ exports[`AppCard should match a snapshot 1`] = `
         </div>
       </div>
     </div>
-  </Component>
+  </Tile>
 </AppCard>
 `;

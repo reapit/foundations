@@ -109,7 +109,7 @@ describe('onHandleSubmit', () => {
   })
 })
 
-describe('handleCreateTransaction', () => {
+xdescribe('handleCreateTransaction', () => {
   beforeEach(() => {
     jest.resetAllMocks()
   })

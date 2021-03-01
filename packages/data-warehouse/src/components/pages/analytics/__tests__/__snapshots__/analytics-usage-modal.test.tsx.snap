@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsUsageModal should match a snapshot 1`] = `
-<Component>
+<MessageProvider>
   <AnalyticsUsageModal
     handleClose={[MockFunction]}
     visible={true}
   >
-    <Component
+    <Modal
       afterClose={[MockFunction]}
       title="Data Warehouse Usage Cap"
       visible={true}
     />
   </AnalyticsUsageModal>
-</Component>
+</MessageProvider>
 `;
 
 exports[`NewUsageComponent should match a snapshot for a non-updated usage 1`] = `
-<Component
+<NewUsageComponent
   currentSettings={
     Object {
       "monthlyUsageCap": 5,
@@ -26,7 +26,7 @@ exports[`NewUsageComponent should match a snapshot for a non-updated usage 1`] =
 `;
 
 exports[`NewUsageComponent should match a snapshot for an updated usage 1`] = `
-<Component
+<NewUsageComponent
   currentSettings={
     Object {
       "monthlyUsageCap": 2,
@@ -39,5 +39,5 @@ exports[`NewUsageComponent should match a snapshot for an updated usage 1`] = `
      hours will cap maximum monthly charges at 
     £20.97
   </p>
-</Component>
+</NewUsageComponent>
 `;

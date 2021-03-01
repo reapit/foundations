@@ -1,8 +1,7 @@
-import { departmentMock } from '../__stubs__/department'
-import { departmentsMock } from '../__stubs__/departments'
-import { mockContext } from '../../../__stubs__/context'
+import { departmentMock } from '../__stubs__/mock-department'
+import { departmentsMock } from '../__stubs__/mock-departments'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetDepartmentByIdAPI, callGetDepartmentsAPI } from '../api'
-import { URLS } from '../../../constants/api'
 
 jest.mock('apollo-server-lambda', () => {
   return {
@@ -18,7 +17,7 @@ jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => {
     return {
       get: jest.fn().mockImplementation((values) => {
-        if (values === `${URLS.departments}/${departmentMock.id}`) {
+        if (values === `/departments/${departmentMock.id}`) {
           return {
             data: departmentMock,
           }

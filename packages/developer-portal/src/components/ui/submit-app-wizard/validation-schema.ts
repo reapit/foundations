@@ -22,11 +22,19 @@ export const validationSchemas: PartialRecord<WizardStep, Yup.ObjectSchema> = {
     [signoutUrisField.name]: Yup.string()
       .trim()
       .required(errorMessages.FIELD_REQUIRED)
-      .test({ name: 'isValidUrlWithCustomScheme', message: FIELD_WRONG_URI_FORMAT, test: isValidUrlWithCustomScheme }),
+      .test({
+        name: 'isValidUrlWithCustomScheme',
+        message: FIELD_WRONG_URI_FORMAT,
+        test: (value) => isValidUrlWithCustomScheme(value),
+      }),
     [redirectUrisField.name]: Yup.string()
       .trim()
       .required(errorMessages.FIELD_REQUIRED)
-      .test({ name: 'isValidUrlWithCustomScheme', message: FIELD_WRONG_URI_FORMAT, test: isValidUrlWithCustomScheme }),
+      .test({
+        name: 'isValidUrlWithCustomScheme',
+        message: FIELD_WRONG_URI_FORMAT,
+        test: (value) => isValidUrlWithCustomScheme(value),
+      }),
   }),
 
   GRANT_PERMISSION: Yup.object().shape({

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentExternalPage should match a snapshot when has an error 1`] = `
-<Component
+<Helper
   variant="warning"
 >
   No valid session was found for this transaction. It is likely that the payment request has expired (refer to your email), or the payment has been made successfully. If you think you are seeing this message in error, please contact your agent so they can re-issue the payment request.
-</Component>
+</Helper>
 `;
 
 exports[`PaymentExternalPage should match a snapshot when has data and a merchantKey 1`] = `
@@ -239,11 +239,11 @@ exports[`PaymentExternalPage should match a snapshot when has data and a merchan
 `;
 
 exports[`PaymentExternalPage should match a snapshot when has no merchantKey and no error 1`] = `
-<Component
+<Helper
   variant="info"
 >
   There seems to be a problem with account with the payment provider. Please inform your agent of this issue and they will provide you with payment alternatives.
-</Component>
+</Helper>
 `;
 
-exports[`PaymentExternalPage should match a snapshot when loading 1`] = `<Component />`;
+exports[`PaymentExternalPage should match a snapshot when loading 1`] = `<Loader />`;

@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-<Component>
-  <withRouter() />
-  <Component
+<AppNavContainer>
+  <withRouter(Menu) />
+  <FlexContainerBasic
     flexColumn={true}
     isScrollable={true}
   >
-    <Component
+    <FlexContainerResponsive
       flexColumn={true}
       hasPadding={true}
     >
       <ErrorBoundary>
         <Suspense
           fallback={
-            <Unknown>
-              <Unknown />
-            </Unknown>
+            <Section>
+              <Loader />
+            </Section>
           }
         />
       </ErrorBoundary>
       <ToastError />
-    </Component>
-  </Component>
-</Component>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
+</AppNavContainer>
 `;

@@ -5,16 +5,14 @@ import Routes from '@/constants/routes'
 import UserGroupsTab, { UserGroupsContent, onPageChangeHandler } from '../user-groups-tab'
 import { data } from '../__stubs__/user-groups'
 
-const locationMock = { pathname: '/users/groups' }
-
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
-  useLocation: jest.fn(() => locationMock),
+  ...(jest.requireActual('react-router') as Object),
+  useLocation: jest.fn(() => ({ pathname: '/users/groups' })),
 }))
 
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: require('../__stubs__/user-groups').data,
     mutate: jest.fn,
   })),
 )

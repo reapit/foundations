@@ -2,30 +2,30 @@
 
 exports[`Login should match a snapshot 1`] = `
 <div
-  className=""
+  className="container"
 >
   <div
-    className=""
+    className="wrapper"
   >
-    <Component>
+    <Level>
       <img
         alt="Reapit Connect Graphic"
         src=""
       />
-    </Component>
-    <Component>
-      <Component
+    </Level>
+    <Level>
+      <Button
         fullWidth={true}
         onClick={[Function]}
         type="submit"
         variant="primary"
       >
         Login
-      </Component>
-    </Component>
+      </Button>
+    </Level>
   </div>
   <div
-    className=""
+    className="image"
   >
     <img
       alt="Reapit Graphic"

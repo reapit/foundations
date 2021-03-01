@@ -2,10 +2,10 @@ import enquirieServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetEnquiryById, queryGetEnquiries, mutationCreateEnquiry } from '../resolvers'
-import { createEnquiryArgsMock } from '../__stubs__/create-enquiry'
-import { enquiryMock } from '../__stubs__/enquiry'
-import { enquiriesMock } from '../__stubs__/enquiries'
-import { mockContext } from '../../../__stubs__/context'
+import { createEnquiryArgsMock } from '../__stubs__/mock-create-enquiry'
+import { enquiryMock } from '../__stubs__/mock-enquiry'
+import { enquiriesMock } from '../__stubs__/mock-enquiries'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getEnquiryById: jest.fn(() => enquiryMock),

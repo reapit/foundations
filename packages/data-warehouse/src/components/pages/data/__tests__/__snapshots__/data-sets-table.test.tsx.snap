@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSetsTable should match a snapshot 1`] = `
-<Component
+<DataSetsTable
   dataSets={
     Array [
       Object {
@@ -27,7 +27,7 @@ exports[`DataSetsTable should match a snapshot 1`] = `
   hasAccount={true}
   setShares={[MockFunction]}
 >
-  <Component
+  <Table
     columns={
       Array [
         Object {
@@ -20759,7 +20759,7 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   ]
                 }
               >
-                <Component
+                <Button
                   disabled={false}
                   loading={false}
                   onClick={[Function]}
@@ -20773,7 +20773,7 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   >
                     Create Share
                   </button>
-                </Component>
+                </Button>
               </RequestDataSetModel>
             </td>
           </tr>
@@ -41415,7 +41415,7 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   ]
                 }
               >
-                <Component
+                <Button
                   disabled={false}
                   loading={false}
                   onClick={[Function]}
@@ -41429,13 +41429,13 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   >
                     Create Share
                   </button>
-                </Component>
+                </Button>
               </RequestDataSetModel>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  </Component>
-</Component>
+  </Table>
+</DataSetsTable>
 `;

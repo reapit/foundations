@@ -18,14 +18,14 @@ import {
   tenancyChecksListMock,
   tenancyCheckMock,
   tenancyRelationshipsListMock,
-} from '../__stubs__/tenancy-query'
+} from '../__stubs__/mock-tenancy-query'
 import {
   createTenancyCheckArgsMock,
   createTenancyArgsMock,
   deleteTenancyCheckArgsMock,
   updateTenancyCheckArgsMock,
-} from '../__stubs__/tenancy-mutation'
-import { mockContext } from '../../../__stubs__/context'
+} from '../__stubs__/mock-tenancy-mutation'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getTenancies: jest.fn(() => tenanciesListMock),

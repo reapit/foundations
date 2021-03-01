@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
     "jwt-decode": "^3.1.2",
-    "linaria": "^1.4.1",
+    "linaria": "^2.0.2",
     "morgan": "^1.10.0",
     "serialize-error": "^7.0.1",
     "serverless-dynamodb-local": "^0.2.39",

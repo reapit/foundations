@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MarketplaceStatusSection should match a snapshot when isListed equal to false 1`] = `
-<Component>
-  <Component>
+<FormSection>
+  <FormHeading>
     Images
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     The icon field will appear as the main brand representation of your app in marketplace listings and installed apps pages. You can also select a minimum of one and up to five screenshots of your application, that will appear in a carousel in the details view of your app listing.
-  </Component>
-  <Component>
-    <Component>
+  </FormSubHeading>
+  <GridFourCol>
+    <GridFourColItem>
       <div
         className="control"
       >
@@ -18,7 +18,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Icon 
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1}
           dataTest="submit-app-icon"
@@ -34,8 +34,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -44,7 +44,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Feature Image 
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={2.22972972972973}
           dataTest="submit-app-screenshot1"
@@ -60,8 +60,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -70,7 +70,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 1
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot2"
@@ -85,8 +85,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -95,7 +95,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 2
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot3"
@@ -110,8 +110,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -120,7 +120,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 3
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot4"
@@ -135,8 +135,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -145,7 +145,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 4
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot5"
@@ -160,21 +160,21 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-  </Component>
-</Component>
+    </GridFourColItem>
+  </GridFourCol>
+</FormSection>
 `;
 
 exports[`MarketplaceStatusSection should match a snapshot when isListed equal to true 1`] = `
-<Component>
-  <Component>
+<FormSection>
+  <FormHeading>
     Images
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     The icon field will appear as the main brand representation of your app in marketplace listings and installed apps pages. You can also select a minimum of one and up to five screenshots of your application, that will appear in a carousel in the details view of your app listing.
-  </Component>
-  <Component>
-    <Component>
+  </FormSubHeading>
+  <GridFourCol>
+    <GridFourColItem>
       <div
         className="control"
       >
@@ -184,7 +184,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           Icon 
           *
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1}
           dataTest="submit-app-icon"
@@ -200,8 +200,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -211,7 +211,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           Feature Image 
           *
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={2.22972972972973}
           dataTest="submit-app-screenshot1"
@@ -227,8 +227,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -237,7 +237,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 1
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot2"
@@ -252,8 +252,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -262,7 +262,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 2
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot3"
@@ -277,8 +277,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -287,7 +287,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 3
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot4"
@@ -302,8 +302,8 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-    <Component>
+    </GridFourColItem>
+    <GridFourColItem>
       <div
         className="control mb-4"
       >
@@ -312,7 +312,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
         >
           Screenshot 4
         </label>
-        <Component
+        <ImageCropperWithInput
           allowClear={true}
           aspect={1.3085339168490153}
           dataTest="submit-app-screenshot5"
@@ -327,7 +327,7 @@ exports[`MarketplaceStatusSection should match a snapshot when isListed equal to
           }
         />
       </div>
-    </Component>
-  </Component>
-</Component>
+    </GridFourColItem>
+  </GridFourCol>
+</FormSection>
 `;

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`list-and-map-tab ListAndMapTab should match snapshot 1`] = `
-<Component
-  className=""
+<Tabs
+  className="list-and-map-tab-container"
   tabConfigs={
     Array [
       Object {
