@@ -11,15 +11,15 @@ import {
   mutationCreateApplicantRelationship,
   mutationDeleteApplicantRelationship,
 } from '../resolvers'
-import { createApplicantArgsMock } from '../__stubs__/create-applicant'
-import { updateApplicantArgsMock } from '../__stubs__/update-applicant'
-import { applicantMock } from '../__stubs__/applicant'
-import { applicantsMock } from '../__stubs__/applicants'
-import { mockContext } from '../../../__stubs__/context'
-import { relationshipMock } from '../__stubs__/relationship'
-import { relationshipsMock } from '../__stubs__/relationships'
-import { createRelationshipsArgs } from '../__stubs__/create-relationships'
-import { deleteRelationshipMockArgs } from '../__stubs__/delete-relatationships'
+import { createApplicantArgsMock } from '../__stubs__/mock-create-applicant'
+import { updateApplicantArgsMock } from '../__stubs__/mock-update-applicant'
+import { applicantMock } from '../__stubs__/mock-applicant'
+import { applicantsMock } from '../__stubs__/mock-applicants'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { relationshipMock } from '../__stubs__/mock-relationship'
+import { relationshipsMock } from '../__stubs__/mock-relationships'
+import { createRelationshipsArgs } from '../__stubs__/mock-create-relationships'
+import { deleteRelationshipMockArgs } from '../__stubs__/mock-delete-relatationships'
 
 jest.mock('../services', () => ({
   getApplicantById: jest.fn(() => applicantMock),

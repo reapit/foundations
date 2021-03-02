@@ -45,7 +45,7 @@ export const Usage: Story = () => {
       />
       <ul className="mt-5">
         {repo &&
-          repo.map(item => (
+          repo.map((item) => (
             <li key={item.id}>
               <a href={item.html_url}>{item.name}</a>
             </li>

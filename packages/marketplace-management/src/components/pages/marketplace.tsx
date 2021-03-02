@@ -53,7 +53,7 @@ const MarketplacePage: React.FC = () => {
         <Loader />
       ) : (
         <GridFourCol>
-          {apps?.data?.map(app => (
+          {apps?.data?.map((app) => (
             <GridFourColItem key={app.id}>
               <FadeIn>
                 <AppCard app={app} />

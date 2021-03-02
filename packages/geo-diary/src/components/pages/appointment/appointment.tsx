@@ -36,30 +36,16 @@ export type AppointmentListQueryVariables = {
 
 export const startAndEndTime = {
   today: {
-    start: dayjs()
-      .startOf('day')
-      .utc(),
-    end: dayjs()
-      .endOf('day')
-      .utc(),
+    start: dayjs().startOf('day').utc(),
+    end: dayjs().endOf('day').utc(),
   },
   tomorrow: {
-    start: dayjs()
-      .add(1, 'day')
-      .startOf('day')
-      .utc(),
-    end: dayjs()
-      .add(1, 'day')
-      .endOf('day')
-      .utc(),
+    start: dayjs().add(1, 'day').startOf('day').utc(),
+    end: dayjs().add(1, 'day').endOf('day').utc(),
   },
   weekView: {
     start: dayjs().startOf('day'),
-    end: dayjs()
-      .add(1, 'week')
-      .subtract(1, 'day')
-      .endOf('day')
-      .utc(),
+    end: dayjs().add(1, 'week').subtract(1, 'day').endOf('day').utc(),
   },
 }
 

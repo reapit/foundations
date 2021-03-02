@@ -1,85 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome should match snapshot 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
 >
-  <Component
+  <FlexContainerResponsive
     flexColumn={true}
     hasPadding={true}
     isScrollable={true}
   >
     <div
-      className=""
+      className="logo-wrap-style"
     >
       <img
         alt="logo"
-        className=""
+        className="logo-style"
         src=""
       />
     </div>
-    <Memo()
+    <Memo(Section)
       description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
       heading="Welcome to Reapit Connect"
       image=""
       subheading="Your account has been successfully created"
     />
-  </Component>
-</Component>
+  </FlexContainerResponsive>
+</FlexContainerBasic>
 `;
 
 exports[`Welcome should match snapshot for client 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
 >
-  <Component
+  <FlexContainerResponsive
     flexColumn={true}
     hasPadding={true}
     isScrollable={true}
   >
     <div
-      className=""
+      className="logo-wrap-style"
     >
       <img
         alt="logo"
-        className=""
+        className="logo-style"
         src=""
       />
     </div>
-    <Memo()
+    <Memo(Section)
       description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
       heading="Welcome to Reapit Connect"
       image=""
       subheading="Your account has been successfully created"
     />
-  </Component>
-</Component>
+  </FlexContainerResponsive>
+</FlexContainerBasic>
 `;
 
 exports[`Welcome should match snapshot for developer 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
 >
-  <Component
+  <FlexContainerResponsive
     flexColumn={true}
     hasPadding={true}
     isScrollable={true}
   >
     <div
-      className=""
+      className="logo-wrap-style"
     >
       <img
         alt="logo"
-        className=""
+        className="logo-style"
         src=""
       />
     </div>
-    <Memo()
+    <Memo(Section)
       description="Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd."
       heading="Welcome to Reapit Connect"
       image=""
       subheading="Your account has been successfully created"
     />
-  </Component>
-</Component>
+  </FlexContainerResponsive>
+</FlexContainerBasic>
 `;

@@ -50,7 +50,7 @@ export const changePasswordService = async ({
           resolve(result as string)
         })
       },
-      onFailure: err => {
+      onFailure: (err) => {
         logger(new Error(err.message))
         reject(err)
       },
@@ -66,7 +66,7 @@ export const confirmRegistrationService = async ({
   return new Promise((resolve, reject) => {
     const cognitoUser = getNewUser(userName, connectClientId)
 
-    cognitoUser.confirmRegistration(verificationCode, true, err => {
+    cognitoUser.confirmRegistration(verificationCode, true, (err) => {
       if (err) {
         logger(new Error(err.message))
         reject(`Bad request, confirm registration service failed ${JSON.stringify(err)}`)

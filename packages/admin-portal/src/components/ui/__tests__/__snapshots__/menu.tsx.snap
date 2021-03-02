@@ -32,6 +32,6 @@ exports[`Menu should match a snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <Menu />
 </ContextProvider>
 `;

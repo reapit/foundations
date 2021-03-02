@@ -60,7 +60,7 @@ export const onSearchHandler = (history: History<any>): OnSearch => (filterValue
   history.push(`${Routes.CUSTOMERS}?${queryString}`)
 }
 
-export const refreshForm = history => () => {
+export const refreshForm = (history) => () => {
   history.push(Routes.CUSTOMERS)
 }
 

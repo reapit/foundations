@@ -4,55 +4,55 @@ exports[`AccountProvisionForm should match a snapshot 1`] = `
 <Form
   className="form"
 >
-  <Component>
-    <Component>
+  <FormSection>
+    <FormHeading>
       Account details
-    </Component>
-    <Component>
+    </FormHeading>
+    <FormSubHeading>
       The information below will be used to access your data warehouse account
-    </Component>
-    <Component
+    </FormSubHeading>
+    <Input
       id="username"
       labelText="Username"
       name="username"
       placeholder="Your username here"
       type="text"
     />
-    <Component
+    <Input
       id="password"
       labelText="Password"
       name="password"
       placeholder="*********"
       type="password"
     />
-    <Component
+    <Input
       id="passwordConfirm"
       labelText="Confirm Password"
       name="passwordConfirm"
       placeholder="*********"
       type="password"
     />
-    <Component>
-      <Component
+    <LevelRight>
+      <Button
         onClick={[MockFunction]}
         type="button"
         variant="secondary"
       >
         Cancel
-      </Component>
-      <Component
+      </Button>
+      <Button
         type="submit"
         variant="primary"
       >
         Provision
-      </Component>
-    </Component>
-  </Component>
+      </Button>
+    </LevelRight>
+  </FormSection>
 </Form>
 `;
 
 exports[`AccountProvisionModal should match a snapshot 1`] = `
-<Component
+<Modal
   afterClose={[MockFunction]}
   title="Provision Data Warehouse Account"
   visible={true}
@@ -209,9 +209,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
       }
     }
   >
-    <Component
+    <AccountProvisionForm
       handleClose={[MockFunction]}
     />
   </Formik>
-</Component>
+</Modal>
 `;

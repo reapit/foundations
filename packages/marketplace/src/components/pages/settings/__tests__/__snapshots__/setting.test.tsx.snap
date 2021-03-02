@@ -55,26 +55,26 @@ exports[`Settings should match snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <Settings>
+        <Section
           className="justify-between items-center"
           isFlex={true}
         >
           <section
-            className=""
+            className="section is-flex has-padding has-margin has-background justify-between items-center"
             data-test=""
           >
-            <Component
+            <H3
               className="mb-0"
             >
               <h3
-                className=""
+                className="title is-3 mb-0"
                 id=""
               >
                 Settings
               </h3>
-            </Component>
-            <Component
+            </H3>
+            <Button
               dataTest="logout-btn"
               onClick={[Function]}
               type="button"
@@ -89,237 +89,237 @@ exports[`Settings should match snapshot 1`] = `
               >
                 Logout
               </button>
-            </Component>
+            </Button>
           </section>
-        </Component>
-        <Component
-          className=""
+        </Section>
+        <Section
+          className="ur41lj4-user-info-section"
         >
           <section
-            className=""
+            className="section has-padding has-margin has-background ur41lj4-user-info-section"
             data-test=""
           >
-            <Component>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <SubTitleH6>
                               <h6
-                                className=""
+                                className="subtitle is-6"
                                 id=""
                               >
                                 NAME:
                               </h6>
-                            </Component>
+                            </SubTitleH6>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <p />
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <SubTitleH6>
                               <h6
-                                className=""
+                                className="subtitle is-6"
                                 id=""
                               >
                                 EMAIL ADDRESS:
                               </h6>
-                            </Component>
+                            </SubTitleH6>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <p />
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <SubTitleH6>
                               <h6
-                                className=""
+                                className="subtitle is-6"
                                 id=""
                               >
                                 COMPANY:
                               </h6>
-                            </Component>
+                            </SubTitleH6>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <p />
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <SubTitleH6>
                               <h6
-                                className=""
+                                className="subtitle is-6"
                                 id=""
                               >
                                 CUSTOMER ID:
                               </h6>
-                            </Component>
+                            </SubTitleH6>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
                             <p>
                               SBOX
                             </p>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component>
+                            <SubTitleH6>
                               <h6
-                                className=""
+                                className="subtitle is-6"
                                 id=""
                               >
                                 ROLE:
                               </h6>
-                            </Component>
+                            </SubTitleH6>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           />
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   />
-                </Component>
+                </GridItem>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
-        <Component
+        </Section>
+        <ChangePasswordForm
           changePassword={[Function]}
           loading={false}
         >
-          <Component>
+          <FormSection>
             <div
-              className=""
+              className="form-section"
             >
               <Formik
                 initialValues={
@@ -484,31 +484,31 @@ exports[`Settings should match snapshot 1`] = `
                     onReset={[Function]}
                     onSubmit={[Function]}
                   >
-                    <Component>
+                    <FormHeading>
                       <div
-                        className=""
+                        className="form-heading mb-1"
                       >
                         Change password
                       </div>
-                    </Component>
-                    <Component>
+                    </FormHeading>
+                    <FormSubHeading>
                       <div
-                        className=""
+                        className="form-subheading mb-4"
                       >
                         Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
                       </div>
-                    </Component>
-                    <Component>
+                    </FormSubHeading>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="current-password"
                               id="currentPassword"
                               labelText="Current Password"
@@ -520,7 +520,7 @@ exports[`Settings should match snapshot 1`] = `
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -532,7 +532,7 @@ exports[`Settings should match snapshot 1`] = `
                                       Current Password
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="current-password"
                                       disabled={false}
                                       id="currentPassword"
@@ -546,15 +546,15 @@ exports[`Settings should match snapshot 1`] = `
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
-                        <Component>
+                        </GridItem>
+                        <GridItem>
                           <div
-                            className=""
+                            className="column"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="password"
                               id="password"
                               labelText="Password"
@@ -566,7 +566,7 @@ exports[`Settings should match snapshot 1`] = `
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -578,7 +578,7 @@ exports[`Settings should match snapshot 1`] = `
                                       Password
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="password"
                                       disabled={false}
                                       id="password"
@@ -592,24 +592,24 @@ exports[`Settings should match snapshot 1`] = `
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <Grid>
                       <div
-                        className=""
+                        className="columns"
                         data-test=""
                       >
-                        <Component
+                        <GridItem
                           className="is-half"
                         >
                           <div
-                            className=""
+                            className="column is-half"
                             data-test=""
                           >
-                            <Component
+                            <Input
                               dataTest="confirmPassword"
                               id="confirmPassword"
                               labelText="Confirm Password"
@@ -621,7 +621,7 @@ exports[`Settings should match snapshot 1`] = `
                                 validate={null}
                               >
                                 <div
-                                  className=""
+                                  className="field"
                                 >
                                   <div
                                     className="control "
@@ -633,7 +633,7 @@ exports[`Settings should match snapshot 1`] = `
                                       Confirm Password
                                     </label>
                                     <input
-                                      className=""
+                                      className="input is-primary"
                                       data-test="confirmPassword"
                                       disabled={false}
                                       id="confirmPassword"
@@ -647,17 +647,17 @@ exports[`Settings should match snapshot 1`] = `
                                   </div>
                                 </div>
                               </Field>
-                            </Component>
+                            </Input>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
-                    <Component>
+                    </Grid>
+                    <LevelRight>
                       <div
-                        className=""
+                        className="level-right"
                         data-test=""
                       >
-                        <Component
+                        <Button
                           dataTest="button-change-password"
                           disabled={true}
                           loading={false}
@@ -672,16 +672,16 @@ exports[`Settings should match snapshot 1`] = `
                           >
                             Change Password
                           </button>
-                        </Component>
+                        </Button>
                       </div>
-                    </Component>
+                    </LevelRight>
                   </form>
                 </Form>
               </Formik>
             </div>
-          </Component>
-        </Component>
-      </Component>
+          </FormSection>
+        </ChangePasswordForm>
+      </Settings>
     </Router>
   </MemoryRouter>
 </Provider>

@@ -2,19 +2,19 @@
 
 exports[`Authentication renderModal should match snapshot 1`] = `
 <div>
-  <Component
+  <Modal
     footerItems={
       <React.Fragment>
-        <Unknown
+        <Button
           onClick={[Function]}
         >
           Developers
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           onClick={[Function]}
         >
           Logout
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
     tapOutsideToDissmiss={false}
@@ -36,7 +36,7 @@ exports[`Authentication renderModal should match snapshot 1`] = `
          page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.
       </span>
     </p>
-  </Component>
+  </Modal>
 </div>
 `;
 
@@ -96,19 +96,19 @@ exports[`Authentication should match a snapshot 1`] = `
       }
     >
       <Authentication>
-        <Component
+        <Modal
           footerItems={
             <React.Fragment>
-              <Unknown
+              <Button
                 onClick={[Function]}
               >
                 Developers
-              </Unknown>
-              <Unknown
+              </Button>
+              <Button
                 onClick={[Function]}
               >
                 Logout
-              </Unknown>
+              </Button>
             </React.Fragment>
           }
           tapOutsideToDissmiss={false}

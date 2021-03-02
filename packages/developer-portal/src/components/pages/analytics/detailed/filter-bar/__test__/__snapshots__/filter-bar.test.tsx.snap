@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterBar should match a snapshot 1`] = `
-<Component>
-  <Component
+<Content>
+  <DefaultFilterGroup
     appIds={
       Array [
         "09043eb8-9e5e-4650-b7f1-f0cb62699027",
@@ -12,7 +12,7 @@ exports[`FilterBar should match a snapshot 1`] = `
     setDateFrom={[Function]}
     setDateTo={[Function]}
   />
-  <Component
+  <FilterForm
     developerApps={
       Array [
         Object {
@@ -93,5 +93,5 @@ exports[`FilterBar should match a snapshot 1`] = `
       ]
     }
   />
-</Component>
+</Content>
 `;

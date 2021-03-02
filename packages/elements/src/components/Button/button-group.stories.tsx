@@ -8,7 +8,7 @@ export default {
   component: ButtonGroup,
 }
 
-const Template: Story<ButtonGroupProps> = args => (
+const Template: Story<ButtonGroupProps> = (args) => (
   <ButtonGroup {...args}>
     <Button
       type="button"

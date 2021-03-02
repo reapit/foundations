@@ -18,7 +18,7 @@ const initialFormValues = {
   cardIdentifier: '',
 }
 
-export const HasBillingAddress: Story<CardInputGroupProps> = args => (
+export const HasBillingAddress: Story<CardInputGroupProps> = (args) => (
   <Formik
     initialValues={{
       ...initialFormValues,
@@ -29,7 +29,7 @@ export const HasBillingAddress: Story<CardInputGroupProps> = args => (
       postalCode: '',
       country: '',
     }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >
@@ -44,12 +44,12 @@ HasBillingAddress.args = {
   hasBillingAddress: true,
 }
 
-export const HasNoBillingAddress: Story<CardInputGroupProps> = args => (
+export const HasNoBillingAddress: Story<CardInputGroupProps> = (args) => (
   <Formik
     initialValues={{
       ...initialFormValues,
     }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >
@@ -64,12 +64,12 @@ HasNoBillingAddress.args = {
   hasBillingAddress: false,
 }
 
-export const HasWhiteListedTestCard: Story<CardInputGroupProps> = args => (
+export const HasWhiteListedTestCard: Story<CardInputGroupProps> = (args) => (
   <Formik
     initialValues={{
       ...initialFormValues,
     }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >

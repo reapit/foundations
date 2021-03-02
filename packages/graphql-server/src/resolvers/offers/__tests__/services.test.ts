@@ -1,10 +1,10 @@
 import { callGetOfferByIdAPI, callGetOffersAPI, callCreateOfferAPI, callUpdateOfferAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createOfferArgsMock } from '../__stubs__/create-offer'
-import { updateOfferArgsMock } from '../__stubs__/update-offer'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createOfferArgsMock } from '../__stubs__/mock-create-offer'
+import { updateOfferArgsMock } from '../__stubs__/mock-update-offer'
 import { getOfferById, getOffers, createOffer, updateOffer } from '../services'
-import { offerMock } from '../__stubs__/offer'
-import { offersMock } from '../__stubs__/offers'
+import { offerMock } from '../__stubs__/mock-offer'
+import { offersMock } from '../__stubs__/mock-offers'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

@@ -6,7 +6,7 @@ import { createAppRevisionSuccess, createAppRevisionFailed, createAppRevision } 
 import { notification } from '@reapit/elements'
 import { imageUploaderHelper } from '@/services/upload'
 
-export const createAppRevisionSaga = function*({
+export const createAppRevisionSaga = function* ({
   data: {
     id,
     name,
@@ -70,11 +70,11 @@ export const createAppRevisionSaga = function*({
   }
 }
 
-export const createAppRevisionSagaListen = function*() {
+export const createAppRevisionSagaListen = function* () {
   yield takeLatest<Action<CreateAppRevisionParams>>(createAppRevision.type, createAppRevisionSaga)
 }
 
-export const createAppRevisionSagas = function*() {
+export const createAppRevisionSagas = function* () {
   yield all([fork(createAppRevisionSagaListen)])
 }
 

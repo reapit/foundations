@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import { Dispatch } from 'redux'
 import { fetchScopeList } from '@/actions/scopes'
 jest.mock('../steps/step-submit-app-success', () => ({
-  onFinish: jest.fn().mockImplementation(fn => fn),
+  onFinish: jest.fn().mockImplementation((fn) => fn),
 }))
 
 jest.mock('react-redux', () => ({

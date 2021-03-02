@@ -11,10 +11,9 @@ import ToggleCustomerDataForm, {
   ToggleCustomerDataValues,
 } from '../toggle-customer-data-form'
 
-const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
   ...(jest.requireActual('react-redux') as Object),
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
   useSelector: jest.fn(() => jest.fn()),
 }))
 

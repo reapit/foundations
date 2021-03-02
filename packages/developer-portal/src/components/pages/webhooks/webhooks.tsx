@@ -102,8 +102,8 @@ export const handleAfterClose = (dispatch: Dispatch, setWebhookId: React.Dispatc
 }
 
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
-  const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id as string))
-  const subscriptionTopicsName = subscriptionTopics.map(topic => topic.name)
+  const subscriptionTopics = topics.filter((topic) => subscriptionTopicIds.includes(topic.id as string))
+  const subscriptionTopicsName = subscriptionTopics.map((topic) => topic.name)
   return subscriptionTopicsName
 }
 
@@ -151,9 +151,9 @@ export const getTableTopicsData = ({
   }))
 }
 
-export const mapDeveloperAppsToAppSelectBoxOptions: (
-  developerApps: AppSummaryModel[],
-) => SelectBoxOptions[] = developerApps =>
+export const mapDeveloperAppsToAppSelectBoxOptions: (developerApps: AppSummaryModel[]) => SelectBoxOptions[] = (
+  developerApps,
+) =>
   developerApps.map(({ name, id }) => ({
     label: name || '',
     value: id || '',

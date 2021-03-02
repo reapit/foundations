@@ -9,7 +9,7 @@ import { appointmentsQueryData } from '../__mocks__/appointments-query'
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+  ...(jest.requireActual('react-router-dom') as Object),
   useLocation: jest.fn(() => locationMock),
 }))
 
@@ -55,7 +55,7 @@ describe('appointment', () => {
       const outputStartDates = ['2019-05-11T17:30:00']
       const fn = sortAppoinmentsByStartTime(inputs)
       const result = fn()
-      const startDatesOfResultSortAppoinmentsByStartTime = result.map(appoinment => appoinment.start)
+      const startDatesOfResultSortAppoinmentsByStartTime = result.map((appoinment) => appoinment.start)
       expect(startDatesOfResultSortAppoinmentsByStartTime).toEqual(outputStartDates)
     })
   })

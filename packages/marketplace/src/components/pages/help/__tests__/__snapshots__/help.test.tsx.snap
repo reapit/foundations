@@ -2,12 +2,12 @@
 
 exports[`ClientHelpPage should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Help
-  </Component>
-  <Component
+  </H3>
+  <HelpItemList
     items={
       Array [
         Object {

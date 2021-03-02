@@ -1,54 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
-<Component>
-  <Component>
-    <Component
+<MessageProvider>
+  <AnalyticsMonthlyUsage>
+    <Section
       hasMargin={false}
     >
       <section
-        className=""
+        className="section has-padding has-background"
         data-test=""
       >
-        <Component>
+        <H5>
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Monthly Cost
           </h5>
-        </Component>
-        <mock-styled.div>
-          <mock-styled.div>
-            <Bar
-              data={
-                Object {
-                  "datasets": Array [],
-                  "labels": Array [],
-                }
-              }
-              height={50}
-              options={
-                Object {
-                  "maintainAspectRatio": false,
-                  "scales": Object {
-                    "yAxes": Array [
-                      Object {
-                        "scaleLabel": Object {
-                          "display": true,
-                          "labelString": "Total Cost ( £ )",
-                        },
+        </H5>
+        <FadeIn>
+          <div
+            className="fade-in"
+          >
+            <ChartContainer>
+              <div
+                className="chart-container"
+              >
+                <Bar
+                  data={
+                    Object {
+                      "datasets": Array [],
+                      "labels": Array [],
+                    }
+                  }
+                  height={50}
+                  options={
+                    Object {
+                      "maintainAspectRatio": false,
+                      "scales": Object {
+                        "yAxes": Array [
+                          Object {
+                            "scaleLabel": Object {
+                              "display": true,
+                              "labelString": "Total Cost ( £ )",
+                            },
+                          },
+                        ],
                       },
-                    ],
-                  },
-                }
-              }
-              width={50}
-            />
-          </mock-styled.div>
-        </mock-styled.div>
+                    }
+                  }
+                  width={50}
+                />
+              </div>
+            </ChartContainer>
+          </div>
+        </FadeIn>
       </section>
-    </Component>
-  </Component>
-</Component>
+    </Section>
+  </AnalyticsMonthlyUsage>
+</MessageProvider>
 `;

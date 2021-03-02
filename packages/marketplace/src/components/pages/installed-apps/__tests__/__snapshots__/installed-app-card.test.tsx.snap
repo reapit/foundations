@@ -2,20 +2,20 @@
 
 exports[`InstalledAppCard should match a snapshot 1`] = `
 <div
-  className=""
+  className="bk0ga08-banner-wrap"
   data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   data-test-app-name="test"
 >
   <div
-    className=""
+    className="bgxdy39-banner-outer-small"
   >
     <div
-      className=""
+      className="bbs8vt5-banner-inner-small"
     >
       In Development
     </div>
   </div>
-  <Component
+  <Tile
     heading="test"
     image={
       <img

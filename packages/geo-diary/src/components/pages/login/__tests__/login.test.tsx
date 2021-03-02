@@ -19,10 +19,7 @@ describe('Login', () => {
     it('should correctly call redirect on click', () => {
       const wrapper = shallow(<Login />)
 
-      wrapper
-        .find(Button)
-        .first()
-        .simulate('click')
+      wrapper.find(Button).first().simulate('click')
 
       expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
     })

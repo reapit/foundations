@@ -13,21 +13,21 @@ exports[`Members should match a snapshot when no error 1`] = `
     }
   }
 >
-  <Component>
-    <Component>
+  <Members>
+    <Section>
       <section
-        className=""
+        className="section has-padding has-margin has-background"
         data-test=""
       >
-        <Component>
+        <H5>
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Members
           </h5>
-        </Component>
-        <Component
+        </H5>
+        <Table
           columns={
             Array [
               Object {
@@ -1460,26 +1460,26 @@ exports[`Members should match a snapshot when no error 1`] = `
               <tbody />
             </table>
           </div>
-        </Component>
+        </Table>
         <DisableMemberModal
           developer={null}
           onCancel={[Function]}
           onSuccess={[Function]}
           visible={false}
         />
-        <Component
+        <SetAsAdminModal
           onClose={[Function]}
           user={null}
           visible={false}
         />
-        <Component
+        <InviteMemberModal
           developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
           memberData={null}
           onClose={[Function]}
           visible={false}
         />
       </section>
-    </Component>
-  </Component>
+    </Section>
+  </Members>
 </Provider>
 `;

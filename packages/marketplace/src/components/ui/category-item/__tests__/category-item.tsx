@@ -17,11 +17,6 @@ describe('CategoryItem', () => {
 
   it('should contain All when no category', () => {
     const wrapper = shallow(<CategoryItem selected={false} onSelectCategory={jest.fn} />)
-    expect(
-      wrapper
-        .find('a')
-        .first()
-        .text(),
-    ).toEqual('All')
+    expect(wrapper.find('a').first().text()).toEqual('All')
   })
 })

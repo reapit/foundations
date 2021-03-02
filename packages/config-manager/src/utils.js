@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { pascalCase } = require('change-case')
 
-const parseArgv = cliArgs => {
+const parseArgv = (cliArgs) => {
   const { namespace, entity, name, mode, filePath, format } = cliArgs
   // If multiple flags of the same type are passed, yargs gives me an array of them
   // In this case, I want to take the last one so I can override a default flag, eg in a CI env

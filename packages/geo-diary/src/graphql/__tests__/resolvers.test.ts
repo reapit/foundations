@@ -3,7 +3,7 @@ import { appointmentsQueryData } from '../../components/pages/appointment/__mock
 
 describe('resolvers', () => {
   describe('contacts', () => {
-    it('should run correctly', async done => {
+    it('should run correctly', async (done) => {
       const result = await resolvers.Query.getAppointments()
       setTimeout(() => {
         expect(result).toEqual(appointmentsQueryData.data.GetAppointments)

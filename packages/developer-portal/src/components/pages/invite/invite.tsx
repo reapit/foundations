@@ -10,7 +10,7 @@ import RejectedModal from './rejected'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
 import { Dispatch } from 'redux'
 
-export const handleSubmit = (dispatch: Dispatch, developerId: string, memberId: string) => values => {
+export const handleSubmit = (dispatch: Dispatch, developerId: string, memberId: string) => (values) => {
   const params = {
     developerId,
     memberId,

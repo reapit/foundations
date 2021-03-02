@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppHeader should match a snapshot 1`] = `
-<Component
-  className=""
+<Grid
+  className="flex items-center mb-4 cae733d-container-outer-header flex-col-min-height"
 >
-  <Component>
+  <GridItem>
     <div
-      className=""
+      className="c1g8dchb-container-header"
     >
       <div
-        className=""
+        className="a1o2dfdh-app-icon-container"
       >
         <img
           alt="Peter's Properties"
@@ -18,27 +18,27 @@ exports[`AppHeader should match a snapshot 1`] = `
         />
       </div>
       <div
-        className=""
+        className="h19bkisw-header-content"
       >
-        <Component>
+        <H3>
           Peter's Properties
-        </Component>
-        <Component>
+        </H3>
+        <SubTitleH6>
           Verified by Reapit 
           <FaCheck
-            className=""
+            className="c1o0xv12-check"
           />
-        </Component>
+        </SubTitleH6>
       </div>
     </div>
-  </Component>
-  <Component
+  </GridItem>
+  <GridItem
     className="flex items-center"
   >
     <img
       alt="Featured Image"
       src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
     />
-  </Component>
-</Component>
+  </GridItem>
+</Grid>
 `;

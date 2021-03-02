@@ -16,7 +16,7 @@ export default {
     (Story: Story) => (
       <Formik
         initialValues={{ demo: null }}
-        onSubmit={values => {
+        onSubmit={(values) => {
           action('Form Values' + values)
         }}
       >
@@ -30,7 +30,7 @@ export default {
   ],
 }
 
-export const Primary: Story<SelectBoxProps> = args => <SelectBox {...args} />
+export const Primary: Story<SelectBoxProps> = (args) => <SelectBox {...args} />
 Primary.args = {
   helpText: 'This is helper text',
   name: 'demo',
@@ -39,7 +39,7 @@ Primary.args = {
   id: 'test',
 }
 
-export const Required: Story<SelectBoxProps> = args => <SelectBox {...args} />
+export const Required: Story<SelectBoxProps> = (args) => <SelectBox {...args} />
 Required.args = {
   required: true,
   name: 'demo',

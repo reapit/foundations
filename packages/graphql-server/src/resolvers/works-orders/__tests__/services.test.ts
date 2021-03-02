@@ -9,7 +9,7 @@ import {
   calldeleteWorksOrderItem,
   callUpdateWorksOrderItemAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   worksOrderListStub,
   worksOrderStub,
@@ -18,7 +18,7 @@ import {
   getWorksOrderItemsArgsStub,
   getWorksOrderItemByIdArgsStub,
   worksOrderItemStub,
-} from '../__stubs__/works-orders-query'
+} from '../__stubs__/mock-works-orders-query'
 import {
   getWorksOrders,
   getWorkOrderById,
@@ -36,7 +36,7 @@ import {
   createWorksOrderItemArgsStub,
   deleteWorksOrderItemArgsStub,
   updateWorksOrderItemArgsStub,
-} from '../__stubs__/works-orders-mutation'
+} from '../__stubs__/mock-works-orders-mutation'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

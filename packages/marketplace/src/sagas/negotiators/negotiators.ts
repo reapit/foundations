@@ -5,7 +5,7 @@ import { fetchNegotiatorsFailed, fetchNegotiatorsSuccess } from '@/actions/negot
 import ActionTypes from '@/constants/action-types'
 import { fetchNegotiatorsApi, FetchNegotiatorsParams } from '@/services/negotiators'
 
-export const fetchNegotiators = function*({ data }: Action<FetchNegotiatorsParams>) {
+export const fetchNegotiators = function* ({ data }: Action<FetchNegotiatorsParams>) {
   try {
     const negotiators = yield call(fetchNegotiatorsApi, { ...data })
     yield put(fetchNegotiatorsSuccess(negotiators))
@@ -18,10 +18,10 @@ export const fetchNegotiators = function*({ data }: Action<FetchNegotiatorsParam
   }
 }
 
-export const fetchNegotiatorsListen = function*() {
+export const fetchNegotiatorsListen = function* () {
   yield takeLatest<Action<FetchNegotiatorsParams>>(ActionTypes.FETCH_NEGOTIATORS, fetchNegotiators)
 }
 
-export const negotiatorsSagas = function*() {
+export const negotiatorsSagas = function* () {
   yield all([fork(fetchNegotiatorsListen)])
 }

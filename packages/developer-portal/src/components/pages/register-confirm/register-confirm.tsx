@@ -12,7 +12,7 @@ export const handleUseEffect = ({ userName, verificationCode, replace }) => () =
     .then(() => {
       replace(`${Routes.LOGIN}?isSuccess=1`)
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error)
       replace(`${Routes.LOGIN}?confirmError=1`)
     })

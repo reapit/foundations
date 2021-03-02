@@ -16,7 +16,7 @@ export const Usage: Story = () => {
     <div>
       <Formik
         initialValues={{ pattern: '' }}
-        validate={values => {
+        validate={(values) => {
           const { pattern } = values
           const errors = { pattern: '' }
           if (!isBase64(pattern)) {
@@ -24,7 +24,7 @@ export const Usage: Story = () => {
           }
           return errors
         }}
-        onSubmit={values => {
+        onSubmit={(values) => {
           action('Form Values' + values)
         }}
         render={() => (

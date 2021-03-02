@@ -1,86 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Schedule Three it matches a snapshot 1`] = `
-<Component>
-  <Component
+<Content>
+  <H5
     className="text-center"
   >
     Schedule 3 - Developer Obligations
-  </Component>
-  <mock-styled.ol>
-    <mock-styled.li>
+  </H5>
+  <TermsOl>
+    <TermsLi>
       The Developer agrees that:
-      <mock-styled.ul>
-        <mock-styled.li>
+      <TermsUl>
+        <TermsLiBullet>
           access to the Foundations Platform is solely for the purpose of developing Applications and/or accessing Reapit’s Application Programming Interfaces;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will not interfere with or access any other developer’s Application, without that developer and Reapit’s express prior written permission;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will not collect any data or Personal Data on the Foundations Platform, other than through its Application and in accordance with the Application User Terms Principles;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will provide feedback when requested by Reapit, in relation to the performance of the Foundations Platform;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will co-operate in all matters relating to this Agreement with Reapit;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will not provide access to the Foundations Platform to anyone who has not entered into a direct agreement with Reapit on the same terms as this Agreement;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test;
-        </mock-styled.li>
-        <mock-styled.li>
+        </TermsLiBullet>
+        <TermsLiBullet>
           it will not use the Foundations Platform in a manner, develop an Application, or share any content or Developer Feedback, that:
-          <mock-styled.ul>
-            <mock-styled.li>
+          <TermsUl>
+            <TermsLiBullet>
               is false or misleading;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               is defamatory, derogatory, degrading or harassing of another or constitutes a personal attack;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               invades another’s privacy or includes, copies or transmits another’s confidential, sensitive or personal information;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               promotes bigotry, racism, hatred or harm against any group or individual;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               is obscene or not in good taste;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               infringes or promotes the infringement of a Third Party’s rights, including Intellectual Property Rights;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               promotes the infringement of any Applicable Laws;
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               contains a solicitation of funds, goods or services, or promotes or advertises goods or services (other than the Application itself); or
-            </mock-styled.li>
-            <mock-styled.li>
+            </TermsLiBullet>
+            <TermsLiBullet>
               contains any viruses, Trojan horses, or other components designed to limit or harm the functionality of a computer.
-            </mock-styled.li>
-          </mock-styled.ul>
-        </mock-styled.li>
-      </mock-styled.ul>
-    </mock-styled.li>
-    <mock-styled.li>
+            </TermsLiBullet>
+          </TermsUl>
+        </TermsLiBullet>
+      </TermsUl>
+    </TermsLi>
+    <TermsLi>
       The developer must make available upon request access to the Application in both test and production environments for Reapit to conduct random spot-checks.
-    </mock-styled.li>
-    <mock-styled.li>
+    </TermsLi>
+    <TermsLi>
       When reading Data from end points the Developer must update those end points and write back associated Data, for example, but not limited to, the “Negotiators diary” in order to ensure that the Foundations Platform remains the Single source of truth for the benefit of all Marketplace Applications
-    </mock-styled.li>
-    <mock-styled.li>
+    </TermsLi>
+    <TermsLi>
       Server Side Applications, that are not a companion to a Client Side Application listed on the Marketplace, must use Reapit Connect in their non-Marketplace application(s).
-    </mock-styled.li>
-    <mock-styled.li>
+    </TermsLi>
+    <TermsLi>
       The Developer must use Reapit Connect and Reapit Elements UI component library when building Client Side Applications for the Marketplace.
-    </mock-styled.li>
-    <mock-styled.li>
+    </TermsLi>
+    <TermsLi>
       The Developer will conduct an industry-standard penetration test on each Application at least once every calendar year and provide Reapit with the results of such test.
-    </mock-styled.li>
-  </mock-styled.ol>
-</Component>
+    </TermsLi>
+  </TermsOl>
+</Content>
 `;

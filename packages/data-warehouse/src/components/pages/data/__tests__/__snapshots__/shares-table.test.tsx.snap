@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SharesTable should match a snapshot 1`] = `
-<Component
+<SharesTable
   setShares={[MockFunction]}
   shares={
     Array [
@@ -27,7 +27,7 @@ exports[`SharesTable should match a snapshot 1`] = `
     ]
   }
 >
-  <Component
+  <Table
     columns={
       Array [
         Object {
@@ -32247,7 +32247,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               key="cell_0_url"
               role="cell"
             >
-              <Component
+              <URLComponent
                 allColumns={
                   Array [
                     Object {
@@ -38659,7 +38659,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   text="https://XY81204.eu-west-1.snowflakecomputing.com/"
                 >
                   <div
-                    className=""
+                    className="btn-copy"
                     onClick={[Function]}
                     onMouseLeave={[Function]}
                     role="button"
@@ -38698,19 +38698,19 @@ exports[`SharesTable should match a snapshot 1`] = `
                       </IconBase>
                     </FaCopy>
                     <span
-                      className=""
+                      className="tooltiptext"
                     >
                       Copy URL
                     </span>
                   </div>
                 </CopyToClipboard>
-              </Component>
+              </URLComponent>
             </td>
             <td
               key="cell_0_dsn"
               role="cell"
             >
-              <Component
+              <DSNComponent
                 allColumns={
                   Array [
                     Object {
@@ -45122,7 +45122,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   text="Driver={SnowflakeDSIIDriver};Server=XY81204.eu-west-1.snowflakecomputing.com;Database=reapit;schema=customers_rps_DEV;uid=<user name>;pwd=<password>;"
                 >
                   <div
-                    className=""
+                    className="btn-copy"
                     onClick={[Function]}
                     onMouseLeave={[Function]}
                     role="button"
@@ -45161,13 +45161,13 @@ exports[`SharesTable should match a snapshot 1`] = `
                       </IconBase>
                     </FaCopy>
                     <span
-                      className=""
+                      className="tooltiptext"
                     >
                       Copy DSN
                     </span>
                   </div>
                 </CopyToClipboard>
-              </Component>
+              </DSNComponent>
             </td>
             <td
               key="cell_0_id"
@@ -51580,7 +51580,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   ]
                 }
               >
-                <Component
+                <Button
                   disabled={false}
                   loading={false}
                   onClick={[Function]}
@@ -51595,13 +51595,13 @@ exports[`SharesTable should match a snapshot 1`] = `
                   >
                     Delete Share
                   </button>
-                </Component>
+                </Button>
               </DeleteShareComponent>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  </Component>
-</Component>
+  </Table>
+</SharesTable>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`submit-app-wizard should match snapshot when visible = true 1`] = `
-<Component
+<ModalV2
   isPadding={false}
   onClose={[Function]}
   title="Before you start"
@@ -21,11 +21,11 @@ exports[`submit-app-wizard should match snapshot when visible = true 1`] = `
     <Form
       onKeyPress={[Function]}
     >
-      <Component
+      <StepBeforeYouStart
         onClose={[MockFunction]}
         setWizardStep={[Function]}
       />
     </Form>
   </Formik>
-</Component>
+</ModalV2>
 `;

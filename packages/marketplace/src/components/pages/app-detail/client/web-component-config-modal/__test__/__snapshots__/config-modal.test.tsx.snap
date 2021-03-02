@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Config-modal should match snapshot 1`] = `
-<Component
+<Modal
   afterClose={[MockFunction]}
   renderChildren={true}
   visible={true}
 >
-  <Component
+  <WebComponentConfigModalInner
     closeModal={[MockFunction]}
   />
-</Component>
+</Modal>
 `;

@@ -55,16 +55,16 @@ exports[`Login should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <Login>
         <div
-          className=""
+          className="cg2ypmp-container"
         >
           <div
-            className=""
+            className="wtehddc-wrapper"
           >
-            <Component>
+            <Level>
               <div
-                className=""
+                className="level"
                 data-test=""
               >
                 <img
@@ -72,32 +72,32 @@ exports[`Login should match a snapshot 1`] = `
                   src=""
                 />
               </div>
-            </Component>
-            <Component>
+            </Level>
+            <Section>
               <section
-                className=""
+                className="section has-padding has-margin has-background"
                 data-test=""
               >
                 <p>
                   Welcome to Reapit Foundations
                 </p>
               </section>
-            </Component>
-            <Component
-              className=""
+            </Section>
+            <Level
+              className="r1j5cb07-register-level"
             >
               <div
-                className=""
+                className="level r1j5cb07-register-level"
                 data-test=""
               >
-                <Component
-                  className=""
+                <Button
+                  className="l1cbog1d-login-button"
                   dataTest="login-button"
                   fullWidth={true}
                   onClick={[Function]}
                 >
                   <button
-                    className="button  is-primary is-fullwidth "
+                    className="button l1cbog1d-login-button is-primary is-fullwidth "
                     data-test="login-button"
                     disabled={false}
                     onClick={[Function]}
@@ -105,9 +105,9 @@ exports[`Login should match a snapshot 1`] = `
                   >
                     Login
                   </button>
-                </Component>
+                </Button>
                 <div
-                  className=""
+                  className="r1d7w4ff-register"
                 >
                   Don't have an account yet? 
                   <Link
@@ -127,18 +127,18 @@ exports[`Login should match a snapshot 1`] = `
                   </Link>
                 </div>
               </div>
-            </Component>
-            <Component
+            </Level>
+            <FlexContainerBasic
               centerContent={true}
               className="pt-8"
             >
               <div
-                className=""
+                className="container-flex is-centered pt-8"
               />
-            </Component>
+            </FlexContainerBasic>
           </div>
           <div
-            className=""
+            className="i1g8zzoj-image"
           >
             <img
               alt="Reapit Graphic"
@@ -146,7 +146,7 @@ exports[`Login should match a snapshot 1`] = `
             />
           </div>
         </div>
-      </Component>
+      </Login>
       ,
     </Router>
   </MemoryRouter>

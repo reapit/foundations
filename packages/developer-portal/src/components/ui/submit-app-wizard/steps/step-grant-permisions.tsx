@@ -26,8 +26,8 @@ export const onPrev = (setWizardStep: SetWizardStep, authFlow: AuthFlow) => () =
   setWizardStep(wizzardSteps.INPUT_AUTHENTICATION_URIS)
 }
 
-export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = scopes =>
-  scopes.map(scope => {
+export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = (scopes) =>
+  scopes.map((scope) => {
     const { name, description } = scope
 
     return {

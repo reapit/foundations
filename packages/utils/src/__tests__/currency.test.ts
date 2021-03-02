@@ -9,7 +9,7 @@ describe('currencySymbolMapper', () => {
     { currency: 'AED', symbol: 'AED' },
   ]
 
-  options.forEach(option => {
+  options.forEach((option) => {
     it(`should return the correct symbol for ${option.currency}`, () => {
       expect(currencySymbolMapper(option.currency)).toEqual(option.symbol)
     })

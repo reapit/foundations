@@ -32,7 +32,7 @@ exports[`SandboxPopUp should match snapshot with default 1`] = `
     }
   }
 >
-  <Component
+  <SandboxPopUp
     loading={false}
     message=""
   />
@@ -71,7 +71,7 @@ exports[`SandboxPopUp should match snapshot with passed props 1`] = `
     }
   }
 >
-  <Component
+  <SandboxPopUp
     loading={true}
     message="message"
   />

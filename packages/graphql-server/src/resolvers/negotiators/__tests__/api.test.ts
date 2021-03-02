@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetNegotiatorsAPI,
   callCreateNegotiatorAPI,
@@ -6,10 +6,10 @@ import {
   callGetNegotiatorByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { negotiatorMock } from '../__stubs__/negotiator'
-import { negotiatorsMock } from '../__stubs__/negotiators'
-import { createNegotiatorArgsMock } from '../__stubs__/create-negotiator'
-import { updateNegotiatorArgsMock } from '../__stubs__/update-negotiator'
+import { negotiatorMock } from '../__stubs__/mock-negotiator'
+import { negotiatorsMock } from '../__stubs__/mock-negotiators'
+import { createNegotiatorArgsMock } from '../__stubs__/mock-create-negotiator'
+import { updateNegotiatorArgsMock } from '../__stubs__/mock-update-negotiator'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

@@ -33,7 +33,7 @@ export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMa
 // TODO: will replace when get data from BE
 export const calculateProgress = (status: SectionsStatus) => {
   const count = Object.keys(status).length
-  const completedCount = Object.keys(status).filter(key => status[key]).length
+  const completedCount = Object.keys(status).filter((key) => status[key]).length
   return { percentage: Math.floor((completedCount / count) * 100), completed: completedCount, total: count }
 }
 

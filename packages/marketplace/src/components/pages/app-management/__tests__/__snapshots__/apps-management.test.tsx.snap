@@ -55,19 +55,19 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component>
+      <AppsManagement>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Manage Apps
             </h3>
-          </Component>
-          <Component
+          </H3>
+          <AppList
             infoType="INSTALLED_APPS_EMPTY"
             list={Array []}
             loading={false}
@@ -77,7 +77,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
             <div
               className="overflow-hidden mb-4"
             >
-              <Component
+              <Helper
                 variant="info"
               >
                 <div
@@ -85,17 +85,17 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
                 >
                   It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
                 </div>
-              </Component>
+              </Helper>
             </div>
-          </Component>
-          <Component
+          </AppList>
+          <Pagination
             onChange={[Function]}
             pageNumber={1}
             pageSize={12}
             totalCount={0}
           />
         </ErrorBoundary>
-      </Component>
+      </AppsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -156,19 +156,19 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
         }
       }
     >
-      <Component>
+      <AppsManagement>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Manage Apps
             </h3>
-          </Component>
-          <Component>
+          </H3>
+          <Loader>
             <div
               className="loader-spinner body"
               data-test=""
@@ -178,9 +178,9 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
               <div />
               <div />
             </div>
-          </Component>
+          </Loader>
         </ErrorBoundary>
-      </Component>
+      </AppsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -241,19 +241,19 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
         }
       }
     >
-      <Component>
+      <AppsManagement>
         <ErrorBoundary>
-          <Component
+          <H3
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Manage Apps
             </h3>
-          </Component>
-          <Component
+          </H3>
+          <AppList
             infoType="INSTALLED_APPS_EMPTY"
             list={Array []}
             loading={false}
@@ -263,7 +263,7 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
             <div
               className="overflow-hidden mb-4"
             >
-              <Component
+              <Helper
                 variant="info"
               >
                 <div
@@ -271,17 +271,17 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
                 >
                   It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
                 </div>
-              </Component>
+              </Helper>
             </div>
-          </Component>
-          <Component
+          </AppList>
+          <Pagination
             onChange={[Function]}
             pageNumber={1}
             pageSize={12}
             totalCount={0}
           />
         </ErrorBoundary>
-      </Component>
+      </AppsManagement>
     </Router>
   </MemoryRouter>
 </Provider>

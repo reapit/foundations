@@ -22,7 +22,7 @@ export const mockFormikSharedConfig = {
   enableReinitialize: true,
 }
 
-export const mockFormikState = values => ({
+export const mockFormikState = (values) => ({
   values,
   error: {},
   errors: {},
@@ -42,7 +42,7 @@ export const mockFormikHandler = {
   getFieldMeta: jest.fn(),
 }
 
-export const mockFormikComputeProps = values => ({
+export const mockFormikComputeProps = (values) => ({
   dirty: true,
   isValid: true,
   initialValues: values,
@@ -58,7 +58,7 @@ export const mockFormikRegistration = {
   unregisterField: jest.fn(),
 }
 
-export const mockWithFormik = values => ({
+export const mockWithFormik = (values) => ({
   ...mockFormikAction,
   ...mockFormikSharedConfig,
   ...mockFormikState(values),

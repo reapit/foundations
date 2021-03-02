@@ -38,7 +38,7 @@ export class Store {
     subscriptions,
   })
 
-  static sagas = function*() {
+  static sagas = function* () {
     yield all([
       fork(appDetailSagas),
       fork(approvalsSagas),

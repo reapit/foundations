@@ -19,7 +19,7 @@ const mockedConnectSession = {
 } as ReapitConnectSession
 jest.spyOn(reapitConnectBrowserSession, 'connectSession').mockImplementation(
   () =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       resolve(mockedConnectSession)
     }),
 )

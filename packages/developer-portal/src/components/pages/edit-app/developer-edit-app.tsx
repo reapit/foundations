@@ -76,7 +76,7 @@ export const renderErrors = (errors: Record<string, string | string[]>) => {
     <div className="has-text-danger">
       <H6 className="has-text-danger mb-1">{description || 'The following validation errors have occurred:'}</H6>
       <div>
-        {Object.keys(errors).map(key => {
+        {Object.keys(errors).map((key) => {
           const value = errors[key]
 
           if (key === FIELD_ERROR_DESCRIPTION) {
@@ -157,7 +157,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       privacyPolicyUrl,
       pricingUrl,
       termsAndConditionsUrl,
-      scopes: appScopes ? appScopes.map(item => item.name) : [],
+      scopes: appScopes ? appScopes.map((item) => item.name) : [],
       redirectUris: redirectUris.join(','),
       signoutUris: signoutUris.join(','),
       limitToClientIds: limitToClientIds.join(','),
@@ -320,14 +320,14 @@ export const handleOpenAppPreview = ({
   const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
 
   const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
-    .filter(image => image)
-    .map(image => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
+    .filter((image) => image)
+    .map((image) => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
 
   const appDetailState = {
     ...appDetails,
     ...values,
-    scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
-    category: categories.find(category => values.categoryId === category.id),
+    scopes: scopes.filter((scope) => values.scopes.includes(scope.name)),
+    category: categories.find((category) => values.categoryId === category.id),
     media,
   }
 

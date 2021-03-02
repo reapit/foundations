@@ -4,14 +4,14 @@ exports[`AppList should match a snapshot 1`] = `
 <div
   className="overflow-hidden mb-4"
 >
-  <Component
+  <GridFourCol
     className=""
     data-test="app-list-container"
   >
-    <Component
+    <GridThreeColItem
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
-      <mock-styled.div>
+      <FadeIn>
         <AppCard
           app={
             Object {
@@ -40,12 +40,12 @@ exports[`AppList should match a snapshot 1`] = `
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
-      </mock-styled.div>
-    </Component>
-    <Component
+      </FadeIn>
+    </GridThreeColItem>
+    <GridThreeColItem
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
-      <mock-styled.div>
+      <FadeIn>
         <AppCard
           app={
             Object {
@@ -74,9 +74,9 @@ exports[`AppList should match a snapshot 1`] = `
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
-      </mock-styled.div>
-    </Component>
-  </Component>
+      </FadeIn>
+    </GridThreeColItem>
+  </GridFourCol>
 </div>
 `;
 
@@ -84,14 +84,14 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
 <div
   className="overflow-hidden mb-4"
 >
-  <Component
+  <GridFourCol
     className=""
     data-test="app-list-container"
   >
-    <Component
+    <GridThreeColItem
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
-      <mock-styled.div>
+      <FadeIn>
         <AppCard
           app={
             Object {
@@ -120,12 +120,12 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
-      </mock-styled.div>
-    </Component>
-    <Component
+      </FadeIn>
+    </GridThreeColItem>
+    <GridThreeColItem
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
-      <mock-styled.div>
+      <FadeIn>
         <AppCard
           app={
             Object {
@@ -154,8 +154,8 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
-      </mock-styled.div>
-    </Component>
-  </Component>
+      </FadeIn>
+    </GridThreeColItem>
+  </GridFourCol>
 </div>
 `;

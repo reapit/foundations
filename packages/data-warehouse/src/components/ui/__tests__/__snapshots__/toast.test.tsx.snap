@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toast should match a snapshot 1`] = `
-<Component>
+<MessageProvider>
   <ToastError>
-    <Component
+    <ToastMessage
       hasNavBar={true}
       message=""
       onCloseToast={[Function]}
@@ -11,11 +11,11 @@ exports[`Toast should match a snapshot 1`] = `
       visible={false}
     >
       <div
-        className=""
+        className="toast has-nav-bar"
         data-test="toast-wrapper"
         onClick={[Function]}
       >
-        <Component
+        <Button
           fullWidth={true}
           type="reset"
           variant="info"
@@ -26,9 +26,9 @@ exports[`Toast should match a snapshot 1`] = `
             disabled={false}
             type="reset"
           />
-        </Component>
+        </Button>
       </div>
-    </Component>
+    </ToastMessage>
   </ToastError>
-</Component>
+</MessageProvider>
 `;

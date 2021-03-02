@@ -5,16 +5,16 @@ import Routes from '@/constants/routes'
 import UsersTab, { UsersContent, onPageChangeHandler } from '../users-tab'
 import { data } from '../__stubs__/users'
 
-const locationMock = { pathname: '/users' }
-
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
-  useLocation: jest.fn(() => locationMock),
+  ...(jest.requireActual('react-router') as Object),
+  useLocation: jest.fn(() => ({
+    search: '/users',
+  })),
 }))
 
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: require('../__stubs__/users').data,
     mutate: jest.fn,
   })),
 )

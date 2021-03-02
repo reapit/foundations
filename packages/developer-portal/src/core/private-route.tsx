@@ -43,7 +43,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
   return (
     <Route
       {...rest}
-      render={props => {
+      render={(props) => {
         if (fetcher) {
           return <RouteFetcher routerProps={props} Component={component} />
         }

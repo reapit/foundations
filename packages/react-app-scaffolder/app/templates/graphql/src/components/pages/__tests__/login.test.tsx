@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
 import { shallow } from 'enzyme'
 import { Button } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -13,7 +12,7 @@ jest.mock('../../../core/connect-session', () => ({
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Login />)
+    const wrapper = shallow(<Login />)
     expect(wrapper).toMatchSnapshot()
   })
 })

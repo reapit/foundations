@@ -13,7 +13,7 @@ exports[`app-delete should match snapshot 1`] = `
     }
   }
 >
-  <Component
+  <DeleteAppModal
     afterClose={[MockFunction]}
     appId="test"
     appName="test"
@@ -21,11 +21,11 @@ exports[`app-delete should match snapshot 1`] = `
     onDeleteSuccess={[MockFunction]}
     visible={true}
   >
-    <Component
+    <Modal
       afterClose={[Function]}
       renderChildren={true}
       visible={true}
     />
-  </Component>
+  </DeleteAppModal>
 </Provider>
 `;

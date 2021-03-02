@@ -9,10 +9,7 @@ const app = express()
 
 app.use(cors())
 app.get('/ok', (_req, res) => {
-  res
-    .status(200)
-    .send('ok')
-    .end()
+  res.status(200).send('ok').end()
 })
 app.use(decodeToken)
 app.use(traceIdMiddleware)

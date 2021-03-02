@@ -55,13 +55,13 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component>
+      <Apps>
         <ErrorBoundary>
           <p>
             Something went wrong here, try refreshing your page.
           </p>
         </ErrorBoundary>
-      </Component>
+      </Apps>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -122,13 +122,13 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
         }
       }
     >
-      <Component>
+      <Apps>
         <ErrorBoundary>
           <p>
             Something went wrong here, try refreshing your page.
           </p>
         </ErrorBoundary>
-      </Component>
+      </Apps>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -189,13 +189,13 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
         }
       }
     >
-      <Component>
+      <Apps>
         <ErrorBoundary>
           <p>
             Something went wrong here, try refreshing your page.
           </p>
         </ErrorBoundary>
-      </Component>
+      </Apps>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -256,13 +256,13 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
         }
       }
     >
-      <Component>
+      <Apps>
         <ErrorBoundary>
           <p>
             Something went wrong here, try refreshing your page.
           </p>
         </ErrorBoundary>
-      </Component>
+      </Apps>
     </Router>
   </MemoryRouter>
 </Provider>

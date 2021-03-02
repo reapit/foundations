@@ -7,7 +7,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
 import { notification } from '@reapit/elements'
 
-export const clientPasswordChange = function*({ data }: Action<ChangePasswordParams>) {
+export const clientPasswordChange = function* ({ data }: Action<ChangePasswordParams>) {
   try {
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword, email } = data
@@ -39,10 +39,10 @@ export const clientPasswordChange = function*({ data }: Action<ChangePasswordPar
   }
 }
 
-export const clientPasswordChangeListen = function*() {
+export const clientPasswordChangeListen = function* () {
   yield takeLatest<Action<ChangePasswordParams>>(ActionTypes.CHANGE_PASSWORD, clientPasswordChange)
 }
 
-export const cognitoIdentitySagas = function*() {
+export const cognitoIdentitySagas = function* () {
   yield all([fork(clientPasswordChangeListen)])
 }

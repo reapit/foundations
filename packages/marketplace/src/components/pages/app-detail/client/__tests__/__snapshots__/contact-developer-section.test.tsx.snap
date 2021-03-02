@@ -2,31 +2,31 @@
 
 exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
 <Fragment>
-  <Component>
-    <Component
+  <Content>
+    <H5
       className="mb-2"
     >
       Developer Links
-    </Component>
-    <Component>
-      <Component>
+    </H5>
+    <Grid>
+      <GridItem>
         <p>
           Reapit Ltd
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           0777 777 777
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="mailto:reapit@reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -34,13 +34,13 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
             Support
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -48,13 +48,13 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
             Website
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -62,13 +62,13 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
             Privacy Policy
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -76,39 +76,39 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
             Terms of Service
           </a>
         </p>
-      </Component>
-    </Component>
-  </Component>
+      </GridItem>
+    </Grid>
+  </Content>
 </Fragment>
 `;
 
 exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
 <Fragment>
-  <Component>
-    <Component
+  <Content>
+    <H5
       className="mb-2"
     >
       Developer Links
-    </Component>
-    <Component>
-      <Component>
+    </H5>
+    <Grid>
+      <GridItem>
         <p>
           Reapit Ltd
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           0777 777 777
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="mailto:reapit@reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -116,13 +116,13 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
             Support
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -130,13 +130,13 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
             Website
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -144,13 +144,13 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
             Privacy Policy
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component>
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
         <p>
           <a
-            className=""
+            className="l1jqx8tw-link l12xgu97-link-normal"
             href="https://reapit.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -158,8 +158,8 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
             Terms of Service
           </a>
         </p>
-      </Component>
-    </Component>
-  </Component>
+      </GridItem>
+    </Grid>
+  </Content>
 </Fragment>
 `;

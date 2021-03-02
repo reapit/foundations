@@ -17,26 +17,26 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
   setOfficeGroupsToRemove={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-between items-center mb-4"
       >
         <div
-          className=""
+          className="container-flex justify-between items-center mb-4"
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Installation
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Button
             disabled={true}
             onClick={[Function]}
             variant="primary"
@@ -50,9 +50,9 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
             >
               Save
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
+      </FlexContainerBasic>
       <p
         className="mb-4"
       >
@@ -109,6 +109,6 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         </div>
       </div>
     </section>
-  </Component>
+  </Section>
 </AppInstallationSection>
 `;

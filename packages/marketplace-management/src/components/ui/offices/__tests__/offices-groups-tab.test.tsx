@@ -5,17 +5,15 @@ import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import { data } from '../__stubs__/office-groups'
 
-const locationMock = { pathname: '/offices/groups' }
-
 jest.mock('../../../../core/connect-session')
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
-  useLocation: jest.fn(() => locationMock),
+  ...(jest.requireActual('react-router') as Object),
+  useLocation: jest.fn(() => ({ pathname: '/offices/groups' })),
 }))
 
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: require('../__stubs__/office-groups').data,
     mutate: jest.fn,
   })),
 )

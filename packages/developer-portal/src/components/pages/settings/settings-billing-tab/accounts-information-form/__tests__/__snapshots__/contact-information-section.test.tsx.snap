@@ -2,39 +2,39 @@
 
 exports[`AccountsInformationForm should match snapshot 1`] = `
 <Fragment>
-  <Component>
+  <FormHeading>
     Accounts Email
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     This email will be used by our Accounts Department to send any account related correspondence
-  </Component>
-  <Component
+  </FormSubHeading>
+  <Input
     dataTest="email"
     id="billingEmail"
     name="billingEmail"
     placeholder="Please enter email address"
     type="email"
   />
-  <Component>
+  <FormHeading>
     Accounts Telephone
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     If you have a specific telephone number for your accounts department, please enter here
-  </Component>
-  <Component
+  </FormSubHeading>
+  <Input
     dataTest="phoneNumber"
     id="billingTelephone"
     name="billingTelephone"
     placeholder="Please enter telephone number"
     type="text"
   />
-  <Component>
+  <FormHeading>
     Accounts Contact
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     If you have a key contact in your Accounts Department, please enter here
-  </Component>
-  <Component
+  </FormSubHeading>
+  <Input
     dataTest="contact"
     id="billingKeyContact"
     name="billingKeyContact"

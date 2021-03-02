@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetAppointmentsAPI,
   callCreateAppointmentAPI,
@@ -6,10 +6,10 @@ import {
   callGetAppointmentByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { appointmentMock } from '../__stubs__/appointment'
-import { appointmentsMock } from '../__stubs__/appointments'
-import { createAppointmentArgsMock } from '../__stubs__/create-appointment'
-import { updateAppointmentArgsMock } from '../__stubs__/update-appointment'
+import { appointmentMock } from '../__stubs__/mock-appointment'
+import { appointmentsMock } from '../__stubs__/mock-appointments'
+import { createAppointmentArgsMock } from '../__stubs__/mock-create-appointment'
+import { updateAppointmentArgsMock } from '../__stubs__/mock-update-appointment'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

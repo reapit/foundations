@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentPage should match a snapshot when has a session 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
   isFullHeight={true}
   isScrollable={true}
 >
-  <Component
+  <FlexContainerResponsive
     flexColumn={true}
     hasPadding={true}
   >
@@ -15,16 +15,16 @@ exports[`PaymentPage should match a snapshot when has a session 1`] = `
       exact={true}
       path="/payments/:paymentId"
     />
-  </Component>
-</Component>
+  </FlexContainerResponsive>
+</FlexContainerBasic>
 `;
 
 exports[`PaymentPage should match a snapshot when has no session 1`] = `
-<Component>
+<PrivateRouteWrapper>
   <Route
     component={[Function]}
     exact={true}
     path="/payments/:paymentId"
   />
-</Component>
+</PrivateRouteWrapper>
 `;

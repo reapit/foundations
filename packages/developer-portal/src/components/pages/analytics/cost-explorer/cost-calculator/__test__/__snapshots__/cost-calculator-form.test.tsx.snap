@@ -113,8 +113,8 @@ exports[`CostCalculator should match a snapshot 1`] = `
   }
 >
   <Form>
-    <Component>
-      <Component
+    <Grid>
+      <GridItem
         className="is-one-quarter"
       >
         <h6
@@ -122,9 +122,9 @@ exports[`CostCalculator should match a snapshot 1`] = `
         >
           Endpoints Used
         </h6>
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <SelectBox
           id="endpointsUsed"
           name="endpointsUsed"
           options={
@@ -164,10 +164,10 @@ exports[`CostCalculator should match a snapshot 1`] = `
             ]
           }
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem
         className="is-one-quarter"
       >
         <h6
@@ -175,31 +175,31 @@ exports[`CostCalculator should match a snapshot 1`] = `
         >
           Monthly API Calls
         </h6>
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <Input
           id="apiCalls"
           name="apiCalls"
           placeholder="Please enter a number"
           type="text"
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component
+      </GridItem>
+    </Grid>
+    <FlexContainerResponsive>
+      <Button
         onClick={[Function]}
         type="button"
         variant="danger"
       >
         clear
-      </Component>
-      <Component
+      </Button>
+      <Button
         type="submit"
         variant="primary"
       >
         Calculate
-      </Component>
-    </Component>
+      </Button>
+    </FlexContainerResponsive>
   </Form>
 </Formik>
 `;

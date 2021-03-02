@@ -56,7 +56,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
   const currentMemberInfo = useSelector(selectCurrentMemberData)
   const isUpdating = useSelector(selectCurrentMemberIsUpdating)
   const dispatch = useDispatch()
-  const updateCurrentMemberInformation = values => dispatch(updateCurrentMember(values))
+  const updateCurrentMemberInformation = (values) => dispatch(updateCurrentMember(values))
 
   const initialValues = generateInitialValues({ defaultInitialValues, currentMemberInfo })
 

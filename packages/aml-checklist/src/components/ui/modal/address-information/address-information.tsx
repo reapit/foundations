@@ -166,7 +166,7 @@ export const renderSencondaryAddress = (secondaryAddress, isShowMoreThreeYearInp
 
 export type AddressInformationProps = DispatchProps & StateProps
 
-export const generateMetadata = secondaryAddress => {
+export const generateMetadata = (secondaryAddress) => {
   const baseAddressMetadata = {
     year: '',
     month: '',

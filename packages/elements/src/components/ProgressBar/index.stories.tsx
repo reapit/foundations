@@ -7,7 +7,7 @@ export default {
   component: ProgressBar,
 }
 
-const Template: Story<ProgressBarProps> = args => <ProgressBar {...args} />
+const Template: Story<ProgressBarProps> = (args) => <ProgressBar {...args} />
 
 export const Zero = Template.bind({})
 Zero.storyName = '0%'

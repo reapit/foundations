@@ -7,13 +7,8 @@ import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
 
 export const buildFilterValues = (queryParams: URLSearchParams): PaymentsFilterFormValues => {
-  const defaultCreatedFrom = dayjs(new Date())
-    .subtract(1, 'month')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const defaultCreatedTo = dayjs(new Date())
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const defaultCreatedFrom = dayjs(new Date()).subtract(1, 'month').add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const defaultCreatedTo = dayjs(new Date()).add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
   const pageSize = '12'
   const properties = queryParams.get('properties') || ''

@@ -26,7 +26,7 @@ exports[`Modal renderContent should return Pep search 1`] = `
 
 exports[`Modal renderContent should return PrimaryId 1`] = `
 <div>
-  <Connect(Component) />
+  <Connect(PrimaryIdentification) />
 </div>
 `;
 
@@ -44,7 +44,7 @@ exports[`Modal renderContent should return Report 1`] = `
 
 exports[`Modal renderContent should return SecondaryId 1`] = `
 <div>
-  <Connect(Component) />
+  <Connect(SecondaryIdentification) />
 </div>
 `;
 
@@ -56,7 +56,7 @@ exports[`Modal renderContent should return Update Status 1`] = `
 
 exports[`Modal renderContent should return Update Status Success 1`] = `
 <div>
-  <Connect(Component)
+  <Connect(UpdateStatusSuccess)
     history={Object {}}
   />
 </div>

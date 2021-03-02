@@ -56,19 +56,19 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
       }
     >
       <AppDetailPreview>
-        <Component
+        <Grid
           dataTest="client-app-detail-container"
         >
           <div
-            className=""
+            className="columns"
             data-test="client-app-detail-container"
           >
-            <Component>
+            <GridItem>
               <div
-                className=""
+                className="column"
                 data-test=""
               >
-                <Component
+                <Alert
                   message="There is no preview app"
                   type="danger"
                 >
@@ -79,11 +79,11 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
                   >
                     There is no preview app
                   </div>
-                </Component>
+                </Alert>
               </div>
-            </Component>
+            </GridItem>
           </div>
-        </Component>
+        </Grid>
       </AppDetailPreview>
     </Router>
   </MemoryRouter>

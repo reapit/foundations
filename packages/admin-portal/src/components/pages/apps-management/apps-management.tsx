@@ -51,7 +51,7 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
         id={id}
         name={id}
         checked={value}
-        onChange={evt => dispatch(requestMarkAppAsFeatured({ id, isFeatured: evt.target.checked }))}
+        onChange={(evt) => dispatch(requestMarkAppAsFeatured({ id, isFeatured: evt.target.checked }))}
       />
       <label className="label" htmlFor={id}></label>
     </div>
@@ -138,7 +138,7 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
   ]
 }
 
-export const refreshForm = history => () => {
+export const refreshForm = (history) => () => {
   history.push(Routes.APPS)
 }
 
@@ -224,7 +224,7 @@ export type FormValues = {
   registeredTo: string
 }
 
-export const handleOnSubmit = history => (formValues: FormValues, { setStatus }) => {
+export const handleOnSubmit = (history) => (formValues: FormValues, { setStatus }) => {
   const cleanedValues = cleanObject(formValues)
 
   if (isEmptyObject(cleanedValues)) {
@@ -236,7 +236,7 @@ export const handleOnSubmit = history => (formValues: FormValues, { setStatus })
   history.push(`${Routes.APPS}?${queryString}`)
 }
 
-export const handleChangePage = history => (page: number) => {
+export const handleChangePage = (history) => (page: number) => {
   history.push(addQuery({ page }))
 }
 

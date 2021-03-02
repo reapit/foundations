@@ -11,7 +11,7 @@ describe('checkAtLeastOneKeyHasValueIsNotEmpty', () => {
     key2: boolean
   }
 
-  testCases.forEach(testCase => {
+  testCases.forEach((testCase) => {
     const input = { key: testCase[0], key2: true }
     const output = testCase[1]
 
@@ -59,7 +59,7 @@ describe('checkAllKeysHasValueNotEmpty', () => {
     key2: boolean
   }
 
-  testCases.forEach(testCase => {
+  testCases.forEach((testCase) => {
     const input = { key: testCase[0], key2: true }
     const output = testCase[1]
 

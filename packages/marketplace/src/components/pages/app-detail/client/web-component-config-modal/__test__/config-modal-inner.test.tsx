@@ -20,7 +20,7 @@ const params = {
   daysOfWeek: ['1', '2'],
 } as UpdateWebComponentConfigParams
 
-const extendAppState = webComponent => {
+const extendAppState = (webComponent) => {
   return {
     ...appState,
     webComponent,

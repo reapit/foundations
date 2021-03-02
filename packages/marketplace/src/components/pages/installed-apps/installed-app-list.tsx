@@ -39,7 +39,7 @@ export const ListMobileScreen = ({
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <div className={cx(installedAppListStyles.wrapList, loading && installedAppListStyles.contentIsLoading)}>
-    {list.map(app => (
+    {list.map((app) => (
       <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
     ))}
   </div>
@@ -51,7 +51,7 @@ export const ListDesktopScreen = ({
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <GridFourCol className={cx(loading && installedAppListStyles.contentIsLoading)} data-test="app-list-container">
-    {list.map(app => (
+    {list.map((app) => (
       <GridFourColItem key={app.id}>
         <FadeIn>
           <InstalledAppCard app={app} onClick={onClickHandler(onCardClick, app)} />

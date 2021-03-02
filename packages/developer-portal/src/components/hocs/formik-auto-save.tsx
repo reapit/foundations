@@ -9,7 +9,7 @@ export const handleUseEffectToSetValueToCurrentRef = (value, ref) => {
   }
 }
 
-export const usePrevious = value => {
+export const usePrevious = (value) => {
   const ref = React.useRef()
   React.useEffect(handleUseEffectToSetValueToCurrentRef(value, ref))
   return ref.current

@@ -110,7 +110,7 @@ export const generateInstallationTableColumns = (
     },
     {
       Header: 'Date Installed',
-      accessor: d => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
+      accessor: (d) => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
     },
     {
       Header: 'Installed By',

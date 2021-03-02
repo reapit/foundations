@@ -106,7 +106,7 @@ describe('Modal', () => {
   })
 
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
-  it('should close Modal after press escape button', done => {
+  it('should close Modal after press escape button', (done) => {
     const wrapper = mount(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')
@@ -126,7 +126,7 @@ describe('Modal', () => {
     })
   })
 
-  it('should close Modal when click on modal overlay', done => {
+  it('should close Modal when click on modal overlay', (done) => {
     const wrapper = mount(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')
@@ -190,7 +190,7 @@ describe('Modal', () => {
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
   })
 
-  it('should not hide Modal when tapOutsideToDissmiss prop is false', done => {
+  it('should not hide Modal when tapOutsideToDissmiss prop is false', (done) => {
     const wrapper = mount(renderWithPortalProvider(<App tapOutsideToDissmiss={false} />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')

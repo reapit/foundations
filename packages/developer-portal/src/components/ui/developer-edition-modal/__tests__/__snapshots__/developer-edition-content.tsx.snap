@@ -2,13 +2,13 @@
 
 exports[`DeveloperEditionContent should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalHeader
     title="Agency Cloud Developer Edition"
   />
-  <Component
+  <ModalBody
     body={
       <React.Fragment>
-        <Unknown
+        <SubTitleH6
           className="has-text-weight-normal"
         >
           The Agency Cloud Developer Edition is a licensed product. However, there will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition licence please refer to your Developer Registration 
@@ -22,7 +22,7 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
           <br />
           <br />
           To proceed, please confirm your subscription below
-        </Unknown>
+        </SubTitleH6>
         <Formik
           initialValues={
             Object {
@@ -99,7 +99,7 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
           <Form
             className="form"
           >
-            <Unknown
+            <DropdownSelect
               fixedPosition={true}
               hasLabel={false}
               id="developerList"
@@ -116,22 +116,22 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
               }
               placeholder="Developer List"
             />
-            <Unknown>
-              <Unknown
+            <LevelRight>
+              <Button
                 fullWidth={true}
                 variant="secondary"
               >
                 Cancel
-              </Unknown>
-              <Unknown
+              </Button>
+              <Button
                 fullWidth={true}
                 loading={false}
                 type="submit"
                 variant="primary"
               >
                 Confirm Subscription
-              </Unknown>
-            </Unknown>
+              </Button>
+            </LevelRight>
           </Form>
         </Formik>
       </React.Fragment>

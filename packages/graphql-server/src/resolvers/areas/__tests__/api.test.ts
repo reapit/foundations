@@ -1,10 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetAreasAPI, callCreateAreaAPI, callUpdateAreaAPI, callGetAreaByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { areaMock } from '../__stubs__/area'
-import { areasMock } from '../__stubs__/areas'
-import { createAreaArgsMock } from '../__stubs__/create-area'
-import { updateAreaArgsMock } from '../__stubs__/update-area'
+import { areaMock } from '../__stubs__/mock-area'
+import { areasMock } from '../__stubs__/mock-areas'
+import { createAreaArgsMock } from '../__stubs__/mock-create-area'
+import { updateAreaArgsMock } from '../__stubs__/mock-update-area'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

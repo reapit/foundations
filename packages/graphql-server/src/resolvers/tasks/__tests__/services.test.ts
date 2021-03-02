@@ -1,10 +1,10 @@
 import { callGetTaskByIdAPI, callGetTasksAPI, callCreateTaskAPI, callUpdateTaskAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createTaskArgsMock } from '../__stubs__/create-task'
-import { updateTaskArgsMock } from '../__stubs__/update-task'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createTaskArgsMock } from '../__stubs__/mock-create-task'
+import { updateTaskArgsMock } from '../__stubs__/mock-update-task'
 import { getTaskById, getTasks, createTask, updateTask } from '../services'
-import { taskMock } from '../__stubs__/task'
-import { tasksMock } from '../__stubs__/tasks'
+import { taskMock } from '../__stubs__/mock-task'
+import { tasksMock } from '../__stubs__/mock-tasks'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

@@ -37,7 +37,7 @@ describe('createParseLog', () => {
 })
 
 describe('traceIdMiddleware', () => {
-  it('should add traceId to req', done => {
+  it('should add traceId to req', (done) => {
     const mockReq = {
       headers: {},
       body: {},

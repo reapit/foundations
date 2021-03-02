@@ -120,7 +120,7 @@ describe('getMaxRowAndCol', () => {
 describe('setCurrentCellValue', () => {
   it('should call setData with correct arg', () => {
     setCurrentCellValue('cell value', data, 2, 3, setData)
-    const newData = data.map(row => row.map(cell => ({ ...cell })))
+    const newData = data.map((row) => row.map((cell) => ({ ...cell })))
     newData[2][3].value = 'cell value'
     expect(setData).toHaveBeenCalledWith(newData)
   })

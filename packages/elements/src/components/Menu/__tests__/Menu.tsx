@@ -7,7 +7,7 @@ import { Location } from 'history'
 import { mockMenuProps } from '../__mocks__/menu-props'
 
 jest.mock('../../DynamicLinks', () => ({
-  ...jest.requireActual('../../DynamicLinks'),
+  ...(jest.requireActual('../../DynamicLinks') as Object),
   getMarketplaceGlobalsByKey: jest.fn(() => ({})),
 }))
 
@@ -89,7 +89,7 @@ describe('Menu', () => {
       const currentLocation = { pathname: currentSelectedItem.url }
       mockMenuProps.location = currentLocation as Location<any>
 
-      const Component = props => (
+      const Component = (props) => (
         <MemoryRouter initialEntries={['/']}>
           <Menu {...props} />
         </MemoryRouter>
@@ -100,24 +100,12 @@ describe('Menu', () => {
       Element.prototype.scrollIntoView = () => {}
       const wrapper = mount(<Component {...mockMenuProps} />)
 
-      expect(
-        wrapper
-          .find('.is-active')
-          .at(0)
-          .childAt(1)
-          .text(),
-      ).toEqual(currentSelectedItem.title)
+      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(currentSelectedItem.title)
 
       wrapper.setProps({ location: { pathname: newSelectedItem.url } })
       wrapper.update()
 
-      expect(
-        wrapper
-          .find('.is-active')
-          .at(0)
-          .childAt(1)
-          .text(),
-      ).toEqual(newSelectedItem.title)
+      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(newSelectedItem.title)
     })
 
     it('should hightlight correct item when paged', () => {
@@ -127,7 +115,7 @@ describe('Menu', () => {
       const currentLocation = { pathname: '/docs' }
       mockMenuProps.location = currentLocation as Location<any>
 
-      const Component = props => (
+      const Component = (props) => (
         <MemoryRouter initialEntries={['/client']}>
           <Menu {...props} />
         </MemoryRouter>
@@ -138,24 +126,12 @@ describe('Menu', () => {
       Element.prototype.scrollIntoView = () => {}
       const wrapper = mount(<Component {...mockMenuProps} />)
 
-      expect(
-        wrapper
-          .find('.is-active')
-          .at(0)
-          .childAt(1)
-          .text(),
-      ).toEqual(currentSelectedItem.title)
+      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(currentSelectedItem.title)
 
       wrapper.setProps({ location: { pathname: '/docs/2' } })
       wrapper.update()
 
-      expect(
-        wrapper
-          .find('.is-active')
-          .at(0)
-          .childAt(1)
-          .text(),
-      ).toEqual(newSelectedItem.title)
+      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(newSelectedItem.title)
     })
   })
 })

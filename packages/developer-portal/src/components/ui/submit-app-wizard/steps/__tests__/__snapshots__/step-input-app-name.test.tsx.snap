@@ -2,8 +2,8 @@
 
 exports[`StepGrantPermissions should match snapshot 1`] = `
 <Fragment>
-  <Component />
-  <Component
+  <ValidateFormikOnMount />
+  <ModalBody
     body={
       <div>
         <p
@@ -11,7 +11,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
         >
           Your app name as it will display to users
         </p>
-        <Unknown
+        <Input
           id="name"
           name="name"
           placeholder="Please enter an app name"
@@ -20,24 +20,24 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
-      <Unknown>
-        <Unknown
+      <FlexContainerBasic>
+        <Button
           className="ml-0"
           onClick={[Function]}
           variant="secondary"
         >
           Back
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           className="ml-auto"
           disabled={true}
           onClick={[Function]}
         >
           Next
-        </Unknown>
-      </Unknown>
+        </Button>
+      </FlexContainerBasic>
     }
   />
 </Fragment>

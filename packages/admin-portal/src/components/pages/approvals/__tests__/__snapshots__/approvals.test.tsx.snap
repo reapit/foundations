@@ -55,28 +55,28 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component>
+      <AdminApprovals>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H3>
               <h3
-                className=""
+                className="title is-3"
                 id=""
               >
                 App Revision Approvals
               </h3>
-            </Component>
+            </H3>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component
+            <Content
               loading={false}
               tableColumns={
                 Array [
@@ -106,7 +106,7 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
               }
               waitingApprovalList={Array []}
             >
-              <Component
+              <Helper
                 variant="info"
               >
                 <div
@@ -114,56 +114,56 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
                 >
                   There are no updates that require approval
                 </div>
-              </Component>
-            </Component>
+              </Helper>
+            </Content>
           </section>
-        </Component>
-        <Component
+        </Section>
+        <Pagination
           onChange={[Function]}
           pageNumber={1}
           pageSize={0}
           totalCount={0}
         />
-        <Component
+        <ApprovalModal
           afterClose={[Function]}
           visible={false}
         >
-          <Component
+          <Modal
             afterClose={[Function]}
             deps={Array []}
             visible={false}
           />
-          <Component
+          <ApproveRevisionModal
             afterClose={[Function]}
             onApproveSuccess={[Function]}
             visible={false}
           >
-            <Component
+            <Modal
               afterClose={[Function]}
               renderChildren={true}
               visible={false}
             />
-          </Component>
-          <Component
+          </ApproveRevisionModal>
+          <DeclineRevisionModal
             afterClose={[Function]}
             onDeclineSuccess={[Function]}
             visible={false}
           >
-            <Component
+            <Modal
               afterClose={[Function]}
               renderChildren={true}
               visible={false}
             />
-          </Component>
-        </Component>
-      </Component>
+          </DeclineRevisionModal>
+        </ApprovalModal>
+      </AdminApprovals>
     </Router>
   </MemoryRouter>
 </Provider>
 `;
 
 exports[`admin-approvals Content should match snapshot 1`] = `
-<Component
+<Table
   columns={
     Array [
       Object {
@@ -423,7 +423,7 @@ exports[`admin-approvals Content should match snapshot 2`] = `
 <div
   className="pin absolute flex items-center justify-center"
 >
-  <Component />
+  <Loader />
 </div>
 `;
 

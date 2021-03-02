@@ -22,8 +22,8 @@ export const handleMemoisedData = (
   pageNumber: number,
 ) => (): InstallationModelWithAppName[] => {
   const installationsWithAppName =
-    installationsListData?.data?.map(installation => {
-      const appName = appsListData?.find(app => app.id === installation.appId)?.name ?? ''
+    installationsListData?.data?.map((installation) => {
+      const appName = appsListData?.find((app) => app.id === installation.appId)?.name ?? ''
 
       return {
         ...installation,
@@ -45,7 +45,7 @@ export const installationTableColumns: InstallationRowType[] = [
   },
   {
     Header: 'Date of Installation',
-    accessor: row => {
+    accessor: (row) => {
       return row.created ? toLocalTime(row.created) : ''
     },
   },
@@ -55,7 +55,7 @@ export const installationTableColumns: InstallationRowType[] = [
   },
   {
     Header: 'Date of Uninstallation',
-    accessor: row => {
+    accessor: (row) => {
       return row.terminatesOn ? toLocalTime(row.terminatesOn) : ''
     },
   },

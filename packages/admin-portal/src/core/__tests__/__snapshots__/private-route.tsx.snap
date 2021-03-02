@@ -55,16 +55,16 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         }
       }
     >
-      <Component
+      <PrivateRoute
         component={[Function]}
       >
         <Route
           render={[Function]}
         >
-          <Component
+          <Info
             infoType="404"
           >
-            <Component
+            <Alert
               message="Page not found"
               type="danger"
             >
@@ -75,10 +75,10 @@ exports[`PrivateRouter should match a snapshot 1`] = `
               >
                 Page not found
               </div>
-            </Component>
-          </Component>
+            </Alert>
+          </Info>
         </Route>
-      </Component>
+      </PrivateRoute>
     </Router>
   </MemoryRouter>
 </Provider>

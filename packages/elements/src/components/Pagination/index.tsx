@@ -42,7 +42,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
       <nav className="pagination is-centered" role="navigation" aria-label="pagination">
         {
           <a
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               if (pageNumber >= 2 && onChange) {
                 onChange(pageNumber - 1)
@@ -55,7 +55,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
         }
         {
           <a
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               if (pageNumber + 1 <= maxPage && onChange) {
                 onChange(pageNumber + 1)
@@ -80,7 +80,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
               <li key={i}>
                 <a
                   className={'pagination-link' + (pg === pageNumber ? ' is-current' : '')}
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault()
                     if (pg !== pageNumber && onChange) {
                       onChange(pg as number)

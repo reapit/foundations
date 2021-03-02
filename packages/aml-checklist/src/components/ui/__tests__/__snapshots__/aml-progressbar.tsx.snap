@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
-<mock-styled.div>
-  <Component>
-    <Component>
-      <Component>
-        <Component>
-          <Component
+<FadeIn>
+  <Section>
+    <Level>
+      <LevelLeft>
+        <LevelItem>
+          <Section
             hasMargin={false}
             hasPadding={false}
             isFlex={true}
             isFlexColumn={true}
           >
-            <Component
+            <H3
               className="mb-5"
             >
-              <Component
+              <AcLink
                 dynamicLinkParams={
                   Object {
                     "appMode": "WEB",
@@ -25,25 +25,25 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
                 }
               >
                 Mrs H Phillips
-              </Component>
-            </Component>
-            <Component />
-          </Component>
-        </Component>
-      </Component>
-      <Component>
-        <Component>
-          <Component
+              </AcLink>
+            </H3>
+            <SubTitleH5 />
+          </Section>
+        </LevelItem>
+      </LevelLeft>
+      <LevelRight>
+        <LevelItem>
+          <Button
             disabled={false}
             onClick={[Function]}
             type="button"
             variant="primary"
           >
             Update Status
-          </Component>
-        </Component>
-      </Component>
-    </Component>
+          </Button>
+        </LevelItem>
+      </LevelRight>
+    </Level>
     <ProgressBar
       percentage={40}
     />
@@ -58,6 +58,6 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
         Completed
       </span>
     </div>
-  </Component>
-</mock-styled.div>
+  </Section>
+</FadeIn>
 `;

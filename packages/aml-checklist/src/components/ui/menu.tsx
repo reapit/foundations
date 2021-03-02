@@ -56,7 +56,7 @@ export const Menu: React.FC = () => {
   const desktopOptimisedMenu = connectIsDesktop
     ? {
         ...menuConfigs,
-        menu: menuConfigs.menu.filter(config => config.key !== 'APPS' && config.key !== 'LOGOUT'),
+        menu: menuConfigs.menu.filter((config) => config.key !== 'APPS' && config.key !== 'LOGOUT'),
       }
     : menuConfigs
   return <Sidebar {...desktopOptimisedMenu} location={location} />

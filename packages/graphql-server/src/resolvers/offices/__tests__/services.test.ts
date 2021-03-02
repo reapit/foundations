@@ -1,10 +1,10 @@
 import { callGetOfficeByIdAPI, callGetOfficesAPI, callCreateOfficeAPI, callUpdateOfficeAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createOfficeArgsMock } from '../__stubs__/create-office'
-import { updateOfficeArgsMock } from '../__stubs__/update-office'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createOfficeArgsMock } from '../__stubs__/mock-create-office'
+import { updateOfficeArgsMock } from '../__stubs__/mock-update-office'
 import { getOfficeById, getOffices, createOffice, updateOffice } from '../services'
-import { officeMock } from '../__stubs__/office'
-import { officesMock } from '../__stubs__/offices'
+import { officeMock } from '../__stubs__/mock-office'
+import { officesMock } from '../__stubs__/mock-offices'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

@@ -32,7 +32,7 @@ exports[`FilterForm should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <FilterForm
     developerApps={
       Array [
         Object {

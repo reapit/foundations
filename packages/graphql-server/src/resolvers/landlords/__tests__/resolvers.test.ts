@@ -16,14 +16,14 @@ import {
   landlordsListMock,
   landlordRelationshipMock,
   landlordRelationshipsListMock,
-} from '../__stubs__/landlord-query'
+} from '../__stubs__/mock-landlord-query'
 import {
   createLandlordArgsMock,
   updateLandlordArgsMock,
   createLandlordRelationshipArgsMock,
   deleteLandlordRelationshipArgsMock,
-} from '../__stubs__/landlord-mutation'
-import { mockContext } from '../../../__stubs__/context'
+} from '../__stubs__/mock-landlord-mutation'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getLandlordById: jest.fn(() => landlordMock),

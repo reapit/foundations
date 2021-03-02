@@ -17,7 +17,7 @@ import FileSaver from 'file-saver'
 
 const spyFetcher = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
   () =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       resolve()
     }),
 )

@@ -6,13 +6,13 @@ exports[`UpdateStatusSuccess should match snapshot 1`] = `
     Success. The ID Status has been updated
   </p>
   <div>
-    <Component
+    <Button
       onClick={[Function]}
       type="button"
       variant="primary"
     >
       Close
-    </Component>
+    </Button>
   </div>
 </Fragment>
 `;

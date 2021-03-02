@@ -1,11 +1,11 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
 import {
   worksOrderListStub,
   getWorksOrderByIdArgsStub,
   worksOrderStub,
   getWorksOrderItemByIdArgsStub,
-} from '../__stubs__/works-orders-query'
+} from '../__stubs__/mock-works-orders-query'
 import {
   callGetWorksOrderByIdAPI,
   callGetWorksOrdersAPI,
@@ -23,7 +23,7 @@ import {
   createWorksOrderItemArgsStub,
   updateWorksOrderItemArgsStub,
   deleteWorksOrderItemArgsStub,
-} from '../__stubs__/works-orders-mutation'
+} from '../__stubs__/mock-works-orders-mutation'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

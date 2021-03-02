@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetConveyancingAPI,
   callGetConveyancingByIdAPI,
@@ -10,14 +10,14 @@ import {
   callDeleteDownwardLinkModelAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { conveyancingChainMock } from '../__stubs__/conveyancing-chain'
-import { conveyancingDetailMock } from '../__stubs__/conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/conveyancing'
-import { createDownwardLinkModelArgsMock } from '../__stubs__/create-downward-link-model'
-import { createUpwardLinkModelArgsMock } from '../__stubs__/create-upward-link-model'
-import { deleteDownwardLinkModelArgsMock } from '../__stubs__/delete-downward-link-model'
-import { deleteUpwardLinkModelArgsMock } from '../__stubs__/delete-upward-link-model'
-import { updateConveyancingArgsMock } from '../__stubs__/update-conveyancing'
+import { conveyancingChainMock } from '../__stubs__/mock-conveyancing-chain'
+import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
+import { conveyancingMock } from '../__stubs__/mock-conveyancing'
+import { createDownwardLinkModelArgsMock } from '../__stubs__/mock-create-downward-link-model'
+import { createUpwardLinkModelArgsMock } from '../__stubs__/mock-create-upward-link-model'
+import { deleteDownwardLinkModelArgsMock } from '../__stubs__/mock-delete-downward-link-model'
+import { deleteUpwardLinkModelArgsMock } from '../__stubs__/mock-delete-upward-link-model'
+import { updateConveyancingArgsMock } from '../__stubs__/mock-update-conveyancing'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

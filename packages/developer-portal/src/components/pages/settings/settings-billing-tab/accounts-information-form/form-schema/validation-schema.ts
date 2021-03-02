@@ -42,9 +42,7 @@ export const validationSchema = Yup.object().shape({
     .required(FIELD_REQUIRED)
     .max(150, errorMessages.MAXIMUM_CHARACTER_LENGTH(150)),
 
-  [statusField.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED),
+  [statusField.name]: Yup.string().trim().required(FIELD_REQUIRED),
 
   [hasReapitAccountsRefField.name]: Yup.string()
     .trim()
@@ -58,8 +56,8 @@ export const validationSchema = Yup.object().shape({
       .required(FIELD_REQUIRED)
       .min(6, MINIMUM_CHARACTER_LENGTH(6))
       .max(6, MAXIMUM_CHARACTER_LENGTH(6))
-      .test('reapitReference', internalErrorMessages.REAPIT_REFERENCE_FIELD_WRONG_FORMAT, value =>
-        checkReapitReferenceFormat(value),
+      .test('reapitReference', internalErrorMessages.REAPIT_REFERENCE_FIELD_WRONG_FORMAT, (value) =>
+        checkReapitReferenceFormat(value as string),
       ),
     otherwise: Yup.string().notRequired(),
   }),

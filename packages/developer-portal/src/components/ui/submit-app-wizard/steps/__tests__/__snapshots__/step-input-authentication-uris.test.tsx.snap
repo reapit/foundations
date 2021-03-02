@@ -2,30 +2,30 @@
 
 exports[`StepInputAuthenticationUris should match snapshot 1`] = `
 <Fragment>
-  <Component />
-  <Component
+  <ValidateFormikOnMount />
+  <ModalBody
     body={
       <div>
-        <Unknown>
+        <Content>
           <p>
             Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct traffic back to your application in a secure way.
           </p>
           <p>
             For the fields below, the following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login.
           </p>
-        </Unknown>
+        </Content>
         <p
           className="mb-3"
         >
           For multiple URI’s, separate using a comma.
         </p>
-        <Unknown
+        <Input
           helperText={
-            <Unknown>
+            <Content>
               <p>
                 Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication.
               </p>
-            </Unknown>
+            </Content>
           }
           id="redirectUris"
           labelText="Redirect URI(s)"
@@ -33,13 +33,13 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
           placeholder="Please enter your Redirect URI(s)"
           type="text"
         />
-        <Unknown
+        <Input
           helperText={
-            <Unknown>
+            <Content>
               <p>
                 Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out.
               </p>
-            </Unknown>
+            </Content>
           }
           id="signoutUris"
           labelText="Sign Out URI(s)"
@@ -50,25 +50,25 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
-      <Unknown>
-        <Unknown
+      <FlexContainerBasic>
+        <Button
           className="ml-0"
           onClick={[Function]}
           variant="secondary"
         >
           Back
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           className="ml-auto"
           disabled={true}
           onClick={[Function]}
           type="submit"
         >
           Next
-        </Unknown>
-      </Unknown>
+        </Button>
+      </FlexContainerBasic>
     }
   />
 </Fragment>

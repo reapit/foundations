@@ -8,7 +8,7 @@ import { extractNetworkErrString } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
 import { notification } from '@reapit/elements'
 
-export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
+export const requestDeleteAppSaga = function* ({ data: appId }: Action<string>) {
   try {
     const response = yield call(deleteAppById, { id: appId })
     if (response) {
@@ -28,7 +28,7 @@ export const requestDeleteAppSaga = function*({ data: appId }: Action<string>) {
   }
 }
 
-export const requestDeleteAppListen = function*() {
+export const requestDeleteAppListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.DELETE_REQUEST_APP, requestDeleteAppSaga)
 }
 

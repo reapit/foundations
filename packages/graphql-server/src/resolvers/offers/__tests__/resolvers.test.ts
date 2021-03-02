@@ -2,11 +2,11 @@ import offerServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetOfferById, queryGetOffers, mutationCreateOffer, mutationUpdateOffer } from '../resolvers'
-import { createOfferArgsMock } from '../__stubs__/create-offer'
-import { updateOfferArgsMock } from '../__stubs__/update-offer'
-import { offerMock } from '../__stubs__/offer'
-import { offersMock } from '../__stubs__/offers'
-import { mockContext } from '../../../__stubs__/context'
+import { createOfferArgsMock } from '../__stubs__/mock-create-offer'
+import { updateOfferArgsMock } from '../__stubs__/mock-update-offer'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { offerMock } from '../__stubs__/mock-offer'
+import { offersMock } from '../__stubs__/mock-offers'
 
 jest.mock('../services', () => ({
   getOfferById: jest.fn(() => offerMock),

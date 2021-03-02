@@ -1,9 +1,8 @@
 import { fetcher } from '../fetcher'
-import { BASE_HEADERS } from '../../constants/api'
 
 jest.mock('../../core/connect-session')
 jest.mock('react-router', () => ({
-  genPlatformHeaders: jest.fn(() => ({ ...BASE_HEADERS, Authorization: 'accessToken' })),
+  genPlatformHeaders: jest.fn(() => ({ ...require('../../constants/api').BASE_HEADERS, Authorization: 'accessToken' })),
 }))
 
 const mockResponse = {

@@ -2,7 +2,7 @@
 
 exports[`CategoriesList should match a snapshot 1`] = `
 <ul
-  className=""
+  className="lgshhkn-list-categories"
 >
   <CategoryItem
     onSelectCategory={[MockFunction]}

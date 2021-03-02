@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Component
-  className=""
+<Modal
+  className="mj13qo2-modal-width"
   footerItems={
     <React.Fragment>
-      <Unknown
+      <Button
         onClick={[MockFunction]}
         type="button"
         variant="secondary"
       >
         Decline
-      </Unknown>
-      <Unknown
+      </Button>
+      <Button
         dataTest="buttonAcceptTermsAndConditions"
         onClick={[MockFunction]}
       >
         Accept
-      </Unknown>
+      </Button>
     </React.Fragment>
   }
   size="medium"
@@ -25,17 +25,17 @@ exports[`Menu should match a snapshot 1`] = `
   title="Terms and Conditions"
   visible={true}
 >
-  <Component
+  <Helper
     variant="info"
   >
     Please agree to the Reapit Developer Terms and Conditions to proceed
-  </Component>
+  </Helper>
   <p>
     These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
   </p>
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-</Component>
+  <TermsAndConditions />
+  <ScheduleOne />
+  <ScheduleTwo />
+  <ScheduleThree />
+</Modal>
 `;

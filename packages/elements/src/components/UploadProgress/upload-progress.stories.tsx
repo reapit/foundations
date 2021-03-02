@@ -7,7 +7,7 @@ export default {
   component: UploadProgress,
 }
 
-export const Default: Story<UploadProgressProps> = args => <UploadProgress {...args} />
+export const Default: Story<UploadProgressProps> = (args) => <UploadProgress {...args} />
 Default.args = {
   percentage: 52,
   totalCount: 50,
@@ -25,7 +25,7 @@ export const Animated: Story = () => {
     }, 500)
 
     const timer = setInterval(() => {
-      setPercentage(current => {
+      setPercentage((current) => {
         return current >= 100 ? 0 : current + Math.random() * 10
       })
     }, 500)

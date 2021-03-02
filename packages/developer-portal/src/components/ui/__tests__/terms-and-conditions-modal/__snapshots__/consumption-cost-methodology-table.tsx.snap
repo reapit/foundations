@@ -7,18 +7,18 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
   <div
     className="mb-3"
   >
-    <Component>
+    <H6>
       Calculation of Total Consumption Cost - Methodology:
-    </Component>
-    <Component>
-      <Component
+    </H6>
+    <FlexContainerBasic>
+      <Grid
         className="is-vcentered"
       >
-        <Component>
+        <GridItem>
           (On last day of monthly billing period)
-        </Component>
-      </Component>
-      <Component
+        </GridItem>
+      </Grid>
+      <Table
         columns={
           Array [
             Object {
@@ -135,7 +135,7 @@ exports[`ConsumptionCostMethodologyTable it matches a snapshot 1`] = `
         }
         scrollable={true}
       />
-    </Component>
+    </FlexContainerBasic>
   </div>
 </div>
 `;

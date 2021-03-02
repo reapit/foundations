@@ -1,9 +1,9 @@
 import { callGetEnquiryByIdAPI, callGetEnquiriesAPI, callCreateEnquiryAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createEnquiryArgsMock } from '../__stubs__/create-enquiry'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createEnquiryArgsMock } from '../__stubs__/mock-create-enquiry'
 import { getEnquiryById, getEnquiries, createEnquiry } from '../services'
-import { enquiryMock } from '../__stubs__/enquiry'
-import { enquiriesMock } from '../__stubs__/enquiries'
+import { enquiryMock } from '../__stubs__/mock-enquiry'
+import { enquiriesMock } from '../__stubs__/mock-enquiries'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

@@ -14,7 +14,7 @@ import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+  ...(jest.requireActual('react-router-dom') as Object),
   useLocation: jest.fn(() => locationMock),
 }))
 

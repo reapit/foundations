@@ -29,7 +29,7 @@ export default {
   component: FlexContainerResponsive,
 }
 
-export const FlexContainerResponsive_: Story<FlexContainerProps> = args => (
+export const FlexContainerResponsive_: Story<FlexContainerProps> = (args) => (
   <FlexContainerResponsive {...args}>
     <p>Child of FlexContainerResponsive 1</p>
     <p>Child of FlexContainerResponsive 2</p>
@@ -41,7 +41,7 @@ FlexContainerResponsive_.args = {
   hasPadding: true,
 }
 
-export const AppNavContainer_: Story<LayoutProps> = args => (
+export const AppNavContainer_: Story<LayoutProps> = (args) => (
   <MemoryRouter initialEntries={['/']}>
     <AppNavContainer {...args}>
       <Menu {...mockMenuProps} />
@@ -52,7 +52,7 @@ FlexContainerResponsive_.args = {
   className: 'is-full-height',
 }
 
-export const FlexContainerBasic_: Story<FlexContainerProps> = args => (
+export const FlexContainerBasic_: Story<FlexContainerProps> = (args) => (
   <FlexContainerBasic {...args}>
     <p>Child of FlexContainerBasicRow 1</p>
     <p>Child of FlexContainerBasicRow 2</p>
@@ -130,7 +130,7 @@ export const Grid_: Story<GridProps> = () => (
 )
 Grid_.args = {}
 
-export const GridMultiline: Story<GridProps> = args => (
+export const GridMultiline: Story<GridProps> = (args) => (
   <Grid {...args}>
     <GridItem isMultiLine>
       <p>Column item 1</p>
@@ -175,7 +175,7 @@ export const Level_: Story<LayoutProps> = () => (
 )
 Level_.args = {}
 
-export const Section_: Story<SectionProps> = args => (
+export const Section_: Story<SectionProps> = (args) => (
   <Section {...args}>
     <p>Section content</p>
   </Section>

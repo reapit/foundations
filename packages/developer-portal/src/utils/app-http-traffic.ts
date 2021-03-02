@@ -13,7 +13,7 @@ export const getAppHttpTrafficPerDayChartData = (stats: RequestByDateModel[]) =>
 
   const labels: string[] = []
   const data: number[] = []
-  chartDataStats.map(item => {
+  chartDataStats.map((item) => {
     labels.push(item.date)
     data.push(item.requestCount)
   })
@@ -25,7 +25,7 @@ export const getAppHttpTrafficPerDayChartData = (stats: RequestByDateModel[]) =>
   }
 }
 
-export const getChartOptions = data => {
+export const getChartOptions = (data) => {
   return {
     legend: null,
     width: 100,
@@ -34,8 +34,8 @@ export const getChartOptions = data => {
     tooltips: {
       mode: 'label',
       callbacks: {
-        label: function(tooltipItem) {
-          return data.find(x => x.date === tooltipItem.label).requestCount
+        label: function (tooltipItem) {
+          return data.find((x) => x.date === tooltipItem.label).requestCount
         },
       },
     },

@@ -6,7 +6,7 @@ import errorMessages from '@/constants/error-messages'
 import { fetchWebhooksTopicsFailed, fetchWebhooksTopicsSuccess } from '@/actions/webhooks-topics'
 import { fetchWebhooksTopicsListApi, FetchWebhooksTopicsListParams } from '@/services/webhooks'
 
-export const fetchWebhooksTopics = function*({ data }: Action<FetchWebhooksTopicsListParams>) {
+export const fetchWebhooksTopics = function* ({ data }: Action<FetchWebhooksTopicsListParams>) {
   try {
     const response = yield call(fetchWebhooksTopicsListApi, { ...data })
     yield put(fetchWebhooksTopicsSuccess(response))
@@ -19,10 +19,10 @@ export const fetchWebhooksTopics = function*({ data }: Action<FetchWebhooksTopic
   }
 }
 
-export const webhooksTopicsListen = function*() {
+export const webhooksTopicsListen = function* () {
   yield takeLatest<Action<FetchWebhooksTopicsListParams>>(ActionTypes.FETCH_WEBHOOK_TOPICS, fetchWebhooksTopics)
 }
 
-export const webhooksTopicsSagas = function*() {
+export const webhooksTopicsSagas = function* () {
   yield all([fork(webhooksTopicsListen)])
 }

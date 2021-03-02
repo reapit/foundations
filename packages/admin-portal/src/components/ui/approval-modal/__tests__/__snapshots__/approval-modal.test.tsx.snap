@@ -13,7 +13,7 @@ exports[`AdminRevisionModalInner should match a snapshot when ERROR true 1`] = `
     }
   }
 >
-  <Component
+  <ApprovalModalInner
     onApprovalClick={[MockFunction]}
     onDeclineClick={[MockFunction]}
   />

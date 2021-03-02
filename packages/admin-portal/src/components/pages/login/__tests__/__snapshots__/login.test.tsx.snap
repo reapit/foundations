@@ -2,26 +2,26 @@
 
 exports[`Login should match a snapshot 1`] = `
 <div
-  className=""
+  className="login-container"
 >
   <div
-    className=""
+    className="wrapper"
   >
-    <Component>
+    <Level>
       <img
         alt="Reapit Connect Graphic"
         src=""
       />
-    </Component>
-    <Component>
+    </Level>
+    <Section>
       <p>
         Welcome to Reapit Foundations
       </p>
-    </Component>
-    <Component
-      className=""
+    </Section>
+    <Level
+      className="login-level"
     >
-      <Component
+      <Button
         dataTest="login-button"
         disabled={false}
         fullWidth={true}
@@ -31,15 +31,15 @@ exports[`Login should match a snapshot 1`] = `
         variant="primary"
       >
         Login
-      </Component>
-    </Component>
-    <Component
+      </Button>
+    </Level>
+    <FlexContainerBasic
       centerContent={true}
       className="pt-8"
     />
   </div>
   <div
-    className=""
+    className="image"
   >
     <img
       alt="Reapit Graphic"

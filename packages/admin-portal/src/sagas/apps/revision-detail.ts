@@ -18,7 +18,7 @@ import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration
 import { selectApprovalListPageNumber } from '@/selector/approvals'
 import { notification } from '@reapit/elements'
 
-export const revisionDetailDataFetch = function*({
+export const revisionDetailDataFetch = function* ({
   data: { appId, appRevisionId },
 }: Action<RevisionDetailRequestParams>) {
   try {
@@ -44,11 +44,11 @@ export const revisionDetailDataFetch = function*({
   }
 }
 
-export const revisionDetailDataListen = function*() {
+export const revisionDetailDataListen = function* () {
   yield takeLatest<Action<RevisionDetailRequestParams>>(ActionTypes.FETCH_REVISION, revisionDetailDataFetch)
 }
 // TODO move to selector
-export const requestApproveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
+export const requestApproveRevision = function* ({ data: params }: Action<RevisionApproveRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)
   yield put(setRequestApproveRevisionFormState('SUBMITTING'))
   const { appId, appRevisionId, ...body } = params
@@ -66,11 +66,11 @@ export const requestApproveRevision = function*({ data: params }: Action<Revisio
   }
 }
 
-export const requestApproveRevisionListen = function*() {
+export const requestApproveRevisionListen = function* () {
   yield takeLatest<Action<RevisionApproveRequestParams>>(ActionTypes.REQUEST_APPROVE_REVISION, requestApproveRevision)
 }
 
-export const requestDeclineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
+export const requestDeclineRevision = function* ({ data: params }: Action<RevisionDeclineRequestParams>) {
   const { pageNumber } = yield select(selectApprovalListPageNumber)
   yield put(setRequestDeclineRevisionFormState('SUBMITTING'))
   const { appId, appRevisionId, callback, ...body } = params
@@ -95,11 +95,11 @@ export const requestDeclineRevision = function*({ data: params }: Action<Revisio
   }
 }
 
-export const requestDeclineRevisionListen = function*() {
+export const requestDeclineRevisionListen = function* () {
   yield takeLatest<Action<RevisionDeclineRequestParams>>(ActionTypes.REQUEST_DECLINE_REVISION, requestDeclineRevision)
 }
 
-const revisionDetailSagas = function*() {
+const revisionDetailSagas = function* () {
   yield all([fork(revisionDetailDataListen), fork(requestApproveRevisionListen), fork(requestDeclineRevisionListen)])
 }
 

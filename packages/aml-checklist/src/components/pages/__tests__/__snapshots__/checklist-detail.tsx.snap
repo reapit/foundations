@@ -2,13 +2,13 @@
 
 exports[` 1`] = `
 <div>
-  <mock-styled.div
+  <FadeIn
     key="0"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Personal Details"
         menu={
           <div>
@@ -20,13 +20,13 @@ exports[` 1`] = `
                 Completed
               </span>
             </div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               Edit
-            </Unknown>
+            </Button>
           </div>
         }
       >
@@ -38,16 +38,16 @@ exports[` 1`] = `
             Completed
           </span>
         </div>
-      </Component>
-    </Component>
-  </mock-styled.div>
-  <mock-styled.div
+      </Tile>
+    </Section>
+  </FadeIn>
+  <FadeIn
     key="1"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Primary ID"
         menu={
           <div>
@@ -59,13 +59,13 @@ exports[` 1`] = `
                 Incomplete
               </span>
             </div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               Edit
-            </Unknown>
+            </Button>
           </div>
         }
       >
@@ -77,16 +77,16 @@ exports[` 1`] = `
             Incomplete
           </span>
         </div>
-      </Component>
-    </Component>
-  </mock-styled.div>
-  <mock-styled.div
+      </Tile>
+    </Section>
+  </FadeIn>
+  <FadeIn
     key="2"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Secondary ID"
         menu={
           <div>
@@ -98,13 +98,13 @@ exports[` 1`] = `
                 Completed
               </span>
             </div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               Edit
-            </Unknown>
+            </Button>
           </div>
         }
       >
@@ -116,16 +116,16 @@ exports[` 1`] = `
             Completed
           </span>
         </div>
-      </Component>
-    </Component>
-  </mock-styled.div>
-  <mock-styled.div
+      </Tile>
+    </Section>
+  </FadeIn>
+  <FadeIn
     key="3"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Address Information"
         menu={
           <div>
@@ -137,13 +137,13 @@ exports[` 1`] = `
                 Incomplete
               </span>
             </div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               Edit
-            </Unknown>
+            </Button>
           </div>
         }
       >
@@ -155,16 +155,16 @@ exports[` 1`] = `
             Incomplete
           </span>
         </div>
-      </Component>
-    </Component>
-  </mock-styled.div>
-  <mock-styled.div
+      </Tile>
+    </Section>
+  </FadeIn>
+  <FadeIn
     key="4"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Declaration Risk Management"
         menu={
           <div>
@@ -176,13 +176,13 @@ exports[` 1`] = `
                 Incomplete
               </span>
             </div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               Edit
-            </Unknown>
+            </Button>
           </div>
         }
       >
@@ -194,50 +194,50 @@ exports[` 1`] = `
             Incomplete
           </span>
         </div>
-      </Component>
-    </Component>
-  </mock-styled.div>
-  <mock-styled.div
+      </Tile>
+    </Section>
+  </FadeIn>
+  <FadeIn
     key="5"
   >
-    <Component
+    <Section
       hasPadding={false}
     >
-      <Component
+      <Tile
         heading="Report"
         menu={
           <div>
-            <Unknown
+            <Button
               onClick={[MockFunction]}
               type="button"
               variant="primary"
             >
               View
-            </Unknown>
+            </Button>
           </div>
         }
       />
-    </Component>
-  </mock-styled.div>
+    </Section>
+  </FadeIn>
 </div>
 `;
 
-exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Component />`;
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <ErrorBoundary>
-  <Component
+  <Section
     hasBackground={false}
     hasPadding={false}
   >
-    <Connect(Component) />
-    <mock-styled.div
+    <Connect(AMLProgressBar) />
+    <FadeIn
       key="0"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Personal Details"
           menu={
             <div>
@@ -249,12 +249,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                   Completed
                 </span>
               </div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 Edit
-              </Unknown>
+              </Button>
             </div>
           }
         >
@@ -266,16 +266,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Completed
             </span>
           </div>
-        </Component>
-      </Component>
-    </mock-styled.div>
-    <mock-styled.div
+        </Tile>
+      </Section>
+    </FadeIn>
+    <FadeIn
       key="1"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Primary ID"
           menu={
             <div>
@@ -287,12 +287,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                   Incomplete
                 </span>
               </div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 Edit
-              </Unknown>
+              </Button>
             </div>
           }
         >
@@ -304,16 +304,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Incomplete
             </span>
           </div>
-        </Component>
-      </Component>
-    </mock-styled.div>
-    <mock-styled.div
+        </Tile>
+      </Section>
+    </FadeIn>
+    <FadeIn
       key="2"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Secondary ID"
           menu={
             <div>
@@ -325,12 +325,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                   Completed
                 </span>
               </div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 Edit
-              </Unknown>
+              </Button>
             </div>
           }
         >
@@ -342,16 +342,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Completed
             </span>
           </div>
-        </Component>
-      </Component>
-    </mock-styled.div>
-    <mock-styled.div
+        </Tile>
+      </Section>
+    </FadeIn>
+    <FadeIn
       key="3"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Address Information"
           menu={
             <div>
@@ -363,12 +363,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                   Incomplete
                 </span>
               </div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 Edit
-              </Unknown>
+              </Button>
             </div>
           }
         >
@@ -380,16 +380,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Incomplete
             </span>
           </div>
-        </Component>
-      </Component>
-    </mock-styled.div>
-    <mock-styled.div
+        </Tile>
+      </Section>
+    </FadeIn>
+    <FadeIn
       key="4"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Declaration Risk Management"
           menu={
             <div>
@@ -401,12 +401,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                   Incomplete
                 </span>
               </div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 Edit
-              </Unknown>
+              </Button>
             </div>
           }
         >
@@ -418,32 +418,32 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Incomplete
             </span>
           </div>
-        </Component>
-      </Component>
-    </mock-styled.div>
-    <mock-styled.div
+        </Tile>
+      </Section>
+    </FadeIn>
+    <FadeIn
       key="5"
     >
-      <Component
+      <Section
         hasPadding={false}
       >
-        <Component
+        <Tile
           heading="Report"
           menu={
             <div>
-              <Unknown
+              <Button
                 type="button"
                 variant="primary"
               >
                 View
-              </Unknown>
+              </Button>
             </div>
           }
         />
-      </Component>
-    </mock-styled.div>
-  </Component>
-  <withRouter()
+      </Section>
+    </FadeIn>
+  </Section>
+  <withRouter(ProfileModal)
     afterClose={[MockFunction]}
     id="123"
     modalContentType="PROFILE"

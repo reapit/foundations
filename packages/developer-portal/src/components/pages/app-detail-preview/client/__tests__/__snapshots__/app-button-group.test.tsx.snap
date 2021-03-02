@@ -3,7 +3,7 @@
 exports[`ClientAppDetailButtonGroup should match snapshot when both buttons are hidden 1`] = `""`;
 
 exports[`ClientAppDetailButtonGroup should match snapshot when both buttons are showing 1`] = `
-<Component
+<Button
   className="ml-0"
   dataTest="detail-modal-uninstall-button"
   onClick={[MockFunction]}
@@ -11,5 +11,5 @@ exports[`ClientAppDetailButtonGroup should match snapshot when both buttons are 
   variant="primary"
 >
   Uninstall App
-</Component>
+</Button>
 `;

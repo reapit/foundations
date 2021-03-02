@@ -2,13 +2,13 @@
 
 exports[`DiffMedia should match a snapshot 1`] = `
 <div
-  className=""
+  className="csqkcaq-container"
 >
   <div
-    className=""
+    className="b11uh1qk-block meppgna-media-block rbeetup-red"
   >
     <div
-      className=""
+      className="izfgzzl-image mxgsyq9-media-image"
       style={
         Object {
           "backgroundImage": "url(\\"image-2\\")",
@@ -17,15 +17,15 @@ exports[`DiffMedia should match a snapshot 1`] = `
     />
   </div>
   <span
-    className=""
+    className="a1qyga7q-arrow"
   >
     →
   </span>
   <div
-    className=""
+    className="b11uh1qk-block meppgna-media-block g1gwscut-green"
   >
     <div
-      className=""
+      className="izfgzzl-image mxgsyq9-media-image"
       style={
         Object {
           "backgroundImage": "url(\\"image-1\\")",

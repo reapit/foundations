@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetTenanciesAPI,
   callGetTenancyByIdAPI,
@@ -17,13 +17,13 @@ import {
   tenanciesListMock,
   tenancyChecksListMock,
   tenancyRelationshipsListMock,
-} from '../__stubs__/tenancy-query'
+} from '../__stubs__/mock-tenancy-query'
 import {
   createTenancyArgsMock,
   createTenancyCheckArgsMock,
   deleteTenancyCheckArgsMock,
   updateTenancyCheckArgsMock,
-} from '../__stubs__/tenancy-mutation'
+} from '../__stubs__/mock-tenancy-mutation'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

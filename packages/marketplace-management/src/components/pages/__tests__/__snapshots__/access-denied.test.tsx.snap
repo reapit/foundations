@@ -2,12 +2,12 @@
 
 exports[`AccessDenied should match a snapshot 1`] = `
 <AccessDenied>
-  <Component
+  <ModalV2
     title="Reapit Connect Management"
     visible={true}
   >
-    <Component
-      className=""
+    <Dialog
+      className="modal-container"
       closeIcon={
         <span
           aria-label="close"
@@ -16,9 +16,9 @@ exports[`AccessDenied should match a snapshot 1`] = `
       }
       destroyOnClose={true}
       title={
-        <Unknown>
+        <ModalHeaderV2>
           Reapit Connect Management
-        </Unknown>
+        </ModalHeaderV2>
       }
       visible={true}
       wrapClassName=""
@@ -26,7 +26,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
       <PortalWrapper
         visible={true}
       >
-        <Portal
+        <ForwardRef
           getContainer={[Function]}
         >
           <Portal
@@ -40,12 +40,12 @@ exports[`AccessDenied should match a snapshot 1`] = `
                   />
                   <div
                     aria-labelledby="rcDialogTitle0"
-                    class="rc-dialog-wrap "
+                    class="rc-dialog-wrap"
                     role="dialog"
                     tabindex="-1"
                   >
                     <div
-                      class="rc-dialog "
+                      class="rc-dialog modal-container"
                       role="document"
                     >
                       <div
@@ -87,7 +87,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                             It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
                           </p>
                           <section
-                            class=""
+                            class="section is-flex has-background"
                             data-test=""
                           >
                             <button
@@ -119,8 +119,8 @@ exports[`AccessDenied should match a snapshot 1`] = `
             }
           >
             <Dialog
-              className=""
-              closable={true}
+              afterClose={[Function]}
+              className="modal-container"
               closeIcon={
                 <span
                   aria-label="close"
@@ -128,18 +128,114 @@ exports[`AccessDenied should match a snapshot 1`] = `
                 />
               }
               destroyOnClose={true}
-              focusTriggerAfterClose={true}
               getContainer={[Function]}
               getOpenCount={[Function]}
-              keyboard={true}
-              mask={true}
-              maskClosable={true}
-              prefixCls="rc-dialog"
+              scrollLocker={
+                ScrollLocker {
+                  "getContainer": [Function],
+                  "lock": [Function],
+                  "lockTarget": 0,
+                  "options": Object {
+                    "container": <body
+                      class="ant-scrolling-effect"
+                      style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                    >
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle0"
+                            class="rc-dialog-wrap"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="rc-dialog modal-container"
+                              role="document"
+                            >
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                              <div
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-label="close"
+                                    class="delete"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <h4
+                                      class="modal-card-title is-4 pt-2 pb-2"
+                                    >
+                                      Reapit Connect Management
+                                    </h4>
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  <p>
+                                    It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
+                                  </p>
+                                  <section
+                                    class="section is-flex has-background"
+                                    data-test=""
+                                  >
+                                    <button
+                                      class="button  is-primary  "
+                                      data-test=""
+                                      type="button"
+                                    >
+                                      Marketplace
+                                    </button>
+                                    <button
+                                      class="button  is-primary  "
+                                      data-test=""
+                                      type="button"
+                                    >
+                                      Logout
+                                    </button>
+                                  </section>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </body>,
+                  },
+                  "reLock": [Function],
+                  "unLock": [Function],
+                }
+              }
               switchScrollingEffect={[Function]}
               title={
-                <Unknown>
+                <ModalHeaderV2>
                   Reapit Connect Management
-                </Unknown>
+                </ModalHeaderV2>
               }
               visible={true}
               wrapClassName=""
@@ -147,64 +243,188 @@ exports[`AccessDenied should match a snapshot 1`] = `
               <div
                 className="rc-dialog-root"
               >
-                <LazyRenderBox
-                  className="rc-dialog-mask"
-                  hiddenClassName="rc-dialog-mask-hidden"
-                  key="mask"
-                  style={Object {}}
+                <Mask
+                  prefixCls="rc-dialog"
+                  style={
+                    Object {
+                      "zIndex": undefined,
+                    }
+                  }
                   visible={true}
                 >
-                  <div
-                    className="rc-dialog-mask"
-                    style={Object {}}
-                  />
-                </LazyRenderBox>
+                  <CSSMotion
+                    key="mask"
+                    leavedClassName="rc-dialog-mask-hidden"
+                    visible={true}
+                  >
+                    <DomWrapper>
+                      <div
+                        className="rc-dialog-mask"
+                        style={
+                          Object {
+                            "zIndex": undefined,
+                          }
+                        }
+                      />
+                    </DomWrapper>
+                  </CSSMotion>
+                </Mask>
                 <div
                   aria-labelledby="rcDialogTitle0"
-                  className="rc-dialog-wrap "
+                  className="rc-dialog-wrap"
                   onClick={[Function]}
                   onKeyDown={[Function]}
-                  onMouseUp={[Function]}
                   role="dialog"
                   style={
                     Object {
                       "display": null,
+                      "zIndex": undefined,
                     }
                   }
                   tabIndex={-1}
                 >
-                  <Animate
-                    animation={Object {}}
-                    component=""
-                    componentProps={Object {}}
-                    key="dialog"
-                    onAppear={[Function]}
-                    onEnd={[Function]}
-                    onEnter={[Function]}
-                    onLeave={[Function]}
-                    showProp="visible"
-                    transitionAppear={true}
-                    transitionEnter={true}
-                    transitionLeave={true}
+                  <Content
+                    afterClose={[Function]}
+                    ariaId="rcDialogTitle0"
+                    className="modal-container"
+                    closable={true}
+                    closeIcon={
+                      <span
+                        aria-label="close"
+                        className="delete"
+                      />
+                    }
+                    destroyOnClose={true}
+                    getContainer={[Function]}
+                    getOpenCount={[Function]}
+                    onClose={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                    onVisibleChanged={[Function]}
+                    prefixCls="rc-dialog"
+                    scrollLocker={
+                      ScrollLocker {
+                        "getContainer": [Function],
+                        "lock": [Function],
+                        "lockTarget": 0,
+                        "options": Object {
+                          "container": <body
+                            class="ant-scrolling-effect"
+                            style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                          >
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle0"
+                                  class="rc-dialog-wrap"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog modal-container"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          >
+                                            Reapit Connect Management
+                                          </h4>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        <p>
+                                          It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
+                                        </p>
+                                        <section
+                                          class="section is-flex has-background"
+                                          data-test=""
+                                        >
+                                          <button
+                                            class="button  is-primary  "
+                                            data-test=""
+                                            type="button"
+                                          >
+                                            Marketplace
+                                          </button>
+                                          <button
+                                            class="button  is-primary  "
+                                            data-test=""
+                                            type="button"
+                                          >
+                                            Logout
+                                          </button>
+                                        </section>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </body>,
+                        },
+                        "reLock": [Function],
+                        "unLock": [Function],
+                      }
+                    }
+                    switchScrollingEffect={[Function]}
+                    title={
+                      <ModalHeaderV2>
+                        Reapit Connect Management
+                      </ModalHeaderV2>
+                    }
+                    visible={true}
+                    wrapClassName=""
                   >
-                    <AnimateChild
-                      animation={Object {}}
-                      key="dialog-element"
-                      transitionAppear={true}
-                      transitionEnter={true}
-                      transitionLeave={true}
+                    <CSSMotion
+                      onAppearPrepare={[Function]}
+                      onEnterPrepare={[Function]}
+                      onVisibleChanged={[Function]}
+                      removeOnLeave={true}
+                      visible={true}
                     >
-                      <LazyRenderBox
-                        className="rc-dialog "
-                        key="dialog-element"
-                        onMouseDown={[Function]}
-                        role="document"
-                        style={Object {}}
-                        visible={true}
-                      >
+                      <DomWrapper>
                         <div
-                          className="rc-dialog "
+                          className="rc-dialog modal-container"
+                          key="dialog-element"
                           onMouseDown={[Function]}
+                          onMouseUp={[Function]}
                           role="document"
                           style={Object {}}
                         >
@@ -220,81 +440,85 @@ exports[`AccessDenied should match a snapshot 1`] = `
                             }
                             tabIndex={0}
                           />
-                          <div
-                            className="rc-dialog-content"
+                          <Component
+                            shouldUpdate={true}
                           >
-                            <button
-                              aria-label="Close"
-                              className="rc-dialog-close"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            </button>
                             <div
-                              className="rc-dialog-header"
+                              className="rc-dialog-content"
                             >
-                              <div
-                                className="rc-dialog-title"
-                                id="rcDialogTitle0"
+                              <button
+                                aria-label="Close"
+                                className="rc-dialog-close"
+                                onClick={[Function]}
+                                type="button"
                               >
-                                <Component>
-                                  <h4
-                                    className="modal-card-title is-4 pt-2 pb-2"
+                                <span
+                                  aria-label="close"
+                                  className="delete"
+                                />
+                              </button>
+                              <div
+                                className="rc-dialog-header"
+                              >
+                                <div
+                                  className="rc-dialog-title"
+                                  id="rcDialogTitle0"
+                                >
+                                  <ModalHeaderV2>
+                                    <h4
+                                      className="modal-card-title is-4 pt-2 pb-2"
+                                    >
+                                      Reapit Connect Management
+                                    </h4>
+                                  </ModalHeaderV2>
+                                </div>
+                              </div>
+                              <div
+                                className="rc-dialog-body"
+                              >
+                                <p>
+                                  It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
+                                </p>
+                                <Section
+                                  hasMargin={false}
+                                  hasPadding={false}
+                                  isFlex={true}
+                                >
+                                  <section
+                                    className="section is-flex has-background"
+                                    data-test=""
                                   >
-                                    Reapit Connect Management
-                                  </h4>
-                                </Component>
+                                    <Button
+                                      onClick={[Function]}
+                                    >
+                                      <button
+                                        className="button  is-primary  "
+                                        data-test=""
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Marketplace
+                                      </button>
+                                    </Button>
+                                    <Button
+                                      onClick={[Function]}
+                                    >
+                                      <button
+                                        className="button  is-primary  "
+                                        data-test=""
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Logout
+                                      </button>
+                                    </Button>
+                                  </section>
+                                </Section>
                               </div>
                             </div>
-                            <div
-                              className="rc-dialog-body"
-                            >
-                              <p>
-                                It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
-                              </p>
-                              <Component
-                                hasMargin={false}
-                                hasPadding={false}
-                                isFlex={true}
-                              >
-                                <section
-                                  className=""
-                                  data-test=""
-                                >
-                                  <Component
-                                    onClick={[Function]}
-                                  >
-                                    <button
-                                      className="button  is-primary  "
-                                      data-test=""
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Marketplace
-                                    </button>
-                                  </Component>
-                                  <Component
-                                    onClick={[Function]}
-                                  >
-                                    <button
-                                      className="button  is-primary  "
-                                      data-test=""
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Logout
-                                    </button>
-                                  </Component>
-                                </section>
-                              </Component>
-                            </div>
-                          </div>
+                          </Component>
                           <div
                             aria-hidden="true"
                             style={
@@ -308,16 +532,16 @@ exports[`AccessDenied should match a snapshot 1`] = `
                             tabIndex={0}
                           />
                         </div>
-                      </LazyRenderBox>
-                    </AnimateChild>
-                  </Animate>
+                      </DomWrapper>
+                    </CSSMotion>
+                  </Content>
                 </div>
               </div>
             </Dialog>
           </Portal>
-        </Portal>
+        </ForwardRef>
       </PortalWrapper>
-    </Component>
-  </Component>
+    </Dialog>
+  </ModalV2>
 </AccessDenied>
 `;

@@ -66,9 +66,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
         }
         onSubmit={handlePaymentRequestSubmit(setIsLoading, handleOnClose)}
         validationSchema={Yup.object({
-          receipientEmail: Yup.string()
-            .required('Required')
-            .matches(emailRegex, 'Must be a valid email address'),
+          receipientEmail: Yup.string().required('Required').matches(emailRegex, 'Must be a valid email address'),
           keyExpiresAt: Yup.string().required('Required'),
         })}
       >

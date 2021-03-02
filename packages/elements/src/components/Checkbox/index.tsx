@@ -18,7 +18,7 @@ export type HandleCheckboxOnChangeParams = {
 export const handleOnCheckboxChange = ({ field, value }: HandleCheckboxOnChangeParams) => () => {
   const isExistedInArray = Array.isArray(field.value) && field.value.includes(value)
   if (Array.isArray(field.value) && isExistedInArray) {
-    const nextValue = field.value.filter(item => item !== value)
+    const nextValue = field.value.filter((item) => item !== value)
     field.onChange({ target: { value: nextValue, name: field.name } })
     return
   }

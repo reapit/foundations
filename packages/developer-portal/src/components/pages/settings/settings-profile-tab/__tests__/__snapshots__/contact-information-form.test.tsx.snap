@@ -13,7 +13,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
     }
   }
 >
-  <Component>
+  <ContactInformationForm>
     <Formik
       initialValues={
         Object {
@@ -130,9 +130,9 @@ exports[`ContactInformationForm should match snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <FormSection>
         <div
-          className=""
+          className="form-section"
         >
           <Form>
             <form
@@ -140,151 +140,155 @@ exports[`ContactInformationForm should match snapshot 1`] = `
               onReset={[Function]}
               onSubmit={[Function]}
             >
-              <mock-styled.div>
-                <Component>
-                  <div
-                    className=""
-                  >
-                    Contact Information
-                  </div>
-                </Component>
-                <Component>
-                  <div
-                    className=""
-                  >
-                    Please use the fields below to edit your contact information
-                  </div>
-                </Component>
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component
-                          dataTest="name"
-                          disabled={[MockFunction]}
-                          id="name"
-                          labelText="Full Name"
-                          name="name"
-                          type="text"
-                        >
-                          <Field
-                            name="name"
-                            validate={null}
-                          >
-                            <div
-                              className=""
-                            >
-                              <div
-                                className="control "
-                              >
-                                <label
-                                  className="label inline-block "
-                                  htmlFor="name"
-                                >
-                                  Full Name
-                                </label>
-                                <input
-                                  className=""
-                                  data-test="name"
-                                  disabled={[MockFunction]}
-                                  id="name"
-                                  name="name"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  placeholder=""
-                                  type="text"
-                                  value="mockConstructor"
-                                />
-                              </div>
-                            </div>
-                          </Field>
-                        </Component>
-                      </div>
-                    </Component>
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component
-                          dataTest="job-title"
-                          disabled={[MockFunction]}
-                          id="jobTitle"
-                          labelText="Job Title"
-                          name="jobTitle"
-                          type="text"
-                        >
-                          <Field
-                            name="jobTitle"
-                            validate={null}
-                          >
-                            <div
-                              className=""
-                            >
-                              <div
-                                className="control "
-                              >
-                                <label
-                                  className="label inline-block "
-                                  htmlFor="jobTitle"
-                                >
-                                  Job Title
-                                </label>
-                                <input
-                                  className=""
-                                  data-test="job-title"
-                                  disabled={[MockFunction]}
-                                  id="jobTitle"
-                                  name="jobTitle"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  placeholder=""
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                          </Field>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
-                  >
-                    <Component
-                      dataTest="save-changes"
-                      disabled={false}
-                      loading={[MockFunction]}
-                      type="submit"
-                      variant="primary"
+              <FadeIn>
+                <div
+                  className="f1ohzb3j-fade-in"
+                >
+                  <FormHeading>
+                    <div
+                      className="form-heading mb-1"
                     >
-                      <button
-                        className="button  is-primary  is-loading"
-                        data-test="save-changes"
+                      Contact Information
+                    </div>
+                  </FormHeading>
+                  <FormSubHeading>
+                    <div
+                      className="form-subheading mb-4"
+                    >
+                      Please use the fields below to edit your contact information
+                    </div>
+                  </FormSubHeading>
+                  <Grid>
+                    <div
+                      className="columns"
+                      data-test=""
+                    >
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                          <Input
+                            dataTest="name"
+                            disabled={[MockFunction]}
+                            id="name"
+                            labelText="Full Name"
+                            name="name"
+                            type="text"
+                          >
+                            <Field
+                              name="name"
+                              validate={null}
+                            >
+                              <div
+                                className="field"
+                              >
+                                <div
+                                  className="control "
+                                >
+                                  <label
+                                    className="label inline-block "
+                                    htmlFor="name"
+                                  >
+                                    Full Name
+                                  </label>
+                                  <input
+                                    className="input is-primary"
+                                    data-test="name"
+                                    disabled={[MockFunction]}
+                                    id="name"
+                                    name="name"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder=""
+                                    type="text"
+                                    value="mockConstructor"
+                                  />
+                                </div>
+                              </div>
+                            </Field>
+                          </Input>
+                        </div>
+                      </GridItem>
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                          <Input
+                            dataTest="job-title"
+                            disabled={[MockFunction]}
+                            id="jobTitle"
+                            labelText="Job Title"
+                            name="jobTitle"
+                            type="text"
+                          >
+                            <Field
+                              name="jobTitle"
+                              validate={null}
+                            >
+                              <div
+                                className="field"
+                              >
+                                <div
+                                  className="control "
+                                >
+                                  <label
+                                    className="label inline-block "
+                                    htmlFor="jobTitle"
+                                  >
+                                    Job Title
+                                  </label>
+                                  <input
+                                    className="input is-primary"
+                                    data-test="job-title"
+                                    disabled={[MockFunction]}
+                                    id="jobTitle"
+                                    name="jobTitle"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder=""
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                            </Field>
+                          </Input>
+                        </div>
+                      </GridItem>
+                    </div>
+                  </Grid>
+                  <LevelRight>
+                    <div
+                      className="level-right"
+                      data-test=""
+                    >
+                      <Button
+                        dataTest="save-changes"
                         disabled={false}
+                        loading={[MockFunction]}
                         type="submit"
+                        variant="primary"
                       >
-                        Save Changes
-                      </button>
-                    </Component>
-                  </div>
-                </Component>
-              </mock-styled.div>
+                        <button
+                          className="button  is-primary  is-loading"
+                          data-test="save-changes"
+                          disabled={false}
+                          type="submit"
+                        >
+                          Save Changes
+                        </button>
+                      </Button>
+                    </div>
+                  </LevelRight>
+                </div>
+              </FadeIn>
             </form>
           </Form>
         </div>
-      </Component>
+      </FormSection>
     </Formik>
-  </Component>
+  </ContactInformationForm>
 </Provider>
 `;

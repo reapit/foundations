@@ -2,23 +2,23 @@
 
 exports[`HandleLegacyDeveloperRoutesModal HandleLegacyDeveloperRoutesModal - should match snapshoot 1`] = `
 <HandleLegacyDeveloperRoutesModal>
-  <Component
+  <Modal
     footerItems={
       <React.Fragment>
-        <Unknown
+        <Button
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Go there now
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Back to Marketplace
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
     tapOutsideToDissmiss={false}

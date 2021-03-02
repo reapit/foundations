@@ -1,0 +1,62 @@
+{
+  "name": "ts-types",
+  "version": "0.0.1",
+  "description": "TS Type Definitons",
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "MIT",
+  "author": "wmcvay@reapit.com",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
+    "publish": "yarn npm publish",
+    "conf": "echo '...skipping...'",
+    "commit": "yarn lint"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.72",
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.10",
+    "@types/diff": "^4.0.2",
+    "@types/ejs": "^2.7.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/express": "4.17.11",
+    "@types/express-session": "^1.17.3",
+    "@types/googlemaps": "^3.43.3",
+    "@types/graphql-depth-limit": "^1.1.2",
+    "@types/graphql-type-json": "^0.3.2",
+    "@types/jest": "^24.9.1",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/just-debounce-it": "^1.1.0",
+    "@types/jwk-to-pem": "^2.0.0",
+    "@types/morgan": "^1.9.2",
+    "@types/nanoid": "^2.1.0",
+    "@types/node": "10.17.54",
+    "@types/papaparse": "^5.2.5",
+    "@types/query-string": "^6.3.0",
+    "@types/rc-select": "^5.9.34",
+    "@types/react": "^16.14.4",
+    "@types/react-copy-to-clipboard": "^4.3.0",
+    "@types/react-datepicker": "^3.1.5",
+    "@types/react-dom": "^16.9.11",
+    "@types/react-google-maps-loader": "^4.2.1",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router": "^5.1.11",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-transition-group": "^4.4.1",
+    "@types/uuid": "^3.4.9",
+    "@types/webpack": "^4.41.26",
+    "@types/yup": "^0.29.11"
+  }
+}

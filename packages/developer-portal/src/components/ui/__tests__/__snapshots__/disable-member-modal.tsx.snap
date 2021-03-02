@@ -24,25 +24,25 @@ exports[`SetMemberStatusModal should match snapshot 1`] = `
     onSuccess={[Function]}
     visible={true}
   >
-    <Component
+    <Modal
       footerItems={
         <React.Fragment>
-          <Unknown
+          <Button
             loading={false}
             onClick={[Function]}
             type="button"
             variant="secondary"
           >
             CANCEL
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             loading={false}
             onClick={[Function]}
             type="button"
             variant="primary"
           >
             CONTINUE
-          </Unknown>
+          </Button>
         </React.Fragment>
       }
       renderChildren={true}

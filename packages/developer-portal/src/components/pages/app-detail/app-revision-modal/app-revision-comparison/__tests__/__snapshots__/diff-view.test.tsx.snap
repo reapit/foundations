@@ -2,16 +2,16 @@
 
 exports[`DiffViewer should match a snapshot 1`] = `
 <div
-  className=""
+  className="dwmgqyi-diff-viewer-container"
 >
   <span
-    className=""
+    className="rbeetup-red"
     key="0"
   >
     abc
   </span>
   <span
-    className=""
+    className="g1gwscut-green"
     key="1"
   >
     axxxxxxxxxxxbc

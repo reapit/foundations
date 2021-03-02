@@ -55,7 +55,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         }
       }
     >
-      <Component
+      <PrivateRoute
         component={[Function]}
       >
         <Route
@@ -63,7 +63,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
         >
           <component />
         </Route>
-      </Component>
+      </PrivateRoute>
     </Router>
   </MemoryRouter>
 </Provider>

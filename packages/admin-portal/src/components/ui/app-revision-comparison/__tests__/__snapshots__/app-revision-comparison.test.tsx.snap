@@ -11,7 +11,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Name
     </h4>
-    <Component
+    <DiffViewer
       changedString="Amazon Shopping 2"
       currentString="Peter's Properties"
       type="words"
@@ -26,7 +26,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Category
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -41,7 +41,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Home page
     </h4>
-    <Component
+    <DiffViewer
       changedString="https://www.amazon.com/"
       currentString="http://myawesomeproptechproduct.io"
       type="words"
@@ -56,7 +56,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Launch URI
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -71,7 +71,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Support Email
     </h4>
-    <Component
+    <DiffViewer
       changedString="VBNApplication@test.com"
       currentString="support@reapit.com"
       type="words"
@@ -86,7 +86,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Telephone
     </h4>
-    <Component
+    <DiffViewer
       changedString="0800 279 7234"
       currentString="0113 288 2900"
       type="words"
@@ -101,7 +101,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Summary
     </h4>
-    <Component
+    <DiffViewer
       changedString="Shop millions of products, never miss amazing deals, compare prices and reviews
       and track your orders easily with the Amazon Shopping App!"
       currentString="vitae elementum curabitur vitae"
@@ -117,7 +117,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Description
     </h4>
-    <Component
+    <DiffRenderHTML
       changedString="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -144,7 +144,7 @@ Get
     >
       Redirect URIs
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -159,7 +159,7 @@ Get
     >
       Signout URIs
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -174,7 +174,7 @@ Get
     >
       Private Apps
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -189,7 +189,7 @@ Get
     >
       Integration Type
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="wordsWithSpace"
@@ -204,7 +204,7 @@ Get
     >
       Privacy Policy
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -219,7 +219,7 @@ Get
     >
       Terms & Conditions
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -234,7 +234,7 @@ Get
     >
       Pricing Info
     </h4>
-    <Component
+    <DiffViewer
       changedString=""
       currentString=""
       type="words"
@@ -249,7 +249,7 @@ Get
     >
       Read data about developers
     </h4>
-    <Component
+    <DiffCheckbox
       changedChecked={true}
       currentChecked={true}
     />
@@ -263,7 +263,7 @@ Get
     >
       Write data about developers
     </h4>
-    <Component
+    <DiffCheckbox
       changedChecked={true}
       currentChecked={true}
     />
@@ -277,7 +277,7 @@ Get
     >
       Is listed
     </h4>
-    <Component
+    <DiffCheckbox
       changedChecked={false}
       currentChecked={false}
       dataTest="revision-diff-isListed"
@@ -292,7 +292,7 @@ Get
     >
       Is Free
     </h4>
-    <Component
+    <DiffCheckbox
       changedChecked={false}
       currentChecked={false}
       dataTest="revision-diff-isFree"
@@ -307,7 +307,7 @@ Get
     >
       Is Integration
     </h4>
-    <Component
+    <DiffCheckbox
       changedChecked={false}
       currentChecked={false}
       dataTest="revision-diff-isDirectApi"
@@ -323,7 +323,7 @@ Get
       media
        
     </h4>
-    <Component
+    <DiffMedia
       type="media"
     />
   </div>

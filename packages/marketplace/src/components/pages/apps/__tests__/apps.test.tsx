@@ -17,7 +17,7 @@ import { fetchApps } from '@/actions/apps'
 
 jest.mock('rc-animate')
 
-const createState = appSummaryState => {
+const createState = (appSummaryState) => {
   return {
     ...appState,
     apps: {

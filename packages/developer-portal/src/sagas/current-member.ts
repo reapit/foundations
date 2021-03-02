@@ -15,7 +15,7 @@ import { notification } from '@reapit/elements'
 import { fetchOrganisationMembers, updateOrganisationMemberById } from '@/services/developers'
 import { getDeveloperId, getLoggedUserEmail } from '@/utils/session'
 
-export const currentMemberFetch = function*() {
+export const currentMemberFetch = function* () {
   try {
     const [developerId, currentMemberEmail] = yield all([call(getDeveloperId), call(getLoggedUserEmail)])
     if (!developerId || !currentMemberEmail) {
@@ -37,7 +37,7 @@ export const currentMemberFetch = function*() {
   }
 }
 
-export const currentMemberUpdate = function*({ data }) {
+export const currentMemberUpdate = function* ({ data }) {
   try {
     const currentMember = yield select(selectCurrentMemberData)
 
@@ -72,15 +72,15 @@ export const currentMemberUpdate = function*({ data }) {
   }
 }
 
-export const currentMemberFetchListen = function*() {
+export const currentMemberFetchListen = function* () {
   yield takeLatest<Action<void>>(ActionTypes.CURRENT_MEMBER_FETCH, currentMemberFetch)
 }
 
-export const currentMemberUpdateListen = function*() {
+export const currentMemberUpdateListen = function* () {
   yield takeLatest<Action<UpdateMemberModel>>(ActionTypes.CURRENT_MEMBER_UPDATE, currentMemberUpdate)
 }
 
-export const currentMemberSagas = function*() {
+export const currentMemberSagas = function* () {
   yield all([fork(currentMemberFetchListen), fork(currentMemberUpdateListen)])
 }
 

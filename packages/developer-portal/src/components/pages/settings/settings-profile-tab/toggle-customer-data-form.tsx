@@ -55,7 +55,7 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
   const { clientId, orgName } = selectLoginIdentity(connectSession)
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
   const dispatch = useDispatch()
-  const updateCurrentMemberInformation = values => dispatch(updateCurrentMember(values))
+  const updateCurrentMemberInformation = (values) => dispatch(updateCurrentMember(values))
   const initialValues = generateInitialValues({ defaultInitialValues, currentMemberInfo })
 
   if (!clientId || !isUserOrUserAdmin) return null

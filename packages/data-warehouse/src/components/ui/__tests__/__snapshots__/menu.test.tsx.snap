@@ -22,13 +22,13 @@ exports[`Menu should match a snapshot 1`] = `
     }
   }
 >
-  <Component>
+  <Menu>
     <Memo(MenuComponent)
       defaultActiveKey="LOGO"
       menu={
         Array [
           Object {
-            "icon": <Unknown
+            "icon": <ReapitLogo
               className="nav-item-icon"
             />,
             "key": "LOGO",
@@ -96,7 +96,7 @@ exports[`Menu should match a snapshot 1`] = `
         className="nav-bar "
       >
         <ul>
-          <Component
+          <LinkItem
             activeItemRef={
               Object {
                 "current": null,
@@ -104,7 +104,7 @@ exports[`Menu should match a snapshot 1`] = `
             }
             item={
               Object {
-                "icon": <Unknown
+                "icon": <ReapitLogo
                   className="nav-item-icon"
                 />,
                 "key": "LOGO",
@@ -121,7 +121,7 @@ exports[`Menu should match a snapshot 1`] = `
                 onClick={[Function]}
               >
                 <div>
-                  <Component
+                  <ReapitLogo
                     className="nav-item-icon"
                   >
                     <svg
@@ -171,12 +171,12 @@ exports[`Menu should match a snapshot 1`] = `
                         />
                       </g>
                     </svg>
-                  </Component>
+                  </ReapitLogo>
                 </div>
               </li>
             </span>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "icon": <MdAccountBalance
@@ -252,8 +252,8 @@ exports[`Menu should match a snapshot 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "icon": <FaUsers
@@ -329,8 +329,8 @@ exports[`Menu should match a snapshot 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "icon": <FaDatabase
@@ -406,8 +406,8 @@ exports[`Menu should match a snapshot 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "icon": <FaChartBar
@@ -483,8 +483,8 @@ exports[`Menu should match a snapshot 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "callback": [Function],
@@ -548,8 +548,8 @@ exports[`Menu should match a snapshot 1`] = `
                 </div>
               </li>
             </a>
-          </Component>
-          <Component
+          </LinkItem>
+          <LinkItem
             item={
               Object {
                 "callback": [Function],
@@ -613,10 +613,10 @@ exports[`Menu should match a snapshot 1`] = `
                 </div>
               </li>
             </a>
-          </Component>
+          </LinkItem>
         </ul>
       </nav>
     </Memo(MenuComponent)>
-  </Component>
+  </Menu>
 </Router>
 `;

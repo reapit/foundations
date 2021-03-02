@@ -13,7 +13,7 @@ import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { notification } from '@reapit/elements'
 
-export const createInstallationSaga = function*(options) {
+export const createInstallationSaga = function* (options) {
   const data: InstallParams = options.data
   try {
     yield put(setInstallationsFormState('SUBMITTING'))
@@ -42,7 +42,7 @@ export const createInstallationSaga = function*(options) {
   }
 }
 
-export const requestInstallationTerminateSaga = function*(options) {
+export const requestInstallationTerminateSaga = function* (options) {
   const data: UninstallParams = options.data
   try {
     yield put(setInstallationsFormState('SUBMITTING'))
@@ -61,7 +61,7 @@ export const requestInstallationTerminateSaga = function*(options) {
   }
 }
 
-export const managementInstallationsListen = function*() {
+export const managementInstallationsListen = function* () {
   yield takeLatest<Action<UninstallParams>>(
     ActionTypes.REQUEST_INSTALLATIONS_TERMINATE,
     requestInstallationTerminateSaga,
@@ -69,7 +69,7 @@ export const managementInstallationsListen = function*() {
   yield takeLatest<Action<InstallParams>>(ActionTypes.CREATE_INSTALLATIONS, createInstallationSaga)
 }
 
-export const managementInstallationsSagas = function*() {
+export const managementInstallationsSagas = function* () {
   yield all([fork(managementInstallationsListen)])
 }
 

@@ -58,7 +58,7 @@ describe('prepareTableColumns', () => {
     expect(columns).toHaveLength(3)
   })
   it('should return valid Header, accessor and Footer for each column', () => {
-    mockTotalCostTableData.tableData.forEach(row => {
+    mockTotalCostTableData.tableData.forEach((row) => {
       columns.forEach(({ Header, accessor, Footer }, index) => {
         if (index === 0) {
           expect(Header).toEqual('Number of API Calls')

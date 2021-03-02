@@ -13,7 +13,7 @@ describe('client', () => {
     })
   })
   describe('generateRequest', () => {
-    it('should run correctly', done => {
+    it('should run correctly', (done) => {
       // @ts-ignore
       const mockOperation = {
         setContext: jest.fn(),

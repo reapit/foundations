@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubmitAppWizardModal should match snapshot when visible = true 1`] = `
-<Component
+<SubmitAppWizard
   onClose={[MockFunction]}
   visible={true}
 />
 `;
 
 exports[`SubmitAppWizardModal should match snapshot when visible = true 2`] = `
-<Component
+<SubmitAppWizard
   onClose={[MockFunction]}
   visible={false}
 />

@@ -9,7 +9,7 @@ const developerInformation: DeveloperModel | null = appState.settings.developerI
 jest.mock('react-redux', () => ({
   ...(jest.requireActual('react-redux') as Object),
   useDispatch: jest.fn(),
-  useSelector: jest.fn(() => developerInformation),
+  useSelector: jest.fn(() => ({})),
 }))
 
 describe('OrganisationForm', () => {

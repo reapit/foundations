@@ -1,6 +1,6 @@
-import { journalEntriesMock } from '../__stubs__/journal-entries'
-import { createJournalEntryArgsMock } from '../__stubs__/create-journal-entry'
-import { mockContext } from '../../../__stubs__/context'
+import { journalEntriesMock } from '../__stubs__/mock-journal-entries'
+import { createJournalEntryArgsMock } from '../__stubs__/mock-create-journal-entry'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetJournalEntriesAPI, callCreateJournalEntryAPI } from '../api'
 
 jest.mock('apollo-server-lambda', () => {

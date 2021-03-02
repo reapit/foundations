@@ -21,7 +21,7 @@ export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => 
 export const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs, className }) => (
   <div className={cx('tabs', 'is-fullwidth', className)} role="tablist">
     <ul>
-      {tabConfigs.map(tabConfig => (
+      {tabConfigs.map((tabConfig) => (
         <li className={cx(tabConfig.active && 'is-active')} key={tabConfig.tabIdentifier}>
           <a
             id={tabConfig.tabIdentifier}

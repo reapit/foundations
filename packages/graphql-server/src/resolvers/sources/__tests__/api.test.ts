@@ -1,12 +1,11 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetSourcesAPI, callCreateSourceAPI, callUpdateSourceAPI, callGetSourceByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { sourcesMock } from '../__stubs__/sources'
-import { sourceMock } from '../__stubs__/source'
+import { sourcesMock } from '../__stubs__/mock-sources'
+import { sourceMock } from '../__stubs__/mock-source'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
-import { createSourceArgsMock } from '../__stubs__/create-source'
-import { updateSourceArgsMock } from '../__stubs__/update-source'
-import { URLS } from '../../../constants/api'
+import { createSourceArgsMock } from '../__stubs__/mock-create-source'
+import { updateSourceArgsMock } from '../__stubs__/mock-update-source'
 
 jest.mock('apollo-server-lambda', () => {
   return {
@@ -27,8 +26,8 @@ jest.mock('../../../utils/handle-error', () => ({
 jest.mock('../../../logger')
 jest.mock('../../../utils/axios-instances', () => ({
   createPlatformAxiosInstance: jest.fn(() => ({
-    get: jest.fn().mockImplementation(value => {
-      if (value === `${URLS.sources}/id`) {
+    get: jest.fn().mockImplementation((value) => {
+      if (value === '/sources/id') {
         return {
           data: sourceMock,
         }

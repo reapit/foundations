@@ -9,20 +9,20 @@ import {
   callDeleteTenancyCheckAPI,
   callUpdateTenancyCheckAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   tenancyMock,
   tenanciesListMock,
   tenancyCheckMock,
   tenancyChecksListMock,
   tenancyRelationshipsListMock,
-} from '../__stubs__/tenancy-query'
+} from '../__stubs__/mock-tenancy-query'
 import {
   createTenancyArgsMock,
   createTenancyCheckArgsMock,
   deleteTenancyCheckArgsMock,
   updateTenancyCheckArgsMock,
-} from '../__stubs__/tenancy-mutation'
+} from '../__stubs__/mock-tenancy-mutation'
 import {
   getTenancies,
   getTenancyById,

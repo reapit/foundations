@@ -19,6 +19,6 @@ export const sessionFetcher = async (path: string, session: string, clientCode: 
       'x-api-key': session,
       'api-version': '2020-01-31',
     },
-  }).catch(err => ({
+  }).catch((err) => ({
     error: err,
   }))

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match a snapshot 1`] = `
-<Component
+<UninstallationsSuccessModal
   appDetailData={
     Object {
       "description": "enim facilisis",
@@ -47,14 +47,14 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
   onSuccessAlertButtonClick={[MockFunction]}
   visible={true}
 >
-  <Component
+  <ModalV2
     hasHeader={false}
     isCentered={true}
     isPadding={false}
     visible={true}
   >
-    <Component
-      className=""
+    <Dialog
+      className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
       closeIcon={
         <span
           aria-label="close"
@@ -62,14 +62,14 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
         />
       }
       destroyOnClose={true}
-      title={<Unknown />}
+      title={<ModalHeaderV2 />}
       visible={true}
-      wrapClassName=""
+      wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
     >
       <PortalWrapper
         visible={true}
       >
-        <Portal
+        <ForwardRef
           getContainer={[Function]}
         >
           <Portal
@@ -83,12 +83,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                   />
                   <div
                     aria-labelledby="rcDialogTitle1"
-                    class="rc-dialog-wrap "
+                    class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                     role="dialog"
                     tabindex="-1"
                   >
                     <div
-                      class="rc-dialog "
+                      class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
                       role="document"
                     >
                       <div
@@ -136,7 +136,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                               Success
                             </div>
                             <div
-                              class=""
+                              class="container-flex is-column has-background has-padding"
                             >
                               <p>
                                 Peter's Properties
@@ -169,8 +169,8 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
             }
           >
             <Dialog
-              className=""
-              closable={true}
+              afterClose={[Function]}
+              className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
               closeIcon={
                 <span
                   aria-label="close"
@@ -178,79 +178,493 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 />
               }
               destroyOnClose={true}
-              focusTriggerAfterClose={true}
               getContainer={[Function]}
               getOpenCount={[Function]}
-              keyboard={true}
-              mask={true}
-              maskClosable={true}
-              prefixCls="rc-dialog"
+              scrollLocker={
+                ScrollLocker {
+                  "getContainer": [Function],
+                  "lock": [Function],
+                  "lockTarget": 1,
+                  "options": Object {
+                    "container": <body
+                      class="ant-scrolling-effect"
+                      style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                    >
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle0"
+                            class="rc-dialog-wrap m1iljaow-modal-centered"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="rc-dialog m1s2ncsn-modal-container"
+                              role="document"
+                            >
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                              <div
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-label="close"
+                                    class="delete"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <h4
+                                      class="modal-card-title is-4 pt-2 pb-2"
+                                    >
+                                      Confirm Peter's Properties uninstallation
+                                    </h4>
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  Are you sure you wish to uninstall 
+                                  Peter's Properties
+                                  ? This action will uninstall the app for 
+                                  <b>
+                                    all
+                                  </b>
+                                   members of your organisation.
+                                </div>
+                                <div
+                                  class="rc-dialog-footer"
+                                >
+                                  <div
+                                    class="flex"
+                                  >
+                                    <button
+                                      class="button i5943rj-install-button is-secondary  "
+                                      data-test="disagree-btn"
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      class="button i5943rj-install-button is-danger  "
+                                      data-test="agree-btn"
+                                      type="button"
+                                    >
+                                      Confirm
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle1"
+                            class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                              role="document"
+                            >
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                              <div
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-label="close"
+                                    class="delete"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle1"
+                                  >
+                                    <h4
+                                      class="modal-card-title is-4 pt-2 pb-2"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  <div
+                                    class=""
+                                    data-test="uinstallations-success-message"
+                                  >
+                                    <div
+                                      class="notification is-success mb-0"
+                                      data-test=""
+                                      role="alert"
+                                    >
+                                      Success
+                                    </div>
+                                    <div
+                                      class="container-flex is-column has-background has-padding"
+                                    >
+                                      <p>
+                                        Peter's Properties
+                                         has been successfully uninstalled
+                                      </p>
+                                      <div
+                                        class="has-text-right"
+                                      >
+                                        <button
+                                          class="button  is-primary  "
+                                          data-test="uinstallations-success-button"
+                                          type="button"
+                                        >
+                                          Back to List
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </body>,
+                  },
+                  "reLock": [Function],
+                  "unLock": [Function],
+                }
+              }
               switchScrollingEffect={[Function]}
-              title={<Unknown />}
+              title={<ModalHeaderV2 />}
               visible={true}
-              wrapClassName=""
+              wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
             >
               <div
                 className="rc-dialog-root"
               >
-                <LazyRenderBox
-                  className="rc-dialog-mask"
-                  hiddenClassName="rc-dialog-mask-hidden"
-                  key="mask"
-                  style={Object {}}
+                <Mask
+                  prefixCls="rc-dialog"
+                  style={
+                    Object {
+                      "zIndex": undefined,
+                    }
+                  }
                   visible={true}
                 >
-                  <div
-                    className="rc-dialog-mask"
-                    style={Object {}}
-                  />
-                </LazyRenderBox>
+                  <CSSMotion
+                    key="mask"
+                    leavedClassName="rc-dialog-mask-hidden"
+                    visible={true}
+                  >
+                    <DomWrapper>
+                      <div
+                        className="rc-dialog-mask"
+                        style={
+                          Object {
+                            "zIndex": undefined,
+                          }
+                        }
+                      />
+                    </DomWrapper>
+                  </CSSMotion>
+                </Mask>
                 <div
                   aria-labelledby="rcDialogTitle1"
-                  className="rc-dialog-wrap "
+                  className="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                   onClick={[Function]}
                   onKeyDown={[Function]}
-                  onMouseUp={[Function]}
                   role="dialog"
                   style={
                     Object {
                       "display": null,
+                      "zIndex": undefined,
                     }
                   }
                   tabIndex={-1}
                 >
-                  <Animate
-                    animation={Object {}}
-                    component=""
-                    componentProps={Object {}}
-                    key="dialog"
-                    onAppear={[Function]}
-                    onEnd={[Function]}
-                    onEnter={[Function]}
-                    onLeave={[Function]}
-                    showProp="visible"
-                    transitionAppear={true}
-                    transitionEnter={true}
-                    transitionLeave={true}
+                  <Content
+                    afterClose={[Function]}
+                    ariaId="rcDialogTitle1"
+                    className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                    closable={true}
+                    closeIcon={
+                      <span
+                        aria-label="close"
+                        className="delete"
+                      />
+                    }
+                    destroyOnClose={true}
+                    getContainer={[Function]}
+                    getOpenCount={[Function]}
+                    onClose={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                    onVisibleChanged={[Function]}
+                    prefixCls="rc-dialog"
+                    scrollLocker={
+                      ScrollLocker {
+                        "getContainer": [Function],
+                        "lock": [Function],
+                        "lockTarget": 1,
+                        "options": Object {
+                          "container": <body
+                            class="ant-scrolling-effect"
+                            style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                          >
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle0"
+                                  class="rc-dialog-wrap m1iljaow-modal-centered"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog m1s2ncsn-modal-container"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          >
+                                            Confirm Peter's Properties uninstallation
+                                          </h4>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        Are you sure you wish to uninstall 
+                                        Peter's Properties
+                                        ? This action will uninstall the app for 
+                                        <b>
+                                          all
+                                        </b>
+                                         members of your organisation.
+                                      </div>
+                                      <div
+                                        class="rc-dialog-footer"
+                                      >
+                                        <div
+                                          class="flex"
+                                        >
+                                          <button
+                                            class="button i5943rj-install-button is-secondary  "
+                                            data-test="disagree-btn"
+                                            type="button"
+                                          >
+                                            Cancel
+                                          </button>
+                                          <button
+                                            class="button i5943rj-install-button is-danger  "
+                                            data-test="agree-btn"
+                                            type="button"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle1"
+                                  class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle1"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        <div
+                                          class=""
+                                          data-test="uinstallations-success-message"
+                                        >
+                                          <div
+                                            class="notification is-success mb-0"
+                                            data-test=""
+                                            role="alert"
+                                          >
+                                            Success
+                                          </div>
+                                          <div
+                                            class="container-flex is-column has-background has-padding"
+                                          >
+                                            <p>
+                                              Peter's Properties
+                                               has been successfully uninstalled
+                                            </p>
+                                            <div
+                                              class="has-text-right"
+                                            >
+                                              <button
+                                                class="button  is-primary  "
+                                                data-test="uinstallations-success-button"
+                                                type="button"
+                                              >
+                                                Back to List
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </body>,
+                        },
+                        "reLock": [Function],
+                        "unLock": [Function],
+                      }
+                    }
+                    switchScrollingEffect={[Function]}
+                    title={<ModalHeaderV2 />}
+                    visible={true}
+                    wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                   >
-                    <AnimateChild
-                      animation={Object {}}
-                      key="dialog-element"
-                      transitionAppear={true}
-                      transitionEnter={true}
-                      transitionLeave={true}
+                    <CSSMotion
+                      onAppearPrepare={[Function]}
+                      onEnterPrepare={[Function]}
+                      onVisibleChanged={[Function]}
+                      removeOnLeave={true}
+                      visible={true}
                     >
-                      <LazyRenderBox
-                        className="rc-dialog "
-                        key="dialog-element"
-                        onMouseDown={[Function]}
-                        role="document"
-                        style={Object {}}
-                        visible={true}
-                      >
+                      <DomWrapper>
                         <div
-                          className="rc-dialog "
+                          className="rc-dialog m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                          key="dialog-element"
                           onMouseDown={[Function]}
+                          onMouseUp={[Function]}
                           role="document"
                           style={Object {}}
                         >
@@ -266,101 +680,105 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                             }
                             tabIndex={0}
                           />
-                          <div
-                            className="rc-dialog-content"
+                          <Component
+                            shouldUpdate={true}
                           >
-                            <button
-                              aria-label="Close"
-                              className="rc-dialog-close"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            </button>
                             <div
-                              className="rc-dialog-header"
+                              className="rc-dialog-content"
                             >
-                              <div
-                                className="rc-dialog-title"
-                                id="rcDialogTitle1"
+                              <button
+                                aria-label="Close"
+                                className="rc-dialog-close"
+                                onClick={[Function]}
+                                type="button"
                               >
-                                <Component>
-                                  <h4
-                                    className="modal-card-title is-4 pt-2 pb-2"
-                                  />
-                                </Component>
-                              </div>
-                            </div>
-                            <div
-                              className="rc-dialog-body"
-                            >
-                              <CallToAction
-                                buttonDataTest="uinstallations-success-button"
-                                buttonText="Back to List"
-                                dataTest="uinstallations-success-message"
-                                isCenter={true}
-                                onButtonClick={[MockFunction]}
-                                title="Success"
-                                type="success"
+                                <span
+                                  aria-label="close"
+                                  className="delete"
+                                />
+                              </button>
+                              <div
+                                className="rc-dialog-header"
                               >
                                 <div
-                                  className=""
-                                  data-test="uinstallations-success-message"
+                                  className="rc-dialog-title"
+                                  id="rcDialogTitle1"
                                 >
-                                  <Component
-                                    className="mb-0"
-                                    message="Success"
-                                    type="success"
+                                  <ModalHeaderV2>
+                                    <h4
+                                      className="modal-card-title is-4 pt-2 pb-2"
+                                    />
+                                  </ModalHeaderV2>
+                                </div>
+                              </div>
+                              <div
+                                className="rc-dialog-body"
+                              >
+                                <CallToAction
+                                  buttonDataTest="uinstallations-success-button"
+                                  buttonText="Back to List"
+                                  dataTest="uinstallations-success-message"
+                                  isCenter={true}
+                                  onButtonClick={[MockFunction]}
+                                  title="Success"
+                                  type="success"
+                                >
+                                  <div
+                                    className=""
+                                    data-test="uinstallations-success-message"
                                   >
-                                    <div
-                                      className="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <Alert
+                                      className="mb-0"
+                                      message="Success"
+                                      type="success"
                                     >
-                                      Success
-                                    </div>
-                                  </Component>
-                                  <Component
-                                    flexColumn={true}
-                                    hasBackground={true}
-                                    hasPadding={true}
-                                  >
-                                    <div
-                                      className=""
-                                    >
-                                      <p>
-                                        Peter's Properties
-                                         has been successfully uninstalled
-                                      </p>
                                       <div
-                                        className="has-text-right"
+                                        className="notification is-success mb-0"
+                                        data-test=""
+                                        role="alert"
                                       >
-                                        <Component
-                                          dataTest="uinstallations-success-button"
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="primary"
+                                        Success
+                                      </div>
+                                    </Alert>
+                                    <FlexContainerBasic
+                                      flexColumn={true}
+                                      hasBackground={true}
+                                      hasPadding={true}
+                                    >
+                                      <div
+                                        className="container-flex is-column has-background has-padding"
+                                      >
+                                        <p>
+                                          Peter's Properties
+                                           has been successfully uninstalled
+                                        </p>
+                                        <div
+                                          className="has-text-right"
                                         >
-                                          <button
-                                            className="button  is-primary  "
-                                            data-test="uinstallations-success-button"
-                                            disabled={false}
+                                          <Button
+                                            dataTest="uinstallations-success-button"
                                             onClick={[MockFunction]}
                                             type="button"
+                                            variant="primary"
                                           >
-                                            Back to List
-                                          </button>
-                                        </Component>
+                                            <button
+                                              className="button  is-primary  "
+                                              data-test="uinstallations-success-button"
+                                              disabled={false}
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                            >
+                                              Back to List
+                                            </button>
+                                          </Button>
+                                        </div>
                                       </div>
-                                    </div>
-                                  </Component>
-                                </div>
-                              </CallToAction>
+                                    </FlexContainerBasic>
+                                  </div>
+                                </CallToAction>
+                              </div>
                             </div>
-                          </div>
+                          </Component>
                           <div
                             aria-hidden="true"
                             style={
@@ -374,18 +792,18 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                             tabIndex={0}
                           />
                         </div>
-                      </LazyRenderBox>
-                    </AnimateChild>
-                  </Animate>
+                      </DomWrapper>
+                    </CSSMotion>
+                  </Content>
                 </div>
               </div>
             </Dialog>
           </Portal>
-        </Portal>
+        </ForwardRef>
       </PortalWrapper>
-    </Component>
-  </Component>
-</Component>
+    </Dialog>
+  </ModalV2>
+</UninstallationsSuccessModal>
 `;
 
 exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter should match snapshot 1`] = `
@@ -393,8 +811,8 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
   <div
     className="flex"
   >
-    <Component
-      className=""
+    <Button
+      className="i5943rj-install-button"
       dataTest="disagree-btn"
       disabled={false}
       onClick={[MockFunction]}
@@ -402,9 +820,9 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
       variant="secondary"
     >
       Cancel
-    </Component>
-    <Component
-      className=""
+    </Button>
+    <Button
+      className="i5943rj-install-button"
       dataTest="agree-btn"
       loading={false}
       onClick={[Function]}
@@ -412,7 +830,7 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
       variant="danger"
     >
       Confirm
-    </Component>
+    </Button>
   </div>
 </div>
 `;
@@ -517,14 +935,14 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         closeUninstallConfirmationModal={[MockFunction]}
         visible={true}
       >
-        <Component
+        <ModalV2
           afterClose={[Function]}
           footer={
             <div
               className="flex"
             >
-              <Unknown
-                className=""
+              <Button
+                className="i5943rj-install-button"
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
@@ -532,9 +950,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 variant="secondary"
               >
                 Cancel
-              </Unknown>
-              <Unknown
-                className=""
+              </Button>
+              <Button
+                className="i5943rj-install-button"
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -542,15 +960,15 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 variant="danger"
               >
                 Confirm
-              </Unknown>
+              </Button>
             </div>
           }
           isCentered={true}
           title="Confirm Peter's Properties uninstallation"
           visible={true}
         >
-          <Component
-            className=""
+          <Dialog
+            className="m1s2ncsn-modal-container"
             closeIcon={
               <span
                 aria-label="close"
@@ -563,8 +981,8 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               <div
                 className="flex"
               >
-                <Unknown
-                  className=""
+                <Button
+                  className="i5943rj-install-button"
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
@@ -572,9 +990,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   variant="secondary"
                 >
                   Cancel
-                </Unknown>
-                <Unknown
-                  className=""
+                </Button>
+                <Button
+                  className="i5943rj-install-button"
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -582,21 +1000,21 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   variant="danger"
                 >
                   Confirm
-                </Unknown>
+                </Button>
               </div>
             }
             title={
-              <Unknown>
+              <ModalHeaderV2>
                 Confirm Peter's Properties uninstallation
-              </Unknown>
+              </ModalHeaderV2>
             }
             visible={true}
-            wrapClassName=""
+            wrapClassName="m1iljaow-modal-centered"
           >
             <PortalWrapper
               visible={true}
             >
-              <Portal
+              <ForwardRef
                 getContainer={[Function]}
               >
                 <Portal
@@ -610,12 +1028,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                         />
                         <div
                           aria-labelledby="rcDialogTitle0"
-                          class="rc-dialog-wrap "
+                          class="rc-dialog-wrap m1iljaow-modal-centered"
                           role="dialog"
                           tabindex="-1"
                         >
                           <div
-                            class="rc-dialog "
+                            class="rc-dialog m1s2ncsn-modal-container"
                             role="document"
                           >
                             <div
@@ -668,14 +1086,14 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                   class="flex"
                                 >
                                   <button
-                                    class="button  is-secondary  "
+                                    class="button i5943rj-install-button is-secondary  "
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button  is-danger  "
+                                    class="button i5943rj-install-button is-danger  "
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -696,8 +1114,8 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   }
                 >
                   <Dialog
-                    className=""
-                    closable={true}
+                    afterClose={[Function]}
+                    className="m1s2ncsn-modal-container"
                     closeIcon={
                       <span
                         aria-label="close"
@@ -706,13 +1124,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                       />
                     }
                     destroyOnClose={true}
-                    focusTriggerAfterClose={true}
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
@@ -720,9 +1137,9 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -730,85 +1147,347 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           variant="danger"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     getContainer={[Function]}
                     getOpenCount={[Function]}
-                    keyboard={true}
-                    mask={true}
-                    maskClosable={true}
-                    prefixCls="rc-dialog"
+                    scrollLocker={
+                      ScrollLocker {
+                        "getContainer": [Function],
+                        "lock": [Function],
+                        "lockTarget": 0,
+                        "options": Object {
+                          "container": <body
+                            class="ant-scrolling-effect"
+                            style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                          >
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle0"
+                                  class="rc-dialog-wrap m1iljaow-modal-centered"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog m1s2ncsn-modal-container"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          >
+                                            Confirm Peter's Properties uninstallation
+                                          </h4>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        Are you sure you wish to uninstall 
+                                        Peter's Properties
+                                        ? This action will uninstall the app for 
+                                        <b>
+                                          all
+                                        </b>
+                                         members of your organisation.
+                                      </div>
+                                      <div
+                                        class="rc-dialog-footer"
+                                      >
+                                        <div
+                                          class="flex"
+                                        >
+                                          <button
+                                            class="button i5943rj-install-button is-secondary  "
+                                            data-test="disagree-btn"
+                                            type="button"
+                                          >
+                                            Cancel
+                                          </button>
+                                          <button
+                                            class="button i5943rj-install-button is-danger  "
+                                            data-test="agree-btn"
+                                            type="button"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </body>,
+                        },
+                        "reLock": [Function],
+                        "unLock": [Function],
+                      }
+                    }
                     switchScrollingEffect={[Function]}
                     title={
-                      <Unknown>
+                      <ModalHeaderV2>
                         Confirm Peter's Properties uninstallation
-                      </Unknown>
+                      </ModalHeaderV2>
                     }
                     visible={true}
-                    wrapClassName=""
+                    wrapClassName="m1iljaow-modal-centered"
                   >
                     <div
                       className="rc-dialog-root"
                     >
-                      <LazyRenderBox
-                        className="rc-dialog-mask"
-                        hiddenClassName="rc-dialog-mask-hidden"
-                        key="mask"
-                        style={Object {}}
+                      <Mask
+                        prefixCls="rc-dialog"
+                        style={
+                          Object {
+                            "zIndex": undefined,
+                          }
+                        }
                         visible={true}
                       >
-                        <div
-                          className="rc-dialog-mask"
-                          style={Object {}}
-                        />
-                      </LazyRenderBox>
+                        <CSSMotion
+                          key="mask"
+                          leavedClassName="rc-dialog-mask-hidden"
+                          visible={true}
+                        >
+                          <DomWrapper>
+                            <div
+                              className="rc-dialog-mask"
+                              style={
+                                Object {
+                                  "zIndex": undefined,
+                                }
+                              }
+                            />
+                          </DomWrapper>
+                        </CSSMotion>
+                      </Mask>
                       <div
                         aria-labelledby="rcDialogTitle0"
-                        className="rc-dialog-wrap "
+                        className="rc-dialog-wrap m1iljaow-modal-centered"
                         onClick={[Function]}
                         onKeyDown={[Function]}
-                        onMouseUp={[Function]}
                         role="dialog"
                         style={
                           Object {
                             "display": null,
+                            "zIndex": undefined,
                           }
                         }
                         tabIndex={-1}
                       >
-                        <Animate
-                          animation={Object {}}
-                          component=""
-                          componentProps={Object {}}
-                          key="dialog"
-                          onAppear={[Function]}
-                          onEnd={[Function]}
-                          onEnter={[Function]}
-                          onLeave={[Function]}
-                          showProp="visible"
-                          transitionAppear={true}
-                          transitionEnter={true}
-                          transitionLeave={true}
-                        >
-                          <AnimateChild
-                            animation={Object {}}
-                            key="dialog-element"
-                            transitionAppear={true}
-                            transitionEnter={true}
-                            transitionLeave={true}
-                          >
-                            <LazyRenderBox
-                              className="rc-dialog "
-                              key="dialog-element"
-                              onMouseDown={[Function]}
-                              role="document"
-                              style={Object {}}
-                              visible={true}
+                        <Content
+                          afterClose={[Function]}
+                          ariaId="rcDialogTitle0"
+                          className="m1s2ncsn-modal-container"
+                          closable={true}
+                          closeIcon={
+                            <span
+                              aria-label="close"
+                              className="delete"
+                              onClick={[Function]}
+                            />
+                          }
+                          destroyOnClose={true}
+                          footer={
+                            <div
+                              className="flex"
                             >
+                              <Button
+                                className="i5943rj-install-button"
+                                dataTest="disagree-btn"
+                                disabled={false}
+                                onClick={[MockFunction]}
+                                type="button"
+                                variant="secondary"
+                              >
+                                Cancel
+                              </Button>
+                              <Button
+                                className="i5943rj-install-button"
+                                dataTest="agree-btn"
+                                loading={false}
+                                onClick={[Function]}
+                                type="button"
+                                variant="danger"
+                              >
+                                Confirm
+                              </Button>
+                            </div>
+                          }
+                          getContainer={[Function]}
+                          getOpenCount={[Function]}
+                          onClose={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseUp={[Function]}
+                          onVisibleChanged={[Function]}
+                          prefixCls="rc-dialog"
+                          scrollLocker={
+                            ScrollLocker {
+                              "getContainer": [Function],
+                              "lock": [Function],
+                              "lockTarget": 0,
+                              "options": Object {
+                                "container": <body
+                                  class="ant-scrolling-effect"
+                                  style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                                >
+                                  <div>
+                                    <div
+                                      class="rc-dialog-root"
+                                    >
+                                      <div
+                                        class="rc-dialog-mask"
+                                      />
+                                      <div
+                                        aria-labelledby="rcDialogTitle0"
+                                        class="rc-dialog-wrap m1iljaow-modal-centered"
+                                        role="dialog"
+                                        tabindex="-1"
+                                      >
+                                        <div
+                                          class="rc-dialog m1s2ncsn-modal-container"
+                                          role="document"
+                                        >
+                                          <div
+                                            aria-hidden="true"
+                                            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                            tabindex="0"
+                                          />
+                                          <div
+                                            class="rc-dialog-content"
+                                          >
+                                            <button
+                                              aria-label="Close"
+                                              class="rc-dialog-close"
+                                              type="button"
+                                            >
+                                              <span
+                                                aria-label="close"
+                                                class="delete"
+                                              />
+                                            </button>
+                                            <div
+                                              class="rc-dialog-header"
+                                            >
+                                              <div
+                                                class="rc-dialog-title"
+                                                id="rcDialogTitle0"
+                                              >
+                                                <h4
+                                                  class="modal-card-title is-4 pt-2 pb-2"
+                                                >
+                                                  Confirm Peter's Properties uninstallation
+                                                </h4>
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="rc-dialog-body"
+                                            >
+                                              Are you sure you wish to uninstall 
+                                              Peter's Properties
+                                              ? This action will uninstall the app for 
+                                              <b>
+                                                all
+                                              </b>
+                                               members of your organisation.
+                                            </div>
+                                            <div
+                                              class="rc-dialog-footer"
+                                            >
+                                              <div
+                                                class="flex"
+                                              >
+                                                <button
+                                                  class="button i5943rj-install-button is-secondary  "
+                                                  data-test="disagree-btn"
+                                                  type="button"
+                                                >
+                                                  Cancel
+                                                </button>
+                                                <button
+                                                  class="button i5943rj-install-button is-danger  "
+                                                  data-test="agree-btn"
+                                                  type="button"
+                                                >
+                                                  Confirm
+                                                </button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            aria-hidden="true"
+                                            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                            tabindex="0"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </body>,
+                              },
+                              "reLock": [Function],
+                              "unLock": [Function],
+                            }
+                          }
+                          switchScrollingEffect={[Function]}
+                          title={
+                            <ModalHeaderV2>
+                              Confirm Peter's Properties uninstallation
+                            </ModalHeaderV2>
+                          }
+                          visible={true}
+                          wrapClassName="m1iljaow-modal-centered"
+                        >
+                          <CSSMotion
+                            onAppearPrepare={[Function]}
+                            onEnterPrepare={[Function]}
+                            onVisibleChanged={[Function]}
+                            removeOnLeave={true}
+                            visible={true}
+                          >
+                            <DomWrapper>
                               <div
-                                className="rc-dialog "
+                                className="rc-dialog m1s2ncsn-modal-container"
+                                key="dialog-element"
                                 onMouseDown={[Function]}
+                                onMouseUp={[Function]}
                                 role="document"
                                 style={Object {}}
                               >
@@ -824,93 +1503,97 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                   }
                                   tabIndex={0}
                                 />
-                                <div
-                                  className="rc-dialog-content"
+                                <Component
+                                  shouldUpdate={true}
                                 >
-                                  <button
-                                    aria-label="Close"
-                                    className="rc-dialog-close"
-                                    onClick={[Function]}
-                                    type="button"
+                                  <div
+                                    className="rc-dialog-content"
                                   >
-                                    <span
-                                      aria-label="close"
-                                      className="delete"
+                                    <button
+                                      aria-label="Close"
+                                      className="rc-dialog-close"
                                       onClick={[Function]}
-                                    />
-                                  </button>
-                                  <div
-                                    className="rc-dialog-header"
-                                  >
-                                    <div
-                                      className="rc-dialog-title"
-                                      id="rcDialogTitle0"
+                                      type="button"
                                     >
-                                      <Component>
-                                        <h4
-                                          className="modal-card-title is-4 pt-2 pb-2"
-                                        >
-                                          Confirm Peter's Properties uninstallation
-                                        </h4>
-                                      </Component>
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="rc-dialog-body"
-                                  >
-                                    Are you sure you wish to uninstall 
-                                    Peter's Properties
-                                    ? This action will uninstall the app for 
-                                    <b>
-                                      all
-                                    </b>
-                                     members of your organisation.
-                                  </div>
-                                  <div
-                                    className="rc-dialog-footer"
-                                  >
+                                      <span
+                                        aria-label="close"
+                                        className="delete"
+                                        onClick={[Function]}
+                                      />
+                                    </button>
                                     <div
-                                      className="flex"
+                                      className="rc-dialog-header"
                                     >
-                                      <Component
-                                        className=""
-                                        dataTest="disagree-btn"
-                                        disabled={false}
-                                        onClick={[MockFunction]}
-                                        type="button"
-                                        variant="secondary"
+                                      <div
+                                        className="rc-dialog-title"
+                                        id="rcDialogTitle0"
                                       >
-                                        <button
-                                          className="button  is-secondary  "
-                                          data-test="disagree-btn"
+                                        <ModalHeaderV2>
+                                          <h4
+                                            className="modal-card-title is-4 pt-2 pb-2"
+                                          >
+                                            Confirm Peter's Properties uninstallation
+                                          </h4>
+                                        </ModalHeaderV2>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="rc-dialog-body"
+                                    >
+                                      Are you sure you wish to uninstall 
+                                      Peter's Properties
+                                      ? This action will uninstall the app for 
+                                      <b>
+                                        all
+                                      </b>
+                                       members of your organisation.
+                                    </div>
+                                    <div
+                                      className="rc-dialog-footer"
+                                    >
+                                      <div
+                                        className="flex"
+                                      >
+                                        <Button
+                                          className="i5943rj-install-button"
+                                          dataTest="disagree-btn"
                                           disabled={false}
                                           onClick={[MockFunction]}
                                           type="button"
+                                          variant="secondary"
                                         >
-                                          Cancel
-                                        </button>
-                                      </Component>
-                                      <Component
-                                        className=""
-                                        dataTest="agree-btn"
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="danger"
-                                      >
-                                        <button
-                                          className="button  is-danger  "
-                                          data-test="agree-btn"
-                                          disabled={false}
+                                          <button
+                                            className="button i5943rj-install-button is-secondary  "
+                                            data-test="disagree-btn"
+                                            disabled={false}
+                                            onClick={[MockFunction]}
+                                            type="button"
+                                          >
+                                            Cancel
+                                          </button>
+                                        </Button>
+                                        <Button
+                                          className="i5943rj-install-button"
+                                          dataTest="agree-btn"
+                                          loading={false}
                                           onClick={[Function]}
                                           type="button"
+                                          variant="danger"
                                         >
-                                          Confirm
-                                        </button>
-                                      </Component>
+                                          <button
+                                            className="button i5943rj-install-button is-danger  "
+                                            data-test="agree-btn"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </Button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
+                                </Component>
                                 <div
                                   aria-hidden="true"
                                   style={
@@ -924,18 +1607,18 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                   tabIndex={0}
                                 />
                               </div>
-                            </LazyRenderBox>
-                          </AnimateChild>
-                        </Animate>
+                            </DomWrapper>
+                          </CSSMotion>
+                        </Content>
                       </div>
                     </div>
                   </Dialog>
                 </Portal>
-              </Portal>
+              </ForwardRef>
             </PortalWrapper>
-          </Component>
-        </Component>
-        <Component
+          </Dialog>
+        </ModalV2>
+        <UninstallationsSuccessModal
           afterClose={[Function]}
           appDetailData={
             Object {
@@ -982,15 +1665,15 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           onSuccessAlertButtonClick={[Function]}
           visible={false}
         >
-          <Component
+          <ModalV2
             hasHeader={false}
             isCentered={true}
             isPadding={false}
             onClose={[Function]}
             visible={false}
           >
-            <Component
-              className=""
+            <Dialog
+              className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
               closeIcon={
                 <span
                   aria-label="close"
@@ -999,16 +1682,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               }
               destroyOnClose={true}
               onClose={[Function]}
-              title={<Unknown />}
+              title={<ModalHeaderV2 />}
               visible={false}
-              wrapClassName=""
-            >
-              <PortalWrapper
-                visible={false}
-              />
-            </Component>
-          </Component>
-        </Component>
+              wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+            />
+          </ModalV2>
+        </UninstallationsSuccessModal>
       </AppUninstallConfirmation>
     </Router>
   </MemoryRouter>

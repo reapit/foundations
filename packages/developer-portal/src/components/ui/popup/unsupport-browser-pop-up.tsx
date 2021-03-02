@@ -15,7 +15,7 @@ export const popUp = (setIsOpen, unsupported) => () => {
   }
 }
 
-export const handleCloseToast = setIsOpen => () => {
+export const handleCloseToast = (setIsOpen) => () => {
   setIsOpen(false)
 }
 

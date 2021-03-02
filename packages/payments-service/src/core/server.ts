@@ -6,7 +6,7 @@ import uuid from 'uuid/v4'
 import cors from 'cors'
 import { traceIdMiddleware } from '@reapit/node-utils'
 import router from './router'
-const MemoryStore = memoryStore(session)
+const MemoryStore = memoryStore(session as any)
 
 const app = express()
 
@@ -26,10 +26,7 @@ app.use(
 app.use(traceIdMiddleware)
 app.use(bodyParser.json())
 app.get('/ok', (_req, res) => {
-  res
-    .status(200)
-    .send('ok')
-    .end()
+  res.status(200).send('ok').end()
 })
 app.use(router)
 

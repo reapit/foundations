@@ -2,7 +2,7 @@
 
 exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
 <MarketplaceAppPage>
-  <Component
+  <Helper
     variant="warning"
   >
     <div
@@ -10,353 +10,361 @@ exports[`MarketplaceAppPage should match a snapshot when has an error 1`] = `
     >
       Something went wrong fetching the app details. Please refresh this page.
     </div>
-  </Component>
+  </Helper>
 </MarketplaceAppPage>
 `;
 
 exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
 <MarketplaceAppPage>
-  <mock-styled.div>
-    <Component>
-      <section
-        className=""
-        data-test=""
-      >
-        <div
-          className="justify-between flex items-center"
+  <FadeIn>
+    <div
+      className="fade-in"
+    >
+      <Section>
+        <section
+          className="section has-padding has-margin has-background"
+          data-test=""
         >
-          <Component
-            className="mb-0"
+          <div
+            className="justify-between flex items-center"
           >
-            <h3
-              className=""
-              id=""
-            />
-          </Component>
-          <Component
-            onClick={[Function]}
-            type="button"
-          >
-            <button
-              className="button  is-primary  "
-              data-test=""
-              disabled={false}
+            <H3
+              className="mb-0"
+            >
+              <h3
+                className="title is-3 mb-0"
+                id=""
+              />
+            </H3>
+            <Button
               onClick={[Function]}
               type="button"
             >
-              View Marketplace Listing
-            </button>
-          </Component>
-        </div>
-      </section>
-    </Component>
-    <AppPricingPermissionsSection
-      app={Object {}}
-      desktopIntegrationTypes={Array []}
-      isDesktop={false}
-    >
-      <mock-styled.div>
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component>
-              <div
-                className=""
+              <button
+                className="button  is-primary  "
                 data-test=""
+                disabled={false}
+                onClick={[Function]}
+                type="button"
               >
-                <Component
-                  className="mb-2"
-                >
-                  <h5
-                    className=""
-                    id=""
-                  >
-                    Pricing Information
-                  </h5>
-                </Component>
-                <p>
-                  There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
-                  . Please contact 
-                   directly for information about pricing.
-                </p>
-                <Component
-                  className="mb-2"
-                >
-                  <h5
-                    className=""
-                    id=""
-                  >
-                    Data Permissions
-                  </h5>
-                </Component>
-                <p>
-                  By installing this app, you are granting the following permissions to your data:
-                </p>
-                <p>
-                  Information about your organisation and the names/email addresses of your users
-                </p>
-                0
-              </div>
-            </Component>
-          </section>
-        </Component>
-      </mock-styled.div>
-    </AppPricingPermissionsSection>
-    <AppToggleVisibilitySection
-      app={Object {}}
-    >
-      <Component>
-        <section
-          className=""
-          data-test=""
-        >
-          <Component>
-            <h5
-              className=""
-              id=""
-            >
-              Application Visibility
-            </h5>
-          </Component>
-          <p
-            className="mb-4"
-          >
-            <i>
-              By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-            </i>
-          </p>
-          <div
-            className="field field-checkbox mb-0 control"
-          >
-            <input
-              checked={true}
-              className="checkbox"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="label"
-            >
-              Visible
-            </label>
+                View Marketplace Listing
+              </button>
+            </Button>
           </div>
         </section>
-      </Component>
-    </AppToggleVisibilitySection>
-    <AppInstallationManager
-      app={Object {}}
-    >
-      <AppUninstallationSection
-        clientId={null}
-        installations={Object {}}
-        setPerformCompleteUninstall={[Function]}
-        setShowConfirmModal={[Function]}
+      </Section>
+      <AppPricingPermissionsSection
+        app={Object {}}
+        desktopIntegrationTypes={Array []}
+        isDesktop={false}
       >
-        <Component>
+        <FadeIn>
+          <div
+            className="fade-in"
+          >
+            <Section>
+              <section
+                className="section has-padding has-margin has-background"
+                data-test=""
+              >
+                <Content>
+                  <div
+                    className="content"
+                    data-test=""
+                  >
+                    <H5
+                      className="mb-2"
+                    >
+                      <h5
+                        className="title is-5 mb-2"
+                        id=""
+                      >
+                        Pricing Information
+                      </h5>
+                    </H5>
+                    <p>
+                      There may be a cost associated to using this App/Integration. However, this information has not yet been provided by 
+                      . Please contact 
+                       directly for information about pricing.
+                    </p>
+                    <H5
+                      className="mb-2"
+                    >
+                      <h5
+                        className="title is-5 mb-2"
+                        id=""
+                      >
+                        Data Permissions
+                      </h5>
+                    </H5>
+                    <p>
+                      By installing this app, you are granting the following permissions to your data:
+                    </p>
+                    <p>
+                      Information about your organisation and the names/email addresses of your users
+                    </p>
+                    0
+                  </div>
+                </Content>
+              </section>
+            </Section>
+          </div>
+        </FadeIn>
+      </AppPricingPermissionsSection>
+      <AppToggleVisibilitySection
+        app={Object {}}
+      >
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component
-              className="justify-between items-center mb-4"
-            >
-              <div
-                className=""
+            <H5>
+              <h5
+                className="title is-5"
+                id=""
               >
-                <Component>
-                  <h5
-                    className=""
-                    id=""
-                  >
-                    Current Installations
-                  </h5>
-                </Component>
-                <Component
-                  disabled={true}
-                  loading={false}
-                  onClick={[Function]}
-                  variant="primary"
-                >
-                  <button
-                    className="button  is-primary  "
-                    data-test=""
-                    disabled={true}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Uninstall
-                  </button>
-                </Component>
-              </div>
-            </Component>
+                Application Visibility
+              </h5>
+            </H5>
             <p
               className="mb-4"
             >
               <i>
-                This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
+                By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
               </i>
             </p>
-          </section>
-        </Component>
-      </AppUninstallationSection>
-      <AppInstallationSection
-        appInstallationType=""
-        initialAppInstallationType={null}
-        installations={Object {}}
-        officeGroupsToAdd={Array []}
-        officeGroupsToRemove={Array []}
-        onCheckboxChange={[Function]}
-        setOfficeGroupsToAdd={[Function]}
-        setOfficeGroupsToRemove={[Function]}
-        setShowConfirmModal={[Function]}
-      >
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component
-              className="justify-between items-center mb-4"
+            <div
+              className="field field-checkbox mb-0 control"
             >
-              <div
-                className=""
+              <input
+                checked={true}
+                className="checkbox"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="label"
               >
-                <Component>
-                  <h5
-                    className=""
-                    id=""
-                  >
-                    Installation
-                  </h5>
-                </Component>
-                <Component
-                  disabled={false}
-                  onClick={[Function]}
-                  variant="primary"
+                Visible
+              </label>
+            </div>
+          </section>
+        </Section>
+      </AppToggleVisibilitySection>
+      <AppInstallationManager
+        app={Object {}}
+      >
+        <AppUninstallationSection
+          clientId={null}
+          installations={Object {}}
+          setPerformCompleteUninstall={[Function]}
+          setShowConfirmModal={[Function]}
+        >
+          <Section>
+            <section
+              className="section has-padding has-margin has-background"
+              data-test=""
+            >
+              <FlexContainerBasic
+                className="justify-between items-center mb-4"
+              >
+                <div
+                  className="container-flex justify-between items-center mb-4"
                 >
-                  <button
-                    className="button  is-primary  "
-                    data-test=""
+                  <H5>
+                    <h5
+                      className="title is-5"
+                      id=""
+                    >
+                      Current Installations
+                    </h5>
+                  </H5>
+                  <Button
+                    disabled={true}
+                    loading={false}
+                    onClick={[Function]}
+                    variant="primary"
+                  >
+                    <button
+                      className="button  is-primary  "
+                      data-test=""
+                      disabled={true}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Uninstall
+                    </button>
+                  </Button>
+                </div>
+              </FlexContainerBasic>
+              <p
+                className="mb-4"
+              >
+                <i>
+                  This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
+                </i>
+              </p>
+            </section>
+          </Section>
+        </AppUninstallationSection>
+        <AppInstallationSection
+          appInstallationType=""
+          initialAppInstallationType={null}
+          installations={Object {}}
+          officeGroupsToAdd={Array []}
+          officeGroupsToRemove={Array []}
+          onCheckboxChange={[Function]}
+          setOfficeGroupsToAdd={[Function]}
+          setOfficeGroupsToRemove={[Function]}
+          setShowConfirmModal={[Function]}
+        >
+          <Section>
+            <section
+              className="section has-padding has-margin has-background"
+              data-test=""
+            >
+              <FlexContainerBasic
+                className="justify-between items-center mb-4"
+              >
+                <div
+                  className="container-flex justify-between items-center mb-4"
+                >
+                  <H5>
+                    <h5
+                      className="title is-5"
+                      id=""
+                    >
+                      Installation
+                    </h5>
+                  </H5>
+                  <Button
                     disabled={false}
                     onClick={[Function]}
-                    type="button"
+                    variant="primary"
                   >
-                    Save
-                  </button>
-                </Component>
-              </div>
-            </Component>
-            <p
-              className="mb-4"
-            >
-              <i>
-                Please select the type of installation you require for this app:
-              </i>
-            </p>
-            <div
-              className="field field-checkbox mb-0 control"
-            >
-              <input
-                checked={false}
-                className="checkbox"
-                id="WHOLE_ORG"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="label"
-                htmlFor="WHOLE_ORG"
-              >
-                Install for the whole of your organisation
-              </label>
-              <div
-                className="form-subheading mb-4"
+                    <button
+                      className="button  is-primary  "
+                      data-test=""
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Save
+                    </button>
+                  </Button>
+                </div>
+              </FlexContainerBasic>
+              <p
+                className="mb-4"
               >
                 <i>
-                  This will grant the app access to all data for all users and offices across your organisation
+                  Please select the type of installation you require for this app:
                 </i>
-              </div>
-            </div>
-            <div
-              className="field field-checkbox mb-0 control"
-            >
-              <input
-                checked={false}
-                className="checkbox"
-                id="SPECIFIC_OFFICE_GROUPS"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="label"
-                htmlFor="SPECIFIC_OFFICE_GROUPS"
-              >
-                Install for specific office groups
-              </label>
+              </p>
               <div
-                className="form-subheading mb-4"
+                className="field field-checkbox mb-0 control"
               >
-                <i>
-                  This will grant the app access to only data for the specific offices inside of each office group
-                </i>
+                <input
+                  checked={false}
+                  className="checkbox"
+                  id="WHOLE_ORG"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label
+                  className="label"
+                  htmlFor="WHOLE_ORG"
+                >
+                  Install for the whole of your organisation
+                </label>
+                <div
+                  className="form-subheading mb-4"
+                >
+                  <i>
+                    This will grant the app access to all data for all users and offices across your organisation
+                  </i>
+                </div>
               </div>
-            </div>
-          </section>
-        </Component>
-      </AppInstallationSection>
-      <AppInstallationConfirmationModal
-        app={Object {}}
-        appInstallationType=""
-        installFor={Array []}
-        onClose={[Function]}
-        onConfirm={[Function]}
-        performCompleteUninstall={false}
-        uninstallFor={Array []}
-        visible={false}
-      >
-        <Component>
-          <Component
-            afterClose={[Function]}
-            footerItems={
-              <React.Fragment>
-                <Unknown
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
+              <div
+                className="field field-checkbox mb-0 control"
+              >
+                <input
+                  checked={false}
+                  className="checkbox"
+                  id="SPECIFIC_OFFICE_GROUPS"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label
+                  className="label"
+                  htmlFor="SPECIFIC_OFFICE_GROUPS"
                 >
-                  Cancel
-                </Unknown>
-                <Unknown
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
+                  Install for specific office groups
+                </label>
+                <div
+                  className="form-subheading mb-4"
                 >
-                  Confirm
-                </Unknown>
-              </React.Fragment>
-            }
-            title="undefined App Install"
-            visible={false}
-          />
-          <Memo(PortalContainer)
-            portals={Object {}}
-          >
-            <Portal
-              containerInfo={<body />}
+                  <i>
+                    This will grant the app access to only data for the specific offices inside of each office group
+                  </i>
+                </div>
+              </div>
+            </section>
+          </Section>
+        </AppInstallationSection>
+        <AppInstallationConfirmationModal
+          app={Object {}}
+          appInstallationType=""
+          installFor={Array []}
+          onClose={[Function]}
+          onConfirm={[Function]}
+          performCompleteUninstall={false}
+          uninstallFor={Array []}
+          visible={false}
+        >
+          <PortalProvider>
+            <Modal
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                    variant="secondary"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Button>
+                </React.Fragment>
+              }
+              title="undefined App Install"
+              visible={false}
             />
-          </Memo(PortalContainer)>
-        </Component>
-      </AppInstallationConfirmationModal>
-    </AppInstallationManager>
-  </mock-styled.div>
+            <Memo(PortalContainer)
+              portals={Object {}}
+            >
+              <Portal
+                containerInfo={<body />}
+              />
+            </Memo(PortalContainer)>
+          </PortalProvider>
+        </AppInstallationConfirmationModal>
+      </AppInstallationManager>
+    </div>
+  </FadeIn>
 </MarketplaceAppPage>
 `;
 
 exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
 <MarketplaceAppPage>
-  <Component>
+  <Loader>
     <div
       className="loader-spinner body"
       data-test=""
@@ -366,6 +374,6 @@ exports[`MarketplaceAppPage should match a snapshot when loading 1`] = `
       <div />
       <div />
     </div>
-  </Component>
+  </Loader>
 </MarketplaceAppPage>
 `;

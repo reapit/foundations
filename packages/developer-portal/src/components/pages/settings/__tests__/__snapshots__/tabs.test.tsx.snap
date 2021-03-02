@@ -13,8 +13,8 @@ exports[`Tabs should match a snapshot 1`] = `
     }
   }
 >
-  <Component>
-    <Component
+  <Tabs>
+    <Tabs
       tabConfigs={
         Array [
           Object {
@@ -27,7 +27,7 @@ exports[`Tabs should match a snapshot 1`] = `
       }
     >
       <div
-        className=""
+        className="tabs is-fullwidth"
         role="tablist"
       >
         <ul>
@@ -47,7 +47,7 @@ exports[`Tabs should match a snapshot 1`] = `
           </li>
         </ul>
       </div>
-    </Component>
-  </Component>
+    </Tabs>
+  </Tabs>
 </Provider>
 `;

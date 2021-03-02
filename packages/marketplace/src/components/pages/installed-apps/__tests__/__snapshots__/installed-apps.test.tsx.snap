@@ -55,25 +55,25 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component>
+      <InstalledApps>
         <ErrorBoundary>
-          <Component
+          <H3
             className=""
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Installed Apps
             </h3>
-          </Component>
-          <Component>
+          </H3>
+          <Content>
             <div
-              className=""
+              className="content"
               data-test=""
             >
-              <Component
+              <InstalledAppList
                 infoType="INSTALLED_APPS_EMPTY"
                 list={Array []}
                 loading={false}
@@ -87,7 +87,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                   }
                 }
               >
-                <Component
+                <Helper
                   variant="info"
                 >
                   <div
@@ -95,18 +95,18 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                   >
                     It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
                   </div>
-                </Component>
-                <Component
+                </Helper>
+                <Pagination
                   onChange={[Function]}
                   pageNumber={1}
                   pageSize={12}
                   totalCount={0}
                 />
-              </Component>
+              </InstalledAppList>
             </div>
-          </Component>
+          </Content>
         </ErrorBoundary>
-      </Component>
+      </InstalledApps>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -167,25 +167,25 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
         }
       }
     >
-      <Component>
+      <InstalledApps>
         <ErrorBoundary>
-          <Component
+          <H3
             className=""
             isHeadingSection={true}
           >
             <h3
-              className=""
+              className="title is-3 is-heading-section"
               id=""
             >
               Installed Apps
             </h3>
-          </Component>
-          <Component>
+          </H3>
+          <Content>
             <div
-              className=""
+              className="content"
               data-test=""
             >
-              <Component
+              <InstalledAppList
                 infoType="INSTALLED_APPS_EMPTY"
                 list={Array []}
                 loading={false}
@@ -199,7 +199,7 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
                   }
                 }
               >
-                <Component
+                <Helper
                   variant="info"
                 >
                   <div
@@ -207,18 +207,18 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
                   >
                     It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
                   </div>
-                </Component>
-                <Component
+                </Helper>
+                <Pagination
                   onChange={[Function]}
                   pageNumber={1}
                   pageSize={12}
                   totalCount={0}
                 />
-              </Component>
+              </InstalledAppList>
             </div>
-          </Component>
+          </Content>
         </ErrorBoundary>
-      </Component>
+      </InstalledApps>
     </Router>
   </MemoryRouter>
 </Provider>

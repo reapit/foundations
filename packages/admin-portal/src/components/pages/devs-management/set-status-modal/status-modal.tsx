@@ -31,7 +31,7 @@ export const onAfterSubmit = (setSubmitting, onClose) => (success: boolean) => {
   if (success) onClose()
 }
 
-export const reapitRefInput: React.FC<FormikProps<any>> = form => {
+export const reapitRefInput: React.FC<FormikProps<any>> = (form) => {
   const { values } = form
   if (values.status === 'confirmed')
     return (

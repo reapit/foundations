@@ -13,7 +13,7 @@ import { notification } from '@reapit/elements'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 
-export const statisticsDataFetch = function*({ data }) {
+export const statisticsDataFetch = function* ({ data }) {
   try {
     const { area, range } = data
     const queryParams = {} as any
@@ -22,9 +22,7 @@ export const statisticsDataFetch = function*({ data }) {
       queryParams.RegisteredFrom = dateRange.from.toISOString()
       queryParams.RegisteredTo = dateRange.to.toISOString()
     } else {
-      queryParams.RegisteredFrom = dayjs(MARKETPLACE_GOLIVE_DATE)
-        .toDate()
-        .toISOString()
+      queryParams.RegisteredFrom = dayjs(MARKETPLACE_GOLIVE_DATE).toDate().toISOString()
     }
     const servicesToCall = {
       DEVELOPERS: fetchDevelopersList,
@@ -39,8 +37,8 @@ export const statisticsDataFetch = function*({ data }) {
         pageSize: GET_ALL_PAGE_SIZE,
       })
       const installationsWithAppName =
-        response?.data?.map(installation => {
-          const appName = apps.data?.find(app => app.id === installation.appId)?.name ?? ''
+        response?.data?.map((installation) => {
+          const appName = apps.data?.find((app) => app.id === installation.appId)?.name ?? ''
 
           return {
             ...installation,
@@ -63,11 +61,11 @@ export const statisticsDataFetch = function*({ data }) {
   }
 }
 
-export const statisticsDataListen = function*() {
+export const statisticsDataListen = function* () {
   yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.FETCH_STATISTICS, statisticsDataFetch)
 }
 
-const statisticsSagas = function*() {
+const statisticsSagas = function* () {
   yield all([fork(statisticsDataListen)])
 }
 

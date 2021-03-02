@@ -19,7 +19,7 @@ export const showHandleAgencyCloudSectionGroups = ['ReapitUser', 'ReapitUsersAdm
 export const handleIsShowAgencyCloudSectionMemo = (session: ReapitConnectHook) => () => {
   const sessionGroups = session?.connectSession?.loginIdentity?.groups || []
 
-  return sessionGroups.some(group => showHandleAgencyCloudSectionGroups.includes(group))
+  return sessionGroups.some((group) => showHandleAgencyCloudSectionGroups.includes(group))
 }
 
 export const Welcome: React.FC<WelcomeProps> = () => {

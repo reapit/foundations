@@ -1,31 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebhookTestModal should WebhookTestModal match a snapshot 1`] = `
-<Provider
-  store={
+<ContextProvider
+  value={
     Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
     }
   }
 >
-  <Component
+  <WebhookTestModal
     afterClose={[MockFunction]}
     closeModal={[MockFunction]}
     visible={true}
     webhookId="webhookId"
-  >
-    <Component
-      afterClose={[MockFunction]}
-      renderChildren={true}
-      visible={true}
-    />
-  </Component>
-</Provider>
+  />
+</ContextProvider>
 `;
 
 exports[`WebhookTestModal should WebhookTestResultModal match a snapshot 1`] = `
@@ -41,25 +54,25 @@ exports[`WebhookTestModal should WebhookTestResultModal match a snapshot 1`] = `
     }
   }
 >
-  <Component>
-    <Component
+  <WebhookTestResultModal>
+    <Modal
       renderChildren={true}
       visible={false}
     />
-  </Component>
+  </WebhookTestResultModal>
 </Provider>
 `;
 
 exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
-<Component
+<ModalBody
   body={
     <React.Fragment>
-      <Unknown>
+      <Content>
         <p>
           To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
            
           <a
-            className=""
+            className="l3gjl5x-link"
             href="/api-docs/api/webhooks#testing"
             rel="noopener noreferrer"
             target="_blank"
@@ -67,8 +80,8 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
             click here
           </a>
         </p>
-      </Unknown>
-      <Unknown
+      </Content>
+      <SelectBox
         id="topicId"
         labelText="Subscription Topics"
         name="topicId"
@@ -81,10 +94,10 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
 `;
 
 exports[`WebhookTestModalFooter WebhookTestModalFooter should match snapshot 1`] = `
-<Component
+<ModalFooter
   footerItems={
     <React.Fragment>
-      <Unknown
+      <Button
         className="mr-2"
         fullWidth={true}
         onClick={[Function]}
@@ -92,14 +105,14 @@ exports[`WebhookTestModalFooter WebhookTestModalFooter should match snapshot 1`]
         variant="danger"
       >
         CANCEL
-      </Unknown>
-      <Unknown
+      </Button>
+      <Button
         fullWidth={true}
         type="submit"
         variant="primary"
       >
         TEST
-      </Unknown>
+      </Button>
     </React.Fragment>
   }
 />

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Filler: React.FC<ProgressBarProps> = props => {
+export const Filler: React.FC<ProgressBarProps> = (props) => {
   return <div className="filler" style={{ width: `${props.percentage}%` }} />
 }
 

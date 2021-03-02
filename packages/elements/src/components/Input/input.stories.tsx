@@ -14,7 +14,7 @@ export default {
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ text: '', email: '', password: '', tel: '' }}
-          onSubmit={values => {
+          onSubmit={(values) => {
             action('Form Values' + values)
           }}
         >
@@ -29,7 +29,7 @@ export default {
   ],
 }
 
-export const Required: Story<InputProps> = args => <Input {...args} />
+export const Required: Story<InputProps> = (args) => <Input {...args} />
 Required.args = {
   id: 'text',
   type: 'text',
@@ -39,7 +39,7 @@ Required.args = {
   required: true,
 }
 
-export const Email: Story<InputProps> = args => <Input {...args} />
+export const Email: Story<InputProps> = (args) => <Input {...args} />
 Email.args = {
   id: 'email',
   type: 'email',
@@ -48,7 +48,7 @@ Email.args = {
   labelText: 'Email',
 }
 
-export const Password: Story<InputProps> = args => <Input {...args} />
+export const Password: Story<InputProps> = (args) => <Input {...args} />
 Password.args = {
   id: 'password',
   type: 'password',
@@ -57,7 +57,7 @@ Password.args = {
   labelText: 'Password',
 }
 
-export const Telephone: Story<InputProps> = args => <Input {...args} />
+export const Telephone: Story<InputProps> = (args) => <Input {...args} />
 Telephone.args = {
   id: 'tel',
   type: 'tel',
@@ -66,7 +66,7 @@ Telephone.args = {
   labelText: 'Telephone',
 }
 
-export const Search: Story<InputProps> = args => <Input {...args} />
+export const Search: Story<InputProps> = (args) => <Input {...args} />
 Search.args = {
   id: 'search',
   type: 'text',

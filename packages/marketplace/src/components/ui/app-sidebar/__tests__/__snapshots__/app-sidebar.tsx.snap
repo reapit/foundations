@@ -2,23 +2,23 @@
 
 exports[`AppSidebar should match a snapshot 1`] = `
 <div
-  className=""
+  className="sym7snt-sidebar"
 >
-  <Component
+  <FlexContainerBasic
     flexColumn={true}
     hasPadding={true}
   >
     <div
-      className=""
+      className="syuub8n-sidebar-wrap"
     >
-      <Component>
+      <H5>
         Browse Apps
-      </Component>
-      <Component
-        className=""
+      </H5>
+      <H6
+        className="semyxxp-sub-heading"
       >
         Search
-      </Component>
+      </H6>
       <Formik
         component={[Function]}
         enableReinitialize={true}
@@ -130,13 +130,13 @@ exports[`AppSidebar should match a snapshot 1`] = `
       />
     </div>
     <div
-      className=""
+      className="syuub8n-sidebar-wrap"
     >
-      <Component
-        className=""
+      <H6
+        className="semyxxp-sub-heading"
       >
         Filter
-      </Component>
+      </H6>
       <CategoriesList
         categories={
           Array [
@@ -164,19 +164,19 @@ exports[`AppSidebar should match a snapshot 1`] = `
         onSelectCategory={[Function]}
       />
     </div>
-  </Component>
+  </FlexContainerBasic>
 </div>
 `;
 
 exports[`FilterForm should match a snapshot 1`] = `
 <Form>
-  <Component
+  <Input
     id="search"
     name="search"
     placeholder="Search..."
     rightIcon={
       <button
-        className=""
+        className="b101rvil-btn-search"
         type="submit"
       >
         <FaSearch />
@@ -184,7 +184,7 @@ exports[`FilterForm should match a snapshot 1`] = `
     }
     type="text"
   />
-  <Component
+  <RadioSelect
     id="searchBy"
     name="searchBy"
     options={

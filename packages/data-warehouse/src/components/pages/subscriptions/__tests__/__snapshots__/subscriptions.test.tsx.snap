@@ -1,192 +1,204 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Subscriptions should match a snapshot 1`] = `
-<Component>
-  <Component>
-    <Component
+<MessageProvider>
+  <Subscriptions>
+    <H3
       isHeadingSection={true}
     >
       <h3
-        className=""
+        className="title is-3 is-heading-section"
         id=""
       >
         Data Warehouse Account
       </h3>
-    </Component>
-    <mock-styled.div>
-      <Component>
-        <section
-          className=""
-          data-test=""
-        >
-          <Component>
-            <div
-              className=""
-              data-test=""
-            >
-              <Component>
-                <h5
-                  className=""
-                  id=""
-                >
-                  How It Works
-                </h5>
-              </Component>
-              <p>
-                Reapit's data warehouse is a premium service that provides your organisation's data in an analytics focused format. Our cloud-based warehouse technology is supported by all major business intelligence applications such as Microsoft Power BI and Tableau, to allow you to extract new value and insights from your data.
-              </p>
-              <p>
-                This application can provision a dedicated virtual data warehouse and allow you to manage which users and applications have access to it. The analytics area allows you to track usage statistics and set limits on your monthly spend. For usage instructions,
-                 
-                <a
-                  href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  click here.
-                </a>
-              </p>
-            </div>
-          </Component>
-        </section>
-      </Component>
-    </mock-styled.div>
-    <SubscriptionsContent>
-      <mock-styled.div>
-        <Component>
+    </H3>
+    <FadeIn>
+      <div
+        className="fade-in"
+      >
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <Content>
               <div
-                className=""
+                className="content"
                 data-test=""
               >
-                <Component>
-                  <div
-                    className=""
-                    data-test=""
+                <H5>
+                  <h5
+                    className="title is-5"
+                    id=""
                   >
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component>
-                          <h5
-                            className=""
-                            id=""
-                          >
-                            Pricing
-                          </h5>
-                        </Component>
-                        <p>
-                          Access requires a subscription plus usage costs based on your warehouse consumption. You can cancel your subscription at any time.
-                        </p>
-                        <p>
-                          A subscription for your organisation costs £150 per month. Additional costs are calculated based on the number of hours of that your warehouse is active in a given month, charged at £6.99 per hour. Your subscription includes 2 hours of warehouse uptime per month.
-                        </p>
-                        <p>
-                          Your warehouse will become active when queries are issued against it. You will be billed by the minute while your warehouse is in an active state and ready to serve data. After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.
-                           
-                        </p>
-                        <p>
-                          The below table represents the estimated cost of running a typical sales activity report for a given frequency over the course of a month:
-                        </p>
-                        <p>
-                          * All charges are subject to VAT
-                        </p>
-                      </div>
-                    </Component>
-                    <Component>
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <mock-styled.div>
-                          <div
-                            className="desktop-inner-container"
-                          >
-                            <div
-                              className="modal-card-head"
-                            >
-                              <Component
-                                className="mb-0"
-                                isCentered={true}
-                              >
-                                <h5
-                                  className=""
-                                  id=""
-                                >
-                                  Data Warehouse Service
-                                </h5>
-                              </Component>
-                            </div>
-                            <div
-                              className="justify-center items-center is-flex py-2"
-                            >
-                              <span
-                                className="desktop-price"
-                              >
-                                £150 / Month
-                              </span>
-                               
-                            </div>
-                            <ul>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Includes 2 hours per month warehouse uptime
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Only pay for the uptime you need after that
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Track your usage and set spending limits
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Dedicated virtual warehouse for your organisation
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Supports all major BI products
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Enterprise grade encryption in transit and at rest
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Data kept up to date at 30-minute intervals
-                              </li>
-                              <li
-                                className="text-center px-2 py-1"
-                              >
-                                Cancel your subscription at any time
-                              </li>
-                            </ul>
-                          </div>
-                        </mock-styled.div>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
+                    How It Works
+                  </h5>
+                </H5>
+                <p>
+                  Reapit's data warehouse is a premium service that provides your organisation's data in an analytics focused format. Our cloud-based warehouse technology is supported by all major business intelligence applications such as Microsoft Power BI and Tableau, to allow you to extract new value and insights from your data.
+                </p>
+                <p>
+                  This application can provision a dedicated virtual data warehouse and allow you to manage which users and applications have access to it. The analytics area allows you to track usage statistics and set limits on your monthly spend. For usage instructions,
+                   
+                  <a
+                    href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    click here.
+                  </a>
+                </p>
               </div>
-            </Component>
+            </Content>
           </section>
-        </Component>
-      </mock-styled.div>
+        </Section>
+      </div>
+    </FadeIn>
+    <SubscriptionsContent>
+      <FadeIn>
+        <div
+          className="fade-in"
+        >
+          <Section>
+            <section
+              className="section has-padding has-margin has-background"
+              data-test=""
+            >
+              <Content>
+                <div
+                  className="content"
+                  data-test=""
+                >
+                  <Grid>
+                    <div
+                      className="columns"
+                      data-test=""
+                    >
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                          <H5>
+                            <h5
+                              className="title is-5"
+                              id=""
+                            >
+                              Pricing
+                            </h5>
+                          </H5>
+                          <p>
+                            Access requires a subscription plus usage costs based on your warehouse consumption. You can cancel your subscription at any time.
+                          </p>
+                          <p>
+                            A subscription for your organisation costs £150 per month. Additional costs are calculated based on the number of hours of that your warehouse is active in a given month, charged at £6.99 per hour. Your subscription includes 2 hours of warehouse uptime per month.
+                          </p>
+                          <p>
+                            Your warehouse will become active when queries are issued against it. You will be billed by the minute while your warehouse is in an active state and ready to serve data. After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.
+                             
+                          </p>
+                          <p>
+                            The below table represents the estimated cost of running a typical sales activity report for a given frequency over the course of a month:
+                          </p>
+                          <p>
+                            * All charges are subject to VAT
+                          </p>
+                        </div>
+                      </GridItem>
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                          <PricingTile>
+                            <div
+                              className="pricing-tile"
+                            >
+                              <div
+                                className="desktop-inner-container"
+                              >
+                                <div
+                                  className="modal-card-head"
+                                >
+                                  <H5
+                                    className="mb-0"
+                                    isCentered={true}
+                                  >
+                                    <h5
+                                      className="title is-5 mb-0 has-text-centered"
+                                      id=""
+                                    >
+                                      Data Warehouse Service
+                                    </h5>
+                                  </H5>
+                                </div>
+                                <div
+                                  className="justify-center items-center is-flex py-2"
+                                >
+                                  <span
+                                    className="desktop-price"
+                                  >
+                                    £150 / Month
+                                  </span>
+                                   
+                                </div>
+                                <ul>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Includes 2 hours per month warehouse uptime
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Only pay for the uptime you need after that
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Track your usage and set spending limits
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Dedicated virtual warehouse for your organisation
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Supports all major BI products
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Enterprise grade encryption in transit and at rest
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Data kept up to date at 30-minute intervals
+                                  </li>
+                                  <li
+                                    className="text-center px-2 py-1"
+                                  >
+                                    Cancel your subscription at any time
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </PricingTile>
+                        </div>
+                      </GridItem>
+                    </div>
+                  </Grid>
+                </div>
+              </Content>
+            </section>
+          </Section>
+        </div>
+      </FadeIn>
     </SubscriptionsContent>
-  </Component>
-</Component>
+  </Subscriptions>
+</MessageProvider>
 `;

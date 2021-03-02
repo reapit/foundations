@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouteWrapper should match snapshot 1`] = `
-<Component>
-  <Component />
-  <Component
+<AppNavContainer>
+  <Menu />
+  <FlexContainerBasic
     flexColumn={true}
     id="app-root-container"
     isScrollable={true}
   >
-    <Component
+    <FlexContainerResponsive
       flexColumn={true}
       hasPadding={true}
     >
       <Suspense
         fallback={
-          <Unknown>
-            <Unknown />
-          </Unknown>
+          <Section>
+            <Loader />
+          </Section>
         }
       />
-    </Component>
-  </Component>
-</Component>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
+</AppNavContainer>
 `;

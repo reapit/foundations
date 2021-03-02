@@ -14,7 +14,7 @@ import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 export const handlePolling = (accountUri: string): Promise<{ provisioned: boolean; interval: number }> => {
   const accountId = accountUri.split('/').slice(-1)[0]
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const interval = window.setInterval(async () => {
       const account = await getAccountService(accountId)
 

@@ -6,7 +6,7 @@ import ActionTypes from '@/constants/action-types'
 import { fetchDeveloperDetailsSuccess, fetchDeveloperDetailsFailed } from '@/actions/developers'
 import { notification } from '@reapit/elements'
 
-export const fetchDeveloperDetails = function*({ data }: Action<FetchDeveloperByIdParams>) {
+export const fetchDeveloperDetails = function* ({ data }: Action<FetchDeveloperByIdParams>) {
   try {
     const { id } = data
     if (!id) throw new Error('Missing some data')
@@ -21,11 +21,11 @@ export const fetchDeveloperDetails = function*({ data }: Action<FetchDeveloperBy
   }
 }
 
-export const fetchDeveloperDetailsListen = function*() {
+export const fetchDeveloperDetailsListen = function* () {
   yield takeLatest<Action<FetchDeveloperByIdParams>>(ActionTypes.FETCH_DEVELOPER_DETAILS, fetchDeveloperDetails)
 }
 
-export const developerDetailsListSagas = function*() {
+export const developerDetailsListSagas = function* () {
   yield all([fork(fetchDeveloperDetailsListen)])
 }
 

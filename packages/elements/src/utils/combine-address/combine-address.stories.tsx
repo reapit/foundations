@@ -7,7 +7,7 @@ export default {
   component: <div />,
 }
 
-export const Usage: Story = args => {
+export const Usage: Story = (args) => {
   return <div>{combineAddress(args)}</div>
 }
 Usage.args = {

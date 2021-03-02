@@ -21,11 +21,9 @@ describe('developer-analytics utils', () => {
 
   describe('groupAppsByNameAndCount', () => {
     it('should run correctly', () => {
-      const formatedApps = installedAppsStub.map(app => ({
+      const formatedApps = installedAppsStub.map((app) => ({
         ...app,
-        createdDate: dayjs(app.created)
-          .startOf('day')
-          .toDate(),
+        createdDate: dayjs(app.created).startOf('day').toDate(),
       }))
 
       expect(groupAppsByNameAndCount(formatedApps)).toHaveProperty('062a376c-f5a3-46a0-a64b-e4bc6e5af2c1')

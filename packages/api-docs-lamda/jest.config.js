@@ -1,9 +1,9 @@
-const baseConfig = require('../../scripts/jest/jest.config')
+const { jestGlobalConfig } = require('@reapit/ts-scripts')
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
-  ...baseConfig,
+  ...jestGlobalConfig,
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|dist)[/\\\\]',
   ],
@@ -15,7 +15,7 @@ module.exports = {
   },
   coverageThreshold: {
     global: {
-      branches: 80,
+      branches: 60,
       functions: 80,
       lines: 80,
       statements: 80,

@@ -23,7 +23,7 @@ import {
   updateOrganisationMemberById,
 } from '@/services/developers'
 
-export const fetchDeveloperListHandler = function*({ data: { page, queryString } }) {
+export const fetchDeveloperListHandler = function* ({ data: { page, queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
     const name = queryParams.get('name') || ''
@@ -53,7 +53,7 @@ export const fetchDeveloperListHandler = function*({ data: { page, queryString }
   }
 }
 
-export const organisationFetchMembers = function*({ data }: Action<FetchDeveloperMembersParams>) {
+export const organisationFetchMembers = function* ({ data }: Action<FetchDeveloperMembersParams>) {
   try {
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchDeveloperMembersListSuccess(response))
@@ -65,7 +65,7 @@ export const organisationFetchMembers = function*({ data }: Action<FetchDevelope
   }
 }
 
-export const developerDisableMember = function*({ data }: Action<DisableMemberActionParams>) {
+export const developerDisableMember = function* ({ data }: Action<DisableMemberActionParams>) {
   try {
     yield call(disableMemberApi, { developerId: data.developerId, memberId: data.memberId })
     data.callback(true)
@@ -79,7 +79,7 @@ export const developerDisableMember = function*({ data }: Action<DisableMemberAc
   }
 }
 
-export const setDeveloperMemberAdmin = function*({ data }: Action<SetAsAdminParams>) {
+export const setDeveloperMemberAdmin = function* ({ data }: Action<SetAsAdminParams>) {
   const { callback, ...params } = data
   try {
     yield call(updateOrganisationMemberById, params)
@@ -94,26 +94,26 @@ export const setDeveloperMemberAdmin = function*({ data }: Action<SetAsAdminPara
   }
 }
 
-export const fetchDeveloperListListen = function*() {
+export const fetchDeveloperListListen = function* () {
   yield takeLatest<Action<fetchDeveloperListValues>>(ActionTypes.FETCH_DEVELOPER_LIST, fetchDeveloperListHandler)
 }
 
-export const fetchDeveloperMemberListListen = function*() {
+export const fetchDeveloperMemberListListen = function* () {
   yield takeLatest<Action<FetchDeveloperMembersParams>>(
     ActionTypes.FETCH_DEVELOPER_MEMBER_LIST,
     organisationFetchMembers,
   )
 }
 
-export const disableDeveloperMemberListen = function*() {
+export const disableDeveloperMemberListen = function* () {
   yield takeLatest<Action<DisableMemberActionParams>>(ActionTypes.DISABLE_MEMBER, developerDisableMember)
 }
 
-export const setDeveloperMemberAdminListen = function*() {
+export const setDeveloperMemberAdminListen = function* () {
   yield takeLatest<Action<SetAsAdminParams>>(ActionTypes.SET_AS_ADMIN, setDeveloperMemberAdmin)
 }
 
-const devsManagementSagas = function*() {
+const devsManagementSagas = function* () {
   yield all([
     fork(fetchDeveloperListListen),
     fork(fetchDeveloperMemberListListen),

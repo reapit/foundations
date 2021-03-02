@@ -24,25 +24,25 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
         onSubmit={[Function]}
       >
         <AgencyCloudIntegrationSection>
-          <Component>
+          <FormSection>
             <div
-              className=""
+              className="form-section"
             >
-              <Component>
+              <FormHeading>
                 <div
-                  className=""
+                  className="form-heading mb-1"
                 >
                   Agency Cloud Integration
                 </div>
-              </Component>
-              <Component>
+              </FormHeading>
+              <FormSubHeading>
                 <div
-                  className=""
+                  className="form-subheading mb-4"
                 >
                   To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                    
                   <a
-                    className=""
+                    className="l3gjl5x-link"
                     href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -50,18 +50,18 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
                     click here
                   </a>
                 </div>
-              </Component>
-              <Component>
+              </FormSubHeading>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <DropdownSelect
                         fixedPosition={true}
                         id="desktopIntegrationTypeIds"
                         labelText="Integration Type"
@@ -505,13 +505,13 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
                           </div>
                         </div>
                         <div />
-                      </Component>
+                      </DropdownSelect>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
+              </Grid>
             </div>
-          </Component>
+          </FormSection>
         </AgencyCloudIntegrationSection>
       </form>
     </Form>

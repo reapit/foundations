@@ -2,21 +2,21 @@
 
 exports[`StepInputAuthenticationUris should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalBody
     body={
       <div>
-        <Unknown>
+        <H5>
           How do you intend to authenticate your app?
-        </Unknown>
+        </H5>
         <div
-          className=""
+          className="b11ld2z9-btn-choose-auth-type-container"
         >
           <div>
             <div
-              className=""
+              className="bkpc1pl-btn-choose-auth-type-container-left"
             >
-              <Unknown
-                className=""
+              <Button
+                className="b1fd7d9h-btn-choose-auth-type"
                 onClick={[Function]}
                 variant="secondary"
               >
@@ -26,13 +26,13 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
                 <p>
                   Will use Reapit Connect our OAuth provider and will be a web application either a single page application or server rendered site
                 </p>
-              </Unknown>
+              </Button>
             </div>
             <div
-              className=""
+              className="b1sc8ozr-btn-choose-auth-type-container-right"
             >
-              <Unknown
-                className=""
+              <Button
+                className="b1fd7d9h-btn-choose-auth-type"
                 onClick={[Function]}
                 variant="secondary"
               >
@@ -42,22 +42,22 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
                 <p>
                   Authenticate using a REST service on the server, typically you are pulling data into an existing application
                 </p>
-              </Unknown>
+              </Button>
             </div>
           </div>
         </div>
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
-      <Unknown
+      <Button
         className="ml-0"
         onClick={[Function]}
         variant="secondary"
       >
         Back
-      </Unknown>
+      </Button>
     }
   />
 </Fragment>

@@ -219,7 +219,7 @@ exports[`appointment Apppointment should match snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <Appointment />
 </ApolloProvider>
 `;
 
@@ -8196,6 +8196,6 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
     }
   }
 >
-  <Component />
+  <Appointment />
 </ApolloProvider>
 `;

@@ -42,11 +42,11 @@ export const columns = [
 export const handleDownloadBillingPeriod = (period: string, setFileBlob: Dispatch<Blob | undefined>) => () => {
   if (!period) return
   fetchDeveloperBillingPeriod({ period })
-    .then(blob => {
+    .then((blob) => {
       if (blob instanceof FetchError) throw blob
       setFileBlob(blob)
     })
-    .catch(error => {
+    .catch((error) => {
       notification.error({
         message: error.message || errorMessages.DEFAULT_SERVER_ERROR,
         placement: 'bottomRight',
@@ -68,7 +68,7 @@ export const genarateYearsListOptions = (yearFrom: number) => {
   return years
 }
 
-export const genarateMonthsListOptions = months => {
+export const genarateMonthsListOptions = (months) => {
   const monthOptions: SelectOption[] = months.map((month, index) => {
     const value = `${++index >= 10 ? index : '0' + index}`
     return { label: month, value }
@@ -76,7 +76,7 @@ export const genarateMonthsListOptions = months => {
   return monthOptions
 }
 
-export const handleChangePeriod = (setMonth, setYear) => event => {
+export const handleChangePeriod = (setMonth, setYear) => (event) => {
   const { value, name } = event.nativeEvent.target
   if (name === 'month') setMonth(value)
   if (name === 'year') setYear(value)

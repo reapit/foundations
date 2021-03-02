@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetIdentityChecksAPI,
   callCreateIdentityCheckAPI,
@@ -6,10 +6,10 @@ import {
   callGetIdentityCheckByIdAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { identityCheckMock } from '../__stubs__/identity-check'
-import { identityChecksMock } from '../__stubs__/identity-checks'
-import { createIdentityCheckArgsMock } from '../__stubs__/create-identity-check'
-import { updateIdentityCheckArgsMock } from '../__stubs__/update-identity-check'
+import { identityCheckMock } from '../__stubs__/mock-identity-check'
+import { identityChecksMock } from '../__stubs__/mock-identity-checks'
+import { createIdentityCheckArgsMock } from '../__stubs__/mock-create-identity-check'
+import { updateIdentityCheckArgsMock } from '../__stubs__/mock-update-identity-check'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

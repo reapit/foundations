@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TrafficEventTable should match snapshot 1`] = `
-<Component
+<Section
   hasMargin={false}
 >
-  <Component>
+  <H5>
     Hits By Resource
-  </Component>
+  </H5>
   <p
     className="is-italic mb-4"
   >
     A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
   </p>
-  <mock-styled.div>
-    <Component
+  <FadeIn>
+    <Table
       bordered={true}
       columns={
         Array [
@@ -47,24 +47,24 @@ exports[`TrafficEventTable should match snapshot 1`] = `
       maxHeight={450}
       scrollable={true}
     />
-  </mock-styled.div>
-</Component>
+  </FadeIn>
+</Section>
 `;
 
 exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
-<Component
+<Section
   hasMargin={false}
 >
-  <Component>
+  <H5>
     Hits By Resource
-  </Component>
+  </H5>
   <p
     className="is-italic mb-4"
   >
     A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
   </p>
-  <mock-styled.div>
-    <Component
+  <FadeIn>
+    <Table
       bordered={true}
       columns={
         Array [
@@ -87,8 +87,8 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
       maxHeight={450}
       scrollable={true}
     />
-  </mock-styled.div>
-</Component>
+  </FadeIn>
+</Section>
 `;
 
-exports[`TrafficEventTable should match snapshot when loading 1`] = `<Component />`;
+exports[`TrafficEventTable should match snapshot when loading 1`] = `<Loader />`;

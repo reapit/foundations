@@ -12,7 +12,7 @@ const clientSearchValidationSchema = Yup.object().shape({
     .max(256, MAXIMUM_CHARACTER_LENGTH(256))
     .matches(letterNumberSpaceRegex, FIELD_GENERAL_ERROR(nameField.name))
     .when([addressField.name], {
-      is: address => !address,
+      is: (address) => !address,
       then: Yup.string().required(FIELD_REQUIRED),
     }),
   [addressField.name]: Yup.string()

@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accounts should match a snapshot 1`] = `
-<Component>
-  <Component>
-    <Component
+<MessageProvider>
+  <Accounts>
+    <Section
       className="justify-between items-center"
       isFlex={true}
     >
       <section
-        className=""
+        className="section is-flex has-padding has-margin has-background justify-between items-center"
         data-test=""
       >
-        <Component
+        <H3
           className="mb-0"
         >
           <h3
-            className=""
+            className="title is-3 mb-0"
             id=""
           >
             Users
           </h3>
-        </Component>
-        <Component
+        </H3>
+        <Button
           disabled={true}
           loading={false}
           onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`Accounts should match a snapshot 1`] = `
           >
             Provision User Account
           </button>
-        </Component>
+        </Button>
         <AccountProvisionModal
           handleClose={[Function]}
           setAccounts={[Function]}
@@ -43,15 +43,15 @@ exports[`Accounts should match a snapshot 1`] = `
           setProvisionInProgress={[Function]}
           visible={false}
         >
-          <Component
+          <Modal
             afterClose={[Function]}
             title="Provision Data Warehouse Account"
             visible={false}
           />
         </AccountProvisionModal>
       </section>
-    </Component>
-    <Component>
+    </Section>
+    <Loader>
       <div
         className="loader-spinner body"
         data-test=""
@@ -61,7 +61,7 @@ exports[`Accounts should match a snapshot 1`] = `
         <div />
         <div />
       </div>
-    </Component>
-  </Component>
-</Component>
+    </Loader>
+  </Accounts>
+</MessageProvider>
 `;

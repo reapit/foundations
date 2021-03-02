@@ -7,7 +7,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { notification } from '@reapit/elements'
 
-export const fetchInstallationsListSaga = function*({ data }) {
+export const fetchInstallationsListSaga = function* ({ data }) {
   try {
     const developerId = yield getDeveloperId()
     const response = yield call(fetchInstallationsList, { ...data, developerId })
@@ -21,14 +21,14 @@ export const fetchInstallationsListSaga = function*({ data }) {
   }
 }
 
-export const fetchInstallationsListListen = function*() {
+export const fetchInstallationsListListen = function* () {
   yield takeLatest<Action<FetchInstallationsListParams>>(
     ActionTypes.FETCH_INSTALLATIONS_LIST,
     fetchInstallationsListSaga,
   )
 }
 
-export const fetchInstallationsListSagas = function*() {
+export const fetchInstallationsListSagas = function* () {
   yield all([fork(fetchInstallationsListListen)])
 }
 

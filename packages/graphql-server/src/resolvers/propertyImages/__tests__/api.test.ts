@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetPropertyImagesAPI,
   callGetPropertyImageByIdAPI,
@@ -7,11 +7,11 @@ import {
   callUpdatePropertyImageAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { propertyImageMock } from '../__stubs__/propertyImage'
-import { propertyImagesMock } from '../__stubs__/propertyImages'
-import { createPropertyImageArgsMock } from '../__stubs__/create-property-image'
-import { deletePropertyImageArgsMock } from '../__stubs__/delete-property-image'
-import { updatePropertyImageArgsMock } from '../__stubs__/update-property-image'
+import { propertyImageMock } from '../__stubs__/mock-property-image'
+import { propertyImagesMock } from '../__stubs__/mock-property-images'
+import { createPropertyImageArgsMock } from '../__stubs__/mock-create-property-image'
+import { deletePropertyImageArgsMock } from '../__stubs__/mock-delete-property-image'
+import { updatePropertyImageArgsMock } from '../__stubs__/mock-update-property-image'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

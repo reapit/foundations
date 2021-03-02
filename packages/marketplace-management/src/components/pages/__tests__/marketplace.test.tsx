@@ -28,7 +28,7 @@ jest.mock('react-router', () => ({
   useHistory: jest.fn(() => ({
     history: () => {},
   })),
-  withRouter: jest.fn(component => component),
+  withRouter: jest.fn((component) => component),
 }))
 
 describe('MarketplacePage', () => {

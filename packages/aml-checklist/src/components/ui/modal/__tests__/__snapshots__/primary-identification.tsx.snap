@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] = `
-<Component
+<Identification
   contact={
     Object {
       "_eTag": "\\"B4D9A5B8EB0D128024E91616FB4B701B\\"",

@@ -19,7 +19,7 @@ export interface TableProps {
   expandable?: boolean
 }
 
-const renderExpanderCell = row => {
+const renderExpanderCell = (row) => {
   return row.canExpand ? (
     <span {...row.getToggleRowExpandedProps()}>{row.isExpanded ? <FaMinusSquare /> : <FaPlusSquare />}</span>
   ) : null
@@ -77,7 +77,7 @@ export const Table: React.FC<TableProps> = ({
     },
     useExpanded,
   )
-  const hasFooter = formatColumns.some(item => item.Footer)
+  const hasFooter = formatColumns.some((item) => item.Footer)
 
   // Render the UI for your table
   const renderTable = () => (
@@ -109,7 +109,7 @@ export const Table: React.FC<TableProps> = ({
           </tr>
         ) : (
           rows.map(
-            row =>
+            (row) =>
               prepareRow(row) || (
                 <tr {...row.getRowProps()} className={`${row.isExpanded ? 'is-expanded' : ''}`}>
                   {row.cells.map((cell, index) => {

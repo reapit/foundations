@@ -17,7 +17,7 @@ const PortalContainer: React.SFC<PortalContainerProps> = ({ portals }: PortalCon
 
   return ReactDOM.createPortal(
     <>
-      {Object.keys(portals).map(key => {
+      {Object.keys(portals).map((key) => {
         const Component = portals[key]
         return <Component key={key} />
       })}

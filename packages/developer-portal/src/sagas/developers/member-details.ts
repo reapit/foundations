@@ -13,7 +13,7 @@ import ActionTypes from '@/constants/action-types'
 import { fetchMemberDetailsSuccess, fetchMemberDetailsFailed, setInviteMemberStatus } from '@/actions/developers'
 import { notification } from '@reapit/elements'
 
-export const fetchMemberDetailsSaga = function*({ data }: Action<FetchMemberDetailsParams>) {
+export const fetchMemberDetailsSaga = function* ({ data }: Action<FetchMemberDetailsParams>) {
   try {
     const { developerId, memberId } = data
     if (!developerId || !memberId) throw new Error('Missing some data')
@@ -28,7 +28,7 @@ export const fetchMemberDetailsSaga = function*({ data }: Action<FetchMemberDeta
   }
 }
 
-export const acceptInviteMemberSaga = function*({ data }: Action<AcceptInviteMemberParams>) {
+export const acceptInviteMemberSaga = function* ({ data }: Action<AcceptInviteMemberParams>) {
   try {
     yield put(setInviteMemberStatus('ACCEPTING'))
     yield call(acceptInviteMember, data)
@@ -42,7 +42,7 @@ export const acceptInviteMemberSaga = function*({ data }: Action<AcceptInviteMem
   }
 }
 
-export const rejectInviteMemberSaga = function*({ data }: Action<RejectInviteMemberParams>) {
+export const rejectInviteMemberSaga = function* ({ data }: Action<RejectInviteMemberParams>) {
   try {
     yield put(setInviteMemberStatus('REJECTING'))
     yield call(rejectInviteMember, data)
@@ -56,17 +56,17 @@ export const rejectInviteMemberSaga = function*({ data }: Action<RejectInviteMem
   }
 }
 
-export const fetchMemberDetailsListen = function*() {
+export const fetchMemberDetailsListen = function* () {
   yield takeLatest<Action<FetchMemberDetailsParams>>(ActionTypes.FETCH_MEMBER_DETAILS, fetchMemberDetailsSaga)
 }
-export const acceptInviteMemberListen = function*() {
+export const acceptInviteMemberListen = function* () {
   yield takeLatest<Action<AcceptInviteMemberParams>>(ActionTypes.ACCEPT_INVITE_MEMBER, acceptInviteMemberSaga)
 }
-export const rejectInviteMemberListen = function*() {
+export const rejectInviteMemberListen = function* () {
   yield takeLatest<Action<RejectInviteMemberParams>>(ActionTypes.REJECT_INVITE_MEMBER, rejectInviteMemberSaga)
 }
 
-export const memberDetailsListSagas = function*() {
+export const memberDetailsListSagas = function* () {
   yield all([fork(fetchMemberDetailsListen), fork(acceptInviteMemberListen), fork(rejectInviteMemberListen)])
 }
 

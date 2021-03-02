@@ -21,7 +21,7 @@ export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose' | 'visibl
 export const handleOnCreated = (
   setSelectedDeveloper: React.Dispatch<React.SetStateAction<DeveloperModel | undefined>>,
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
-) => developer => () => {
+) => (developer) => () => {
   setSelectedDeveloper(developer)
   setSuccess(true)
 }
@@ -32,7 +32,7 @@ export const handleFormSubmit = (
   onCreated: (developer: DeveloperModel) => () => void,
 ) => (values: FormValues) => {
   const selectedDeveloperIds = values.developerList
-  const selectedDevelopers = developerLists.filter(developer => selectedDeveloperIds.includes(developer.id || ''))
+  const selectedDevelopers = developerLists.filter((developer) => selectedDeveloperIds.includes(developer.id || ''))
   // For now just call api with one developer
   const developer = selectedDevelopers[0]
 

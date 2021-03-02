@@ -56,24 +56,24 @@ exports[`AppDetail should match a snapshot 1`] = `
       }
     >
       <AppDetail>
-        <Component
+        <Section
           hasBackground={false}
           hasMargin={false}
           hasPadding={false}
         >
           <section
-            className=""
+            className="section"
             data-test=""
           >
-            <Component
-              className=""
+            <Grid
+              className="cspg16s-container"
               dataTest="client-app-detail-container"
             >
               <div
-                className=""
+                className="columns cspg16s-container"
                 data-test="client-app-detail-container"
               >
-                <Component
+                <Loader
                   dataTest="client-app-detail-loader"
                 >
                   <div
@@ -85,20 +85,20 @@ exports[`AppDetail should match a snapshot 1`] = `
                     <div />
                     <div />
                   </div>
-                </Component>
+                </Loader>
                 <AppUninstallConfirmation
                   appDetailData={Object {}}
                   closeUninstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     afterClose={[Function]}
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -106,9 +106,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -116,15 +116,15 @@ exports[`AppDetail should match a snapshot 1`] = `
                           variant="danger"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -137,8 +137,8 @@ exports[`AppDetail should match a snapshot 1`] = `
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -146,9 +146,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -156,38 +156,34 @@ exports[`AppDetail should match a snapshot 1`] = `
                             variant="danger"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined uninstallation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                  <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <UninstallationsSuccessModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     hasPermissionError={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -196,29 +192,25 @@ exports[`AppDetail should match a snapshot 1`] = `
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </UninstallationsSuccessModal>
                 </AppUninstallConfirmation>
                 <AppInstallConfirmation
                   appDetailData={Object {}}
                   closeInstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -226,9 +218,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -236,7 +228,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           variant="primary"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
@@ -244,8 +236,8 @@ exports[`AppDetail should match a snapshot 1`] = `
                     title="Confirm undefined installation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -257,8 +249,8 @@ exports[`AppDetail should match a snapshot 1`] = `
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -266,9 +258,9 @@ exports[`AppDetail should match a snapshot 1`] = `
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -276,39 +268,65 @@ exports[`AppDetail should match a snapshot 1`] = `
                             variant="primary"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined installation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <InstallDirectApiAppSucesfullyModal
+                    afterClose={[Function]}
+                    appDetailData={Object {}}
+                    isDesktopMode={false}
+                    onSuccessAlertButtonClick={[Function]}
+                    visible={false}
+                  >
+                    <ModalV2
+                      hasHeader={false}
+                      isCentered={true}
+                      isPadding={false}
+                      onClose={[Function]}
+                      visible={false}
                     >
-                      <PortalWrapper
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        onClose={[Function]}
+                        title={<ModalHeaderV2 />}
                         visible={false}
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                       />
-                    </Component>
-                  </Component>
-                  <Component
+                    </ModalV2>
+                  </InstallDirectApiAppSucesfullyModal>
+                  <InstallNonDirectApiAppSucesfullyModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     isDesktopMode={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -317,72 +335,34 @@ exports[`AppDetail should match a snapshot 1`] = `
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
-                  <Component
-                    afterClose={[Function]}
-                    appDetailData={Object {}}
-                    isDesktopMode={false}
-                    onSuccessAlertButtonClick={[Function]}
-                    visible={false}
-                  >
-                    <Component
-                      hasHeader={false}
-                      isCentered={true}
-                      isPadding={false}
-                      onClose={[Function]}
-                      visible={false}
-                    >
-                      <Component
-                        className=""
-                        closeIcon={
-                          <span
-                            aria-label="close"
-                            className="delete"
-                          />
-                        }
-                        destroyOnClose={true}
-                        onClose={[Function]}
-                        title={<Unknown />}
-                        visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </InstallNonDirectApiAppSucesfullyModal>
                 </AppInstallConfirmation>
-                <Component
+                <NonAdminInstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Installing "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -392,48 +372,44 @@ exports[`AppDetail should match a snapshot 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Installing 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
-                <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminInstallModal>
+                <NonAdminUninstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Uninstalling "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -443,31 +419,27 @@ exports[`AppDetail should match a snapshot 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Uninstalling 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminUninstallModal>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
+        </Section>
       </AppDetail>
     </Router>
   </MemoryRouter>
@@ -530,24 +502,24 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
       }
     >
       <AppDetail>
-        <Component
+        <Section
           hasBackground={false}
           hasMargin={false}
           hasPadding={false}
         >
           <section
-            className=""
+            className="section"
             data-test=""
           >
-            <Component
-              className=""
+            <Grid
+              className="cspg16s-container"
               dataTest="client-app-detail-container"
             >
               <div
-                className=""
+                className="columns cspg16s-container"
                 data-test="client-app-detail-container"
               >
-                <Component
+                <Loader
                   dataTest="client-app-detail-loader"
                 >
                   <div
@@ -559,20 +531,20 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     <div />
                     <div />
                   </div>
-                </Component>
+                </Loader>
                 <AppUninstallConfirmation
                   appDetailData={Object {}}
                   closeUninstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     afterClose={[Function]}
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -580,9 +552,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -590,15 +562,15 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           variant="danger"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -611,8 +583,8 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -620,9 +592,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -630,38 +602,34 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             variant="danger"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined uninstallation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                  <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <UninstallationsSuccessModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     hasPermissionError={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -670,29 +638,25 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </UninstallationsSuccessModal>
                 </AppUninstallConfirmation>
                 <AppInstallConfirmation
                   appDetailData={Object {}}
                   closeInstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -700,9 +664,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -710,7 +674,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           variant="primary"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
@@ -718,8 +682,8 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     title="Confirm undefined installation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -731,8 +695,8 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -740,9 +704,9 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -750,39 +714,65 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             variant="primary"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined installation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <InstallDirectApiAppSucesfullyModal
+                    afterClose={[Function]}
+                    appDetailData={Object {}}
+                    isDesktopMode={false}
+                    onSuccessAlertButtonClick={[Function]}
+                    visible={false}
+                  >
+                    <ModalV2
+                      hasHeader={false}
+                      isCentered={true}
+                      isPadding={false}
+                      onClose={[Function]}
+                      visible={false}
                     >
-                      <PortalWrapper
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        onClose={[Function]}
+                        title={<ModalHeaderV2 />}
                         visible={false}
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                       />
-                    </Component>
-                  </Component>
-                  <Component
+                    </ModalV2>
+                  </InstallDirectApiAppSucesfullyModal>
+                  <InstallNonDirectApiAppSucesfullyModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     isDesktopMode={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -791,72 +781,34 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
-                  <Component
-                    afterClose={[Function]}
-                    appDetailData={Object {}}
-                    isDesktopMode={false}
-                    onSuccessAlertButtonClick={[Function]}
-                    visible={false}
-                  >
-                    <Component
-                      hasHeader={false}
-                      isCentered={true}
-                      isPadding={false}
-                      onClose={[Function]}
-                      visible={false}
-                    >
-                      <Component
-                        className=""
-                        closeIcon={
-                          <span
-                            aria-label="close"
-                            className="delete"
-                          />
-                        }
-                        destroyOnClose={true}
-                        onClose={[Function]}
-                        title={<Unknown />}
-                        visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </InstallNonDirectApiAppSucesfullyModal>
                 </AppInstallConfirmation>
-                <Component
+                <NonAdminInstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Installing "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -866,48 +818,44 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Installing 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
-                <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminInstallModal>
+                <NonAdminUninstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Uninstalling "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -917,31 +865,27 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Uninstalling 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminUninstallModal>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
+        </Section>
       </AppDetail>
     </Router>
   </MemoryRouter>
@@ -1004,24 +948,24 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
       }
     >
       <AppDetail>
-        <Component
+        <Section
           hasBackground={false}
           hasMargin={false}
           hasPadding={false}
         >
           <section
-            className=""
+            className="section"
             data-test=""
           >
-            <Component
-              className=""
+            <Grid
+              className="cspg16s-container"
               dataTest="client-app-detail-container"
             >
               <div
-                className=""
+                className="columns cspg16s-container"
                 data-test="client-app-detail-container"
               >
-                <Component
+                <Loader
                   dataTest="client-app-detail-loader"
                 >
                   <div
@@ -1033,20 +977,20 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     <div />
                     <div />
                   </div>
-                </Component>
+                </Loader>
                 <AppUninstallConfirmation
                   appDetailData={Object {}}
                   closeUninstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     afterClose={[Function]}
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -1054,9 +998,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -1064,15 +1008,15 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           variant="danger"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -1085,8 +1029,8 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -1094,9 +1038,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -1104,38 +1048,34 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             variant="danger"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined uninstallation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                  <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <UninstallationsSuccessModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     hasPermissionError={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -1144,29 +1084,25 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </UninstallationsSuccessModal>
                 </AppUninstallConfirmation>
                 <AppInstallConfirmation
                   appDetailData={Object {}}
                   closeInstallConfirmationModal={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     footer={
                       <div
                         className="flex"
                       >
-                        <Unknown
-                          className=""
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -1174,9 +1110,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           variant="secondary"
                         >
                           Cancel
-                        </Unknown>
-                        <Unknown
-                          className=""
+                        </Button>
+                        <Button
+                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -1184,7 +1120,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           variant="primary"
                         >
                           Confirm
-                        </Unknown>
+                        </Button>
                       </div>
                     }
                     isCentered={true}
@@ -1192,8 +1128,8 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     title="Confirm undefined installation"
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closeIcon={
                         <span
                           aria-label="close"
@@ -1205,8 +1141,8 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         <div
                           className="flex"
                         >
-                          <Unknown
-                            className=""
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -1214,9 +1150,9 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             variant="secondary"
                           >
                             Cancel
-                          </Unknown>
-                          <Unknown
-                            className=""
+                          </Button>
+                          <Button
+                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -1224,39 +1160,65 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             variant="primary"
                           >
                             Confirm
-                          </Unknown>
+                          </Button>
                         </div>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Confirm undefined installation
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                  <InstallDirectApiAppSucesfullyModal
+                    afterClose={[Function]}
+                    appDetailData={Object {}}
+                    isDesktopMode={false}
+                    onSuccessAlertButtonClick={[Function]}
+                    visible={false}
+                  >
+                    <ModalV2
+                      hasHeader={false}
+                      isCentered={true}
+                      isPadding={false}
+                      onClose={[Function]}
+                      visible={false}
                     >
-                      <PortalWrapper
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        onClose={[Function]}
+                        title={<ModalHeaderV2 />}
                         visible={false}
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                       />
-                    </Component>
-                  </Component>
-                  <Component
+                    </ModalV2>
+                  </InstallDirectApiAppSucesfullyModal>
+                  <InstallNonDirectApiAppSucesfullyModal
                     afterClose={[Function]}
                     appDetailData={Object {}}
                     isDesktopMode={false}
                     onSuccessAlertButtonClick={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       hasHeader={false}
                       isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -1265,72 +1227,34 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         }
                         destroyOnClose={true}
                         onClose={[Function]}
-                        title={<Unknown />}
+                        title={<ModalHeaderV2 />}
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
-                  <Component
-                    afterClose={[Function]}
-                    appDetailData={Object {}}
-                    isDesktopMode={false}
-                    onSuccessAlertButtonClick={[Function]}
-                    visible={false}
-                  >
-                    <Component
-                      hasHeader={false}
-                      isCentered={true}
-                      isPadding={false}
-                      onClose={[Function]}
-                      visible={false}
-                    >
-                      <Component
-                        className=""
-                        closeIcon={
-                          <span
-                            aria-label="close"
-                            className="delete"
-                          />
-                        }
-                        destroyOnClose={true}
-                        onClose={[Function]}
-                        title={<Unknown />}
-                        visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </InstallNonDirectApiAppSucesfullyModal>
                 </AppInstallConfirmation>
-                <Component
+                <NonAdminInstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Installing "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -1340,48 +1264,44 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Installing 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
-                <Component
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminInstallModal>
+                <NonAdminUninstallModal
                   onClose={[Function]}
                   title=""
                   visible={false}
                 >
-                  <Component
+                  <ModalV2
                     closable={false}
                     footer={
-                      <Unknown
+                      <Button
                         onClick={[Function]}
                       >
                         Close
-                      </Unknown>
+                      </Button>
                     }
                     isCentered={true}
                     onClose={[Function]}
                     title="Uninstalling "
                     visible={false}
                   >
-                    <Component
-                      className=""
+                    <Dialog
+                      className="m1s2ncsn-modal-container"
                       closable={false}
                       closeIcon={
                         <span
@@ -1391,31 +1311,27 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <Unknown
+                        <Button
                           onClick={[Function]}
                         >
                           Close
-                        </Unknown>
+                        </Button>
                       }
                       onClose={[Function]}
                       title={
-                        <Unknown>
+                        <ModalHeaderV2>
                           Uninstalling 
-                        </Unknown>
+                        </ModalHeaderV2>
                       }
                       visible={false}
-                      wrapClassName=""
-                    >
-                      <PortalWrapper
-                        visible={false}
-                      />
-                    </Component>
-                  </Component>
-                </Component>
+                      wrapClassName="m1iljaow-modal-centered"
+                    />
+                  </ModalV2>
+                </NonAdminUninstallModal>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
+        </Section>
       </AppDetail>
     </Router>
   </MemoryRouter>

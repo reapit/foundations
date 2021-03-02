@@ -15,7 +15,7 @@ exports[`CardExpiresInput should match a snapshot for amex 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardExpiresInput
         cardType="amex"
         className="some-class"
         disabled={false}
@@ -29,7 +29,7 @@ exports[`CardExpiresInput should match a snapshot for amex 1`] = `
           validate={[Function]}
         >
           <div
-            className=""
+            className="field some-class"
           >
             <div
               className="control"
@@ -42,7 +42,7 @@ exports[`CardExpiresInput should match a snapshot for amex 1`] = `
               </label>
               <input
                 autoComplete="expiryDate"
-                className=""
+                className="input is-primary"
                 data-test=""
                 disabled={false}
                 id="expiryDate"
@@ -58,7 +58,7 @@ exports[`CardExpiresInput should match a snapshot for amex 1`] = `
             </div>
           </div>
         </Field>
-      </Component>
+      </CardExpiresInput>
     </form>
   </Form>
 </Formik>
@@ -79,7 +79,7 @@ exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardExpiresInput
         className="some-class"
         disabled={false}
         id="expiryDate"
@@ -92,7 +92,7 @@ exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
           validate={[Function]}
         >
           <div
-            className=""
+            className="field some-class"
           >
             <div
               className="control"
@@ -105,7 +105,7 @@ exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
               </label>
               <input
                 autoComplete="expiryDate"
-                className=""
+                className="input is-primary"
                 data-test=""
                 disabled={false}
                 id="expiryDate"
@@ -121,7 +121,7 @@ exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
             </div>
           </div>
         </Field>
-      </Component>
+      </CardExpiresInput>
     </form>
   </Form>
 </Formik>
@@ -142,7 +142,7 @@ exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardExpiresInput
         cardType="mastercard"
         className="some-class"
         disabled={false}
@@ -156,7 +156,7 @@ exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
           validate={[Function]}
         >
           <div
-            className=""
+            className="field some-class"
           >
             <div
               className="control"
@@ -169,7 +169,7 @@ exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
               </label>
               <input
                 autoComplete="expiryDate"
-                className=""
+                className="input is-primary"
                 data-test=""
                 disabled={false}
                 id="expiryDate"
@@ -185,7 +185,7 @@ exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
             </div>
           </div>
         </Field>
-      </Component>
+      </CardExpiresInput>
     </form>
   </Form>
 </Formik>
@@ -206,7 +206,7 @@ exports[`CardExpiresInput should match a snapshot for visa 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardExpiresInput
         cardType="visa"
         className="some-class"
         disabled={false}
@@ -220,7 +220,7 @@ exports[`CardExpiresInput should match a snapshot for visa 1`] = `
           validate={[Function]}
         >
           <div
-            className=""
+            className="field some-class"
           >
             <div
               className="control"
@@ -233,7 +233,7 @@ exports[`CardExpiresInput should match a snapshot for visa 1`] = `
               </label>
               <input
                 autoComplete="expiryDate"
-                className=""
+                className="input is-primary"
                 data-test=""
                 disabled={false}
                 id="expiryDate"
@@ -249,7 +249,7 @@ exports[`CardExpiresInput should match a snapshot for visa 1`] = `
             </div>
           </div>
         </Field>
-      </Component>
+      </CardExpiresInput>
     </form>
   </Form>
 </Formik>

@@ -14,7 +14,7 @@ const FormExample: React.SFC = () => (
   <FlexContainerBasic hasBackground hasPadding>
     <Formik
       initialValues={{ text: '', email: '', password: '', tel: '' }}
-      onSubmit={values => {
+      onSubmit={(values) => {
         action('Form Values' + values)
       }}
     >

@@ -20,7 +20,7 @@ export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }
   return (
     <Route
       {...rest}
-      render={props => {
+      render={(props) => {
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
         }

@@ -60,7 +60,7 @@ export type WebhookEditProps = {
 
 export const generateTopicOptions = (topics: TopicItem[]) => {
   return topics.map(
-    topic =>
+    (topic) =>
       ({
         value: topic.id,
         label: topic.name,
@@ -73,7 +73,7 @@ export const generateCustomerOptions = (customers: InstallationModel[]) => {
   const customerOptions: SelectOption[] = []
   customers.unshift(SANDBOX_CLIENT)
   customers.forEach((customer: InstallationModel) => {
-    const existed = customerOptions.find(option => option.value === customer.customerId)
+    const existed = customerOptions.find((option) => option.value === customer.customerId)
     if (customer.status === 'Active' && !existed) {
       customerOptions.push({
         value: customer.customerId,
@@ -86,7 +86,7 @@ export const generateCustomerOptions = (customers: InstallationModel[]) => {
 }
 
 export const checkSelectedValid = (list: SelectOption[], items: string[], entity: 'customers' | 'topics'): boolean => {
-  const errorsList = items.filter(item => !list.find(listItem => listItem.value === item))
+  const errorsList = items.filter((item) => !list.find((listItem) => listItem.value === item))
 
   if (errorsList.length) {
     notification.error({

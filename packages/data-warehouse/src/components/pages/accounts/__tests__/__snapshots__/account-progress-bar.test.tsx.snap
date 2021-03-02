@@ -5,28 +5,42 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
   percentageComplete={0}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={0}
       >
-        0
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "0%",
+            }
+          }
+          width={0}
+        >
+          0
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={0}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="1"
         >
-          Initializing...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Initializing...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -35,28 +49,42 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
   percentageComplete={19}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={19}
       >
-        19
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "19%",
+            }
+          }
+          width={19}
+        >
+          19
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={19}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="1"
         >
-          Initializing...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Initializing...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -65,28 +93,42 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
   percentageComplete={39}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={39}
       >
-        39
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "39%",
+            }
+          }
+          width={39}
+        >
+          39
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={39}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="2"
         >
-          Creating account...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Creating account...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -95,28 +137,42 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
   percentageComplete={59}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={59}
       >
-        59
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "59%",
+            }
+          }
+          width={59}
+        >
+          59
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={59}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="3"
         >
-          Provisioning compute...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Provisioning compute...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -125,28 +181,42 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
   percentageComplete={79}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={79}
       >
-        79
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "79%",
+            }
+          }
+          width={79}
+        >
+          79
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={79}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="4"
         >
-          Preparing permissions...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Preparing permissions...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -155,28 +225,42 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
   percentageComplete={94}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={94}
       >
-        94
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "94%",
+            }
+          }
+          width={94}
+        >
+          94
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={94}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="5"
         >
-          Setting up defaults...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Setting up defaults...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -185,28 +269,42 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
   percentageComplete={99}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={99}
       >
-        99
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "99%",
+            }
+          }
+          width={99}
+        >
+          99
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={99}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="6"
         >
-          Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
-        </mock-styled.div>
+          <div
+            className="progress-message-text"
+          >
+            Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
 
@@ -215,32 +313,46 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
   percentageComplete={100}
   setPercentageComplete={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <mock-styled.div
+      <ProgressBar
         width={100}
       >
-        100
-        %
-      </mock-styled.div>
+        <div
+          className="progress-bar"
+          style={
+            Object {
+              "--p1qkupc0-0": "100%",
+            }
+          }
+          width={100}
+        >
+          100
+          %
+        </div>
+      </ProgressBar>
       <ProgressMessage
         percentageComplete={100}
       >
-        <mock-styled.div
+        <ProgressMessageText
           key="7"
         >
-          Your account is ready! 
-          <span
-            role="img"
+          <div
+            className="progress-message-text"
           >
-            🚀
-          </span>
-        </mock-styled.div>
+            Your account is ready! 
+            <span
+              role="img"
+            >
+              🚀
+            </span>
+          </div>
+        </ProgressMessageText>
       </ProgressMessage>
     </section>
-  </Component>
+  </Section>
 </AccountProgressBar>
 `;
