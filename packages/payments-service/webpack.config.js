@@ -1,7 +1,7 @@
 const slsw = require('serverless-webpack')
-const config = require('../../scripts/webpack/webpack.config.node')
+const { webpackConfigNode } = require('@reapit/ts-scripts')
 
-config.entry = slsw.lib.entries
-config.optimization.minimize = slsw.lib.webpack.isLocal ? false : true
+webpackConfigNode.entry = slsw.lib.entries
+webpackConfigNode.optimization.minimize = slsw.lib.webpack.isLocal ? false : true
 
-module.exports = config
+module.exports = webpackConfigNode
