@@ -62,6 +62,9 @@ marketplace:
 marketplace-management:
   - packages/marketplace-management/**
 
+login-with-reapit:
+  - packages/login-with-reapit/**
+
 payments-client:
   - packages/payments-client/**
 
@@ -77,8 +80,11 @@ react-app-scaffolder:
 reapit-connect:
   - packages/reapit-connect/**
 
-smb-onboarder:
-  - packages/smb-onboarder/**
+ts-types:
+  - packages/ts-types/**
+
+ts-scripts:
+  - packages/ts-scripts/**
 
 utils:
   - packages/utils/**
