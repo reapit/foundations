@@ -63,7 +63,7 @@ const makeDataWithSubRows = (length: number) => {
 }
 
 export default {
-  title: 'Rereshed-Docs/Table',
+  title: 'Components/Table',
   component: Table,
 }
 

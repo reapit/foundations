@@ -6,7 +6,7 @@ import { DatePicker, DatePickerProps } from '.'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/DatePicker',
+  title: 'Components/DatePicker',
   component: DatePicker,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?

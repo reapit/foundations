@@ -32,7 +32,7 @@ const onLoaded = (response) => {
 import { Story } from '@storybook/react/types-6-0'
 
 export default {
-  title: 'Rereshed-Docs/Map',
+  title: 'Components/Map',
   component: Map,
 }
 

@@ -11,7 +11,7 @@ import { TextArea } from '../TextArea'
 import { Checkbox } from '../Checkbox'
 
 export default {
-  title: 'Rereshed-Docs/FormLayout',
+  title: 'Components/FormLayout',
   component: FormSection,
   subComponents: { FormHeading, FormSubHeading },
 }

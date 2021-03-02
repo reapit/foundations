@@ -25,7 +25,7 @@ import { mockMenuProps } from '../Menu/__mocks__/menu-props'
 import { MemoryRouter } from 'react-router'
 
 export default {
-  title: 'Rereshed-Docs/Layout',
+  title: 'Components/Layout',
   component: FlexContainerResponsive,
 }
 

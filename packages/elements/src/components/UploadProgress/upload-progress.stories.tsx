@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0'
 import { UploadProgress, UploadProgressProps } from './index'
 
 export default {
-  title: 'Rereshed-Docs/UploadProgress',
+  title: 'Components/UploadProgress',
   component: UploadProgress,
 }
 

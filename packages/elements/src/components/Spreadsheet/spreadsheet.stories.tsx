@@ -4,7 +4,7 @@ import { Spreadsheet, Cell } from './index'
 import { PortalProvider } from '../../hooks/UsePortal'
 
 export default {
-  title: 'Rereshed-Docs/Spreadsheet',
+  title: 'Components/Spreadsheet',
   component: Spreadsheet,
 }
 

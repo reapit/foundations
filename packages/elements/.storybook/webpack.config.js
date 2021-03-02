@@ -72,5 +72,14 @@ module.exports = ({ config }) => {
       filename: 'styles.css',
     }),
   )
+  config.stats = {
+    cached: false,
+    cachedAssets: false,
+    chunks: false,
+    chunkModules: false,
+    chunkOrigins: false,
+    modules: false,
+  }
+
   return config
 }

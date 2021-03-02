@@ -9,7 +9,7 @@ const longText =
   'ipsum reiciendis quasi fugit eveniet perferendis!'
 
 export default {
-  title: 'Rereshed-Docs/ToastMessage',
+  title: 'Components/ToastMessage',
   component: ToastMessage,
 }
 

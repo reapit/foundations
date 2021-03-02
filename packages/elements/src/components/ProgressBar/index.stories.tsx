@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0'
 import { ProgressBar, ProgressBarProps } from '.'
 
 export default {
-  title: 'Rereshed-Docs/ProgressBar',
+  title: 'Components/ProgressBar',
   component: ProgressBar,
 }
 

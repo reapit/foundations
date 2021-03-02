@@ -17,7 +17,7 @@ const mockProps = {
 }
 
 export default {
-  title: 'Rereshed-Docs/RadioSelect',
+  title: 'Components/RadioSelect',
   component: RadioSelect,
 }
 

@@ -5,7 +5,7 @@ import { Pagination, PaginationProps } from '.'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/Pagination',
+  title: 'Components/Pagination',
   component: Pagination,
 }
 

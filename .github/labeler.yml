@@ -77,8 +77,11 @@ react-app-scaffolder:
 reapit-connect:
   - packages/reapit-connect/**
 
-smb-onboarder:
-  - packages/smb-onboarder/**
+ts-types:
+  - packages/ts-types/**
+
+ts-scripts:
+  - packages/ts-scripts/**
 
 utils:
   - packages/utils/**

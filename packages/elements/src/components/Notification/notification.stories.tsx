@@ -11,7 +11,7 @@ const longText =
   'ipsum reiciendis quasi fugit eveniet perferendis!'
 
 export default {
-  title: 'Rereshed-Docs/Notification',
+  title: 'Components/Notification',
   component: Notification,
 }
 

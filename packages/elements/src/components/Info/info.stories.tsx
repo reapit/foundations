@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0'
 import { Info, InfoProps } from '.'
 
 export default {
-  title: 'Rereshed-Docs/Info',
+  title: 'Components/Info',
   component: Info,
 }
 

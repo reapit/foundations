@@ -20,7 +20,7 @@ const tabConfigs: TabConfig[] = [
 ]
 
 export default {
-  title: 'Rereshed-Docs/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
 }
 

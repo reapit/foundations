@@ -5,7 +5,7 @@ import { ImageInput, ImageInputProps } from '.'
 import { Form, Formik } from 'formik'
 
 export default {
-  title: 'Rereshed-Docs/ImageInput',
+  title: 'Components/ImageInput',
   component: ImageInput,
 }
 

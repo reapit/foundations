@@ -7,7 +7,7 @@ import { useWizardContext } from './context'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/Wizard',
+  title: 'Components/Wizard',
   component: Wizard,
 }
 

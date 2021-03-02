@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/Input',
+  title: 'Components/Input',
   component: Input,
   decorators: [
     (Story: Story) => (

@@ -28,7 +28,7 @@ const itemRender = (route, params, routes, paths) => {
 }
 
 export default {
-  title: 'Rereshed-Docs/Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: Breadcrumb,
 }
 

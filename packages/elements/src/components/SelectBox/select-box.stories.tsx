@@ -10,7 +10,7 @@ const mockedOptions: SelectBoxOptions[] = [
 ]
 
 export default {
-  title: 'Rereshed-Docs/SelectBox',
+  title: 'Components/SelectBox',
   component: SelectBox,
   decorators: [
     (Story: Story) => (
