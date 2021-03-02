@@ -62,9 +62,6 @@ marketplace:
 marketplace-management:
   - packages/marketplace-management/**
 
-login-with-reapit:
-  - packages/login-with-reapit/**
-
 payments-client:
   - packages/payments-client/**
 
