@@ -16,7 +16,7 @@ exports[`ButtonGroup should match a snapshot 1`] = `
 <div
   className="is-centered buttons has-addons "
 >
-  <Component
+  <Button
     dataTest="some-selector"
     disabled={false}
     fullWidth={false}
@@ -26,8 +26,8 @@ exports[`ButtonGroup should match a snapshot 1`] = `
     variant="primary"
   >
     button text
-  </Component>
-  <Component
+  </Button>
+  <Button
     dataTest="some-selector"
     disabled={false}
     fullWidth={false}
@@ -37,6 +37,6 @@ exports[`ButtonGroup should match a snapshot 1`] = `
     variant="primary"
   >
     button text
-  </Component>
+  </Button>
 </div>
 `;

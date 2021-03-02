@@ -14,7 +14,7 @@ export const selectInstallationsListData = (state: ReduxState): InstallationMode
 }
 
 export const selectSboxInstallation = (state: ReduxState): InstallationModel | undefined =>
-  state.installations.installationsList?.list?.data?.find(installation => installation.customerId === 'SBOX')
+  state.installations.installationsList?.list?.data?.find((installation) => installation.customerId === 'SBOX')
 
 export const selectInstallationsFilterListData = (state: ReduxState): InstallationModel[] => {
   return state.installations.installationsFilterList?.list?.data || []

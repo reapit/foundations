@@ -8,7 +8,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
   <div
     className="modal-card"
   >
-    <Component
+    <ModalHeader
       afterClose={[MockFunction]}
       title="TEST APP App Uninstall"
     >
@@ -28,10 +28,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           type="button"
         />
       </header>
-    </Component>
-    <Component
+    </ModalHeader>
+    <ModalBody
       body={
-        <Unknown>
+        <Content>
           <p>
             Are you sure you wish to uninstall 
             TEST APP
@@ -41,15 +41,15 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
             </b>
              members of your organisation, and for all office groups.
           </p>
-        </Unknown>
+        </Content>
       }
     >
       <section
         className="modal-card-body"
       >
-        <Component>
+        <Content>
           <div
-            className=""
+            className="content"
             data-test=""
           >
             <p>
@@ -62,33 +62,33 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
                members of your organisation, and for all office groups.
             </p>
           </div>
-        </Component>
+        </Content>
       </section>
-    </Component>
-    <Component
+    </ModalBody>
+    <ModalFooter
       footerItems={
         <React.Fragment>
-          <Unknown
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="secondary"
           >
             Cancel
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Confirm
-          </Unknown>
+          </Button>
         </React.Fragment>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Component
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="secondary"
@@ -102,8 +102,8 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           >
             Cancel
           </button>
-        </Component>
-        <Component
+        </Button>
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="primary"
@@ -117,9 +117,9 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           >
             Confirm
           </button>
-        </Component>
+        </Button>
       </footer>
-    </Component>
+    </ModalFooter>
   </div>
 </div>
 `;
@@ -132,7 +132,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   <div
     className="modal-card"
   >
-    <Component
+    <ModalHeader
       afterClose={[MockFunction]}
       title="TEST APP App Install"
     >
@@ -152,10 +152,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           type="button"
         />
       </header>
-    </Component>
-    <Component
+    </ModalHeader>
+    <ModalBody
       body={
-        <Unknown>
+        <Content>
           <React.Fragment>
             <p>
               Please confirm that you wish to action the following with this app:
@@ -179,15 +179,15 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
               If you are uncertain, please cancel and take a look at information located on the app listing.
             </p>
           </React.Fragment>
-        </Unknown>
+        </Content>
       }
     >
       <section
         className="modal-card-body"
       >
-        <Component>
+        <Content>
           <div
-            className=""
+            className="content"
             data-test=""
           >
             <p>
@@ -210,33 +210,33 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
               If you are uncertain, please cancel and take a look at information located on the app listing.
             </p>
           </div>
-        </Component>
+        </Content>
       </section>
-    </Component>
-    <Component
+    </ModalBody>
+    <ModalFooter
       footerItems={
         <React.Fragment>
-          <Unknown
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="secondary"
           >
             Cancel
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Confirm
-          </Unknown>
+          </Button>
         </React.Fragment>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Component
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="secondary"
@@ -250,8 +250,8 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Cancel
           </button>
-        </Component>
-        <Component
+        </Button>
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="primary"
@@ -265,9 +265,9 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Confirm
           </button>
-        </Component>
+        </Button>
       </footer>
-    </Component>
+    </ModalFooter>
   </div>
 </div>
 `;
@@ -280,7 +280,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   <div
     className="modal-card"
   >
-    <Component
+    <ModalHeader
       afterClose={[MockFunction]}
       title="TEST APP App Install"
     >
@@ -300,10 +300,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           type="button"
         />
       </header>
-    </Component>
-    <Component
+    </ModalHeader>
+    <ModalBody
       body={
-        <Unknown>
+        <Content>
           <p>
             By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the Marketplace.
           </p>
@@ -315,15 +315,15 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
               If you are uncertain, please cancel and take a look at information located on the app listing.
             </p>
           </React.Fragment>
-        </Unknown>
+        </Content>
       }
     >
       <section
         className="modal-card-body"
       >
-        <Component>
+        <Content>
           <div
-            className=""
+            className="content"
             data-test=""
           >
             <p>
@@ -336,33 +336,33 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
               If you are uncertain, please cancel and take a look at information located on the app listing.
             </p>
           </div>
-        </Component>
+        </Content>
       </section>
-    </Component>
-    <Component
+    </ModalBody>
+    <ModalFooter
       footerItems={
         <React.Fragment>
-          <Unknown
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="secondary"
           >
             Cancel
-          </Unknown>
-          <Unknown
+          </Button>
+          <Button
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Confirm
-          </Unknown>
+          </Button>
         </React.Fragment>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Component
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="secondary"
@@ -376,8 +376,8 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Cancel
           </button>
-        </Component>
-        <Component
+        </Button>
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="primary"
@@ -391,9 +391,9 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Confirm
           </button>
-        </Component>
+        </Button>
       </footer>
-    </Component>
+    </ModalFooter>
   </div>
 </div>
 `;

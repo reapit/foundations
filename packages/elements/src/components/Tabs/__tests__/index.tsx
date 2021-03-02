@@ -30,12 +30,9 @@ describe('Tabs', () => {
 
   it('simulates afterClose event', () => {
     const wrapper = shallow(<Tabs tabConfigs={tabConfigs(props)} />)
-    wrapper
-      .find('a')
-      .first()
-      .simulate('click', {
-        preventDefault: jest.fn(),
-      })
+    wrapper.find('a').first().simulate('click', {
+      preventDefault: jest.fn(),
+    })
     expect(props.handleChangeTab).toBeCalledTimes(1)
   })
 

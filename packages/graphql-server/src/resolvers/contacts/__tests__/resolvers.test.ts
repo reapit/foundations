@@ -2,11 +2,11 @@ import contactServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetContactById, queryGetContacts, mutationCreateContact, mutationUpdateContact } from '../resolvers'
-import { createContactArgsMock } from '../__stubs__/create-contact'
-import { updateContactArgsMock } from '../__stubs__/update-contact'
-import { contactMock } from '../__stubs__/contact'
-import { contactsMock } from '../__stubs__/contacts'
-import { mockContext } from '../../../__stubs__/context'
+import { createContactArgsMock } from '../__stubs__/mock-create-contact'
+import { updateContactArgsMock } from '../__stubs__/mock-update-contact'
+import { contactMock } from '../__stubs__/mock-contact'
+import { contactsMock } from '../__stubs__/mock-contacts'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getContactById: jest.fn(() => contactMock),

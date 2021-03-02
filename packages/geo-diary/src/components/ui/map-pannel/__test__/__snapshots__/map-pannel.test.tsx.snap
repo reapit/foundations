@@ -2,7 +2,7 @@
 
 exports[`map-pannel MapPannel should render correctly 1`] = `
 <div
-  className=""
+  className="map-panel-container"
 >
   <div>
     <p
@@ -15,24 +15,24 @@ exports[`map-pannel MapPannel should render correctly 1`] = `
     </p>
   </div>
   <div>
-    <Component
+    <Button
       className="is-medium"
       onClick={[Function]}
       type="button"
       variant="info"
     >
       Start Journey
-    </Component>
+    </Button>
   </div>
   <div>
-    <Component
+    <Button
       className="is-medium"
       onClick={[Function]}
       type="button"
       variant="info"
     >
       Today
-    </Component>
+    </Button>
   </div>
 </div>
 `;

@@ -33,7 +33,7 @@ export const renderChildrenWithProps = (children: React.ReactNode | undefined, p
   if (!children) {
     return
   }
-  const childrenWithProps = React.Children.map(children, child => {
+  const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { ...props })
     }

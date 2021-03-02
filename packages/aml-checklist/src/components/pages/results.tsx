@@ -19,7 +19,7 @@ export interface ResultMappedProps {
 
 export type ResultProps = ResultMappedActions & ResultMappedProps & RouteComponentProps
 
-export const generateColumns = history => () => {
+export const generateColumns = (history) => () => {
   const PostCodeCell = ({ row }) => {
     const postcode = row.original.primaryAddress?.postcode
     return <span>{postcode}</span>
@@ -48,7 +48,7 @@ export const generateColumns = history => () => {
     {
       Header: 'Name',
       id: 'name',
-      accessor: d => `${d.forename} ${d.surname}`,
+      accessor: (d) => `${d.forename} ${d.surname}`,
     },
     {
       Header: 'Address',
@@ -79,7 +79,7 @@ export const generateColumns = history => () => {
 export const generateSearchTitle = (search: SearchParams | null) => () => {
   if (search) {
     return Object.values(search)
-      .filter(value => value)
+      .filter((value) => value)
       .join(', ')
   }
 }

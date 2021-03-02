@@ -7,7 +7,7 @@ import { extractNetworkErrString, logger } from '@reapit/utils'
 import { fetchIdentityDocumentTypes } from './api'
 import { notification } from '@reapit/elements'
 
-export const identityTypesDataFetch = function*() {
+export const identityTypesDataFetch = function* () {
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const response = yield call(fetchIdentityDocumentTypes, { headers })
@@ -22,11 +22,11 @@ export const identityTypesDataFetch = function*() {
   }
 }
 
-export const identityTypesListen = function*() {
+export const identityTypesListen = function* () {
   yield takeLatest<Action<void>>(ActionTypes.IDENTITY_TYPES_REQUEST_DATA, identityTypesDataFetch)
 }
 
-export const identityTypesSagas = function*() {
+export const identityTypesSagas = function* () {
   yield all([fork(identityTypesListen)])
 }
 

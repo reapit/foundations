@@ -13,7 +13,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <ConfirmUninstall
     afterClose={[MockFunction]}
     appName="1"
     installationDetail={
@@ -121,7 +121,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
           onReset={[Function]}
           onSubmit={[Function]}
         >
-          <Component
+          <ModalHeader
             afterClose={[MockFunction]}
             title="Confirm Uninstall"
           >
@@ -141,21 +141,21 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                 type="button"
               />
             </header>
-          </Component>
-          <Component
+          </ModalHeader>
+          <ModalBody
             body={
               <React.Fragment>
-                <Unknown>
+                <SubTitleH6>
                   Are you sure you wish to uninstall ‘
                   1
                   ’ from ‘
                   DXX
                   ’?
-                </Unknown>
-                <Unknown>
+                </SubTitleH6>
+                <SubTitleH6>
                   *Please confirm reason for uninstalling
-                </Unknown>
-                <Unknown
+                </SubTitleH6>
+                <TextArea
                   id="terminatedReason"
                   name="terminatedReason"
                 />
@@ -165,9 +165,9 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
             <section
               className="modal-card-body"
             >
-              <Component>
+              <SubTitleH6>
                 <h6
-                  className=""
+                  className="subtitle is-6"
                   id=""
                 >
                   Are you sure you wish to uninstall ‘
@@ -176,16 +176,16 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                   DXX
                   ’?
                 </h6>
-              </Component>
-              <Component>
+              </SubTitleH6>
+              <SubTitleH6>
                 <h6
-                  className=""
+                  className="subtitle is-6"
                   id=""
                 >
                   *Please confirm reason for uninstalling
                 </h6>
-              </Component>
-              <Component
+              </SubTitleH6>
+              <TextArea
                 id="terminatedReason"
                 name="terminatedReason"
               >
@@ -200,7 +200,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                       className="control"
                     >
                       <textarea
-                        className=""
+                        className="textarea is-primary"
                         data-test=""
                         id="terminatedReason"
                         name="terminatedReason"
@@ -212,13 +212,13 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                     </div>
                   </div>
                 </Field>
-              </Component>
+              </TextArea>
             </section>
-          </Component>
-          <Component
+          </ModalBody>
+          <ModalFooter
             footerItems={
               <React.Fragment>
-                <Unknown
+                <Button
                   className="mx-4"
                   disabled={false}
                   fullWidth={true}
@@ -226,8 +226,8 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                   type="submit"
                 >
                   Yes, Uninstall
-                </Unknown>
-                <Unknown
+                </Button>
+                <Button
                   className="mx-4"
                   disabled={false}
                   fullWidth={true}
@@ -236,14 +236,14 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                   variant="danger"
                 >
                   Cancel
-                </Unknown>
+                </Button>
               </React.Fragment>
             }
           >
             <footer
               className="modal-card-foot"
             >
-              <Component
+              <Button
                 className="mx-4"
                 disabled={false}
                 fullWidth={true}
@@ -258,8 +258,8 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                 >
                   Yes, Uninstall
                 </button>
-              </Component>
-              <Component
+              </Button>
+              <Button
                 className="mx-4"
                 disabled={false}
                 fullWidth={true}
@@ -276,12 +276,12 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                 >
                   Cancel
                 </button>
-              </Component>
+              </Button>
             </footer>
-          </Component>
+          </ModalFooter>
         </form>
       </Form>
     </Formik>
-  </Component>
+  </ConfirmUninstall>
 </Provider>
 `;

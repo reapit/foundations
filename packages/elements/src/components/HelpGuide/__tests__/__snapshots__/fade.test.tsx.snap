@@ -2,7 +2,7 @@
 
 exports[`HelpGuide should match a snapshot 1`] = `
 <div
-  className=""
+  className="help-guide-content"
 >
   <CSSTransition
     classNames="fade"
@@ -25,7 +25,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
 
 exports[`HelpGuide should match a snapshot 2`] = `
 <div
-  className=""
+  className="help-guide-content"
 >
   <CSSTransition
     classNames="fade"

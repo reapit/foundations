@@ -12,18 +12,18 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
   setOfficeGroupsToAdd={[MockFunction]}
   setOfficeGroupsToRemove={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-end"
       >
         <div
-          className=""
+          className="container-flex justify-end"
         >
-          <Component
+          <Button
             onClick={[Function]}
             variant="secondary"
           >
@@ -36,8 +36,8 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
             >
               Select all
             </button>
-          </Component>
-          <Component
+          </Button>
+          <Button
             onClick={[Function]}
             variant="secondary"
           >
@@ -50,68 +50,72 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
             >
               Deselect all
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
-      <mock-styled.div>
-        <Component
-          columns={
-            Array [
-              Object {
-                "Header": "Group Name",
-                "accessor": "name",
-              },
-              Object {
-                "Cell": [Function],
-                "Header": "Office List",
-                "accessor": "officeIds",
-              },
-              Object {
-                "Cell": [Function],
-                "Header": "Edit",
-                "accessor": "customerId",
-              },
-            ]
-          }
-          data={Array []}
+      </FlexContainerBasic>
+      <FadeIn>
+        <div
+          className="fade-in"
         >
-          <table
-            className="table is-striped is-fullwidth "
-            role="table"
+          <Table
+            columns={
+              Array [
+                Object {
+                  "Header": "Group Name",
+                  "accessor": "name",
+                },
+                Object {
+                  "Cell": [Function],
+                  "Header": "Office List",
+                  "accessor": "officeIds",
+                },
+                Object {
+                  "Cell": [Function],
+                  "Header": "Edit",
+                  "accessor": "customerId",
+                },
+              ]
+            }
+            data={Array []}
           >
-            <thead>
-              <tr
-                key="headerGroup_0"
-                role="row"
-              >
-                <th
-                  colSpan={1}
-                  key="header_name"
-                  role="columnheader"
+            <table
+              className="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  key="headerGroup_0"
+                  role="row"
                 >
-                  Group Name
-                </th>
-                <th
-                  colSpan={1}
-                  key="header_officeIds"
-                  role="columnheader"
-                >
-                  Office List
-                </th>
-                <th
-                  colSpan={1}
-                  key="header_customerId"
-                  role="columnheader"
-                >
-                  Edit
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </Component>
-      </mock-styled.div>
+                  <th
+                    colSpan={1}
+                    key="header_name"
+                    role="columnheader"
+                  >
+                    Group Name
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_officeIds"
+                    role="columnheader"
+                  >
+                    Office List
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_customerId"
+                    role="columnheader"
+                  >
+                    Edit
+                  </th>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </Table>
+        </div>
+      </FadeIn>
     </section>
-  </Component>
+  </Section>
 </AppInstallationPerOfficeGroup>
 `;

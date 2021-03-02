@@ -19,15 +19,11 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
 const { status, reapitReference } = formFields
 
 export const validationSchema = Yup.object().shape({
-  [status.name]: Yup.string()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED),
+  [status.name]: Yup.string().trim().required(errorMessages.FIELD_REQUIRED),
   [reapitReference.name]: Yup.string()
     .trim()
     .when(status.name, {
-      is: val => val == 'confirmed',
-      then: Yup.string()
-        .required(errorMessages.FIELD_REQUIRED)
-        .matches(reapitRefRegex, reapitReference.errorMessage),
+      is: (val) => val == 'confirmed',
+      then: Yup.string().required(errorMessages.FIELD_REQUIRED).matches(reapitRefRegex, reapitReference.errorMessage),
     }),
 })

@@ -2,7 +2,7 @@
 
 exports[`map AppointmentMap should match snapshot 1`] = `
 <Fragment>
-  <Memo()
+  <Memo(Map)
     apiKey=""
     autoFitBounds={1}
     coordinates={
@@ -45,15 +45,15 @@ exports[`map AppointmentMap should match snapshot 1`] = `
     onLoadedDirection={[Function]}
     styles={Object {}}
   />
-  <Component
+  <AppointmentDetailModal
     appointment={Object {}}
     destroyOnClose={true}
     onClose={[Function]}
     title={
       <React.Fragment>
-        <Unknown>
+        <H5>
            
-        </Unknown>
+        </H5>
       </React.Fragment>
     }
     visible={false}

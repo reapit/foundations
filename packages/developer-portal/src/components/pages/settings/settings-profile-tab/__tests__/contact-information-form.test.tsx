@@ -12,10 +12,9 @@ import { MemberModel } from '@reapit/foundations-ts-definitions'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
-const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
   ...(jest.requireActual('react-redux') as Object),
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
   useSelector: jest.fn(() => jest.fn()),
 }))
 

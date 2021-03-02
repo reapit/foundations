@@ -28,8 +28,8 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
     console.error('ERROR BOUNDARY CAUGHT', error.message, info)
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
-      Sentry.withScope(scope => {
-        scope.setExtras(info)
+      Sentry.withScope((scope) => {
+        scope.setExtras(info as Record<string, any>)
         Sentry.captureException(error)
       })
     }

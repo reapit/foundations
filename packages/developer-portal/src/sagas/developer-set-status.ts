@@ -11,7 +11,7 @@ import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperById } from '@/services/developers'
 
-export const developerSetStatusRequestSaga = function*({ data: dev }) {
+export const developerSetStatusRequestSaga = function* ({ data: dev }) {
   try {
     if (!dev.id) {
       throw new Error('developerId is not exist')
@@ -31,7 +31,7 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
   }
 }
 
-export const developerSetStatusRequestListen = function*() {
+export const developerSetStatusRequestListen = function* () {
   yield takeLatest<Action<DeveloperModel>>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST, developerSetStatusRequestSaga)
 }
 

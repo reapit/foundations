@@ -11,9 +11,7 @@ export const validationSchema = Yup.object().shape({
     .required(errorMessages.FIELD_REQUIRED)
     .matches(personNameRegex, nameField.errorMessage),
 
-  [companyNameField.name]: Yup.string()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED),
+  [companyNameField.name]: Yup.string().trim().required(errorMessages.FIELD_REQUIRED),
 
   [emailField.name]: Yup.string()
     .trim()

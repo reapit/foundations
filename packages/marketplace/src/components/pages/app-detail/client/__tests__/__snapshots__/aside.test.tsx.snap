@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAside ClientAside - should match snapshot 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
   hasBackground={true}
   hasPadding={true}
   isFullHeight={true}
 >
-  <Component
+  <CategorySection
     isSidebar={true}
   />
-  <Component
+  <DesktopIntegrationSection
     desktopIntegrationTypes={
       Array [
         Object {
@@ -59,10 +59,10 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
     }
     isSidebar={true}
   />
-  <Component
+  <DirectApiSection
     isSidebar={true}
   />
-  <Component
+  <ContactDeveloperSection
     contact={
       Object {
         "developer": undefined,
@@ -76,5 +76,5 @@ exports[`ClientAside ClientAside - should match snapshot 1`] = `
       }
     }
   />
-</Component>
+</FlexContainerBasic>
 `;

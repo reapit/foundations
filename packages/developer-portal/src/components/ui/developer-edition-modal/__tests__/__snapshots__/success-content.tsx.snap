@@ -2,61 +2,61 @@
 
 exports[`SuccessContent should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalHeader
     title="Success"
   />
-  <Component
+  <ModalBody
     body={
       <React.Fragment>
-        <Unknown
+        <SubTitleH6
           className="has-text-weight-normal"
         >
           You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
-        </Unknown>
-        <Unknown
+        </SubTitleH6>
+        <SubTitleH6
           className="has-text-weight-normal"
         >
           Duong Pham
            - 
           <a
-            className=""
+            className="l3gjl5x-link"
             href="mailto:tanphamhaiduong@gmail.com"
             rel="noopener noreferrer"
             target="_blank"
           >
             tanphamhaiduong@gmail.com
           </a>
-        </Unknown>
-        <Unknown
+        </SubTitleH6>
+        <SubTitleH6
           className="has-text-weight-normal"
         >
           We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
-        </Unknown>
-        <Unknown
+        </SubTitleH6>
+        <SubTitleH6
           className="has-text-weight-normal"
         >
           Reminder: There is no charge for the Developer Edition Licence during the Beta Phase.
-        </Unknown>
+        </SubTitleH6>
       </React.Fragment>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
       <React.Fragment>
-        <Unknown
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
           CLOSE
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           DOWNLOAD NOW
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
   />

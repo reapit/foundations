@@ -4,7 +4,7 @@ import Routes from '@/constants/routes'
 import { useHistory } from 'react-router-dom'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-export const handleLogin = history => () => {
+export const handleLogin = (history) => () => {
   const { connectHasSession, connectLogoutRedirect } = reapitConnectBrowserSession
   if (connectHasSession) {
     connectLogoutRedirect()

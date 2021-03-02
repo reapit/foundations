@@ -42,7 +42,7 @@ describe('eta-button', () => {
     })
   })
   describe('handleUseEffect', () => {
-    it('should run correctly', done => {
+    it('should run correctly', (done) => {
       const mockParams = { setDuration: jest.fn(), queryParams: {}, appointment }
       const fn = handleUseEffect(mockParams)
       fn()

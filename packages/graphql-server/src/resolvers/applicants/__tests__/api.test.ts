@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetApplicantsAPI,
   callGetApplicantByIdAPI,
@@ -10,14 +10,14 @@ import {
   callDeleteApplicantRelationshipAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { applicantMock } from '../__stubs__/applicant'
-import { applicantsMock } from '../__stubs__/applicants'
-import { relationshipMock } from '../__stubs__/relationship'
-import { relationshipsMock } from '../__stubs__/relationships'
-import { createApplicantArgsMock } from '../__stubs__/create-applicant'
-import { createRelationshipsArgs } from '../__stubs__/create-relationships'
-import { updateApplicantArgsMock } from '../__stubs__/update-applicant'
-import { deleteRelationshipMockArgs } from '../__stubs__/delete-relatationships'
+import { applicantMock } from '../__stubs__/mock-applicant'
+import { applicantsMock } from '../__stubs__/mock-applicants'
+import { relationshipMock } from '../__stubs__/mock-relationship'
+import { relationshipsMock } from '../__stubs__/mock-relationships'
+import { createApplicantArgsMock } from '../__stubs__/mock-create-applicant'
+import { createRelationshipsArgs } from '../__stubs__/mock-create-relationships'
+import { updateApplicantArgsMock } from '../__stubs__/mock-update-applicant'
+import { deleteRelationshipMockArgs } from '../__stubs__/mock-delete-relatationships'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

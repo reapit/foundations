@@ -87,14 +87,14 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     }
   }
 
-  billing.periods.forEach(period => {
+  billing.periods.forEach((period) => {
     labels.push(period?.periodName || '')
     const services = period?.services || []
-    const apiCallsData = services.find(service => service.name === 'API Requests')?.cost || 0
-    const developerEditionData = services.find(service => service.name === 'Developer Edition')?.cost || 0
-    const appListingData = services.find(service => service.name === 'Application Listing')?.cost || 0
-    const reapitConnectData = services.find(service => service.name === 'Reapit Connect')?.cost || 0
-    const developerRegistrationData = services.find(service => service.name === 'Developer Registration')?.cost || 0
+    const apiCallsData = services.find((service) => service.name === 'API Requests')?.cost || 0
+    const developerEditionData = services.find((service) => service.name === 'Developer Edition')?.cost || 0
+    const appListingData = services.find((service) => service.name === 'Application Listing')?.cost || 0
+    const reapitConnectData = services.find((service) => service.name === 'Reapit Connect')?.cost || 0
+    const developerRegistrationData = services.find((service) => service.name === 'Developer Registration')?.cost || 0
 
     clonedDataSet[API_CALL_INDEX].totalCost += apiCallsData
     clonedDataSet[APP_LISTING_INDEX].totalCost += appListingData
@@ -109,7 +109,7 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     clonedDataSet[DEVELOPER_REGISTRATION_INDEX].data.push(developerRegistrationData)
   })
 
-  const sevicesHasCost = clonedDataSet.filter(dataset => dataset.totalCost)
+  const sevicesHasCost = clonedDataSet.filter((dataset) => dataset.totalCost)
 
   return {
     labels,

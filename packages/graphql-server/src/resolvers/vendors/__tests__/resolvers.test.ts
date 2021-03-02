@@ -10,10 +10,10 @@ import {
   mutationCreateVendorRelationship,
   mutationDeleteVendorRelationship,
 } from '../resolvers'
-import { updateVendorArgsStub } from '../__stubs__/update-vendor'
-import { vendorStub } from '../__stubs__/vendor'
-import { vendorsStub } from '../__stubs__/vendors'
-import { mockContext } from '../../../__stubs__/context'
+import { updateVendorArgsStub } from '../__stubs__/mock-update-vendor'
+import { vendorStub } from '../__stubs__/mock-vendor'
+import { vendorsStub } from '../__stubs__/mock-vendors'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getVendorById: jest.fn(() => vendorStub),

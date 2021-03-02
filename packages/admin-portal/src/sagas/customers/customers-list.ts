@@ -11,7 +11,7 @@ import { extractNetworkErrString } from '@reapit/utils'
 export const DEFAULT_PAGE = 1
 export const FETCH_LIST_ERROR_MESSAGE = 'Can not fetch customers list !'
 
-export const fetchCustomersListHandler = function*({ data: { queryString } }) {
+export const fetchCustomersListHandler = function* ({ data: { queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
     const pageNumber = parseInt(queryParams.get('page') as string)
@@ -40,11 +40,11 @@ export const fetchCustomersListHandler = function*({ data: { queryString } }) {
   }
 }
 
-export const fetchCustomersListListen = function*() {
+export const fetchCustomersListListen = function* () {
   yield takeLatest<Action<FetchCustomersListQueryParams>>(ActionTypes.FETCH_CUSTOMERS_LIST, fetchCustomersListHandler)
 }
 
-const customersListSagas = function*() {
+const customersListSagas = function* () {
   yield all([fork(fetchCustomersListListen)])
 }
 

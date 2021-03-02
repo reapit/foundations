@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
-<Component>
-  <Component>
+<MessageProvider>
+  <AnalyticsDailyUsage>
     <ErrorBoundary>
-      <Component
+      <Section
         hasMargin={false}
       >
         <section
-          className=""
+          className="section has-padding has-background"
           data-test=""
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Usage By Day
             </h5>
-          </Component>
+          </H5>
           <Formik
             initialValues={
               Object {
@@ -33,7 +33,7 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
                 onReset={[Function]}
                 onSubmit={[Function]}
               >
-                <Component
+                <DatePicker
                   id="month"
                   name="month"
                   reactDatePickerProps={
@@ -52,7 +52,7 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
                     validate={null}
                   >
                     <div
-                      className=""
+                      className="field"
                     >
                       <div
                         className="control"
@@ -187,11 +187,11 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
                       </div>
                     </div>
                   </Field>
-                </Component>
-                <FormikConnect(Function)
+                </DatePicker>
+                <FormikConnect(FormikAutoSave)
                   onSave={[Function]}
                 >
-                  <Component
+                  <FormikAutoSave
                     formik={
                       Object {
                         "dirty": false,
@@ -240,28 +240,36 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
                     }
                     onSave={[Function]}
                   />
-                </FormikConnect(Function)>
+                </FormikConnect(FormikAutoSave)>
               </form>
             </Form>
           </Formik>
-          <mock-styled.div>
-            <mock-styled.div>
-              <Component>
+          <FadeIn>
+            <div
+              className="fade-in"
+            >
+              <StatsContainer>
                 <div
-                  className="loader-spinner body"
-                  data-test=""
+                  className="stats-container"
                 >
-                  <div />
-                  <div />
-                  <div />
-                  <div />
+                  <Loader>
+                    <div
+                      className="loader-spinner body"
+                      data-test=""
+                    >
+                      <div />
+                      <div />
+                      <div />
+                      <div />
+                    </div>
+                  </Loader>
                 </div>
-              </Component>
-            </mock-styled.div>
-          </mock-styled.div>
+              </StatsContainer>
+            </div>
+          </FadeIn>
         </section>
-      </Component>
+      </Section>
     </ErrorBoundary>
-  </Component>
-</Component>
+  </AnalyticsDailyUsage>
+</MessageProvider>
 `;

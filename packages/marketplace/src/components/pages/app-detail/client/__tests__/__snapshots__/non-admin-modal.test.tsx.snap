@@ -1,47 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NonAdminModal INSTALL MODAL 1`] = `
-<Component
+<ModalV2
   closable={false}
   footer={
-    <Unknown
+    <Button
       onClick={[MockFunction]}
     >
       Close
-    </Unknown>
+    </Button>
   }
   isCentered={true}
   onClose={[MockFunction]}
   title="Installing App Name"
   visible={true}
 >
-  <Component>
+  <Content>
     <p>
       Your organisation settings prevent you from installing this app, please contact an Administrator.
     </p>
-  </Component>
-</Component>
+  </Content>
+</ModalV2>
 `;
 
 exports[`NonAdminModal UNINSTALL MODAL 1`] = `
-<Component
+<ModalV2
   closable={false}
   footer={
-    <Unknown
+    <Button
       onClick={[MockFunction]}
     >
       Close
-    </Unknown>
+    </Button>
   }
   isCentered={true}
   onClose={[MockFunction]}
   title="Uninstalling App Name"
   visible={true}
 >
-  <Component>
+  <Content>
     <p>
       Your organisation settings prevent you from uninstalling this app, please contact an Administrator.
     </p>
-  </Component>
-</Component>
+  </Content>
+</ModalV2>
 `;

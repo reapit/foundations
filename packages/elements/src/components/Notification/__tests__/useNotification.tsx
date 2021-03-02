@@ -28,7 +28,7 @@ describe('notification.hooks', () => {
             onClick={() => {
               api.open({
                 message: (
-                  <Context.Consumer>{name => <span className="hook-test-result">{name}</span>}</Context.Consumer>
+                  <Context.Consumer>{(name) => <span className="hook-test-result">{name}</span>}</Context.Consumer>
                 ),
                 duration: 0,
               })

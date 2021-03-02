@@ -12,7 +12,6 @@ import {
   WebhookTestModalFooter,
   WebhookTestModalBody,
 } from '../webhook-test-modal'
-import * as TestModal from '../webhook-test-modal'
 import { ReduxState } from '@/types/core'
 import * as ReactRedux from 'react-redux'
 import { developerState } from '@/sagas/__stubs__/developer'
@@ -54,9 +53,8 @@ describe('WebhookTestModal', () => {
     // spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should WebhookTestModal match a snapshot', () => {
-    spyOn(TestModal, 'generateTopicOptions').and.returnValue([])
     expect(
-      mount(
+      shallow(
         <ReactRedux.Provider store={store}>
           <WebhookTestModal {...props} />
         </ReactRedux.Provider>,

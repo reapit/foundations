@@ -6,7 +6,7 @@ import ActionTypes from '@/constants/action-types'
 import { setAsAdminFailed, setAsAdminSuccess, SetAsAdminParams, fetchOrganisationMembers } from '@/actions/developers'
 import { notification } from '@reapit/elements'
 
-export const setAsAdminSaga = function*({ data }: Action<SetAsAdminParams>) {
+export const setAsAdminSaga = function* ({ data }: Action<SetAsAdminParams>) {
   const { callback, ...params } = data
   try {
     yield call(updateOrganisationMemberById, params)
@@ -22,11 +22,11 @@ export const setAsAdminSaga = function*({ data }: Action<SetAsAdminParams>) {
   }
 }
 
-export const setAsAdminListen = function*() {
+export const setAsAdminListen = function* () {
   yield takeLatest<Action<SetAsAdminParams>>(ActionTypes.SET_AS_ADMIN, setAsAdminSaga)
 }
 
-export const setAsAdminSagas = function*() {
+export const setAsAdminSagas = function* () {
   yield all([fork(setAsAdminListen)])
 }
 

@@ -8,7 +8,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { createAppSuccess, createAppFailed } from '@/actions/apps'
 import { getDeveloperId } from '@/utils/session'
 
-export const submitApp = function*({ data: { successCallback, ...appProps } }: Action<CreateAppParams>) {
+export const submitApp = function* ({ data: { successCallback, ...appProps } }: Action<CreateAppParams>) {
   try {
     const developerId = yield call(getDeveloperId)
     if (typeof developerId !== 'string') {
@@ -34,11 +34,11 @@ export const submitApp = function*({ data: { successCallback, ...appProps } }: A
   }
 }
 
-export const createAppListen = function*() {
+export const createAppListen = function* () {
   yield takeLatest<Action<CreateAppParams>>(ActionTypes.CREATE_APP, submitApp)
 }
 
-export const createAppSagas = function*() {
+export const createAppSagas = function* () {
   yield all([fork(createAppListen)])
 }
 

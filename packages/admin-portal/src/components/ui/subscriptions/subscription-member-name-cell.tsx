@@ -9,7 +9,7 @@ export interface MemberNameCellProps {
 const MemberNameCell: React.FC<MemberNameCellProps> = ({ cell: { value } }) => {
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data } = DeveloperListState
-  const developer = data.find(dev => dev.id === value)
+  const developer = data.find((dev) => dev.id === value)
 
   if (!developer) return null
 

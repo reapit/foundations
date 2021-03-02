@@ -27,7 +27,7 @@ export const RequestedCell = ({ cell: { value } }) => <p>{toLocalTime(value, DAT
 export const AmountCell = ({ cell: { value } }) => <p>{`£${value ? value.toFixed(2) : 0}`}</p>
 
 export const StatusCell = ({ cell: { value } }) => {
-  const statusText = statusOptions.find(item => item.value === value)?.label ?? 'Other'
+  const statusText = statusOptions.find((item) => item.value === value)?.label ?? 'Other'
   return <p>{statusText}</p>
 }
 
@@ -42,7 +42,7 @@ export const RequestPaymentCell = (setSelectedPayment: (payment: PaymentModel) =
   value: string
 }) => {
   const { data, value } = cell
-  const payment = data?.find(item => item.id === value)
+  const payment = data?.find((item) => item.id === value)
   if (!payment) return null
   if (payment.status === 'posted') return <b>Paid</b>
   return <a onClick={() => setSelectedPayment(payment)}>Email</a>
@@ -53,7 +53,7 @@ export const TakePaymentCell = (handleTakePayment: (value: string) => void) => (
   value: string
 }) => {
   const { data, value } = cell
-  const payment = data?.find(item => item.id === value)
+  const payment = data?.find((item) => item.id === value)
   if (!payment) return null
   if (payment.status === 'posted') return <b>Paid</b>
   return <a onClick={() => handleTakePayment(value)}>Card</a>

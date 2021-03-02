@@ -123,7 +123,7 @@ export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ setDateF
     <Section className="items-start" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
       <H6 className="mb-2">Filter by</H6>
       <ButtonGroup>
-        {filterButtons.map(button => {
+        {filterButtons.map((button) => {
           return renderFiterButtons(
             button.text,
             button.filterType,

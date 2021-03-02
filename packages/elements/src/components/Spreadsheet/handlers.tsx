@@ -30,7 +30,7 @@ import {
 export const valueRenderer = (cell: Cell): string | null => cell.value
 
 export const getInvalidatedCellIndexOfRow = (data: Cell[][], rowIndex: number) =>
-  data[rowIndex].findIndex(cell => {
+  data[rowIndex].findIndex((cell) => {
     if (typeof cell?.isValidated === 'undefined') {
       return false
     }
@@ -116,7 +116,7 @@ export const customCellRenderer = (
 
   // filter out all ignore props
   const domProps = Object.keys(restProps)
-    .filter(key => !ignorePropKeys.includes(key))
+    .filter((key) => !ignorePropKeys.includes(key))
     .reduce(
       (accumulator, key) => ({
         ...accumulator,
@@ -205,7 +205,7 @@ export const handleCellsChanged = (
     return
   }
 
-  const newData = data.map(row => [...row])
+  const newData = data.map((row) => [...row])
   // remove row case
   let newCell: Cell = { value: 'newValue' }
   if (changes.every(({ value, row }, index, changesArray) => value === null && row === changesArray[0].row)) {
@@ -288,7 +288,7 @@ export const handleOnChangeInput = ({
       if (typeof validate !== 'function') {
         setUploadData(
           setUploadDataCallback({
-            validatedData: slicedData.map(row => row.map(cell => ({ ...cell, isValidated: true }))),
+            validatedData: slicedData.map((row) => row.map((cell) => ({ ...cell, isValidated: true }))),
             invalidIndies: [],
             totalRow,
             exceedMaxRow: totalRow > maxUploadRow,

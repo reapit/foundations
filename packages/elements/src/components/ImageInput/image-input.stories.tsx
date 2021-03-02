@@ -9,10 +9,10 @@ export default {
   component: ImageInput,
 }
 
-export const Primary: Story<ImageInputProps> = args => (
+export const Primary: Story<ImageInputProps> = (args) => (
   <Formik
     initialValues={{ imageInput: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >

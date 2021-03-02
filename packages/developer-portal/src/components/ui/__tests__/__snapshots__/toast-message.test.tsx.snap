@@ -14,18 +14,18 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
   }
 >
   <ToastMessage>
-    <Component
+    <ToastMessage
       message=""
       onCloseToast={[Function]}
       variant="primary"
       visible={false}
     >
       <div
-        className=""
+        className="toast"
         data-test="toast-wrapper"
         onClick={[Function]}
       >
-        <Component
+        <Button
           fullWidth={true}
           type="reset"
           variant="primary"
@@ -36,9 +36,9 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
             disabled={false}
             type="reset"
           />
-        </Component>
+        </Button>
       </div>
-    </Component>
+    </ToastMessage>
   </ToastMessage>
 </Provider>
 `;

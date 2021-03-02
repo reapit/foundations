@@ -11,26 +11,26 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-between items-center mb-4"
       >
         <div
-          className=""
+          className="container-flex justify-between items-center mb-4"
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Current Installations
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Button
             disabled={true}
             loading={false}
             onClick={[Function]}
@@ -45,9 +45,9 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
             >
               Uninstall
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
+      </FlexContainerBasic>
       <p
         className="mb-4"
       >
@@ -56,7 +56,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
         </i>
       </p>
     </section>
-  </Component>
+  </Section>
 </AppUninstallationSection>
 `;
 
@@ -75,26 +75,26 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-between items-center mb-4"
       >
         <div
-          className=""
+          className="container-flex justify-between items-center mb-4"
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Current Installations
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Button
             disabled={false}
             loading={false}
             onClick={[Function]}
@@ -109,9 +109,9 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
             >
               Uninstall
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
+      </FlexContainerBasic>
       <p
         className="mb-4"
       >
@@ -122,7 +122,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
         </i>
       </p>
     </section>
-  </Component>
+  </Section>
 </AppUninstallationSection>
 `;
 
@@ -141,26 +141,26 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-between items-center mb-4"
       >
         <div
-          className=""
+          className="container-flex justify-between items-center mb-4"
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Current Installations
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Button
             disabled={false}
             loading={false}
             onClick={[Function]}
@@ -175,9 +175,9 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
             >
               Uninstall
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
+      </FlexContainerBasic>
       <p
         className="mb-4"
       >
@@ -188,7 +188,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
         </i>
       </p>
     </section>
-  </Component>
+  </Section>
 </AppUninstallationSection>
 `;
 
@@ -210,26 +210,26 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Component>
+  <Section>
     <section
-      className=""
+      className="section has-padding has-margin has-background"
       data-test=""
     >
-      <Component
+      <FlexContainerBasic
         className="justify-between items-center mb-4"
       >
         <div
-          className=""
+          className="container-flex justify-between items-center mb-4"
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Current Installations
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Button
             disabled={false}
             loading={false}
             onClick={[Function]}
@@ -244,9 +244,9 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
             >
               Uninstall
             </button>
-          </Component>
+          </Button>
         </div>
-      </Component>
+      </FlexContainerBasic>
       <p
         className="mb-4"
       >
@@ -257,6 +257,6 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
         </i>
       </p>
     </section>
-  </Component>
+  </Section>
 </AppUninstallationSection>
 `;

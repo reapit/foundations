@@ -7,7 +7,7 @@ jest.mock('uuid/v4', (): (() => string) => {
 })
 jest.mock('apollo-server-lambda', () => {
   return {
-    ApolloServer: function() {
+    ApolloServer: function () {
       return {
         createHandler: jest.fn(),
       }

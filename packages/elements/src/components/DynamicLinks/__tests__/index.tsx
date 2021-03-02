@@ -15,7 +15,7 @@ describe('AcButton AcLink', () => {
     },
   } as unknown) as Window
 
-  dynamicLinkScenarios.forEach(scenario => {
+  dynamicLinkScenarios.forEach((scenario) => {
     it('should match a snapshot for scenario ' + scenario.description, () => {
       expect(
         toJson(

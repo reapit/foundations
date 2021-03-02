@@ -1,4 +1,4 @@
-export const convertBooleanToYesNoString: (value: boolean) => string = value => {
+export const convertBooleanToYesNoString: (value: boolean) => string = (value) => {
   if (value) {
     return 'Yes'
   }

@@ -13,8 +13,8 @@ export type SelectIdentityProps = { labelText?: string; name: string; id: string
 
 export const generateListIdentity = (identityTypes: ListItemModel[]) => () => {
   return identityTypes
-    .filter(item => item.id)
-    .map(item => ({
+    .filter((item) => item.id)
+    .map((item) => ({
       label: item.value as string,
       value: item.id as string,
     }))

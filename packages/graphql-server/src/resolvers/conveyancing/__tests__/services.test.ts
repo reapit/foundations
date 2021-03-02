@@ -8,8 +8,8 @@ import {
   callDeleteDownwardLinkModelAPI,
   callDeleteUpwardLinkModelAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { updateConveyancingArgsMock } from '../__stubs__/update-conveyancing'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { updateConveyancingArgsMock } from '../__stubs__/mock-update-conveyancing'
 import {
   getConveyancingById,
   getConveyancing,
@@ -20,13 +20,13 @@ import {
   deleteDownwardLinkModel,
   deleteUpwardLinkModel,
 } from '../services'
-import { conveyancingDetailMock } from '../__stubs__/conveyancing-detail'
-import { conveyancingMock } from '../__stubs__/conveyancing'
-import { conveyancingChainMock } from '../__stubs__/conveyancing-chain'
-import { createDownwardLinkModelArgsMock } from '../__stubs__/create-downward-link-model'
-import { createUpwardLinkModelArgsMock } from '../__stubs__/create-upward-link-model'
-import { deleteDownwardLinkModelArgsMock } from '../__stubs__/delete-downward-link-model'
-import { deleteUpwardLinkModelArgsMock } from '../__stubs__/delete-upward-link-model'
+import { conveyancingDetailMock } from '../__stubs__/mock-conveyancing-detail'
+import { conveyancingMock } from '../__stubs__/mock-conveyancing'
+import { conveyancingChainMock } from '../__stubs__/mock-conveyancing-chain'
+import { createDownwardLinkModelArgsMock } from '../__stubs__/mock-create-downward-link-model'
+import { createUpwardLinkModelArgsMock } from '../__stubs__/mock-create-upward-link-model'
+import { deleteDownwardLinkModelArgsMock } from '../__stubs__/mock-delete-downward-link-model'
+import { deleteUpwardLinkModelArgsMock } from '../__stubs__/mock-delete-upward-link-model'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

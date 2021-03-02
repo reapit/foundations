@@ -10,12 +10,11 @@ describe('AcceptedModal', () => {
 
 describe('handleLogin', () => {
   it('should run correctly', () => {
-    const reapitConnectBrowserSession = {
-      connectHasSession: false,
-      connectLogoutRedirect: jest.fn(),
-    }
     jest.mock('@/core/connect-session', () => ({
-      reapitConnectBrowserSession,
+      reapitConnectBrowserSession: {
+        connectHasSession: false,
+        connectLogoutRedirect: jest.fn(),
+      },
     }))
     const history = {
       replace: jest.fn(),

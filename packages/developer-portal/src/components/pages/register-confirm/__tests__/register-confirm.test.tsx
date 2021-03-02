@@ -5,7 +5,7 @@ import Routes from '@/constants/routes'
 import { confirmRegistration } from '@/services/cognito-identity'
 
 jest.mock('react-router-dom', () => ({
-  // ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+  // ...(jest.requireActual('react-router-dom') as Object), // use actual for all non-hook parts
   useLocation: () => ({ location: { search: '?userName=mockUserName@gmail.com&verificationCode=123' } }),
   useHistory: () => ({ replace: jest.fn() }),
 }))
@@ -34,7 +34,7 @@ describe('register-confirm', () => {
       const fn = handleUseEffect(mockParams)
       fn()
       /* hack to flush promise https://github.com/facebook/jest/issues/2157 */
-      await new Promise(resolve => setImmediate(resolve))
+      await new Promise((resolve) => setImmediate(resolve))
       expect(replaceSpy).toHaveBeenCalledWith(`${Routes.LOGIN}?isSuccess=1`)
     })
 
@@ -42,7 +42,7 @@ describe('register-confirm', () => {
       ;(confirmRegistration as jest.Mocked<any>).mockRejectedValue('error')
       const fn = handleUseEffect(mockParams)
       fn()
-      await new Promise(resolve => setImmediate(resolve))
+      await new Promise((resolve) => setImmediate(resolve))
       expect(replaceSpy).toHaveBeenCalledWith(`${Routes.LOGIN}?confirmError=1`)
     })
   })

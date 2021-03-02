@@ -2,7 +2,7 @@
 
 exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
 <div>
-  <Component
+  <Table
     bordered={true}
     columns={
       Array [

@@ -92,7 +92,7 @@ export type OrganisationFormProps = {
   onInviteNewMemberClick: () => void
 }
 
-export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
+export const handleSubmit = (updateDeveloperDataDispatch) => (values: OrganisationFormValues) => {
   const {
     line1,
     line2,
@@ -142,7 +142,7 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
 
 const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberClick }) => {
   const dispatch = useDispatch()
-  const updateDeveloperDataDispatch = values => dispatch(updateDeveloperData(values))
+  const updateDeveloperDataDispatch = (values) => dispatch(updateDeveloperData(values))
   const isLoading: boolean = useSelector(selectSettingsPageIsLoading)
   const developerInfo: DeveloperModel | null = useSelector(selectSettingsPageDeveloperInformation)
 

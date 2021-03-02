@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperAside should match snapshot 1`] = `
-<Component
+<FlexContainerBasic
   flexColumn={true}
   hasBackground={true}
   hasPadding={true}
   isFullHeight={true}
 >
-  <Component
+  <CategorySection
     category={
       Object {
         "description": "General purpose tools",
@@ -17,7 +17,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
     }
     isSidebar={true}
   />
-  <Component
+  <DesktopIntegrationSection
     desktopIntegrationTypes={
       Array [
         Object {
@@ -66,14 +66,14 @@ exports[`DeveloperAside should match snapshot 1`] = `
     }
     isSidebar={true}
   />
-  <Component
+  <PrivateAppSection
     isSidebar={true}
     limitToClientIds={Array []}
   />
-  <Component
+  <DirectApiSection
     isSidebar={true}
   />
-  <Component
+  <StatusSection
     appDetail={
       Object {
         "category": Object {
@@ -124,7 +124,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
     }
     isSidebar={true}
   />
-  <Component
+  <AppManagement
     appDetailState={
       Object {
         "data": Object {
@@ -180,5 +180,5 @@ exports[`DeveloperAside should match snapshot 1`] = `
     id="9b6fd5f7-2c15-483d-b925-01b650538e52"
     pendingRevisions={false}
   />
-</Component>
+</FlexContainerBasic>
 `;

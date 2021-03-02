@@ -1,8 +1,8 @@
 import { callGetDepartmentByIdAPI, callGetDepartmentsAPI } from '../api'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { getDepartmentById, getDepartments } from '../services'
-import { departmentMock } from '../__stubs__/department'
-import { departmentsMock } from '../__stubs__/departments'
+import { departmentMock } from '../__stubs__/mock-department'
+import { departmentsMock } from '../__stubs__/mock-departments'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

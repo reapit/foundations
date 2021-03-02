@@ -13,7 +13,7 @@ exports[`WebhookEditModal should match a snapshot 1`] = `
     }
   }
 >
-  <Memo()
+  <Memo(WebhookEditModal)
     afterClose={[MockFunction]}
     appId=""
     closeModal={[MockFunction]}
@@ -21,11 +21,11 @@ exports[`WebhookEditModal should match a snapshot 1`] = `
     visible={true}
     webhookId="testWebhookId"
   >
-    <Component
+    <Modal
       afterClose={[MockFunction]}
       renderChildren={true}
       visible={true}
     />
-  </Memo()>
+  </Memo(WebhookEditModal)>
 </Provider>
 `;

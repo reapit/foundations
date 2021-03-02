@@ -19,8 +19,8 @@ export function whiteListLocalhostAndIsValidUrl(url: string) {
 export function isValidRedirectUrls(urls: string) {
   return urls
     .split(',')
-    .filter(url => !!url)
-    .every(url => isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url))
+    .filter((url) => !!url)
+    .every((url) => isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url))
 }
 
 export function checkValidCustomScheme(url: string): boolean {
@@ -46,8 +46,8 @@ export function isValidUrlWithCustomScheme(urls: string): boolean {
   return urls
     .replace(/\s/g, '')
     .split(',')
-    .filter(url => url)
-    .every(url => checkValidCustomScheme(url))
+    .filter((url) => url)
+    .every((url) => checkValidCustomScheme(url))
 }
 
 export function isValidLimitToClientIds(clientIds: string): boolean {
@@ -55,7 +55,7 @@ export function isValidLimitToClientIds(clientIds: string): boolean {
   return clientIds
     .replace(/\s/g, '')
     .split(',')
-    .every(clientId => /^.{3}$/.test(clientId))
+    .every((clientId) => /^.{3}$/.test(clientId))
 }
 
 export function isValidTelephone(phone: string) {

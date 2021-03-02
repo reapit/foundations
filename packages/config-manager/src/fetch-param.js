@@ -9,12 +9,12 @@ AWS.config.update({ region: 'eu-west-2' })
 
 const ssm = new AWS.SSM()
 
-const fetchParam = cliArgs => {
+const fetchParam = (cliArgs) => {
   try {
     const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
     console.log(chalk.bold.blue('Fetching param: ', paramName))
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const options = { Name: paramName, WithDecryption: true }
       ssm.getParameter(options, (err, data) => {
         if (err) {

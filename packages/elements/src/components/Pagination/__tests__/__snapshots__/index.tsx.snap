@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination render test Should match a snapshot 1`] = `
-<Component
+<Section
   isCentered={true}
   isFlex={true}
 >
@@ -113,5 +113,5 @@ exports[`Pagination render test Should match a snapshot 1`] = `
       </li>
     </ul>
   </nav>
-</Component>
+</Section>
 `;

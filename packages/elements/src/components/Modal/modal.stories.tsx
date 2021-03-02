@@ -10,7 +10,7 @@ export default {
   component: Modal,
 }
 
-export const Open: Story<ModalProps> = args => (
+export const Open: Story<ModalProps> = (args) => (
   <PortalProvider>
     <Modal {...args}>
       <p>
@@ -29,7 +29,7 @@ Open.args = {
   title: 'Modal Title',
 }
 
-export const OpenWithFooter: Story<ModalProps> = args => (
+export const OpenWithFooter: Story<ModalProps> = (args) => (
   <PortalProvider>
     <Modal {...args}>
       <p>
@@ -59,7 +59,7 @@ OpenWithFooter.args = {
   ),
 }
 
-export const OpenWithANestedModal: Story<ModalProps> = args => (
+export const OpenWithANestedModal: Story<ModalProps> = (args) => (
   <PortalProvider>
     <Modal {...args}>
       <>

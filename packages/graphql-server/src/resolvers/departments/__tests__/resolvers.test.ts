@@ -2,9 +2,9 @@ import departmentServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetDepartmentById, queryGetDepartments } from '../resolvers'
-import { departmentMock } from '../__stubs__/department'
-import { departmentsMock } from '../__stubs__/departments'
-import { mockContext } from '../../../__stubs__/context'
+import { departmentMock } from '../__stubs__/mock-department'
+import { departmentsMock } from '../__stubs__/mock-departments'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getDepartmentById: jest.fn(() => departmentMock),

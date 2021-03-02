@@ -2,11 +2,11 @@ import propertyServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetPropertyById, queryGetProperties, mutationCreateProperty, mutationUpdateProperty } from '../resolvers'
-import { createPropertyArgsMock } from '../__stubs__/create-property'
-import { updatePropertyArgsMock } from '../__stubs__/update-property'
-import { propertyMock } from '../__stubs__/property'
-import { propertiesMock } from '../__stubs__/properties'
-import { mockContext } from '../../../__stubs__/context'
+import { createPropertyArgsMock } from '../__stubs__/mock-create-property'
+import { updatePropertyArgsMock } from '../__stubs__/mock-update-property'
+import { propertyMock } from '../__stubs__/mock-property'
+import { propertiesMock } from '../__stubs__/mock-properties'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getPropertyById: jest.fn(() => propertyMock),

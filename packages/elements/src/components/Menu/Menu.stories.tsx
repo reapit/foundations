@@ -11,7 +11,7 @@ export default {
   component: Menu,
 }
 
-export const Primary: Story<MenuConfig> = args => (
+export const Primary: Story<MenuConfig> = (args) => (
   <MemoryRouter initialEntries={['/']}>
     <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <AppNavContainer>
@@ -22,7 +22,7 @@ export const Primary: Story<MenuConfig> = args => (
 )
 Primary.args = mockMenuProps
 
-export const MenuWithoutMode: Story<MenuConfig> = args => {
+export const MenuWithoutMode: Story<MenuConfig> = (args) => {
   window[GLOBAL_KEY] = {}
   return (
     <MemoryRouter initialEntries={['/']}>

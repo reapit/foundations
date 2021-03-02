@@ -55,35 +55,35 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <Statistics>
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             Stats
           </h3>
-        </Component>
-        <Component>
+        </H3>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select an area:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="area-apps-btn"
                   onClick={[Function]}
@@ -99,8 +99,8 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     Apps
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-developers-btn"
                   onClick={[Function]}
                   type="button"
@@ -115,8 +115,8 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     Developers
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-installations-btn"
                   onClick={[Function]}
                   type="button"
@@ -131,22 +131,22 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     Installations
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select a time range:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="range-week-btn"
                   onClick={[Function]}
@@ -162,8 +162,8 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     Last week
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-month-btn"
                   onClick={[Function]}
                   type="button"
@@ -178,8 +178,8 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     Last Month
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-all-btn"
                   onClick={[Function]}
                   type="button"
@@ -194,12 +194,12 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   >
                     All time
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Showing results for ‘
@@ -208,23 +208,23 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                 Last Week
                 ’
               </h6>
-            </Component>
+            </H6>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Download as CSV
               </h5>
-            </Component>
-            <Component
+            </H5>
+            <Button
               onClick={[Function]}
               type="button"
               variant="primary"
@@ -238,10 +238,10 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               >
                 Download
               </button>
-            </Component>
+            </Button>
           </section>
-        </Component>
-      </Component>
+        </Section>
+      </Statistics>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -302,35 +302,35 @@ exports[`Admin Stats should match snapshot 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <Statistics>
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             Stats
           </h3>
-        </Component>
-        <Component>
+        </H3>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select an area:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="area-apps-btn"
                   onClick={[Function]}
@@ -346,8 +346,8 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     Apps
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-developers-btn"
                   onClick={[Function]}
                   type="button"
@@ -362,8 +362,8 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     Developers
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-installations-btn"
                   onClick={[Function]}
                   type="button"
@@ -378,22 +378,22 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     Installations
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select a time range:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="range-week-btn"
                   onClick={[Function]}
@@ -409,8 +409,8 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     Last week
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-month-btn"
                   onClick={[Function]}
                   type="button"
@@ -425,8 +425,8 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     Last Month
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-all-btn"
                   onClick={[Function]}
                   type="button"
@@ -441,12 +441,12 @@ exports[`Admin Stats should match snapshot 1`] = `
                   >
                     All time
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Showing results for ‘
@@ -455,23 +455,23 @@ exports[`Admin Stats should match snapshot 1`] = `
                 Last Week
                 ’
               </h6>
-            </Component>
+            </H6>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Download as CSV
               </h5>
-            </Component>
-            <Component
+            </H5>
+            <Button
               onClick={[Function]}
               type="button"
               variant="primary"
@@ -485,10 +485,10 @@ exports[`Admin Stats should match snapshot 1`] = `
               >
                 Download
               </button>
-            </Component>
+            </Button>
           </section>
-        </Component>
-      </Component>
+        </Section>
+      </Statistics>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -549,35 +549,35 @@ exports[`Admin Stats should show loading 1`] = `
         }
       }
     >
-      <Component>
-        <Component
+      <Statistics>
+        <H3
           isHeadingSection={true}
         >
           <h3
-            className=""
+            className="title is-3 is-heading-section"
             id=""
           >
             Stats
           </h3>
-        </Component>
-        <Component>
+        </H3>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select an area:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="area-apps-btn"
                   onClick={[Function]}
@@ -593,8 +593,8 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     Apps
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-developers-btn"
                   onClick={[Function]}
                   type="button"
@@ -609,8 +609,8 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     Developers
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="area-installations-btn"
                   onClick={[Function]}
                   type="button"
@@ -625,22 +625,22 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     Installations
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Please select a time range:
               </h6>
-            </Component>
-            <Component>
+            </H6>
+            <ButtonGroup>
               <div
                 className="is-centered buttons has-addons "
               >
-                <Component
+                <Button
                   className="ml-0"
                   dataTest="range-week-btn"
                   onClick={[Function]}
@@ -656,8 +656,8 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     Last week
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-month-btn"
                   onClick={[Function]}
                   type="button"
@@ -672,8 +672,8 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     Last Month
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <Button
                   dataTest="range-all-btn"
                   onClick={[Function]}
                   type="button"
@@ -688,12 +688,12 @@ exports[`Admin Stats should show loading 1`] = `
                   >
                     All time
                   </button>
-                </Component>
+                </Button>
               </div>
-            </Component>
-            <Component>
+            </ButtonGroup>
+            <H6>
               <h6
-                className=""
+                className="title is-6"
                 id=""
               >
                 Showing results for ‘
@@ -702,23 +702,23 @@ exports[`Admin Stats should show loading 1`] = `
                 Last Week
                 ’
               </h6>
-            </Component>
+            </H6>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Download as CSV
               </h5>
-            </Component>
-            <Component
+            </H5>
+            <Button
               onClick={[Function]}
               type="button"
               variant="primary"
@@ -732,10 +732,10 @@ exports[`Admin Stats should show loading 1`] = `
               >
                 Download
               </button>
-            </Component>
+            </Button>
           </section>
-        </Component>
-      </Component>
+        </Section>
+      </Statistics>
     </Router>
   </MemoryRouter>
 </Provider>

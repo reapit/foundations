@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAppDetailButtonGroup should match snapshot when both buttons are showing 1`] = `
-<Component
+<Button
   className="ml-0"
   dataTest="detail-modal-install-button"
   onClick={[MockFunction]}
@@ -9,5 +9,5 @@ exports[`ClientAppDetailButtonGroup should match snapshot when both buttons are 
   variant="primary"
 >
   Install App
-</Component>
+</Button>
 `;

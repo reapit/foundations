@@ -17,7 +17,7 @@ const CategoriesList: React.FunctionComponent<CategoriesListProps> = ({
   return (
     <ul className={styles.listCategories}>
       {categories.length > 0 && <CategoryItem selected={!selectedCategory} onSelectCategory={onSelectCategory} />}
-      {categories.map(category => (
+      {categories.map((category) => (
         <CategoryItem
           category={category}
           key={category.id?.toString() || ''}

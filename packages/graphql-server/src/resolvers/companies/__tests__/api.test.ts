@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetCompaniesAPI,
   callCreateCompanyAPI,
@@ -7,11 +7,11 @@ import {
   callGetCompanyRolesAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { companyMock } from '../__stubs__/company'
-import { companiesMock } from '../__stubs__/companies'
-import { companyRolesMock } from '../__stubs__/company-roles'
-import { createCompanyArgsMock } from '../__stubs__/create-company'
-import { updateCompanyArgsMock } from '../__stubs__/update-company'
+import { companyMock } from '../__stubs__/mock-company'
+import { companiesMock } from '../__stubs__/mock-companies'
+import { companyRolesMock } from '../__stubs__/mock-company-roles'
+import { createCompanyArgsMock } from '../__stubs__/mock-create-company'
+import { updateCompanyArgsMock } from '../__stubs__/mock-update-company'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

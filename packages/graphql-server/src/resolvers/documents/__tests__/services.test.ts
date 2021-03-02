@@ -5,12 +5,12 @@ import {
   callUpdateDocumentAPI,
   callDeleteDocumentAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createDocumentArgsMock } from '../__stubs__/create-document'
-import { updateDocumentArgsMock } from '../__stubs__/update-document'
-import { deleteDocumentMockArgs } from '../__stubs__/delete-document'
-import { documentMock } from '../__stubs__/document'
-import { documentsMock } from '../__stubs__/documents'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createDocumentArgsMock } from '../__stubs__/mock-create-document'
+import { updateDocumentArgsMock } from '../__stubs__/mock-update-document'
+import { deleteDocumentMockArgs } from '../__stubs__/mock-delete-document'
+import { documentMock } from '../__stubs__/mock-document'
+import { documentsMock } from '../__stubs__/mock-documents'
 import { getDocumentById, getDocuments, createDocument, updateDocument } from '../services'
 
 jest.mock('../../../logger')

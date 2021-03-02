@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountsTable should match a snapshot 1`] = `
-<Component
+<AccountsTable
   accounts={
     Array [
       Object {
@@ -22,13 +22,13 @@ exports[`AccountsTable should match a snapshot 1`] = `
     handleClose={[Function]}
     visible={false}
   >
-    <Component
+    <Modal
       afterClose={[Function]}
       title="Data Warehouse Password Update"
       visible={false}
     />
   </AccountUpdateModal>
-  <Component
+  <Table
     columns={
       Array [
         Object {
@@ -10113,7 +10113,7 @@ exports[`AccountsTable should match a snapshot 1`] = `
                   ]
                 }
               >
-                <Component
+                <Button
                   disabled={true}
                   onClick={[Function]}
                 >
@@ -10126,7 +10126,7 @@ exports[`AccountsTable should match a snapshot 1`] = `
                   >
                     Update
                   </button>
-                </Component>
+                </Button>
               </UpdatePasswordButton>
             </td>
             <td
@@ -13458,7 +13458,7 @@ exports[`AccountsTable should match a snapshot 1`] = `
                   ]
                 }
               >
-                <Component
+                <Button
                   disabled={true}
                   loading={false}
                   onClick={[Function]}
@@ -13473,13 +13473,13 @@ exports[`AccountsTable should match a snapshot 1`] = `
                   >
                     Deactivate
                   </button>
-                </Component>
+                </Button>
               </DeleteButton>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  </Component>
-</Component>
+  </Table>
+</AccountsTable>
 `;

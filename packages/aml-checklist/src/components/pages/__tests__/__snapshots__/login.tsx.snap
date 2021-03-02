@@ -3,14 +3,14 @@
 exports[`Login should match a snapshot 1`] = `
 <div>
   <div>
-    <Component>
+    <Level>
       <img
         alt="Reapit Connect Graphic"
         src=""
       />
-    </Component>
-    <Component>
-      <Component
+    </Level>
+    <Level>
+      <Button
         disabled={false}
         fullWidth={true}
         loading={false}
@@ -19,9 +19,9 @@ exports[`Login should match a snapshot 1`] = `
         variant="primary"
       >
         Login
-      </Component>
-    </Component>
-    <Component
+      </Button>
+    </Level>
+    <FlexContainerBasic
       centerContent={true}
       className="pt-8"
     />

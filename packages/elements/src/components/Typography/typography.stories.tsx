@@ -10,7 +10,7 @@ export default {
   subcomponents: { H2, H3, H4, H5, H6, SubTitleH1, SubTitleH2, SubTitleH3, SubTitleH4, SubTitleH5, SubTitleH6 },
 }
 
-export const Titles: Story = args => (
+export const Titles: Story = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <H1 {...args}>I am a H1</H1>
     <H2 {...args}>I am a H2</H2>
@@ -27,7 +27,7 @@ Titles.args = {
   isHeadingSection: false,
 }
 
-export const TitlesCentered: Story = args => (
+export const TitlesCentered: Story = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <H1 {...args}>I am a H1</H1>
     <H2 {...args}>I am a H2</H2>
@@ -44,7 +44,7 @@ TitlesCentered.args = {
   isHeadingSection: false,
 }
 
-export const SubTitles: Story = args => (
+export const SubTitles: Story = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <SubTitleH1 {...args}>I am a H1</SubTitleH1>
     <SubTitleH2 {...args}>I am a H2</SubTitleH2>
@@ -61,7 +61,7 @@ SubTitles.args = {
   isHeadingSection: false,
 }
 
-export const SubTitlesCentered: Story = args => (
+export const SubTitlesCentered: Story = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <SubTitleH1 {...args}>I am a H1</SubTitleH1>
     <SubTitleH2 {...args}>I am a H2</SubTitleH2>
@@ -78,7 +78,7 @@ SubTitlesCentered.args = {
   isHeadingSection: false,
 }
 
-export const TileSubTitleCombo: Story = args => (
+export const TileSubTitleCombo: Story = (args) => (
   <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <H1 {...args}>I am a H1</H1>
     <SubTitleH3 {...args}>I am a SubTitle H3</SubTitleH3>

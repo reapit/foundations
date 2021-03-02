@@ -2,19 +2,19 @@
 
 exports[`StepBeforeYouStart should match snapshot 1`] = `
 <Fragment>
-  <Component
+  <ModalBody
     body={
       <div>
-        <Unknown>
+        <H5>
           Have you had a look at the documentation?
-        </Unknown>
+        </H5>
         <p>
           Before continuing with registering your app, we strongly advise that you read the "Step-by-step" guide on how best to complete the following form.
         </p>
       </div>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
       <React.Fragment>
         <a
@@ -25,11 +25,11 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
         >
           View Docs
         </a>
-        <Unknown
+        <Button
           onClick={[Function]}
         >
           Create New App
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
   />

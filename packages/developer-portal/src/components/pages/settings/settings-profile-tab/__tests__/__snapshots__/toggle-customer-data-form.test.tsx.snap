@@ -13,6 +13,6 @@ exports[`ToggleCustomerDataForm should match snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <ToggleCustomerDataForm />
 </Provider>
 `;

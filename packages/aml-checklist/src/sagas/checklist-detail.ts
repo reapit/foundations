@@ -31,7 +31,7 @@ import {
 } from './api'
 import { extractNetworkErrString } from '@reapit/utils'
 
-export const fetchInitialData = function*({ data: id }) {
+export const fetchInitialData = function* ({ data: id }) {
   yield put(checklistDetailLoading(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
@@ -55,7 +55,7 @@ export type OnUpdateChecklistParams = {
   data: UpdateContactParams
 }
 
-export const onUpdateChecklist = function*({ data: { nextSection, contact } }: OnUpdateChecklistParams) {
+export const onUpdateChecklist = function* ({ data: { nextSection, contact } }: OnUpdateChecklistParams) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
@@ -91,7 +91,7 @@ export type OnUpdateAddressHistoryParams = {
   data: UpdateContactParams
 }
 
-export const onUpdateAddressHistory = function*({
+export const onUpdateAddressHistory = function* ({
   data: {
     nextSection,
     contact: { primaryAddress, secondaryAddress, metadata },
@@ -152,7 +152,7 @@ export type OnUpdateDeclarationAndRisk = {
   data: UpdateContactParams
 }
 
-export const onUpdateDeclarationAndRisk = function*({
+export const onUpdateDeclarationAndRisk = function* ({
   data: {
     nextSection,
     contact: { metadata },
@@ -210,7 +210,7 @@ export const fetchDataPepSearch = async ({ name, headers }) => {
   console.log(name, headers)
   try {
     // TODO: Duong Pham will replace by fetch API when API ready
-    const result = await new Promise(resolve => {
+    const result = await new Promise((resolve) => {
       setTimeout(() => {
         resolve([])
       }, 1000)
@@ -221,7 +221,7 @@ export const fetchDataPepSearch = async ({ name, headers }) => {
   }
 }
 
-export const pepSearch = function*({ data }) {
+export const pepSearch = function* ({ data }) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
@@ -257,7 +257,9 @@ export const getFileExtensions = (data: string | undefined) => {
   return extension
 }
 
-export const updatePrimaryId = function*({ data: { nextSection, identityChecks } }: Action<UpdateIdentityCheckParams>) {
+export const updatePrimaryId = function* ({
+  data: { nextSection, identityChecks },
+}: Action<UpdateIdentityCheckParams>) {
   yield put(checklistDetailSubmitForm(true))
 
   try {
@@ -300,9 +302,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
           identityDocument1: newIdentityDocument,
           contactId: contact.id,
           status: 'pending',
-          checkDate: dayjs()
-            .startOf('day')
-            .format('YYYY-MM-DDTHH:mm:ss'),
+          checkDate: dayjs().startOf('day').format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: session.loginIdentity.userCode,
         },
       })
@@ -326,7 +326,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
   }
 }
 
-export const updateSecondaryId = function*({
+export const updateSecondaryId = function* ({
   data: { nextSection, identityChecks },
 }: Action<UpdateIdentityCheckParams>) {
   yield put(checklistDetailSubmitForm(true))
@@ -371,9 +371,7 @@ export const updateSecondaryId = function*({
           identityDocument2: newIdentityDocument,
           contactId: contact.id,
           status: 'pending',
-          checkDate: dayjs()
-            .startOf('day')
-            .format('YYYY-MM-DDTHH:mm:ss'),
+          checkDate: dayjs().startOf('day').format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: session.loginIdentity.userCode,
         },
       })
@@ -397,15 +395,15 @@ export const updateSecondaryId = function*({
   }
 }
 
-export const fetchInitialDataListen = function*() {
+export const fetchInitialDataListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, fetchInitialData)
 }
 
-export const updateChecklistListen = function*() {
+export const updateChecklistListen = function* () {
   yield takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, onUpdateChecklist)
 }
 
-export const updateIdentityCheckStatus = function*({
+export const updateIdentityCheckStatus = function* ({
   data: { idCheck, dynamicLinkParams },
 }: Action<{
   idCheck: IdentityCheckModel
@@ -447,39 +445,39 @@ export const updateIdentityCheckStatus = function*({
   }
 }
 
-export const updateAddressHistoryListen = function*() {
+export const updateAddressHistoryListen = function* () {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA,
     onUpdateAddressHistory,
   )
 }
 
-export const checkListDetailDeclarationAndRiskUpdateListen = function*() {
+export const checkListDetailDeclarationAndRiskUpdateListen = function* () {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
     onUpdateDeclarationAndRisk,
   )
 }
 
-export const checkListDetailPepSearchListen = function*() {
+export const checkListDetailPepSearchListen = function* () {
   yield takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch)
 }
 
-export const updatePrimaryIdListen = function*() {
+export const updatePrimaryIdListen = function* () {
   yield takeLatest<Action<UpdateIdentityCheckParams>>(
     ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA,
     updatePrimaryId,
   )
 }
 
-export const updateSecondaryIdListen = function*() {
+export const updateSecondaryIdListen = function* () {
   yield takeLatest<Action<UpdateIdentityCheckParams>>(
     ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
     updateSecondaryId,
   )
 }
 
-export const updateIdentityCheckStatusListen = function*() {
+export const updateIdentityCheckStatusListen = function* () {
   yield takeLatest<
     Action<{
       idCheck: IdentityCheckModel
@@ -488,7 +486,7 @@ export const updateIdentityCheckStatusListen = function*() {
   >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)
 }
 
-export const checklistDetailSagas = function*() {
+export const checklistDetailSagas = function* () {
   yield all([
     fork(fetchInitialDataListen),
     fork(updateChecklistListen),

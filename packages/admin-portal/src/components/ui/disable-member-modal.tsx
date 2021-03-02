@@ -16,7 +16,7 @@ export const handleDisableMember = (developerId: string, memberId: string, dispa
     disableMember({
       developerId: developerId,
       memberId: memberId,
-      callback: isSuccess => {
+      callback: (isSuccess) => {
         setSuccess(isSuccess)
       },
     }),

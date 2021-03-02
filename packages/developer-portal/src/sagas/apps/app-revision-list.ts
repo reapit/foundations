@@ -5,7 +5,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { notification } from '@reapit/elements'
 
-export const fetchAppRevisionListSaga = function*({ data }: Action<FetchAppRevisionsListParams>) {
+export const fetchAppRevisionListSaga = function* ({ data }: Action<FetchAppRevisionsListParams>) {
   try {
     const response = yield call(fetchAppRevisionsList, data)
     yield put(fetchAppRevisionListSuccess(response))
@@ -18,11 +18,11 @@ export const fetchAppRevisionListSaga = function*({ data }: Action<FetchAppRevis
   }
 }
 
-export const fetchAppRevisionListListen = function*() {
+export const fetchAppRevisionListListen = function* () {
   yield takeLatest<Action<FetchAppRevisionsListParams>>(fetchAppRevisionList.type, fetchAppRevisionListSaga)
 }
 
-const appListSagas = function*() {
+const appListSagas = function* () {
   yield all([fork(fetchAppRevisionListListen)])
 }
 

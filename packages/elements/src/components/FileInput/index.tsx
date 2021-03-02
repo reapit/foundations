@@ -98,7 +98,7 @@ export const FileInput = ({
 
             const reader = new FileReader()
             reader.readAsDataURL(file)
-            reader.onload = function() {
+            reader.onload = function () {
               const base64 = reader.result
               field.onChange({ target: { value: base64, name: field.name } })
 
@@ -109,7 +109,7 @@ export const FileInput = ({
                 testProps.waitUntilDataReaderLoadResolver()
               }
             }
-            reader.onerror = function(error) {
+            reader.onerror = function (error) {
               console.log('Error: ', error)
             }
           }

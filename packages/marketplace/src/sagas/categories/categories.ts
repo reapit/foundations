@@ -5,7 +5,7 @@ import { fetchCategoriesFailed, fetchCategoriesSuccess } from '@/actions/categor
 import ActionTypes from '@/constants/action-types'
 import { fetchCategoriesApi, FetchCategoriesParams } from '@/services/categories'
 
-export const fetchCategories = function*({ data }: Action<FetchCategoriesParams>) {
+export const fetchCategories = function* ({ data }: Action<FetchCategoriesParams>) {
   try {
     const desktopIntegrationTypes = yield call(fetchCategoriesApi, { ...data })
     yield put(fetchCategoriesSuccess(desktopIntegrationTypes))
@@ -18,10 +18,10 @@ export const fetchCategories = function*({ data }: Action<FetchCategoriesParams>
   }
 }
 
-export const fetchCategoriesListen = function*() {
+export const fetchCategoriesListen = function* () {
   yield takeLatest<Action<FetchCategoriesParams>>(ActionTypes.FETCH_CATEGORIES, fetchCategories)
 }
 
-export const categoriesSagas = function*() {
+export const categoriesSagas = function* () {
   yield all([fork(fetchCategoriesListen)])
 }

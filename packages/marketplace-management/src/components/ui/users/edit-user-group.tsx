@@ -159,7 +159,7 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
   }) => (
     <a
       href="#"
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault()
         removeUser.push(original.id)
         setRemoveUser([...removeUser])

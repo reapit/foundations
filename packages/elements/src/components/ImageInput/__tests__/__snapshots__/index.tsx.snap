@@ -2,7 +2,7 @@
 
 exports[`ImageInput should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <FileInput
     accept="image/*"
     afterLoadedFile={[Function]}
     id="test"

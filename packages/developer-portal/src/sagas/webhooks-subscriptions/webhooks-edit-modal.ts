@@ -27,7 +27,7 @@ import {
 import { fetchInstallationsList } from '@/services/installations'
 import { notification } from '@reapit/elements'
 
-export const requestSubcriptionData = function*({ data: applicationId }: Action<string>) {
+export const requestSubcriptionData = function* ({ data: applicationId }: Action<string>) {
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
@@ -52,7 +52,7 @@ export const requestSubcriptionData = function*({ data: applicationId }: Action<
   }
 }
 
-export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>) {
+export const createNewWebhook = function* ({ data }: Action<CreateWebhookParams>) {
   try {
     const createResponse = yield call(createWebhooksSubscription, data)
     let newListResponse = false
@@ -72,7 +72,7 @@ export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>)
   }
 }
 
-export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
+export const editWebhook = function* ({ data }: Action<EditWebhookParams>) {
   try {
     const editResponse = yield call(updateWebhooksSubscriptionById, { id: data.webhookId, ...data })
     let newListResponse = false
@@ -92,7 +92,7 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
   }
 }
 
-export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
+export const deleteWebhook = function* ({ data }: Action<DeleteWebhookParams>) {
   try {
     const { webhookId, applicationId } = data
     const deleteResponse = yield call(deleteWebhooksSubscriptionById, { id: webhookId })
@@ -112,7 +112,7 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
   }
 }
 
-export const requestWebhookData = function*({ data: webhookId }: Action<string>) {
+export const requestWebhookData = function* ({ data: webhookId }: Action<string>) {
   try {
     const data: WebhookModal = yield call(fetchWebhooksSubscriptionById, { id: webhookId })
     const { applicationId } = data
@@ -127,27 +127,27 @@ export const requestWebhookData = function*({ data: webhookId }: Action<string>)
   }
 }
 
-export const requestWebhookSupcriptionDataListen = function*() {
+export const requestWebhookSupcriptionDataListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA, requestSubcriptionData)
 }
 
-export const createWebhookListen = function*() {
+export const createWebhookListen = function* () {
   yield takeLatest<Action<CreateWebhookParams>>(ActionTypes.WEBHOOK_CREATE, createNewWebhook)
 }
 
-export const editWebhookListen = function*() {
+export const editWebhookListen = function* () {
   yield takeLatest<Action<EditWebhookParams>>(ActionTypes.WEBHOOK_EDIT, editWebhook)
 }
 
-export const requestWebhookDataListen = function*() {
+export const requestWebhookDataListen = function* () {
   yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_REQUEST_DATA, requestWebhookData)
 }
 
-export const deleteWebhookListen = function*() {
+export const deleteWebhookListen = function* () {
   yield takeLatest<Action<DeleteWebhookParams>>(ActionTypes.WEBHOOK_DELETE, deleteWebhook)
 }
 
-export const webhooksEditSubscription = function*() {
+export const webhooksEditSubscription = function* () {
   yield all([
     fork(requestWebhookSupcriptionDataListen),
     fork(createWebhookListen),

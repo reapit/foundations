@@ -63,7 +63,7 @@ describe('createPaymentRequest', () => {
   const params = ['paymentId']
   const config = ['senderEmail', 'companyName', 'logoUri']
 
-  headers.forEach(header => {
+  headers.forEach((header) => {
     it(`should validate ${header} header is present`, async () => {
       const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
@@ -85,7 +85,7 @@ describe('createPaymentRequest', () => {
     })
   })
 
-  bodyParams.forEach(param => {
+  bodyParams.forEach((param) => {
     it(`should validate ${param} body param is present`, async () => {
       const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
@@ -108,7 +108,7 @@ describe('createPaymentRequest', () => {
     })
   })
 
-  params.forEach(param => {
+  params.forEach((param) => {
     it(`should validate ${param} param is present`, async () => {
       const mockReq: Partial<AppRequest> = {
         ...baseMockReq,
@@ -130,7 +130,7 @@ describe('createPaymentRequest', () => {
     })
   })
 
-  config.forEach(configItem => {
+  config.forEach((configItem) => {
     it(`should validate ${configItem} config item is present`, async () => {
       const mockConfig = {
         clients: {

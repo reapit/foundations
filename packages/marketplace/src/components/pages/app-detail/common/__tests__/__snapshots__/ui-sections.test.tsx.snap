@@ -1,181 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdditionalImagesSection should match a snapshot where has images 1`] = `
-<Component
+<Grid
   className="is-desktop flex-col-min-height"
   isMultiLine={true}
 >
-  <Component
+  <GridItem
     className="is-half-desktop"
     key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
   >
-    <Component
+    <ImageSection
       uri="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
     />
-  </Component>
-  <Component
+  </GridItem>
+  <GridItem
     className="is-half-desktop"
     key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
   >
-    <Component
+    <ImageSection
       uri="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
     />
-  </Component>
-</Component>
+  </GridItem>
+</Grid>
 `;
 
 exports[`AdditionalImagesSection should match a snapshot where has no images 1`] = `""`;
 
 exports[`BackToAppsSection should match a snapshot 1`] = `
-<Component
+<LevelRight
   className="pt-4 bt mt-4 flex"
 >
-  <Component
+  <Button
     onClick={[MockFunction]}
   >
     Back To Apps
-  </Component>
-</Component>
+  </Button>
+</LevelRight>
 `;
 
 exports[`CategorySection should match a snapshot where category is defined and is sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Category"
   isSidebar={true}
 >
-  <Component>
+  <Tag>
     Game
-  </Component>
-</Component>
+  </Tag>
+</AppDetailSection>
 `;
 
 exports[`CategorySection should match a snapshot where category undefined and not sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Category"
   isSidebar={false}
 >
   <p>
     None
   </p>
-</Component>
+</AppDetailSection>
 `;
 
 exports[`DescriptionSection should match a snapshot 1`] = `
-<Component
+<HTMLRender
   html="Lorem ipsum"
 />
 `;
 
 exports[`DesktopIntegrationSection should match a snapshot where desktopIntegrationTypes empty and not sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Desktop Integration"
   isSidebar={false}
 >
   <p>
     None
   </p>
-</Component>
+</AppDetailSection>
 `;
 
 exports[`DesktopIntegrationSection should match a snapshot where desktopIntegrationTypes hasLength and is sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Desktop Integration"
   isSidebar={true}
 >
-  <Component
+  <Tag
     key="Identity Check"
   >
     Identity Check
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Property Marketing Information"
   >
     Property Marketing Information
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Vendor Marketing Report"
   >
     Vendor Marketing Report
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Property Details Generation"
   >
     Property Details Generation
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Applicant Export"
   >
     Applicant Export
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Property"
   >
     Property
-  </Component>
-  <Component
+  </Tag>
+  <Tag
     key="Applicant"
   >
     Applicant
-  </Component>
-</Component>
+  </Tag>
+</AppDetailSection>
 `;
 
 exports[`DirectApiSection should match a snapshot where isDirectApi false and not sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Integration"
   isSidebar={false}
 >
   No
-</Component>
+</AppDetailSection>
 `;
 
 exports[`DirectApiSection should match a snapshot where isDirectApi true and is sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Integration"
   isSidebar={true}
 >
   Yes
-</Component>
+</AppDetailSection>
 `;
 
 exports[`InstallationsTableSection should not render a table when has no data 1`] = `
-<Component
+<InstallationsTableSection
   columns={Array []}
   data={Array []}
 >
-  <Component
+  <AppDetailSection
     dataTest="render-installations-table-empty-text"
     headerText="Installations"
     isSidebar={false}
   >
-    <Component
+    <Content
       dataTest="render-installations-table-empty-text"
     >
       <div
-        className=""
+        className="content"
         data-test="render-installations-table-empty-text"
       >
-        <Component
+        <H5
           className=""
         >
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Installations
           </h5>
-        </Component>
+        </H5>
         <p>
           Currently, there are no installations for your app
         </p>
       </div>
-    </Component>
-  </Component>
-</Component>
+    </Content>
+  </AppDetailSection>
+</InstallationsTableSection>
 `;
 
 exports[`InstallationsTableSection should render a table and match a snapshot when has data 1`] = `
-<Component
+<InstallationsTableSection
   columns={Array []}
   data={
     Array [
@@ -201,29 +201,29 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
     ]
   }
 >
-  <Component
+  <AppDetailSection
     dataTest="render-installations-table"
     headerText="Installations"
     isSidebar={false}
   >
-    <Component
+    <Content
       dataTest="render-installations-table"
     >
       <div
-        className=""
+        className="content"
         data-test="render-installations-table"
       >
-        <Component
+        <H5
           className=""
         >
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Installations
           </h5>
-        </Component>
-        <Component
+        </H5>
+        <Table
           columns={Array []}
           data={
             Array [
@@ -267,15 +267,15 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
               <tbody />
             </table>
           </div>
-        </Component>
+        </Table>
       </div>
-    </Component>
-  </Component>
-</Component>
+    </Content>
+  </AppDetailSection>
+</InstallationsTableSection>
 `;
 
 exports[`ListingPreviewSection should match a snapshot 1`] = `
-<Component
+<AppDetailSection
   headerText={
     <React.Fragment>
       <span
@@ -285,7 +285,7 @@ exports[`ListingPreviewSection should match a snapshot 1`] = `
       </span>
        
       <a
-        className=""
+        className="p964yes-preview"
         href="#"
         onClick={[Function]}
       >
@@ -298,83 +298,83 @@ exports[`ListingPreviewSection should match a snapshot 1`] = `
   <p>
     The listing preview will display your app as it would appear in the Marketplace
   </p>
-</Component>
+</AppDetailSection>
 `;
 
 exports[`PermissionsSection should match a snapshot where has no permissions 1`] = `
-<Component
+<AppDetailSection
   headerText="Permissions required"
 >
-  <Component />
-</Component>
+  <GridFourCol />
+</AppDetailSection>
 `;
 
 exports[`PermissionsSection should match a snapshot where has permissions 1`] = `
-<Component
+<AppDetailSection
   headerText="Permissions required"
 >
-  <Component>
-    <Component
+  <GridFourCol>
+    <GridFourColItem
       key="Marketplace/developers.read"
     >
       Read data about developers
-    </Component>
-    <Component
+    </GridFourColItem>
+    <GridFourColItem
       key="Marketplace/developers.write"
     >
       Write data about developers
-    </Component>
-  </Component>
-</Component>
+    </GridFourColItem>
+  </GridFourCol>
+</AppDetailSection>
 `;
 
 exports[`PrivateAppSection should match a snapshot where limitToClientIds empty and not sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Private App"
   isSidebar={false}
 >
   No
-</Component>
+</AppDetailSection>
 `;
 
 exports[`PrivateAppSection should match a snapshot where limitToClientIds hasLength and is sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Private App"
   isSidebar={true}
 >
   Yes
-</Component>
+</AppDetailSection>
 `;
 
 exports[`StatusSection should match a snapshot where isListed false and not sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Status"
   isSidebar={false}
 >
   <div>
     Not listed
   </div>
-</Component>
+</AppDetailSection>
 `;
 
 exports[`StatusSection should match a snapshot where isListed true and is sidebar 1`] = `
-<Component
+<AppDetailSection
   headerText="Status"
   isSidebar={true}
 >
   <div>
     Listed 
     <FaCheck
-      className=""
+      className="c1f01f8l-check"
     />
   </div>
-</Component>
+</AppDetailSection>
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Component
+<Content
   className="is-italic"
 >
   Lorem ipsum
-</Component>
+</Content>
 `;

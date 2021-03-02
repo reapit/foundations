@@ -130,7 +130,7 @@ function WizardStep<T>({ Component, initialValue, onNavigate, validate, onSubmit
         onSubmit && onSubmit({ values, context, form: form as FormikProps<T> })
       }}
     >
-      {form => {
+      {(form) => {
         let rightRender: React.ReactNode
 
         if (!rightFooterRender) {

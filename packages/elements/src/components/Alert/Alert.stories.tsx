@@ -7,7 +7,7 @@ export default {
   component: Alert,
 }
 
-const Template: Story<AlertProps> = args => <Alert {...args} />
+const Template: Story<AlertProps> = (args) => <Alert {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

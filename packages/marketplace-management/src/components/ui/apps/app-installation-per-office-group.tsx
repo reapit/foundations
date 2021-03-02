@@ -34,7 +34,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   useEffect(() => {
     if (officeGroups && officeGroups._embedded) {
       setOfficeGroupsTableData(
-        officeGroups._embedded.map(og => ({
+        officeGroups._embedded.map((og) => ({
           name: og.name,
           officeIds: og.officeIds,
           customerId: og.customerId,
@@ -45,7 +45,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
 
   if (officeGroupsValidating) return <Loader />
 
-  const toggleAllOfficeGroups = desiredState => {
+  const toggleAllOfficeGroups = (desiredState) => {
     if (!officeGroupsTableData) return false
 
     const removeList = [] as string[]
@@ -71,16 +71,16 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   }
 
   const isPreviouslyInstalled = (installations, client) =>
-    installations && installations.data && !!installations.data.find(i => i.client === client)
+    installations && installations.data && !!installations.data.find((i) => i.client === client)
 
   const toggleOfficeGroupsToAdd = (customerId: string) => {
     officeGroupsToAdd.includes(customerId)
-      ? setOfficeGroupsToAdd(officeGroupsToAdd.filter(item => item !== customerId))
+      ? setOfficeGroupsToAdd(officeGroupsToAdd.filter((item) => item !== customerId))
       : setOfficeGroupsToAdd([...officeGroupsToAdd, customerId])
   }
   const toggleOfficeGroupsToRemove = (customerId: string) => {
     officeGroupsToRemove.includes(customerId)
-      ? setOfficeGroupsToRemove(officeGroupsToRemove.filter(item => item !== customerId))
+      ? setOfficeGroupsToRemove(officeGroupsToRemove.filter((item) => item !== customerId))
       : setOfficeGroupsToRemove([...officeGroupsToRemove, customerId])
   }
 

@@ -16,7 +16,7 @@ export type AppointmentTypeQueryData = {
 }
 
 export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]) {
-  const filteredNextAppointments = appointments.filter(appointment => {
+  const filteredNextAppointments = appointments.filter((appointment) => {
     const isSameDay = dayjs(appointment.start).isSame(dayjs(), 'day')
     const isBeforeAppointmentTime = dayjs().isBefore(dayjs(appointment.start))
     return !appointment.cancelled && isSameDay && isBeforeAppointmentTime

@@ -6,7 +6,7 @@ import { fork } from 'redux-saga/effects'
 import { fetchAppRevisionDetailSuccess, fetchAppRevisionDetail, fetchAppRevisionDetailFailed } from '@/actions/apps'
 import { notification } from '@reapit/elements'
 
-export const fetchRevisionDetailSaga = function*({ data: { id, revisionId } }: Action<FetchAppRevisionsByIdParams>) {
+export const fetchRevisionDetailSaga = function* ({ data: { id, revisionId } }: Action<FetchAppRevisionsByIdParams>) {
   try {
     const response = yield call(fetchAppRevisionsById, { id, revisionId })
     yield put(fetchAppRevisionDetailSuccess(response))
@@ -19,11 +19,11 @@ export const fetchRevisionDetailSaga = function*({ data: { id, revisionId } }: A
   }
 }
 
-export const fetchRevisionDetailDataListen = function*() {
+export const fetchRevisionDetailDataListen = function* () {
   yield takeLatest<Action<FetchAppRevisionsByIdParams>>(fetchAppRevisionDetail.type, fetchRevisionDetailSaga)
 }
 
-const revisionDetailSagas = function*() {
+const revisionDetailSagas = function* () {
   yield all([fork(fetchRevisionDetailDataListen)])
 }
 

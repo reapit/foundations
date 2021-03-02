@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Welcome, handleIsShowAgencyCloudSectionMemo } from '../welcome'
 import { ReapitConnectHook } from '@reapit/connect-session'
 
-const session = {
+const mockSession = {
   accessToken: '123',
   accessTokenExpiry: 1583492838,
   idToken: '123',
@@ -24,12 +24,17 @@ const session = {
 
 describe('handleIsShowAgencyCloudSectionMemo', () => {
   test('return false when groups empty', () => {
-    expect(handleIsShowAgencyCloudSectionMemo((session as unknown) as ReapitConnectHook)()).toBeFalsy()
+    expect(handleIsShowAgencyCloudSectionMemo((mockSession as unknown) as ReapitConnectHook)()).toBeFalsy()
   })
   test('return true when groups include showHandleAgencyCloudSectionGroups group', () => {
     const inputs = [
-      { connectSession: { ...session, loginIdentity: { ...session.loginIdentity, groups: ['ReapitUser'] } } },
-      { connectSession: { ...session, loginIdentity: { ...session.loginIdentity, groups: ['ReapitUsersAdmin'] } } },
+      { connectSession: { ...mockSession, loginIdentity: { ...mockSession.loginIdentity, groups: ['ReapitUser'] } } },
+      {
+        connectSession: {
+          ...mockSession,
+          loginIdentity: { ...mockSession.loginIdentity, groups: ['ReapitUsersAdmin'] },
+        },
+      },
     ]
 
     for (const input of inputs) {
@@ -41,7 +46,7 @@ describe('handleIsShowAgencyCloudSectionMemo', () => {
 describe('Welcome', () => {
   it('should match snapshot', () => {
     jest.mock('@reapit/connect-session', () => ({
-      connectSession: session,
+      connectSession: mockSession,
     }))
 
     expect(shallow(<Welcome />)).toMatchSnapshot()
@@ -50,9 +55,9 @@ describe('Welcome', () => {
   it('should match snapshot for developer', () => {
     jest.mock('@reapit/connect-session', () => ({
       connectSession: {
-        ...session,
+        ...mockSession,
         loginIdentity: {
-          ...session.loginIdentity,
+          ...mockSession.loginIdentity,
           clientId: null,
         },
       },
@@ -64,9 +69,9 @@ describe('Welcome', () => {
   it('should match snapshot for client', () => {
     jest.mock('@reapit/connect-session', () => ({
       connectSession: {
-        ...session,
+        ...mockSession,
         loginIdentity: {
-          ...session.loginIdentity,
+          ...mockSession.loginIdentity,
           developerId: null,
         },
       },

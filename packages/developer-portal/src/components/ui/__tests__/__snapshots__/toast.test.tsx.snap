@@ -14,7 +14,7 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
   }
 >
   <Toast>
-    <Component
+    <Toast
       componentError={null}
       errorClearedComponent={[Function]}
       errorClearedServer={[Function]}
@@ -25,7 +25,7 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
         data-test="toast-wrapper"
         onClick={[Function]}
       >
-        <Component
+        <Button
           fullWidth={true}
           type="reset"
           variant="danger"
@@ -36,9 +36,9 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
             disabled={false}
             type="reset"
           />
-        </Component>
+        </Button>
       </div>
-    </Component>
+    </Toast>
   </Toast>
 </Provider>
 `;

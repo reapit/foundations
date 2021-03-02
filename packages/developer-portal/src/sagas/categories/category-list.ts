@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import { fetchCategoryListAPI } from '@/services/categories'
 import { notification } from '@reapit/elements'
 
-export const fetchCategoryListSaga = function*() {
+export const fetchCategoryListSaga = function* () {
   try {
     const categories = yield call(fetchCategoryListAPI, {})
     yield put(fetchCategoryListSuccess(categories))
@@ -18,11 +18,11 @@ export const fetchCategoryListSaga = function*() {
   }
 }
 
-export const fetchCategoryListListen = function*() {
+export const fetchCategoryListListen = function* () {
   yield takeLatest<Action<void>>(fetchCategoryList.type, fetchCategoryListSaga)
 }
 
-const categoryListSagas = function*() {
+const categoryListSagas = function* () {
   yield all([fork(fetchCategoryListListen)])
 }
 

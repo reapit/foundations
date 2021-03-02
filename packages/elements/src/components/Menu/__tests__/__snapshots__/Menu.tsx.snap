@@ -7,7 +7,7 @@ exports[`Menu should render link item logo correctly 1`] = `
   <div
     className="nav-item-icon"
   >
-    <Component
+    <ReapitLogo
       className="nav-item-icon"
     />
   </div>
@@ -59,10 +59,10 @@ exports[`Menu should render menu correctly 1`] = `
   className="nav-bar "
 >
   <ul>
-    <Component
+    <LinkItem
       item={
         Object {
-          "icon": <Unknown
+          "icon": <ReapitLogo
             className="nav-item-icon"
           />,
           "key": "LOGO",
@@ -76,13 +76,13 @@ exports[`Menu should render menu correctly 1`] = `
         onClick={[Function]}
       >
         <div>
-          <Component
+          <ReapitLogo
             className="nav-item-icon"
           />
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       activeItemRef={
         Object {
           "current": null,
@@ -116,8 +116,8 @@ exports[`Menu should render menu correctly 1`] = `
           Apps
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCloudDownloadAlt
@@ -146,8 +146,8 @@ exports[`Menu should render menu correctly 1`] = `
           Installed
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCloudUploadAlt
@@ -176,8 +176,8 @@ exports[`Menu should render menu correctly 1`] = `
           Submit
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaReadme
@@ -206,8 +206,8 @@ exports[`Menu should render menu correctly 1`] = `
           Docs
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCog
@@ -236,8 +236,8 @@ exports[`Menu should render menu correctly 1`] = `
           Settings
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "callback": [Function],
@@ -266,7 +266,7 @@ exports[`Menu should render menu correctly 1`] = `
           Logout
         </div>
       </li>
-    </Component>
+    </LinkItem>
   </ul>
 </nav>
 `;
@@ -276,10 +276,10 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
   className="nav-bar is-desktop"
 >
   <ul>
-    <Component
+    <LinkItem
       item={
         Object {
-          "icon": <Unknown
+          "icon": <ReapitLogo
             className="nav-item-icon"
           />,
           "key": "LOGO",
@@ -293,13 +293,13 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         onClick={[Function]}
       >
         <div>
-          <Component
+          <ReapitLogo
             className="nav-item-icon"
           />
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       activeItemRef={
         Object {
           "current": null,
@@ -333,8 +333,8 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Apps
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCloudDownloadAlt
@@ -363,8 +363,8 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Installed
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCloudUploadAlt
@@ -393,8 +393,8 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Submit
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaReadme
@@ -423,8 +423,8 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Docs
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "icon": <FaCog
@@ -453,8 +453,8 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Settings
         </div>
       </li>
-    </Component>
-    <Component
+    </LinkItem>
+    <LinkItem
       item={
         Object {
           "callback": [Function],
@@ -483,7 +483,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
           Logout
         </div>
       </li>
-    </Component>
+    </LinkItem>
   </ul>
 </nav>
 `;

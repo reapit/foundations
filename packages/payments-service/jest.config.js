@@ -1,9 +1,9 @@
-const baseConfig = require('../../scripts/jest/jest.config')
+const { jestGlobalConfig } = require('@reapit/ts-scripts')
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
-  ...baseConfig,
+  ...jestGlobalConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)[/\\\\]',
@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   moduleNameMapper: {
-    ...baseConfig.moduleNameMapper,
+    ...jestGlobalConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),

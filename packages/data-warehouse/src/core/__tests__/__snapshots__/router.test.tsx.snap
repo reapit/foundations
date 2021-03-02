@@ -41,7 +41,7 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Component>
+      <PrivateRouteWrapper>
         <Switch>
           <Route
             component={
@@ -110,7 +110,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/analytics"
           />
         </Switch>
-      </Component>
+      </PrivateRouteWrapper>
       <Redirect
         to="/login"
       />

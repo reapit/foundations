@@ -14,15 +14,15 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
   }
 >
   <DeveloperSettingsOrganisationTabPage>
-    <Component>
+    <Section>
       <section
-        className=""
+        className="section has-padding has-margin has-background"
         data-test=""
       >
-        <Component
+        <Tabs
           role="admin"
         >
-          <Component
+          <Tabs
             tabConfigs={
               Array [
                 Object {
@@ -47,7 +47,7 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
             }
           >
             <div
-              className=""
+              className="tabs is-fullwidth"
               role="tablist"
             >
               <ul>
@@ -95,14 +95,14 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                 </li>
               </ul>
             </div>
-          </Component>
-        </Component>
+          </Tabs>
+        </Tabs>
       </section>
-    </Component>
+    </Section>
     <OrganisationForm
       onInviteNewMemberClick={[Function]}
     >
-      <Component>
+      <Loader>
         <div
           className="loader-spinner body"
           data-test=""
@@ -112,23 +112,23 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
           <div />
           <div />
         </div>
-      </Component>
+      </Loader>
     </OrganisationForm>
-    <Component>
-      <Component>
+    <Members>
+      <Section>
         <section
-          className=""
+          className="section has-padding has-margin has-background"
           data-test=""
         >
-          <Component>
+          <H5>
             <h5
-              className=""
+              className="title is-5"
               id=""
             >
               Members
             </h5>
-          </Component>
-          <Component
+          </H5>
+          <Table
             columns={
               Array [
                 Object {
@@ -1561,38 +1561,38 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
                 <tbody />
               </table>
             </div>
-          </Component>
+          </Table>
           <DisableMemberModal
             developer={null}
             onCancel={[Function]}
             onSuccess={[Function]}
             visible={false}
           />
-          <Component
+          <SetAsAdminModal
             onClose={[Function]}
             user={null}
             visible={false}
           />
-          <Component
+          <InviteMemberModal
             developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
             memberData={null}
             onClose={[Function]}
             visible={false}
           />
         </section>
-      </Component>
-    </Component>
-    <Component>
+      </Section>
+    </Members>
+    <Section>
       <section
-        className=""
+        className="section has-padding has-margin has-background"
         data-test=""
       >
-        <Component>
+        <LevelRight>
           <div
-            className=""
+            className="level-right"
             data-test=""
           >
-            <Component
+            <Button
               onClick={[Function]}
               type="button"
               variant="primary"
@@ -1606,12 +1606,12 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
               >
                 Invite New Member
               </button>
-            </Component>
+            </Button>
           </div>
-        </Component>
+        </LevelRight>
       </section>
-    </Component>
-    <Component
+    </Section>
+    <InviteMemberModal
       developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
       onClose={[Function]}
       visible={false}

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AuthenticationFlowSection should match a snapshot 1`] = `
-<Component>
-  <Component>
+<FormSection>
+  <FormHeading>
     AUTHENTICATION FLOW *
-  </Component>
-  <Component>
+  </FormHeading>
+  <FormSubHeading>
     Please select an authentication flow for your application.
      
     <strong>
@@ -29,7 +29,7 @@ exports[`AuthenticationFlowSection should match a snapshot 1`] = `
     . For more information on authentication, see our platform documentation
      
     <a
-      className=""
+      className="l3gjl5x-link"
       href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
       rel="noopener noreferrer"
       target="_blank"
@@ -38,10 +38,10 @@ exports[`AuthenticationFlowSection should match a snapshot 1`] = `
     </a>
      
     before progressing.
-  </Component>
-  <Component>
-    <Component>
-      <Component
+  </FormSubHeading>
+  <Grid>
+    <GridItem>
+      <RadioSelect
         disabled={true}
         id="authFlow"
         name="authFlow"
@@ -60,7 +60,7 @@ exports[`AuthenticationFlowSection should match a snapshot 1`] = `
         setFieldValue={[MockFunction]}
         state=""
       />
-    </Component>
-  </Component>
-</Component>
+    </GridItem>
+  </Grid>
+</FormSection>
 `;

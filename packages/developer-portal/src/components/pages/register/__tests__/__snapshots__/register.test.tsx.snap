@@ -55,23 +55,23 @@ exports[`Register should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <Register>
         <div
-          className=""
+          className="clgvn7z-container"
         >
           <div
-            className=""
+            className="wj5na9i-wrapper"
           >
-            <Component
+            <H1
               isCentered={true}
             >
               <h1
-                className=""
+                className="title is-1 has-text-centered"
                 id=""
               >
                 Register
               </h1>
-            </Component>
+            </H1>
             <p
               className="mb-4"
             >
@@ -271,25 +271,25 @@ exports[`Register should match a snapshot 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Register for Foundations
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Input
                         dataTest="register-name"
                         id="name"
                         labelText="Full name"
@@ -302,7 +302,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -314,7 +314,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Full name
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="register-name"
                                 disabled={false}
                                 id="name"
@@ -328,8 +328,8 @@ exports[`Register should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
-                      <Component
+                      </Input>
+                      <Input
                         dataTest="register-company-name"
                         id="companyName"
                         labelText="Company name"
@@ -342,7 +342,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -354,7 +354,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Company name
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="register-company-name"
                                 disabled={false}
                                 id="companyName"
@@ -368,8 +368,8 @@ exports[`Register should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
-                      <Component
+                      </Input>
+                      <Input
                         dataTest="register-email"
                         id="email"
                         labelText="Email"
@@ -382,7 +382,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -394,7 +394,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Email
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="register-email"
                                 disabled={false}
                                 id="email"
@@ -408,8 +408,8 @@ exports[`Register should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
-                      <Component
+                      </Input>
+                      <Input
                         dataTest="register-telephone"
                         id="telephone"
                         labelText="Telephone"
@@ -422,7 +422,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control "
@@ -434,7 +434,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Telephone
                               </label>
                               <input
-                                className=""
+                                className="input is-primary"
                                 data-test="register-telephone"
                                 disabled={false}
                                 id="telephone"
@@ -448,44 +448,44 @@ exports[`Register should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </Input>
                     </div>
-                  </Component>
-                  <Component>
+                  </FormSection>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <Level>
                         <div
-                          className=""
+                          className="level"
                           data-test=""
                         >
-                          <Component
+                          <TermsAndConditionsModal
                             afterClose={[Function]}
                             isSubmitting={false}
                             onAccept={[Function]}
                             onDecline={[Function]}
                             visible={false}
                           >
-                            <Component
+                            <Modal
                               afterClose={[Function]}
-                              className=""
+                              className="mj13qo2-modal-width"
                               footerItems={
                                 <React.Fragment>
-                                  <Unknown
+                                  <Button
                                     onClick={[Function]}
                                     type="button"
                                     variant="secondary"
                                   >
                                     Decline
-                                  </Unknown>
-                                  <Unknown
+                                  </Button>
+                                  <Button
                                     dataTest="buttonAcceptTermsAndConditions"
                                     loading={false}
                                     onClick={[Function]}
                                   >
                                     Accept
-                                  </Unknown>
+                                  </Button>
                                 </React.Fragment>
                               }
                               size="medium"
@@ -493,8 +493,8 @@ exports[`Register should match a snapshot 1`] = `
                               title="Terms and Conditions"
                               visible={false}
                             />
-                          </Component>
-                          <Component
+                          </TermsAndConditionsModal>
+                          <Button
                             dataTest="button-register"
                             fullWidth={true}
                             onClick={[Function]}
@@ -508,12 +508,12 @@ exports[`Register should match a snapshot 1`] = `
                             >
                               Register
                             </button>
-                          </Component>
+                          </Button>
                         </div>
-                      </Component>
-                      <Component>
+                      </Level>
+                      <Level>
                         <div
-                          className=""
+                          className="level"
                           data-test=""
                         >
                           Already have an account?
@@ -533,15 +533,15 @@ exports[`Register should match a snapshot 1`] = `
                             </LinkAnchor>
                           </Link>
                         </div>
-                      </Component>
+                      </Level>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
           </div>
           <div
-            className=""
+            className="iawfo3s-image"
           >
             <img
               alt="Reapit graphic"
@@ -549,7 +549,7 @@ exports[`Register should match a snapshot 1`] = `
             />
           </div>
         </div>
-      </Component>
+      </Register>
     </Router>
   </MemoryRouter>
 </Provider>

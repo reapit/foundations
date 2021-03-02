@@ -66,7 +66,7 @@ export const defaultItemRenderer = (
 
 export const getPath = (path: string, params: any) => {
   path = (path || '').replace(/^\//, '')
-  Object.keys(params).forEach(key => {
+  Object.keys(params).forEach((key) => {
     path = path.replace(`:${key}`, params[key])
   })
   return path
@@ -86,7 +86,7 @@ export const genForRoutes = ({
   itemRender = defaultItemRenderer,
 }: GenForRoutesParams) => {
   const paths: string[] = []
-  return routes.map(route => {
+  return routes.map((route) => {
     const isLast = routes.indexOf(route) === routes.length - 1
     const path = getPath(route.path, params)
     if (path) {

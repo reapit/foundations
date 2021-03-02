@@ -101,7 +101,7 @@ describe('FilterBar', () => {
     it('should match a snapshot', () => {
       const { setDateFrom, setDateTo } = mockProps
       const mockSetIsActive = jest.fn()
-      const filterButtonGroup = filterButtons.map(button => {
+      const filterButtonGroup = filterButtons.map((button) => {
         return renderFiterButtons(
           button.text,
           button.filterType,

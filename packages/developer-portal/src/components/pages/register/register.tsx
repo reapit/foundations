@@ -122,7 +122,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
               validationSchema={validationSchema}
               onSubmit={onSubmit(dispatch)}
             >
-              {formikProps => {
+              {(formikProps) => {
                 const { handleSubmit, validateForm, setTouched } = formikProps
                 return (
                   <Form noValidate={true} data-test="register-form">

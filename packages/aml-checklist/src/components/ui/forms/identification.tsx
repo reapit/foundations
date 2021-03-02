@@ -35,7 +35,7 @@ export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentForm
 ) => onSaveHandler(formValues)
 
 export const handleFilenameClick = (values: IdentityDocumentForm) => {
-  return e => {
+  return (e) => {
     e.preventDefault()
     downloadDocument(values.documentId)
   }

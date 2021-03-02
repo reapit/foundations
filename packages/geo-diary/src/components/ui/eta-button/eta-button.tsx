@@ -34,7 +34,7 @@ export const getNegotiator = ({ appointment, userCode }: GetNegotiatorParams) =>
 }
 
 export const getAttendeeHaveMobilePhone = (appointment: ExtendedAppointmentModel) => () => {
-  const attendeesHaveMobilePhone = appointment.attendee?.contacts?.filter(attendee => {
+  const attendeesHaveMobilePhone = appointment.attendee?.contacts?.filter((attendee) => {
     return !!attendee.mobilePhone
   })
   return attendeesHaveMobilePhone?.[0]

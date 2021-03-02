@@ -14,7 +14,7 @@ import { getParamsFromPath } from '@/utils/client-url-params'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
+export const handleOnChange = (history) => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
 
 export const handleOnSettingClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.APPS}/${app.id}/manage`)

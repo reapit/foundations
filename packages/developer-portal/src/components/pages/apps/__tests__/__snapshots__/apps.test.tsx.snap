@@ -55,31 +55,31 @@ exports[`Login should match a snapshot 1`] = `
         }
       }
     >
-      <Component>
+      <Apps>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <Component
+            <Section
               className="justify-between items-center"
               isFlex={true}
             >
               <section
-                className=""
+                className="section is-flex has-padding has-margin has-background justify-between items-center"
                 data-test=""
               >
-                <Component
+                <H3
                   className="mb-0"
                 >
                   <h3
-                    className=""
+                    className="title is-3 mb-0"
                     id=""
                   >
                     My Apps
                   </h3>
-                </Component>
-                <Component
+                </H3>
+                <Button
                   onClick={[Function]}
                   type="button"
                   variant="primary"
@@ -93,23 +93,23 @@ exports[`Login should match a snapshot 1`] = `
                   >
                     Create new app
                   </button>
-                </Component>
-                <Component
+                </Button>
+                <SubmitAppWizardModal
                   onClose={[Function]}
                   visible={false}
                 >
-                  <Component
+                  <SubmitAppWizard
                     onClose={[Function]}
                     visible={false}
                   >
-                    <Component
+                    <ModalV2
                       isPadding={false}
                       onClose={[Function]}
                       title="Before you start"
                       visible={false}
                     >
-                      <Component
-                        className=""
+                      <Dialog
+                        className="m1s2ncsn-modal-container"
                         closeIcon={
                           <span
                             aria-label="close"
@@ -119,23 +119,19 @@ exports[`Login should match a snapshot 1`] = `
                         destroyOnClose={true}
                         onClose={[Function]}
                         title={
-                          <Unknown>
+                          <ModalHeaderV2>
                             Before you start
-                          </Unknown>
+                          </ModalHeaderV2>
                         }
                         visible={false}
-                        wrapClassName=""
-                      >
-                        <PortalWrapper
-                          visible={false}
-                        />
-                      </Component>
-                    </Component>
-                  </Component>
-                </Component>
+                        wrapClassName="m1y19rn5-modal-no-padding"
+                      />
+                    </ModalV2>
+                  </SubmitAppWizard>
+                </SubmitAppWizardModal>
               </section>
-            </Component>
-            <Component
+            </Section>
+            <AppList
               infoType="DEVELOPER_APPS_EMPTY"
               list={Array []}
               loading={false}
@@ -144,7 +140,7 @@ exports[`Login should match a snapshot 1`] = `
               <div
                 className="mb-4"
               >
-                <Component
+                <Helper
                   variant="info"
                 >
                   <div
@@ -152,31 +148,31 @@ exports[`Login should match a snapshot 1`] = `
                   >
                     It looks like you haven’t submitted an App yet. When you’re ready, click on ‘Create New App’ to get started.
                   </div>
-                </Component>
+                </Helper>
               </div>
-            </Component>
-            <Component
+            </AppList>
+            <Pagination
               onChange={[Function]}
               pageNumber={1}
             />
-            <Component
+            <SandboxPopUp
               loading={false}
             >
               <div
-                className=""
+                className="w1hg8kxc-wrap-popup"
               >
-                <Component
+                <ToastMessage
                   message="This is a sandbox environment, with anonymised test data and isolated from production"
                   onCloseToast={[Function]}
                   variant="info"
                   visible={false}
                 >
                   <div
-                    className=""
+                    className="toast"
                     data-test="toast-wrapper"
                     onClick={[Function]}
                   >
-                    <Component
+                    <Button
                       fullWidth={true}
                       type="reset"
                       variant="info"
@@ -189,14 +185,14 @@ exports[`Login should match a snapshot 1`] = `
                       >
                         This is a sandbox environment, with anonymised test data and isolated from production
                       </button>
-                    </Component>
+                    </Button>
                   </div>
-                </Component>
+                </ToastMessage>
               </div>
-            </Component>
+            </SandboxPopUp>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
-      </Component>
+      </Apps>
     </Router>
   </MemoryRouter>
 </Provider>

@@ -2,25 +2,25 @@
 
 exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
 <div>
-  <Component />
+  <CostExplorerTab />
 </div>
 `;
 
 exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 <div>
-  <Component />
+  <DetailedTab />
 </div>
 `;
 
 exports[`AnalyticsPage should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <Component
+  <H3
     isHeadingSection={true}
   >
     Dashboard
-  </Component>
-  <Component>
-    <Component
+  </H3>
+  <Section>
+    <Tabs
       tabConfigs={
         Array [
           Object {
@@ -38,7 +38,7 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
         ]
       }
     />
-  </Component>
-  <Component />
+  </Section>
+  <DetailedTab />
 </Connect(ErrorBoundary)>
 `;

@@ -1,8 +1,8 @@
 import { callGetConfigurationsByTypeAndIdApi, callGetConfigurationsByTypeApi } from '../api'
 import { GetConfigurationByTypeAndIdArgs, GetConfigurationByTypeArgs } from '../configurations'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { getConfigurationByTypeAndId, getConfigurationsByType } from '../services'
-import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/appointmentTypes'
+import { appointmentTypesMock, appointmentTypeMock } from '../__stubs__/mock-appointment-types'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

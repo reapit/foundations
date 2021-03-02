@@ -57,22 +57,22 @@ describe('FileInput', () => {
     expect(error).toHaveLength(1)
   })
 
-  it('should convert to base64 data correctly', done => {
+  it('should convert to base64 data correctly', (done) => {
     // setup
     let waitUntilDataReaderLoadResolver: any = null
-    const waitUntilDataReaderLoad = new Promise(resolve => {
+    const waitUntilDataReaderLoad = new Promise((resolve) => {
       waitUntilDataReaderLoadResolver = resolve
     })
 
     let waitUntilFormSubmittedResolver: any = null
-    const waitUntilFormSubmitted = new Promise(resolve => {
+    const waitUntilFormSubmitted = new Promise((resolve) => {
       waitUntilFormSubmittedResolver = resolve
     })
 
     let submitForm
 
     // formik submit function was asynchronous
-    const onSubmit = values => {
+    const onSubmit = (values) => {
       waitUntilFormSubmittedResolver(values)
     }
 
@@ -110,7 +110,7 @@ describe('FileInput', () => {
       await act(async () => {
         submitForm()
       })
-      waitUntilFormSubmitted.then(formValues => {
+      waitUntilFormSubmitted.then((formValues) => {
         expect(formValues).toEqual({
           test: 'data:image/png;base64,YQ==',
         })
@@ -141,10 +141,10 @@ describe('FileInput', () => {
     expect(wrapper.find('input[demo="test"]').length).toBe(1)
   })
 
-  it('should render fileName correctly', done => {
+  it('should render fileName correctly', (done) => {
     // setup
     let waitUntilDataReaderLoadResolver: any = null
-    const waitUntilDataReaderLoad = new Promise(resolve => {
+    const waitUntilDataReaderLoad = new Promise((resolve) => {
       waitUntilDataReaderLoadResolver = resolve
     })
 

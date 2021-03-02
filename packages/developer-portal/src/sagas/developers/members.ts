@@ -22,7 +22,7 @@ import { getDeveloperId } from '@/utils/session'
 import { notification } from '@reapit/elements'
 import errorMessages from '@/constants/error-messages'
 
-export const organisationFetchMembers = function*({ data }: Action<FetchOrganisationMembersParams>) {
+export const organisationFetchMembers = function* ({ data }: Action<FetchOrganisationMembersParams>) {
   try {
     const response = yield call(fetchOrganisationMembers, data)
     yield put(fetchOrganisationMembersSuccess(response))
@@ -34,7 +34,7 @@ export const organisationFetchMembers = function*({ data }: Action<FetchOrganisa
     })
   }
 }
-export const inviteDeveloperAsOrgMemberSagas = function*({
+export const inviteDeveloperAsOrgMemberSagas = function* ({
   data,
 }: Action<InviteDeveloperAsOrgMemberParams & { callback: () => void }>) {
   try {
@@ -54,7 +54,7 @@ export const inviteDeveloperAsOrgMemberSagas = function*({
     })
   }
 }
-export const disableMemberSagas = function*({ data }: Action<DisableMemberActionParams>) {
+export const disableMemberSagas = function* ({ data }: Action<DisableMemberActionParams>) {
   const { callback, ...restData } = data
   try {
     const response = yield call(disableMemberApi, { ...restData })
@@ -80,22 +80,22 @@ export const disableMemberSagas = function*({ data }: Action<DisableMemberAction
   }
 }
 
-export const organisationFetchMembersListen = function*() {
+export const organisationFetchMembersListen = function* () {
   yield takeLatest<Action<FetchOrganisationMembersParams>>(
     ActionTypes.ORGANISATION_FETCH_MEMBERS,
     organisationFetchMembers,
   )
 }
 
-export const inviteDeveloperAsOrgMemberSagasListen = function*() {
+export const inviteDeveloperAsOrgMemberSagasListen = function* () {
   yield takeLatest(ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER, inviteDeveloperAsOrgMemberSagas)
 }
 
-export const disableMemberSagasListen = function*() {
+export const disableMemberSagasListen = function* () {
   yield takeLatest(ActionTypes.DISABLE_MEMBER, disableMemberSagas)
 }
 
-export const membersSagas = function*() {
+export const membersSagas = function* () {
   yield all([
     fork(inviteDeveloperAsOrgMemberSagasListen),
     fork(organisationFetchMembersListen),

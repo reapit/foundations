@@ -112,7 +112,7 @@ export const mapIntegrationIdArrayToNameArray = (
     )
     return matchedIntegration?.name ?? ''
   })
-  const filteredResult = result.filter(r => r)
+  const filteredResult = result.filter((r) => r)
   return filteredResult
 }
 
@@ -171,7 +171,7 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
 
   return (
     <div>
-      {Object.keys(diffStringList).map(key => {
+      {Object.keys(diffStringList).map((key) => {
         return (
           <div className="mb-3" key={key}>
             <h4 className="mb-2">{diffStringList[key]}</h4>
@@ -210,7 +210,7 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
           dataTest="revision-diff-isDirectApi"
         />
       </div>
-      {getChangedMediaList({ app, revision }).map(media => (
+      {getChangedMediaList({ app, revision }).map((media) => (
         <div className="mb-3" key={media.order}>
           <h4 className="mb-2 capitalize">
             {media.type} {media.order > 0 && <span>{media.order}</span>}

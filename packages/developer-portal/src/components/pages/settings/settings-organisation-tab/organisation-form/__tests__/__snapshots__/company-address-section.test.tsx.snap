@@ -2,71 +2,71 @@
 
 exports[`CompanyAddressSection should match a snapshot when no error 1`] = `
 <Fragment>
-  <Component>
-    <Component>
-      <Component
+  <Grid>
+    <GridItem>
+      <Input
         id="buildingName"
         labelText="Building Name"
         name="buildingName"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         id="buildingNumber"
         labelText="Building Number"
         name="buildingNumber"
         type="text"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         id="line1"
         labelText="Address Line 1*"
         name="line1"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         id="line2"
         labelText="Address Line 2"
         name="line2"
         type="text"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         id="line3"
         labelText="Address Line 3"
         name="line3"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <Input
         id="line4"
         labelText="Address Line 4*"
         name="line4"
         type="text"
       />
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <Component
+    </GridItem>
+  </Grid>
+  <Grid>
+    <GridItem>
+      <Input
         id="postcode"
         labelText="Postcode*"
         name="postcode"
         type="text"
       />
-    </Component>
-    <Component>
-      <Component
+    </GridItem>
+    <GridItem>
+      <SelectBox
         id="countryId"
         labelText="Country*"
         name="countryId"
@@ -1071,7 +1071,7 @@ exports[`CompanyAddressSection should match a snapshot when no error 1`] = `
           ]
         }
       />
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </Fragment>
 `;

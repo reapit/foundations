@@ -21,7 +21,7 @@ export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, aft
   }
 }
 
-export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => formValues => {
+export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => (formValues) => {
   if (appId && appRevisionId) {
     dispatch(requestApproveRevision({ appId, appRevisionId, ...formValues }))
   }

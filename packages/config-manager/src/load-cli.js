@@ -8,7 +8,7 @@ const loadCli = async () => {
       name: 'namespace',
       message: 'Top level namespace for this parameter eg Owner',
       initial: 'cloud',
-      validate: value => {
+      validate: (value) => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
       },
     },
@@ -16,7 +16,7 @@ const loadCli = async () => {
       type: 'text',
       name: 'entity',
       message: 'Entity of this parameter eg App, Package or Service name',
-      validate: value => {
+      validate: (value) => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
       },
     },
@@ -25,7 +25,7 @@ const loadCli = async () => {
       name: 'name',
       message: 'Name of this parameter eg Environment, Function, DB Connection (optional)',
       initial: 'local',
-      validate: value => {
+      validate: (value) => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
       },
     },
@@ -41,7 +41,7 @@ const loadCli = async () => {
       ],
     },
     {
-      type: prev => {
+      type: (prev) => {
         return prev !== 'delete' ? 'select' : null
       },
       name: 'format',
@@ -52,15 +52,15 @@ const loadCli = async () => {
       ],
     },
     {
-      type: prev => {
+      type: (prev) => {
         return prev !== 'delete' ? 'text' : null
       },
       name: 'filePath',
       message: 'Source or target file path for your parameter',
-      initial: prev => {
+      initial: (prev) => {
         return prev === 'json' ? `${process.cwd()}/config.json` : `${process.cwd()}/config.txt`
       },
-      validate: value => {
+      validate: (value) => {
         return typeof value === 'string' && value.length ? true : 'Value cannot be empty and must be a string'
       },
     },

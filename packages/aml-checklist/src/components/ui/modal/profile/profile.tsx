@@ -24,7 +24,7 @@ const {
 export type ProfileProps = DispatchProps & StateProps
 
 const onSubmitHandler = (updateContact: (values: UpdateContactParams) => void) => {
-  return values => {
+  return (values) => {
     updateContact({
       contact: values,
     })

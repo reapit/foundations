@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CostCalculator should match a snapshot 1`] = `
-<Component>
-  <Component>
+<Section>
+  <H5>
     API Cost Calculator
-  </Component>
-  <mock-styled.div>
-    <Component>
-      <Component
+  </H5>
+  <FadeIn>
+    <Grid>
+      <GridItem
         className="is-half-desktop"
       >
         <p
@@ -23,10 +23,10 @@ exports[`CostCalculator should match a snapshot 1`] = `
             here
           </a>
         </p>
-      </Component>
-    </Component>
-    <Component>
-      <Component
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem
         className="is-half-desktop"
       >
         <CostCalculatorForm
@@ -39,8 +39,8 @@ exports[`CostCalculator should match a snapshot 1`] = `
           onClear={[Function]}
           onSubmit={[Function]}
         />
-      </Component>
-    </Component>
+      </GridItem>
+    </Grid>
     <TotalCostTable
       formValues={
         Object {
@@ -49,6 +49,6 @@ exports[`CostCalculator should match a snapshot 1`] = `
         }
       }
     />
-  </mock-styled.div>
-</Component>
+  </FadeIn>
+</Section>
 `;

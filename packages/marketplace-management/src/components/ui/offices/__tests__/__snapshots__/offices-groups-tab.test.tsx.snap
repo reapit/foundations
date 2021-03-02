@@ -2,9 +2,9 @@
 
 exports[`OfficeGroupsContent should match a snapshot 1`] = `
 <Fragment>
-  <Component>
-    <mock-styled.div>
-      <Component
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -41,9 +41,9 @@ exports[`OfficeGroupsContent should match a snapshot 1`] = `
         expandable={true}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <Component
+    </FadeIn>
+  </Section>
+  <Pagination
     onChange={[MockFunction]}
     pageNumber={0}
     pageSize={0}
@@ -54,26 +54,26 @@ exports[`OfficeGroupsContent should match a snapshot 1`] = `
 
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Component>
+  <Section>
     <div
       className="flex justify-between items-center mb-4"
     >
-      <Component
+      <H5
         className="mb-0"
       >
         Office groups
-      </Component>
-      <Component
+      </H5>
+      <Button
         onClick={[Function]}
       >
         Create office group
-      </Component>
+      </Button>
     </div>
     <i>
       The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.
     </i>
-  </Component>
-  <Component
+  </Section>
+  <OfficeGroupsContent
     columns={
       Array [
         Object {
@@ -133,8 +133,8 @@ exports[`OfficesGroupsTab should match a snapshot 1`] = `
 `;
 
 exports[`renderResult should match snapshot when has result data 1`] = `
-<mock-styled.div>
-  <Unknown
+<FadeIn>
+  <Table
     columns={
       Array [
         Object {
@@ -170,15 +170,15 @@ exports[`renderResult should match snapshot when has result data 1`] = `
     expandable={true}
     scrollable={true}
   />
-</mock-styled.div>
+</FadeIn>
 `;
 
 exports[`renderResult should match snapshot when no result 1`] = `
-<mock-styled.div>
-  <Unknown
+<FadeIn>
+  <Helper
     variant="info"
   >
     No Results
-  </Unknown>
-</mock-styled.div>
+  </Helper>
+</FadeIn>
 `;

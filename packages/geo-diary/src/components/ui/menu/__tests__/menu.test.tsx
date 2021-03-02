@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Menu, generateMenuConfig, callbackAppClick } from '../menu'
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => ({
     location: 'location',
   })),

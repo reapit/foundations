@@ -29,7 +29,7 @@ export const handleTextAreaOnBlur = ({ helpers }: HandleTextAreaOnBlurParams) =>
   helpers.setTouched(true)
 }
 
-export const handleTextAreaOnPaste = () => e => {
+export const handleTextAreaOnPaste = () => (e) => {
   // Stop data actually being pasted into div
   e.stopPropagation()
   e.preventDefault()

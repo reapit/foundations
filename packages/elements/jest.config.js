@@ -1,7 +1,7 @@
-const baseConfig = require('../../scripts/jest/jest.config')
+const { jestGlobalConfig } = require('@reapit/ts-scripts')
 
 module.exports = {
-  ...baseConfig,
+  ...jestGlobalConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coveragePathIgnorePatterns: [
@@ -22,8 +22,8 @@ module.exports = {
     global: {
       branches: 70,
       functions: 92,
-      lines: 93,
-      statements: 93,
+      lines: 92,
+      statements: 91,
     },
   },
 }

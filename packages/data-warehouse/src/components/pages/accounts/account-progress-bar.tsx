@@ -29,7 +29,7 @@ const ProgressMessage: React.FC<{ percentageComplete: number }> = ({ percentageC
 const AccountProgressBar: React.FC<AccountProgressBarProps> = ({ percentageComplete, setPercentageComplete }) => {
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setPercentageComplete(prev => {
+      setPercentageComplete((prev) => {
         if (prev < 95) {
           return prev + 0.5
         }

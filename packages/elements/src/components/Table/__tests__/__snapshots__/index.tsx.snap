@@ -7721,7 +7721,7 @@ exports[`Table should match a snapshot when LOADING true 1`] = `
         <div
           className="table-loading"
         >
-          <Component />
+          <Loader />
         </div>
       </td>
     </tr>

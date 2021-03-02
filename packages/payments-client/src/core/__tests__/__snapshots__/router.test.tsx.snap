@@ -63,7 +63,7 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             path="/payments/:paymentId"
           />
-          <Component>
+          <PrivateRouteWrapper>
             <Route
               component={
                 Object {
@@ -76,7 +76,7 @@ exports[`Router should match a snapshot 1`] = `
               exact={true}
               path="/payments"
             />
-          </Component>
+          </PrivateRouteWrapper>
         </Switch>
       </ContextProvider>
       <Redirect

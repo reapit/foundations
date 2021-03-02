@@ -120,8 +120,8 @@ export const handleRequestDirectionServiceResponse = ({
     onLoadedDirection && onLoadedDirection(response)
   }
   if (destinationAddress && status === 'OK') {
-    response?.routes?.forEach(route => {
-      route.legs.forEach(leg => {
+    response?.routes?.forEach((route) => {
+      route.legs.forEach((leg) => {
         leg.end_address = destinationAddress
       })
     })
@@ -190,7 +190,7 @@ export const setZoomAndCenter = ({ googleMaps, bounds, center, zoom, map, marker
     map.setZoom(DEFAULT_ZOOM)
     return
   }
-  markers.forEach(marker => bounds.extend(marker.getPosition()))
+  markers.forEach((marker) => bounds.extend(marker.getPosition()))
   map.fitBounds(bounds)
   map.setCenter(bounds.getCenter())
   const DEFAULT_MARKER_LENGTH = 1
@@ -259,14 +259,14 @@ export const renderDirectionAndMarkers = ({
   }
 }
 
-export const onMarkerClick = onDrawingMarkerClick => {
-  return marker => {
+export const onMarkerClick = (onDrawingMarkerClick) => {
+  return (marker) => {
     onDrawingMarkerClick && onDrawingMarkerClick(marker)
   }
 }
 
 export const onMarkerComplete = (onDrawingMarkerComplete, onDrawingMarkerClick) => {
-  return marker => {
+  return (marker) => {
     onDrawingMarkerComplete && onDrawingMarkerComplete(marker)
     marker.addListener('click', onMarkerClick(onDrawingMarkerClick))
   }
@@ -317,7 +317,7 @@ export type MarkerContentProps = {
 
 export const clearMap = ({ directionsRendererRef, markersRef }) => () => {
   directionsRendererRef?.current?.setMap && directionsRendererRef?.current?.setMap(null)
-  markersRef?.current?.forEach(marker => marker && marker?.setMap(null))
+  markersRef?.current?.forEach((marker) => marker && marker?.setMap(null))
 }
 
 export const handleUseEffect = ({

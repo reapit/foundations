@@ -4,7 +4,6 @@
       "@reapit/elements": "^1.0.4",
       "@reapit/connect-session": "^2.0.0",
       "@reapit/foundations-ts-definitions": "^0.0.85",
-      "@testing-library/react": "~10.0.1",
       "@types/enzyme": "~3.10.3",
       "@types/enzyme-adapter-react-16": "~1.0.5",
       "@types/jest": "~24.0.23",

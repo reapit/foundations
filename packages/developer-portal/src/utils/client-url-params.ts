@@ -18,7 +18,7 @@ export const addQuery = (query: Record<string, any>): string => {
 
 export const removeQuery = (queries: Array<string>): string => {
   const currentParams = new URLSearchParams(history.location.search)
-  queries.forEach(query => {
+  queries.forEach((query) => {
     if (currentParams.has(query)) {
       currentParams.delete(query)
     }
@@ -30,7 +30,7 @@ export const removeQuery = (queries: Array<string>): string => {
 
 export const stringifyObjectIntoQueryString = (params: object) => {
   return Object.keys(params)
-    .map(key => key + '=' + params[key])
+    .map((key) => key + '=' + params[key])
     .join('&')
 }
 

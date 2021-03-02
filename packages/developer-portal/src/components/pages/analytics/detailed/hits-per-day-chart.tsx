@@ -10,7 +10,7 @@ export type DeveloperHitsPerDayProps = {
   loading?: Boolean | false
 }
 
-export const renderChart = appHttpTrafficPerDayChartData => {
+export const renderChart = (appHttpTrafficPerDayChartData) => {
   const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
   const chartData = getChartConfig(labels, data)
   const chartOptions = getChartOptions(chartDataStats)

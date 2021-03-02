@@ -15,13 +15,13 @@ const variants: InfoType[] = [
 ]
 
 describe('Info', () => {
-  variants.forEach(variant => {
+  variants.forEach((variant) => {
     it('should match a snapshot for variant ' + variant, () => {
       expect(toJson(shallow(<Info infoType={variant} />))).toMatchSnapshot()
     })
   })
 
-  variants.forEach(variant => {
+  variants.forEach((variant) => {
     it(`should have message "${infoText(variant)}" when info type is "${variant}"`, () => {
       const alert = shallow(<Info infoType={variant} />)
         .find(Alert)

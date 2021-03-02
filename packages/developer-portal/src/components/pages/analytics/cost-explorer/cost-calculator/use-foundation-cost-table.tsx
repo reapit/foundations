@@ -296,20 +296,20 @@ export const prepareTableColumns = (totalMonthlyCost: number) => {
     return [
       {
         Header: 'Number of API Calls',
-        accessor: row => {
+        accessor: (row) => {
           return formatNumber(row.numberOfApiCalls)
         },
       },
       {
         Header: 'Cost Per API Call',
-        accessor: row => {
+        accessor: (row) => {
           return formatCurrency(row.costPerApiCall, 6)
         },
         Footer: 'Estimated total monthly cost',
       },
       {
         Header: 'Total Cost',
-        accessor: row => {
+        accessor: (row) => {
           return formatCurrency(row.totalCost)
         },
         Footer: () => {

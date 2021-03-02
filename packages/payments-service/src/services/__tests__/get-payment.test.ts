@@ -9,7 +9,7 @@ jest.mock('../../core/connect-session', () => ({
 jest.mock('axios', () => ({
   get: jest.fn(
     () =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         resolve({
           status: 200,
           data: { propertyId: 'SOME_ID' },

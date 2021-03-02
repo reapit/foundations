@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
-<Component
+<Section
   hasMargin={false}
   hasPadding={false}
   isFlex={true}
   isFlexColumn={true}
 >
-  <mock-styled.div>
-    <Component
+  <FadeIn>
+    <SummarySection
       summary="vitae elementum curabitur vitae"
     />
-    <Component
+    <AdditionalImagesSection
       images={
         Array [
           Object {
@@ -34,10 +34,10 @@ exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
       numberImages={2}
       splitIndex={1}
     />
-    <Component
+    <DescriptionSection
       description="enim facilisis"
     />
-    <Component
+    <AdditionalImagesSection
       images={
         Array [
           Object {
@@ -60,7 +60,7 @@ exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
       numberImages={2}
       splitIndex={3}
     />
-    <Component
+    <PermissionsSection
       permissions={
         Array [
           Object {
@@ -74,6 +74,6 @@ exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
         ]
       }
     />
-  </mock-styled.div>
-</Component>
+  </FadeIn>
+</Section>
 `;

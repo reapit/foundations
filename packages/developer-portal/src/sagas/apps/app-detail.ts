@@ -8,7 +8,7 @@ import { fetchAppById, FetchAppByIdParams } from '@/services/apps'
 import { fetchAppDetailSuccess } from '@/actions/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
-export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
+export const fetchAppDetailSaga = function* ({ data }: Action<FetchAppByIdParams>) {
   try {
     const appDetailResponse = yield call(fetchAppById, { clientId: data.clientId, id: data.id })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
@@ -26,11 +26,11 @@ export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>
   }
 }
 
-export const appDetailDataListen = function*() {
+export const appDetailDataListen = function* () {
   yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.FETCH_APP_DETAIL, fetchAppDetailSaga)
 }
 
-const appDetailSagas = function*() {
+const appDetailSagas = function* () {
   yield all([fork(appDetailDataListen)])
 }
 

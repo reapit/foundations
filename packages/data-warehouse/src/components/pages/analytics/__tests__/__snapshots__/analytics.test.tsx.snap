@@ -1,40 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Analytics should match a snapshot 1`] = `
-<Component>
-  <Component>
+<MessageProvider>
+  <AnalyticsPage>
     <ErrorBoundary>
-      <Component
-        className=""
+      <Section
+        className="justify-between items-center"
         isFlex={true}
       >
         <section
-          className=""
+          className="section is-flex has-padding has-margin has-background justify-between items-center"
           data-test=""
         >
-          <Component
-            className=""
+          <H3
+            className="mb-0"
           >
             <h3
-              className=""
+              className="title is-3 mb-0"
               id=""
             >
               Analytics
             </h3>
-          </Component>
+          </H3>
           <AnalyticsUsageModal
             handleClose={[Function]}
             visible={false}
           >
-            <Component
+            <Modal
               afterClose={[Function]}
               title="Data Warehouse Usage Cap"
               visible={false}
             />
           </AnalyticsUsageModal>
         </section>
-      </Component>
-      <Component
+      </Section>
+      <Helper
         variant="info"
       >
         <div
@@ -42,8 +42,8 @@ exports[`Analytics should match a snapshot 1`] = `
         >
           You do not yet have a subscription to the Data Warehouse yet. Visit the Account page to get started.
         </div>
-      </Component>
+      </Helper>
     </ErrorBoundary>
-  </Component>
-</Component>
+  </AnalyticsPage>
+</MessageProvider>
 `;

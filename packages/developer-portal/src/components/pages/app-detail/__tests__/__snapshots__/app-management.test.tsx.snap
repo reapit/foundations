@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ManageApp should match snapshot 1`] = `
-<Component
-  className=""
+<Content
+  className="b13hbgdm-button-group"
 >
-  <Component
+  <Button
     className="mb-2"
     dataTest="detail-modal-edit-button"
     fullWidth={true}
@@ -13,14 +13,14 @@ exports[`ManageApp should match snapshot 1`] = `
     variant="primary"
   >
     EDIT DETAILS
-  </Component>
-  <Component
+  </Button>
+  <Button
     className="mb-2"
     fullWidth={true}
     onClick={[Function]}
     variant="danger"
   >
     DELETE APP
-  </Component>
-</Component>
+  </Button>
+</Content>
 `;

@@ -13,7 +13,7 @@ export type InterceptorParams = {
   headers: StringMap
 }
 
-export const handleOnComplete = setLoading => () => {
+export const handleOnComplete = (setLoading) => () => {
   // dynamically changing link text for visibility
   const linkElement = document.querySelector('a[href="https://dev.platform.reapit.cloud/docs"]')
   if (linkElement) {

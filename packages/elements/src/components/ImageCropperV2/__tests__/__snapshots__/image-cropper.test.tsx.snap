@@ -3,25 +3,25 @@
 exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
 <Fragment>
   <div
-    className=""
+    className="react-image-crop-global-styles image-cropper-outer"
   >
     <div
-      className=""
+      className="image-cropper-inner"
     >
       <div
-        className=""
+        className="image-cropper-content"
       >
         <div
-          className=""
+          className="image-cropper-crop-panel-wrapper"
         >
-          <Component
+          <H5
             isCentered={true}
           >
             Crop Image
-          </Component>
+          </H5>
           <a
             circularCrop={false}
-            className=""
+            className="image-cropper-crop-panel"
             crop={
               Object {
                 "aspect": 1.7777777777777777,
@@ -47,33 +47,33 @@ exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
           />
         </div>
         <div
-          className=""
+          className="image-cropper-preview-wrapper"
         >
-          <Component
+          <H5
             isCentered={true}
           >
             Preview
-          </Component>
+          </H5>
         </div>
       </div>
       <div
-        className=""
+        className="image-cropper-action-wrapper"
       >
-        <Component
+        <Button
           onClick={[MockFunction]}
           type="button"
           variant="secondary"
         >
           Cancel
-        </Component>
-        <Component
+        </Button>
+        <Button
           disabled={true}
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Crop
-        </Component>
+        </Button>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@ exports[`ImageCropper should match snapshots with multiple conditions 2`] = `
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
-<Component
+<ImageCropper
   aspect={1.7777777777777777}
   croppedImage={null}
   onClose={[Function]}
@@ -106,15 +106,15 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
   upImg=""
   visible={false}
 >
-  <Component
+  <ImageInput
     labelText="input image"
     name="inputImage"
   />
-</Component>
+</ImageCropper>
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
-<Component
+<ImageCropper
   croppedImage={null}
   onClose={[Function]}
   onCropClick={[Function]}
@@ -124,11 +124,11 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
   upImg=""
   visible={false}
 >
-  <Component
+  <ImageInput
     labelText="input image"
     name="inputImage"
   />
-</Component>
+</ImageCropper>
 `;
 
 exports[`renderChildrenWithProps should match snapshots with multiple conditions 1`] = `

@@ -19,7 +19,7 @@ export const Basic: Story<WizardProps> = () => {
   const [visible, setVisible] = useState(false)
   return (
     <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-      {[1, 2, 3, 4].map(index => (
+      {[1, 2, 3, 4].map((index) => (
         <Button
           type="button"
           key={index}
@@ -83,7 +83,7 @@ export const HasForm: Story<WizardProps> = () => {
             <Input id="form-first-name" name="firstName" placeholder="First name" labelText="First Name" type="text" />
           )}
           initialValue={{ firstName: formData.firstName }}
-          validate={values => {
+          validate={(values) => {
             const errors = {} as { firstName: string }
             if (!values.firstName) {
               errors.firstName = 'required'
@@ -97,7 +97,7 @@ export const HasForm: Story<WizardProps> = () => {
           }}
           onNavigate={async ({ form }) => {
             const values = form.values
-            setFormData(prev => ({ ...prev, ...values }))
+            setFormData((prev) => ({ ...prev, ...values }))
             return true
           }}
         ></Wizard.Step>
@@ -145,7 +145,7 @@ export const CustomNav: Story<WizardProps> = () => {
                 form.setTouched(Object.keys(errors).reduce((a, c) => ({ ...a, [c]: true }), {}))
                 if (Object.keys(errors).length === 0) {
                   setIsLoading(true)
-                  await (() => new Promise(resolve => setTimeout(resolve, 2000)))()
+                  await (() => new Promise((resolve) => setTimeout(resolve, 2000)))()
                   setIsLoading(false)
                   onNavigate && onNavigate({ context, form, type: 'next' })
                   context.goNext()
@@ -172,7 +172,7 @@ export const CustomNav: Story<WizardProps> = () => {
             </div>
           )}
           initialValue={{ formItem: '' }}
-          validate={values => {
+          validate={(values) => {
             const errors = {} as { formItem: string }
             if (!values.formItem) {
               errors.formItem = 'required'
@@ -188,7 +188,7 @@ export const CustomNav: Story<WizardProps> = () => {
             form.setTouched(Object.keys(errors).reduce((a, c) => ({ ...a, [c]: true }), {}))
             if (Object.keys(errors).length === 0) {
               setIsLoading(true)
-              await (() => new Promise(resolve => setTimeout(resolve, 2000)))()
+              await (() => new Promise((resolve) => setTimeout(resolve, 2000)))()
               setIsLoading(false)
               onNavigate && onNavigate({ context, form, type: 'next' })
               context.goNext()

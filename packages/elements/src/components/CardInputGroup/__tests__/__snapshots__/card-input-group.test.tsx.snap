@@ -25,7 +25,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardInputGroup
         hasBillingAddress={true}
         whiteListTestCards={
           Array [
@@ -33,30 +33,30 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
           ]
         }
       >
-        <Component>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Billing Details
               </h5>
-            </Component>
-            <Component>
+            </H5>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="customerFirstName"
                       labelText="First Name"
                       name="customerFirstName"
@@ -69,7 +69,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -81,7 +81,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               First Name
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="customerFirstName"
@@ -95,15 +95,15 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="customerLastName"
                       labelText="Second Name"
                       name="customerLastName"
@@ -116,7 +116,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -128,7 +128,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Second Name
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="customerLastName"
@@ -142,22 +142,22 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="address1"
                       labelText="Address First Line"
                       name="address1"
@@ -170,7 +170,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -182,7 +182,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Address First Line
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="address1"
@@ -196,15 +196,15 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="city"
                       labelText="Town / City"
                       name="city"
@@ -217,7 +217,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -229,7 +229,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Town / City
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="city"
@@ -243,22 +243,22 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="postalCode"
                       labelText="Postcode"
                       name="postalCode"
@@ -271,7 +271,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -283,7 +283,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Postcode
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="postalCode"
@@ -297,15 +297,15 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <SelectBox
                       id="country"
                       labelText="Country"
                       name="country"
@@ -1316,7 +1316,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control"
@@ -2840,22 +2840,22 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </SelectBox>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="email"
                       labelText="Email"
                       name="email"
@@ -2868,7 +2868,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -2880,7 +2880,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Email
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="email"
@@ -2894,43 +2894,43 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   />
-                </Component>
+                </GridItem>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
-        <Component>
+        </Section>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Card Details
               </h5>
-            </Component>
-            <Component>
+            </H5>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <CardInput
                       cardType="unknown"
                       id="cardNumber"
                       labelText="Card Number"
@@ -2947,7 +2947,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control has-icons-right"
@@ -2960,7 +2960,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                             </label>
                             <input
                               autoComplete="cardNumber"
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="cardNumber"
@@ -3009,15 +3009,15 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </CardInput>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="cardholderName"
                       labelText="Cardholder Name"
                       name="cardholderName"
@@ -3030,7 +3030,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -3042,7 +3042,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Cardholder Name
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="cardholderName"
@@ -3056,22 +3056,22 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <CardExpiresInput
                       id="expiryDate"
                       labelText="Expires"
                       name="expiryDate"
@@ -3082,7 +3082,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control"
@@ -3095,7 +3095,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                             </label>
                             <input
                               autoComplete="expiryDate"
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="expiryDate"
@@ -3111,15 +3111,15 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </CardExpiresInput>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="securityCode"
                       labelText="Security Code"
                       maxLength={3}
@@ -3134,7 +3134,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -3146,7 +3146,7 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                               Security Code
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="securityCode"
@@ -3161,14 +3161,14 @@ exports[`CardInputGroup should match a snapshot for hasBillingAddress 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
-      </Component>
+        </Section>
+      </CardInputGroup>
     </form>
   </Form>
 </Formik>
@@ -3199,7 +3199,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
       onReset={[Function]}
       onSubmit={[Function]}
     >
-      <Component
+      <CardInputGroup
         hasBillingAddress={false}
         whiteListTestCards={
           Array [
@@ -3207,30 +3207,30 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
           ]
         }
       >
-        <Component>
+        <Section>
           <section
-            className=""
+            className="section has-padding has-margin has-background"
             data-test=""
           >
-            <Component>
+            <H5>
               <h5
-                className=""
+                className="title is-5"
                 id=""
               >
                 Card Details
               </h5>
-            </Component>
-            <Component>
+            </H5>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <CardInput
                       cardType="unknown"
                       id="cardNumber"
                       labelText="Card Number"
@@ -3247,7 +3247,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control has-icons-right"
@@ -3260,7 +3260,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                             </label>
                             <input
                               autoComplete="cardNumber"
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="cardNumber"
@@ -3309,15 +3309,15 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </CardInput>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="cardholderName"
                       labelText="Cardholder Name"
                       name="cardholderName"
@@ -3330,7 +3330,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -3342,7 +3342,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                               Cardholder Name
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="cardholderName"
@@ -3356,22 +3356,22 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
-            <Component>
+            </Grid>
+            <Grid>
               <div
-                className=""
+                className="columns"
                 data-test=""
               >
-                <Component>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <CardExpiresInput
                       id="expiryDate"
                       labelText="Expires"
                       name="expiryDate"
@@ -3382,7 +3382,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control"
@@ -3395,7 +3395,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                             </label>
                             <input
                               autoComplete="expiryDate"
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="expiryDate"
@@ -3411,15 +3411,15 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </CardExpiresInput>
                   </div>
-                </Component>
-                <Component>
+                </GridItem>
+                <GridItem>
                   <div
-                    className=""
+                    className="column"
                     data-test=""
                   >
-                    <Component
+                    <Input
                       id="securityCode"
                       labelText="Security Code"
                       maxLength={3}
@@ -3434,7 +3434,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                         validate={[Function]}
                       >
                         <div
-                          className=""
+                          className="field"
                         >
                           <div
                             className="control "
@@ -3446,7 +3446,7 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                               Security Code
                             </label>
                             <input
-                              className=""
+                              className="input is-primary"
                               data-test=""
                               disabled={false}
                               id="securityCode"
@@ -3461,14 +3461,14 @@ exports[`CardInputGroup should match a snapshot for no billing address 1`] = `
                           </div>
                         </div>
                       </Field>
-                    </Component>
+                    </Input>
                   </div>
-                </Component>
+                </GridItem>
               </div>
-            </Component>
+            </Grid>
           </section>
-        </Component>
-      </Component>
+        </Section>
+      </CardInputGroup>
     </form>
   </Form>
 </Formik>

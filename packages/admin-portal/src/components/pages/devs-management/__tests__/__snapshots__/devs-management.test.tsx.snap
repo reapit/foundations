@@ -55,26 +55,26 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component>
+      <DevsManagement>
         <ErrorBoundary>
-          <Component
+          <Section
             className="mb-0"
           >
             <section
-              className=""
+              className="section has-padding has-margin has-background mb-0"
               data-test=""
             >
-              <Component>
+              <H3>
                 <h3
-                  className=""
+                  className="title is-3"
                   id=""
                 >
                   Developer Management
                 </h3>
-              </Component>
+              </H3>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <DevsManagementFilterForm
             filterValues={
               Object {
                 "company": "",
@@ -105,37 +105,37 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Developer Management Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by Name and Company
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="name"
                                 labelText="Name"
                                 maxLength={256}
@@ -147,7 +147,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -159,7 +159,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                         Name
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="name"
@@ -174,15 +174,15 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="company"
                                 labelText="Company"
                                 maxLength={256}
@@ -194,7 +194,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -206,7 +206,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                         Company
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="company"
@@ -221,15 +221,15 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredFrom"
                                 labelText="Registered From"
                                 name="registeredFrom"
@@ -244,7 +244,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -399,15 +399,15 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredTo"
                                 labelText="Registered To"
                                 name="registeredTo"
@@ -423,7 +423,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -579,17 +579,17 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -601,18 +601,18 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
-          </Component>
-          <Component
+          </DevsManagementFilterForm>
+          <Alert
             message="No Results "
             type="info"
           >
@@ -623,14 +623,14 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <StatusModal
             developer={Object {}}
             resetModal={[Function]}
             visible={false}
@@ -641,13 +641,13 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             onSuccess={[Function]}
             visible={false}
           />
-          <Component
+          <SetAsAdminModal
             onClose={[Function]}
             user={null}
             visible={false}
           />
         </ErrorBoundary>
-      </Component>
+      </DevsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -708,26 +708,26 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
         }
       }
     >
-      <Component>
+      <DevsManagement>
         <ErrorBoundary>
-          <Component
+          <Section
             className="mb-0"
           >
             <section
-              className=""
+              className="section has-padding has-margin has-background mb-0"
               data-test=""
             >
-              <Component>
+              <H3>
                 <h3
-                  className=""
+                  className="title is-3"
                   id=""
                 >
                   Developer Management
                 </h3>
-              </Component>
+              </H3>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <DevsManagementFilterForm
             filterValues={
               Object {
                 "company": "",
@@ -758,37 +758,37 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Developer Management Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by Name and Company
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="name"
                                 labelText="Name"
                                 maxLength={256}
@@ -800,7 +800,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -812,7 +812,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                         Name
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="name"
@@ -827,15 +827,15 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="company"
                                 labelText="Company"
                                 maxLength={256}
@@ -847,7 +847,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -859,7 +859,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                         Company
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="company"
@@ -874,15 +874,15 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredFrom"
                                 labelText="Registered From"
                                 name="registeredFrom"
@@ -897,7 +897,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -1052,15 +1052,15 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredTo"
                                 labelText="Registered To"
                                 name="registeredTo"
@@ -1076,7 +1076,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -1232,17 +1232,17 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -1254,18 +1254,18 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
-          </Component>
-          <Component
+          </DevsManagementFilterForm>
+          <Alert
             message="No Results "
             type="info"
           >
@@ -1276,14 +1276,14 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <StatusModal
             developer={Object {}}
             resetModal={[Function]}
             visible={false}
@@ -1294,13 +1294,13 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             onSuccess={[Function]}
             visible={false}
           />
-          <Component
+          <SetAsAdminModal
             onClose={[Function]}
             user={null}
             visible={false}
           />
         </ErrorBoundary>
-      </Component>
+      </DevsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -1361,26 +1361,26 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
         }
       }
     >
-      <Component>
+      <DevsManagement>
         <ErrorBoundary>
-          <Component
+          <Section
             className="mb-0"
           >
             <section
-              className=""
+              className="section has-padding has-margin has-background mb-0"
               data-test=""
             >
-              <Component>
+              <H3>
                 <h3
-                  className=""
+                  className="title is-3"
                   id=""
                 >
                   Developer Management
                 </h3>
-              </Component>
+              </H3>
             </section>
-          </Component>
-          <Component
+          </Section>
+          <DevsManagementFilterForm
             filterValues={
               Object {
                 "company": "",
@@ -1411,37 +1411,37 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                   onReset={[Function]}
                   onSubmit={[Function]}
                 >
-                  <Component>
+                  <FormSection>
                     <div
-                      className=""
+                      className="form-section"
                     >
-                      <Component>
+                      <FormHeading>
                         <div
-                          className=""
+                          className="form-heading mb-1"
                         >
                           Developer Management Filter Form
                         </div>
-                      </Component>
-                      <Component>
+                      </FormHeading>
+                      <FormSubHeading>
                         <div
-                          className=""
+                          className="form-subheading mb-4"
                         >
                           Filter the result by Name and Company
                         </div>
-                      </Component>
-                      <Component
+                      </FormSubHeading>
+                      <Grid
                         className="items-center"
                       >
                         <div
-                          className=""
+                          className="columns items-center"
                           data-test=""
                         >
-                          <Component>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="name"
                                 labelText="Name"
                                 maxLength={256}
@@ -1453,7 +1453,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -1465,7 +1465,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                         Name
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="name"
@@ -1480,15 +1480,15 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <Input
                                 id="company"
                                 labelText="Company"
                                 maxLength={256}
@@ -1500,7 +1500,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control "
@@ -1512,7 +1512,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                         Company
                                       </label>
                                       <input
-                                        className=""
+                                        className="input is-primary"
                                         data-test=""
                                         disabled={false}
                                         id="company"
@@ -1527,15 +1527,15 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </Input>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredFrom"
                                 labelText="Registered From"
                                 name="registeredFrom"
@@ -1550,7 +1550,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -1705,15 +1705,15 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component>
+                          </GridItem>
+                          <GridItem>
                             <div
-                              className=""
+                              className="column"
                               data-test=""
                             >
-                              <Component
+                              <DatePicker
                                 id="registeredTo"
                                 labelText="Registered To"
                                 name="registeredTo"
@@ -1729,7 +1729,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                   validate={null}
                                 >
                                   <div
-                                    className=""
+                                    className="field"
                                   >
                                     <div
                                       className="control"
@@ -1885,17 +1885,17 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                     </div>
                                   </div>
                                 </Field>
-                              </Component>
+                              </DatePicker>
                             </div>
-                          </Component>
-                          <Component
+                          </GridItem>
+                          <GridItem
                             className="mt-4"
                           >
                             <div
-                              className=""
+                              className="column mt-4"
                               data-test=""
                             >
-                              <Component
+                              <Button
                                 type="submit"
                                 variant="primary"
                               >
@@ -1907,18 +1907,18 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                 >
                                   Search
                                 </button>
-                              </Component>
+                              </Button>
                             </div>
-                          </Component>
+                          </GridItem>
                         </div>
-                      </Component>
+                      </Grid>
                     </div>
-                  </Component>
+                  </FormSection>
                 </form>
               </Form>
             </Formik>
-          </Component>
-          <Component
+          </DevsManagementFilterForm>
+          <Alert
             message="No Results "
             type="info"
           >
@@ -1929,14 +1929,14 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
             >
               No Results 
             </div>
-          </Component>
-          <Component
+          </Alert>
+          <Pagination
             onChange={[Function]}
             pageNumber={0}
             pageSize={0}
             totalCount={0}
           />
-          <Component
+          <StatusModal
             developer={Object {}}
             resetModal={[Function]}
             visible={false}
@@ -1947,13 +1947,13 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
             onSuccess={[Function]}
             visible={false}
           />
-          <Component
+          <SetAsAdminModal
             onClose={[Function]}
             user={null}
             visible={false}
           />
         </ErrorBoundary>
-      </Component>
+      </DevsManagement>
     </Router>
   </MemoryRouter>
 </Provider>
@@ -1961,14 +1961,14 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
 
 exports[`renderResult should match snapshot when has result data 1`] = `
 <React.Fragment>
-  <Unknown>
+  <Section>
     <div>
       Total: 
       0
     </div>
-  </Unknown>
-  <Unknown>
-    <Unknown
+  </Section>
+  <Section>
+    <Table
       columns={
         Array [
           Object {
@@ -2047,12 +2047,12 @@ exports[`renderResult should match snapshot when has result data 1`] = `
       loading={false}
       scrollable={true}
     />
-  </Unknown>
+  </Section>
 </React.Fragment>
 `;
 
 exports[`renderResult should match snapshot when no result 1`] = `
-<Unknown
+<Alert
   message="No Results "
   type="info"
 />

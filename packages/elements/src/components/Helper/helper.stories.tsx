@@ -8,17 +8,17 @@ export default {
   component: Helper,
 }
 
-export const Info: Story<HelperProps> = args => <Helper {...args}>Helper variant info</Helper>
+export const Info: Story<HelperProps> = (args) => <Helper {...args}>Helper variant info</Helper>
 Info.args = {
   variant: 'info',
 }
 
-export const Warning: Story<HelperProps> = args => <Helper {...args}>Helper variant warning</Helper>
+export const Warning: Story<HelperProps> = (args) => <Helper {...args}>Helper variant warning</Helper>
 Warning.args = {
   variant: 'warning',
 }
 
-export const WithCloseButton: Story<HelperProps> = args => <Helper {...args}>Helper with close button</Helper>
+export const WithCloseButton: Story<HelperProps> = (args) => <Helper {...args}>Helper with close button</Helper>
 WithCloseButton.args = {
   variant: 'info',
   closeButton: true,

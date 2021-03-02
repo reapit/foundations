@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
-<Component
+<GridFourCol
   className=""
   data-test="app-list-container"
 >
-  <Component
+  <GridFourColItem
     key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   >
-    <mock-styled.div>
+    <FadeIn>
       <InstalledAppCard
         app={
           Object {
@@ -36,12 +36,12 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
         }
         onClick={[Function]}
       />
-    </mock-styled.div>
-  </Component>
-  <Component
+    </FadeIn>
+  </GridFourColItem>
+  <GridFourColItem
     key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
   >
-    <mock-styled.div>
+    <FadeIn>
       <InstalledAppCard
         app={
           Object {
@@ -69,14 +69,14 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
         }
         onClick={[Function]}
       />
-    </mock-styled.div>
-  </Component>
-</Component>
+    </FadeIn>
+  </GridFourColItem>
+</GridFourCol>
 `;
 
 exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
 <div
-  className=""
+  className="w1nbtbsi-wrap-list"
 >
   <InstalledAppCard
     app={
@@ -139,7 +139,7 @@ exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
 
 exports[`InstalledAppList should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <ListDesktopScreen
     list={
       Array [
         Object {
@@ -191,7 +191,7 @@ exports[`InstalledAppList should match a snapshot 1`] = `
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Component
+  <Pagination
     onChange={[MockFunction]}
     pageNumber={2}
     pageSize={20}
@@ -202,7 +202,7 @@ exports[`InstalledAppList should match a snapshot 1`] = `
 
 exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = `
 <Fragment>
-  <Component
+  <ListDesktopScreen
     list={
       Array [
         Object {
@@ -254,7 +254,7 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Component
+  <Pagination
     onChange={[MockFunction]}
     pageNumber={2}
     pageSize={20}

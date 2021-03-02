@@ -38,7 +38,7 @@ exports[`Router should match a snapshot 1`] = `
       />
       <lazy>
         <Switch>
-          <Component
+          <PrivateRoute
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -50,7 +50,7 @@ exports[`Router should match a snapshot 1`] = `
             fetcher={true}
             path="/checklist-detail/:id"
           />
-          <Component
+          <PrivateRoute
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -62,7 +62,7 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             path="/"
           />
-          <Component
+          <PrivateRoute
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),

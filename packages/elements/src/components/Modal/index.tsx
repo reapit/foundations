@@ -40,7 +40,7 @@ export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) 
         aria-label="close"
         data-test="modal-close-button"
         type="button"
-        onClick={event => {
+        onClick={(event) => {
           event.preventDefault()
           afterClose && afterClose()
         }}
@@ -67,9 +67,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   // So we have to generate an id to it
   // bind event listener (click) to the element that match the ID
   const generatedModalBackgroundId = useMemo(() => {
-    return Math.random()
-      .toString(36)
-      .substring(7)
+    return Math.random().toString(36).substring(7)
   }, [])
 
   const handleClickOutside = () => {

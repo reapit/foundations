@@ -62,7 +62,7 @@ describe('appsManagementFeatured', () => {
   const gen = cloneableGenerator(appsManagementFeatured as any)(featuredParams)
   const data = featuredAppsDataStub.data
   expect(gen.next().value).toEqual(select(selectAppsData))
-  const newData = data.data?.map(d => ({
+  const newData = data.data?.map((d) => ({
     ...d,
     isFeatured: d.id === featuredParams.data.id ? !d.isFeatured : d.isFeatured,
   }))

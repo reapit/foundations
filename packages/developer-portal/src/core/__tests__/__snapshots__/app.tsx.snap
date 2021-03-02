@@ -12,7 +12,7 @@ exports[`App should match a snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <_default />
   <Toast />
   <ToastMessage />
 </Provider>

@@ -6,9 +6,7 @@ import { numberOnlyRegex } from '@reapit/utils'
 const { apiCallsField, endpointsUsedField } = formFields
 
 export const validationSchema = Yup.object().shape({
-  [endpointsUsedField.name]: Yup.string()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED),
+  [endpointsUsedField.name]: Yup.string().trim().required(errorMessages.FIELD_REQUIRED),
 
   [apiCallsField.name]: Yup.string()
     .trim()

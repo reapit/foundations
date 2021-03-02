@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperEditionDownload should match snapshot 1`] = `
-<Component
+<Modal
   title="Agency Cloud Developer Edition"
   visible={true}
 >
@@ -16,22 +16,22 @@ exports[`DeveloperEditionDownload should match snapshot 1`] = `
       click here
     </a>
   </p>
-  <Component
+  <Button
     className="is-pulled-right mt-5"
     onClick={[Function]}
   >
     START DOWNLOAD
-  </Component>
-</Component>
+  </Button>
+</Modal>
 `;
 
 exports[`DeveloperEditionDownload should match snapshot 2`] = `
-<Component
+<Modal
   title="Download Complete"
   visible={true}
 >
   <p>
     The download of the Developer Edition of Agency Cloud has been completed.
   </p>
-</Component>
+</Modal>
 `;

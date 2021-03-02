@@ -29,8 +29,8 @@ export interface SubscriptionsFormProps {
   onSearch: any
 }
 
-export const prepareDevelopersOptions: (data: DeveloperData[]) => SelectOption[] = data =>
-  data.map(developer => {
+export const prepareDevelopersOptions: (data: DeveloperData[]) => SelectOption[] = (data) =>
+  data.map((developer) => {
     const { id, name } = developer
 
     return {

@@ -56,480 +56,357 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
       }
     >
       <AppDetail>
-        <Component
-          className=""
+        <Grid
+          className="ceatn05-container"
         >
           <div
-            className=""
+            className="columns ceatn05-container"
             data-test=""
           >
-            <Component
+            <GridItem
               className="is-one-quarter"
             >
               <div
-                className=""
+                className="column is-one-quarter"
                 data-test=""
               >
-                <mock-styled.div>
-                  <Component
-                    appDetailState={
-                      Object {
-                        "data": Object {},
-                        "isLoading": false,
-                      }
-                    }
-                    desktopIntegrationTypes={Array []}
+                <FadeIn>
+                  <div
+                    className="f1ohzb3j-fade-in"
                   >
-                    <Component
-                      flexColumn={true}
-                      hasBackground={true}
-                      hasPadding={true}
-                      isFullHeight={true}
+                    <DeveloperAside
+                      appDetailState={
+                        Object {
+                          "data": Object {},
+                          "isLoading": false,
+                        }
+                      }
+                      desktopIntegrationTypes={Array []}
                     >
-                      <div
-                        className=""
+                      <FlexContainerBasic
+                        flexColumn={true}
+                        hasBackground={true}
+                        hasPadding={true}
+                        isFullHeight={true}
                       >
-                        <Component
-                          isSidebar={true}
+                        <div
+                          className="container-flex is-full-height is-column has-background has-padding"
                         >
-                          <Component
-                            headerText="Category"
+                          <CategorySection
                             isSidebar={true}
                           >
-                            <Component
-                              dataTest=""
+                            <AppDetailSection
+                              headerText="Category"
+                              isSidebar={true}
                             >
-                              <div
-                                className=""
-                                data-test=""
+                              <Content
+                                dataTest=""
                               >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Category
-                                  </h5>
-                                </Component>
-                                <p>
-                                  None
-                                </p>
-                              </div>
-                            </Component>
-                          </Component>
-                        </Component>
-                        <Component
-                          desktopIntegrationTypes={Array []}
-                          isSidebar={true}
-                        >
-                          <Component
-                            headerText="Desktop Integration"
-                            isSidebar={true}
-                          >
-                            <Component
-                              dataTest=""
-                            >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Desktop Integration
-                                  </h5>
-                                </Component>
-                                <p>
-                                  None
-                                </p>
-                              </div>
-                            </Component>
-                          </Component>
-                        </Component>
-                        <Component
-                          isSidebar={true}
-                          limitToClientIds={Array []}
-                        >
-                          <Component
-                            headerText="Private App"
-                            isSidebar={true}
-                          >
-                            <Component
-                              dataTest=""
-                            >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Private App
-                                  </h5>
-                                </Component>
-                                No
-                              </div>
-                            </Component>
-                          </Component>
-                        </Component>
-                        <Component
-                          isSidebar={true}
-                        >
-                          <Component
-                            headerText="Integration"
-                            isSidebar={true}
-                          >
-                            <Component
-                              dataTest=""
-                            >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Integration
-                                  </h5>
-                                </Component>
-                                No
-                              </div>
-                            </Component>
-                          </Component>
-                        </Component>
-                        <Component
-                          appDetail={Object {}}
-                          isSidebar={true}
-                        >
-                          <Component
-                            headerText="Authentication Flow"
-                            isSidebar={true}
-                          >
-                            <Component
-                              dataTest=""
-                            >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Authentication Flow
-                                  </h5>
-                                </Component>
-                                Authorization Code
-                              </div>
-                            </Component>
-                          </Component>
-                          <Component
-                            headerText="Status"
-                            isSidebar={true}
-                          >
-                            <Component
-                              dataTest=""
-                            >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <Component
-                                  className="mb-2"
-                                >
-                                  <h5
-                                    className=""
-                                    id=""
-                                  >
-                                    Status
-                                  </h5>
-                                </Component>
-                                <div>
-                                  Not listed
-                                </div>
-                              </div>
-                            </Component>
-                          </Component>
-                        </Component>
-                        <Component
-                          appDetailState={
-                            Object {
-                              "data": Object {},
-                              "isLoading": false,
-                            }
-                          }
-                          id=""
-                          pendingRevisions={false}
-                        >
-                          <Component
-                            className=""
-                          >
-                            <div
-                              className=""
-                              data-test=""
-                            >
-                              <Component
-                                className="mb-2"
-                                dataTest="detail-modal-edit-button"
-                                fullWidth={true}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button mb-2 is-primary is-fullwidth "
-                                  data-test="detail-modal-edit-button"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  EDIT DETAILS
-                                </button>
-                              </Component>
-                              <Component
-                                className="mb-2"
-                                fullWidth={true}
-                                onClick={[Function]}
-                                variant="danger"
-                              >
-                                <button
-                                  className="button mb-2 is-danger is-fullwidth "
+                                <div
+                                  className="content"
                                   data-test=""
-                                  disabled={false}
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Category
+                                    </h5>
+                                  </H5>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                          </CategorySection>
+                          <DesktopIntegrationSection
+                            desktopIntegrationTypes={Array []}
+                            isSidebar={true}
+                          >
+                            <AppDetailSection
+                              headerText="Desktop Integration"
+                              isSidebar={true}
+                            >
+                              <Content
+                                dataTest=""
+                              >
+                                <div
+                                  className="content"
+                                  data-test=""
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Desktop Integration
+                                    </h5>
+                                  </H5>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                          </DesktopIntegrationSection>
+                          <PrivateAppSection
+                            isSidebar={true}
+                            limitToClientIds={Array []}
+                          >
+                            <AppDetailSection
+                              headerText="Private App"
+                              isSidebar={true}
+                            >
+                              <Content
+                                dataTest=""
+                              >
+                                <div
+                                  className="content"
+                                  data-test=""
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Private App
+                                    </h5>
+                                  </H5>
+                                  No
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                          </PrivateAppSection>
+                          <DirectApiSection
+                            isSidebar={true}
+                          >
+                            <AppDetailSection
+                              headerText="Integration"
+                              isSidebar={true}
+                            >
+                              <Content
+                                dataTest=""
+                              >
+                                <div
+                                  className="content"
+                                  data-test=""
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Integration
+                                    </h5>
+                                  </H5>
+                                  No
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                          </DirectApiSection>
+                          <StatusSection
+                            appDetail={Object {}}
+                            isSidebar={true}
+                          >
+                            <AppDetailSection
+                              headerText="Authentication Flow"
+                              isSidebar={true}
+                            >
+                              <Content
+                                dataTest=""
+                              >
+                                <div
+                                  className="content"
+                                  data-test=""
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Authentication Flow
+                                    </h5>
+                                  </H5>
+                                  Authorization Code
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                            <AppDetailSection
+                              headerText="Status"
+                              isSidebar={true}
+                            >
+                              <Content
+                                dataTest=""
+                              >
+                                <div
+                                  className="content"
+                                  data-test=""
+                                >
+                                  <H5
+                                    className="mb-2"
+                                  >
+                                    <h5
+                                      className="title is-5 mb-2"
+                                      id=""
+                                    >
+                                      Status
+                                    </h5>
+                                  </H5>
+                                  <div>
+                                    Not listed
+                                  </div>
+                                </div>
+                              </Content>
+                            </AppDetailSection>
+                          </StatusSection>
+                          <AppManagement
+                            appDetailState={
+                              Object {
+                                "data": Object {},
+                                "isLoading": false,
+                              }
+                            }
+                            id=""
+                            pendingRevisions={false}
+                          >
+                            <Content
+                              className="b13hbgdm-button-group"
+                            >
+                              <div
+                                className="content b13hbgdm-button-group"
+                                data-test=""
+                              >
+                                <Button
+                                  className="mb-2"
+                                  dataTest="detail-modal-edit-button"
+                                  fullWidth={true}
                                   onClick={[Function]}
                                   type="button"
+                                  variant="primary"
                                 >
-                                  DELETE APP
-                                </button>
-                              </Component>
-                            </div>
-                          </Component>
-                        </Component>
-                      </div>
-                    </Component>
-                  </Component>
-                </mock-styled.div>
+                                  <button
+                                    className="button mb-2 is-primary is-fullwidth "
+                                    data-test="detail-modal-edit-button"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    EDIT DETAILS
+                                  </button>
+                                </Button>
+                                <Button
+                                  className="mb-2"
+                                  fullWidth={true}
+                                  onClick={[Function]}
+                                  variant="danger"
+                                >
+                                  <button
+                                    className="button mb-2 is-danger is-fullwidth "
+                                    data-test=""
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    DELETE APP
+                                  </button>
+                                </Button>
+                              </div>
+                            </Content>
+                          </AppManagement>
+                        </div>
+                      </FlexContainerBasic>
+                    </DeveloperAside>
+                  </div>
+                </FadeIn>
               </div>
-            </Component>
-            <Component
+            </GridItem>
+            <GridItem
               className="is-three-quarters"
             >
               <div
-                className=""
+                className="column is-three-quarters"
                 data-test=""
               >
-                <Component
+                <Section
                   hasBackground={true}
                   isFlex={true}
                   isFlexColumn={true}
                   isFullHeight={true}
                 >
                   <section
-                    className=""
+                    className="section is-flex is-flex-column has-padding has-margin has-background is-full-height"
                     data-test=""
                   >
-                    <mock-styled.div>
-                      <AppHeader
-                        appDetailData={Object {}}
+                    <FadeIn>
+                      <div
+                        className="f1ohzb3j-fade-in"
                       >
-                        <Component
-                          className=""
+                        <AppHeader
+                          appDetailData={Object {}}
                         >
-                          <div
-                            className=""
-                            data-test=""
+                          <Grid
+                            className="flex items-center mb-4 ct3g6zj-container-outer-header flex-col-min-height"
                           >
-                            <Component>
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <div
-                                    className=""
-                                  >
-                                    <img
-                                      className="image is-96x96"
-                                      src=""
-                                    />
-                                  </div>
-                                  <div
-                                    className=""
-                                  >
-                                    <Component>
-                                      <h3
-                                        className=""
-                                        id=""
-                                      />
-                                    </Component>
-                                    <Component>
-                                      <h6
-                                        className=""
-                                        id=""
-                                      >
-                                        Verified by Reapit 
-                                        <FaCheck
-                                          className=""
-                                        >
-                                          <IconBase
-                                            attr={
-                                              Object {
-                                                "viewBox": "0 0 512 512",
-                                              }
-                                            }
-                                            className=""
-                                          >
-                                            <svg
-                                              fill="currentColor"
-                                              height="1em"
-                                              stroke="currentColor"
-                                              strokeWidth="0"
-                                              style={
-                                                Object {
-                                                  "color": undefined,
-                                                }
-                                              }
-                                              viewBox="0 0 512 512"
-                                              width="1em"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <path
-                                                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                                key="0"
-                                              />
-                                            </svg>
-                                          </IconBase>
-                                        </FaCheck>
-                                      </h6>
-                                    </Component>
-                                  </div>
-                                </div>
-                              </div>
-                            </Component>
-                            <Component
-                              className="flex items-center"
+                            <div
+                              className="columns flex items-center mb-4 ct3g6zj-container-outer-header flex-col-min-height"
+                              data-test=""
                             >
-                              <div
-                                className=""
-                                data-test=""
-                              >
-                                <img
-                                  alt="Featured Image"
-                                  src=""
-                                />
-                              </div>
-                            </Component>
-                          </div>
-                        </Component>
-                      </AppHeader>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <AppContent
-                        appDetailState={
-                          Object {
-                            "data": Object {},
-                            "isLoading": false,
-                          }
-                        }
-                      >
-                        <Component
-                          hasMargin={false}
-                          hasPadding={false}
-                          isFlex={true}
-                          isFlexColumn={true}
-                        >
-                          <section
-                            className=""
-                            data-test=""
-                          >
-                            <Component
-                              summary=""
-                            >
-                              <Component
-                                className="is-italic"
-                              >
+                              <GridItem>
                                 <div
-                                  className=""
+                                  className="column"
                                   data-test=""
-                                />
-                              </Component>
-                            </Component>
-                            <Component
-                              onClick={[Function]}
-                            >
-                              <Component
-                                headerText={
-                                  <React.Fragment>
-                                    <span
-                                      className="mr-2"
-                                    >
-                                      See listing preview
-                                    </span>
-                                     
-                                    <a
-                                      className=""
-                                      href="#"
-                                      onClick={[Function]}
-                                    >
-                                      <FaExternalLinkAlt />
-                                    </a>
-                                  </React.Fragment>
-                                }
-                                isSidebar={false}
-                              >
-                                <Component
-                                  dataTest=""
                                 >
                                   <div
-                                    className=""
-                                    data-test=""
+                                    className="c11ycdt0-container-header"
                                   >
-                                    <Component
-                                      className=""
+                                    <div
+                                      className="a34e2mc-app-icon-container"
                                     >
-                                      <h5
-                                        className=""
-                                        id=""
-                                      >
-                                        <span
-                                          className="mr-2"
+                                      <img
+                                        className="image is-96x96"
+                                        src=""
+                                      />
+                                    </div>
+                                    <div
+                                      className="hitt7u6-header-content"
+                                    >
+                                      <H3>
+                                        <h3
+                                          className="title is-3"
+                                          id=""
+                                        />
+                                      </H3>
+                                      <SubTitleH6>
+                                        <h6
+                                          className="subtitle is-6"
+                                          id=""
                                         >
-                                          See listing preview
-                                        </span>
-                                         
-                                        <a
-                                          className=""
-                                          href="#"
-                                          onClick={[Function]}
-                                        >
-                                          <FaExternalLinkAlt>
+                                          Verified by Reapit 
+                                          <FaCheck
+                                            className="ciaw3pb-check"
+                                          >
                                             <IconBase
                                               attr={
                                                 Object {
                                                   "viewBox": "0 0 512 512",
                                                 }
                                               }
+                                              className="ciaw3pb-check"
                                             >
                                               <svg
+                                                className="ciaw3pb-check"
                                                 fill="currentColor"
                                                 height="1em"
                                                 stroke="currentColor"
@@ -544,193 +421,333 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
                                                 <path
-                                                  d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"
+                                                  d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
                                                   key="0"
                                                 />
                                               </svg>
                                             </IconBase>
-                                          </FaExternalLinkAlt>
-                                        </a>
-                                      </h5>
-                                    </Component>
-                                    <p>
-                                      The listing preview will display your app as it would appear in the Marketplace
-                                    </p>
-                                  </div>
-                                </Component>
-                              </Component>
-                            </Component>
-                            <Component
-                              authFlow=""
-                              externalId=""
-                              id=""
-                            >
-                              <Component
-                                headerText="Authentication"
-                                isSidebar={false}
-                              >
-                                <Component
-                                  dataTest=""
-                                >
-                                  <div
-                                    className=""
-                                    data-test=""
-                                  >
-                                    <Component
-                                      className=""
-                                    >
-                                      <h5
-                                        className=""
-                                        id=""
-                                      >
-                                        Authentication
-                                      </h5>
-                                    </Component>
-                                    <div
-                                      className=""
-                                      data-test="authentication-client-id"
-                                    >
-                                      <b
-                                        className="mr-2"
-                                      >
-                                        Client ID:
-                                      </b>
+                                          </FaCheck>
+                                        </h6>
+                                      </SubTitleH6>
                                     </div>
                                   </div>
-                                </Component>
-                              </Component>
-                            </Component>
-                            <Component
-                              permissions={Array []}
-                            >
-                              <Component
-                                headerText="Permissions required"
+                                </div>
+                              </GridItem>
+                              <GridItem
+                                className="flex items-center"
                               >
-                                <Component
-                                  dataTest=""
+                                <div
+                                  className="column flex items-center"
+                                  data-test=""
+                                >
+                                  <img
+                                    alt="Featured Image"
+                                    src=""
+                                  />
+                                </div>
+                              </GridItem>
+                            </div>
+                          </Grid>
+                        </AppHeader>
+                      </div>
+                    </FadeIn>
+                    <FadeIn>
+                      <div
+                        className="f1ohzb3j-fade-in"
+                      >
+                        <AppContent
+                          appDetailState={
+                            Object {
+                              "data": Object {},
+                              "isLoading": false,
+                            }
+                          }
+                        >
+                          <Section
+                            hasMargin={false}
+                            hasPadding={false}
+                            isFlex={true}
+                            isFlexColumn={true}
+                          >
+                            <section
+                              className="section is-flex is-flex-column has-background"
+                              data-test=""
+                            >
+                              <SummarySection
+                                summary=""
+                              >
+                                <Content
+                                  className="is-italic"
                                 >
                                   <div
-                                    className=""
+                                    className="content is-italic"
                                     data-test=""
-                                  >
-                                    <Component
-                                      className=""
-                                    >
-                                      <h5
-                                        className=""
-                                        id=""
+                                  />
+                                </Content>
+                              </SummarySection>
+                              <ListingPreviewSection
+                                onClick={[Function]}
+                              >
+                                <AppDetailSection
+                                  headerText={
+                                    <React.Fragment>
+                                      <span
+                                        className="mr-2"
                                       >
-                                        Permissions required
-                                      </h5>
-                                    </Component>
-                                    <Component>
+                                        See listing preview
+                                      </span>
+                                       
+                                      <a
+                                        className="pfut5yd-preview"
+                                        href="#"
+                                        onClick={[Function]}
+                                      >
+                                        <FaExternalLinkAlt />
+                                      </a>
+                                    </React.Fragment>
+                                  }
+                                  isSidebar={false}
+                                >
+                                  <Content
+                                    dataTest=""
+                                  >
+                                    <div
+                                      className="content"
+                                      data-test=""
+                                    >
+                                      <H5
+                                        className=""
+                                      >
+                                        <h5
+                                          className="title is-5"
+                                          id=""
+                                        >
+                                          <span
+                                            className="mr-2"
+                                          >
+                                            See listing preview
+                                          </span>
+                                           
+                                          <a
+                                            className="pfut5yd-preview"
+                                            href="#"
+                                            onClick={[Function]}
+                                          >
+                                            <FaExternalLinkAlt>
+                                              <IconBase
+                                                attr={
+                                                  Object {
+                                                    "viewBox": "0 0 512 512",
+                                                  }
+                                                }
+                                              >
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="1em"
+                                                  stroke="currentColor"
+                                                  strokeWidth="0"
+                                                  style={
+                                                    Object {
+                                                      "color": undefined,
+                                                    }
+                                                  }
+                                                  viewBox="0 0 512 512"
+                                                  width="1em"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"
+                                                    key="0"
+                                                  />
+                                                </svg>
+                                              </IconBase>
+                                            </FaExternalLinkAlt>
+                                          </a>
+                                        </h5>
+                                      </H5>
+                                      <p>
+                                        The listing preview will display your app as it would appear in the Marketplace
+                                      </p>
+                                    </div>
+                                  </Content>
+                                </AppDetailSection>
+                              </ListingPreviewSection>
+                              <AuthenticationSection
+                                authFlow=""
+                                externalId=""
+                                id=""
+                              >
+                                <AppDetailSection
+                                  headerText="Authentication"
+                                  isSidebar={false}
+                                >
+                                  <Content
+                                    dataTest=""
+                                  >
+                                    <div
+                                      className="content"
+                                      data-test=""
+                                    >
+                                      <H5
+                                        className=""
+                                      >
+                                        <h5
+                                          className="title is-5"
+                                          id=""
+                                        >
+                                          Authentication
+                                        </h5>
+                                      </H5>
                                       <div
                                         className=""
-                                        data-test=""
-                                      />
-                                    </Component>
-                                  </div>
-                                </Component>
-                              </Component>
-                            </Component>
-                            <Component
-                              columns={
-                                Array [
-                                  Object {
-                                    "Header": "Client",
-                                    "accessor": "client",
-                                  },
-                                  Object {
-                                    "Header": "Company Name",
-                                    "accessor": "customerName",
-                                  },
-                                  Object {
-                                    "Header": "Company Address",
-                                    "accessor": [Function],
-                                  },
-                                  Object {
-                                    "Header": "Date Installed",
-                                    "accessor": [Function],
-                                  },
-                                  Object {
-                                    "Header": "Installed By",
-                                    "accessor": "installedBy",
-                                  },
-                                  Object {
-                                    "Cell": [Function],
-                                    "Header": "Uninstall",
-                                  },
-                                ]
-                              }
-                              data={Array []}
-                            >
-                              <Component
-                                dataTest="render-installations-table-empty-text"
-                                headerText="Installations"
-                                isSidebar={false}
-                              >
-                                <Component
-                                  dataTest="render-installations-table-empty-text"
-                                >
-                                  <div
-                                    className=""
-                                    data-test="render-installations-table-empty-text"
-                                  >
-                                    <Component
-                                      className=""
-                                    >
-                                      <h5
-                                        className=""
-                                        id=""
+                                        data-test="authentication-client-id"
                                       >
-                                        Installations
-                                      </h5>
-                                    </Component>
-                                    <p>
-                                      Currently, there are no installations for your app
-                                    </p>
-                                  </div>
-                                </Component>
-                              </Component>
-                            </Component>
-                          </section>
-                        </Component>
-                      </AppContent>
-                    </mock-styled.div>
-                    <mock-styled.div>
-                      <Component
-                        onClick={[Function]}
-                      >
-                        <Component
-                          className="pt-4 bt mt-4 flex"
-                        >
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <Component
-                              onClick={[Function]}
-                            >
-                              <button
-                                className="button  is-primary  "
-                                data-test=""
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
+                                        <b
+                                          className="mr-2"
+                                        >
+                                          Client ID:
+                                        </b>
+                                      </div>
+                                    </div>
+                                  </Content>
+                                </AppDetailSection>
+                              </AuthenticationSection>
+                              <PermissionsSection
+                                permissions={Array []}
                               >
-                                Back To Apps
-                              </button>
-                            </Component>
-                          </div>
-                        </Component>
-                      </Component>
-                    </mock-styled.div>
+                                <AppDetailSection
+                                  headerText="Permissions required"
+                                >
+                                  <Content
+                                    dataTest=""
+                                  >
+                                    <div
+                                      className="content"
+                                      data-test=""
+                                    >
+                                      <H5
+                                        className=""
+                                      >
+                                        <h5
+                                          className="title is-5"
+                                          id=""
+                                        >
+                                          Permissions required
+                                        </h5>
+                                      </H5>
+                                      <GridFourCol>
+                                        <div
+                                          className="columns is-multiline"
+                                          data-test=""
+                                        />
+                                      </GridFourCol>
+                                    </div>
+                                  </Content>
+                                </AppDetailSection>
+                              </PermissionsSection>
+                              <InstallationsTableSection
+                                columns={
+                                  Array [
+                                    Object {
+                                      "Header": "Client",
+                                      "accessor": "client",
+                                    },
+                                    Object {
+                                      "Header": "Company Name",
+                                      "accessor": "customerName",
+                                    },
+                                    Object {
+                                      "Header": "Company Address",
+                                      "accessor": [Function],
+                                    },
+                                    Object {
+                                      "Header": "Date Installed",
+                                      "accessor": [Function],
+                                    },
+                                    Object {
+                                      "Header": "Installed By",
+                                      "accessor": "installedBy",
+                                    },
+                                    Object {
+                                      "Cell": [Function],
+                                      "Header": "Uninstall",
+                                    },
+                                  ]
+                                }
+                                data={Array []}
+                              >
+                                <AppDetailSection
+                                  dataTest="render-installations-table-empty-text"
+                                  headerText="Installations"
+                                  isSidebar={false}
+                                >
+                                  <Content
+                                    dataTest="render-installations-table-empty-text"
+                                  >
+                                    <div
+                                      className="content"
+                                      data-test="render-installations-table-empty-text"
+                                    >
+                                      <H5
+                                        className=""
+                                      >
+                                        <h5
+                                          className="title is-5"
+                                          id=""
+                                        >
+                                          Installations
+                                        </h5>
+                                      </H5>
+                                      <p>
+                                        Currently, there are no installations for your app
+                                      </p>
+                                    </div>
+                                  </Content>
+                                </AppDetailSection>
+                              </InstallationsTableSection>
+                            </section>
+                          </Section>
+                        </AppContent>
+                      </div>
+                    </FadeIn>
+                    <FadeIn>
+                      <div
+                        className="f1ohzb3j-fade-in"
+                      >
+                        <BackToAppsSection
+                          onClick={[Function]}
+                        >
+                          <LevelRight
+                            className="pt-4 bt mt-4 flex"
+                          >
+                            <div
+                              className="level-right pt-4 bt mt-4 flex"
+                              data-test=""
+                            >
+                              <Button
+                                onClick={[Function]}
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  Back To Apps
+                                </button>
+                              </Button>
+                            </div>
+                          </LevelRight>
+                        </BackToAppsSection>
+                      </div>
+                    </FadeIn>
                   </section>
-                </Component>
+                </Section>
               </div>
-            </Component>
+            </GridItem>
           </div>
-        </Component>
+        </Grid>
       </AppDetail>
     </Router>
   </MemoryRouter>

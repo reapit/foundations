@@ -26,7 +26,7 @@ export const AnalyticsDailyUsage: React.FC = () => {
   const [month, setMonth] = useState<Date>(new Date())
   const developerId = connectSession?.loginIdentity?.developerId ?? null
   const onSave = useCallback(handleOnSave(setMonth), [])
-  const dwService = billing?.services?.find(service => service.name === 'Data Warehouse')
+  const dwService = billing?.services?.find((service) => service.name === 'Data Warehouse')
   const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData((dwService && dwService?.items) ?? [])
 
   const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData

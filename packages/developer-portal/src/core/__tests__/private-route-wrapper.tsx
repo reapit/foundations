@@ -10,11 +10,10 @@ import dayjs from 'dayjs'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
 
 const locationMock = { search: '', pathname: '/test' }
-const dispatch = jest.fn()
 
 jest.mock('react-redux', () => ({
   ...(jest.requireActual('react-redux') as Object),
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
   useSelector: jest.fn(() => jest.fn()),
 }))
 

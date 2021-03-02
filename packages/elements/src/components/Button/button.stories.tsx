@@ -8,7 +8,7 @@ export default {
   component: Button,
 }
 
-export const Primary: Story<ButtonProps> = args => <Button {...args}>Primary</Button>
+export const Primary: Story<ButtonProps> = (args) => <Button {...args}>Primary</Button>
 Primary.args = {
   type: 'submit',
   variant: 'primary',
@@ -18,7 +18,7 @@ Primary.args = {
   fullWidth: false,
 }
 
-export const Secondary: Story<ButtonProps> = args => <Button {...args}>Secondary</Button>
+export const Secondary: Story<ButtonProps> = (args) => <Button {...args}>Secondary</Button>
 Secondary.args = {
   type: 'submit',
   variant: 'secondary',
@@ -28,7 +28,7 @@ Secondary.args = {
   fullWidth: false,
 }
 
-export const Danger: Story<ButtonProps> = args => <Button {...args}>Danger</Button>
+export const Danger: Story<ButtonProps> = (args) => <Button {...args}>Danger</Button>
 Danger.args = {
   type: 'submit',
   variant: 'danger',
@@ -38,7 +38,7 @@ Danger.args = {
   fullWidth: false,
 }
 
-export const Info: Story<ButtonProps> = args => <Button {...args}>Info</Button>
+export const Info: Story<ButtonProps> = (args) => <Button {...args}>Info</Button>
 Info.args = {
   type: 'submit',
   variant: 'info',
@@ -48,7 +48,7 @@ Info.args = {
   fullWidth: false,
 }
 
-export const Disabled: Story<ButtonProps> = args => <Button {...args}>Disabled</Button>
+export const Disabled: Story<ButtonProps> = (args) => <Button {...args}>Disabled</Button>
 Disabled.args = {
   type: 'submit',
   variant: 'primary',
@@ -58,7 +58,7 @@ Disabled.args = {
   fullWidth: false,
 }
 
-export const Loading: Story<ButtonProps> = args => <Button {...args}>Loading</Button>
+export const Loading: Story<ButtonProps> = (args) => <Button {...args}>Loading</Button>
 Loading.args = {
   type: 'submit',
   variant: 'primary',
@@ -68,7 +68,7 @@ Loading.args = {
   fullWidth: false,
 }
 
-export const IsCentered: Story<ButtonProps> = args => <Button {...args}>Centered</Button>
+export const IsCentered: Story<ButtonProps> = (args) => <Button {...args}>Centered</Button>
 IsCentered.args = {
   type: 'submit',
   variant: 'primary',

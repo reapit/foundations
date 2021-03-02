@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import { usePortal } from '../use-portal'
 import { PortalProvider } from '../portal-provider'
 
-export const renderWithPortalProvider = ui => {
+export const renderWithPortalProvider = (ui) => {
   return <PortalProvider>{ui}</PortalProvider>
 }
 

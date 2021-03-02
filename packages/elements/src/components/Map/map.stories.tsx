@@ -3,15 +3,15 @@ import { Map } from './index'
 
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || ''
 
-const onLoadedDirection = response => {
+const onLoadedDirection = (response) => {
   console.log(response)
 }
 
-const onDrawingMarkerComplete = marker => {
+const onDrawingMarkerComplete = (marker) => {
   console.log(marker)
 }
 
-const onDrawingMarkerClick = marker => {
+const onDrawingMarkerClick = (marker) => {
   console.log(marker)
 }
 
@@ -25,7 +25,7 @@ const onDrawingPolygonClick = (googleMaps, polygon) => {
   console.log(polygon)
 }
 
-const onLoaded = response => {
+const onLoaded = (response) => {
   console.log(response)
 }
 
@@ -36,7 +36,7 @@ export default {
   component: Map,
 }
 
-export const Default: Story<any> = args => <Map {...args} />
+export const Default: Story<any> = (args) => <Map {...args} />
 Default.args = {
   apiKey: GOOGLE_MAPS_API_KEY,
   libraries: 'places,drawing',

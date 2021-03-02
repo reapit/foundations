@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentsFilterForm should match a snapshot 1`] = `
-<Component>
-  <Component>
+<Section>
+  <H5>
     Filter Dashboard
-  </Component>
+  </H5>
   <Formik
     initialValues={
       Object {
@@ -26,5 +26,5 @@ exports[`PaymentsFilterForm should match a snapshot 1`] = `
   >
     <Component />
   </Formik>
-</Component>
+</Section>
 `;

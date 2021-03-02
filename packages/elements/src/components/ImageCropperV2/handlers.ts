@@ -62,7 +62,7 @@ export const drawCanvasAfterCrop = ({
   )
 }
 
-export const onLoadHandler = (imgRef: React.RefObject<HTMLImageElement>) => img => {
+export const onLoadHandler = (imgRef: React.RefObject<HTMLImageElement>) => (img) => {
   ;(imgRef as React.MutableRefObject<HTMLImageElement>).current = img
 }
 

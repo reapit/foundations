@@ -1,7 +1,7 @@
 import { generatePropertyBatchLoaderFn, generatePropertyLoader } from '../dataloader'
-import { propertyMock } from '../__stubs__/property'
-import { propertiesMock } from '../__stubs__/properties'
-import { mockContext } from '../../../__stubs__/context'
+import { propertyMock } from '../__stubs__/mock-property'
+import { propertiesMock } from '../__stubs__/mock-properties'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('apollo-server-lambda', () => {
   return {

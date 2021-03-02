@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountStatusSection should match snapshot 1`] = `
-<Component
+<GridItem
   className="pl-0"
 >
-  <Component
+  <Input
     id="status"
     name="status"
     type="hidden"
   />
-  <Component
-    className=""
+  <Content
+    className="sxj0u33-status-text"
   >
     <div
       className="pb-1"
@@ -26,26 +26,26 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     <i>
       Pending
     </i>
-  </Component>
-</Component>
+  </Content>
+</GridItem>
 `;
 
 exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is no 1`] = `
-<Component
+<GridItem
   className="pl-0"
 >
-  <Component
-    className=""
+  <Content
+    className="is-italic sxj0u33-status-text"
   >
     Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and you can procced with any subscriptions.
-  </Component>
-  <Component
+  </Content>
+  <Input
     id="status"
     name="status"
     type="hidden"
   />
-  <Component
-    className=""
+  <Content
+    className="sxj0u33-status-text"
   >
     <div
       className="pb-1"
@@ -61,21 +61,21 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     <i>
       Pending
     </i>
-  </Component>
-</Component>
+  </Content>
+</GridItem>
 `;
 
 exports[`AccountStatusSection should match snapshot with status !== pending 1`] = `
-<Component
+<GridItem
   className="pl-0"
 >
-  <Component
+  <Input
     id="status"
     name="status"
     type="hidden"
   />
-  <Component
-    className=""
+  <Content
+    className="sxj0u33-status-text"
   >
     <b>
       ACCOUNT STATUS:
@@ -84,6 +84,6 @@ exports[`AccountStatusSection should match snapshot with status !== pending 1`] 
     <i>
       Incomplete
     </i>
-  </Component>
-</Component>
+  </Content>
+</GridItem>
 `;

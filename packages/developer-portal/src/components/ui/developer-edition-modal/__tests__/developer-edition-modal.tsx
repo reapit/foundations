@@ -45,7 +45,7 @@ describe('DeveloperEditionModal', () => {
     it('should run correctly', () => {
       const developerLists = [{ id: developerStub.id, name: developerStub.name, email: developerStub.email }]
       const dispatch = jest.fn()
-      const onCreated = jest.fn(developer => jest.fn(developer))
+      const onCreated = jest.fn((developer) => jest.fn(developer))
       handleFormSubmit(developerLists, dispatch, onCreated)({ developerList: [developerStub.id] })
       expect(dispatch).toBeCalled()
     })

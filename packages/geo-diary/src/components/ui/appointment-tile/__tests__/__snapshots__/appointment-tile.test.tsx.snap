@@ -2,13 +2,13 @@
 
 exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
 <Fragment>
-  <mock-styled.div>
-    <Component
+  <FadeIn>
+    <Tile
       footerItems={
         Array [
           <div>
-            <Unknown
-              className=""
+            <Button
+              className="button-padding-small is-centered mr-2 mb-2"
               disabled={false}
               fullWidth={false}
               loading={false}
@@ -17,9 +17,9 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               variant="info"
             >
               Details
-            </Unknown>
-            <Unknown
-              className=""
+            </Button>
+            <Button
+              className="button-padding-small is-centered mr-2 mb-2"
               disabled={false}
               fullWidth={false}
               loading={false}
@@ -28,8 +28,8 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               variant="info"
             >
               Directions
-            </Unknown>
-            <Unknown
+            </Button>
+            <ETAButton
               appointment={
                 Object {
                   "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -224,7 +224,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
       hightlight={false}
       key="NEP1600290"
     >
-      <Component
+      <IconList
         items={
           Array [
             Object {
@@ -248,9 +248,9 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
           ]
         }
       />
-    </Component>
-  </mock-styled.div>
-  <Memo()
+    </Tile>
+  </FadeIn>
+  <Memo(AppointmentDetailModal)
     appointment={
       Object {
         "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -435,14 +435,14 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
     onClose={[Function]}
     title={
       <React.Fragment>
-        <Unknown>
+        <H5>
           56 High Street
-        </Unknown>
-        <Unknown
+        </H5>
+        <SubTitleH5
           className="mb-0"
         >
           Viewing
-        </Unknown>
+        </SubTitleH5>
       </React.Fragment>
     }
     visible={false}
@@ -452,8 +452,8 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
 
 exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
 <div>
-  <Component
-    className=""
+  <Button
+    className="button-padding-small is-centered mr-2 mb-2"
     disabled={false}
     fullWidth={false}
     key="viewDetails"
@@ -463,9 +463,9 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     variant="info"
   >
     Details
-  </Component>
-  <Component
-    className=""
+  </Button>
+  <Button
+    className="button-padding-small is-centered mr-2 mb-2"
     disabled={false}
     fullWidth={false}
     key="viewDirection"
@@ -475,7 +475,7 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     variant="info"
   >
     Directions
-  </Component>
+  </Button>
 </div>
 `;
 
@@ -489,32 +489,32 @@ exports[`appointment-tile renderIconItems should match snapshot 1`] = `
 
 exports[`appointment-tile renderModalTitle should match snapshot 1`] = `
 <div>
-  <Component>
+  <H5>
     mockHeading
-  </Component>
-  <Component
+  </H5>
+  <SubTitleH5
     className="mb-0"
   >
     Viewing
-  </Component>
+  </SubTitleH5>
 </div>
 `;
 
 exports[`appointment-tile renderModalTitle should match snapshot 2`] = `
 <div>
-  <Component
+  <SubTitleH5
     className="mb-0"
   >
     Viewing
-  </Component>
+  </SubTitleH5>
 </div>
 `;
 
 exports[`appointment-tile renderModalTitle should match snapshot 3`] = `
 <div>
-  <Component>
+  <H5>
     mock heading
-  </Component>
+  </H5>
 </div>
 `;
 

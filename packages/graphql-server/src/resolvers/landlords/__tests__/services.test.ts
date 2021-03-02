@@ -8,19 +8,19 @@ import {
   callDeleteLandlordRelationshipAPI,
   callGetLandlordRelationshipByIdAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   landlordMock,
   landlordsListMock,
   landlordRelationshipMock,
   landlordRelationshipsListMock,
-} from '../__stubs__/landlord-query'
+} from '../__stubs__/mock-landlord-query'
 import {
   createLandlordArgsMock,
   deleteLandlordRelationshipArgsMock,
   updateLandlordArgsMock,
   createLandlordRelationshipArgsMock,
-} from '../__stubs__/landlord-mutation'
+} from '../__stubs__/mock-landlord-mutation'
 import {
   getLandlords,
   getLandlordById,

@@ -180,7 +180,7 @@ export const Support = () => {
   )
 }
 
-export const handleUserAccept = history => () => {
+export const handleUserAccept = (history) => () => {
   setCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, new Date(), COOKIE_MAX_AGE_INFINITY)
 
   history.push(Routes.APPS)

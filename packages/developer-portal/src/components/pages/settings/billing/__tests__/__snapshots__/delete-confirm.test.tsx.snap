@@ -1,40 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfirmModal should match snapshot 1`] = `
-<Component
+<Modal
   renderChildren={true}
   visible={true}
 >
-  <Component
+  <ModalHeader
     title="Confirm"
   />
-  <Component
+  <ModalBody
     body={
       <p>
         Are you sure?
       </p>
     }
   />
-  <Component
+  <ModalFooter
     footerItems={
       <React.Fragment>
-        <Unknown
+        <Button
           className="mr-2"
           fullWidth={true}
           type="button"
           variant="danger"
         >
           Cancel
-        </Unknown>
-        <Unknown
+        </Button>
+        <Button
           fullWidth={true}
           type="submit"
           variant="primary"
         >
           Confirm
-        </Unknown>
+        </Button>
       </React.Fragment>
     }
   />
-</Component>
+</Modal>
 `;

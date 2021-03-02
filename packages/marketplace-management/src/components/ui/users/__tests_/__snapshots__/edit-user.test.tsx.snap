@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UpdateUserModal should match a snapshot 1`] = `
-<Component
+<ModalV2
   destroyOnClose={true}
   onClose={[Function]}
   title="Editing User Name"
@@ -29,5 +29,5 @@ exports[`UpdateUserModal should match a snapshot 1`] = `
   >
     <Component />
   </Formik>
-</Component>
+</ModalV2>
 `;

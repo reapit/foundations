@@ -13,24 +13,24 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
     }
   }
 >
-  <Component
+  <AppAuthenticationDetail
     appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
   >
-    <Component
+    <Content
       data-test="app-authentication-detail"
     >
       <div
-        className=""
+        className="content"
         data-test=""
       >
-        <Component>
+        <H5>
           <h5
-            className=""
+            className="title is-5"
             id=""
           >
             Authentication:
           </h5>
-        </Component>
+        </H5>
         <a
           className="text-underline"
           href="#"
@@ -39,7 +39,7 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
           Show Secret
         </a>
       </div>
-    </Component>
-  </Component>
+    </Content>
+  </AppAuthenticationDetail>
 </Provider>
 `;

@@ -39,7 +39,7 @@ const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearc
       <H5>Filter Dashboard</H5>
       <Formik
         initialValues={filterValues}
-        onSubmit={values => {
+        onSubmit={(values) => {
           const { createdFrom, createdTo } = values
           const fomattedCreatedFrom = createdFrom ? dayjs(createdFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD) : createdFrom
           const fomattedCreatedTo = createdTo ? dayjs(createdTo).format(DATE_TIME_FORMAT.YYYY_MM_DD) : createdTo

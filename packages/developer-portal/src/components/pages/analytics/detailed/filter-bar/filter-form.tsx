@@ -26,7 +26,7 @@ export type FilterFormProps = {
   installationAppDataArray: InstallationModel[]
 }
 
-export const renderAppSelectOptions = developerApps => {
+export const renderAppSelectOptions = (developerApps) => {
   return [
     {
       label: 'All',
@@ -44,8 +44,8 @@ export const renderAppSelectOptions = developerApps => {
 export const renderClientSelectOptions = (installationAppDataArray: InstallationModel[]) => {
   const filteredClients: SelectOption[] = []
   installationAppDataArray.unshift(SANDBOX_CLIENT)
-  installationAppDataArray.forEach(client => {
-    const existed = filteredClients.find(filteredClient => filteredClient.value === client.customerId)
+  installationAppDataArray.forEach((client) => {
+    const existed = filteredClients.find((filteredClient) => filteredClient.value === client.customerId)
     if (!existed) {
       filteredClients.push({
         value: client.customerId || '',
@@ -64,8 +64,8 @@ export const renderClientSelectOptions = (installationAppDataArray: Installation
 }
 
 export const handleAutoSave = (developerApps: AppSummaryModel[], clients: InstallationModel[], dispatch: Dispatch) => {
-  const clientIds = clients.map(client => client.customerId)
-  return values => {
+  const clientIds = clients.map((client) => client.customerId)
+  return (values) => {
     const { appId, clientId, dateFrom, dateTo } = values
     const appIds = developerApps.map((app: AppSummaryModel) => {
       return app.id || ''
@@ -115,9 +115,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                   labelText=""
                   id="dateFrom"
                   reactDatePickerProps={{
-                    maxDate: dayjs()
-                      .subtract(1, 'day')
-                      .toDate(),
+                    maxDate: dayjs().subtract(1, 'day').toDate(),
                   }}
                 />
               </GridFourColItem>
@@ -129,9 +127,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                   labelText=""
                   id="dateTo"
                   reactDatePickerProps={{
-                    minDate: dayjs(dateFrom)
-                      .add(1, 'day')
-                      .toDate(),
+                    minDate: dayjs(dateFrom).add(1, 'day').toDate(),
                     maxDate: dayjs().toDate(),
                   }}
                 />

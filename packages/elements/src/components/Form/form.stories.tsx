@@ -16,21 +16,21 @@ export default {
   subComponents: { FormHeading, FormSubHeading },
 }
 
-export const FormHeading_: Story<LayoutProps> = args => <FormHeading {...args}>Form Heading Text</FormHeading>
+export const FormHeading_: Story<LayoutProps> = (args) => <FormHeading {...args}>Form Heading Text</FormHeading>
 FormHeading_.args = {}
 
-export const FormSubHeading_: Story<LayoutProps> = args => (
+export const FormSubHeading_: Story<LayoutProps> = (args) => (
   <FormSubHeading {...args}>Form SubHeading Text</FormSubHeading>
 )
 FormSubHeading_.args = {}
 
-export const FormSection_: Story<LayoutProps> = args => <FormSection {...args}>Form section child</FormSection>
+export const FormSection_: Story<LayoutProps> = (args) => <FormSection {...args}>Form section child</FormSection>
 FormSection_.args = {}
 
 export const CompleteFormExample: Story<LayoutProps> = () => (
   <Formik
     initialValues={{ text: '', email: '', password: '', tel: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
     }}
   >

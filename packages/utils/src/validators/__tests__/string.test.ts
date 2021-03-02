@@ -88,23 +88,23 @@ describe('isValidLimitToClientIds', () => {
 
 describe('isValidHttpsUrl', () => {
   it('valid https url test', () => {
-    ;['https://www.google.com', 'https://www.googlee.com'].forEach(url => expect(isValidHttpsUrl(url)).toBeTruthy())
+    ;['https://www.google.com', 'https://www.googlee.com'].forEach((url) => expect(isValidHttpsUrl(url)).toBeTruthy())
   })
 
   it('invalid https url test', () => {
-    ;['http://google.com', 'htt://www.google.com'].forEach(url => expect(isValidHttpsUrl(url)).toBeFalsy())
+    ;['http://google.com', 'htt://www.google.com'].forEach((url) => expect(isValidHttpsUrl(url)).toBeFalsy())
   })
 })
 
 describe('whiteListLocalhostAndIsValidUrl', () => {
   it('valid url test', () => {
-    ;['https://www.google.com', 'http://localhost:8080'].forEach(url =>
+    ;['https://www.google.com', 'http://localhost:8080'].forEach((url) =>
       expect(whiteListLocalhostAndIsValidUrl(url)).toBeTruthy(),
     )
   })
 
   it('invalid url test', () => {
-    ;['invalid url test', 'htt://www.google.com'].forEach(url =>
+    ;['invalid url test', 'htt://www.google.com'].forEach((url) =>
       expect(whiteListLocalhostAndIsValidUrl(url)).toBeFalsy(),
     )
   })
@@ -112,10 +112,10 @@ describe('whiteListLocalhostAndIsValidUrl', () => {
 
 describe('isValidHttpUrl', () => {
   it('valid http url test', () => {
-    ;['http://www.google.com', 'http://www.googlee.com'].forEach(url => expect(isValidHttpUrl(url)).toBeTruthy())
+    ;['http://www.google.com', 'http://www.googlee.com'].forEach((url) => expect(isValidHttpUrl(url)).toBeTruthy())
   })
 
   it('invalid https url test', () => {
-    ;['htt://google.com', 'http://www'].forEach(url => expect(isValidHttpUrl(url)).toBeFalsy())
+    ;['htt://google.com', 'http://www'].forEach((url) => expect(isValidHttpUrl(url)).toBeFalsy())
   })
 })

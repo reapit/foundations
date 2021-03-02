@@ -4,7 +4,7 @@ import { errorMessages } from './constants/error-messages'
  * return standard description error string
  * or DEFAULT_SERVER_ERROR
  */
-export const extractNetworkErrString = err => {
+export const extractNetworkErrString = (err) => {
   /**
    * response contain standard error object
    * {

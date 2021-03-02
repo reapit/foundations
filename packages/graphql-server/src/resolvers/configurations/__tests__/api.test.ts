@@ -1,7 +1,7 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetConfigurationsByTypeApi, callGetConfigurationsByTypeAndIdApi } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { appointmentTypeMock, appointmentTypesMock } from '../__stubs__/appointmentTypes'
+import { appointmentTypeMock, appointmentTypesMock } from '../__stubs__/mock-appointment-types'
 import { ConfigurationType } from '../configurations'
 
 jest.mock('../../../utils/get-id-from-create-headers', () => ({

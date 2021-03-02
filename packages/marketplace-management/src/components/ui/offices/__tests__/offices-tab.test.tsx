@@ -6,16 +6,14 @@ import { createBrowserHistory } from 'history'
 import Routes from '@/constants/routes'
 import { data } from '../__stubs__/offices'
 
-const locationMock = { pathname: '/offices' }
-
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
-  useLocation: jest.fn(() => locationMock),
+  ...(jest.requireActual('react-router') as Object),
+  useLocation: jest.fn(() => ({ pathname: '/offices' })),
 }))
 
 jest.mock('swr', () =>
   jest.fn(() => ({
-    data,
+    data: require('../__stubs__/offices').data,
   })),
 )
 

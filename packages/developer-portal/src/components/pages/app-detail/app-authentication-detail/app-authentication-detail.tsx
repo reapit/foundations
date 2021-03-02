@@ -24,7 +24,7 @@ export const handleShowAuthCode = (
   dispatch: Dispatch,
   setIsShowedSecret: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
-  return e => {
+  return (e) => {
     e.preventDefault()
     dispatch(fetchtAppAuthentication(appId))
     setIsShowedSecret(true)

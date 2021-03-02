@@ -2,110 +2,110 @@
 
 exports[`Section should match snapshot 1`] = `
 <div
-  className=""
+  className="columns pt-4 pb-4 section-container"
   style={
     Object {
       "background": "white",
     }
   }
 >
-  <Component
-    className=""
+  <GridItem
+    className="flex items-start justify-center grid-item"
   >
-    <Component>
+    <H2>
       Test heading
-    </Component>
-    <Component>
+    </H2>
+    <SubTitleH4>
       Test sub heading
-    </Component>
-    <Component
+    </SubTitleH4>
+    <SubTitleH6
       className="mb-4"
     >
       Test description
-    </Component>
-  </Component>
-  <Component
-    className=""
+    </SubTitleH6>
+  </GridItem>
+  <GridItem
+    className="flex items-center justify-center grid-item"
   >
     <img
       alt="Test heading"
       src=""
     />
-  </Component>
+  </GridItem>
 </div>
 `;
 
 exports[`Section should match snapshot when has button 1`] = `
 <div
-  className=""
+  className="columns pt-4 pb-4 section-container"
   style={
     Object {
       "background": "white",
     }
   }
 >
-  <Component
-    className=""
+  <GridItem
+    className="flex items-start justify-center grid-item"
   >
-    <Component>
+    <H2>
       Test heading
-    </Component>
-    <Component>
+    </H2>
+    <SubTitleH4>
       Test sub heading
-    </Component>
-    <Component
+    </SubTitleH4>
+    <SubTitleH6
       className="mb-4"
     >
       Test description
-    </Component>
+    </SubTitleH6>
     <a
       href="/test"
     >
       My button
     </a>
-  </Component>
-  <Component
-    className=""
+  </GridItem>
+  <GridItem
+    className="flex items-center justify-center grid-item"
   >
     <img
       alt="Test heading"
       src=""
     />
-  </Component>
+  </GridItem>
 </div>
 `;
 
 exports[`Section should match snapshot when image in right 1`] = `
 <div
-  className=""
+  className="columns pt-4 pb-4 section-container"
   style={
     Object {
       "background": "white",
     }
   }
 >
-  <Component
-    className=""
+  <GridItem
+    className="flex items-start justify-center grid-item"
   >
-    <Component>
+    <H2>
       Test heading
-    </Component>
-    <Component>
+    </H2>
+    <SubTitleH4>
       Test sub heading
-    </Component>
-    <Component
+    </SubTitleH4>
+    <SubTitleH6
       className="mb-4"
     >
       Test description
-    </Component>
-  </Component>
-  <Component
-    className=""
+    </SubTitleH6>
+  </GridItem>
+  <GridItem
+    className="flex items-center justify-center grid-item"
   >
     <img
       alt="Test heading"
       src=""
     />
-  </Component>
+  </GridItem>
 </div>
 `;

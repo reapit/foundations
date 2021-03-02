@@ -99,7 +99,7 @@ describe('Date-time picker', () => {
       const input = wrapper.find('input')
       expect(input.props().value).toBe('')
     })
-    it('handles normal case', done => {
+    it('handles normal case', (done) => {
       const wrapper = mount(
         <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={jest.fn()}>
           {() => {

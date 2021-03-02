@@ -20,10 +20,7 @@ describe('Button', () => {
 
   it('should fire a click event correctly', () => {
     const wrapper = shallow(<Button {...props}>button text</Button>)
-    wrapper
-      .find('button')
-      .first()
-      .simulate('click')
+    wrapper.find('button').first().simulate('click')
 
     expect(props.onClick).toHaveBeenCalledTimes(1)
   })

@@ -2,16 +2,16 @@
 
 exports[`ChartLegend should match a snapshot 1`] = `
 <Fragment>
-  <Component
+  <GridItem
     className="is-half cursor-pointer"
     key="0"
     onClick={[Function]}
   >
-    <Component
+    <Grid
       isMobile={true}
       isVerticalCentered={true}
     >
-      <Component
+      <GridItem
         className="is-one-third-desktop is-half-tablet is-one-third-mobile"
       >
         <div
@@ -24,28 +24,28 @@ exports[`ChartLegend should match a snapshot 1`] = `
             }
           }
         />
-      </Component>
-      <Component
+      </GridItem>
+      <GridItem
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           API Calls
         </p>
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </GridItem>
+    </Grid>
+  </GridItem>
+  <GridItem
     className="is-half cursor-pointer"
     key="1"
     onClick={[Function]}
   >
-    <Component
+    <Grid
       isMobile={true}
       isVerticalCentered={true}
     >
-      <Component
+      <GridItem
         className="is-one-third-desktop is-half-tablet is-one-third-mobile"
       >
         <div
@@ -58,28 +58,28 @@ exports[`ChartLegend should match a snapshot 1`] = `
             }
           }
         />
-      </Component>
-      <Component
+      </GridItem>
+      <GridItem
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           App Listing
         </p>
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </GridItem>
+    </Grid>
+  </GridItem>
+  <GridItem
     className="is-half cursor-pointer"
     key="2"
     onClick={[Function]}
   >
-    <Component
+    <Grid
       isMobile={true}
       isVerticalCentered={true}
     >
-      <Component
+      <GridItem
         className="is-one-third-desktop is-half-tablet is-one-third-mobile"
       >
         <div
@@ -92,28 +92,28 @@ exports[`ChartLegend should match a snapshot 1`] = `
             }
           }
         />
-      </Component>
-      <Component
+      </GridItem>
+      <GridItem
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           Developer Edition
         </p>
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </GridItem>
+    </Grid>
+  </GridItem>
+  <GridItem
     className="is-half cursor-pointer"
     key="3"
     onClick={[Function]}
   >
-    <Component
+    <Grid
       isMobile={true}
       isVerticalCentered={true}
     >
-      <Component
+      <GridItem
         className="is-one-third-desktop is-half-tablet is-one-third-mobile"
       >
         <div
@@ -126,17 +126,17 @@ exports[`ChartLegend should match a snapshot 1`] = `
             }
           }
         />
-      </Component>
-      <Component
+      </GridItem>
+      <GridItem
         className="px-0"
       >
         <p
-          className=""
+          className="is-size-7"
         >
           Developer Registration
         </p>
-      </Component>
-    </Component>
-  </Component>
+      </GridItem>
+    </Grid>
+  </GridItem>
 </Fragment>
 `;

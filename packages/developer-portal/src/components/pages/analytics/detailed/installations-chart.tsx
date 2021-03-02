@@ -10,18 +10,18 @@ export interface DeveloperInstallationsChartProps {
   loading: boolean
 }
 
-export const getChartOptions = data => {
+export const getChartOptions = (data) => {
   return {
     legend: null,
     tooltips: {
       mode: 'label',
       callbacks: {
-        label: function(tooltipItem) {
+        label: function (tooltipItem) {
           const installedApps = data[tooltipItem.label]
           if (installedApps.length === 0) return 'No App'
           const apps = groupAppsByNameAndCount(installedApps)
           return Object.values(apps)
-            .map(app => `${app.name}: ${app.count}`)
+            .map((app) => `${app.name}: ${app.count}`)
             .join('\n')
         },
       },

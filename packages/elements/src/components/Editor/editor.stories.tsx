@@ -14,7 +14,7 @@ export default {
   component: Editor,
 }
 
-export const Default: Story<EditorProps> = args => <Editor {...args} />
+export const Default: Story<EditorProps> = (args) => <Editor {...args} />
 Default.args = {
   placeholder: 'Some text here',
   onChange: handleChange,

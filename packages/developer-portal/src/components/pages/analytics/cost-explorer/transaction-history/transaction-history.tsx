@@ -26,10 +26,12 @@ export type MapState = {
   developerAppIds: string[]
 }
 
-export const selectTransactionHistoryState: (state: ReduxState) => MapState = state => {
+export const selectTransactionHistoryState: (state: ReduxState) => MapState = (state) => {
   const { data } = selectAppListState(state)
 
-  const developerAppIds = data?.map(developerApp => developerApp.id).filter(id => typeof id === 'string') as string[]
+  const developerAppIds = data
+    ?.map((developerApp) => developerApp.id)
+    .filter((id) => typeof id === 'string') as string[]
 
   return {
     developerCreatedDate: state.developer.myIdentity?.created || '',
@@ -44,7 +46,7 @@ export const createHandleDownLoadButtonOnClickFn = ({
 }: {
   month: string
   developerAppIds: string[]
-}) => async e => {
+}) => async (e) => {
   e.preventDefault()
 
   const api =
@@ -97,7 +99,7 @@ export const renderPreviousTransactionHistoryList = ({
     return null
   }
   const subDates = dates.slice(startIndex, endIndex)
-  return subDates.map(date =>
+  return subDates.map((date) =>
     renderTransactionHistoryItem({
       date,
       developerAppIds,
@@ -136,11 +138,11 @@ export const renderFirstPage = ({
 }
 
 export const handleLaterClick = (setCurrentPage: React.Dispatch<React.SetStateAction<number>>) => {
-  setCurrentPage(currentPage => currentPage + 1)
+  setCurrentPage((currentPage) => currentPage + 1)
 }
 
 export const handleEarlierClick = (setCurrentPage: React.Dispatch<React.SetStateAction<number>>) => {
-  setCurrentPage(currentPage => currentPage - 1)
+  setCurrentPage((currentPage) => currentPage - 1)
 }
 
 const currentDate = dayjs()
@@ -184,7 +186,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
           <GridItem>
             {isShowLaterButton && (
               <a
-                onClick={event => {
+                onClick={(event) => {
                   event?.preventDefault()
                   handleLaterClick(setCurrentPage)
                 }}
@@ -195,7 +197,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
             )}
             {isShowEarlierButton && (
               <a
-                onClick={event => {
+                onClick={(event) => {
                   event?.preventDefault()
                   handleEarlierClick(setCurrentPage)
                 }}

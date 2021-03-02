@@ -13,7 +13,7 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
     }
   }
 >
-  <Component
+  <SetDeveloperStatusModal
     developer={
       Object {
         "id": "",
@@ -23,11 +23,11 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
     onSuccess={[Function]}
     visible={true}
   >
-    <Component
+    <Modal
       afterClose={[Function]}
       renderChildren={true}
       visible={true}
     />
-  </Component>
+  </SetDeveloperStatusModal>
 </Provider>
 `;

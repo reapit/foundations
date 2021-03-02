@@ -12,14 +12,14 @@ const validationSchema = Yup.object().shape({
     primaryAddress: Yup.object().shape({
       documentImage: Yup.string()
         .required(FIELD_REQUIRED)
-        .test('isValidBase64', 'Wrong file type', value => isValidUploadForm(value)),
+        .test('isValidBase64', 'Wrong file type', (value) => isValidUploadForm(value as string)),
     }),
     secondaryAddress: Yup.object().shape({
       documentImage: Yup.string().when([secondaryAddressFields.line1Field.name], {
-        is: line1 => line1,
+        is: (line1) => line1,
         then: Yup.string()
           .required(FIELD_REQUIRED)
-          .test('isValidBase64', 'Wrong file type', value => isValidUploadForm(value)),
+          .test('isValidBase64', 'Wrong file type', (value) => isValidUploadForm(value as string)),
       }),
     }),
   }),

@@ -14,18 +14,18 @@ exports[`AmountCell should match a snapshot where no value 1`] = `
 
 exports[`Payments  should match a snapshot where has payments list 1`] = `
 <ErrorBoundary>
-  <Component>
+  <Section>
     <div
       className="justify-between flex items-center"
     >
-      <Component
+      <H3
         className="mb-0"
       >
         Payments Dashboard
-      </Component>
-      <Component />
+      </H3>
+      <PaymentLogo />
     </div>
-  </Component>
+  </Section>
   <PaymentsFilterForm
     filterValues={
       Object {
@@ -40,9 +40,9 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
     }
     onSearch={[Function]}
   />
-  <Component>
-    <mock-styled.div>
-      <Component
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -148,15 +148,15 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
         expandable={true}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <Component
+    </FadeIn>
+  </Section>
+  <Pagination
     onChange={[Function]}
     pageNumber={1}
     pageSize={1}
     totalCount={1}
   />
-  <Component
+  <PaymentRequestModal
     payment={null}
     refetchPayments={[MockFunction]}
     setSelectedPayment={[Function]}
@@ -166,18 +166,18 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
 
 exports[`Payments  should match a snapshot where loading 1`] = `
 <ErrorBoundary>
-  <Component>
+  <Section>
     <div
       className="justify-between flex items-center"
     >
-      <Component
+      <H3
         className="mb-0"
       >
         Payments Dashboard
-      </Component>
-      <Component />
+      </H3>
+      <PaymentLogo />
     </div>
-  </Component>
+  </Section>
   <PaymentsFilterForm
     filterValues={
       Object {
@@ -192,8 +192,8 @@ exports[`Payments  should match a snapshot where loading 1`] = `
     }
     onSearch={[Function]}
   />
-  <Component />
-  <Component
+  <Loader />
+  <PaymentRequestModal
     payment={null}
     refetchPayments={[MockFunction]}
     setSelectedPayment={[Function]}
@@ -203,18 +203,18 @@ exports[`Payments  should match a snapshot where loading 1`] = `
 
 exports[`Payments  should match a snapshot where payments list is empty 1`] = `
 <ErrorBoundary>
-  <Component>
+  <Section>
     <div
       className="justify-between flex items-center"
     >
-      <Component
+      <H3
         className="mb-0"
       >
         Payments Dashboard
-      </Component>
-      <Component />
+      </H3>
+      <PaymentLogo />
     </div>
-  </Component>
+  </Section>
   <PaymentsFilterForm
     filterValues={
       Object {
@@ -229,12 +229,12 @@ exports[`Payments  should match a snapshot where payments list is empty 1`] = `
     }
     onSearch={[Function]}
   />
-  <Component
+  <Helper
     variant="info"
   >
     No payments match your search criteria
-  </Component>
-  <Component
+  </Helper>
+  <PaymentRequestModal
     payment={null}
     refetchPayments={[MockFunction]}
     setSelectedPayment={[Function]}
@@ -243,9 +243,9 @@ exports[`Payments  should match a snapshot where payments list is empty 1`] = `
 `;
 
 exports[`PropertyCell should match a snapshot for default status 1`] = `
-<mock-styled.div>
+<FadeIn>
   15 Example street Solihull West Midlands B91 2XX
-</mock-styled.div>
+</FadeIn>
 `;
 
 exports[`PropertyCell should match a snapshot where loading 1`] = `""`;

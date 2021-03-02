@@ -2,9 +2,9 @@
 
 exports[`UsersContent  should match a snapshot 1`] = `
 <Fragment>
-  <Component>
-    <mock-styled.div>
-      <Component
+  <Section>
+    <FadeIn>
+      <Table
         columns={
           Array [
             Object {
@@ -49,9 +49,9 @@ exports[`UsersContent  should match a snapshot 1`] = `
         expandable={true}
         scrollable={true}
       />
-    </mock-styled.div>
-  </Component>
-  <Component
+    </FadeIn>
+  </Section>
+  <Pagination
     onChange={[Function]}
     pageNumber={0}
     pageSize={0}
@@ -62,10 +62,10 @@ exports[`UsersContent  should match a snapshot 1`] = `
 
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Component>
-    <Component>
+  <Section>
+    <H5>
       Existing users
-    </Component>
+    </H5>
     <i>
       The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
        
@@ -77,8 +77,8 @@ exports[`UsersTab should match a snapshot 1`] = `
         here.
       </a>
     </i>
-  </Component>
-  <Component
+  </Section>
+  <UsersContent
     columns={
       Array [
         Object {

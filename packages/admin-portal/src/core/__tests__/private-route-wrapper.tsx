@@ -5,7 +5,7 @@ import { PrivateRouteWrapper } from '../private-route-wrapper'
 const locationMock = { pathname: '/test' }
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => locationMock),
 }))
 

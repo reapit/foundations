@@ -1,10 +1,10 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import { callGetOfficesAPI, callCreateOfficeAPI, callUpdateOfficeAPI, callGetOfficeByIdAPI } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { officeMock } from '../__stubs__/office'
-import { officesMock } from '../__stubs__/offices'
-import { createOfficeArgsMock } from '../__stubs__/create-office'
-import { updateOfficeArgsMock } from '../__stubs__/update-office'
+import { officeMock } from '../__stubs__/mock-office'
+import { officesMock } from '../__stubs__/mock-offices'
+import { createOfficeArgsMock } from '../__stubs__/mock-create-office'
+import { updateOfficeArgsMock } from '../__stubs__/mock-update-office'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

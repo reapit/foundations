@@ -9,9 +9,7 @@ export type DateRange = {
 export const getDateRange = (range: Omit<Range, 'ALL'>): DateRange => {
   if (range === 'WEEK') {
     return {
-      from: dayjs()
-        .subtract(7, 'day')
-        .toDate(),
+      from: dayjs().subtract(7, 'day').toDate(),
       to: dayjs().toDate(),
     }
   }
@@ -33,19 +31,13 @@ export type ChartDataType = {
 export const getChartData = (data: any[], range: Range): ChartDataType => {
   const result = {}
   const dateRange = getDateRange(range)
-  let formatedFromDate = dayjs(dateRange.from)
-    .startOf('day')
-    .toDate()
-  const formatedToDate = dayjs(dateRange.to)
-    .startOf('day')
-    .toDate()
+  let formatedFromDate = dayjs(dateRange.from).startOf('day').toDate()
+  const formatedToDate = dayjs(dateRange.to).startOf('day').toDate()
   while (formatedFromDate <= formatedToDate) {
     const count = numOfObjectCreatedInDate(data, formatedFromDate)
     result[dayjs(formatedFromDate).format('DD/MM/YYYY')] = count
 
-    formatedFromDate = dayjs(formatedFromDate)
-      .add(1, 'day')
-      .toDate()
+    formatedFromDate = dayjs(formatedFromDate).add(1, 'day').toDate()
   }
   return { labels: Object.keys(result), data: Object.values(result) }
 }
@@ -58,9 +50,7 @@ export const getChartData = (data: any[], range: Range): ChartDataType => {
  */
 export const numOfObjectCreatedInDate = (data: any[], date: Date): number =>
   data.reduce((accumulator, currentValue) => {
-    const createdDate = dayjs(currentValue.created)
-      .startOf('day')
-      .toDate()
+    const createdDate = dayjs(currentValue.created).startOf('day').toDate()
     if (createdDate.getTime() === date.getTime()) return accumulator + 1
     return accumulator
   }, 0)

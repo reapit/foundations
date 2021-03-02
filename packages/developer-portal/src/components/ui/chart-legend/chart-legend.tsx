@@ -43,7 +43,7 @@ export const onChartLegendItemClick = (chartInstance: Partial<chartjs>, chartLeg
 export const ChartLegend: React.FC<ChartLegendProps> = ({ chartInstance, chartLegendItems }) => {
   return (
     <>
-      {chartLegendItems.map(legendItem => {
+      {chartLegendItems.map((legendItem) => {
         const { text, fillStyle, strokeStyle, lineWidth, datasetIndex, hidden } = legendItem
         return (
           <GridItem

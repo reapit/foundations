@@ -13,11 +13,11 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
     }
   }
 >
-  <Component
+  <WebComponentConfigModalFooter
     closeModal={[MockFunction]}
     formikProps={Object {}}
   >
-    <Component
+    <Button
       className="mr-2"
       fullWidth={true}
       onClick={[MockFunction]}
@@ -33,8 +33,8 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
       >
         CANCEL
       </button>
-    </Component>
-    <Component
+    </Button>
+    <Button
       fullWidth={true}
       type="submit"
       variant="primary"
@@ -47,8 +47,8 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
       >
         SAVE CHANGES
       </button>
-    </Component>
-  </Component>
+    </Button>
+  </WebComponentConfigModalFooter>
 </Provider>
 `;
 
@@ -65,7 +65,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
     }
   }
 >
-  <Component
+  <WebComponentConfigModalInner
     closeModal={[MockFunction]}
   >
     <Formik
@@ -85,7 +85,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
       }
       onSubmit={[Function]}
     >
-      <Component
+      <ModalHeader
         title="undefined Configuration"
       >
         <header
@@ -97,10 +97,10 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
             undefined Configuration
           </h4>
         </header>
-      </Component>
-      <Component
+      </ModalHeader>
+      <ModalBody
         body={
-          <Unknown
+          <WebComponentConfigModalBody
             formikProps={
               Object {
                 "dirty": false,
@@ -173,7 +173,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
         <section
           className="modal-card-body"
         >
-          <Component
+          <WebComponentConfigModalBody
             formikProps={
               Object {
                 "dirty": false,
@@ -245,7 +245,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               Please use the following form to configure your diary settings for your 
                     ‘undefined’ widget on your website
             </p>
-            <Component
+            <RadioSelect
               className="checkbox-inline mt-5"
               id="appointmentTimeGap"
               isHorizontal={true}
@@ -296,20 +296,20 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     >
                       Select a time between each appointment
                     </label>
-                    <Component
+                    <Grid
                       className=""
                       isMultiLine={true}
                     >
                       <div
-                        className=""
+                        className="columns is-multiline"
                         data-test=""
                       >
-                        <Component
-                          className=""
+                        <GridItem
+                          className="is-narrow"
                           key="0"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -333,13 +333,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="1"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -363,13 +363,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="2"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -393,13 +393,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="3"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -423,14 +423,14 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
                 </div>
               </Field>
-            </Component>
-            <Component
+            </RadioSelect>
+            <RadioSelect
               className="checkbox-inline mt-5"
               id="appointmentLength"
               isHorizontal={true}
@@ -481,20 +481,20 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     >
                       Select a length of appointments
                     </label>
-                    <Component
+                    <Grid
                       className=""
                       isMultiLine={true}
                     >
                       <div
-                        className=""
+                        className="columns is-multiline"
                         data-test=""
                       >
-                        <Component
-                          className=""
+                        <GridItem
+                          className="is-narrow"
                           key="0"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -518,13 +518,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="1"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -548,13 +548,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="2"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -578,13 +578,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
-                        <Component
-                          className=""
+                        </GridItem>
+                        <GridItem
+                          className="is-narrow"
                           key="3"
                         >
                           <div
-                            className=""
+                            className="column is-narrow"
                             data-test=""
                           >
                             <div
@@ -608,13 +608,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </label>
                             </div>
                           </div>
-                        </Component>
+                        </GridItem>
                       </div>
-                    </Component>
+                    </Grid>
                   </div>
                 </div>
               </Field>
-            </Component>
+            </RadioSelect>
             <div
               className="field mt-5"
             >
@@ -634,7 +634,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                 <div
                   className="container-flex flex-wrap"
                 >
-                  <Component
+                  <Checkbox
                     className="mr-5"
                     id="Monday"
                     labelText="Monday"
@@ -673,8 +673,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     className="mr-5"
                     id="Tuesday"
                     labelText="Tuesday"
@@ -713,8 +713,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     className="mr-5"
                     id="Wednesday"
                     labelText="Wednesday"
@@ -753,8 +753,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     className="mr-5"
                     id="Thursday"
                     labelText="Thursday"
@@ -793,8 +793,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     className="mr-5"
                     id="Friday"
                     labelText="Friday"
@@ -833,8 +833,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     className="mr-5"
                     id="Saturday"
                     labelText="Saturday"
@@ -873,8 +873,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
-                  <Component
+                  </Checkbox>
+                  <Checkbox
                     id="Sunday"
                     labelText="Sunday"
                     name="daysOfWeek"
@@ -912,11 +912,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         </Field>
                       </div>
                     </div>
-                  </Component>
+                  </Checkbox>
                 </div>
               </div>
             </div>
-            <Component
+            <DropdownSelect
               dropdownStyle={
                 Object {
                   "zIndex": 41,
@@ -1350,13 +1350,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                 </div>
               </div>
               <div />
-            </Component>
-          </Component>
+            </DropdownSelect>
+          </WebComponentConfigModalBody>
         </section>
-      </Component>
-      <Component
+      </ModalBody>
+      <ModalFooter
         footerItems={
-          <Unknown
+          <WebComponentConfigModalFooter
             closeModal={[MockFunction]}
             formikProps={
               Object {
@@ -1428,7 +1428,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
         <footer
           className="modal-card-foot"
         >
-          <Component
+          <WebComponentConfigModalFooter
             closeModal={[MockFunction]}
             formikProps={
               Object {
@@ -1495,7 +1495,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               }
             }
           >
-            <Component
+            <Button
               className="mr-2"
               fullWidth={true}
               onClick={[MockFunction]}
@@ -1511,8 +1511,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               >
                 CANCEL
               </button>
-            </Component>
-            <Component
+            </Button>
+            <Button
               fullWidth={true}
               onClick={[Function]}
               type="submit"
@@ -1527,11 +1527,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               >
                 SAVE CHANGES
               </button>
-            </Component>
-          </Component>
+            </Button>
+          </WebComponentConfigModalFooter>
         </footer>
-      </Component>
+      </ModalFooter>
     </Formik>
-  </Component>
+  </WebComponentConfigModalInner>
 </Provider>
 `;

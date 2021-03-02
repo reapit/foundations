@@ -2,20 +2,20 @@
 
 exports[`AppCard should match a snapshot 1`] = `
 <div
-  className=""
+  className="bk0ga08-banner-wrap"
   data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   data-test-app-name="test"
 >
   <div
-    className=""
+    className="bcn8i89-banner-outer"
   >
     <div
-      className=""
+      className="bv0d7a6-banner-inner"
     >
       In Development
     </div>
   </div>
-  <Component
+  <Tile
     dataTest="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
     heading="test"
     image={
@@ -30,7 +30,7 @@ exports[`AppCard should match a snapshot 1`] = `
       <React.Fragment>
         Pete's Proptech World Ltd
         <span
-          className=""
+          className="dw81558-direct-api"
         >
           (Integration)
         </span>
@@ -38,10 +38,10 @@ exports[`AppCard should match a snapshot 1`] = `
     }
   >
     <p
-      className=""
+      className="chbr8km-content"
     >
       nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
     </p>
-  </Component>
+  </Tile>
 </div>
 `;

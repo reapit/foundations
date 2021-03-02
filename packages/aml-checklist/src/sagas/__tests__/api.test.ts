@@ -1,10 +1,10 @@
 jest.mock('../api', () => ({
-  fetchChecklist: jest.fn().mockResolvedValue(contact),
-  fetchIdentityCheck: jest.fn().mockResolvedValue(idCheck),
+  fetchChecklist: jest.fn().mockResolvedValue(require('../__stubs__/contact').contact),
+  fetchIdentityCheck: jest.fn().mockResolvedValue(require('../__stubs__/contact').idCheck),
   uploadImage: jest.fn().mockResolvedValue({ Url: 'mockUrl' }),
-  updateChecklist: jest.fn().mockResolvedValue(contact),
-  updateIdentityCheck: jest.fn().mockResolvedValue(idCheck),
-  createIdentityCheck: jest.fn().mockResolvedValue(idCheck),
+  updateChecklist: jest.fn().mockResolvedValue(require('../__stubs__/contact').contact),
+  updateIdentityCheck: jest.fn().mockResolvedValue(require('../__stubs__/contact').idCheck),
+  createIdentityCheck: jest.fn().mockResolvedValue(require('../__stubs__/contact').idCheck),
 }))
 
 import { contact, idCheck } from '../__stubs__/contact'

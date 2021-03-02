@@ -23,7 +23,7 @@ export type HandleUseEffectParams = {
 
 export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const newQuery = qs.stringify({
         ...queryParams,
         currentLat: position.coords.latitude,

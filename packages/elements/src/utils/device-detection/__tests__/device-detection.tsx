@@ -7,7 +7,7 @@ let userAgentGetter
 const TestHook = ({ callback }) => {
   return callback()
 }
-const testHook = callback => {
+const testHook = (callback) => {
   mount(<TestHook callback={callback} />)
 }
 

@@ -5,13 +5,13 @@ import {
   callUpdateCompanyAPI,
   callGetCompanyRolesAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createCompanyArgsMock } from '../__stubs__/create-company'
-import { updateCompanyArgsMock } from '../__stubs__/update-company'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createCompanyArgsMock } from '../__stubs__/mock-create-company'
+import { updateCompanyArgsMock } from '../__stubs__/mock-update-company'
 import { getCompanyById, getCompanies, createCompany, updateCompany, getCompanyRoles } from '../services'
-import { companyMock } from '../__stubs__/company'
-import { companiesMock } from '../__stubs__/companies'
-import { companyRolesMock } from '../__stubs__/company-roles'
+import { companyMock } from '../__stubs__/mock-company'
+import { companiesMock } from '../__stubs__/mock-companies'
+import { companyRolesMock } from '../__stubs__/mock-company-roles'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

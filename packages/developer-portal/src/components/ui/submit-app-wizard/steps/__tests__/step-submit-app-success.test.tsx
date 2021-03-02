@@ -3,9 +3,8 @@ import { onHandleFinish, StepSubmitAppSuccess } from '../step-submit-app-success
 import { shallow } from 'enzyme'
 import { wizzardSteps } from '../../constant'
 
-const dispatch = jest.fn()
 jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
 }))
 
 jest.mock('formik', () => ({

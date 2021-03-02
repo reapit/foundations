@@ -23,7 +23,7 @@ import {
 import { getDeveloperId } from '@/utils/session'
 import { notification } from '@reapit/elements'
 
-export const developerCreate = function*({ data }: Action<CreateDeveloperModel>) {
+export const developerCreate = function* ({ data }: Action<CreateDeveloperModel>) {
   yield put(developerSetFormState('SUBMITTING'))
 
   try {
@@ -39,7 +39,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
   }
 }
 
-export const fetchMyIdentitySagas = function*() {
+export const fetchMyIdentitySagas = function* () {
   try {
     const developerId = yield call(getDeveloperId)
     if (!developerId) {
@@ -57,7 +57,7 @@ export const fetchMyIdentitySagas = function*() {
   }
 }
 
-export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>) {
+export const fetchBillingSagas = function* ({ data }: Action<FetchBillingsParams>) {
   try {
     const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
@@ -70,7 +70,7 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>
   }
 }
 
-export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillingsByMonthParams>) {
+export const fetchMonthlyBillingSagas = function* ({ data }: Action<FetchBillingsByMonthParams>) {
   try {
     const billingResponse = yield call(fetchBillingsByMonth, data)
     yield put(fetchMonthlyBillingSuccess(billingResponse))
@@ -83,7 +83,7 @@ export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillings
   }
 }
 
-export const developerWebhookPing = function*({ data }: Action<PingWebhooksByIdParams>) {
+export const developerWebhookPing = function* ({ data }: Action<PingWebhooksByIdParams>) {
   try {
     yield put(developerSetWebhookPingStatus('LOADING'))
     yield call(pingWebhooksById, data)
@@ -93,27 +93,27 @@ export const developerWebhookPing = function*({ data }: Action<PingWebhooksByIdP
   }
 }
 
-export const developerCreateListen = function*() {
+export const developerCreateListen = function* () {
   yield takeLatest(ActionTypes.DEVELOPER_CREATE, developerCreate)
 }
 
-export const fetchMyIdentitySagasListen = function*() {
+export const fetchMyIdentitySagasListen = function* () {
   yield takeLatest(ActionTypes.DEVELOPER_FETCH_MY_IDENTITY, fetchMyIdentitySagas)
 }
 
-export const fetchBillingSagasListen = function*() {
+export const fetchBillingSagasListen = function* () {
   yield takeLatest(ActionTypes.DEVELOPER_FETCH_BILLING, fetchBillingSagas)
 }
 
-export const fetchMonthlyBillingSagasListen = function*() {
+export const fetchMonthlyBillingSagasListen = function* () {
   yield takeLatest(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING, fetchMonthlyBillingSagas)
 }
 
-export const developerWebhookPingListen = function*() {
+export const developerWebhookPingListen = function* () {
   yield takeLatest(ActionTypes.DEVELOPER_PING_WEBHOOK, developerWebhookPing)
 }
 
-const developerSagas = function*() {
+const developerSagas = function* () {
   yield all([
     fork(developerCreateListen),
     fork(fetchMyIdentitySagasListen),

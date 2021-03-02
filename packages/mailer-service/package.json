@@ -18,39 +18,31 @@
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
   "dependencies": {
-    "@sentry/node": "^5.24.2",
-    "aws-sdk": "^2.750.0",
+    "@sentry/node": "^5.30.0",
+    "aws-sdk": "^2.853.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "ejs": "^3.1.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "memorystore": "^1.6.4",
+    "memorystore": "^1.6.5",
     "morgan": "^1.10.0",
     "serialize-error": "^7.0.1",
-    "serverless-http": "^2.5.0",
-    "uuid": "^8.3.0"
+    "serverless-http": "^2.7.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
-    "@types/body-parser": "^1.19.0",
-    "@types/cors": "^2.8.7",
-    "@types/ejs": "^3.0.5",
-    "@types/express": "^4.17.8",
-    "@types/express-session": "^1.17.0",
-    "@types/jest": "^25.1.2",
-    "@types/morgan": "^1.9.1",
-    "@types/uuid": "^8.3.0",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
-    "eslint": "7.11.0",
-    "jest": "^25.1.0",
+    "eslint": "7.21.0",
+    "jest": "^25.5.4",
     "jest-coverage-badges": "^1.1.2",
-    "serverless": "^2.17.0",
-    "serverless-deployment-bucket": "^1.1.2",
-    "serverless-offline": "^6.7.0",
+    "serverless": "^2.28.0",
+    "serverless-deployment-bucket": "^1.3.0",
+    "serverless-offline": "^6.8.0",
     "serverless-webpack": "^5.3.5",
-    "webpack": "^4.41.5"
+    "webpack": "^4.46.0"
   }
 }

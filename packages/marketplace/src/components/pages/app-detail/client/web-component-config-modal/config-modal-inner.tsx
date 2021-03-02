@@ -34,7 +34,7 @@ export const handleUpdateWebComponentConfig = (dispatch: Dispatch, appId: string
 
 export const genarateNegotiatorOptions = (negotiators: NegotiatorModel[]): SelectOption[] => {
   return negotiators.map(
-    negotiator =>
+    (negotiator) =>
       ({
         value: negotiator.id,
         label: negotiator.name,
@@ -158,7 +158,7 @@ export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigM
   if (loading) return <Loader />
   return (
     <Formik initialValues={initialFormValues} onSubmit={handleUpdateWebComponentConfig(dispatch, id, closeModal)}>
-      {formikProps => (
+      {(formikProps) => (
         <>
           <ModalHeader title={title} />
           <ModalBody body={<WebComponentConfigModalBody subtext={subtext} formikProps={formikProps} />} />

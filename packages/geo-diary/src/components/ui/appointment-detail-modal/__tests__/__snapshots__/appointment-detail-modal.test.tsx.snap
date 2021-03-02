@@ -1,72 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1`] = `
-<Component
+<ModalV2
   destroyOnClose={true}
   footer={
-    <Unknown
+    <Button
       disabled={true}
       onClick={[Function]}
       type="button"
       variant="info"
     >
       Cancelled
-    </Unknown>
+    </Button>
   }
 >
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaClock
             className="v-align-text-top"
           />
-        </Component>
-        <Component>
-          <Component
+        </GridItem>
+        <GridItem>
+          <H6
             className="inline-block"
           >
             Time:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <p>
         11 May 2019 05:30 PM - 06:00 PM
       </p>
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaMale />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Negotiators:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <div
         key="0"
       >
@@ -95,37 +95,37 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
           Mara Grieve
         </p>
       </div>
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
     key="0"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaMale />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             :
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem
       className="text-ellipsis"
     >
       <div
         className="mb-2"
       >
-        <Component
+        <AcLink
           dynamicLinkParams={
             Object {
               "appMode": "WEB",
@@ -135,7 +135,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
           }
         />
       </div>
-      <Component
+      <IconList
         items={
           Array [
             Object {
@@ -151,31 +151,31 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
           ]
         }
       />
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaHome />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Property:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
-      <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
+      <AcLink
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
@@ -185,15 +185,15 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
         }
       >
         56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </AcLink>
+    </GridItem>
+  </Grid>
+  <AppointmentDetailVendor
     isMobileView={false}
     loginMode="WEB"
     vendorId=""
   />
-  <Component
+  <CancelConfirmModal
     appointment={
       Object {
         "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -378,76 +378,76 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     isShowConfirmModal={false}
     setIsShowConfirmModal={[Function]}
   />
-</Component>
+</ModalV2>
 `;
 
 exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2`] = `
-<Component
+<ModalV2
   destroyOnClose={true}
   footer={
-    <Unknown
+    <Button
       disabled={true}
       onClick={[Function]}
       type="button"
       variant="info"
     >
       Cancelled
-    </Unknown>
+    </Button>
   }
 >
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaClock
             className="v-align-text-top"
           />
-        </Component>
-        <Component>
-          <Component
+        </GridItem>
+        <GridItem>
+          <H6
             className="inline-block"
           >
             Time:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <p>
         11 May 2019 05:30 PM - 06:00 PM
       </p>
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaMale />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Negotiators:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <div
         key="0"
       >
@@ -476,37 +476,37 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
           Mara Grieve
         </p>
       </div>
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
     key="0"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaMale />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             :
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem
       className="text-ellipsis"
     >
       <div
         className="mb-2"
       >
-        <Component
+        <AcLink
           dynamicLinkParams={
             Object {
               "appMode": "WEB",
@@ -516,7 +516,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
           }
         />
       </div>
-      <Component
+      <IconList
         items={
           Array [
             Object {
@@ -532,31 +532,31 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
           ]
         }
       />
-    </Component>
-  </Component>
-  <Component
+    </GridItem>
+  </Grid>
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaHome />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Property:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
-      <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
+      <AcLink
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
@@ -566,15 +566,15 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
         }
       >
         56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </AcLink>
+    </GridItem>
+  </Grid>
+  <AppointmentDetailVendor
     isMobileView={false}
     loginMode="WEB"
     vendorId=""
   />
-  <Component
+  <CancelConfirmModal
     appointment={
       Object {
         "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -759,7 +759,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     isShowConfirmModal={false}
     setIsShowConfirmModal={[Function]}
   />
-</Component>
+</ModalV2>
 `;
 
 exports[`appointment-detail-modal CancelConfirmModal should match snapshot 1`] = `
@@ -9148,7 +9148,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       }
     }
   >
-    <Component
+    <CancelConfirmModal
       appointment={
         Object {
           "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -9333,14 +9333,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       isShowConfirmModal={true}
       setIsShowConfirmModal={[MockFunction]}
     >
-      <Component
+      <ModalV2
         destroyOnClose={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={true}
       >
-        <Component
-          className=""
+        <Dialog
+          className="modal-container"
           closeIcon={
             <span
               aria-label="close"
@@ -9350,9 +9350,9 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           destroyOnClose={true}
           onClose={[Function]}
           title={
-            <Unknown>
+            <ModalHeaderV2>
               Cancel appointment?
-            </Unknown>
+            </ModalHeaderV2>
           }
           visible={true}
           wrapClassName=""
@@ -9360,7 +9360,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           <PortalWrapper
             visible={true}
           >
-            <Portal
+            <ForwardRef
               getContainer={[Function]}
             >
               <Portal
@@ -9374,12 +9374,12 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       />
                       <div
                         aria-labelledby="rcDialogTitle0"
-                        class="rc-dialog-wrap "
+                        class="rc-dialog-wrap"
                         role="dialog"
                         tabindex="-1"
                       >
                         <div
-                          class="rc-dialog "
+                          class="rc-dialog modal-container"
                           role="document"
                         >
                           <div
@@ -9421,7 +9421,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 Are you sure you want to cancel this appointment?
                               </p>
                               <section
-                                class=""
+                                class="section is-flex has-background"
                                 data-test=""
                               >
                                 <button
@@ -9453,8 +9453,8 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                 }
               >
                 <Dialog
-                  className=""
-                  closable={true}
+                  afterClose={[Function]}
+                  className="modal-container"
                   closeIcon={
                     <span
                       aria-label="close"
@@ -9462,19 +9462,115 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                     />
                   }
                   destroyOnClose={true}
-                  focusTriggerAfterClose={true}
                   getContainer={[Function]}
                   getOpenCount={[Function]}
-                  keyboard={true}
-                  mask={true}
-                  maskClosable={true}
                   onClose={[Function]}
-                  prefixCls="rc-dialog"
+                  scrollLocker={
+                    ScrollLocker {
+                      "getContainer": [Function],
+                      "lock": [Function],
+                      "lockTarget": 0,
+                      "options": Object {
+                        "container": <body
+                          class="ant-scrolling-effect"
+                          style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                        >
+                          <div>
+                            <div
+                              class="rc-dialog-root"
+                            >
+                              <div
+                                class="rc-dialog-mask"
+                              />
+                              <div
+                                aria-labelledby="rcDialogTitle0"
+                                class="rc-dialog-wrap"
+                                role="dialog"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="rc-dialog modal-container"
+                                  role="document"
+                                >
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                  <div
+                                    class="rc-dialog-content"
+                                  >
+                                    <button
+                                      aria-label="Close"
+                                      class="rc-dialog-close"
+                                      type="button"
+                                    >
+                                      <span
+                                        aria-label="close"
+                                        class="delete"
+                                      />
+                                    </button>
+                                    <div
+                                      class="rc-dialog-header"
+                                    >
+                                      <div
+                                        class="rc-dialog-title"
+                                        id="rcDialogTitle0"
+                                      >
+                                        <h4
+                                          class="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Cancel appointment?
+                                        </h4>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="rc-dialog-body"
+                                    >
+                                      <p>
+                                        Are you sure you want to cancel this appointment?
+                                      </p>
+                                      <section
+                                        class="section is-flex has-background"
+                                        data-test=""
+                                      >
+                                        <button
+                                          class="button  is-secondary  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          No
+                                        </button>
+                                        <button
+                                          class="button  is-danger  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          Yes
+                                        </button>
+                                      </section>
+                                    </div>
+                                  </div>
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </body>,
+                      },
+                      "reLock": [Function],
+                      "unLock": [Function],
+                    }
+                  }
                   switchScrollingEffect={[Function]}
                   title={
-                    <Unknown>
+                    <ModalHeaderV2>
                       Cancel appointment?
-                    </Unknown>
+                    </ModalHeaderV2>
                   }
                   visible={true}
                   wrapClassName=""
@@ -9482,64 +9578,188 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                   <div
                     className="rc-dialog-root"
                   >
-                    <LazyRenderBox
-                      className="rc-dialog-mask"
-                      hiddenClassName="rc-dialog-mask-hidden"
-                      key="mask"
-                      style={Object {}}
+                    <Mask
+                      prefixCls="rc-dialog"
+                      style={
+                        Object {
+                          "zIndex": undefined,
+                        }
+                      }
                       visible={true}
                     >
-                      <div
-                        className="rc-dialog-mask"
-                        style={Object {}}
-                      />
-                    </LazyRenderBox>
+                      <CSSMotion
+                        key="mask"
+                        leavedClassName="rc-dialog-mask-hidden"
+                        visible={true}
+                      >
+                        <DomWrapper>
+                          <div
+                            className="rc-dialog-mask"
+                            style={
+                              Object {
+                                "zIndex": undefined,
+                              }
+                            }
+                          />
+                        </DomWrapper>
+                      </CSSMotion>
+                    </Mask>
                     <div
                       aria-labelledby="rcDialogTitle0"
-                      className="rc-dialog-wrap "
+                      className="rc-dialog-wrap"
                       onClick={[Function]}
                       onKeyDown={[Function]}
-                      onMouseUp={[Function]}
                       role="dialog"
                       style={
                         Object {
                           "display": null,
+                          "zIndex": undefined,
                         }
                       }
                       tabIndex={-1}
                     >
-                      <Animate
-                        animation={Object {}}
-                        component=""
-                        componentProps={Object {}}
-                        key="dialog"
-                        onAppear={[Function]}
-                        onEnd={[Function]}
-                        onEnter={[Function]}
-                        onLeave={[Function]}
-                        showProp="visible"
-                        transitionAppear={true}
-                        transitionEnter={true}
-                        transitionLeave={true}
+                      <Content
+                        afterClose={[Function]}
+                        ariaId="rcDialogTitle0"
+                        className="modal-container"
+                        closable={true}
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        getContainer={[Function]}
+                        getOpenCount={[Function]}
+                        onClose={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onVisibleChanged={[Function]}
+                        prefixCls="rc-dialog"
+                        scrollLocker={
+                          ScrollLocker {
+                            "getContainer": [Function],
+                            "lock": [Function],
+                            "lockTarget": 0,
+                            "options": Object {
+                              "container": <body
+                                class="ant-scrolling-effect"
+                                style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                              >
+                                <div>
+                                  <div
+                                    class="rc-dialog-root"
+                                  >
+                                    <div
+                                      class="rc-dialog-mask"
+                                    />
+                                    <div
+                                      aria-labelledby="rcDialogTitle0"
+                                      class="rc-dialog-wrap"
+                                      role="dialog"
+                                      tabindex="-1"
+                                    >
+                                      <div
+                                        class="rc-dialog modal-container"
+                                        role="document"
+                                      >
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                        <div
+                                          class="rc-dialog-content"
+                                        >
+                                          <button
+                                            aria-label="Close"
+                                            class="rc-dialog-close"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-label="close"
+                                              class="delete"
+                                            />
+                                          </button>
+                                          <div
+                                            class="rc-dialog-header"
+                                          >
+                                            <div
+                                              class="rc-dialog-title"
+                                              id="rcDialogTitle0"
+                                            >
+                                              <h4
+                                                class="modal-card-title is-4 pt-2 pb-2"
+                                              >
+                                                Cancel appointment?
+                                              </h4>
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="rc-dialog-body"
+                                          >
+                                            <p>
+                                              Are you sure you want to cancel this appointment?
+                                            </p>
+                                            <section
+                                              class="section is-flex has-background"
+                                              data-test=""
+                                            >
+                                              <button
+                                                class="button  is-secondary  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                No
+                                              </button>
+                                              <button
+                                                class="button  is-danger  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                Yes
+                                              </button>
+                                            </section>
+                                          </div>
+                                        </div>
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </body>,
+                            },
+                            "reLock": [Function],
+                            "unLock": [Function],
+                          }
+                        }
+                        switchScrollingEffect={[Function]}
+                        title={
+                          <ModalHeaderV2>
+                            Cancel appointment?
+                          </ModalHeaderV2>
+                        }
+                        visible={true}
+                        wrapClassName=""
                       >
-                        <AnimateChild
-                          animation={Object {}}
-                          key="dialog-element"
-                          transitionAppear={true}
-                          transitionEnter={true}
-                          transitionLeave={true}
+                        <CSSMotion
+                          onAppearPrepare={[Function]}
+                          onEnterPrepare={[Function]}
+                          onVisibleChanged={[Function]}
+                          removeOnLeave={true}
+                          visible={true}
                         >
-                          <LazyRenderBox
-                            className="rc-dialog "
-                            key="dialog-element"
-                            onMouseDown={[Function]}
-                            role="document"
-                            style={Object {}}
-                            visible={true}
-                          >
+                          <DomWrapper>
                             <div
-                              className="rc-dialog "
+                              className="rc-dialog modal-container"
+                              key="dialog-element"
                               onMouseDown={[Function]}
+                              onMouseUp={[Function]}
                               role="document"
                               style={Object {}}
                             >
@@ -9555,87 +9775,91 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 }
                                 tabIndex={0}
                               />
-                              <div
-                                className="rc-dialog-content"
+                              <Component
+                                shouldUpdate={true}
                               >
-                                <button
-                                  aria-label="Close"
-                                  className="rc-dialog-close"
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    className="delete"
-                                  />
-                                </button>
                                 <div
-                                  className="rc-dialog-header"
+                                  className="rc-dialog-content"
                                 >
-                                  <div
-                                    className="rc-dialog-title"
-                                    id="rcDialogTitle0"
+                                  <button
+                                    aria-label="Close"
+                                    className="rc-dialog-close"
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Component>
-                                      <h4
-                                        className="modal-card-title is-4 pt-2 pb-2"
+                                    <span
+                                      aria-label="close"
+                                      className="delete"
+                                    />
+                                  </button>
+                                  <div
+                                    className="rc-dialog-header"
+                                  >
+                                    <div
+                                      className="rc-dialog-title"
+                                      id="rcDialogTitle0"
+                                    >
+                                      <ModalHeaderV2>
+                                        <h4
+                                          className="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Cancel appointment?
+                                        </h4>
+                                      </ModalHeaderV2>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-body"
+                                  >
+                                    <p>
+                                      Are you sure you want to cancel this appointment?
+                                    </p>
+                                    <Section
+                                      hasMargin={false}
+                                      hasPadding={false}
+                                      isFlex={true}
+                                    >
+                                      <section
+                                        className="section is-flex has-background"
+                                        data-test=""
                                       >
-                                        Cancel appointment?
-                                      </h4>
-                                    </Component>
+                                        <Button
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                          variant="secondary"
+                                        >
+                                          <button
+                                            className="button  is-secondary  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            No
+                                          </button>
+                                        </Button>
+                                        <Button
+                                          loading={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                          variant="danger"
+                                        >
+                                          <button
+                                            className="button  is-danger  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            Yes
+                                          </button>
+                                        </Button>
+                                      </section>
+                                    </Section>
                                   </div>
                                 </div>
-                                <div
-                                  className="rc-dialog-body"
-                                >
-                                  <p>
-                                    Are you sure you want to cancel this appointment?
-                                  </p>
-                                  <Component
-                                    hasMargin={false}
-                                    hasPadding={false}
-                                    isFlex={true}
-                                  >
-                                    <section
-                                      className=""
-                                      data-test=""
-                                    >
-                                      <Component
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="secondary"
-                                      >
-                                        <button
-                                          className="button  is-secondary  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          No
-                                        </button>
-                                      </Component>
-                                      <Component
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="danger"
-                                      >
-                                        <button
-                                          className="button  is-danger  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Yes
-                                        </button>
-                                      </Component>
-                                    </section>
-                                  </Component>
-                                </div>
-                              </div>
+                              </Component>
                               <div
                                 aria-hidden="true"
                                 style={
@@ -9649,18 +9873,18 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 tabIndex={0}
                               />
                             </div>
-                          </LazyRenderBox>
-                        </AnimateChild>
-                      </Animate>
+                          </DomWrapper>
+                        </CSSMotion>
+                      </Content>
                     </div>
                   </div>
                 </Dialog>
               </Portal>
-            </Portal>
+            </ForwardRef>
           </PortalWrapper>
-        </Component>
-      </Component>
-    </Component>
+        </Dialog>
+      </ModalV2>
+    </CancelConfirmModal>
   </ApolloProvider>
 </MockedProvider>
 `;
@@ -9888,7 +10112,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
       }
     }
   >
-    <Component
+    <CancelConfirmModal
       appointment={
         Object {
           "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -10073,14 +10297,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
       isShowConfirmModal={true}
       setIsShowConfirmModal={[MockFunction]}
     >
-      <Component
+      <ModalV2
         destroyOnClose={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={true}
       >
-        <Component
-          className=""
+        <Dialog
+          className="modal-container"
           closeIcon={
             <span
               aria-label="close"
@@ -10090,9 +10314,9 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
           destroyOnClose={true}
           onClose={[Function]}
           title={
-            <Unknown>
+            <ModalHeaderV2>
               Cancel appointment?
-            </Unknown>
+            </ModalHeaderV2>
           }
           visible={true}
           wrapClassName=""
@@ -10100,7 +10324,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
           <PortalWrapper
             visible={true}
           >
-            <Portal
+            <ForwardRef
               getContainer={[Function]}
             >
               <Portal
@@ -10114,12 +10338,12 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                       />
                       <div
                         aria-labelledby="rcDialogTitle1"
-                        class="rc-dialog-wrap "
+                        class="rc-dialog-wrap"
                         role="dialog"
                         tabindex="-1"
                       >
                         <div
-                          class="rc-dialog "
+                          class="rc-dialog modal-container"
                           role="document"
                         >
                           <div
@@ -10161,7 +10385,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 Are you sure you want to cancel this appointment?
                               </p>
                               <section
-                                class=""
+                                class="section is-flex has-background"
                                 data-test=""
                               >
                                 <button
@@ -10193,8 +10417,8 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                 }
               >
                 <Dialog
-                  className=""
-                  closable={true}
+                  afterClose={[Function]}
+                  className="modal-container"
                   closeIcon={
                     <span
                       aria-label="close"
@@ -10202,19 +10426,200 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                     />
                   }
                   destroyOnClose={true}
-                  focusTriggerAfterClose={true}
                   getContainer={[Function]}
                   getOpenCount={[Function]}
-                  keyboard={true}
-                  mask={true}
-                  maskClosable={true}
                   onClose={[Function]}
-                  prefixCls="rc-dialog"
+                  scrollLocker={
+                    ScrollLocker {
+                      "getContainer": [Function],
+                      "lock": [Function],
+                      "lockTarget": 1,
+                      "options": Object {
+                        "container": <body
+                          class="ant-scrolling-effect"
+                          style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                        >
+                          <div>
+                            <div
+                              class="rc-dialog-root"
+                            >
+                              <div
+                                class="rc-dialog-mask"
+                              />
+                              <div
+                                aria-labelledby="rcDialogTitle0"
+                                class="rc-dialog-wrap"
+                                role="dialog"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="rc-dialog modal-container"
+                                  role="document"
+                                >
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                  <div
+                                    class="rc-dialog-content"
+                                  >
+                                    <button
+                                      aria-label="Close"
+                                      class="rc-dialog-close"
+                                      type="button"
+                                    >
+                                      <span
+                                        aria-label="close"
+                                        class="delete"
+                                      />
+                                    </button>
+                                    <div
+                                      class="rc-dialog-header"
+                                    >
+                                      <div
+                                        class="rc-dialog-title"
+                                        id="rcDialogTitle0"
+                                      >
+                                        <h4
+                                          class="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Cancel appointment?
+                                        </h4>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="rc-dialog-body"
+                                    >
+                                      <p>
+                                        Are you sure you want to cancel this appointment?
+                                      </p>
+                                      <section
+                                        class="section is-flex has-background"
+                                        data-test=""
+                                      >
+                                        <button
+                                          class="button  is-secondary  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          No
+                                        </button>
+                                        <button
+                                          class="button  is-danger  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          Yes
+                                        </button>
+                                      </section>
+                                    </div>
+                                  </div>
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              class="rc-dialog-root"
+                            >
+                              <div
+                                class="rc-dialog-mask"
+                              />
+                              <div
+                                aria-labelledby="rcDialogTitle1"
+                                class="rc-dialog-wrap"
+                                role="dialog"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="rc-dialog modal-container"
+                                  role="document"
+                                >
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                  <div
+                                    class="rc-dialog-content"
+                                  >
+                                    <button
+                                      aria-label="Close"
+                                      class="rc-dialog-close"
+                                      type="button"
+                                    >
+                                      <span
+                                        aria-label="close"
+                                        class="delete"
+                                      />
+                                    </button>
+                                    <div
+                                      class="rc-dialog-header"
+                                    >
+                                      <div
+                                        class="rc-dialog-title"
+                                        id="rcDialogTitle1"
+                                      >
+                                        <h4
+                                          class="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Cancel appointment?
+                                        </h4>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="rc-dialog-body"
+                                    >
+                                      <p>
+                                        Are you sure you want to cancel this appointment?
+                                      </p>
+                                      <section
+                                        class="section is-flex has-background"
+                                        data-test=""
+                                      >
+                                        <button
+                                          class="button  is-secondary  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          No
+                                        </button>
+                                        <button
+                                          class="button  is-danger  "
+                                          data-test=""
+                                          type="button"
+                                        >
+                                          Yes
+                                        </button>
+                                      </section>
+                                    </div>
+                                  </div>
+                                  <div
+                                    aria-hidden="true"
+                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                    tabindex="0"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </body>,
+                      },
+                      "reLock": [Function],
+                      "unLock": [Function],
+                    }
+                  }
                   switchScrollingEffect={[Function]}
                   title={
-                    <Unknown>
+                    <ModalHeaderV2>
                       Cancel appointment?
-                    </Unknown>
+                    </ModalHeaderV2>
                   }
                   visible={true}
                   wrapClassName=""
@@ -10222,64 +10627,273 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                   <div
                     className="rc-dialog-root"
                   >
-                    <LazyRenderBox
-                      className="rc-dialog-mask"
-                      hiddenClassName="rc-dialog-mask-hidden"
-                      key="mask"
-                      style={Object {}}
+                    <Mask
+                      prefixCls="rc-dialog"
+                      style={
+                        Object {
+                          "zIndex": undefined,
+                        }
+                      }
                       visible={true}
                     >
-                      <div
-                        className="rc-dialog-mask"
-                        style={Object {}}
-                      />
-                    </LazyRenderBox>
+                      <CSSMotion
+                        key="mask"
+                        leavedClassName="rc-dialog-mask-hidden"
+                        visible={true}
+                      >
+                        <DomWrapper>
+                          <div
+                            className="rc-dialog-mask"
+                            style={
+                              Object {
+                                "zIndex": undefined,
+                              }
+                            }
+                          />
+                        </DomWrapper>
+                      </CSSMotion>
+                    </Mask>
                     <div
                       aria-labelledby="rcDialogTitle1"
-                      className="rc-dialog-wrap "
+                      className="rc-dialog-wrap"
                       onClick={[Function]}
                       onKeyDown={[Function]}
-                      onMouseUp={[Function]}
                       role="dialog"
                       style={
                         Object {
                           "display": null,
+                          "zIndex": undefined,
                         }
                       }
                       tabIndex={-1}
                     >
-                      <Animate
-                        animation={Object {}}
-                        component=""
-                        componentProps={Object {}}
-                        key="dialog"
-                        onAppear={[Function]}
-                        onEnd={[Function]}
-                        onEnter={[Function]}
-                        onLeave={[Function]}
-                        showProp="visible"
-                        transitionAppear={true}
-                        transitionEnter={true}
-                        transitionLeave={true}
+                      <Content
+                        afterClose={[Function]}
+                        ariaId="rcDialogTitle1"
+                        className="modal-container"
+                        closable={true}
+                        closeIcon={
+                          <span
+                            aria-label="close"
+                            className="delete"
+                          />
+                        }
+                        destroyOnClose={true}
+                        getContainer={[Function]}
+                        getOpenCount={[Function]}
+                        onClose={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onVisibleChanged={[Function]}
+                        prefixCls="rc-dialog"
+                        scrollLocker={
+                          ScrollLocker {
+                            "getContainer": [Function],
+                            "lock": [Function],
+                            "lockTarget": 1,
+                            "options": Object {
+                              "container": <body
+                                class="ant-scrolling-effect"
+                                style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                              >
+                                <div>
+                                  <div
+                                    class="rc-dialog-root"
+                                  >
+                                    <div
+                                      class="rc-dialog-mask"
+                                    />
+                                    <div
+                                      aria-labelledby="rcDialogTitle0"
+                                      class="rc-dialog-wrap"
+                                      role="dialog"
+                                      tabindex="-1"
+                                    >
+                                      <div
+                                        class="rc-dialog modal-container"
+                                        role="document"
+                                      >
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                        <div
+                                          class="rc-dialog-content"
+                                        >
+                                          <button
+                                            aria-label="Close"
+                                            class="rc-dialog-close"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-label="close"
+                                              class="delete"
+                                            />
+                                          </button>
+                                          <div
+                                            class="rc-dialog-header"
+                                          >
+                                            <div
+                                              class="rc-dialog-title"
+                                              id="rcDialogTitle0"
+                                            >
+                                              <h4
+                                                class="modal-card-title is-4 pt-2 pb-2"
+                                              >
+                                                Cancel appointment?
+                                              </h4>
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="rc-dialog-body"
+                                          >
+                                            <p>
+                                              Are you sure you want to cancel this appointment?
+                                            </p>
+                                            <section
+                                              class="section is-flex has-background"
+                                              data-test=""
+                                            >
+                                              <button
+                                                class="button  is-secondary  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                No
+                                              </button>
+                                              <button
+                                                class="button  is-danger  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                Yes
+                                              </button>
+                                            </section>
+                                          </div>
+                                        </div>
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div>
+                                  <div
+                                    class="rc-dialog-root"
+                                  >
+                                    <div
+                                      class="rc-dialog-mask"
+                                    />
+                                    <div
+                                      aria-labelledby="rcDialogTitle1"
+                                      class="rc-dialog-wrap"
+                                      role="dialog"
+                                      tabindex="-1"
+                                    >
+                                      <div
+                                        class="rc-dialog modal-container"
+                                        role="document"
+                                      >
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                        <div
+                                          class="rc-dialog-content"
+                                        >
+                                          <button
+                                            aria-label="Close"
+                                            class="rc-dialog-close"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-label="close"
+                                              class="delete"
+                                            />
+                                          </button>
+                                          <div
+                                            class="rc-dialog-header"
+                                          >
+                                            <div
+                                              class="rc-dialog-title"
+                                              id="rcDialogTitle1"
+                                            >
+                                              <h4
+                                                class="modal-card-title is-4 pt-2 pb-2"
+                                              >
+                                                Cancel appointment?
+                                              </h4>
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="rc-dialog-body"
+                                          >
+                                            <p>
+                                              Are you sure you want to cancel this appointment?
+                                            </p>
+                                            <section
+                                              class="section is-flex has-background"
+                                              data-test=""
+                                            >
+                                              <button
+                                                class="button  is-secondary  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                No
+                                              </button>
+                                              <button
+                                                class="button  is-danger  "
+                                                data-test=""
+                                                type="button"
+                                              >
+                                                Yes
+                                              </button>
+                                            </section>
+                                          </div>
+                                        </div>
+                                        <div
+                                          aria-hidden="true"
+                                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                          tabindex="0"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </body>,
+                            },
+                            "reLock": [Function],
+                            "unLock": [Function],
+                          }
+                        }
+                        switchScrollingEffect={[Function]}
+                        title={
+                          <ModalHeaderV2>
+                            Cancel appointment?
+                          </ModalHeaderV2>
+                        }
+                        visible={true}
+                        wrapClassName=""
                       >
-                        <AnimateChild
-                          animation={Object {}}
-                          key="dialog-element"
-                          transitionAppear={true}
-                          transitionEnter={true}
-                          transitionLeave={true}
+                        <CSSMotion
+                          onAppearPrepare={[Function]}
+                          onEnterPrepare={[Function]}
+                          onVisibleChanged={[Function]}
+                          removeOnLeave={true}
+                          visible={true}
                         >
-                          <LazyRenderBox
-                            className="rc-dialog "
-                            key="dialog-element"
-                            onMouseDown={[Function]}
-                            role="document"
-                            style={Object {}}
-                            visible={true}
-                          >
+                          <DomWrapper>
                             <div
-                              className="rc-dialog "
+                              className="rc-dialog modal-container"
+                              key="dialog-element"
                               onMouseDown={[Function]}
+                              onMouseUp={[Function]}
                               role="document"
                               style={Object {}}
                             >
@@ -10295,87 +10909,91 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 }
                                 tabIndex={0}
                               />
-                              <div
-                                className="rc-dialog-content"
+                              <Component
+                                shouldUpdate={true}
                               >
-                                <button
-                                  aria-label="Close"
-                                  className="rc-dialog-close"
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    className="delete"
-                                  />
-                                </button>
                                 <div
-                                  className="rc-dialog-header"
+                                  className="rc-dialog-content"
                                 >
-                                  <div
-                                    className="rc-dialog-title"
-                                    id="rcDialogTitle1"
+                                  <button
+                                    aria-label="Close"
+                                    className="rc-dialog-close"
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Component>
-                                      <h4
-                                        className="modal-card-title is-4 pt-2 pb-2"
+                                    <span
+                                      aria-label="close"
+                                      className="delete"
+                                    />
+                                  </button>
+                                  <div
+                                    className="rc-dialog-header"
+                                  >
+                                    <div
+                                      className="rc-dialog-title"
+                                      id="rcDialogTitle1"
+                                    >
+                                      <ModalHeaderV2>
+                                        <h4
+                                          className="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Cancel appointment?
+                                        </h4>
+                                      </ModalHeaderV2>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-body"
+                                  >
+                                    <p>
+                                      Are you sure you want to cancel this appointment?
+                                    </p>
+                                    <Section
+                                      hasMargin={false}
+                                      hasPadding={false}
+                                      isFlex={true}
+                                    >
+                                      <section
+                                        className="section is-flex has-background"
+                                        data-test=""
                                       >
-                                        Cancel appointment?
-                                      </h4>
-                                    </Component>
+                                        <Button
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                          variant="secondary"
+                                        >
+                                          <button
+                                            className="button  is-secondary  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            No
+                                          </button>
+                                        </Button>
+                                        <Button
+                                          loading={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                          variant="danger"
+                                        >
+                                          <button
+                                            className="button  is-danger  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            Yes
+                                          </button>
+                                        </Button>
+                                      </section>
+                                    </Section>
                                   </div>
                                 </div>
-                                <div
-                                  className="rc-dialog-body"
-                                >
-                                  <p>
-                                    Are you sure you want to cancel this appointment?
-                                  </p>
-                                  <Component
-                                    hasMargin={false}
-                                    hasPadding={false}
-                                    isFlex={true}
-                                  >
-                                    <section
-                                      className=""
-                                      data-test=""
-                                    >
-                                      <Component
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="secondary"
-                                      >
-                                        <button
-                                          className="button  is-secondary  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          No
-                                        </button>
-                                      </Component>
-                                      <Component
-                                        loading={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="danger"
-                                      >
-                                        <button
-                                          className="button  is-danger  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Yes
-                                        </button>
-                                      </Component>
-                                    </section>
-                                  </Component>
-                                </div>
-                              </div>
+                              </Component>
                               <div
                                 aria-hidden="true"
                                 style={
@@ -10389,18 +11007,18 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 tabIndex={0}
                               />
                             </div>
-                          </LazyRenderBox>
-                        </AnimateChild>
-                      </Animate>
+                          </DomWrapper>
+                        </CSSMotion>
+                      </Content>
                     </div>
                   </div>
                 </Dialog>
               </Portal>
-            </Portal>
+            </ForwardRef>
           </PortalWrapper>
-        </Component>
-      </Component>
-    </Component>
+        </Dialog>
+      </ModalV2>
+    </CancelConfirmModal>
   </ApolloProvider>
 </MockedProvider>
 `;
@@ -18791,7 +19409,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       }
     }
   >
-    <Component
+    <CancelConfirmModal
       appointment={
         Object {
           "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -18976,14 +19594,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
       isShowConfirmModal={false}
       setIsShowConfirmModal={[MockFunction]}
     >
-      <Component
+      <ModalV2
         destroyOnClose={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={false}
       >
-        <Component
-          className=""
+        <Dialog
+          className="modal-container"
           closeIcon={
             <span
               aria-label="close"
@@ -18993,19 +19611,15 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           destroyOnClose={true}
           onClose={[Function]}
           title={
-            <Unknown>
+            <ModalHeaderV2>
               Cancel appointment?
-            </Unknown>
+            </ModalHeaderV2>
           }
           visible={false}
           wrapClassName=""
-        >
-          <PortalWrapper
-            visible={false}
-          />
-        </Component>
-      </Component>
-    </Component>
+        />
+      </ModalV2>
+    </CancelConfirmModal>
   </ApolloProvider>
 </MockedProvider>
 `;
@@ -19233,7 +19847,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
       }
     }
   >
-    <Component
+    <CancelConfirmModal
       appointment={
         Object {
           "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
@@ -19418,14 +20032,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
       isShowConfirmModal={false}
       setIsShowConfirmModal={[MockFunction]}
     >
-      <Component
+      <ModalV2
         destroyOnClose={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={false}
       >
-        <Component
-          className=""
+        <Dialog
+          className="modal-container"
           closeIcon={
             <span
               aria-label="close"
@@ -19435,48 +20049,44 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
           destroyOnClose={true}
           onClose={[Function]}
           title={
-            <Unknown>
+            <ModalHeaderV2>
               Cancel appointment?
-            </Unknown>
+            </ModalHeaderV2>
           }
           visible={false}
           wrapClassName=""
-        >
-          <PortalWrapper
-            visible={false}
-          />
-        </Component>
-      </Component>
-    </Component>
+        />
+      </ModalV2>
+    </CancelConfirmModal>
   </ApolloProvider>
 </MockedProvider>
 `;
 
 exports[`appointment-detail-modal renderAddress should match snapshot for commuication details 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaHome />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Property:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
-      <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
+      <AcLink
         dynamicLinkParams={
           Object {
             "appMode": "DESKTOP",
@@ -19486,37 +20096,37 @@ exports[`appointment-detail-modal renderAddress should match snapshot for commui
         }
       >
         56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
-      </Component>
-    </Component>
-  </Component>
+      </AcLink>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
 exports[`appointment-detail-modal renderAddress should match snapshot for empty commuication details 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaHome />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Property:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
-      <Component
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
+      <AcLink
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
@@ -19526,41 +20136,41 @@ exports[`appointment-detail-modal renderAddress should match snapshot for empty 
         }
       >
         56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
-      </Component>
-    </Component>
-  </Component>
+      </AcLink>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
 exports[`appointment-detail-modal renderArrangements should match snapshot for commuication details 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaHandshake />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Arrangements:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <p>
         mockDescription
       </p>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
@@ -19576,7 +20186,7 @@ exports[`appointment-detail-modal renderAttendee should match snapshot for empty
 
 exports[`appointment-detail-modal renderCommunicationDetail should match snapshot for commuication details 1`] = `
 <div>
-  <Component
+  <IconList
     items={
       Array [
         Object {
@@ -19627,7 +20237,7 @@ exports[`appointment-detail-modal renderCommunicationDetail should match snapsho
 
 exports[`appointment-detail-modal renderCommunicationDetail should match snapshot for empty commuication details 1`] = `
 <div>
-  <Component
+  <IconList
     items={Array []}
   />
 </div>
@@ -19635,64 +20245,64 @@ exports[`appointment-detail-modal renderCommunicationDetail should match snapsho
 
 exports[`appointment-detail-modal renderDateTime should match snapshot 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaClock
             className="v-align-text-top"
           />
-        </Component>
-        <Component>
-          <Component
+        </GridItem>
+        <GridItem>
+          <H6
             className="inline-block"
           >
             Time:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <p>
         11 May 2019 05:30 PM - 06:00 PM
       </p>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
 exports[`appointment-detail-modal renderNegotiators should render correctly 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaMale />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Negotiators:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <div
         key="0"
       >
@@ -19721,8 +20331,8 @@ exports[`appointment-detail-modal renderNegotiators should render correctly 1`] 
           Mara Grieve
         </p>
       </div>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
@@ -19730,33 +20340,33 @@ exports[`appointment-detail-modal renderNegotiators should render correctly 2`] 
 
 exports[`appointment-detail-modal renderNotes should match snapshot for commuication details 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaStickyNote />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Entry Notes:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <p>
         mockDescription
       </p>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
@@ -19764,32 +20374,32 @@ exports[`appointment-detail-modal renderNotes should match snapshot for empty co
 
 exports[`appointment-detail-modal renderOffices should render correctly 1`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaBuilding />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Offices:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <div
         key="0"
       >
-        <Component
+        <AcLink
           dynamicLinkParams={
             Object {
               "appMode": "DESKTOP",
@@ -19799,41 +20409,41 @@ exports[`appointment-detail-modal renderOffices should render correctly 1`] = `
           }
         >
           Stoke Mandeville
-        </Component>
+        </AcLink>
       </div>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 
 exports[`appointment-detail-modal renderOffices should render correctly 2`] = `
 <div>
-  <Component
+  <Grid
     className="is-mobile"
   >
-    <Component
+    <GridItem
       className="is-one-third-desktop is-5-mobile horizontal"
     >
-      <Component
+      <Grid
         className="is-vcentered is-mobile"
       >
-        <Component
+        <GridItem
           className="is-narrow px-0"
         >
           <FaBuilding />
-        </Component>
-        <Component>
-          <Component>
+        </GridItem>
+        <GridItem>
+          <H6>
             Offices:
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-    <Component>
+          </H6>
+        </GridItem>
+      </Grid>
+    </GridItem>
+    <GridItem>
       <div
         key="0"
       >
-        <Component
+        <AcLink
           dynamicLinkParams={
             Object {
               "appMode": "WEB",
@@ -19843,10 +20453,10 @@ exports[`appointment-detail-modal renderOffices should render correctly 2`] = `
           }
         >
           Stoke Mandeville
-        </Component>
+        </AcLink>
       </div>
-    </Component>
-  </Component>
+    </GridItem>
+  </Grid>
 </div>
 `;
 

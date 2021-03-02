@@ -3,17 +3,17 @@ import { shallow, mount } from 'enzyme'
 import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '../app-sidebar'
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
-import { categoriesStub } from '@/sagas/__stubs__/categories'
 import { selectCategories } from '@/selector/categories'
 import { FormikProps } from '@reapit/elements'
 import { useHistory, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
+import { categoriesStub } from '../../../../sagas/__stubs__/categories'
 
 const { search, searchBy } = formFields
 
 jest.mock('@/selector/categories', () => ({
-  selectCategories: jest.fn(() => categoriesStub.data),
+  selectCategories: jest.fn(() => require('@/sagas/__stubs__/categories').categoriesStub.data),
 }))
 jest.mock('@/utils/client-url-params')
 jest.mock('react-router', () => ({

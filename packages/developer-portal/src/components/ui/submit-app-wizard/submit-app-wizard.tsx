@@ -91,16 +91,16 @@ export const handleSubmit = ({ dispatch, setWizardStep }: HandleSubmitParams) =>
       ? redirectUris
           .split(',')
           // trim empty spaces
-          .map(url => url.trim())
+          .map((url) => url.trim())
           // filter empty urls
-          .filter(url => url)
+          .filter((url) => url)
       : [],
     signoutUris: signoutUris
       ? signoutUris
           // ^ be transformed same as redirectUris
           .split(',')
-          .map(url => url.trim())
-          .filter(url => url)
+          .map((url) => url.trim())
+          .filter((url) => url)
       : [],
     successCallback: handleSubmitAppSuccessCallback(actions.setFieldValue, setWizardStep, dispatch),
   }
@@ -142,7 +142,7 @@ export const SubmitAppWizard: React.FC<SubmitAppWizardProps> = ({ onClose, visib
         validationSchema={validationSchemas[currentWizardStep]}
       >
         <Form
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             const key = e.charCode || e.keyCode || 0
             // prevent submit form using enter
             // not handle yet

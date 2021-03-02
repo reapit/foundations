@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "outDir": "node_modules/dist",
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@/*": ["src/*"],
       "@reapit/node-utils": ["../utils/src/node/index.ts"]

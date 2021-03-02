@@ -26,10 +26,10 @@ export const handleCountCurrentInstallationForEachApp = (
   developerDataArray: AppSummaryModel[],
 ) => (): InstallationAppsRowType[] => {
   const appsHasInstallation = countAppsHasInstallation(installationAppDataArrayWithName)
-  const appNamesHasInstallation = appsHasInstallation.map(app => app.appName)
+  const appNamesHasInstallation = appsHasInstallation.map((app) => app.appName)
   const appsHasNoInstallation = developerDataArray
-    .filter(app => app.name && !appNamesHasInstallation.includes(app.name))
-    .map(app => ({ appName: app.name, installation: 0 }))
+    .filter((app) => app.name && !appNamesHasInstallation.includes(app.name))
+    .map((app) => ({ appName: app.name, installation: 0 }))
 
   return [...appsHasNoInstallation, ...appsHasInstallation]
 }
@@ -80,7 +80,7 @@ export const sortAppByDateInstalled = (
   return newAppData
 }
 
-export const handleSetPageNumber = setPageNumber => (pageNumber: number) => setPageNumber(pageNumber)
+export const handleSetPageNumber = (setPageNumber) => (pageNumber: number) => setPageNumber(pageNumber)
 
 export const installationTableColumn: { Header: string; accessor: string | ((data) => string) }[] = [
   { Header: 'App Name', accessor: 'appName' },
@@ -111,11 +111,11 @@ export const installationTableColumn: { Header: string; accessor: string | ((dat
   },
   {
     Header: 'Date of installation',
-    accessor: row => toLocalTime(row.created),
+    accessor: (row) => toLocalTime(row.created),
   },
   {
     Header: 'Date of Uninstallation',
-    accessor: row => {
+    accessor: (row) => {
       return row.terminatesOn ? toLocalTime(row.terminatesOn) : ''
     },
   },

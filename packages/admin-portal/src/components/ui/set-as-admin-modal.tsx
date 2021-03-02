@@ -20,7 +20,7 @@ export const handleSetAsAdmin = (dispatch: Dispatch, data: any, closeModal) => (
   dispatch(setAsAdmin(params))
 }
 
-export const handleAfterSetAdmin = setIsSuccess => () => {
+export const handleAfterSetAdmin = (setIsSuccess) => () => {
   setIsSuccess(true)
 }
 

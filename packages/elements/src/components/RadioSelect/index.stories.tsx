@@ -24,7 +24,7 @@ export default {
 export const Primary: Story<RadioSelectProps> = () => (
   <Formik
     initialValues={{ [mockProps.name]: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
       console.log(values)
     }}
@@ -45,7 +45,7 @@ export const Primary: Story<RadioSelectProps> = () => (
 export const HorizontalLayout: Story<RadioSelectProps> = () => (
   <Formik
     initialValues={{ [mockProps.name]: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
       console.log(values)
     }}
@@ -66,7 +66,7 @@ export const HorizontalLayout: Story<RadioSelectProps> = () => (
 export const Disabled: Story<RadioSelectProps> = () => (
   <Formik
     initialValues={{ [mockProps.name]: '' }}
-    onSubmit={values => {
+    onSubmit={(values) => {
       action('Form Values' + values)
       console.log(values)
     }}

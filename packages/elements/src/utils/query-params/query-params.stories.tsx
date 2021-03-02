@@ -14,7 +14,7 @@ export const Usage: Story = () => (
   <div>
     <Formik
       initialValues={{ name: '', address: '', phone: '' }}
-      onSubmit={values => {
+      onSubmit={(values) => {
         action('Form Values' + values)
       }}
       render={({ values }) => {

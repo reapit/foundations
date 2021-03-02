@@ -1,4 +1,4 @@
-import { mockContext } from '../../../__stubs__/context'
+import { mockContext } from '../../../__stubs__/mock-context'
 import {
   callGetDocumentsAPI,
   callGetDocumentByIdAPI,
@@ -7,11 +7,11 @@ import {
   callDeleteDocumentAPI,
 } from '../api'
 import { createPlatformAxiosInstance } from '../../../utils/axios-instances'
-import { documentMock } from '../__stubs__/document'
-import { documentsMock } from '../__stubs__/documents'
-import { createDocumentArgsMock } from '../__stubs__/create-document'
-import { updateDocumentArgsMock } from '../__stubs__/update-document'
-import { deleteDocumentMockArgs } from '../__stubs__/delete-document'
+import { documentMock } from '../__stubs__/mock-document'
+import { documentsMock } from '../__stubs__/mock-documents'
+import { createDocumentArgsMock } from '../__stubs__/mock-create-document'
+import { updateDocumentArgsMock } from '../__stubs__/mock-update-document'
+import { deleteDocumentMockArgs } from '../__stubs__/mock-delete-document'
 import { getIdFromCreateHeaders } from '../../../utils/get-id-from-create-headers'
 
 jest.mock('apollo-server-lambda', () => {

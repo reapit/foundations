@@ -31,7 +31,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
         </Helper>
       ) : (
         <GridFourCol className={cx(loading && styles.contentIsLoading)} data-test="app-list-container">
-          {list.map(app => (
+          {list.map((app) => (
             <GridThreeColItem key={app.id}>
               <FadeIn>
                 <AppCard

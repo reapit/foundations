@@ -26,7 +26,7 @@ export const clearRow = (data: Cell[][], currentRowIndex: number, onCellsChanged
 }
 
 export const clearCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
-  const oldCol = data.map(row => row[currentColIndex])
+  const oldCol = data.map((row) => row[currentColIndex])
   const changedCells = oldCol
     .map((cell, rowIndex) => ({
       cell: oldCol[rowIndex],
@@ -56,7 +56,7 @@ export const removeRow = (data: Cell[][], currentRowIndex: number, onCellsChange
 }
 
 export const removeCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
-  const oldCol = data.map(row => row[currentColIndex])
+  const oldCol = data.map((row) => row[currentColIndex])
   const changedCells = oldCol
     .map((cell, rowIndex) => ({
       cell: oldCol[rowIndex],
@@ -74,7 +74,7 @@ export const handleContextClick = (
   selected: SelectedMatrix | null,
   setContextMenuProp: SetContextMenuProp,
   onCellsChanged: OnCellsChanged,
-) => event => {
+) => (event) => {
   event.stopPropagation()
   const {
     start: { i: currentRowIndex, j: currentColIndex },

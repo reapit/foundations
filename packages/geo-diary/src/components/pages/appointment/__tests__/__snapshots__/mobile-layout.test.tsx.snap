@@ -2,41 +2,41 @@
 
 exports[`mobile-layout MobileLayout should render correctly 1`] = `
 <Fragment>
-  <Component
+  <Section
     className="pb-4"
     hasMargin={false}
     hasPadding={false}
     isFlex={true}
     isFlexColumn={true}
   >
-    <Memo()
+    <Memo(ListAndMapTab)
       queryParams={
         Object {
           "state": "CLIENT",
         }
       }
     />
-    <Memo()
+    <Memo(AppointmentTime)
       queryParams={
         Object {
           "state": "CLIENT",
         }
       }
     />
-    <Memo()
+    <Memo(TravelMode)
       queryParams={
         Object {
           "state": "CLIENT",
         }
       }
     />
-  </Component>
-  <Component
+  </Section>
+  <Section
     hasBackground={false}
     isFlex={true}
     isFlexColumn={true}
   >
-    <Component
+    <AppointmentList
       appointments={
         Array [
           Object {
@@ -221,6 +221,6 @@ exports[`mobile-layout MobileLayout should render correctly 1`] = `
         ]
       }
     />
-  </Component>
+  </Section>
 </Fragment>
 `;

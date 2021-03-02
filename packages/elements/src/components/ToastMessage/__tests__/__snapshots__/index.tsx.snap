@@ -2,31 +2,32 @@
 
 exports[`ToastMessage should match a snapshot when pass different props 1`] = `
 <div
+  className="toast visible"
   data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
-  <Component
+  <Button
     fullWidth={true}
     type="reset"
     variant="primary"
   >
     Toast message
-  </Component>
+  </Button>
 </div>
 `;
 
 exports[`ToastMessage should match a snapshot with default baseProps 1`] = `
 <div
-  className=""
+  className="toast"
   data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
-  <Component
+  <Button
     fullWidth={true}
     type="reset"
     variant="primary"
   >
     Toast message
-  </Component>
+  </Button>
 </div>
 `;

@@ -17,10 +17,10 @@ export default {
   ],
 }
 
-export const Default: Story<LoaderProps> = args => <Loader {...args} />
+export const Default: Story<LoaderProps> = (args) => <Loader {...args} />
 Default.args = {}
 
-export const BodyIsFalse: Story<LoaderProps> = args => <Loader {...args} />
+export const BodyIsFalse: Story<LoaderProps> = (args) => <Loader {...args} />
 BodyIsFalse.args = {
   body: false,
 }

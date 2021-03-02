@@ -90,7 +90,7 @@ export const Validate: Story = () => {
     <PortalProvider>
       <Spreadsheet
         data={data}
-        validate={data =>
+        validate={(data) =>
           data.map((row, rowIndex) =>
             row.map((cell, colIndex) => {
               if (colIndex === 10) {
@@ -124,7 +124,7 @@ export const CustomStyle: Story = () => {
   const dataCustomStyle = (data as Cell[][]).map((e, i) => {
     if (i % 2 !== 0) {
       /* customize by style */
-      return e.map(c => ({
+      return e.map((c) => ({
         ...c,
         style: {
           background: '#6A5ACD',
@@ -133,7 +133,7 @@ export const CustomStyle: Story = () => {
       }))
     }
     /* customize by className */
-    return e.map(c => ({
+    return e.map((c) => ({
       ...c,
       className: 'custom-classname-style',
     }))
@@ -164,11 +164,11 @@ export const CustomComponent: Story = () => {
       <select
         // use the cell value as select value
         value={cellRenderProps.cell.value}
-        onChange={e => {
+        onChange={(e) => {
           const newValue = e.target.value
           const { row, col, cell: oldCell } = cellRenderProps
           // create new data array
-          const newData = data.map(row => row.map(cell => ({ ...cell })))
+          const newData = data.map((row) => row.map((cell) => ({ ...cell })))
           newData[row][col].value = newValue
           setData(newData)
           if (typeof afterCellsChanged === 'function') {
@@ -304,7 +304,7 @@ export const CustomCompSpreadsheetWithAfterCellsChangedHandleronent: Story = () 
     <PortalProvider>
       <Spreadsheet
         data={data}
-        validate={data =>
+        validate={(data) =>
           data.map((row, rowIndex) =>
             row.map((cell, colIndex) => {
               if (colIndex === 10) {
@@ -359,7 +359,7 @@ export const UploadWithValidate: Story = () => {
     <PortalProvider>
       <Spreadsheet
         data={data}
-        validate={data =>
+        validate={(data) =>
           data.map((row, rowIndex) =>
             row.map((cell, colIndex) => {
               if (rowIndex === 0) {
@@ -380,7 +380,7 @@ export const UploadWithValidate: Story = () => {
           console.log('currentData', currentData)
           console.log('setData', setData)
           // append validated data to bottom of Spreadsheet
-          setData(prev => [...prev, ...uploadData.validatedData])
+          setData((prev) => [...prev, ...uploadData.validatedData])
         }}
         description={
           <p>

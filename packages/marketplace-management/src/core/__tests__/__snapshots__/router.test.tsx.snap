@@ -42,7 +42,7 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Component>
+      <PrivateRouteWrapper>
         <ContextProvider
           value={
             Object {
@@ -111,7 +111,7 @@ exports[`Router should match a snapshot 1`] = `
             />
           </Switch>
         </ContextProvider>
-      </Component>
+      </PrivateRouteWrapper>
       <Redirect
         to="/login"
       />

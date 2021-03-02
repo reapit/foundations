@@ -8,7 +8,7 @@ AWS.config.update({ region: 'eu-west-2' })
 
 const ssm = new AWS.SSM()
 
-const createParam = async cliArgs => {
+const createParam = async (cliArgs) => {
   try {
     const { format } = cliArgs
     const { fileName, paramName } = getParamAndFileName(cliArgs)
@@ -19,14 +19,14 @@ const createParam = async cliArgs => {
 
     console.log(chalk.bold.blue('Creating param: ', paramName))
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const options = {
         Name: paramName,
         Value: value,
         Overwrite: true,
         Type: 'SecureString',
       }
-      ssm.putParameter(options, err => {
+      ssm.putParameter(options, (err) => {
         if (err) {
           throw new Error(`Something went wrong when creating your param: ${paramName} ${err.code}`)
         }

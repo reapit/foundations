@@ -13,20 +13,20 @@ exports[`AdminBilling should match a snapshot 1`] = `
     }
   }
 >
-  <Component>
-    <Component
+  <AdminBilling>
+    <H3
       isHeadingSection={true}
     >
       <h3
-        className=""
+        className="title is-3 is-heading-section"
         id=""
       >
         Billing
       </h3>
-    </Component>
-    <Component>
+    </H3>
+    <Section>
       <section
-        className=""
+        className="section has-padding has-margin has-background"
         data-test=""
       >
         <Formik
@@ -47,17 +47,17 @@ exports[`AdminBilling should match a snapshot 1`] = `
               onReset={[Function]}
               onSubmit={[Function]}
             >
-              <Component>
+              <Grid>
                 <div
-                  className=""
+                  className="columns"
                   data-test=""
                 >
-                  <Component>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <SelectBox
                         id="month"
                         labelText="Month"
                         name="month"
@@ -119,7 +119,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control"
@@ -221,15 +221,15 @@ exports[`AdminBilling should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </SelectBox>
                     </div>
-                  </Component>
-                  <Component>
+                  </GridItem>
+                  <GridItem>
                     <div
-                      className=""
+                      className="column"
                       data-test=""
                     >
-                      <Component
+                      <SelectBox
                         id="year"
                         labelText="Year"
                         name="year"
@@ -240,7 +240,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className=""
+                            className="field"
                           >
                             <div
                               className="control"
@@ -270,15 +270,15 @@ exports[`AdminBilling should match a snapshot 1`] = `
                             </div>
                           </div>
                         </Field>
-                      </Component>
+                      </SelectBox>
                     </div>
-                  </Component>
+                  </GridItem>
                 </div>
-              </Component>
+              </Grid>
             </form>
           </Form>
         </Formik>
-        <Component
+        <Table
           columns={
             Array [
               Object {
@@ -341,7 +341,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                     <div
                       className="table-loading"
                     >
-                      <Component>
+                      <Loader>
                         <div
                           className="loader-spinner body"
                           data-test=""
@@ -351,17 +351,17 @@ exports[`AdminBilling should match a snapshot 1`] = `
                           <div />
                           <div />
                         </div>
-                      </Component>
+                      </Loader>
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </Component>
+        </Table>
       </section>
-    </Component>
-  </Component>
+    </Section>
+  </AdminBilling>
 </Provider>
 `;
 

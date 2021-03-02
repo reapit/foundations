@@ -7,7 +7,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetchContact } from './api'
 import { extractNetworkErrString } from '@reapit/utils'
 
-export const resultFetch = function*(params: Action<ContactsParams>) {
+export const resultFetch = function* (params: Action<ContactsParams>) {
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const responseContacts = yield call(fetchContact, {
@@ -24,11 +24,11 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
   }
 }
 
-export const resultListen = function*() {
+export const resultListen = function* () {
   yield takeLatest<Action<ContactsParams>>(ActionTypes.RESULT_REQUEST_DATA, resultFetch)
 }
 
-const resultSagas = function*() {
+const resultSagas = function* () {
   yield all([fork(resultListen)])
 }
 

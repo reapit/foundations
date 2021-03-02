@@ -1,9 +1,9 @@
 import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
-import { render } from '@testing-library/react'
 import { handleUseEffect, PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
+import { shallow } from 'enzyme'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -14,7 +14,7 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 jest.mock('react-router', () => ({
-  ...jest.requireActual('react-router'),
+  ...(jest.requireActual('react-router') as Object),
   useLocation: jest.fn(() => ({
     location: 'location',
   })),
@@ -27,7 +27,7 @@ describe('PrivateRouter', () => {
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
     const history = createBrowserHistory()
-    const wrapper = render(
+    const wrapper = shallow(
       <Router history={history}>
         <Route>
           <PrivateRouteWrapper {...props}>
@@ -43,7 +43,7 @@ describe('PrivateRouter', () => {
       path: '/client/apps',
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
-    const wrapper = render(
+    const wrapper = shallow(
       <PrivateRouteWrapper {...props}>
         <div>mock children</div>
       </PrivateRouteWrapper>,

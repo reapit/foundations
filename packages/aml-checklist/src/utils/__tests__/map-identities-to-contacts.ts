@@ -22,7 +22,7 @@ describe('mapIdentitiesToContacts', () => {
       ...identitiesWithoutEmbedded,
       _embedded: undefined,
     } as IdentityCheckModelPagedResult)
-    const embeddedWithIdentityCheckUndefined = contacts._embedded.map(data => ({ ...data, identityCheck: undefined }))
+    const embeddedWithIdentityCheckUndefined = contacts._embedded.map((data) => ({ ...data, identityCheck: undefined }))
     expect(result).toEqual({ ...contacts, _embedded: embeddedWithIdentityCheckUndefined })
   })
 })

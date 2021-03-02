@@ -8,7 +8,7 @@ import { Action } from '@/types/core'
 import { getDeveloperId } from '@/utils/session'
 import { notification } from '@reapit/elements'
 
-export const fetchAppListSaga = function*({ data }) {
+export const fetchAppListSaga = function* ({ data }) {
   try {
     const developerId = yield call(getDeveloperId)
     if (!developerId) {
@@ -30,11 +30,11 @@ export const fetchAppListSaga = function*({ data }) {
   }
 }
 
-export const fetchAppListListen = function*() {
+export const fetchAppListListen = function* () {
   yield takeLatest<Action<FetchAppListParams>>(fetchAppList.type, fetchAppListSaga)
 }
 
-const appListSagas = function*() {
+const appListSagas = function* () {
   yield all([fork(fetchAppListListen)])
 }
 

@@ -22,8 +22,12 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
+    "@apollo/react-testing": "^3.1.3",
+    "@apollo/react-hooks": "^3.1.3",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
-    "@reapit/elements": "workspace:packages/elements"
+    "@reapit/elements": "workspace:packages/elements",
+    "apollo-boost": "^0.4.9",
+    "apollo-link-error": "^1.1.13"
   },
   "devDependencies": {}
 }

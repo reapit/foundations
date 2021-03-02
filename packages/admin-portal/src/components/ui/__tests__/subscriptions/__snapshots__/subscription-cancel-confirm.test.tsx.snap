@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
-<Component
+<CancelConfirmModal
   isCanceling={false}
   isShowConfirmModal={true}
   onConfirm={[MockFunction]}
@@ -21,13 +21,13 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
     }
   }
 >
-  <Component
+  <ModalV2
     destroyOnClose={true}
     onClose={[Function]}
     visible={true}
   >
-    <Component
-      className=""
+    <Dialog
+      className="modal-container"
       closeIcon={
         <span
           aria-label="close"
@@ -36,14 +36,14 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
       }
       destroyOnClose={true}
       onClose={[Function]}
-      title={<Unknown />}
+      title={<ModalHeaderV2 />}
       visible={true}
       wrapClassName=""
     >
       <PortalWrapper
         visible={true}
       >
-        <Portal
+        <ForwardRef
           getContainer={[Function]}
         >
           <Portal
@@ -57,12 +57,12 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                   />
                   <div
                     aria-labelledby="rcDialogTitle0"
-                    class="rc-dialog-wrap "
+                    class="rc-dialog-wrap"
                     role="dialog"
                     tabindex="-1"
                   >
                     <div
-                      class="rc-dialog "
+                      class="rc-dialog modal-container"
                       role="document"
                     >
                       <div
@@ -99,13 +99,13 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                           class="rc-dialog-body"
                         >
                           <h5
-                            class=""
+                            class="title is-5"
                             id=""
                           >
                             Are you sure you want to cancel this appointment?
                           </h5>
                           <section
-                            class=""
+                            class="section is-flex has-background"
                             data-test=""
                           >
                             <button
@@ -137,8 +137,8 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
             }
           >
             <Dialog
-              className=""
-              closable={true}
+              afterClose={[Function]}
+              className="modal-container"
               closeIcon={
                 <span
                   aria-label="close"
@@ -146,80 +146,298 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                 />
               }
               destroyOnClose={true}
-              focusTriggerAfterClose={true}
               getContainer={[Function]}
               getOpenCount={[Function]}
-              keyboard={true}
-              mask={true}
-              maskClosable={true}
               onClose={[Function]}
-              prefixCls="rc-dialog"
+              scrollLocker={
+                ScrollLocker {
+                  "getContainer": [Function],
+                  "lock": [Function],
+                  "lockTarget": 0,
+                  "options": Object {
+                    "container": <body
+                      class="ant-scrolling-effect"
+                      style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                    >
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle0"
+                            class="rc-dialog-wrap"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="rc-dialog modal-container"
+                              role="document"
+                            >
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                              <div
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-label="close"
+                                    class="delete"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <h4
+                                      class="modal-card-title is-4 pt-2 pb-2"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  <h5
+                                    class="title is-5"
+                                    id=""
+                                  >
+                                    Are you sure you want to cancel this appointment?
+                                  </h5>
+                                  <section
+                                    class="section is-flex has-background"
+                                    data-test=""
+                                  >
+                                    <button
+                                      class="button  is-info  "
+                                      data-test=""
+                                      type="button"
+                                    >
+                                      Yes
+                                    </button>
+                                    <button
+                                      class="button  is-info  "
+                                      data-test=""
+                                      type="button"
+                                    >
+                                      No
+                                    </button>
+                                  </section>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </body>,
+                  },
+                  "reLock": [Function],
+                  "unLock": [Function],
+                }
+              }
               switchScrollingEffect={[Function]}
-              title={<Unknown />}
+              title={<ModalHeaderV2 />}
               visible={true}
               wrapClassName=""
             >
               <div
                 className="rc-dialog-root"
               >
-                <LazyRenderBox
-                  className="rc-dialog-mask"
-                  hiddenClassName="rc-dialog-mask-hidden"
-                  key="mask"
-                  style={Object {}}
+                <Mask
+                  prefixCls="rc-dialog"
+                  style={
+                    Object {
+                      "zIndex": undefined,
+                    }
+                  }
                   visible={true}
                 >
-                  <div
-                    className="rc-dialog-mask"
-                    style={Object {}}
-                  />
-                </LazyRenderBox>
+                  <CSSMotion
+                    key="mask"
+                    leavedClassName="rc-dialog-mask-hidden"
+                    visible={true}
+                  >
+                    <DomWrapper>
+                      <div
+                        className="rc-dialog-mask"
+                        style={
+                          Object {
+                            "zIndex": undefined,
+                          }
+                        }
+                      />
+                    </DomWrapper>
+                  </CSSMotion>
+                </Mask>
                 <div
                   aria-labelledby="rcDialogTitle0"
-                  className="rc-dialog-wrap "
+                  className="rc-dialog-wrap"
                   onClick={[Function]}
                   onKeyDown={[Function]}
-                  onMouseUp={[Function]}
                   role="dialog"
                   style={
                     Object {
                       "display": null,
+                      "zIndex": undefined,
                     }
                   }
                   tabIndex={-1}
                 >
-                  <Animate
-                    animation={Object {}}
-                    component=""
-                    componentProps={Object {}}
-                    key="dialog"
-                    onAppear={[Function]}
-                    onEnd={[Function]}
-                    onEnter={[Function]}
-                    onLeave={[Function]}
-                    showProp="visible"
-                    transitionAppear={true}
-                    transitionEnter={true}
-                    transitionLeave={true}
+                  <Content
+                    afterClose={[Function]}
+                    ariaId="rcDialogTitle0"
+                    className="modal-container"
+                    closable={true}
+                    closeIcon={
+                      <span
+                        aria-label="close"
+                        className="delete"
+                      />
+                    }
+                    destroyOnClose={true}
+                    getContainer={[Function]}
+                    getOpenCount={[Function]}
+                    onClose={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                    onVisibleChanged={[Function]}
+                    prefixCls="rc-dialog"
+                    scrollLocker={
+                      ScrollLocker {
+                        "getContainer": [Function],
+                        "lock": [Function],
+                        "lockTarget": 0,
+                        "options": Object {
+                          "container": <body
+                            class="ant-scrolling-effect"
+                            style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+                          >
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle0"
+                                  class="rc-dialog-wrap"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog modal-container"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        <h5
+                                          class="title is-5"
+                                          id=""
+                                        >
+                                          Are you sure you want to cancel this appointment?
+                                        </h5>
+                                        <section
+                                          class="section is-flex has-background"
+                                          data-test=""
+                                        >
+                                          <button
+                                            class="button  is-info  "
+                                            data-test=""
+                                            type="button"
+                                          >
+                                            Yes
+                                          </button>
+                                          <button
+                                            class="button  is-info  "
+                                            data-test=""
+                                            type="button"
+                                          >
+                                            No
+                                          </button>
+                                        </section>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </body>,
+                        },
+                        "reLock": [Function],
+                        "unLock": [Function],
+                      }
+                    }
+                    switchScrollingEffect={[Function]}
+                    title={<ModalHeaderV2 />}
+                    visible={true}
+                    wrapClassName=""
                   >
-                    <AnimateChild
-                      animation={Object {}}
-                      key="dialog-element"
-                      transitionAppear={true}
-                      transitionEnter={true}
-                      transitionLeave={true}
+                    <CSSMotion
+                      onAppearPrepare={[Function]}
+                      onEnterPrepare={[Function]}
+                      onVisibleChanged={[Function]}
+                      removeOnLeave={true}
+                      visible={true}
                     >
-                      <LazyRenderBox
-                        className="rc-dialog "
-                        key="dialog-element"
-                        onMouseDown={[Function]}
-                        role="document"
-                        style={Object {}}
-                        visible={true}
-                      >
+                      <DomWrapper>
                         <div
-                          className="rc-dialog "
+                          className="rc-dialog modal-container"
+                          key="dialog-element"
                           onMouseDown={[Function]}
+                          onMouseUp={[Function]}
                           role="document"
                           style={Object {}}
                         >
@@ -235,90 +453,94 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                             }
                             tabIndex={0}
                           />
-                          <div
-                            className="rc-dialog-content"
+                          <Component
+                            shouldUpdate={true}
                           >
-                            <button
-                              aria-label="Close"
-                              className="rc-dialog-close"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            </button>
                             <div
-                              className="rc-dialog-header"
+                              className="rc-dialog-content"
                             >
+                              <button
+                                aria-label="Close"
+                                className="rc-dialog-close"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <span
+                                  aria-label="close"
+                                  className="delete"
+                                />
+                              </button>
                               <div
-                                className="rc-dialog-title"
-                                id="rcDialogTitle0"
+                                className="rc-dialog-header"
                               >
-                                <Component>
-                                  <h4
-                                    className="modal-card-title is-4 pt-2 pb-2"
-                                  />
-                                </Component>
+                                <div
+                                  className="rc-dialog-title"
+                                  id="rcDialogTitle0"
+                                >
+                                  <ModalHeaderV2>
+                                    <h4
+                                      className="modal-card-title is-4 pt-2 pb-2"
+                                    />
+                                  </ModalHeaderV2>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              className="rc-dialog-body"
-                            >
-                              <Component>
-                                <h5
-                                  className=""
-                                  id=""
-                                >
-                                  Are you sure you want to cancel this appointment?
-                                </h5>
-                              </Component>
-                              <Component
-                                hasMargin={false}
-                                hasPadding={false}
-                                isFlex={true}
+                              <div
+                                className="rc-dialog-body"
                               >
-                                <section
-                                  className=""
-                                  data-test=""
-                                >
-                                  <Component
-                                    loading={false}
-                                    onClick={[MockFunction]}
-                                    type="button"
-                                    variant="info"
+                                <H5>
+                                  <h5
+                                    className="title is-5"
+                                    id=""
                                   >
-                                    <button
-                                      className="button  is-info  "
-                                      data-test=""
-                                      disabled={false}
+                                    Are you sure you want to cancel this appointment?
+                                  </h5>
+                                </H5>
+                                <Section
+                                  hasMargin={false}
+                                  hasPadding={false}
+                                  isFlex={true}
+                                >
+                                  <section
+                                    className="section is-flex has-background"
+                                    data-test=""
+                                  >
+                                    <Button
+                                      loading={false}
                                       onClick={[MockFunction]}
                                       type="button"
+                                      variant="info"
                                     >
-                                      Yes
-                                    </button>
-                                  </Component>
-                                  <Component
-                                    disabled={false}
-                                    onClick={[Function]}
-                                    type="button"
-                                    variant="info"
-                                  >
-                                    <button
-                                      className="button  is-info  "
-                                      data-test=""
+                                      <button
+                                        className="button  is-info  "
+                                        data-test=""
+                                        disabled={false}
+                                        onClick={[MockFunction]}
+                                        type="button"
+                                      >
+                                        Yes
+                                      </button>
+                                    </Button>
+                                    <Button
                                       disabled={false}
                                       onClick={[Function]}
                                       type="button"
+                                      variant="info"
                                     >
-                                      No
-                                    </button>
-                                  </Component>
-                                </section>
-                              </Component>
+                                      <button
+                                        className="button  is-info  "
+                                        data-test=""
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        No
+                                      </button>
+                                    </Button>
+                                  </section>
+                                </Section>
+                              </div>
                             </div>
-                          </div>
+                          </Component>
                           <div
                             aria-hidden="true"
                             style={
@@ -332,16 +554,16 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                             tabIndex={0}
                           />
                         </div>
-                      </LazyRenderBox>
-                    </AnimateChild>
-                  </Animate>
+                      </DomWrapper>
+                    </CSSMotion>
+                  </Content>
                 </div>
               </div>
             </Dialog>
           </Portal>
-        </Portal>
+        </ForwardRef>
       </PortalWrapper>
-    </Component>
-  </Component>
-</Component>
+    </Dialog>
+  </ModalV2>
+</CancelConfirmModal>
 `;

@@ -34,7 +34,7 @@ export function closestTo(dateCompare: dayjs.ConfigType, datesArray: Array<dayjs
 
   let result: any
   let minDistance: any
-  datesArray.forEach(function(date) {
+  datesArray.forEach(function (date) {
     const currentTime = dayjs(date).valueOf()
 
     if (isNaN(currentTime)) {

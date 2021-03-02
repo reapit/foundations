@@ -6,13 +6,13 @@ exports[`Toast should match a snapshot for a componentError 1`] = `
   data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
-  <Component
+  <Button
     fullWidth={true}
     type="reset"
     variant="danger"
   >
     Something went wrong with this component
-  </Component>
+  </Button>
 </div>
 `;
 
@@ -22,12 +22,12 @@ exports[`Toast should match a snapshot for a serverError 1`] = `
   data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
-  <Component
+  <Button
     fullWidth={true}
     type="reset"
     variant="danger"
   >
     Something went wrong fetching data
-  </Component>
+  </Button>
 </div>
 `;

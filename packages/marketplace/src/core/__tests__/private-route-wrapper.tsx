@@ -3,11 +3,10 @@ import { shallow } from 'enzyme'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
-const dispatch = jest.fn()
 
 jest.mock('react-redux', () => ({
   ...(jest.requireActual('react-redux') as Object),
-  useDispatch: jest.fn(() => dispatch),
+  useDispatch: jest.fn(() => jest.fn()),
   useSelector: jest.fn(() => jest.fn()),
 }))
 

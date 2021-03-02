@@ -15,7 +15,7 @@ export default {
       <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ fileInput: '' }}
-          onSubmit={values => {
+          onSubmit={(values) => {
             action('Form Values' + values)
           }}
         >
@@ -28,7 +28,7 @@ export default {
   ],
 }
 
-export const Primary: Story<FileInputProps> = args => <FileInput {...args} />
+export const Primary: Story<FileInputProps> = (args) => <FileInput {...args} />
 Primary.args = {
   id: 'fileInput',
   allowClear: true,
@@ -36,7 +36,7 @@ Primary.args = {
   labelText: 'File Input',
 }
 
-export const Required: Story<FileInputProps> = args => <FileInput {...args} />
+export const Required: Story<FileInputProps> = (args) => <FileInput {...args} />
 Required.args = {
   required: true,
   id: 'fileInput',
@@ -45,7 +45,7 @@ Required.args = {
   labelText: 'File Input',
 }
 
-export const Disabled: Story<FileInputProps> = args => <FileInput {...args} />
+export const Disabled: Story<FileInputProps> = (args) => <FileInput {...args} />
 Disabled.args = {
   id: 'fileInput',
   allowClear: true,

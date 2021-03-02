@@ -12,7 +12,7 @@ describe('Helper', () => {
     expect(shallow(<Helper closeButton={true} />)).toMatchSnapshot()
     expect(shallow(<Helper closeButton={false} />)).toMatchSnapshot()
   })
-  variants.forEach(variant => {
+  variants.forEach((variant) => {
     it('should match snapshot with button for variant ' + variant, () => {
       expect(shallow(<Helper variant={variant} />)).toMatchSnapshot()
     })

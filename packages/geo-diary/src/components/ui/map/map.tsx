@@ -25,7 +25,7 @@ export interface Coordinate {
 }
 
 export const filterInvalidMarker = (markers: Coordinate[]) => {
-  return markers.filter(appointments => {
+  return markers.filter((appointments) => {
     return (
       appointments.position.lat !== UNDEFINED_LATLNG_NUMBER &&
       appointments.position.lng !== UNDEFINED_LATLNG_NUMBER &&
@@ -85,7 +85,7 @@ export const handleMarkerOnClick = (
   setAppointment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
   setAppointmentDetailModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 ) => (id: string) => () => {
-  const appointment = appointments.find(item => item.id === id)
+  const appointment = appointments.find((item) => item.id === id)
   if (appointment) {
     setAppointment(appointment)
     setAppointmentDetailModalVisible(true)
@@ -104,7 +104,7 @@ export const handleSetAppointment = (
   setAppointment: (value: React.SetStateAction<ExtendedAppointmentModel | null>) => void,
 ) => {
   return () => {
-    const appointment = appointments.find(item => item.id === appointmentId)
+    const appointment = appointments.find((item) => item.id === appointmentId)
     if (appointment) {
       setAppointment(appointment)
     }
@@ -121,7 +121,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
   const { appointmentId = '' } = queryParams
 
   const onLoadedDirection = React.useCallback(
-    res => {
+    (res) => {
       const { duration, distance } = res.routes[0].legs[0]
       setRouteInformation({ duration, distance })
     },

@@ -2,11 +2,11 @@ import officeServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
 import { queryGetOfficeById, queryGetOffices, mutationCreateOffice, mutationUpdateOffice } from '../resolvers'
-import { createOfficeArgsMock } from '../__stubs__/create-office'
-import { updateOfficeArgsMock } from '../__stubs__/update-office'
-import { officeMock } from '../__stubs__/office'
-import { officesMock } from '../__stubs__/offices'
-import { mockContext } from '../../../__stubs__/context'
+import { createOfficeArgsMock } from '../__stubs__/mock-create-office'
+import { updateOfficeArgsMock } from '../__stubs__/mock-update-office'
+import { officeMock } from '../__stubs__/mock-office'
+import { officesMock } from '../__stubs__/mock-offices'
+import { mockContext } from '../../../__stubs__/mock-context'
 
 jest.mock('../services', () => ({
   getOfficeById: jest.fn(() => officeMock),

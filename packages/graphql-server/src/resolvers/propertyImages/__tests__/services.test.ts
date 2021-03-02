@@ -5,9 +5,9 @@ import {
   callUpdatePropertyImageAPI,
   callDeletePropertyImageAPI,
 } from '../api'
-import { mockContext } from '../../../__stubs__/context'
-import { createPropertyImageArgsMock } from '../__stubs__/create-property-image'
-import { updatePropertyImageArgsMock } from '../__stubs__/update-property-image'
+import { mockContext } from '../../../__stubs__/mock-context'
+import { createPropertyImageArgsMock } from '../__stubs__/mock-create-property-image'
+import { updatePropertyImageArgsMock } from '../__stubs__/mock-update-property-image'
 import {
   getPropertyImageById,
   getPropertyImages,
@@ -15,9 +15,9 @@ import {
   updatePropertyImage,
   deletePropertyImage,
 } from '../services'
-import { propertyImageMock } from '../__stubs__/propertyImage'
-import { propertyImagesMock } from '../__stubs__/propertyImages'
-import { deletePropertyImageArgsMock } from '../__stubs__/delete-property-image'
+import { propertyImageMock } from '../__stubs__/mock-property-image'
+import { propertyImagesMock } from '../__stubs__/mock-property-images'
+import { deletePropertyImageArgsMock } from '../__stubs__/mock-delete-property-image'
 
 jest.mock('../../../logger')
 jest.mock('../api', () => ({

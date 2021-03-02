@@ -37,7 +37,7 @@ export default {
   component: Tile,
 }
 
-export const AddressTile: Story<TileProps> = args => (
+export const AddressTile: Story<TileProps> = (args) => (
   <Tile {...args}>
     <IconList items={iconItems} />
   </Tile>
@@ -49,7 +49,7 @@ AddressTile.args = {
   icon: <FaMapMarkerAlt className="media-icon" />,
 }
 
-export const AddressTileHightlighted: Story<TileProps> = args => (
+export const AddressTileHightlighted: Story<TileProps> = (args) => (
   <Tile {...args}>
     <IconList items={iconItems} />
   </Tile>
@@ -62,7 +62,7 @@ AddressTileHightlighted.args = {
   icon: <FaMapMarkerAlt className="media-icon" />,
 }
 
-export const AppTile: Story<TileProps> = args => (
+export const AppTile: Story<TileProps> = (args) => (
   <Tile {...args}>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, eum esse nisi cumque quisquam incidunt atque
