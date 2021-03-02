@@ -19,7 +19,7 @@ const validate = (values) => {
 }
 
 export default {
-  title: 'Rereshed-Docs/TextAreaEditor',
+  title: 'Components/TextAreaEditor',
   component: TextAreaEditor,
 }
 

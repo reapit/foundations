@@ -23,7 +23,7 @@ const html = `
 `
 
 export default {
-  title: 'Rereshed-Docs/HTMLRender',
+  title: 'Components/HTMLRender',
   component: HTMLRender,
 }
 

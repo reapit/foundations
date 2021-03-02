@@ -10,7 +10,7 @@ const handleChange = (html: string) => {
 // TODO: this componnet is just a loose wrapper around something called pell - again,
 // this is react specific. How should we portray the CSS styles
 export default {
-  title: 'Rereshed-Docs/Editor',
+  title: 'Components/Editor',
   component: Editor,
 }
 

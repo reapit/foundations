@@ -8,7 +8,7 @@ import { Form, Formik } from 'formik'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/CameraImageInput',
+  title: 'Components/CameraImageInput',
   component: CameraImageInput,
 }
 

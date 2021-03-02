@@ -7,7 +7,7 @@ import { AppNavContainer, Section } from '../Layout'
 import { GLOBAL_KEY } from '../DynamicLinks'
 
 export default {
-  title: 'Rereshed-Docs/Menu',
+  title: 'Components/Menu',
   component: Menu,
 }
 

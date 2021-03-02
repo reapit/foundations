@@ -19,7 +19,7 @@ const items = [
 ]
 
 export default {
-  title: 'Rereshed-Docs/IconList',
+  title: 'Components/IconList',
   component: IconList,
 }
 

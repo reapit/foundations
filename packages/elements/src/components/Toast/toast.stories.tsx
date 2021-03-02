@@ -13,7 +13,7 @@ const DEFAULT_COMPONENT_ERROR = {
 } as ErrorData
 
 export default {
-  title: 'Rereshed-Docs/Toast',
+  title: 'Components/Toast',
   component: Toast,
 }
 

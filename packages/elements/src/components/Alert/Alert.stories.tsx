@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0'
 import { Alert, AlertProps } from './index'
 
 export default {
-  title: 'Rereshed-Docs/Alert',
+  title: 'Components/Alert',
   component: Alert,
 }
 

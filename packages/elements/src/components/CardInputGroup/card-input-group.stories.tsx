@@ -6,7 +6,7 @@ import { Form, Formik } from 'formik'
 import { H6 } from '../Typography'
 
 export default {
-  title: 'Rereshed-Docs/CardInputGroup',
+  title: 'Components/CardInputGroup',
   component: CardInputGroup,
 }
 

@@ -6,7 +6,7 @@ import { Form, Formik } from 'formik'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/TextArea',
+  title: 'Components/TextArea',
   component: TextArea,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?

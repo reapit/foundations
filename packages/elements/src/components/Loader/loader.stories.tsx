@@ -4,7 +4,7 @@ import { Loader, LoaderProps } from '.'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/Loader',
+  title: 'Components/Loader',
   component: Loader,
   decorators: [
     (Story: Story) => (

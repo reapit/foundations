@@ -66,7 +66,7 @@ const ComponentC = () => {
 }
 
 export default {
-  title: 'Rereshed-Docs/HelpGuide',
+  title: 'Components/HelpGuide',
   component: HelpGuide,
 }
 

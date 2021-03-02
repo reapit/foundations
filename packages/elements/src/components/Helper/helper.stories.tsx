@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { Helper, HelperProps } from './index'
 
 export default {
-  title: 'Rereshed-Docs/Helper',
+  title: 'Components/Helper',
   component: Helper,
 }
 

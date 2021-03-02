@@ -5,7 +5,7 @@ import { H1, H2, H3, H4, H5, H6, SubTitleH1, SubTitleH2, SubTitleH3, SubTitleH4,
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/Typography',
+  title: 'Components/Typography',
   component: H1,
   subcomponents: { H2, H3, H4, H5, H6, SubTitleH1, SubTitleH2, SubTitleH3, SubTitleH4, SubTitleH5, SubTitleH6 },
 }

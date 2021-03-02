@@ -4,7 +4,7 @@ import { ButtonGroup, ButtonGroupProps, Button } from './index'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Rereshed-Docs/ButtonGroup',
+  title: 'Components/ButtonGroup',
   component: ButtonGroup,
 }
 

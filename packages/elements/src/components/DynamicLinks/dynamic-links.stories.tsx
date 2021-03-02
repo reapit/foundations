@@ -7,7 +7,7 @@ import { DynamicLinkScenario, dynamicLinkScenarios } from './__stubs__/scenarios
 import { H6 } from '../Typography/index'
 
 export default {
-  title: 'Rereshed-Docs/DynamicLinks',
+  title: 'Components/DynamicLinks',
   component: AcButton,
   subcomponents: { AcLink },
 }

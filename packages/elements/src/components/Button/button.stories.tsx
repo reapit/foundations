@@ -4,7 +4,7 @@ import { Button, ButtonProps } from './index'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Rereshed-Docs/Button',
+  title: 'Components/Button',
   component: Button,
 }
 

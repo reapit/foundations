@@ -6,7 +6,7 @@ import { FileInput, FileInputProps } from '.'
 import { Section } from '@/components/Layout'
 
 export default {
-  title: 'Rereshed-Docs/FileInput',
+  title: 'Components/FileInput',
   component: FileInput,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?

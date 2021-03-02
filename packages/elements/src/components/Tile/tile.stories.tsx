@@ -33,7 +33,7 @@ const iconItems = [
 ]
 
 export default {
-  title: 'Rereshed-Docs/Tile',
+  title: 'Components/Tile',
   component: Tile,
 }
 
