@@ -4978,25 +4978,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda":
-  version: 0.0.0-use.local
-  resolution: "@reapit/cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    aws-lambda: ^1.0.6
-    concurrently: ^5.3.0
-    cross-env: ^7.0.3
-    ejs: ^3.1.6
-    eslint: 7.21.0
-    jest: ^26.6.3
-    jest-coverage-badges: ^1.1.2
-    ncp: ^2.0.0
-    rimraf: ^3.0.2
-    serverless: ^2.28.0
-    snyk: ^1.463.0
-  languageName: unknown
-  linkType: soft
-
 "@reapit/config-manager@^2.0.8, @reapit/config-manager@workspace:packages/config-manager":
   version: 0.0.0-use.local
   resolution: "@reapit/config-manager@workspace:packages/config-manager"
@@ -12875,6 +12856,25 @@ __metadata:
   checksum: 7d9837296e0f1c00239c88542f5a3e0bad11e45d3d0e8d9d097901fe54722dd5d2c006969077a287be8648a202c43f74e096f17552cbd897568308fba7b87ac0
   languageName: node
   linkType: hard
+
+"cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda":
+  version: 0.0.0-use.local
+  resolution: "cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
+  dependencies:
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    aws-lambda: ^1.0.6
+    concurrently: ^5.3.0
+    cross-env: ^7.0.3
+    ejs: ^3.1.6
+    eslint: 7.21.0
+    jest: ^26.6.3
+    jest-coverage-badges: ^1.1.2
+    ncp: ^2.0.0
+    rimraf: ^3.0.2
+    serverless: ^2.28.0
+    snyk: ^1.463.0
+  languageName: unknown
+  linkType: soft
 
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
