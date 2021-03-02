@@ -12,7 +12,7 @@ export type PrivateRouteWrapperProps = {}
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location.pathname}${location.search}`
+  const currentUri = `${location?.pathname}${location?.search}`
 
   if (!connectSession) {
     return null
