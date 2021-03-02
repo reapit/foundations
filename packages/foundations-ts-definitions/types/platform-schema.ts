@@ -8262,6 +8262,7 @@ export interface Properties {
     | 'withdrawn'
   )[]
   locality?: ('rural' | 'village' | 'townCity')[]
+  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   officeId?: string[]
   parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
   sellingStatus?: (
@@ -8308,7 +8309,6 @@ export interface Properties {
   )[]
   address?: string
   departmentId?: string
-  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   bedroomsFrom?: number
   bedroomsTo?: number
   priceFrom?: number
@@ -8987,6 +8987,16 @@ export interface PropertyModel {
    */
   officeIds?: string[]
   /**
+   * The date that this property became a lost instruction
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  lostInstructionDate?: string // date-time
+  /**
+   * The notes regarding the lost instruction
+   */
+  lostInstructionNote?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -9358,6 +9368,16 @@ export interface PropertyModelPagedResult {
      * A collection of unique identifiers of offices attached to the property
      */
     officeIds?: string[]
+    /**
+     * The date that this property became a lost instruction
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    lostInstructionDate?: string // date-time
+    /**
+     * The notes regarding the lost instruction
+     */
+    lostInstructionNote?: string
     /**
      * App specific metadata that has been set against the property
      */
