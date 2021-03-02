@@ -1,12 +1,11 @@
 const path = require('path')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const { PATHS } = require('../../scripts/webpack/constants')
 const slsw = require('serverless-webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const { EnvironmentPlugin } = require('webpack')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const { getVersionTag } = require('../../scripts/webpack/utils')
+const { getVersionTag, PATHS } = require('@reapit/ts-scripts')
 
 const getServerlessEnvPlugins = () => {
   const tagName = getVersionTag()
