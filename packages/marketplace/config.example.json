@@ -1,0 +1,24 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "googleAnalyticsKey": "",
+  "connectClientId": "",
+  "connectOAuthUrl": "",
+  "connectUserPoolId": "",
+  "platformApiUrl": "",
+  "webComponentConfigApiUrl": "",
+  "developerPortalUrl": "",
+  "orgAdminRestrictedAppIds": [""],
+  "reapitConnectManagementUri": "",
+  "comingSoonApps": {
+    "agencyCloud": [
+      { "image": "", "email": "" }
+    ],
+    "thirdParty": [
+      { "image": "", "email": "" }
+    ],
+    "portals": [
+      { "image": "", "email": "" }
+    ]
+  }
+}

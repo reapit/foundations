@@ -1,0 +1,8 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "connectClientId": "",
+  "connectOAuthUrl": "",
+  "connectUserPoolId": "",
+  "platformApiUrl": ""
+}
