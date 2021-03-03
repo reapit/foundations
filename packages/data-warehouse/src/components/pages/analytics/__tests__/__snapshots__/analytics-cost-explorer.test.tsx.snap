@@ -20,7 +20,7 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
         </H5>
         <FadeIn>
           <div
-            className="fade-in"
+            className="f334tw0"
           >
             <Grid>
               <div

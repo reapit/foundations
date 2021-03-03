@@ -15,7 +15,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
     </H3>
     <FadeIn>
       <div
-        className="fade-in"
+        className="f334tw0"
       >
         <Section>
           <section
@@ -58,7 +58,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
     <SubscriptionsContent>
       <FadeIn>
         <div
-          className="fade-in"
+          className="f334tw0"
         >
           <Section>
             <section
@@ -99,9 +99,6 @@ exports[`Subscriptions should match a snapshot 1`] = `
                              
                           </p>
                           <p>
-                            The below table represents the estimated cost of running a typical sales activity report for a given frequency over the course of a month:
-                          </p>
-                          <p>
                             * All charges are subject to VAT
                           </p>
                         </div>
@@ -113,7 +110,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
                         >
                           <PricingTile>
                             <div
-                              className="pricing-tile"
+                              className="p15qvdxf"
                             >
                               <div
                                 className="desktop-inner-container"

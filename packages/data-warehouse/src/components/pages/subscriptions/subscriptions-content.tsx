@@ -43,10 +43,6 @@ const SubscriptionsContent: React.FC = () => {
                 while your warehouse is in an active state and ready to serve data. After a short period of inactivity,
                 the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.{' '}
               </p>
-              <p>
-                The below table represents the estimated cost of running a typical sales activity report for a given
-                frequency over the course of a month:
-              </p>
               <p>* All charges are subject to VAT</p>
             </GridItem>
             <GridItem>

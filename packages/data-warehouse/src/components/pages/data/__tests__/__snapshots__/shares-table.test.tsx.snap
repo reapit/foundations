@@ -38659,7 +38659,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   text="https://XY81204.eu-west-1.snowflakecomputing.com/"
                 >
                   <div
-                    className="btn-copy"
+                    className="b1ucwyxn"
                     onClick={[Function]}
                     onMouseLeave={[Function]}
                     role="button"
@@ -38698,7 +38698,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                       </IconBase>
                     </FaCopy>
                     <span
-                      className="tooltiptext"
+                      className="tseuv1c"
                     >
                       Copy URL
                     </span>
@@ -45122,7 +45122,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   text="Driver={SnowflakeDSIIDriver};Server=XY81204.eu-west-1.snowflakecomputing.com;Database=reapit;schema=customers_rps_DEV;uid=<user name>;pwd=<password>;"
                 >
                   <div
-                    className="btn-copy"
+                    className="b1ucwyxn"
                     onClick={[Function]}
                     onMouseLeave={[Function]}
                     role="button"
@@ -45161,7 +45161,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                       </IconBase>
                     </FaCopy>
                     <span
-                      className="tooltiptext"
+                      className="tseuv1c"
                     >
                       Copy DSN
                     </span>

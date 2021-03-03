@@ -20,11 +20,11 @@ exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
         </H5>
         <FadeIn>
           <div
-            className="fade-in"
+            className="f334tw0"
           >
             <ChartContainer>
               <div
-                className="chart-container"
+                className="cau0g9r"
               >
                 <Bar
                   data={

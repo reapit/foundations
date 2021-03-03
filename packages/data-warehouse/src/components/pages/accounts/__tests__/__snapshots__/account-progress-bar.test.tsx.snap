@@ -14,7 +14,7 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
         width={0}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "0%",
@@ -33,7 +33,7 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
           key="1"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Initializing...
           </div>
@@ -58,7 +58,7 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
         width={19}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "19%",
@@ -77,7 +77,7 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
           key="1"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Initializing...
           </div>
@@ -102,7 +102,7 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
         width={39}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "39%",
@@ -121,7 +121,7 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
           key="2"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Creating account...
           </div>
@@ -146,7 +146,7 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
         width={59}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "59%",
@@ -165,7 +165,7 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
           key="3"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Provisioning compute...
           </div>
@@ -190,7 +190,7 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
         width={79}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "79%",
@@ -209,7 +209,7 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
           key="4"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Preparing permissions...
           </div>
@@ -234,7 +234,7 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
         width={94}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "94%",
@@ -253,7 +253,7 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
           key="5"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Setting up defaults...
           </div>
@@ -278,7 +278,7 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
         width={99}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "99%",
@@ -297,7 +297,7 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
           key="6"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
           </div>
@@ -322,7 +322,7 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
         width={100}
       >
         <div
-          className="progress-bar"
+          className="p1qkupc0"
           style={
             Object {
               "--p1qkupc0-0": "100%",
@@ -341,7 +341,7 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
           key="7"
         >
           <div
-            className="progress-message-text"
+            className="pjhu68s"
           >
             Your account is ready! 
             <span
