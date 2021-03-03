@@ -78,7 +78,7 @@ export const defaultState: WebhookEditState = {
     description: '',
     topicIds: [],
     customerIds: [],
-    ignoreEtagOnlyChanges: false,
+    ignoreEtagOnlyChanges: true,
     active: false,
   },
 }
