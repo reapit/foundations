@@ -1,6 +1,11 @@
 import { FormFieldInfo } from '@reapit/utils'
 
-export type FieldKey = 'webhookUrlField' | 'topicIdsField' | 'customerIdsField' | 'activeField'
+export type FieldKey =
+  | 'webhookUrlField'
+  | 'topicIdsField'
+  | 'customerIdsField'
+  | 'activeField'
+  | 'ignoreEtagOnlyChangesField'
 
 export const formFields: Record<FieldKey, FormFieldInfo> = {
   webhookUrlField: {
@@ -22,5 +27,9 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
   activeField: {
     name: 'active',
     label: 'Active',
+  },
+  ignoreEtagOnlyChangesField: {
+    name: 'ignoreEtagOnlyChanges',
+    label: 'INCLUDE NOTIFICATIONS WHERE ONLY THE ETAG HAS BEEN MODIFIED',
   },
 }
