@@ -18,6 +18,7 @@ export interface WebhookModal {
   description: string
   topicIds: string[]
   customerIds: string[]
+  ignoreEtagOnlyChanges: boolean
   active: boolean
 }
 
@@ -77,6 +78,7 @@ export const defaultState: WebhookEditState = {
     description: '',
     topicIds: [],
     customerIds: [],
+    ignoreEtagOnlyChanges: false,
     active: false,
   },
 }

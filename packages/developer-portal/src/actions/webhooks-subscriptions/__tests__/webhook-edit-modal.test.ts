@@ -26,6 +26,7 @@ describe('developer webhook actions', () => {
       description: '',
       topicIds: ['0a795809-8a41-449f-9865-ae0a536db6b7'],
       customerIds: ['0a795809-8a41-449f-9865-ae0a536db6b7'],
+      ignoreEtagOnlyChanges: true,
       active: true,
     }
     expect(createWebhook.type).toEqual(ActionTypes.WEBHOOK_CREATE)
