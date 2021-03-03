@@ -30,6 +30,6 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
   },
   ignoreEtagOnlyChangesField: {
     name: 'ignoreEtagOnlyChanges',
-    label: 'INCLUDE NOTIFICATIONS WHERE ONLY THE ETAG HAS BEEN MODIFIED',
+    label: 'IGNORE NOTIFICATIONS WHERE ONLY THE ETAG HAS BEEN MODIFIED',
   },
 }
