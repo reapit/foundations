@@ -1,0 +1,10 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "googleAnalyticsKey": "",
+  "connectClientId": "",
+  "connectOAuthUrl": "",
+  "platformApiUrl": "",
+  "cognitoUserPoolId": "",
+  "dynamoEnv": ""
+}

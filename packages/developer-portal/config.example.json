@@ -1,0 +1,13 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "googleAnalyticsKey": "",
+  "connectClientId": "",
+  "connectOAuthUrl": "",
+  "connectUserPoolId": "",
+  "chatbotAppId": "",
+  "marketplaceUrl": "",
+  "platformApiUrl": "",
+  "developerEditionDownloadUrl": "",
+  "adobeSignApiKey": ""
+}
