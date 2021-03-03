@@ -69,6 +69,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           pageSize: INSTALLED_APPS_PERPAGE,
           onlyInstalled: true,
           developerId: isSandboxDeveloper && developerId ? [developerId] : undefined,
+          showHiddenApps: true,
         }),
       )
       break
