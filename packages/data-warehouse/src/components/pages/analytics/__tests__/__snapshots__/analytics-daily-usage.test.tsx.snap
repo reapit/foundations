@@ -246,11 +246,11 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
           </Formik>
           <FadeIn>
             <div
-              className="fade-in"
+              className="f334tw0"
             >
               <StatsContainer>
                 <div
-                  className="stats-container"
+                  className="s4ac8dg"
                 >
                   <Loader>
                     <div

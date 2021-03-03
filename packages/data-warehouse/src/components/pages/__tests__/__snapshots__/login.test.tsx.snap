@@ -2,10 +2,10 @@
 
 exports[`Login should match a snapshot 1`] = `
 <div
-  className="container"
+  className="c1j1jlu5"
 >
   <div
-    className="wrapper"
+    className="w19u410w"
   >
     <Level>
       <img
@@ -25,7 +25,7 @@ exports[`Login should match a snapshot 1`] = `
     </Level>
   </div>
   <div
-    className="image"
+    className="isu86xr"
   >
     <img
       alt="Reapit Graphic"
