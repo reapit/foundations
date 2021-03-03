@@ -37,7 +37,7 @@ import { formFields } from './form-schema/form-fields'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { SANDBOX_CLIENT } from '@/constants/api'
 
-const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
+const { activeField, topicIdsField, webhookUrlField, customerIdsField, ignoreEtagOnlyChangesField } = formFields
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -118,6 +118,7 @@ export const onCreate = (
     description: '',
     topicIds: values.topicIds,
     customerIds: values.customerIds,
+    ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
     active: values.active,
   }
   dispatch(createWebhook(params))
@@ -142,6 +143,7 @@ export const onEdit = (
     description: '',
     topicIds: values.topicIds,
     customerIds: values.customerIds,
+    ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
     active: values.active,
   }
   dispatch(editWebhook(params))
@@ -167,6 +169,7 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
     url: webhookData?.url,
     topicIds: webhookData?.topicIds,
     customerIds: webhookData?.customerIds,
+    ignoreEtagOnlyChanges: webhookData?.ignoreEtagOnlyChanges,
     active: webhookData?.active,
   }
 
@@ -243,6 +246,11 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                         options={customerOptions}
                         dropdownStyle={{ zIndex: 41 }}
                       />
+                      <Checkbox
+                        id={ignoreEtagOnlyChangesField.name}
+                        name={ignoreEtagOnlyChangesField.name}
+                        labelText={ignoreEtagOnlyChangesField.label as string}
+                      />
                       <Checkbox id={activeField.name} name={activeField.name} labelText={activeField.label as string} />
                     </Form>
                   }
@@ -281,6 +289,7 @@ export type FormValuesType = {
   url: string
   topicIds: string[]
   customerIds: string[]
+  ignoreEtagOnlyChanges: boolean
   active: boolean
 }
 

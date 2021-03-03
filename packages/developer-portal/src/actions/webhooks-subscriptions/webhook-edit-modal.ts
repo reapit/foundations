@@ -35,6 +35,7 @@ export interface CreateWebhookParams {
   description?: string
   topicIds: string[]
   customerIds: string[]
+  ignoreEtagOnlyChanges: boolean
   active: boolean
 }
 
@@ -45,6 +46,7 @@ export interface EditWebhookParams {
   description?: string
   topicIds: string[]
   customerIds: string[]
+  ignoreEtagOnlyChanges: boolean
   active: boolean
 }
 

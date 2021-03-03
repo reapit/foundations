@@ -155,6 +155,7 @@ const appState: ReduxState = {
         description: '',
         topicIds: [],
         customerIds: [],
+        ignoreEtagOnlyChanges: true,
         active: false,
       },
     },

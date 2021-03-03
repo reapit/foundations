@@ -53,6 +53,7 @@ describe('WebhookEditModal', () => {
       url: '',
       topicIds: ['TEST'],
       customerIds: ['TEST'],
+      ignoreEtagOnlyChanges: true,
       active: false,
     }
     fn(values)
@@ -64,6 +65,7 @@ describe('WebhookEditModal', () => {
         description: '',
         topicIds: values.topicIds,
         customerIds: values.customerIds,
+        ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
         active: values.active,
       }),
     )
@@ -78,6 +80,7 @@ describe('WebhookEditModal', () => {
       url: '',
       topicIds: ['TEST'],
       customerIds: ['TEST'],
+      ignoreEtagOnlyChanges: true,
       active: false,
     }
     fn(values)
@@ -89,6 +92,7 @@ describe('WebhookEditModal', () => {
         description: '',
         topicIds: values.topicIds,
         customerIds: values.customerIds,
+        ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
         active: values.active,
       }),
     )
@@ -102,6 +106,7 @@ describe('WebhookEditModal', () => {
       url: '',
       topicIds: ['TEST'],
       customerIds: ['TEST'],
+      ignoreEtagOnlyChanges: true,
       active: false,
     }
     fn(values)
@@ -112,6 +117,7 @@ describe('WebhookEditModal', () => {
         description: '',
         topicIds: values.topicIds,
         customerIds: values.customerIds,
+        ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
         active: values.active,
       }),
     )
@@ -125,6 +131,7 @@ describe('WebhookEditModal', () => {
       url: '',
       topicIds: ['TEST'],
       customerIds: ['TEST'],
+      ignoreEtagOnlyChanges: true,
       active: false,
     }
     fn(values)
@@ -135,6 +142,7 @@ describe('WebhookEditModal', () => {
         description: '',
         topicIds: values.topicIds,
         customerIds: values.customerIds,
+        ignoreEtagOnlyChanges: values.ignoreEtagOnlyChanges,
         active: values.active,
       }),
     )

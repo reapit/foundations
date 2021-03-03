@@ -5024,8 +5024,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations"
   dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    concurrently: ^5.3.0
     eslint: 7.21.0
   languageName: unknown
   linkType: soft
@@ -7771,6 +7769,13 @@ __metadata:
   version: 4.14.155
   resolution: "@types/lodash@npm:4.14.155"
   checksum: e3fa52de94757a765761b3b5f0e483aa61de985b75f7d4a55e6f6b79c31b7cbba0e2e91eec14b38fe66b82f5cd79dd83a54069a0e5491a1c7126e01b143a0a29
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.165":
+  version: 4.14.168
+  resolution: "@types/lodash@npm:4.14.168"
+  checksum: 9a4e25f89fc035b9f0388f1f7be85e5eff49f9e6db0d93432c9a89fce0916f8a89db4e8290415f7ea02de6b00d3573826378dcb655b7b2d20530a6e8d6dd6fd0
   languageName: node
   linkType: hard
 
@@ -25439,6 +25444,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"nanoclone@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "nanoclone@npm:0.2.1"
+  checksum: f624fe519818ac2ab9fc2322d0bd8b54def4c0080123e7e4fa4a8d5fa331862e057a5c8fa1923cce6445d011a66718454750058a16c3a68b1912058288cd71a2
+  languageName: node
+  linkType: hard
+
 "nanoid@npm:^2.1.0":
   version: 2.1.11
   resolution: "nanoid@npm:2.1.11"
@@ -28196,6 +28208,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"property-expr@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "property-expr@npm:2.0.4"
+  checksum: fffa6ba8a21cbbf694652755fe2cf4d68bfb8c625f2de6424910edf2c7d50a3f4e7e5ac749b8fe42261cb63d12148d7612f207397d244151e2d7fb853ce7bf5b
+  languageName: node
+  linkType: hard
+
 "property-information@npm:^5.0.0, property-information@npm:^5.3.0":
   version: 5.5.0
   resolution: "property-information@npm:5.5.0"
@@ -29757,7 +29776,7 @@ fsevents@^1.2.7:
     typescript: ^4.0.3
     webpack: ^4.46.0
     webpack-dev-server: ^3.11.2
-    yup: ^0.29.3
+    yup: ^0.32.8
   languageName: unknown
   linkType: soft
 
@@ -37176,6 +37195,21 @@ typescript@^4.0.3:
     synchronous-promise: ^2.0.13
     toposort: ^2.0.2
   checksum: bc07ab697d38169c9fad874696008ec84dab14f5e3559b539c7edb01ea49235808670ea4cb7de64009ed473fb3700e6794ed407c293cb94b2d6c4f34deb16e4b
+  languageName: node
+  linkType: hard
+
+"yup@npm:^0.32.8":
+  version: 0.32.9
+  resolution: "yup@npm:0.32.9"
+  dependencies:
+    "@babel/runtime": ^7.10.5
+    "@types/lodash": ^4.14.165
+    lodash: ^4.17.20
+    lodash-es: ^4.17.15
+    nanoclone: ^0.2.1
+    property-expr: ^2.0.4
+    toposort: ^2.0.2
+  checksum: 9da93a58fdd02562b676dc582125b4484d4f06b597498c83e249bdb604937669089e6d38d8a890fe83a256684e6386b389f65e9aef4b6efa5298a3ddb3084ba8
   languageName: node
   linkType: hard
 

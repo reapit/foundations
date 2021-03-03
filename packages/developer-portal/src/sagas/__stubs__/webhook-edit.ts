@@ -29,6 +29,7 @@ export const webhookItemDataStub: WebhookModal = {
   description: '',
   topicIds: [],
   customerIds: [],
+  ignoreEtagOnlyChanges: true,
   active: false,
 }
 export const webhookEditDataStub: WebhookEditState = {
@@ -44,5 +45,6 @@ export const createWebhookItem: CreateWebhookParams = {
   description: '',
   topicIds: [],
   customerIds: [],
+  ignoreEtagOnlyChanges: true,
   active: true,
 }
