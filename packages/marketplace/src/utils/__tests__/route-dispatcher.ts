@@ -62,6 +62,7 @@ describe('routeDispatcher', () => {
         pageSize: INSTALLED_APPS_PERPAGE,
         onlyInstalled: true,
         developerId: undefined,
+        showHiddenApps: true,
       }),
     )
   })
