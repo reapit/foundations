@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import updateStatusById from '../update'
+import updateAutomationById from '../update'
 import { db } from '../../../core/db'
 
 jest.mock('../../../core/logger')
@@ -7,14 +7,14 @@ jest.mock('../../../core/db', () => {
   return {
     db: {
       get: jest.fn(() => ({
-        eventId: 'SOME_ID',
+        id: 'SOME_ID',
         clientCode: 'SOME_CODE',
-        status: 'actioned',
+        triggerOnEventType: 'oldTrigger',
       })),
       update: jest.fn(() => ({
-        eventId: 'SOME_ID',
+        id: 'SOME_ID',
         clientCode: 'SOME_CODE',
-        status: 'outstanding',
+        triggerOnEventType: 'newTrigger',
       })),
     },
   }
@@ -26,10 +26,10 @@ const baseMockReq = {
   },
   traceId: 'SOME_TRACE_ID',
   params: {
-    eventId: 'SOME_ID',
+    id: 'SOME_ID',
   },
   body: {
-    status: 'outstanding',
+    triggerOnEventType: 'newTrigger',
   },
 }
 
@@ -51,9 +51,9 @@ describe('updateStatusById', () => {
       ...baseMockRes,
     }
 
-    await updateStatusById(mockReq, mockRes as Response)
+    await updateAutomationById(mockReq, mockRes as Response)
 
-    expect(db.get).toHaveBeenCalledWith({ eventId: baseMockReq.params.eventId })
+    expect(db.get).toHaveBeenCalledWith({ id: baseMockReq.params.id })
     expect(mockRes.status).toHaveBeenCalledWith(401)
     expect(mockRes.json).toHaveBeenCalledWith({
       code: 401,
@@ -69,14 +69,14 @@ describe('updateStatusById', () => {
       ...baseMockRes,
     }
 
-    await updateStatusById(mockReq, mockRes as Response)
+    await updateAutomationById(mockReq, mockRes as Response)
 
-    expect(db.get).toHaveBeenCalledWith({ eventId: baseMockReq.params.eventId })
+    expect(db.get).toHaveBeenCalledWith({ id: baseMockReq.params.id })
     expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.json).toHaveBeenCalledWith({
-      eventId: 'SOME_ID',
+      id: 'SOME_ID',
       clientCode: 'SOME_CODE',
-      status: 'outstanding',
+      triggerOnEventType: 'newTrigger',
     })
   })
 

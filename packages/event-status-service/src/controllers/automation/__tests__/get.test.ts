@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import updateStatusById from '../update'
+import getAutomationById from '../get'
 import { db } from '../../../core/db'
 
 jest.mock('../../../core/logger')
@@ -7,14 +7,11 @@ jest.mock('../../../core/db', () => {
   return {
     db: {
       get: jest.fn(() => ({
-        eventId: 'SOME_ID',
+        id: 'SOME_ID',
         clientCode: 'SOME_CODE',
-        status: 'actioned',
-      })),
-      update: jest.fn(() => ({
-        eventId: 'SOME_ID',
-        clientCode: 'SOME_CODE',
-        status: 'outstanding',
+        messageChannel: 'sms',
+        messageBody: 'messageBody',
+        triggerOnEventType: 'enquiry',
       })),
     },
   }
@@ -26,10 +23,7 @@ const baseMockReq = {
   },
   traceId: 'SOME_TRACE_ID',
   params: {
-    eventId: 'SOME_ID',
-  },
-  body: {
-    status: 'outstanding',
+    id: 'SOME_ID',
   },
 }
 
@@ -38,7 +32,7 @@ const baseMockRes = {
   json: jest.fn(),
 }
 
-describe('updateStatusById', () => {
+describe('getAutomationById', () => {
   it('should return a 401 if the client code doesnt match', async () => {
     const mockReq: any = {
       ...baseMockReq,
@@ -51,9 +45,9 @@ describe('updateStatusById', () => {
       ...baseMockRes,
     }
 
-    await updateStatusById(mockReq, mockRes as Response)
+    await getAutomationById(mockReq, mockRes as Response)
 
-    expect(db.get).toHaveBeenCalledWith({ eventId: baseMockReq.params.eventId })
+    expect(db.get).toHaveBeenCalledWith({ id: baseMockReq.params.id })
     expect(mockRes.status).toHaveBeenCalledWith(401)
     expect(mockRes.json).toHaveBeenCalledWith({
       code: 401,
@@ -61,7 +55,7 @@ describe('updateStatusById', () => {
     })
   })
 
-  it('should update an event status', async () => {
+  it('should get an automation status', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }
@@ -69,14 +63,16 @@ describe('updateStatusById', () => {
       ...baseMockRes,
     }
 
-    await updateStatusById(mockReq, mockRes as Response)
+    await getAutomationById(mockReq, mockRes as Response)
 
-    expect(db.get).toHaveBeenCalledWith({ eventId: baseMockReq.params.eventId })
+    expect(db.get).toHaveBeenCalledWith({ id: baseMockReq.params.id })
     expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.json).toHaveBeenCalledWith({
-      eventId: 'SOME_ID',
+      id: 'SOME_ID',
       clientCode: 'SOME_CODE',
-      status: 'outstanding',
+      messageChannel: 'sms',
+      messageBody: 'messageBody',
+      triggerOnEventType: 'enquiry',
     })
   })
 

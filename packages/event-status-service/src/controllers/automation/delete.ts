@@ -2,17 +2,17 @@ import { Response } from 'express'
 import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { db } from '../../core/db'
-import { generateStatusItem } from '../../schemas/event-status.schema'
+import { generateAutomationItem } from '../../schemas/automation.schema'
 
 export default async (req: AppRequest, res: Response) => {
-  const eventId = req.params.eventId as string | undefined
+  const id = req.params.id as string | undefined
   const { traceId } = req
 
   try {
-    logger.info('Getting status by eventId...', { traceId, eventId })
+    logger.info('Deleting automation by id...', { traceId, id })
 
-    const itemToGet = generateStatusItem({ eventId })
-    const result = await db.get(itemToGet)
+    const item = generateAutomationItem({ id })
+    const result = await db.get(item)
 
     if (result.clientCode !== (req as any).user.clientCode) {
       res.status(401)
@@ -22,15 +22,16 @@ export default async (req: AppRequest, res: Response) => {
       })
     }
 
-    res.status(200)
-    return res.json(result)
+    await db.delete(item)
+
+    return res.status(204).send()
   } catch (error) {
-    logger.error('Error retrieving status', stringifyError(error))
+    logger.error('Error retrieving automation', stringifyError(error))
 
     if (error.name === 'ItemNotFoundException') {
       res.status(200)
       return res.json({
-        error: `Status not found for ${eventId}`,
+        error: `Automation not found for ${id}`,
         code: 404,
       })
     }

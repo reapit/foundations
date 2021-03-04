@@ -2,18 +2,14 @@ import { Response } from 'express'
 import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/node-utils'
 import { db } from '../../core/db'
-import { EventStatus } from '../../schemas/event-status.schema'
-import { between, equals } from '@aws/dynamodb-expressions'
+import { Automation } from '../../schemas/automation.schema'
 
 export default async (req: AppRequest, res: Response) => {
-  const dateFrom = req.query.dateFrom as string | undefined
-  const dateTo = req.query.dateTo as string | undefined
   const clientCode = req.query.clientCode as string | undefined
-  const status = req.query.status as string
   const { traceId } = req
 
   try {
-    logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
+    logger.info('Getting automations by parmeters...', { traceId, clientCode })
 
     if ((req as any).user.clientCode !== clientCode) {
       res.status(401)
@@ -23,23 +19,12 @@ export default async (req: AppRequest, res: Response) => {
       })
     }
 
-    const keyCondition = {
-      clientCode,
-      eventCreatedAt: between(dateFrom, dateTo),
-    }
-
+    const keyCondition = { clientCode }
     const queryConditons = {
-      indexName: 'EventStatusesByClientCodeAndEventCreatedDate',
-      filter: undefined,
+      indexName: 'AutomationsByClientCode',
     }
+    const iterator = db.query(Automation, keyCondition, queryConditons)
 
-    if (status)
-      queryConditons.filter = {
-        subject: 'status',
-        ...equals(status),
-      }
-
-    const iterator = db.query(EventStatus, keyCondition, queryConditons)
     const responeRecords = []
     for await (const record of iterator) {
       responeRecords.push(record)
@@ -48,7 +33,7 @@ export default async (req: AppRequest, res: Response) => {
     res.status(200)
     return res.json(responeRecords)
   } catch (error) {
-    logger.error('Error retrieving statuses', stringifyError(error))
+    logger.error('Error retrieving automations', stringifyError(error))
 
     res.status(400)
     return res.json({

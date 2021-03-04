@@ -1,18 +1,24 @@
 import { Response } from 'express'
 import { logger } from '../../core/logger'
 import { AppRequest, stringifyError } from '@reapit/node-utils'
-import { EventStatus, generateStatusItem } from '../../schemas/event-status.schema'
+import { Automation, generateAutomationItem } from '../../schemas/automation.schema'
 import { db } from '../../core/db'
 
+type Payload = {
+  messageChannel?: Automation['messageChannel']
+  messageBody?: Automation['messageBody']
+  triggerOnEventType?: Automation['triggerOnEventType']
+}
+
 export default async (req: AppRequest, res: Response) => {
-  const eventId = req.params.eventId as string | undefined
-  const newStatus = req.body.status as EventStatus['status']
+  const id = req.params.id as string | undefined
+  const payload = req.body as Payload
   const { traceId } = req
 
   try {
-    logger.info('Updating status by statusId...', { traceId, eventId })
+    logger.info('Updating automation by id...', { traceId, id })
 
-    const itemToGet = generateStatusItem({ eventId })
+    const itemToGet = generateAutomationItem({ id })
     const retrievedItem = await db.get(itemToGet)
 
     if (retrievedItem.clientCode !== (req as any).user.clientCode) {
@@ -24,19 +30,25 @@ export default async (req: AppRequest, res: Response) => {
     }
 
     const now = new Date().toISOString()
-    const itemToUpdate = generateStatusItem({ eventId, status: newStatus, statusUpdatedAt: now })
+    const itemToUpdate = generateAutomationItem({
+      ...retrievedItem,
+      messageChannel: payload.messageChannel || retrievedItem.messageChannel,
+      messageBody: payload.messageBody || retrievedItem.messageBody,
+      triggerOnEventType: payload.triggerOnEventType || retrievedItem.triggerOnEventType,
+      updatedAt: now,
+    })
 
     const result = await db.update(itemToUpdate, { onMissing: 'skip' })
 
     res.status(200)
     return res.json(result)
   } catch (error) {
-    logger.error('Error updating status', stringifyError(error))
+    logger.error('Error updating automation', stringifyError(error))
 
     if (error.name === 'ItemNotFoundException') {
       res.status(200)
       return res.json({
-        error: `Status not found for ${eventId}`,
+        error: `Automation with ID ${id} not found`,
         code: 404,
       })
     }

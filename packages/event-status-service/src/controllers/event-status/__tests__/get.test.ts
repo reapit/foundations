@@ -52,7 +52,7 @@ describe('getStatusById', () => {
     })
   })
 
-  xit('should get an event status', async () => {
+  it('should get an event status', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }

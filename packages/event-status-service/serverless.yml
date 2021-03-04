@@ -34,6 +34,10 @@ custom:
         sources:
           - table: 'Cloud_Event_Statuses'
             sources: [./seed/event-status.json]
+          - table: 'Cloud_Automations'
+            sources: [./seed/automations.json]
+          - table: 'Cloud_Conversations'
+            sources: [./seed/conversations.json]
 
 provider:
   name: aws
@@ -109,6 +113,48 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 1
               WriteCapacityUnits: 1
+    automationsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'Cloud_Automations'
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: clientCode
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: AutomationsByClientCode
+            KeySchema:
+              - AttributeName: clientCode
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+    conversationsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'Cloud_Conversations'
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: eventId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: eventId
+            KeyType: HASH
 
 package:
   individually: true
@@ -134,7 +180,7 @@ functions:
           method: get
           path: /ok
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -149,7 +195,7 @@ functions:
           method: get
           path: /event-status/{eventId}
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -166,7 +212,7 @@ functions:
           method: get
           path: /event-status
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -183,7 +229,7 @@ functions:
           method: post
           path: /event-status
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -199,6 +245,40 @@ functions:
       - http:
           method: put
           path: /event-status/{eventId}
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+      - http:
+          method: any
+          path: /automation/{eventId}
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+      - http:
+          method: any
+          path: /automation
           cors:
             origin: '*'
             headers:
