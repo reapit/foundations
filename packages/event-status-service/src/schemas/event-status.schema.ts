@@ -1,7 +1,7 @@
 import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations'
 import { DYNAMO_DB } from '../core/constants'
 
-@table(DYNAMO_DB.tableName)
+@table(DYNAMO_DB.tableNames.eventStatuses)
 export class EventStatus {
   @hashKey()
   eventId: string

@@ -32,7 +32,7 @@ custom:
     seed:
       localSeed:
         sources:
-          - table: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+          - table: 'Cloud_Event_Statuses'
             sources: [./seed/event-status.json]
 
 provider:
@@ -47,7 +47,6 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
-    DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -57,7 +56,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.env.DYNAMO_DB_TABLE_NAME}*'
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/Cloud_*'
 
 resources:
   Resources:
@@ -82,7 +81,7 @@ resources:
     eventStatusesTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
+        TableName: 'Cloud_Event_Statuses'
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
@@ -201,7 +200,7 @@ functions:
           method: put
           path: /event-status/{eventId}
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date

@@ -1,7 +1,6 @@
 {
   "DYNAMO_DB_REGION": "",
   "DYNAMO_DB_ENDPOINT": "",
-  "DYNAMO_DB_TABLE_NAME": "",
   "AWS_ACCOUNT_ID": "",
   "COGNITO_USERPOOL_ID": ""
 }
