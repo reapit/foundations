@@ -29,7 +29,7 @@ router.post('/automation', checkSchema(automationValidation.create), validateReq
 router.patch('/automation/:id', checkSchema(automationValidation.update), validateRequest, updateAutomationById)
 router.delete('/automation/:id', deleteAutomationById)
 
-// router.post('/event', createEvent)
+router.post('/event', createEvent)
 // router.get('/event', listEvents)
 
 export default router

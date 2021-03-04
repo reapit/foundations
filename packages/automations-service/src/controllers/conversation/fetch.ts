@@ -16,7 +16,7 @@ export default async (req: AppRequest, res: Response) => {
 
     // TODO: move this to config
     const accountSid = 'ACc6ef024a3a76ff03dbe9e15b27d5daa6'
-    const authToken = '0198acb81f7006dd5a95f2a8ec67b1f3'
+    const authToken = ''
     const client = twilio(accountSid, authToken)
 
     // TODO: this has to be scoped to an agent, a client, an office or similar?
