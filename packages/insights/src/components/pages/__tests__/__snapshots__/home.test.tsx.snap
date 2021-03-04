@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match a snapshot 1`] = `
+<Fragment>
+  <Content>
+    <H3
+      isHeadingSection={true}
+    >
+      Reapit Insights
+    </H3>
+    <Section
+      isFlex={true}
+      isFlexColumn={true}
+    >
+      <iframe
+        height="900px"
+        style={
+          Object {
+            "border": "none",
+            "flexGrow": 1,
+          }
+        }
+        width="100%"
+      />
+    </Section>
+  </Content>
+</Fragment>
+`;

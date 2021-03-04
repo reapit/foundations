@@ -95,7 +95,7 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
           row.name === 'Data Warehouse Subscription'
             ? `${formatted} (Includes 2 hours warehouse uptime per month)`
             : row.name === 'Data Warehouse'
-            ? `${formatted} (${row.amount ?? 0} hour(s) additional uptime)`
+            ? `${formatted} (${row.amount && row.amount > 2 ? row.amount - 2 : 0} hour(s) additional uptime)`
             : formatted
         return cost
       },
