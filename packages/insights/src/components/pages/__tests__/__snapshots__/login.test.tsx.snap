@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match a snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="wrapper"
+  >
+    <Level>
+      <img
+        alt="Reapit Connect Graphic"
+        src=""
+      />
+    </Level>
+    <Level>
+      <Button
+        fullWidth={true}
+        onClick={[Function]}
+        type="submit"
+        variant="primary"
+      >
+        Login
+      </Button>
+    </Level>
+  </div>
+  <div
+    className="image"
+  >
+    <img
+      alt="Reapit Graphic"
+      src=""
+    />
+  </div>
+</div>
+`;
