@@ -51,6 +51,8 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
+    TWILIO_ACC_ID: ${self:custom.env.TWILIO_ACC_ID}
+    TWILIO_AUTH_TOKEN: ${self:custom.env.TWILIO_AUTH_TOKEN}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -279,6 +281,23 @@ functions:
       - http:
           method: any
           path: /automation
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - reapit-customer
+              - api-version
+              - if-match
+          authorizer:
+            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
+      - http:
+          method: any
+          path: /event
           cors:
             origin: '*'
             headers:

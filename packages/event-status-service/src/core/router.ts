@@ -12,6 +12,8 @@ import createAutomation from '../controllers/automation/create'
 import updateAutomationById from '../controllers/automation/update'
 import deleteAutomationById from '../controllers/automation/delete'
 
+import createEvent from '../controllers/event/create'
+
 import validateRequest from '../middlewares/validate-request'
 import * as eventStatusValidation from '../validations/event-status'
 import * as automationValidation from '../validations/automation'
@@ -29,6 +31,7 @@ router.post('/automation', checkSchema(automationValidation.create), validateReq
 router.patch('/automation/:id', checkSchema(automationValidation.update), validateRequest, updateAutomationById)
 router.delete('/automation/:id', deleteAutomationById)
 
+// TODO: add request validation on these endpoints
 router.post('/event', createEvent)
 // router.get('/event', listEvents)
 

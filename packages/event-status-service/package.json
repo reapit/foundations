@@ -7,14 +7,14 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "serverless dynamodb install && yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
-    "lint": "eslint --cache --ext=ts,tsx src --fix",
-    "release": "serverless deploy",
-    "publish": "echo '...skipping...'",
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
     "conf": "yarn config-manager --namespace cloud --entity event-status-service --name local --mode fetch",
-    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "publish": "echo '...skipping...'",
+    "release": "serverless deploy",
+    "start": "serverless dynamodb install && yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
@@ -33,6 +33,7 @@
     "serialize-error": "^7.0.1",
     "serverless-dynamodb-local": "^0.2.39",
     "serverless-http": "^2.7.0",
+    "twilio": "^3.56.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {

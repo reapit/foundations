@@ -7,3 +7,8 @@ export const DYNAMO_DB = {
     conversations: 'Cloud_Conversations',
   },
 }
+
+export const TWILIO = {
+  accountId: process.env.TWILIO_ACC_ID,
+  authToken: process.env.TWILIO_AUTH_TOKEN,
+}

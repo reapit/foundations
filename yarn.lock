@@ -16821,6 +16821,7 @@ __metadata:
     serverless-http: ^2.7.0
     serverless-offline: ^6.8.0
     serverless-webpack: ^5.3.5
+    twilio: ^3.56.0
     uuid: ^3.4.0
     webpack: ^4.46.0
   languageName: unknown
