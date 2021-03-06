@@ -1,14 +1,26 @@
 service: cloud-custom-mailer
 plugins:
+  - serverless-webpack
+  - serverless-dynamodb-local
+  - serverless-offline
   - serverless-deployment-bucket
 
 custom:
   s3CloudFormBucket: cloud-custom-mailer-${opt:stage, 'dev'}
   env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    includeFiles: src/mailer/templates/ejs/**
+    keepOutputDirectory: true
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: ${opt:runtime, 'nodejs14.x' }
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
@@ -20,8 +32,6 @@ provider:
 package:
   include:
     - dist/**
-    - node_modules/**
-    - config.json
   exclude:
     - .git/**
     - .github/**
@@ -40,7 +50,7 @@ package:
 
 functions:
   cognitoCustomMailerHandler:
-    handler: dist/app.cognitoCustomMailerHandler
+    handler: src/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
         pool: ${self:custom.env.COGNITO_USERPOOL_ID}
