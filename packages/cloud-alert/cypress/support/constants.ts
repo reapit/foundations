@@ -23,7 +23,7 @@ export const webAppsProd = [
 ]
 
 export const nodeServicesDev = [
-  { appName: 'Event Status Service', url: 'https://qgbtloumi8.execute-api.eu-west-2.amazonaws.com/dev' },
+  { appName: 'Events Service', url: 'https://kzekq19177.execute-api.eu-west-2.amazonaws.com/dev' },
   { appName: 'Mailer Service', url: 'https://ew9zhgy2i1.execute-api.eu-west-2.amazonaws.com/dev' },
   { appName: 'Payment Service', url: 'https://cja5ya4nc1.execute-api.eu-west-2.amazonaws.com/dev' },
 ]
