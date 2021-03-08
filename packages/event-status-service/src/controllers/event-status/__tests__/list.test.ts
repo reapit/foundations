@@ -5,12 +5,12 @@ jest.mock('../../../core/logger')
 jest.mock('../../../core/db', () => {
   return {
     db: {
-      query: jest.fn(() => [
-        {
+      query: jest.fn(() =>
+        new Set().add({
           eventId: 'SOME_ID',
           clientCode: 'SOME_CODE',
-        },
-      ]),
+        }),
+      ),
     },
   }
 })
@@ -53,6 +53,25 @@ describe('listStatuses', () => {
       error: 'Unauthorized',
       code: 401,
     })
+  })
+
+  xit('should return results', async () => {
+    const mockReq: any = {
+      ...baseMockReq,
+    }
+    const mockRes: Partial<Response> = {
+      ...baseMockRes,
+    }
+
+    await listStatuses(mockReq, mockRes as Response)
+
+    expect(mockRes.status).toHaveBeenCalledWith(200)
+    expect(mockRes.json).toHaveBeenLastCalledWith([
+      {
+        eventId: 'SOME_ID',
+        clientCode: 'SOME_CODE',
+      },
+    ])
   })
 
   afterEach(() => {

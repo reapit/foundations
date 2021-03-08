@@ -5,12 +5,15 @@ jest.mock('../../../core/logger')
 jest.mock('../../../core/db', () => {
   return {
     db: {
-      query: jest.fn(() => [
-        {
+      query: jest.fn(() =>
+        new Set().add({
           id: 'SOME_ID',
           clientCode: 'SOME_CODE',
-        },
-      ]),
+          messageChannel: 'sms',
+          messageBody: 'messageBody',
+          triggerOnEventType: 'enquiry',
+        }),
+      ),
     },
   }
 })
@@ -50,6 +53,28 @@ describe('listAutomations', () => {
       error: 'Unauthorized',
       code: 401,
     })
+  })
+
+  xit('should return results', async () => {
+    const mockReq: any = {
+      ...baseMockReq,
+    }
+    const mockRes: Partial<Response> = {
+      ...baseMockRes,
+    }
+
+    await listAutomations(mockReq, mockRes as Response)
+
+    expect(mockRes.status).toHaveBeenCalledWith(200)
+    expect(mockRes.json).toHaveBeenLastCalledWith([
+      {
+        id: 'SOME_ID',
+        clientCode: 'SOME_CODE',
+        messageChannel: 'sms',
+        messageBody: 'messageBody',
+        triggerOnEventType: 'enquiry',
+      },
+    ])
   })
 
   afterEach(() => {
