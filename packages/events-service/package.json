@@ -1,0 +1,51 @@
+{
+  "name": "events-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Service to maintain statuses of events sent to users",
+  "repository": "git@github.com:reapit/events-service.git",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo '...skipping...'",
+    "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\"",
+    "conf": "yarn config-manager --namespace cloud --entity events-service --name local --mode fetch",
+    "lint": "eslint --cache --ext=ts,tsx src --fix",
+    "publish": "echo '...skipping...'",
+    "release": "serverless deploy",
+    "start": "serverless dynamodb install && yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@reapit/utils": "workspace:packages/utils",
+    "@sentry/node": "^5.30.0",
+    "aws-lambda": "^1.0.6",
+    "aws-sdk": "^2.853.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "jwt-decode": "^3.1.2",
+    "linaria": "^2.0.2",
+    "morgan": "^1.10.0",
+    "serialize-error": "^7.0.1",
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-http": "^2.7.0",
+    "twilio": "^3.56.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "workspace:packages/config-manager",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.21.0",
+    "jest": "^26.6.3",
+    "serverless": "^2.28.0",
+    "serverless-deployment-bucket": "^1.3.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-webpack": "^5.3.5",
+    "webpack": "^4.46.0"
+  }
+}
