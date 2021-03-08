@@ -7,10 +7,11 @@ import { notification } from '@reapit/elements'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const generateRequest = (session: ReapitConnectSession) => async (operation: Operation) => {
-  const { loginIdentity, accessToken } = session
+  const { loginIdentity, accessToken, idToken } = session
   operation.setContext({
     headers: {
-      authorization: accessToken,
+      authorization: idToken,
+      'reapit-connect-token': `Bearer ${accessToken}`,
       'reapit-customer': `${loginIdentity.clientId}-${loginIdentity.userCode}`,
     },
   })
