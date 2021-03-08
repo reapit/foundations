@@ -1,4 +1,4 @@
-service: cloud-event-status-service
+service: cloud-events-service
 plugins:
   - serverless-webpack
   - serverless-dynamodb-local
