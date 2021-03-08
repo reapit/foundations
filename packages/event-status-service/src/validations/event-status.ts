@@ -12,10 +12,10 @@ const create = {
     in: ['body'],
     isString: true,
     isLength: {
-      errorMessage: 'clientCode should be 3 or 4 characters long',
+      errorMessage: 'clientCode should be 3-9 characters long',
       options: {
         min: 3,
-        max: 4,
+        max: 9,
       },
     },
   },
@@ -55,10 +55,10 @@ const list = {
     in: ['query'],
     isString: true,
     isLength: {
-      errorMessage: 'clientCode should be 3 or 4 characters long',
+      errorMessage: 'clientCode should be 3-9 characters long',
       options: {
         min: 3,
-        max: 4,
+        max: 9,
       },
     },
   },

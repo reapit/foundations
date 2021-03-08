@@ -61,7 +61,7 @@ describe('updateStatusById', () => {
     })
   })
 
-  xit('should update an event status', async () => {
+  it('should update an event status', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }

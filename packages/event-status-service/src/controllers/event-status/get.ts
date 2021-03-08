@@ -1,6 +1,7 @@
 import { Response } from 'express'
+import { stringifyError } from '@reapit/node-utils'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { generateStatusItem } from '../../schemas/event-status.schema'
 
@@ -14,7 +15,7 @@ export default async (req: AppRequest, res: Response) => {
     const itemToGet = generateStatusItem({ eventId })
     const result = await db.get(itemToGet)
 
-    if (result.clientCode !== (req as any).clientCode) {
+    if (result.clientCode !== req.user?.clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

@@ -1,7 +1,7 @@
 [
   {
     "eventId": "c23b0f02-0bc1-43ee-8b8f-2e88827a551a",
-    "clientCode": "SBOX",
+    "clientCode": "SBOX-GWIT",
     "status": "outstanding",
     "eventCreatedAt": "2020-12-01T10:00:00Z",
     "statusCreatedAt": "2020-12-01T10:00:00Z",
@@ -33,7 +33,7 @@
   },
   {
     "eventId": "98572bfa-8600-4616-a21f-ac5325c9dcb7",
-    "clientCode": "SBOX",
+    "clientCode": "SBOX-GWIT",
     "status": "actioned",
     "eventCreatedAt": "2020-12-02T11:00:00Z",
     "statusCreatedAt": "2020-12-02T11:00:00Z",
