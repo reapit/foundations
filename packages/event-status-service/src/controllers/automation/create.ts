@@ -1,16 +1,12 @@
 import { Response } from 'express'
 import uuidv4 from 'uuid/v4'
+import { stringifyError } from '@reapit/node-utils'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
-import { Automation, generateAutomationItem } from '../../schemas/automation.schema'
+import { AutomationRequiredFields, generateAutomationItem } from '../../schemas/automation.schema'
 
-type Payload = {
-  clientCode: Automation['clientCode']
-  messageChannel: Automation['messageChannel']
-  messageBody: Automation['messageBody']
-  triggerOnEventType: Automation['triggerOnEventType']
-}
+type Payload = AutomationRequiredFields
 
 export default async (req: AppRequest, res: Response) => {
   const payload = req.body as Payload
@@ -19,7 +15,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Create new automation...', { traceId, payload })
 
-    if ((req as any).user.clientCode !== payload.clientCode) {
+    if (req.user?.clientCode !== payload.clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

@@ -1,6 +1,7 @@
 import { Response } from 'express'
+import { stringifyError } from '@reapit/node-utils'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { Automation } from '../../schemas/automation.schema'
 
@@ -11,7 +12,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Getting automations by parmeters...', { traceId, clientCode })
 
-    if ((req as any).user.clientCode !== clientCode) {
+    if (req.user?.clientCode !== clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

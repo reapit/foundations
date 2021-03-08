@@ -1,9 +1,10 @@
 import { Response } from 'express'
+import { stringifyError } from '@reapit/node-utils'
+import { between, equals } from '@aws/dynamodb-expressions'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { EventStatus } from '../../schemas/event-status.schema'
-import { between, equals } from '@aws/dynamodb-expressions'
 
 export default async (req: AppRequest, res: Response) => {
   const dateFrom = req.query.dateFrom as string | undefined
@@ -15,7 +16,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Getting statuses by parmeters...', { traceId, dateFrom, dateTo, clientCode })
 
-    if ((req as any).user.clientCode !== clientCode) {
+    if (req.user?.clientCode !== clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

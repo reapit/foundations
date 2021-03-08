@@ -1,11 +1,7 @@
 import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations'
 import { DYNAMO_DB } from '../core/constants'
 
-@table(DYNAMO_DB.tableNames.automations)
-export class Automation {
-  @hashKey()
-  id: string
-
+export class AutomationRequiredFields {
   @attribute()
   clientCode: string
 
@@ -17,6 +13,12 @@ export class Automation {
 
   @attribute()
   messageBody: string
+}
+
+@table(DYNAMO_DB.tableNames.automations)
+export class Automation extends AutomationRequiredFields {
+  @hashKey()
+  id: string
 
   @attribute()
   createdAt: string

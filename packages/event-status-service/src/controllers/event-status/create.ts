@@ -1,7 +1,8 @@
 import { Response } from 'express'
-import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/node-utils'
 import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
+import { logger } from '../../core/logger'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { generateStatusItem } from '../../schemas/event-status.schema'
 
@@ -19,7 +20,7 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Create new status...', { traceId, payload })
 
-    if ((req as any).user.clientCode !== payload.clientCode) {
+    if (req.user?.clientCode !== payload.clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',

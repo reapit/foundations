@@ -1,6 +1,7 @@
 import { Response } from 'express'
+import { stringifyError } from '@reapit/node-utils'
 import { logger } from '../../core/logger'
-import { AppRequest, stringifyError } from '@reapit/node-utils'
+import { AppRequest } from '../../types/request'
 import { db } from '../../core/db'
 import { generateAutomationItem } from '../../schemas/automation.schema'
 
@@ -14,7 +15,7 @@ export default async (req: AppRequest, res: Response) => {
     const item = generateAutomationItem({ id })
     const result = await db.get(item)
 
-    if (result.clientCode !== (req as any).user.clientCode) {
+    if (result.clientCode !== req.user?.clientCode) {
       res.status(401)
       return res.json({
         error: 'Unauthorized',
