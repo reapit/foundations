@@ -32,7 +32,7 @@ describe('index.js', () => {
       const mockParams = {
         event: {
           headers: {
-            Authorization: 'Mock Authorization',
+            'reapit-connect-token': 'Mock Authorization',
           },
         },
         context: {
@@ -45,7 +45,7 @@ describe('index.js', () => {
         authorization: 'Mock Authorization',
         functionName: 'Mock Function Name',
         headers: {
-          Authorization: 'Mock Authorization',
+          'reapit-connect-token': 'Mock Authorization',
         },
         event: mockParams.event,
         context: mockParams.context,

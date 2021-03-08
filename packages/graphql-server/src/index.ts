@@ -42,7 +42,7 @@ export const handleContext = ({ event, context }) => {
   const newContext = {
     traceId: traceId,
     headers: event.headers,
-    authorization: event?.headers?.Authorization || '',
+    authorization: event?.headers['reapit-connect-token'] ?? '',
     functionName: context.functionName,
     event,
     context,

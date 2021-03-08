@@ -28,7 +28,7 @@ export const confirmRegistrationTemplate = ({ userName, url }: ConfirmPasswordTe
         <p>Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd.</p>
         <p>Please see below your username and verification code. When you click the verification link, you will be re-directed to a screen where you will be asked to change your password.</p>
         <div style="text-align: center;">
-          <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=<${url}?userName=${userName}&verificationCode={####}>VERIFY ACCOUNT</a>
+          <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=${url}?userName=${userName}&verificationCode={####}>VERIFY ACCOUNT</a>
         </div>
         <p>Once your account has been verified, you will be redirected to the login page.</p>
         <p>Best Regards,</p>
@@ -44,7 +44,7 @@ export const adminUserInviteTemplate = ({ userName, url }: ConfirmPasswordTempla
       <img style="width: 25%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
       <h1 style="text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;">Welcome to Reapit Connect</h1>
       <div style="padding:0 16px 16px 16px;">
-        <p>Hi <%= userName %>,</p>
+        <p>Hi ${userName},</p>
         <p>Welcome to Reapit Connect.</p>
         <p>Reapit Connect is our single sign on solution which allows you to seamlessly access products and services provided by Reapit Ltd.</p>
         <p>Please see below your username and temporary password. When you click the login link, you will be re-directed to a screen where you will be asked to change your password.</p>
