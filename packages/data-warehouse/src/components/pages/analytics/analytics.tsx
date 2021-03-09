@@ -42,7 +42,7 @@ export const AnalyticsPage: React.FC = () => {
   const handleModalOpen = () => setModalVisible(true)
   const mobile = isMobile()
 
-  useEffect(handleGetSettings(setSettingsLoading, setSettings, connectSession), [connectSession])
+  useEffect(handleGetSettings(setSettingsLoading, setSettings, connectSession), [connectSession, modalVisible])
   useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
