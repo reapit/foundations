@@ -10,13 +10,13 @@ export class AutomationExecution {
   event: Event
   automation: Automation
   traceId: string
-  client: Twilio
+  twilioClient: Twilio
 
   constructor(event: Event, automation: Automation, traceId: string) {
     this.event = event
     this.automation = automation
     this.traceId = traceId
-    this.client = twilio(TWILIO.accountId, TWILIO.authToken)
+    this.twilioClient = twilio(TWILIO.accountId, TWILIO.authToken)
   }
 
   logInfo(msg: string, extra?: object) {
@@ -47,15 +47,15 @@ export class AutomationExecution {
   }
 
   async sms() {
-    const { client, event, automation } = this
+    const { twilioClient, event, automation } = this
 
     // create twilio conversation with the contact in the event
-    const conversation = await client.conversations.conversations.create({
+    const conversation = await twilioClient.conversations.conversations.create({
       friendlyName: `Conversation with ${event.contact.telephoneNumber}, from automation ${automation.id}`,
     })
     this.logInfo('Created conversation', { conversation })
 
-    const participant = await client.conversations.conversations(conversation.sid).participants.create({
+    const participant = await twilioClient.conversations.conversations(conversation.sid).participants.create({
       messagingBinding: {
         address: event.contact.telephoneNumber,
         // TODO: this will probably need to be one Twilio phone number per agent, or maybe even per
@@ -67,7 +67,7 @@ export class AutomationExecution {
     this.logInfo('Added participant', { participant })
 
     // send SMS with the body from the automation
-    const twilioMessage = await client.conversations.conversations(conversation.sid).messages.create({
+    const twilioMessage = await twilioClient.conversations.conversations(conversation.sid).messages.create({
       author: 'Estate Agent Automation',
       body: this.getMessageBodyWithFieldsReplaced(),
       attributes: JSON.stringify({ reapitSource: 'automation' }),
