@@ -11,7 +11,24 @@ jest.mock('apollo-server-lambda', () => {
   }
 })
 jest.mock('../../logger/')
+
 describe('handleError', () => {
+  it('should return ValidationError', async () => {
+    const input = {
+      error: {
+        response: {
+          data: {},
+          status: 400,
+          headers: {},
+        },
+      },
+      caller: 'mockCaller',
+      traceId: 'mockTraceId',
+    } as HandleErrorParams
+    const output = await handleError(input)
+    expect(output).toEqual(errors.generateValidationError('mockTraceId'))
+  })
+
   it('should return ValidationError', async () => {
     const input = {
       error: {
@@ -89,7 +106,7 @@ describe('handleError', () => {
       traceId: 'mockTraceId',
     } as HandleErrorParams
     const output = await handleError(input)
-    expect(output).toEqual(errors.generateUserInputError('mockTraceId'))
+    expect(output).toEqual(errors.generateUnprocessableError('mockTraceId'))
   })
 
   it('should return UserInputError', async () => {
@@ -105,7 +122,7 @@ describe('handleError', () => {
       traceId: 'mockTraceId',
     } as HandleErrorParams
     const output = await handleError(input)
-    expect(output).toEqual(errors.generateUserInputError('mockTraceId'))
+    expect(output).toEqual(errors.generatePreconditionError('mockTraceId'))
   })
 
   it('should return ApolloError', async () => {
@@ -133,6 +150,7 @@ describe('handleError', () => {
     const output = await handleError(input)
     expect(output).toEqual(errors.generateInternalServerError('mockTraceId'))
   })
+
   it('should return ApolloError', async () => {
     const input = {
       error: {},
@@ -142,6 +160,7 @@ describe('handleError', () => {
     const output = await handleError(input)
     expect(output).toEqual(errors.generateInternalServerError('mockTraceId'))
   })
+
   it('should return ApolloError', async () => {
     const input = {
       error: {

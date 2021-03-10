@@ -2,11 +2,13 @@ import { AuthenticationError, UserInputError, ForbiddenError, ValidationError, A
 import logger from '../logger'
 
 export const errorMessages = {
-  notAuthorized: '[E4010] Not Authorized',
-  badRequest: '[E4000] Bad Request',
-  notFound: '[E4040] Not Found',
-  forbidden: '[E4030] Forbidden',
-  internalServer: '[E5000] Internal Server Error',
+  notAuthorized: '401 - Not Authorized',
+  badRequest: '400 - Bad Request',
+  notFound: '404 - Not Found',
+  forbidden: '403 - Forbidden',
+  precondion: '412 - Precondition Failed',
+  unprocessable: '422 - Unprocessable Entity',
+  internalServer: '500 - Internal Server Error',
 }
 
 export const generateAuthenticationError = (traceId?: string) => {
@@ -18,6 +20,18 @@ export const generateAuthenticationError = (traceId?: string) => {
 export const generateUserInputError = (traceId?: string) => {
   const error = new UserInputError(`${traceId || ''} - ${errorMessages.badRequest}`)
   logger.info('generateUserInputError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generateUnprocessableError = (traceId?: string) => {
+  const error = new UserInputError(`${traceId || ''} - ${errorMessages.unprocessable}`)
+  logger.info('generateUnprocessableError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generatePreconditionError = (traceId?: string) => {
+  const error = new UserInputError(`${traceId || ''} - ${errorMessages.precondion}`)
+  logger.info('generatePreconditionError', { traceId, error: JSON.stringify(error) })
   return error
 }
 
@@ -44,8 +58,10 @@ export const generateNotFoundError = (traceId?: string) => {
 
 const errors = {
   generateAuthenticationError,
-  generateUserInputError,
+  generateUnprocessableError,
   generateValidationError,
+  generateUserInputError,
+  generatePreconditionError,
   generateForbiddenError,
   generateInternalServerError,
   generateNotFoundError,

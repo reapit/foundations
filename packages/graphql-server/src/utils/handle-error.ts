@@ -32,10 +32,10 @@ export const handleError = async ({ error, traceId, caller }: HandleErrorParams)
     return errors.generateNotFoundError(traceId)
   }
   if (error?.response?.status === 412) {
-    return errors.generateUserInputError(traceId)
+    return errors.generatePreconditionError(traceId)
   }
   if (error?.response?.status === 422) {
-    return errors.generateUserInputError(traceId)
+    return errors.generateUnprocessableError(traceId)
   }
   return errors.generateInternalServerError(traceId)
 }

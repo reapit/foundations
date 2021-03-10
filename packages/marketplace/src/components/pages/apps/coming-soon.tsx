@@ -13,7 +13,6 @@ import comingSoonImageIntegrated from '@/assets/images/coming-soon/12Integrated.
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
 import comingSoonIAMProperty from '@/assets/images/coming-soon/3IAMProperty.jpg'
-import comingSoonReapitPayments from '@/assets/images/coming-soon/ReapitPayments.jpg'
 import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
@@ -26,11 +25,9 @@ import comingSoonFCCParagon from '@/assets/images/coming-soon/FCCParagon.jpg'
 import comingSoonPropoly from '@/assets/images/coming-soon/Propoly.jpg'
 import comingSoonHomeHero from '@/assets/images/coming-soon/Homehero.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
-import comingSoonNicheCom from '@/assets/images/coming-soon/Nichecom.jpg'
 import comingSoonCoadjute from '@/assets/images/coming-soon/Coadjute.jpg'
 import comingSoonSMSWorks from '@/assets/images/coming-soon/SMSWorks.jpg'
 import comingSoonLeadPro from '@/assets/images/coming-soon/Leadpro.jpg'
-import comingSoonSpinify from '@/assets/images/coming-soon/Spinify.jpg'
 import comingSoonCanopy from '@/assets/images/coming-soon/Canopy.jpg'
 import comingSoonData8 from '@/assets/images/coming-soon/Data8.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
@@ -64,7 +61,6 @@ const comingSoonImagesMap = {
   comingSoonImageTwentyCiVMC,
   comingSoonSmsSpeedWayIdVerification,
   comingSoonIAMProperty,
-  comingSoonReapitPayments,
   comingSoonImageMAB,
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
@@ -77,11 +73,9 @@ const comingSoonImagesMap = {
   comingSoonPropoly,
   comingSoonHomeHero,
   comingSoonBarbuck,
-  comingSoonNicheCom,
   comingSoonCoadjute,
   comingSoonSMSWorks,
   comingSoonLeadPro,
-  comingSoonSpinify,
   comingSoonCanopy,
   comingSoonData8,
   comingSoonFacebook,
