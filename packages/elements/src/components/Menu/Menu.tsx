@@ -35,7 +35,7 @@ export const getActiveItemKey = (menu: MenuItem[] = [], location?: Location<any>
   return null
 }
 
-export const LinkItem: React.SFC<{
+export const LinkItem: React.FC<{
   item: MenuItem
   children: React.ReactNode
   activeItemRef?: React.RefObject<HTMLAnchorElement & Link>

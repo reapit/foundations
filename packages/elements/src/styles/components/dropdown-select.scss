@@ -174,8 +174,8 @@
   }
 }
 
-.rc-select-focused .rc-select-selector {
-  border-color: blue !important;
+.rc-select-focused, .has-selections {
+  box-shadow: inset 0px -1px 0px $black !important;
 }
 
 .rc-select-dropdown {

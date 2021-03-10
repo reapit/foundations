@@ -29,7 +29,7 @@
   }
 
   &.has-padding {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   &.is-scrollable {
@@ -47,6 +47,10 @@
 
   &.flex-wrap {
     flex-wrap: wrap;
+  }
+
+  &.has-box-shadow {
+    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -87,11 +91,11 @@
   }
 
   &.has-margin {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &.has-padding {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   &.is-full-height {

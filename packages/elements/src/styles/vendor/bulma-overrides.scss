@@ -15,8 +15,9 @@ html {
   text-transform: uppercase;
   text-align: center;
   height: fit-content;
+  padding: 1rem;
 
-  &.is-success {
+  &.is-success, &.is-info {
     color: $white;
   }
 }
@@ -32,21 +33,31 @@ html {
   }
 
   &.is-heading-section {
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     background: $white;
+  }
+
+  &.is-1,
+  &.is-2,
+  &.is-3,
+  &.is-4,
+  &.is-5,
+  &.is-6 {
+    margin-bottom: 1em;
   }
 }
 
 .card {
-  border: 1px solid $white;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 
   &.is-clickable {
     cursor: pointer;
   }
 
   &.hightlight {
-    border: 1px solid $reapit-light-blue;
+    border: 1px solid $blue-primary-light;
   }
 
   .subtitle {
@@ -80,11 +91,10 @@ html {
 .file-cta,
 .file-name {
   display: inline-block;
-  border-radius: 0;
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.7rem 0.9rem;
+  padding: 0.5rem 1.75rem;
   height: auto;
 
   &:first-child {
@@ -115,6 +125,11 @@ html {
 .field,
 .field:not(:last-child) {
   margin-bottom: 0.75rem;
+
+  .has-text-danger {
+    font-size: 0.875rem;
+    margin-left: 5px;
+  }
 }
 
 .file-label {
@@ -131,8 +146,15 @@ html {
 }
 
 .button {
-  &.is-info {
-    background: $reapit-mid-blue;
+  &.is-info, &.is-secondary {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+  &.is-secondary {
+    background: $blue-primary-light;
+    border: 1px solid $blue-primary-light;
   }
 }
 
@@ -140,6 +162,8 @@ html {
   .button {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 
   .button:last-child {
@@ -165,14 +189,14 @@ html {
   margin-bottom: 1rem;
 }
 
-.label {
-  text-transform: uppercase;
-}
-
 .control {
   .label,
   i {
     color: $grey;
+    font-weight: normal;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    margin-left: 5px;
   }
 
   &.has-icons-right,
@@ -192,8 +216,6 @@ html {
 .pagination-link,
 .pagination-ellipsis {
   height: auto;
-  padding: 0.7rem 0.9rem;
-  border-radius: 0;
 
   &:focus {
     outline: none;
@@ -202,8 +224,8 @@ html {
 
 .pagination-link {
   &.is-current {
-    background-color: $reapit-teal;
-    border-color: $reapit-teal;
+    background-color: $blue-primary-medium;
+    border-color: $blue-primary-medium;
   }
 }
 
@@ -213,10 +235,12 @@ html {
 .is-info {
   &.input,
   &.textarea {
+    border: none;
+    padding: 5px;
     &:focus {
-      box-shadow: none;
+      box-shadow: inset 0px -1px 0px $black;
     }
-    border-color: $grey;
+    box-shadow: inset 0px -1px 0px $grey-medium;
   }
 
   &.button {
@@ -241,7 +265,7 @@ html {
 
   li {
     &.is-active a {
-      border-bottom: 1px solid $reapit-light-blue;
+      border-bottom: 1px solid $blue-primary-light;
     }
   }
 }
@@ -263,12 +287,13 @@ html {
 
 a {
   font-weight: bold;
-  color: $reapit-mid-blue;
+  color: $blue-primary-medium;
 }
 
 .container {
   display: flex;
   width: 100%;
+  background: $white;
 
   &.is-column {
     flex-direction: column;
@@ -280,7 +305,7 @@ a {
   }
 
   &.has-padding {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   &.has-background {
@@ -298,12 +323,27 @@ a {
   }
 }
 
-.modal-card-title {
-  font-family: $title-family;
-}
-
 .modal-card {
   overflow: auto;
+}
+
+.modal-content {
+  border-radius: 5px;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.modal-card-head {
+  padding: 0.5em;
+  text-align: center;
+  font-size: 20px;
+  border: none;
+}
+
+.modal-card-body,
+.modal-card-foot {
+  padding: 1.5rem;
+  background: $white;
+  border: none;
 }
 
 .modal-card,

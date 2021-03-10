@@ -4,27 +4,24 @@ import { action } from '@storybook/addon-actions'
 import { Input, InputProps } from '.'
 import { Form, Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/Input',
   component: Input,
   decorators: [
     (Story: Story) => (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Formik
-          initialValues={{ text: '', email: '', password: '', tel: '' }}
-          onSubmit={(values) => {
-            action('Form Values' + values)
-          }}
-        >
-          <Form>
-            <div className="column is-half-desktop">
-              <Story />
-            </div>
-          </Form>
-        </Formik>
-      </Section>
+      <Formik
+        initialValues={{ text: '', email: '', password: '', tel: '' }}
+        onSubmit={(values) => {
+          action('Form Values' + values)
+        }}
+      >
+        <Form>
+          <div className="column is-half-desktop">
+            <Story />
+          </div>
+        </Form>
+      </Formik>
     ),
   ],
 }

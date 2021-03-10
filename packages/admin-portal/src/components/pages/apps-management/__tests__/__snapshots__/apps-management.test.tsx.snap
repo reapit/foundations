@@ -192,14 +192,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                 >
                   <FormHeading>
                     <div
-                      className="form-heading mb-1"
+                      className="form-heading"
                     >
                       Admin Apps Filter Form
                     </div>
                   </FormHeading>
                   <FormSubHeading>
                     <div
-                      className="form-subheading mb-4"
+                      className="form-subheading"
                     >
                       Filter the result by App, Developer and Company
                     </div>

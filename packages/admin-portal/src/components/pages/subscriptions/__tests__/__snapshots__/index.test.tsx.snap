@@ -100,14 +100,14 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Subscriptions Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by type and developer
                         </div>
@@ -834,14 +834,14 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Subscriptions Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by type and developer
                         </div>
@@ -1568,14 +1568,14 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Subscriptions Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by type and developer
                         </div>

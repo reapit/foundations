@@ -89,15 +89,17 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyPlugin([
-      {
-        test: /\.(graphql|gql)$/,
-        ignore: ['*.ts', '*.test.ts', 'tests/**/*'],
-        from: 'src',
-        to: 'src',
-        force: true,
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          test: /\.(graphql|gql)$/,
+          ignore: ['*.ts', '*.test.ts', 'tests/**/*'],
+          from: 'src',
+          to: 'src',
+          force: true,
+        },
+      ],
+    }),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),

@@ -23,15 +23,15 @@ export interface ModalHeaderProps {
   afterClose?: () => void
 }
 
-export const ModalFooter: React.SFC<{ footerItems: React.ReactNode }> = ({ footerItems }) => (
+export const ModalFooter: React.FC<{ footerItems: React.ReactNode }> = ({ footerItems }) => (
   <footer className="modal-card-foot">{footerItems}</footer>
 )
 
-export const ModalBody: React.SFC<{ body: React.ReactNode }> = ({ body }) => (
+export const ModalBody: React.FC<{ body: React.ReactNode }> = ({ body }) => (
   <section className="modal-card-body">{body}</section>
 )
 
-export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) => (
+export const ModalHeader: React.FC<ModalHeaderProps> = ({ title, afterClose }) => (
   <header className="modal-card-head">
     <h4 className="modal-card-title is-4">{title}</h4>
     {afterClose && (

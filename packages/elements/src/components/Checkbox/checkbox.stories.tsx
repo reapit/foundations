@@ -3,7 +3,6 @@ import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
 import { Checkbox, CheckboxProps } from '.'
 import { Form, Formik } from 'formik'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/Checkbox',
@@ -12,35 +11,30 @@ export default {
   // How do we want to show the CSS part of it?
   decorators: [
     (Story: Story) => (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Formik
-          initialValues={{ checked: 0 }}
-          onSubmit={(values) => {
-            action('Form Values' + values)
-          }}
-        >
-          <Form>
-            <div className="column is-half-desktop">
-              <Story />
-            </div>
-          </Form>
-        </Formik>
-      </Section>
+      <Formik
+        initialValues={{ checkboxA: 0, checkboxB: 1 }}
+        onSubmit={(values) => {
+          action('Form Values' + values)
+        }}
+      >
+        <Form>
+          <div className="column is-half-desktop">
+            <Story />
+          </div>
+        </Form>
+      </Formik>
     ),
   ],
 }
 
-export const Primary: Story<CheckboxProps> = (args) => <Checkbox {...args} />
-Primary.args = {
-  id: 'checked',
-  name: 'checked',
-  labelText: 'Checkbox',
-}
+export const Primary: Story<CheckboxProps> = () => (
+  <Checkbox name="checkboxA" id="checkboxA" labelText="Checkbox A" value="checkboxA" />
+)
 
-export const UseAsGroup: Story<CheckboxProps> = (args) => (
+export const UseAsGroup: Story<CheckboxProps> = () => (
   <>
-    <Checkbox {...args} id="checkboxA" labelText="Checkbox A" value="checkboxA" />
-    <Checkbox {...args} id="checkboxB" labelText="Checkbox B" value="checkboxB" />
+    <Checkbox name="checkboxA" id="checkboxA" labelText="Checkbox A" value="checkboxA" />
+    <Checkbox name="checkboxB" id="checkboxB" labelText="Checkbox B" value="checkboxB" />
   </>
 )
 UseAsGroup.args = {

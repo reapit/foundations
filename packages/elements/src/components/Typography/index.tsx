@@ -8,7 +8,7 @@ export interface HeadingProps {
   isHeadingSection?: boolean
 }
 
-export const H1: React.SFC<HeadingProps> = ({
+export const H1: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -29,7 +29,7 @@ export const H1: React.SFC<HeadingProps> = ({
   </h1>
 )
 
-export const H2: React.SFC<HeadingProps> = ({
+export const H2: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -50,7 +50,7 @@ export const H2: React.SFC<HeadingProps> = ({
   </h2>
 )
 
-export const H3: React.SFC<HeadingProps> = ({
+export const H3: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -71,7 +71,7 @@ export const H3: React.SFC<HeadingProps> = ({
   </h3>
 )
 
-export const H4: React.SFC<HeadingProps> = ({
+export const H4: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -92,7 +92,7 @@ export const H4: React.SFC<HeadingProps> = ({
   </h4>
 )
 
-export const H5: React.SFC<HeadingProps> = ({
+export const H5: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -113,7 +113,7 @@ export const H5: React.SFC<HeadingProps> = ({
   </h5>
 )
 
-export const H6: React.SFC<HeadingProps> = ({
+export const H6: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -134,7 +134,7 @@ export const H6: React.SFC<HeadingProps> = ({
   </h6>
 )
 
-export const SubTitleH1: React.SFC<HeadingProps> = ({
+export const SubTitleH1: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -155,7 +155,7 @@ export const SubTitleH1: React.SFC<HeadingProps> = ({
   </h1>
 )
 
-export const SubTitleH2: React.SFC<HeadingProps> = ({
+export const SubTitleH2: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -176,7 +176,7 @@ export const SubTitleH2: React.SFC<HeadingProps> = ({
   </h2>
 )
 
-export const SubTitleH3: React.SFC<HeadingProps> = ({
+export const SubTitleH3: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -197,7 +197,7 @@ export const SubTitleH3: React.SFC<HeadingProps> = ({
   </h3>
 )
 
-export const SubTitleH4: React.SFC<HeadingProps> = ({
+export const SubTitleH4: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -218,7 +218,7 @@ export const SubTitleH4: React.SFC<HeadingProps> = ({
   </h4>
 )
 
-export const SubTitleH5: React.SFC<HeadingProps> = ({
+export const SubTitleH5: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',
@@ -239,7 +239,7 @@ export const SubTitleH5: React.SFC<HeadingProps> = ({
   </h5>
 )
 
-export const SubTitleH6: React.SFC<HeadingProps> = ({
+export const SubTitleH6: React.FC<HeadingProps> = ({
   children,
   className = '',
   id = '',

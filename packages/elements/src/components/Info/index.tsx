@@ -39,7 +39,7 @@ export const infoText = (infoType: InfoType) => {
   }
 }
 
-export const Info: React.SFC<InfoProps> = ({ infoType, children }) => (
+export const Info: React.FC<InfoProps> = ({ infoType, children }) => (
   <Alert type={infoType === '404' ? 'danger' : 'info'} message={infoText(infoType)}>
     {children}
   </Alert>

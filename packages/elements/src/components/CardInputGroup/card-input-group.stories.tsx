@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { CardInputGroup, CardInputGroupProps } from '.'
 import { Form, Formik } from 'formik'
 import { H6 } from '../Typography'
+import { FlexContainerResponsive } from '../Layout'
 
 export default {
   title: 'Components/CardInputGroup',
@@ -34,9 +35,9 @@ export const HasBillingAddress: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <div className="column is-half-desktop">
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
         <CardInputGroup {...args} />
-      </div>
+      </FlexContainerResponsive>
     </Form>
   </Formik>
 )
@@ -54,9 +55,9 @@ export const HasNoBillingAddress: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <div className="column is-half-desktop">
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
         <CardInputGroup {...args} />
-      </div>
+      </FlexContainerResponsive>
     </Form>
   </Formik>
 )
@@ -74,10 +75,10 @@ export const HasWhiteListedTestCard: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <div className="column is-half-desktop">
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
         <CardInputGroup {...args} />
         <H6 isHeadingSection>Test Card is: 4929000000006</H6>
-      </div>
+      </FlexContainerResponsive>
     </Form>
   </Formik>
 )

@@ -152,14 +152,7 @@ export interface ArgsProps {
 function getRCNoticeProps(args: ArgsProps) {
   const duration = args.duration === undefined ? defaultDuration : args.duration
 
-  const variant =
-    args.type === 'success'
-      ? 'is-success'
-      : args.type === 'info'
-      ? 'is-info'
-      : args.type === 'error'
-      ? 'is-danger'
-      : 'is-warning'
+  const variant = args.type === 'success' || args.type === 'info' ? 'is-info-message' : 'is-warning-message'
 
   return {
     content: <div className={`notification reapit-notification-content ${variant}`}>{args.message}</div>,

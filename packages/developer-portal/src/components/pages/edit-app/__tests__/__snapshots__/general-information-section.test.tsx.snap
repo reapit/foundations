@@ -50,14 +50,14 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
               </Helper>
               <FormHeading>
                 <div
-                  className="form-heading mb-1"
+                  className="form-heading"
                 >
                   App Listing
                 </div>
               </FormHeading>
               <FormSubHeading>
                 <div
-                  className="form-subheading mb-4"
+                  className="form-subheading"
                 >
                   The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
@@ -453,7 +453,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control"
                             >
                               <label
-                                className="label"
+                                className="label mb-2"
                                 htmlFor="summary"
                               >
                                 Summary
@@ -823,14 +823,14 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
               </Helper>
               <FormHeading>
                 <div
-                  className="form-heading mb-1"
+                  className="form-heading"
                 >
                   App Listing
                 </div>
               </FormHeading>
               <FormSubHeading>
                 <div
-                  className="form-subheading mb-4"
+                  className="form-subheading"
                 >
                   The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                 </div>
@@ -1225,7 +1225,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                               className="control"
                             >
                               <label
-                                className="label required-label"
+                                className="label mb-2 required-label"
                                 htmlFor="summary"
                               >
                                 Summary

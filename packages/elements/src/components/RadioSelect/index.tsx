@@ -73,7 +73,9 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
                           disabled={disabled}
                           onChange={() => setFieldValue(name, value)}
                         />
-                        <label htmlFor={`${name}${label}`}>{label}</label>
+                        <label className="label" htmlFor={`${name}${label}`}>
+                          {label}
+                        </label>
                       </div>
                       {renderAdditionalField(additionalField, form)}
                     </GridItem>

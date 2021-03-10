@@ -11,12 +11,12 @@ addons.setConfig({
 
     // UI
     appBg: '#fff',
-    appContentBg: '#f9fbfd',
+    appContentBg: '#fff',
     appBorderColor: '#95aac9',
     appBorderRadius: 0,
 
     // Typography
-    fontBase: '"Roboto", sans-serif',
+    fontBase: '"PT Sans", sans-serif',
     fontCode: 'monospace',
 
     // Text colors

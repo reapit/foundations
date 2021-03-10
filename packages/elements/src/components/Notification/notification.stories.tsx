@@ -23,9 +23,6 @@ export const Default: Story = () => (
     <Button variant="primary" type="button" onClick={() => notification.error({ message: longText })}>
       Error
     </Button>
-    <Button variant="primary" type="button" onClick={() => notification.info({ message: longText })}>
-      Info
-    </Button>
   </Section>
 )
 Default.args = {}

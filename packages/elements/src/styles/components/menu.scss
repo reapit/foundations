@@ -9,7 +9,7 @@ $nav-dimensions: 66px;
   font-size: 10px;
   display: inline-block;
   width: 100%;
-  background-color: $reapit-dark-blue-darkened;
+  background-color: $blue-secondary-dark;
   height: $nav-dimensions;
   position: sticky;
   top: 0;
@@ -41,12 +41,11 @@ $nav-dimensions: 66px;
 
   li {
     padding: 0.5rem 0.5rem;
-    border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
     width: $nav-dimensions;
     height: $nav-dimensions;
     object-fit: contain;
-    color: $reapit-lightest-blue-lightened;
+    color: $white;
 
     @include for-tablet-and-desktop {
       width: $nav-dimensions;
@@ -54,18 +53,9 @@ $nav-dimensions: 66px;
   }
 
   li.is-active,
-  :hover {
-    color: $white;
-    transition: color 0.1s ease-in-out;
-  }
-
-  li.is-active {
-    border-bottom: $white 3px solid;
-
-    @include for-tablet-and-desktop {
-      border-bottom: $reapit-dark-blue-darkened 3px solid;
-      border-left: $white 3px solid;
-    }
+  li:hover {
+    background: $blue-secondary-medium;
+    transition: all 0.1s ease-in-out;
   }
 
   .nav-item-link {
@@ -86,7 +76,7 @@ $nav-dimensions: 66px;
   }
 
   .nav-item-icon {
-    width: 50%;
+    width: 60%;
     height: 100%;
     @media all and (-ms-high-contrast: none) {
       height: 23px;
@@ -102,25 +92,15 @@ $nav-dimensions: 66px;
 }
 
 .nav-bar.is-desktop {
-  background-color: $grey-lightest;
-  border-right: 2px $grey-light solid;
+  background-color: $grey-medium;
 
   li {
-    border: $grey-lightest 3px solid;
     color: $grey;
   }
 
   li.is-active,
-  :hover {
-    color: $black;
-  }
-
-  li.is-active {
-    border-bottom: $black 3px solid;
-
-    @include for-tablet-and-desktop {
-      border-bottom: $grey-lightest 3px solid;
-      border-left: $black 3px solid;
-    }
+  li:hover {
+    background: $grey-dark;
+    color: $white;
   }
 }
