@@ -139,7 +139,7 @@ const webpackConfigProd = {
     new SourceMapDevToolPlugin({
       filename: '[file].map',
     }),
-    new CopyPlugin([{ from: 'config.json', to: PATHS.output }]),
+    new CopyPlugin({ patterns: [{ from: 'config.json', to: PATHS.output }] }),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
