@@ -88,14 +88,14 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                 >
                   <FormHeading>
                     <div
-                      className="form-heading mb-1"
+                      className="form-heading"
                     >
                       Subscriptions Filter Form
                     </div>
                   </FormHeading>
                   <FormSubHeading>
                     <div
-                      className="form-subheading mb-4"
+                      className="form-subheading"
                     >
                       Filter the result by type and developer
                     </div>

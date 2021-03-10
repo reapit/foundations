@@ -989,14 +989,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                     </Helper>
                     <FormHeading>
                       <div
-                        className="form-heading mb-1"
+                        className="form-heading"
                       >
                         App Listing
                       </div>
                     </FormHeading>
                     <FormSubHeading>
                       <div
-                        className="form-subheading mb-4"
+                        className="form-subheading"
                       >
                         The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace. When you have done your initial app setup and you are ready to list your app in the Marketplace, please return here and select “Submit for Approval”.
                       </div>
@@ -1392,7 +1392,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                     className="control"
                                   >
                                     <label
-                                      className="label"
+                                      className="label mb-2"
                                       htmlFor="summary"
                                     >
                                       Summary
@@ -1712,14 +1712,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   >
                     <FormHeading>
                       <div
-                        className="form-heading mb-1"
+                        className="form-heading"
                       >
                         Agency Cloud Integration
                       </div>
                     </FormHeading>
                     <FormSubHeading>
                       <div
-                        className="form-subheading mb-4"
+                        className="form-subheading"
                       >
                         To be able to associate your application with an action in Agency Cloud the application will need to be given a desktop type. Please select the type of integration your app requires from the list below. For more information on Desktop Types, please
                          
@@ -2215,7 +2215,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <FormHeading>
                               <div
-                                className="form-heading mb-1"
+                                className="form-heading"
                               >
                                 Redirect URI(s)
                                  
@@ -2224,7 +2224,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             </FormHeading>
                             <FormSubHeading>
                               <div
-                                className="form-subheading mb-4"
+                                className="form-subheading"
                               >
                                 Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
                               </div>
@@ -2280,7 +2280,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <FormHeading>
                               <div
-                                className="form-heading mb-1"
+                                className="form-heading"
                               >
                                 Sign Out URI(s)
                                  
@@ -2289,7 +2289,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             </FormHeading>
                             <FormSubHeading>
                               <div
-                                className="form-subheading mb-4"
+                                className="form-subheading"
                               >
                                 Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
                               </div>
@@ -2345,14 +2345,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           >
                             <FormHeading>
                               <div
-                                className="form-heading mb-1"
+                                className="form-heading"
                               >
                                 Private Apps
                               </div>
                             </FormHeading>
                             <FormSubHeading>
                               <div
-                                className="form-subheading mb-4"
+                                className="form-subheading"
                               >
                                 If your App is a Private App and you would like it to only be visible to certain customers, please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish to share your app with. If you select ‘No’, your App will be visible to all on the Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC, DEF.
                               </div>
@@ -2420,6 +2420,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 value="yes"
                                               />
                                               <label
+                                                className="label"
                                                 htmlFor="isPrivateAppYES"
                                               >
                                                 YES
@@ -2450,6 +2451,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 value="no"
                                               />
                                               <label
+                                                className="label"
                                                 htmlFor="isPrivateAppNO"
                                               >
                                                 NO
@@ -2499,7 +2501,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             </Input>
                             <FormSubHeading>
                               <div
-                                className="form-subheading mb-4"
+                                className="form-subheading"
                               >
                                 This field is disabled during the beta period. Your app will be private by default as the Marketplace is not yet live. You will have the opportunity to make your app private via an edit before setting it to be "Listed" in the marketplace when we move from beta to production.
                               </div>
@@ -2520,14 +2522,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   >
                     <FormHeading>
                       <div
-                        className="form-heading mb-1"
+                        className="form-heading"
                       >
                         Images
                       </div>
                     </FormHeading>
                     <FormSubHeading>
                       <div
-                        className="form-subheading mb-4"
+                        className="form-subheading"
                       >
                         The icon field will appear as the main brand representation of your app in marketplace listings and installed apps pages. You can also select a minimum of one and up to five screenshots of your application, that will appear in a carousel in the details view of your app listing.
                       </div>
@@ -3179,14 +3181,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   >
                     <FormHeading>
                       <div
-                        className="form-heading mb-1"
+                        className="form-heading"
                       >
                         Marketplace Status
                       </div>
                     </FormHeading>
                     <FormSubHeading>
                       <div
-                        className="form-subheading mb-4"
+                        className="form-subheading"
                       >
                         This section refers to the listing status in the Marketplace. If your App is an external application i.e. it is just an API feed app or is a web application that exists out of the Marketplace ecosystem, please select, “Integration”. Your app will still need to be listed in the Marketplace and installed by clients so they can grant permissions however, it will not appear as a launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our “Elements”, brand guidelines so if your app does not, please also select “Integration”.
                       </div>
@@ -3256,14 +3258,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   >
                     <FormHeading>
                       <div
-                        className="form-heading mb-1"
+                        className="form-heading"
                       >
                         Permissions *
                       </div>
                     </FormHeading>
                     <FormSubHeading>
                       <div
-                        className="form-subheading mb-4"
+                        className="form-subheading"
                       >
                         To access a client's data, you will need to specify the entities you need access to on a read or write basis. You should be familiar with these entities from the sandbox. When the user installs your application, they will have to consent to your usage based on these permissions. If you do not have the correct permissions on an entity basis, your app will receive a 403 error.
                       </div>
