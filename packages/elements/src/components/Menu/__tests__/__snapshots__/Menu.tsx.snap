@@ -22,9 +22,7 @@ exports[`Menu should render link item primary correctly 1`] = `
   <div
     className="nav-item-icon"
   >
-    <FaCloud
-      className="nav-item-icon"
-    />
+    <AppsIcon />
   </div>
   <div
     className="nav-item-title"
@@ -35,23 +33,21 @@ exports[`Menu should render link item primary correctly 1`] = `
 `;
 
 exports[`Menu should render link item secondary correctly 1`] = `
-<a
-  className="nav-item-link is-secondary"
-  onClick={[Function]}
+<Link
+  className="nav-item-link is-primary"
+  to="/settings"
 >
   <div
     className="nav-item-icon"
   >
-    <FaSignOutAlt
-      className="nav-item-icon"
-    />
+    <AccountIcon />
   </div>
   <div
     className="nav-item-title"
   >
-    Logout
+    Settings
   </div>
-</a>
+</Link>
 `;
 
 exports[`Menu should render menu correctly 1`] = `
@@ -90,9 +86,7 @@ exports[`Menu should render menu correctly 1`] = `
       }
       item={
         Object {
-          "icon": <FaCloud
-            className="nav-item-icon"
-          />,
+          "icon": <AppsIcon />,
           "key": "APPS",
           "title": "Apps",
           "type": "PRIMARY",
@@ -106,9 +100,7 @@ exports[`Menu should render menu correctly 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaCloud
-            className="nav-item-icon"
-          />
+          <AppsIcon />
         </div>
         <div
           className="nav-item-title"
@@ -120,69 +112,85 @@ exports[`Menu should render menu correctly 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <FaCloudDownloadAlt
-            className="nav-item-icon"
-          />,
-          "key": "INSTALLED",
-          "title": "Installed",
+          "icon": <AnalyticsIcon />,
+          "key": "ANALYTICS",
+          "title": "Analytics",
           "type": "PRIMARY",
           "url": "/installed",
         }
       }
-      key="INSTALLED"
+      key="ANALYTICS"
     >
       <li
         className="nav-item "
         onClick={[Function]}
       >
         <div>
-          <FaCloudDownloadAlt
-            className="nav-item-icon"
-          />
+          <AnalyticsIcon />
         </div>
         <div
           className="nav-item-title"
         >
-          Installed
+          Analytics
         </div>
       </li>
     </LinkItem>
     <LinkItem
       item={
         Object {
-          "icon": <FaCloudUploadAlt
-            className="nav-item-icon"
-          />,
-          "key": "SUBMIT",
-          "title": "Submit",
+          "icon": <ApiIcon />,
+          "key": "API",
+          "title": "API",
           "type": "PRIMARY",
-          "url": "/submit",
+          "url": "/api",
         }
       }
-      key="SUBMIT"
+      key="API"
     >
       <li
         className="nav-item "
         onClick={[Function]}
       >
         <div>
-          <FaCloudUploadAlt
-            className="nav-item-icon"
-          />
+          <ApiIcon />
         </div>
         <div
           className="nav-item-title"
         >
-          Submit
+          API
         </div>
       </li>
     </LinkItem>
     <LinkItem
       item={
         Object {
-          "icon": <FaReadme
-            className="nav-item-icon"
-          />,
+          "icon": <WebhooksIcon />,
+          "key": "WEBHOOKS",
+          "title": "Webhooks",
+          "type": "PRIMARY",
+          "url": "/webhooks",
+        }
+      }
+      key="WEBHOOKS"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <WebhooksIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Webhooks
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <DocsIcon />,
           "key": "DOCS",
           "title": "Docs",
           "type": "PRIMARY",
@@ -196,9 +204,7 @@ exports[`Menu should render menu correctly 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaReadme
-            className="nav-item-icon"
-          />
+          <DocsIcon />
         </div>
         <div
           className="nav-item-title"
@@ -210,9 +216,85 @@ exports[`Menu should render menu correctly 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <FaCog
-            className="nav-item-icon"
-          />,
+          "icon": <DesktopIcon />,
+          "key": "DESKTOP",
+          "title": "Desktop",
+          "type": "PRIMARY",
+          "url": "/desktop",
+        }
+      }
+      key="DESKTOP"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <DesktopIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Desktop
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <HelpIcon />,
+          "key": "HELP",
+          "title": "Help",
+          "type": "PRIMARY",
+          "url": "/help",
+        }
+      }
+      key="HELP"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <HelpIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Help
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <MarketplaceIcon />,
+          "key": "MARKETPLACE",
+          "title": "Marketplace",
+          "type": "PRIMARY",
+          "url": "/marketplace",
+        }
+      }
+      key="MARKETPLACE"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <MarketplaceIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Marketplace
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <AccountIcon />,
           "key": "SETTINGS",
           "title": "Settings",
           "type": "PRIMARY",
@@ -226,44 +308,12 @@ exports[`Menu should render menu correctly 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaCog
-            className="nav-item-icon"
-          />
+          <AccountIcon />
         </div>
         <div
           className="nav-item-title"
         >
           Settings
-        </div>
-      </li>
-    </LinkItem>
-    <LinkItem
-      item={
-        Object {
-          "callback": [Function],
-          "icon": <FaSignOutAlt
-            className="nav-item-icon"
-          />,
-          "key": "LOGOUT",
-          "title": "Logout",
-          "type": "SECONDARY",
-        }
-      }
-      key="LOGOUT"
-    >
-      <li
-        className="nav-item "
-        onClick={[Function]}
-      >
-        <div>
-          <FaSignOutAlt
-            className="nav-item-icon"
-          />
-        </div>
-        <div
-          className="nav-item-title"
-        >
-          Logout
         </div>
       </li>
     </LinkItem>
@@ -307,9 +357,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
       }
       item={
         Object {
-          "icon": <FaCloud
-            className="nav-item-icon"
-          />,
+          "icon": <AppsIcon />,
           "key": "APPS",
           "title": "Apps",
           "type": "PRIMARY",
@@ -323,9 +371,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaCloud
-            className="nav-item-icon"
-          />
+          <AppsIcon />
         </div>
         <div
           className="nav-item-title"
@@ -337,69 +383,85 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <FaCloudDownloadAlt
-            className="nav-item-icon"
-          />,
-          "key": "INSTALLED",
-          "title": "Installed",
+          "icon": <AnalyticsIcon />,
+          "key": "ANALYTICS",
+          "title": "Analytics",
           "type": "PRIMARY",
           "url": "/installed",
         }
       }
-      key="INSTALLED"
+      key="ANALYTICS"
     >
       <li
         className="nav-item "
         onClick={[Function]}
       >
         <div>
-          <FaCloudDownloadAlt
-            className="nav-item-icon"
-          />
+          <AnalyticsIcon />
         </div>
         <div
           className="nav-item-title"
         >
-          Installed
+          Analytics
         </div>
       </li>
     </LinkItem>
     <LinkItem
       item={
         Object {
-          "icon": <FaCloudUploadAlt
-            className="nav-item-icon"
-          />,
-          "key": "SUBMIT",
-          "title": "Submit",
+          "icon": <ApiIcon />,
+          "key": "API",
+          "title": "API",
           "type": "PRIMARY",
-          "url": "/submit",
+          "url": "/api",
         }
       }
-      key="SUBMIT"
+      key="API"
     >
       <li
         className="nav-item "
         onClick={[Function]}
       >
         <div>
-          <FaCloudUploadAlt
-            className="nav-item-icon"
-          />
+          <ApiIcon />
         </div>
         <div
           className="nav-item-title"
         >
-          Submit
+          API
         </div>
       </li>
     </LinkItem>
     <LinkItem
       item={
         Object {
-          "icon": <FaReadme
-            className="nav-item-icon"
-          />,
+          "icon": <WebhooksIcon />,
+          "key": "WEBHOOKS",
+          "title": "Webhooks",
+          "type": "PRIMARY",
+          "url": "/webhooks",
+        }
+      }
+      key="WEBHOOKS"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <WebhooksIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Webhooks
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <DocsIcon />,
           "key": "DOCS",
           "title": "Docs",
           "type": "PRIMARY",
@@ -413,9 +475,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaReadme
-            className="nav-item-icon"
-          />
+          <DocsIcon />
         </div>
         <div
           className="nav-item-title"
@@ -427,9 +487,85 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <FaCog
-            className="nav-item-icon"
-          />,
+          "icon": <DesktopIcon />,
+          "key": "DESKTOP",
+          "title": "Desktop",
+          "type": "PRIMARY",
+          "url": "/desktop",
+        }
+      }
+      key="DESKTOP"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <DesktopIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Desktop
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <HelpIcon />,
+          "key": "HELP",
+          "title": "Help",
+          "type": "PRIMARY",
+          "url": "/help",
+        }
+      }
+      key="HELP"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <HelpIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Help
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <MarketplaceIcon />,
+          "key": "MARKETPLACE",
+          "title": "Marketplace",
+          "type": "PRIMARY",
+          "url": "/marketplace",
+        }
+      }
+      key="MARKETPLACE"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
+      >
+        <div>
+          <MarketplaceIcon />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Marketplace
+        </div>
+      </li>
+    </LinkItem>
+    <LinkItem
+      item={
+        Object {
+          "icon": <AccountIcon />,
           "key": "SETTINGS",
           "title": "Settings",
           "type": "PRIMARY",
@@ -443,44 +579,12 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         onClick={[Function]}
       >
         <div>
-          <FaCog
-            className="nav-item-icon"
-          />
+          <AccountIcon />
         </div>
         <div
           className="nav-item-title"
         >
           Settings
-        </div>
-      </li>
-    </LinkItem>
-    <LinkItem
-      item={
-        Object {
-          "callback": [Function],
-          "icon": <FaSignOutAlt
-            className="nav-item-icon"
-          />,
-          "key": "LOGOUT",
-          "title": "Logout",
-          "type": "SECONDARY",
-        }
-      }
-      key="LOGOUT"
-    >
-      <li
-        className="nav-item "
-        onClick={[Function]}
-      >
-        <div>
-          <FaSignOutAlt
-            className="nav-item-icon"
-          />
-        </div>
-        <div
-          className="nav-item-title"
-        >
-          Logout
         </div>
       </li>
     </LinkItem>

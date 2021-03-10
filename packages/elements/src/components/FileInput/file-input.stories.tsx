@@ -3,7 +3,6 @@ import { Story } from '@storybook/react/types-6-0'
 import { Form, Formik } from 'formik'
 import { action } from '@storybook/addon-actions'
 import { FileInput, FileInputProps } from '.'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/FileInput',
@@ -12,18 +11,16 @@ export default {
   // How do we want to show the CSS part of it?
   decorators: [
     (Story: Story) => (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Formik
-          initialValues={{ fileInput: '' }}
-          onSubmit={(values) => {
-            action('Form Values' + values)
-          }}
-        >
-          <Form>
-            <Story />
-          </Form>
-        </Formik>
-      </Section>
+      <Formik
+        initialValues={{ fileInput: '' }}
+        onSubmit={(values) => {
+          action('Form Values' + values)
+        }}
+      >
+        <Form>
+          <Story />
+        </Form>
+      </Formik>
     ),
   ],
 }

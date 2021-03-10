@@ -12,7 +12,7 @@ export interface AlertProps {
   children?: React.ReactNode
 }
 
-export const Alert: React.SFC<AlertProps> = ({
+export const Alert: React.FC<AlertProps> = ({
   message,
   afterClose,
   className,

@@ -13,7 +13,7 @@ export interface AcButtonParams {
   navigateParentWindow?: Window
 }
 
-export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, navigateParentWindow, children }) => {
+export const AcLink: React.FC<AcLinkParams> = ({ dynamicLinkParams, navigateParentWindow, children }) => {
   const onClick = (event: React.MouseEvent) => {
     event.preventDefault()
     navigateDynamicApp(dynamicLinkParams, navigateParentWindow)
@@ -32,7 +32,7 @@ export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, navigatePar
   )
 }
 
-export const AcButton: React.SFC<AcButtonParams> = ({
+export const AcButton: React.FC<AcButtonParams> = ({
   buttonProps,
   dynamicLinkParams,
   navigateParentWindow,

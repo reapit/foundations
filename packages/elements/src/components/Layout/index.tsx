@@ -39,6 +39,7 @@ export interface SectionProps extends LayoutProps {
   hasMargin?: boolean
   hasBackground?: boolean
   isFullHeight?: boolean
+  hasBoxShadow?: boolean
   style?: React.CSSProperties
 }
 
@@ -198,6 +199,7 @@ export const Section: React.FC<SectionProps> = ({
   hasMargin = true,
   hasBackground = true,
   isFullHeight,
+  hasBoxShadow,
   className,
   style,
 }) => (
@@ -213,6 +215,7 @@ export const Section: React.FC<SectionProps> = ({
       hasMargin && 'has-margin',
       hasBackground && 'has-background',
       isFullHeight && 'is-full-height',
+      hasBoxShadow && 'has-box-shadow',
       className,
     )}
     style={style}

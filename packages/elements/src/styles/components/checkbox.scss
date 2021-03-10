@@ -42,8 +42,7 @@
 
     // Box hover
     &:hover + label:before {
-      background: $reapit-teal;
-      border-color: $reapit-teal;
+      border-color: $black;
     }
 
     // Box focus
@@ -53,8 +52,7 @@
 
     // Box checked
     &:checked + label:before {
-      background: $reapit-teal;
-      border-color: $reapit-teal;
+      border-color: $black;
     }
 
     &:disabled + label {
@@ -73,10 +71,10 @@
       position: absolute;
       left: 8px;
       top: 11px;
-      background: white;
+      background: $black;
       width: 2px;
       height: 2px;
-      box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+      box-shadow: 2px 0 0 $black, 4px 0 0 $black, 4px -2px 0 $black, 4px -4px 0 $black, 4px -6px 0 $black, 4px -8px 0 $black;
       transform: rotate(45deg);
     }
   }
@@ -84,7 +82,7 @@
   .checkbox-error[type='radio'] {
     & + label:before {
       background: white;
-      border: 1px solid $reapit-red;
+      border: 1px solid $red-semantic;
     }
   }
 

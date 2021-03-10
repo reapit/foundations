@@ -3,20 +3,13 @@ import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
 import { TextArea, TextAreaProps } from '.'
 import { Form, Formik } from 'formik'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/TextArea',
   component: TextArea,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?
-  decorators: [
-    (Story: Story) => (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Story />
-      </Section>
-    ),
-  ],
+  decorators: [(Story: Story) => <Story />],
 }
 
 export const Primary: Story<TextAreaProps> = (args) => (

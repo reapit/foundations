@@ -58,32 +58,3 @@ OpenWithFooter.args = {
     </Button>
   ),
 }
-
-export const OpenWithANestedModal: Story<ModalProps> = (args) => (
-  <PortalProvider>
-    <Modal {...args}>
-      <>
-        <p>Modal One Content</p>
-        <Modal
-          visible
-          afterClose={action(
-            'The user requested that the modal TWO closes. Your application needs to handle its visible prop',
-          )}
-          size="small"
-          title="Modal Two Title"
-          tapOutsideToDissmiss
-        >
-          Modal Two Content
-        </Modal>
-      </>
-    </Modal>
-  </PortalProvider>
-)
-OpenWithANestedModal.args = {
-  tapOutsideToDissmiss: false,
-  visible: true,
-  afterClose: action(
-    'The user requested that the modal ONE closes. Your application will now need to toggle the visible prop',
-  ),
-  title: 'Modal One Title',
-}

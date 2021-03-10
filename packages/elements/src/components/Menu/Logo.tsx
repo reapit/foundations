@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const ReapitLogo: React.SFC<{ className?: string }> = ({ className }) => (
+export const ReapitLogo: React.FC<{ className?: string }> = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="28.5 30 40 49" width="40px" height="49px" className={className}>
     <title>Reapit_House_RGB</title>
     <g id="House">

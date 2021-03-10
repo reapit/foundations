@@ -36,7 +36,7 @@
 
   li.active:before,
   li.passed:before {
-    background-color: $reapit-mid-blue;
+    background-color: $blue-primary-medium;
   }
 
   li:after {
@@ -58,7 +58,7 @@
   }
 
   & .circle-active {
-    border: 1px solid $reapit-mid-blue;
+    border: 1px solid $blue-primary-medium;
     transform: translateY(25px);
     width: 40px;
     height: 40px;
@@ -78,7 +78,7 @@
     height: 0;
     width: 3px;
     top: 30px;
-    background-color: $reapit-mid-blue;
+    background-color: $blue-primary-medium;
     transition: all 0.3s;
     z-index: -2;
     @include for-ie-only {
@@ -126,7 +126,7 @@
 
   li.active:before,
   li.passed:before {
-    background-color: $reapit-mid-blue;
+    background-color: $blue-primary-medium;
   }
 
   li:after {
@@ -148,13 +148,13 @@
     position: absolute;
     height: 3px;
     top: 50%;
-    background-color: $reapit-mid-blue;
+    background-color: $blue-primary-medium;
     transition: all 0.3s;
     z-index: -2;
   }
 
   & .circle-active {
-    border: 1px solid $reapit-mid-blue;
+    border: 1px solid $blue-primary-medium;
     width: 40px;
     height: 40px;
     position: absolute;

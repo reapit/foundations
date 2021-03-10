@@ -1,4 +1,5 @@
 @import '../base/media.scss';
+@import '../base/colors.scss';
 $notification-width: 400px;
 $notification-padding-vertical: 16px;
 $notification-padding-horizontal: 24px;
@@ -14,6 +15,20 @@ $notification-margin-bottom: 16px;
   width: $notification-width;
   margin-right: 24px;
   margin-left: 24px;
+
+  .is-info-message {
+    background: $blue-secondary-light !important;
+  }
+
+  .is-warning-message {
+    background: $skin-accent;
+  }
+
+  .is-warning-message, .is-info-message {
+    font-weight: normal;
+    font-size: 16px;
+    text-transform: none;
+  }
 
   @include for-mobile-only {
     width: 90%;

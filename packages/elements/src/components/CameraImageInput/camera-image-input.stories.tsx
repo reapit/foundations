@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions'
 import { CameraImageInput } from '.'
 import { FileInputProps } from '../FileInput'
 import { Form, Formik } from 'formik'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/CameraImageInput',
@@ -13,20 +12,18 @@ export default {
 }
 
 export const Default: Story<FileInputProps> = (args) => (
-  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-    <Formik
-      initialValues={{ imageInput: '' }}
-      onSubmit={(values) => {
-        action('Form Values' + values)
-      }}
-    >
-      <Form>
-        <div className="column is-half-desktop">
-          <CameraImageInput {...args} />
-        </div>
-      </Form>
-    </Formik>
-  </Section>
+  <Formik
+    initialValues={{ imageInput: '' }}
+    onSubmit={(values) => {
+      action('Form Values' + values)
+    }}
+  >
+    <Form>
+      <div className="column is-half-desktop">
+        <CameraImageInput {...args} />
+      </div>
+    </Form>
+  </Formik>
 )
 
 Default.args = {

@@ -9,7 +9,7 @@ export interface HTMLRenderProps {
   className?: string
 }
 
-export const HTMLRender: React.SFC<HTMLRenderProps> = ({
+export const HTMLRender: React.FC<HTMLRenderProps> = ({
   html,
   diffing = false,
   className = 'html-render',
