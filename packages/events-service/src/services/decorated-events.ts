@@ -61,6 +61,7 @@ export class DecoratedEvents {
     }
     const actions = {
       testEventType: [ACT_TYPE.CONTACT],
+      enquiry: [ACT_TYPE.CONTACT],
     }
     // for each event, check the type and add relevant actions from a constants file
     return events.map((event) => ({

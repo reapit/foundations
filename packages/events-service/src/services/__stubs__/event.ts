@@ -2,7 +2,7 @@ export default {
   id: '09853406-d838-469c-8f9f-92a92793e53f',
   published: '2021-03-09T10:38:24.7449133+00:00',
   summary: 'Summary of the event',
-  type: 'testEventType',
+  type: 'enquiry',
   actor: {
     id: 'XX',
     type: 'source',
@@ -29,7 +29,7 @@ export default {
     type: 'enquiry',
     name: 'Will McVay',
     email: 'willmcvay@pm.me',
-    mobilePhone: '+447930464427',
+    mobilePhone: '447930464427',
     address: {
       buildingName: '',
       buildingNumber: '10',
