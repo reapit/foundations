@@ -48,7 +48,8 @@ export default async (req: AppRequest, res: Response) => {
   } catch (error) {
     logger.error('Error retrieving decorated events', stringifyError(error))
 
-    res.status(400).json({
+    res.status(400)
+    return res.json({
       error: `Bad request ${error}`,
       code: 400,
     })

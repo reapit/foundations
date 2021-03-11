@@ -10,7 +10,7 @@ export class EventStatus {
   clientCode: string
 
   @attribute({ defaultProvider: () => 'outstanding' })
-  status: 'outstanding' | 'actioned' | 'dismissed'
+  status: 'outstanding' | 'actioned' | 'dismissed' | string
 
   @attribute()
   eventCreatedAt: string

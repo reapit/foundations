@@ -5,12 +5,11 @@ jest.mock('../../../core/logger')
 jest.mock('../../../core/db', () => {
   return {
     db: {
-      query: jest.fn(() =>
+      query: () =>
         new Set().add({
           eventId: 'SOME_ID',
           clientCode: 'SOME_CODE',
         }),
-      ),
     },
   }
 })
@@ -55,7 +54,7 @@ describe('listStatuses', () => {
     })
   })
 
-  xit('should return results', async () => {
+  it('should return results', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }
