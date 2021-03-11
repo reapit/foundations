@@ -5139,7 +5139,7 @@ __metadata:
     babel-loader: ^8.2.2
     babel-plugin-module-resolver: ^4.1.0
     concurrently: ^5.3.0
-    copy-webpack-plugin: 6.0.0
+    copy-webpack-plugin: 6.4.1
     core-js: ^3.9.1
     cross-env: ^6.0.3
     css-loader: ^3.6.0
@@ -13452,6 +13452,27 @@ __metadata:
   peerDependencies:
     webpack: ^4.37.0 || ^5.0.0
   checksum: 3714d9ab4b2aac972d4e015fd94ba6de4765d66c61c2acb95036629c25e425d451aad87a7b45ffc7a59a7c01ca7cc73b2188129626f52b9e2bd92c363e876e45
+  languageName: node
+  linkType: hard
+
+"copy-webpack-plugin@npm:6.4.1":
+  version: 6.4.1
+  resolution: "copy-webpack-plugin@npm:6.4.1"
+  dependencies:
+    cacache: ^15.0.5
+    fast-glob: ^3.2.4
+    find-cache-dir: ^3.3.1
+    glob-parent: ^5.1.1
+    globby: ^11.0.1
+    loader-utils: ^2.0.0
+    normalize-path: ^3.0.0
+    p-limit: ^3.0.2
+    schema-utils: ^3.0.0
+    serialize-javascript: ^5.0.1
+    webpack-sources: ^1.4.3
+  peerDependencies:
+    webpack: ^4.37.0 || ^5.0.0
+  checksum: ed5eb2bac2d67822dcf08e5023340d75392be6864f5f5734a9a1f60d64f7b028ee0279216e469de395eb9c94391fdafe46a800bda31f8b490f3f591d4255f163
   languageName: node
   linkType: hard
 
@@ -31313,6 +31334,15 @@ resolve@1.17.0:
   dependencies:
     randombytes: ^2.1.0
   checksum: f17305aaabab9ae443505d1bf477c13b09adb7031c397d18400bec16f43f788febdd3311ca6043fdebd1d446cfa70a5804ef7268da54351dec51080f56d52fa9
+  languageName: node
+  linkType: hard
+
+"serialize-javascript@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "serialize-javascript@npm:5.0.1"
+  dependencies:
+    randombytes: ^2.1.0
+  checksum: 97eef70a33c75e690b0c6aa2ffe622ecdfc888d3f181a5cf129e5778228dcd100febabc0f41ff793199ee79acd14cbbad0c69f1348a3893580fe424c4718889b
   languageName: node
   linkType: hard
 
