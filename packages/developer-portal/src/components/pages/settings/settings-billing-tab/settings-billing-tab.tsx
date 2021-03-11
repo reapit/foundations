@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { Info, Loader, Section } from '@reapit/elements'
+import { Info, Loader } from '@reapit/elements'
 import Subcriptions from '@/components/pages/settings/billing/subscriptions'
 import AccountsInformationForm from './accounts-information-form'
 import { Tabs } from '../tabs'
@@ -15,9 +15,7 @@ const SettingsBillingTabPage: React.FC<{}> = () => {
   if (currentUser?.role === 'admin') {
     return (
       <>
-        <Section>
-          <Tabs role={currentUser?.role} />
-        </Section>
+        <Tabs role={currentUser?.role} />
         <AccountsInformationForm />
         <Subcriptions />
       </>

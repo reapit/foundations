@@ -338,14 +338,14 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                   class="flex"
                                 >
                                   <button
-                                    class="button i5943rj-install-button is-secondary  "
+                                    class="button   is-secondary i5943rj-install-button"
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button i5943rj-install-button is-primary  "
+                                    class="button   is-primary i5943rj-install-button"
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -489,7 +489,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class="b1hev0vk-btn-group"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-primary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -499,7 +499,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -612,7 +612,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                               class="has-text-right"
                                             >
                                               <button
-                                                class="button  is-primary  "
+                                                class="button   is-primary "
                                                 data-test="installations-success-button"
                                                 type="button"
                                               >
@@ -748,14 +748,14 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           class="flex"
                                         >
                                           <button
-                                            class="button i5943rj-install-button is-secondary  "
+                                            class="button   is-secondary i5943rj-install-button"
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button i5943rj-install-button is-primary  "
+                                            class="button   is-primary i5943rj-install-button"
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -961,7 +961,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                       class="b1hev0vk-btn-group"
                                                     >
                                                       <button
-                                                        class="button  is-primary  "
+                                                        class="button   is-primary "
                                                         data-test="installations-success-message"
                                                         type="button"
                                                       >
@@ -971,7 +971,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                         href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                       >
                                                         <button
-                                                          class="button  is-primary  "
+                                                          class="button   is-primary "
                                                           data-test="installations-success-message-launch"
                                                           type="button"
                                                         >
@@ -1084,7 +1084,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                     class="has-text-right"
                                                   >
                                                     <button
-                                                      class="button  is-primary  "
+                                                      class="button   is-primary "
                                                       data-test="installations-success-button"
                                                       type="button"
                                                     >
@@ -1220,14 +1220,14 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class="flex"
                                               >
                                                 <button
-                                                  class="button i5943rj-install-button is-secondary  "
+                                                  class="button   is-secondary i5943rj-install-button"
                                                   data-test="disagree-btn"
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button i5943rj-install-button is-primary  "
+                                                  class="button   is-primary i5943rj-install-button"
                                                   data-test="agree-btn"
                                                   type="button"
                                                 >
@@ -1425,7 +1425,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           variant="secondary"
                                         >
                                           <button
-                                            className="button i5943rj-install-button is-secondary  "
+                                            className="button   is-secondary i5943rj-install-button"
                                             data-test="disagree-btn"
                                             disabled={false}
                                             onClick={[MockFunction]}
@@ -1443,7 +1443,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           variant="primary"
                                         >
                                           <button
-                                            className="button i5943rj-install-button is-primary  "
+                                            className="button   is-primary i5943rj-install-button"
                                             data-test="agree-btn"
                                             disabled={false}
                                             onClick={[Function]}
@@ -1794,7 +1794,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 class="has-text-right"
                               >
                                 <button
-                                  class="button  is-primary  "
+                                  class="button   is-primary "
                                   data-test="installations-success-button"
                                   type="button"
                                 >
@@ -1914,7 +1914,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class="b1hev0vk-btn-group"
                                         >
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-primary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -1924,7 +1924,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                           >
                                             <button
-                                              class="button  is-primary  "
+                                              class="button   is-primary "
                                               data-test="installations-success-message-launch"
                                               type="button"
                                             >
@@ -2037,7 +2037,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                         class="has-text-right"
                                       >
                                         <button
-                                          class="button  is-primary  "
+                                          class="button   is-primary "
                                           data-test="installations-success-button"
                                           type="button"
                                         >
@@ -2215,7 +2215,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 class="b1hev0vk-btn-group"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-primary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -2225,7 +2225,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -2338,7 +2338,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                               class="has-text-right"
                                             >
                                               <button
-                                                class="button  is-primary  "
+                                                class="button   is-primary "
                                                 data-test="installations-success-button"
                                                 type="button"
                                               >
@@ -2497,7 +2497,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             variant="primary"
                                           >
                                             <button
-                                              className="button  is-primary  "
+                                              className="button   is-primary "
                                               data-test="installations-success-button"
                                               disabled={false}
                                               onClick={[MockFunction]}
@@ -2693,7 +2693,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                   class="b1hev0vk-btn-group"
                                 >
                                   <button
-                                    class="button  is-primary  "
+                                    class="button   is-primary "
                                     data-test="installations-success-message"
                                     type="button"
                                   >
@@ -2703,7 +2703,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                   >
                                     <button
-                                      class="button  is-primary  "
+                                      class="button   is-primary "
                                       data-test="installations-success-message-launch"
                                       type="button"
                                     >
@@ -2825,7 +2825,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class="b1hev0vk-btn-group"
                                         >
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-primary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -2835,7 +2835,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                           >
                                             <button
-                                              class="button  is-primary  "
+                                              class="button   is-primary "
                                               data-test="installations-success-message-launch"
                                               type="button"
                                             >
@@ -3015,7 +3015,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 class="b1hev0vk-btn-group"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-primary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -3025,7 +3025,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -3193,7 +3193,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                               variant="primary"
                                             >
                                               <button
-                                                className="button  is-primary  "
+                                                className="button   is-primary "
                                                 data-test="installations-success-message"
                                                 disabled={false}
                                                 onClick={[MockFunction]}
@@ -3211,7 +3211,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 variant="primary"
                                               >
                                                 <button
-                                                  className="button  is-primary  "
+                                                  className="button   is-primary "
                                                   data-test="installations-success-message-launch"
                                                   disabled={false}
                                                   type="button"

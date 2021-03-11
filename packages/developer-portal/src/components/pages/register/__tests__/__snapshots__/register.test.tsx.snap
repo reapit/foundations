@@ -500,7 +500,7 @@ exports[`Register should match a snapshot 1`] = `
                             onClick={[Function]}
                           >
                             <button
-                              className="button  is-primary is-fullwidth "
+                              className="button is-fullwidth  is-primary "
                               data-test="button-register"
                               disabled={false}
                               onClick={[Function]}

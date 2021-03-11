@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elements'
+import { ButtonGroup } from '../../../../../../elements/src/components/Button/index'
 
 export interface ConfirmModalProps {
   visible: boolean
@@ -24,14 +25,14 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
         <ModalBody body={<p>{subtitle}</p>} />
         <ModalFooter
           footerItems={
-            <>
-              <Button className="mr-2" type="button" onClick={onCancel} variant="danger" fullWidth={true}>
+            <ButtonGroup hasSpacing isCentered>
+              <Button className="mr-2" type="button" onClick={onCancel} variant="danger">
                 Cancel
               </Button>
-              <Button variant="primary" type="submit" fullWidth={true} onClick={onConfirm}>
+              <Button variant="primary" type="submit" onClick={onConfirm}>
                 Confirm
               </Button>
-            </>
+            </ButtonGroup>
           }
         />
       </>

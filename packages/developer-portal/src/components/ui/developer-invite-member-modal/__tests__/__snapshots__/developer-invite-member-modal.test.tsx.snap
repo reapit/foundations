@@ -249,14 +249,14 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   data-test=""
                                 >
                                   <button
-                                    class="button  is-secondary  "
+                                    class="button   is-secondary "
                                     data-test=""
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button  is-primary  "
+                                    class="button   is-primary "
                                     data-test=""
                                     type="submit"
                                   >
@@ -461,14 +461,14 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           data-test=""
                                         >
                                           <button
-                                            class="button  is-secondary  "
+                                            class="button   is-secondary "
                                             data-test=""
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-primary "
                                             data-test=""
                                             type="submit"
                                           >
@@ -735,14 +735,14 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                 data-test=""
                                               >
                                                 <button
-                                                  class="button  is-secondary  "
+                                                  class="button   is-secondary "
                                                   data-test=""
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-primary "
                                                   data-test=""
                                                   type="submit"
                                                 >
@@ -1186,7 +1186,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   variant="secondary"
                                                 >
                                                   <button
-                                                    className="button  is-secondary  "
+                                                    className="button   is-secondary "
                                                     data-test=""
                                                     disabled={false}
                                                     onClick={[MockFunction]}
@@ -1201,7 +1201,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   variant="primary"
                                                 >
                                                   <button
-                                                    className="button  is-primary  "
+                                                    className="button   is-primary "
                                                     data-test=""
                                                     disabled={false}
                                                     type="submit"

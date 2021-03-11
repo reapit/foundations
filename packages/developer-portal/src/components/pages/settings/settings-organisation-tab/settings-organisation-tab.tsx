@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, LevelRight, Section, Info, Loader } from '@reapit/elements'
+import { Button, LevelRight, Info, Loader } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { Members } from './members'
@@ -20,19 +20,14 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
   if (currentUser?.role === 'admin') {
     return (
       <>
-        <Section>
-          <Tabs role={currentUser.role} />
-        </Section>
+        <Tabs role={currentUser.role} />
         <OrganisationForm onInviteNewMemberClick={handleToggleVisibleModal(setIsInviteModalOpen, true)} />
         <Members />
-        <Section>
-          <LevelRight>
-            <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
-              Invite New Member
-            </Button>
-          </LevelRight>
-        </Section>
-
+        <LevelRight>
+          <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
+            Invite New Member
+          </Button>
+        </LevelRight>
         <DeveloperInviteModal
           visible={isInviteModalOpen}
           onClose={handleToggleVisibleModal(setIsInviteModalOpen, false)}

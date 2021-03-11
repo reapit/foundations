@@ -146,7 +146,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 class="has-text-right"
                               >
                                 <button
-                                  class="button  is-primary  "
+                                  class="button   is-primary "
                                   data-test="uinstallations-success-button"
                                   type="button"
                                 >
@@ -257,14 +257,14 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                     class="flex"
                                   >
                                     <button
-                                      class="button i5943rj-install-button is-secondary  "
+                                      class="button   is-secondary i5943rj-install-button"
                                       data-test="disagree-btn"
                                       type="button"
                                     >
                                       Cancel
                                     </button>
                                     <button
-                                      class="button i5943rj-install-button is-danger  "
+                                      class="button   is-danger i5943rj-install-button"
                                       data-test="agree-btn"
                                       type="button"
                                     >
@@ -354,7 +354,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                         class="has-text-right"
                                       >
                                         <button
-                                          class="button  is-primary  "
+                                          class="button   is-primary "
                                           data-test="uinstallations-success-button"
                                           type="button"
                                         >
@@ -524,14 +524,14 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                           class="flex"
                                         >
                                           <button
-                                            class="button i5943rj-install-button is-secondary  "
+                                            class="button   is-secondary i5943rj-install-button"
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button i5943rj-install-button is-danger  "
+                                            class="button   is-danger i5943rj-install-button"
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -621,7 +621,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                               class="has-text-right"
                                             >
                                               <button
-                                                class="button  is-primary  "
+                                                class="button   is-primary "
                                                 data-test="uinstallations-success-button"
                                                 type="button"
                                               >
@@ -762,7 +762,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                             variant="primary"
                                           >
                                             <button
-                                              className="button  is-primary  "
+                                              className="button   is-primary "
                                               data-test="uinstallations-success-button"
                                               disabled={false}
                                               onClick={[MockFunction]}
@@ -1086,14 +1086,14 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                   class="flex"
                                 >
                                   <button
-                                    class="button i5943rj-install-button is-secondary  "
+                                    class="button   is-secondary i5943rj-install-button"
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button i5943rj-install-button is-danger  "
+                                    class="button   is-danger i5943rj-install-button"
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -1229,14 +1229,14 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                           class="flex"
                                         >
                                           <button
-                                            class="button i5943rj-install-button is-secondary  "
+                                            class="button   is-secondary i5943rj-install-button"
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button i5943rj-install-button is-danger  "
+                                            class="button   is-danger i5943rj-install-button"
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -1435,14 +1435,14 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                                 class="flex"
                                               >
                                                 <button
-                                                  class="button i5943rj-install-button is-secondary  "
+                                                  class="button   is-secondary i5943rj-install-button"
                                                   data-test="disagree-btn"
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button i5943rj-install-button is-danger  "
+                                                  class="button   is-danger i5943rj-install-button"
                                                   data-test="agree-btn"
                                                   type="button"
                                                 >
@@ -1563,7 +1563,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                           variant="secondary"
                                         >
                                           <button
-                                            className="button i5943rj-install-button is-secondary  "
+                                            className="button   is-secondary i5943rj-install-button"
                                             data-test="disagree-btn"
                                             disabled={false}
                                             onClick={[MockFunction]}
@@ -1581,7 +1581,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                           variant="danger"
                                         >
                                           <button
-                                            className="button i5943rj-install-button is-danger  "
+                                            className="button   is-danger i5943rj-install-button"
                                             data-test="agree-btn"
                                             disabled={false}
                                             onClick={[Function]}

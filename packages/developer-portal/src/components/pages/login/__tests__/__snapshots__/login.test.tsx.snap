@@ -97,7 +97,7 @@ exports[`Login should match a snapshot 1`] = `
                   onClick={[Function]}
                 >
                   <button
-                    className="button l1cbog1d-login-button is-primary is-fullwidth "
+                    className="button is-fullwidth  is-primary l1cbog1d-login-button"
                     data-test="login-button"
                     disabled={false}
                     onClick={[Function]}

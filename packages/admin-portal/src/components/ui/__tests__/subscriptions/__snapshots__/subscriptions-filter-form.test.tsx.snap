@@ -1038,7 +1038,7 @@ exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
                             variant="primary"
                           >
                             <button
-                              className="button  is-primary  "
+                              className="button   is-primary "
                               data-test=""
                               disabled={false}
                               type="submit"

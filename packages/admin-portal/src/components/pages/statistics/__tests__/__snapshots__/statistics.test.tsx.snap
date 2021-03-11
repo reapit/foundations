@@ -81,7 +81,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -91,7 +91,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="area-apps-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -107,7 +107,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-developers-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -123,7 +123,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-installations-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -144,7 +144,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -154,7 +154,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="range-week-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -170,7 +170,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-month-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -186,7 +186,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-all-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -230,7 +230,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               variant="primary"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}
@@ -328,7 +328,7 @@ exports[`Admin Stats should match snapshot 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -338,7 +338,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="area-apps-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -354,7 +354,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-developers-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -370,7 +370,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-installations-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -391,7 +391,7 @@ exports[`Admin Stats should match snapshot 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -401,7 +401,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="range-week-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -417,7 +417,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-month-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -433,7 +433,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-all-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -477,7 +477,7 @@ exports[`Admin Stats should match snapshot 1`] = `
               variant="primary"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}
@@ -575,7 +575,7 @@ exports[`Admin Stats should show loading 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -585,7 +585,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="area-apps-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -601,7 +601,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-developers-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -617,7 +617,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="area-installations-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -638,7 +638,7 @@ exports[`Admin Stats should show loading 1`] = `
             </H6>
             <ButtonGroup>
               <div
-                className="is-centered buttons has-addons "
+                className="is-centered buttons has-addons"
               >
                 <Button
                   className="ml-0"
@@ -648,7 +648,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button ml-0 is-primary  "
+                    className="button   is-primary ml-0"
                     data-test="range-week-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -664,7 +664,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-month-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -680,7 +680,7 @@ exports[`Admin Stats should show loading 1`] = `
                   variant="secondary"
                 >
                   <button
-                    className="button  is-secondary  "
+                    className="button   is-secondary "
                     data-test="range-all-btn"
                     disabled={false}
                     onClick={[Function]}
@@ -724,7 +724,7 @@ exports[`Admin Stats should show loading 1`] = `
               variant="primary"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}

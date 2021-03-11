@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CostCalculator should match a snapshot 1`] = `
-<Section>
+<Section
+  hasBoxShadow={true}
+>
   <H5>
     API Cost Calculator
   </H5>

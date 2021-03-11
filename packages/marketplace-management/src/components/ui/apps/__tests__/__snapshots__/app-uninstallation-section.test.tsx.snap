@@ -37,7 +37,7 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={true}
               onClick={[Function]}
@@ -101,7 +101,7 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={false}
               onClick={[Function]}
@@ -167,7 +167,7 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={false}
               onClick={[Function]}
@@ -236,7 +236,7 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={false}
               onClick={[Function]}

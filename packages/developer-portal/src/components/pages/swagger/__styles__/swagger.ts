@@ -1,6 +1,6 @@
 /* purgecss start ignore */
 import { css } from 'linaria'
-import { reapitMidblue, greyLight, grey } from '@/core/__styles__/colors'
+import { bluePrimaryMedium, greyLight, greyMedium } from '@/core/__styles__/colors'
 
 /*
   Overrides file to make Swagger UI look more like the rest of the site.
@@ -38,7 +38,7 @@ export const swagger = css`
     a,
     .info,
     .markdown {
-      font-family: 'Roboto', Helvetica, sans-serif;
+      font-family: 'PT Sans', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
@@ -50,20 +50,20 @@ export const swagger = css`
     h6,
     .title,
     .model-title {
-      font-family: 'Roboto', Helvetica, sans-serif;
+      font-family: 'PT Sans', Helvetica, sans-serif;
     }
 
     .info a {
-      color: ${reapitMidblue};
+      color: ${bluePrimaryMedium};
     }
 
     .info table {
-      font-family: 'Roboto', Helvetica, sans-serif;
+      font-family: 'PT Sans', Helvetica, sans-serif;
       font-size: 1rem;
     }
 
     a {
-      color: ${reapitMidblue};
+      color: ${bluePrimaryMedium};
     }
 
     .loading,
@@ -79,7 +79,7 @@ export const swagger = css`
 
     h2,
     .info h2 {
-      font-family: 'Roboto', Helvetica, sans-serif;
+      font-family: 'PT Sans', Helvetica, sans-serif;
       font-size: 2rem;
       font-weight: bold;
     }
@@ -92,7 +92,7 @@ export const swagger = css`
     .prop-format {
       font-family: 'Source Code Pro', monospace;
       font-size: 1rem;
-      color: ${grey};
+      color: ${greyMedium};
     }
 
     .auth-wrapper {
@@ -145,7 +145,7 @@ export const swagger = css`
       }
 
       .prop-type {
-        color: ${grey};
+        color: ${greyMedium};
       }
     }
 
@@ -164,15 +164,15 @@ export const swagger = css`
 
       small {
         font-size: 1rem;
-        font-family: 'Roboto', Helvetica, sans-serif;
+        font-family: 'PT Sans', Helvetica, sans-serif;
       }
     }
 
     p,
     .markdown,
     .opblock-summary-description {
-      font-family: 'Roboto', Helvetica, sans-serif;
-      color: ${grey};
+      font-family: 'PT Sans', Helvetica, sans-serif;
+      color: ${greyMedium};
     }
   }
 `

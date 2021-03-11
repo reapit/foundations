@@ -21,7 +21,7 @@ exports[`Toast should match a snapshot 1`] = `
           variant="info"
         >
           <button
-            className="button  is-info is-fullwidth "
+            className="button is-fullwidth  is-info "
             data-test=""
             disabled={false}
             type="reset"

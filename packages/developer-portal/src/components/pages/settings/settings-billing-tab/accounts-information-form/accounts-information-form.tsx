@@ -119,7 +119,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
         const isSubmitDebitButton = hasReapitAccountsRef === 'no' && status === 'incomplete'
         return (
           <Form>
-            <H3 isHeadingSection>Billing</H3>
+            <H3>Billing</H3>
             <FadeIn>
               <FormSection>
                 {!isRequiredDataOfBillingPageFilled && (

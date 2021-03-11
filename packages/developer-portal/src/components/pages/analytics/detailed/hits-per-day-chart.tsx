@@ -2,7 +2,7 @@ import * as React from 'react'
 import { H5, Loader, Section } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
 import { RequestByDateModel } from '@/reducers/traffic-statistics/list'
-import { getAppHttpTrafficPerDayChartData, getChartConfig, getChartOptions } from '@/utils/app-http-traffic.ts'
+import { getAppHttpTrafficPerDayChartData, getChartConfig, getChartOptions } from '@/utils/app-http-traffic'
 import FadeIn from '../../../../styles/fade-in'
 
 export type DeveloperHitsPerDayProps = {
@@ -15,7 +15,7 @@ export const renderChart = (appHttpTrafficPerDayChartData) => {
   const chartData = getChartConfig(labels, data)
   const chartOptions = getChartOptions(chartDataStats)
   return (
-    <Section hasMargin={false}>
+    <Section hasMargin={false} hasBoxShadow>
       <H5>Hits Per Day</H5>
       <FadeIn>
         <Line data={chartData} options={chartOptions} />

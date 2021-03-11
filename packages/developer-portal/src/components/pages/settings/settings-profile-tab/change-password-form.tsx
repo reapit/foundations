@@ -6,7 +6,7 @@ import {
   Button,
   Form,
   Formik,
-  FormHeading,
+  H5,
   LevelRight,
   Grid,
   GridItem,
@@ -55,7 +55,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ changePa
           return (
             <Form>
               <FadeIn>
-                <FormHeading>Change password</FormHeading>
+                <H5>Change password</H5>
                 <FormSubHeading>
                   Please complete the following fields to change your password. You will be automatically logged out for
                   the changes to be applied

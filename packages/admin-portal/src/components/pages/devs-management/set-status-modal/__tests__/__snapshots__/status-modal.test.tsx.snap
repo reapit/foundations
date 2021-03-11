@@ -437,14 +437,14 @@ exports[`StatusModal should match snapshot 1`] = `
                               class="rc-dialog-footer"
                             >
                               <button
-                                class="button mr-2 is-danger  "
+                                class="button   is-danger mr-2"
                                 data-test=""
                                 type="button"
                               >
                                 CANCEL
                               </button>
                               <button
-                                class="button  is-primary  "
+                                class="button   is-primary "
                                 data-test=""
                                 type="submit"
                               >
@@ -695,14 +695,14 @@ exports[`StatusModal should match snapshot 1`] = `
                                       class="rc-dialog-footer"
                                     >
                                       <button
-                                        class="button mr-2 is-danger  "
+                                        class="button   is-danger mr-2"
                                         data-test=""
                                         type="button"
                                       >
                                         CANCEL
                                       </button>
                                       <button
-                                        class="button  is-primary  "
+                                        class="button   is-primary "
                                         data-test=""
                                         type="submit"
                                       >
@@ -1012,14 +1012,14 @@ exports[`StatusModal should match snapshot 1`] = `
                                             class="rc-dialog-footer"
                                           >
                                             <button
-                                              class="button mr-2 is-danger  "
+                                              class="button   is-danger mr-2"
                                               data-test=""
                                               type="button"
                                             >
                                               CANCEL
                                             </button>
                                             <button
-                                              class="button  is-primary  "
+                                              class="button   is-primary "
                                               data-test=""
                                               type="submit"
                                             >
@@ -1346,7 +1346,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                       variant="danger"
                                     >
                                       <button
-                                        className="button mr-2 is-danger  "
+                                        className="button   is-danger mr-2"
                                         data-test=""
                                         disabled={false}
                                         type="button"
@@ -1362,7 +1362,7 @@ exports[`StatusModal should match snapshot 1`] = `
                                       variant="primary"
                                     >
                                       <button
-                                        className="button  is-primary  "
+                                        className="button   is-primary "
                                         data-test=""
                                         disabled={false}
                                         onClick={[Function]}

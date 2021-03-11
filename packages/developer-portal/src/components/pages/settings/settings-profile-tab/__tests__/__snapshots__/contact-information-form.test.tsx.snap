@@ -144,13 +144,14 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                 <div
                   className="f1ohzb3j-fade-in"
                 >
-                  <FormHeading>
-                    <div
-                      className="form-heading"
+                  <H5>
+                    <h5
+                      className="title is-5"
+                      id=""
                     >
                       Contact Information
-                    </div>
-                  </FormHeading>
+                    </h5>
+                  </H5>
                   <FormSubHeading>
                     <div
                       className="form-subheading"
@@ -272,7 +273,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                         variant="primary"
                       >
                         <button
-                          className="button  is-primary  is-loading"
+                          className="button  is-loading is-primary "
                           data-test="save-changes"
                           disabled={false}
                           type="submit"
