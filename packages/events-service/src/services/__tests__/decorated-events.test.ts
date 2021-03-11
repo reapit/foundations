@@ -1,4 +1,5 @@
 import { DecoratedEvents } from '../decorated-events'
+import stubbedEvent from '../__stubs__/event'
 
 jest.mock('../../core/logger', () => ({
   info: jest.fn(),
@@ -16,6 +17,19 @@ const mockEventStatus = {
 }
 
 describe('DecoratedEvents', () => {
+  it('the fetchEventBodies function should return the stubbed event', async () => {
+    const events = await new DecoratedEvents('1234').fetchEventBodies([mockEventStatus])
+    expect(events.length).toBe(1)
+    expect(events[0].id).toBe(mockEventStatus.eventId)
+  })
+
+  it('the addActionsToEventBodies function should return an event with actions of some type', async () => {
+    const events = await new DecoratedEvents('1234').addActionsToEventBodies([stubbedEvent])
+    expect(events.length).toBe(1)
+    expect(events[0].actions.length).toBe(1)
+    expect(events[0].actions[0]).toBe('contact')
+  })
+
   it('the retrieveByEventStatusList function should run the correct steps', async () => {
     const mock1 = (DecoratedEvents.prototype.fetchEventBodies = jest.fn())
     const mock2 = (DecoratedEvents.prototype.addActionsToEventBodies = jest.fn())

@@ -40,7 +40,6 @@ export default async (req: AppRequest, res: Response) => {
     return res.json({
       error: `Bad request ${error}`,
       code: 400,
-      stack: error.stack,
     })
   }
 }
