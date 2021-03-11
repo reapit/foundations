@@ -17,23 +17,24 @@ exports[`ConfirmModal should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <React.Fragment>
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
+      >
         <Button
           className="mr-2"
-          fullWidth={true}
           type="button"
           variant="danger"
         >
           Cancel
         </Button>
         <Button
-          fullWidth={true}
           type="submit"
           variant="primary"
         >
           Confirm
         </Button>
-      </React.Fragment>
+      </ButtonGroup>
     }
   />
 </Modal>

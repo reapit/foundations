@@ -94,7 +94,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           variant="secondary"
         >
           <button
-            className="button  is-secondary  "
+            className="button   is-secondary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}
@@ -109,7 +109,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           variant="primary"
         >
           <button
-            className="button  is-primary  "
+            className="button   is-primary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}
@@ -242,7 +242,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           variant="secondary"
         >
           <button
-            className="button  is-secondary  "
+            className="button   is-secondary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}
@@ -257,7 +257,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           variant="primary"
         >
           <button
-            className="button  is-primary  "
+            className="button   is-primary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}
@@ -368,7 +368,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           variant="secondary"
         >
           <button
-            className="button  is-secondary  "
+            className="button   is-secondary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}
@@ -383,7 +383,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           variant="primary"
         >
           <button
-            className="button  is-primary  "
+            className="button   is-primary "
             data-test=""
             disabled={false}
             onClick={[MockFunction]}

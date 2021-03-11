@@ -70,7 +70,7 @@ const AppDetail: React.FC<AppDetailProps> = () => {
         </FadeIn>
       </GridItem>
       <GridItem className="is-three-quarters">
-        <Section isFlex isFlexColumn hasBackground isFullHeight>
+        <Section isFlex isFlexColumn hasBackground isFullHeight hasPadding={false}>
           <FadeIn>
             <AppHeader appDetailData={appDetailData} />
           </FadeIn>

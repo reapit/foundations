@@ -63,10 +63,11 @@ exports[`Login should match a snapshot 1`] = `
           >
             <Section
               className="justify-between items-center"
+              hasPadding={false}
               isFlex={true}
             >
               <section
-                className="section is-flex has-padding has-margin has-background justify-between items-center"
+                className="section is-flex has-margin has-background justify-between items-center"
                 data-test=""
               >
                 <H3
@@ -85,7 +86,7 @@ exports[`Login should match a snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button  is-primary  "
+                    className="button   is-primary "
                     data-test=""
                     disabled={false}
                     onClick={[Function]}
@@ -164,7 +165,7 @@ exports[`Login should match a snapshot 1`] = `
                 <ToastMessage
                   message="This is a sandbox environment, with anonymised test data and isolated from production"
                   onCloseToast={[Function]}
-                  variant="info"
+                  variant="primary"
                   visible={false}
                 >
                   <div
@@ -175,10 +176,10 @@ exports[`Login should match a snapshot 1`] = `
                     <Button
                       fullWidth={true}
                       type="reset"
-                      variant="info"
+                      variant="primary"
                     >
                       <button
-                        className="button  is-info is-fullwidth "
+                        className="button is-fullwidth  is-primary "
                         data-test=""
                         disabled={false}
                         type="reset"

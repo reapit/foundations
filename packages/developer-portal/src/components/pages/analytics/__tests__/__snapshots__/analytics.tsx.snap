@@ -14,31 +14,27 @@ exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 
 exports[`AnalyticsPage should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     Dashboard
   </H3>
-  <Section>
-    <Tabs
-      tabConfigs={
-        Array [
-          Object {
-            "active": true,
-            "displayText": "DETAILED",
-            "onTabClick": [Function],
-            "tabIdentifier": "detailed",
-          },
-          Object {
-            "active": false,
-            "displayText": "Cost Explorer",
-            "onTabClick": [Function],
-            "tabIdentifier": "costexplorer",
-          },
-        ]
-      }
-    />
-  </Section>
+  <Tabs
+    tabConfigs={
+      Array [
+        Object {
+          "active": true,
+          "displayText": "DETAILED",
+          "onTabClick": [Function],
+          "tabIdentifier": "detailed",
+        },
+        Object {
+          "active": false,
+          "displayText": "Cost Explorer",
+          "onTabClick": [Function],
+          "tabIdentifier": "costexplorer",
+        },
+      ]
+    }
+  />
   <DetailedTab />
 </Connect(ErrorBoundary)>
 `;

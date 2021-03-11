@@ -2,6 +2,7 @@
 
 exports[`TransactionHistory should match a snapshot 1`] = `
 <Component
+  hasBoxShadow={true}
   hasMargin={false}
 >
   <Component>

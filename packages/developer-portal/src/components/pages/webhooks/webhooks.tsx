@@ -3,7 +3,7 @@ import qs from 'query-string'
 import { History } from 'history'
 import { Loader, SelectBoxOptions } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
-import { SelectBox, H3, FormSection, FormSubHeading, LevelRight, Button, Table, Section } from '@reapit/elements'
+import { SelectBox, H3, FormSection, FormSubHeading, LevelRight, Button, Table } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
@@ -192,9 +192,7 @@ export const DeveloperWebhooks = () => {
 
   return (
     <>
-      <Section>
-        <H3>Manage Webhook Subscriptions</H3>
-      </Section>
+      <H3>Manage Webhook Subscriptions</H3>
       <FadeIn>
         <FormSection>
           <FormSubHeading>
@@ -222,10 +220,9 @@ export const DeveloperWebhooks = () => {
               <Form>
                 <SelectBox
                   className="pt-2 pb-2"
-                  helpText="Please select an App from the list below to view the associated Webhooks:"
                   name="applicationId"
                   options={mapDeveloperAppsToAppSelectBoxOptions(apps || [])}
-                  labelText="App"
+                  labelText="Please select an App from the list below to view the associated Webhooks:"
                   id="subscription"
                 />
                 <FormikAutoSave onSave={handleSubscriptionChange(history)} />

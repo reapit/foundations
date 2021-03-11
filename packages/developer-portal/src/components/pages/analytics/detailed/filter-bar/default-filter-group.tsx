@@ -104,8 +104,7 @@ export const renderFiterButtons = (
   return (
     <Button
       type="button"
-      className={`${isActive === buttonFilterType && 'is-info'}`}
-      variant="secondary"
+      variant={isActive === buttonFilterType ? 'primary' : 'secondary'}
       onClick={onFilterButtonClick(buttonFilterType, setDateFrom, setDateTo, setIsActive)}
       fullWidth={false}
       key={buttonText}

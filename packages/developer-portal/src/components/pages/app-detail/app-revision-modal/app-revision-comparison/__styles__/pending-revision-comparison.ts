@@ -1,5 +1,12 @@
 import { css } from 'linaria'
-import { grey, black, greyLight, greenLighter, redLighter, reapitMidblue } from '@/core/__styles__/colors'
+import {
+  greyMedium,
+  black,
+  greyLight,
+  greenLightSemantic,
+  redLightSemantic,
+  bluePrimaryMedium,
+} from '@/core/__styles__/colors'
 
 export const container = css`
   background-color: ${greyLight};
@@ -22,16 +29,16 @@ export const checkbox = css`
 `
 
 export const green = css`
-  background-color: ${greenLighter};
+  background-color: ${greenLightSemantic};
 `
 
 export const red = css`
-  background-color: ${redLighter};
+  background-color: ${redLightSemantic};
 `
 
 export const arrow = css`
   font-size: 18px;
-  color: ${grey};
+  color: ${greyMedium};
 `
 
 export const image = css`
@@ -79,7 +86,7 @@ export const diffRenderHtmlContainer = css`
   align-items: center;
 
   & a {
-    color: ${reapitMidblue};
+    color: ${bluePrimaryMedium};
     font-weight: bold;
   }
 

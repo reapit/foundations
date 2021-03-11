@@ -1,12 +1,12 @@
 import { css } from 'linaria'
-import { reapitMidblue } from '@/core/__styles__/colors'
+import { bluePrimaryMedium } from '@/core/__styles__/colors'
 
 export const link = css`
-  color: ${reapitMidblue};
+  color: ${bluePrimaryMedium};
   font-weight: bold;
 `
 export const hyperlinked = css`
-  color: ${reapitMidblue};
+  color: ${bluePrimaryMedium};
   text-decoration: underline;
   font-weight: bold;
 `

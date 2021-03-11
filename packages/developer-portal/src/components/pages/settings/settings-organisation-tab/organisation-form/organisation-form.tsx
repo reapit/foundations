@@ -159,7 +159,7 @@ const OrganisationForm: React.FC<OrganisationFormProps> = ({ onInviteNewMemberCl
       {({ values }) => {
         return (
           <Form>
-            <H3 className="flex justify-between" isHeadingSection>
+            <H3 className="flex justify-between">
               <span>Company Information</span>
               <span>
                 <Button type="button" variant="primary" onClick={onInviteNewMemberClick}>

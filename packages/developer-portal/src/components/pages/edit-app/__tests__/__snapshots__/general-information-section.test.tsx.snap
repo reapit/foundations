@@ -512,7 +512,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             className="control"
                           >
                             <label
-                              className="label "
+                              className="label mb-2 "
                               htmlFor="description"
                             >
                               Description
@@ -1284,7 +1284,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                             className="control"
                           >
                             <label
-                              className="label required-label"
+                              className="label mb-2 required-label"
                               htmlFor="description"
                             >
                               Description

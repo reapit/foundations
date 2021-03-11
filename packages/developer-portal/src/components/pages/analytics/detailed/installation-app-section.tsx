@@ -169,7 +169,7 @@ export const InstallationAppSection: React.FC<{
               />
             </GridItem>
             <GridItem className="is-half">
-              <Section hasMargin={false}>
+              <Section hasMargin={false} hasBoxShadow>
                 <H5>Current Installations</H5>
                 <p className="is-italic">
                   The installations table below shows the individual installations per client with a total number of
@@ -188,7 +188,7 @@ export const InstallationAppSection: React.FC<{
               </Section>
             </GridItem>
           </Grid>
-          <Section>
+          <Section hasBoxShadow>
             <H5>Installation Details</H5>
             <FadeIn>
               <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />

@@ -5,10 +5,7 @@ import notification from './index'
 import { Button } from '../Button'
 import { Section } from '@/components/Layout'
 
-const longText =
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint voluptas qui amet architecto, ' +
-  'maxime laudantium voluptatibus, laborum beatae explicabo minima voluptatum, doloremque blanditiis ' +
-  'ipsum reiciendis quasi fugit eveniet perferendis!'
+const longText = 'Some message to display to the user'
 
 export default {
   title: 'Components/Notification',
@@ -22,6 +19,9 @@ export const Default: Story = () => (
     </Button>
     <Button variant="primary" type="button" onClick={() => notification.error({ message: longText })}>
       Error
+    </Button>
+    <Button variant="primary" type="button" onClick={() => notification.info({ message: longText })}>
+      Info
     </Button>
   </Section>
 )

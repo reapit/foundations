@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Loader, Section } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import { Forms } from './settings-profile-tab/forms'
 import { Tabs } from './tabs'
 import { useSelector } from 'react-redux'
@@ -17,9 +17,7 @@ const SettingsPage: React.FC = () => {
   }
   return (
     <>
-      <Section>
-        <Tabs role={currentUser?.role} />
-      </Section>
+      <Tabs role={currentUser?.role} />
       <Forms />
     </>
   )

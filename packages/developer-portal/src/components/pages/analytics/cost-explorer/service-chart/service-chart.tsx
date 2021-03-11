@@ -224,7 +224,7 @@ export const ServiceChart: React.FC = () => {
   }
 
   return (
-    <Section hasMargin={false}>
+    <Section hasMargin={false} hasBoxShadow>
       <H5>Services</H5>
       <Grid>
         <GridItem className="is-7 is-offset-5">

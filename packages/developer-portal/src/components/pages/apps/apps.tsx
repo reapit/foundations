@@ -42,7 +42,7 @@ export const Apps: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section className="justify-between items-center" isFlex>
+      <Section className="justify-between items-center" isFlex hasPadding={false}>
         <H3 className="mb-0">My Apps</H3>
         <Button onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} type="button" variant="primary">
           Create new app

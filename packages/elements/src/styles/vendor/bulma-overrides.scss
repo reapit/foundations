@@ -147,10 +147,7 @@ html {
 
 .button {
   &.is-info, &.is-secondary {
-    color: $white;
-    &:hover {
-      color: $white;
-    }
+    color: $white !important;
   }
   &.is-secondary {
     background: $blue-primary-light;
@@ -236,6 +233,7 @@ html {
   &.input,
   &.textarea {
     border: none;
+    border-radius: 0;
     padding: 5px;
     &:focus {
       box-shadow: inset 0px -1px 0px $black;

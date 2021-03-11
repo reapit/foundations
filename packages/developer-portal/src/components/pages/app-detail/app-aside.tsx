@@ -34,7 +34,7 @@ export const DeveloperAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, 
   const { isDirectApi, category, pendingRevisions, id = '', limitToClientIds = [] } = data || {}
 
   return (
-    <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
+    <FlexContainerBasic flexColumn hasBackground isFullHeight={!isMobile}>
       <CategorySection category={category} isSidebar />
       <DesktopIntegrationSection desktopIntegrationTypes={desktopIntegrationTypes} isSidebar />
       <PrivateAppSection limitToClientIds={limitToClientIds} isSidebar />
