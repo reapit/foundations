@@ -27,7 +27,9 @@ const getOutstandingEvents = async (query: EventListQuery, user: ReqUser): Promi
   }
 
   const iterator = db.query(EventStatus, keyCondition, queryConditons)
-  const records = []
+  // db.query (from dynamodb) returns an async iterator, so await each item in
+  // the iterator to extract the results
+  const records = [] as EventStatus[]
   for await (const record of iterator) records.push(record)
   return records
 }

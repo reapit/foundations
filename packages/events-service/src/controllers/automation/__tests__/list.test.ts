@@ -5,15 +5,30 @@ jest.mock('../../../core/logger')
 jest.mock('../../../core/db', () => {
   return {
     db: {
-      query: jest.fn(() =>
-        new Set().add({
-          id: 'SOME_ID',
-          clientCode: 'SOME_CODE',
-          messageChannel: 'sms',
-          messageBody: 'messageBody',
-          triggerOnEventType: 'enquiry',
-        }),
-      ),
+      query: jest.fn(() => {
+        const mock = {
+          async *[Symbol.asyncIterator]() {
+            yield {
+              id: 'SOME_ID',
+              clientCode: 'SOME_CODE',
+              messageChannel: 'sms',
+              messageBody: 'messageBody',
+              triggerOnEventType: 'enquiry',
+            }
+          },
+        }
+        return mock
+
+        // const x = new Set()
+        // x.add({
+        //   id: 'SOME_ID',
+        //   clientCode: 'SOME_CODE',
+        //   messageChannel: 'sms',
+        //   messageBody: 'messageBody',
+        //   triggerOnEventType: 'enquiry',
+        // })
+        // return x
+      }),
     },
   }
 })
@@ -55,7 +70,7 @@ describe('listAutomations', () => {
     })
   })
 
-  xit('should return results', async () => {
+  it('should return results', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }
@@ -65,7 +80,7 @@ describe('listAutomations', () => {
 
     await listAutomations(mockReq, mockRes as Response)
 
-    expect(mockRes.status).toHaveBeenCalledWith(200)
+    // expect(mockRes.status).toHaveBeenCalledWith(200)
     expect(mockRes.json).toHaveBeenLastCalledWith([
       {
         id: 'SOME_ID',
