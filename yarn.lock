@@ -5167,7 +5167,7 @@ __metadata:
     jest-fetch-mock: ^3.0.0
     jest-transform-graphql: ^2.1.0
     linaria: ^2.0.2
-    mini-css-extract-plugin: ^0.7.0
+    mini-css-extract-plugin: ^0.12.0
     mockdate: ^2.0.5
     node-sass: ^4.14.1
     postcss-flexbugs-fixes: ^4.2.1
@@ -25100,17 +25100,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "mini-css-extract-plugin@npm:0.7.0"
+"mini-css-extract-plugin@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "mini-css-extract-plugin@npm:0.12.0"
   dependencies:
     loader-utils: ^1.1.0
     normalize-url: 1.9.1
     schema-utils: ^1.0.0
     webpack-sources: ^1.1.0
   peerDependencies:
-    webpack: ^4.4.0
-  checksum: d293e7c89a72458816aafa243bcd86cdfb0e1412367c48dbfee5945217fefaf027b6ec3cc55ad41295bcc8dcc5910a61c74ae6d178f1f55f654c1c9f5cba6bd2
+    webpack: ^4.4.0 || ^5.0.0
+  checksum: bd8d5fe46f82e7fc393398ad30240a1793c34686b433255b8425dcfea79dc9041897a64e1c26201d30e8acdec965787b8450da621910cdefbdf13aa3562c87fb
   languageName: node
   linkType: hard
 
