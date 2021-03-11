@@ -29,7 +29,7 @@ export const TextArea = ({
     {({ field, meta }: FieldProps<string>) => {
       const hasError = checkError(meta)
       const className = cx(hasError ? textareaError : textareaPrimary)
-      const labelClassname = cx('label', required && 'required-label')
+      const labelClassname = cx('label mb-2', required && 'required-label')
       return (
         <div className="field">
           <div className="control">

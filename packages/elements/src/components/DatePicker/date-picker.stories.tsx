@@ -3,20 +3,13 @@ import { Story } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
 import { Form, Formik } from 'formik'
 import { DatePicker, DatePickerProps } from '.'
-import { Section } from '@/components/Layout'
 
 export default {
   title: 'Components/DatePicker',
   component: DatePicker,
   // NOTE: this component doesn't work without Formik, so it's purely a react component.
   // How do we want to show the CSS part of it?
-  decorators: [
-    (Story: Story) => (
-      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
-        <Story />
-      </Section>
-    ),
-  ],
+  decorators: [(Story: Story) => <Story />],
 }
 
 export const Primary: Story<DatePickerProps> = (args) => (
@@ -35,7 +28,7 @@ export const Primary: Story<DatePickerProps> = (args) => (
 )
 Primary.args = {
   name: 'demo',
-  labelText: 'demo',
+  labelText: 'Demo',
   id: 'demo',
   popperPlacement: 'top',
 }
@@ -59,7 +52,7 @@ export const Empty: Story<DatePickerProps> = (args) => (
 )
 Empty.args = {
   name: 'demo',
-  labelText: 'demo',
+  labelText: 'Demo',
   id: 'demo',
   popperPlacement: 'top',
 }

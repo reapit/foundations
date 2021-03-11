@@ -327,6 +327,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={15}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentTimeGap15 mins"
                               >
                                 15 mins
@@ -357,6 +358,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={30}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentTimeGap30 mins"
                               >
                                 30 mins
@@ -387,6 +389,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={60}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentTimeGap1hr"
                               >
                                 1hr
@@ -417,6 +420,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={90}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentTimeGap1hr 30mins"
                               >
                                 1hr 30mins
@@ -512,6 +516,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={15}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentLength15 mins"
                               >
                                 15 mins
@@ -542,6 +547,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={30}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentLength30 mins"
                               >
                                 30 mins
@@ -572,6 +578,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={60}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentLength1hr"
                               >
                                 1hr
@@ -602,6 +609,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                 value={90}
                               />
                               <label
+                                className="label"
                                 htmlFor="appointmentLength1hr 30mins"
                               >
                                 1hr 30mins

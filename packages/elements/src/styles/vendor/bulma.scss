@@ -9,41 +9,38 @@
 */
 
 // Fonts
-$family-primary: 'Roboto', Helvetica, sans-serif;
+$family-primary: 'PT Sans', Helvetica, Arial, sans-serif;
 
-$title-family: 'Roboto', Helvetica, sans-serif;;
+$title-family: 'PT Sans', Helvetica, Arial, sans-serif;;
 $title-weight: 700;
-$subtitle-family: 'Roboto', Helvetica, sans-serif;;
+$subtitle-family: 'PT Sans', Helvetica, Arial, sans-serif;;
 $subtitle-weight: 700;
 $weight-bold: 700;
 
 // Colors
-$grey-dark: $grey;
-$grey-light: $grey;
-$dark: $grey;
+$grey-dark: $grey-dark;
+$grey-light: $grey-light;
+$dark: $grey-dark;
 
-$orange: $reapit-orange;
-$yellow: $reapit-gold;
-$green: $reapit-green;
-$turquoise: $reapit-teal;
-$cyan: $reapit-light-blue;
-$blue: $reapit-dark-blue;
-$purple: $reapit-plumb;
-$red: $reapit-red;
+$orange: $orange-accent;
+$yellow: $yellow-accent;
+$green: $green-semantic;
+$blue: $blue-primary-medium;
+$red: $red-semantic;
+
+$primary: $blue-primary-medium;
+$info: $orange;
 
 $title-color: $black;
-
 $text: $black;
-
 $title-weight: $weight-bold;
 $subtitle-weight: $weight-bold;
 $subtitle-color: $dark;
 
-$column-gap: 0.5rem;
+$column-gap: 1rem;
 
 // Notifications
-$notification-radius: 0;
-$notification-padding: 1rem;
+// $notification-padding: 0.5rem;
 
 // Card
 $card-shadow: none;
@@ -51,10 +48,9 @@ $card-footer-padding: 0.5rem;
 $card-content-padding: 0.75rem;
 
 // Modal
-$modal-background-background-color: rgba($black, 0.3);
+$modal-background-background-color: rgba($white, 0);
 $modal-card-head-radius: 0;
 $modal-card-foot-radius: 0;
-
 
 // Form elements
 $checkbox-radius: 0;

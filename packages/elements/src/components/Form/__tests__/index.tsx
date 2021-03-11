@@ -10,7 +10,7 @@ import { Editor } from '../../Editor'
 import { TextArea } from '../../TextArea'
 import { Checkbox } from '../../Checkbox'
 
-const FormExample: React.SFC = () => (
+const FormExample: React.FC = () => (
   <FlexContainerBasic hasBackground hasPadding>
     <Formik
       initialValues={{ text: '', email: '', password: '', tel: '' }}

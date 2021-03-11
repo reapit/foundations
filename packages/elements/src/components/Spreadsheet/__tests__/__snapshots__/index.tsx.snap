@@ -7,7 +7,7 @@ exports[`AddRowButton should match snapshot 1`] = `
   <Button
     onClick={[MockFunction]}
     type="submit"
-    variant="info"
+    variant="primary"
   >
     Add new
   </Button>
@@ -180,7 +180,7 @@ exports[`UploadButton should match snapshot 1`] = `
   <Button
     onClick={[Function]}
     type="submit"
-    variant="info"
+    variant="primary"
   >
     Upload file
   </Button>

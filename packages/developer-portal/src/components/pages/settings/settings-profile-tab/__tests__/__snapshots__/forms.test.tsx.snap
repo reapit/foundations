@@ -191,14 +191,14 @@ exports[`ProfileTab should match snapshot 1`] = `
                       >
                         <FormHeading>
                           <div
-                            className="form-heading mb-1"
+                            className="form-heading"
                           >
                             Contact Information
                           </div>
                         </FormHeading>
                         <FormSubHeading>
                           <div
-                            className="form-subheading mb-4"
+                            className="form-subheading"
                           >
                             Please use the fields below to edit your contact information
                           </div>
@@ -512,14 +512,14 @@ exports[`ProfileTab should match snapshot 1`] = `
                       >
                         <FormHeading>
                           <div
-                            className="form-heading mb-1"
+                            className="form-heading"
                           >
                             Change password
                           </div>
                         </FormHeading>
                         <FormSubHeading>
                           <div
-                            className="form-subheading mb-4"
+                            className="form-subheading"
                           >
                             Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
                           </div>

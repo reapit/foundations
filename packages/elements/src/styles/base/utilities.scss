@@ -36,29 +36,29 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 }
 
 .bt {
-  border-top: 1px solid $grey-light;
+  border-top: 1px solid $grey-medium;
 }
 
 .bb {
-  border-bottom: 1px solid $grey-light;
+  border-bottom: 1px solid $grey-medium;
 }
 
 .bl {
-  border-left: 1px solid $grey-light;
+  border-left: 1px solid $grey-medium;
 }
 
 .br {
-  border-right: 1px solid $grey-light;
+  border-right: 1px solid $grey-medium;
 }
 
 .bx {
-  border-left: 1px solid $grey-light;
-  border-right: 1px solid $grey-light;
+  border-left: 1px solid $grey-medium;
+  border-right: 1px solid $grey-medium;
 }
 
 .by {
-  border-top: 1px solid $grey-light;
-  border-bottom: 1px solid $grey-light;
+  border-top: 1px solid $grey-medium;
+  border-bottom: 1px solid $grey-medium;
 }
 
 .w-100 {

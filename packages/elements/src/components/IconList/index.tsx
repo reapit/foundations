@@ -16,7 +16,7 @@ export interface IconListItem {
   text: React.ReactNode | string
 }
 
-export const IconList: React.SFC<IcomListProps> = ({
+export const IconList: React.FC<IcomListProps> = ({
   items,
   iconClassName = '',
   listClassName = '',

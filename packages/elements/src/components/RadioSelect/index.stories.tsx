@@ -3,16 +3,15 @@ import { Story } from '@storybook/react/types-6-0'
 import { RadioSelect, RadioSelectProps } from '.'
 import { Formik, Form } from 'formik'
 import { action } from '@storybook/addon-actions'
-import { Button } from '../Button'
 
 const mockProps = {
   name: 'mockName',
-  labelText: 'mockLabelText',
+  labelText: 'Radio Button Group Label',
   id: 'mockId',
   dataTest: 'mockDatatest',
   options: [
-    { label: 'label', value: 'value' },
-    { label: 'label1', value: 'value1' },
+    { label: 'Label 1', value: 'value' },
+    { label: 'Label 2', value: 'value1' },
   ],
 }
 
@@ -31,12 +30,7 @@ export const Primary: Story<RadioSelectProps> = () => (
   >
     {({ setFieldValue, values }) => (
       <Form>
-        <div className="column is-half-desktop">
-          <RadioSelect setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
-        </div>
-        <Button variant={'primary'} type={'submit'}>
-          Submit
-        </Button>
+        <RadioSelect setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
       </Form>
     )}
   </Formik>
@@ -52,12 +46,7 @@ export const HorizontalLayout: Story<RadioSelectProps> = () => (
   >
     {({ setFieldValue, values }) => (
       <Form>
-        <div className="column is-half-desktop">
-          <RadioSelect isHorizontal setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
-        </div>
-        <Button variant={'primary'} type={'submit'}>
-          Submit
-        </Button>
+        <RadioSelect isHorizontal setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
       </Form>
     )}
   </Formik>

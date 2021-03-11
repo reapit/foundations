@@ -10,12 +10,12 @@
   }
 
   &.helper-info {
-    background-color: transparentize($reapit-mid-blue, 0.8);
-    color: $reapit-mid-blue;
+    background-color: transparentize($blue-primary-medium, 0.8);
+    color: $blue-primary-medium;
   }
 
   &.helper-warning {
-    background-color: transparentize($reapit-red, 0.8);
-    color: $reapit-red;
+    background-color: transparentize($red-semantic, 0.8);
+    color: $red-semantic;
   }
 }

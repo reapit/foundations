@@ -107,31 +107,5 @@ describe('Menu', () => {
 
       expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(newSelectedItem.title)
     })
-
-    it('should hightlight correct item when paged', () => {
-      const currentSelectedItem = mockMenuProps.menu[4]
-      const newSelectedItem = mockMenuProps.menu[4]
-
-      const currentLocation = { pathname: '/docs' }
-      mockMenuProps.location = currentLocation as Location<any>
-
-      const Component = (props) => (
-        <MemoryRouter initialEntries={['/client']}>
-          <Menu {...props} />
-        </MemoryRouter>
-      )
-
-      // jsdom does not implement scrollIntoView => have to mock it
-      // tslint:disable-next-line: no-empty
-      Element.prototype.scrollIntoView = () => {}
-      const wrapper = mount(<Component {...mockMenuProps} />)
-
-      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(currentSelectedItem.title)
-
-      wrapper.setProps({ location: { pathname: '/docs/2' } })
-      wrapper.update()
-
-      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(newSelectedItem.title)
-    })
   })
 })

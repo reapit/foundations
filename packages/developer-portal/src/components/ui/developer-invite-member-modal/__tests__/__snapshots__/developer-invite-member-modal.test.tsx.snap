@@ -230,7 +230,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     class="control"
                                   >
                                     <label
-                                      class="label"
+                                      class="label mb-2"
                                       for="message"
                                     >
                                       Message (Optional)
@@ -442,7 +442,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                             class="control"
                                           >
                                             <label
-                                              class="label"
+                                              class="label mb-2"
                                               for="message"
                                             >
                                               Message (Optional)
@@ -716,7 +716,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                   class="control"
                                                 >
                                                   <label
-                                                    class="label"
+                                                    class="label mb-2"
                                                     for="message"
                                                   >
                                                     Message (Optional)
@@ -1154,7 +1154,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                                       className="control"
                                                     >
                                                       <label
-                                                        className="label"
+                                                        className="label mb-2"
                                                         htmlFor="message"
                                                       >
                                                         Message (Optional)

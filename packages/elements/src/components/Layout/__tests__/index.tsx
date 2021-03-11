@@ -12,7 +12,7 @@ const Placeholder = ({ text }) => (
 describe('LayoutComponents', () => {
   Object.keys(LayoutComponents).forEach((componentName) => {
     it('should match a snapshot for ' + componentName, () => {
-      const Component = LayoutComponents[componentName] as React.SFC
+      const Component = LayoutComponents[componentName] as React.FC
       expect(
         toJson(
           shallow(

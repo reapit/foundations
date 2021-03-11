@@ -26,7 +26,7 @@ export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
   return (
     <div className="upload-button">
-      <Button type="submit" variant="info" onClick={handleClickUpload(uploadRef)}>
+      <Button type="submit" variant="primary" onClick={handleClickUpload(uploadRef)}>
         Upload file
       </Button>
       <input hidden accept=".csv" ref={uploadRef} type="file" name="file-upload" onChange={onChangeInput} />
@@ -37,7 +37,7 @@ export const UploadButton = ({ onChangeInput }) => {
 export const DownloadButton = ({ data }) => {
   return (
     <div className="download-button">
-      <Button type="submit" variant="info" onClick={handleDownload(data)}>
+      <Button type="submit" variant="primary" onClick={handleDownload(data)}>
         Download file
       </Button>
     </div>
@@ -47,7 +47,7 @@ export const DownloadButton = ({ data }) => {
 export const DownloadSampleButton = ({ headers }) => {
   return (
     <div className="download-button">
-      <Button type="submit" variant="info" onClick={handleDownloadSample(headers)}>
+      <Button type="submit" variant="primary" onClick={handleDownloadSample(headers)}>
         Download Sample
       </Button>
     </div>
@@ -57,7 +57,7 @@ export const DownloadSampleButton = ({ headers }) => {
 export const AddRowButton = ({ addNewRow }) => {
   return (
     <div className="add-button">
-      <Button type="submit" variant="info" onClick={addNewRow}>
+      <Button type="submit" variant="primary" onClick={addNewRow}>
         Add new
       </Button>
     </div>

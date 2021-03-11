@@ -111,14 +111,14 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Developer Management Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by Name and Company
                         </div>
@@ -764,14 +764,14 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Developer Management Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by Name and Company
                         </div>
@@ -1417,14 +1417,14 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                     >
                       <FormHeading>
                         <div
-                          className="form-heading mb-1"
+                          className="form-heading"
                         >
                           Developer Management Filter Form
                         </div>
                       </FormHeading>
                       <FormSubHeading>
                         <div
-                          className="form-subheading mb-4"
+                          className="form-subheading"
                         >
                           Filter the result by Name and Company
                         </div>
