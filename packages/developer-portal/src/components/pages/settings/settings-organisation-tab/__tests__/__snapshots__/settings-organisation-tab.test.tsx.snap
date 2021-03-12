@@ -108,9 +108,11 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
       </Loader>
     </OrganisationForm>
     <Members>
-      <Section>
+      <Section
+        hasPadding={false}
+      >
         <section
-          className="section has-padding has-margin has-background"
+          className="section has-margin has-background"
           data-test=""
         >
           <H5>

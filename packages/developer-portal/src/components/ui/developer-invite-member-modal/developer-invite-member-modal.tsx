@@ -97,7 +97,7 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
   return (
     <ModalV2 visible={visible} onClose={onClose} title="Invite New Member">
       <>
-        <SubTitleH6 className="px-4">
+        <SubTitleH6>
           Please enter a name and email address below to invite a new member to your organisation:
         </SubTitleH6>
         <Formik
@@ -107,7 +107,7 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
         >
           {({ handleSubmit: handleSubmitForm }) => (
             <Form className="form" onSubmit={handleSubmitForm}>
-              <FlexContainerBasic hasBackground hasPadding flexColumn>
+              <FlexContainerBasic hasBackground flexColumn>
                 <InviteMemberModalInput />
                 <LevelRight>
                   <Button disabled={loading} variant="secondary" type="button" onClick={onClose as () => void}>

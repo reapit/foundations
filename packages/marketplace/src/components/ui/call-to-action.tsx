@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Alert, FlexContainerBasic } from '@reapit/elements'
+import { Button, ModalHeader, ModalBody } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -19,7 +19,6 @@ export interface CallToActionCardProps {
 const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   title,
   children,
-  type = 'success',
   onButtonClick,
   buttonText,
   dataTest = '',
@@ -28,19 +27,23 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   footerItems,
 }) => (
   <div className={className} data-test={dataTest}>
-    <Alert className="mb-0" type={type} message={title} />
-    <FlexContainerBasic hasPadding hasBackground flexColumn>
-      <p>{children}</p>
-      <div className="has-text-right">
-        {footerItems ? (
-          footerItems
-        ) : (
-          <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
-            {buttonText}
-          </Button>
-        )}
-      </div>
-    </FlexContainerBasic>
+    <ModalHeader title={title} afterClose={onButtonClick as () => void} />
+    <ModalBody
+      body={
+        <>
+          <p>{children}</p>
+          <div className="has-text-right">
+            {footerItems ? (
+              footerItems
+            ) : (
+              <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
+                {buttonText}
+              </Button>
+            )}
+          </div>
+        </>
+      }
+    />
   </div>
 )
 

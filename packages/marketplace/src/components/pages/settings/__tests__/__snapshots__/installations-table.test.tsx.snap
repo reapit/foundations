@@ -14,115 +14,108 @@ exports[`InstallationsTable should match a snapshot 1`] = `
   }
 >
   <InstallationsTable>
-    <Section>
-      <section
-        className="section has-padding has-margin has-background"
-        data-test=""
+    <H5>
+      <h5
+        className="title is-5"
+        id=""
       >
-        <H5>
-          <h5
-            className="title is-5"
-            id=""
-          >
-            Installation Details
-          </h5>
-        </H5>
-        <FadeIn>
+        Installation Details
+      </h5>
+    </H5>
+    <FadeIn>
+      <div
+        className="f334tw0-fade-in"
+      >
+        <Table
+          bordered={true}
+          columns={
+            Array [
+              Object {
+                "Header": "App Name",
+                "accessor": "appName",
+              },
+              Object {
+                "Header": "Installed By",
+                "accessor": "installedBy",
+              },
+              Object {
+                "Header": "Date of Installation",
+                "accessor": [Function],
+              },
+              Object {
+                "Header": "Uninstalled By",
+                "accessor": "uninstalledBy",
+              },
+              Object {
+                "Header": "Date of Uninstallation",
+                "accessor": [Function],
+              },
+            ]
+          }
+          data={Array []}
+          loading={false}
+          scrollable={true}
+        >
           <div
-            className="f334tw0-fade-in"
-          >
-            <Table
-              bordered={true}
-              columns={
-                Array [
-                  Object {
-                    "Header": "App Name",
-                    "accessor": "appName",
-                  },
-                  Object {
-                    "Header": "Installed By",
-                    "accessor": "installedBy",
-                  },
-                  Object {
-                    "Header": "Date of Installation",
-                    "accessor": [Function],
-                  },
-                  Object {
-                    "Header": "Uninstalled By",
-                    "accessor": "uninstalledBy",
-                  },
-                  Object {
-                    "Header": "Date of Uninstallation",
-                    "accessor": [Function],
-                  },
-                ]
+            style={
+              Object {
+                "maxHeight": undefined,
+                "overflow": "scroll",
               }
-              data={Array []}
-              loading={false}
-              scrollable={true}
+            }
+          >
+            <table
+              className="table is-striped is-fullwidth is-bordered"
+              role="table"
             >
-              <div
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "overflow": "scroll",
-                  }
-                }
-              >
-                <table
-                  className="table is-striped is-fullwidth is-bordered"
-                  role="table"
+              <thead>
+                <tr
+                  key="headerGroup_0"
+                  role="row"
                 >
-                  <thead>
-                    <tr
-                      key="headerGroup_0"
-                      role="row"
-                    >
-                      <th
-                        colSpan={1}
-                        key="header_appName"
-                        role="columnheader"
-                      >
-                        App Name
-                      </th>
-                      <th
-                        colSpan={1}
-                        key="header_installedBy"
-                        role="columnheader"
-                      >
-                        Installed By
-                      </th>
-                      <th
-                        colSpan={1}
-                        key="header_Date of Installation"
-                        role="columnheader"
-                      >
-                        Date of Installation
-                      </th>
-                      <th
-                        colSpan={1}
-                        key="header_uninstalledBy"
-                        role="columnheader"
-                      >
-                        Uninstalled By
-                      </th>
-                      <th
-                        colSpan={1}
-                        key="header_Date of Uninstallation"
-                        role="columnheader"
-                      >
-                        Date of Uninstallation
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody />
-                </table>
-              </div>
-            </Table>
+                  <th
+                    colSpan={1}
+                    key="header_appName"
+                    role="columnheader"
+                  >
+                    App Name
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_installedBy"
+                    role="columnheader"
+                  >
+                    Installed By
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_Date of Installation"
+                    role="columnheader"
+                  >
+                    Date of Installation
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_uninstalledBy"
+                    role="columnheader"
+                  >
+                    Uninstalled By
+                  </th>
+                  <th
+                    colSpan={1}
+                    key="header_Date of Uninstallation"
+                    role="columnheader"
+                  >
+                    Date of Uninstallation
+                  </th>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
           </div>
-        </FadeIn>
-      </section>
-    </Section>
+        </Table>
+      </div>
+    </FadeIn>
     <Pagination
       onChange={[Function]}
       pageNumber={1}

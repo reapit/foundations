@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { GridItem, Input, Content } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
-import { statusText } from './__styles__/account-status-section'
-import { cx } from 'linaria'
 
 const { statusField } = formFields
 
@@ -24,7 +22,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({ initialStat
   return (
     <GridItem className="pl-0">
       {shouldThankInGeneral && (
-        <Content className={cx('is-italic', statusText)}>
+        <Content>
           Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your
           information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and
           you can procced with any subscriptions.
@@ -32,13 +30,13 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({ initialStat
       )}
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
-      <Content className={statusText}>
+      <Content>
         {initialStatus === 'pending' && (
           <div className="pb-1">
             <i>We are currently verifying your information with our Accounts Department</i>
           </div>
         )}
-        <b>ACCOUNT STATUS:</b> <i>{capitalizeFirstLetter(initialStatus || '')}</i>
+        <b>Account Status:</b> {capitalizeFirstLetter(initialStatus || '')}
       </Content>
     </GridItem>
   )

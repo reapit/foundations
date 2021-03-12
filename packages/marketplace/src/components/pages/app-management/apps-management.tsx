@@ -35,7 +35,7 @@ export const AppsManagement: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
-      <H3 isHeadingSection>Manage Apps</H3>
+      <H3>Manage Apps</H3>
       {loading ? (
         <Loader />
       ) : (

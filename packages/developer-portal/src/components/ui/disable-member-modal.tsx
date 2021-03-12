@@ -2,10 +2,11 @@ import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter, ModalProps } from '@reapit/elements'
 import { disableMember } from '@/actions/developers'
 import { selectDisableMemberLoading } from '@/selector/developers'
 import { selectCurrentMemberData } from '@/selector/current-member'
+import { ButtonGroup } from '../../../../elements/src/components/Button/index'
 
 export interface DisableMemberModalProps extends Pick<ModalProps, 'visible'> {
   developer?: DeveloperModel
@@ -74,20 +75,19 @@ const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, develo
           <ModalHeader title="Disable Member?" />
           <ModalBody
             body={
-              <SubTitleH6>
+              <>
                 Are you sure you want to disable the account for member &lsquo;
                 {name}&rsquo;?
-              </SubTitleH6>
+              </>
             }
           />
           <ModalFooter
             footerItems={
-              <>
-                <Button fullWidth disabled={isLoading} type="button" variant="secondary" onClick={onCancel}>
+              <ButtonGroup hasSpacing isCentered>
+                <Button disabled={isLoading} type="button" variant="secondary" onClick={onCancel}>
                   Cancel
                 </Button>
                 <Button
-                  fullWidth
                   loading={isLoading}
                   type="button"
                   variant="primary"
@@ -95,7 +95,7 @@ const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, develo
                 >
                   Continue
                 </Button>
-              </>
+              </ButtonGroup>
             }
           />
         </>

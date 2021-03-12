@@ -14,11 +14,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
   }
 >
   <DeveloperHelpPage>
-    <H3
-      isHeadingSection={true}
-    >
+    <H3>
       <h3
-        className="title is-3 is-heading-section"
+        className="title is-3"
         id=""
       >
         Help

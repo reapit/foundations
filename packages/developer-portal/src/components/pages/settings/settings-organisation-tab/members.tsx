@@ -190,7 +190,7 @@ export const Members: React.FC = () => {
   const memoizedUniqueDataList = useMemo(handleGenerateUniqueDataList(data), [data])
 
   return (
-    <Section>
+    <Section hasPadding={false}>
       <H5>Members</H5>
       <Table scrollable loading={loading} data={memoizedUniqueDataList} columns={columns} />
       <DisableMemberModal

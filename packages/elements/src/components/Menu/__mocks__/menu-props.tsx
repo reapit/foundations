@@ -1,6 +1,5 @@
 import React from 'react'
 import { Location } from 'history'
-import { ReapitLogo } from '../Logo'
 import { MenuConfig } from '../Menu'
 import {
   AccountIcon,
@@ -10,9 +9,10 @@ import {
   DocsIcon,
   HelpIcon,
   MarketplaceIcon,
+  ReapitHouseIcon,
+  DesktopIcon,
   WebhooksIcon,
 } from '../../Icons'
-import { DesktopIcon } from '../../Icons/index'
 
 export const mockMenuProps: MenuConfig = {
   defaultActiveKey: 'APPS',
@@ -23,7 +23,7 @@ export const mockMenuProps: MenuConfig = {
   menu: [
     {
       key: 'LOGO',
-      icon: <ReapitLogo className="nav-item-icon" />,
+      icon: <ReapitHouseIcon />,
       type: 'LOGO',
     },
     {

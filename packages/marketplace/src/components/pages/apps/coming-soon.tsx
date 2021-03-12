@@ -140,21 +140,21 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
 
   return (
     <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
-      <H3 isHeadingSection>Agency Cloud Apps</H3>
+      <H3>Agency Cloud Apps</H3>
       <Grid isMultiLine>
         {(window.reapit.config.comingSoonApps.agencyCloud || []).map((app) => (
           <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
         ))}
       </Grid>
       <div className="bb mb-4" />
-      <H3 isHeadingSection>Third Party Integrations</H3>
+      <H3>Third Party Integrations</H3>
       <Grid isMultiLine>
         {(window.reapit.config.comingSoonApps.thirdParty || []).map((app) => (
           <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
         ))}
       </Grid>
       <div className="bb mb-4" />
-      <H3 isHeadingSection>Portal Integrations</H3>
+      <H3>Portal Integrations</H3>
       <Grid isMultiLine>
         {(window.reapit.config.comingSoonApps.portals || []).map((app) => (
           <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
