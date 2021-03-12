@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   FormSection,
-  FormHeading,
+  H5,
   FormSubHeading,
   Button,
   Form,
@@ -67,7 +67,7 @@ export const ToggleCustomerDataForm: React.FC<ToggleCustomerDataFormProps> = () 
           <FormSection>
             <Form>
               <FadeIn>
-                <FormHeading>Customer Data</FormHeading>
+                <H5>Customer Data</H5>
                 <FormSubHeading>
                   As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to
                   toggle between which data you want to see available in the Developer Portal. This is specific and only

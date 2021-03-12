@@ -664,7 +664,7 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button  is-primary  "
+                                  className="button   is-primary "
                                   data-test=""
                                   disabled={false}
                                   type="submit"
@@ -1398,7 +1398,7 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button  is-primary  "
+                                  className="button   is-primary "
                                   data-test=""
                                   disabled={false}
                                   type="submit"
@@ -2132,7 +2132,7 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button  is-primary  "
+                                  className="button   is-primary "
                                   data-test=""
                                   disabled={false}
                                   type="submit"

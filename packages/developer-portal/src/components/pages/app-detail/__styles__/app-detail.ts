@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { greyLight, reapitGreen } from '../../../../core/__styles__/colors'
+import { greyLight, greenSemantic } from '../../../../core/__styles__/colors'
 import { forMobileOnly, forIEOnly, forTabletAndBelow } from '@/core/__styles__/media'
 
 export const preview = css`
@@ -10,7 +10,7 @@ export const check = css`
   position: relative;
   top: 2px;
   left: 2px;
-  color: ${reapitGreen};
+  color: ${greenSemantic};
   margin-right: 2px;
 `
 export const tag = css`

@@ -1,5 +1,5 @@
 import { css } from 'linaria'
-import { greenLighter, reapitGreen, greyLight } from '@/core/__styles__/colors'
+import { greenLightSemantic, greenSemantic, greyLight } from '@/core/__styles__/colors'
 import { forMobileOnly, forIEOnly, forTabletAndBelow } from '@/core/__styles__/media'
 
 export const preview = css`
@@ -10,7 +10,7 @@ export const check = css`
   position: relative;
   top: 2px;
   left: 2px;
-  color: ${reapitGreen};
+  color: ${greenSemantic};
 `
 export const tag = css`
   display: inline-block;
@@ -22,7 +22,7 @@ export const tag = css`
 export const tagChanged = css`
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: ${greenLighter};
+  background: ${greenLightSemantic};
   margin: 0.5rem 0.5rem 0 0;
 `
 

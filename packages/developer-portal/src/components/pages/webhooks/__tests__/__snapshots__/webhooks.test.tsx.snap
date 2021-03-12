@@ -14,21 +14,14 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
   }
 >
   <DeveloperWebhooks>
-    <Section>
-      <section
-        className="section has-padding has-margin has-background"
-        data-test=""
+    <H3>
+      <h3
+        className="title is-3"
+        id=""
       >
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Manage Webhook Subscriptions
-          </h3>
-        </H3>
-      </section>
-    </Section>
+        Manage Webhook Subscriptions
+      </h3>
+    </H3>
     <FadeIn>
       <div
         className="f1ohzb3j-fade-in"
@@ -77,9 +70,8 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                 >
                   <SelectBox
                     className="pt-2 pb-2"
-                    helpText="Please select an App from the list below to view the associated Webhooks:"
                     id="subscription"
-                    labelText="App"
+                    labelText="Please select an App from the list below to view the associated Webhooks:"
                     name="applicationId"
                     options={Array []}
                   >
@@ -97,13 +89,8 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                             className="label "
                             htmlFor="subscription"
                           >
-                            App
-                          </label>
-                          <i
-                            className="mb-2 inline-block"
-                          >
                             Please select an App from the list below to view the associated Webhooks:
-                          </i>
+                          </label>
                           <select
                             className="input is-primary pt-2 pb-2"
                             data-test=""

@@ -35,17 +35,15 @@ export const Forms: React.FC = () => {
 
   return (
     <>
-      <Section isFlex className="justify-between items-center">
+      <Section isFlex className="justify-between items-center" hasPadding={false}>
         <H3 className="mb-0">Settings</H3>
         <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
           Logout
         </Button>
       </Section>
-      <Section hasPadding={false} hasBackground={false}>
-        <EnhanceContactInformation />
-        <ToggleCustomerDataForm />
-        <ChangePasswordForm changePassword={changePassword} />
-      </Section>
+      <EnhanceContactInformation />
+      <ToggleCustomerDataForm />
+      <ChangePasswordForm changePassword={changePassword} />
     </>
   )
 }

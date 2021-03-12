@@ -9425,14 +9425,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-secondary  "
+                                  class="button   is-secondary "
                                   data-test=""
                                   type="button"
                                 >
                                   No
                                 </button>
                                 <button
-                                  class="button  is-danger  "
+                                  class="button   is-danger "
                                   data-test=""
                                   type="button"
                                 >
@@ -9535,14 +9535,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                         data-test=""
                                       >
                                         <button
-                                          class="button  is-secondary  "
+                                          class="button   is-secondary "
                                           data-test=""
                                           type="button"
                                         >
                                           No
                                         </button>
                                         <button
-                                          class="button  is-danger  "
+                                          class="button   is-danger "
                                           data-test=""
                                           type="button"
                                         >
@@ -9707,14 +9707,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                               data-test=""
                                             >
                                               <button
-                                                class="button  is-secondary  "
+                                                class="button   is-secondary "
                                                 data-test=""
                                                 type="button"
                                               >
                                                 No
                                               </button>
                                               <button
-                                                class="button  is-danger  "
+                                                class="button   is-danger "
                                                 data-test=""
                                                 type="button"
                                               >
@@ -9830,7 +9830,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                           variant="secondary"
                                         >
                                           <button
-                                            className="button  is-secondary  "
+                                            className="button   is-secondary "
                                             data-test=""
                                             disabled={false}
                                             onClick={[Function]}
@@ -9846,7 +9846,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                           variant="danger"
                                         >
                                           <button
-                                            className="button  is-danger  "
+                                            className="button   is-danger "
                                             data-test=""
                                             disabled={false}
                                             onClick={[Function]}
@@ -10389,14 +10389,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-secondary  "
+                                  class="button   is-secondary "
                                   data-test=""
                                   type="button"
                                 >
                                   No
                                 </button>
                                 <button
-                                  class="button  is-danger  "
+                                  class="button   is-danger "
                                   data-test=""
                                   type="button"
                                 >
@@ -10499,14 +10499,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                         data-test=""
                                       >
                                         <button
-                                          class="button  is-secondary  "
+                                          class="button   is-secondary "
                                           data-test=""
                                           type="button"
                                         >
                                           No
                                         </button>
                                         <button
-                                          class="button  is-danger  "
+                                          class="button   is-danger "
                                           data-test=""
                                           type="button"
                                         >
@@ -10584,14 +10584,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                         data-test=""
                                       >
                                         <button
-                                          class="button  is-secondary  "
+                                          class="button   is-secondary "
                                           data-test=""
                                           type="button"
                                         >
                                           No
                                         </button>
                                         <button
-                                          class="button  is-danger  "
+                                          class="button   is-danger "
                                           data-test=""
                                           type="button"
                                         >
@@ -10756,14 +10756,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                               data-test=""
                                             >
                                               <button
-                                                class="button  is-secondary  "
+                                                class="button   is-secondary "
                                                 data-test=""
                                                 type="button"
                                               >
                                                 No
                                               </button>
                                               <button
-                                                class="button  is-danger  "
+                                                class="button   is-danger "
                                                 data-test=""
                                                 type="button"
                                               >
@@ -10841,14 +10841,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                               data-test=""
                                             >
                                               <button
-                                                class="button  is-secondary  "
+                                                class="button   is-secondary "
                                                 data-test=""
                                                 type="button"
                                               >
                                                 No
                                               </button>
                                               <button
-                                                class="button  is-danger  "
+                                                class="button   is-danger "
                                                 data-test=""
                                                 type="button"
                                               >
@@ -10964,7 +10964,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                           variant="secondary"
                                         >
                                           <button
-                                            className="button  is-secondary  "
+                                            className="button   is-secondary "
                                             data-test=""
                                             disabled={false}
                                             onClick={[Function]}
@@ -10980,7 +10980,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                           variant="danger"
                                         >
                                           <button
-                                            className="button  is-danger  "
+                                            className="button   is-danger "
                                             data-test=""
                                             disabled={false}
                                             onClick={[Function]}

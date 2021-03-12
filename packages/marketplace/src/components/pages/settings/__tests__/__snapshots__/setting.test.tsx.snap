@@ -81,7 +81,7 @@ exports[`Settings should match snapshot 1`] = `
               variant="primary"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test="logout-btn"
                 disabled={false}
                 onClick={[Function]}
@@ -665,7 +665,7 @@ exports[`Settings should match snapshot 1`] = `
                           variant="primary"
                         >
                           <button
-                            className="button  is-primary  "
+                            className="button   is-primary "
                             data-test="button-change-password"
                             disabled={true}
                             type="submit"

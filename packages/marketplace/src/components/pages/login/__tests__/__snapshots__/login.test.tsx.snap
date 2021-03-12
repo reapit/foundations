@@ -101,7 +101,7 @@ exports[`Login should match a snapshot 1`] = `
                   variant="primary"
                 >
                   <button
-                    className="button lhhcgt6-login-button is-primary is-fullwidth "
+                    className="button is-fullwidth  is-primary lhhcgt6-login-button"
                     data-test="login-button"
                     disabled={false}
                     onClick={[Function]}

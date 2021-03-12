@@ -9,7 +9,7 @@ import {
   DropdownSelect,
   SelectOption,
   ModalProps,
-  LevelRight,
+  ButtonGroup,
 } from '@reapit/elements'
 import { FormValues } from './form-fields'
 import pdfLink from '@/assets/files/reapit-foundations-developer-agreement.pdf'
@@ -62,14 +62,14 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
                   fixedPosition
                   hasLabel={false}
                 />
-                <LevelRight>
-                  <Button fullWidth variant="secondary" onClick={afterClose}>
+                <ButtonGroup hasSpacing isCentered>
+                  <Button variant="secondary" onClick={afterClose}>
                     Cancel
                   </Button>
-                  <Button fullWidth variant="primary" type="submit" loading={loading}>
+                  <Button variant="primary" type="submit" loading={loading}>
                     Confirm Subscription
                   </Button>
-                </LevelRight>
+                </ButtonGroup>
               </Form>
             </Formik>
           </>

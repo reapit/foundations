@@ -185,7 +185,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                         variant="primary"
                                       >
                                         <button
-                                          className="button  is-primary is-fullwidth "
+                                          className="button is-fullwidth  is-primary "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}

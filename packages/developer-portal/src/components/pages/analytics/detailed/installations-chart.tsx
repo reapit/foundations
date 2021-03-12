@@ -64,7 +64,7 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
       {loading ? (
         <Loader />
       ) : (
-        <Section hasMargin={false}>
+        <Section hasMargin={false} hasBoxShadow>
           <H5>Installations By Day</H5>
           <FadeIn>
             <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />

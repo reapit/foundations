@@ -15,10 +15,8 @@ import {
   ModalBody,
   ModalHeader,
   Loader,
-  Level,
-  LevelLeft,
-  LevelRight,
   notification,
+  ButtonGroup,
 } from '@reapit/elements'
 import {
   requestWebhookSubcriptionData,
@@ -198,89 +196,91 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
 
   return (
     <Modal visible={visible} renderChildren afterClose={afterClose}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Formik initialValues={initFormValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-          {({ handleSubmit }) => {
-            return (
-              <>
-                <ModalHeader title={modalConfig.title} />
-                <ModalBody
-                  body={
-                    <Form>
-                      <Content>
-                        <p>
-                          Webhooks are configured here to allow your application to receive real-time notifications
-                          about the topics you choose to subscribe it to. A single webhook subscription can receive
-                          notifications for multiple topics so long as your application has been granted the required
-                          permissions.
-                        </p>
-                        <p>
-                          Webhooks subscriptions can be set up for any customer who has installed your application.
-                          Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-                        </p>
-                      </Content>
-                      <Input
-                        id={webhookUrlField.name}
-                        type="text"
-                        placeholder={webhookUrlField.placeHolder}
-                        name={webhookUrlField.name}
-                        labelText={webhookUrlField.label as string}
-                        required
-                      />
-                      <DropdownSelect
-                        id={topicIdsField.name}
-                        placeholder={topicIdsField.placeHolder}
-                        name={topicIdsField.name}
-                        labelText={topicIdsField.label as string}
-                        options={topicOptions}
-                        dropdownStyle={{ zIndex: 41 }}
-                        required
-                      />
-                      <DropdownSelect
-                        id={customerIdsField.name}
-                        placeholder={customerIdsField.placeHolder}
-                        name={customerIdsField.name}
-                        labelText={customerIdsField.label as string}
-                        options={customerOptions}
-                        dropdownStyle={{ zIndex: 41 }}
-                      />
-                      <Checkbox
-                        id={ignoreEtagOnlyChangesField.name}
-                        name={ignoreEtagOnlyChangesField.name}
-                        labelText={ignoreEtagOnlyChangesField.label as string}
-                      />
-                      <Checkbox id={activeField.name} name={activeField.name} labelText={activeField.label as string} />
-                    </Form>
-                  }
-                />
-                <ModalFooter
-                  footerItems={
-                    <Level className="w-100">
-                      <LevelLeft>
-                        {isUpdate && (
-                          <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>
-                            Delete
-                          </Button>
-                        )}
-                      </LevelLeft>
-                      <LevelRight className="mt-0">
-                        <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
-                          Cancel
-                        </Button>
-                        <Button variant="primary" type="submit" onClick={handleSubmit}>
-                          {modalConfig.submit}
-                        </Button>
-                      </LevelRight>
-                    </Level>
-                  }
-                />
-              </>
-            )
-          }}
-        </Formik>
-      )}
+      <Formik initialValues={initFormValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+        {({ handleSubmit }) => {
+          return (
+            <>
+              <ModalHeader title={modalConfig.title} />
+              <ModalBody
+                body={
+                  <Form>
+                    {loading ? (
+                      <Loader />
+                    ) : (
+                      <>
+                        <Content>
+                          <p>
+                            Webhooks are configured here to allow your application to receive real-time notifications
+                            about the topics you choose to subscribe it to. A single webhook subscription can receive
+                            notifications for multiple topics so long as your application has been granted the required
+                            permissions.
+                          </p>
+                          <p>
+                            Webhooks subscriptions can be set up for any customer who has installed your application.
+                            Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+                          </p>
+                        </Content>
+                        <Input
+                          id={webhookUrlField.name}
+                          type="text"
+                          placeholder={webhookUrlField.placeHolder}
+                          name={webhookUrlField.name}
+                          labelText={webhookUrlField.label as string}
+                          required
+                        />
+                        <DropdownSelect
+                          id={topicIdsField.name}
+                          placeholder={topicIdsField.placeHolder}
+                          name={topicIdsField.name}
+                          labelText={topicIdsField.label as string}
+                          options={topicOptions}
+                          dropdownStyle={{ zIndex: 41 }}
+                          required
+                        />
+                        <DropdownSelect
+                          id={customerIdsField.name}
+                          placeholder={customerIdsField.placeHolder}
+                          name={customerIdsField.name}
+                          labelText={customerIdsField.label as string}
+                          options={customerOptions}
+                          dropdownStyle={{ zIndex: 41 }}
+                        />
+                        <Checkbox
+                          id={ignoreEtagOnlyChangesField.name}
+                          name={ignoreEtagOnlyChangesField.name}
+                          labelText={ignoreEtagOnlyChangesField.label as string}
+                        />
+                        <Checkbox
+                          id={activeField.name}
+                          name={activeField.name}
+                          labelText={activeField.label as string}
+                        />
+                      </>
+                    )}
+                  </Form>
+                }
+              />
+              <ModalFooter
+                footerItems={
+                  <ButtonGroup hasSpacing isCentered>
+                    {isUpdate && (
+                      <Button className="mr-2" variant="danger" type="button" onClick={onDelete}>
+                        Delete
+                      </Button>
+                    )}
+                    <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
+                      Cancel
+                    </Button>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>
+                      {modalConfig.submit}
+                    </Button>
+                  </ButtonGroup>
+                }
+              />
+            </>
+          )
+        }}
+      </Formik>
     </Modal>
   )
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { Tabs, H3, TabConfig, Section } from '@reapit/elements'
+import { Tabs, H3, TabConfig } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import DetailedTab from './detailed'
 import CostExplorerTab from './cost-explorer'
@@ -75,10 +75,8 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
 
   return (
     <ErrorBoundary>
-      <H3 isHeadingSection>Dashboard</H3>
-      <Section>
-        <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
-      </Section>
+      <H3>Dashboard</H3>
+      <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
       {renderTabContent(currentTab)}
     </ErrorBoundary>
   )

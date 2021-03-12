@@ -1,3 +1,4 @@
+import { cx } from 'linaria'
 import * as React from 'react'
 
 export interface ButtonProps {
@@ -34,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`button ${className} ${theme} ${fullWidth ? 'is-fullwidth' : ''} ${loading ? 'is-loading' : ''}`}
+      className={`button ${fullWidth ? 'is-fullwidth' : ''} ${loading ? 'is-loading' : ''} ${theme} ${className}`}
       disabled={disabled}
       onClick={onClick}
       data-test={dataTest}
@@ -46,11 +47,29 @@ export const Button: React.FC<ButtonProps> = ({
 
 export interface ButtonGroupProps {
   className?: string
+  hasSpacing?: boolean
+  isCentered?: boolean
 }
 /* JB v2 suggestions
  * the classes `is-centered`, and `has-addons` should be incorporated into the `buttons`
  * class, because they are always added by default anyway
  */
-export const ButtonGroup: React.FC<ButtonGroupProps> = ({ className = '', children }) => {
-  return <div className={`is-centered buttons has-addons ${className}`}>{children}</div>
+export const ButtonGroup: React.FC<ButtonGroupProps> = ({
+  className = '',
+  hasSpacing = false,
+  isCentered = false,
+  children,
+}) => {
+  return (
+    <div
+      className={cx(
+        'is-centered buttons',
+        !hasSpacing && 'has-addons',
+        isCentered && 'mx-auto',
+        className && className,
+      )}
+    >
+      {children}
+    </div>
+  )
 }

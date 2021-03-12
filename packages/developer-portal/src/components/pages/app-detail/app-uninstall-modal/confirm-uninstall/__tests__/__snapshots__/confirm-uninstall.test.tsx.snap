@@ -251,7 +251,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                 type="submit"
               >
                 <button
-                  className="button mx-4 is-primary is-fullwidth "
+                  className="button is-fullwidth  is-primary mx-4"
                   data-test=""
                   disabled={false}
                   type="submit"
@@ -268,7 +268,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
                 variant="danger"
               >
                 <button
-                  className="button mx-4 is-danger is-fullwidth "
+                  className="button is-fullwidth  is-danger mx-4"
                   data-test=""
                   disabled={false}
                   onClick={[MockFunction]}

@@ -25,7 +25,7 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
       variant="danger"
     >
       <button
-        className="button mr-2 is-danger is-fullwidth "
+        className="button is-fullwidth  is-danger mr-2"
         data-test=""
         disabled={false}
         onClick={[MockFunction]}
@@ -40,7 +40,7 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
       variant="primary"
     >
       <button
-        className="button  is-primary is-fullwidth "
+        className="button is-fullwidth  is-primary "
         data-test=""
         disabled={false}
         type="submit"
@@ -1511,7 +1511,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               variant="danger"
             >
               <button
-                className="button mr-2 is-danger is-fullwidth "
+                className="button is-fullwidth  is-danger mr-2"
                 data-test=""
                 disabled={false}
                 onClick={[MockFunction]}
@@ -1527,7 +1527,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               variant="primary"
             >
               <button
-                className="button  is-primary is-fullwidth "
+                className="button is-fullwidth  is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}

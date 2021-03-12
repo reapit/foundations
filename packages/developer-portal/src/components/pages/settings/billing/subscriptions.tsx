@@ -1,5 +1,5 @@
 import React, { useState, SetStateAction } from 'react'
-import { H5, Table, getDate, Loader, Section } from '@reapit/elements'
+import { H5, Table, getDate, Loader } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
@@ -114,7 +114,7 @@ export const Subcriptions: React.FC = () => {
       {loading ? (
         <Loader />
       ) : (
-        <Section>
+        <>
           <H5>Subscriptions</H5>
           <FadeIn>
             <p className="is-italic mb-4">
@@ -123,7 +123,7 @@ export const Subcriptions: React.FC = () => {
             </p>
             <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
           </FadeIn>
-        </Section>
+        </>
       )}
       <ConfirmModal
         visible={isConfirmModalOpen}

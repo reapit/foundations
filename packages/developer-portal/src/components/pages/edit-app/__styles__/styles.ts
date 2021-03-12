@@ -1,7 +1,7 @@
 import { css } from 'linaria'
 
 export const editor = css`
-  height: 288px;
+  height: 265px;
 
   .pell-actionbar {
     height: auto;

@@ -42,7 +42,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={true}
               onClick={[Function]}

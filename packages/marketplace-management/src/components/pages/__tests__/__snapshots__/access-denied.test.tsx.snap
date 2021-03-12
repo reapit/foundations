@@ -91,14 +91,14 @@ exports[`AccessDenied should match a snapshot 1`] = `
                             data-test=""
                           >
                             <button
-                              class="button  is-primary  "
+                              class="button   is-primary "
                               data-test=""
                               type="button"
                             >
                               Marketplace
                             </button>
                             <button
-                              class="button  is-primary  "
+                              class="button   is-primary "
                               data-test=""
                               type="button"
                             >
@@ -200,14 +200,14 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                     data-test=""
                                   >
                                     <button
-                                      class="button  is-primary  "
+                                      class="button   is-primary "
                                       data-test=""
                                       type="button"
                                     >
                                       Marketplace
                                     </button>
                                     <button
-                                      class="button  is-primary  "
+                                      class="button   is-primary "
                                       data-test=""
                                       type="button"
                                     >
@@ -372,14 +372,14 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                           data-test=""
                                         >
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-primary "
                                             data-test=""
                                             type="button"
                                           >
                                             Marketplace
                                           </button>
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-primary "
                                             data-test=""
                                             type="button"
                                           >
@@ -492,7 +492,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                       onClick={[Function]}
                                     >
                                       <button
-                                        className="button  is-primary  "
+                                        className="button   is-primary "
                                         data-test=""
                                         disabled={false}
                                         onClick={[Function]}
@@ -505,7 +505,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                       onClick={[Function]}
                                     >
                                       <button
-                                        className="button  is-primary  "
+                                        className="button   is-primary "
                                         data-test=""
                                         disabled={false}
                                         onClick={[Function]}

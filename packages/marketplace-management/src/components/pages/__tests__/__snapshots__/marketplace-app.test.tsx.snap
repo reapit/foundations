@@ -41,7 +41,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               type="button"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}
@@ -187,7 +187,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     variant="primary"
                   >
                     <button
-                      className="button  is-primary  "
+                      className="button   is-primary "
                       data-test=""
                       disabled={true}
                       onClick={[Function]}
@@ -244,7 +244,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     variant="primary"
                   >
                     <button
-                      className="button  is-primary  "
+                      className="button   is-primary "
                       data-test=""
                       disabled={false}
                       onClick={[Function]}

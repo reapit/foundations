@@ -31,7 +31,7 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
           variant="danger"
         >
           <button
-            className="button  is-danger is-fullwidth "
+            className="button is-fullwidth  is-danger "
             data-test=""
             disabled={false}
             type="reset"

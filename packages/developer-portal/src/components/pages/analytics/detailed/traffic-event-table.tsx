@@ -39,7 +39,7 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
     return <Loader />
   }
   return (
-    <Section hasMargin={false}>
+    <Section hasMargin={false} hasBoxShadow>
       <H5>Hits By Resource</H5>
       <p className="is-italic mb-4">
         A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)

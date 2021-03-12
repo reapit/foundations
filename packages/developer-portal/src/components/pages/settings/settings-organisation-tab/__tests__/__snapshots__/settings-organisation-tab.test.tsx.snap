@@ -14,91 +14,84 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
   }
 >
   <DeveloperSettingsOrganisationTabPage>
-    <Section>
-      <section
-        className="section has-padding has-margin has-background"
-        data-test=""
+    <Tabs
+      role="admin"
+    >
+      <Tabs
+        tabConfigs={
+          Array [
+            Object {
+              "active": false,
+              "displayText": "Profile",
+              "onTabClick": [Function],
+              "tabIdentifier": "/settings/profile",
+            },
+            Object {
+              "active": false,
+              "displayText": "Organisation",
+              "onTabClick": [Function],
+              "tabIdentifier": "/settings/organisation",
+            },
+            Object {
+              "active": false,
+              "displayText": "Billing",
+              "onTabClick": [Function],
+              "tabIdentifier": "/settings/billing",
+            },
+          ]
+        }
       >
-        <Tabs
-          role="admin"
+        <div
+          className="tabs is-fullwidth"
+          role="tablist"
         >
-          <Tabs
-            tabConfigs={
-              Array [
-                Object {
-                  "active": false,
-                  "displayText": "Profile",
-                  "onTabClick": [Function],
-                  "tabIdentifier": "/settings/profile",
-                },
-                Object {
-                  "active": false,
-                  "displayText": "Organisation",
-                  "onTabClick": [Function],
-                  "tabIdentifier": "/settings/organisation",
-                },
-                Object {
-                  "active": false,
-                  "displayText": "Billing",
-                  "onTabClick": [Function],
-                  "tabIdentifier": "/settings/billing",
-                },
-              ]
-            }
-          >
-            <div
-              className="tabs is-fullwidth"
-              role="tablist"
+          <ul>
+            <li
+              className=""
+              key="/settings/profile"
             >
-              <ul>
-                <li
-                  className=""
-                  key="/settings/profile"
-                >
-                  <a
-                    aria-controls="/settings/profile"
-                    aria-selected={false}
-                    id="/settings/profile"
-                    onClick={[Function]}
-                    role="tab"
-                  >
-                    Profile
-                  </a>
-                </li>
-                <li
-                  className=""
-                  key="/settings/organisation"
-                >
-                  <a
-                    aria-controls="/settings/organisation"
-                    aria-selected={false}
-                    id="/settings/organisation"
-                    onClick={[Function]}
-                    role="tab"
-                  >
-                    Organisation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  key="/settings/billing"
-                >
-                  <a
-                    aria-controls="/settings/billing"
-                    aria-selected={false}
-                    id="/settings/billing"
-                    onClick={[Function]}
-                    role="tab"
-                  >
-                    Billing
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Tabs>
-        </Tabs>
-      </section>
-    </Section>
+              <a
+                aria-controls="/settings/profile"
+                aria-selected={false}
+                id="/settings/profile"
+                onClick={[Function]}
+                role="tab"
+              >
+                Profile
+              </a>
+            </li>
+            <li
+              className=""
+              key="/settings/organisation"
+            >
+              <a
+                aria-controls="/settings/organisation"
+                aria-selected={false}
+                id="/settings/organisation"
+                onClick={[Function]}
+                role="tab"
+              >
+                Organisation
+              </a>
+            </li>
+            <li
+              className=""
+              key="/settings/billing"
+            >
+              <a
+                aria-controls="/settings/billing"
+                aria-selected={false}
+                id="/settings/billing"
+                onClick={[Function]}
+                role="tab"
+              >
+                Billing
+              </a>
+            </li>
+          </ul>
+        </div>
+      </Tabs>
+    </Tabs>
     <OrganisationForm
       onInviteNewMemberClick={[Function]}
     >
@@ -1582,35 +1575,28 @@ exports[`DeveloperOrganisationTabPage DeveloperSettingsOrganisationTabPage shoul
         </section>
       </Section>
     </Members>
-    <Section>
-      <section
-        className="section has-padding has-margin has-background"
+    <LevelRight>
+      <div
+        className="level-right"
         data-test=""
       >
-        <LevelRight>
-          <div
-            className="level-right"
+        <Button
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button   is-primary "
             data-test=""
+            disabled={false}
+            onClick={[Function]}
+            type="button"
           >
-            <Button
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button  is-primary  "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Invite New Member
-              </button>
-            </Button>
-          </div>
-        </LevelRight>
-      </section>
-    </Section>
+            Invite New Member
+          </button>
+        </Button>
+      </div>
+    </LevelRight>
     <InviteMemberModal
       developerId="909dcdc1-6657-4a37-a5cc-05acd79d6a47"
       onClose={[Function]}

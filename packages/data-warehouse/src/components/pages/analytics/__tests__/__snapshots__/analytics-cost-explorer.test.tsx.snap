@@ -279,7 +279,7 @@ exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
                           onClick={[Function]}
                         >
                           <button
-                            className="button  is-primary  "
+                            className="button   is-primary "
                             data-test=""
                             disabled={false}
                             onClick={[Function]}

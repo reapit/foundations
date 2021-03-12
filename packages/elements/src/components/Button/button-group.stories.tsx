@@ -46,7 +46,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {}
 
-export const IsBlock = Template.bind({})
-IsBlock.args = {
-  className: 'is-block',
+export const HasSpacing = Template.bind({})
+HasSpacing.args = {
+  hasSpacing: true,
 }

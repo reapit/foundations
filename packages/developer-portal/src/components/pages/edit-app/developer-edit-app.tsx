@@ -3,7 +3,20 @@ import routes from '@/constants/routes'
 import { Link, Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
-import { Input, Button, Loader, Alert, H3, LevelRight, Formik, Form, H6, FormikValues, ModalV2 } from '@reapit/elements'
+import {
+  Input,
+  Button,
+  Loader,
+  Alert,
+  H3,
+  ButtonGroup,
+  Formik,
+  Form,
+  H6,
+  FormikValues,
+  ModalV2,
+  LevelRight,
+} from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -447,7 +460,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   return (
     <>
-      <H3 isHeadingSection>Edit App</H3>
+      <H3>Edit App</H3>
       <Formik
         validationSchema={validationSchemaSubmitRevision}
         initialValues={initialValues}
@@ -478,31 +491,33 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <Section>
                 {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                 <LevelRight>
-                  <Button
-                    onClick={handleOpenAppPreview({
-                      appDetails: appDetailState.data || {},
-                      values,
-                      scopes,
-                      categories: appCategories,
-                      appId: appid,
-                    })}
-                    variant="primary"
-                    type="button"
-                  >
-                    Preview
-                  </Button>
-                  <Button onClick={goBackToApps} variant="primary" type="button">
-                    Back To Apps
-                  </Button>
-                  <Button
-                    type="submit"
-                    dataTest="submit-app-button"
-                    variant="primary"
-                    loading={submitting}
-                    disabled={submitting}
-                  >
-                    Submit App
-                  </Button>
+                  <ButtonGroup hasSpacing>
+                    <Button onClick={goBackToApps} variant="danger" type="button">
+                      Back To Apps
+                    </Button>
+                    <Button
+                      onClick={handleOpenAppPreview({
+                        appDetails: appDetailState.data || {},
+                        values,
+                        scopes,
+                        categories: appCategories,
+                        appId: appid,
+                      })}
+                      variant="secondary"
+                      type="button"
+                    >
+                      Preview
+                    </Button>
+                    <Button
+                      type="submit"
+                      dataTest="submit-app-button"
+                      variant="primary"
+                      loading={submitting}
+                      disabled={submitting}
+                    >
+                      Submit App
+                    </Button>
+                  </ButtonGroup>
                 </LevelRight>
               </Section>
               <Input
