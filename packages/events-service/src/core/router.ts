@@ -13,10 +13,12 @@ import updateAutomationById from '../controllers/automation/update'
 import deleteAutomationById from '../controllers/automation/delete'
 
 import createEvent from '../controllers/event/create'
+import listEvents from '../controllers/event/list'
 
 import validateRequest from '../middlewares/validate-request'
 import * as eventStatusValidation from '../validations/event-status'
 import * as automationValidation from '../validations/automation'
+import * as eventValidation from '../validations/event'
 
 const router = Router()
 
@@ -31,8 +33,8 @@ router.post('/automation', checkSchema(automationValidation.create), validateReq
 router.patch('/automation/:id', checkSchema(automationValidation.update), validateRequest, updateAutomationById)
 router.delete('/automation/:id', deleteAutomationById)
 
-// TODO: add request validation on these endpoints
+// TODO: add validation on the create endpoint when we know what the exact event type is
 router.post('/event', createEvent)
-// router.get('/event', listEvents)
+router.get('/event', checkSchema(eventValidation.list), validateRequest, listEvents)
 
 export default router

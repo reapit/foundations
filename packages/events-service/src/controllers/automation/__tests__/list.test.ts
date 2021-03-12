@@ -5,15 +5,17 @@ jest.mock('../../../core/logger')
 jest.mock('../../../core/db', () => {
   return {
     db: {
-      query: jest.fn(() =>
-        new Set().add({
-          id: 'SOME_ID',
-          clientCode: 'SOME_CODE',
-          messageChannel: 'sms',
-          messageBody: 'messageBody',
-          triggerOnEventType: 'enquiry',
-        }),
-      ),
+      query: () => {
+        return [
+          {
+            id: 'SOME_ID',
+            clientCode: 'SOME_CODE',
+            messageChannel: 'sms',
+            messageBody: 'messageBody',
+            triggerOnEventType: 'enquiry',
+          },
+        ]
+      },
     },
   }
 })
@@ -55,7 +57,7 @@ describe('listAutomations', () => {
     })
   })
 
-  xit('should return results', async () => {
+  it('should return results', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }
