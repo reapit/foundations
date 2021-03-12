@@ -142,7 +142,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                             class="rc-dialog-body"
                           >
                             <h6
-                              class="subtitle is-6 px-4"
+                              class="subtitle is-6"
                               id=""
                             >
                               Please enter a name and email address below to invite a new member to your organisation:
@@ -152,7 +152,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                               class="form"
                             >
                               <div
-                                class="container-flex is-column has-background has-padding"
+                                class="container-flex is-column has-background"
                               >
                                 <div
                                   class="field"
@@ -354,7 +354,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                     class="rc-dialog-body"
                                   >
                                     <h6
-                                      class="subtitle is-6 px-4"
+                                      class="subtitle is-6"
                                       id=""
                                     >
                                       Please enter a name and email address below to invite a new member to your organisation:
@@ -364,7 +364,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                       class="form"
                                     >
                                       <div
-                                        class="container-flex is-column has-background has-padding"
+                                        class="container-flex is-column has-background"
                                       >
                                         <div
                                           class="field"
@@ -628,7 +628,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                           class="rc-dialog-body"
                                         >
                                           <h6
-                                            class="subtitle is-6 px-4"
+                                            class="subtitle is-6"
                                             id=""
                                           >
                                             Please enter a name and email address below to invite a new member to your organisation:
@@ -638,7 +638,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                             class="form"
                                           >
                                             <div
-                                              class="container-flex is-column has-background has-padding"
+                                              class="container-flex is-column has-background"
                                             >
                                               <div
                                                 class="field"
@@ -841,11 +841,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                 <div
                                   className="rc-dialog-body"
                                 >
-                                  <SubTitleH6
-                                    className="px-4"
-                                  >
+                                  <SubTitleH6>
                                     <h6
-                                      className="subtitle is-6 px-4"
+                                      className="subtitle is-6"
                                       id=""
                                     >
                                       Please enter a name and email address below to invite a new member to your organisation:
@@ -1011,10 +1009,9 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                         <FlexContainerBasic
                                           flexColumn={true}
                                           hasBackground={true}
-                                          hasPadding={true}
                                         >
                                           <div
-                                            className="container-flex is-column has-background has-padding"
+                                            className="container-flex is-column has-background"
                                           >
                                             <InviteMemberModalInput>
                                               <Input

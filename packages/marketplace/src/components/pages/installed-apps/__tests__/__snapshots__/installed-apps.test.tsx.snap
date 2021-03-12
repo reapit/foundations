@@ -59,10 +59,9 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
         <ErrorBoundary>
           <H3
             className=""
-            isHeadingSection={true}
           >
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Installed Apps
@@ -171,10 +170,9 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
         <ErrorBoundary>
           <H3
             className=""
-            isHeadingSection={true}
           >
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Installed Apps

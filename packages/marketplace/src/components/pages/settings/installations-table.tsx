@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { Table, H5, Loader, toLocalTime, Pagination, Section, FadeIn } from '@reapit/elements'
+import { Table, H5, Loader, toLocalTime, Pagination, FadeIn } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import { selectInstallationsList, selectInstallationsLoading } from '@/selector/installations'
@@ -73,18 +73,18 @@ export const InstallationsTable: React.FC = () => {
   )
 
   return installationListLoading || appsListLoading ? (
-    <Section>
+    <>
       <H5>Installation Details</H5>
       <Loader />
-    </Section>
+    </>
   ) : (
     <>
-      <Section>
+      <>
         <H5>Installation Details</H5>
         <FadeIn>
           <Table bordered scrollable columns={installationTableColumns} data={filteredList} loading={false} />
         </FadeIn>
-      </Section>
+      </>
       <Pagination
         pageNumber={pageNumber}
         onChange={handleSetPageNumber(setPageNumber)}

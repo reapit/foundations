@@ -60,6 +60,13 @@ exports[`Login should match a snapshot 1`] = `
           className="c1lyb14a-container"
         >
           <div
+            className="ifr3uqd-image-container"
+          >
+            <div
+              className="luljy5f-login-image"
+            />
+          </div>
+          <div
             className="wwd52pe-wrapper"
           >
             <Level>
@@ -120,14 +127,6 @@ exports[`Login should match a snapshot 1`] = `
                 className="container-flex is-centered pt-8"
               />
             </FlexContainerBasic>
-          </div>
-          <div
-            className="ifr3uqd-image"
-          >
-            <img
-              alt="Reapit Graphic"
-              src=""
-            />
           </div>
         </div>
       </Login>

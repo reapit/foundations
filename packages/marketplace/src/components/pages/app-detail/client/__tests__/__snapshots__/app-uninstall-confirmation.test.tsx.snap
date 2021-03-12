@@ -128,15 +128,23 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                             class=""
                             data-test="uinstallations-success-message"
                           >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
+                            <header
+                              class="modal-card-head"
                             >
-                              Success
-                            </div>
-                            <div
-                              class="container-flex is-column has-background has-padding"
+                              <h4
+                                class="modal-card-title is-4"
+                              >
+                                Success
+                              </h4>
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                data-test="modal-close-button"
+                                type="button"
+                              />
+                            </header>
+                            <section
+                              class="modal-card-body"
                             >
                               <p>
                                 Peter's Properties
@@ -153,7 +161,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                   Back to List
                                 </button>
                               </div>
-                            </div>
+                            </section>
                           </div>
                         </div>
                       </div>
@@ -336,15 +344,23 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                     class=""
                                     data-test="uinstallations-success-message"
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
                                         Peter's Properties
@@ -361,7 +377,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                           Back to List
                                         </button>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -603,15 +619,23 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                           class=""
                                           data-test="uinstallations-success-message"
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               Peter's Properties
@@ -628,7 +652,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                                 Back to List
                                               </button>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -727,26 +751,53 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                     className=""
                                     data-test="uinstallations-success-message"
                                   >
-                                    <Alert
-                                      className="mb-0"
-                                      message="Success"
-                                      type="success"
+                                    <ModalHeader
+                                      afterClose={[MockFunction]}
+                                      title="Success"
                                     >
-                                      <div
-                                        className="notification is-success mb-0"
-                                        data-test=""
-                                        role="alert"
+                                      <header
+                                        className="modal-card-head"
                                       >
-                                        Success
-                                      </div>
-                                    </Alert>
-                                    <FlexContainerBasic
-                                      flexColumn={true}
-                                      hasBackground={true}
-                                      hasPadding={true}
+                                        <h4
+                                          className="modal-card-title is-4"
+                                        >
+                                          Success
+                                        </h4>
+                                        <button
+                                          aria-label="close"
+                                          className="delete"
+                                          data-test="modal-close-button"
+                                          onClick={[Function]}
+                                          type="button"
+                                        />
+                                      </header>
+                                    </ModalHeader>
+                                    <ModalBody
+                                      body={
+                                        <React.Fragment>
+                                          <p>
+                                            <React.Fragment>
+                                              Peter's Properties
+                                               has been successfully uninstalled
+                                            </React.Fragment>
+                                          </p>
+                                          <div
+                                            className="has-text-right"
+                                          >
+                                            <Button
+                                              dataTest="uinstallations-success-button"
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                              variant="primary"
+                                            >
+                                              Back to List
+                                            </Button>
+                                          </div>
+                                        </React.Fragment>
+                                      }
                                     >
-                                      <div
-                                        className="container-flex is-column has-background has-padding"
+                                      <section
+                                        className="modal-card-body"
                                       >
                                         <p>
                                           Peter's Properties
@@ -772,8 +823,8 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                             </button>
                                           </Button>
                                         </div>
-                                      </div>
-                                    </FlexContainerBasic>
+                                      </section>
+                                    </ModalBody>
                                   </div>
                                 </CallToAction>
                               </div>

@@ -11,7 +11,7 @@ import {
   MarketplaceIcon,
   Menu as Sidebar,
   MenuConfig,
-  ReapitLogo,
+  ReapitHouseIcon,
   WebhooksIcon,
 } from '@reapit/elements'
 import Routes from '../../constants/routes'
@@ -47,7 +47,7 @@ export const XmasLogo: React.FC = () => {
     return <img src={WeekFourXmas} />
   }
 
-  return <ReapitLogo className="nav-item-icon" />
+  return <ReapitHouseIcon />
 }
 
 export const generateMenuConfig = (location: Location<any>): MenuConfig => {
@@ -57,7 +57,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
         callback: () => history.push(Routes.APPS),
       },

@@ -19,11 +19,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         componentError={null}
         errorThrownComponent={[Function]}
       >
-        <H3
-          isHeadingSection={true}
-        >
+        <H3>
           <h3
-            className="title is-3 is-heading-section"
+            className="title is-3"
             id=""
           >
             Desktop
@@ -33,9 +31,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           <div
             className="f1ohzb3j-fade-in"
           >
-            <Section>
+            <Section
+              hasPadding={false}
+            >
               <section
-                className="section has-padding has-margin has-background"
+                className="section has-margin has-background"
                 data-test=""
               >
                 <DeveloperDesktopContentPartOne>
@@ -75,9 +75,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           <div
             className="f1ohzb3j-fade-in"
           >
-            <Section>
+            <Section
+              hasPadding={false}
+            >
               <section
-                className="section has-padding has-margin has-background"
+                className="section has-margin has-background"
                 data-test=""
               >
                 <DeveloperDesktopContentPartTwo>

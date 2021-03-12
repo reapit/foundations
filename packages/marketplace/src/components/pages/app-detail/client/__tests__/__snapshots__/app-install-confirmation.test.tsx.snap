@@ -468,15 +468,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               Peter's Properties
@@ -508,7 +516,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -575,15 +583,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           class=""
                                           data-test="installations-success-message"
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               <p
@@ -619,7 +635,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 Back to List
                                               </button>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -940,15 +956,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class=""
                                                 data-test=""
                                               >
-                                                <div
-                                                  class="notification is-success mb-0"
-                                                  data-test=""
-                                                  role="alert"
+                                                <header
+                                                  class="modal-card-head"
                                                 >
-                                                  Success
-                                                </div>
-                                                <div
-                                                  class="container-flex is-column has-background has-padding"
+                                                  <h4
+                                                    class="modal-card-title is-4"
+                                                  >
+                                                    Success
+                                                  </h4>
+                                                  <button
+                                                    aria-label="close"
+                                                    class="delete"
+                                                    data-test="modal-close-button"
+                                                    type="button"
+                                                  />
+                                                </header>
+                                                <section
+                                                  class="modal-card-body"
                                                 >
                                                   <p>
                                                     Peter's Properties
@@ -980,7 +1004,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                       </a>
                                                     </div>
                                                   </div>
-                                                </div>
+                                                </section>
                                               </div>
                                             </div>
                                           </div>
@@ -1047,15 +1071,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class=""
                                                 data-test="installations-success-message"
                                               >
-                                                <div
-                                                  class="notification is-success mb-0"
-                                                  data-test=""
-                                                  role="alert"
+                                                <header
+                                                  class="modal-card-head"
                                                 >
-                                                  Success
-                                                </div>
-                                                <div
-                                                  class="container-flex is-column has-background has-padding"
+                                                  <h4
+                                                    class="modal-card-title is-4"
+                                                  >
+                                                    Success
+                                                  </h4>
+                                                  <button
+                                                    aria-label="close"
+                                                    class="delete"
+                                                    data-test="modal-close-button"
+                                                    type="button"
+                                                  />
+                                                </header>
+                                                <section
+                                                  class="modal-card-body"
                                                 >
                                                   <p>
                                                     <p
@@ -1091,7 +1123,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                       Back to List
                                                     </button>
                                                   </div>
-                                                </div>
+                                                </section>
                                               </div>
                                             </div>
                                           </div>
@@ -1757,15 +1789,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class=""
                             data-test="installations-success-message"
                           >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
+                            <header
+                              class="modal-card-head"
                             >
-                              Success
-                            </div>
-                            <div
-                              class="container-flex is-column has-background has-padding"
+                              <h4
+                                class="modal-card-title is-4"
+                              >
+                                Success
+                              </h4>
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                data-test="modal-close-button"
+                                type="button"
+                              />
+                            </header>
+                            <section
+                              class="modal-card-body"
                             >
                               <p>
                                 <p
@@ -1801,7 +1841,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                   Back to List
                                 </button>
                               </div>
-                            </div>
+                            </section>
                           </div>
                         </div>
                       </div>
@@ -1893,15 +1933,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test=""
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
                                         Peter's Properties
@@ -1933,7 +1981,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           </a>
                                         </div>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2000,15 +2048,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test="installations-success-message"
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
                                         <p
@@ -2044,7 +2100,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           Back to List
                                         </button>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2194,15 +2250,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               Peter's Properties
@@ -2234,7 +2298,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -2301,15 +2365,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test="installations-success-message"
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               <p
@@ -2345,7 +2417,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 Back to List
                                               </button>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -2443,26 +2515,70 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     className=""
                                     data-test="installations-success-message"
                                   >
-                                    <Alert
-                                      className="mb-0"
-                                      message="Success"
-                                      type="success"
+                                    <ModalHeader
+                                      afterClose={[MockFunction]}
+                                      title="Success"
                                     >
-                                      <div
-                                        className="notification is-success mb-0"
-                                        data-test=""
-                                        role="alert"
+                                      <header
+                                        className="modal-card-head"
                                       >
-                                        Success
-                                      </div>
-                                    </Alert>
-                                    <FlexContainerBasic
-                                      flexColumn={true}
-                                      hasBackground={true}
-                                      hasPadding={true}
+                                        <h4
+                                          className="modal-card-title is-4"
+                                        >
+                                          Success
+                                        </h4>
+                                        <button
+                                          aria-label="close"
+                                          className="delete"
+                                          data-test="modal-close-button"
+                                          onClick={[Function]}
+                                          type="button"
+                                        />
+                                      </header>
+                                    </ModalHeader>
+                                    <ModalBody
+                                      body={
+                                        <React.Fragment>
+                                          <p>
+                                            <p
+                                              className="mb-5"
+                                            >
+                                              Peter's Properties
+                                               has been successfully installed.
+                                            </p>
+                                            <p
+                                              className="mb-5 flex v-align-middle"
+                                            >
+                                              To launch, please use
+                                               
+                                              <a
+                                                className="t1nk0j00-truncate"
+                                                href="agencycloud://process/webpage?url=undefined"
+                                              />
+                                            </p>
+                                            <p>
+                                              If there are any additional setup requirements, a member of 
+                                              Pete's Proptech World Ltd
+                                               will be in touch to help you through the process.
+                                            </p>
+                                          </p>
+                                          <div
+                                            className="has-text-right"
+                                          >
+                                            <Button
+                                              dataTest="installations-success-button"
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                              variant="primary"
+                                            >
+                                              Back to List
+                                            </Button>
+                                          </div>
+                                        </React.Fragment>
+                                      }
                                     >
-                                      <div
-                                        className="container-flex is-column has-background has-padding"
+                                      <section
+                                        className="modal-card-body"
                                       >
                                         <p>
                                           <p
@@ -2507,8 +2623,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             </button>
                                           </Button>
                                         </div>
-                                      </div>
-                                    </FlexContainerBasic>
+                                      </section>
+                                    </ModalBody>
                                   </div>
                                 </CallToAction>
                               </div>
@@ -2672,15 +2788,23 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class=""
                             data-test=""
                           >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
+                            <header
+                              class="modal-card-head"
                             >
-                              Success
-                            </div>
-                            <div
-                              class="container-flex is-column has-background has-padding"
+                              <h4
+                                class="modal-card-title is-4"
+                              >
+                                Success
+                              </h4>
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                data-test="modal-close-button"
+                                type="button"
+                              />
+                            </header>
+                            <section
+                              class="modal-card-body"
                             >
                               <p>
                                 Peter's Properties
@@ -2712,7 +2836,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                   </a>
                                 </div>
                               </div>
-                            </div>
+                            </section>
                           </div>
                         </div>
                       </div>
@@ -2804,15 +2928,23 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test=""
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
                                         Peter's Properties
@@ -2844,7 +2976,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           </a>
                                         </div>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2994,15 +3126,23 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               Peter's Properties
@@ -3034,7 +3174,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -3155,26 +3295,66 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     className=""
                                     data-test=""
                                   >
-                                    <Alert
-                                      className="mb-0"
-                                      message="Success"
-                                      type="success"
+                                    <ModalHeader
+                                      afterClose={[MockFunction]}
+                                      title="Success"
                                     >
-                                      <div
-                                        className="notification is-success mb-0"
-                                        data-test=""
-                                        role="alert"
+                                      <header
+                                        className="modal-card-head"
                                       >
-                                        Success
-                                      </div>
-                                    </Alert>
-                                    <FlexContainerBasic
-                                      flexColumn={true}
-                                      hasBackground={true}
-                                      hasPadding={true}
+                                        <h4
+                                          className="modal-card-title is-4"
+                                        >
+                                          Success
+                                        </h4>
+                                        <button
+                                          aria-label="close"
+                                          className="delete"
+                                          data-test="modal-close-button"
+                                          onClick={[Function]}
+                                          type="button"
+                                        />
+                                      </header>
+                                    </ModalHeader>
+                                    <ModalBody
+                                      body={
+                                        <React.Fragment>
+                                          <p>
+                                            Peter's Properties
+                                             has been successfully installed
+                                          </p>
+                                          <div
+                                            className="has-text-right"
+                                          >
+                                            <div
+                                              className="b1hev0vk-btn-group"
+                                            >
+                                              <Button
+                                                dataTest="installations-success-message"
+                                                onClick={[MockFunction]}
+                                                type="button"
+                                                variant="primary"
+                                              >
+                                                Back To List
+                                              </Button>
+                                              <a
+                                                href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                              >
+                                                <Button
+                                                  dataTest="installations-success-message-launch"
+                                                  type="button"
+                                                  variant="primary"
+                                                >
+                                                  Launch App
+                                                </Button>
+                                              </a>
+                                            </div>
+                                          </div>
+                                        </React.Fragment>
+                                      }
                                     >
-                                      <div
-                                        className="container-flex is-column has-background has-padding"
+                                      <section
+                                        className="modal-card-body"
                                       >
                                         <p>
                                           Peter's Properties
@@ -3222,8 +3402,8 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             </a>
                                           </div>
                                         </div>
-                                      </div>
-                                    </FlexContainerBasic>
+                                      </section>
+                                    </ModalBody>
                                   </div>
                                 </CallToAction>
                               </div>

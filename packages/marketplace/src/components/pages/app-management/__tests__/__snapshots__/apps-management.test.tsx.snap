@@ -57,11 +57,9 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
     >
       <AppsManagement>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Manage Apps
@@ -158,11 +156,9 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
     >
       <AppsManagement>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Manage Apps
@@ -243,11 +239,9 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
     >
       <AppsManagement>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Manage Apps

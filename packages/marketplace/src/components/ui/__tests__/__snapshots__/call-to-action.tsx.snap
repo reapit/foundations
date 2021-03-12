@@ -5,29 +5,27 @@ exports[`CallToAction should match a snapshot 1`] = `
   className=""
   data-test=""
 >
-  <Alert
-    className="mb-0"
-    message="My title"
-    type="success"
+  <ModalHeader
+    title="My title"
   />
-  <FlexContainerBasic
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <p />
-    <div
-      className="has-text-right"
-    >
-      <Button
-        dataTest=""
-        type="button"
-        variant="primary"
-      >
-        My button
-      </Button>
-    </div>
-  </FlexContainerBasic>
+  <ModalBody
+    body={
+      <React.Fragment>
+        <p />
+        <div
+          className="has-text-right"
+        >
+          <Button
+            dataTest=""
+            type="button"
+            variant="primary"
+          >
+            My button
+          </Button>
+        </div>
+      </React.Fragment>
+    }
+  />
 </div>
 `;
 
@@ -36,35 +34,35 @@ exports[`CallToAction should match snapshot with footerItems 1`] = `
   className=""
   data-test=""
 >
-  <Alert
-    className="mb-0"
-    message="Test"
-    type="success"
+  <ModalHeader
+    title="Test"
   />
-  <FlexContainerBasic
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <p />
-    <div
-      className="has-text-right"
-    >
-      <Button
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
-      >
-        My Apps
-      </Button>
-      <Button
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
-      >
-        Submit another app
-      </Button>
-    </div>
-  </FlexContainerBasic>
+  <ModalBody
+    body={
+      <React.Fragment>
+        <p />
+        <div
+          className="has-text-right"
+        >
+          <React.Fragment>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              My Apps
+            </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              Submit another app
+            </Button>
+          </React.Fragment>
+        </div>
+      </React.Fragment>
+    }
+  />
 </div>
 `;

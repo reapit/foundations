@@ -9,9 +9,7 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     name="status"
     type="hidden"
   />
-  <Content
-    className="sxj0u33-status-text"
-  >
+  <Content>
     <div
       className="pb-1"
     >
@@ -20,12 +18,10 @@ exports[`AccountStatusSection should match snapshot 1`] = `
       </i>
     </div>
     <b>
-      ACCOUNT STATUS:
+      Account Status:
     </b>
      
-    <i>
-      Pending
-    </i>
+    Pending
   </Content>
 </GridItem>
 `;
@@ -34,9 +30,7 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
 <GridItem
   className="pl-0"
 >
-  <Content
-    className="is-italic sxj0u33-status-text"
-  >
+  <Content>
     Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and you can procced with any subscriptions.
   </Content>
   <Input
@@ -44,9 +38,7 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     name="status"
     type="hidden"
   />
-  <Content
-    className="sxj0u33-status-text"
-  >
+  <Content>
     <div
       className="pb-1"
     >
@@ -55,12 +47,10 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
       </i>
     </div>
     <b>
-      ACCOUNT STATUS:
+      Account Status:
     </b>
      
-    <i>
-      Pending
-    </i>
+    Pending
   </Content>
 </GridItem>
 `;
@@ -74,16 +64,12 @@ exports[`AccountStatusSection should match snapshot with status !== pending 1`] 
     name="status"
     type="hidden"
   />
-  <Content
-    className="sxj0u33-status-text"
-  >
+  <Content>
     <b>
-      ACCOUNT STATUS:
+      Account Status:
     </b>
      
-    <i>
-      Incomplete
-    </i>
+    Incomplete
   </Content>
 </GridItem>
 `;
