@@ -2,7 +2,6 @@ import React, { useEffect, useState, Dispatch } from 'react'
 import {
   H3,
   Table,
-  Section,
   FetchError,
   SelectBox,
   Formik,
@@ -104,29 +103,26 @@ export const AdminBilling: React.FC = () => {
 
   return (
     <>
-      <H3 isHeadingSection>Billing</H3>
-      <Section>
-        <Formik
-          initialValues={{
-            year,
-            month,
-          }}
-          onSubmit={onChangePeriod}
-        >
-          <Form onChange={onChangePeriod}>
-            <Grid>
-              <GridItem>
-                <SelectBox id="month" name="month" labelText="Month" options={monthOptions} />
-              </GridItem>
-              <GridItem>
-                <SelectBox id="year" name="year" labelText="Year" options={yearOptions} />
-              </GridItem>
-            </Grid>
-          </Form>
-        </Formik>
-
-        <Table scrollable={true} loading={!fileBlob} data={tableData} columns={columns} />
-      </Section>
+      <H3>Billing</H3>
+      <Formik
+        initialValues={{
+          year,
+          month,
+        }}
+        onSubmit={onChangePeriod}
+      >
+        <Form onChange={onChangePeriod}>
+          <Grid>
+            <GridItem>
+              <SelectBox id="month" name="month" labelText="Month" options={monthOptions} />
+            </GridItem>
+            <GridItem>
+              <SelectBox id="year" name="year" labelText="Year" options={yearOptions} />
+            </GridItem>
+          </Grid>
+        </Form>
+      </Formik>
+      <Table scrollable={true} loading={!fileBlob} data={tableData} columns={columns} />
     </>
   )
 }

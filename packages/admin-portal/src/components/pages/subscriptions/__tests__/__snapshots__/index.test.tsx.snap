@@ -57,11 +57,9 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Subscriptions
@@ -684,10 +682,10 @@ exports[`Subscriptions should match a snapshot when LOADING false 1`] = `
           </SubscriptionsFilterForm>
           <Alert
             message="No Results "
-            type="info"
+            type="primary"
           >
             <div
-              className="notification is-info "
+              className="notification is-primary "
               data-test=""
               role="alert"
             >
@@ -791,11 +789,9 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Subscriptions
@@ -1418,10 +1414,10 @@ exports[`Subscriptions should render blank Info when data is empty 1`] = `
           </SubscriptionsFilterForm>
           <Alert
             message="No Results "
-            type="info"
+            type="primary"
           >
             <div
-              className="notification is-info "
+              className="notification is-primary "
               data-test=""
               role="alert"
             >
@@ -1525,11 +1521,9 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
     >
       <Subscriptions>
         <ErrorBoundary>
-          <H3
-            isHeadingSection={true}
-          >
+          <H3>
             <h3
-              className="title is-3 is-heading-section"
+              className="title is-3"
               id=""
             >
               Subscriptions
@@ -2152,10 +2146,10 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
           </SubscriptionsFilterForm>
           <Alert
             message="No Results "
-            type="info"
+            type="primary"
           >
             <div
-              className="notification is-info "
+              className="notification is-primary "
               data-test=""
               role="alert"
             >
@@ -2204,89 +2198,89 @@ exports[`Subscriptions should show loader when LOADING true 1`] = `
 
 exports[`renderResult should match snapshot when has result data 1`] = `
 <React.Fragment>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <div>
       Total: 
       0
     </div>
   </Section>
-  <Section>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Subscription Type",
-            "accessor": "type",
-          },
-          Object {
-            "Header": "Summary",
-            "accessor": "summary",
-          },
-          Object {
-            "Header": "Application ID",
-            "accessor": "applicationId",
-          },
-          Object {
-            "Header": "Member Name",
-            "accessor": "developerId",
-          },
-          Object {
-            "Header": "Member Email",
-            "accessor": "user",
-          },
-          Object {
-            "Header": "Start Date",
-            "accessor": "created",
-          },
-          Object {
-            "Header": "Renewal Date",
-            "accessor": "renews",
-          },
-          Object {
-            "Header": "Frequency",
-            "accessor": "frequency",
-          },
-          Object {
-            "Header": "Cost",
-            "accessor": "cost",
-          },
-          Object {
-            "Header": "Status",
-            "accessor": "cancelled",
-          },
-          Object {
-            "Header": "",
-            "accessor": "id",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "applicationId": "123",
-            "cost": 0,
-            "created": "2020-11-17T07:53:38",
-            "developerId": "b1da6abb-a522-45b8-b7da-de186ea4a01b",
-            "frequency": "monthly",
-            "id": "1de28f85-0239-497b-b20f-a855b79527e4",
-            "renews": "2020-12-17",
-            "summary": "Developer edition license for ltran@reapit.com",
-            "type": "developerEdition",
-            "user": "ltran@reapit.com",
-          },
-        ]
-      }
-      expandable={true}
-      loading={false}
-      scrollable={true}
-    />
-  </Section>
+  <Table
+    columns={
+      Array [
+        Object {
+          "Header": "Subscription Type",
+          "accessor": "type",
+        },
+        Object {
+          "Header": "Summary",
+          "accessor": "summary",
+        },
+        Object {
+          "Header": "Application ID",
+          "accessor": "applicationId",
+        },
+        Object {
+          "Header": "Member Name",
+          "accessor": "developerId",
+        },
+        Object {
+          "Header": "Member Email",
+          "accessor": "user",
+        },
+        Object {
+          "Header": "Start Date",
+          "accessor": "created",
+        },
+        Object {
+          "Header": "Renewal Date",
+          "accessor": "renews",
+        },
+        Object {
+          "Header": "Frequency",
+          "accessor": "frequency",
+        },
+        Object {
+          "Header": "Cost",
+          "accessor": "cost",
+        },
+        Object {
+          "Header": "Status",
+          "accessor": "cancelled",
+        },
+        Object {
+          "Header": "",
+          "accessor": "id",
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "applicationId": "123",
+          "cost": 0,
+          "created": "2020-11-17T07:53:38",
+          "developerId": "b1da6abb-a522-45b8-b7da-de186ea4a01b",
+          "frequency": "monthly",
+          "id": "1de28f85-0239-497b-b20f-a855b79527e4",
+          "renews": "2020-12-17",
+          "summary": "Developer edition license for ltran@reapit.com",
+          "type": "developerEdition",
+          "user": "ltran@reapit.com",
+        },
+      ]
+    }
+    expandable={true}
+    loading={false}
+    scrollable={true}
+  />
 </React.Fragment>
 `;
 
 exports[`renderResult should match snapshot when no result 1`] = `
 <Alert
   message="No Results "
-  type="info"
+  type="primary"
 />
 `;

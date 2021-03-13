@@ -1,10 +1,20 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
+import {
+  ManageIcon,
+  Menu as Sidebar,
+  MenuConfig,
+  AnalyticsIcon,
+  AppsIcon,
+  DevelopersIcon,
+  PaymentsIcon,
+  ReapitHouseIcon,
+  ResultsIcon,
+  UsersIcon,
+  ProfileIcon,
+} from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import { FaCheck, FaSignOutAlt, FaClipboardList, FaPortrait, FaTable, FaFileInvoice } from 'react-icons/fa'
-import { BsFillPersonLinesFill, BsCardChecklist } from 'react-icons/bs'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -15,63 +25,63 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
         title: 'Approvals',
         key: 'APPROVALS',
         url: Routes.APPROVALS,
-        icon: <FaCheck className="nav-item-icon" />,
+        icon: <ManageIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Apps',
         key: 'APPS',
         url: Routes.APPS,
-        icon: <FaClipboardList className="nav-item-icon" />,
+        icon: <AppsIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Developers',
         key: 'DEV_MANAGEMENT',
         url: Routes.DEV_MANAGEMENT,
-        icon: <FaPortrait className="nav-item-icon" />,
+        icon: <DevelopersIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Stats',
         key: 'STATS',
         url: Routes.STATS,
-        icon: <FaTable className="nav-item-icon" />,
+        icon: <AnalyticsIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Billing',
         key: 'BILLINGS',
         url: Routes.BILLING,
-        icon: <FaFileInvoice className="nav-item-icon" />,
+        icon: <PaymentsIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Customers',
         key: 'CUSTOMERS',
         url: Routes.CUSTOMERS,
-        icon: <BsFillPersonLinesFill className="nav-item-icon" />,
+        icon: <UsersIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Subs',
         key: 'SUBSCRIPTIONS',
         url: Routes.SUBSCRIPTIONS,
-        icon: <BsCardChecklist className="nav-item-icon" />,
+        icon: <ResultsIcon />,
         type: 'PRIMARY',
       },
       {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
     ],

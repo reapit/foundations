@@ -57,23 +57,14 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
     >
       <DevsManagement>
         <ErrorBoundary>
-          <Section
-            className="mb-0"
-          >
-            <section
-              className="section has-padding has-margin has-background mb-0"
-              data-test=""
+          <H3>
+            <h3
+              className="title is-3"
+              id=""
             >
-              <H3>
-                <h3
-                  className="title is-3"
-                  id=""
-                >
-                  Developer Management
-                </h3>
-              </H3>
-            </section>
-          </Section>
+              Developer Management
+            </h3>
+          </H3>
           <DevsManagementFilterForm
             filterValues={
               Object {
@@ -710,23 +701,14 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
     >
       <DevsManagement>
         <ErrorBoundary>
-          <Section
-            className="mb-0"
-          >
-            <section
-              className="section has-padding has-margin has-background mb-0"
-              data-test=""
+          <H3>
+            <h3
+              className="title is-3"
+              id=""
             >
-              <H3>
-                <h3
-                  className="title is-3"
-                  id=""
-                >
-                  Developer Management
-                </h3>
-              </H3>
-            </section>
-          </Section>
+              Developer Management
+            </h3>
+          </H3>
           <DevsManagementFilterForm
             filterValues={
               Object {
@@ -1363,23 +1345,14 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
     >
       <DevsManagement>
         <ErrorBoundary>
-          <Section
-            className="mb-0"
-          >
-            <section
-              className="section has-padding has-margin has-background mb-0"
-              data-test=""
+          <H3>
+            <h3
+              className="title is-3"
+              id=""
             >
-              <H3>
-                <h3
-                  className="title is-3"
-                  id=""
-                >
-                  Developer Management
-                </h3>
-              </H3>
-            </section>
-          </Section>
+              Developer Management
+            </h3>
+          </H3>
           <DevsManagementFilterForm
             filterValues={
               Object {
@@ -1961,93 +1934,91 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
 
 exports[`renderResult should match snapshot when has result data 1`] = `
 <React.Fragment>
-  <Section>
-    <div>
-      Total: 
-      0
-    </div>
-  </Section>
-  <Section>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "#",
-            "id": "id",
+  <div
+    className="mb-4"
+  >
+    Total: 
+    0
+  </div>
+  <Table
+    columns={
+      Array [
+        Object {
+          "Header": "#",
+          "id": "id",
+        },
+        Object {
+          "Header": "Name",
+          "accessor": "name",
+        },
+        Object {
+          "Header": "Company",
+          "accessor": "company",
+        },
+        Object {
+          "Header": "Job Title",
+          "accessor": "jobTitle",
+        },
+        Object {
+          "Header": "Email",
+          "accessor": "email",
+        },
+        Object {
+          "Header": "Phone",
+          "accessor": "telephone",
+        },
+        Object {
+          "Header": "Created",
+          "accessor": "created",
+        },
+        Object {
+          "Header": "Status",
+          "accessor": "status",
+          "columnProps": Object {
+            "className": "capitalize",
           },
-          Object {
-            "Header": "Name",
-            "accessor": "name",
+        },
+        Object {
+          "Header": "",
+          "id": "buttonColumn",
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "about": "",
+          "agreedTerms": "2020-08-27T12:34:30",
+          "company": "Merisis Technology Ltd",
+          "companyAddress": Object {
+            "buildingName": "",
+            "buildingNumber": "",
+            "line1": "",
+            "line2": "",
+            "line3": "",
+            "line4": "",
+            "postcode": "",
           },
-          Object {
-            "Header": "Company",
-            "accessor": "company",
-          },
-          Object {
-            "Header": "Job Title",
-            "accessor": "jobTitle",
-          },
-          Object {
-            "Header": "Email",
-            "accessor": "email",
-          },
-          Object {
-            "Header": "Phone",
-            "accessor": "telephone",
-          },
-          Object {
-            "Header": "Created",
-            "accessor": "created",
-          },
-          Object {
-            "Header": "Status",
-            "accessor": "status",
-            "columnProps": Object {
-              "className": "capitalize",
-            },
-          },
-          Object {
-            "Header": "",
-            "id": "buttonColumn",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "about": "",
-            "agreedTerms": "2020-08-27T12:34:30",
-            "company": "Merisis Technology Ltd",
-            "companyAddress": Object {
-              "buildingName": "",
-              "buildingNumber": "",
-              "line1": "",
-              "line2": "",
-              "line3": "",
-              "line4": "",
-              "postcode": "",
-            },
-            "created": "2020-08-27T12:34:32",
-            "email": "martin.coumbe@merisis.com",
-            "externalId": "c9988cf6-ce52-40a7-aedb-aa5e235d9057",
-            "id": "e40cfb8e-8bd9-454b-be58-15439565a020",
-            "isInactive": false,
-            "jobTitle": "",
-            "modified": "2020-08-27T12:34:32",
-            "name": "Martin Coumbe",
-            "registrationNumber": "",
-            "status": "incomplete",
-            "taxNumber": "",
-            "telephone": "0844 870 0555",
-            "website": "",
-          },
-        ]
-      }
-      expandable={true}
-      loading={false}
-      scrollable={true}
-    />
-  </Section>
+          "created": "2020-08-27T12:34:32",
+          "email": "martin.coumbe@merisis.com",
+          "externalId": "c9988cf6-ce52-40a7-aedb-aa5e235d9057",
+          "id": "e40cfb8e-8bd9-454b-be58-15439565a020",
+          "isInactive": false,
+          "jobTitle": "",
+          "modified": "2020-08-27T12:34:32",
+          "name": "Martin Coumbe",
+          "registrationNumber": "",
+          "status": "incomplete",
+          "taxNumber": "",
+          "telephone": "0844 870 0555",
+          "website": "",
+        },
+      ]
+    }
+    expandable={true}
+    loading={false}
+    scrollable={true}
+  />
 </React.Fragment>
 `;
 

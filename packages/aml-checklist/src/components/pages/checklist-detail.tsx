@@ -129,10 +129,8 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   const sections = React.useMemo(() => generateSection(status, showModal), [status])
   return (
     <ErrorBoundary>
-      <Section hasPadding={false} hasBackground={false}>
-        <AMLProgressBar />
-        {renderSections(sections)}
-      </Section>
+      <AMLProgressBar />
+      <Section hasBackground={false}>{renderSections(sections)}</Section>
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
     </ErrorBoundary>
   )

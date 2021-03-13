@@ -129,23 +129,14 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
     >
       <Customers>
         <ErrorBoundary>
-          <Section
-            className="mb-0"
-          >
-            <section
-              className="section has-padding has-margin has-background mb-0"
-              data-test=""
+          <H3>
+            <h3
+              className="title is-3"
+              id=""
             >
-              <H3>
-                <h3
-                  className="title is-3"
-                  id=""
-                >
-                  Customers
-                </h3>
-              </H3>
-            </section>
-          </Section>
+              Customers
+            </h3>
+          </H3>
           <CustomersFilterForm
             filterValues={
               Object {
@@ -303,9 +294,11 @@ exports[`Customers should match a snapshot when LOADING false 1`] = `
               </Form>
             </Formik>
           </CustomersFilterForm>
-          <Section>
+          <Section
+            hasPadding={false}
+          >
             <section
-              className="section has-padding has-margin has-background"
+              className="section has-margin has-background"
               data-test=""
             >
               <div>
@@ -469,23 +462,14 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
     >
       <Customers>
         <ErrorBoundary>
-          <Section
-            className="mb-0"
-          >
-            <section
-              className="section has-padding has-margin has-background mb-0"
-              data-test=""
+          <H3>
+            <h3
+              className="title is-3"
+              id=""
             >
-              <H3>
-                <h3
-                  className="title is-3"
-                  id=""
-                >
-                  Customers
-                </h3>
-              </H3>
-            </section>
-          </Section>
+              Customers
+            </h3>
+          </H3>
           <CustomersFilterForm
             filterValues={
               Object {
@@ -643,9 +627,11 @@ exports[`Customers should match a snapshot when data is empty 1`] = `
               </Form>
             </Formik>
           </CustomersFilterForm>
-          <Section>
+          <Section
+            hasPadding={false}
+          >
             <section
-              className="section has-padding has-margin has-background"
+              className="section has-margin has-background"
               data-test=""
             >
               <div>

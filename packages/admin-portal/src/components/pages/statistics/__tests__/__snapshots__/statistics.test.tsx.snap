@@ -56,174 +56,168 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
       }
     >
       <Statistics>
-        <H3
-          isHeadingSection={true}
-        >
+        <H3>
           <h3
-            className="title is-3 is-heading-section"
+            className="title is-3"
             id=""
           >
             Stats
           </h3>
         </H3>
-        <Section>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select an area:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="area-apps-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="area-apps-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Apps
+              </button>
+            </Button>
+            <Button
+              dataTest="area-developers-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-developers-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Developers
+              </button>
+            </Button>
+            <Button
+              dataTest="area-installations-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-installations-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Installations
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select a time range:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="range-week-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="range-week-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last week
+              </button>
+            </Button>
+            <Button
+              dataTest="range-month-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-month-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last Month
+              </button>
+            </Button>
+            <Button
+              dataTest="range-all-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-all-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                All time
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Showing results for ‘
+            APPS
+            ’ and ‘
+            Last Week
+            ’
+          </h6>
+        </H6>
+        <H5>
+          <h5
+            className="title is-5"
+            id=""
+          >
+            Download as CSV
+          </h5>
+        </H5>
+        <Section
+          hasMargin={false}
+          hasPadding={false}
+        >
           <section
-            className="section has-padding has-margin has-background"
+            className="section has-background"
             data-test=""
           >
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select an area:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="area-apps-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="area-apps-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Apps
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-developers-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-developers-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Developers
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-installations-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-installations-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Installations
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select a time range:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="range-week-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="range-week-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last week
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-month-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-month-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last Month
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-all-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-all-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    All time
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Showing results for ‘
-                APPS
-                ’ and ‘
-                Last Week
-                ’
-              </h6>
-            </H6>
-          </section>
-        </Section>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
-          >
-            <H5>
-              <h5
-                className="title is-5"
-                id=""
-              >
-                Download as CSV
-              </h5>
-            </H5>
             <Button
               onClick={[Function]}
               type="button"
@@ -303,174 +297,168 @@ exports[`Admin Stats should match snapshot 1`] = `
       }
     >
       <Statistics>
-        <H3
-          isHeadingSection={true}
-        >
+        <H3>
           <h3
-            className="title is-3 is-heading-section"
+            className="title is-3"
             id=""
           >
             Stats
           </h3>
         </H3>
-        <Section>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select an area:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="area-apps-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="area-apps-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Apps
+              </button>
+            </Button>
+            <Button
+              dataTest="area-developers-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-developers-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Developers
+              </button>
+            </Button>
+            <Button
+              dataTest="area-installations-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-installations-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Installations
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select a time range:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="range-week-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="range-week-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last week
+              </button>
+            </Button>
+            <Button
+              dataTest="range-month-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-month-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last Month
+              </button>
+            </Button>
+            <Button
+              dataTest="range-all-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-all-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                All time
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Showing results for ‘
+            APPS
+            ’ and ‘
+            Last Week
+            ’
+          </h6>
+        </H6>
+        <H5>
+          <h5
+            className="title is-5"
+            id=""
+          >
+            Download as CSV
+          </h5>
+        </H5>
+        <Section
+          hasMargin={false}
+          hasPadding={false}
+        >
           <section
-            className="section has-padding has-margin has-background"
+            className="section has-background"
             data-test=""
           >
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select an area:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="area-apps-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="area-apps-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Apps
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-developers-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-developers-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Developers
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-installations-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-installations-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Installations
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select a time range:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="range-week-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="range-week-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last week
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-month-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-month-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last Month
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-all-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-all-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    All time
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Showing results for ‘
-                APPS
-                ’ and ‘
-                Last Week
-                ’
-              </h6>
-            </H6>
-          </section>
-        </Section>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
-          >
-            <H5>
-              <h5
-                className="title is-5"
-                id=""
-              >
-                Download as CSV
-              </h5>
-            </H5>
             <Button
               onClick={[Function]}
               type="button"
@@ -550,174 +538,168 @@ exports[`Admin Stats should show loading 1`] = `
       }
     >
       <Statistics>
-        <H3
-          isHeadingSection={true}
-        >
+        <H3>
           <h3
-            className="title is-3 is-heading-section"
+            className="title is-3"
             id=""
           >
             Stats
           </h3>
         </H3>
-        <Section>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select an area:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="area-apps-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="area-apps-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Apps
+              </button>
+            </Button>
+            <Button
+              dataTest="area-developers-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-developers-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Developers
+              </button>
+            </Button>
+            <Button
+              dataTest="area-installations-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="area-installations-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Installations
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Please select a time range:
+          </h6>
+        </H6>
+        <ButtonGroup>
+          <div
+            className="is-centered buttons has-addons"
+          >
+            <Button
+              className="ml-0"
+              dataTest="range-week-btn"
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary ml-0"
+                data-test="range-week-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last week
+              </button>
+            </Button>
+            <Button
+              dataTest="range-month-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-month-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Last Month
+              </button>
+            </Button>
+            <Button
+              dataTest="range-all-btn"
+              onClick={[Function]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test="range-all-btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                All time
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
+        <H6>
+          <h6
+            className="title is-6"
+            id=""
+          >
+            Showing results for ‘
+            APPS
+            ’ and ‘
+            Last Week
+            ’
+          </h6>
+        </H6>
+        <H5>
+          <h5
+            className="title is-5"
+            id=""
+          >
+            Download as CSV
+          </h5>
+        </H5>
+        <Section
+          hasMargin={false}
+          hasPadding={false}
+        >
           <section
-            className="section has-padding has-margin has-background"
+            className="section has-background"
             data-test=""
           >
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select an area:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="area-apps-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="area-apps-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Apps
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-developers-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-developers-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Developers
-                  </button>
-                </Button>
-                <Button
-                  dataTest="area-installations-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="area-installations-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Installations
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Please select a time range:
-              </h6>
-            </H6>
-            <ButtonGroup>
-              <div
-                className="is-centered buttons has-addons"
-              >
-                <Button
-                  className="ml-0"
-                  dataTest="range-week-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="primary"
-                >
-                  <button
-                    className="button   is-primary ml-0"
-                    data-test="range-week-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last week
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-month-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-month-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Last Month
-                  </button>
-                </Button>
-                <Button
-                  dataTest="range-all-btn"
-                  onClick={[Function]}
-                  type="button"
-                  variant="secondary"
-                >
-                  <button
-                    className="button   is-secondary "
-                    data-test="range-all-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    All time
-                  </button>
-                </Button>
-              </div>
-            </ButtonGroup>
-            <H6>
-              <h6
-                className="title is-6"
-                id=""
-              >
-                Showing results for ‘
-                APPS
-                ’ and ‘
-                Last Week
-                ’
-              </h6>
-            </H6>
-          </section>
-        </Section>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
-          >
-            <H5>
-              <h5
-                className="title is-5"
-                id=""
-              >
-                Download as CSV
-              </h5>
-            </H5>
             <Button
               onClick={[Function]}
               type="button"
