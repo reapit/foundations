@@ -14,353 +14,344 @@ exports[`AdminBilling should match a snapshot 1`] = `
   }
 >
   <AdminBilling>
-    <H3
-      isHeadingSection={true}
-    >
+    <H3>
       <h3
-        className="title is-3 is-heading-section"
+        className="title is-3"
         id=""
       >
         Billing
       </h3>
     </H3>
-    <Section>
-      <section
-        className="section has-padding has-margin has-background"
-        data-test=""
+    <Formik
+      initialValues={
+        Object {
+          "month": "10",
+          "year": "2019",
+        }
+      }
+      onSubmit={[Function]}
+    >
+      <Form
+        onChange={[Function]}
       >
-        <Formik
-          initialValues={
-            Object {
-              "month": "10",
-              "year": "2019",
-            }
-          }
+        <form
+          action="#"
+          onChange={[Function]}
+          onReset={[Function]}
           onSubmit={[Function]}
         >
-          <Form
-            onChange={[Function]}
-          >
-            <form
-              action="#"
-              onChange={[Function]}
-              onReset={[Function]}
-              onSubmit={[Function]}
+          <Grid>
+            <div
+              className="columns"
+              data-test=""
             >
-              <Grid>
+              <GridItem>
                 <div
-                  className="columns"
+                  className="column"
                   data-test=""
                 >
-                  <GridItem>
-                    <div
-                      className="column"
-                      data-test=""
-                    >
-                      <SelectBox
-                        id="month"
-                        labelText="Month"
-                        name="month"
-                        options={
-                          Array [
-                            Object {
-                              "label": "January",
-                              "value": "01",
-                            },
-                            Object {
-                              "label": "February",
-                              "value": "02",
-                            },
-                            Object {
-                              "label": "March",
-                              "value": "03",
-                            },
-                            Object {
-                              "label": "April",
-                              "value": "04",
-                            },
-                            Object {
-                              "label": "May",
-                              "value": "05",
-                            },
-                            Object {
-                              "label": "June",
-                              "value": "06",
-                            },
-                            Object {
-                              "label": "July",
-                              "value": "07",
-                            },
-                            Object {
-                              "label": "August",
-                              "value": "08",
-                            },
-                            Object {
-                              "label": "September",
-                              "value": "09",
-                            },
-                            Object {
-                              "label": "October",
-                              "value": "10",
-                            },
-                            Object {
-                              "label": "November",
-                              "value": "11",
-                            },
-                            Object {
-                              "label": "December",
-                              "value": "12",
-                            },
-                          ]
-                        }
-                      >
-                        <Field
-                          name="month"
-                          validate={null}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control"
-                            >
-                              <label
-                                className="label "
-                                htmlFor="month"
-                              >
-                                Month
-                              </label>
-                              <select
-                                className="input is-primary "
-                                data-test=""
-                                name="month"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                value="10"
-                              >
-                                <option
-                                  key="01"
-                                  value="01"
-                                >
-                                  January
-                                </option>
-                                <option
-                                  key="02"
-                                  value="02"
-                                >
-                                  February
-                                </option>
-                                <option
-                                  key="03"
-                                  value="03"
-                                >
-                                  March
-                                </option>
-                                <option
-                                  key="04"
-                                  value="04"
-                                >
-                                  April
-                                </option>
-                                <option
-                                  key="05"
-                                  value="05"
-                                >
-                                  May
-                                </option>
-                                <option
-                                  key="06"
-                                  value="06"
-                                >
-                                  June
-                                </option>
-                                <option
-                                  key="07"
-                                  value="07"
-                                >
-                                  July
-                                </option>
-                                <option
-                                  key="08"
-                                  value="08"
-                                >
-                                  August
-                                </option>
-                                <option
-                                  key="09"
-                                  value="09"
-                                >
-                                  September
-                                </option>
-                                <option
-                                  key="10"
-                                  value="10"
-                                >
-                                  October
-                                </option>
-                                <option
-                                  key="11"
-                                  value="11"
-                                >
-                                  November
-                                </option>
-                                <option
-                                  key="12"
-                                  value="12"
-                                >
-                                  December
-                                </option>
-                                <option
-                                  disabled={true}
-                                  hidden={true}
-                                  value=""
-                                >
-                                  Please select
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                        </Field>
-                      </SelectBox>
-                    </div>
-                  </GridItem>
-                  <GridItem>
-                    <div
-                      className="column"
-                      data-test=""
-                    >
-                      <SelectBox
-                        id="year"
-                        labelText="Year"
-                        name="year"
-                        options={Array []}
-                      >
-                        <Field
-                          name="year"
-                          validate={null}
-                        >
-                          <div
-                            className="field"
-                          >
-                            <div
-                              className="control"
-                            >
-                              <label
-                                className="label "
-                                htmlFor="year"
-                              >
-                                Year
-                              </label>
-                              <select
-                                className="input is-primary "
-                                data-test=""
-                                name="year"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                value="2019"
-                              >
-                                <option
-                                  disabled={true}
-                                  hidden={true}
-                                  value=""
-                                >
-                                  Please select
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                        </Field>
-                      </SelectBox>
-                    </div>
-                  </GridItem>
-                </div>
-              </Grid>
-            </form>
-          </Form>
-        </Formik>
-        <Table
-          columns={
-            Array [
-              Object {
-                "Header": "Billing Period",
-                "accessor": "period",
-              },
-              Object {
-                "Cell": [Function],
-                "Header": "File",
-              },
-            ]
-          }
-          data={
-            Array [
-              Object {
-                "fileBlob": undefined,
-                "period": "2019-10",
-              },
-            ]
-          }
-          loading={true}
-          scrollable={true}
-        >
-          <div
-            style={
-              Object {
-                "maxHeight": undefined,
-                "overflow": "scroll",
-              }
-            }
-          >
-            <table
-              className="table is-striped is-fullwidth "
-              role="table"
-            >
-              <thead>
-                <tr
-                  key="headerGroup_0"
-                  role="row"
-                >
-                  <th
-                    colSpan={1}
-                    key="header_period"
-                    role="columnheader"
+                  <SelectBox
+                    id="month"
+                    labelText="Month"
+                    name="month"
+                    options={
+                      Array [
+                        Object {
+                          "label": "January",
+                          "value": "01",
+                        },
+                        Object {
+                          "label": "February",
+                          "value": "02",
+                        },
+                        Object {
+                          "label": "March",
+                          "value": "03",
+                        },
+                        Object {
+                          "label": "April",
+                          "value": "04",
+                        },
+                        Object {
+                          "label": "May",
+                          "value": "05",
+                        },
+                        Object {
+                          "label": "June",
+                          "value": "06",
+                        },
+                        Object {
+                          "label": "July",
+                          "value": "07",
+                        },
+                        Object {
+                          "label": "August",
+                          "value": "08",
+                        },
+                        Object {
+                          "label": "September",
+                          "value": "09",
+                        },
+                        Object {
+                          "label": "October",
+                          "value": "10",
+                        },
+                        Object {
+                          "label": "November",
+                          "value": "11",
+                        },
+                        Object {
+                          "label": "December",
+                          "value": "12",
+                        },
+                      ]
+                    }
                   >
-                    Billing Period
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_File"
-                    role="columnheader"
-                  >
-                    File
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div
-                      className="table-loading"
+                    <Field
+                      name="month"
+                      validate={null}
                     >
-                      <Loader>
+                      <div
+                        className="field"
+                      >
                         <div
-                          className="loader-spinner body"
-                          data-test=""
+                          className="control"
                         >
-                          <div />
-                          <div />
-                          <div />
-                          <div />
+                          <label
+                            className="label "
+                            htmlFor="month"
+                          >
+                            Month
+                          </label>
+                          <select
+                            className="input is-primary "
+                            data-test=""
+                            name="month"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="10"
+                          >
+                            <option
+                              key="01"
+                              value="01"
+                            >
+                              January
+                            </option>
+                            <option
+                              key="02"
+                              value="02"
+                            >
+                              February
+                            </option>
+                            <option
+                              key="03"
+                              value="03"
+                            >
+                              March
+                            </option>
+                            <option
+                              key="04"
+                              value="04"
+                            >
+                              April
+                            </option>
+                            <option
+                              key="05"
+                              value="05"
+                            >
+                              May
+                            </option>
+                            <option
+                              key="06"
+                              value="06"
+                            >
+                              June
+                            </option>
+                            <option
+                              key="07"
+                              value="07"
+                            >
+                              July
+                            </option>
+                            <option
+                              key="08"
+                              value="08"
+                            >
+                              August
+                            </option>
+                            <option
+                              key="09"
+                              value="09"
+                            >
+                              September
+                            </option>
+                            <option
+                              key="10"
+                              value="10"
+                            >
+                              October
+                            </option>
+                            <option
+                              key="11"
+                              value="11"
+                            >
+                              November
+                            </option>
+                            <option
+                              key="12"
+                              value="12"
+                            >
+                              December
+                            </option>
+                            <option
+                              disabled={true}
+                              hidden={true}
+                              value=""
+                            >
+                              Please select
+                            </option>
+                          </select>
                         </div>
-                      </Loader>
+                      </div>
+                    </Field>
+                  </SelectBox>
+                </div>
+              </GridItem>
+              <GridItem>
+                <div
+                  className="column"
+                  data-test=""
+                >
+                  <SelectBox
+                    id="year"
+                    labelText="Year"
+                    name="year"
+                    options={Array []}
+                  >
+                    <Field
+                      name="year"
+                      validate={null}
+                    >
+                      <div
+                        className="field"
+                      >
+                        <div
+                          className="control"
+                        >
+                          <label
+                            className="label "
+                            htmlFor="year"
+                          >
+                            Year
+                          </label>
+                          <select
+                            className="input is-primary "
+                            data-test=""
+                            name="year"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="2019"
+                          >
+                            <option
+                              disabled={true}
+                              hidden={true}
+                              value=""
+                            >
+                              Please select
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </Field>
+                  </SelectBox>
+                </div>
+              </GridItem>
+            </div>
+          </Grid>
+        </form>
+      </Form>
+    </Formik>
+    <Table
+      columns={
+        Array [
+          Object {
+            "Header": "Billing Period",
+            "accessor": "period",
+          },
+          Object {
+            "Cell": [Function],
+            "Header": "File",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "fileBlob": undefined,
+            "period": "2019-10",
+          },
+        ]
+      }
+      loading={true}
+      scrollable={true}
+    >
+      <div
+        style={
+          Object {
+            "maxHeight": undefined,
+            "overflow": "scroll",
+          }
+        }
+      >
+        <table
+          className="table is-striped is-fullwidth "
+          role="table"
+        >
+          <thead>
+            <tr
+              key="headerGroup_0"
+              role="row"
+            >
+              <th
+                colSpan={1}
+                key="header_period"
+                role="columnheader"
+              >
+                Billing Period
+              </th>
+              <th
+                colSpan={1}
+                key="header_File"
+                role="columnheader"
+              >
+                File
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div
+                  className="table-loading"
+                >
+                  <Loader>
+                    <div
+                      className="loader-spinner body"
+                      data-test=""
+                    >
+                      <div />
+                      <div />
+                      <div />
+                      <div />
                     </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </Table>
-      </section>
-    </Section>
+                  </Loader>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Table>
   </AdminBilling>
 </Provider>
 `;

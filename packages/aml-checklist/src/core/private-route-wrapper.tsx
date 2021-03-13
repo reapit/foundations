@@ -15,7 +15,7 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
   if (!connectSession) {
     return (
       <AppNavContainer>
-        <FlexContainerBasic hasPadding flexColumn isScrollable>
+        <FlexContainerBasic flexColumn isScrollable>
           <FlexContainerResponsive flexColumn>
             <Loader />
           </FlexContainerResponsive>
@@ -31,7 +31,7 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
   return (
     <AppNavContainer>
       <Menu />
-      <FlexContainerBasic hasPadding flexColumn isScrollable>
+      <FlexContainerBasic flexColumn isScrollable>
         <FlexContainerResponsive flexColumn>
           <Suspense fallback={<Loader body />}>{children}</Suspense>
         </FlexContainerResponsive>

@@ -39,7 +39,7 @@ export const generateColumns = (history) => () => {
   }
   const ButtonCell = ({ row }) => {
     return (
-      <Button type="button" variant="info" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
+      <Button type="button" variant="primary" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
         Edit
       </Button>
     )

@@ -10,15 +10,15 @@ export const loginContainer = css`
   flex-direction: row;
   background-color: ${WHITE};
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
   }
 `
 
 export const wrapper = css`
   background-color: ${WHITE};
-  width: 33.33%;
-  padding: 1rem;
+  width: 40%;
+  padding: 2rem;
   pointer-events: auto;
 
   &.disabled {
@@ -43,7 +43,7 @@ export const wrapper = css`
     max-width: 400px;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
 
@@ -52,24 +52,42 @@ export const wrapper = css`
   }
 `
 
-export const image = css`
-  background-color: ${WHITE};
-  width: 66.66%;
+export const imageContainer = css`
+  background-color: #fff;
+  width: 60%;
   height: 100vh;
   font-size: 0;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    height: 300px;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `
 
 export const loginLevel = css`
   flex-direction: column;
+`
+
+export const loginImage = css`
+  height: 100%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-duration: 3s;
+  animation-name: image;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+
+  @keyframes image {
+    from {
+      background-image: url('../../../../assets/images/login/step-1.svg');
+    }
+
+    50% {
+      background-image: url('../../../../assets/images/login/step-2.svg');
+    }
+
+    to {
+      background-image: url('../../../../assets/images/login/step-3.svg');
+    }
+  }
 `

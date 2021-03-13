@@ -165,15 +165,14 @@ export const Customers: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section className="mb-0">
-        <H3>Customers</H3>
-      </Section>
+      <H3>Customers</H3>
+
       <CustomersFilterForm
         onSearch={onSearchHandler(history)}
         filterValues={generateFilterValues(queryParams)}
         history={history}
       />
-      <Section>
+      <Section hasPadding={false}>
         <div>Total: {totalCount}</div>
       </Section>
       {renderContent({ customerData: data, columns })}

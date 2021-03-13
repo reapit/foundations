@@ -282,7 +282,7 @@ export const AppsManagement: React.FC = () => {
 
   return (
     <>
-      <H3 isHeadingSection>App Management</H3>
+      <H3>App Management</H3>
       <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
         {renderForm}
       </Formik>

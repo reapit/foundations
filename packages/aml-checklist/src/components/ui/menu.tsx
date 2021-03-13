@@ -1,9 +1,16 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
+import {
+  Menu as Sidebar,
+  MenuConfig,
+  SearchIcon,
+  ReapitHouseIcon,
+  ResultsIcon,
+  AppsIcon,
+  ProfileIcon,
+} from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
-import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -14,27 +21,27 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
         title: 'Search',
         key: 'CLIENT_SEARCH',
-        icon: <FaSearch className="nav-item-icon" />,
+        icon: <SearchIcon />,
         url: Routes.HOME,
         type: 'PRIMARY',
       },
       {
         title: 'Results',
         key: 'SEARCH_RESULTS',
-        icon: <FaList className="nav-item-icon" />,
+        icon: <ResultsIcon />,
         url: Routes.RESULTS,
         type: 'PRIMARY',
       },
       {
         title: 'Apps',
         key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
+        icon: <AppsIcon />,
         callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
         type: 'PRIMARY',
       },
@@ -42,7 +49,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
     ],

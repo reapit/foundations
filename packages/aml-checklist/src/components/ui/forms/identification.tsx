@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContactModel, IdentityDocumentModel } from '@reapit/foundations-ts-definitions'
-import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
+import { Button, Input, DatePicker, CameraImageInput, Formik, Form, ButtonGroup } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
@@ -95,7 +95,7 @@ export const Identification: React.FC<IdentificationProps> = ({
                     <span className="ml-1">{id}</span>
                   </div>
                 </div>
-                <div className={`column ${styles.btnContainer}`}>
+                <ButtonGroup hasSpacing isCentered>
                   <Button
                     className="mr-2"
                     variant="primary"
@@ -116,7 +116,7 @@ export const Identification: React.FC<IdentificationProps> = ({
                   >
                     Next
                   </Button>
-                </div>
+                </ButtonGroup>
               </div>
             </div>
             <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { FaRegTimesCircle } from 'react-icons/fa'
-import { Input, Button, H4, FlexContainerBasic, Loader, Formik, Form } from '@reapit/elements'
+import { Input, Button, H4, FlexContainerBasic, Loader, Formik, Form, ButtonGroup } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
@@ -49,7 +49,7 @@ export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSear
       </div>
       {isSubmitting ? renderLoading() : null}
       {result && result.length === 0 && !isSubmitting ? renderNoResult(param, time) : null}
-      <div className="flex justify-end">
+      <ButtonGroup hasSpacing isCentered>
         <Button
           disabled={isSubmitting}
           type="button"
@@ -63,7 +63,7 @@ export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSear
         <Button disabled={isSubmitting} type="button" variant="primary" dataTest="next-btn" onClick={onNextHandler}>
           Finish
         </Button>
-      </div>
+      </ButtonGroup>
     </Form>
   )
 }
