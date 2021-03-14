@@ -84,7 +84,7 @@
     "ts-jest": "^26.5.2",
     "ts-loader": "^8.0.17",
     "ts-paths-to-webpack-alias": "^0.3.1",
-    "webpack": "^4.46.0",
+    "webpack": "^5.0.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2",
     "workbox-webpack-plugin": "^5.1.4"
