@@ -51,13 +51,13 @@ export class AutomationExecution {
 
     // create twilio conversation with the contact in the event
     const conversation = await twilioClient.conversations.conversations.create({
-      friendlyName: `Conversation with ${event.contact.telephoneNumber}, from automation ${automation.id}`,
+      friendlyName: `Conversation with ${event.object.mobilePhone}, from automation ${automation.id}`,
     })
     this.logInfo('Created conversation', { conversation })
 
     const participant = await twilioClient.conversations.conversations(conversation.sid).participants.create({
       messagingBinding: {
-        address: event.contact.telephoneNumber,
+        address: event.object.mobilePhone,
         // TODO: this will probably need to be one Twilio phone number per agent, or maybe even per
         // property or something? The limitiation is that an SMS user can only be part of one
         // conversation with a twilio number at any one time. It'll also need to come from config...

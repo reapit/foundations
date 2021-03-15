@@ -3,10 +3,10 @@
 
 export interface Event {
   id: string
-  eventType: string
-  createdAt: string
-  clientCode: string
-  contact: {
-    telephoneNumber: string
+  type: string
+  published: string
+  customerId: string
+  object: {
+    mobilePhone: string
   }
 }

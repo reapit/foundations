@@ -2,7 +2,7 @@
   {
     "id": "c23b0f02-0bc1-43ee-8b8f-2e88827a552b",
     "clientCode": "SBOX-GWIT",
-    "triggerOnEventType": "valuation",
+    "triggerOnEventType": "enquiry",
     "messageChannel": "sms",
     "messageBody": "Hello, this is a message about property {property}. Please let me know when you would like to arrange a valuation.",
     "createdAt": "2020-12-01T10:00:00Z",
