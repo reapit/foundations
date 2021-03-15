@@ -23,7 +23,6 @@ export const fetchWebComponentConfigSaga = function* ({ data }: Action<FetchWebC
     yield put(fetchWebComponentConfigFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }
@@ -39,7 +38,6 @@ export const updateWebComponentConfigSaga = function* ({ data }: Action<UpdateWe
     yield put(updateWebComponentConfigFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }

@@ -41,13 +41,13 @@ const MarketplacePage: React.FC = () => {
 
   return (
     <>
-      <H3 isHeadingSection>Marketplace Apps</H3>
-      <Section>
+      <H3>Marketplace Apps</H3>
+      <Section hasPadding={false}>
         <H5>Marketplace Visibility and Installation Management</H5>
-        <i>
+        <p className="mb-4">
           To set the visibility of app in the Marketplace or manage installations, for your organisation or specific
           office groups, please select an app from the list below:
-        </i>
+        </p>
       </Section>
       {appsLoading ? (
         <Loader />

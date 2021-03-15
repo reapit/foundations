@@ -23,7 +23,6 @@ export const clientPasswordChange = function* ({ data }: Action<ChangePasswordPa
       yield put(changePasswordFailed('Server error'))
       notification.error({
         message: 'Server error',
-        placement: 'bottomRight',
       })
       return
     }
@@ -34,7 +33,6 @@ export const clientPasswordChange = function* ({ data }: Action<ChangePasswordPa
     yield put(changePasswordFailed(error.message))
     notification.error({
       message: error.message,
-      placement: 'bottomRight',
     })
   }
 }

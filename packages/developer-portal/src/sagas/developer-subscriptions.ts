@@ -29,7 +29,6 @@ export const developerFetchSubcriptionsList = function* ({ data }: Action<FetchS
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -56,7 +55,6 @@ export const developerDeleteSubcription = function* ({ data: id }: Action<string
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

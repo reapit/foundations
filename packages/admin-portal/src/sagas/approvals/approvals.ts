@@ -18,7 +18,6 @@ export const approvalsDataFetch = function* ({ data: page }) {
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(fetchApprovalListFailed)
   }

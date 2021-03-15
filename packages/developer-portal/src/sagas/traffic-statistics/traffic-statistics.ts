@@ -20,7 +20,6 @@ export const apphttpTrafficEventSaga = function* ({ data }: Action<FetchTrafficS
     yield put(fetchTrafficStatisticsFailed())
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

@@ -31,7 +31,6 @@ describe('setRequestDeveloperStatusFormStateSaga', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(setRequestDeveloperStatusFormStateFailed()))
@@ -47,7 +46,6 @@ describe('setRequestDeveloperStatusFormStateSaga', () => {
     expect(gen.next().value).toEqual(
       call(notification.error, {
         message: DEVELOPER_ID_NOT_EXIST,
-        placement: 'bottomRight',
       }),
     )
     expect(gen.next().value).toEqual(put(setRequestDeveloperStatusFormStateFailed()))

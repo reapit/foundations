@@ -17,7 +17,6 @@ export const fetchDesktopIntegrationTypeListSaga = function* () {
     yield put(fetchDesktopIntegrationTypeListFailed(err))
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

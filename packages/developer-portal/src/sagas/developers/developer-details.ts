@@ -16,7 +16,6 @@ export const fetchDeveloperDetails = function* ({ data }: Action<FetchDeveloperB
     yield put(fetchDeveloperDetailsFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

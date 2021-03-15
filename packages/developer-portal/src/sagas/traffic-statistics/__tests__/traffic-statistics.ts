@@ -46,7 +46,6 @@ describe('app-http-traffic-per-day sagas', () => {
         expect(clone.next().value).toEqual(
           call(notification.error, {
             message: errorMessages.DEFAULT_SERVER_ERROR,
-            placement: 'bottomRight',
           }),
         )
       }

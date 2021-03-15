@@ -13,7 +13,6 @@ export const requestAuthCode = function* ({ data: id }: Action<string>) {
     yield put(fetchtAppAuthenticationFailed(err?.description))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

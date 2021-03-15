@@ -20,7 +20,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
 
   return (
     <FadeIn>
-      <Section>
+      <Section hasPadding={false}>
         <Content>
           {userDesktopIntegrationTypes.length ? (
             <>

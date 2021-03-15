@@ -25,7 +25,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    notification.error({ message: errorMessages.DEFAULT_COMPONENT_ERROR, placement: 'bottomRight' })
+    notification.error({ message: errorMessages.DEFAULT_COMPONENT_ERROR })
   }
 
   render() {

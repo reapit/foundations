@@ -29,7 +29,6 @@ export const submitApp = function* ({ data: { successCallback, ...appProps } }: 
     yield put(createAppFailed(err?.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

@@ -6,26 +6,20 @@ exports[`Menu should match a snapshot 1`] = `
   menu={
     Array [
       Object {
-        "icon": <ReapitLogo
-          className="nav-item-icon"
-        />,
+        "icon": <ReapitHouseIcon />,
         "key": "LOGO",
         "type": "LOGO",
       },
       Object {
         "callback": [Function],
-        "icon": <FaCloud
-          className="nav-item-icon"
-        />,
+        "icon": <AppsIcon />,
         "key": "APPS",
         "title": "Apps",
         "type": "PRIMARY",
       },
       Object {
         "callback": [Function],
-        "icon": <FaSignOutAlt
-          className="nav-item-icon"
-        />,
+        "icon": <ProfileIcon />,
         "key": "LOGOUT",
         "title": "Logout",
         "type": "SECONDARY",

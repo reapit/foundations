@@ -4,17 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Pagination,
-  Table,
-  Loader,
-  Section,
-  FadeIn,
-  Helper,
-  Button,
-  H5,
-  getMarketplaceGlobalsByKey,
-} from '@reapit/elements'
+import { Pagination, Table, Loader, FadeIn, Helper, Button, H5, getMarketplaceGlobalsByKey } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { GLOSSARY_USER_ROLES_URL, URLS } from '../../../constants/api'
 import EditUserModal from './edit-user'
@@ -57,7 +47,7 @@ const UsersTab: React.FC = () => {
       row: { original },
     },
   }) => (
-    <Button type="button" variant="info" onClick={() => setEditingUser(original)}>
+    <Button type="button" variant="primary" onClick={() => setEditingUser(original)}>
       Edit
     </Button>
   )
@@ -71,20 +61,19 @@ const UsersTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
-        <H5>Existing users</H5>
-        <i>
-          The list below contains all &lsquo;Users&rsquo; within your organisation. You can search and edit users to
-          manage the groups an individual user belongs to. For more information on ‘Groups’, please click{' '}
-          {isDesktop ? (
-            <a href={`agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`}>here.</a>
-          ) : (
-            <a target="_blank" rel="noopener noreferrer" href={GLOSSARY_USER_ROLES_URL}>
-              here.
-            </a>
-          )}
-        </i>
-      </Section>
+      <H5>Existing users</H5>
+      <p className="mb-4">
+        The list below contains all &lsquo;Users&rsquo; within your organisation. You can search and edit users to
+        manage the groups an individual user belongs to. For more information on ‘Groups’, please click{' '}
+        {isDesktop ? (
+          <a href={`agencycloud://process/webpage?url=${GLOSSARY_USER_ROLES_URL}`}>here.</a>
+        ) : (
+          <a target="_blank" rel="noopener noreferrer" href={GLOSSARY_USER_ROLES_URL}>
+            here.
+          </a>
+        )}
+      </p>
+
       {!data ? <Loader /> : <UsersContent data={data} columns={columns} onPageChange={onPageChange} />}
       {orgId && (
         <EditUserModal setEditingUser={setEditingUser} editingUser={editingUser} onRefetchData={mutate} orgId={orgId} />
@@ -101,7 +90,7 @@ export const UsersContent: React.FC<{
   const { _embedded: listUser, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      <Section>{renderResult(columns, listUser)}</Section>
+      {renderResult(columns, listUser)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )

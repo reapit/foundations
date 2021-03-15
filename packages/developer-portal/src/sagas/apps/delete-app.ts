@@ -16,7 +16,6 @@ export const deleteAppSaga = function* ({ data: { successCallback, id } }: Actio
     yield put(deleteAppFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

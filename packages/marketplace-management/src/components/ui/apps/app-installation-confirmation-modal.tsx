@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { Modal, Button, PortalProvider, Content } from '@reapit/elements'
+import { Modal, Button, PortalProvider, Content, ButtonGroup } from '@reapit/elements'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 
 export interface AppInstallationConfirmationModalProps {
@@ -61,14 +61,14 @@ const AppInstallationConfirmationModal: React.FC<AppInstallationConfirmationModa
         afterClose={onClose}
         title={`${app.name} App ${performCompleteUninstall ? 'Uninstall' : 'Install'}`}
         footerItems={
-          <>
+          <ButtonGroup hasSpacing isCentered>
             <Button variant="secondary" type="button" onClick={onClose}>
               Cancel
             </Button>
             <Button variant="primary" type="button" onClick={onConfirm}>
               Confirm
             </Button>
-          </>
+          </ButtonGroup>
         }
       >
         <Content>

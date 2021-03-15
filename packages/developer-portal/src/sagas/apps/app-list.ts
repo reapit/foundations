@@ -25,7 +25,6 @@ export const fetchAppListSaga = function* ({ data }) {
     yield put(fetchAppListFailed(err))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

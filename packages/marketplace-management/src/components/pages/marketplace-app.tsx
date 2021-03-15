@@ -39,7 +39,7 @@ const MarketplaceAppPage: React.FC = () => {
 
   return (
     <FadeIn>
-      <Section>
+      <Section hasPadding={false}>
         <div className="justify-between flex items-center">
           <H3 className="mb-0">{app.name}</H3>
           <Button type="button" onClick={handleLoadAppListing(connectIsDesktop, app.id as string)}>

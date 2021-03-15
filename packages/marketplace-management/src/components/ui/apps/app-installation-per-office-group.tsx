@@ -109,7 +109,7 @@ const AppInstallationPerOfficeGroup: React.FC<AppInstallationPerOfficeGroupProps
   }
 
   return (
-    <Section>
+    <Section hasPadding={false}>
       <FlexContainerBasic className="justify-end">
         <Button variant="secondary" onClick={() => toggleAllOfficeGroups(true)}>
           Select all

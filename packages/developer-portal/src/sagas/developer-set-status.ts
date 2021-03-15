@@ -26,7 +26,6 @@ export const developerSetStatusRequestSaga = function* ({ data: dev }) {
     yield put(developerSetStatusRequestFailure())
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

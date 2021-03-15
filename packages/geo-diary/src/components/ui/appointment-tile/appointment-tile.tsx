@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tile, IconList, getTime, Button, H5, SubTitleH5, FadeIn } from '@reapit/elements'
+import { Tile, IconList, getTime, Button, H5, SubTitleH5, FadeIn, ButtonGroup } from '@reapit/elements'
 import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 import { History } from 'history'
@@ -87,7 +87,7 @@ export const renderFooterItems = ({
   const buttons = [
     <Button
       className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
-      variant="info"
+      variant="primary"
       key="viewDetails"
       type="submit"
       onClick={() => setShowDetail(true)}
@@ -102,7 +102,7 @@ export const renderFooterItems = ({
     buttons.push(
       <Button
         className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
-        variant="info"
+        variant="primary"
         key="viewDirection"
         type="submit"
         onClick={handleDirectionOnClick({ appointment, queryParams, history })}
@@ -159,9 +159,9 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, n
           key={appointment.id}
           heading={heading}
           footerItems={[
-            <div key={appointment.id}>
+            <ButtonGroup isCentered hasSpacing key={appointment.id}>
               {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
-            </div>,
+            </ButtonGroup>,
           ]}
         >
           <IconList items={renderIconItems({ appointment })} />

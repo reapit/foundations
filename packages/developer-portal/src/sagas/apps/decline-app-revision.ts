@@ -18,7 +18,6 @@ export const declineAppRevisionSaga = function* ({
     yield put(declineAppRevisionFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

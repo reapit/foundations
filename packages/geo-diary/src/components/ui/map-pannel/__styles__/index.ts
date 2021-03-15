@@ -23,7 +23,7 @@ export const mapPanelContainer = css`
     width: 100%;
   }
   @media screen and (min-width: 768px) {
-    width: calc(100vw - 350px);
+    width: calc(100vw - 464px);
     left: 0;
   }
 `

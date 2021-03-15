@@ -45,7 +45,6 @@ describe('result fetch data', () => {
     expect(clone.next().value).toEqual(
       call(notification.error, {
         message: extractNetworkErrString(err),
-        placement: 'bottomRight',
       }),
     )
     expect(clone.next().done).toBe(true)

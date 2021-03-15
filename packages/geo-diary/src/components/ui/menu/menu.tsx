@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
+import { AppsIcon, Menu as Sidebar, MenuConfig, ProfileIcon, ReapitHouseIcon } from '@reapit/elements'
 import { Location } from 'history'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -13,13 +12,13 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
         title: 'Apps',
         key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
+        icon: <AppsIcon />,
         callback: callbackAppClick,
         type: 'PRIMARY',
       },
@@ -27,7 +26,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
     ],

@@ -18,12 +18,11 @@ import {
   Formik,
   FormikTouched,
   DATE_TIME_FORMAT,
-  FlexContainerBasic,
+  Helper,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
 import { developerCreate, developerSetFormState } from '@/actions/developer'
-import CallToAction from '@/components/ui/call-to-action'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
 import { container, wrapper, image } from './__styles__/register'
@@ -104,17 +103,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
         <H1 isCentered>Register</H1>
         <p className="mb-4">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
-          <FlexContainerBasic centerContent>
-            <CallToAction
-              title="Success!"
-              buttonText="Login"
-              dataTest="register-success-message"
-              onButtonClick={onLoginButtonClick(history)}
-              isCenter
-            >
-              <div className="mb-3">Check your email to confirm your account</div>
-            </CallToAction>
-          </FlexContainerBasic>
+          <Helper>Successfully registered. Check your email to confirm your account.</Helper>
         ) : (
           <>
             <Formik

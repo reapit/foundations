@@ -26,9 +26,11 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
     <div
       className="fade-in"
     >
-      <Section>
+      <Section
+        hasPadding={false}
+      >
         <section
-          className="section has-padding has-margin has-background"
+          className="section has-margin has-background"
           data-test=""
         >
           <Content>
@@ -138,9 +140,11 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
     <div
       className="fade-in"
     >
-      <Section>
+      <Section
+        hasPadding={false}
+      >
         <section
-          className="section has-padding has-margin has-background"
+          className="section has-margin has-background"
           data-test=""
         >
           <Content>
@@ -259,9 +263,11 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
     <div
       className="fade-in"
     >
-      <Section>
+      <Section
+        hasPadding={false}
+      >
         <section
-          className="section has-padding has-margin has-background"
+          className="section has-margin has-background"
           data-test=""
         >
           <Content>

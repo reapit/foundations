@@ -34,7 +34,6 @@ export const developerCreate = function* ({ data }: Action<CreateDeveloperModel>
     yield put(developerSetFormState('ERROR'))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -52,7 +51,6 @@ export const fetchMyIdentitySagas = function* () {
   } catch (err) {
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -65,7 +63,6 @@ export const fetchBillingSagas = function* ({ data }: Action<FetchBillingsParams
     yield put(fetchBillingFailure(err))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -78,7 +75,6 @@ export const fetchMonthlyBillingSagas = function* ({ data }: Action<FetchBilling
     yield put(fetchMonthlyBillingFailure(err))
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

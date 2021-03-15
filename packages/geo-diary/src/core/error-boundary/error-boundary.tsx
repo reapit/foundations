@@ -33,7 +33,7 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
         Sentry.captureException(error)
       })
     }
-    notification.error({ message: error.message, placement: 'bottomRight' })
+    notification.error({ message: error.message })
   }
 
   render() {

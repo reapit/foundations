@@ -45,7 +45,7 @@ export const installSagas = function* ({ data }) {
     callback && callback()
   } catch (err) {
     yield put(installAppFailed(err.description))
-    notification.error({ message: err.description, placement: 'bottomRight' })
+    notification.error({ message: err.description })
   }
 }
 
@@ -69,7 +69,7 @@ export const uninstallSagas = function* ({ data }) {
     callback && callback()
   } catch (err) {
     yield put(uninstallAppFailed(err.description))
-    notification.error({ message: err.description, placement: 'bottomRight' })
+    notification.error({ message: err.description })
   }
 }
 

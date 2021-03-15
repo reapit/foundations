@@ -7,7 +7,6 @@ import {
   H6,
   isSameDay,
   getDate,
-  Section,
   AcLink,
   EntityType,
   IconListItem,
@@ -16,6 +15,8 @@ import {
   ModalV2,
   ModalPropsV2,
   isMobile,
+  ButtonGroup,
+  Section,
 } from '@reapit/elements'
 import { useMutation } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
@@ -107,7 +108,7 @@ export const renderNotes = (description: string | undefined) => {
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaStickyNote />
           </GridItem>
@@ -130,7 +131,7 @@ export const renderArrangements = (arrangements: string | undefined) => {
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaHandshake />
           </GridItem>
@@ -157,7 +158,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
         return (
           <Grid key={index} className="is-mobile">
             <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-              <Grid className="is-vcentered is-mobile">
+              <Grid className="is-mobile">
                 <GridItem className="is-narrow px-0">
                   <FaMale />
                 </GridItem>
@@ -194,7 +195,7 @@ export const renderAddress = (property: PropertyModel, loginMode: LoginMode) => 
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaHome />
           </GridItem>
@@ -226,7 +227,7 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaBuilding />
           </GridItem>
@@ -265,7 +266,7 @@ export const renderNegotiators = (negotiators: NegotiatorModel[]) => {
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaMale />
           </GridItem>
@@ -298,9 +299,9 @@ export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   return (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
-            <FaClock className="v-align-text-top" />
+            <FaClock className="v-align-text-top mt-1" />
           </GridItem>
           <GridItem>
             <H6 className="inline-block">Time:</H6>
@@ -372,8 +373,8 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
       title="Cancel appointment?"
     >
       <React.Fragment>
-        <p>Are you sure you want to cancel this appointment?</p>
-        <Section isFlex hasPadding={false} hasMargin={false}>
+        <p className="mb-4">Are you sure you want to cancel this appointment?</p>
+        <ButtonGroup isCentered hasSpacing>
           <Button
             variant="secondary"
             disabled={loading}
@@ -390,7 +391,7 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
           >
             Yes
           </Button>
-        </Section>
+        </ButtonGroup>
       </React.Fragment>
     </ModalV2>
   )
@@ -407,7 +408,7 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
       destroyOnClose={true}
       footer={
         <Button
-          variant="info"
+          variant="primary"
           disabled={appointment?.cancelled}
           onClick={handleShowConfirmModal(setIsShowConfirmModal)}
           type="button"
@@ -416,12 +417,14 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
         </Button>
       }
     >
-      {renderDateTime(appointment)}
-      {renderNegotiators(appointment?.negotiators || [])}
-      {renderOffices(appointment?._embedded?.offices || [], loginMode)}
-      {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
-      {renderAddress(appointment?.property || {}, loginMode)}
-      {renderNotes(appointment.description)}
+      <Section hasMargin={false}>
+        {renderDateTime(appointment)}
+        {renderNegotiators(appointment?.negotiators || [])}
+        {renderOffices(appointment?._embedded?.offices || [], loginMode)}
+        {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
+        {renderAddress(appointment?.property || {}, loginMode)}
+        {renderNotes(appointment.description)}
+      </Section>
       <AppointmentDetailVendor
         vendorId={appointment?.property?.selling?.vendorId || ''}
         loginMode={loginMode}

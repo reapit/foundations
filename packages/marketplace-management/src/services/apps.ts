@@ -34,7 +34,6 @@ export const getAppsService = async (search: string): Promise<AppSummaryModelPag
     logger(err)
     notification.error({
       message: 'Failed to fetch apps',
-      placement: 'bottomRight',
     })
   }
 }

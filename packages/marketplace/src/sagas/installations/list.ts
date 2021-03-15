@@ -14,7 +14,6 @@ export const fetchInstallationsListSaga = function* ({ data }) {
     yield put(fetchInstallationsListFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

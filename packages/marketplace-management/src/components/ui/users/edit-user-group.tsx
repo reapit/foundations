@@ -13,6 +13,7 @@ import {
   notification,
   FadeIn,
   Table,
+  ButtonGroup,
 } from '@reapit/elements'
 import {
   GroupMembershipModelPagedResult,
@@ -83,7 +84,6 @@ export const onHandleSubmit = (
       if (!addUserRes) {
         return notification.error({
           message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-          placement: 'bottomRight',
         })
       }
     }
@@ -95,7 +95,6 @@ export const onHandleSubmit = (
       if (!removeUserRes) {
         return notification.error({
           message: toastMessages.FAILED_TO_EDIT_USER_GROUP,
-          placement: 'bottomRight',
         })
       }
     }
@@ -103,7 +102,6 @@ export const onHandleSubmit = (
 
   notification.success({
     message: toastMessages.CHANGES_SAVE_SUCCESS,
-    placement: 'bottomRight',
   })
   handleOnClose()
   mutate()
@@ -184,10 +182,10 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
       zIndex={90}
     >
       <p className="mb-4">
-        <i>
+        <p>
           The list below contains all available member groups for your organisation. You can manage users associated to
           each group by selecting ‘Manage’
-        </i>
+        </p>
       </p>
       <Formik
         initialValues={{
@@ -215,14 +213,14 @@ export const UpdateUserGroupModal: React.FC<UpdateUserGroupModalProps> = ({
                   optionFilterProp="children"
                 />
               </Section>
-              <Section isFlex hasPadding={false} hasMargin={false}>
-                <Button variant="info" disabled={false} onClick={handleOnClose} type="button">
+              <ButtonGroup hasSpacing isCentered>
+                <Button variant="secondary" disabled={false} onClick={handleOnClose} type="button">
                   Cancel
                 </Button>
-                <Button variant="info" loading={false} type="submit">
+                <Button variant="primary" loading={false} type="submit">
                   Save
                 </Button>
-              </Section>
+              </ButtonGroup>
             </Form>
           )
         }}

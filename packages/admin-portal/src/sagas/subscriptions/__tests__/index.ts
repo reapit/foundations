@@ -56,7 +56,6 @@ describe('fetchSubscriptionListHandler ', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchSubscriptionListFailed(errorMessages.DEFAULT_SERVER_ERROR)))
@@ -90,7 +89,6 @@ describe('disableMemberSagas', () => {
       expect(clone.next().value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().done).toBe(true)

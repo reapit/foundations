@@ -35,7 +35,7 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
       : appInstallationType !== initialAppInstallationType
 
   return (
-    <Section>
+    <Section hasPadding={false}>
       <FlexContainerBasic className="justify-between items-center mb-4">
         <H5>Installation</H5>
         <Button variant="primary" disabled={!submitButtonEnabled} onClick={() => setShowConfirmModal(true)}>
@@ -43,7 +43,7 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
         </Button>
       </FlexContainerBasic>
       <p className="mb-4">
-        <i>Please select the type of installation you require for this app:</i>
+        <p>Please select the type of installation you require for this app:</p>
       </p>
       <div className="field field-checkbox mb-0 control">
         <input
@@ -57,7 +57,7 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
           Install for the whole of your organisation
         </label>
         <div className="form-subheading mb-4">
-          <i>This will grant the app access to all data for all users and offices across your organisation</i>
+          <p>This will grant the app access to all data for all users and offices across your organisation</p>
         </div>
       </div>
       <div className="field field-checkbox mb-0 control">
@@ -72,7 +72,7 @@ const AppInstallationSection: React.FC<AppInstallationSectionProps> = ({
           Install for specific office groups
         </label>
         <div className="form-subheading mb-4">
-          <i>This will grant the app access to only data for the specific offices inside of each office group</i>
+          <p>This will grant the app access to only data for the specific offices inside of each office group</p>
         </div>
       </div>
 

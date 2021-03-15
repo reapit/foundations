@@ -42,7 +42,6 @@ describe('appsManagementFetch', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchAppListFailed(errorMessages.DEFAULT_SERVER_ERROR)))
@@ -82,7 +81,6 @@ describe('appsManagementFeatured', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       // expect store to be reverted back

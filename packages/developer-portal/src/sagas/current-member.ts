@@ -32,7 +32,6 @@ export const currentMemberFetch = function* () {
     yield put(fetchCurrentMemberFailed())
     notification.error({
       message: error.message,
-      placement: 'bottomRight',
     })
   }
 }
@@ -61,13 +60,11 @@ export const currentMemberUpdate = function* ({ data }) {
             data.useCustomerData ? 'your organisation' : 'sandbox'
           } data. You will need to log out and back in again for the changes to take effect.`
         : messages.CHANGE_SAVE_SUCCESSFULLY,
-      placement: 'bottomRight',
     })
   } catch (error) {
     yield put(updateCurrentMemberFailed())
     notification.error({
       message: error.message,
-      placement: 'bottomRight',
     })
   }
 }

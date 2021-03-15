@@ -13,7 +13,6 @@ export const fetchCategoryListSaga = function* () {
     yield put(fetchCategoryListFailed(err))
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
