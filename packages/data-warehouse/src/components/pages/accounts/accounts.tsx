@@ -42,7 +42,7 @@ export const Accounts: React.FC = () => {
 
   return (
     <>
-      <Section className="justify-between items-center" isFlex>
+      <Section className="justify-between items-center" isFlex hasPadding={false}>
         <H3 className="mb-0">Users</H3>
         <Button
           onClick={handleModalOpen}
@@ -67,40 +67,34 @@ export const Accounts: React.FC = () => {
           {provisionInProgress && (
             <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
           )}
-          <Section>
+          <Section hasPadding={false}>
             <FadeIn>
               <Content>
                 <p>
-                  <i>
-                    In order to access your organisations data warehouse, you must first create the user accounts to
-                    access it. You are to manage and create as many user accounts as you wish without any additional
-                    costs. We recommend that each individual user or application is provided with a unique set of
-                    credentials.
-                  </i>
+                  In order to access your organisations data warehouse, you must first create the user accounts to
+                  access it. You are to manage and create as many user accounts as you wish without any additional
+                  costs. We recommend that each individual user or application is provided with a unique set of
+                  credentials.
                 </p>
                 <p>
-                  <i>
-                    Please note that creating the first user account is a long running process and can take several
-                    minutes to complete.
-                  </i>
+                  Please note that creating the first user account is a long running process and can take several
+                  minutes to complete.
                 </p>
               </Content>
             </FadeIn>
           </Section>
-          <Section>
-            <H5>User Account Details</H5>
-            {accountsLoading ? (
-              <Loader />
-            ) : accounts?._embedded.length ? (
-              <FadeIn>
-                <AccountsTable accounts={accounts?._embedded ?? []} setAccounts={setAccounts} />
-              </FadeIn>
-            ) : (
-              <FadeIn>
-                <Helper variant="info">No accounts yet provisioned for your organisation</Helper>
-              </FadeIn>
-            )}
-          </Section>
+          <H5>User Account Details</H5>
+          {accountsLoading ? (
+            <Loader />
+          ) : accounts?._embedded.length ? (
+            <FadeIn>
+              <AccountsTable accounts={accounts?._embedded ?? []} setAccounts={setAccounts} />
+            </FadeIn>
+          ) : (
+            <FadeIn>
+              <Helper variant="info">No accounts yet provisioned for your organisation</Helper>
+            </FadeIn>
+          )}
         </>
       ) : (
         <FadeIn>

@@ -311,14 +311,11 @@ export const handleGetBillingByPeriod = (
 }
 
 export const handleGetSettings = (
-  setSettingsLoading: Dispatch<SetStateAction<boolean>>,
   setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
   connectSession: ReapitConnectSession | null,
 ) => () => {
   const getSettings = async () => {
-    setSettingsLoading(true)
     const settings = await getSettingsService()
-    setSettingsLoading(false)
     if (settings) {
       return setSettings(settings)
     }
@@ -331,15 +328,12 @@ export const handleGetSettings = (
 }
 
 export const handleUpdateSettings = (
-  setSettingsLoading: Dispatch<SetStateAction<boolean>>,
   setSettings: Dispatch<SetStateAction<SettingsModel | undefined>>,
   setMessageState: Dispatch<React.SetStateAction<MessageState>>,
   handleClose: () => void,
 ) => (settings: Partial<SettingsModel>) => {
   const updateSettings = async () => {
-    setSettingsLoading(true)
     const updated = await updateSettingsService(settings)
-    setSettingsLoading(false)
     if (updated) {
       setMessageState({ infoMessage: 'Usage cap successfully updated' })
       const settingsRefetch = await getSettingsService()

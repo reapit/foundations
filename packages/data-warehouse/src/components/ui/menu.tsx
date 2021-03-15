@@ -1,9 +1,16 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud, FaChartBar, FaDatabase, FaUsers } from 'react-icons/fa'
-import { MdAccountBalance /*, MdSettings */ } from 'react-icons/md'
-// import { GiHealthNormal } from 'react-icons/gi'
+import {
+  Menu as Sidebar,
+  MenuConfig,
+  ReapitHouseIcon,
+  AppsIcon,
+  ProfileIcon,
+  UsersIcon,
+  DataIcon,
+  AnalyticsIcon,
+  AccountIcon,
+} from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -21,27 +28,27 @@ export const generateMenuConfig = (
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
         title: 'Account',
         key: 'SUBSCRIPTIONS',
-        icon: <MdAccountBalance className="nav-item-icon" />,
+        icon: <AccountIcon />,
         url: Routes.SUBSCRIPTIONS,
         type: 'PRIMARY',
       },
       {
         title: 'Users',
         key: 'ACCOUNTS',
-        icon: <FaUsers className="nav-item-icon" />,
+        icon: <UsersIcon />,
         url: Routes.ACCOUNTS,
         type: 'PRIMARY',
       },
       {
         title: 'Data',
         key: 'DATA',
-        icon: <FaDatabase className="nav-item-icon" />,
+        icon: <DataIcon />,
         url: Routes.DATA,
         type: 'PRIMARY',
       },
@@ -50,26 +57,12 @@ export const generateMenuConfig = (
         key: 'ANALYTICS',
         url: Routes.ANALYTICS,
         type: 'PRIMARY',
-        icon: <FaChartBar className="nav-item-icon" />,
+        icon: <AnalyticsIcon />,
       },
-      // {
-      //   title: 'Health',
-      //   key: 'HEALTH',
-      //   icon: <GiHealthNormal className="nav-item-icon" />,
-      //   url: Routes.HEALTH,
-      //   type: 'PRIMARY',
-      // },
-      // {
-      //   title: 'Settings',
-      //   key: 'SETTINGS',
-      //   icon: <MdSettings className="nav-item-icon" />,
-      //   url: Routes.SETTINGS,
-      //   type: 'PRIMARY',
-      // },
       {
         title: 'Apps',
         key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
+        icon: <AppsIcon />,
         callback: callbackAppClick,
         type: 'PRIMARY',
       },
@@ -77,7 +70,7 @@ export const generateMenuConfig = (
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
+        icon: <ProfileIcon />,
         type: 'SECONDARY',
       },
     ],

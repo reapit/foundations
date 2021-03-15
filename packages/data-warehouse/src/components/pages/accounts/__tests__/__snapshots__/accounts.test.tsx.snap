@@ -5,10 +5,11 @@ exports[`Accounts should match a snapshot 1`] = `
   <Accounts>
     <Section
       className="justify-between items-center"
+      hasPadding={false}
       isFlex={true}
     >
       <section
-        className="section is-flex has-padding has-margin has-background justify-between items-center"
+        className="section is-flex has-margin has-background justify-between items-center"
         data-test=""
       >
         <H3

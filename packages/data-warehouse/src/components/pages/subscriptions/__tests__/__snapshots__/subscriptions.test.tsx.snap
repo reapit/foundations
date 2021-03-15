@@ -3,11 +3,9 @@
 exports[`Subscriptions should match a snapshot 1`] = `
 <MessageProvider>
   <Subscriptions>
-    <H3
-      isHeadingSection={true}
-    >
+    <H3>
       <h3
-        className="title is-3 is-heading-section"
+        className="title is-3"
         id=""
       >
         Data Warehouse Account
@@ -17,9 +15,11 @@ exports[`Subscriptions should match a snapshot 1`] = `
       <div
         className="f334tw0"
       >
-        <Section>
+        <Section
+          hasPadding={false}
+        >
           <section
-            className="section has-padding has-margin has-background"
+            className="section has-margin has-background"
             data-test=""
           >
             <Content>
@@ -60,139 +60,132 @@ exports[`Subscriptions should match a snapshot 1`] = `
         <div
           className="f334tw0"
         >
-          <Section>
-            <section
-              className="section has-padding has-margin has-background"
+          <Content>
+            <div
+              className="content"
               data-test=""
             >
-              <Content>
+              <Grid>
                 <div
-                  className="content"
+                  className="columns"
                   data-test=""
                 >
-                  <Grid>
+                  <GridItem>
                     <div
-                      className="columns"
+                      className="column"
                       data-test=""
                     >
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
+                      <H5>
+                        <h5
+                          className="title is-5"
+                          id=""
                         >
-                          <H5>
-                            <h5
-                              className="title is-5"
-                              id=""
-                            >
-                              Pricing
-                            </h5>
-                          </H5>
-                          <p>
-                            Access requires a subscription plus usage costs based on your warehouse consumption. You can cancel your subscription at any time.
-                          </p>
-                          <p>
-                            A subscription for your organisation costs £150 per month. Additional costs are calculated based on the number of hours of that your warehouse is active in a given month, charged at £6.99 per hour. Your subscription includes 2 hours of warehouse uptime per month.
-                          </p>
-                          <p>
-                            Your warehouse will become active when queries are issued against it. You will be billed by the minute while your warehouse is in an active state and ready to serve data. After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.
-                             
-                          </p>
-                          <p>
-                            * All charges are subject to VAT
-                          </p>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <PricingTile>
-                            <div
-                              className="p15qvdxf"
-                            >
-                              <div
-                                className="desktop-inner-container"
-                              >
-                                <div
-                                  className="modal-card-head"
-                                >
-                                  <H5
-                                    className="mb-0"
-                                    isCentered={true}
-                                  >
-                                    <h5
-                                      className="title is-5 mb-0 has-text-centered"
-                                      id=""
-                                    >
-                                      Data Warehouse Service
-                                    </h5>
-                                  </H5>
-                                </div>
-                                <div
-                                  className="justify-center items-center is-flex py-2"
-                                >
-                                  <span
-                                    className="desktop-price"
-                                  >
-                                    £150 / Month
-                                  </span>
-                                   
-                                </div>
-                                <ul>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Includes 2 hours per month warehouse uptime
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Only pay for the uptime you need after that
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Track your usage and set spending limits
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Dedicated virtual warehouse for your organisation
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Supports all major BI products
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Enterprise grade encryption in transit and at rest
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Data kept up to date at 30-minute intervals
-                                  </li>
-                                  <li
-                                    className="text-center px-2 py-1"
-                                  >
-                                    Cancel your subscription at any time
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </PricingTile>
-                        </div>
-                      </GridItem>
+                          Pricing
+                        </h5>
+                      </H5>
+                      <p>
+                        Access requires a subscription plus usage costs based on your warehouse consumption. You can cancel your subscription at any time.
+                      </p>
+                      <p>
+                        A subscription for your organisation costs £150 per month. Additional costs are calculated based on the number of hours of that your warehouse is active in a given month, charged at £6.99 per hour. Your subscription includes 2 hours of warehouse uptime per month.
+                      </p>
+                      <p>
+                        Your warehouse will become active when queries are issued against it. You will be billed by the minute while your warehouse is in an active state and ready to serve data. After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are accrued when the warehouse is sleeping.
+                         
+                      </p>
+                      <p>
+                        * All charges are subject to VAT
+                      </p>
                     </div>
-                  </Grid>
+                  </GridItem>
+                  <GridItem>
+                    <div
+                      className="column"
+                      data-test=""
+                    >
+                      <PricingTile>
+                        <div
+                          className="p15qvdxf"
+                        >
+                          <div
+                            className="desktop-inner-container"
+                          >
+                            <div
+                              className="modal-card-head"
+                            >
+                              <H5
+                                className="mb-0"
+                                isCentered={true}
+                              >
+                                <h5
+                                  className="title is-5 mb-0 has-text-centered"
+                                  id=""
+                                >
+                                  Data Warehouse Service
+                                </h5>
+                              </H5>
+                            </div>
+                            <div
+                              className="justify-center items-center is-flex py-2"
+                            >
+                              <span
+                                className="desktop-price"
+                              >
+                                £150 / Month
+                              </span>
+                               
+                            </div>
+                            <ul>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Includes 2 hours per month warehouse uptime
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Only pay for the uptime you need after that
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Track your usage and set spending limits
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Dedicated virtual warehouse for your organisation
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Supports all major BI products
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Enterprise grade encryption in transit and at rest
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Data kept up to date at 30-minute intervals
+                              </li>
+                              <li
+                                className="text-center px-2 py-1"
+                              >
+                                Cancel your subscription at any time
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </PricingTile>
+                    </div>
+                  </GridItem>
                 </div>
-              </Content>
-            </section>
-          </Section>
+              </Grid>
+            </div>
+          </Content>
         </div>
       </FadeIn>
     </SubscriptionsContent>
