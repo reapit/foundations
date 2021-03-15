@@ -2,19 +2,19 @@
 
 exports[`MarketplacePage should match a snapshot 1`] = `
 <MarketplacePage>
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     <h3
-      className="title is-3 is-heading-section"
+      className="title is-3"
       id=""
     >
       Marketplace Apps
     </h3>
   </H3>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <H5>
@@ -25,9 +25,11 @@ exports[`MarketplacePage should match a snapshot 1`] = `
           Marketplace Visibility and Installation Management
         </h5>
       </H5>
-      <i>
+      <p
+        className="mb-4"
+      >
         To set the visibility of app in the Marketplace or manage installations, for your organisation or specific office groups, please select an app from the list below:
-      </i>
+      </p>
     </section>
   </Section>
   <Loader>

@@ -2,18 +2,17 @@
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
 <ButtonGroup
-  className="time-button-group-container is-narrow"
+  className="is-narrow"
+  isCentered={true}
 >
   <Button
-    className="is-selected is-info"
     onClick={[Function]}
     type="button"
-    variant="secondary"
+    variant="primary"
   >
     TODAY
   </Button>
   <Button
-    className=""
     onClick={[Function]}
     type="button"
     variant="secondary"
@@ -21,7 +20,6 @@ exports[`appointment-time AppointmentTime should match snapshot 1`] = `
     TOMORROW
   </Button>
   <Button
-    className=""
     onClick={[Function]}
     type="button"
     variant="secondary"

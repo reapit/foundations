@@ -30,7 +30,6 @@ export const organisationFetchMembers = function* ({ data }: Action<FetchOrganis
     yield put(fetchOrganisationMembersFailed(err?.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -50,7 +49,6 @@ export const inviteDeveloperAsOrgMemberSagas = function* ({
     yield put(inviteDeveloperAsOrgMemberFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -67,7 +65,6 @@ export const disableMemberSagas = function* ({ data }: Action<DisableMemberActio
       yield put(disableMemberFailed())
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       })
     }
   } catch (err) {
@@ -75,7 +72,6 @@ export const disableMemberSagas = function* ({ data }: Action<DisableMemberActio
     yield put(disableMemberFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

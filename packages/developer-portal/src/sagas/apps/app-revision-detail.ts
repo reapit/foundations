@@ -14,7 +14,6 @@ export const fetchRevisionDetailSaga = function* ({ data: { id, revisionId } }: 
     yield put(fetchAppRevisionDetailFailed(err?.description || errorMessages.DEFAULT_SERVER_ERROR))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

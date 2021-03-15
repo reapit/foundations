@@ -6,7 +6,7 @@ exports[`map-pannel MapPannel should render correctly 1`] = `
 >
   <div>
     <p
-      className="is-size-4"
+      className="is-size-4 mr-4"
     >
       mocktext
     </p>
@@ -14,25 +14,23 @@ exports[`map-pannel MapPannel should render correctly 1`] = `
       mocktext
     </p>
   </div>
-  <div>
+  <ButtonGroup
+    hasSpacing={true}
+  >
     <Button
-      className="is-medium"
       onClick={[Function]}
       type="button"
-      variant="info"
+      variant="primary"
     >
       Start Journey
     </Button>
-  </div>
-  <div>
     <Button
-      className="is-medium"
       onClick={[Function]}
       type="button"
-      variant="info"
+      variant="primary"
     >
       Today
     </Button>
-  </div>
+  </ButtonGroup>
 </div>
 `;

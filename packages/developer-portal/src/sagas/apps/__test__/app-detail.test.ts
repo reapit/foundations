@@ -43,7 +43,6 @@ describe('fetch developer app detail with clientId', () => {
     expect(clone.throw('error').value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -64,7 +63,6 @@ describe('fetch developer app detail without clientId', () => {
     expect(clone.throw('error').value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -105,7 +103,6 @@ describe('client app detail fetch data and fetch apiKey', () => {
     expect(clone.throw('error').value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })

@@ -94,14 +94,12 @@ export const handlePaymentRequestSubmit = (
 
     notification.success({
       message: 'Payment request was successfully sent by email',
-      placement: 'bottomRight',
     })
     setIsLoading(false)
     handleOnClose()
   } catch (err) {
     notification.error({
       message: 'Payment email request was unsuccessful',
-      placement: 'bottomRight',
     })
   }
 }
@@ -128,7 +126,6 @@ export const onUpdateStatus = async (
   if (externalReference === 'rejected') {
     notification.error({
       message: 'The transaction has been rejected by our payment provider, please check your details and try again.',
-      placement: 'bottomRight',
     })
   }
 

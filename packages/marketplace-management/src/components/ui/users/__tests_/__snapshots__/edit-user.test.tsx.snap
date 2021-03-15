@@ -11,9 +11,9 @@ exports[`UpdateUserModal should match a snapshot 1`] = `
   <p
     className="mb-4"
   >
-    <i>
+    <p>
       Please use the ‘Users Group’ section below to manage which groups this user belongs to:
-    </i>
+    </p>
   </p>
   <Formik
     initialValues={

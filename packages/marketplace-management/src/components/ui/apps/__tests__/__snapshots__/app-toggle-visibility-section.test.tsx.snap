@@ -9,9 +9,11 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
     }
   }
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <H5>
@@ -25,9 +27,9 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-        </i>
+        </p>
       </p>
       <div
         className="field field-checkbox mb-0 control"

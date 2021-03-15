@@ -18,7 +18,6 @@ export const appsManagementFetch = function* ({ data }) {
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(fetchAppListFailed(networkErrorString))
   }
@@ -45,7 +44,6 @@ export const appsManagementFeatured = function* ({ data: { id, isFeatured } }) {
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
 
     // if error revert back the old store

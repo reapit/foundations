@@ -13,7 +13,6 @@ export const fetchAppRevisionListSaga = function* ({ data }: Action<FetchAppRevi
     yield put(fetchAppRevisionListFailed(err))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

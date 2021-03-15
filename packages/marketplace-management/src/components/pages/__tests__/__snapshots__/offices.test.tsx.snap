@@ -2,12 +2,12 @@
 
 exports[`OfficesPage should match a snapshot 1`] = `
 <div>
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     Manage Offices
   </H3>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <Tabs
       tabConfigs={
         Array [

@@ -48,7 +48,6 @@ export const handleDownloadBillingPeriod = (period: string, setFileBlob: Dispatc
     .catch((error) => {
       notification.error({
         message: error.message || errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
         duration: 5,
       })
     })

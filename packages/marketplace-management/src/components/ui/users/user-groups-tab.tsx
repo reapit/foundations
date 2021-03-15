@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { GroupModelPagedResult, GroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Pagination, Table, Loader, Section, FadeIn, Helper, H5, Button } from '@reapit/elements'
+import { Pagination, Table, Loader, FadeIn, Helper, H5, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import qs from 'query-string'
@@ -42,7 +42,7 @@ const UserGroupsTab: React.FC = () => {
       row: { original },
     },
   }) => (
-    <Button type="button" variant="info" onClick={() => setEditingUserGroup(original)}>
+    <Button type="button" variant="primary" onClick={() => setEditingUserGroup(original)}>
       Manage
     </Button>
   )
@@ -56,13 +56,11 @@ const UserGroupsTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
-        <H5>User groups</H5>
-        <i>
-          The list below contains all available member groups for your organisation. You can manage users associated to
-          each group by selecting ‘Manage’.
-        </i>
-      </Section>
+      <H5>User groups</H5>
+      <p className="mb-4">
+        The list below contains all available member groups for your organisation. You can manage users associated to
+        each group by selecting ‘Manage’.
+      </p>
       {!data ? (
         <Loader />
       ) : (
@@ -90,7 +88,7 @@ export const UserGroupsContent: React.FC<{
   const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      <Section>{renderResult(columns, listGroup)}</Section>
+      {renderResult(columns, listGroup)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )

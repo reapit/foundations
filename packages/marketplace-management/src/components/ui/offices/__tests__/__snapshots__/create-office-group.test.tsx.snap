@@ -11,9 +11,9 @@ exports[`CreateOfficeGroupModal should match a snapshot 1`] = `
   <p
     className="helper-text"
   >
-    <i>
+    <p>
       To create a new office group, please provide a group ‘Name’ and search and select an Office(s). You will need a minimum of 1 office to create a new group.
-    </i>
+    </p>
   </p>
   <Component
     initialValues={

@@ -14,7 +14,6 @@ export const fetchWebhooksTopics = function* ({ data }: Action<FetchWebhooksTopi
     yield put(fetchWebhooksTopicsFailed(err.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

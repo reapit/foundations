@@ -35,7 +35,7 @@ export interface PaymentsFormProps {
 const PaymentsFilterForm: React.FC<PaymentsFormProps> = ({ filterValues, onSearch }) => {
   const { description } = formFields
   return (
-    <Section>
+    <Section hasPadding={false}>
       <H5>Filter Dashboard</H5>
       <Formik
         initialValues={filterValues}

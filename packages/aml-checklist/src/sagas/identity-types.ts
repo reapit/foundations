@@ -17,7 +17,6 @@ export const identityTypesDataFetch = function* () {
     yield put(identityTypesRequestFailure())
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   }
 }

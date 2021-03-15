@@ -2,18 +2,17 @@
 
 exports[`travel-mode TravelMode should match snapshot 1`] = `
 <ButtonGroup
-  className="travel-mode-button-container is-narrow"
+  className="is-narrow"
+  isCentered={true}
 >
   <Button
-    className="is-selected is-info"
     onClick={[Function]}
     type="button"
-    variant="secondary"
+    variant="primary"
   >
     Car
   </Button>
   <Button
-    className=""
     onClick={[Function]}
     type="button"
     variant="secondary"

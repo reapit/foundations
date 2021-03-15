@@ -91,7 +91,6 @@ export const checkSelectedValid = (list: SelectOption[], items: string[], entity
       message: `Invalid ${entity} selected. Please select only ${entity} that are available in the dropdown. Invalid selections are ${errorsList.join(
         ', ',
       )}`,
-      placement: 'bottomRight',
     })
     return false
   }

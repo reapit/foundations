@@ -47,7 +47,6 @@ export const requestSubcriptionData = function* ({ data: applicationId }: Action
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -67,7 +66,6 @@ export const createNewWebhook = function* ({ data }: Action<CreateWebhookParams>
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -87,7 +85,6 @@ export const editWebhook = function* ({ data }: Action<EditWebhookParams>) {
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -107,7 +104,6 @@ export const deleteWebhook = function* ({ data }: Action<DeleteWebhookParams>) {
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -122,7 +118,6 @@ export const requestWebhookData = function* ({ data: webhookId }: Action<string>
     yield put(requestWebhookReceiveDataFailure())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

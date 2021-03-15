@@ -131,7 +131,6 @@ export const handleRequestDirectionServiceResponse = ({
     clearMap({ directionsRendererRef, markersRef })()
     notification.error({
       message: 'Directions request failed due to ' + status,
-      placement: 'bottomRight',
     })
   }
 }

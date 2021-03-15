@@ -11,9 +11,9 @@ exports[`EditOfficeGroupModal should match a snapshot 1`] = `
   <p
     className="mb-4"
   >
-    <i>
+    <p>
       To manage members associated to this group, you can search and select users from the ‘Groups Members’ section below:
-    </i>
+    </p>
   </p>
   <Formik
     initialValues={

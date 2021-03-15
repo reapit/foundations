@@ -65,7 +65,6 @@ export const createAppRevisionSaga = function* ({
     yield put(createAppRevisionFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

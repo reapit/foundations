@@ -37,7 +37,6 @@ export const revisionDetailDataFetch = function* ({
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
 
     yield put(fetchRevisionFailed(networkErrorString))
@@ -60,7 +59,6 @@ export const requestApproveRevision = function* ({ data: params }: Action<Revisi
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(setRequestApproveRevisionFormState('ERROR'))
   }
@@ -89,7 +87,6 @@ export const requestDeclineRevision = function* ({ data: params }: Action<Revisi
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(setRequestDeclineRevisionFormState('ERROR'))
   }

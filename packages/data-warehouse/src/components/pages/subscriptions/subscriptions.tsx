@@ -5,9 +5,9 @@ import SubscriptionsContent from './subscriptions-content'
 export const Subscriptions: React.FC = () => {
   return (
     <>
-      <H3 isHeadingSection>Data Warehouse Account</H3>
+      <H3>Data Warehouse Account</H3>
       <FadeIn>
-        <Section>
+        <Section hasPadding={false}>
           <Content>
             <H5>How It Works</H5>
             <p>

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentsFilterForm should match a snapshot 1`] = `
-<Section>
+<Section
+  hasPadding={false}
+>
   <H5>
     Filter Dashboard
   </H5>

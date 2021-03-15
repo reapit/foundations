@@ -11,9 +11,11 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -51,9 +53,9 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-        </i>
+        </p>
       </p>
     </section>
   </Section>
@@ -75,9 +77,11 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -115,11 +119,11 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           This app is currently installed for 
           1 group
           . By clicking this button you will uninstall for all users and offices.
-        </i>
+        </p>
       </p>
     </section>
   </Section>
@@ -141,9 +145,11 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -181,11 +187,11 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           This app is currently installed for 
           your whole orgainsation
           . By clicking this button you will uninstall for all users and offices.
-        </i>
+        </p>
       </p>
     </section>
   </Section>
@@ -210,9 +216,11 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
   setPerformCompleteUninstall={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -250,11 +258,11 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           This app is currently installed for 
           2 groups
           . By clicking this button you will uninstall for all users and offices.
-        </i>
+        </p>
       </p>
     </section>
   </Section>

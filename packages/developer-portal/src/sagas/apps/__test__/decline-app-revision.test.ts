@@ -37,7 +37,6 @@ describe('decline revision app post data', () => {
       expect(clone.next().value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().done).toBe(true)

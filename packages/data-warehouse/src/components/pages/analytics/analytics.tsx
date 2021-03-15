@@ -26,14 +26,13 @@ import AnalyticsUsageModal from './analytics-usage-modal'
 import { getChargableUsageString, handleGetSettings } from './analytics-handlers'
 import { SettingsModel } from '../../../types/settings'
 import { cx } from 'linaria'
-import { flexColumn, icon } from '../__styles__/styles'
+import { flexColumn, icon } from './__styles__/analytics'
 import { FaInfo } from 'react-icons/fa'
 
 export const AnalyticsPage: React.FC = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
   const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const [settings, setSettings] = useState<SettingsModel>()
-  const [settingsLoading, setSettingsLoading] = useState<boolean>(false)
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setMessageState } = useContext(MessageContext)
@@ -42,31 +41,28 @@ export const AnalyticsPage: React.FC = () => {
   const handleModalOpen = () => setModalVisible(true)
   const mobile = isMobile()
 
-  useEffect(handleGetSettings(setSettingsLoading, setSettings, connectSession), [connectSession, modalVisible])
+  useEffect(handleGetSettings(setSettings, connectSession), [connectSession, modalVisible])
   useEffect(handleGetSubscriptions(setSubscriptions, setSubscriptionsLoading, setMessageState, connectSession), [
     setSubscriptions,
     setSubscriptionsLoading,
     connectSession,
   ])
-
   return (
     <ErrorBoundary>
-      <Section className={cx('justify-between', 'items-center', mobile && flexColumn)} isFlex>
+      <Section className={cx('justify-between', 'items-center', mobile && flexColumn)} isFlex hasPadding={false}>
         <H3 className={cx(!mobile && 'mb-0')}>Analytics</H3>
-        {!settingsLoading && settings && (
-          <FadeIn>
-            <LevelRight>
-              <FaInfo className={icon} />
-              <i className="mr-4 mb-2 inline-block">
-                Warehouse uptime limit set at {settings?.monthlyUsageCap ?? 0} hrs/pcm (
-                {getChargableUsageString(settings)})
-              </i>
-              <Button onClick={handleModalOpen} disabled={!currentSubscription}>
-                Adjust uptime limit
-              </Button>
-            </LevelRight>
-          </FadeIn>
-        )}
+        <FadeIn>
+          <LevelRight>
+            <FaInfo className={icon} />
+            <i className="mr-4 mb-2 inline-block">
+              Warehouse uptime limit set at {settings?.monthlyUsageCap ?? 0} hrs/pcm (
+              {getChargableUsageString(settings)})
+            </i>
+            <Button onClick={handleModalOpen} disabled={!currentSubscription}>
+              Adjust uptime limit
+            </Button>
+          </LevelRight>
+        </FadeIn>
         <AnalyticsUsageModal visible={modalVisible} handleClose={handleModalClose} />
       </Section>
       {subscriptionsLoading ? (
@@ -77,22 +73,17 @@ export const AnalyticsPage: React.FC = () => {
         </Helper>
       ) : (
         <>
-          <Section>
+          <Section hasPadding={false}>
             <FadeIn>
               <Content>
                 <p>
-                  <i>
-                    Billing is based on consumption and is calculated based on the number of hours of warehouse uptime
-                    in a given month. Your warehouse will become active and available when queries are issued against
-                    it. You will be billed by the minute while your warehouse is active and serving data.
-                  </i>
+                  Billing is based on consumption and is calculated based on the number of hours of warehouse uptime in
+                  a given month. Your warehouse will become active and available when queries are issued against it. You
+                  will be billed by the minute while your warehouse is active and serving data.
                 </p>
                 <p>
-                  <i>
-                    After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are
-                    accrued when the warehouse is sleeping. Your subscription includes 2 hours of warehouse uptime per
-                    month.
-                  </i>
+                  After a short period of inactivity, the warehouse will enter a sleep state. No usage costs are accrued
+                  when the warehouse is sleeping. Your subscription includes 2 hours of warehouse uptime per month.
                 </p>
               </Content>
             </FadeIn>

@@ -4,7 +4,7 @@ exports[`map AppointmentMap should match snapshot 1`] = `
 <Fragment>
   <Memo(Map)
     apiKey=""
-    autoFitBounds={1}
+    autoFitBounds={true}
     coordinates={
       Array [
         Object {

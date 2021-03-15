@@ -31,7 +31,6 @@ describe('developerSetStatusRequestSaga', () => {
     expect(gen.next().value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })

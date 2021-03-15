@@ -6,10 +6,11 @@ exports[`Analytics should match a snapshot 1`] = `
     <ErrorBoundary>
       <Section
         className="justify-between items-center"
+        hasPadding={false}
         isFlex={true}
       >
         <section
-          className="section is-flex has-padding has-margin has-background justify-between items-center"
+          className="section is-flex has-margin has-background justify-between items-center"
           data-test=""
         >
           <H3
@@ -22,6 +23,75 @@ exports[`Analytics should match a snapshot 1`] = `
               Analytics
             </h3>
           </H3>
+          <FadeIn>
+            <div
+              className="f334tw0"
+            >
+              <LevelRight>
+                <div
+                  className="level-right"
+                  data-test=""
+                >
+                  <FaInfo
+                    className="iw60mcp"
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 192 512",
+                        }
+                      }
+                      className="iw60mcp"
+                    >
+                      <svg
+                        className="iw60mcp"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 192 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaInfo>
+                  <i
+                    className="mr-4 mb-2 inline-block"
+                  >
+                    Warehouse uptime limit set at 
+                    0
+                     hrs/pcm (
+                    £0
+                    )
+                  </i>
+                  <Button
+                    disabled={true}
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="button   is-primary "
+                      data-test=""
+                      disabled={true}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Adjust uptime limit
+                    </button>
+                  </Button>
+                </div>
+              </LevelRight>
+            </div>
+          </FadeIn>
           <AnalyticsUsageModal
             handleClose={[Function]}
             visible={false}

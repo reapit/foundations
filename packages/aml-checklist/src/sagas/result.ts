@@ -19,7 +19,6 @@ export const resultFetch = function* (params: Action<ContactsParams>) {
     yield put(resultRequestDataFailure())
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   }
 }

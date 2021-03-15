@@ -44,7 +44,6 @@ export const fetchInitialData = function* ({ data: id }) {
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailLoading(false))
@@ -80,7 +79,6 @@ export const onUpdateChecklist = function* ({ data: { nextSection, contact } }: 
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -141,7 +139,6 @@ export const onUpdateAddressHistory = function* ({
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -198,7 +195,6 @@ export const onUpdateDeclarationAndRisk = function* ({
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -236,7 +232,6 @@ export const pepSearch = function* ({ data }) {
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -293,7 +288,6 @@ export const updatePrimaryId = function* ({
         return yield call(notification.info, {
           message:
             'You are not currently logged in as negotiator. The Reapit Platform API only supports Identity Checks performed by negotiators. As such, you your data will not be saved and you will need to log in as another user to complete this action.',
-          placement: 'bottomRight',
         })
       }
       yield call(createIdentityCheck, {
@@ -319,7 +313,6 @@ export const updatePrimaryId = function* ({
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -362,7 +355,6 @@ export const updateSecondaryId = function* ({
         return yield call(notification.info, {
           message:
             'You are not currently logged in as negotiator. The Reapit Platform API only supports Identity Checks performed by negotiators. As such, you your data will not be saved and you will need to log in as another user to complete this action.',
-          placement: 'bottomRight',
         })
       }
       yield call(createIdentityCheck, {
@@ -388,7 +380,6 @@ export const updateSecondaryId = function* ({
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -438,7 +429,6 @@ export const updateIdentityCheckStatus = function* ({
   } catch (err) {
     yield call(notification.error, {
       message: extractNetworkErrString(err),
-      placement: 'bottomRight',
     })
   } finally {
     yield put(checklistDetailSubmitForm(false))

@@ -23,7 +23,6 @@ export const fetchMemberDetailsSaga = function* ({ data }: Action<FetchMemberDet
     yield put(fetchMemberDetailsFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -37,7 +36,6 @@ export const acceptInviteMemberSaga = function* ({ data }: Action<AcceptInviteMe
     yield put(setInviteMemberStatus('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -51,7 +49,6 @@ export const rejectInviteMemberSaga = function* ({ data }: Action<RejectInviteMe
     yield put(setInviteMemberStatus('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

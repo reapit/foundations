@@ -58,7 +58,6 @@ export const onSearchHandler = (history: History<any>) => (
   if (developerId?.length > 1) {
     return notification.error({
       message: errorMessages.SUBSCRIPTION_MULTIPLE_DEVELOPER,
-      placement: 'bottomRight',
     })
   }
 

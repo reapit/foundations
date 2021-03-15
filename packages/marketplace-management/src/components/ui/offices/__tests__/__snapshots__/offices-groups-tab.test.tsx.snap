@@ -2,47 +2,45 @@
 
 exports[`OfficeGroupsContent should match a snapshot 1`] = `
 <Fragment>
-  <Section>
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Group Name",
-              "accessor": "name",
-            },
-            Object {
-              "Header": "Office List",
-              "accessor": "officeIds",
-            },
-            Object {
-              "Header": "Last Updated",
-              "accessor": "description",
-            },
-            Object {
-              "Header": "Edit",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "created": "2019-08-14T12:30:02.0000000Z",
-              "id": "string",
-              "modified": "2019-08-14T12:30:02.0000000Z",
-              "name": "string",
-              "officeIds": "string",
-              "organisationId": "string",
-              "status": "string",
-              "tag": "string",
-            },
-          ]
-        }
-        expandable={true}
-        scrollable={true}
-      />
-    </FadeIn>
-  </Section>
+  <FadeIn>
+    <Table
+      columns={
+        Array [
+          Object {
+            "Header": "Group Name",
+            "accessor": "name",
+          },
+          Object {
+            "Header": "Office List",
+            "accessor": "officeIds",
+          },
+          Object {
+            "Header": "Last Updated",
+            "accessor": "description",
+          },
+          Object {
+            "Header": "Edit",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "id": "string",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+            "name": "string",
+            "officeIds": "string",
+            "organisationId": "string",
+            "status": "string",
+            "tag": "string",
+          },
+        ]
+      }
+      expandable={true}
+      scrollable={true}
+    />
+  </FadeIn>
   <Pagination
     onChange={[MockFunction]}
     pageNumber={0}
@@ -54,25 +52,25 @@ exports[`OfficeGroupsContent should match a snapshot 1`] = `
 
 exports[`OfficesGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Section>
-    <div
-      className="flex justify-between items-center mb-4"
+  <div
+    className="flex justify-between items-center mb-4"
+  >
+    <H5
+      className="mb-0"
     >
-      <H5
-        className="mb-0"
-      >
-        Office groups
-      </H5>
-      <Button
-        onClick={[Function]}
-      >
-        Create office group
-      </Button>
-    </div>
-    <i>
-      The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.
-    </i>
-  </Section>
+      Office groups
+    </H5>
+    <Button
+      onClick={[Function]}
+    >
+      Create office group
+    </Button>
+  </div>
+  <p
+    className="mb-4"
+  >
+    The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use ‘Edit’ on the associated group.
+  </p>
   <OfficeGroupsContent
     columns={
       Array [

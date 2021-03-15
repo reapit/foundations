@@ -47,7 +47,6 @@ describe('fetchMemberDetailsSaga', () => {
     expect(clone.next().value).toEqual(
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -77,7 +76,6 @@ describe('acceptInviteMemberSaga', () => {
     expect(clone.next().value).toEqual(
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -108,7 +106,6 @@ describe('rejectInviteMemberSaga', () => {
     expect(clone.next().value).toEqual(
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })

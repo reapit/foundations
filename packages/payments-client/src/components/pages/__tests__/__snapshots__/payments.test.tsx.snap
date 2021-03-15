@@ -14,7 +14,9 @@ exports[`AmountCell should match a snapshot where no value 1`] = `
 
 exports[`Payments  should match a snapshot where has payments list 1`] = `
 <ErrorBoundary>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <div
       className="justify-between flex items-center"
     >
@@ -40,7 +42,9 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
     }
     onSearch={[Function]}
   />
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <FadeIn>
       <Table
         columns={
@@ -166,7 +170,9 @@ exports[`Payments  should match a snapshot where has payments list 1`] = `
 
 exports[`Payments  should match a snapshot where loading 1`] = `
 <ErrorBoundary>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <div
       className="justify-between flex items-center"
     >
@@ -203,7 +209,9 @@ exports[`Payments  should match a snapshot where loading 1`] = `
 
 exports[`Payments  should match a snapshot where payments list is empty 1`] = `
 <ErrorBoundary>
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <div
       className="justify-between flex items-center"
     >

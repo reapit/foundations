@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { ButtonGroup, Button } from '@reapit/elements'
 import { History } from 'history'
-import { cx } from 'linaria'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
-import { travelModeButtonContainer } from './__styles__'
 
 export type HandleChangeTravelModeParams = {
   travelMode: 'DRIVING' | 'WALKING'
@@ -24,19 +22,17 @@ export type TravelModeProps = {
 
 export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) => {
   return (
-    <ButtonGroup className={cx(travelModeButtonContainer, 'is-narrow')}>
+    <ButtonGroup isCentered className="is-narrow">
       <Button
         type="button"
-        variant="secondary"
-        className={cx(queryParams.travelMode !== 'WALKING' && 'is-selected is-info')}
+        variant={queryParams.travelMode !== 'WALKING' ? 'primary' : 'secondary'}
         onClick={handleChangeTravelMode({ queryParams, travelMode: 'DRIVING', history })}
       >
         Car
       </Button>
       <Button
         type="button"
-        variant="secondary"
-        className={cx(queryParams.travelMode === 'WALKING' && 'is-selected is-info')}
+        variant={queryParams.travelMode === 'WALKING' ? 'primary' : 'secondary'}
         onClick={handleChangeTravelMode({ queryParams, travelMode: 'WALKING', history })}
       >
         Walk

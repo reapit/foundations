@@ -396,31 +396,25 @@ describe('handleGetBillingByPeriod', () => {
 describe('handleGetSettings', () => {
   it('should get and set settings if there is a month value', async () => {
     const mockSettings = jest.fn()
-    const mockSettingsLoading = jest.fn()
     const mockSession = {} as ReapitConnectSession
 
-    const curried = handleGetSettings(mockSettingsLoading, mockSettings, mockSession)
+    const curried = handleGetSettings(mockSettings, mockSession)
 
     await curried()
 
-    expect(mockSettingsLoading).toHaveBeenCalledWith(true)
     expect(mockSettings).toHaveBeenCalledWith({})
-    expect(mockSettingsLoading).toHaveBeenLastCalledWith(false)
   })
 
   it('should set default settings if fetching fails', async () => {
     const mockSettings = jest.fn()
-    const mockSettingsLoading = jest.fn()
     const mockSession = {} as ReapitConnectSession
     ;(getSettingsService as jest.Mock).mockReturnValueOnce(undefined)
 
-    const curried = handleGetSettings(mockSettingsLoading, mockSettings, mockSession)
+    const curried = handleGetSettings(mockSettings, mockSession)
 
     await curried()
 
-    expect(mockSettingsLoading).toHaveBeenCalledWith(true)
     expect(mockSettings).toHaveBeenCalledWith({ monthlyUsageCap: 0 })
-    expect(mockSettingsLoading).toHaveBeenLastCalledWith(false)
   })
 })
 
@@ -428,36 +422,30 @@ describe('handleUpdateSettings', () => {
   it('should get and set settings if there is a month value', async () => {
     const mockSetMessageState = jest.fn()
     const mockSettings = jest.fn()
-    const mockSettingsLoading = jest.fn()
     const mockHandleClose = jest.fn()
     ;(getSettingsService as jest.Mock).mockReturnValueOnce({})
 
-    const curried = handleUpdateSettings(mockSettingsLoading, mockSettings, mockSetMessageState, mockHandleClose)
+    const curried = handleUpdateSettings(mockSettings, mockSetMessageState, mockHandleClose)
 
     await curried({ monthlyUsageCap: 0 })
 
-    expect(mockSettingsLoading).toHaveBeenCalledWith(true)
     expect(mockSetMessageState).toHaveBeenCalledWith({
       infoMessage: 'Usage cap successfully updated',
     })
-    expect(mockSettingsLoading).toHaveBeenLastCalledWith(false)
   })
 
   it('should set default settings if fetching fails', async () => {
     const mockSetMessageState = jest.fn()
     const mockSettings = jest.fn()
-    const mockSettingsLoading = jest.fn()
     const mockHandleClose = jest.fn()
     ;(updateSettingsService as jest.Mock).mockReturnValueOnce(undefined)
 
-    const curried = handleUpdateSettings(mockSettingsLoading, mockSettings, mockSetMessageState, mockHandleClose)
+    const curried = handleUpdateSettings(mockSettings, mockSetMessageState, mockHandleClose)
 
     await curried({ monthlyUsageCap: 0 })
 
-    expect(mockSettingsLoading).toHaveBeenCalledWith(true)
     expect(mockSetMessageState).toHaveBeenCalledWith({
       errorMessage: 'Something went wrong updating usage cap',
     })
-    expect(mockSettingsLoading).toHaveBeenLastCalledWith(false)
   })
 })

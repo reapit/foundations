@@ -79,7 +79,7 @@ const Payments: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
+      <Section hasPadding={false}>
         <div className="justify-between flex items-center">
           <H3 className="mb-0">Payments Dashboard</H3>
           <PaymentLogo />
@@ -90,7 +90,7 @@ const Payments: React.FC = () => {
         <Loader />
       ) : payments?._embedded?.length ? (
         <>
-          <Section>
+          <Section hasPadding={false}>
             <FadeIn>
               <Table
                 expandable

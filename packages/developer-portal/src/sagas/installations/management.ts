@@ -37,7 +37,6 @@ export const createInstallationSaga = function* (options) {
     yield put(setInstallationsFormState('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -56,7 +55,6 @@ export const requestInstallationTerminateSaga = function* (options) {
     yield put(setInstallationsFormState('ERROR'))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

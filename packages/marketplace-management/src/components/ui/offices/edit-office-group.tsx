@@ -12,6 +12,7 @@ import {
   notification,
   Checkbox,
   SelectOption,
+  ButtonGroup,
 } from '@reapit/elements'
 import { updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
@@ -66,7 +67,6 @@ export const onHandleSubmit = (
   if (updateOffice) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
-      placement: 'bottomRight',
     })
     handleOnClose()
     onRefetchData()
@@ -75,7 +75,6 @@ export const onHandleSubmit = (
 
   notification.error({
     message: toastMessages.FAILED_TO_EDIT_OFFICE_GROUP,
-    placement: 'bottomRight',
   })
 }
 
@@ -137,10 +136,10 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
       zIndex={90}
     >
       <p className="mb-4">
-        <i>
+        <p>
           To manage members associated to this group, you can search and select users from the ‘Groups Members’ section
           below:
-        </i>
+        </p>
       </p>
       <Formik
         initialValues={{
@@ -168,14 +167,14 @@ export const UpdateOfficeGroupModal: React.FC<UpdateOfficeGroupModalProps> = ({
                 />
                 <Checkbox id={status.name} labelText={status.label as string} name={status.name} />
               </Section>
-              <Section isFlex hasPadding={false} hasMargin={false}>
-                <Button variant="info" disabled={false} onClick={handleOnClose} type="button">
+              <ButtonGroup hasSpacing isCentered>
+                <Button variant="secondary" disabled={false} onClick={handleOnClose} type="button">
                   Cancel
                 </Button>
-                <Button variant="info" loading={false} type="submit">
+                <Button variant="primary" loading={false} type="submit">
                   Save
                 </Button>
-              </Section>
+              </ButtonGroup>
             </Form>
           )
         }}

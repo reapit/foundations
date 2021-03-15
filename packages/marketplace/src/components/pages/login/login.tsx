@@ -13,7 +13,7 @@ export type LoginProps = {}
 export const handleShowNotificationAfterPasswordChanged = (isPasswordChanged: boolean, localStorage: Storage) => {
   return () => {
     if (isPasswordChanged) {
-      notification.success({ message: messages.PASSWORD_CHANGED_SUCCESSFULLY, placement: 'bottomRight' })
+      notification.success({ message: messages.PASSWORD_CHANGED_SUCCESSFULLY })
       localStorage.removeItem('isPasswordChanged')
     }
   }

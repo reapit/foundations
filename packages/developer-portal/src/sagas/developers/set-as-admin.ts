@@ -17,7 +17,6 @@ export const setAsAdminSaga = function* ({ data }: Action<SetAsAdminParams>) {
     yield put(setAsAdminFailed())
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

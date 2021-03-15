@@ -1,7 +1,15 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaHome, FaUser, FaStoreAlt, FaCloud } from 'react-icons/fa'
+import {
+  ProfileIcon,
+  Menu as Sidebar,
+  MenuConfig,
+  ReapitHouseIcon,
+  OfficesIcon,
+  UsersIcon,
+  MarketplaceIcon,
+  AppsIcon,
+} from '@reapit/elements'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -26,7 +34,7 @@ export const generateMenuConfig = (
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
@@ -34,19 +42,19 @@ export const generateMenuConfig = (
         key: 'OFFICES',
         url: Routes.OFFICES,
         type: 'PRIMARY',
-        icon: <FaHome className="nav-item-icon" />,
+        icon: <OfficesIcon />,
       },
       {
         title: 'Users',
         key: 'USERS',
         url: Routes.USERS,
         type: 'PRIMARY',
-        icon: <FaUser className="nav-item-icon" />,
+        icon: <UsersIcon />,
       },
       {
         title: <div className={menuItemOverflow}>Marketplace</div>,
         key: 'MARKETPLACE',
-        icon: <FaStoreAlt className="nav-item-icon" />,
+        icon: <MarketplaceIcon />,
         url: Routes.MARKETPLACE,
         type: 'PRIMARY',
       },
@@ -60,7 +68,7 @@ export const generateMenuConfig = (
         {
           title: 'Apps',
           key: 'APPS',
-          icon: <FaCloud className="nav-item-icon" />,
+          icon: <AppsIcon />,
           callback: callbackAppClick,
           type: 'PRIMARY',
         },
@@ -68,7 +76,7 @@ export const generateMenuConfig = (
           title: 'Logout',
           key: 'LOGOUT',
           callback: logoutCallback,
-          icon: <FaSignOutAlt className="nav-item-icon" />,
+          icon: <ProfileIcon />,
           type: 'SECONDARY',
         },
       ],

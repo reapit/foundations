@@ -67,7 +67,6 @@ describe('revision-detail fetch data', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchRevisionFailed(errorMessages.DEFAULT_SERVER_ERROR)))
@@ -108,7 +107,6 @@ describe('revision approve submmit', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next(undefined).value).toEqual(put(setRequestApproveRevisionFormState('ERROR')))
@@ -149,7 +147,6 @@ describe('revision decline submmit', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next(undefined).value).toEqual(put(setRequestDeclineRevisionFormState('ERROR')))
