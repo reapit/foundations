@@ -1,5 +1,7 @@
 import { css } from 'linaria'
 import * as colors from '@/core/__styles__/colors'
+import { forMobileOnly } from '../../../../core/__styles__/screen-size'
+import { white } from '@/core/__styles__/colors'
 
 export const container = css`
   min-width: 100vw;
@@ -10,15 +12,15 @@ export const container = css`
   flex-direction: row;
   background-color: ${colors.white};
 
-  @media screen and (max-width: 900px) {
+  ${forMobileOnly} {
     flex-direction: column-reverse;
   }
 `
 
 export const wrapper = css`
   background-color: ${colors.white};
-  width: 33.33%;
-  padding: 1rem;
+  width: 40%;
+  padding: 2rem;
   pointer-events: auto;
 
   &.disabled {
@@ -43,7 +45,7 @@ export const wrapper = css`
     max-width: 400px;
   }
 
-  @media screen and (max-width: 900px) {
+  ${forMobileOnly} {
     width: 100%;
   }
 
@@ -52,21 +54,14 @@ export const wrapper = css`
   }
 `
 
-export const image = css`
-  background-color: ${colors.white};
-  width: 66.66%;
+export const imageContainer = css`
+  background-color: ${white};
+  width: 60%;
   height: 100vh;
   font-size: 0;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    height: 300px;
+  ${forMobileOnly} {
+    display: none;
   }
 `
 
@@ -110,4 +105,29 @@ export const labelTerms = css`
 export const loginButton = css`
   margin-right: auto;
   margin-left: auto;
+`
+
+export const loginImage = css`
+  height: 100%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-duration: 3s;
+  animation-name: image;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+
+  @keyframes image {
+    from {
+      background-image: url('../../../../assets/images/login/step-1.svg');
+    }
+
+    50% {
+      background-image: url('../../../../assets/images/login/step-2.svg');
+    }
+
+    to {
+      background-image: url('../../../../assets/images/login/step-3.svg');
+    }
+  }
 `

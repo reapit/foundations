@@ -15,7 +15,6 @@ import {
 import { selectUpdatePasswordLoading } from '@/selector/cognito-identity'
 import { changePassword } from '@/actions/cognito-identity'
 import ChangePasswordForm, { ChangePasswordValues } from './change-password-form'
-import * as styles from './__styles__'
 import InstallationsTable from './installations-table'
 
 export type CreateDispatchersReturn = {
@@ -75,7 +74,7 @@ export const Settings: React.FC = () => {
 
   return (
     <>
-      <Section isFlex className="justify-between items-center">
+      <Section isFlex className="justify-between items-center" hasPadding={false}>
         <H3 className="mb-0">Settings</H3>
         {!connectIsDesktop && (
           <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
@@ -83,7 +82,7 @@ export const Settings: React.FC = () => {
           </Button>
         )}
       </Section>
-      <Section className={styles.userInfoSection}>
+      <Section hasPadding={false}>
         <Grid>
           <GridItem>
             <Grid>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { H3, Section, Content, Helper, Loader } from '@reapit/elements'
+import { H3, Section, Helper, Loader } from '@reapit/elements'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { CredentialsModel, metabaseApiService } from '@/platform-api/metabase-api'
@@ -24,26 +24,24 @@ export const Home: React.FC<HomeProps> = () => {
       fetchAppoinmentConfigs()
     }
   }, [connectSession])
-  console.log('Metabase URI is', metabaseCredentials?.url)
+
   return (
     <>
-      <Content>
-        <H3 isHeadingSection>Reapit Insights</H3>
-        <Section isFlex isFlexColumn>
-          {loading ? (
-            <Loader />
-          ) : metabaseCredentials && !metabaseCredentials.url ? (
-            <Helper>No credentials found to load the application</Helper>
-          ) : (
-            <iframe
-              style={{ border: 'none', flexGrow: 1 }}
-              src={metabaseCredentials?.url as string}
-              width="100%"
-              height="900px"
-            />
-          )}
-        </Section>
-      </Content>
+      <H3>Reapit Insights</H3>
+      <Section isFlex isFlexColumn hasPadding={false} hasMargin={false} isFullHeight>
+        {loading ? (
+          <Loader />
+        ) : metabaseCredentials && !metabaseCredentials.url ? (
+          <Helper>No credentials found to load the application</Helper>
+        ) : (
+          <iframe
+            style={{ border: 'none', flexGrow: 1 }}
+            src={metabaseCredentials?.url as string}
+            width="100%"
+            height="100%"
+          />
+        )}
+      </Section>
     </>
   )
 }

@@ -14,11 +14,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
   }
 >
   <DeveloperHelpPage>
-    <H3
-      isHeadingSection={true}
-    >
+    <H3>
       <h3
-        className="title is-3 is-heading-section"
+        className="title is-3"
         id=""
       >
         Help
@@ -89,11 +87,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -160,7 +159,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}
@@ -187,11 +186,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -258,7 +258,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}
@@ -285,11 +285,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -355,7 +356,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}
@@ -382,11 +383,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -453,7 +455,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}
@@ -480,11 +482,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -550,7 +553,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}
@@ -577,11 +580,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
+                hasBoxShadow={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
                   data-test=""
                 >
                   <FadeIn>
@@ -648,7 +652,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button bit4slh-button is-primary  "
+                                  className="button   is-primary bit4slh-button"
                                   data-test=""
                                   disabled={false}
                                   onClick={[Function]}

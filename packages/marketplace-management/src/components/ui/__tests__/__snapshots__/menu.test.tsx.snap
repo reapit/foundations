@@ -6,34 +6,26 @@ exports[`Menu should match a snapshot 1`] = `
   menu={
     Array [
       Object {
-        "icon": <ReapitLogo
-          className="nav-item-icon"
-        />,
+        "icon": <ReapitHouseIcon />,
         "key": "LOGO",
         "type": "LOGO",
       },
       Object {
-        "icon": <FaHome
-          className="nav-item-icon"
-        />,
+        "icon": <OfficesIcon />,
         "key": "OFFICES",
         "title": "Offices",
         "type": "PRIMARY",
         "url": "/offices",
       },
       Object {
-        "icon": <FaUser
-          className="nav-item-icon"
-        />,
+        "icon": <UsersIcon />,
         "key": "USERS",
         "title": "Users",
         "type": "PRIMARY",
         "url": "/users",
       },
       Object {
-        "icon": <FaStoreAlt
-          className="nav-item-icon"
-        />,
+        "icon": <MarketplaceIcon />,
         "key": "MARKETPLACE",
         "title": <div
           className="menu-item-overflow"
@@ -45,18 +37,14 @@ exports[`Menu should match a snapshot 1`] = `
       },
       Object {
         "callback": [Function],
-        "icon": <FaCloud
-          className="nav-item-icon"
-        />,
+        "icon": <AppsIcon />,
         "key": "APPS",
         "title": "Apps",
         "type": "PRIMARY",
       },
       Object {
         "callback": [Function],
-        "icon": <FaSignOutAlt
-          className="nav-item-icon"
-        />,
+        "icon": <ProfileIcon />,
         "key": "LOGOUT",
         "title": "Logout",
         "type": "SECONDARY",

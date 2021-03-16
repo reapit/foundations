@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, useHistory, useLocation } from 'react-router'
-import { Loader, H3, isMobile, Content, Section } from '@reapit/elements'
+import { Loader, H3, isMobile, Content } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import InstalledAppList from '@/components/pages/installed-apps/installed-app-list'
@@ -14,7 +14,6 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { cx } from 'linaria'
 import { useMemo } from 'react'
-import { helperText } from './__styles__/installed-app-list'
 import { selectIsAdmin, selectSandboxDeveloper } from '../../../selector/auth'
 import { Link } from 'react-router-dom'
 
@@ -51,9 +50,7 @@ export const InstalledApps: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3 className={cx(isMobileView && 'text-center')} isHeadingSection>
-        Installed Apps
-      </H3>
+      <H3 className={cx(isMobileView && 'text-center')}>Installed Apps</H3>
       {unfetched || loading ? (
         <Loader />
       ) : (
@@ -71,14 +68,12 @@ export const InstalledApps: React.FC = () => {
             }}
           />
           {!isMobileView && isAdmin && directApiApps.length ? (
-            <Section>
-              <i className={helperText}>
-                You currently have {directApiApps.length} {directApiApps.length > 1 ? 'integrations' : 'integration'}{' '}
-                installed for your organisation. To view or manage{' '}
-                {directApiApps.length > 1 ? 'these integrations' : 'this integration'}, please click{' '}
-                <Link to={Routes.MY_APPS}>here.</Link>
-              </i>
-            </Section>
+            <>
+              You currently have {directApiApps.length} {directApiApps.length > 1 ? 'integrations' : 'integration'}{' '}
+              installed for your organisation. To view or manage{' '}
+              {directApiApps.length > 1 ? 'these integrations' : 'this integration'}, please click{' '}
+              <Link to={Routes.MY_APPS}>here.</Link>
+            </>
           ) : null}
         </Content>
       )}

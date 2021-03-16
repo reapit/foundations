@@ -24,7 +24,7 @@ export const SandboxPopUp = ({
 
   return (
     <div className={wrapPopup}>
-      <ToastMessage visible={isOpen} message={message} variant="info" onCloseToast={setOpen} />
+      <ToastMessage visible={isOpen} message={message} variant="primary" onCloseToast={setOpen} />
     </div>
   )
 }

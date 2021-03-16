@@ -140,11 +140,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
       >
         <ModalV2
           footer={
-            <div
-              className="flex"
+            <ButtonGroup
+              hasSpacing={true}
+              isCentered={true}
             >
               <Button
-                className="i5943rj-install-button"
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
@@ -154,7 +154,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                 Cancel
               </Button>
               <Button
-                className="i5943rj-install-button"
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -163,7 +162,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               >
                 Confirm
               </Button>
-            </div>
+            </ButtonGroup>
           }
           isCentered={true}
           onClose={[MockFunction]}
@@ -180,11 +179,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             }
             destroyOnClose={true}
             footer={
-              <div
-                className="flex"
+              <ButtonGroup
+                hasSpacing={true}
+                isCentered={true}
               >
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
@@ -194,7 +193,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                   Cancel
                 </Button>
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -203,7 +201,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                 >
                   Confirm
                 </Button>
-              </div>
+              </ButtonGroup>
             }
             onClose={[MockFunction]}
             title={
@@ -335,17 +333,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-footer"
                               >
                                 <div
-                                  class="flex"
+                                  class="is-centered buttons mx-auto"
                                 >
                                   <button
-                                    class="button i5943rj-install-button is-secondary  "
+                                    class="button   is-secondary "
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button i5943rj-install-button is-primary  "
+                                    class="button   is-primary "
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -376,11 +374,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                     }
                     destroyOnClose={true}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
@@ -390,7 +388,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -399,7 +396,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     getContainer={[Function]}
                     getOpenCount={[Function]}
@@ -468,28 +465,40 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -499,7 +508,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -508,7 +517,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -575,15 +584,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                           class=""
                                           data-test="installations-success-message"
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               <p
@@ -612,14 +629,14 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                               class="has-text-right"
                                             >
                                               <button
-                                                class="button  is-primary  "
+                                                class="button   is-primary "
                                                 data-test="installations-success-button"
                                                 type="button"
                                               >
                                                 Back to List
                                               </button>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -745,17 +762,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                         class="rc-dialog-footer"
                                       >
                                         <div
-                                          class="flex"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button i5943rj-install-button is-secondary  "
+                                            class="button   is-secondary "
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button i5943rj-install-button is-primary  "
+                                            class="button   is-primary "
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -844,11 +861,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                           }
                           destroyOnClose={true}
                           footer={
-                            <div
-                              className="flex"
+                            <ButtonGroup
+                              hasSpacing={true}
+                              isCentered={true}
                             >
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="disagree-btn"
                                 disabled={false}
                                 onClick={[MockFunction]}
@@ -858,7 +875,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 Cancel
                               </Button>
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="agree-btn"
                                 loading={false}
                                 onClick={[Function]}
@@ -867,7 +883,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                               >
                                 Confirm
                               </Button>
-                            </div>
+                            </ButtonGroup>
                           }
                           getContainer={[Function]}
                           getOpenCount={[Function]}
@@ -940,28 +956,40 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class=""
                                                 data-test=""
                                               >
-                                                <div
-                                                  class="notification is-success mb-0"
-                                                  data-test=""
-                                                  role="alert"
+                                                <header
+                                                  class="modal-card-head"
                                                 >
-                                                  Success
-                                                </div>
-                                                <div
-                                                  class="container-flex is-column has-background has-padding"
+                                                  <h4
+                                                    class="modal-card-title is-4"
+                                                  >
+                                                    Success
+                                                  </h4>
+                                                  <button
+                                                    aria-label="close"
+                                                    class="delete"
+                                                    data-test="modal-close-button"
+                                                    type="button"
+                                                  />
+                                                </header>
+                                                <section
+                                                  class="modal-card-body"
                                                 >
                                                   <p>
-                                                    Peter's Properties
-                                                     has been successfully installed
+                                                    <p
+                                                      class="mb-4"
+                                                    >
+                                                      Peter's Properties
+                                                       has been successfully installed
+                                                    </p>
                                                   </p>
                                                   <div
                                                     class="has-text-right"
                                                   >
                                                     <div
-                                                      class="b1hev0vk-btn-group"
+                                                      class="is-centered buttons mx-auto"
                                                     >
                                                       <button
-                                                        class="button  is-primary  "
+                                                        class="button   is-secondary "
                                                         data-test="installations-success-message"
                                                         type="button"
                                                       >
@@ -971,7 +999,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                         href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                       >
                                                         <button
-                                                          class="button  is-primary  "
+                                                          class="button   is-primary "
                                                           data-test="installations-success-message-launch"
                                                           type="button"
                                                         >
@@ -980,7 +1008,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                       </a>
                                                     </div>
                                                   </div>
-                                                </div>
+                                                </section>
                                               </div>
                                             </div>
                                           </div>
@@ -1047,15 +1075,23 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                 class=""
                                                 data-test="installations-success-message"
                                               >
-                                                <div
-                                                  class="notification is-success mb-0"
-                                                  data-test=""
-                                                  role="alert"
+                                                <header
+                                                  class="modal-card-head"
                                                 >
-                                                  Success
-                                                </div>
-                                                <div
-                                                  class="container-flex is-column has-background has-padding"
+                                                  <h4
+                                                    class="modal-card-title is-4"
+                                                  >
+                                                    Success
+                                                  </h4>
+                                                  <button
+                                                    aria-label="close"
+                                                    class="delete"
+                                                    data-test="modal-close-button"
+                                                    type="button"
+                                                  />
+                                                </header>
+                                                <section
+                                                  class="modal-card-body"
                                                 >
                                                   <p>
                                                     <p
@@ -1084,14 +1120,14 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                     class="has-text-right"
                                                   >
                                                     <button
-                                                      class="button  is-primary  "
+                                                      class="button   is-primary "
                                                       data-test="installations-success-button"
                                                       type="button"
                                                     >
                                                       Back to List
                                                     </button>
                                                   </div>
-                                                </div>
+                                                </section>
                                               </div>
                                             </div>
                                           </div>
@@ -1217,17 +1253,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                               class="rc-dialog-footer"
                                             >
                                               <div
-                                                class="flex"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button i5943rj-install-button is-secondary  "
+                                                  class="button   is-secondary "
                                                   data-test="disagree-btn"
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button i5943rj-install-button is-primary  "
+                                                  class="button   is-primary "
                                                   data-test="agree-btn"
                                                   type="button"
                                                 >
@@ -1413,46 +1449,49 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     <div
                                       className="rc-dialog-footer"
                                     >
-                                      <div
-                                        className="flex"
+                                      <ButtonGroup
+                                        hasSpacing={true}
+                                        isCentered={true}
                                       >
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="disagree-btn"
-                                          disabled={false}
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="secondary"
+                                        <div
+                                          className="is-centered buttons mx-auto"
                                         >
-                                          <button
-                                            className="button i5943rj-install-button is-secondary  "
-                                            data-test="disagree-btn"
+                                          <Button
+                                            dataTest="disagree-btn"
                                             disabled={false}
                                             onClick={[MockFunction]}
                                             type="button"
+                                            variant="secondary"
                                           >
-                                            Cancel
-                                          </button>
-                                        </Button>
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="agree-btn"
-                                          loading={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                          variant="primary"
-                                        >
-                                          <button
-                                            className="button i5943rj-install-button is-primary  "
-                                            data-test="agree-btn"
-                                            disabled={false}
+                                            <button
+                                              className="button   is-secondary "
+                                              data-test="disagree-btn"
+                                              disabled={false}
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                            >
+                                              Cancel
+                                            </button>
+                                          </Button>
+                                          <Button
+                                            dataTest="agree-btn"
+                                            loading={false}
                                             onClick={[Function]}
                                             type="button"
+                                            variant="primary"
                                           >
-                                            Confirm
-                                          </button>
-                                        </Button>
-                                      </div>
+                                            <button
+                                              className="button   is-primary "
+                                              data-test="agree-btn"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                            >
+                                              Confirm
+                                            </button>
+                                          </Button>
+                                        </div>
+                                      </ButtonGroup>
                                     </div>
                                   </div>
                                 </Component>
@@ -1757,15 +1796,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class=""
                             data-test="installations-success-message"
                           >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
+                            <header
+                              class="modal-card-head"
                             >
-                              Success
-                            </div>
-                            <div
-                              class="container-flex is-column has-background has-padding"
+                              <h4
+                                class="modal-card-title is-4"
+                              >
+                                Success
+                              </h4>
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                data-test="modal-close-button"
+                                type="button"
+                              />
+                            </header>
+                            <section
+                              class="modal-card-body"
                             >
                               <p>
                                 <p
@@ -1794,14 +1841,14 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 class="has-text-right"
                               >
                                 <button
-                                  class="button  is-primary  "
+                                  class="button   is-primary "
                                   data-test="installations-success-button"
                                   type="button"
                                 >
                                   Back to List
                                 </button>
                               </div>
-                            </div>
+                            </section>
                           </div>
                         </div>
                       </div>
@@ -1893,28 +1940,40 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test=""
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
-                                        Peter's Properties
-                                         has been successfully installed
+                                        <p
+                                          class="mb-4"
+                                        >
+                                          Peter's Properties
+                                           has been successfully installed
+                                        </p>
                                       </p>
                                       <div
                                         class="has-text-right"
                                       >
                                         <div
-                                          class="b1hev0vk-btn-group"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-secondary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -1924,7 +1983,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                           >
                                             <button
-                                              class="button  is-primary  "
+                                              class="button   is-primary "
                                               data-test="installations-success-message-launch"
                                               type="button"
                                             >
@@ -1933,7 +1992,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           </a>
                                         </div>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2000,15 +2059,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test="installations-success-message"
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
                                         <p
@@ -2037,14 +2104,14 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                         class="has-text-right"
                                       >
                                         <button
-                                          class="button  is-primary  "
+                                          class="button   is-primary "
                                           data-test="installations-success-button"
                                           type="button"
                                         >
                                           Back to List
                                         </button>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2194,28 +2261,40 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -2225,7 +2304,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -2234,7 +2313,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -2301,15 +2380,23 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test="installations-success-message"
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
                                               <p
@@ -2338,14 +2425,14 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                               class="has-text-right"
                                             >
                                               <button
-                                                class="button  is-primary  "
+                                                class="button   is-primary "
                                                 data-test="installations-success-button"
                                                 type="button"
                                               >
                                                 Back to List
                                               </button>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -2443,26 +2530,70 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     className=""
                                     data-test="installations-success-message"
                                   >
-                                    <Alert
-                                      className="mb-0"
-                                      message="Success"
-                                      type="success"
+                                    <ModalHeader
+                                      afterClose={[MockFunction]}
+                                      title="Success"
                                     >
-                                      <div
-                                        className="notification is-success mb-0"
-                                        data-test=""
-                                        role="alert"
+                                      <header
+                                        className="modal-card-head"
                                       >
-                                        Success
-                                      </div>
-                                    </Alert>
-                                    <FlexContainerBasic
-                                      flexColumn={true}
-                                      hasBackground={true}
-                                      hasPadding={true}
+                                        <h4
+                                          className="modal-card-title is-4"
+                                        >
+                                          Success
+                                        </h4>
+                                        <button
+                                          aria-label="close"
+                                          className="delete"
+                                          data-test="modal-close-button"
+                                          onClick={[Function]}
+                                          type="button"
+                                        />
+                                      </header>
+                                    </ModalHeader>
+                                    <ModalBody
+                                      body={
+                                        <React.Fragment>
+                                          <p>
+                                            <p
+                                              className="mb-5"
+                                            >
+                                              Peter's Properties
+                                               has been successfully installed.
+                                            </p>
+                                            <p
+                                              className="mb-5 flex v-align-middle"
+                                            >
+                                              To launch, please use
+                                               
+                                              <a
+                                                className="t1nk0j00-truncate"
+                                                href="agencycloud://process/webpage?url=undefined"
+                                              />
+                                            </p>
+                                            <p>
+                                              If there are any additional setup requirements, a member of 
+                                              Pete's Proptech World Ltd
+                                               will be in touch to help you through the process.
+                                            </p>
+                                          </p>
+                                          <div
+                                            className="has-text-right"
+                                          >
+                                            <Button
+                                              dataTest="installations-success-button"
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                              variant="primary"
+                                            >
+                                              Back to List
+                                            </Button>
+                                          </div>
+                                        </React.Fragment>
+                                      }
                                     >
-                                      <div
-                                        className="container-flex is-column has-background has-padding"
+                                      <section
+                                        className="modal-card-body"
                                       >
                                         <p>
                                           <p
@@ -2497,7 +2628,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             variant="primary"
                                           >
                                             <button
-                                              className="button  is-primary  "
+                                              className="button   is-primary "
                                               data-test="installations-success-button"
                                               disabled={false}
                                               onClick={[MockFunction]}
@@ -2507,8 +2638,8 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             </button>
                                           </Button>
                                         </div>
-                                      </div>
-                                    </FlexContainerBasic>
+                                      </section>
+                                    </ModalBody>
                                   </div>
                                 </CallToAction>
                               </div>
@@ -2672,28 +2803,40 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class=""
                             data-test=""
                           >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
+                            <header
+                              class="modal-card-head"
                             >
-                              Success
-                            </div>
-                            <div
-                              class="container-flex is-column has-background has-padding"
+                              <h4
+                                class="modal-card-title is-4"
+                              >
+                                Success
+                              </h4>
+                              <button
+                                aria-label="close"
+                                class="delete"
+                                data-test="modal-close-button"
+                                type="button"
+                              />
+                            </header>
+                            <section
+                              class="modal-card-body"
                             >
                               <p>
-                                Peter's Properties
-                                 has been successfully installed
+                                <p
+                                  class="mb-4"
+                                >
+                                  Peter's Properties
+                                   has been successfully installed
+                                </p>
                               </p>
                               <div
                                 class="has-text-right"
                               >
                                 <div
-                                  class="b1hev0vk-btn-group"
+                                  class="is-centered buttons mx-auto"
                                 >
                                   <button
-                                    class="button  is-primary  "
+                                    class="button   is-secondary "
                                     data-test="installations-success-message"
                                     type="button"
                                   >
@@ -2703,7 +2846,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                   >
                                     <button
-                                      class="button  is-primary  "
+                                      class="button   is-primary "
                                       data-test="installations-success-message-launch"
                                       type="button"
                                     >
@@ -2712,7 +2855,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                   </a>
                                 </div>
                               </div>
-                            </div>
+                            </section>
                           </div>
                         </div>
                       </div>
@@ -2804,28 +2947,40 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     class=""
                                     data-test=""
                                   >
-                                    <div
-                                      class="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
+                                    <header
+                                      class="modal-card-head"
                                     >
-                                      Success
-                                    </div>
-                                    <div
-                                      class="container-flex is-column has-background has-padding"
+                                      <h4
+                                        class="modal-card-title is-4"
+                                      >
+                                        Success
+                                      </h4>
+                                      <button
+                                        aria-label="close"
+                                        class="delete"
+                                        data-test="modal-close-button"
+                                        type="button"
+                                      />
+                                    </header>
+                                    <section
+                                      class="modal-card-body"
                                     >
                                       <p>
-                                        Peter's Properties
-                                         has been successfully installed
+                                        <p
+                                          class="mb-4"
+                                        >
+                                          Peter's Properties
+                                           has been successfully installed
+                                        </p>
                                       </p>
                                       <div
                                         class="has-text-right"
                                       >
                                         <div
-                                          class="b1hev0vk-btn-group"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button  is-primary  "
+                                            class="button   is-secondary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -2835,7 +2990,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                           >
                                             <button
-                                              class="button  is-primary  "
+                                              class="button   is-primary "
                                               data-test="installations-success-message-launch"
                                               type="button"
                                             >
@@ -2844,7 +2999,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           </a>
                                         </div>
                                       </div>
-                                    </div>
+                                    </section>
                                   </div>
                                 </div>
                               </div>
@@ -2994,28 +3149,40 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           class=""
                                           data-test=""
                                         >
-                                          <div
-                                            class="notification is-success mb-0"
-                                            data-test=""
-                                            role="alert"
+                                          <header
+                                            class="modal-card-head"
                                           >
-                                            Success
-                                          </div>
-                                          <div
-                                            class="container-flex is-column has-background has-padding"
+                                            <h4
+                                              class="modal-card-title is-4"
+                                            >
+                                              Success
+                                            </h4>
+                                            <button
+                                              aria-label="close"
+                                              class="delete"
+                                              data-test="modal-close-button"
+                                              type="button"
+                                            />
+                                          </header>
+                                          <section
+                                            class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button  is-primary  "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -3025,7 +3192,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                   href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
                                                 >
                                                   <button
-                                                    class="button  is-primary  "
+                                                    class="button   is-primary "
                                                     data-test="installations-success-message-launch"
                                                     type="button"
                                                   >
@@ -3034,7 +3201,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                 </a>
                                               </div>
                                             </div>
-                                          </div>
+                                          </section>
                                         </div>
                                       </div>
                                     </div>
@@ -3123,14 +3290,15 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 <CallToAction
                                   buttonDataTest="installations-success-button-back"
                                   footerItems={
-                                    <div
-                                      className="b1hev0vk-btn-group"
+                                    <ButtonGroup
+                                      hasSpacing={true}
+                                      isCentered={true}
                                     >
                                       <Button
                                         dataTest="installations-success-message"
                                         onClick={[MockFunction]}
                                         type="button"
-                                        variant="primary"
+                                        variant="secondary"
                                       >
                                         Back To List
                                       </Button>
@@ -3145,7 +3313,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           Launch App
                                         </Button>
                                       </a>
-                                    </div>
+                                    </ButtonGroup>
                                   }
                                   isCenter={true}
                                   onButtonClick={[MockFunction]}
@@ -3155,75 +3323,129 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                     className=""
                                     data-test=""
                                   >
-                                    <Alert
-                                      className="mb-0"
-                                      message="Success"
-                                      type="success"
+                                    <ModalHeader
+                                      afterClose={[MockFunction]}
+                                      title="Success"
                                     >
-                                      <div
-                                        className="notification is-success mb-0"
-                                        data-test=""
-                                        role="alert"
+                                      <header
+                                        className="modal-card-head"
                                       >
-                                        Success
-                                      </div>
-                                    </Alert>
-                                    <FlexContainerBasic
-                                      flexColumn={true}
-                                      hasBackground={true}
-                                      hasPadding={true}
+                                        <h4
+                                          className="modal-card-title is-4"
+                                        >
+                                          Success
+                                        </h4>
+                                        <button
+                                          aria-label="close"
+                                          className="delete"
+                                          data-test="modal-close-button"
+                                          onClick={[Function]}
+                                          type="button"
+                                        />
+                                      </header>
+                                    </ModalHeader>
+                                    <ModalBody
+                                      body={
+                                        <React.Fragment>
+                                          <p>
+                                            <p
+                                              className="mb-4"
+                                            >
+                                              Peter's Properties
+                                               has been successfully installed
+                                            </p>
+                                          </p>
+                                          <div
+                                            className="has-text-right"
+                                          >
+                                            <ButtonGroup
+                                              hasSpacing={true}
+                                              isCentered={true}
+                                            >
+                                              <Button
+                                                dataTest="installations-success-message"
+                                                onClick={[MockFunction]}
+                                                type="button"
+                                                variant="secondary"
+                                              >
+                                                Back To List
+                                              </Button>
+                                              <a
+                                                href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                              >
+                                                <Button
+                                                  dataTest="installations-success-message-launch"
+                                                  type="button"
+                                                  variant="primary"
+                                                >
+                                                  Launch App
+                                                </Button>
+                                              </a>
+                                            </ButtonGroup>
+                                          </div>
+                                        </React.Fragment>
+                                      }
                                     >
-                                      <div
-                                        className="container-flex is-column has-background has-padding"
+                                      <section
+                                        className="modal-card-body"
                                       >
                                         <p>
-                                          Peter's Properties
-                                           has been successfully installed
+                                          <p
+                                            className="mb-4"
+                                          >
+                                            Peter's Properties
+                                             has been successfully installed
+                                          </p>
                                         </p>
                                         <div
                                           className="has-text-right"
                                         >
-                                          <div
-                                            className="b1hev0vk-btn-group"
+                                          <ButtonGroup
+                                            hasSpacing={true}
+                                            isCentered={true}
                                           >
-                                            <Button
-                                              dataTest="installations-success-message"
-                                              onClick={[MockFunction]}
-                                              type="button"
-                                              variant="primary"
-                                            >
-                                              <button
-                                                className="button  is-primary  "
-                                                data-test="installations-success-message"
-                                                disabled={false}
-                                                onClick={[MockFunction]}
-                                                type="button"
-                                              >
-                                                Back To List
-                                              </button>
-                                            </Button>
-                                            <a
-                                              href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                            <div
+                                              className="is-centered buttons mx-auto"
                                             >
                                               <Button
-                                                dataTest="installations-success-message-launch"
+                                                dataTest="installations-success-message"
+                                                onClick={[MockFunction]}
                                                 type="button"
-                                                variant="primary"
+                                                variant="secondary"
                                               >
                                                 <button
-                                                  className="button  is-primary  "
-                                                  data-test="installations-success-message-launch"
+                                                  className="button   is-secondary "
+                                                  data-test="installations-success-message"
                                                   disabled={false}
+                                                  onClick={[MockFunction]}
                                                   type="button"
                                                 >
-                                                  Launch App
+                                                  Back To List
                                                 </button>
                                               </Button>
-                                            </a>
-                                          </div>
+                                              <a
+                                                href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                              >
+                                                <Button
+                                                  dataTest="installations-success-message-launch"
+                                                  type="button"
+                                                  variant="primary"
+                                                >
+                                                  <button
+                                                    className="button   is-primary "
+                                                    data-test="installations-success-message-launch"
+                                                    disabled={false}
+                                                    type="button"
+                                                  >
+                                                    Launch App
+                                                  </button>
+                                                </Button>
+                                              </a>
+                                            </div>
+                                          </ButtonGroup>
                                         </div>
-                                      </div>
-                                    </FlexContainerBasic>
+                                      </section>
+                                    </ModalBody>
                                   </div>
                                 </CallToAction>
                               </div>

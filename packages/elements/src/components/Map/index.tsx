@@ -108,7 +108,6 @@ export const handleRequestDirectionServiceResponse = ({
   } else {
     notification.error({
       message: 'Directions request failed due to ' + status,
-      placement: 'bottomRight',
     })
   }
 }

@@ -5,7 +5,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   <Menu />
   <FlexContainerBasic
     flexColumn={true}
-    hasPadding={true}
     isScrollable={true}
   >
     <FlexContainerResponsive

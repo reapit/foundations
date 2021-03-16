@@ -1,5 +1,4 @@
 import { css } from 'linaria'
-import { grey } from '../../../../core/__styles__/colors'
 
 export const contentIsLoading = css`
   opacity: 0.75;
@@ -15,9 +14,4 @@ export const wrapList = css`
   & > * {
     margin-bottom: 1rem;
   }
-`
-
-export const helperText = css`
-  font-size: 1rem;
-  color: ${grey};
 `

@@ -50,7 +50,6 @@ describe('developerSubscriptionsSagas', () => {
       expect(clone.throw('error').value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
     })
@@ -111,7 +110,6 @@ describe('developerSubscriptionsSagas', () => {
       expect(clone.throw('error').value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
     })

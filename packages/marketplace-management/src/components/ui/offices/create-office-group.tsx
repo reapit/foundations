@@ -10,6 +10,7 @@ import {
   DropdownSelect,
   notification,
   SelectOption,
+  ButtonGroup,
 } from '@reapit/elements'
 import { createOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
@@ -49,7 +50,6 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   if (createdOffice) {
     notification.success({
       message: toastMessages.CREATE_OFFICE_GROUP_SUCCESS,
-      placement: 'bottomRight',
     })
     handleOnClose()
     onRefetchData()
@@ -58,7 +58,6 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
 
   notification.error({
     message: toastMessages.FAILED_TO_CREATE_OFFICE_GROUP,
-    placement: 'bottomRight',
   })
 }
 
@@ -105,10 +104,10 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
   return (
     <ModalV2 visible={visible} destroyOnClose={true} onClose={handleOnClose} title="Create Office Group" zIndex={90}>
       <p className="helper-text">
-        <i>
+        <p>
           To create a new office group, please provide a group ‘Name’ and search and select an Office(s). You will need
           a minimum of 1 office to create a new group.
-        </i>
+        </p>
       </p>
       <Formik initialValues={{ name: '', officeIds: [] }} onSubmit={onSubmit} validationSchema={validationSchema}>
         {() => {
@@ -130,14 +129,14 @@ export const CreateOfficeGroupModal: React.FC<CreateOfficeGroupModalProps> = ({
                 />
                 <FormChangeEffect setSelectedOffice={setSelectedOffice} options={options} />
               </Section>
-              <Section isFlex hasPadding={false} hasMargin={false}>
-                <Button variant="info" disabled={false} onClick={handleOnClose} type="button">
+              <ButtonGroup isCentered hasSpacing>
+                <Button variant="secondary" disabled={false} onClick={handleOnClose} type="button">
                   Cancel
                 </Button>
-                <Button variant="info" loading={false} type="submit">
+                <Button variant="primary" loading={false} type="submit">
                   Create
                 </Button>
-              </Section>
+              </ButtonGroup>
             </Form>
           )
         }}

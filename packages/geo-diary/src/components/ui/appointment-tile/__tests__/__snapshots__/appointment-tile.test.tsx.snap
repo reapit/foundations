@@ -6,7 +6,10 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
     <Tile
       footerItems={
         Array [
-          <div>
+          <ButtonGroup
+            hasSpacing={true}
+            isCentered={true}
+          >
             <Button
               className="button-padding-small is-centered mr-2 mb-2"
               disabled={false}
@@ -14,7 +17,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               loading={false}
               onClick={[Function]}
               type="submit"
-              variant="info"
+              variant="primary"
             >
               Details
             </Button>
@@ -25,7 +28,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               loading={false}
               onClick={[Function]}
               type="submit"
-              variant="info"
+              variant="primary"
             >
               Directions
             </Button>
@@ -217,7 +220,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
                 }
               }
             />
-          </div>,
+          </ButtonGroup>,
         ]
       }
       heading="56 High Street"
@@ -460,7 +463,7 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     loading={false}
     onClick={[Function]}
     type="submit"
-    variant="info"
+    variant="primary"
   >
     Details
   </Button>
@@ -472,7 +475,7 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     loading={false}
     onClick={[Function]}
     type="submit"
-    variant="info"
+    variant="primary"
   >
     Directions
   </Button>

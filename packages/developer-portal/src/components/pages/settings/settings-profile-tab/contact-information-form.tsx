@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   FormSection,
-  FormHeading,
+  H5,
   FormSubHeading,
   Input,
   Button,
@@ -71,7 +71,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
           <FormSection>
             <Form>
               <FadeIn>
-                <FormHeading>Contact Information</FormHeading>
+                <H5>Contact Information</H5>
                 <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
                 <Grid>
                   <GridItem>

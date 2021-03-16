@@ -2,27 +2,26 @@
 
 exports[`Home should match a snapshot 1`] = `
 <Fragment>
-  <Content>
-    <H3
-      isHeadingSection={true}
-    >
-      Reapit Insights
-    </H3>
-    <Section
-      isFlex={true}
-      isFlexColumn={true}
-    >
-      <iframe
-        height="900px"
-        style={
-          Object {
-            "border": "none",
-            "flexGrow": 1,
-          }
+  <H3>
+    Reapit Insights
+  </H3>
+  <Section
+    hasMargin={false}
+    hasPadding={false}
+    isFlex={true}
+    isFlexColumn={true}
+    isFullHeight={true}
+  >
+    <iframe
+      height="100%"
+      style={
+        Object {
+          "border": "none",
+          "flexGrow": 1,
         }
-        width="100%"
-      />
-    </Section>
-  </Content>
+      }
+      width="100%"
+    />
+  </Section>
 </Fragment>
 `;

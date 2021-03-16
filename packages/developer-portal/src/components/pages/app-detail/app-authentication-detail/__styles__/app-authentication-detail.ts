@@ -1,9 +1,9 @@
 import { css } from 'linaria'
-import { grey } from '@/core/__styles__/colors'
+import { greyMedium } from '@/core/__styles__/colors'
 
 export const authenticationCodeWrap = css`
   padding: 8px;
-  border: 1px solid ${grey};
+  border: 1px solid ${greyMedium};
   min-width: 80%;
   display: flex;
   align-items: center;

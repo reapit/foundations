@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { Redirect, useHistory } from 'react-router'
-import { Modal, Button } from '@reapit/elements'
+import { Modal, Button, ButtonGroup } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
@@ -65,7 +65,7 @@ const Authentication: React.FC = () => {
       visible={true}
       tapOutsideToDissmiss={false}
       footerItems={
-        <>
+        <ButtonGroup hasSpacing isCentered>
           {isUserAdmin ? (
             <Button onClick={onContinueButtonClick(dispatch, connectSession)} disabled={isLoading} loading={isLoading}>
               Continue
@@ -79,7 +79,7 @@ const Authentication: React.FC = () => {
           <Button onClick={onLogoutButtonClick} disabled={isLoading}>
             Logout
           </Button>
-        </>
+        </ButtonGroup>
       }
     >
       <p>

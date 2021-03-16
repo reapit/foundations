@@ -60,6 +60,13 @@ exports[`Login should match a snapshot 1`] = `
           className="cg2ypmp-container"
         >
           <div
+            className="i1g8zzoj-image-container"
+          >
+            <div
+              className="lfnzdfi-login-image"
+            />
+          </div>
+          <div
             className="wtehddc-wrapper"
           >
             <Level>
@@ -97,7 +104,7 @@ exports[`Login should match a snapshot 1`] = `
                   onClick={[Function]}
                 >
                   <button
-                    className="button l1cbog1d-login-button is-primary is-fullwidth "
+                    className="button is-fullwidth  is-primary l1cbog1d-login-button"
                     data-test="login-button"
                     disabled={false}
                     onClick={[Function]}
@@ -136,14 +143,6 @@ exports[`Login should match a snapshot 1`] = `
                 className="container-flex is-centered pt-8"
               />
             </FlexContainerBasic>
-          </div>
-          <div
-            className="i1g8zzoj-image"
-          >
-            <img
-              alt="Reapit Graphic"
-              src=""
-            />
           </div>
         </div>
       </Login>

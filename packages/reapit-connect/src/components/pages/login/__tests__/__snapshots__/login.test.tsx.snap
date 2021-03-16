@@ -2,10 +2,17 @@
 
 exports[`Login should match snapshot 1`] = `
 <div
-  className="login-page-container"
+  className="login-container"
 >
   <div
-    className="login-page-form-container"
+    className="image-container"
+  >
+    <div
+      className="login-image"
+    />
+  </div>
+  <div
+    className="wrapper"
   >
     <Level>
       <img
@@ -13,23 +20,23 @@ exports[`Login should match snapshot 1`] = `
         src=""
       />
     </Level>
-    <Level>
+    <Level
+      className="login-level"
+    >
       <Button
+        dataTest="login-button"
+        disabled={false}
         fullWidth={true}
+        loading={false}
         onClick={[Function]}
-        type="submit"
+        type="button"
         variant="primary"
       >
         Login
       </Button>
     </Level>
-  </div>
-  <div
-    className="login-page-image-container"
-  >
-    <img
-      alt="Reapit Graphic"
-      src=""
+    <FlexContainerBasic
+      centerContent={true}
     />
   </div>
 </div>

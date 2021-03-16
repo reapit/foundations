@@ -6,7 +6,7 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { getAppHttpTraffic } from '@/selector/analytics'
 import { selectInstallationsListData, selectInstallationsFilterListData } from '@/selector/installations'
 
-import { Grid, GridItem, Section } from '@reapit/elements'
+import { Grid, GridItem } from '@reapit/elements'
 import DeveloperHitsPerDayChart from './hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
@@ -125,9 +125,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
-        <FilterBar developerAppsData={apps} installationAppDataArray={installationAppDataArray || []} />
-      </Section>
+      <FilterBar developerAppsData={apps} installationAppDataArray={installationAppDataArray || []} />
       <Grid isMultiLine>
         <GridItem className="is-half">
           <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />

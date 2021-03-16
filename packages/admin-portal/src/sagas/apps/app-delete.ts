@@ -22,7 +22,6 @@ export const requestDeleteAppSaga = function* ({ data: appId }: Action<string>) 
 
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(requestDeleteAppFailed())
   }

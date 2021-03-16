@@ -33,10 +33,10 @@ export const UsersPage: React.FC = () => {
   const handleChangeTab = (url: string) => history.push(url)
   return (
     <div>
-      <H3 isHeadingSection>Manage Users</H3>
+      <H3>Manage Users</H3>
       {window.reapit.config.appEnv !== 'production' && (
         <>
-          <Section>
+          <Section hasPadding={false}>
             <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
           </Section>
           <Route path={Routes.USERS} component={UsersTab} exact />

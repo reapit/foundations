@@ -109,14 +109,14 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                             data-test=""
                           >
                             <button
-                              class="button  is-info  "
+                              class="button   is-info "
                               data-test=""
                               type="button"
                             >
                               Yes
                             </button>
                             <button
-                              class="button  is-info  "
+                              class="button   is-info "
                               data-test=""
                               type="button"
                             >
@@ -220,14 +220,14 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                                     data-test=""
                                   >
                                     <button
-                                      class="button  is-info  "
+                                      class="button   is-info "
                                       data-test=""
                                       type="button"
                                     >
                                       Yes
                                     </button>
                                     <button
-                                      class="button  is-info  "
+                                      class="button   is-info "
                                       data-test=""
                                       type="button"
                                     >
@@ -389,14 +389,14 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                                           data-test=""
                                         >
                                           <button
-                                            class="button  is-info  "
+                                            class="button   is-info "
                                             data-test=""
                                             type="button"
                                           >
                                             Yes
                                           </button>
                                           <button
-                                            class="button  is-info  "
+                                            class="button   is-info "
                                             data-test=""
                                             type="button"
                                           >
@@ -511,7 +511,7 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                                       variant="info"
                                     >
                                       <button
-                                        className="button  is-info  "
+                                        className="button   is-info "
                                         data-test=""
                                         disabled={false}
                                         onClick={[MockFunction]}
@@ -527,7 +527,7 @@ exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
                                       variant="info"
                                     >
                                       <button
-                                        className="button  is-info  "
+                                        className="button   is-info "
                                         data-test=""
                                         disabled={false}
                                         onClick={[Function]}

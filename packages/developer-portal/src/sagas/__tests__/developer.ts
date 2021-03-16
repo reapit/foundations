@@ -69,7 +69,6 @@ describe('developer create', () => {
     expect(clone.next().value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
     expect(clone.next().done).toEqual(true)
@@ -108,7 +107,6 @@ describe('fetchBillingSagas', () => {
     expect(clone.next().value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
     expect(clone.next().done).toEqual(true)
@@ -134,7 +132,6 @@ describe('fetchMonthlyBillingSagas', () => {
     expect(clone.next().value).toEqual(
       call(notification.error, {
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
     expect(clone.next().done).toEqual(true)

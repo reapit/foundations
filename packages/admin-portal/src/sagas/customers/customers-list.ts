@@ -35,7 +35,6 @@ export const fetchCustomersListHandler = function* ({ data: { queryString } }) {
     yield put(fetchCustomersListFailed(networkErrorString))
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
   }
 }

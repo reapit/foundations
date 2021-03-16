@@ -42,11 +42,14 @@ exports[`SuccessContent should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <React.Fragment>
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
+      >
         <Button
           onClick={[MockFunction]}
           type="button"
-          variant="primary"
+          variant="secondary"
         >
           CLOSE
         </Button>
@@ -57,7 +60,7 @@ exports[`SuccessContent should match snapshot 1`] = `
         >
           DOWNLOAD NOW
         </Button>
-      </React.Fragment>
+      </ButtonGroup>
     }
   />
 </Fragment>

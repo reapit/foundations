@@ -3,7 +3,7 @@ import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 import { mapPanelContainer } from './__styles__'
 import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../map/map'
-import { Button, isMobile, isIOS } from '@reapit/elements'
+import { Button, isMobile, isIOS, ButtonGroup } from '@reapit/elements'
 import { ROUTES } from '@/core/router'
 
 export type GetMapUrlParams = {
@@ -78,26 +78,19 @@ export const MapPanel: React.FC<MapPanelProps> = ({ routeInformation }: MapPanel
   return (
     <div className={mapPanelContainer}>
       <div>
-        <p className="is-size-4">{routeInformation.duration?.text}</p>
+        <p className="is-size-4 mr-4">{routeInformation.duration?.text}</p>
         <p>{routeInformation.distance?.text}</p>
       </div>
-      <div>
-        <Button className="is-medium" type="button" variant="info" onClick={handleOpenNativeMap({ queryParams })}>
+      <ButtonGroup hasSpacing>
+        <Button type="button" variant="primary" onClick={handleOpenNativeMap({ queryParams })}>
           Start Journey
         </Button>
-      </div>
-      {!isMobile() && (
-        <div>
-          <Button
-            className="is-medium"
-            type="button"
-            variant="info"
-            onClick={handleChangeTab({ queryParams, history })}
-          >
+        {!isMobile() && (
+          <Button type="button" variant="primary" onClick={handleChangeTab({ queryParams, history })}>
             {filterText[queryParams.time || 'today']}
           </Button>
-        </div>
-      )}
+        )}
+      </ButtonGroup>
     </div>
   )
 }

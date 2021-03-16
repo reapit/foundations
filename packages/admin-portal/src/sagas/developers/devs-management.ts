@@ -47,7 +47,6 @@ export const fetchDeveloperListHandler = function* ({ data: { page, queryString 
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(fetchDeveloperListFailed(networkErrorString))
   }
@@ -60,7 +59,6 @@ export const organisationFetchMembers = function* ({ data }: Action<FetchDevelop
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -74,7 +72,6 @@ export const developerDisableMember = function* ({ data }: Action<DisableMemberA
     data.callback(false)
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }
@@ -89,7 +86,6 @@ export const setDeveloperMemberAdmin = function* ({ data }: Action<SetAsAdminPar
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

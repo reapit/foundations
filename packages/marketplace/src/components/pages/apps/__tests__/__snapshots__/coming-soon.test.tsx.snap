@@ -28,9 +28,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
 <div
   id="coming-soon-section"
 >
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     Agency Cloud Apps
   </H3>
   <Grid
@@ -120,9 +118,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
   <div
     className="bb mb-4"
   />
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     Third Party Integrations
   </H3>
   <Grid
@@ -212,9 +208,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
   <div
     className="bb mb-4"
   />
-  <H3
-    isHeadingSection={true}
-  >
+  <H3>
     Portal Integrations
   </H3>
   <Grid

@@ -12,7 +12,6 @@ import {
   H3,
   toLocalTime,
   isEmptyObject,
-  Section,
   Alert,
   FlexContainerBasic,
 } from '@reapit/elements'
@@ -217,9 +216,7 @@ export const DevsManagement: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section className="mb-0">
-        <H3>Developer Management</H3>
-      </Section>
+      <H3>Developer Management</H3>
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
       {renderResult(data, columns, totalCount)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
@@ -242,12 +239,8 @@ export const renderResult = (data, columns, totalCount) => {
 
   return (
     <>
-      <Section>
-        <div>Total: {totalCount}</div>
-      </Section>
-      <Section>
-        <Table expandable scrollable={true} loading={false} data={data || []} columns={columns} />
-      </Section>
+      <div className="mb-4">Total: {totalCount}</div>
+      <Table expandable scrollable={true} loading={false} data={data || []} columns={columns} />
     </>
   )
 }

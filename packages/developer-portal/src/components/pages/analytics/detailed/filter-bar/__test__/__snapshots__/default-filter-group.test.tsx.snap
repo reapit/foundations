@@ -15,7 +15,6 @@ exports[`FilterBar should match a snapshot 1`] = `
   </H6>
   <ButtonGroup>
     <Button
-      className="false"
       fullWidth={false}
       key="Today"
       onClick={[Function]}
@@ -25,17 +24,15 @@ exports[`FilterBar should match a snapshot 1`] = `
       Today
     </Button>
     <Button
-      className="is-info"
       fullWidth={false}
       key="Last 7 days "
       onClick={[Function]}
       type="button"
-      variant="secondary"
+      variant="primary"
     >
       Last 7 days 
     </Button>
     <Button
-      className="false"
       fullWidth={false}
       key="Last 30 days "
       onClick={[Function]}

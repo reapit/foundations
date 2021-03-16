@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, CameraImageInput, SelectBox, Formik, Form } from '@reapit/elements'
+import { Input, Button, CameraImageInput, SelectBox, Formik, Form, ButtonGroup } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
@@ -95,7 +95,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
               </div>
               <div className="field pb-2">
                 <div className={`columns ${styles.reverseColumns}`}>
-                  <div className={`column ${styles.btnContainer}`}>
+                  <ButtonGroup hasSpacing isCentered>
                     <Button
                       loading={isSubmitting}
                       disabled={isSubmitting || !isValid}
@@ -123,7 +123,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                     >
                       Finish
                     </Button>
-                  </div>
+                  </ButtonGroup>
                 </div>
               </div>
             </Form>

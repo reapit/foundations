@@ -101,14 +101,14 @@ export const DeveloperDesktopContentPartTwo: React.FC = () => {
 
 export const DeveloperDesktopPage: React.FC = () => (
   <ErrorBoundary>
-    <H3 isHeadingSection>Desktop</H3>
+    <H3>Desktop</H3>
     <FadeIn>
-      <Section>
+      <Section hasPadding={false}>
         <DeveloperDesktopContentPartOne />
       </Section>
     </FadeIn>
     <FadeIn>
-      <Section>
+      <Section hasPadding={false}>
         <DeveloperDesktopContentPartTwo />
       </Section>
     </FadeIn>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
@@ -7,10 +7,17 @@ import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
 import { getDefaultRoute } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
-import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { wrapper, container, image, register, registerLevel, loginButton } from './__styles__/login'
+import {
+  wrapper,
+  container,
+  register,
+  registerLevel,
+  loginButton,
+  loginImage,
+  imageContainer,
+} from './__styles__/login'
 
 export type LoginProps = {}
 
@@ -35,10 +42,9 @@ export const onLoginButtonClick = () => {
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
-
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
 
-  React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
+  useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
     localStorage,
     dispatch,
@@ -46,6 +52,9 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
 
   return (
     <div className={container}>
+      <div className={imageContainer}>
+        <div className={loginImage}></div>
+      </div>
       <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
@@ -65,9 +74,6 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
         <FlexContainerBasic className="pt-8" centerContent>
           {process.env.APP_VERSION}
         </FlexContainerBasic>
-      </div>
-      <div className={image}>
-        <img src={logoImage} alt="Reapit Graphic" />
       </div>
     </div>
   )

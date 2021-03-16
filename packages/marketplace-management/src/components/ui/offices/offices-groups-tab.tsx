@@ -4,18 +4,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { OfficeGroupModelPagedResult, OfficeGroupModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Pagination,
-  Table,
-  Loader,
-  Section,
-  FadeIn,
-  Helper,
-  toLocalTime,
-  DATE_TIME_FORMAT,
-  Button,
-  H5,
-} from '@reapit/elements'
+import { Pagination, Table, Loader, FadeIn, Helper, toLocalTime, DATE_TIME_FORMAT, Button, H5 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import OfficeListCell from './office-list-cell'
@@ -58,7 +47,7 @@ const OfficesGroupsTab: React.FC = () => {
       row: { original },
     },
   }) => (
-    <Button type="button" variant="info" onClick={() => setEditingGroup(original)}>
+    <Button type="button" variant="primary" onClick={() => setEditingGroup(original)}>
       Edit
     </Button>
   )
@@ -72,33 +61,32 @@ const OfficesGroupsTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
-        <div className="flex justify-between items-center mb-4">
-          <H5 className="mb-0">Office groups</H5>
-          <Button onClick={onOpenCreateModel}>Create office group</Button>
-        </div>
-        <i>
-          The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new
-          office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
-          ‘Edit’ on the associated group.
-        </i>
-        {orgId && (
-          <>
-            <CreateOfficeGroupModal
-              visible={isOpenCreateGroupModal}
-              setOpenCreateGroupModal={setOpenCreateGroupModal}
-              orgId={orgId}
-              onRefetchData={mutate}
-            />
-            <EditOfficeGroupModal
-              setEditingGroup={setEditingGroup}
-              orgId={orgId}
-              editingGroup={editingGroup}
-              onRefetchData={mutate}
-            />
-          </>
-        )}
-      </Section>
+      <div className="flex justify-between items-center mb-4">
+        <H5 className="mb-0">Office groups</H5>
+        <Button onClick={onOpenCreateModel}>Create office group</Button>
+      </div>
+      <p className="mb-4">
+        The list below will show you any ‘Office Groups’ that have been created for your Organisation. To create a new
+        office group, please click on ‘Create New Office Group’. To add or edit an existing office group, please use
+        ‘Edit’ on the associated group.
+      </p>
+      {orgId && (
+        <>
+          <CreateOfficeGroupModal
+            visible={isOpenCreateGroupModal}
+            setOpenCreateGroupModal={setOpenCreateGroupModal}
+            orgId={orgId}
+            onRefetchData={mutate}
+          />
+          <EditOfficeGroupModal
+            setEditingGroup={setEditingGroup}
+            orgId={orgId}
+            editingGroup={editingGroup}
+            onRefetchData={mutate}
+          />
+        </>
+      )}
+
       {!officeGroups ? (
         <Loader />
       ) : (
@@ -116,7 +104,7 @@ export const OfficeGroupsContent: React.FC<{
   const { _embedded: listGroup, totalCount, pageSize, pageNumber = 1 } = officeGroups
   return (
     <>
-      <Section>{renderResult(columns, listGroup)}</Section>
+      {renderResult(columns, listGroup)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )

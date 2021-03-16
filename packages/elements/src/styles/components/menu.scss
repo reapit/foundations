@@ -84,10 +84,8 @@ $nav-dimensions: 66px;
   }
 
   .is-logo .nav-item-icon {
-    width: 75%;
-    @media all and (-ms-high-contrast: none) {
-      height: 42px;
-    }
+    width: auto;
+    height: auto;
   }
 }
 

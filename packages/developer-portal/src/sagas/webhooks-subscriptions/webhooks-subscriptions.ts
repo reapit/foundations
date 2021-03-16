@@ -19,7 +19,6 @@ export const webhooksSubscriptionsFetch = function* ({ data }: Action<FetchWebho
     yield put(fetchWebhooksSubscriptionsFailed(err.description))
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

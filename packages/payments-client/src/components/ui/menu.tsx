@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud, FaPoundSign } from 'react-icons/fa'
+import { Menu as Sidebar, MenuConfig, ReapitHouseIcon, PaymentsIcon, AppsIcon, ProfileIcon } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
@@ -19,13 +18,13 @@ export const generateMenuConfig = (
     menu: [
       {
         key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
       },
       {
         title: 'Payments',
         key: 'PAYMENTS',
-        icon: <FaPoundSign className="nav-item-icon" />,
+        icon: <PaymentsIcon />,
         url: Routes.PAYMENTS,
         type: 'PRIMARY',
       },
@@ -40,7 +39,7 @@ export const generateMenuConfig = (
         {
           title: 'Apps',
           key: 'APPS',
-          icon: <FaCloud className="nav-item-icon" />,
+          icon: <AppsIcon />,
           callback: callbackAppClick,
           type: 'PRIMARY',
         },
@@ -48,7 +47,7 @@ export const generateMenuConfig = (
           title: 'Logout',
           key: 'LOGOUT',
           callback: logoutCallback,
-          icon: <FaSignOutAlt className="nav-item-icon" />,
+          icon: <ProfileIcon />,
           type: 'SECONDARY',
         },
       ],

@@ -226,11 +226,10 @@ exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`]
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <ErrorBoundary>
+  <Connect(AMLProgressBar) />
   <Section
     hasBackground={false}
-    hasPadding={false}
   >
-    <Connect(AMLProgressBar) />
     <FadeIn
       key="0"
     >

@@ -58,7 +58,6 @@ export const onSearchHandler = (history: History<any>) => (
   if (developerId?.length > 1) {
     return notification.error({
       message: errorMessages.SUBSCRIPTION_MULTIPLE_DEVELOPER,
-      placement: 'bottomRight',
     })
   }
 
@@ -142,7 +141,7 @@ const Subscriptions: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3 isHeadingSection>Subscriptions</H3>
+      <H3>Subscriptions</H3>
       <SubscriptionsFilterForm filterValues={filterValues} onSearch={onSearch} />
       {isLoading || !data ? (
         <Loader />
@@ -164,17 +163,15 @@ const Subscriptions: React.FC = () => {
 
 export const renderResult = (data, columns, totalCount) => {
   if (data?.length === 0) {
-    return <Alert message="No Results " type="info" />
+    return <Alert message="No Results " type="primary" />
   }
 
   return (
     <>
-      <Section>
+      <Section hasPadding={false}>
         <div>Total: {totalCount}</div>
       </Section>
-      <Section>
-        <Table expandable scrollable={true} loading={false} data={data || []} columns={columns} />
-      </Section>
+      <Table expandable scrollable={true} loading={false} data={data || []} columns={columns} />
     </>
   )
 }

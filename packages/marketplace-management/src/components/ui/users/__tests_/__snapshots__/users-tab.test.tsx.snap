@@ -2,55 +2,53 @@
 
 exports[`UsersContent  should match a snapshot 1`] = `
 <Fragment>
-  <Section>
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Group Name",
-              "accessor": "id",
-            },
-            Object {
-              "Header": "Members",
-              "accessor": "",
-            },
-            Object {
-              "Cell": <div>
-                Manage
-              </div>,
-              "Header": "Manage",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "agencyCloudCustomerId": "string",
-              "agencyCloudNegotiatorId": "string",
-              "created": "2019-08-14T12:30:02.0000000Z",
-              "email": "string",
-              "groups": Array [
-                "string",
-              ],
-              "id": "string",
-              "inactive": true,
-              "jobTitle": "string",
-              "landline": "string",
-              "marketplaceDeveloperId": "string",
-              "mobile": "string",
-              "modified": "2019-08-14T12:30:02.0000000Z",
-              "name": "string",
-              "organisationId": "string",
-              "organisationName": "string",
-            },
-          ]
-        }
-        expandable={true}
-        scrollable={true}
-      />
-    </FadeIn>
-  </Section>
+  <FadeIn>
+    <Table
+      columns={
+        Array [
+          Object {
+            "Header": "Group Name",
+            "accessor": "id",
+          },
+          Object {
+            "Header": "Members",
+            "accessor": "",
+          },
+          Object {
+            "Cell": <div>
+              Manage
+            </div>,
+            "Header": "Manage",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "agencyCloudCustomerId": "string",
+            "agencyCloudNegotiatorId": "string",
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "email": "string",
+            "groups": Array [
+              "string",
+            ],
+            "id": "string",
+            "inactive": true,
+            "jobTitle": "string",
+            "landline": "string",
+            "marketplaceDeveloperId": "string",
+            "mobile": "string",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+            "name": "string",
+            "organisationId": "string",
+            "organisationName": "string",
+          },
+        ]
+      }
+      expandable={true}
+      scrollable={true}
+    />
+  </FadeIn>
   <Pagination
     onChange={[Function]}
     pageNumber={0}
@@ -62,22 +60,22 @@ exports[`UsersContent  should match a snapshot 1`] = `
 
 exports[`UsersTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Section>
-    <H5>
-      Existing users
-    </H5>
-    <i>
-      The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
-       
-      <a
-        href="https://marketplace-documentation.reapit.cloud/glossary#user-roles"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        here.
-      </a>
-    </i>
-  </Section>
+  <H5>
+    Existing users
+  </H5>
+  <p
+    className="mb-4"
+  >
+    The list below contains all ‘Users’ within your organisation. You can search and edit users to manage the groups an individual user belongs to. For more information on ‘Groups’, please click
+     
+    <a
+      href="https://marketplace-documentation.reapit.cloud/glossary#user-roles"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      here.
+    </a>
+  </p>
   <UsersContent
     columns={
       Array [

@@ -33,7 +33,6 @@ export const fetchSubscriptionListHandler = function* ({ data: { page, queryStri
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(fetchSubscriptionListFailed(networkErrorString))
   }
@@ -48,13 +47,11 @@ export const cancelSubscriptionHandler = function* ({ data: { id } }) {
       yield put(cancelSubscriptionFailed())
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       })
     }
   } catch (err) {
     notification.error({
       message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
     yield put(cancelSubscriptionFailed())
   }

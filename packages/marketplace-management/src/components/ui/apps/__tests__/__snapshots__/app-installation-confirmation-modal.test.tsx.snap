@@ -67,7 +67,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
     </ModalBody>
     <ModalFooter
       footerItems={
-        <React.Fragment>
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
+        >
           <Button
             onClick={[MockFunction]}
             type="button"
@@ -82,42 +85,51 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           >
             Confirm
           </Button>
-        </React.Fragment>
+        </ButtonGroup>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="secondary"
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
         >
-          <button
-            className="button  is-secondary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
+          <div
+            className="is-centered buttons mx-auto"
           >
-            Cancel
-          </button>
-        </Button>
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
-        >
-          <button
-            className="button  is-primary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
-          >
-            Confirm
-          </button>
-        </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Cancel
+              </button>
+            </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Confirm
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
       </footer>
     </ModalFooter>
   </div>
@@ -215,7 +227,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
     </ModalBody>
     <ModalFooter
       footerItems={
-        <React.Fragment>
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
+        >
           <Button
             onClick={[MockFunction]}
             type="button"
@@ -230,42 +245,51 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Confirm
           </Button>
-        </React.Fragment>
+        </ButtonGroup>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="secondary"
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
         >
-          <button
-            className="button  is-secondary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
+          <div
+            className="is-centered buttons mx-auto"
           >
-            Cancel
-          </button>
-        </Button>
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
-        >
-          <button
-            className="button  is-primary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
-          >
-            Confirm
-          </button>
-        </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Cancel
+              </button>
+            </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Confirm
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
       </footer>
     </ModalFooter>
   </div>
@@ -341,7 +365,10 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
     </ModalBody>
     <ModalFooter
       footerItems={
-        <React.Fragment>
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
+        >
           <Button
             onClick={[MockFunction]}
             type="button"
@@ -356,42 +383,51 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
           >
             Confirm
           </Button>
-        </React.Fragment>
+        </ButtonGroup>
       }
     >
       <footer
         className="modal-card-foot"
       >
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="secondary"
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
         >
-          <button
-            className="button  is-secondary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
+          <div
+            className="is-centered buttons mx-auto"
           >
-            Cancel
-          </button>
-        </Button>
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
-        >
-          <button
-            className="button  is-primary  "
-            data-test=""
-            disabled={false}
-            onClick={[MockFunction]}
-            type="button"
-          >
-            Confirm
-          </button>
-        </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="secondary"
+            >
+              <button
+                className="button   is-secondary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Cancel
+              </button>
+            </Button>
+            <Button
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              <button
+                className="button   is-primary "
+                data-test=""
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Confirm
+              </button>
+            </Button>
+          </div>
+        </ButtonGroup>
       </footer>
     </ModalFooter>
   </div>

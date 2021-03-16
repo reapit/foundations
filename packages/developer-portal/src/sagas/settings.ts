@@ -29,7 +29,6 @@ export const developerInformationFetch = function* () {
   } catch (error) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   } finally {
     yield put(settingShowLoading(false))
@@ -72,7 +71,6 @@ export const developerInfomationChange = function* ({ data }: Action<UpdateDevel
   } catch (error) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   } finally {
     yield put(settingShowLoading(false))
@@ -106,7 +104,6 @@ export const developerPasswordChange = function* ({ data }: Action<ChangePasswor
   } catch (error) {
     yield call(notification.error, {
       message: error?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   } finally {
     yield put(settingShowLoading(false))

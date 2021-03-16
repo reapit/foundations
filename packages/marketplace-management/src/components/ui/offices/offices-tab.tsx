@@ -80,13 +80,11 @@ const OfficesTab: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section>
+      <Section hasPadding={false}>
         <H5>Existing offices</H5>
         <p className="mb-4">
-          <i>
-            The list below contains all ‘Offices’ within your organisation. To create or manage an Office Group, please
-            visit the ‘Groups’ page.
-          </i>
+          The list below contains all ‘Offices’ within your organisation. To create or manage an Office Group, please
+          visit the ‘Groups’ page.
         </p>
         <OfficesFilterForm filterValues={filterValues} onSearch={onSearch} />
       </Section>
@@ -103,7 +101,7 @@ export const OfficesContent: React.FC<{
   const { _embedded: listOffice, totalCount, pageSize, pageNumber = 1 } = data
   return (
     <>
-      <Section>{renderResult(columns, listOffice)}</Section>
+      {renderResult(columns, listOffice)}
       <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
     </>
   )

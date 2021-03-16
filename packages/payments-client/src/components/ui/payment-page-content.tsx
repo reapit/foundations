@@ -27,19 +27,19 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   return (
     <>
-      <Section>
+      <Section hasPadding={false}>
         <div className="justify-between flex items-center">
           <H3 className="mb-0">Card Payment</H3>
           <PaymentLogo />
         </div>
       </Section>
-      <Section>
+      <Section hasPadding={false}>
         <Grid>
           <PaymentCustomerSection customer={customer} />
           <PropertySection property={property} />
         </Grid>
       </Section>
-      <Section>
+      <Section hasPadding={false}>
         <FadeIn>
           <H5>Payment Details</H5>
           <IconList

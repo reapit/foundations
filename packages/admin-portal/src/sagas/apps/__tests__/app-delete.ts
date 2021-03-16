@@ -38,7 +38,6 @@ describe('app-delete sagas', () => {
         expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
           call(notification.error, {
             message: errorMessages.DEFAULT_SERVER_ERROR,
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(requestDeleteAppFailed()))

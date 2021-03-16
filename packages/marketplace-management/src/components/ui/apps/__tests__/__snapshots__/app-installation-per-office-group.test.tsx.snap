@@ -12,9 +12,11 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
   setOfficeGroupsToAdd={[MockFunction]}
   setOfficeGroupsToRemove={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -28,7 +30,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
             variant="secondary"
           >
             <button
-              className="button  is-secondary  "
+              className="button   is-secondary "
               data-test=""
               disabled={false}
               onClick={[Function]}
@@ -42,7 +44,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
             variant="secondary"
           >
             <button
-              className="button  is-secondary  "
+              className="button   is-secondary "
               data-test=""
               disabled={false}
               onClick={[Function]}

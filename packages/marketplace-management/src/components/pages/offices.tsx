@@ -28,8 +28,8 @@ const OfficesPage: React.FC = () => {
   const handleChangeTab = (url: string) => history.push(url)
   return (
     <div>
-      <H3 isHeadingSection>Manage Offices</H3>
-      <Section>
+      <H3>Manage Offices</H3>
+      <Section hasPadding={false}>
         <Tabs tabConfigs={tabConfigs({ pathname, handleChangeTab })} />
       </Section>
       <Route path={Routes.OFFICES} component={OfficesTab} exact />

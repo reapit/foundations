@@ -2,7 +2,7 @@
 
 exports[`Button should match a snapshot 1`] = `
 <button
-  className="button  is-primary  "
+  className="button   is-primary "
   data-test="some-selector"
   disabled={false}
   onClick={[MockFunction]}
@@ -14,7 +14,7 @@ exports[`Button should match a snapshot 1`] = `
 
 exports[`ButtonGroup should match a snapshot 1`] = `
 <div
-  className="is-centered buttons has-addons "
+  className="is-centered buttons has-addons"
 >
   <Button
     dataTest="some-selector"

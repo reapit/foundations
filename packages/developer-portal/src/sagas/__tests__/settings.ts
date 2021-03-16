@@ -64,7 +64,6 @@ describe('settings', () => {
       expect(clone.throw('error').value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
@@ -115,7 +114,6 @@ describe('settings', () => {
       expect(clone.throw('error').value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
@@ -158,7 +156,6 @@ describe('settings', () => {
       expect(clone.throw({ message: 'error message' }).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
@@ -171,7 +168,6 @@ describe('settings', () => {
       expect(clone.throw({ message: 'error message' }).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))

@@ -7,9 +7,7 @@ exports[`Menu should render link item logo correctly 1`] = `
   <div
     className="nav-item-icon"
   >
-    <ReapitLogo
-      className="nav-item-icon"
-    />
+    <ReapitHouseIcon />
   </div>
 </span>
 `;
@@ -58,9 +56,7 @@ exports[`Menu should render menu correctly 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <ReapitLogo
-            className="nav-item-icon"
-          />,
+          "icon": <ReapitHouseIcon />,
           "key": "LOGO",
           "type": "LOGO",
         }
@@ -72,9 +68,7 @@ exports[`Menu should render menu correctly 1`] = `
         onClick={[Function]}
       >
         <div>
-          <ReapitLogo
-            className="nav-item-icon"
-          />
+          <ReapitHouseIcon />
         </div>
       </li>
     </LinkItem>
@@ -329,9 +323,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
     <LinkItem
       item={
         Object {
-          "icon": <ReapitLogo
-            className="nav-item-icon"
-          />,
+          "icon": <ReapitHouseIcon />,
           "key": "LOGO",
           "type": "LOGO",
         }
@@ -343,9 +335,7 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         onClick={[Function]}
       >
         <div>
-          <ReapitLogo
-            className="nav-item-icon"
-          />
+          <ReapitHouseIcon />
         </div>
       </li>
     </LinkItem>

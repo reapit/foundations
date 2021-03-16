@@ -12,22 +12,30 @@ $notification-margin-bottom: 16px;
   padding: 0;
   position: fixed;
   z-index: 99;
-  width: $notification-width;
+  max-width: $notification-width;
   margin-right: 24px;
   margin-left: 24px;
 
   .is-info-message {
-    background: $blue-secondary-light !important;
+    background: $blue-light-semantic;
   }
 
   .is-warning-message {
-    background: $skin-accent;
+    background: $red-light-semantic;
   }
 
-  .is-warning-message, .is-info-message {
+  .is-success-message {
+    background: $green-light-semantic;
+  }
+
+  .is-warning-message, .is-info-message, .is-success-message {
     font-weight: normal;
     font-size: 16px;
     text-transform: none;
+
+    svg {
+      margin-bottom: -21px;
+    }
   }
 
   @include for-mobile-only {
@@ -109,7 +117,7 @@ $notification-margin-bottom: 16px;
   }
 
   &-content {
-    padding: 24px;
+    padding: 1rem;
   }
 }
 

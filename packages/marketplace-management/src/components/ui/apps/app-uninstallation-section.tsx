@@ -33,7 +33,7 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       : `${officeGroupInstallations.length} group${officeGroupInstallations.length !== 1 ? 's' : ''}`
 
   return (
-    <Section>
+    <Section hasPadding={false}>
       <FlexContainerBasic className="justify-between items-center mb-4">
         <H5>Current Installations</H5>
         <Button
@@ -50,16 +50,16 @@ const AppUninstallationSection: React.FC<AppUninstallationSectionProps> = ({
       </FlexContainerBasic>
       <p className="mb-4">
         {!noCurrentInstallations && (
-          <i>
+          <p>
             This app is currently installed for {currentInstallText}. By clicking this button you will uninstall for all
             users and offices.
-          </i>
+          </p>
         )}
         {noCurrentInstallations && (
-          <i>
+          <p>
             This app is not currently installed. You can either install for your organisation or specific office groups
             in the section below.
-          </i>
+          </p>
         )}
       </p>
     </Section>

@@ -17,9 +17,11 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
   setOfficeGroupsToRemove={[MockFunction]}
   setShowConfirmModal={[MockFunction]}
 >
-  <Section>
+  <Section
+    hasPadding={false}
+  >
     <section
-      className="section has-padding has-margin has-background"
+      className="section has-margin has-background"
       data-test=""
     >
       <FlexContainerBasic
@@ -42,7 +44,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
             variant="primary"
           >
             <button
-              className="button  is-primary  "
+              className="button   is-primary "
               data-test=""
               disabled={true}
               onClick={[Function]}
@@ -56,9 +58,9 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
       <p
         className="mb-4"
       >
-        <i>
+        <p>
           Please select the type of installation you require for this app:
-        </i>
+        </p>
       </p>
       <div
         className="field field-checkbox mb-0 control"
@@ -79,9 +81,9 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         <div
           className="form-subheading mb-4"
         >
-          <i>
+          <p>
             This will grant the app access to all data for all users and offices across your organisation
-          </i>
+          </p>
         </div>
       </div>
       <div
@@ -103,9 +105,9 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
         <div
           className="form-subheading mb-4"
         >
-          <i>
+          <p>
             This will grant the app access to only data for the specific offices inside of each office group
-          </i>
+          </p>
         </div>
       </div>
     </section>

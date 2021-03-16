@@ -7,7 +7,7 @@ exports[`Toast should match a snapshot 1`] = `
       hasNavBar={true}
       message=""
       onCloseToast={[Function]}
-      variant="info"
+      variant="primary"
       visible={false}
     >
       <div
@@ -18,10 +18,10 @@ exports[`Toast should match a snapshot 1`] = `
         <Button
           fullWidth={true}
           type="reset"
-          variant="info"
+          variant="primary"
         >
           <button
-            className="button  is-info is-fullwidth "
+            className="button is-fullwidth  is-primary "
             data-test=""
             disabled={false}
             type="reset"

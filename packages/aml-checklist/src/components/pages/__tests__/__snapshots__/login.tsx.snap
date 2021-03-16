@@ -3,6 +3,9 @@
 exports[`Login should match a snapshot 1`] = `
 <div>
   <div>
+    <div />
+  </div>
+  <div>
     <Level>
       <img
         alt="Reapit Connect Graphic"
@@ -24,12 +27,6 @@ exports[`Login should match a snapshot 1`] = `
     <FlexContainerBasic
       centerContent={true}
       className="pt-8"
-    />
-  </div>
-  <div>
-    <img
-      alt="Reapit Graphic"
-      src=""
     />
   </div>
 </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import { H3, ButtonGroup, Button, H6, Loader, Section, H5 } from '@reapit/elements'
+import { H3, ButtonGroup, Button, H6, Loader, H5, Section } from '@reapit/elements'
 import { StatisticsRequestParams, fetchStatistics } from '@/actions/statistics'
 import { getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'
@@ -93,78 +93,78 @@ export const Statistics: React.FC = () => {
 
   return (
     <>
-      <H3 isHeadingSection>Stats</H3>
-      <Section>
-        <H6>Please select an area:</H6>
-        <ButtonGroup>
-          <Button
-            className="ml-0"
-            type="button"
-            dataTest="area-apps-btn"
-            variant={area === 'APPS' ? 'primary' : 'secondary'}
-            onClick={() => setArea('APPS')}
-          >
-            Apps
-          </Button>
-          <Button
-            type="button"
-            dataTest="area-developers-btn"
-            variant={area === 'DEVELOPERS' ? 'primary' : 'secondary'}
-            onClick={() => setArea('DEVELOPERS')}
-          >
-            Developers
-          </Button>
-          <Button
-            type="button"
-            dataTest="area-installations-btn"
-            variant={area === 'INSTALLATIONS' ? 'primary' : 'secondary'}
-            onClick={() => setArea('INSTALLATIONS')}
-          >
-            Installations
-          </Button>
-        </ButtonGroup>
-        <H6>Please select a time range:</H6>
-        <ButtonGroup>
-          <Button
-            className="ml-0"
-            type="button"
-            dataTest="range-week-btn"
-            variant={range === 'WEEK' ? 'primary' : 'secondary'}
-            onClick={() => setRange('WEEK')}
-          >
-            Last week
-          </Button>
-          <Button
-            type="button"
-            dataTest="range-month-btn"
-            variant={range === 'MONTH' ? 'primary' : 'secondary'}
-            onClick={() => setRange('MONTH')}
-          >
-            Last Month
-          </Button>
-          <Button
-            type="button"
-            dataTest="range-all-btn"
-            variant={range === 'ALL' ? 'primary' : 'secondary'}
-            onClick={() => setRange('ALL')}
-          >
-            All time
-          </Button>
-        </ButtonGroup>
-        <H6>
-          Showing results for ‘{area}’ and ‘{getRangeName(range)}’
-        </H6>
-      </Section>
-      <Section>
-        <H5>Download as CSV</H5>
-        {isLoading ? (
-          <Loader />
-        ) : (
+      <H3>Stats</H3>
+
+      <H6>Please select an area:</H6>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          type="button"
+          dataTest="area-apps-btn"
+          variant={area === 'APPS' ? 'primary' : 'secondary'}
+          onClick={() => setArea('APPS')}
+        >
+          Apps
+        </Button>
+        <Button
+          type="button"
+          dataTest="area-developers-btn"
+          variant={area === 'DEVELOPERS' ? 'primary' : 'secondary'}
+          onClick={() => setArea('DEVELOPERS')}
+        >
+          Developers
+        </Button>
+        <Button
+          type="button"
+          dataTest="area-installations-btn"
+          variant={area === 'INSTALLATIONS' ? 'primary' : 'secondary'}
+          onClick={() => setArea('INSTALLATIONS')}
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H6>Please select a time range:</H6>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          type="button"
+          dataTest="range-week-btn"
+          variant={range === 'WEEK' ? 'primary' : 'secondary'}
+          onClick={() => setRange('WEEK')}
+        >
+          Last week
+        </Button>
+        <Button
+          type="button"
+          dataTest="range-month-btn"
+          variant={range === 'MONTH' ? 'primary' : 'secondary'}
+          onClick={() => setRange('MONTH')}
+        >
+          Last Month
+        </Button>
+        <Button
+          type="button"
+          dataTest="range-all-btn"
+          variant={range === 'ALL' ? 'primary' : 'secondary'}
+          onClick={() => setRange('ALL')}
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H6>
+        Showing results for ‘{area}’ and ‘{getRangeName(range)}’
+      </H6>
+
+      <H5>Download as CSV</H5>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Section hasPadding={false} hasMargin={false}>
           <Button type="button" variant="primary" onClick={() => downloadCSV(area, data)}>
             Download
           </Button>
-        )}
-      </Section>
+        </Section>
+      )}
     </>
   )
 }

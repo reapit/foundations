@@ -69,7 +69,6 @@ describe('fetchDeveloperListHandler', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchDeveloperListFailed(errorMessages.DEFAULT_SERVER_ERROR)))
@@ -105,7 +104,6 @@ describe('setDeveloperMemberAdmin', () => {
     expect(clone.next().value).toEqual(
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -141,7 +139,6 @@ describe('organisationFetchMembers', () => {
     expect(clone.next().value).toEqual(
       notification.error({
         message: errorMessages.DEFAULT_SERVER_ERROR,
-        placement: 'bottomRight',
       }),
     )
   })
@@ -188,7 +185,6 @@ describe('developerDisableMember', () => {
       expect(clone.next().value).toEqual(
         notification.error({
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().done).toBe(true)

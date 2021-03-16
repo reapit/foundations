@@ -13,7 +13,6 @@ export const fetchScopeListSaga = function* () {
     yield put(fetchScopeListFailed(err))
     notification.error({
       message: errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

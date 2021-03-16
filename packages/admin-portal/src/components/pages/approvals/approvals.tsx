@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { useHistory, useLocation } from 'react-router'
-import { Loader, Pagination, Table, Button, Helper, infoText, Section, H3 } from '@reapit/elements'
+import { Loader, Pagination, Table, Button, Helper, infoText, H3 } from '@reapit/elements'
 import { fetchRevision } from '@/actions/revision-detail'
 import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
@@ -175,22 +175,18 @@ export const AdminApprovals: React.FC = () => {
 
   return (
     <>
-      <Section>
-        <H3>App Revision Approvals</H3>
-      </Section>
-      <Section>
-        <Content
-          loading={isLoading}
-          waitingApprovalList={waitingApprovalListData.data || []}
-          tableColumns={generateTableColumn({
-            page: Number(page),
-            revisionDetail,
-            appDetail,
-            dispatch,
-            setIsModalOpen,
-          })}
-        />
-      </Section>
+      <H3>App Revision Approvals</H3>
+      <Content
+        loading={isLoading}
+        waitingApprovalList={waitingApprovalListData.data || []}
+        tableColumns={generateTableColumn({
+          page: Number(page),
+          revisionDetail,
+          appDetail,
+          dispatch,
+          setIsModalOpen,
+        })}
+      />
       {!isLoading && (
         <Pagination
           onChange={handleOnPageChange(history)}

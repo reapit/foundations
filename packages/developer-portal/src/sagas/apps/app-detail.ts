@@ -21,7 +21,6 @@ export const fetchAppDetailSaga = function* ({ data }: Action<FetchAppByIdParams
   } catch (err) {
     yield call(notification.error, {
       message: err?.description ?? errorMessages.DEFAULT_SERVER_ERROR,
-      placement: 'bottomRight',
     })
   }
 }

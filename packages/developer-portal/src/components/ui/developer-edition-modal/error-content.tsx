@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps } from '@reapit/elements'
+import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps, ButtonGroup } from '@reapit/elements'
 import { link } from '@/styles/elements/link'
 
 import developerEditionGuide from '@/assets/files/developer-edition-guide.pdf'
@@ -28,14 +28,14 @@ export const ErrorContent: React.FC<ErrorContentProps> = ({ afterClose }) => {
       />
       <ModalFooter
         footerItems={
-          <>
-            <Button variant="primary" type="button" onClick={afterClose}>
+          <ButtonGroup isCentered hasSpacing>
+            <Button variant="secondary" type="button" onClick={afterClose}>
               CLOSE
             </Button>
             <Button variant="primary" type="button" onClick={handleDownload}>
               DOWNLOAD NOW
             </Button>
-          </>
+          </ButtonGroup>
         }
       />
     </>

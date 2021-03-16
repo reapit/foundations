@@ -92,10 +92,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          test: /\.(graphql|gql)$/,
-          ignore: ['*.ts', '*.test.ts', 'tests/**/*'],
-          from: 'src',
-          to: 'src',
+          from: 'src/**/*.graphql',
+          to: './',
           force: true,
         },
       ],

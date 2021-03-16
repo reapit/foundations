@@ -59,42 +59,36 @@ export const Data: React.FC<DataProps> = () => {
   return (
     <>
       <Content>
-        <H3 isHeadingSection>Data</H3>
-
+        <H3>Data</H3>
         {subscriptionsLoading ? (
           <Loader />
         ) : currentSubscription ? (
           <>
-            <Section>
+            <Section hasPadding={false}>
               <FadeIn>
                 <Content>
                   <p>
-                    <i>
-                      Our data warehouse solution can provide access to your data in a number of different formats. To
-                      get immediate access to your data in a particular format, click ‘Create Share’. The data will be
-                      published into your data warehouse and connectivity information will then be presented to you.
-                      Please see our{' '}
-                      <a
-                        href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        usage instructions
-                      </a>{' '}
-                      for further information on how to use these details to connect a number of popular BI
-                      applications.
-                    </i>
+                    Our data warehouse solution can provide access to your data in a number of different formats. To get
+                    immediate access to your data in a particular format, click ‘Create Share’. The data will be
+                    published into your data warehouse and connectivity information will then be presented to you.
+                    Please see our{' '}
+                    <a
+                      href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      usage instructions
+                    </a>{' '}
+                    for further information on how to use these details to connect a number of popular BI applications.
                   </p>
                   <p>
-                    <i>
-                      Please note that creating a data share is a long running process and can take 30 seconds or more
-                      to complete.
-                    </i>
+                    Please note that creating a data share is a long running process and can take 30 seconds or more to
+                    complete.
                   </p>
                 </Content>
               </FadeIn>
             </Section>
-            <Section>
+            <Section hasPadding={false}>
               <H5>Available Data</H5>
               {dataSetsLoading ? (
                 <Loader />
@@ -112,7 +106,7 @@ export const Data: React.FC<DataProps> = () => {
                 </FadeIn>
               )}
             </Section>
-            <Section>
+            <Section hasPadding={false}>
               <H5>Data Shares</H5>
               {sharesLoading || accountsLoading ? (
                 <Loader />

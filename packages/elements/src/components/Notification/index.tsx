@@ -2,6 +2,7 @@ import * as React from 'react'
 import Notification from 'rc-notification'
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification'
 import createUseNotification from './useNotification'
+import { SnackbarErrorIcon, SnackbarInfoIcon, SnackbarSuccessIcon } from '../Icons'
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 
@@ -15,7 +16,6 @@ let defaultTop = 24
 let defaultBottom = 24
 let defaultPlacement: NotificationPlacement = 'topRight'
 let defaultGetContainer: () => HTMLElement
-let defaultCloseIcon: React.ReactNode
 
 export interface ConfigProps {
   top?: number
@@ -27,7 +27,7 @@ export interface ConfigProps {
 }
 
 function setNotificationConfig(options: ConfigProps) {
-  const { duration, placement, bottom, top, getContainer, closeIcon } = options
+  const { duration, placement, bottom, top, getContainer } = options
   if (duration !== undefined) {
     defaultDuration = duration
   }
@@ -42,9 +42,6 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (getContainer !== undefined) {
     defaultGetContainer = getContainer
-  }
-  if (closeIcon !== undefined) {
-    defaultCloseIcon = closeIcon
   }
 }
 
@@ -91,13 +88,7 @@ function getNotificationInstance(
   args: ArgsProps,
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
-  const {
-    placement = defaultPlacement,
-    top,
-    bottom,
-    getContainer = defaultGetContainer,
-    closeIcon = defaultCloseIcon,
-  } = args
+  const { placement = defaultPlacement, top, bottom, getContainer = defaultGetContainer, closeIcon } = args
   const outerPrefixCls = args.prefixCls || 'reapit-notification'
   const prefixCls = `${outerPrefixCls}-notice`
 
@@ -110,7 +101,7 @@ function getNotificationInstance(
     return
   }
 
-  const closeIconToRender = <span>{closeIcon || <button className="delete is-small" />}</span>
+  const closeIconToRender = closeIcon ? <span>{closeIcon}</span> : null
 
   notificationInstance[cacheKey] = new Promise((resolve) => {
     Notification.newInstance(
@@ -152,10 +143,19 @@ export interface ArgsProps {
 function getRCNoticeProps(args: ArgsProps) {
   const duration = args.duration === undefined ? defaultDuration : args.duration
 
-  const variant = args.type === 'success' || args.type === 'info' ? 'is-info-message' : 'is-warning-message'
+  const variant =
+    args.type === 'success' ? 'is-success-message' : args.type === 'info' ? 'is-info-message' : 'is-warning-message'
+
+  const Icon =
+    args.type === 'success' ? SnackbarSuccessIcon : args.type === 'info' ? SnackbarInfoIcon : SnackbarErrorIcon
 
   return {
-    content: <div className={`notification reapit-notification-content ${variant}`}>{args.message}</div>,
+    content: (
+      <div className={`notification reapit-notification-content ${variant}`}>
+        <Icon />
+        {args.message}
+      </div>
+    ),
     duration,
     closable: true,
     onClose: args.onClose,

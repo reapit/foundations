@@ -92,7 +92,7 @@ export const Apps: React.FunctionComponent = () => {
         hasBackground={false}
       >
         {/* <AppSidebar /> */}
-        <H3 isHeadingSection>Browse Apps</H3>
+        <H3>Browse Apps</H3>
         {!hasParams && featuredApps.length > 0 && (
           <div className="pb-4 bb mb-4">
             <Grid isMultiLine>

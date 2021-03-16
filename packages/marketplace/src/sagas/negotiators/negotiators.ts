@@ -13,7 +13,6 @@ export const fetchNegotiators = function* ({ data }: Action<FetchNegotiatorsPara
     yield put(fetchNegotiatorsFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }

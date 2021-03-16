@@ -38,7 +38,6 @@ export const updatePaymentStatus = async (
     logger(err)
     notification.error({
       message: 'Failed to update the status of the session with the payment provider',
-      placement: 'bottomRight',
     })
   }
 }
@@ -67,7 +66,6 @@ export const updatePaymentSessionStatus = async (
     logger(err)
     notification.error({
       message: 'Failed to update the status of the session with the payment provider',
-      placement: 'bottomRight',
     })
   }
 }
@@ -98,7 +96,6 @@ export const generatePaymentApiKey = async (body: ApiKeyRequest): Promise<ApiKey
     logger(err)
     notification.error({
       message: 'Failed to connect with the payment provider please try refreshing the page',
-      placement: 'bottomRight',
     })
   }
 }
@@ -138,7 +135,6 @@ export const generateEmailPaymentRequest = async (
     logger(err)
     notification.error({
       message: 'Failed to semd an email invoice, please try again',
-      placement: 'bottomRight',
     })
   }
 }
@@ -177,7 +173,6 @@ export const generateEmailPaymentReceiptInternal = async (
     logger(err)
     notification.error({
       message: 'Failed to send a receipt for this transaction, please try again',
-      placement: 'bottomRight',
     })
   }
 }
@@ -213,7 +208,6 @@ export const generateEmailPaymentReceiptExternal = async (
     logger(err)
     notification.error({
       message: 'Failed to send a receipt for this transaction, please try again',
-      placement: 'bottomRight',
     })
   }
 }

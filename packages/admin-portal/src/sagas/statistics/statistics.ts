@@ -54,7 +54,6 @@ export const statisticsDataFetch = function* ({ data }) {
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
 
     yield put(fetchStatisticsFailed(networkErrorString))

@@ -3,15 +3,14 @@
 exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKTOP 1`] = `
 <React.Fragment>
   <H3
+    className="mb-0"
     isHeadingSection={true}
   >
     Client Search
   </H3>
   <Section>
     <FadeIn>
-      <Form
-        className="mb-8"
-      >
+      <Form>
         <Input
           id="name"
           labelText="Search by name"
@@ -102,15 +101,14 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
 exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1`] = `
 <React.Fragment>
   <H3
+    className="mb-0"
     isHeadingSection={true}
   >
     Client Search
   </H3>
   <Section>
     <FadeIn>
-      <Form
-        className="mb-8"
-      >
+      <Form>
         <Input
           id="name"
           labelText="Search by name"

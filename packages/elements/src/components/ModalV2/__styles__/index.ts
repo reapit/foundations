@@ -2,16 +2,21 @@ import { css } from 'linaria'
 
 export const modalContainer = css`
   .rc-dialog-content {
-    border-radius: 0px;
+    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.12);
   }
   .rc-dialog-header {
     background-color: #f5f5f5;
-    border-radius: 0px;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 20px;
+    border: none;
   }
   .rc-dialog-footer {
-    background-color: #f5f5f5;
-    border-radius: 0px;
+    border-top: none;
+    background: $white;
+    padding: 1.5rem;
   }
+
   .rc-dialog-close {
     opacity: 1;
     top: 30px;

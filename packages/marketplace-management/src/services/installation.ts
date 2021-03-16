@@ -34,7 +34,6 @@ export const bulkInstall = async (
     logger(err)
     notification.error({
       message: 'Failed to install',
-      placement: 'bottomRight',
     })
 
     throw err

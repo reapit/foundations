@@ -39,7 +39,6 @@ describe('fetchCustomersListHandler', () => {
     expect(clone.next().value).toEqual(
       call(notification.error, {
         message: 'ERROR',
-        placement: 'bottomRight',
       }),
     )
     expect(clone.next().done).toBe(true)

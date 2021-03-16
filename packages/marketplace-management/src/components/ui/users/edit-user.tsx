@@ -2,7 +2,18 @@ import React, { useCallback } from 'react'
 import useSWR from 'swr'
 import qs from 'query-string'
 import { FormFieldInfo } from '@reapit/utils'
-import { Button, Section, ModalV2, Formik, Form, Input, DropdownSelect, Loader, notification } from '@reapit/elements'
+import {
+  Button,
+  Section,
+  ModalV2,
+  Formik,
+  Form,
+  Input,
+  DropdownSelect,
+  Loader,
+  notification,
+  ButtonGroup,
+} from '@reapit/elements'
 import { UserModel, GroupModelPagedResult } from '../../../types/organisations-schema'
 import { URLS } from '../../../constants/api'
 import { updateUser } from '../../../services/user'
@@ -43,7 +54,6 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
   if (updateUserRes) {
     notification.success({
       message: toastMessages.CHANGES_SAVE_SUCCESS,
-      placement: 'bottomRight',
     })
     handleOnClose()
     return onRefetchData()
@@ -51,7 +61,6 @@ export const onHandleSubmit = (handleOnClose: () => void, onRefetchData: () => v
 
   return notification.error({
     message: updateUserRes.description || toastMessages.FAILED_TO_EDIT_USER,
-    placement: 'bottomRight',
   })
 }
 
@@ -86,7 +95,7 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
       zIndex={90}
     >
       <p className="mb-4">
-        <i>Please use the ‘Users Group’ section below to manage which groups this user belongs to:</i>
+        <p>Please use the ‘Users Group’ section below to manage which groups this user belongs to:</p>
       </p>
       <Formik
         initialValues={{
@@ -111,14 +120,14 @@ export const UpdateUserModal: React.FC<UpdateUserModalProps> = ({
                   optionFilterProp="children"
                 />
               </Section>
-              <Section isFlex hasPadding={false} hasMargin={false}>
-                <Button variant="info" disabled={false} onClick={handleOnClose} type="button">
+              <ButtonGroup isCentered hasSpacing>
+                <Button variant="secondary" disabled={false} onClick={handleOnClose} type="button">
                   Cancel
                 </Button>
-                <Button variant="info" loading={false} type="submit">
+                <Button variant="primary" loading={false} type="submit">
                   Save
                 </Button>
-              </Section>
+              </ButtonGroup>
             </Form>
           )
         }}

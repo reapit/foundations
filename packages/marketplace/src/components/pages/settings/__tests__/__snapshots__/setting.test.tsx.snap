@@ -58,10 +58,11 @@ exports[`Settings should match snapshot 1`] = `
       <Settings>
         <Section
           className="justify-between items-center"
+          hasPadding={false}
           isFlex={true}
         >
           <section
-            className="section is-flex has-padding has-margin has-background justify-between items-center"
+            className="section is-flex has-margin has-background justify-between items-center"
             data-test=""
           >
             <H3
@@ -81,7 +82,7 @@ exports[`Settings should match snapshot 1`] = `
               variant="primary"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test="logout-btn"
                 disabled={false}
                 onClick={[Function]}
@@ -93,10 +94,10 @@ exports[`Settings should match snapshot 1`] = `
           </section>
         </Section>
         <Section
-          className="ur41lj4-user-info-section"
+          hasPadding={false}
         >
           <section
-            className="section has-padding has-margin has-background ur41lj4-user-info-section"
+            className="section has-margin has-background"
             data-test=""
           >
             <Grid>
@@ -665,7 +666,7 @@ exports[`Settings should match snapshot 1`] = `
                           variant="primary"
                         >
                           <button
-                            className="button  is-primary  "
+                            className="button   is-primary "
                             data-test="button-change-password"
                             disabled={true}
                             type="submit"

@@ -47,7 +47,6 @@ describe('app-detail fetch data without fetch api key', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchAppDetailFailed(errorMessages.DEFAULT_SERVER_ERROR)))
@@ -88,7 +87,6 @@ describe('app-detail fetch data and fetch apiKey', () => {
       expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
         call(notification.error, {
           message: errorMessages.DEFAULT_SERVER_ERROR,
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(fetchAppDetailFailed(errorMessages.DEFAULT_SERVER_ERROR)))

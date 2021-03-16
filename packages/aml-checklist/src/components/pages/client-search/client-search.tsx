@@ -44,10 +44,12 @@ const identityCheckList = [
 export const renderForm = ({ connectIsDesktop }) => ({ values }) => {
   return (
     <>
-      <H3 isHeadingSection>Client Search</H3>
+      <H3 isHeadingSection className="mb-0">
+        Client Search
+      </H3>
       <Section>
         <FadeIn>
-          <Form className="mb-8">
+          <Form>
             <Input
               id={nameField.name}
               type="text"

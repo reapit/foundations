@@ -53,6 +53,7 @@ export * from './components/BreadcrumbV2'
 export * from './components/ImageCropperV2'
 export * from './components/CardInputGroup'
 export * from './helpers/fade-in'
+export * from './components/Icons'
 
 // Utils
 export * from './utils/validators'

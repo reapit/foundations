@@ -25,7 +25,6 @@ export const appDetailDataFetch = function* ({ data }: Action<AppDetailParams>) 
     const networkErrorString = extractNetworkErrString(err)
     yield call(notification.error, {
       message: networkErrorString,
-      placement: 'bottomRight',
     })
     yield put(fetchAppDetailFailed(networkErrorString))
   }

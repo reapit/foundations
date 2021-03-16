@@ -56,68 +56,54 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
       }
     >
       <AdminApprovals>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
+        <H3>
+          <h3
+            className="title is-3"
+            id=""
           >
-            <H3>
-              <h3
-                className="title is-3"
-                id=""
-              >
-                App Revision Approvals
-              </h3>
-            </H3>
-          </section>
-        </Section>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
+            App Revision Approvals
+          </h3>
+        </H3>
+        <Content
+          loading={false}
+          tableColumns={
+            Array [
+              Object {
+                "Cell": [Function],
+                "Header": "#",
+                "id": "id",
+              },
+              Object {
+                "Header": "AppId",
+                "accessor": "appId",
+              },
+              Object {
+                "Header": "Type",
+                "accessor": "type",
+              },
+              Object {
+                "Header": "Description",
+                "accessor": "description",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "",
+                "id": "buttonColumn",
+              },
+            ]
+          }
+          waitingApprovalList={Array []}
+        >
+          <Helper
+            variant="info"
           >
-            <Content
-              loading={false}
-              tableColumns={
-                Array [
-                  Object {
-                    "Cell": [Function],
-                    "Header": "#",
-                    "id": "id",
-                  },
-                  Object {
-                    "Header": "AppId",
-                    "accessor": "appId",
-                  },
-                  Object {
-                    "Header": "Type",
-                    "accessor": "type",
-                  },
-                  Object {
-                    "Header": "Description",
-                    "accessor": "description",
-                  },
-                  Object {
-                    "Cell": [Function],
-                    "Header": "",
-                    "id": "buttonColumn",
-                  },
-                ]
-              }
-              waitingApprovalList={Array []}
+            <div
+              className="notification helper-wrap helper-info"
             >
-              <Helper
-                variant="info"
-              >
-                <div
-                  className="notification helper-wrap helper-info"
-                >
-                  There are no updates that require approval
-                </div>
-              </Helper>
-            </Content>
-          </section>
-        </Section>
+              There are no updates that require approval
+            </div>
+          </Helper>
+        </Content>
         <Pagination
           onChange={[Function]}
           pageNumber={1}

@@ -1,5 +1,14 @@
 import React from 'react'
-import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput, Formik, Form } from '@reapit/elements'
+import {
+  Input,
+  Button,
+  SelectBoxOptions,
+  SelectBox,
+  CameraImageInput,
+  Formik,
+  Form,
+  ButtonGroup,
+} from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
@@ -218,7 +227,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
               {renderSencondaryAddress(secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput)}
               <div className="field pb-2">
                 <div className={`columns ${styles.reverseColumns}`}>
-                  <div className={`column ${styles.btnContainer}`}>
+                  <ButtonGroup hasSpacing isCentered>
                     <Button
                       loading={isSubmitting}
                       disabled={isSubmitting || !isValid}
@@ -245,7 +254,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
                     >
                       Next
                     </Button>
-                  </div>
+                  </ButtonGroup>
                 </div>
               </div>
               <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>

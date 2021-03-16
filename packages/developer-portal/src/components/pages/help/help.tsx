@@ -100,7 +100,7 @@ export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
 
   return (
     <>
-      <H3 isHeadingSection>Help</H3>
+      <H3>Help</H3>
       <HelpItemList items={helpItems(loginIdentity)} />
     </>
   )

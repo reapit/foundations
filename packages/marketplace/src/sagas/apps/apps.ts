@@ -42,7 +42,6 @@ export const fetchApps = function* ({ data }) {
     yield put(fetchAppsFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }
@@ -64,7 +63,6 @@ export const fetchDeveloperApps = function* ({ data }) {
     yield put(fetchAppsFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }
@@ -85,7 +83,6 @@ export const fetchFeatureApps = function* ({ data }) {
     yield put(fetchFeatureAppsFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }
@@ -104,7 +101,6 @@ export const fetchAppDetailSagas = function* ({ data }: Action<FetchAppByIdParam
     yield put(fetchAppDetailFailed(err.description))
     notification.error({
       message: err.description,
-      placement: 'bottomRight',
     })
   }
 }

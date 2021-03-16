@@ -116,22 +116,23 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
               }
               placeholder="Developer List"
             />
-            <LevelRight>
+            <ButtonGroup
+              hasSpacing={true}
+              isCentered={true}
+            >
               <Button
-                fullWidth={true}
                 variant="secondary"
               >
                 Cancel
               </Button>
               <Button
-                fullWidth={true}
                 loading={false}
                 type="submit"
                 variant="primary"
               >
                 Confirm Subscription
               </Button>
-            </LevelRight>
+            </ButtonGroup>
           </Form>
         </Formik>
       </React.Fragment>

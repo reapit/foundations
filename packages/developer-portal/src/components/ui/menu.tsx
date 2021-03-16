@@ -1,11 +1,21 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
+import {
+  AccountIcon,
+  AnalyticsIcon,
+  ApiIcon,
+  AppsIcon,
+  DesktopIcon,
+  DocsIcon,
+  HelpIcon,
+  MarketplaceIcon,
+  Menu as Sidebar,
+  MenuConfig,
+  ReapitHouseIcon,
+  WebhooksIcon,
+} from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import { FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop, FaStoreAlt } from 'react-icons/fa'
-import { MdHelp } from 'react-icons/md'
-import { GoDatabase } from 'react-icons/go'
 import { menuItemOverflow } from './__styles__/menu'
 import { history } from '../../core/router'
 import dayjs from 'dayjs'
@@ -37,7 +47,7 @@ export const XmasLogo: React.FC = () => {
     return <img src={WeekFourXmas} />
   }
 
-  return <ReapitLogo className="nav-item-icon" />
+  return <ReapitHouseIcon />
 }
 
 export const generateMenuConfig = (location: Location<any>): MenuConfig => {
@@ -47,7 +57,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
     menu: [
       {
         key: 'LOGO',
-        icon: <XmasLogo />,
+        icon: <ReapitHouseIcon />,
         type: 'LOGO',
         callback: () => history.push(Routes.APPS),
       },
@@ -56,47 +66,47 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
         key: 'MANAGE_APPS',
         url: Routes.APPS,
         type: 'PRIMARY',
-        icon: <FaCloud className="nav-item-icon" />,
+        icon: <AppsIcon />,
       },
       {
         title: 'Analytics',
         key: 'ANALYTICS',
         url: Routes.ANALYTICS,
         type: 'PRIMARY',
-        icon: <FaChartBar className="nav-item-icon" />,
+        icon: <AnalyticsIcon />,
       },
       {
         title: 'API',
         key: 'SWAGGER',
         url: Routes.SWAGGER,
         type: 'PRIMARY',
-        icon: <GoDatabase className="nav-item-icon" />,
+        icon: <ApiIcon />,
       },
       {
         title: 'Webhooks',
         key: 'WEBHOOKS',
         url: Routes.WEBHOOKS,
         type: 'PRIMARY',
-        icon: <FaBolt className="nav-item-icon" />,
+        icon: <WebhooksIcon />,
       },
       {
         title: 'Docs',
         key: 'API_DOCS',
         url: Routes.API_DOCS,
         type: 'PRIMARY',
-        icon: <FaReadme className="nav-item-icon" />,
+        icon: <DocsIcon />,
       },
       {
         title: 'Desktop',
         key: 'DESKTOP',
         url: Routes.DESKTOP,
         type: 'PRIMARY',
-        icon: <FaDesktop className="nav-item-icon" />,
+        icon: <DesktopIcon />,
       },
       {
         title: <div className={menuItemOverflow}>Marketplace</div>,
         key: 'MARKETPLACE',
-        icon: <FaStoreAlt className="nav-item-icon" />,
+        icon: <MarketplaceIcon />,
         callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
         type: 'PRIMARY',
       },
@@ -105,13 +115,13 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
         key: 'HELP',
         url: Routes.HELP,
         type: 'PRIMARY',
-        icon: <MdHelp className="nav-item-icon" />,
+        icon: <HelpIcon />,
       },
       {
         title: 'Settings',
         key: 'SETTINGS',
         url: Routes.SETTINGS_PROFILE_TAB,
-        icon: <FaCog className="nav-item-icon" />,
+        icon: <AccountIcon />,
         type: 'SECONDARY',
       },
     ],

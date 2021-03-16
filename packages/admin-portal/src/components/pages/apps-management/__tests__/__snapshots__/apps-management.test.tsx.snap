@@ -160,11 +160,9 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
       }
     >
       <AppsManagement>
-        <H3
-          isHeadingSection={true}
-        >
+        <H3>
           <h3
-            className="title is-3 is-heading-section"
+            className="title is-3"
             id=""
           >
             App Management
@@ -740,7 +738,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button  is-primary  "
+                                  className="button   is-primary "
                                   data-test=""
                                   disabled={false}
                                   type="submit"
@@ -753,7 +751,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 variant="primary"
                               >
                                 <button
-                                  className="button  is-primary  "
+                                  className="button   is-primary "
                                   data-test=""
                                   disabled={false}
                                   type="reset"
@@ -866,7 +864,7 @@ exports[`admin-apps renderDeleteAction should call delete action 1`] = `
     variant="danger"
   >
     <button
-      className="button  is-danger  "
+      className="button   is-danger "
       data-test=""
       disabled={false}
       onClick={[Function]}

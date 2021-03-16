@@ -20,9 +20,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
     <div
       className="fade-in"
     >
-      <Section>
+      <Section
+        hasPadding={false}
+      >
         <section
-          className="section has-padding has-margin has-background"
+          className="section has-margin has-background"
           data-test=""
         >
           <div
@@ -41,7 +43,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               type="button"
             >
               <button
-                className="button  is-primary  "
+                className="button   is-primary "
                 data-test=""
                 disabled={false}
                 onClick={[Function]}
@@ -62,9 +64,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
           <div
             className="fade-in"
           >
-            <Section>
+            <Section
+              hasPadding={false}
+            >
               <section
-                className="section has-padding has-margin has-background"
+                className="section has-margin has-background"
                 data-test=""
               >
                 <Content>
@@ -114,9 +118,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
       <AppToggleVisibilitySection
         app={Object {}}
       >
-        <Section>
+        <Section
+          hasPadding={false}
+        >
           <section
-            className="section has-padding has-margin has-background"
+            className="section has-margin has-background"
             data-test=""
           >
             <H5>
@@ -130,9 +136,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
             <p
               className="mb-4"
             >
-              <i>
+              <p>
                 By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-              </i>
+              </p>
             </p>
             <div
               className="field field-checkbox mb-0 control"
@@ -161,9 +167,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
           setPerformCompleteUninstall={[Function]}
           setShowConfirmModal={[Function]}
         >
-          <Section>
+          <Section
+            hasPadding={false}
+          >
             <section
-              className="section has-padding has-margin has-background"
+              className="section has-margin has-background"
               data-test=""
             >
               <FlexContainerBasic
@@ -187,7 +195,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     variant="primary"
                   >
                     <button
-                      className="button  is-primary  "
+                      className="button   is-primary "
                       data-test=""
                       disabled={true}
                       onClick={[Function]}
@@ -201,9 +209,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               <p
                 className="mb-4"
               >
-                <i>
+                <p>
                   This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-                </i>
+                </p>
               </p>
             </section>
           </Section>
@@ -219,9 +227,11 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
           setOfficeGroupsToRemove={[Function]}
           setShowConfirmModal={[Function]}
         >
-          <Section>
+          <Section
+            hasPadding={false}
+          >
             <section
-              className="section has-padding has-margin has-background"
+              className="section has-margin has-background"
               data-test=""
             >
               <FlexContainerBasic
@@ -244,7 +254,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     variant="primary"
                   >
                     <button
-                      className="button  is-primary  "
+                      className="button   is-primary "
                       data-test=""
                       disabled={false}
                       onClick={[Function]}
@@ -258,9 +268,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               <p
                 className="mb-4"
               >
-                <i>
+                <p>
                   Please select the type of installation you require for this app:
-                </i>
+                </p>
               </p>
               <div
                 className="field field-checkbox mb-0 control"
@@ -281,9 +291,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                 <div
                   className="form-subheading mb-4"
                 >
-                  <i>
+                  <p>
                     This will grant the app access to all data for all users and offices across your organisation
-                  </i>
+                  </p>
                 </div>
               </div>
               <div
@@ -305,9 +315,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                 <div
                   className="form-subheading mb-4"
                 >
-                  <i>
+                  <p>
                     This will grant the app access to only data for the specific offices inside of each office group
-                  </i>
+                  </p>
                 </div>
               </div>
             </section>
@@ -327,7 +337,10 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
             <Modal
               afterClose={[Function]}
               footerItems={
-                <React.Fragment>
+                <ButtonGroup
+                  hasSpacing={true}
+                  isCentered={true}
+                >
                   <Button
                     onClick={[Function]}
                     type="button"
@@ -342,7 +355,7 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                   >
                     Confirm
                   </Button>
-                </React.Fragment>
+                </ButtonGroup>
               }
               title="undefined App Install"
               visible={false}

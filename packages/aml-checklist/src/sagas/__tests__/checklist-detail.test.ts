@@ -70,7 +70,6 @@ describe('checklist-detail', () => {
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
           message: extractNetworkErrString(err),
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
@@ -107,7 +106,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -143,7 +141,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -200,7 +197,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -255,7 +251,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -310,7 +305,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -366,7 +360,6 @@ describe('checklist-detail', () => {
         expect(clone.throw && clone.throw(err).value).toEqual(
           call(notification.error, {
             message: extractNetworkErrString(err),
-            placement: 'bottomRight',
           }),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -400,7 +393,6 @@ describe('checklist-detail', () => {
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
           message: extractNetworkErrString(err),
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -452,7 +444,6 @@ describe('checklist-detail', () => {
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
           message: extractNetworkErrString(err),
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -506,7 +497,6 @@ describe('checklist-detail', () => {
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
           message: extractNetworkErrString(err),
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -549,7 +539,6 @@ describe('checklist-detail', () => {
       expect(clone.throw && clone.throw(err).value).toEqual(
         call(notification.error, {
           message: extractNetworkErrString(err),
-          placement: 'bottomRight',
         }),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))

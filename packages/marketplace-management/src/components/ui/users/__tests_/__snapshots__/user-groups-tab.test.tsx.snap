@@ -2,43 +2,41 @@
 
 exports[`UserGroupsContent should match a snapshot 1`] = `
 <Fragment>
-  <Section>
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Name",
-              "accessor": "name",
-            },
-            Object {
-              "Header": "Email",
-              "accessor": "email",
-            },
-            Object {
-              "Header": "User Groups",
-              "accessor": "groups",
-            },
-            Object {
-              "Header": "Edit",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "created": "2019-08-14T12:30:02.0000000Z",
-              "description": "string",
-              "id": "string",
-              "modified": "2019-08-14T12:30:02.0000000Z",
-            },
-          ]
-        }
-        expandable={true}
-        scrollable={true}
-      />
-    </FadeIn>
-  </Section>
+  <FadeIn>
+    <Table
+      columns={
+        Array [
+          Object {
+            "Header": "Name",
+            "accessor": "name",
+          },
+          Object {
+            "Header": "Email",
+            "accessor": "email",
+          },
+          Object {
+            "Header": "User Groups",
+            "accessor": "groups",
+          },
+          Object {
+            "Header": "Edit",
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "created": "2019-08-14T12:30:02.0000000Z",
+            "description": "string",
+            "id": "string",
+            "modified": "2019-08-14T12:30:02.0000000Z",
+          },
+        ]
+      }
+      expandable={true}
+      scrollable={true}
+    />
+  </FadeIn>
   <Pagination
     onChange={[Function]}
     pageNumber={0}
@@ -50,14 +48,14 @@ exports[`UserGroupsContent should match a snapshot 1`] = `
 
 exports[`UserGroupsTab should match a snapshot 1`] = `
 <ErrorBoundary>
-  <Section>
-    <H5>
-      User groups
-    </H5>
-    <i>
-      The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting ‘Manage’.
-    </i>
-  </Section>
+  <H5>
+    User groups
+  </H5>
+  <p
+    className="mb-4"
+  >
+    The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting ‘Manage’.
+  </p>
   <UserGroupsContent
     columns={
       Array [

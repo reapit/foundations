@@ -126,7 +126,6 @@ const AppInstallationManager: React.FC<AppInstallationManagerProps> = ({ app }: 
       // show the toast
       notification.success({
         message: 'Changes have been saved successfully',
-        placement: 'bottomRight',
       })
     } finally {
       // close the confirmation modal

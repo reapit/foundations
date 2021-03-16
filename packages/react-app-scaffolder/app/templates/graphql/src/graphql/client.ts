@@ -20,7 +20,6 @@ export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResp
       const messageNotIncludeTraceID = messageArr?.[LAST_INDEX]
       notification.error({
         message: messageNotIncludeTraceID,
-        placement: 'bottomRight',
       })
     })
   }
@@ -28,7 +27,6 @@ export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResp
     console.error(`[Network error]: ${networkError}`)
     notification.error({
       message: networkError,
-      placement: 'bottomRight',
     })
   }
 }
