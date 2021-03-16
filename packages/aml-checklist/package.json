@@ -37,7 +37,7 @@
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "snyk": "^1.463.0",
-    "yup": "^0.29.3"
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
