@@ -94,7 +94,16 @@ describe('ReapitConnectBrowserSession', () => {
   })
 
   it('should refresh a session from a refresh token if session has expired', async () => {
-    mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
+    // Not sure why but fetch mocking is sporadically failing because of a weird async issue in the jest setup
+    // hence this manual mock
+    window.fetch = jest.fn(() => {
+      return new Promise((resolve) => {
+        resolve({
+          json: () => new Promise((resolve) => resolve(mockTokenResponse)),
+        } as Response)
+      })
+    })
+
     const expiredSession = {
       ...mockBrowserSession,
       accessToken: JSON.stringify({ exp: Math.round(new Date().getTime() / 1000) }),
@@ -103,21 +112,24 @@ describe('ReapitConnectBrowserSession', () => {
     const session = getSession()
     const invalidSession = Object.assign(session, { session: expiredSession }) as ReapitConnectBrowserSession
 
-    // Having to skip because of some weird async bug that has crept in, that causes my ivalid session
-    // to be undefined
-    // const connectSession = await invalidSession.connectSession()
-    await invalidSession.connectSession()
+    const connectSession = await invalidSession.connectSession()
 
     expect(window.fetch).toHaveBeenCalledTimes(1)
-
-    // expect(connectSession).toEqual(mockBrowserSession)
+    expect(connectSession).toEqual(mockBrowserSession)
   })
 
   it('should refresh a session from a code if session has expired and code is in url', async () => {
     const code = 'SOME_CODE'
     window.location.search = `?code=${code}`
-
-    mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
+    // Not sure why but fetch mocking is sporadically failing because of a weird async issue in the jest setup
+    // hence this manual mock
+    window.fetch = jest.fn(() => {
+      return new Promise((resolve) => {
+        resolve({
+          json: () => new Promise((resolve) => resolve(mockTokenResponse)),
+        } as Response)
+      })
+    })
 
     const expiredSession = {
       ...mockBrowserSession,
@@ -128,13 +140,10 @@ describe('ReapitConnectBrowserSession', () => {
     const session = getSession()
     const invalidSession = Object.assign(session, { session: expiredSession }) as ReapitConnectBrowserSession
 
-    // Having to skip because of some weird async bug that has crept in, that causes my ivalid session
-    // to be undefined
-    // const connectSession = await invalidSession.connectSession()
-    await invalidSession.connectSession()
+    const connectSession = await invalidSession.connectSession()
 
     expect(window.fetch).toHaveBeenCalledTimes(1)
-    // expect(connectSession).toEqual(mockBrowserSession)
+    expect(connectSession).toEqual(mockBrowserSession)
   })
 
   it('should only call once to api and return undefined if already fetching', async () => {
