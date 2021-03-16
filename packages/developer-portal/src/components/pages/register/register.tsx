@@ -25,8 +25,7 @@ import { selectDeveloperFormState } from '@/selector'
 import { developerCreate, developerSetFormState } from '@/actions/developer'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
-import { container, wrapper, image } from './__styles__/register'
-import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { container, imageContainer, loginImage, wrapper } from './__styles__/register'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
 
@@ -99,6 +98,9 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
 
   return (
     <div className={container}>
+      <div className={imageContainer}>
+        <div className={loginImage}></div>
+      </div>
       <div className={wrapper}>
         <H1 isCentered>Register</H1>
         <p className="mb-4">Reapit Foundations developers</p>
@@ -185,9 +187,6 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
             </Formik>
           </>
         )}
-      </div>
-      <div className={image}>
-        <img src={logoImage} alt="Reapit graphic" />
       </div>
     </div>
   )

@@ -94,11 +94,12 @@ exports[`AppDetail should match a snapshot 1`] = `
                   <ModalV2
                     afterClose={[Function]}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        className="is-flex"
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -108,7 +109,6 @@ exports[`AppDetail should match a snapshot 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -117,7 +117,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
@@ -134,11 +134,12 @@ exports[`AppDetail should match a snapshot 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          className="is-flex"
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -148,7 +149,6 @@ exports[`AppDetail should match a snapshot 1`] = `
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -157,7 +157,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       title={
                         <ModalHeaderV2>
@@ -206,11 +206,11 @@ exports[`AppDetail should match a snapshot 1`] = `
                 >
                   <ModalV2
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -220,7 +220,6 @@ exports[`AppDetail should match a snapshot 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -229,7 +228,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     onClose={[Function]}
@@ -246,11 +245,11 @@ exports[`AppDetail should match a snapshot 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -260,7 +259,6 @@ exports[`AppDetail should match a snapshot 1`] = `
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -269,7 +267,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       onClose={[Function]}
                       title={
@@ -540,11 +538,12 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                   <ModalV2
                     afterClose={[Function]}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        className="is-flex"
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -554,7 +553,6 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -563,7 +561,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
@@ -580,11 +578,12 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          className="is-flex"
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -594,7 +593,6 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -603,7 +601,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       title={
                         <ModalHeaderV2>
@@ -652,11 +650,11 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 >
                   <ModalV2
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -666,7 +664,6 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -675,7 +672,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     onClose={[Function]}
@@ -692,11 +689,11 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -706,7 +703,6 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -715,7 +711,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       onClose={[Function]}
                       title={
@@ -986,11 +982,12 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                   <ModalV2
                     afterClose={[Function]}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        className="is-flex"
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -1000,7 +997,6 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -1009,7 +1005,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     title="Confirm undefined uninstallation"
@@ -1026,11 +1022,12 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          className="is-flex"
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -1040,7 +1037,6 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -1049,7 +1045,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       title={
                         <ModalHeaderV2>
@@ -1098,11 +1094,11 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 >
                   <ModalV2
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[Function]}
@@ -1112,7 +1108,6 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -1121,7 +1116,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     isCentered={true}
                     onClose={[Function]}
@@ -1138,11 +1133,11 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                       }
                       destroyOnClose={true}
                       footer={
-                        <div
-                          className="flex"
+                        <ButtonGroup
+                          hasSpacing={true}
+                          isCentered={true}
                         >
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="disagree-btn"
                             disabled={false}
                             onClick={[Function]}
@@ -1152,7 +1147,6 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                             Cancel
                           </Button>
                           <Button
-                            className="i5943rj-install-button"
                             dataTest="agree-btn"
                             loading={false}
                             onClick={[Function]}
@@ -1161,7 +1155,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                           >
                             Confirm
                           </Button>
-                        </div>
+                        </ButtonGroup>
                       }
                       onClose={[Function]}
                       title={
