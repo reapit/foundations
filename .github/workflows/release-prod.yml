@@ -1,9 +1,8 @@
 name: Release Prod
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
