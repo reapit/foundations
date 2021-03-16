@@ -82,7 +82,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                     class="rc-dialog-mask"
                   />
                   <div
-                    aria-labelledby="rcDialogTitle0"
+                    aria-labelledby="rcDialogTitle1"
                     class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                     role="dialog"
                     tabindex="-1"
@@ -114,7 +114,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                         >
                           <div
                             class="rc-dialog-title"
-                            id="rcDialogTitle0"
+                            id="rcDialogTitle1"
                           >
                             <h4
                               class="modal-card-title is-4 pt-2 pb-2"
@@ -192,7 +192,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 ScrollLocker {
                   "getContainer": [Function],
                   "lock": [Function],
-                  "lockTarget": 0,
+                  "lockTarget": 1,
                   "options": Object {
                     "container": <body
                       class="ant-scrolling-effect"
@@ -207,6 +207,98 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
+                            class="rc-dialog-wrap m1iljaow-modal-centered"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="rc-dialog m1s2ncsn-modal-container"
+                              role="document"
+                            >
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                              <div
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-label="close"
+                                    class="delete"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <h4
+                                      class="modal-card-title is-4 pt-2 pb-2"
+                                    >
+                                      Confirm Peter's Properties uninstallation
+                                    </h4>
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  Are you sure you wish to uninstall 
+                                  Peter's Properties
+                                  ? This action will uninstall the app for 
+                                  <b>
+                                    all
+                                  </b>
+                                   members of your organisation.
+                                </div>
+                                <div
+                                  class="rc-dialog-footer"
+                                >
+                                  <div
+                                    class="is-centered buttons mx-auto is-flex"
+                                  >
+                                    <button
+                                      class="button   is-secondary "
+                                      data-test="disagree-btn"
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      class="button   is-danger "
+                                      data-test="agree-btn"
+                                      type="button"
+                                    >
+                                      Confirm
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle1"
                             class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                             role="dialog"
                             tabindex="-1"
@@ -238,7 +330,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 >
                                   <div
                                     class="rc-dialog-title"
-                                    id="rcDialogTitle0"
+                                    id="rcDialogTitle1"
                                   >
                                     <h4
                                       class="modal-card-title is-4 pt-2 pb-2"
@@ -339,7 +431,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                   </CSSMotion>
                 </Mask>
                 <div
-                  aria-labelledby="rcDialogTitle0"
+                  aria-labelledby="rcDialogTitle1"
                   className="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -354,7 +446,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 >
                   <Content
                     afterClose={[Function]}
-                    ariaId="rcDialogTitle0"
+                    ariaId="rcDialogTitle1"
                     className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                     closable={true}
                     closeIcon={
@@ -375,7 +467,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                       ScrollLocker {
                         "getContainer": [Function],
                         "lock": [Function],
-                        "lockTarget": 0,
+                        "lockTarget": 1,
                         "options": Object {
                           "container": <body
                             class="ant-scrolling-effect"
@@ -390,6 +482,98 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 />
                                 <div
                                   aria-labelledby="rcDialogTitle0"
+                                  class="rc-dialog-wrap m1iljaow-modal-centered"
+                                  role="dialog"
+                                  tabindex="-1"
+                                >
+                                  <div
+                                    class="rc-dialog m1s2ncsn-modal-container"
+                                    role="document"
+                                  >
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                    <div
+                                      class="rc-dialog-content"
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        class="rc-dialog-close"
+                                        type="button"
+                                      >
+                                        <span
+                                          aria-label="close"
+                                          class="delete"
+                                        />
+                                      </button>
+                                      <div
+                                        class="rc-dialog-header"
+                                      >
+                                        <div
+                                          class="rc-dialog-title"
+                                          id="rcDialogTitle0"
+                                        >
+                                          <h4
+                                            class="modal-card-title is-4 pt-2 pb-2"
+                                          >
+                                            Confirm Peter's Properties uninstallation
+                                          </h4>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="rc-dialog-body"
+                                      >
+                                        Are you sure you wish to uninstall 
+                                        Peter's Properties
+                                        ? This action will uninstall the app for 
+                                        <b>
+                                          all
+                                        </b>
+                                         members of your organisation.
+                                      </div>
+                                      <div
+                                        class="rc-dialog-footer"
+                                      >
+                                        <div
+                                          class="is-centered buttons mx-auto is-flex"
+                                        >
+                                          <button
+                                            class="button   is-secondary "
+                                            data-test="disagree-btn"
+                                            type="button"
+                                          >
+                                            Cancel
+                                          </button>
+                                          <button
+                                            class="button   is-danger "
+                                            data-test="agree-btn"
+                                            type="button"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      aria-hidden="true"
+                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                      tabindex="0"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div
+                                class="rc-dialog-root"
+                              >
+                                <div
+                                  class="rc-dialog-mask"
+                                />
+                                <div
+                                  aria-labelledby="rcDialogTitle1"
                                   class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                                   role="dialog"
                                   tabindex="-1"
@@ -421,7 +605,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                       >
                                         <div
                                           class="rc-dialog-title"
-                                          id="rcDialogTitle0"
+                                          id="rcDialogTitle1"
                                         >
                                           <h4
                                             class="modal-card-title is-4 pt-2 pb-2"
@@ -542,7 +726,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                               >
                                 <div
                                   className="rc-dialog-title"
-                                  id="rcDialogTitle0"
+                                  id="rcDialogTitle1"
                                 >
                                   <ModalHeaderV2>
                                     <h4
