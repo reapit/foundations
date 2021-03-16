@@ -27,6 +27,7 @@ export const wrapIcon = css`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  box-shadow: 2px 4px 20px rgb(0 0 0 / 5%);
 `
 export const icon = css`
   width: ${iconWidth - 30}px;

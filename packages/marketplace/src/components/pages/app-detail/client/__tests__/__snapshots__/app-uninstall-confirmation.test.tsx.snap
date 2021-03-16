@@ -82,7 +82,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                     class="rc-dialog-mask"
                   />
                   <div
-                    aria-labelledby="rcDialogTitle1"
+                    aria-labelledby="rcDialogTitle0"
                     class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                     role="dialog"
                     tabindex="-1"
@@ -114,7 +114,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                         >
                           <div
                             class="rc-dialog-title"
-                            id="rcDialogTitle1"
+                            id="rcDialogTitle0"
                           >
                             <h4
                               class="modal-card-title is-4 pt-2 pb-2"
@@ -192,7 +192,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 ScrollLocker {
                   "getContainer": [Function],
                   "lock": [Function],
-                  "lockTarget": 1,
+                  "lockTarget": 0,
                   "options": Object {
                     "container": <body
                       class="ant-scrolling-effect"
@@ -207,98 +207,6 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                           />
                           <div
                             aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap m1iljaow-modal-centered"
-                            role="dialog"
-                            tabindex="-1"
-                          >
-                            <div
-                              class="rc-dialog m1s2ncsn-modal-container"
-                              role="document"
-                            >
-                              <div
-                                aria-hidden="true"
-                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                tabindex="0"
-                              />
-                              <div
-                                class="rc-dialog-content"
-                              >
-                                <button
-                                  aria-label="Close"
-                                  class="rc-dialog-close"
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    class="delete"
-                                  />
-                                </button>
-                                <div
-                                  class="rc-dialog-header"
-                                >
-                                  <div
-                                    class="rc-dialog-title"
-                                    id="rcDialogTitle0"
-                                  >
-                                    <h4
-                                      class="modal-card-title is-4 pt-2 pb-2"
-                                    >
-                                      Confirm Peter's Properties uninstallation
-                                    </h4>
-                                  </div>
-                                </div>
-                                <div
-                                  class="rc-dialog-body"
-                                >
-                                  Are you sure you wish to uninstall 
-                                  Peter's Properties
-                                  ? This action will uninstall the app for 
-                                  <b>
-                                    all
-                                  </b>
-                                   members of your organisation.
-                                </div>
-                                <div
-                                  class="rc-dialog-footer"
-                                >
-                                  <div
-                                    class="flex"
-                                  >
-                                    <button
-                                      class="button   is-secondary i5943rj-install-button"
-                                      data-test="disagree-btn"
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      class="button   is-danger i5943rj-install-button"
-                                      data-test="agree-btn"
-                                      type="button"
-                                    >
-                                      Confirm
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                aria-hidden="true"
-                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                tabindex="0"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div
-                          class="rc-dialog-root"
-                        >
-                          <div
-                            class="rc-dialog-mask"
-                          />
-                          <div
-                            aria-labelledby="rcDialogTitle1"
                             class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                             role="dialog"
                             tabindex="-1"
@@ -330,7 +238,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 >
                                   <div
                                     class="rc-dialog-title"
-                                    id="rcDialogTitle1"
+                                    id="rcDialogTitle0"
                                   >
                                     <h4
                                       class="modal-card-title is-4 pt-2 pb-2"
@@ -431,7 +339,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                   </CSSMotion>
                 </Mask>
                 <div
-                  aria-labelledby="rcDialogTitle1"
+                  aria-labelledby="rcDialogTitle0"
                   className="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -446,7 +354,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                 >
                   <Content
                     afterClose={[Function]}
-                    ariaId="rcDialogTitle1"
+                    ariaId="rcDialogTitle0"
                     className="m1s2ncsn-modal-container m1257vs8-modal-no-header"
                     closable={true}
                     closeIcon={
@@ -467,7 +375,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                       ScrollLocker {
                         "getContainer": [Function],
                         "lock": [Function],
-                        "lockTarget": 1,
+                        "lockTarget": 0,
                         "options": Object {
                           "container": <body
                             class="ant-scrolling-effect"
@@ -482,98 +390,6 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                 />
                                 <div
                                   aria-labelledby="rcDialogTitle0"
-                                  class="rc-dialog-wrap m1iljaow-modal-centered"
-                                  role="dialog"
-                                  tabindex="-1"
-                                >
-                                  <div
-                                    class="rc-dialog m1s2ncsn-modal-container"
-                                    role="document"
-                                  >
-                                    <div
-                                      aria-hidden="true"
-                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                      tabindex="0"
-                                    />
-                                    <div
-                                      class="rc-dialog-content"
-                                    >
-                                      <button
-                                        aria-label="Close"
-                                        class="rc-dialog-close"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-label="close"
-                                          class="delete"
-                                        />
-                                      </button>
-                                      <div
-                                        class="rc-dialog-header"
-                                      >
-                                        <div
-                                          class="rc-dialog-title"
-                                          id="rcDialogTitle0"
-                                        >
-                                          <h4
-                                            class="modal-card-title is-4 pt-2 pb-2"
-                                          >
-                                            Confirm Peter's Properties uninstallation
-                                          </h4>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="rc-dialog-body"
-                                      >
-                                        Are you sure you wish to uninstall 
-                                        Peter's Properties
-                                        ? This action will uninstall the app for 
-                                        <b>
-                                          all
-                                        </b>
-                                         members of your organisation.
-                                      </div>
-                                      <div
-                                        class="rc-dialog-footer"
-                                      >
-                                        <div
-                                          class="flex"
-                                        >
-                                          <button
-                                            class="button   is-secondary i5943rj-install-button"
-                                            data-test="disagree-btn"
-                                            type="button"
-                                          >
-                                            Cancel
-                                          </button>
-                                          <button
-                                            class="button   is-danger i5943rj-install-button"
-                                            data-test="agree-btn"
-                                            type="button"
-                                          >
-                                            Confirm
-                                          </button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      aria-hidden="true"
-                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                      tabindex="0"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <div
-                                class="rc-dialog-root"
-                              >
-                                <div
-                                  class="rc-dialog-mask"
-                                />
-                                <div
-                                  aria-labelledby="rcDialogTitle1"
                                   class="rc-dialog-wrap m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                                   role="dialog"
                                   tabindex="-1"
@@ -605,7 +421,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                                       >
                                         <div
                                           class="rc-dialog-title"
-                                          id="rcDialogTitle1"
+                                          id="rcDialogTitle0"
                                         >
                                           <h4
                                             class="modal-card-title is-4 pt-2 pb-2"
@@ -726,7 +542,7 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
                               >
                                 <div
                                   className="rc-dialog-title"
-                                  id="rcDialogTitle1"
+                                  id="rcDialogTitle0"
                                 >
                                   <ModalHeaderV2>
                                     <h4
@@ -859,11 +675,12 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
 
 exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter should match snapshot 1`] = `
 <div>
-  <div
-    className="flex"
+  <ButtonGroup
+    className="is-flex"
+    hasSpacing={true}
+    isCentered={true}
   >
     <Button
-      className="i5943rj-install-button"
       dataTest="disagree-btn"
       disabled={false}
       onClick={[MockFunction]}
@@ -873,7 +690,6 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
       Cancel
     </Button>
     <Button
-      className="i5943rj-install-button"
       dataTest="agree-btn"
       loading={false}
       onClick={[Function]}
@@ -882,7 +698,7 @@ exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter s
     >
       Confirm
     </Button>
-  </div>
+  </ButtonGroup>
 </div>
 `;
 
@@ -989,11 +805,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         <ModalV2
           afterClose={[Function]}
           footer={
-            <div
-              className="flex"
+            <ButtonGroup
+              className="is-flex"
+              hasSpacing={true}
+              isCentered={true}
             >
               <Button
-                className="i5943rj-install-button"
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
@@ -1003,7 +820,6 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 Cancel
               </Button>
               <Button
-                className="i5943rj-install-button"
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -1012,7 +828,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               >
                 Confirm
               </Button>
-            </div>
+            </ButtonGroup>
           }
           isCentered={true}
           title="Confirm Peter's Properties uninstallation"
@@ -1029,11 +845,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             }
             destroyOnClose={true}
             footer={
-              <div
-                className="flex"
+              <ButtonGroup
+                className="is-flex"
+                hasSpacing={true}
+                isCentered={true}
               >
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
@@ -1043,7 +860,6 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                   Cancel
                 </Button>
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -1052,7 +868,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                 >
                   Confirm
                 </Button>
-              </div>
+              </ButtonGroup>
             }
             title={
               <ModalHeaderV2>
@@ -1134,17 +950,17 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-footer"
                               >
                                 <div
-                                  class="flex"
+                                  class="is-centered buttons mx-auto is-flex"
                                 >
                                   <button
-                                    class="button   is-secondary i5943rj-install-button"
+                                    class="button   is-secondary "
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button   is-danger i5943rj-install-button"
+                                    class="button   is-danger "
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -1176,11 +992,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                     }
                     destroyOnClose={true}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        className="is-flex"
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
@@ -1190,7 +1007,6 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -1199,7 +1015,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     getContainer={[Function]}
                     getOpenCount={[Function]}
@@ -1277,17 +1093,17 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                         class="rc-dialog-footer"
                                       >
                                         <div
-                                          class="flex"
+                                          class="is-centered buttons mx-auto is-flex"
                                         >
                                           <button
-                                            class="button   is-secondary i5943rj-install-button"
+                                            class="button   is-secondary "
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button   is-danger i5943rj-install-button"
+                                            class="button   is-danger "
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -1377,11 +1193,12 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                           }
                           destroyOnClose={true}
                           footer={
-                            <div
-                              className="flex"
+                            <ButtonGroup
+                              className="is-flex"
+                              hasSpacing={true}
+                              isCentered={true}
                             >
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="disagree-btn"
                                 disabled={false}
                                 onClick={[MockFunction]}
@@ -1391,7 +1208,6 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                 Cancel
                               </Button>
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="agree-btn"
                                 loading={false}
                                 onClick={[Function]}
@@ -1400,7 +1216,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                               >
                                 Confirm
                               </Button>
-                            </div>
+                            </ButtonGroup>
                           }
                           getContainer={[Function]}
                           getOpenCount={[Function]}
@@ -1483,17 +1299,17 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                               class="rc-dialog-footer"
                                             >
                                               <div
-                                                class="flex"
+                                                class="is-centered buttons mx-auto is-flex"
                                               >
                                                 <button
-                                                  class="button   is-secondary i5943rj-install-button"
+                                                  class="button   is-secondary "
                                                   data-test="disagree-btn"
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button   is-danger i5943rj-install-button"
+                                                  class="button   is-danger "
                                                   data-test="agree-btn"
                                                   type="button"
                                                 >
@@ -1602,46 +1418,50 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
                                     <div
                                       className="rc-dialog-footer"
                                     >
-                                      <div
-                                        className="flex"
+                                      <ButtonGroup
+                                        className="is-flex"
+                                        hasSpacing={true}
+                                        isCentered={true}
                                       >
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="disagree-btn"
-                                          disabled={false}
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="secondary"
+                                        <div
+                                          className="is-centered buttons mx-auto is-flex"
                                         >
-                                          <button
-                                            className="button   is-secondary i5943rj-install-button"
-                                            data-test="disagree-btn"
+                                          <Button
+                                            dataTest="disagree-btn"
                                             disabled={false}
                                             onClick={[MockFunction]}
                                             type="button"
+                                            variant="secondary"
                                           >
-                                            Cancel
-                                          </button>
-                                        </Button>
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="agree-btn"
-                                          loading={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                          variant="danger"
-                                        >
-                                          <button
-                                            className="button   is-danger i5943rj-install-button"
-                                            data-test="agree-btn"
-                                            disabled={false}
+                                            <button
+                                              className="button   is-secondary "
+                                              data-test="disagree-btn"
+                                              disabled={false}
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                            >
+                                              Cancel
+                                            </button>
+                                          </Button>
+                                          <Button
+                                            dataTest="agree-btn"
+                                            loading={false}
                                             onClick={[Function]}
                                             type="button"
+                                            variant="danger"
                                           >
-                                            Confirm
-                                          </button>
-                                        </Button>
-                                      </div>
+                                            <button
+                                              className="button   is-danger "
+                                              data-test="agree-btn"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                            >
+                                              Confirm
+                                            </button>
+                                          </Button>
+                                        </div>
+                                      </ButtonGroup>
                                     </div>
                                   </div>
                                 </Component>

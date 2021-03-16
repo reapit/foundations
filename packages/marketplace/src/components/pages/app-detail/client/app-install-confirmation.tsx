@@ -2,10 +2,8 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
-import { css } from 'linaria'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-import * as appPermissionContentStyles from '../__styles__/app-permission-content'
-import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2, H5 } from '@reapit/elements'
+import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2, H5, ButtonGroup } from '@reapit/elements'
 import { installApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'
@@ -103,10 +101,6 @@ export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 
     isDesktopMode: Boolean
   }
 
-const btnGroup = css`
-  margin-top: 20px;
-`
-
 export const InstallNonDirectApiAppSucesfullyModal = ({
   afterClose,
   appDetailData,
@@ -124,10 +118,10 @@ export const InstallNonDirectApiAppSucesfullyModal = ({
         onButtonClick={onSuccessAlertButtonClick}
         isCenter
         footerItems={
-          <div className={btnGroup}>
+          <ButtonGroup hasSpacing isCentered>
             <Button
               dataTest="installations-success-message"
-              variant="primary"
+              variant="secondary"
               type="button"
               onClick={onSuccessAlertButtonClick as () => void}
             >
@@ -147,10 +141,10 @@ export const InstallNonDirectApiAppSucesfullyModal = ({
                 </Button>
               </a>
             )}
-          </div>
+          </ButtonGroup>
         }
       >
-        {name} has been successfully installed
+        <p className="mb-4">{name} has been successfully installed</p>
       </CallToAction>
     </ModalV2>
   )
@@ -271,11 +265,10 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         onClose={closeInstallConfirmationModal}
         isCentered
         footer={
-          <div className="flex">
+          <ButtonGroup hasSpacing isCentered>
             <Button
               dataTest="disagree-btn"
               disabled={false}
-              className={appPermissionContentStyles.installButton}
               type="button"
               variant="secondary"
               onClick={closeInstallConfirmationModal}
@@ -285,7 +278,6 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             <Button
               dataTest="agree-btn"
               loading={isLoading}
-              className={appPermissionContentStyles.installButton}
               type="button"
               variant="primary"
               onClick={handleInstallButtonClick(
@@ -299,7 +291,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             >
               Confirm
             </Button>
-          </div>
+          </ButtonGroup>
         }
       >
         <Content>

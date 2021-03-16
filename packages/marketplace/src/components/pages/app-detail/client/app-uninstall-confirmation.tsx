@@ -4,9 +4,8 @@ import { History } from 'history'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import * as appPermissionContentStyles from '../__styles__/app-permission-content'
 import { fetchAppDetail } from '@/actions/apps'
-import { Button, ModalV2, ModalPropsV2 } from '@reapit/elements'
+import { Button, ModalV2, ModalPropsV2, ButtonGroup } from '@reapit/elements'
 import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectUninstallAppState } from '@/selector/installations'
@@ -105,11 +104,10 @@ export const renderUninstallConfirmationModalFooter = (
   isDesktopMode: boolean,
 ) => {
   return (
-    <div className="flex">
+    <ButtonGroup className="is-flex" hasSpacing isCentered>
       <Button
         dataTest="disagree-btn"
         disabled={false}
-        className={appPermissionContentStyles.installButton}
         type="button"
         variant="secondary"
         onClick={closeUninstallConfirmationModal}
@@ -119,7 +117,6 @@ export const renderUninstallConfirmationModalFooter = (
       <Button
         dataTest="agree-btn"
         loading={isSubmitting}
-        className={appPermissionContentStyles.installButton}
         type="button"
         variant="danger"
         onClick={onUninstallButtonClick(
@@ -134,7 +131,7 @@ export const renderUninstallConfirmationModalFooter = (
       >
         Confirm
       </Button>
-    </div>
+    </ButtonGroup>
   )
 }
 
