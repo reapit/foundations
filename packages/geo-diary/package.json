@@ -16,7 +16,7 @@
     "build": "rimraf public/dist && NODE_ENV=production webpack",
     "lint": "eslint --cache --ext=ts,tsx src --fix",
     "release": "serverless deploy",
-    "publish": "echo '...skipping...' ",
+    "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity geo-diary --name local --mode fetch",
     "commit": "concurrently \"yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges\" \"yarn lint\""
   },
