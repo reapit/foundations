@@ -37,12 +37,8 @@
     "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
+    "upgrade-all": "yarn upgrade-interactive",
     "postinstall": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn changed foreach --git-range HEAD --parallel --verbose --interlaced run commit && git add ."
-    }
   },
   "devDependencies": {
     "husky": "^5.1.3"
