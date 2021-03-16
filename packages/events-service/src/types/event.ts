@@ -2,6 +2,7 @@
 // the foundations ts library
 
 export interface Event {
+  isTestEvent: boolean
   id: string
   type: string
   published: string
