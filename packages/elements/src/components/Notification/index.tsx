@@ -2,6 +2,7 @@ import * as React from 'react'
 import Notification from 'rc-notification'
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification'
 import createUseNotification from './useNotification'
+import { SnackbarErrorIcon, SnackbarInfoIcon, SnackbarSuccessIcon } from '../Icons'
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 
@@ -145,8 +146,16 @@ function getRCNoticeProps(args: ArgsProps) {
   const variant =
     args.type === 'success' ? 'is-success-message' : args.type === 'info' ? 'is-info-message' : 'is-warning-message'
 
+  const Icon =
+    args.type === 'success' ? SnackbarSuccessIcon : args.type === 'info' ? SnackbarInfoIcon : SnackbarErrorIcon
+
   return {
-    content: <div className={`notification reapit-notification-content ${variant}`}>{args.message}</div>,
+    content: (
+      <div className={`notification reapit-notification-content ${variant}`}>
+        <Icon />
+        {args.message}
+      </div>
+    ),
     duration,
     closable: true,
     onClose: args.onClose,

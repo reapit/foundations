@@ -2,7 +2,7 @@ import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation } from 'react-router'
 import {
-  AccountIcon,
+  ProfileIcon,
   AppsIcon,
   DevelopersIcon,
   InstalledIcon,
@@ -13,7 +13,6 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
-import { IoIosPeople } from 'react-icons/io'
 import { selectIsAdmin, selectClientId, selectSandboxDeveloper } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import domvsLogo from '@/assets/images/Domvs.jpg'
@@ -31,13 +30,7 @@ dayjs.extend(isBetween)
 // This is a really naff hack to hardcode our first client logo into the menu. Remove when we have a
 // logo upload and API
 const SettingsIcon: React.FC<{ clientId: string }> = ({ clientId }) => {
-  return clientId === 'DOM' ? (
-    <img src={domvsLogo} />
-  ) : clientId === 'RPT' ? (
-    <AccountIcon />
-  ) : (
-    <IoIosPeople className="nav-item-icon" />
-  )
+  return clientId === 'DOM' ? <img src={domvsLogo} /> : clientId === 'RPT' ? <ReapitHouseIcon /> : <ProfileIcon />
 }
 
 export const XmasLogo: React.FC = () => {
@@ -110,6 +103,7 @@ export const generateMenuConfig = (
         disabled: !isAdmin || isDesktop,
       },
       {
+        title: 'Settings',
         key: 'SETTINGS',
         url: Routes.SETTINGS,
         icon: <SettingsIcon clientId={clientId} />,

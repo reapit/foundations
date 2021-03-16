@@ -140,11 +140,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
       >
         <ModalV2
           footer={
-            <div
-              className="flex"
+            <ButtonGroup
+              hasSpacing={true}
+              isCentered={true}
             >
               <Button
-                className="i5943rj-install-button"
                 dataTest="disagree-btn"
                 disabled={false}
                 onClick={[MockFunction]}
@@ -154,7 +154,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                 Cancel
               </Button>
               <Button
-                className="i5943rj-install-button"
                 dataTest="agree-btn"
                 loading={false}
                 onClick={[Function]}
@@ -163,7 +162,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               >
                 Confirm
               </Button>
-            </div>
+            </ButtonGroup>
           }
           isCentered={true}
           onClose={[MockFunction]}
@@ -180,11 +179,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             }
             destroyOnClose={true}
             footer={
-              <div
-                className="flex"
+              <ButtonGroup
+                hasSpacing={true}
+                isCentered={true}
               >
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="disagree-btn"
                   disabled={false}
                   onClick={[MockFunction]}
@@ -194,7 +193,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                   Cancel
                 </Button>
                 <Button
-                  className="i5943rj-install-button"
                   dataTest="agree-btn"
                   loading={false}
                   onClick={[Function]}
@@ -203,7 +201,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                 >
                   Confirm
                 </Button>
-              </div>
+              </ButtonGroup>
             }
             onClose={[MockFunction]}
             title={
@@ -335,17 +333,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 class="rc-dialog-footer"
                               >
                                 <div
-                                  class="flex"
+                                  class="is-centered buttons mx-auto"
                                 >
                                   <button
-                                    class="button   is-secondary i5943rj-install-button"
+                                    class="button   is-secondary "
                                     data-test="disagree-btn"
                                     type="button"
                                   >
                                     Cancel
                                   </button>
                                   <button
-                                    class="button   is-primary i5943rj-install-button"
+                                    class="button   is-primary "
                                     data-test="agree-btn"
                                     type="button"
                                   >
@@ -376,11 +374,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                     }
                     destroyOnClose={true}
                     footer={
-                      <div
-                        className="flex"
+                      <ButtonGroup
+                        hasSpacing={true}
+                        isCentered={true}
                       >
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="disagree-btn"
                           disabled={false}
                           onClick={[MockFunction]}
@@ -390,7 +388,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                           Cancel
                         </Button>
                         <Button
-                          className="i5943rj-install-button"
                           dataTest="agree-btn"
                           loading={false}
                           onClick={[Function]}
@@ -399,7 +396,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                         >
                           Confirm
                         </Button>
-                      </div>
+                      </ButtonGroup>
                     }
                     getContainer={[Function]}
                     getOpenCount={[Function]}
@@ -487,17 +484,21 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                             class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button   is-primary "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -761,17 +762,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                         class="rc-dialog-footer"
                                       >
                                         <div
-                                          class="flex"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button   is-secondary i5943rj-install-button"
+                                            class="button   is-secondary "
                                             data-test="disagree-btn"
                                             type="button"
                                           >
                                             Cancel
                                           </button>
                                           <button
-                                            class="button   is-primary i5943rj-install-button"
+                                            class="button   is-primary "
                                             data-test="agree-btn"
                                             type="button"
                                           >
@@ -860,11 +861,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                           }
                           destroyOnClose={true}
                           footer={
-                            <div
-                              className="flex"
+                            <ButtonGroup
+                              hasSpacing={true}
+                              isCentered={true}
                             >
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="disagree-btn"
                                 disabled={false}
                                 onClick={[MockFunction]}
@@ -874,7 +875,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                 Cancel
                               </Button>
                               <Button
-                                className="i5943rj-install-button"
                                 dataTest="agree-btn"
                                 loading={false}
                                 onClick={[Function]}
@@ -883,7 +883,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                               >
                                 Confirm
                               </Button>
-                            </div>
+                            </ButtonGroup>
                           }
                           getContainer={[Function]}
                           getOpenCount={[Function]}
@@ -975,17 +975,21 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                                   class="modal-card-body"
                                                 >
                                                   <p>
-                                                    Peter's Properties
-                                                     has been successfully installed
+                                                    <p
+                                                      class="mb-4"
+                                                    >
+                                                      Peter's Properties
+                                                       has been successfully installed
+                                                    </p>
                                                   </p>
                                                   <div
                                                     class="has-text-right"
                                                   >
                                                     <div
-                                                      class="b1hev0vk-btn-group"
+                                                      class="is-centered buttons mx-auto"
                                                     >
                                                       <button
-                                                        class="button   is-primary "
+                                                        class="button   is-secondary "
                                                         data-test="installations-success-message"
                                                         type="button"
                                                       >
@@ -1249,17 +1253,17 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                               class="rc-dialog-footer"
                                             >
                                               <div
-                                                class="flex"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button   is-secondary i5943rj-install-button"
+                                                  class="button   is-secondary "
                                                   data-test="disagree-btn"
                                                   type="button"
                                                 >
                                                   Cancel
                                                 </button>
                                                 <button
-                                                  class="button   is-primary i5943rj-install-button"
+                                                  class="button   is-primary "
                                                   data-test="agree-btn"
                                                   type="button"
                                                 >
@@ -1445,46 +1449,49 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                     <div
                                       className="rc-dialog-footer"
                                     >
-                                      <div
-                                        className="flex"
+                                      <ButtonGroup
+                                        hasSpacing={true}
+                                        isCentered={true}
                                       >
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="disagree-btn"
-                                          disabled={false}
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="secondary"
+                                        <div
+                                          className="is-centered buttons mx-auto"
                                         >
-                                          <button
-                                            className="button   is-secondary i5943rj-install-button"
-                                            data-test="disagree-btn"
+                                          <Button
+                                            dataTest="disagree-btn"
                                             disabled={false}
                                             onClick={[MockFunction]}
                                             type="button"
+                                            variant="secondary"
                                           >
-                                            Cancel
-                                          </button>
-                                        </Button>
-                                        <Button
-                                          className="i5943rj-install-button"
-                                          dataTest="agree-btn"
-                                          loading={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                          variant="primary"
-                                        >
-                                          <button
-                                            className="button   is-primary i5943rj-install-button"
-                                            data-test="agree-btn"
-                                            disabled={false}
+                                            <button
+                                              className="button   is-secondary "
+                                              data-test="disagree-btn"
+                                              disabled={false}
+                                              onClick={[MockFunction]}
+                                              type="button"
+                                            >
+                                              Cancel
+                                            </button>
+                                          </Button>
+                                          <Button
+                                            dataTest="agree-btn"
+                                            loading={false}
                                             onClick={[Function]}
                                             type="button"
+                                            variant="primary"
                                           >
-                                            Confirm
-                                          </button>
-                                        </Button>
-                                      </div>
+                                            <button
+                                              className="button   is-primary "
+                                              data-test="agree-btn"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                            >
+                                              Confirm
+                                            </button>
+                                          </Button>
+                                        </div>
+                                      </ButtonGroup>
                                     </div>
                                   </div>
                                 </Component>
@@ -1952,17 +1959,21 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       class="modal-card-body"
                                     >
                                       <p>
-                                        Peter's Properties
-                                         has been successfully installed
+                                        <p
+                                          class="mb-4"
+                                        >
+                                          Peter's Properties
+                                           has been successfully installed
+                                        </p>
                                       </p>
                                       <div
                                         class="has-text-right"
                                       >
                                         <div
-                                          class="b1hev0vk-btn-group"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button   is-primary "
+                                            class="button   is-secondary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -2269,17 +2280,21 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button   is-primary "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -2807,17 +2822,21 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                               class="modal-card-body"
                             >
                               <p>
-                                Peter's Properties
-                                 has been successfully installed
+                                <p
+                                  class="mb-4"
+                                >
+                                  Peter's Properties
+                                   has been successfully installed
+                                </p>
                               </p>
                               <div
                                 class="has-text-right"
                               >
                                 <div
-                                  class="b1hev0vk-btn-group"
+                                  class="is-centered buttons mx-auto"
                                 >
                                   <button
-                                    class="button   is-primary "
+                                    class="button   is-secondary "
                                     data-test="installations-success-message"
                                     type="button"
                                   >
@@ -2947,17 +2966,21 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       class="modal-card-body"
                                     >
                                       <p>
-                                        Peter's Properties
-                                         has been successfully installed
+                                        <p
+                                          class="mb-4"
+                                        >
+                                          Peter's Properties
+                                           has been successfully installed
+                                        </p>
                                       </p>
                                       <div
                                         class="has-text-right"
                                       >
                                         <div
-                                          class="b1hev0vk-btn-group"
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button   is-primary "
+                                            class="button   is-secondary "
                                             data-test="installations-success-message"
                                             type="button"
                                           >
@@ -3145,17 +3168,21 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                             class="modal-card-body"
                                           >
                                             <p>
-                                              Peter's Properties
-                                               has been successfully installed
+                                              <p
+                                                class="mb-4"
+                                              >
+                                                Peter's Properties
+                                                 has been successfully installed
+                                              </p>
                                             </p>
                                             <div
                                               class="has-text-right"
                                             >
                                               <div
-                                                class="b1hev0vk-btn-group"
+                                                class="is-centered buttons mx-auto"
                                               >
                                                 <button
-                                                  class="button   is-primary "
+                                                  class="button   is-secondary "
                                                   data-test="installations-success-message"
                                                   type="button"
                                                 >
@@ -3263,14 +3290,15 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 <CallToAction
                                   buttonDataTest="installations-success-button-back"
                                   footerItems={
-                                    <div
-                                      className="b1hev0vk-btn-group"
+                                    <ButtonGroup
+                                      hasSpacing={true}
+                                      isCentered={true}
                                     >
                                       <Button
                                         dataTest="installations-success-message"
                                         onClick={[MockFunction]}
                                         type="button"
-                                        variant="primary"
+                                        variant="secondary"
                                       >
                                         Back To List
                                       </Button>
@@ -3285,7 +3313,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                           Launch App
                                         </Button>
                                       </a>
-                                    </div>
+                                    </ButtonGroup>
                                   }
                                   isCenter={true}
                                   onButtonClick={[MockFunction]}
@@ -3320,20 +3348,25 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       body={
                                         <React.Fragment>
                                           <p>
-                                            Peter's Properties
-                                             has been successfully installed
+                                            <p
+                                              className="mb-4"
+                                            >
+                                              Peter's Properties
+                                               has been successfully installed
+                                            </p>
                                           </p>
                                           <div
                                             className="has-text-right"
                                           >
-                                            <div
-                                              className="b1hev0vk-btn-group"
+                                            <ButtonGroup
+                                              hasSpacing={true}
+                                              isCentered={true}
                                             >
                                               <Button
                                                 dataTest="installations-success-message"
                                                 onClick={[MockFunction]}
                                                 type="button"
-                                                variant="primary"
+                                                variant="secondary"
                                               >
                                                 Back To List
                                               </Button>
@@ -3348,7 +3381,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                                   Launch App
                                                 </Button>
                                               </a>
-                                            </div>
+                                            </ButtonGroup>
                                           </div>
                                         </React.Fragment>
                                       }
@@ -3357,50 +3390,59 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                         className="modal-card-body"
                                       >
                                         <p>
-                                          Peter's Properties
-                                           has been successfully installed
+                                          <p
+                                            className="mb-4"
+                                          >
+                                            Peter's Properties
+                                             has been successfully installed
+                                          </p>
                                         </p>
                                         <div
                                           className="has-text-right"
                                         >
-                                          <div
-                                            className="b1hev0vk-btn-group"
+                                          <ButtonGroup
+                                            hasSpacing={true}
+                                            isCentered={true}
                                           >
-                                            <Button
-                                              dataTest="installations-success-message"
-                                              onClick={[MockFunction]}
-                                              type="button"
-                                              variant="primary"
-                                            >
-                                              <button
-                                                className="button   is-primary "
-                                                data-test="installations-success-message"
-                                                disabled={false}
-                                                onClick={[MockFunction]}
-                                                type="button"
-                                              >
-                                                Back To List
-                                              </button>
-                                            </Button>
-                                            <a
-                                              href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                            <div
+                                              className="is-centered buttons mx-auto"
                                             >
                                               <Button
-                                                dataTest="installations-success-message-launch"
+                                                dataTest="installations-success-message"
+                                                onClick={[MockFunction]}
                                                 type="button"
-                                                variant="primary"
+                                                variant="secondary"
                                               >
                                                 <button
-                                                  className="button   is-primary "
-                                                  data-test="installations-success-message-launch"
+                                                  className="button   is-secondary "
+                                                  data-test="installations-success-message"
                                                   disabled={false}
+                                                  onClick={[MockFunction]}
                                                   type="button"
                                                 >
-                                                  Launch App
+                                                  Back To List
                                                 </button>
                                               </Button>
-                                            </a>
-                                          </div>
+                                              <a
+                                                href="agencycloud://app?id=9b6fd5f7-2c15-483d-b925-01b650538e52&launchUri=undefined"
+                                              >
+                                                <Button
+                                                  dataTest="installations-success-message-launch"
+                                                  type="button"
+                                                  variant="primary"
+                                                >
+                                                  <button
+                                                    className="button   is-primary "
+                                                    data-test="installations-success-message-launch"
+                                                    disabled={false}
+                                                    type="button"
+                                                  >
+                                                    Launch App
+                                                  </button>
+                                                </Button>
+                                              </a>
+                                            </div>
+                                          </ButtonGroup>
                                         </div>
                                       </section>
                                     </ModalBody>

@@ -60,6 +60,13 @@ exports[`Register should match a snapshot 1`] = `
           className="clgvn7z-container"
         >
           <div
+            className="iich6-image-container"
+          >
+            <div
+              className="lawfo3s-login-image"
+            />
+          </div>
+          <div
             className="wj5na9i-wrapper"
           >
             <H1
@@ -539,14 +546,6 @@ exports[`Register should match a snapshot 1`] = `
                 </form>
               </Form>
             </Formik>
-          </div>
-          <div
-            className="iawfo3s-image"
-          >
-            <img
-              alt="Reapit graphic"
-              src=""
-            />
           </div>
         </div>
       </Register>

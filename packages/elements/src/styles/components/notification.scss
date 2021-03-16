@@ -32,6 +32,10 @@ $notification-margin-bottom: 16px;
     font-weight: normal;
     font-size: 16px;
     text-transform: none;
+
+    svg {
+      margin-bottom: -21px;
+    }
   }
 
   @include for-mobile-only {
