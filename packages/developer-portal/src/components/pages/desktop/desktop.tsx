@@ -65,7 +65,7 @@ export const DeveloperDesktopContentPartTwo: React.FC = () => {
         <GridItem>
           <div className={developerDesktopPricingTile}>
             <div className="desktop-inner-container">
-              <div className="modal-card-head">
+              <div className="modal-card-head mb-4">
                 <H5 className="mb-0" isCentered>
                   Developer Edition
                 </H5>

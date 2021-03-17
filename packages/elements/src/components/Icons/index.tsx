@@ -4,7 +4,7 @@ export interface IconProps {
   className?: string
 }
 
-export const ReapitHouseIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const ReapitHouseIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path d="M3.55017 20.2106L23.9757 0.470581L44.4012 20.2106V47.4706H3.55017V20.2106Z" fill="#31448F" />
     <path d="M3.55017 20.2106L23.9757 0.470581L44.4012 20.2106V35.7206L3.55017 20.2106Z" fill="#7BC9EB" />
@@ -16,7 +16,7 @@ export const ReapitHouseIcon: React.FC<IconProps> = ({ className = 'nav-item-ico
   </svg>
 )
 
-export const AnalyticsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const AnalyticsIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M9.70831 25.3318C9.54255 25.3318 9.38358 25.3976 9.26637 25.5148C9.14916 25.6321 9.08331 25.791 9.08331 25.9568V31.3735H12.8333V25.9568C12.8333 25.791 12.7675 25.6321 12.6503 25.5148C12.533 25.3976 12.3741 25.3318 12.2083 25.3318H9.70831Z"
@@ -49,7 +49,7 @@ export const AnalyticsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon'
   </svg>
 )
 
-export const ApiIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const ApiIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M28.5436 11.8906C28.1144 7.46804 24.3759 4 19.8425 4C15.3093 4 11.5711 7.4681 11.1414 11.8906C8.23879 12.3034 6 14.8051 6 17.8198C6 21.1222 8.68674 23.8089 11.9891 23.8089H18.931V17.1381L17.725 18.344C17.3691 18.6999 16.792 18.6999 16.436 18.344C16.0801 17.9881 16.0801 17.411 16.436 17.0551L19.198 14.293C19.5539 13.9371 20.1311 13.9371 20.487 14.293L23.2491 17.0551C23.6051 17.411 23.6051 17.9881 23.2491 18.344C23.0711 18.522 22.8379 18.611 22.6046 18.611C22.3713 18.611 22.138 18.522 21.9601 18.344L20.7539 17.1378V23.809H27.6959C30.9983 23.809 33.6849 21.1222 33.6849 17.8199C33.6849 14.8051 31.4462 12.3034 28.5436 11.8906Z"
@@ -66,7 +66,7 @@ export const ApiIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) =>
   </svg>
 )
 
-export const AppsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const AppsIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <rect x="13.2" y="7" width="15" height="27" fill="white" />
     <path
@@ -92,7 +92,7 @@ export const AppsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) =
   </svg>
 )
 
-export const DesktopIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const DesktopIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M7.21594 10.1156L10.0532 8.89966H29.9142L32.3461 10.1156V24.7074L30.3195 26.3287L9.24257 26.734L7.21594 24.7074V10.1156Z"
@@ -109,7 +109,7 @@ export const DesktopIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }
   </svg>
 )
 
-export const DocsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const DocsIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M10.9772 10H10.975C10.7291 10 10.4979 10.0976 10.3232 10.2749C10.1466 10.4543 10.0494 10.693 10.0494 10.9472V25.1503C10.0494 25.6711 10.4672 26.0958 10.9809 26.0972C13.1465 26.1024 16.7748 26.562 19.2778 29.2286V14.3647C19.2778 14.1881 19.2335 14.0223 19.1499 13.885C17.0956 10.5169 13.1478 10.0052 10.9772 10Z"
@@ -130,7 +130,7 @@ export const DocsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) =
   </svg>
 )
 
-export const HelpIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const HelpIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M20.0002 7C12.8228 7 7 12.8155 7 19.9934C7 27.1782 12.8228 33.0004 20.0002 33.0004C27.1815 33.0004 32.9994 27.1781 32.9994 19.9934C32.9995 12.8155 27.1815 7 20.0002 7Z"
@@ -143,7 +143,7 @@ export const HelpIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) =
   </svg>
 )
 
-export const MarketplaceIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const MarketplaceIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M33.8424 15.4924L29.4674 9.3675C29.2924 9.14 29.0299 9 28.7499 9H11.2501C10.9701 9 10.7076 9.14 10.5326 9.3675L6.15764 15.4924C6.10514 15.6499 6.05264 15.8074 6.00014 15.9649C5.98264 17.9074 7.55763 19.4999 9.50011 19.4999C10.5501 19.4999 11.4776 19.0449 12.1251 18.3099C12.7726 19.0449 13.7001 19.4999 14.7501 19.4999C15.8 19.4999 16.7275 19.0449 17.375 18.3099C18.0225 19.0449 18.95 19.4999 20 19.4999C21.05 19.4999 21.9775 19.0449 22.625 18.3099C23.2725 19.0449 24.2 19.4999 25.2499 19.4999C26.2999 19.4999 27.2274 19.0449 27.8749 18.3099C28.5224 19.0449 29.4499 19.4999 30.4999 19.4999C32.4424 19.4999 34.0174 17.9074 33.9999 15.9649C33.9474 15.8074 33.8949 15.6499 33.8424 15.4924Z"
@@ -156,7 +156,7 @@ export const MarketplaceIcon: React.FC<IconProps> = ({ className = 'nav-item-ico
   </svg>
 )
 
-export const AccountIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const AccountIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M33 30.6117V32.4117C33 33.2873 32.2874 33.9999 31.4118 33.9999H7.58824C6.71259 33.9999 6 33.2873 6 32.4117V30.6117C6 29.736 6.71259 29.0234 7.58824 29.0234H31.4118C32.2874 29.0234 33 29.736 33 30.6117Z"
@@ -173,7 +173,7 @@ export const AccountIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }
   </svg>
 )
 
-export const WebhooksIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const WebhooksIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M19.9998 13.7891C17.5766 13.7891 15.6052 11.8177 15.6052 9.39453C15.6052 6.97139 17.5766 5 19.9998 5C22.4229 5 24.3943 6.97139 24.3943 9.39453C24.3943 11.8177 22.4229 13.7891 19.9998 13.7891Z"
@@ -202,7 +202,7 @@ export const WebhooksIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' 
   </svg>
 )
 
-export const NoIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const NoIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M31.5376 16.2002L27.7039 12.3665V7.93803C27.7039 7.1373 27.055 6.48836 26.2531 6.48836C25.453 6.48836 24.8042 7.1373 24.8042 7.93803V9.46685L21.9497 6.61229C20.5384 5.20178 18.0847 5.20428 16.6766 6.61484L7.09108 16.2002C6.52522 16.7672 6.52522 17.6846 7.09108 18.2507C7.65719 18.8175 8.57639 18.8175 9.1423 18.2507L18.7269 8.66509C19.0392 8.35449 19.5895 8.35449 19.9001 8.66417L29.4864 18.2507C29.7706 18.5341 30.1412 18.6751 30.5117 18.6751C30.883 18.6751 31.2542 18.534 31.5376 18.2507C32.1037 17.6846 32.1037 16.7672 31.5376 16.2002Z"
@@ -219,7 +219,7 @@ export const NoIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => 
   </svg>
 )
 
-export const ProfileIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const ProfileIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M20 6C12.2688 6 6 12.2676 6 19.9994C6 27.7312 12.2682 33.9988 20 33.9988C27.7324 33.9988 34 27.7312 34 19.9994C34 12.2676 27.7324 6 20 6Z"
@@ -232,7 +232,7 @@ export const ProfileIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }
   </svg>
 )
 
-export const PaymentsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const PaymentsIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M13.0759 12.7509L23.4409 9.92174L22.892 8.81225C22.5328 8.09108 21.6569 7.79327 20.9358 8.1524L11.6569 12.7509H13.0759Z"
@@ -253,7 +253,7 @@ export const PaymentsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' 
   </svg>
 )
 
-export const SearchIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const SearchIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M25.3899 9.32253C20.9601 4.89277 13.7521 4.89286 9.32227 9.32253C4.89242 13.7524 4.89242 20.9602 9.32227 25.39C13.0804 29.1481 18.6697 29.7173 23.0343 27.099C23.0343 27.099 23.3498 26.911 23.6037 27.165C25.0527 28.6141 29.4002 32.9616 29.4002 32.9616C30.5539 34.1153 32.1672 34.39 33.1905 33.3668L33.3665 33.1907C34.3898 32.1675 34.1152 30.5542 32.9615 29.4005C32.9615 29.4005 28.6231 25.0622 27.1771 23.6161C26.9109 23.3499 27.099 23.0345 27.099 23.0345C29.7171 18.67 29.148 13.0807 25.3899 9.32253ZM23.2923 23.2925C20.0191 26.5657 14.6933 26.5656 11.4201 23.2924C8.14695 20.0192 8.14686 14.6934 11.4201 11.4202C14.6932 8.14704 20.0191 8.14704 23.2923 11.4202C26.5653 14.6935 26.5653 20.0192 23.2923 23.2925Z"
@@ -266,7 +266,7 @@ export const SearchIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' })
   </svg>
 )
 
-export const ManageIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const ManageIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M25.6627 7.48678H23.4494C23.4494 5.56109 21.905 4 20 4C18.095 4 16.5506 5.56109 16.5506 7.48678H14.3373V11.9565H25.6627V7.48678H25.6627Z"
@@ -283,7 +283,7 @@ export const ManageIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' })
   </svg>
 )
 
-export const UsersIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const UsersIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M35 23.3919V24.9553C35 25.187 34.8294 25.4563 34.6177 25.5505C33.7972 25.9156 31.5593 26.6628 26.9863 26.6628C26.7672 26.6628 26.5584 26.6597 26.35 26.6563C26.1492 23.3445 23.6366 20.617 20.3162 20.1677C21.031 19.4516 21.9772 18.9661 23.0323 18.8454C23.1015 18.8375 23.204 18.8671 23.2604 18.9079C24.3098 19.6676 25.5945 20.1211 26.9863 20.1211C28.378 20.1211 29.6628 19.6676 30.7122 18.9079C30.7686 18.8671 30.8711 18.8375 30.9403 18.8454C33.2163 19.1057 35 21.0492 35 23.3919ZM26.9863 9C24.3669 9 22.2435 11.1234 22.2435 13.7428C22.2435 16.3622 24.3669 18.4855 26.9863 18.4855C29.6057 18.4855 31.7291 16.3621 31.7291 13.7428C31.7291 11.1234 29.6057 9 26.9863 9Z"
@@ -296,7 +296,7 @@ export const UsersIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) 
   </svg>
 )
 
-export const DataIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const DataIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M28.5686 10.8008C28.2875 9.67542 27.6592 8.65479 26.769 7.89029C25.749 7.01445 24.4479 6.53215 23.105 6.53215C22.0976 6.53215 21.1326 6.79194 20.2809 7.28828C19.3789 6.4634 18.1962 6 16.9535 6C14.288 6 12.1094 8.12485 12.0224 10.7695C11.1009 11.0271 10.2666 11.5514 9.62878 12.2827C8.84534 13.1811 8.41382 14.3317 8.41382 15.5223C8.41382 18.2428 10.6271 20.456 13.3475 20.456H27.1353C29.8558 20.456 32.069 18.2428 32.069 15.5223C32.069 13.3411 30.6223 11.4249 28.5686 10.8008Z"
@@ -317,7 +317,7 @@ export const DataIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) =
   </svg>
 )
 
-export const InstalledIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const InstalledIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M21.6406 19.1797H18.3594C17.906 19.1797 17.5391 19.5466 17.5391 20V27.3828H15.8985C15.5876 27.3828 15.3041 27.5582 15.1647 27.8362C15.0261 28.1142 15.0557 28.4466 15.2424 28.695L19.3439 33.6715C19.4985 33.8782 19.7421 34 20 34C20.258 34 20.5015 33.8782 20.6561 33.6715L24.7577 28.695C24.9443 28.4466 24.974 28.1142 24.8354 27.8362C24.696 27.5582 24.4124 27.3828 24.1016 27.3828H22.461V20C22.461 19.5466 22.0941 19.1797 21.6406 19.1797Z"
@@ -330,7 +330,7 @@ export const InstalledIcon: React.FC<IconProps> = ({ className = 'nav-item-icon'
   </svg>
 )
 
-export const DevelopersIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const DevelopersIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M30.0373 10H9.96266C7.77789 10 6 11.7779 6 13.9632V26.5227C6 28.708 7.77789 30.4859 9.96266 30.4859H30.0373C32.2221 30.4859 34 28.708 34 26.5227V13.9632C34 11.7779 32.2221 10 30.0373 10ZM16.1615 16.3049L11.9927 20.4738L15.6999 24.181C16.0204 24.5015 16.0204 25.021 15.6999 25.3409C15.38 25.6614 14.8605 25.6614 14.54 25.3409L10.2525 21.0534C9.93203 20.733 9.93203 20.214 10.2525 19.8935L15.001 15.145C15.3215 14.8245 15.841 14.8245 16.1615 15.145C16.4814 15.4649 16.4814 15.9845 16.1615 16.3049ZM22.928 14.375L18.5902 26.6573C18.4392 27.0849 17.9705 27.3086 17.5434 27.1577C17.1163 27.0067 16.8921 26.538 17.043 26.1109L21.3809 13.8287C21.5318 13.4016 21.9999 13.1773 22.4276 13.3283C22.8547 13.4792 23.0789 13.9479 22.928 14.375ZM29.7475 20.5924L24.999 25.3409C24.6785 25.6614 24.159 25.6614 23.8385 25.3409C23.5186 25.021 23.5186 24.5015 23.8385 24.181L28.0073 20.0122L24.3001 16.3049C23.9796 15.9845 23.9796 15.4649 24.3001 15.145C24.62 14.8245 25.1395 14.8245 25.46 15.145L29.7475 19.4325C30.068 19.753 30.068 20.272 29.7475 20.5924Z"
@@ -343,7 +343,7 @@ export const DevelopersIcon: React.FC<IconProps> = ({ className = 'nav-item-icon
   </svg>
 )
 
-export const OfficesIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const OfficesIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path d="M26.1458 27.5183H28.0989V31.4897H26.1458V27.5183Z" fill="white" />
     <path
@@ -358,7 +358,7 @@ export const OfficesIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }
   </svg>
 )
 
-export const ResultsIcon: React.FC<IconProps> = ({ className = 'nav-item-icon' }) => (
+export const ResultsIcon: React.FC<IconProps> = ({ className = '' }) => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M33.8498 10.3508C33.6927 10.0881 33.4337 9.90389 33.1348 9.84378L17.2744 6.02015C16.7517 5.91883 16.236 6.20758 16.0551 6.70702L10.0096 22.0653L12.0279 22.8008L17.7571 8.19753L31.5378 11.7141C30.6772 14.3822 28.6292 19.9511 26.666 25.1363C24.9545 29.6604 23.9695 31.2096 22.0976 31.526C22.0954 31.5237 22.0933 31.5216 22.0933 31.5183C18.2675 32.0546 18.3361 27.1772 18.3361 27.1772L6.1175 22.2416C5.24921 27.7452 9.47808 29.0689 9.47808 29.0689L18.4238 33.1304C18.426 33.1316 19.8225 33.7967 21.3403 33.7284C25.4343 33.632 26.873 30.6592 28.6757 25.8967C31.28 19.0136 33.9234 11.3013 33.9494 11.2195C34.0426 10.9277 34.0058 10.6129 33.8498 10.3508Z"

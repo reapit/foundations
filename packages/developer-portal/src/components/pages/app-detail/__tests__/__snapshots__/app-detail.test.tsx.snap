@@ -476,11 +476,9 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                               <SummarySection
                                 summary=""
                               >
-                                <Content
-                                  className="is-italic"
-                                >
+                                <Content>
                                   <div
-                                    className="content is-italic"
+                                    className="content"
                                     data-test=""
                                   />
                                 </Content>

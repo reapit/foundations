@@ -9,7 +9,7 @@ export const content = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 72px;
+  height: 3.75rem;
 `
 
 export const directAPI = css`
@@ -32,7 +32,7 @@ export const bannerOuter = css`
 `
 
 export const bannerInner = css`
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: 'PT Sans', Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
   color: #333;
@@ -71,8 +71,7 @@ export const bannerInnerSmall = css`
   color: #fff;
 `
 
-export const IsFree = styled.div`
-  position: absolute;
+export const IsFree = styled.span`
   z-index: 50;
   color: ${white};
   font-size: 0.875rem;
@@ -80,6 +79,5 @@ export const IsFree = styled.div`
   padding: 0.1rem 0.4rem;
   border-radius: 0.25rem;
   background: ${reapitLightblue};
-  top: 6rem;
-  left: 1.7rem;
+  margin-left: 0.5rem;
 `

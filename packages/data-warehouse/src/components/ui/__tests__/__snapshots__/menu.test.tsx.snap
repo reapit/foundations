@@ -104,10 +104,12 @@ exports[`Menu should match a snapshot 1`] = `
                 className="nav-item is-active"
                 onClick={[Function]}
               >
-                <div>
+                <div
+                  className="nav-item-icon"
+                >
                   <ReapitHouseIcon>
                     <svg
-                      className="nav-item-icon"
+                      className=""
                       fill="none"
                       height="50"
                       viewBox="0 0 50 50"
@@ -166,10 +168,12 @@ exports[`Menu should match a snapshot 1`] = `
                     className="nav-item "
                     onClick={[Function]}
                   >
-                    <div>
+                    <div
+                      className="nav-item-icon"
+                    >
                       <AccountIcon>
                         <svg
-                          className="nav-item-icon"
+                          className=""
                           fill="none"
                           height="40"
                           viewBox="0 0 40 40"
@@ -231,10 +235,12 @@ exports[`Menu should match a snapshot 1`] = `
                     className="nav-item "
                     onClick={[Function]}
                   >
-                    <div>
+                    <div
+                      className="nav-item-icon"
+                    >
                       <UsersIcon>
                         <svg
-                          className="nav-item-icon"
+                          className=""
                           fill="none"
                           height="40"
                           viewBox="0 0 40 40"
@@ -292,10 +298,12 @@ exports[`Menu should match a snapshot 1`] = `
                     className="nav-item "
                     onClick={[Function]}
                   >
-                    <div>
+                    <div
+                      className="nav-item-icon"
+                    >
                       <DataIcon>
                         <svg
-                          className="nav-item-icon"
+                          className=""
                           fill="none"
                           height="40"
                           viewBox="0 0 40 40"
@@ -361,10 +369,12 @@ exports[`Menu should match a snapshot 1`] = `
                     className="nav-item "
                     onClick={[Function]}
                   >
-                    <div>
+                    <div
+                      className="nav-item-icon"
+                    >
                       <AnalyticsIcon>
                         <svg
-                          className="nav-item-icon"
+                          className=""
                           fill="none"
                           height="40"
                           viewBox="0 0 40 40"
@@ -432,10 +442,12 @@ exports[`Menu should match a snapshot 1`] = `
                 className="nav-item "
                 onClick={[Function]}
               >
-                <div>
+                <div
+                  className="nav-item-icon"
+                >
                   <AppsIcon>
                     <svg
-                      className="nav-item-icon"
+                      className=""
                       fill="none"
                       height="40"
                       viewBox="0 0 40 40"
@@ -500,10 +512,12 @@ exports[`Menu should match a snapshot 1`] = `
                 className="nav-item "
                 onClick={[Function]}
               >
-                <div>
+                <div
+                  className="nav-item-icon"
+                >
                   <ProfileIcon>
                     <svg
-                      className="nav-item-icon"
+                      className=""
                       fill="none"
                       height="40"
                       viewBox="0 0 40 40"

@@ -36,17 +36,18 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
           <div className={appCardStyles.bannerInner}>In Development</div>
         </div>
       )}
-      {app.isFree && <IsFree>FREE</IsFree>}
+
       <Tile
         onClick={clickAction}
         dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}
-        heading={app.name || ''}
-        subHeading={
+        heading={
           <>
-            {app.developer}
-            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Integration)</span> : ''}
+            {app.name || ''}
+            {app.isFree && <IsFree>FREE</IsFree>}
           </>
         }
+        subHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
+        subHeading={app.developer}
         image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
       >
         <p className={appCardStyles.content}>{app.summary}</p>

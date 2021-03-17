@@ -50,7 +50,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
       <FadeIn>
         <Grid>
           <GridItem className="is-half-desktop">
-            <p className="is-italic">
+            <p>
               You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of
               endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click{' '}
               <a href={developerEditionPricing} target="_blank" rel="noopener noreferrer">

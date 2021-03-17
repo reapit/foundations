@@ -14,28 +14,29 @@ exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
       <div
         className="media-content"
       >
-        <H4
-          className="text-ellipsis-7"
-        >
+        <CardHeading>
           mockHeading
-        </H4>
-        <SubTitleH6
-          className="text-ellipsis-5 mb-3"
+        </CardHeading>
+        <CardSubHeading
+          className="text-ellipsis-5"
         />
-        <div>
-          City
-        </div>
-        <div>
-          Country
-        </div>
-        <div>
-          PostalCode
-        </div>
-        <div>
-          contactPerson
-        </div>
+        <CardSubHeadingAdditional />
       </div>
     </div>
+    <CardBodyWrap>
+      <div>
+        City
+      </div>
+      <div>
+        Country
+      </div>
+      <div>
+        PostalCode
+      </div>
+      <div>
+        contactPerson
+      </div>
+    </CardBodyWrap>
   </div>
 </div>
 `;
@@ -54,28 +55,29 @@ exports[`Tile should match snapshot when HIGHTLIGHT true 1`] = `
       <div
         className="media-content"
       >
-        <H4
-          className="text-ellipsis-7"
-        >
+        <CardHeading>
           mockHeading
-        </H4>
-        <SubTitleH6
-          className="text-ellipsis-5 mb-3"
+        </CardHeading>
+        <CardSubHeading
+          className="text-ellipsis-5"
         />
-        <div>
-          City
-        </div>
-        <div>
-          Country
-        </div>
-        <div>
-          PostalCode
-        </div>
-        <div>
-          contactPerson
-        </div>
+        <CardSubHeadingAdditional />
       </div>
     </div>
+    <CardBodyWrap>
+      <div>
+        City
+      </div>
+      <div>
+        Country
+      </div>
+      <div>
+        PostalCode
+      </div>
+      <div>
+        contactPerson
+      </div>
+    </CardBodyWrap>
   </div>
 </div>
 `;

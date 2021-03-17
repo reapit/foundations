@@ -172,9 +172,7 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
         </Helper>
         <Grid>
           <GridItem>
-            <p className="is-italic">
-              The table below does not include Sandbox Services, as the testing environment is free of charge
-            </p>
+            <p>The table below does not include Sandbox Services, as the testing environment is free of charge</p>
           </GridItem>
         </Grid>
         <Grid>

@@ -67,7 +67,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <ReapitHouseIcon />
         </div>
       </li>
@@ -93,7 +95,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item is-active"
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AppsIcon />
         </div>
         <div
@@ -119,7 +123,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AnalyticsIcon />
         </div>
         <div
@@ -145,7 +151,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <ApiIcon />
         </div>
         <div
@@ -171,7 +179,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <WebhooksIcon />
         </div>
         <div
@@ -197,7 +207,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <DocsIcon />
         </div>
         <div
@@ -223,7 +235,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <DesktopIcon />
         </div>
         <div
@@ -249,7 +263,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <HelpIcon />
         </div>
         <div
@@ -275,7 +291,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <MarketplaceIcon />
         </div>
         <div
@@ -301,7 +319,9 @@ exports[`Menu should render menu correctly 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AccountIcon />
         </div>
         <div
@@ -334,7 +354,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <ReapitHouseIcon />
         </div>
       </li>
@@ -360,7 +382,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item is-active"
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AppsIcon />
         </div>
         <div
@@ -386,7 +410,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AnalyticsIcon />
         </div>
         <div
@@ -412,7 +438,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <ApiIcon />
         </div>
         <div
@@ -438,7 +466,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <WebhooksIcon />
         </div>
         <div
@@ -464,7 +494,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <DocsIcon />
         </div>
         <div
@@ -490,7 +522,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <DesktopIcon />
         </div>
         <div
@@ -516,7 +550,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <HelpIcon />
         </div>
         <div
@@ -542,7 +578,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <MarketplaceIcon />
         </div>
         <div
@@ -568,7 +606,9 @@ exports[`Menu should render menu correctly when mode prop is undefined 1`] = `
         className="nav-item "
         onClick={[Function]}
       >
-        <div>
+        <div
+          className="nav-item-icon"
+        >
           <AccountIcon />
         </div>
         <div
