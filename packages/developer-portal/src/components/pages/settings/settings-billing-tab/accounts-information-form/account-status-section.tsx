@@ -32,9 +32,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({ initialStat
       <Input type="hidden" id={statusField.name} name={statusField.name} />
       <Content>
         {initialStatus === 'pending' && (
-          <div className="pb-1">
-            <i>We are currently verifying your information with our Accounts Department</i>
-          </div>
+          <div className="pb-1">We are currently verifying your information with our Accounts Department</div>
         )}
         <b>Account Status:</b> {capitalizeFirstLetter(initialStatus || '')}
       </Content>

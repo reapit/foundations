@@ -102,7 +102,7 @@ const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode: modeProp, d
                 className={`nav-item ${activeKey === item.key ? 'is-active' : ''}`}
                 onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
               >
-                <div>{item.icon}</div>
+                <div className="nav-item-icon">{item.icon}</div>
                 {item.title && <div className="nav-item-title">{item.title}</div>}
               </li>
             </LinkItem>

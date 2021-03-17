@@ -16,16 +16,8 @@ exports[`AppCard should match a snapshot 1`] = `
         src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
       />
     }
-    subHeading={
-      <React.Fragment>
-        Pete's Proptech World Ltd
-        <span
-          className="d1vlnbe8-direct-api"
-        >
-          (Integration)
-        </span>
-      </React.Fragment>
-    }
+    subHeading="Pete's Proptech World Ltd"
+    subHeadingAdditional="Integration"
   >
     <p
       className="a2axk0d-app-summary"

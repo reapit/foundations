@@ -55,26 +55,33 @@ exports[`AppCard should match a snapshot 1`] = `
           <div
             className="media-content"
           >
-            <H4
-              className="text-ellipsis-7"
-            >
-              <h4
-                className="title is-4 text-ellipsis-7"
-                id=""
+            <CardHeading>
+              <h5
+                className="card-heading"
               >
                 APP_NAME
-              </h4>
-            </H4>
-            <SubTitleH6
-              className="text-ellipsis-5 mb-3"
+              </h5>
+            </CardHeading>
+            <CardSubHeading
+              className="text-ellipsis-5"
             >
               <h6
-                className="subtitle is-6 text-ellipsis-5 mb-3"
-                id=""
+                className="text-ellipsis-5 card-sub-heading"
               >
                 APP_DEVELOPER
               </h6>
-            </SubTitleH6>
+            </CardSubHeading>
+            <CardSubHeadingAdditional>
+              <h6
+                className="card-sub-heading-additional"
+              />
+            </CardSubHeadingAdditional>
+          </div>
+        </div>
+        <CardBodyWrap>
+          <div
+            className="card-body-wrap"
+          >
             <span
               className="install-string installed"
             >
@@ -110,7 +117,7 @@ exports[`AppCard should match a snapshot 1`] = `
               Marketplace visible
             </span>
           </div>
-        </div>
+        </CardBodyWrap>
       </div>
     </div>
   </Tile>

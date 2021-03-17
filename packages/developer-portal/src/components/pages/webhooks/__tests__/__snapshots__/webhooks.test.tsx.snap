@@ -26,20 +26,25 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
       <div
         className="f1ohzb3j-fade-in"
       >
-        <FormSection>
-          <div
-            className="form-section"
+        <Section
+          hasPadding={false}
+        >
+          <section
+            className="section has-margin has-background"
+            data-test=""
           >
-            <FormSubHeading>
+            <Content>
               <div
-                className="form-subheading"
+                className="content"
+                data-test=""
               >
                 Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
               </div>
-            </FormSubHeading>
-            <FormSubHeading>
+            </Content>
+            <Content>
               <div
-                className="form-subheading"
+                className="content"
+                data-test=""
               >
                 This system is designed to flexibly work with how your application is built and deployed. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
                  
@@ -52,123 +57,123 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                   webhooks documentation
                 </a>
               </div>
-            </FormSubHeading>
-            <Formik
-              enableReinitialize={true}
-              initialValues={
-                Object {
-                  "applicationId": "",
-                }
-              }
+            </Content>
+          </section>
+        </Section>
+        <Formik
+          enableReinitialize={true}
+          initialValues={
+            Object {
+              "applicationId": "",
+            }
+          }
+          onSubmit={[Function]}
+        >
+          <Form>
+            <form
+              action="#"
+              onReset={[Function]}
               onSubmit={[Function]}
             >
-              <Form>
-                <form
-                  action="#"
-                  onReset={[Function]}
-                  onSubmit={[Function]}
+              <SelectBox
+                className="pt-2 pb-2"
+                id="subscription"
+                labelText="Please select an App from the list below to view the associated Webhooks:"
+                name="applicationId"
+                options={Array []}
+              >
+                <Field
+                  name="applicationId"
+                  validate={null}
                 >
-                  <SelectBox
-                    className="pt-2 pb-2"
-                    id="subscription"
-                    labelText="Please select an App from the list below to view the associated Webhooks:"
-                    name="applicationId"
-                    options={Array []}
+                  <div
+                    className="field"
                   >
-                    <Field
-                      name="applicationId"
-                      validate={null}
+                    <div
+                      className="control"
                     >
-                      <div
-                        className="field"
+                      <label
+                        className="label "
+                        htmlFor="subscription"
                       >
-                        <div
-                          className="control"
+                        Please select an App from the list below to view the associated Webhooks:
+                      </label>
+                      <select
+                        className="input is-primary pt-2 pb-2"
+                        data-test=""
+                        name="applicationId"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value=""
+                      >
+                        <option
+                          disabled={true}
+                          hidden={true}
+                          value=""
                         >
-                          <label
-                            className="label "
-                            htmlFor="subscription"
-                          >
-                            Please select an App from the list below to view the associated Webhooks:
-                          </label>
-                          <select
-                            className="input is-primary pt-2 pb-2"
-                            data-test=""
-                            name="applicationId"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value=""
-                          >
-                            <option
-                              disabled={true}
-                              hidden={true}
-                              value=""
-                            >
-                              Please select
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </Field>
-                  </SelectBox>
-                  <FormikConnect(FormikAutoSave)
-                    onSave={[Function]}
-                  >
-                    <FormikAutoSave
-                      formik={
-                        Object {
-                          "dirty": false,
-                          "errors": Object {},
-                          "getFieldHelpers": [Function],
-                          "getFieldMeta": [Function],
-                          "getFieldProps": [Function],
-                          "handleBlur": [Function],
-                          "handleChange": [Function],
-                          "handleReset": [Function],
-                          "handleSubmit": [Function],
-                          "initialErrors": Object {},
-                          "initialStatus": undefined,
-                          "initialTouched": Object {},
-                          "initialValues": Object {
-                            "applicationId": "",
-                          },
-                          "isSubmitting": false,
-                          "isValid": true,
-                          "isValidating": false,
-                          "registerField": [Function],
-                          "resetForm": [Function],
-                          "setErrors": [Function],
-                          "setFieldError": [Function],
-                          "setFieldTouched": [Function],
-                          "setFieldValue": [Function],
-                          "setFormikState": [Function],
-                          "setStatus": [Function],
-                          "setSubmitting": [Function],
-                          "setTouched": [Function],
-                          "setValues": [Function],
-                          "status": undefined,
-                          "submitCount": 0,
-                          "submitForm": [Function],
-                          "touched": Object {},
-                          "unregisterField": [Function],
-                          "validateField": [Function],
-                          "validateForm": [Function],
-                          "validateOnBlur": true,
-                          "validateOnChange": true,
-                          "validateOnMount": false,
-                          "values": Object {
-                            "applicationId": "",
-                          },
-                        }
-                      }
-                      onSave={[Function]}
-                    />
-                  </FormikConnect(FormikAutoSave)>
-                </form>
-              </Form>
-            </Formik>
-          </div>
-        </FormSection>
+                          Please select
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </Field>
+              </SelectBox>
+              <FormikConnect(FormikAutoSave)
+                onSave={[Function]}
+              >
+                <FormikAutoSave
+                  formik={
+                    Object {
+                      "dirty": false,
+                      "errors": Object {},
+                      "getFieldHelpers": [Function],
+                      "getFieldMeta": [Function],
+                      "getFieldProps": [Function],
+                      "handleBlur": [Function],
+                      "handleChange": [Function],
+                      "handleReset": [Function],
+                      "handleSubmit": [Function],
+                      "initialErrors": Object {},
+                      "initialStatus": undefined,
+                      "initialTouched": Object {},
+                      "initialValues": Object {
+                        "applicationId": "",
+                      },
+                      "isSubmitting": false,
+                      "isValid": true,
+                      "isValidating": false,
+                      "registerField": [Function],
+                      "resetForm": [Function],
+                      "setErrors": [Function],
+                      "setFieldError": [Function],
+                      "setFieldTouched": [Function],
+                      "setFieldValue": [Function],
+                      "setFormikState": [Function],
+                      "setStatus": [Function],
+                      "setSubmitting": [Function],
+                      "setTouched": [Function],
+                      "setValues": [Function],
+                      "status": undefined,
+                      "submitCount": 0,
+                      "submitForm": [Function],
+                      "touched": Object {},
+                      "unregisterField": [Function],
+                      "validateField": [Function],
+                      "validateForm": [Function],
+                      "validateOnBlur": true,
+                      "validateOnChange": true,
+                      "validateOnMount": false,
+                      "values": Object {
+                        "applicationId": "",
+                      },
+                    }
+                  }
+                  onSave={[Function]}
+                />
+              </FormikConnect(FormikAutoSave)>
+            </form>
+          </Form>
+        </Formik>
       </div>
     </FadeIn>
   </DeveloperWebhooks>

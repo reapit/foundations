@@ -2,7 +2,7 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Tile } from '@reapit/elements'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
-import { directAPI, appSummary } from './__styles__/app-card'
+import { appSummary } from './__styles__/app-card'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -27,12 +27,8 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
         onClick={clickAction}
         dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}
         heading={app.name || ''}
-        subHeading={
-          <>
-            {app.developer}
-            {app.isDirectApi ? <span className={directAPI}>(Integration)</span> : ''}
-          </>
-        }
+        subHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
+        subHeading={app.developer}
         image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
       >
         <p className={appSummary}>{app.summary}</p>

@@ -401,9 +401,7 @@ exports[`PrivateAppSection should match a snapshot where limitToClientIds hasLen
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Content
-  className="is-italic"
->
+<Content>
   Lorem ipsum
 </Content>
 `;

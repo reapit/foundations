@@ -9,7 +9,7 @@ exports[`TrafficEventTable should match snapshot 1`] = `
     Hits By Resource
   </H5>
   <p
-    className="is-italic mb-4"
+    className="mb-4"
   >
     A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
   </p>
@@ -61,7 +61,7 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
     Hits By Resource
   </H5>
   <p
-    className="is-italic mb-4"
+    className="mb-4"
   >
     A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
   </p>

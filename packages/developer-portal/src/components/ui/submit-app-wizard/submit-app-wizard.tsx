@@ -135,6 +135,7 @@ export const SubmitAppWizard: React.FC<SubmitAppWizardProps> = ({ onClose, visib
       onClose={onModalClose(onClose, setWizardStep)}
       visible={visible}
       isPadding={false}
+      isCentered
     >
       <Formik
         initialValues={initialFormValues}

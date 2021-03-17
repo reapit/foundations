@@ -117,7 +117,7 @@ export const Subcriptions: React.FC = () => {
         <>
           <H5>Subscriptions</H5>
           <FadeIn>
-            <p className="is-italic mb-4">
+            <p className="mb-4">
               The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta
               Phase you can use the table below to view and manage your Developer Portal Subscriptions.
             </p>

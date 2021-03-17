@@ -6,7 +6,7 @@ export const modalContainer = css`
   }
   .rc-dialog-header {
     background-color: #f5f5f5;
-    padding: 0.5em;
+    padding: 0;
     text-align: center;
     font-size: 20px;
     border: none;
@@ -19,7 +19,6 @@ export const modalContainer = css`
 
   .rc-dialog-close {
     opacity: 1;
-    top: 30px;
   }
   .rc-dialog-close:focus {
     outline: none;

@@ -16,7 +16,6 @@ import {
 } from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import { menuItemOverflow } from './__styles__/menu'
 import { history } from '../../core/router'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
@@ -104,7 +103,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
         icon: <DesktopIcon />,
       },
       {
-        title: <div className={menuItemOverflow}>Marketplace</div>,
+        title: <div>Marketplace</div>,
         key: 'MARKETPLACE',
         icon: <MarketplaceIcon />,
         callback: () => (window.location.href = window.reapit.config.marketplaceUrl),

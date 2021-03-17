@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import qs from 'query-string'
 import { History } from 'history'
-import { Loader, SelectBoxOptions } from '@reapit/elements'
+import { Loader, Content, SelectBoxOptions, Section } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
-import { SelectBox, H3, FormSection, FormSubHeading, LevelRight, Button, Table } from '@reapit/elements'
+import { SelectBox, H3, LevelRight, Button, Table } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
@@ -194,13 +194,13 @@ export const DeveloperWebhooks = () => {
     <>
       <H3>Manage Webhook Subscriptions</H3>
       <FadeIn>
-        <FormSection>
-          <FormSubHeading>
+        <Section hasPadding={false}>
+          <Content>
             Our webhooks system allows your application to directly subscribe to events happening in our customers data.
             Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
             allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
-          </FormSubHeading>
-          <FormSubHeading>
+          </Content>
+          <Content>
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
             can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
             different webhook subscription per topic or per customer. For more information about Webhooks, please see
@@ -208,45 +208,45 @@ export const DeveloperWebhooks = () => {
             <a className={link} href={`${Routes.API_DOCS}/api/webhooks`} target="_blank" rel="noopener noreferrer">
               webhooks documentation
             </a>
-          </FormSubHeading>
-          <Formik
-            initialValues={{
-              applicationId: applicationId || '',
-            }}
-            enableReinitialize={true}
-            onSubmit={() => {}}
-          >
-            {() => (
-              <Form>
-                <SelectBox
-                  className="pt-2 pb-2"
-                  name="applicationId"
-                  options={mapDeveloperAppsToAppSelectBoxOptions(apps || [])}
-                  labelText="Please select an App from the list below to view the associated Webhooks:"
-                  id="subscription"
-                />
-                <FormikAutoSave onSave={handleSubscriptionChange(history)} />
-              </Form>
-            )}
-          </Formik>
-          {applicationId && (
-            <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
-                Add New Webhook
-              </Button>
-            </LevelRight>
+          </Content>
+        </Section>
+        <Formik
+          initialValues={{
+            applicationId: applicationId || '',
+          }}
+          enableReinitialize={true}
+          onSubmit={() => {}}
+        >
+          {() => (
+            <Form>
+              <SelectBox
+                className="pt-2 pb-2"
+                name="applicationId"
+                options={mapDeveloperAppsToAppSelectBoxOptions(apps || [])}
+                labelText="Please select an App from the list below to view the associated Webhooks:"
+                id="subscription"
+              />
+              <FormikAutoSave onSave={handleSubscriptionChange(history)} />
+            </Form>
           )}
-          {unfetched || loading || subscriptionsLoading ? (
-            <Loader />
-          ) : subscriptions.length ? (
-            <Table
-              scrollable
-              columns={columns}
-              data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
-              loading={false}
-            />
-          ) : null}
-        </FormSection>
+        </Formik>
+        {applicationId && (
+          <LevelRight>
+            <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
+              Add New Webhook
+            </Button>
+          </LevelRight>
+        )}
+        {unfetched || loading || subscriptionsLoading ? (
+          <Loader />
+        ) : subscriptions.length ? (
+          <Table
+            scrollable
+            columns={columns}
+            data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
+            loading={false}
+          />
+        ) : null}
       </FadeIn>
       {isShowDetailModal && (
         <WebhookEditModal

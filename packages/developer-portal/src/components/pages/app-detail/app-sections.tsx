@@ -159,9 +159,7 @@ export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
   </AppDetailSection>
 )
 
-export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => (
-  <Content className="is-italic">{summary}</Content>
-)
+export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => <Content>{summary}</Content>
 
 export const InstallationsTableSection: React.FC<InstallationsTableSectionProps> = ({
   data,

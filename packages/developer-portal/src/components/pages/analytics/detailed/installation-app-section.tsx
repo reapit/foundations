@@ -171,7 +171,7 @@ export const InstallationAppSection: React.FC<{
             <GridItem className="is-half">
               <Section hasMargin={false} hasBoxShadow>
                 <H5>Current Installations</H5>
-                <p className="is-italic">
+                <p>
                   The installations table below shows the individual installations per client with a total number of
                   installations per app
                 </p>

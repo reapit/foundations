@@ -129,7 +129,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 )}
                 <H5>Accounts Information</H5>
 
-                <p className="is-italic mb-4">
+                <p className="mb-4">
                   The following account information is required for your organisation. Your details will be sent to our
                   Accounts Department to be verified. You can start subscriptions to services within the Developers
                   Portal when your account status has been set to &apos;Confirmed&apos;.

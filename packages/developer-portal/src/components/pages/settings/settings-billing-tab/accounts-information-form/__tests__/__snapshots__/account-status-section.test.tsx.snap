@@ -13,9 +13,7 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     <div
       className="pb-1"
     >
-      <i>
-        We are currently verifying your information with our Accounts Department
-      </i>
+      We are currently verifying your information with our Accounts Department
     </div>
     <b>
       Account Status:
@@ -42,9 +40,7 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     <div
       className="pb-1"
     >
-      <i>
-        We are currently verifying your information with our Accounts Department
-      </i>
+      We are currently verifying your information with our Accounts Department
     </div>
     <b>
       Account Status:

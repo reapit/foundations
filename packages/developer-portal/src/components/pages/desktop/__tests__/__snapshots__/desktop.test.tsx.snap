@@ -129,7 +129,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                                   className="desktop-inner-container"
                                 >
                                   <div
-                                    className="modal-card-head"
+                                    className="modal-card-head mb-4"
                                   >
                                     <H5
                                       className="mb-0"
