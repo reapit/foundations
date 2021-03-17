@@ -17,6 +17,9 @@ export const Home: React.FC<HomeProps> = () => {
       setLoading(false)
       if (serviceResponse) {
         setMetabaseCredentials(serviceResponse)
+        if (serviceResponse && serviceResponse.url) {
+          window.location.href = serviceResponse.url
+        }
       }
     }
     if (connectSession) {
@@ -34,12 +37,7 @@ export const Home: React.FC<HomeProps> = () => {
         ) : metabaseCredentials && !metabaseCredentials.url ? (
           <Helper>No credentials found to load the application</Helper>
         ) : (
-          <iframe
-            style={{ border: 'none', flexGrow: 1 }}
-            src={metabaseCredentials?.url as string}
-            width="100%"
-            height="100%"
-          />
+          <Helper>You will now be redirected to Metabase</Helper>
         )}
       </Section>
     </>
