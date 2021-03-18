@@ -837,6 +837,7 @@ exports[`admin-apps generateColumns should match snapshot 1`] = `
   <Component />
   <Component />
   <Component />
+  <Component />
 </div>
 `;
 

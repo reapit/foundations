@@ -31,6 +31,8 @@ import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
 import { FaCheck } from 'react-icons/fa'
 import { setDeleteAppInitFormState } from '@/actions/app-delete'
+import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
+import { AppSummaryModel } from '../../../../../aml-checklist/src/types/api-2020-01-31/marketplace-api-schema'
 
 export type DeleteModalData = {
   visible: boolean
@@ -134,6 +136,16 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
     {
       id: 'Delete',
       Cell: renderDeleteAction({ setDataDeleteModal, deleteModalData }),
+    },
+    {
+      id: 'Subscribe',
+      Cell: ({ row }: { row: { original: AppSummaryModel } }) => (
+        <CreateSubscriptionsButton
+          subscriptionType="applicationListing"
+          developerId={row.original.developerId as string}
+          appId={row.original.id}
+        />
+      ),
     },
   ]
 }

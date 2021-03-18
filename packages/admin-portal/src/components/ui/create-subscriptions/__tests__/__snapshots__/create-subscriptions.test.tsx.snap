@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateSubscriptionsButton should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CreateSubscriptionsButton
+    appId="APP_ID"
+    developerId="DEVELOPER_ID"
+    subscriptionType="applicationListing"
+  >
+    <Button
+      disabled={false}
+      loading={false}
+      onClick={[Function]}
+      variant="primary"
+    >
+      <button
+        className="button   is-primary "
+        data-test=""
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Subscribe
+      </button>
+    </Button>
+  </CreateSubscriptionsButton>
+</Provider>
+`;
