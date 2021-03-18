@@ -1,11 +1,18 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult, CreateSubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { CancelSubscriptionParams } from '../services/subscriptions'
+import { SubscriptionType } from '../components/ui/create-subscriptions/create-subscriptions-button'
 
 export interface FetchSubscriptionListQuery {
   page: number
   queryString: string
+}
+
+export interface FetchSubscriptionsByTypeAndDevQuery {
+  subscriptionType: SubscriptionType
+  developerId: string
+  appId?: string
 }
 
 export type CancelSubscriptionActionParams = CancelSubscriptionParams
@@ -23,3 +30,17 @@ export const cancelSubscription = actionCreator<CancelSubscriptionParams>(Action
 export const cancelSubscriptionSuccess = actionCreator<void>(ActionTypes.CANCEL_SUBSCRIPTION_SUCCESS)
 
 export const cancelSubscriptionFailed = actionCreator<void>(ActionTypes.CANCEL_SUBSCRIPTION_FAILED)
+
+export const createSubscription = actionCreator<CreateSubscriptionModel>(ActionTypes.CREATE_SUBSCRIPTION)
+
+export const createSubscriptionSuccess = actionCreator<void>(ActionTypes.CREATE_SUBSCRIPTION_SUCCESS)
+
+export const createSubscriptionFailed = actionCreator<void>(ActionTypes.CREATE_SUBSCRIPTION_FAILED)
+
+export const fetchSubscriptionsByTypeAndDev = actionCreator<FetchSubscriptionsByTypeAndDevQuery>(
+  ActionTypes.FETCH_SUBSCRIPTIONS_BY_TYPE_AND_DEV,
+)
+
+export const fetchSubscriptionsByTypeAndDevSuccess = actionCreator<SubscriptionModelPagedResult | undefined>(
+  ActionTypes.FETCH_SUBSCRIPTIONS_BY_TYPE_AND_DEV_SUCCESS,
+)

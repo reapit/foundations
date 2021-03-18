@@ -27,6 +27,7 @@ import StatusModal from './set-status-modal/status-modal'
 import DisableMemberModal from '@/components/ui/disable-member-modal'
 import SetAsAdminModal from '@/components/ui/set-as-admin-modal'
 import { FetchDeveloperMembersParams } from '@/services/developers'
+import { CreateSubscriptionsButton } from '../../ui/create-subscriptions/create-subscriptions-button'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -207,6 +208,12 @@ export const DevsManagement: React.FC = () => {
       Header: '',
       id: 'membersColumn',
       Cell: MembersBtnCell,
+    },
+    {
+      id: 'Subscribe',
+      Cell: ({ row }: { row: { original: DeveloperModel } }) => (
+        <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
+      ),
     },
   ]
 

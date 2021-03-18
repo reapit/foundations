@@ -1,4 +1,4 @@
-import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { SubscriptionModelPagedResult, CreateSubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { FetchListCommonParams } from './types'
@@ -6,8 +6,10 @@ import { getPlatformHeaders, logger } from '@reapit/utils'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export type FetchSubscriptionsListParams = FetchListCommonParams & {
-  type: string
-  developerId: string
+  type?: string
+  developerId?: string
+  subscriptionType?: string
+  applicationId?: string
 }
 
 export interface CancelSubscriptionParams {
@@ -39,6 +41,22 @@ export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) =>
       api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
       headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const createSubscriptionApi = async (params: CreateSubscriptionModel) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.subscriptions}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'POST',
+      headers: await getPlatformHeaders(reapitConnectBrowserSession, 'latest'),
+      body: params,
     })
     return response
   } catch (error) {

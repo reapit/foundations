@@ -7,6 +7,9 @@ import {
   cancelSubscription,
   cancelSubscriptionSuccess,
   cancelSubscriptionFailed,
+  createSubscription,
+  createSubscriptionSuccess,
+  createSubscriptionFailed,
 } from '../../actions/subscriptions'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
@@ -16,11 +19,17 @@ export type SubscriptionListState = SubscriptionModelPagedResult &
     cancelSubscription: {
       isLoading: boolean
     }
+    createSubscription: {
+      isLoading: boolean
+    }
   }
 
 export const defaultState: SubscriptionListState = {
   ...getDefaultFetchListValue(),
   cancelSubscription: {
+    isLoading: false,
+  },
+  createSubscription: {
     isLoading: false,
   },
 }
@@ -58,6 +67,24 @@ const subscriptionsListReducer = (
     return {
       ...state,
       cancelSubscription: {
+        isLoading: false,
+      },
+    }
+  }
+
+  if (isType(action, createSubscription)) {
+    return {
+      ...state,
+      createSubscription: {
+        isLoading: true,
+      },
+    }
+  }
+
+  if (isType(action, createSubscriptionSuccess) || isType(action, createSubscriptionFailed)) {
+    return {
+      ...state,
+      createSubscription: {
         isLoading: false,
       },
     }
