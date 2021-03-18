@@ -14,6 +14,7 @@ jest.mock('../../../core/db', () => {
 })
 
 const baseMockReq = {
+  header: () => 'token',
   user: {
     clientCode: 'SOME_CODE',
   },
@@ -36,6 +37,7 @@ describe('listEvents', () => {
         ...baseMockReq.query,
         clientCode: 'NO_MATCH',
       },
+      header: () => 'token',
     }
     const mockRes: Partial<Response> = {
       ...baseMockRes,
@@ -50,7 +52,7 @@ describe('listEvents', () => {
     })
   })
 
-  it('should instantiate the DecoratedEvents class and call the correct method', async () => {
+  it('should instantiate the DecoratedEvents class and call the correct methods', async () => {
     const mockReq: any = {
       ...baseMockReq,
     }
@@ -59,14 +61,20 @@ describe('listEvents', () => {
     }
 
     // @ts-ignore
-    const mockClassFn = (DecoratedEvents.prototype.retrieveByEventStatusList = jest.fn(() => stubbedEvent))
+    const mockRetrieveByEventStatusList = (DecoratedEvents.prototype.retrieveByEventStatusList = jest.fn(async () => [
+      stubbedEvent,
+    ]))
+    const mockRetrieveByRecentEvents = (DecoratedEvents.prototype.retrieveByRecentEvents = jest.fn(async () => [
+      stubbedEvent,
+    ]))
 
     await listEvents(mockReq, mockRes as Response)
 
-    expect(mockClassFn).toHaveBeenCalledTimes(1)
-    expect(mockClassFn).toHaveBeenCalledWith([{ eventId: 'SOME_ID', clientCode: 'SOME_CODE' }])
+    expect(mockRetrieveByEventStatusList).toHaveBeenCalledTimes(1)
+    expect(mockRetrieveByRecentEvents).toHaveBeenCalledTimes(1)
+    expect(mockRetrieveByEventStatusList).toHaveBeenCalledWith([{ eventId: 'SOME_ID', clientCode: 'SOME_CODE' }])
     expect(mockRes.json).toHaveBeenCalledTimes(1)
-    expect(mockRes.json).toHaveBeenCalledWith(stubbedEvent)
+    expect(mockRes.json).toHaveBeenCalledWith([stubbedEvent, stubbedEvent])
   })
 
   afterEach(() => {

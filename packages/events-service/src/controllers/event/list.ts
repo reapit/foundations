@@ -41,10 +41,22 @@ export default async (req: AppRequest, res: Response) => {
   try {
     logger.info('Retrieve decorated events...', { traceId, query })
 
-    const outstandingEvents = await getOutstandingEvents(query, user)
-    const events = await new DecoratedEvents(traceId).retrieveByEventStatusList(outstandingEvents)
+    const accessToken = req.header('x-access-token')
 
-    return res.json(events)
+    const decoratedEventsInstance = new DecoratedEvents(traceId, accessToken)
+    // FIRST retrieve revent events from the events API, and then try and decorate
+    // with metadata held within this service (status, actions & messages)
+    const recentEvents = await decoratedEventsInstance.retrieveByRecentEvents()
+    // PLUS, search by event-status first (from this service) and then fill in
+    // the events bodies from the API, and continue to add actions & messages.
+    // This will probably not be the preffered approach moving forward but is
+    // the only way we can test the automation & twilio flow from the front end
+    // without having a way to create events properly in the platform events API
+    // and have that API trigger the webhook in this service.
+    const outstandingEvents = await getOutstandingEvents(query, user)
+    const eventsByStatus = await decoratedEventsInstance.retrieveByEventStatusList(outstandingEvents)
+
+    return res.json([...recentEvents, ...eventsByStatus])
   } catch (error) {
     logger.error('Error retrieving decorated events', stringifyError(error))
 
