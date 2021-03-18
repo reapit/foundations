@@ -8,11 +8,13 @@ jest.mock('twilio')
 
 const mockEvent = {
   id: '1234',
-  eventType: 'enquiry',
-  createdAt: '2020-12-12T10:00:00',
-  clientCode: '2020-12-12T10:00:00',
-  contact: {
-    telephoneNumber: '_BLANK_',
+  type: 'enquiry',
+  published: '2020-12-12T10:00:00',
+  customerId: '2020-12-12T10:00:00',
+  summary: 'summary of event',
+  actor: {},
+  object: {
+    mobilePhone: '_BLANK_',
   },
 }
 

@@ -19,9 +19,9 @@ const writeNewEventStatus = async (event: Event) => {
   // Create an event-status for this new event
   const itemToCreate = generateStatusItem({
     eventId: event.id,
-    clientCode: event.clientCode,
+    clientCode: event.customerId,
     status: DEFAULT_EVENT_STATUS,
-    eventCreatedAt: event.createdAt,
+    eventCreatedAt: event.published,
     statusCreatedAt: now,
     statusUpdatedAt: now,
   })
@@ -36,12 +36,12 @@ const writeNewEventStatus = async (event: Event) => {
 
 const findRelevantAutomation = async (event: Event) => {
   // find automations where the clientCode and triggerOnEventType matches the event
-  const keyCondition = { clientCode: event.clientCode }
+  const keyCondition = { clientCode: event.customerId }
   const queryConditons = {
     indexName: 'AutomationsByClientCode',
     filter: {
       subject: 'triggerOnEventType',
-      ...equals(event.eventType),
+      ...equals(event.type),
     },
   }
   const iterator = db.query(Automation, keyCondition, queryConditons)
@@ -63,7 +63,7 @@ export default async (req: AppRequest, res: Response) => {
     logger.info('Create new event from webbook...', { traceId, payload })
     const newEventStatusItem = await writeNewEventStatus(event)
     logger.info('Created event-status successfully.', { traceId, newEventStatusItem })
-    logger.info(`Search for automation: clientCode: ${event.clientCode}, eventType: ${event.eventType}`, {
+    logger.info(`Search for automation: clientCode: ${event.customerId}, eventType: ${event.type}`, {
       traceId,
     })
     const automation = await findRelevantAutomation(event)

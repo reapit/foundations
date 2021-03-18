@@ -53,6 +53,7 @@ provider:
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
     TWILIO_ACC_ID: ${self:custom.env.TWILIO_ACC_ID}
     TWILIO_AUTH_TOKEN: ${self:custom.env.TWILIO_AUTH_TOKEN}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
   iamRoleStatements:
     - Effect: Allow
       Action:

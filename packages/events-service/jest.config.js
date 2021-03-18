@@ -6,7 +6,7 @@ module.exports = {
   ...jestGlobalConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)[/\\\\]',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|src/schemas|dist)[/\\\\]',
     '.d.ts',
     'index.ts',
   ],

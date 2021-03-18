@@ -12,3 +12,5 @@ export const TWILIO = {
   accountId: process.env.TWILIO_ACC_ID,
   authToken: process.env.TWILIO_AUTH_TOKEN,
 }
+
+export const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL
