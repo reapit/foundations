@@ -1,9 +1,10 @@
 import React from 'react'
-import { H4, SubTitleH6 } from '../Typography/index'
+import { CardBodyWrap, CardHeading, CardSubHeading, CardSubHeadingAdditional } from './__styles__/index'
 
 export interface TileProps {
   heading: React.ReactNode
   subHeading?: React.ReactNode
+  subHeadingAdditional?: React.ReactNode
   hightlight?: boolean
   icon?: React.ReactNode
   image?: React.ReactNode
@@ -21,6 +22,7 @@ export const Tile: React.FC<TileProps> = ({
   children,
   hightlight,
   subHeading,
+  subHeadingAdditional,
   footerItems,
   onClick,
   dataTest,
@@ -43,12 +45,13 @@ export const Tile: React.FC<TileProps> = ({
             </div>
           ) : null}
           <div className="media-content">
-            {typeof heading === 'string' ? <H4 className="text-ellipsis-7">{heading}</H4> : heading}
-            <SubTitleH6 className="text-ellipsis-5 mb-3">{subHeading}</SubTitleH6>
-            {children}
+            <CardHeading>{heading}</CardHeading>
+            <CardSubHeading className="text-ellipsis-5">{subHeading}</CardSubHeading>
+            <CardSubHeadingAdditional>{subHeadingAdditional}</CardSubHeadingAdditional>
           </div>
           {menu && <div className="media-right">{menu}</div>}
         </div>
+        <CardBodyWrap>{children}</CardBodyWrap>
       </div>
       {footerItems && footerItems.length ? (
         <div className="card-footer">

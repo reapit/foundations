@@ -95,6 +95,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
         <GridItem>
           <TextArea labelText={aboutField.label} name={aboutField.name} id={aboutField.name} />
         </GridItem>
+        <GridItem />
         {/* <GridItem>
           <div className="control">
             <label className="label">Logo</label>

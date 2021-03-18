@@ -104,6 +104,7 @@ exports[`Login should match a snapshot 1`] = `
                     visible={false}
                   >
                     <ModalV2
+                      isCentered={true}
                       isPadding={false}
                       onClose={[Function]}
                       title="Before you start"
@@ -125,7 +126,7 @@ exports[`Login should match a snapshot 1`] = `
                           </ModalHeaderV2>
                         }
                         visible={false}
-                        wrapClassName="m1y19rn5-modal-no-padding"
+                        wrapClassName="m1iljaow-modal-centered m1y19rn5-modal-no-padding"
                       />
                     </ModalV2>
                   </SubmitAppWizard>

@@ -2,7 +2,7 @@
 
 exports[`Icons should match a snapshot for AccountIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -26,7 +26,7 @@ exports[`Icons should match a snapshot for AccountIcon 1`] = `
 
 exports[`Icons should match a snapshot for AnalyticsIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -66,7 +66,7 @@ exports[`Icons should match a snapshot for AnalyticsIcon 1`] = `
 
 exports[`Icons should match a snapshot for ApiIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -90,7 +90,7 @@ exports[`Icons should match a snapshot for ApiIcon 1`] = `
 
 exports[`Icons should match a snapshot for AppsIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -129,7 +129,7 @@ exports[`Icons should match a snapshot for AppsIcon 1`] = `
 
 exports[`Icons should match a snapshot for DataIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -157,7 +157,7 @@ exports[`Icons should match a snapshot for DataIcon 1`] = `
 
 exports[`Icons should match a snapshot for DesktopIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -181,7 +181,7 @@ exports[`Icons should match a snapshot for DesktopIcon 1`] = `
 
 exports[`Icons should match a snapshot for DevelopersIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -201,7 +201,7 @@ exports[`Icons should match a snapshot for DevelopersIcon 1`] = `
 
 exports[`Icons should match a snapshot for DocsIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -287,7 +287,7 @@ exports[`Icons should match a snapshot for FinishIcon 1`] = `
 
 exports[`Icons should match a snapshot for HelpIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -307,7 +307,7 @@ exports[`Icons should match a snapshot for HelpIcon 1`] = `
 
 exports[`Icons should match a snapshot for InstalledIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -373,7 +373,7 @@ exports[`Icons should match a snapshot for LoginIcon 1`] = `
 
 exports[`Icons should match a snapshot for ManageIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -397,7 +397,7 @@ exports[`Icons should match a snapshot for ManageIcon 1`] = `
 
 exports[`Icons should match a snapshot for MarketplaceIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -417,7 +417,7 @@ exports[`Icons should match a snapshot for MarketplaceIcon 1`] = `
 
 exports[`Icons should match a snapshot for NoIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -441,7 +441,7 @@ exports[`Icons should match a snapshot for NoIcon 1`] = `
 
 exports[`Icons should match a snapshot for OfficesIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -469,7 +469,7 @@ exports[`Icons should match a snapshot for OfficesIcon 1`] = `
 
 exports[`Icons should match a snapshot for PaymentsIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -497,7 +497,7 @@ exports[`Icons should match a snapshot for PaymentsIcon 1`] = `
 
 exports[`Icons should match a snapshot for ProfileIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -517,7 +517,7 @@ exports[`Icons should match a snapshot for ProfileIcon 1`] = `
 
 exports[`Icons should match a snapshot for ReapitHouseIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="50"
   viewBox="0 0 50 50"
@@ -545,7 +545,7 @@ exports[`Icons should match a snapshot for ReapitHouseIcon 1`] = `
 
 exports[`Icons should match a snapshot for ResultsIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -585,7 +585,7 @@ exports[`Icons should match a snapshot for ResultsIcon 1`] = `
 
 exports[`Icons should match a snapshot for SearchIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -684,7 +684,7 @@ exports[`Icons should match a snapshot for SnackbarWarningIcon 1`] = `
 
 exports[`Icons should match a snapshot for UsersIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"
@@ -704,7 +704,7 @@ exports[`Icons should match a snapshot for UsersIcon 1`] = `
 
 exports[`Icons should match a snapshot for WebhooksIcon 1`] = `
 <svg
-  className="nav-item-icon"
+  className=""
   fill="none"
   height="40"
   viewBox="0 0 40 40"

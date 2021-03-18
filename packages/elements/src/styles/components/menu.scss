@@ -40,7 +40,7 @@ $nav-dimensions: 66px;
   }
 
   li {
-    padding: 0.5rem 0.5rem;
+    padding: 4px 8px;
     text-align: center;
     width: $nav-dimensions;
     height: $nav-dimensions;
@@ -76,16 +76,21 @@ $nav-dimensions: 66px;
   }
 
   .nav-item-icon {
-    width: 60%;
-    height: 100%;
+    height: 60%;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  
     @media all and (-ms-high-contrast: none) {
       height: 23px;
     }
   }
 
   .is-logo .nav-item-icon {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
   }
 }
 

@@ -5,6 +5,12 @@ html {
   overflow-y: visible;
 }
 
+.card {
+  .media {
+    margin-bottom: 0 !important;
+  }
+}
+
 .media-content {
   min-width: 0;
   overflow: hidden;
@@ -46,6 +52,12 @@ html {
   &.is-6 {
     margin-bottom: 1em;
   }
+
+  &.is-4,
+  &.is-5,
+  &.is-6 {
+    font-weight: normal;
+  }
 }
 
 .card {
@@ -76,7 +88,7 @@ html {
   }
 
   .media-image {
-    height: 4.5rem;
+    height: 100%;
     width: 4.5rem;
 
     .image {
@@ -161,6 +173,7 @@ html {
     margin-right: 0;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
+    overflow: hidden;
   }
 
   .button:last-child {
@@ -171,13 +184,6 @@ html {
   .button:first-child {
     margin-left: auto;
     margin-right: 0;
-  }
-  &:not(.is-narrow) {
-    @media screen and (max-width: 425px) {
-      .button {
-        width: 100%;
-      }
-    }
   }
 }
 
@@ -303,7 +309,7 @@ a {
   }
 
   &.has-padding {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   &.has-background {
@@ -315,6 +321,7 @@ a {
     // increase readability, especially in mobile
     // Need to use "padding-bottom" here because "margin-bottom" doesn't work on IE
     padding-bottom: 6rem;
+    padding-top: 2rem;
     // Fix IE flex columns height bug
     // https://stackoverflow.com/a/36900208
     flex-shrink: 0;
@@ -391,6 +398,8 @@ a {
 }
 
 .content {
+  line-height: 20px;
+
   & ul {
     margin: 0;
   }

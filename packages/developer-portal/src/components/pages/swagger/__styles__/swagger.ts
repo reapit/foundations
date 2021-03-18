@@ -1,6 +1,6 @@
 /* purgecss start ignore */
 import { css } from 'linaria'
-import { bluePrimaryMedium, greyLight, greyMedium } from '@/core/__styles__/colors'
+import { bluePrimaryMedium, greyDark, greyLight } from '@/core/__styles__/colors'
 
 /*
   Overrides file to make Swagger UI look more like the rest of the site.
@@ -92,7 +92,7 @@ export const swagger = css`
     .prop-format {
       font-family: 'Source Code Pro', monospace;
       font-size: 1rem;
-      color: ${greyMedium};
+      color: ${greyDark};
     }
 
     .auth-wrapper {
@@ -121,11 +121,6 @@ export const swagger = css`
           font-size: 1rem;
         }
       }
-
-      .block {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
     }
 
     section.models {
@@ -145,7 +140,7 @@ export const swagger = css`
       }
 
       .prop-type {
-        color: ${greyMedium};
+        color: ${greyDark};
       }
     }
 
@@ -172,7 +167,7 @@ export const swagger = css`
     .markdown,
     .opblock-summary-description {
       font-family: 'PT Sans', Helvetica, sans-serif;
-      color: ${greyMedium};
+      color: ${greyDark};
     }
   }
 `

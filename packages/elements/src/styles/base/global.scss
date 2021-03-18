@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box !important;
+  line-height: 20px;
 }
 
 html {
@@ -44,5 +45,6 @@ del.del-diff {
 }
 
 .rc-dialog-mask {
-  background-color: unset !important;
+  background: #646464;
+  opacity: 0.2;
 }

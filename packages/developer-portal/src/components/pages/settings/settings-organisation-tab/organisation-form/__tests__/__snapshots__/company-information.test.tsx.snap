@@ -77,6 +77,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
         name="about"
       />
     </GridItem>
+    <GridItem />
   </Grid>
 </Fragment>
 `;

@@ -2,6 +2,7 @@
 
 exports[`submit-app-wizard should match snapshot when visible = true 1`] = `
 <ModalV2
+  isCentered={true}
   isPadding={false}
   onClose={[Function]}
   title="Before you start"

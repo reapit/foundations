@@ -1,6 +1,4 @@
-// import { black } from '@reapit/elements/src/styles'
 import { css } from 'linaria'
-import { black } from '@/core/__styles__/colors'
 
 export const appSummary = css`
   display: -webkit-box;
@@ -9,11 +7,5 @@ export const appSummary = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 72px;
-`
-export const directAPI = css`
-  color: ${black};
-  font-weight: 400;
-  margin-left: 5px;
-  white-space: nowrap;
+  height: 3.75rem;
 `

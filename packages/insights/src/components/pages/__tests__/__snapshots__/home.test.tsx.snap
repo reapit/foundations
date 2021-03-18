@@ -12,16 +12,9 @@ exports[`Home should match a snapshot 1`] = `
     isFlexColumn={true}
     isFullHeight={true}
   >
-    <iframe
-      height="100%"
-      style={
-        Object {
-          "border": "none",
-          "flexGrow": 1,
-        }
-      }
-      width="100%"
-    />
+    <Helper>
+      You will now be redirected to Metabase
+    </Helper>
   </Section>
 </Fragment>
 `;

@@ -7,5 +7,5 @@ export const wrapBoxContent = css`
 
 export const button = css`
   min-width: 8rem;
-  width: 35%;
+  width: 100%;
 `
