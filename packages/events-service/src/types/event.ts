@@ -4,10 +4,30 @@
 export interface Event {
   isTestEvent?: boolean
   id: string
-  type: string
   published: string
-  customerId: string
+  summary: string
+  type: string
+  actor: object
   object: {
-    mobilePhone: string
+    id?: string
+    type?: string
+    name?: string
+    email?: string
+    mobilePhone?: string
+    address?: {
+      buildingName?: string
+      buildingNumber?: string
+      line1?: string
+      line2?: string
+      line3?: string
+      line4?: string
+      postcode?: string
+      countryId?: string
+      geolocation?: {
+        latitude?: number
+        longitude?: number
+      }
+    }
   }
+  customerId?: string
 }

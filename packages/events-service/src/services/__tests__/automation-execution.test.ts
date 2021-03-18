@@ -11,6 +11,8 @@ const mockEvent = {
   type: 'enquiry',
   published: '2020-12-12T10:00:00',
   customerId: '2020-12-12T10:00:00',
+  summary: 'summary of event',
+  actor: {},
   object: {
     mobilePhone: '_BLANK_',
   },
