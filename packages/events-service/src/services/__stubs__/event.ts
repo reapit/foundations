@@ -1,7 +1,7 @@
 export default {
   id: '09853406-d838-469c-8f9f-92a92793e53f',
   published: '2021-03-09T10:38:24.7449133+00:00',
-  summary: 'Summary of the event',
+  summary: 'Will McVay enquired about 10 Static street, B91 3DA',
   type: 'enquiry',
   actor: {
     id: 'XX',

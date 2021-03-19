@@ -4,9 +4,6 @@ const create = {
   eventId: {
     in: ['body'],
     isString: true,
-    isUUID: {
-      errorMessage: 'eventId must be a UUID',
-    },
   },
   clientCode: {
     in: ['body'],

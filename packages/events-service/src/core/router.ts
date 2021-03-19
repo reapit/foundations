@@ -5,6 +5,7 @@ import getStatusById from '../controllers/event-status/get'
 import listStatuses from '../controllers/event-status/list'
 import createEventStatus from '../controllers/event-status/create'
 import updateStatusById from '../controllers/event-status/update'
+import upsertEventStatus from '../controllers/event-status/upsert'
 
 import getAutomationById from '../controllers/automation/get'
 import listAutomations from '../controllers/automation/list'
@@ -22,9 +23,14 @@ import * as eventValidation from '../validations/event'
 
 const router = Router()
 
+// NOTE: we don't strictly need all these endpoints
+// the only one actually in use by the un-crm front end now
+// is PUT /event-status which is used for dismissing events and updating
+// their status or ceeating a new event-status if one doesn't already exist
 router.get('/event-status/:eventId', getStatusById)
 router.get('/event-status', checkSchema(eventStatusValidation.list), validateRequest, listStatuses)
 router.post('/event-status', checkSchema(eventStatusValidation.create), validateRequest, createEventStatus)
+router.put('/event-status', checkSchema(eventStatusValidation.create), validateRequest, upsertEventStatus)
 router.patch('/event-status/:eventId', checkSchema(eventStatusValidation.update), validateRequest, updateStatusById)
 
 router.get('/automation/:id', getAutomationById)

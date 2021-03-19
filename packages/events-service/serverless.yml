@@ -195,7 +195,7 @@ functions:
               - api-version
               - if-match
       - http:
-          method: get
+          method: any
           path: /event-status/{eventId}
           cors:
             origin: '*'
@@ -212,42 +212,8 @@ functions:
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
       - http:
-          method: get
+          method: any
           path: /event-status
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - api-version
-              - if-match
-          authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
-      - http:
-          method: post
-          path: /event-status
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - reapit-customer
-              - api-version
-              - if-match
-          authorizer:
-            arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.COGNITO_USERPOOL_ID}
-      - http:
-          method: put
-          path: /event-status/{eventId}
           cors:
             origin: '*'
             headers:
