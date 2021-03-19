@@ -26,8 +26,9 @@ describe('DecoratedEvents', () => {
   it('the addActionsToEventBodies function should return an event with actions of some type', async () => {
     const events = await new DecoratedEvents('1234', '1234').addActionsToEvents([stubbedEvent])
     expect(events.length).toBe(1)
-    expect(events[0].actions.length).toBe(1)
+    expect(events[0].actions.length).toBe(2)
     expect(events[0].actions[0]).toBe('contact')
+    expect(events[0].actions[1]).toBe('dismiss')
   })
 
   it('the retrieveByEventStatusList function should run the correct steps', async () => {
