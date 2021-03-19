@@ -12,6 +12,7 @@ const mockProps: PermissionSectionProps = {
   errors: {
     scopes: 'test',
   },
+  isListed: false,
 }
 
 describe('MarketplaceStatusSection', () => {
@@ -20,7 +21,7 @@ describe('MarketplaceStatusSection', () => {
   })
   describe('MarketplaceStatusSection', () => {
     it('should match a snapshot', () => {
-      const wrapper = shallow(<div>{renderScopesCheckbox(mockProps.scopes, mockProps.errors.scopes)}</div>)
+      const wrapper = shallow(<div>{renderScopesCheckbox(mockProps.scopes, false, mockProps.errors.scopes)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

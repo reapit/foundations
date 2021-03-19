@@ -87,6 +87,11 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
               },
               Object {
                 "Cell": [Function],
+                "Header": "Created On",
+                "accessor": "created",
+              },
+              Object {
+                "Cell": [Function],
                 "Header": "",
                 "id": "buttonColumn",
               },

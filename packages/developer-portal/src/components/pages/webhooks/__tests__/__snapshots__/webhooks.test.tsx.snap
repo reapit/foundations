@@ -58,6 +58,16 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                 </a>
               </div>
             </Content>
+            <Helper
+              variant="info"
+            >
+              <div
+                className="notification helper-wrap helper-info"
+              >
+                Please note that apps and integrations developed using Webhooks for topics other than application install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
+                 
+              </div>
+            </Helper>
           </section>
         </Section>
         <Formik

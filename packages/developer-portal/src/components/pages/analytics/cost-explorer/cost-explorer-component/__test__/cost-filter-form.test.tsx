@@ -21,6 +21,12 @@ describe('CostFilterForm', () => {
       createdMonth: '2020-04',
     },
     onSave: jest.fn(),
+    clientOptions: [
+      {
+        label: 'Some Name',
+        value: 'Some Value',
+      },
+    ],
   }
   const spy = jest.spyOn(redux, 'useSelector')
   spy.mockReturnValue(true)

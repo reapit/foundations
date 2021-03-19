@@ -1,5 +1,15 @@
 import * as React from 'react'
-import { H5, Grid, H6, GridItem, DATE_TIME_FORMAT, Section, LevelRight, Button, Helper } from '@reapit/elements'
+import {
+  H5,
+  Grid,
+  GridItem,
+  DATE_TIME_FORMAT,
+  Section,
+  LevelRight,
+  Button,
+  Helper,
+  SelectOption,
+} from '@reapit/elements'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'
@@ -15,17 +25,21 @@ import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@rea
 import { unparse } from 'papaparse'
 import { saveAs } from 'file-saver'
 import FadeIn from '../../../../../styles/fade-in'
+import { renderClientSelectOptions } from '../../detailed/filter-bar/filter-form'
+import { selectInstallationsListData } from '../../../../../selector/installations'
 
 export type CostExplorerProps = {}
 
 export type CostFilterFormValues = {
   createdMonth: string
+  customerId?: string
 }
 
 export const prepareFilterFormInitialValues = (createdMonth: string) => {
   return (): CostFilterFormValues => {
     return {
       createdMonth,
+      customerId: undefined,
     }
   }
 }
@@ -88,10 +102,10 @@ interface HandleOnSave {
 
 export const handleOnSave = ({ setCreatedMonth, dispatch, developerId }: HandleOnSave) => {
   return (values: CostFilterFormValues) => {
-    const { createdMonth } = values
+    const { createdMonth, customerId } = values
     setCreatedMonth(createdMonth)
     const month = dayjs(createdMonth).format(DATE_TIME_FORMAT.YYYY_MM)
-    dispatch(fetchMonthlyBilling({ month, developerId }))
+    dispatch(fetchMonthlyBilling({ month, customerId, developerId }))
   }
 }
 
@@ -142,10 +156,11 @@ export const convertTableDataToArray = (tableData: TableData, columns: any[], to
 const CostExplorer: React.FC<CostExplorerProps> = () => {
   const dispatch = useDispatch()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const installationAppDataArray = useSelector(selectInstallationsListData)
   const developerId = getDeveloperIdFromConnectSession(connectSession)
   const [createdMonth, setCreatedMonth] = React.useState(dayjs().format(DATE_TIME_FORMAT.YYYY_MM))
+  const clientOptions: SelectOption[] = renderClientSelectOptions(installationAppDataArray)
   const initialValues = React.useMemo(prepareFilterFormInitialValues(createdMonth), [createdMonth])
-
   React.useEffect(handleFetchMonthlyBilling({ month: createdMonth, developerId, dispatch }), [developerId])
 
   const onSave = React.useCallback(handleOnSave({ setCreatedMonth, dispatch, developerId }), [developerId, dispatch])
@@ -176,18 +191,10 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
           </GridItem>
         </Grid>
         <Grid>
-          <GridItem className="is-half-desktop">
-            <Grid>
-              <GridItem className="is-one-quarter">
-                <H6>Month</H6>
-              </GridItem>
-              <GridItem>
-                <CostFilterForm initialValues={initialValues} onSave={onSave} />
-              </GridItem>
-            </Grid>
+          <GridItem className="is-two-thirds-desktop">
+            <CostFilterForm initialValues={initialValues} clientOptions={clientOptions} onSave={onSave} />
           </GridItem>
-
-          <GridItem className="is-half-desktop">
+          <GridItem className="is-one-third-desktop">
             <LevelRight className="has-text-right">
               <Button onClick={handleDownloadCSV(csvData)}>Download</Button>
             </LevelRight>
