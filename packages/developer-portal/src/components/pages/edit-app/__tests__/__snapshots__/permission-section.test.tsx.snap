@@ -6,6 +6,7 @@ exports[`MarketplaceStatusSection MarketplaceStatusSection should match a snapsh
     key="test"
   >
     <Checkbox
+      disabled={false}
       id="test"
       labelText=""
       name="scopes"
@@ -34,6 +35,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
       key="test"
     >
       <Checkbox
+        disabled={false}
         id="test"
         labelText=""
         name="scopes"

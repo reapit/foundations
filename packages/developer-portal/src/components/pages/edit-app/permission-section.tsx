@@ -14,9 +14,10 @@ import { formFields } from './form-schema/form-fields'
 export type PermissionSectionProps = {
   scopes: ScopeModel[]
   errors: FormikErrors<CreateAppModel>
+  isListed: boolean
 }
 
-export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: string) => (
+export const renderScopesCheckbox = (scopes: ScopeModel[] = [], isListed: boolean, errorScope?: string) => (
   <>
     {scopes.map((item: ScopeModel) => {
       // TODO - short term hack to remove temporary scopes from API response
@@ -32,6 +33,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
               labelText={item.description || ''}
               id={item.name || ''}
               value={item.name}
+              disabled={isListed}
             />
           </GridFourColItem>
         )
@@ -45,7 +47,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
   </>
 )
 
-const PermissionSection: React.FC<PermissionSectionProps> = ({ scopes, errors }) => {
+const PermissionSection: React.FC<PermissionSectionProps> = ({ scopes, errors, isListed }) => {
   return (
     <FormSection>
       <FormHeading>Permissions *</FormHeading>
@@ -55,7 +57,7 @@ const PermissionSection: React.FC<PermissionSectionProps> = ({ scopes, errors })
         they will have to consent to your usage based on these permissions. If you do not have the correct permissions
         on an entity basis, your app will receive a 403 error.
       </FormSubHeading>
-      <GridFourCol>{renderScopesCheckbox(scopes, errors.scopes)}</GridFourCol>
+      <GridFourCol>{renderScopesCheckbox(scopes, isListed, errors.scopes)}</GridFourCol>
     </FormSection>
   )
 }

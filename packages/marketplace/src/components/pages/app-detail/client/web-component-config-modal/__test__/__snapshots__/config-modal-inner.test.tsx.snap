@@ -666,6 +666,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Monday"
                               onChange={[Function]}
                               type="checkbox"
@@ -706,6 +707,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Tuesday"
                               onChange={[Function]}
                               type="checkbox"
@@ -746,6 +748,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Wednesday"
                               onChange={[Function]}
                               type="checkbox"
@@ -786,6 +789,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Thursday"
                               onChange={[Function]}
                               type="checkbox"
@@ -826,6 +830,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Friday"
                               onChange={[Function]}
                               type="checkbox"
@@ -866,6 +871,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={true}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Saturday"
                               onChange={[Function]}
                               type="checkbox"
@@ -905,6 +911,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               checked={false}
                               className="checkbox"
                               data-test=""
+                              disabled={false}
                               id="Sunday"
                               onChange={[Function]}
                               type="checkbox"

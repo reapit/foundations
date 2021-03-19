@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import qs from 'query-string'
 import { History } from 'history'
-import { Loader, Content, SelectBoxOptions, Section } from '@reapit/elements'
+import { Loader, Content, SelectBoxOptions, Section, Helper } from '@reapit/elements'
 import { useSelector, useDispatch } from 'react-redux'
 import { SelectBox, H3, LevelRight, Button, Table } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -209,6 +209,10 @@ export const DeveloperWebhooks = () => {
               webhooks documentation
             </a>
           </Content>
+          <Helper variant="info">
+            Please note that apps and integrations developed using Webhooks for topics other than application
+            install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.{' '}
+          </Helper>
         </Section>
         <Formik
           initialValues={{

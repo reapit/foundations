@@ -12,6 +12,7 @@ import { selectAppDetailData } from '@/selector/app-detail'
 import { selectAppRevisionDetailData } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
 import { selectApprovals } from '@/selector/admin'
+import dayjs from 'dayjs'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -51,7 +52,7 @@ export type RenderIdParams = {
 }
 
 export type RowIdParams = {
-  row: { index: number }
+  row: { index: number; created: string }
 }
 // eslint-disable-next-line react/display-name
 export const renderId = ({ page }: RenderIdParams) => ({ row: { index } }: RowIdParams) => {
@@ -151,6 +152,13 @@ export const generateTableColumn = ({
   {
     Header: 'Description',
     accessor: 'description',
+  },
+  {
+    Header: 'Created On',
+    accessor: 'created',
+    Cell: ({ row: { created } }: RowIdParams) => {
+      return <div>{dayjs(created).format('DD/MM/YYYY HH:mm')}</div>
+    },
   },
   {
     Header: '',

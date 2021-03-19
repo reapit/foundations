@@ -17,7 +17,6 @@ import comingSoonImageMAB from '@/assets/images/coming-soon/MAB.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
 import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
-import comingSoonHomeSearch from '@/assets/images/coming-soon/Homesearch.jpg'
 import comingSoonDataWarehouse from '@/assets/images/coming-soon/DataWarehouse.jpg'
 import comingSoonNotify from '@/assets/images/coming-soon/Notify.jpg'
 import comingSoonSignatureSense from '@/assets/images/coming-soon/Signature.jpg'
@@ -65,7 +64,6 @@ const comingSoonImagesMap = {
   comingSoonOnTheMarket,
   comingSoonPerfectPortal,
   comingSoonRightMove,
-  comingSoonHomeSearch,
   comingSoonDataWarehouse,
   comingSoonNotify,
   comingSoonSignatureSense,

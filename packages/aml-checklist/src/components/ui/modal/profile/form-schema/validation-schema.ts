@@ -1,7 +1,6 @@
 import * as Yup from 'yup'
 import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
-import { telephoneRegex } from '@reapit/elements'
 
 const { FIELD_REQUIRED } = errorMessages
 
@@ -22,13 +21,10 @@ const profileValidationSchema = Yup.object().shape({
   [emailField.name]: Yup.string().trim().required(FIELD_REQUIRED).email(emailField.errorMessage),
   [homePhoneField.name]: Yup.string()
     .nullable()
-    .matches(telephoneRegex, homePhoneField.errorMessage)
     .when([mobilePhoneField.name, workPhoneField.name], {
       is: (mobilePhone, workPhone) => !mobilePhone && !workPhone,
       then: Yup.string().required(FIELD_REQUIRED),
     }),
-  [mobilePhoneField.name]: Yup.string().nullable().matches(telephoneRegex, mobilePhoneField.errorMessage),
-  [workPhoneField.name]: Yup.string().nullable().matches(telephoneRegex, workPhoneField.errorMessage),
 })
 
 export default profileValidationSchema

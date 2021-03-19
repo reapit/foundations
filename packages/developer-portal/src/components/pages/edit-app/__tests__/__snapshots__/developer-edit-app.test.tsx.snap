@@ -1087,6 +1087,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             checked={false}
                                             className="checkbox"
                                             data-test=""
+                                            disabled={false}
                                             id="isListed"
                                             onChange={[Function]}
                                             type="checkbox"
@@ -1680,6 +1681,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         checked={false}
                                         className="checkbox"
                                         data-test=""
+                                        disabled={false}
                                         id="isFree"
                                         onChange={[Function]}
                                         type="checkbox"
@@ -3223,6 +3225,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         checked={false}
                                         className="checkbox"
                                         data-test=""
+                                        disabled={false}
                                         id="isDirectApi"
                                         onChange={[Function]}
                                         type="checkbox"
@@ -3248,6 +3251,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
               </MarketplaceStatusSection>
               <PermissionSection
                 errors={Object {}}
+                isListed={false}
                 scopes={Array []}
               >
                 <FormSection>
