@@ -150,6 +150,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                       checked={false}
                                       className="checkbox"
                                       data-test=""
+                                      disabled={false}
                                       id="isListed"
                                       onChange={[Function]}
                                       type="checkbox"
@@ -744,6 +745,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   checked={false}
                                   className="checkbox"
                                   data-test=""
+                                  disabled={false}
                                   id="isFree"
                                   onChange={[Function]}
                                   type="checkbox"
@@ -923,6 +925,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                       checked={false}
                                       className="checkbox"
                                       data-test=""
+                                      disabled={false}
                                       id="isListed"
                                       onChange={[Function]}
                                       type="checkbox"
@@ -1516,6 +1519,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                   checked={false}
                                   className="checkbox"
                                   data-test=""
+                                  disabled={false}
                                   id="isFree"
                                   onChange={[Function]}
                                   type="checkbox"

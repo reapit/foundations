@@ -33,6 +33,14 @@ exports[`CostFilterForm should match a snapshot 1`] = `
   }
 >
   <CostFilterForm
+    clientOptions={
+      Array [
+        Object {
+          "label": "Some Name",
+          "value": "Some Value",
+        },
+      ]
+    }
     initialValues={
       Object {
         "createdMonth": "2020-04",

@@ -54,6 +54,7 @@ export type FetchBillingsParams = {
 
 export type FetchBillingsByMonthParams = {
   developerId?: string
+  customerId?: string
   month: string
 }
 

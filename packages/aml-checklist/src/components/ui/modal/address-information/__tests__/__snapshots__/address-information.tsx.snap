@@ -597,6 +597,10 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
           "label": "Letter from Council Confirming Electoral Roll Listing",
           "value": "Letter from Council Confirming Electoral Roll Listing",
         },
+        Object {
+          "label": "Smartsearch CDD Report",
+          "value": "Smartsearch CDD Report",
+        },
       ]
     }
     required={true}
@@ -1209,6 +1213,10 @@ exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = 
         Object {
           "label": "Letter from Council Confirming Electoral Roll Listing",
           "value": "Letter from Council Confirming Electoral Roll Listing",
+        },
+        Object {
+          "label": "Smartsearch CDD Report",
+          "value": "Smartsearch CDD Report",
         },
       ]
     }

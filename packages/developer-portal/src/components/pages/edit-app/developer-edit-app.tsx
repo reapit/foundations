@@ -487,7 +487,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
               <UploadImageSection isListed={!!isListed} />
               <MarketplaceStatusSection />
-              <PermissionSection scopes={scopes} errors={errors} />
+              <PermissionSection scopes={scopes} errors={errors} isListed={Boolean(isListed)} />
               <Section>
                 {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                 <LevelRight>

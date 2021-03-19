@@ -13,6 +13,7 @@ export const DOCUMENT_TYPE = {
   TAX_NOTIFICATION: 'HMRC Tax notification documentation (this does not include P60’s)',
   ACCOUNT_DOCUMENT: 'Account, investment or insurance documents',
   LETTER_FROM_COUNCIL: 'Letter from Council Confirming Electoral Roll Listing',
+  SMART_SEARCH_CCD_REPORT: 'Smartsearch CDD Report',
 }
 
 export const RISK_ASSESSMENT_TYPE = {
