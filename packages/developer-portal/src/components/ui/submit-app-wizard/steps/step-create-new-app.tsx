@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, H5, ModalFooter, FlexContainerBasic } from '@reapit/elements'
+import { ModalBody, Button, H5, ModalFooter, ButtonGroup } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep, SetDirectApi } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
@@ -42,7 +42,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
       />
       <ModalFooter
         footerItems={
-          <FlexContainerBasic>
+          <ButtonGroup isCentered hasSpacing>
             <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep)}>
               Back
             </Button>
@@ -50,7 +50,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
               <Button onClick={onLauchWithinAgencyCloud(setWizardStep, setFieldValue)}>Yes</Button>
               <Button onClick={onLaunchWithoutAgencyCloud(setWizardStep, setFieldValue)}>No</Button>
             </div>
-          </FlexContainerBasic>
+          </ButtonGroup>
         }
       />
     </>

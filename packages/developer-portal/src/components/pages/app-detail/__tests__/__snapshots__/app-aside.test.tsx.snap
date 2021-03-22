@@ -4,6 +4,7 @@ exports[`DeveloperAside should match snapshot 1`] = `
 <FlexContainerBasic
   flexColumn={true}
   hasBackground={true}
+  hasPadding={true}
   isFullHeight={true}
 >
   <CategorySection

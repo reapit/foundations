@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartLegend should match a snapshot 1`] = `
-<Fragment>
+<Grid>
   <GridItem
-    className="is-half cursor-pointer"
+    className="cursor-pointer"
     key="0"
     onClick={[Function]}
   >
@@ -37,7 +37,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
     </Grid>
   </GridItem>
   <GridItem
-    className="is-half cursor-pointer"
+    className="cursor-pointer"
     key="1"
     onClick={[Function]}
   >
@@ -71,7 +71,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
     </Grid>
   </GridItem>
   <GridItem
-    className="is-half cursor-pointer"
+    className="cursor-pointer"
     key="2"
     onClick={[Function]}
   >
@@ -105,7 +105,7 @@ exports[`ChartLegend should match a snapshot 1`] = `
     </Grid>
   </GridItem>
   <GridItem
-    className="is-half cursor-pointer"
+    className="cursor-pointer"
     key="3"
     onClick={[Function]}
   >
@@ -138,5 +138,5 @@ exports[`ChartLegend should match a snapshot 1`] = `
       </GridItem>
     </Grid>
   </GridItem>
-</Fragment>
+</Grid>
 `;

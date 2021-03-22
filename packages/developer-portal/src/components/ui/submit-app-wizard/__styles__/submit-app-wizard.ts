@@ -1,4 +1,5 @@
 import { css } from 'linaria'
+import { greyMedium } from '../../../../core/__styles__/colors'
 
 /** Use These css-s to make sure Authentication modal work on IE  **/
 export const btnChooseAuthTypeContainer = css`
@@ -32,11 +33,6 @@ export const btnChooseAuthTypeContainerRight = css`
   left: 54%;
   overflow: hidden;
   height: 100%;
-  button {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
 `
 
 export const btnChooseAuthType = css`
@@ -45,4 +41,11 @@ export const btnChooseAuthType = css`
   font-weight: 400;
   white-space: normal;
   height: 100%;
+  border: 1px solid ${greyMedium};
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: black;
+  border-radius: 4px;
+  padding: 0.5rem;
 `

@@ -86,10 +86,11 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
                       <FlexContainerBasic
                         flexColumn={true}
                         hasBackground={true}
+                        hasPadding={true}
                         isFullHeight={true}
                       >
                         <div
-                          className="container-flex is-full-height is-column has-background"
+                          className="container-flex is-full-height is-column has-background has-padding"
                         >
                           <CategorySection
                             isSidebar={true}
@@ -340,13 +341,13 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
               >
                 <Section
                   hasBackground={true}
-                  hasPadding={false}
+                  hasPadding={true}
                   isFlex={true}
                   isFlexColumn={true}
                   isFullHeight={true}
                 >
                   <section
-                    className="section is-flex is-flex-column has-margin has-background is-full-height"
+                    className="section is-flex is-flex-column has-padding has-margin has-background is-full-height"
                     data-test=""
                   >
                     <FadeIn>

@@ -15,34 +15,36 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
             <div
               className="bkpc1pl-btn-choose-auth-type-container-left"
             >
-              <Button
+              <a
                 className="b1fd7d9h-btn-choose-auth-type"
                 onClick={[Function]}
-                variant="secondary"
               >
-                <b>
+                <b
+                  className="mb-2"
+                >
                   Client Side
                 </b>
                 <p>
                   Will use Reapit Connect our OAuth provider and will be a web application either a single page application or server rendered site
                 </p>
-              </Button>
+              </a>
             </div>
             <div
               className="b1sc8ozr-btn-choose-auth-type-container-right"
             >
-              <Button
+              <a
                 className="b1fd7d9h-btn-choose-auth-type"
                 onClick={[Function]}
-                variant="secondary"
               >
-                <b>
+                <b
+                  className="mb-2"
+                >
                   Server Side
                 </b>
                 <p>
                   Authenticate using a REST service on the server, typically you are pulling data into an existing application
                 </p>
-              </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -51,13 +53,18 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <Button
-        className="ml-0"
-        onClick={[Function]}
-        variant="secondary"
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
       >
-        Back
-      </Button>
+        <Button
+          className="ml-0"
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Back
+        </Button>
+      </ButtonGroup>
     }
   />
 </Fragment>

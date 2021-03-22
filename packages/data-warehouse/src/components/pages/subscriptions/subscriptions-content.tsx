@@ -56,7 +56,7 @@ const SubscriptionsContent: React.FC = () => {
                   <Loader />
                 ) : (
                   <>
-                    <div className="justify-center items-center is-flex py-2">
+                    <div className="justify-center items-center is-flex py-2 my-4">
                       <span className="desktop-price">{currentSubscription ? 'Subscribed' : '£150 / Month'}</span>
                       &nbsp;
                     </div>
