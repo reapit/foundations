@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardBodyWrap, CardHeading, CardSubHeading, CardSubHeadingAdditional } from './__styles__/index'
+import { CardBodyWrap, CardHeading, CardImageWrap, CardSubHeading, CardSubHeadingAdditional } from './__styles__/index'
 
 export interface TileProps {
   heading: React.ReactNode
@@ -35,15 +35,17 @@ export const Tile: React.FC<TileProps> = ({
     >
       <div className="card-content">
         <div className="media">
-          {icon ? (
-            <div className="media-left">
-              <div className="media-icon">{icon}</div>
-            </div>
-          ) : image ? (
-            <div className="media-left">
-              <div className="media-image">{image}</div>
-            </div>
-          ) : null}
+          <CardImageWrap>
+            {icon ? (
+              <div className="media-left">
+                <div className="media-icon">{icon}</div>
+              </div>
+            ) : image ? (
+              <div className="media-left">
+                <div className="media-image">{image}</div>
+              </div>
+            ) : null}
+          </CardImageWrap>
           <div className="media-content">
             <CardHeading>{heading}</CardHeading>
             <CardSubHeading className="text-ellipsis-5">{subHeading}</CardSubHeading>

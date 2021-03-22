@@ -35,7 +35,7 @@ export const HasBillingAddress: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn hasPadding>
         <CardInputGroup {...args} />
       </FlexContainerResponsive>
     </Form>
@@ -55,7 +55,7 @@ export const HasNoBillingAddress: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn hasPadding>
         <CardInputGroup {...args} />
       </FlexContainerResponsive>
     </Form>
@@ -75,7 +75,7 @@ export const HasWhiteListedTestCard: Story<CardInputGroupProps> = (args) => (
     }}
   >
     <Form>
-      <FlexContainerResponsive isScrollable isFullHeight flexColumn>
+      <FlexContainerResponsive isScrollable isFullHeight flexColumn hasPadding>
         <CardInputGroup {...args} />
         <H6 isHeadingSection>Test Card is: 4929000000006</H6>
       </FlexContainerResponsive>

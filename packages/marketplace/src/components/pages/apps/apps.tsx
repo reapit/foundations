@@ -94,7 +94,7 @@ export const Apps: React.FunctionComponent = () => {
         {/* <AppSidebar /> */}
         <H3>Browse Apps</H3>
         {!hasParams && featuredApps.length > 0 && (
-          <div className="pb-4 bb mb-4">
+          <div className="pb-4 mb-4">
             <Grid isMultiLine>
               {featuredApps.map((app, i) => {
                 if (i > 1 && !isLargeDesktop) return null
@@ -120,7 +120,7 @@ export const Apps: React.FunctionComponent = () => {
             infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
           />
         </InfiniteScroll>
-        <div className="bb mb-4" />
+        <div className="mb-4" />
         <ComingSoonApps setComingSoonAppSectionHeight={setComingSoonAppSectionHeight} />
       </Section>
     </ErrorBoundary>

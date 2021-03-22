@@ -83,15 +83,16 @@ exports[`AccessDenied should match a snapshot 1`] = `
                         <div
                           class="rc-dialog-body"
                         >
-                          <p>
+                          <p
+                            class="mb-4"
+                          >
                             It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
                           </p>
-                          <section
-                            class="section is-flex has-background"
-                            data-test=""
+                          <div
+                            class="is-centered buttons mx-auto"
                           >
                             <button
-                              class="button   is-primary "
+                              class="button   is-secondary "
                               data-test=""
                               type="button"
                             >
@@ -104,7 +105,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                             >
                               Logout
                             </button>
-                          </section>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -192,15 +193,16 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                 <div
                                   class="rc-dialog-body"
                                 >
-                                  <p>
+                                  <p
+                                    class="mb-4"
+                                  >
                                     It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
                                   </p>
-                                  <section
-                                    class="section is-flex has-background"
-                                    data-test=""
+                                  <div
+                                    class="is-centered buttons mx-auto"
                                   >
                                     <button
-                                      class="button   is-primary "
+                                      class="button   is-secondary "
                                       data-test=""
                                       type="button"
                                     >
@@ -213,7 +215,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                     >
                                       Logout
                                     </button>
-                                  </section>
+                                  </div>
                                 </div>
                               </div>
                               <div
@@ -364,15 +366,16 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                       <div
                                         class="rc-dialog-body"
                                       >
-                                        <p>
+                                        <p
+                                          class="mb-4"
+                                        >
                                           It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
                                         </p>
-                                        <section
-                                          class="section is-flex has-background"
-                                          data-test=""
+                                        <div
+                                          class="is-centered buttons mx-auto"
                                         >
                                           <button
-                                            class="button   is-primary "
+                                            class="button   is-secondary "
                                             data-test=""
                                             type="button"
                                           >
@@ -385,7 +388,7 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                           >
                                             Logout
                                           </button>
-                                        </section>
+                                        </div>
                                       </div>
                                     </div>
                                     <div
@@ -476,23 +479,24 @@ exports[`AccessDenied should match a snapshot 1`] = `
                               <div
                                 className="rc-dialog-body"
                               >
-                                <p>
+                                <p
+                                  className="mb-4"
+                                >
                                   It looks like the user account you have logged in with, does not have the required permissions to access this app. Please contact your Organisation Administrator.
                                 </p>
-                                <Section
-                                  hasMargin={false}
-                                  hasPadding={false}
-                                  isFlex={true}
+                                <ButtonGroup
+                                  hasSpacing={true}
+                                  isCentered={true}
                                 >
-                                  <section
-                                    className="section is-flex has-background"
-                                    data-test=""
+                                  <div
+                                    className="is-centered buttons mx-auto"
                                   >
                                     <Button
                                       onClick={[Function]}
+                                      variant="secondary"
                                     >
                                       <button
-                                        className="button   is-primary "
+                                        className="button   is-secondary "
                                         data-test=""
                                         disabled={false}
                                         onClick={[Function]}
@@ -514,8 +518,8 @@ exports[`AccessDenied should match a snapshot 1`] = `
                                         Logout
                                       </button>
                                     </Button>
-                                  </section>
-                                </Section>
+                                  </div>
+                                </ButtonGroup>
                               </div>
                             </div>
                           </Component>

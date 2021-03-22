@@ -14,7 +14,7 @@ export const CardSubHeadingAdditional = styled.h6`
   color: #646464;
   font-weight: bold;
   height: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `
 
 export const CardBodyWrap = styled.div`
@@ -23,4 +23,13 @@ export const CardBodyWrap = styled.div`
   section {
     color: #646464;
   }
+`
+
+export const CardImageWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  margin-right: 1rem;
 `

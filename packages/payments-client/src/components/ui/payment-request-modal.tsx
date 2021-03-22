@@ -8,7 +8,7 @@ import {
   FormHeading,
   Input,
   DatePicker,
-  LevelRight,
+  ButtonGroup,
   Formik,
 } from '@reapit/elements'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
@@ -47,6 +47,7 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
     <ModalV2
       visible={Boolean(payment)}
       destroyOnClose={true}
+      isCentered
       onClose={handleOnClose}
       title={`Request Payment of £${payment?.amount ? payment?.amount.toFixed(2) : 0} for ${payment?.id}`}
     >
@@ -94,14 +95,14 @@ export const PaymentRequestModal: React.FC<PaymentRequestModalProps> = ({
                 minDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
               }}
             />
-            <LevelRight>
+            <ButtonGroup hasSpacing isCentered>
               <Button variant="secondary" onClick={handleOnClose} type="button">
                 Cancel
               </Button>
               <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>
                 Send Payment Request
               </Button>
-            </LevelRight>
+            </ButtonGroup>
           </FormSection>
         </Form>
       </Formik>

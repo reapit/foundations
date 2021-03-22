@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Section, Grid, GridItem } from '../Layout'
+import { Grid, GridItem } from '../Layout'
 import { H5 } from '../Typography'
 import { Input } from '../Input'
 import { SelectBox } from '../SelectBox'
@@ -18,7 +18,7 @@ export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddres
   return (
     <>
       {hasBillingAddress && (
-        <Section>
+        <>
           <H5>Billing Details</H5>
           <Grid>
             <GridItem>
@@ -78,9 +78,9 @@ export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddres
             </GridItem>
             <GridItem></GridItem>
           </Grid>
-        </Section>
+        </>
       )}
-      <Section>
+      <>
         <H5>Card Details</H5>
         <Grid>
           <GridItem>
@@ -121,7 +121,7 @@ export const CardInputGroup: React.FC<CardInputGroupProps> = ({ hasBillingAddres
             />
           </GridItem>
         </Grid>
-      </Section>
+      </>
     </>
   )
 }

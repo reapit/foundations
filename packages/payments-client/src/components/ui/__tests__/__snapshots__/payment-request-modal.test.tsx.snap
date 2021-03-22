@@ -3,6 +3,7 @@
 exports[`PaymentRequestModal should match a snapshot 1`] = `
 <ModalV2
   destroyOnClose={true}
+  isCentered={true}
   onClose={[Function]}
   title="Request Payment of £100.00 for PAY20000001"
   visible={true}
@@ -144,7 +145,10 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
             }
           }
         />
-        <LevelRight>
+        <ButtonGroup
+          hasSpacing={true}
+          isCentered={true}
+        >
           <Button
             onClick={[Function]}
             type="button"
@@ -160,7 +164,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
           >
             Send Payment Request
           </Button>
-        </LevelRight>
+        </ButtonGroup>
       </FormSection>
     </Form>
   </Formik>

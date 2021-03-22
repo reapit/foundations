@@ -24,7 +24,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
         <Content>
           {userDesktopIntegrationTypes.length ? (
             <>
-              <H5 className="mb-2">Desktop Integration</H5>
+              <H5>Desktop Integration</H5>
               <p>
                 This app requires the following Desktop Integration. Some integration types may replace or change
                 certain behaviours within Agency Cloud.
@@ -57,7 +57,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
               </p>
             </>
           ) : null}
-          <H5 className="mb-2">Pricing Information</H5>
+          <H5>Pricing Information</H5>
           {isFree ? (
             <p>{developer} have specified there is no cost for using this App/Integration.</p>
           ) : pricingUrl ? (
@@ -84,7 +84,7 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
             </p>
           )}
           <>
-            <H5 className="mb-2">Data Permissions</H5>
+            <H5>Data Permissions</H5>
             <p>By installing this app, you are granting the following permissions to your data:</p>
             <p>Information about your organisation and the names/email addresses of your users</p>
             {scopes.length && (

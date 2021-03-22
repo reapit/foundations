@@ -79,7 +79,7 @@ const PaymentForm: React.FC<{
                   ? 'Your user session will expire in 5 minutes and you will not have access to this page again.'
                   : ''}
               </Helper>
-              <Section>
+              <Section hasPadding={false}>
                 <LevelRight>
                   {!session && !window['__REAPIT_MARKETPLACE_GLOBALS__'] && (
                     <Button variant="secondary" type="button" onClick={redirectToDashboard}>
@@ -94,7 +94,7 @@ const PaymentForm: React.FC<{
           {status !== 'posted' && (
             <FadeIn>
               <CardInputGroup hasBillingAddress whiteListTestCards={['4929000000006']} />
-              <Section>
+              <Section hasPadding={false}>
                 <LevelRight>
                   <Button variant="primary" type="submit" loading={isLoading} disabled={isLoading}>
                     Make Payment
