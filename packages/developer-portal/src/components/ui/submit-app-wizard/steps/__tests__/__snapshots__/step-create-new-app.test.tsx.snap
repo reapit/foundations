@@ -16,7 +16,10 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <FlexContainerBasic>
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
+      >
         <Button
           className="ml-0"
           onClick={[Function]}
@@ -38,7 +41,7 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
             No
           </Button>
         </div>
-      </FlexContainerBasic>
+      </ButtonGroup>
     }
   />
 </Fragment>

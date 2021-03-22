@@ -42,13 +42,13 @@ export const onChartLegendItemClick = (chartInstance: Partial<chartjs>, chartLeg
 
 export const ChartLegend: React.FC<ChartLegendProps> = ({ chartInstance, chartLegendItems }) => {
   return (
-    <>
+    <Grid>
       {chartLegendItems.map((legendItem) => {
         const { text, fillStyle, strokeStyle, lineWidth, datasetIndex, hidden } = legendItem
         return (
           <GridItem
             key={datasetIndex}
-            className="is-half cursor-pointer"
+            className="cursor-pointer"
             onClick={onChartLegendItemClick(chartInstance, legendItem)}
           >
             <Grid isVerticalCentered isMobile>
@@ -69,7 +69,7 @@ export const ChartLegend: React.FC<ChartLegendProps> = ({ chartInstance, chartLe
           </GridItem>
         )
       })}
-    </>
+    </Grid>
   )
 }
 

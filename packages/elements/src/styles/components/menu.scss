@@ -95,15 +95,15 @@ $nav-dimensions: 66px;
 }
 
 .nav-bar.is-desktop {
-  background-color: $grey-medium;
+  background-color: $grey-dark;
 
   li {
-    color: $grey;
+    color: $white;
   }
 
   li.is-active,
   li:hover {
-    background: $grey-dark;
-    color: $white;
+    background: $grey-medium;
+    color: $black;
   }
 }

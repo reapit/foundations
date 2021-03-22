@@ -54,10 +54,10 @@ export const AnalyticsPage: React.FC = () => {
         <FadeIn>
           <LevelRight>
             <FaInfo className={icon} />
-            <i className="mr-4 mb-2 inline-block">
+            <p className="mr-4 mb-2 inline-block">
               Warehouse uptime limit set at {settings?.monthlyUsageCap ?? 0} hrs/pcm (
               {getChargableUsageString(settings)})
-            </i>
+            </p>
             <Button onClick={handleModalOpen} disabled={!currentSubscription}>
               Adjust uptime limit
             </Button>

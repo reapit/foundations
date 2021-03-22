@@ -54,7 +54,7 @@ export const InstalledApps: React.FC = () => {
       {unfetched || loading ? (
         <Loader />
       ) : (
-        <Content>
+        <>
           <InstalledAppList
             list={agencyCloudApps}
             loading={loading}
@@ -68,14 +68,14 @@ export const InstalledApps: React.FC = () => {
             }}
           />
           {!isMobileView && isAdmin && directApiApps.length ? (
-            <>
+            <Content>
               You currently have {directApiApps.length} {directApiApps.length > 1 ? 'integrations' : 'integration'}{' '}
               installed for your organisation. To view or manage{' '}
               {directApiApps.length > 1 ? 'these integrations' : 'this integration'}, please click{' '}
               <Link to={Routes.MY_APPS}>here.</Link>
-            </>
+            </Content>
           ) : null}
-        </Content>
+        </>
       )}
     </ErrorBoundary>
   )

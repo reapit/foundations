@@ -51,7 +51,7 @@ export const Tile: React.FC<TileProps> = ({
           </div>
           {menu && <div className="media-right">{menu}</div>}
         </div>
-        <CardBodyWrap>{children}</CardBodyWrap>
+        {children && <CardBodyWrap>{children}</CardBodyWrap>}
       </div>
       {footerItems && footerItems.length ? (
         <div className="card-footer">

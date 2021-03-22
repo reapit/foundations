@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
+import { ModalBody, Button, ModalFooter, H5, ButtonGroup } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -39,30 +39,22 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
             <div className={btnChooseAuthTypeContainer}>
               <div>
                 <div className={btnChooseAuthTypeContainerLeft}>
-                  <Button
-                    variant="secondary"
-                    className={btnChooseAuthType}
-                    onClick={onClientSide(setWizardStep, setFieldValue)}
-                  >
-                    <b>Client Side</b>
+                  <a className={btnChooseAuthType} onClick={onClientSide(setWizardStep, setFieldValue)}>
+                    <b className="mb-2">Client Side</b>
                     <p>
                       Will use Reapit Connect our OAuth provider and will be a web application either a single page
                       application or server rendered site
                     </p>
-                  </Button>
+                  </a>
                 </div>
                 <div className={btnChooseAuthTypeContainerRight}>
-                  <Button
-                    variant="secondary"
-                    className={btnChooseAuthType}
-                    onClick={onServerSide(setWizardStep, setFieldValue)}
-                  >
-                    <b>Server Side</b>
+                  <a className={btnChooseAuthType} onClick={onServerSide(setWizardStep, setFieldValue)}>
+                    <b className="mb-2">Server Side</b>
                     <p>
                       Authenticate using a REST service on the server, typically you are pulling data into an existing
                       application
                     </p>
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -71,9 +63,11 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
       />
       <ModalFooter
         footerItems={
-          <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep)}>
-            Back
-          </Button>
+          <ButtonGroup hasSpacing isCentered>
+            <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep)}>
+              Back
+            </Button>
+          </ButtonGroup>
         }
       />
     </>

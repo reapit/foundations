@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, FlexContainerBasic } from '@reapit/elements'
+import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, ButtonGroup } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -70,7 +70,7 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
       />
       <ModalFooter
         footerItems={
-          <FlexContainerBasic>
+          <ButtonGroup hasSpacing isCentered>
             <Button
               variant="secondary"
               className="ml-0"
@@ -82,7 +82,7 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
             <Button className="ml-auto" loading={isSubmitting} disabled={isSubmitting} type="submit">
               Next
             </Button>
-          </FlexContainerBasic>
+          </ButtonGroup>
         }
       />
     </>

@@ -126,7 +126,7 @@ exports[`Subscriptions should match a snapshot 1`] = `
                               </H5>
                             </div>
                             <div
-                              className="justify-center items-center is-flex py-2"
+                              className="justify-center items-center is-flex py-2 my-4"
                             >
                               <span
                                 className="desktop-price"

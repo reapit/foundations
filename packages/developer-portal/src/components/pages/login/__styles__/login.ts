@@ -67,7 +67,7 @@ export const registerLevel = css`
 export const register = css`
   max-width: 400px;
   width: 100%;
-  text-align: right;
+  text-align: center;
   margin: 0 auto;
 
   ${forMobileOnly} {
