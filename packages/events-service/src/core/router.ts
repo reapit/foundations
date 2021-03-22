@@ -17,6 +17,7 @@ import createEvent from '../controllers/event/create'
 import listEvents from '../controllers/event/list'
 
 import validateRequest from '../middlewares/validate-request'
+import validateWebhookSignature from '../middlewares/validate-webhook-signature'
 import * as eventStatusValidation from '../validations/event-status'
 import * as automationValidation from '../validations/automation'
 import * as eventValidation from '../validations/event'
@@ -40,7 +41,7 @@ router.patch('/automation/:id', checkSchema(automationValidation.update), valida
 router.delete('/automation/:id', deleteAutomationById)
 
 // TODO: add validation on the create endpoint when we know what the exact event type is
-router.post('/event', createEvent)
+router.post('/event', validateWebhookSignature, createEvent)
 router.get('/event', checkSchema(eventValidation.list), validateRequest, listEvents)
 
 export default router

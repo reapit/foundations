@@ -9,6 +9,9 @@ import jwt_decode, { JwtPayload } from 'jwt-decode'
 // therefore that tokens received at this point are valid.
 export default (req: AppRequest, res: Response, next: NextFunction) => {
   const token = req.headers.authorization
+
+  if (!token) return next()
+
   try {
     const decoded = jwt_decode<JwtPayload>(token)
 
@@ -23,6 +26,6 @@ export default (req: AppRequest, res: Response, next: NextFunction) => {
     next()
   } catch (error) {
     res.status(401)
-    return res.send()
+    return res.send('Invalid or un-decodable token')
   }
 }

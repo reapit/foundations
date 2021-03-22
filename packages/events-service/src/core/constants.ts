@@ -14,3 +14,5 @@ export const TWILIO = {
 }
 
 export const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL
+
+export const ALLOWED_WEBHOOK_SIGNATURES = (process.env.ALLOWED_WEBHOOK_SIGNATURES || '').split(',')

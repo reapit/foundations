@@ -54,6 +54,7 @@ provider:
     TWILIO_ACC_ID: ${self:custom.env.TWILIO_ACC_ID}
     TWILIO_AUTH_TOKEN: ${self:custom.env.TWILIO_AUTH_TOKEN}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    ALLOWED_WEBHOOK_SIGNATURES: ${self:custom.env.ALLOWED_WEBHOOK_SIGNATURES}
   iamRoleStatements:
     - Effect: Allow
       Action:
