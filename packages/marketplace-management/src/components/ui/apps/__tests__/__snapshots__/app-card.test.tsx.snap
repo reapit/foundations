@@ -20,12 +20,8 @@ exports[`AppCard should match a snapshot 1`] = `
       />
     }
     onClick={[Function]}
-    subHeading={
-      <React.Fragment>
-        APP_DEVELOPER
-        
-      </React.Fragment>
-    }
+    subHeading="APP_DEVELOPER"
+    subHeadingAdditional=""
   >
     <div
       className="card  is-clickable"
@@ -38,20 +34,26 @@ exports[`AppCard should match a snapshot 1`] = `
         <div
           className="media"
         >
-          <div
-            className="media-left"
-          >
+          <CardImageWrap>
             <div
-              className="media-image"
+              className="card-image-wrap"
             >
-              <img
-                alt="APP_NAME"
-                className="image"
-                onError={[Function]}
-                src=""
-              />
+              <div
+                className="media-left"
+              >
+                <div
+                  className="media-image"
+                >
+                  <img
+                    alt="APP_NAME"
+                    className="image"
+                    onError={[Function]}
+                    src=""
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          </CardImageWrap>
           <div
             className="media-content"
           >

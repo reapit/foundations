@@ -76,11 +76,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                     className="content"
                     data-test=""
                   >
-                    <H5
-                      className="mb-2"
-                    >
+                    <H5>
                       <h5
-                        className="title is-5 mb-2"
+                        className="title is-5"
                         id=""
                       >
                         Pricing Information
@@ -91,11 +89,9 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
                       . Please contact 
                        directly for information about pricing.
                     </p>
-                    <H5
-                      className="mb-2"
-                    >
+                    <H5>
                       <h5
-                        className="title is-5 mb-2"
+                        className="title is-5"
                         id=""
                       >
                         Data Permissions

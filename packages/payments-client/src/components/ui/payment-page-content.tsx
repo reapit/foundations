@@ -62,7 +62,7 @@ const PaymentPageContent: React.FC<PaymentPageContentProps> = ({
       </Section>
       {!session && payment && payment.status !== 'posted' && (
         <FadeIn>
-          <H5 className="flex justify-between" isHeadingSection>
+          <H5 className="flex justify-between">
             Request Payment By Email<Button onClick={() => setSelectedPayment(payment)}>Send Email</Button>
           </H5>
           <PaymentRequestModal

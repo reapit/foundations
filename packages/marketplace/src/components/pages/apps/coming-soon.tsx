@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useResizeObserver from '@react-hook/resize-observer'
-import { GridThreeColItem, Grid, H3 } from '@reapit/elements'
+import { H3, H5 } from '@reapit/elements'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
@@ -39,6 +39,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ComingSoonApp } from '@/types/global'
 import FadeIn from '../../../core/__styles__/fade-in'
+import { ComingSoonContainer, ComingSoonImage, ComingSoonItem } from './__styles__'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
@@ -108,25 +109,23 @@ export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({ app: { em
   const emailLink = getComingAppLinkHref(isDesktop, email)
   const ImageComponent = () => <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
   return (
-    <GridThreeColItem key={email}>
-      <div className="card border-0">
-        <div className="card-image">
-          <FadeIn>
-            {isDesktop && emailLink ? (
-              <a href={emailLink}>
-                <ImageComponent />
-              </a>
-            ) : emailLink ? (
-              <a href={emailLink} target="_blank" rel="noopener noreferrer">
-                <ImageComponent />
-              </a>
-            ) : (
+    <ComingSoonItem key={email}>
+      <FadeIn>
+        <ComingSoonImage>
+          {isDesktop && emailLink ? (
+            <a href={emailLink}>
               <ImageComponent />
-            )}
-          </FadeIn>
-        </div>
-      </div>
-    </GridThreeColItem>
+            </a>
+          ) : emailLink ? (
+            <a href={emailLink} target="_blank" rel="noopener noreferrer">
+              <ImageComponent />
+            </a>
+          ) : (
+            <ImageComponent />
+          )}
+        </ComingSoonImage>
+      </FadeIn>
+    </ComingSoonItem>
   )
 }
 
@@ -137,28 +136,31 @@ const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSection
   useResizeObserver(comingSoonAppSectionRef, handleComingSoonSectionResizeObserver(setComingSoonAppSectionHeight))
 
   return (
-    <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
-      <H3>Agency Cloud Apps</H3>
-      <Grid isMultiLine>
-        {(window.reapit.config.comingSoonApps.agencyCloud || []).map((app) => (
-          <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-        ))}
-      </Grid>
-      <div className="bb mb-4" />
-      <H3>Third Party Integrations</H3>
-      <Grid isMultiLine>
-        {(window.reapit.config.comingSoonApps.thirdParty || []).map((app) => (
-          <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-        ))}
-      </Grid>
-      <div className="bb mb-4" />
-      <H3>Portal Integrations</H3>
-      <Grid isMultiLine>
-        {(window.reapit.config.comingSoonApps.portals || []).map((app) => (
-          <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-        ))}
-      </Grid>
-    </div>
+    <>
+      <H3>Coming Soon</H3>
+      <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
+        <H5>Agency Cloud Apps</H5>
+        <ComingSoonContainer>
+          {(window.reapit.config.comingSoonApps.agencyCloud || []).map((app) => (
+            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
+          ))}
+        </ComingSoonContainer>
+        <div className="mb-4" />
+        <H5>Third Party Integrations</H5>
+        <ComingSoonContainer>
+          {(window.reapit.config.comingSoonApps.thirdParty || []).map((app) => (
+            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
+          ))}
+        </ComingSoonContainer>
+        <div className="mb-4" />
+        <H5>Portal Integrations</H5>
+        <ComingSoonContainer>
+          {(window.reapit.config.comingSoonApps.portals || []).map((app) => (
+            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
+          ))}
+        </ComingSoonContainer>
+      </div>
+    </>
   )
 }
 

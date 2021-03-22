@@ -50,5 +50,5 @@ export const content = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 3.75rem;
+  height: 4.25rem;
 `

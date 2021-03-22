@@ -38,11 +38,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
               className="content"
               data-test=""
             >
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Desktop Integration
@@ -70,11 +68,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
                 </a>
                 .
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Pricing Information
@@ -87,11 +83,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
                 APP_DEVELOPER
                  directly for information about pricing.
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Data Permissions
@@ -152,11 +146,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
               className="content"
               data-test=""
             >
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Desktop Integration
@@ -184,11 +176,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
                 </a>
                 .
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Pricing Information
@@ -211,11 +201,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
               <p>
                 You will not be charged by Reapit Ltd for any costs associated with using this App/Integration.
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Data Permissions
@@ -275,11 +263,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
               className="content"
               data-test=""
             >
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Desktop Integration
@@ -309,11 +295,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
                 </a>
                 .
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Pricing Information
@@ -326,11 +310,9 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
                 APP_DEVELOPER
                  directly for information about pricing.
               </p>
-              <H5
-                className="mb-2"
-              >
+              <H5>
                 <h5
-                  className="title is-5 mb-2"
+                  className="title is-5"
                   id=""
                 >
                   Data Permissions
