@@ -2,7 +2,7 @@ import twilio, { Twilio } from 'twilio'
 import { TWILIO, PLATFORM_API_BASE_URL } from '../core/constants'
 import { logger } from '../core/logger'
 import { Event } from '../types/event'
-import { EventStatus } from '../schemas/event-status.schema'
+import { EventStatus, generateStatusItem } from '../schemas/event-status.schema'
 import { Conversation, generateConversationItem } from '../schemas/conversation.schema'
 import { db } from '../core/db'
 import stubEvent from './__stubs__/event'
@@ -46,11 +46,9 @@ export class DecoratedEvents {
   async retrieveByRecentEvents(): Promise<DecoratedEvent[]> {
     // 1. pull recents events from the events API
     let events = await this.fetchRecentEvents()
-
     // 2. add the status to each event and then filter where status is outstanding
-    events = this.addStatusToEvents(events)
+    events = await this.addStatusToEvents(events)
     events = events ? events.filter((event) => event.status === 'outstanding') : []
-
     // 3. decorate the actions from a constants file
     events = await this.addActionsToEvents(events)
     // 4. search for automation-initiated messages and pull them in
@@ -74,7 +72,7 @@ export class DecoratedEvents {
 
   async fetchRecentEvents(): Promise<DecoratedEvent[]> {
     // do api query
-    const url = `${PLATFORM_API_BASE_URL}/events`
+    const url = `${PLATFORM_API_BASE_URL}/events?sortBy=published`
     try {
       const response = await fetch(url, {
         headers: {
@@ -91,24 +89,41 @@ export class DecoratedEvents {
     }
   }
 
-  addStatusToEvents(events: DecoratedEvent[]): DecoratedEvent[] {
-    // TODO: need to retrieve the status of each event from the event-status table.
-    // For now, since none of these will have statuses because they are all stub
-    // events, just set them all to outstanding, and save the database lookup...
-    return events.map((event) => ({
-      ...event,
-      status: 'outstanding',
-    }))
+  async addStatusToEvents(events: DecoratedEvent[]): Promise<DecoratedEvent[]> {
+    const DEFAULT_STATUS = { status: 'outstanding' }
+
+    return await Promise.all(
+      events.map(async (event: DecoratedEvent) => {
+        try {
+          const itemToRetrieveFromDb = generateStatusItem({ eventId: event.id })
+          const dbStatusItem = await db.get(itemToRetrieveFromDb)
+          if (!dbStatusItem) return { ...event, ...DEFAULT_STATUS }
+
+          return { ...event, status: dbStatusItem.status }
+        } catch (error) {
+          // if the status doesn't alreay exist that's fine, we can just
+          // assume its an outstanding event by default
+          if (error.name === 'ItemNotFoundException') {
+            return { ...event, ...DEFAULT_STATUS }
+          }
+          // if there was some other kind of error though, log it first but
+          // then still return the default status
+          this.logError('Failed to retrieve event status from database', { error })
+          return { ...event, ...DEFAULT_STATUS }
+        }
+      }),
+    )
   }
 
   async addActionsToEvents(events: DecoratedEvent[]): Promise<DecoratedEvent[]> {
     const ACT_TYPE = {
       CONTACT: 'contact',
+      DISMISS: 'dismiss',
     }
     const actions = {
-      enquiry: [ACT_TYPE.CONTACT],
-      sellingValuationEnquiry: [ACT_TYPE.CONTACT],
-      lettingValuationEnquiry: [ACT_TYPE.CONTACT],
+      enquiry: [ACT_TYPE.CONTACT, ACT_TYPE.DISMISS],
+      sellingValuationEnquiry: [ACT_TYPE.CONTACT, ACT_TYPE.DISMISS],
+      lettingValuationEnquiry: [ACT_TYPE.CONTACT, ACT_TYPE.DISMISS],
     }
     // for each event, check the type and add relevant actions from a constants file
     return events.map((event) => ({
