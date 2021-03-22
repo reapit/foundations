@@ -372,9 +372,7 @@ exports[`StatusSection should match a snapshot where isListed true and is sideba
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Content
-  className="is-italic"
->
+<Content>
   Lorem ipsum
 </Content>
 `;

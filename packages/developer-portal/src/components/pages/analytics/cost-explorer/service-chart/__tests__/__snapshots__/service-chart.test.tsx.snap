@@ -108,37 +108,6 @@ exports[`ServiceChart should match a snapshot 1`] = `
             Services
           </h5>
         </H5>
-        <Grid>
-          <div
-            className="columns"
-            data-test=""
-          >
-            <GridItem
-              className="is-7 is-offset-5"
-            >
-              <div
-                className="column is-7 is-offset-5"
-                data-test=""
-              >
-                <Grid
-                  isMobile={true}
-                  isMultiLine={true}
-                >
-                  <div
-                    className="columns is-multiline is-mobile"
-                    data-test=""
-                  >
-                    <FadeIn>
-                      <div
-                        className="f1ohzb3j-fade-in"
-                      />
-                    </FadeIn>
-                  </div>
-                </Grid>
-              </div>
-            </GridItem>
-          </div>
-        </Grid>
         <div
           className="c1io3pw8-chart-container"
         >

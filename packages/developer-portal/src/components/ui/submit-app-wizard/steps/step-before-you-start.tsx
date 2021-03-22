@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, ModalFooter, H5, Button } from '@reapit/elements'
+import { ModalBody, ModalFooter, H5, Button, ButtonGroup } from '@reapit/elements'
 import { History } from 'history'
 import Routes from '@/constants/routes'
 import { WizardStepComponent, SetWizardStep } from '../types'
@@ -27,9 +27,9 @@ export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
       />
       <ModalFooter
         footerItems={
-          <>
+          <ButtonGroup hasSpacing isCentered>
             <a
-              className="button is-white is-primary"
+              className="button is-white is-secondary"
               href={`${Routes.API_DOCS}/developer-portal`}
               rel="noreferrer"
               target="_blank"
@@ -37,7 +37,7 @@ export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
               View Docs
             </a>
             <Button onClick={onCreateNewApp(setWizardStep)}>Create New App</Button>
-          </>
+          </ButtonGroup>
         }
       />
     </>

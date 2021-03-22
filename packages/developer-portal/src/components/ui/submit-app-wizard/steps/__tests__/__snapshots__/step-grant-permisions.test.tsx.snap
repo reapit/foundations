@@ -24,7 +24,10 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <FlexContainerBasic>
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
+      >
         <Button
           className="ml-0"
           disabled={Array []}
@@ -41,7 +44,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
         >
           Next
         </Button>
-      </FlexContainerBasic>
+      </ButtonGroup>
     }
   />
 </Fragment>

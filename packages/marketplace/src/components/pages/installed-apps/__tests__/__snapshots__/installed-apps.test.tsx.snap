@@ -67,43 +67,36 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
               Installed Apps
             </h3>
           </H3>
-          <Content>
-            <div
-              className="content"
-              data-test=""
+          <InstalledAppList
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            pagination={
+              Object {
+                "onChange": [Function],
+                "pageNumber": 1,
+                "pageSize": 12,
+                "totalCount": 0,
+              }
+            }
+          >
+            <Helper
+              variant="info"
             >
-              <InstalledAppList
-                infoType="INSTALLED_APPS_EMPTY"
-                list={Array []}
-                loading={false}
-                onCardClick={[Function]}
-                pagination={
-                  Object {
-                    "onChange": [Function],
-                    "pageNumber": 1,
-                    "pageSize": 12,
-                    "totalCount": 0,
-                  }
-                }
+              <div
+                className="notification helper-wrap helper-info"
               >
-                <Helper
-                  variant="info"
-                >
-                  <div
-                    className="notification helper-wrap helper-info"
-                  >
-                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                  </div>
-                </Helper>
-                <Pagination
-                  onChange={[Function]}
-                  pageNumber={1}
-                  pageSize={12}
-                  totalCount={0}
-                />
-              </InstalledAppList>
-            </div>
-          </Content>
+                It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+              </div>
+            </Helper>
+            <Pagination
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={12}
+              totalCount={0}
+            />
+          </InstalledAppList>
         </ErrorBoundary>
       </InstalledApps>
     </Router>
@@ -178,43 +171,36 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
               Installed Apps
             </h3>
           </H3>
-          <Content>
-            <div
-              className="content"
-              data-test=""
+          <InstalledAppList
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            pagination={
+              Object {
+                "onChange": [Function],
+                "pageNumber": 1,
+                "pageSize": 12,
+                "totalCount": 0,
+              }
+            }
+          >
+            <Helper
+              variant="info"
             >
-              <InstalledAppList
-                infoType="INSTALLED_APPS_EMPTY"
-                list={Array []}
-                loading={false}
-                onCardClick={[Function]}
-                pagination={
-                  Object {
-                    "onChange": [Function],
-                    "pageNumber": 1,
-                    "pageSize": 12,
-                    "totalCount": 0,
-                  }
-                }
+              <div
+                className="notification helper-wrap helper-info"
               >
-                <Helper
-                  variant="info"
-                >
-                  <div
-                    className="notification helper-wrap helper-info"
-                  >
-                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                  </div>
-                </Helper>
-                <Pagination
-                  onChange={[Function]}
-                  pageNumber={1}
-                  pageSize={12}
-                  totalCount={0}
-                />
-              </InstalledAppList>
-            </div>
-          </Content>
+                It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+              </div>
+            </Helper>
+            <Pagination
+              onChange={[Function]}
+              pageNumber={1}
+              pageSize={12}
+              totalCount={0}
+            />
+          </InstalledAppList>
         </ErrorBoundary>
       </InstalledApps>
     </Router>

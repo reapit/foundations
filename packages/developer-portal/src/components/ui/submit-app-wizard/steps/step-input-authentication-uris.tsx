@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, Input, ModalFooter, FlexContainerBasic, Content } from '@reapit/elements'
+import { ModalBody, Button, Input, ModalFooter, Content, ButtonGroup } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -79,14 +79,14 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
       />
       <ModalFooter
         footerItems={
-          <FlexContainerBasic>
+          <ButtonGroup hasSpacing isCentered>
             <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep, isDirectApi)}>
               Back
             </Button>
             <Button className="ml-auto" type="submit" disabled={!isValid} onClick={onNext(setWizardStep)}>
               Next
             </Button>
-          </FlexContainerBasic>
+          </ButtonGroup>
         }
       />
     </>

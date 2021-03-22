@@ -65,7 +65,7 @@ exports[`Analytics should match a snapshot 1`] = `
                       </svg>
                     </IconBase>
                   </FaInfo>
-                  <i
+                  <p
                     className="mr-4 mb-2 inline-block"
                   >
                     Warehouse uptime limit set at 
@@ -73,7 +73,7 @@ exports[`Analytics should match a snapshot 1`] = `
                      hrs/pcm (
                     £0
                     )
-                  </i>
+                  </p>
                   <Button
                     disabled={true}
                     onClick={[Function]}

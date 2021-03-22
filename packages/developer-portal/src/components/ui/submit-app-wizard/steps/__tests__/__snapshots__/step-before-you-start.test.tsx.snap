@@ -16,9 +16,12 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
   />
   <ModalFooter
     footerItems={
-      <React.Fragment>
+      <ButtonGroup
+        hasSpacing={true}
+        isCentered={true}
+      >
         <a
-          className="button is-white is-primary"
+          className="button is-white is-secondary"
           href="/api-docs/developer-portal"
           rel="noreferrer"
           target="_blank"
@@ -30,7 +33,7 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
         >
           Create New App
         </Button>
-      </React.Fragment>
+      </ButtonGroup>
     }
   />
 </Fragment>
