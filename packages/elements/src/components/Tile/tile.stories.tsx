@@ -45,6 +45,7 @@ export const AddressTile: Story<TileProps> = (args) => (
 AddressTile.args = {
   heading: '15 Furzen Cresent',
   subHeading: 'Hatfield Hertfordshire AL10 9QN',
+  subHeadingAdditional: 'Viewing',
   footerItems,
   icon: <FaMapMarkerAlt className="media-icon" />,
 }
@@ -58,6 +59,7 @@ AddressTileHightlighted.args = {
   hightlight: true,
   heading: '15 Furzen Cresent',
   subHeading: 'Hatfield Hertfordshire AL10 9QN',
+  subHeadingAdditional: 'Viewing',
   footerItems,
   icon: <FaMapMarkerAlt className="media-icon" />,
 }
@@ -74,6 +76,7 @@ export const AppTile: Story<TileProps> = (args) => (
 AppTile.args = {
   heading: 'Geo Diary',
   subHeading: 'Reapit Ltd',
+  subHeadingAdditional: 'Integration',
   image: <ReapitLogo className="image" />,
   menu: <FaEllipsisH className="media-icon" />,
 }

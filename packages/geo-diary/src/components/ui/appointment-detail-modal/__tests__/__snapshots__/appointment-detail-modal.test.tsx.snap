@@ -3,16 +3,7 @@
 exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1`] = `
 <ModalV2
   destroyOnClose={true}
-  footer={
-    <Button
-      disabled={true}
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Cancelled
-    </Button>
-  }
+  isCentered={true}
 >
   <Section
     hasMargin={false}
@@ -191,12 +182,25 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
         </AcLink>
       </GridItem>
     </Grid>
+    <AppointmentDetailVendor
+      isMobileView={false}
+      loginMode="WEB"
+      vendorId=""
+    />
   </Section>
-  <AppointmentDetailVendor
-    isMobileView={false}
-    loginMode="WEB"
-    vendorId=""
-  />
+  <ButtonGroup
+    hasSpacing={true}
+    isCentered={true}
+  >
+    <Button
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+      variant="primary"
+    >
+      Cancelled
+    </Button>
+  </ButtonGroup>
   <CancelConfirmModal
     appointment={
       Object {
@@ -388,16 +392,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
 exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2`] = `
 <ModalV2
   destroyOnClose={true}
-  footer={
-    <Button
-      disabled={true}
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Cancelled
-    </Button>
-  }
+  isCentered={true}
 >
   <Section
     hasMargin={false}
@@ -576,12 +571,25 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
         </AcLink>
       </GridItem>
     </Grid>
+    <AppointmentDetailVendor
+      isMobileView={false}
+      loginMode="WEB"
+      vendorId=""
+    />
   </Section>
-  <AppointmentDetailVendor
-    isMobileView={false}
-    loginMode="WEB"
-    vendorId=""
-  />
+  <ButtonGroup
+    hasSpacing={true}
+    isCentered={true}
+  >
+    <Button
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+      variant="primary"
+    >
+      Cancelled
+    </Button>
+  </ButtonGroup>
   <CancelConfirmModal
     appointment={
       Object {
@@ -9343,6 +9351,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
     >
       <ModalV2
         destroyOnClose={true}
+        isCentered={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={true}
@@ -9363,7 +9372,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
             </ModalHeaderV2>
           }
           visible={true}
-          wrapClassName=""
+          wrapClassName="modal-centered"
         >
           <PortalWrapper
             visible={true}
@@ -9382,7 +9391,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       />
                       <div
                         aria-labelledby="rcDialogTitle0"
-                        class="rc-dialog-wrap"
+                        class="rc-dialog-wrap modal-centered"
                         role="dialog"
                         tabindex="-1"
                       >
@@ -9493,7 +9502,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                               />
                               <div
                                 aria-labelledby="rcDialogTitle0"
-                                class="rc-dialog-wrap"
+                                class="rc-dialog-wrap modal-centered"
                                 role="dialog"
                                 tabindex="-1"
                               >
@@ -9583,7 +9592,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                     </ModalHeaderV2>
                   }
                   visible={true}
-                  wrapClassName=""
+                  wrapClassName="modal-centered"
                 >
                   <div
                     className="rc-dialog-root"
@@ -9616,7 +9625,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                     </Mask>
                     <div
                       aria-labelledby="rcDialogTitle0"
-                      className="rc-dialog-wrap"
+                      className="rc-dialog-wrap modal-centered"
                       onClick={[Function]}
                       onKeyDown={[Function]}
                       role="dialog"
@@ -9666,7 +9675,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     />
                                     <div
                                       aria-labelledby="rcDialogTitle0"
-                                      class="rc-dialog-wrap"
+                                      class="rc-dialog-wrap modal-centered"
                                       role="dialog"
                                       tabindex="-1"
                                     >
@@ -9756,7 +9765,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                           </ModalHeaderV2>
                         }
                         visible={true}
-                        wrapClassName=""
+                        wrapClassName="modal-centered"
                       >
                         <CSSMotion
                           onAppearPrepare={[Function]}
@@ -10310,6 +10319,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
     >
       <ModalV2
         destroyOnClose={true}
+        isCentered={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={true}
@@ -10330,7 +10340,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
             </ModalHeaderV2>
           }
           visible={true}
-          wrapClassName=""
+          wrapClassName="modal-centered"
         >
           <PortalWrapper
             visible={true}
@@ -10349,7 +10359,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                       />
                       <div
                         aria-labelledby="rcDialogTitle1"
-                        class="rc-dialog-wrap"
+                        class="rc-dialog-wrap modal-centered"
                         role="dialog"
                         tabindex="-1"
                       >
@@ -10460,7 +10470,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                               />
                               <div
                                 aria-labelledby="rcDialogTitle0"
-                                class="rc-dialog-wrap"
+                                class="rc-dialog-wrap modal-centered"
                                 role="dialog"
                                 tabindex="-1"
                               >
@@ -10546,7 +10556,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                               />
                               <div
                                 aria-labelledby="rcDialogTitle1"
-                                class="rc-dialog-wrap"
+                                class="rc-dialog-wrap modal-centered"
                                 role="dialog"
                                 tabindex="-1"
                               >
@@ -10636,7 +10646,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                     </ModalHeaderV2>
                   }
                   visible={true}
-                  wrapClassName=""
+                  wrapClassName="modal-centered"
                 >
                   <div
                     className="rc-dialog-root"
@@ -10669,7 +10679,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                     </Mask>
                     <div
                       aria-labelledby="rcDialogTitle1"
-                      className="rc-dialog-wrap"
+                      className="rc-dialog-wrap modal-centered"
                       onClick={[Function]}
                       onKeyDown={[Function]}
                       role="dialog"
@@ -10719,7 +10729,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                     />
                                     <div
                                       aria-labelledby="rcDialogTitle0"
-                                      class="rc-dialog-wrap"
+                                      class="rc-dialog-wrap modal-centered"
                                       role="dialog"
                                       tabindex="-1"
                                     >
@@ -10805,7 +10815,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                     />
                                     <div
                                       aria-labelledby="rcDialogTitle1"
-                                      class="rc-dialog-wrap"
+                                      class="rc-dialog-wrap modal-centered"
                                       role="dialog"
                                       tabindex="-1"
                                     >
@@ -10895,7 +10905,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                           </ModalHeaderV2>
                         }
                         visible={true}
-                        wrapClassName=""
+                        wrapClassName="modal-centered"
                       >
                         <CSSMotion
                           onAppearPrepare={[Function]}
@@ -19612,6 +19622,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
     >
       <ModalV2
         destroyOnClose={true}
+        isCentered={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={false}
@@ -19632,7 +19643,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
             </ModalHeaderV2>
           }
           visible={false}
-          wrapClassName=""
+          wrapClassName="modal-centered"
         />
       </ModalV2>
     </CancelConfirmModal>
@@ -20050,6 +20061,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
     >
       <ModalV2
         destroyOnClose={true}
+        isCentered={true}
         onClose={[Function]}
         title="Cancel appointment?"
         visible={false}
@@ -20070,7 +20082,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
             </ModalHeaderV2>
           }
           visible={false}
-          wrapClassName=""
+          wrapClassName="modal-centered"
         />
       </ModalV2>
     </CancelConfirmModal>

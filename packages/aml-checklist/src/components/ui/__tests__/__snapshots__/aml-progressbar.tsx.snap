@@ -2,7 +2,9 @@
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
 <FadeIn>
-  <Section>
+  <Section
+    hasMargin={false}
+  >
     <Level>
       <LevelLeft>
         <LevelItem>

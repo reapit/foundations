@@ -8,37 +8,55 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Personal Details"
-        menu={
-          <div>
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
-            </div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
-        }
+      <div
+        className="card"
       >
         <div
-          className="undefined undefined"
+          className="card-content"
         >
-          <FaCheck />
-          <span>
-            Completed
-          </span>
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
+            >
+              <H5>
+                Personal Details
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaCheck />
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
         </div>
-      </Tile>
+      </div>
     </Section>
   </FadeIn>
   <FadeIn
@@ -47,37 +65,55 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Primary ID"
-        menu={
-          <div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
-        }
+      <div
+        className="card"
       >
         <div
-          className="undefined undefined"
+          className="card-content"
         >
-          <FaTimes />
-          <span>
-            Incomplete
-          </span>
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
+            >
+              <H5>
+                Primary ID
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
         </div>
-      </Tile>
+      </div>
     </Section>
   </FadeIn>
   <FadeIn
@@ -86,37 +122,55 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Secondary ID"
-        menu={
-          <div>
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
-            </div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
-        }
+      <div
+        className="card"
       >
         <div
-          className="undefined undefined"
+          className="card-content"
         >
-          <FaCheck />
-          <span>
-            Completed
-          </span>
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
+            >
+              <H5>
+                Secondary ID
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaCheck />
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
         </div>
-      </Tile>
+      </div>
     </Section>
   </FadeIn>
   <FadeIn
@@ -125,37 +179,55 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Address Information"
-        menu={
-          <div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
-        }
+      <div
+        className="card"
       >
         <div
-          className="undefined undefined"
+          className="card-content"
         >
-          <FaTimes />
-          <span>
-            Incomplete
-          </span>
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
+            >
+              <H5>
+                Address Information
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
         </div>
-      </Tile>
+      </div>
     </Section>
   </FadeIn>
   <FadeIn
@@ -164,37 +236,55 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Declaration Risk Management"
-        menu={
-          <div>
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
-        }
+      <div
+        className="card"
       >
         <div
-          className="undefined undefined"
+          className="card-content"
         >
-          <FaTimes />
-          <span>
-            Incomplete
-          </span>
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
+            >
+              <H5>
+                Declaration Risk Management
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
         </div>
-      </Tile>
+      </div>
     </Section>
   </FadeIn>
   <FadeIn
@@ -203,20 +293,39 @@ exports[` 1`] = `
     <Section
       hasPadding={false}
     >
-      <Tile
-        heading="Report"
-        menu={
-          <div>
-            <Button
-              onClick={[MockFunction]}
-              type="button"
-              variant="primary"
+      <div
+        className="card"
+      >
+        <div
+          className="card-content"
+        >
+          <div
+            className="media"
+          >
+            <div
+              className="media-content"
             >
-              View
-            </Button>
+              <H5>
+                Report
+              </H5>
+            </div>
+            <div
+              className="media-right"
+            >
+               
+              <div>
+                <Button
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="primary"
+                >
+                  View
+                </Button>
+              </div>
+            </div>
           </div>
-        }
-      />
+        </div>
+      </div>
     </Section>
   </FadeIn>
 </div>
@@ -236,36 +345,54 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Personal Details"
-          menu={
-            <div>
-              <div
-                className="undefined undefined"
-              >
-                <FaCheck />
-                <span>
-                  Completed
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="primary"
-              >
-                Edit
-              </Button>
-            </div>
-          }
+        <div
+          className="card"
         >
           <div
-            className="undefined undefined"
+            className="card-content"
           >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
+              >
+                <H5>
+                  Personal Details
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <div
+                    className="undefined undefined"
+                  >
+                    <FaCheck />
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    Edit
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
           </div>
-        </Tile>
+        </div>
       </Section>
     </FadeIn>
     <FadeIn
@@ -274,36 +401,54 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Primary ID"
-          menu={
-            <div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="primary"
-              >
-                Edit
-              </Button>
-            </div>
-          }
+        <div
+          className="card"
         >
           <div
-            className="undefined undefined"
+            className="card-content"
           >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
+              >
+                <H5>
+                  Primary ID
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <div
+                    className="undefined undefined"
+                  >
+                    <FaTimes />
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    Edit
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
           </div>
-        </Tile>
+        </div>
       </Section>
     </FadeIn>
     <FadeIn
@@ -312,36 +457,54 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Secondary ID"
-          menu={
-            <div>
-              <div
-                className="undefined undefined"
-              >
-                <FaCheck />
-                <span>
-                  Completed
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="primary"
-              >
-                Edit
-              </Button>
-            </div>
-          }
+        <div
+          className="card"
         >
           <div
-            className="undefined undefined"
+            className="card-content"
           >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
+              >
+                <H5>
+                  Secondary ID
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <div
+                    className="undefined undefined"
+                  >
+                    <FaCheck />
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    Edit
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
           </div>
-        </Tile>
+        </div>
       </Section>
     </FadeIn>
     <FadeIn
@@ -350,36 +513,54 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Address Information"
-          menu={
-            <div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="primary"
-              >
-                Edit
-              </Button>
-            </div>
-          }
+        <div
+          className="card"
         >
           <div
-            className="undefined undefined"
+            className="card-content"
           >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
+              >
+                <H5>
+                  Address Information
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <div
+                    className="undefined undefined"
+                  >
+                    <FaTimes />
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    Edit
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
           </div>
-        </Tile>
+        </div>
       </Section>
     </FadeIn>
     <FadeIn
@@ -388,36 +569,54 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Declaration Risk Management"
-          menu={
-            <div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-              <Button
-                type="button"
-                variant="primary"
-              >
-                Edit
-              </Button>
-            </div>
-          }
+        <div
+          className="card"
         >
           <div
-            className="undefined undefined"
+            className="card-content"
           >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
+              >
+                <H5>
+                  Declaration Risk Management
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <div
+                    className="undefined undefined"
+                  >
+                    <FaTimes />
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    Edit
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
           </div>
-        </Tile>
+        </div>
       </Section>
     </FadeIn>
     <FadeIn
@@ -426,19 +625,38 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       <Section
         hasPadding={false}
       >
-        <Tile
-          heading="Report"
-          menu={
-            <div>
-              <Button
-                type="button"
-                variant="primary"
+        <div
+          className="card"
+        >
+          <div
+            className="card-content"
+          >
+            <div
+              className="media"
+            >
+              <div
+                className="media-content"
               >
-                View
-              </Button>
+                <H5>
+                  Report
+                </H5>
+              </div>
+              <div
+                className="media-right"
+              >
+                 
+                <div>
+                  <Button
+                    type="button"
+                    variant="primary"
+                  >
+                    View
+                  </Button>
+                </div>
+              </div>
             </div>
-          }
-        />
+          </div>
+        </div>
       </Section>
     </FadeIn>
   </Section>

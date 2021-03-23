@@ -105,4 +105,8 @@
   &.has-box-shadow {
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   }
+
+  &.hightlight {
+    border: 1px solid $blue-primary-light;
+  }
 }

@@ -35,17 +35,19 @@ export const Tile: React.FC<TileProps> = ({
     >
       <div className="card-content">
         <div className="media">
-          <CardImageWrap>
-            {icon ? (
+          {icon ? (
+            <CardImageWrap>
               <div className="media-left">
                 <div className="media-icon">{icon}</div>
               </div>
-            ) : image ? (
+            </CardImageWrap>
+          ) : image ? (
+            <CardImageWrap>
               <div className="media-left">
                 <div className="media-image">{image}</div>
               </div>
-            ) : null}
-          </CardImageWrap>
+            </CardImageWrap>
+          ) : null}
           <div className="media-content">
             <CardHeading>{heading}</CardHeading>
             <CardSubHeading className="text-ellipsis-5">{subHeading}</CardSubHeading>

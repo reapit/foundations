@@ -47,9 +47,7 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
         const nextAppointment = getTodayNextAppointment(appointments)
         return (
           <FadeIn key={appointment.id}>
-            <div className="mb-4">
-              <AppointmentTile appointment={appointment} nextAppointment={nextAppointment} />
-            </div>
+            <AppointmentTile appointment={appointment} nextAppointment={nextAppointment} />
           </FadeIn>
         )
       })}

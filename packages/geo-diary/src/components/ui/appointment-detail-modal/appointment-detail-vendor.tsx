@@ -42,13 +42,12 @@ export const AppointmentDetailVendor: React.FC<{
   })
 
   const listRelated = data?.GetVendorById?.related || []
-  console.log(data)
 
   if (loading) return <Loader />
   return listRelated.length > 0 ? (
     <Grid className="is-mobile">
       <GridItem className="is-one-third-desktop is-5-mobile horizontal">
-        <Grid className="is-vcentered is-mobile">
+        <Grid className="is-mobile">
           <GridItem className="is-narrow px-0">
             <FaMale />
           </GridItem>
