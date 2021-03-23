@@ -275,6 +275,8 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
+              - x-access-token
+              - reapit-webhook-signature
               - reapit-customer
               - api-version
               - if-match
