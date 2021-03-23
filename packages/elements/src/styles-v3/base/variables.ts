@@ -59,6 +59,9 @@ export const elVariables = css`
       --layout-size-2_3: calc(2rem / 3);
       --layout-size-2: 2rem;
       --layout-size-3: 3rem;
+
+      /** other defaults */
+      --default-border-radius: 0.25rem;
     }
   }
 `

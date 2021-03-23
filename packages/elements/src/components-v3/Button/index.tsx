@@ -5,11 +5,12 @@ import * as styles from './__styles__'
 
 export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
-  intent?: 'primary' | 'success' | 'danger' | 'info'
+  intent?: 'primary' | 'secondary' | 'cta' | 'success' | 'danger' | 'blank'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
-  fullWidth?: boolean
+  chevronLeft?: boolean
+  chevronRight?: boolean
   className?: string
   dataTest?: string
 }
@@ -17,48 +18,69 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   intent,
-  className = '',
+  onClick,
   disabled = false,
   loading = false,
-  children,
-  fullWidth = false,
-  onClick,
+  chevronLeft = false,
+  chevronRight = false,
+  className = '',
   dataTest = '',
+  children,
 }) => {
-  let theme = ''
+  let intentClassname = ''
   switch (intent) {
     case 'primary':
       {
-        theme = elIntentPrimary
+        intentClassname = elIntentPrimary
       }
       break
+    // case 'secondary':
+    //   {
+    //     intentClassname = elIntentSecondary
+    //   }
+    //   break
+    // case 'cta':
+    //   {
+    //     intentClassname = elIntentCta
+    //   }
+    //   break
     case 'success':
       {
-        theme = elIntentSuccess
-      }
-      break
-    case 'info':
-      {
-        theme = elIntentInfo
+        intentClassname = elIntentSuccess
       }
       break
     case 'danger':
       {
-        theme = elIntentDanger
+        intentClassname = elIntentDanger
       }
       break
+    // case 'blank':
+    //   {
+    //     intentClassname = elIntentBlank
+    //   }
+    //   break
   }
 
   const combinedClassName = cx(
     styles.elButton,
-    theme,
+    intentClassname,
     className,
-    fullWidth && styles.elIsFullWidth,
-    loading && styles.elIsLoading,
+    chevronLeft && styles.elButtonHasLeftChevron,
+    chevronRight && styles.elButtonHasRightChevron,
+    disabled && styles.elButtonIsDisabled,
+    loading && styles.elButtonIsLoading,
   )
 
+  const otherProps = {} as {
+    'data-test'?: string
+    disabled?: boolean
+  }
+
+  if (dataTest) otherProps['data-test'] = dataTest
+  if (disabled) otherProps.disabled = true
+
   return (
-    <button type={type} className={combinedClassName} disabled={disabled} onClick={onClick} data-test={dataTest}>
+    <button type={type} className={combinedClassName} onClick={onClick} {...otherProps}>
       {children}
     </button>
   )
