@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
+import { Button, Input, DatePicker, Formik, Form, ButtonGroup, Section } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -60,21 +60,37 @@ export const Profile: React.FC<ProfileProps> = ({ contact, updateContact, isSubm
         {({ isValid, values }) => {
           return (
             <Form>
-              <Input type="text" labelText={titleField.label} id={titleField.name} name={titleField.name} />
-              <Input type="text" labelText={forenameField.label} id={forenameField.name} name={forenameField.name} />
-              <Input type="text" labelText={surnameField.label} id={surnameField.name} name={surnameField.name} />
-              <DatePicker labelText={dateOfBirthField.label} id={dateOfBirthField.name} name={dateOfBirthField.name} />
-              <p className="is-size-6">* At least one telephone number is required</p>
-              <Input type="text" labelText={homePhoneField.label} id={homePhoneField.name} name={homePhoneField.name} />
-              <Input
-                type="text"
-                labelText={mobilePhoneField.label}
-                id={mobilePhoneField.name}
-                name={mobilePhoneField.name}
-              />
-              <Input type="text" labelText={workPhoneField.label} id={workPhoneField.name} name={workPhoneField.name} />
-              <Input type="email" labelText={emailField.label} id={emailField.name} name={emailField.name} />
-              <div className="field pb-2">
+              <Section hasPadding={false}>
+                <Input type="text" labelText={titleField.label} id={titleField.name} name={titleField.name} />
+                <Input type="text" labelText={forenameField.label} id={forenameField.name} name={forenameField.name} />
+                <Input type="text" labelText={surnameField.label} id={surnameField.name} name={surnameField.name} />
+                <DatePicker
+                  labelText={dateOfBirthField.label}
+                  id={dateOfBirthField.name}
+                  name={dateOfBirthField.name}
+                />
+                <p className="is-size-6">* At least one telephone number is required</p>
+                <Input
+                  type="text"
+                  labelText={homePhoneField.label}
+                  id={homePhoneField.name}
+                  name={homePhoneField.name}
+                />
+                <Input
+                  type="text"
+                  labelText={mobilePhoneField.label}
+                  id={mobilePhoneField.name}
+                  name={mobilePhoneField.name}
+                />
+                <Input
+                  type="text"
+                  labelText={workPhoneField.label}
+                  id={workPhoneField.name}
+                  name={workPhoneField.name}
+                />
+                <Input type="email" labelText={emailField.label} id={emailField.name} name={emailField.name} />
+              </Section>
+              <div className="field pb-4">
                 <div className={`columns ${styles.reverseColumns}`}>
                   <div className="column">
                     <div className={`${styles.isFullHeight} flex items-center`}>
@@ -82,13 +98,13 @@ export const Profile: React.FC<ProfileProps> = ({ contact, updateContact, isSubm
                       <span className="ml-1">{id}</span>
                     </div>
                   </div>
-                  <div className={`column ${styles.btnContainer}`}>
+                  <ButtonGroup hasSpacing isCentered>
                     <Button
                       loading={isSubmitting}
                       disabled={isSubmitting || !isValid}
                       type="submit"
                       className="mr-2"
-                      variant="primary"
+                      variant="success"
                     >
                       Save
                     </Button>
@@ -101,7 +117,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, updateContact, isSubm
                     >
                       Next
                     </Button>
-                  </div>
+                  </ButtonGroup>
                 </div>
               </div>
               <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>

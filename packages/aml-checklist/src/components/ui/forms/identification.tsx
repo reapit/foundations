@@ -98,14 +98,14 @@ export const Identification: React.FC<IdentificationProps> = ({
                 <ButtonGroup hasSpacing isCentered>
                   <Button
                     className="mr-2"
-                    variant="primary"
+                    variant="success"
                     type="submit"
                     loading={loading}
                     disabled={loading || disabled || !isValid}
                   >
                     Save
                   </Button>
-                  <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
+                  <Button className="mr-2" variant="secondary" type="button" onClick={onPrevHandler} disabled={loading}>
                     Previous
                   </Button>
                   <Button

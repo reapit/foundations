@@ -32,4 +32,8 @@ export const CardImageWrap = styled.div`
   background-color: #f2f2f2;
   padding: 1rem;
   margin-right: 1rem;
+
+  img {
+    min-height: 72px;
+  }
 `

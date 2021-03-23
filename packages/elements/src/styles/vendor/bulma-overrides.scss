@@ -162,12 +162,16 @@ html {
 }
 
 .button {
-  &.is-info, &.is-secondary {
+  &.is-info, &.is-secondary, &.is-success {
     color: $white !important;
   }
   &.is-secondary {
     background: $blue-primary-light;
     border: 1px solid $blue-primary-light;
+  }
+
+  &.is-success {
+    background: $green-semantic;
   }
 }
 
@@ -294,7 +298,6 @@ html {
 }
 
 a {
-  font-weight: bold;
   color: $blue-primary-medium;
 }
 

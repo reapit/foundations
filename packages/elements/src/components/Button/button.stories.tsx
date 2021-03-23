@@ -48,6 +48,16 @@ Info.args = {
   fullWidth: false,
 }
 
+export const Success: Story<ButtonProps> = (args) => <Button {...args}>Success</Button>
+Success.args = {
+  type: 'submit',
+  variant: 'success',
+  onClick: action('Clicking Success Button'),
+  disabled: false,
+  loading: false,
+  fullWidth: false,
+}
+
 export const Disabled: Story<ButtonProps> = (args) => <Button {...args}>Disabled</Button>
 Disabled.args = {
   type: 'submit',

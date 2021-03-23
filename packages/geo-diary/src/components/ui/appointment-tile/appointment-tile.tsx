@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tile, IconList, getTime, Button, H5, SubTitleH5, FadeIn, ButtonGroup } from '@reapit/elements'
+import { IconList, getTime, Button, H5, SubTitleH5, ButtonGroup, Section } from '@reapit/elements'
 import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 import { History } from 'history'
@@ -10,7 +10,6 @@ import AppointmentDetailModal from '../appointment-detail-modal'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { ETAButton } from '../eta-button/eta-button'
 import { buttonPaddingSmall } from '../../pages/appointment/__styles__'
-import { cx } from 'linaria'
 
 export type RenderIconItemsParams = {
   appointment: ExtendedAppointmentModel
@@ -86,7 +85,7 @@ export const renderFooterItems = ({
   const lng = appointment?.property?.address?.geolocation?.longitude
   const buttons = [
     <Button
-      className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
+      className={buttonPaddingSmall}
       variant="primary"
       key="viewDetails"
       type="submit"
@@ -101,7 +100,7 @@ export const renderFooterItems = ({
   if (!!lat && !!lng) {
     buttons.push(
       <Button
-        className={cx(buttonPaddingSmall, 'is-centered mr-2 mb-2')}
+        className={buttonPaddingSmall}
         variant="primary"
         key="viewDirection"
         type="submit"
@@ -153,20 +152,15 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, n
   const [isShowDetail, setShowDetail] = React.useState<boolean>(false)
   return (
     <>
-      <FadeIn>
-        <Tile
-          hightlight={queryParams.appointmentId === appointment.id}
-          key={appointment.id}
-          heading={heading}
-          footerItems={[
-            <ButtonGroup isCentered hasSpacing key={appointment.id}>
-              {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
-            </ButtonGroup>,
-          ]}
-        >
+      <Section className={queryParams.appointmentId === appointment.id ? 'highlight' : ''}>
+        <H5>{heading}</H5>
+        <div className="mb-4">
           <IconList items={renderIconItems({ appointment })} />
-        </Tile>
-      </FadeIn>
+        </div>
+        <ButtonGroup isCentered hasSpacing key={appointment.id}>
+          {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
+        </ButtonGroup>
+      </Section>
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment}

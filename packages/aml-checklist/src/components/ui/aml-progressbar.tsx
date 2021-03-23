@@ -46,7 +46,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
 
   return (
     <FadeIn>
-      <Section>
+      <Section hasMargin={false}>
         <Level>
           <LevelLeft>
             <LevelItem>

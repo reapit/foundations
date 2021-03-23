@@ -3,7 +3,7 @@ import * as React from 'react'
 
 export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
-  variant?: 'primary' | 'secondary' | 'danger' | 'info'
+  variant?: 'primary' | 'secondary' | 'danger' | 'info' | 'success'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
@@ -30,6 +30,8 @@ export const Button: React.FC<ButtonProps> = ({
       ? 'is-secondary'
       : variant === 'info'
       ? 'is-info'
+      : variant === 'success'
+      ? 'is-success'
       : 'is-danger'
 
   return (

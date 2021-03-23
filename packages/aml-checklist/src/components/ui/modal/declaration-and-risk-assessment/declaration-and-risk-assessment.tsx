@@ -100,7 +100,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                       loading={isSubmitting}
                       disabled={isSubmitting || !isValid}
                       className="mr-2"
-                      variant="primary"
+                      variant="success"
                       type="submit"
                     >
                       Save
@@ -108,7 +108,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                     <Button
                       disabled={isSubmitting}
                       className="mr-2"
-                      variant="primary"
+                      variant="secondary"
                       type="button"
                       onClick={onPrevHandler}
                     >

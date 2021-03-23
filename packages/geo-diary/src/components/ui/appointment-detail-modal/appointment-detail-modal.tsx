@@ -369,6 +369,7 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
     <ModalV2
       visible={isShowConfirmModal}
       destroyOnClose={true}
+      isCentered
       onClose={handleHideConfirmModal(setIsShowConfirmModal)}
       title="Cancel appointment?"
     >
@@ -403,10 +404,22 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
   const [isShowConfirmModal, setIsShowConfirmModal] = React.useState<boolean>(false)
   const isMobileView = isMobile()
   return (
-    <ModalV2
-      {...restProps}
-      destroyOnClose={true}
-      footer={
+    <ModalV2 {...restProps} destroyOnClose={true} isCentered>
+      <Section hasMargin={false}>
+        {renderDateTime(appointment)}
+        {renderNegotiators(appointment?.negotiators || [])}
+        {renderOffices(appointment?._embedded?.offices || [], loginMode)}
+        {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
+        {renderAddress(appointment?.property || {}, loginMode)}
+        {renderNotes(appointment.description)}
+        <AppointmentDetailVendor
+          vendorId={appointment?.property?.selling?.vendorId || ''}
+          loginMode={loginMode}
+          isMobileView={isMobileView}
+        />
+      </Section>
+      {renderArrangements(appointment?.property?.viewingArrangements || '')}
+      <ButtonGroup isCentered hasSpacing>
         <Button
           variant="primary"
           disabled={appointment?.cancelled}
@@ -415,22 +428,7 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
         >
           {appointment?.cancelled ? 'Cancelled' : 'Cancel Appointment'}
         </Button>
-      }
-    >
-      <Section hasMargin={false}>
-        {renderDateTime(appointment)}
-        {renderNegotiators(appointment?.negotiators || [])}
-        {renderOffices(appointment?._embedded?.offices || [], loginMode)}
-        {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
-        {renderAddress(appointment?.property || {}, loginMode)}
-        {renderNotes(appointment.description)}
-      </Section>
-      <AppointmentDetailVendor
-        vendorId={appointment?.property?.selling?.vendorId || ''}
-        loginMode={loginMode}
-        isMobileView={isMobileView}
-      />
-      {renderArrangements(appointment?.property?.viewingArrangements || '')}
+      </ButtonGroup>
       <CancelConfirmModal
         isShowConfirmModal={isShowConfirmModal}
         setIsShowConfirmModal={setIsShowConfirmModal}

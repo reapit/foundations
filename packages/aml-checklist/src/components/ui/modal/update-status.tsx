@@ -43,7 +43,6 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
             appMode: loginMode,
           }}
           buttonProps={{
-            className: styles.idCheckSucessBtn,
             type: 'button',
             variant: 'primary',
             loading: isSubmitting,
