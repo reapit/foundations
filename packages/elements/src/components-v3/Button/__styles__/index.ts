@@ -1,47 +1,75 @@
 import { css } from 'linaria'
-import { elIntentPrimary, elIntentInfo, elIntentSuccess, elIntentDanger } from '../../../styles-v3/base/intent'
+import { styled } from 'linaria/react'
+import {
+  elIntentPrimary,
+  elIntentSecondary,
+  elIntentCta,
+  elIntentSuccess,
+  elIntentDanger,
+} from '../../../styles-v3/base/intent'
+import {
+  intentPrimary,
+  intentSecondary,
+  intentCta,
+  intentSuccess,
+  intentDanger,
+} from '../../../styles-v3/base/variables'
 
-const buttonBorderWidth = 1
+const buttonXPadding = 1
+const chevronLeft = (fill: string) =>
+  `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="${encodeURIComponent(
+    fill,
+  )}"/></svg>`
+const chevronRight = (fill: string) =>
+  `data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="${encodeURIComponent(
+    fill,
+  )}"/></svg>`
 
-export const elButton = css`
+export const ElButton = styled.button`
+  /* layout */
   display: inline-block;
-  border-radius: var(--default-border-radius);
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.75rem 1rem;
+  position: relative;
   height: auto;
-  background-color: var(--color-white, #fff);
-  border-color: var(--color-grey-light, #dbdbdb);
-  border-width: ${buttonBorderWidth}px;
-  color: var(--color-black-light, #363636);
-  cursor: pointer;
+  padding: 0.75rem ${buttonXPadding}rem;
   justify-content: center;
   text-align: center;
   white-space: nowrap;
-  position: relative;
+  cursor: pointer;
+  /* borders */
+  border-radius: var(--default-border-radius);
+  border: none;
+  /* text */
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-black-light, #363636);
+  /* background */
+  background-image: linear-gradient(to right, var(--color-white), var(--color-white));
+  background-repeat: no-repeat;
 
+  /* intents */
   &${elIntentPrimary} {
-    background-color: var(--intent-primary);
+    background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
-    border-color: transparent;
   }
 
-  &${elIntentInfo} {
-    background-color: var(--intent-info);
-    color: var(--intent-info-text);
-    border-color: transparent;
+  &${elIntentSecondary} {
+    background-image: linear-gradient(to right, var(--intent-secondary), var(--intent-secondary));
+    color: var(--intent-secondary-text);
+  }
+
+  &${elIntentCta} {
+    background-image: linear-gradient(to right, var(--intent-cta), var(--intent-cta));
+    color: var(--intent-cta-text);
   }
 
   &${elIntentSuccess} {
-    background-color: var(--intent-success);
+    background-image: linear-gradient(to right, var(--intent-success), var(--intent-success));
     color: var(--intent-success-text);
-    border-color: transparent;
   }
 
   &${elIntentDanger} {
-    background-color: var(--intent-danger);
+    background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
     color: var(--intent-danger-text);
-    border-color: transparent;
   }
 
   &[disabled] {
@@ -50,32 +78,106 @@ export const elButton = css`
 `
 
 export const elButtonIsLoading = css``
-export const elButtonIsDisabled = css``
+
 export const elButtonHasLeftChevron = css`
+  background-size: calc(100% - 1rem);
+  background-position-x: right;
+  padding-left: ${buttonXPadding + 0.5}rem
+
   &::before {
     content: '';
     position: absolute;
-    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 0L9.79882 0C8.09608 0 6.57999 1.07793 6.02073 2.6862L0.456861 18.6862C0.160976 19.5371 0.160976 20.4629 0.456861 21.3138L6.02073 37.3138C6.57999 38.9221 8.09608 40 9.79882 40H24V0Z" fill="red"/></svg>');
-    right: 0.5rem;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('${chevronLeft('black')}');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
-    height: calc(100% + ${buttonBorderWidth * 2}px);
-    top: -${buttonBorderWidth}px;
-    width: 100%;
+  }
+
+  &${elIntentPrimary} {
+    &::before {
+      background-image: url('${chevronLeft(intentPrimary)}');
+    }
+  }
+
+  &${elIntentSecondary} {
+    &::before {
+      background-image: url('${chevronLeft(intentSecondary)}');
+    }
+  }
+
+  &${elIntentCta} {
+    &::before {
+      background-image: url('${chevronLeft(intentCta)}');
+    }
+  }
+
+  &${elIntentSuccess} {
+    &::before {
+      background-image: url('${chevronLeft(intentSuccess)}');
+    }
+  }
+
+  &${elIntentDanger} {
+    &::before {
+      background-image: url('${chevronLeft(intentDanger)}');
+    }
   }
 `
+
 export const elButtonHasRightChevron = css`
+  background-size: calc(100% - 1rem);
+  background-position-x: left;
+  padding-right: ${buttonXPadding + 0.5}rem;
+
+  &.${elButtonHasLeftChevron} {
+    background-size: calc(100% - 2rem);
+    background-position-x: center;
+  }
+
   &::after {
     content: '';
     position: absolute;
-    background-image: url('data:image/svg+xml;utf8,<svg width="18" height="40" viewBox="0 0 18 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.8012 0C10.5501 0 13.0962 2.1362 12.6186 2.80527L17.6261 18.8053C17.8695 19.5832 17.8695 20.4168 17.6261 21.1947L12.6186 37.1947C12.0962 38.8638 10.5501 40 8.8012 40H0V0Z" fill="red"/></svg>');
-    right: -0.5rem;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-image: url('${chevronRight('black')}');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
-    height: calc(100% + ${buttonBorderWidth * 2}px);
-    top: -${buttonBorderWidth}px;
-    width: 100%;
+  }
+
+  &${elIntentPrimary} {
+    &::after {
+      background-image: url('${chevronRight(intentPrimary)}');
+    }
+  }
+
+  &${elIntentSecondary} {
+    &::after {
+      background-image: url('${chevronRight(intentSecondary)}');
+    }
+  }
+
+  &${elIntentCta} {
+    &::after {
+      background-image: url('${chevronRight(intentCta)}');
+    }
+  }
+
+  &${elIntentSuccess} {
+    &::after {
+      background-image: url('${chevronRight(intentSuccess)}');
+    }
+  }
+
+  &${elIntentDanger} {
+    &::after {
+      background-image: url('${chevronRight(intentDanger)}');
+    }
   }
 `

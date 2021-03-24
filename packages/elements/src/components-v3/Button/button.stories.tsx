@@ -8,11 +8,13 @@ export default {
   component: Button,
 }
 
-export const Controlable: Story<ButtonProps> = (args) => <Button {...args}>Text within button</Button>
-Controlable.args = {
-  type: 'submit',
-  onClick: action('Button was clicked'),
+export const Default: Story<ButtonProps> = (args) => <Button {...args}>Text within button</Button>
+Default.args = {
   intent: 'primary',
-  disabled: false,
-  loading: false,
+}
+
+export const Disabled: Story<ButtonProps> = (args) => <Button {...args}>Text within button</Button>
+Disabled.args = {
+  intent: 'primary',
+  disabled: true,
 }
