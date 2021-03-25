@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useMemo } from 'react'
 import { Formik, Form, DatePicker, DATE_TIME_FORMAT, GridItem, Grid, SelectOption, SelectBox } from '@reapit/elements'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { CostFilterFormValues } from './cost-explorer'
@@ -22,6 +22,7 @@ const CostFilterForm: React.FC<CostFilterFormProps> = ({ initialValues, clientOp
 
   const minDate = myIdentity.created && new Date(myIdentity?.created)
   const maxDate = new Date()
+  const filteredOptions = useMemo(() => clientOptions.filter((option) => option.value !== 'SBOX'), [clientOptions])
 
   return (
     <Formik initialValues={initialValues} onSubmit={() => {}}>
@@ -44,7 +45,7 @@ const CostFilterForm: React.FC<CostFilterFormProps> = ({ initialValues, clientOp
               />
             </GridItem>
             <GridItem>
-              <SelectBox name="customerId" options={clientOptions} labelText="Client" id="customerId" />
+              <SelectBox name="customerId" options={filteredOptions} labelText="Client" id="customerId" />
             </GridItem>
           </Grid>
         </GridItem>
