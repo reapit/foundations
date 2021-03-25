@@ -49,7 +49,7 @@ export const elVariables = css`
       --intent-danger-text: var(--color-white);
 
       /** font variables */
-      --font-default: 'Roboto', Helvetica, Arial, sans-serif;
+      --font-sans-serif: 'PT Sans', Helvetica, Arial, sans-serif;
       --font-monospace: 'Source Code Pro', monospace;
 
       /** font size variables */

@@ -42,6 +42,7 @@ export const ElButton = styled.button`
 
   /* text */
   font-size: 1rem;
+  font-family: var(--font-sans-serif);
   font-weight: bold;
   color: var(--color-black-light, #363636);
 
