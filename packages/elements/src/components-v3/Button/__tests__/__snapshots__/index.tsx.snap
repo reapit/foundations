@@ -1,13 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should match a snapshot 1`] = `
-<button
-  className="el-button el-intent-primary"
-  data-test="some-selector"
+<ElButton
+  className="el-intent-primary"
   disabled={false}
   onClick={[MockFunction]}
   type="submit"
 >
   button text
-</button>
+</ElButton>
 `;

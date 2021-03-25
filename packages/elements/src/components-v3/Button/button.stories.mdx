@@ -1,0 +1,133 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Button } from './index'
+import { action } from '@storybook/addon-actions'
+
+<Meta title="V3/Button" component={Button} />
+
+# Button
+
+Underlying tag: `<button>`
+
+<Canvas>
+  <Story name="Default Usage">
+    <Button>Text within button</Button>
+  </Story>
+</Canvas>
+
+# Intent
+
+Different intents are supported, to enable buttons to be used in different contexts
+
+<Canvas>
+  <Story name="Intent: Primary">
+    <Button intent="primary">Primary</Button>
+  </Story>
+  <Story name="Intent: Secondary">
+    <Button intent="secondary">Secondary</Button>
+  </Story>
+  <Story name="Intent: Critical">
+    <Button intent="critical">Critical</Button>
+  </Story>
+  <Story name="Intent: Success">
+    <Button intent="success">Success</Button>
+  </Story>
+  <Story name="Intent: Danger">
+    <Button intent="danger">Danger</Button>
+  </Story>
+</Canvas>
+
+### Typical usage of each intent
+
+| Intent    | Usage                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------ |
+| primary   | The main/most likely action a user might want to take                                                  |
+| secondary | Typically used alonside a primary button to offer an alternative action, e.g. a Cancel or Close button |
+| critical  | An action that should be the very next, or only logical action that a user can take                    |
+| success   | An action that would lead to a good or pleasant outcome                                                |
+| danger    | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button               |
+
+# Chevrons
+
+Chevrons can be added which are helpful to indicate movement, forwards or backwards, between stages.
+
+<Canvas>
+  <Story name="Chevron: Left">
+    <Button chevronLeft intent="primary">
+      Left Chevron
+    </Button>
+  </Story>
+  <Story name="Chevron: Right">
+    <Button chevronRight intent="primary">
+      Right Chevron
+    </Button>
+  </Story>
+  <Story name="Chevron: Both">
+    <Button chevronLeft chevronRight intent="primary">
+      Both Chevrons
+    </Button>
+  </Story>
+</Canvas>
+
+# Loading
+
+Add a loading spinner to indicate progress of a background activity after the button was clicked.
+
+<Canvas>
+  <Story name="Loading">
+    <Button intent="primary" loading>
+      Loading
+    </Button>
+  </Story>
+</Canvas>
+
+# Disabled
+
+Indicate that a button is disabled for whatever reason.
+
+<Canvas>
+  <Story name="Disabled">
+    <Button intent="primary" disabled>
+      Disabled
+    </Button>
+  </Story>
+</Canvas>
+
+# Additional className
+
+Add any additional CSS classes you need by supplying a className prop
+
+<Canvas>
+  <Story name="Additional className">
+    <Button className="my-custom-className" intent="primary">
+      Custom classname
+    </Button>
+  </Story>
+</Canvas>
+
+# Other attributes
+
+All other standard HTML attributes for `<button>` are supported and are passed through to the React component, e.g. type and onClick
+
+### Type
+
+<Story name="Standard attributes: type">
+  <Button type="submit" intent="primary">
+    Submit button
+  </Button>
+</Story>
+
+### onClick
+
+<Story name="Standard attributes: onClick">
+  <Button onClick={action('Button was clicked')} intent="primary">
+    Click me
+  </Button>
+</Story>
+
+### data-test
+
+<Story name="Standard attributes: data-*">
+  <Button data-test="someValue" intent="primary">
+    data-test attribute
+  </Button>
+</Story>

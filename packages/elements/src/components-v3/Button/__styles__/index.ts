@@ -47,6 +47,7 @@ export const ElButton = styled.button`
   color: var(--color-black-light, #363636);
 
   /* background */
+  background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   background-repeat: no-repeat;
 
