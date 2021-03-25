@@ -79,9 +79,15 @@ export const fetchBillingsByMonth = async (
 ): Promise<BillingBreakdownForMonthV2Model> => {
   const api = window.reapit.config.platformApiUrl
   try {
-    const { month, ...rest } = params
+    const { month, customerId, ...rest } = params
+    const queryParams = customerId
+      ? {
+          ...rest,
+          type: 'trafficEvents',
+        }
+      : rest
     const response = await fetcher({
-      url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(rest)}`,
+      url: `${URLS.trafficEventBilling}/${month}?${setQueryParams(queryParams)}`,
       api,
       method: 'GET',
       headers: await getPlatformHeaders(reapitConnectBrowserSession, '2'),

@@ -7,6 +7,7 @@ import {
   GridFourColItem,
   Checkbox,
   FormikErrors,
+  Helper,
 } from '@reapit/elements'
 import { ScopeModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from './form-schema/form-fields'
@@ -57,6 +58,13 @@ const PermissionSection: React.FC<PermissionSectionProps> = ({ scopes, errors, i
         they will have to consent to your usage based on these permissions. If you do not have the correct permissions
         on an entity basis, your app will receive a 403 error.
       </FormSubHeading>
+      {isListed && (
+        <Helper>
+          As your app is listed in the Marketplace (either privately or publicly), the ability to edit your permissions
+          has been disabled. If you wish to make a change to the permissions selected below please de list your app or
+          contact us via the Live Chat / <a href="mailto:foundationssupport@reapit.com">email</a>.
+        </Helper>
+      )}
       <GridFourCol>{renderScopesCheckbox(scopes, isListed, errors.scopes)}</GridFourCol>
     </FormSection>
   )
