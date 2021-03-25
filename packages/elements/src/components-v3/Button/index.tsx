@@ -1,24 +1,18 @@
 import * as React from 'react'
 import { cx } from 'linaria'
-import {
-  elIntentPrimary,
-  elIntentSecondary,
-  elIntentCta,
-  elIntentSuccess,
-  elIntentDanger,
-} from '../../styles-v3/base/intent'
+import { Intent, getIntentClassName } from '../../helpers/v3/intent'
 import * as styles from './__styles__'
 import { ElButton } from './__styles__'
 
-export interface ButtonProps {
-  intent?: 'primary' | 'secondary' | 'cta' | 'success' | 'danger'
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  intent?: Intent
   loading?: boolean
   chevronLeft?: boolean
   chevronRight?: boolean
   className?: string
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButton> = ({
   intent,
   loading = false,
   chevronLeft = false,
@@ -27,35 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...rest
 }) => {
-  let intentClassname = ''
-  switch (intent) {
-    case 'primary':
-      {
-        intentClassname = elIntentPrimary
-      }
-      break
-    case 'secondary':
-      {
-        intentClassname = elIntentSecondary
-      }
-      break
-    case 'cta':
-      {
-        intentClassname = elIntentCta
-      }
-      break
-    case 'success':
-      {
-        intentClassname = elIntentSuccess
-      }
-      break
-    case 'danger':
-      {
-        intentClassname = elIntentDanger
-      }
-      break
-  }
-
+  const intentClassname = intent && getIntentClassName(intent)
   const combinedClassName = cx(
     className,
     intentClassname,

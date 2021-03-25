@@ -3,7 +3,7 @@ import { css } from 'linaria'
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#006580'
 export const intentSecondary = '#23a4de'
-export const intentCta = '#ffb71b'
+export const intentCritical = '#ffb71b'
 export const intentSuccess = '#a0c862'
 export const intentDanger = '#d3033d'
 
@@ -38,13 +38,13 @@ export const elVariables = css`
       /** intent variables */
       --intent-primary: var(--color-teal);
       --intent-secondary: var(--color-blue-light);
-      --intent-cta: var(--color-gold);
+      --intent-critical: var(--color-gold);
       --intent-success: var(--color-green);
       --intent-danger: var(--color-red);
 
       --intent-primary-text: var(--color-white);
       --intent-secondary-text: var(--color-white);
-      --intent-cta-text: var(--color-white);
+      --intent-critical-text: var(--color-white);
       --intent-success-text: var(--color-white);
       --intent-danger-text: var(--color-white);
 

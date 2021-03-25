@@ -4,7 +4,7 @@ export const elIntentPrimary = css``
 
 export const elIntentSecondary = css``
 
-export const elIntentCta = css``
+export const elIntentCritical = css``
 
 export const elIntentSuccess = css``
 

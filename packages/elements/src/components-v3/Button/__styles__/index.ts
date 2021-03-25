@@ -3,14 +3,14 @@ import { styled } from 'linaria/react'
 import {
   elIntentPrimary,
   elIntentSecondary,
-  elIntentCta,
+  elIntentCritical,
   elIntentSuccess,
   elIntentDanger,
 } from '../../../styles-v3/base/intent'
 import {
   intentPrimary,
   intentSecondary,
-  intentCta,
+  intentCritical,
   intentSuccess,
   intentDanger,
 } from '../../../styles-v3/base/variables'
@@ -35,13 +35,16 @@ export const ElButton = styled.button`
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
+
   /* borders */
   border-radius: var(--default-border-radius);
   border: none;
+
   /* text */
   font-size: 1rem;
   font-weight: bold;
   color: var(--color-black-light, #363636);
+
   /* background */
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   background-repeat: no-repeat;
@@ -57,9 +60,9 @@ export const ElButton = styled.button`
     color: var(--intent-secondary-text);
   }
 
-  &${elIntentCta} {
-    background-image: linear-gradient(to right, var(--intent-cta), var(--intent-cta));
-    color: var(--intent-cta-text);
+  &${elIntentCritical} {
+    background-image: linear-gradient(to right, var(--intent-critical), var(--intent-critical));
+    color: var(--intent-critical-text);
   }
 
   &${elIntentSuccess} {
@@ -72,6 +75,7 @@ export const ElButton = styled.button`
     color: var(--intent-danger-text);
   }
 
+  /* other variants */
   &[disabled] {
     opacity: 0.5;
   }
@@ -109,9 +113,9 @@ export const elButtonHasLeftChevron = css`
     }
   }
 
-  &${elIntentCta} {
+  &${elIntentCritical} {
     &::before {
-      background-image: url('${chevronLeft(intentCta)}');
+      background-image: url('${chevronLeft(intentCritical)}');
     }
   }
 
@@ -163,9 +167,9 @@ export const elButtonHasRightChevron = css`
     }
   }
 
-  &${elIntentCta} {
+  &${elIntentCritical} {
     &::after {
-      background-image: url('${chevronRight(intentCta)}');
+      background-image: url('${chevronRight(intentCritical)}');
     }
   }
 
