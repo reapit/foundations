@@ -21,3 +21,9 @@ export const elTextJustify = css`
 export const elFontBold = css`
   font-weight: 700;
 `
+
+export const fontFace = css`
+  :global() {
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+  }
+`

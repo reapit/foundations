@@ -1,15 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Button, ButtonProps } from '../index'
+import { Button, IButton } from '../index'
 import toJson from 'enzyme-to-json'
 
-const props: ButtonProps = {
+const props: IButton = {
   type: 'submit',
   intent: 'primary',
   disabled: false,
   loading: false,
-  fullWidth: false,
-  dataTest: 'some-selector',
   onClick: jest.fn(),
 }
 
@@ -20,8 +18,7 @@ describe('Button', () => {
 
   it('should fire a click event correctly', () => {
     const wrapper = shallow(<Button {...props}>button text</Button>)
-    wrapper.find('button').first().simulate('click')
-
+    wrapper.simulate('click')
     expect(props.onClick).toHaveBeenCalledTimes(1)
   })
 

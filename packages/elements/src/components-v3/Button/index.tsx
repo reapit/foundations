@@ -1,65 +1,39 @@
 import * as React from 'react'
 import { cx } from 'linaria'
-import { elIntentPrimary, elIntentInfo, elIntentSuccess, elIntentDanger } from '../../styles-v3/base/intent'
+import { Intent, getIntentClassName } from '../../helpers/v3/intent'
+import { elIsLoading } from '../../styles-v3/base/states'
 import * as styles from './__styles__'
+import { ElButton } from './__styles__'
 
-export interface ButtonProps {
-  type?: 'submit' | 'reset' | 'button'
-  intent?: 'primary' | 'success' | 'danger' | 'info'
-  onClick?: () => void
-  disabled?: boolean
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  intent?: Intent
   loading?: boolean
-  fullWidth?: boolean
+  chevronLeft?: boolean
+  chevronRight?: boolean
   className?: string
-  dataTest?: string
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  type = 'button',
+export const Button: React.FC<IButton> = ({
   intent,
-  className = '',
-  disabled = false,
   loading = false,
+  chevronLeft = false,
+  chevronRight = false,
+  className = '',
   children,
-  fullWidth = false,
-  onClick,
-  dataTest = '',
+  ...rest
 }) => {
-  let theme = ''
-  switch (intent) {
-    case 'primary':
-      {
-        theme = elIntentPrimary
-      }
-      break
-    case 'success':
-      {
-        theme = elIntentSuccess
-      }
-      break
-    case 'info':
-      {
-        theme = elIntentInfo
-      }
-      break
-    case 'danger':
-      {
-        theme = elIntentDanger
-      }
-      break
-  }
-
+  const intentClassname = intent && getIntentClassName(intent)
   const combinedClassName = cx(
-    styles.elButton,
-    theme,
     className,
-    fullWidth && styles.elIsFullWidth,
-    loading && styles.elIsLoading,
+    intentClassname,
+    chevronLeft && styles.elButtonHasLeftChevron,
+    chevronRight && styles.elButtonHasRightChevron,
+    loading && elIsLoading,
   )
 
   return (
-    <button type={type} className={combinedClassName} disabled={disabled} onClick={onClick} data-test={dataTest}>
+    <ElButton className={combinedClassName} {...rest}>
       {children}
-    </button>
+    </ElButton>
   )
 }

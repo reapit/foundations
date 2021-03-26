@@ -1,5 +1,12 @@
 import { css } from 'linaria'
 
+// export javascript colours for the SVG background in the button
+export const intentPrimary = '#006580'
+export const intentSecondary = '#23a4de'
+export const intentCritical = '#ffb71b'
+export const intentSuccess = '#a0c862'
+export const intentDanger = '#d3033d'
+
 export const elVariables = css`
   :global() {
     :root {
@@ -30,16 +37,19 @@ export const elVariables = css`
 
       /** intent variables */
       --intent-primary: var(--color-teal);
-      --intent-info: var(--color-blue-light);
+      --intent-secondary: var(--color-blue-light);
+      --intent-critical: var(--color-gold);
       --intent-success: var(--color-green);
       --intent-danger: var(--color-red);
+
       --intent-primary-text: var(--color-white);
-      --intent-info-text: var(--color-white);
+      --intent-secondary-text: var(--color-white);
+      --intent-critical-text: var(--color-white);
       --intent-success-text: var(--color-white);
       --intent-danger-text: var(--color-white);
 
       /** font variables */
-      --font-default: 'Roboto', Helvetica, Arial, sans-serif;
+      --font-sans-serif: 'PT Sans', Helvetica, Arial, sans-serif;
       --font-monospace: 'Source Code Pro', monospace;
 
       /** font size variables */
@@ -59,6 +69,9 @@ export const elVariables = css`
       --layout-size-2_3: calc(2rem / 3);
       --layout-size-2: 2rem;
       --layout-size-3: 3rem;
+
+      /** other defaults */
+      --default-border-radius: 0.25rem;
     }
   }
 `
