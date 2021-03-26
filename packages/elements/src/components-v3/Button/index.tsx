@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { cx } from 'linaria'
 import { Intent, getIntentClassName } from '../../helpers/v3/intent'
+import { elIsLoading } from '../../styles-v3/base/states'
 import * as styles from './__styles__'
 import { ElButton } from './__styles__'
 
@@ -27,7 +28,7 @@ export const Button: React.FC<IButton> = ({
     intentClassname,
     chevronLeft && styles.elButtonHasLeftChevron,
     chevronRight && styles.elButtonHasRightChevron,
-    // loading && styles.elButtonIsLoading,
+    loading && elIsLoading,
   )
 
   return (

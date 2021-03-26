@@ -7,6 +7,7 @@ import {
   elIntentSuccess,
   elIntentDanger,
 } from '../../../styles-v3/base/intent'
+import { elIsLoading } from '../../../styles-v3/base/states'
 import {
   intentPrimary,
   intentSecondary,
@@ -26,7 +27,6 @@ const chevronRight = (fill: string) =>
   )}"/></svg>`
 
 export const ElButton = styled.button`
-  /* layout */
   display: inline-block;
   position: relative;
   height: auto;
@@ -36,22 +36,18 @@ export const ElButton = styled.button`
   white-space: nowrap;
   cursor: pointer;
 
-  /* borders */
   border-radius: var(--default-border-radius);
   border: none;
 
-  /* text */
   font-size: 1rem;
   font-family: var(--font-sans-serif);
   font-weight: bold;
   color: var(--color-black-light, #363636);
 
-  /* background */
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
   background-repeat: no-repeat;
 
-  /* intents */
   &${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
     color: var(--intent-primary-text);
@@ -77,13 +73,46 @@ export const ElButton = styled.button`
     color: var(--intent-danger-text);
   }
 
-  /* other variants */
   &[disabled] {
     opacity: 0.5;
   }
-`
 
-export const elButtonIsLoading = css``
+  &${elIsLoading} {
+    @keyframes spinAround {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+
+    color: transparent !important;
+    pointer-events: none;
+
+    &::after {
+      left: calc(50% - (1em / 2));
+      top: calc(50% - (1em / 2));
+      position: absolute;
+
+      animation: spinAround 500ms infinite linear;
+      border: 2px solid #dbdbdb;
+      border-radius: 290486px;
+      border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7);
+
+      content: '';
+      display: block;
+      height: 1rem;
+      width: 1rem;
+    }
+
+    &${elIntentPrimary}, &${elIntentSecondary}, &${elIntentCritical}, &${elIntentSuccess}, &${elIntentDanger} {
+      &::after {
+        border-color: transparent transparent #fff #fff;
+      }
+    }
+  }
+`
 
 export const elButtonHasLeftChevron = css`
   background-size: calc(100% - 1rem);

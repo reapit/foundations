@@ -74,7 +74,30 @@ Add a loading spinner to indicate progress of a background activity after the bu
 
 <Canvas>
   <Story name="Loading">
+    <Button loading>Disabled</Button>
+  </Story>
+  <Story name="Loading - Primary Intent">
     <Button intent="primary" loading>
+      Loading
+    </Button>
+  </Story>
+  <Story name="Loading - Secondary Intent">
+    <Button intent="secondary" loading>
+      Loading
+    </Button>
+  </Story>
+  <Story name="Loading - Critical Intent">
+    <Button intent="critical" loading>
+      Loading
+    </Button>
+  </Story>
+  <Story name="Loading - Success Intent">
+    <Button intent="success" loading>
+      Loading
+    </Button>
+  </Story>
+  <Story name="Loading - Danger Intent">
+    <Button intent="danger" loading>
       Loading
     </Button>
   </Story>
@@ -86,7 +109,30 @@ Indicate that a button is disabled for whatever reason.
 
 <Canvas>
   <Story name="Disabled">
+    <Button disabled>Disabled</Button>
+  </Story>
+  <Story name="Disabled - Primary Intent">
     <Button intent="primary" disabled>
+      Disabled
+    </Button>
+  </Story>
+  <Story name="Disabled - Secondary Intent">
+    <Button intent="secondary" disabled>
+      Disabled
+    </Button>
+  </Story>
+  <Story name="Disabled - Critical Intent">
+    <Button intent="critical" disabled>
+      Disabled
+    </Button>
+  </Story>
+  <Story name="Disabled - Success Intent">
+    <Button intent="success" disabled>
+      Disabled
+    </Button>
+  </Story>
+  <Story name="Disabled - Danger Intent">
+    <Button intent="danger" disabled>
       Disabled
     </Button>
   </Story>
@@ -99,7 +145,7 @@ Add any additional CSS classes you need by supplying a className prop
 <Canvas>
   <Story name="Additional className">
     <Button className="my-custom-className" intent="primary">
-      Custom classname
+      Button with custom classname
     </Button>
   </Story>
 </Canvas>
