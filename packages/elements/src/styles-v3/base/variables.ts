@@ -15,7 +15,8 @@ export const elVariables = css`
       --color-black: #3b454e;
       --color-black-light: #363636;
       --color-grey: #74818d;
-      --color-grey-light: #dbdbdb;
+      --color-grey-dark: #646464
+      --color-grey-light: #F2F2F2
       --color-grey-lightest: #f5f7f9;
       --color-green: #a0c862;
       --color-green-lighter: #acf2bd;

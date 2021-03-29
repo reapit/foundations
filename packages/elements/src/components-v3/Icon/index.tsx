@@ -6,7 +6,7 @@ import iconSet from './icons'
 
 export type IconNames = keyof typeof iconSet
 
-export interface IIcon extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IIcon extends React.HTMLAttributes<HTMLSpanElement> {
   icon: IconNames
   intent?: Intent
   fontSize?: string

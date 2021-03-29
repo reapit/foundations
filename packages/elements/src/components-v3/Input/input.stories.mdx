@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Input } from './index'
+
+export const Template = (args) => <Input {...args} />
+
+<Meta title="V3/Forms/Input" component={Input} />
+
+# Input
+
+Underlying tag: `<input>`
+
+<Canvas>
+  <Story name="Default Usage" args={{ placeholder: 'Placeholder' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default Usage" />
+
+# With an icon
+
+<Canvas>
+  <Story name="With an icon">
+    <Input icon="username" />
+  </Story>
+</Canvas>
+
+# Different types
+
+<Canvas>
+  <Story name="Type: email">
+    <Input type="email" />
+  </Story>
+</Canvas>
+
+# Additional className
+
+Set the `className` prop to add additional custom CSS classes
+
+<Canvas>
+  <Story name="Additional className">
+    <Input className="my-custom-className" />
+  </Story>
+</Canvas>
+
+# Other attributes
+
+All other standard HTML attributes for `<input>` are supported and are passed through to the React component, e.g. onClick

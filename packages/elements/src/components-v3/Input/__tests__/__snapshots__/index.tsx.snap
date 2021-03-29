@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should match a snapshot 1`] = `<ElInput />`;
+
+exports[`Input component should match a snapshot when icon prop is supplied 1`] = `
+<ElInputWithIconContainer>
+  <ElInput />
+  <Icon
+    icon="add"
+  />
+</ElInputWithIconContainer>
+`;
