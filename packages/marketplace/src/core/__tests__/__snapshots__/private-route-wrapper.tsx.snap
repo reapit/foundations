@@ -5,21 +5,18 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
   <Menu />
   <FlexContainerBasic
     flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
     id="app-root-container"
     isScrollable={true}
   >
-    <FlexContainerResponsive
-      flexColumn={true}
-      hasPadding={true}
-    >
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      />
-    </FlexContainerResponsive>
+    <Suspense
+      fallback={
+        <Section>
+          <Loader />
+        </Section>
+      }
+    />
   </FlexContainerBasic>
 </AppNavContainer>
 `;

@@ -33,7 +33,7 @@ const OfficesGroupsTab: React.FC = () => {
   const { data: officeGroups, mutate } = useSWR<OfficeGroupModelPagedResult>(
     !orgId
       ? null
-      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=12' : '?pageSize=12'}`,
+      : `${URLS.ORGANISATIONS}/${orgId}${URLS.OFFICES_GROUPS}${search ? search + '&pageSize=6' : '?pageSize=6'}`,
   )
 
   const LastUpdatedCell = ({

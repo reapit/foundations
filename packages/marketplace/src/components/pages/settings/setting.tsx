@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { H3, Button, Section, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
+import { H3, Button, Section, Grid, GridItem, SubTitleH6, FlexContainerResponsive } from '@reapit/elements'
 import { LoginIdentity } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
@@ -73,7 +73,7 @@ export const Settings: React.FC = () => {
   const isDesktopAdmin = selectIsAdmin(connectSession)
 
   return (
-    <>
+    <FlexContainerResponsive flexColumn hasPadding>
       <Section isFlex className="justify-between items-center" hasPadding={false}>
         <H3 className="mb-0">Settings</H3>
         {!connectIsDesktop && (
@@ -141,7 +141,7 @@ export const Settings: React.FC = () => {
       </Section>
       {!connectIsDesktop && <ChangePasswordForm changePassword={changePassword} loading={loading} />}
       {isDesktopAdmin && <InstallationsTable />}
-    </>
+    </FlexContainerResponsive>
   )
 }
 

@@ -52,10 +52,8 @@ export const DeveloperDesktopContentPartTwo: React.FC = () => {
             desktop application using sandbox data.
           </p>
           <p>
-            There is no charge for the Developer Edition licence during the Beta phase, however, developers are required
-            to confirm the subscription to proceed. When the Beta phase comes to an end, we will automatically cancel
-            all subscriptions, and developers will need to sign-up again should they wish to subscribe and pay for a
-            Developer Edition license.
+            From 1st April, the Developer Edition of Agency Cloud will no longer be a free subscription. If you had
+            subscribed during the Beta Phase and still wish to continue to use the software, please re subscribe.
           </p>
           <p>
             The application is licenced per user/developer of an organisation and will require a Windows machine to
@@ -71,8 +69,8 @@ export const DeveloperDesktopContentPartTwo: React.FC = () => {
                 </H5>
               </div>
               <div className="justify-center items-center is-flex py-2">
-                <span className="desktop-price">£0</span>&nbsp;
-                <span className="desktop-price-period">/ Beta phase</span>
+                <span className="desktop-price">£300</span>&nbsp;
+                <span className="desktop-price-period">/ Month</span>
               </div>
               <div className="text-center px-2 py-1">Become familiar with our CRM software using sandbox data</div>
               <div className="text-center px-2 py-1">Test your Marketplace application inside Agency Cloud</div>

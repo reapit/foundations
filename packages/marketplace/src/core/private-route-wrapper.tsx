@@ -2,7 +2,7 @@ import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import Menu from '@/components/ui/menu'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '@/constants/routes'
 import { selectDeveloperId, selectIsAdmin } from '../selector/auth'
@@ -30,9 +30,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (!connectSession) {
     return (
       <AppNavContainer>
-        <FlexContainerResponsive hasBackground>
+        <FlexContainerBasic hasBackground hasPadding>
           <Loader />
-        </FlexContainerResponsive>
+        </FlexContainerBasic>
       </AppNavContainer>
     )
   }
@@ -48,18 +48,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       {showMenu && <Menu />}
-      <FlexContainerBasic id="app-root-container" flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
+      <FlexContainerBasic id="app-root-container" flexColumn hasBackground hasPadding isScrollable>
+        <Suspense
+          fallback={
+            <Section>
+              <Loader />
+            </Section>
+          }
+        >
+          {children}
+        </Suspense>
       </FlexContainerBasic>
     </AppNavContainer>
   )

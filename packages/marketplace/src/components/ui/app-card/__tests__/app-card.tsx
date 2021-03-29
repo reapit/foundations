@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import AppCard, { AppCardProps } from '../app-card'
 
 const props: AppCardProps = {
+  connectIsDesktop: false,
   app: {
     id: '09043eb8-9e5e-4650-b7f1-f0cb62699027',
     developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',

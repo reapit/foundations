@@ -5,11 +5,11 @@ exports[`AnalyticsDailyUsage should match a snapshot 1`] = `
   <AnalyticsDailyUsage>
     <ErrorBoundary>
       <Section
-        hasBoxShadow={true}
+        hasBorder={true}
         hasMargin={false}
       >
         <section
-          className="section has-padding has-background has-box-shadow"
+          className="section has-padding has-background has-border"
           data-test=""
         >
           <H5>

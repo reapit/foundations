@@ -1,6 +1,7 @@
 export type ComingSoonApp = {
   image: string
   email: string
+  integrationType: string
 }
 
 export type Config = {
@@ -15,11 +16,7 @@ export type Config = {
   developerPortalUrl: string
   orgAdminRestrictedAppIds: string[]
   reapitConnectManagementUri: string
-  comingSoonApps: {
-    agencyCloud: ComingSoonApp[]
-    thirdParty: ComingSoonApp[]
-    portals: ComingSoonApp[]
-  }
+  comingSoonApps: ComingSoonApp[]
 }
 
 declare global {

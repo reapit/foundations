@@ -12,24 +12,70 @@ export const appList = css`
   }
 `
 
-export const ComingSoonContainer = styled.div`
-  display: flex;
-  flex-flow: wrap;
-`
-
 export const ComingSoonItem = styled.div`
-  width: 20%;
-  padding: 1.5rem;
+  position: relative;
+  border-radius: 4px;
+  height: 15rem;
+  border-radius: 4px;
+  color: #000;
+  max-width: 100%;
+  position: relative;
+  background-color: #f2f2f2;
 `
 
 export const ComingSoonImage = styled.div`
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
 
-  img,
+  img {
+    height: 80%;
+    margin: auto;
+  }
+
   a {
-    margin: 0 -25%;
-    width: 177.777%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`
+
+export const ComingSoonTitle = styled.div`
+  position: absolute;
+  padding: 0.25rem 0.5rem;
+  background-color: #ffe5c7;
+  z-index: 1;
+  font-size: 0.875rem;
+  border-radius: 4px;
+`
+
+export const ComingSoonInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem;
+`
+
+export const ComingSoonImageWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  height: 100%;
+`
+
+export const CategoryTitle = styled.div`
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffe5c7;
+  font-size: 0.875rem;
+  border-radius: 0 0 4px 4px;
+
+  svg {
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
   }
 `

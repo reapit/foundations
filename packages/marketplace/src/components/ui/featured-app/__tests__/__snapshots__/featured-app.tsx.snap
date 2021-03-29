@@ -1,31 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FeaturedApp should match a snapshot 1`] = `
-<GridThreeColItem
-  className="ft5zs0i-featured-app"
-  key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+<div
+  className="card ml-2 mr-2"
 >
-  <div
-    className="card"
+  <Link
+    className="image"
+    to="/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027"
   >
-    <div
-      className="card-image"
-    >
-      <Link
+    <FadeIn>
+      <img
+        alt="test"
         className="image"
-        to="/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027"
-      >
-        <FadeIn>
-          <img
-            alt="test"
-            className="image"
-            key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
-            onError={[Function]}
-            src=""
-          />
-        </FadeIn>
-      </Link>
-    </div>
-  </div>
-</GridThreeColItem>
+        key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+        onError={[Function]}
+        src=""
+      />
+    </FadeIn>
+  </Link>
+</div>
 `;

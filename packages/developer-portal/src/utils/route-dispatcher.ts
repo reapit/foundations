@@ -93,6 +93,10 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.WEBHOOKS:
       store.dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
       break
+    case Routes.DESKTOP:
+      store.dispatch(requestDeveloperData())
+      store.dispatch(fetchCurrentMember())
+      break
     case Routes.HELP:
       // Need the fetcher to have retrieved the login session only.
       break

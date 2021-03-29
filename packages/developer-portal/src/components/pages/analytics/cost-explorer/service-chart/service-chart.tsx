@@ -223,7 +223,7 @@ export const ServiceChart: React.FC = () => {
   }
 
   return (
-    <Section hasMargin={false} hasBoxShadow>
+    <Section hasMargin={false} hasBorder>
       <H5>Services</H5>
       {renderChartLegend(chartElement, chartLegendItems)}
       <div className={chartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div>

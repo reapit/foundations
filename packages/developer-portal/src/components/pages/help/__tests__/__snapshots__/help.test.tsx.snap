@@ -87,12 +87,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>
@@ -186,12 +186,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>
@@ -285,12 +285,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>
@@ -383,12 +383,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>
@@ -482,12 +482,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>
@@ -580,12 +580,12 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
               data-test=""
             >
               <Section
-                hasBoxShadow={true}
+                hasBorder={true}
                 isFlex={true}
                 isFullHeight={true}
               >
                 <section
-                  className="section is-flex has-padding has-margin has-background is-full-height has-box-shadow"
+                  className="section is-flex has-padding has-margin has-background is-full-height has-border"
                   data-test=""
                 >
                   <FadeIn>

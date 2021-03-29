@@ -4,11 +4,11 @@ exports[`AnalyticsMonthlyUsage should match a snapshot 1`] = `
 <MessageProvider>
   <AnalyticsMonthlyUsage>
     <Section
-      hasBoxShadow={true}
+      hasBorder={true}
       hasMargin={false}
     >
       <section
-        className="section has-padding has-background has-box-shadow"
+        className="section has-padding has-background has-border"
         data-test=""
       >
         <H5>

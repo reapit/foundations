@@ -15,7 +15,7 @@ export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
   <GridFourCol>
     {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
       <GridThreeColItem key={header}>
-        <Section isFullHeight isFlex hasBoxShadow>
+        <Section isFullHeight isFlex hasBorder>
           <FadeIn>
             <Section className={wrapBoxContent} isFlex isFlexColumn>
               <Section className="flex-shrink-0">
