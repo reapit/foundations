@@ -24654,7 +24654,6 @@ fsevents@^1.2.7:
     serverless-s3-deploy: ^0.10.0
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.2
-    slick-carousel: ^1.8.1
     snyk: ^1.463.0
     typescript: ^4.0.3
     webpack: ^4.46.0
@@ -31982,15 +31981,6 @@ resolve@1.17.0:
     astral-regex: ^2.0.0
     is-fullwidth-code-point: ^3.0.0
   checksum: f411aa051802605c3dc8523edee42d39ef59d7c36e6bef6bf1e61d9d2a83894187f6af56911a43ec8e58b921996722d75b354a4c3050b924426ffd1b05da33f9
-  languageName: node
-  linkType: hard
-
-"slick-carousel@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "slick-carousel@npm:1.8.1"
-  peerDependencies:
-    jquery: ">=1.8.0"
-  checksum: a955d871056eaa0663b99a128cced4d03d8f153261b82a4b2ef8a1ed033a36c776c731cccbebd1f82ad63b5e32fd3fce9bc3d740799a74047c3fcdffa4a5d203
   languageName: node
   linkType: hard
 
