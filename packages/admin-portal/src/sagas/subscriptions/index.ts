@@ -24,13 +24,13 @@ import { createSubscriptionApi } from '../../services/subscriptions'
 export const fetchSubscriptionListHandler = function* ({ data: { page, queryString } }) {
   try {
     const queryParams = new URLSearchParams(queryString)
-    const type = queryParams.get('type') || ''
+    const subscriptionType = queryParams.get('type') || ''
     const developerId = queryParams.get('developerId') || ''
 
     const response = yield call(fetchSubscriptionListApi, {
       pageSize: REVISIONS_PER_PAGE,
       pageNumber: page,
-      type,
+      subscriptionType,
       developerId,
     })
 

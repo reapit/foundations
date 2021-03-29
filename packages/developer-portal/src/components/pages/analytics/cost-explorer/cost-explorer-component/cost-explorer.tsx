@@ -1,15 +1,5 @@
 import * as React from 'react'
-import {
-  H5,
-  Grid,
-  GridItem,
-  DATE_TIME_FORMAT,
-  Section,
-  LevelRight,
-  Button,
-  Helper,
-  SelectOption,
-} from '@reapit/elements'
+import { H5, Grid, GridItem, DATE_TIME_FORMAT, Section, LevelRight, Button, SelectOption } from '@reapit/elements'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'
@@ -47,17 +37,20 @@ export const prepareFilterFormInitialValues = (createdMonth: string) => {
 export const prepareTableData = (data: ServiceItemBillingV2Model[], serviceName?: string): TableData => {
   if (!data || !data.length) return []
 
-  return data.map(({ items = [], itemCount, ...row }) => {
-    const service = serviceName || row.name
-    const isApiRequests = service === 'API Requests'
+  return data
+    .map(({ items = [], itemCount, ...row }) => {
+      const service = serviceName || row.name
+      if (service === 'Reapit Connect') return
+      const isApiRequests = service === 'API Requests'
 
-    const rowData = {
-      ...row,
-      itemCount: isApiRequests && itemCount ? itemCount : null,
-      subRows: prepareTableData(items, service),
-    }
-    return rowData
-  })
+      const rowData = {
+        ...row,
+        itemCount: isApiRequests && itemCount ? itemCount : null,
+        subRows: prepareTableData(items, service),
+      }
+      return rowData
+    })
+    .filter((item) => !!item) as TableData
 }
 
 export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2Model | null): any[] => {
@@ -180,11 +173,6 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
     <Section hasMargin={false} hasBorder>
       <H5>Cost Explorer: Cost & Usage</H5>
       <FadeIn>
-        <Helper variant="info">
-          We have suspended fees for the following services until March 2021: Annual Developer Registration, App Listing
-          (publishing an app in the marketplace), Developer Edition of Agency Cloud and Reapit Connect. Only API
-          consumption charges will apply.
-        </Helper>
         <Grid>
           <GridItem>
             <p>The table below does not include Sandbox Services, as the testing environment is free of charge</p>
