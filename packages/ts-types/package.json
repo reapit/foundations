@@ -42,7 +42,7 @@
     "@types/jwk-to-pem": "^2.0.0",
     "@types/morgan": "^1.9.2",
     "@types/nanoid": "^2.1.0",
-    "@types/node": "10.17.54",
+    "@types/node": "10.17.55",
     "@types/papaparse": "^5.2.5",
     "@types/query-string": "^6.3.0",
     "@types/rc-select": "^5.9.34",
