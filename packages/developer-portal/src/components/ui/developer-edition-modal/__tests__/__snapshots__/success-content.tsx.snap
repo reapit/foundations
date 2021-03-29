@@ -32,11 +32,6 @@ exports[`SuccessContent should match snapshot 1`] = `
         >
           We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
         </SubTitleH6>
-        <SubTitleH6
-          className="has-text-weight-normal"
-        >
-          Reminder: There is no charge for the Developer Edition Licence during the Beta Phase.
-        </SubTitleH6>
       </React.Fragment>
     }
   />
