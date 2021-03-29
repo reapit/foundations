@@ -2,7 +2,7 @@
 
 exports[`TrafficEventTable should match snapshot 1`] = `
 <Section
-  hasBoxShadow={true}
+  hasBorder={true}
   hasMargin={false}
 >
   <H5>
@@ -54,7 +54,7 @@ exports[`TrafficEventTable should match snapshot 1`] = `
 
 exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
 <Section
-  hasBoxShadow={true}
+  hasBorder={true}
   hasMargin={false}
 >
   <H5>

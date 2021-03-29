@@ -1,53 +1,41 @@
 /* eslint-disable react/jsx-no-undef */
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import ComingSoonApps, {
-  onImageError,
-  getComingAppLinkHref,
-  handleComingSoonSectionResizeObserver,
-  ComingSoonAppComponent,
-} from '../coming-soon'
+import { onImageError, getComingAppLinkHref, ComingSoonAppComponent } from '../coming-soon'
 
 jest.mock('@/assets/images/default-feature-image.jpg', () => 'placeHolderImage')
 
 const config = {
-  agencyCloud: [
-    { image: 'comingSoonImageYourkeys', email: 'sales@yourkeys.com' },
-    { image: 'comingSoonImageVyomm', email: 'hello@vyomm.com' },
-    { image: 'comingSoonSmsSpeedWayIdVerification', email: 'support@sms-speedway.com' },
-    { image: 'comingSoonSmsSpeedway', email: 'support@sms-speedway.com' },
-    { image: 'comingSoonReapitPayments', email: 'hphillips@reapit.com' },
-    { image: 'comingSoonImageMAB', email: 'hphillips@reapit.com' },
-    { image: 'comingSoonPerfectPortal', email: 'helpdesk@perfectportal.co.uk' },
-    { image: 'comingSoonMovingHub', email: 'partner@movinghub.co.uk' },
-  ],
-  thirdParty: [
-    { image: 'comingSoonImageStarberry', email: 'hello@starberry.tv' },
-    { image: 'comingSoonImageYomdel', email: 'sales@yomdel.com' },
-    { image: 'comingSoonImageIntegrated', email: 'info@integratedinterest.com' },
-    { image: 'comingSoonImageZero', email: 'enquiries@zerodeposit.com' },
-    { image: 'comingSoonImageTwentyci', email: 'enquiries@twentyea.co.uk' },
-    { image: 'comingSoonImageTwentyCiVMC', email: 'enquiries@viewmychain.com' },
-    { image: 'comingSoonIAMProperty', email: 'app-support@iamproperty.com' },
-    { image: 'comingSoonImageSpectre', email: 'support@spectre.uk.com' },
-  ],
-  portals: [
-    { image: 'comingSoonImageZoopla', email: '' },
-    { image: 'comingSoonOnTheMarket', email: '' },
-    { image: 'comingSoonRightMove', email: '' },
+  comingSoonApps: [
+    { image: 'comingSoonImageYourkeys', email: 'sales@yourkeys.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageVyomm', email: 'hello@vyomm.com', integrationType: 'Agency Cloud App' },
+    {
+      image: 'comingSoonSmsSpeedWayIdVerification',
+      email: 'support@sms-speedway.com',
+      integrationType: 'Agency Cloud App',
+    },
+    { image: 'comingSoonSmsSpeedway', email: 'support@sms-speedway.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonReapitPayments', email: 'hphillips@reapit.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageMAB', email: 'hphillips@reapit.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonPerfectPortal', email: 'helpdesk@perfectportal.co.uk', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonMovingHub', email: 'partner@movinghub.co.uk', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageStarberry', email: 'hello@starberry.tv', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageYomdel', email: 'sales@yomdel.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageIntegrated', email: 'info@integratedinterest.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageZero', email: 'enquiries@zerodeposit.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageTwentyci', email: 'enquiries@twentyea.co.uk', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageTwentyCiVMC', email: 'enquiries@viewmychain.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonIAMProperty', email: 'app-support@iamproperty.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageSpectre', email: 'support@spectre.uk.com', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonImageZoopla', email: '', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonOnTheMarket', email: '', integrationType: 'Agency Cloud App' },
+    { image: 'comingSoonRightMove', email: '', integrationType: 'Agency Cloud App' },
   ],
 }
 
-describe('ComingSoonApps', () => {
-  window.reapit.config.comingSoonApps = config
-  it('should match a snapshot', () => {
-    expect(shallow(<ComingSoonApps />)).toMatchSnapshot()
-  })
-})
-
 describe('ComingSoonAppComponent', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<ComingSoonAppComponent app={config.agencyCloud[0]} isDesktop={false} />)).toMatchSnapshot()
+    expect(shallow(<ComingSoonAppComponent app={config.comingSoonApps[0]} isDesktop={false} />)).toMatchSnapshot()
   })
 })
 
@@ -72,27 +60,5 @@ describe('onImageError', () => {
     onImageError(eventMock)
     const srcNew = eventMock.currentTarget.src
     expect(srcNew).toBe('placeHolderImage')
-  })
-})
-
-describe('handleComingSoonSectionResizeObserver', () => {
-  it('should run correctly', () => {
-    const mockSetHeight = jest.fn()
-    const mockEntry = {
-      contentRect: {
-        bottom: 0,
-        height: 10,
-        left: 0,
-        right: 0,
-        top: 0,
-        width: 10,
-        x: 0,
-        y: 0,
-      },
-    } as ResizeObserverEntry
-
-    const fn = handleComingSoonSectionResizeObserver(mockSetHeight)
-    fn(mockEntry)
-    expect(mockSetHeight).toBeCalledWith(mockEntry.contentRect.height)
   })
 })

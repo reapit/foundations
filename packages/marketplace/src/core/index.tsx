@@ -19,11 +19,7 @@ window.reapit = {
     developerPortalUrl: '',
     orgAdminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
-    comingSoonApps: {
-      agencyCloud: [],
-      thirdParty: [],
-      portals: [],
-    },
+    comingSoonApps: [],
   },
 }
 

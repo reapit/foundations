@@ -171,7 +171,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   }
 
   return (
-    <Section hasMargin={false} hasBoxShadow>
+    <Section hasMargin={false} hasBorder>
       <H5>Transaction History</H5>
       <FadeIn>
         {currentPage === 1

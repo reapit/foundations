@@ -38,7 +38,7 @@ describe('routeDispatcher', () => {
         developerId: ['SOME_ID'],
       }),
     )
-    expect(store.dispatch).toHaveBeenCalledWith(fetchFeatureApps({ pageNumber: 1, pageSize: 3 }))
+    expect(store.dispatch).toHaveBeenCalledWith(fetchFeatureApps({ pageNumber: 1, pageSize: 12 }))
     expect(store.dispatch).toHaveBeenCalledWith(fetchApps({ pageNumber: 1, pageSize: 9, isInfinite: true }))
   })
 

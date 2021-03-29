@@ -1,6 +1,5 @@
 import * as React from 'react'
-import useResizeObserver from '@react-hook/resize-observer'
-import { H3, H5 } from '@reapit/elements'
+import { GridFourColItem, FadeIn } from '@reapit/elements'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
@@ -34,18 +33,27 @@ import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
 import comingSoonAddland from '@/assets/images/coming-soon/Addland.jpg'
 import comingSoonBYM from '@/assets/images/coming-soon/BYM.jpg'
 import comingSoonGotoView from '@/assets/images/coming-soon/GotoView.jpg'
-
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ComingSoonApp } from '@/types/global'
-import FadeIn from '../../../core/__styles__/fade-in'
-import { ComingSoonContainer, ComingSoonImage, ComingSoonItem } from './__styles__'
+import {
+  CategoryTitle,
+  ComingSoonImage,
+  ComingSoonImageWrap,
+  ComingSoonInner,
+  ComingSoonItem,
+  ComingSoonTitle,
+} from './__styles__'
+import { CloudIcon } from '../../../assets/images/icons/cloud'
+import { TriangleIcon } from '../../../assets/images/icons/triangle'
+import { SquareIcon } from '../../../assets/images/icons/square'
 
 export type ComingSoonAppsProps = {
   setComingSoonAppSectionHeight?: React.Dispatch<React.SetStateAction<number>>
 }
 
-export type ComingSoonAppProps = { app: ComingSoonApp; isDesktop: boolean }
+export type ComingSoonAppProps = {
+  app: ComingSoonApp
+  isDesktop: boolean
+}
 
 export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
@@ -93,75 +101,45 @@ export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
   return null
 }
 
-export const handleComingSoonSectionResizeObserver = (
-  setComingSoonAppSectionHeight: React.Dispatch<React.SetStateAction<number>> | undefined,
-) => {
-  return (entry: ResizeObserverEntry) => {
-    if (!setComingSoonAppSectionHeight) {
-      return
-    }
-    const elementHeight = entry.contentRect.height
-    setComingSoonAppSectionHeight(elementHeight)
-  }
-}
-
-export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({ app: { email, image }, isDesktop }) => {
+export const ComingSoonAppComponent: React.FC<ComingSoonAppProps> = ({
+  app: { email, image, integrationType },
+  isDesktop,
+}) => {
   const emailLink = getComingAppLinkHref(isDesktop, email)
   const ImageComponent = () => <img className="image" src={comingSoonImagesMap[image]} onError={onImageError} />
+  const Icon =
+    integrationType === 'Agency Cloud App'
+      ? CloudIcon
+      : integrationType === 'Third Party Integration'
+      ? TriangleIcon
+      : SquareIcon
   return (
-    <ComingSoonItem key={email}>
+    <GridFourColItem>
       <FadeIn>
-        <ComingSoonImage>
-          {isDesktop && emailLink ? (
-            <a href={emailLink}>
-              <ImageComponent />
-            </a>
-          ) : emailLink ? (
-            <a href={emailLink} target="_blank" rel="noopener noreferrer">
-              <ImageComponent />
-            </a>
-          ) : (
-            <ImageComponent />
-          )}
-        </ComingSoonImage>
+        <ComingSoonItem>
+          <ComingSoonTitle>Coming soon</ComingSoonTitle>
+          <ComingSoonInner>
+            <ComingSoonImageWrap>
+              <ComingSoonImage>
+                {isDesktop && emailLink ? (
+                  <a href={emailLink}>
+                    <ImageComponent />
+                  </a>
+                ) : emailLink ? (
+                  <a href={emailLink} target="_blank" rel="noopener noreferrer">
+                    <ImageComponent />
+                  </a>
+                ) : (
+                  <ImageComponent />
+                )}
+              </ComingSoonImage>
+            </ComingSoonImageWrap>
+            <CategoryTitle>
+              <Icon /> {integrationType}
+            </CategoryTitle>
+          </ComingSoonInner>
+        </ComingSoonItem>
       </FadeIn>
-    </ComingSoonItem>
+    </GridFourColItem>
   )
 }
-
-const ComingSoonApps: React.FC<ComingSoonAppsProps> = ({ setComingSoonAppSectionHeight }) => {
-  const comingSoonAppSectionRef = React.useRef<HTMLDivElement>(null)
-  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
-
-  useResizeObserver(comingSoonAppSectionRef, handleComingSoonSectionResizeObserver(setComingSoonAppSectionHeight))
-
-  return (
-    <>
-      <H3>Coming Soon</H3>
-      <div id="coming-soon-section" ref={comingSoonAppSectionRef}>
-        <H5>Agency Cloud Apps</H5>
-        <ComingSoonContainer>
-          {(window.reapit.config.comingSoonApps.agencyCloud || []).map((app) => (
-            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-          ))}
-        </ComingSoonContainer>
-        <div className="mb-4" />
-        <H5>Third Party Integrations</H5>
-        <ComingSoonContainer>
-          {(window.reapit.config.comingSoonApps.thirdParty || []).map((app) => (
-            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-          ))}
-        </ComingSoonContainer>
-        <div className="mb-4" />
-        <H5>Portal Integrations</H5>
-        <ComingSoonContainer>
-          {(window.reapit.config.comingSoonApps.portals || []).map((app) => (
-            <ComingSoonAppComponent key={app.image} app={app} isDesktop={connectIsDesktop} />
-          ))}
-        </ComingSoonContainer>
-      </div>
-    </>
-  )
-}
-
-export default React.memo(ComingSoonApps)
