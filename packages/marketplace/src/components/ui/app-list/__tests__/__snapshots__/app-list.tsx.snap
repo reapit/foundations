@@ -8,7 +8,8 @@ exports[`AppList should match a snapshot 1`] = `
     className=""
     data-test="app-list-container"
   >
-    <GridThreeColItem
+    <GridFourColItem
+      className=""
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
       <FadeIn>
@@ -37,12 +38,14 @@ exports[`AppList should match a snapshot 1`] = `
               "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
             }
           }
+          connectIsDesktop={false}
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
       </FadeIn>
-    </GridThreeColItem>
-    <GridThreeColItem
+    </GridFourColItem>
+    <GridFourColItem
+      className=""
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
       <FadeIn>
@@ -71,11 +74,12 @@ exports[`AppList should match a snapshot 1`] = `
               "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
             }
           }
+          connectIsDesktop={false}
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
       </FadeIn>
-    </GridThreeColItem>
+    </GridFourColItem>
   </GridFourCol>
 </div>
 `;
@@ -88,7 +92,8 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
     className=""
     data-test="app-list-container"
   >
-    <GridThreeColItem
+    <GridFourColItem
+      className=""
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
       <FadeIn>
@@ -117,12 +122,14 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
               "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
             }
           }
+          connectIsDesktop={false}
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
       </FadeIn>
-    </GridThreeColItem>
-    <GridThreeColItem
+    </GridFourColItem>
+    <GridFourColItem
+      className=""
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
       <FadeIn>
@@ -151,11 +158,12 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
               "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
             }
           }
+          connectIsDesktop={false}
           onClick={[Function]}
           onSettingsClick={[Function]}
         />
       </FadeIn>
-    </GridThreeColItem>
+    </GridFourColItem>
   </GridFourCol>
 </div>
 `;

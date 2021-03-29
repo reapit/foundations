@@ -21,7 +21,7 @@ export const AnalyticsMonthlyUsage: React.FC = () => {
   useEffect(handleGetBillingByPeriod(setBilling, setBillingLoading, setMessageState, orgId, dateFrom, dateTo), [orgId])
 
   return (
-    <Section hasMargin={false} hasBoxShadow>
+    <Section hasMargin={false} hasBorder>
       <H5>Monthly Cost</H5>
       <FadeIn>
         <ChartContainer>

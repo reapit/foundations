@@ -9,7 +9,21 @@ export const content = css`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 4.25rem;
+  height: 4rem;
+`
+
+export const contentIsDesktop = css`
+  height: 4.2rem;
+`
+
+export const appTitle = css`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: 700px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.1em;
 `
 
 export const directAPI = css`
@@ -21,30 +35,17 @@ export const directAPI = css`
 
 export const bannerWrap = css`
   position: relative;
-`
-
-export const bannerOuter = css`
-  width: 175px;
-  height: 175px;
-  overflow: hidden;
-  position: absolute;
-  z-index: 100;
+  border-radius: 4px;
 `
 
 export const bannerInner = css`
-  font-family: 'PT Sans', Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #333;
-  text-align: center;
-  transform: rotate(-45deg);
-  position: relative;
-  padding: 0.7rem 0;
-  top: 35px;
-  left: -60px;
-  width: 230px;
-  background-color: #0061a8;
-  color: #fff;
+  position: absolute;
+  padding: 0.25rem 0.5rem;
+  z-index: 1;
+  font-size: 0.875rem;
+  background-color: #eaf5fc;
+  font-size: 0.875rem;
+  border-radius: 4px;
 `
 
 export const bannerOuterSmall = css`
@@ -80,4 +81,5 @@ export const IsFree = styled.span`
   border-radius: 0.25rem;
   background: ${reapitLightblue};
   margin-left: 0.5rem;
+  margin-top: 0.25rem;
 `
