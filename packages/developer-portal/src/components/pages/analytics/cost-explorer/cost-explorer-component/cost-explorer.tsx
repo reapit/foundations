@@ -170,7 +170,7 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
   const csvData = unparse(parsableData)
 
   return (
-    <Section hasMargin={false} hasBorder>
+    <Section hasMargin={false} hasBoxShadow>
       <H5>Cost Explorer: Cost & Usage</H5>
       <FadeIn>
         <Grid>

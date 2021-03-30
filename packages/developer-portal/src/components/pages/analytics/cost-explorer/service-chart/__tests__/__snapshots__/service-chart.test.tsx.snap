@@ -93,11 +93,11 @@ exports[`ServiceChart should match a snapshot 1`] = `
 >
   <ServiceChart>
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       hasMargin={false}
     >
       <section
-        className="section has-padding has-background has-border"
+        className="section has-padding has-background has-box-shadow"
         data-test=""
       >
         <H5>

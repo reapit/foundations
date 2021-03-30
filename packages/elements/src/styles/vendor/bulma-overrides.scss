@@ -61,7 +61,7 @@ html {
 }
 
 .card {
-  border: 1px solid $grey-medium;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 
   .card-content {
@@ -346,6 +346,7 @@ a {
 
 .modal-content {
   border-radius: 5px;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .modal-card-head {

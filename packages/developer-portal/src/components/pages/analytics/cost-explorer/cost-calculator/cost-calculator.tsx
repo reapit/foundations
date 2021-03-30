@@ -45,7 +45,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
   const onClear = React.useCallback(handleOnClear(setEndpointsUsed, setApiCalls), [])
 
   return (
-    <Section hasBorder>
+    <Section hasBoxShadow>
       <H5>API Cost Calculator</H5>
       <FadeIn>
         <Grid>

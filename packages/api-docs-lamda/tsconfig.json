@@ -17,7 +17,8 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@reapit/node-utils": ["../utils/src/node/index.ts"]
     }
   },
   "include": [
