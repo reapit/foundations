@@ -83,6 +83,7 @@ export const fetchBillingsByMonth = async (
     const queryParams = customerId
       ? {
           ...rest,
+          customerId,
           type: 'trafficEvents',
         }
       : rest
