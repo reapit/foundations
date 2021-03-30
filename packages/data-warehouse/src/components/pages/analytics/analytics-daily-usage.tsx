@@ -37,7 +37,7 @@ export const AnalyticsDailyUsage: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Section hasMargin={false} hasBorder>
+      <Section hasMargin={false} hasBoxShadow>
         <H5>Usage By Day</H5>
         <Formik initialValues={{ month }} onSubmit={() => {}}>
           <Form>

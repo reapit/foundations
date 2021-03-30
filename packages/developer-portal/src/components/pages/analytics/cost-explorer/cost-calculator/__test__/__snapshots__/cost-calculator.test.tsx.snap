@@ -2,7 +2,7 @@
 
 exports[`CostCalculator should match a snapshot 1`] = `
 <Section
-  hasBorder={true}
+  hasBoxShadow={true}
 >
   <H5>
     API Cost Calculator

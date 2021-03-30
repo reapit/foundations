@@ -48,7 +48,7 @@ const AnalyticsCostExplorer: React.FC = () => {
   const csvData = unparse(parsableData)
 
   return (
-    <Section hasMargin={false} hasBorder>
+    <Section hasMargin={false} hasBoxShadow>
       <H5>Cost Explorer</H5>
       <FadeIn>
         <Grid>

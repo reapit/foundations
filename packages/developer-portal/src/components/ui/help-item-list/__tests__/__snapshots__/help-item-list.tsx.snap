@@ -6,7 +6,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Welcome Guide"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
@@ -58,7 +58,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Request a Feature"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
@@ -110,7 +110,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Report a Bug"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
@@ -161,7 +161,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Roadmap"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
@@ -213,7 +213,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Need Help?"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
@@ -264,7 +264,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="What’s New"
   >
     <Section
-      hasBorder={true}
+      hasBoxShadow={true}
       isFlex={true}
       isFullHeight={true}
     >
