@@ -56,14 +56,13 @@ exports[`AppDetail should match a snapshot 1`] = `
       }
     >
       <AppDetail>
-        <Section
-          hasBackground={false}
-          hasMargin={false}
-          hasPadding={false}
+        <FlexContainerResponsive
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
         >
-          <section
-            className="section"
-            data-test=""
+          <div
+            className="container is-column has-background has-padding"
           >
             <Grid
               className="cspg16s-container"
@@ -436,8 +435,8 @@ exports[`AppDetail should match a snapshot 1`] = `
                 </NonAdminUninstallModal>
               </div>
             </Grid>
-          </section>
-        </Section>
+          </div>
+        </FlexContainerResponsive>
       </AppDetail>
     </Router>
   </MemoryRouter>
@@ -500,14 +499,13 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
       }
     >
       <AppDetail>
-        <Section
-          hasBackground={false}
-          hasMargin={false}
-          hasPadding={false}
+        <FlexContainerResponsive
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
         >
-          <section
-            className="section"
-            data-test=""
+          <div
+            className="container is-column has-background has-padding"
           >
             <Grid
               className="cspg16s-container"
@@ -880,8 +878,8 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 </NonAdminUninstallModal>
               </div>
             </Grid>
-          </section>
-        </Section>
+          </div>
+        </FlexContainerResponsive>
       </AppDetail>
     </Router>
   </MemoryRouter>
@@ -944,14 +942,13 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
       }
     >
       <AppDetail>
-        <Section
-          hasBackground={false}
-          hasMargin={false}
-          hasPadding={false}
+        <FlexContainerResponsive
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
         >
-          <section
-            className="section"
-            data-test=""
+          <div
+            className="container is-column has-background has-padding"
           >
             <Grid
               className="cspg16s-container"
@@ -1324,8 +1321,8 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 </NonAdminUninstallModal>
               </div>
             </Grid>
-          </section>
-        </Section>
+          </div>
+        </FlexContainerResponsive>
       </AppDetail>
     </Router>
   </MemoryRouter>

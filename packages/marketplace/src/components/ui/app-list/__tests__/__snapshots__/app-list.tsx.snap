@@ -2,7 +2,7 @@
 
 exports[`AppList should match a snapshot 1`] = `
 <div
-  className="overflow-hidden mb-4"
+  className="mb-4"
 >
   <GridFourCol
     className=""
@@ -86,7 +86,7 @@ exports[`AppList should match a snapshot 1`] = `
 
 exports[`AppList should match a snapshot when use empty infoType 1`] = `
 <div
-  className="overflow-hidden mb-4"
+  className="mb-4"
 >
   <GridFourCol
     className=""

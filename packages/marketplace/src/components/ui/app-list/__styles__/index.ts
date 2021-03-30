@@ -19,3 +19,7 @@ export const loaderContainer = css`
 export const contentIsLoading = css`
   opacity: 0.75;
 `
+
+export const overflowUnset = css`
+  overflow: unset !important;
+`

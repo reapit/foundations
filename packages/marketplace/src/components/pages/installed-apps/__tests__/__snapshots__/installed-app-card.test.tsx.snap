@@ -7,13 +7,9 @@ exports[`InstalledAppCard should match a snapshot 1`] = `
   data-test-app-name="test"
 >
   <div
-    className="bbs8vt5-banner-outer-small"
+    className="bgxdy39-banner-inner"
   >
-    <div
-      className="b1mkga2p-banner-inner-small"
-    >
-      In Development
-    </div>
+    In Development
   </div>
   <Tile
     heading="test"

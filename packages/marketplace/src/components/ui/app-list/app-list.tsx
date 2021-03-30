@@ -27,7 +27,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const comingSoonApps = (window.location.href.includes('/apps') && window.reapit.config.comingSoonApps) || []
   return (
-    <div className="overflow-hidden mb-4">
+    <div className="mb-4">
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType

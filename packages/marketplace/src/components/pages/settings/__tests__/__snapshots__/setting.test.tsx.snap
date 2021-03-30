@@ -58,10 +58,11 @@ exports[`Settings should match snapshot 1`] = `
       <Settings>
         <FlexContainerResponsive
           flexColumn={true}
+          hasBackground={true}
           hasPadding={true}
         >
           <div
-            className="container is-column has-padding"
+            className="container is-column has-background has-padding"
           >
             <Section
               className="justify-between items-center"

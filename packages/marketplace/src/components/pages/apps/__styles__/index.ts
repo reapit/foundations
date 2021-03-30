@@ -15,12 +15,13 @@ export const appList = css`
 export const ComingSoonItem = styled.div`
   position: relative;
   border-radius: 4px;
-  height: 15rem;
+  height: 14.8rem;
   border-radius: 4px;
   color: #000;
   max-width: 100%;
   position: relative;
   background-color: #f2f2f2;
+  box-shadow: 2px 4px 20px rgb(0 0 0 / 5%);
 `
 
 export const ComingSoonImage = styled.div`

@@ -19,6 +19,7 @@ import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import * as styles from './__styles__'
 import { FeaturedApps } from './featured'
+import { overflowUnset } from '../../ui/app-list/__styles__'
 
 const DEFAULT_SCROLL_THRESHOLD = 0.3
 
@@ -94,6 +95,7 @@ export const Apps: React.FunctionComponent = () => {
           hasMore={hasMore}
           loader={null}
           scrollThreshold={DEFAULT_SCROLL_THRESHOLD}
+          className={overflowUnset}
           // We disable the scrolling in the app list  container and allow the app root container to scroll
           // so the scrollableTarget must be set as app-root-container
           scrollableTarget="app-root-container"
