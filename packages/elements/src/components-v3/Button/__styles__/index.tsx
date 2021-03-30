@@ -47,6 +47,7 @@ export const ElButton = styled.button`
 
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
+  outline-color: var(--intent-primary);
   background-repeat: no-repeat;
 
   &${elIntentPrimary} {
