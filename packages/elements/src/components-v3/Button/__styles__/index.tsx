@@ -43,7 +43,7 @@ export const ElButton = styled.button`
   font-size: 1rem;
   font-family: var(--font-sans-serif);
   font-weight: bold;
-  color: var(--color-black-light, #363636);
+  color: var(--intent-primary);
 
   background-color: unset;
   background-image: linear-gradient(to right, var(--color-white), var(--color-white));
